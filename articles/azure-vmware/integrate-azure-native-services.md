@@ -102,7 +102,7 @@ Microsoft Defender for Cloud offers many features, including:
 >Microsoft Defender for Cloud is a pre-configured tool that doesn't require deployment, but you'll need to enable it in the Azure portal. 
 
 
-1. [Add Azure VMware Solution VMs to Defender for Cloud](azure-security-integration.md#add-azure-vmware-solution-vms-to-security-center). 
+1. [Add Azure VMware Solution VMs to Defender for Cloud](azure-security-integration.md#add-azure-vmware-solution-vms-to-defender-for-cloud). 
 
 2. [Enable Microsoft Defender for Cloud in Defender for Cloud](../security-center/enable-azure-defender.md). Defender for Cloud assesses the VMs for potential security issues. It also provides [security recommendations](../security-center/security-center-recommendations.md) in the Overview tab. 
 

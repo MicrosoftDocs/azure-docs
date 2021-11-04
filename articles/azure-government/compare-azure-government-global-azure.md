@@ -388,7 +388,7 @@ This section outlines variations and considerations when using Security services
 
 ### [Microsoft Defender for IoT](../defender-for-iot/index.yml)
 
-For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-defender-for-iot).
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-iot).
 
 ### [Azure Information Protection](/azure/information-protection/what-is-information-protection)
 
@@ -400,7 +400,7 @@ For feature variations and limitations, see [Cloud feature availability for US G
 
 ### [Microsoft Sentinel](../sentinel/overview.md)
 
-For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-sentinel).
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-sentinel).
 
 ## Storage
 
