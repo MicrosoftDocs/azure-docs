@@ -32,23 +32,23 @@ Make sure you have an Azure VMware Solution private cloud with access to the vCe
  
    ### Archive to storage account
 
-    - In **Diagnostic setting**, select the storage account where you want to store the logs and select **Save**.
+    1. In **Diagnostic setting**, select the storage account where you want to store the logs and select **Save**.
 
        :::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-2.png" alt-text="Screenshot showing the options to select for storing the syslogs." lightbox="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-2.png":::
 
-    - Go to your **Storage accounts**, verify **Insight logs vmwarelog** has been created, select it. 
+    1. Go to your **Storage accounts**, verify **Insight logs vmwarelog** has been created, select it. 
  
        :::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-3.png" alt-text="Screenshot showing the Insight logs vmwarelog option created and available." lightbox="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-3.png":::
 
 
-    - Browse **Insight logs vmwarelog** to locate and download the json file to view the logs.
+    1. Browse **Insight logs vmwarelog** to locate and download the json file to view the logs.
 
        :::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-4.png" alt-text="Screenshot showing the drill-down path to the json file." lightbox="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-4.png"::: 
 
    ### Stream to Microsoft Azure Event Hubs
 
-    - In **Diagnostic setting**, under Destination details, select **Stream to an Event Hub**. 
-    - From the **Event Hub namespace** drop-down menu, choose where you want to send the logs, select, and **Save**.
+    1. In **Diagnostic setting**, under Destination details, select **Stream to an Event Hub**. 
+    1. From the **Event Hub namespace** drop-down menu, choose where you want to send the logs, select, and **Save**.
     
        :::image type="content" source="media/diagnostic-settings/stream-to-event-hub.png" alt-text="Screenshot showing the drill-down path to send the logs."::: 
 
