@@ -480,7 +480,7 @@ You can edit the underlying workflow behind a replication task, which changes th
 
 For Azure Event Hubs replication between the same entity types, geo-disaster recovery requires performing a failover from the source entity to the target entity and then telling any affected event consumers and producers to use the endpoint for the target entity, which becomes the new source. So, if a disaster happens, and the source entity fails over, consumers and producers, including your replication task, are redirected to the new source. The storage account that was created by your replication task contains checkpoint information and the position or offset in the stream where the source entity stops if the source region is disrupted or becomes unavailable.
 
-To make sure that the storage account doesn't contain any legacy information from the original source and that your replication task begins reading and replicating events from the start of the new source stream, you have to manually reconfigure the replication task:
+To make sure that the storage account doesn't contain any legacy information from the original source and that your replication task begins reading and replicating events from the start of the new source stream, you have to manually clean up any legacy information from the original source and reconfigure the replication task.
 
 1. In the [Azure portal](https://portal.azure.com), open the logic app resource or underlying workflow behind the replication task.
 
@@ -506,24 +506,36 @@ To make sure that the storage account doesn't contain any legacy information fro
 
    ![Screenshot showing the underlying logic app resource's "Configuration" pane with the "AzureWebJobsStorage" app setting and connection string with the storage account name.](./media/create-replication-tasks-azure-resources/find-storage-account-name.png)
 
-1. To find the storage account resource, in the Azure portal search box, enter the name, and then select the storage account, for example:
+   1. To confirm that the storage account resource exists, in the Azure portal search box, enter the name, and then select the storage account, for example:
 
    ![Screenshot showing the Azure portal search box with the storage account name entered.](./media/create-replication-tasks-azure-resources/find-storage-account.png)
 
-1. To find and delete the folder that contains the source entity's checkpoint and offset information, follow these steps:
+1. Now delete the folder that contains the source entity's checkpoint and offset information by using the following steps:
 
-   1. On the storage account navigation menu, under **Data storage**, select **Containers**.
-
-   1. On the **Containers** pane that opens, for the Event Hubs source, select the **azure-webjobs-eventhub** folder.
+   1. Download, install, and open the latest [Azure Storage Explorer desktop client](https://azure.microsoft.com/features/storage-explorer/), if you don't already have the most recent version.
 
       > [!NOTE]
-      > If the **azure-webjobs-eventhub** folder doesn't exist, make sure that the task runs at least one time.
+      > For the delete cleanup task, you currently have to use the Azure Storage Explorer client, 
+      > *not* the storage explorer, browser, editor, or management experience in the Azure portal.
+      >
+      > Although you can delete container folders with the PowerShell [`Remove-AzStorageDirectory` command](/powershell/module/az.storage/remove-azstoragedirectory), 
+      > this command works only on *empty* folders.
 
-   1. After the **azure-webjobs-eventhub** pane opens, select the Event Hubs namespace folder, which has a name with the following format: `<source-Event-Hubs-namespace-name>.servicebus.windows.net`.
+   1. If you haven't already, sign in with your Azure account, and make sure that the Azure subscription for your storage account resource is selected. For more information, review [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-   1. After the namespace folder opens, delete the folder that holds the checkpoint and offset information for the former source Event Hubs entity. This folder usually has the same name as the former source Event Hubs entity, for example:
+   1. In the Explorer window, under your Azure subscription name, go to **Storage Accounts** > **{*your-storage-account-name*}** > **Blob Containers** > **azure-webjobs-eventhub**.
 
-      ![Screenshot showing the former source Event Hubs entity folder selected with the "Delete" button also selected.](./media/create-replication-tasks-azure-resources/delete-former-source-entity-folder.png)
+      > [!NOTE]
+      > If the **azure-webjobs-eventhub** folder doesn't exist, the replication task hasn't run yet. 
+      > The folder appears only after the replication task runs at least one time.
+
+   1. In the **azure-webjobs-eventhub** pane that opens, select the Event Hubs namespace folder, which has a name with the following format: `<source-Event-Hubs-namespace-name>.servicebus.windows.net`.
+
+   1. After the namespace folder opens, in the **azure-webjobs-eventhub** pane, select the <*former-source-entity-name*> folder. From either the toolbar or folder's shortcut menu, select **Delete**, for example:
+
+      ![Screenshot showing the former source Event Hubs entity folder selected with the "Delete" button also selected.](./media/create-replication-tasks-azure-resources/delete-former-source-entity-folder-storage-explorer.png)
+
+   1. Confirm that you want to delete the folder.
 
 1. Return to the logic app resource or workflow behind the replication task. Restart the logic app or enable the workflow again.
 
