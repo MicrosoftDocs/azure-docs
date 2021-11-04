@@ -5,7 +5,7 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 02/21/2021
+ms.date: 10/04/2021
 ms.author: raynew 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region using Azure Resource Mover with PowerShell
@@ -290,7 +290,7 @@ In this tutorial, since we're moving VMs, we need to prepare the source resource
 2. Initiate the move of the source resource group.
 
     ```azurepowershell-interactive
-    "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource “PSDemoRM”
+    Invoke-AzResourceMoverInitiateMove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource “PSDemoRM”
     ```
     ![Output text after initiating move of source resource group](./media/tutorial-move-region-powershell/initiate-move-source-resource-group.png)
 
