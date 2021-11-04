@@ -129,8 +129,8 @@ Azure Managed Instance for Apache Cassandra provides the capability to encrypt d
 1. Below is the command to update the key:
 
     ```azurecli-interactive
-    managedDiskKeyUri = "https://pall-kv.vault.azure.net/keys/pall-key/2d58b85e699d4266bd3ca5d10ddc20bd"
-    backupStorageKeyUri = "https://pall-kv.vault.azure.net/keys/pall-key/2d58b85e699d4266bd3ca5d10ddc20bd"
+    managedDiskKeyUri = "<key identifier>"
+    backupStorageKeyUri = "<key identifier>"
     
     az managed-cassandra datacenter update \
         --resource-group $group \
