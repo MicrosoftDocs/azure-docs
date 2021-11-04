@@ -1,9 +1,9 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 

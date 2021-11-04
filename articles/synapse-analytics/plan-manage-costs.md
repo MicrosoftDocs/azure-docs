@@ -38,7 +38,7 @@ When you create or use Azure Synapse Analytics resources, you might get charged 
 - Data Exploration & Data Warehousing 
     - Dedicated SQL Pool - You're charged for it based on the number of DWU blocks and hours running.
     - Storage - You're charged for it based on the number of TBs stored.
-    - Serverless SQL pool - You're charged by the TB of dat processed.
+    - Serverless SQL pool - You're charged by the TB of data processed.
 - Apache Spark Pool - You're charged for the number of instances and the hours running.
 - Data Integration 
     - Orchestration Activity Runs - You are charged based on the number of activity runs.

@@ -1,6 +1,6 @@
 ---
-title: Manage custom content for Azure Sentinel in your own repository | Microsoft Docs
-description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can save your custom content.
+title: Deploy custom content from your repository | Microsoft Docs
+description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can save your custom content and deploy it to Azure Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na

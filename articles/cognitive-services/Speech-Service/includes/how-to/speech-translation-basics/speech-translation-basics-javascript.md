@@ -1,9 +1,9 @@
 ---
-author: v-demjoh
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/14/2020
-ms.author: v-demjoh
+ms.author: eric-urban
 ms.custom: devx-track-js
 ---
 

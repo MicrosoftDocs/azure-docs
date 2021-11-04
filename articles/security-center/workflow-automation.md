@@ -7,7 +7,6 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 05/03/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
 ---
 
 
@@ -36,13 +35,15 @@ This article describes the workflow automation feature of Microsoft Defender for
 
 1. From Defender for Cloud's sidebar, select **Workflow automation**.
 
-    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="List of workflow automations.":::
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Screenshot of workflow automation page showing the list of defined automations." lightbox="./media/workflow-automation/list-of-workflow-automations.png":::
 
     From this page you can create new automation rules, as well as enable, disable, or delete existing ones.
 
-1. To define a new workflow, click **Add workflow automation**. 
+1. To define a new workflow, click **Add workflow automation**. The options pane for your new automation opens.
 
-    A pane appears with the options for your new automation. Here you can enter:
+    :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane.":::
+
+    Here you can enter:
     1. A name and description for the automation.
     1. The triggers that will initiate this automatic workflow. For example, you might want your Logic App to run when a security alert that contains "SQL" is generated.
 
@@ -50,8 +51,6 @@ This article describes the workflow automation feature of Microsoft Defender for
         > If your trigger is a recommendation that has "sub-recommendations", for example **Vulnerability assessment findings on your SQL databases should be remediated**, the logic app will not trigger for every new security finding; only when the status of the parent recommendation changes.
 
     1. The Logic App that will run when your trigger conditions are met. 
-
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane.":::
 
 1. From the Actions section, select **visit the Logic Apps page** to begin the Logic App creation process.
 

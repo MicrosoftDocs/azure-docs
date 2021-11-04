@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
+
 ---
 # SQL information protection policy in Microsoft Defender for Cloud
 

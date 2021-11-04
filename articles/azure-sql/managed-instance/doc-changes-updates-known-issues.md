@@ -22,11 +22,12 @@ This article lists the currently known issues with [Azure SQL Managed Instance](
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[When using SQL Server authentication, usernames with '@' are not supported](#when-using-sql-server-authentication-usernames-with--are-not-supported)|Oct 2021|||
 |[Misleading error message on Azure portal suggesting recreation of the Service Principal](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Sep 2021|||
 |[Changing the connection type does not affect connections through the failover group endpoint](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Jan 2021|Has Workaround||
 |[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Jan 2021|Has Workaround||
 |[Distributed transactions can be executed after removing managed instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
-|[Distributed transactions cannot be executed after managed instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|Has Workaround||
+|[Distributed transactions cannot be executed after managed instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|Resolved|May 2021|
 |[Cannot create SQL Managed Instance with the same name as logical server previously deleted](#cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted)|Aug 2020|Has Workaround||
 |[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) in Azure SQL and `BACKUP`/`RESTORE` statement in SQL Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
 |[Service Principal cannot access Azure AD and AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Has Workaround||
@@ -310,6 +311,10 @@ using (var scope = new TransactionScope())
 
 
 ## No resolution
+
+### When using SQL Server authentication, usernames with '@' are not supported
+
+Usernames that contain the '@' symbol in the middle (e.g. 'abc@xy') are not able to login using SQL Server authentication.
 
 ### Misleading error message on Azure portal suggesting recreation of the Service Principal
 

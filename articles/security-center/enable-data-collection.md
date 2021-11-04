@@ -7,7 +7,6 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/08/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
@@ -62,7 +61,7 @@ When automatic provisioning is on for the Log Analytics agent, Defender for Clou
 
 To enable auto provisioning of the Log Analytics agent:
 
-1. From Defender for Cloud's menu, select **Environment settings**.
+1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. In the **Auto provisioning** page, set the status of auto provisioning for the Log Analytics agent to **On**.
 
@@ -205,7 +204,7 @@ To manually install the Log Analytics agent:
 
 1. Enable Microsoft Defender on the workspace on which you're installing the Log Analytics agent:
 
-    1. From Defender for Cloud's menu, select **Environment settings**.
+    1. From Defender for Cloud's menu, open **Environment settings**.
 
     1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Defender for Cloud and that you have read/write permissions for the workspace.
 
