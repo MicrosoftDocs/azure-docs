@@ -25,8 +25,8 @@ In this article, you learn how to:
 > * Create a properly-formatted REST request using service principal authentication
 > * Use GET requests to retrieve information about Azure ML's hierarchical resources
 > * Use PUT and POST requests to create and modify resources
+> * Use PUT requests to create Azure ML workspaces
 > * Use DELETE requests to clean up resources 
-> * Use key-based authorization to score deployed models
 
 ## Prerequisites
 
@@ -265,25 +265,6 @@ curl -X PUT \
 
 A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You'll need to poll (or use the portal) to confirm its successful completion.
 
-### Train a model
-
-To train a model using REST, see [Train models with REST (preview)](how-to-train-with-rest.md). 
-
-### Delete resources you no longer need
-
-Some, but not all, resources support the DELETE verb. Check the [API Reference](/rest/api/azureml/) before committing to the REST API for deletion use-cases. To delete a model, for instance, you can use:
-
-```bash
-curl
-  -X DELETE \
-'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
-  -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
-```
-
-## Use REST to score a deployed model
-
-To score a deployed model using REST, see [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
-
 ## Create a workspace using REST 
 
 Every Azure ML workspace has a dependency on four other Azure resources: an Azure Container Registry resource, Azure Key Vault, Azure Application Insights, and an Azure Storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
@@ -403,6 +384,17 @@ providers/Microsoft.KeyVault/vaults/<YOUR-VAULT>",
       "hbiWorkspace": false
     }
 }'
+```
+
+### Delete resources you no longer need
+
+Some, but not all, resources support the DELETE verb. Check the [API Reference](/rest/api/azureml/) before committing to the REST API for deletion use-cases. To delete a model, for instance, you can use:
+
+```bash
+curl
+  -X DELETE \
+'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
+  -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
 ```
 
 ## Troubleshooting
