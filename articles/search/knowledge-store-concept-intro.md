@@ -20,7 +20,7 @@ If you have used cognitive skills in the past, you already know that *skillsets*
 
 Physically, a knowledge store is [Azure Storage](../storage/common/storage-account-overview.md), either Azure Table Storage, Azure Blob Storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
-Viewed through Storage Explorer, a knowledge store looks like any other collection of tables, objects, or files. The following example shows a knowledge store composed of three tables with fields that are either carried forward from the data source, or created through enrichments (see "sentiment score" and "translated_text").
+Viewed through Storage Browser, a knowledge store looks like any other collection of tables, objects, or files. The following example shows a knowledge store composed of three tables with fields that are either carried forward from the data source, or created through enrichments (see "sentiment score" and "translated_text").
 
 :::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Skills read and write from enrichment tree" border="true":::
 
@@ -117,7 +117,7 @@ For .NET developers, use the [KnowledgeStore Class](/dotnet/api/azure.search.doc
 
 Once the enrichments exist in storage, any tool or technology that connects to Azure Blob or Table Storage can be used to explore, analyze, or consume the contents. The following list is a start:
 
-+ [Storage Explorer](knowledge-store-view-storage-explorer.md) to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
++ [Storage Browser](knowledge-store-view-storage-explorer.md) to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
 
 + [Power BI](knowledge-store-connect-power-bi.md) for reporting and analysis. 
 
