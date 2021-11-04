@@ -4,7 +4,7 @@
   items:
     - name: About Azure Container Apps
       href: overview.md
-    - name: Comparing container options in Azure
+    - name: Compare container options in Azure
       href: compare-options.md
 - name: Quickstarts
   expanded: true

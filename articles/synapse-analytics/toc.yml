@@ -157,12 +157,10 @@ items:
           href: ./security/synapse-workspace-synapse-rbac-roles.md
         - name: Understand Synapse RBAC roles
           href: ./security/synapse-workspace-understand-what-role-you-need.md  
-        - name: Synapse workspace managed identity
-          href: ./security/synapse-workspace-managed-identity.md
         - name: System and user-assigned managed identity 
-          href: ../data-factory/data-factory-service-identity.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+          href: ../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context
         - name: Credentials for user-assigned managed identity
-          href: ../data-factory/credentials.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+          href: ../data-factory/credentials.md?context=/azure/synapse-analytics/context/context
   - name: How-to guides
     items:
     - name: Manage and Monitor

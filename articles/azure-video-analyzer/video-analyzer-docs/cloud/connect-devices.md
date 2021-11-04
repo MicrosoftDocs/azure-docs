@@ -3,7 +3,7 @@ title: Connect devices to Azure Video Analyzer
 description: This article describes how to connect devices to Azure Video Analyzer
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Connect devices to Azure Video Analyzer
