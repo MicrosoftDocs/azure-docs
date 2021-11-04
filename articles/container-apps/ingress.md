@@ -5,7 +5,7 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---

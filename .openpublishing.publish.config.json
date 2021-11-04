@@ -46,6 +46,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_arc_sample",
+      "url": "https://github.com/microsoft/azure_arc",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "resourcemanager-templates",
       "url": "https://github.com/Azure/azure-docs-json-samples",
       "branch": "master",
@@ -833,6 +839,7 @@
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.synapse-analytics.json",
+    ".openpublishing.redirection.azure-web-pubsub.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",   
     "articles/azure-relay/.openpublishing.redirection.relay.json",
