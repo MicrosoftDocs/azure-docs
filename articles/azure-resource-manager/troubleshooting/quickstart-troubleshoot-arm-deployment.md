@@ -241,16 +241,16 @@ After the validation, preflight, and deployment errors are fixed, the following 
 
 When the Azure resources are no longer needed, delete the resource group.
 
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Remove-AzResourceGroup -Name troubleshootRG
-```
-
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group delete --name troubleshootRG
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name troubleshootRG
 ```
 
 ---
