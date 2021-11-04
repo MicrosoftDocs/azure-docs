@@ -110,7 +110,7 @@ This tutorial configures your solution to use the OpenVINO&trade; module for obj
 
 [!INCLUDE [iot-central-video-analytics-part3](../../../includes/iot-central-video-analytics-part3.md)]
 
-### Edit manifest
+### Edit the manifest
 
 On the **LVA Edge Gateway v2** page, select **Edit manifest**.
 
