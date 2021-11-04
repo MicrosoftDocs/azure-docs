@@ -43,6 +43,7 @@ For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure F
 |Prerequisite | Description |
 |-------------|-------------|
 | Windows 10 Insider build 21304 or higher | Download Windows Insider Preview builds Guide to Windows Insider Program<br>Until an ISO is available for download, you will have to install a current OS and upgrade to the Windows Insiders Dev Channel as needed. |
+| Device | The end user device must be joined to either Azure AD or a hybrid environment. |
 | Azure AD connect installed | Hybrid environments where identities exist both in Azure AD and Active Directory Domain Services. Only hybrid identities are supported. |
 
 ## Limitations
@@ -69,9 +70,7 @@ YOURDOMAIN.COM => .file.core.windows.net
 
 KERBEROS.MICROSOFTONLINE.COM => instance1.file.core.windows.net,instance2.file.core.windows.net
 
-## Deployment steps 
-
-### Azure AD set up 
+## Azure AD set up 
 
 There is no Azure AD set up required for enabling native Azure AD Authentication for accessing Azure files over Wi-Fi. The prerequisites are mentioned under section 5: the latest Windows client insider builds (21304+) and an Azure AD subscription. With this preview, Azure AD is now its own independent Kerberos realm. The clients are already enlightened and will redirect clients to access Azure AD Kerberos to request a Kerberos ticket. By default, this capability for the clients to access Azure AD Kerberos is switched off and you need the below policy change to enable this feature on the clients. This setting can be used to deploy this feature in a staged manner by choosing specific clients you want to pilot on and then expanding it to all the clients across your environment. 
 
