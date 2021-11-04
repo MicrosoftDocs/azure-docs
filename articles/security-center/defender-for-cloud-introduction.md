@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/02/2021
+ms.date: 11/04/2021
 ms.author: memildin
 ---
 # What is Microsoft Defender for Cloud?
@@ -31,7 +31,7 @@ Defender for Cloud fills three vital needs as you manage the security of your re
 
 ## Posture management and workload protection
 
-Microsoft Defenders for Cloud's features cover the two broad pillars of cloud security: cloud security posture management and cloud workload protection.
+Microsoft Defender for Cloud's features cover the two broad pillars of cloud security: cloud security posture management and cloud workload protection.
 
 ### Cloud security posture management (CSPM)
 
@@ -157,7 +157,7 @@ Use the advanced protection tiles in the [workload protections dashboard](worklo
 
 - To get started with Defender for Cloud, you need a subscription to Microsoft Azure. If you don't have a subscription, [sign up for a free trial](https://azure.microsoft.com/free/).
 
-- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud dashboard in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/security-center/).
+- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud pages in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 - If you're ready to enable enhanced security features now, [Quickstart: Enable enhanced security features](enable-enhanced-security.md) walks you through the steps.
 
