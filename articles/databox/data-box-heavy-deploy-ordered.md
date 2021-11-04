@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 09/08/2021
+ms.date: 11/04/2021
 ms.author: alkohli
 ms.localizationpriority: high 
 ms.custom: contperf-fy22q1
