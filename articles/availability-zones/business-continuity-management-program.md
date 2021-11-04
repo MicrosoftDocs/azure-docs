@@ -90,5 +90,5 @@ For more information on certifications, see the [Microsoft Trust Center](https:/
 
 ## Next steps
 
-- [Regions that support availability zones in Azure](availability-zones.md)
+- [Regions that support availability zones in Azure](az-overview.md)
 - [Quickstart templates](https://aka.ms/azqs)

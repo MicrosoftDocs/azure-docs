@@ -44,7 +44,7 @@ The following checklist covers the scope of resiliency planning.
 
 Regions and Availability Zones are a big part of the resiliency equation. Regions feature multiple, physically separate Availability Zones, connected by a high-performance network featuring less than 2ms latency between physical zones to help your data stay synchronized and accessible when things go wrong. You can leverage this infrastructure strategically as you architect applications and data infrastructure that automatically replicate and deliver uninterrupted services between zones and across regions. Choose the best region for your needs based on technical and regulatory considerations—service capabilities, data residency, compliance requirements, latency—and begin advancing your resiliency strategy.
 
-Microsoft Azure services support availability zones and are enabled to drive your cloud operations at optimum high availability while supporting your disaster recovery and business continuity strategy needs. Choose the best region for your needs based on technical and regulatory considerations—service capabilities, data residency, compliance requirements, latency—and begin advancing your resiliency strategy. See [Azur regions and availability zones](availability-zones.md) for more information.
+Microsoft Azure services support availability zones and are enabled to drive your cloud operations at optimum high availability while supporting your disaster recovery and business continuity strategy needs. Choose the best region for your needs based on technical and regulatory considerations—service capabilities, data residency, compliance requirements, latency—and begin advancing your resiliency strategy. See [Azure regions and availability zones](az-overview.md) for more information.
 
 ## Shared responsibility
 
@@ -52,8 +52,8 @@ Building resilient systems on Azure is a shared responsibility. Microsoft is res
 
 ## Next steps
 
-- [Regions and availability zones in Azure](availability-zones.md)
-- [Azure services that support availability zones](availability-zones-enabled-services.md)
+- [Regions and availability zones in Azure](az-overview.md)
+- [Azure services that support availability zones](az-region.md)
 - [Resilience in Azure whitepaper](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/Resilience%20in%20Azure.pdf)
 - [Azure Well-Architected Framework](https://www.aka.ms/WellArchitected/Framework)
 - [Azure architecture guidance](/architecture/high-availability/building-solutions-for-high-availability)

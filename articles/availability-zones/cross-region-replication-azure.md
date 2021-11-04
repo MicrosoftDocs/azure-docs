@@ -28,7 +28,7 @@ Not all Azure services automatically replicate data or automatically fall back f
 
 Shared responsibility becomes the crux of your strategic decision-making when it comes to disaster recovery. Azure doesn't require you to use cross-region replication, and you can use services to build resiliency without cross-replicating to another enabled region. But we strongly recommend that you configure your essential services across regions to benefit from [isolation](../security/fundamentals/isolation-choices.md) and improve [availability](overview.md). 
 
-For applications that support multiple active regions, we recommend that you use available multiple enabled regions. This practice ensures optimal availability for applications and minimized recovery time if an event affects availability. Whenever possible, design your application for [maximum resiliency](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) and ease of [disaster recovery](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery).
+For applications that support multiple active regions, we recommend that you use available multiple enabled regions. This practice ensures optimal availability for applications and minimized recovery time if an event affects availability. Whenever possible, design your application for [maximum resiliency](/azure/architecture/framework/resiliency/overview) and ease of [disaster recovery](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## Benefits of cross-region replication
 
@@ -84,5 +84,5 @@ Regions are paired for cross-region replication based on proximity and other fac
 
 ## Next steps
 
-- [Regions that support availability zones in Azure](availability-zones-enabled-services.md)
+- [Regions that support availability zones in Azure](az-regions.md)
 - [Quickstart templates](https://aka.ms/azqs)
