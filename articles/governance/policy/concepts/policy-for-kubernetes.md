@@ -213,7 +213,7 @@ This article describes how to [create](#create-azure-policy-extension), [show ex
 
 For an overview of the extensions platform, see [Azure Arc cluster extensions](/azure/azure-arc/kubernetes/conceptual-extensions).
 
-## Prerequisites
+Prerequisites
 
 > Note: If you have already deployed Azure Policy for Kubernetes on an Azure Arc cluster using Helm directly without extensions, follow the instructions listed to [delete the Helm chart](#remove-the-add-on-from-azure-arc-enabled-kubernetes). Once the deletion is done, you can then proceed.
 1. Ensure your Kubernetes cluster is a supported distribution.
@@ -253,7 +253,7 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](/
      Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
      ```
 
-## Create Azure Policy extension
+Create Azure Policy extension
 
 > Note the following for Azure Policy extension creation:
 > - Auto-upgrade is enabled by default which will update Azure Policy extension minor version if any new changes are deployed.
@@ -314,7 +314,7 @@ az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-
 }
 ```
 
-## Show Azure Policy extension
+Show Azure Policy extension
 
 To check the extension instance creation was successful, and inspect extension metadata, run the following command substituting `<>` with your values:
 
@@ -338,7 +338,7 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-## Delete Azure Policy extension
+Delete Azure Policy extension
 To delete the extension instance, run the following command substituting `<>` with your values:
 
 ```console
@@ -470,7 +470,7 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="install-azure-policy-add-on-for-aks-engine"></a>Install Azure Policy Add-on for AKS Engine (preview)
 
-> Note: AKS Engine is soon to begin deprecation. We recommend that you install the [Azure Policy Extension using Arc-enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) instead.
+> Note: Azure Policy Add-on for AKS Engine is soon to begin deprecation. We recommend that you install the [Azure Policy Extension using Arc-enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) instead.
 
 1. Ensure your Kubernetes cluster is a supported distribution.
 
