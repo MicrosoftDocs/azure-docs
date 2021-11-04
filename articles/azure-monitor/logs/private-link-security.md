@@ -41,7 +41,7 @@ An Azure Monitor Private Link Scope connects private endpoints (and the VNets th
 > A VNet can only connect to a single AMPLS, which lists up to 50 resources that can be reached over a Private Link.
 
 ### Azure Monitor Private Link relies on your DNS
-When you set up a Private Link connection, your DNS zones are set to map Azure Monitor endpoints to private IPs in order to send traffic through the Private Link. Azure Monitor uses both resource-specific endpoints and regional or global endpoints that handle traffic to multiple workspaces/components. When it comes to regional and global endpoints, setting up a Private Link (even for a single resource) affects the DNS mapping that controls traffic to **all** resources. In other words, traffic to all workspaces or components could be affected by a single Private Link setup.
+When you set up a Private Link connection, your DNS zones are set to map Azure Monitor endpoints to private IPs in order to send traffic through the Private Link. Azure Monitor uses both resource-specific endpoints and regional or global endpoints that handle traffic to multiple workspaces/components. When it comes to regional and global endpoints, setting up a Private Link (even for a single resource) affects the DNS mapping that controls traffic to **all resources**. In other words, traffic to all workspaces or components could be affected by a single Private Link setup.
 
 #### Global endpoints
 Most importantly, traffic to the below global endpoints will be sent through the Private Link:
