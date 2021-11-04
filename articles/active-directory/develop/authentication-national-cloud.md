@@ -50,7 +50,7 @@ You can find the authentication endpoints for your application in the Azure port
 1. Select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, and then select **Endpoints** in the top menu.
 
-   The **Endpoints** page is displayed, showing the authentication endpoints for your tenant.
+   The **Endpoints** page is displayed showing the authentication endpoints for the application registered in your Azure AD tenant.
 
    Use the endpoint that matches the authentication protocol you're using in conjunction with the **Application (client) ID** to craft the authentication request specific to your application.
 
