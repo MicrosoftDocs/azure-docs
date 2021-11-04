@@ -17,22 +17,22 @@ For successful deployment into an existing virtual network, Azure Managed Instan
 
 1. Navigate to the target virtual network in your subscription, select the access control tab, and click on `add role assignment`:
 
-   :::image type="content" source="./media/add-service-principal/service-principal-1.png" alt-text="Add role assignment" lightbox="./media/create-cluster-portal/resources.png" border="true"::: 
+   :::image type="content" source="./media/add-service-principal/service-principal-1.png" alt-text="Add role assignment" lightbox="./media/add-service-principal/service-principal-1.png" border="true"::: 
 
 1. Search for the `Network Contributor` role, highlight it, then select the `members` tab:
 
-   :::image type="content" source="./media/add-service-principal/service-principal-2.png" alt-text="Add Network Contributor" lightbox="./media/create-cluster-portal/resources.png" border="true"::: 
+   :::image type="content" source="./media/add-service-principal/service-principal-2.png" alt-text="Add Network Contributor" lightbox="./media/add-service-principal/service-principal-2.png" border="true"::: 
 
    > [!NOTE]
    > You do not need to have a role with permissions as expansive as Network Contributor, this is used as an example for simplicity. You can also create a customer role with narrower permissions, as long as it allows the action `Microsoft.Network/virtualNetworks/subnets/join/action`
 
 1. Ensure that `User, group, or service principal` is selected for `Assign access to`, and then click `Select members` to search for the `Azure Cosmos DB` service principal. Select it in the right hand side window:
 
-   :::image type="content" source="./media/add-service-principal/service-principal-3.png" alt-text="Select Cosmos DB service principal" lightbox="./media/create-cluster-portal/resources.png" border="true"::: 
+   :::image type="content" source="./media/add-service-principal/service-principal-3.png" alt-text="Select Cosmos DB service principal" lightbox="./media/add-service-principal/service-principal-3.png" border="true"::: 
 
 1. Click on the `Review + assign` tab at the top, then click the `Review + assign` button at the bottom. The Cosmos DB service principal should now be assigned. 
 
-   :::image type="content" source="./media/add-service-principal/service-principal-4.png" alt-text="Review and assign" lightbox="./media/create-cluster-portal/resources.png" border="true"::: 
+   :::image type="content" source="./media/add-service-principal/service-principal-4.png" alt-text="Review and assign" lightbox="./media/add-service-principal/service-principal-4.png" border="true"::: 
 
 ## Next steps
 

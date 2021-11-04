@@ -81,13 +81,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. To browse through the cluster nodes, navigate to the cluster resource and open the **Data Center** pane to view them:
 
-   :::image type="content" source="./media/create-cluster-portal/datacenter.png" alt-text="View datacenter nodes." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/datacenter.png" alt-text="View datacenter nodes." lightbox="./media/create-cluster-portal/datacenter.png" border="true":::
 
 <!-- ## <a id="create-account"></a>Add a datacenter
 
 1. To add another datacenter, click the add button in the **Data Center** pane:
 
-   :::image type="content" source="./media/create-cluster-portal/add-datacenter.png" alt-text="Click on add datacenter." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/add-datacenter.png" alt-text="Click on add datacenter." lightbox="./media/create-cluster-portal/add-datacenter.png" border="true":::
 
    > [!WARNING]
    > If you are adding a datacenter in a different region, you will need to select a different virtual network. You will also need to ensure that this virtual network has connectivity to the primary region's virtual network created above (and any other virtual networks that are hosting datacenters within the managed instance cluster). Take a look at [this article](/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks) to learn how to peer virtual networks using Azure portal. You also need to make sure you have applied the appropriate role to your virtual network before attempting to deploy a managed instance cluster, using the below CLI command.
@@ -109,14 +109,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **SKU Size** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
    * **Virtual Network** - Select an Exiting Virtual Network and Subnet.  
 
-   :::image type="content" source="./media/create-cluster-portal/add-datacenter-2.png" alt-text="Add Datacenter." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/add-datacenter-2.png" alt-text="Add Datacenter." lightbox="./media/create-cluster-portal/add-datacenter-2.png" border="true":::
 
    > [!WARNING]
    > Notice that we do not allow creation of a new virtual network when adding a datacenter. You need to choose an existing virtual network, and as mentioned above, you need to ensure there is connectivity between the target subnets where datacenters will be deployed. You also need to apply the appropriate role to the VNet to allow deployment (see above).
 
 1. When the datacenter is deployed, you should be able to view all datacenter information in the **Data Center** pane:
 
-   :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/multi-datacenter.png" border="true":::
 
 ## Troubleshooting
 
