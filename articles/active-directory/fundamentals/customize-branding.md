@@ -98,7 +98,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 
 3. After you've finished adding your branding, select **Save**.
 
-    This process creates your first custom branding configuration, and it becomes the default for your tenant. The default custom branding configuration serves as a fallback option for all language-specific branding configurations. It can not be removed once created.
+    This process creates your first custom branding configuration, and it becomes the default for your tenant. The default custom branding configuration serves as a fallback option for all language-specific branding configurations. The configuration can't be removed after you create it.
     
     >[!IMPORTANT]
     >To add more corporate branding configurations to your tenant, you must choose **New language** on the **Contoso - Company branding** page. This opens the **Configure company branding** page, where you can follow the same steps as above.
