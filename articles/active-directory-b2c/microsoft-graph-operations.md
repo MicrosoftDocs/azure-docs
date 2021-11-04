@@ -30,7 +30,7 @@ To use MS Graph API, and interact with resources in your Azure AD B2C tenant, yo
 
 ## User management
 > [!NOTE]
-> Azure AD currently does not support advanced query capabilities on Azure AD B2C directory objects. This means that there is no support for `$count`, `$search` query parameters and Not (`not`), Not equals (`ne`), and Ends with (`endsWith`) operators in `$filter` query parameter. For more information, see [Graph query paremeters](/graph/query-parameters) and [Graph API Advanced query capabilities](/graph/aad-advanced-queries).
+> Azure AD B2C currently does not support advanced query capabilities on directory objects. This means that there is no support for `$count`, `$search` query parameters and Not (`not`), Not equals (`ne`), and Ends with (`endsWith`) operators in `$filter` query parameter. For more information, see [query parameters in Microsoft Graph](/graph/query-parameters) and [advanced query capabilities in Microsoft Graph](/graph/aad-advanced-queries).
 
 
 - [List users](/graph/api/user-list)
