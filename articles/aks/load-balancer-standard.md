@@ -191,8 +191,7 @@ az aks create \
 ### Configure the allocated outbound ports
 
 > [!IMPORTANT]
-> If you have applications on your cluster which are expected to establish a large number of connection to small set of destinations, eg. many frontend instances connecting to an SQL DB, you have a scenario very susceptible to encounter SNAT Port exhaustion (run out of ports to connect from). For these scenarios it's highly recommended to increase the allocated outbound ports and outbound frontend IPs on the load balancer. The increase should consider that one (1) additional IP address adds 64k additional ports to distribute across all cluster nodes.
-
+> If you have applications on your cluster which are expected to establish a large number of connection to small set of destinations, e.g. many frontend instances connecting to an SQL DB, you have a scenario very susceptible to encounter SNAT Port exhaustion (running out of ports to connect from). For these scenarios it is highly recommended to increase the allocated outbound ports and outbound frontend IPs on the load balancer. See below for information on how to properly calculate these values.
 
 Unless otherwise specified, AKS will use the default value of Allocated Outbound Ports that Standard Load Balancer defines when configuring it. This value is **null** on the AKS API or **0** on the SLB API as shown by the below command:
 
@@ -209,11 +208,19 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-This output does not mean that you have 0 ports but instead that you are leveraging the [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports], so for example if a cluster has 50 or less nodes, 1024 ports for each node are allocated, as you increase the number of nodes from there you'll gradually get fewer ports per node.
+This output does not mean that the cluster has 0 ports but instead that it is using [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports]. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster is increased, fewer ports will be available per node.
 
+To define or increase the number of Allocated Outbound ports, the appropriate values for number of outbound ports and number of IPs must be calculated. The number of outbound ports is fixed per instance to the value specified here. The value for outbound ports must be a multiple of 8.
 
-To define or increase the number of Allocated Outbound ports, you can follow the below example:
+Adding more IPs does not add more ports to any node - instead, it provides capacity for more nodes in the cluster. When performing this calculation, make sure to account for nodes that may be added as part of upgrades, including the count of nodes specified via [maxSurge values](upgrade-cluster.md#customize-node-surge-upgrade). The calculation for the number of IPs required is `(<maximum number of nodes in the cluster> * <outbound ports per node>) / 64000`, rounded up to the nearest integer.
 
+Examples:
+- If no values are supplied and the cluster has 48 nodes, each node will have 1024 ports available.
+- If no values are supplied and the cluster grows to 52 nodes, each node will now have 512 ports available.
+- If outbound ports is set to 1,000 and outbound IP count is set to 2, then the cluster can support a maximum of 128 nodes (64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes).
+- If outbound ports is set to 4,000 and outbound IP count is set to 7, then the cluster can support a maximum of 112 nodes (64,000 ports per IP / 4,000 ports per node * 7 IPs = 112 nodes).
+
+Once the values have been calculated, the following command can be used to apply them to the cluster:
 
 ```azurecli-interactive
 az aks update \
@@ -223,13 +230,13 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-This example would give you 4000 Allocated Outbound Ports for each node in my cluster, and with 7 IPs you would have *4000 ports per node * 100 nodes = 400k total ports <  = 448k total ports = 7 IPs * 64k ports per IP*. This would allow you to safely scale to 100 nodes and have a default upgrade operation. It is critical to allocate sufficient ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade, in this example this requires 4000 free ports at any given point in time. If using [maxSurge values](upgrade-cluster.md#customize-node-surge-upgrade), multiply the outbound ports per node by your maxSurge value.
+To check these values, assume our cluster has a maximum size of 100 nodes and calculate the number of ports required (400,000) vs. the number of ports available (448,000). This configuration would provide sufficient ports for a 100 node cluster with space for node surge during upgrades.
 
-To safely go above 100 nodes, you'd have to add more IPs.
-
+- 100 nodes * 4000 ports per node = 400,000 ports required
+- 7 IPs * 64000 ports per IP = 448,000 ports available.
 
 > [!IMPORTANT]
-> You must [calculate your required quota and check the requirements][requirements] before customizing *allocatedOutboundPorts* to avoid connectivity or scaling issues.
+> You must [calculate your required quota and check the requirements][requirements] before customizing *allocatedOutboundPorts* to avoid connectivity or scaling issues. It is critical to allocate sufficient ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade. If using [maxSurge values](upgrade-cluster.md#customize-node-surge-upgrade), multiply the outbound ports per node by your maxSurge value to determine the number of ports required.
 
 You can also use the **`load-balancer-outbound-ports`** parameters when creating a cluster, but you must also specify either **`load-balancer-managed-outbound-ip-count`**, **`load-balancer-outbound-ips`**, or **`load-balancer-outbound-ip-prefixes`** as well.  For example:
 
@@ -261,16 +268,7 @@ If you expect to have numerous short lived connections, and no connections that 
 > AKS enables TCP Reset on idle by default and recommends you keep this configuration on and leverage it for more predictable application behavior on your scenarios.
 > TCP RST is only sent during TCP connection in ESTABLISHED state. Read more about it [here](../load-balancer/load-balancer-tcp-reset.md).
 
-### Requirements for customizing allocated outbound ports and idle timeout
-
-- The value you specify for *allocatedOutboundPorts* must also be a multiple of 8.
-- You must have enough outbound IP capacity based on the number of your node VMs and required allocated outbound ports. To validate you have enough outbound IP capacity, use the following formula: 
- 
-*outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
- 
-For example, if you have 3 *nodeVMs*, and 50,000 *desiredAllocatedOutboundPorts*, you need to have at least 3 *outboundIPs*. It is recommended that you incorporate additional outbound IP capacity beyond what you need. Additionally, you must account for the cluster autoscaler and the possibility of node pool upgrades when calculating outbound IP capacity. For the cluster autoscaler, review the current node count and the maximum node count and use the higher value. For upgrading, account for an additional node VM for every node pool that allows upgrading.
-
-- When setting *IdleTimeoutInMinutes* to a different value than the default of 30 minutes, consider how long your workloads will need an outbound connection. Also consider the default timeout value for a *Standard* SKU load balancer used outside of AKS is 4 minutes. An *IdleTimeoutInMinutes* value that more accurately reflects your specific AKS workload can help decrease SNAT exhaustion caused by tying up connections no longer being used.
+When setting *IdleTimeoutInMinutes* to a different value than the default of 30 minutes, consider how long your workloads will need an outbound connection. Also consider the default timeout value for a *Standard* SKU load balancer used outside of AKS is 4 minutes. An *IdleTimeoutInMinutes* value that more accurately reflects your specific AKS workload can help decrease SNAT exhaustion caused by tying up connections no longer being used.
 
 > [!WARNING]
 > Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* may significantly change the behavior of the outbound rule for your load balancer and should not be done lightly, without understanding the tradeoffs and your application's connection patterns, check the [SNAT Troubleshooting section below][troubleshoot-snat] and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
@@ -424,7 +422,6 @@ Learn more about using Internal Load Balancer for Inbound traffic at the [AKS In
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
-[requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
