@@ -21,9 +21,14 @@ This article outlines how to register PostgreSQL, and how to authenticate and in
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-PostgreSQL.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes|
 
 The supported PostgreSQL server versions are 8.4 to 12.x.
+
+When scanning PostgreSQL source, Purview supports:
+
+- Extracting metadata including PostgreSQL server, databases, schemas, tables, views, table/view columns, etc.
+- Fetching lineage on assets relationships among tables and views.
 
 ## Prerequisites
 
@@ -58,7 +63,7 @@ On the **Register sources (PostgreSQL)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
-1. Enter the **Server** name to connect to an PostgreSQL source. This can either be:
+1. Enter the **Server** name to connect to a PostgreSQL source. This can either be:
     * A host name used to connect to the database server. For example: `MyDatabaseServer.com`
     * An IP address. For example: `192.169.1.2`
     * Its fully qualified JDBC connection string. For example:
@@ -66,8 +71,6 @@ On the **Register sources (PostgreSQL)** screen, do the following:
         ```
         jdbc:postgresql://COMPUTER_NAME_OR_IP:PORT/DATABASE_NAME
         ```
-
-        Enter the host name used to connect to the database server  e.g. localhost or MyDatabaseServer.com
 
 1. Enter the **Port** used to connect to the database server (5432 by default for PostgreSQL).
 

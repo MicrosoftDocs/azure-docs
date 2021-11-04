@@ -21,9 +21,14 @@ This article outlines how to register MySQL, and how to authenticate and interac
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-MySQL.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes|
 
 The supported MySQL server versions are 5.7 to 8.x.
+
+When scanning MySQL source, Purview supports:
+
+- Extracting metadata including MySQL server, databases, tables, views, table/view columns, etc.
+- Fetching lineage on assets relationships among tables and views.
 
 ## Prerequisites
 
@@ -58,7 +63,7 @@ On the **Register sources (MySQL)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
-1. Enter the **Server** name to connect to an MySQL source. This can either be:
+1. Enter the **Server** name to connect to a MySQL source. This can either be:
     * A host name used to connect to the database server. For example: `MyDatabaseServer.com`
     * An IP address. For example: `192.169.1.2`
     * Its fully qualified JDBC connection string. For example:

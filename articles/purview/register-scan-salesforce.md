@@ -21,7 +21,9 @@ This article outlines how to register Salesforce, and how to authenticate and in
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-Salesforce.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| No|
+
+When scanning Salesforce, Purview supports extracting metadata including Salesforce organizations, objects, fields, foreign keys, unique_constraints, etc.
 
 ## Prerequisites
 
@@ -73,7 +75,7 @@ On the **Register sources (Salesforce)** screen, do the following:
 
 Follow the steps below to scan Salesforce to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
-Azure Purview uses Salesforce REST API version 41.0 to extract metadata, including REST requests like 'Describe Global' URI: /v41.0/sobjects/,'sObject Basic Information' URI: /v41.0/sobjects/sObject/, 'SOQL Query' URI: /v41.0/query?.
+Azure Purview uses Salesforce REST API version 41.0 to extract metadata, including REST requests like 'Describe Global' URI (/v41.0/sobjects/),'sObject Basic Information' URI (/v41.0/sobjects/sObject/), and 'SOQL Query' URI (/v41.0/query?).
 
 ### Create and run scan
 
@@ -96,8 +98,8 @@ To create and run a new scan, do the following:
 
     1. **Credential**: Select the credential to connect to your data source. Make sure to:
         * Select **Consumer key** while creating a credential.
-        * Provide the username of the user that the connected app is imitating. in the User name input field.
-        * Store the password of the user that the connected app is imitating in an Azure Key Vault secret. The security token is an automatically generated key that must be added to the end of the password to log in to Salesforce from an untrusted network.Concatenate the password and token when passing the request for authentication.
+        * Provide the username of the user that the connected app is imitating in the User name input field.
+        * Store the password of the user that the connected app is imitating in an Azure Key Vault secret. The security token is an automatically generated key that must be added to the end of the password to log in to Salesforce from an untrusted network. Concatenate the password and token when passing the request for authentication.
         * Provide the consumer key from the connected app definition. You can find it on the connected app's Manage Connected Apps page or from the connected app's definition. Learn more from [here](https://help.salesforce.com/articleView?id=remoteaccess_oauth_username_password_flow.htm&;type=5).
         * Stored the consumer secret from the connected app definition in an Azure Key Vault secret. You can find it along with consumer key.
 
