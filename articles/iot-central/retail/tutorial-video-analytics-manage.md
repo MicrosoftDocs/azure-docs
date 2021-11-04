@@ -47,11 +47,19 @@ Select **Run** to add the camera device:
 > [!NOTE]
 > The **LVA Edge Object Detector** device template already exists in the application.
 
- If it fails to connect, you can run the below command to check iotedge device status on VM. 
+If the device fails to connect, check the status of the modules on the device:
 
-```bash
- sudo iotedge list
-```
+* Use SSH to open a shell on the device.
+* Run the following command in the shell:
+
+    `sudo iotedge list`
+
+If the modules are running correctly, you will see output that looks like the following:
+
+    LvaEdgeGatewayModule                      running          Up 2 minutes     mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64
+    lvaEdge                                   running          Up 2 minutes     mcr.microsoft.com/media/live-video-analytics:2
+
+To learn more, see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md).
 
 ## Add a motion detection camera (optional)
 
