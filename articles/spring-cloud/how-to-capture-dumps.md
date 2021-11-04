@@ -1,5 +1,5 @@
 ---
-title: "Capture heap dump, thread dump and JFR manually in Azure Spring Cloud"
+title: "Capture heap dump, thread dump and, JFR manually in Azure Spring Cloud"
 description: Learn how to manually capture a heap dump, a thread dump or start JFR.
 author: YinglueZhang-MS
 ms.author: yinglzh
@@ -9,11 +9,11 @@ ms.date: 10/31/2021
 ms.custom: devx-track-java
 ---
 
-# Capture heap dump, thread dump and JFR manually in Azure Spring Cloud
+# Capture heap dump, thread dump and, JFR manually in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ❌ C#
 
-Effective troubleshooting, which is critical for our customers to timely fix issues on their production environment, ensures their business always online. Today in Azure Spring Cloud, we have already provided application log streaming/query, rich metrics emitting and alerts, distributed tracing, etc. to assist our customers in this field. However, when customers getting alerts about request of high latency, JVM heap leak, or high CPU usage, there is no the last-mile solution for them. Therefore, we enabled manually generate a heap dump, generate a thread dump or start a JFR.
+Effective troubleshooting, which is critical for our customers to timely fix issues on their production environment, ensures their business always online. Today in Azure Spring Cloud, we have already provided application log streaming/query, rich metrics emitting, and alerts, distributed tracing, etc. to assist our customers in this field. However, when customers getting alerts about request of high latency, JVM heap leak, or high CPU usage, there is no the last-mile solution for them. Therefore, we enabled manually generate a heap dump, generate a thread dump, or start a JFR.
 
 ## Prerequisites
 To complete this exercise, you need:
