@@ -2,7 +2,7 @@
 title: Azure Video Analyzer pipeline
 description: An Azure Video Analyzer pipeline you ingest, process, and publish video within Azure Video Analyzer edge and cloud. A pipeline consists of nodes that are connected to achieve the desired flow of data.
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Pipeline
