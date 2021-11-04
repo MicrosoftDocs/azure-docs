@@ -1,6 +1,6 @@
 ---
-title: "Trigger Heap Dump, Thread Dump and JFR Manually in Azure Spring Cloud"
-description: Learn how to manually trigger a heap dump, a thread dump or start JFR.
+title: "Capture Heap Dump, Thread Dump and JFR Manually in Azure Spring Cloud"
+description: Learn how to manually capture a heap dump, a thread dump or start JFR.
 author: YinglueZhang-MS
 ms.author: yinglzh
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.date: 10/31/2021
 ms.custom: devx-track-java
 ---
 
-# Trigger Heap Dump, Thread Dump and JFR Manually in Azure Spring Cloud
+# Capture Heap Dump, Thread Dump and JFR Manually in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ❌ C#
 
@@ -25,21 +25,19 @@ To complete this exercise, you need:
 ## Generate A Heap Dump
 Generate a heap dump of our app in Azure Spring Cloud.
 ```heap dump command
-   az spring-cloud app deployment generate-heap-dump -g <Resource Group Name> -s <Service instance Name> --app <App name> --deployment <Deployment name> --app-instance <App instance name> --file-path <Your target file path in your persistent storage mount path>
+   az spring-cloud app deployment generate-heap-dump -g <resource-group-name> -s <service-instance-name> --app <app-name> --deployment <deployment-name> --app-instance <app-instance name> --file-path <your-target-file-path-in-your-persistent-storage-mount-path>
 ```
 
 ## Generate A Thread Dump
 Generate a thread dump of our app in Azure Spring Cloud.
 ```thread dump command
-   az spring-cloud app deployment generate-thread-dump -g <Resource Group Name> -s <Service instance Name> --app <App name> --deployment <Deployment name> --app-instance <App instance name> --file-path <Your target file path in 
-   
-   >
+   az spring-cloud app deployment generate-thread-dump -g <resource-group-name> -s <service-instance-name> --app <app-name> --deployment <deployment-name> --app-instance <app-instance name> --file-path <your-target-file-path-in-your-persistent-storage-mount-path>
 ```
 
 ## Start JFR
 Start a JFR of our app in Azure Spring Cloud.
 ```JFR command
-   az spring-cloud app deployment start-JFR -g <Resource Group Name> -s <Service instance Name> --app <App name> --deployment <Deployment name> --app-instance <App instance name> --file-path <Your target file path in your persistent storage mount path> --duration <Duration of JFR>
+   az spring-cloud app deployment start-JFR -g <resource-group-name> -s <service-instance-name> --app <app-name> --deployment <deployment-name> --app-instance <app-instance name> --file-path <your-target-file-path-in-your-persistent-storage-mount-path> --duration <duration-of-JFR>
 ```
 
 ## Get Your Diagnostic Files
