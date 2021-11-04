@@ -39,20 +39,20 @@ A number of things can prevent your app from reaching a specific host and port. 
 
 If those items don't answer your problems, look first for things like:
 
-**Regional VNet integration**
+**Regional virtual network integration**
 
 * Is your destination a non-RFC1918 address and you don't have **Route All** enabled?
 * Is there an NSG blocking egress from your integration subnet?
 * If you're going across Azure ExpressRoute or a VPN, is your on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your virtual network but not on-premises, check your routes.
-* Do you have enough permissions to set delegation on the integration subnet? During regional VNet integration configuration, your integration subnet is delegated to Microsoft.Web/serverFarms. The VNet Integration UI delegates the subnet to Microsoft.Web/serverFarms automatically. If your account doesn't have sufficient networking permissions to set delegation, you'll need someone who can set attributes on your integration subnet to delegate the subnet. To manually delegate the integration subnet, go to the Azure Virtual Network subnet UI and set the delegation for Microsoft.Web/serverFarms.
+* Do you have enough permissions to set delegation on the integration subnet? During regional virtual network integration configuration, your integration subnet is delegated to Microsoft.Web/serverFarms. The VNet integration UI delegates the subnet to Microsoft.Web/serverFarms automatically. If your account doesn't have sufficient networking permissions to set delegation, you'll need someone who can set attributes on your integration subnet to delegate the subnet. To manually delegate the integration subnet, go to the Azure Virtual Network subnet UI and set the delegation for Microsoft.Web/serverFarms.
 
-**Gateway-required VNet integration**
+**Gateway-required virtual network integration**
 
 * Is the point-to-site address range in the RFC 1918 ranges (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)?
 * Does the gateway show as being up in the portal? If your gateway is down, then bring it back up.
 * Do certificates show as being in sync, or do you suspect that the network configuration was changed? If your certificates are out of sync or you suspect that a change was made to your virtual network configuration that wasn't synced with your ASPs, select **Sync Network**.
 * If you're going across a VPN, is the on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your virtual network but not on-premises, check your routes.
-* Are you trying to use a coexistence gateway that supports both point to site and ExpressRoute? Coexistence gateways aren't supported with VNet Integration.
+* Are you trying to use a coexistence gateway that supports both point to site and ExpressRoute? Coexistence gateways aren't supported with virtual network integration.
 
 Debugging networking issues is a challenge because you can't see what's blocking access to a specific host:port combination. Some causes include:
 
@@ -68,10 +68,10 @@ You don't know what address your app actually uses. It could be any address in t
 More debug steps include:
 
 * Connect to a VM in your virtual network and attempt to reach your resource host:port from there. To test for TCP access, use the PowerShell command **test-netconnection**. The syntax is:
-
-```powershell
-test-netconnection hostname [optional: -Port]
-```
+    
+    ```powershell
+    test-netconnection hostname [optional: -Port]
+    ```
 
 * Bring up an application on a VM and test access to that host and port from the console from your app by using **tcpping**.
 
@@ -84,4 +84,4 @@ If your virtual network-hosted VM can reach your on-premises system but your app
 * Your routes aren't configured with your subnet or point-to-site address ranges in your on-premises gateway.
 * Your network security groups are blocking access for your point-to-site IP range.
 * Your on-premises firewalls are blocking traffic from your point-to-site IP range.
-* You're trying to reach a non-RFC 1918 address by using the regional VNet integration feature.
+* You're trying to reach a non-RFC 1918 address by using the regional virtual network integration feature.

@@ -9,17 +9,17 @@ ms.author: madsd
 ---
 # Integrate your app with an Azure virtual network
 
-This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [App Service](./overview.md). With [Azure virtual networks](../virtual-network/virtual-networks-overview.md) (VNets), you can place many of your Azure resources in a non-internet-routable network. The App Service VNet Integration feature enables your apps to access resources in or through a virtual network. VNet Integration doesn't enable your apps to be accessed privately.
+This article describes the Azure App Service VNet integration feature and how to set it up with apps in [App Service](./overview.md). With [Azure virtual networks](../virtual-network/virtual-networks-overview.md) (VNets), you can place many of your Azure resources in a non-internet-routable network. The App Service VNet integration feature enables your apps to access resources in or through a virtual network. Virtual network integration doesn't enable your apps to be accessed privately.
 
 App Service has two variations:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
-Learn [how to enable VNet Integration](./configure-vnet-integration-enable.md).
+Learn [how to enable virtual network integration](./configure-vnet-integration-enable.md).
 
-## Regional VNet integration
+## Regional virtual network integration
 
-Regional VNet integration supports connecting to a virtual network in the same region and doesn't require a gateway. Using regional VNet integration enables your app to access:
+Regional virtual network integration supports connecting to a virtual network in the same region and doesn't require a gateway. Using regional virtual network integration enables your app to access:
 
 * Resources in the virtual network you're integrated with.
 * Resources in virtual networks peered to the virtual network your app is integrated with including global peering connections.
@@ -27,22 +27,22 @@ Regional VNet integration supports connecting to a virtual network in the same r
 * Service endpoint-secured services.
 * Private endpoint-enabled services.
 
-When you use regional VNet integration, you can use the following Azure networking features:
+When you use regional virtual network integration, you can use the following Azure networking features:
 
 * **Network security groups (NSGs)**: You can block outbound traffic with an NSG that's placed on your integration subnet. The inbound rules don't apply because you can't use virtual network integration to provide inbound access to your app.
 * **Route tables (UDRs)**: You can place a route table on the integration subnet to send outbound traffic where you want.
 
-### How regional VNet integration works
+### How regional virtual network integration works
 
-Apps in App Service are hosted on worker roles. Regional VNet integration works by mounting virtual interfaces to the worker roles with addresses in the delegated subnet. Because the from address is in your virtual network, it can access most things in or through your virtual network like a VM in your virtual network would. The networking implementation is different than running a VM in your virtual network. That's why some networking features aren't yet available for this feature.
+Apps in App Service are hosted on worker roles. Regional virtual network integration works by mounting virtual interfaces to the worker roles with addresses in the delegated subnet. Because the from address is in your virtual network, it can access most things in or through your virtual network like a VM in your virtual network would. The networking implementation is different than running a VM in your virtual network. That's why some networking features aren't yet available for this feature.
 
-:::image type="content" source="./media/overview-vnet-integration/vnetint-how-regional-works.png" alt-text="Diagram that shows how regional VNet integration works.":::
+:::image type="content" source="./media/overview-vnet-integration/vnetint-how-regional-works.png" alt-text="Diagram that shows how regional virtual network integration works.":::
 
-When regional VNet integration is enabled, your app makes outbound calls through your virtual network. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. However, if your outbound call is to a virtual machine or private endpoint in the integration virtual network or peered virtual network, the outbound address will be an address from the integration subnet. The private IP assigned to an instance is exposed via the environment variable, WEBSITE_PRIVATE_IP.
+When regional virtual network integration is enabled, your app makes outbound calls through your virtual network. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. However, if your outbound call is to a virtual machine or private endpoint in the integration virtual network or peered virtual network, the outbound address will be an address from the integration subnet. The private IP assigned to an instance is exposed via the environment variable, WEBSITE_PRIVATE_IP.
 
 When all traffic routing is enabled, all outbound traffic is sent into your virtual network. If all traffic routing isn't enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the virtual network and outbound traffic to the internet will go through the same channels as normal.
 
-The feature supports only one virtual interface per worker. One virtual interface per worker means one regional VNet integration per App Service plan. All the apps in the same App Service plan can use the same virtual network integration. If you need an app to connect to another virtual network, you need to create another App Service plan. The virtual interface used isn't a resource that customers have direct access to.
+The feature supports only one virtual interface per worker. One virtual interface per worker means one regional virtual network integration per App Service plan. All the apps in the same App Service plan can use the same virtual network integration. If you need an app to connect to another virtual network, you need to create another App Service plan. The virtual interface used isn't a resource that customers have direct access to.
 
 Because of the nature of how this technology operates, the traffic that's used with virtual network integration doesn't show up in Azure Network Watcher or NSG flow logs.
 
@@ -66,7 +66,7 @@ When you want your apps in your plan to reach a virtual network that's already c
 
 ### Routes
 
-There are two types of routing to consider when you configure regional VNet integration. Application routing defines what traffic is routed from your application and into the virtual network. Network routing is the ability to control how traffic is routed from your virtual network and out.
+There are two types of routing to consider when you configure regional virtual network integration. Application routing defines what traffic is routed from your application and into the virtual network. Network routing is the ability to control how traffic is routed from your virtual network and out.
 
 #### Application routing
 
@@ -75,7 +75,7 @@ When you configure application routing, you can either route all traffic or only
 > [!NOTE]
 > * When **Route All** is enabled, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
 > * Windows containers don't support routing App Service Key Vault references or pulling custom container images over virtual network integration.
-> * Regional VNet integration can't use port 25.
+> * Regional virtual network integration can't use port 25.
 
 Learn [how to configure application routing](./configure-vnet-integration-routing.md).
 
@@ -91,7 +91,7 @@ Border Gateway Protocol (BGP) routes also affect your app traffic. If you have B
 
 ### Network security groups
 
-An app that uses regional VNet integration can use a [network security group](../virtual-network/network-security-groups-overview.md) to block outbound traffic to resources in your virtual network or the internet. To block traffic to public addresses, enable [Route All](#application-routing) to the virtual network. When **Route All** isn't enabled, NSGs are only applied to RFC1918 traffic.
+An app that uses regional virtual network integration can use a [network security group](../virtual-network/network-security-groups-overview.md) to block outbound traffic to resources in your virtual network or the internet. To block traffic to public addresses, enable [Route All](#application-routing) to the virtual network. When **Route All** isn't enabled, NSGs are only applied to RFC1918 traffic.
 
 An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
 
@@ -99,9 +99,9 @@ The inbound rules in an NSG don't apply to your app because virtual network inte
 
 ### Service endpoints
 
-Regional VNet integration enables you to reach Azure services that are secured with service endpoints. To access a service endpoint-secured service, follow these steps:
+Regional virtual network integration enables you to reach Azure services that are secured with service endpoints. To access a service endpoint-secured service, follow these steps:
 
-1. Configure regional VNet integration with your web app to connect to a specific subnet for integration.
+1. Configure regional virtual network integration with your web app to connect to a specific subnet for integration.
 1. Go to the destination service and configure service endpoints against the integration subnet.
 
 ### Private endpoints
@@ -118,7 +118,7 @@ After your app integrates with your virtual network, it uses the same DNS server
 
 ### Limitations
 
-There are some limitations with using regional VNet integration:
+There are some limitations with using regional virtual network integration:
 
 * The feature is available from all App Service scale units in Premium v2 and Premium v3. It's also available in Standard but only from newer App Service scale units. If you're on an older scale unit, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest scale units. You can scale down if you want after the plan is created.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
@@ -128,12 +128,12 @@ There are some limitations with using regional VNet integration:
 * The integration virtual network can't have IPv6 address spaces defined.
 * The integration subnet can be used by only one App Service plan.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
-* You can have only one regional VNet integration per App Service plan. Multiple apps in the same App Service plan can use the same virtual network.
-* You can't change the subscription of an app or a plan while there's an app that's using regional VNet integration.
+* You can have only one regional virtual network integration per App Service plan. Multiple apps in the same App Service plan can use the same virtual network.
+* You can't change the subscription of an app or a plan while there's an app that's using regional virtual network integration.
 
-## Gateway-required VNet integration
+## Gateway-required virtual network integration
 
-Gateway-required VNet integration supports connecting to a virtual network in another region or to a classic virtual network. Gateway-required VNet integration:
+Gateway-required virtual network integration supports connecting to a virtual network in another region or to a classic virtual network. Gateway-required virtual network integration:
 
 * Enables an app to connect to only one virtual network at a time.
 * Enables up to five virtual networks to be integrated within an App Service plan.
@@ -142,7 +142,7 @@ Gateway-required VNet integration supports connecting to a virtual network in an
 * Enables your apps to use the DNS that the virtual network is configured with.
 * Requires a virtual network route-based gateway configured with an SSTP point-to-site VPN before it can be connected to an app.
 
-You can't use gateway-required VNet integration:
+You can't use gateway-required virtual network integration:
 
 * With a virtual network connected with ExpressRoute.
 * From a Linux app.
@@ -158,32 +158,32 @@ To create a gateway:
 
 1. [Set the point-to-site addresses](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#addresspool). If the gateway isn't in the basic SKU, then IKEV2 must be disabled in the point-to-site configuration and SSTP must be selected. The point-to-site address space must be in the RFC 1918 address blocks 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
 
-If you create the gateway for use with gateway-required VNet integration, you don't need to upload a certificate. Creating the gateway can take 30 minutes. You won't be able to integrate your app with your virtual network until the gateway is created.
+If you create the gateway for use with gateway-required virtual network integration, you don't need to upload a certificate. Creating the gateway can take 30 minutes. You won't be able to integrate your app with your virtual network until the gateway is created.
 
-### How gateway-required VNet integration works
+### How gateway-required virtual network integration works
 
-Gateway-required VNet integration is built on top of point-to-site VPN technology. Point-to-site VPNs limit network access to the virtual machine that hosts the app. Apps are restricted to send traffic out to the internet only through hybrid connections or through virtual network integration. When your app is configured with the portal to use gateway-required VNet integration, a complex negotiation is managed on your behalf to create and assign certificates on the gateway and the application side. The result is that the workers used to host your apps can directly connect to the virtual network gateway in the selected virtual network.
+Gateway-required virtual network integration is built on top of point-to-site VPN technology. Point-to-site VPNs limit network access to the virtual machine that hosts the app. Apps are restricted to send traffic out to the internet only through hybrid connections or through virtual network integration. When your app is configured with the portal to use gateway-required virtual network integration, a complex negotiation is managed on your behalf to create and assign certificates on the gateway and the application side. The result is that the workers used to host your apps can directly connect to the virtual network gateway in the selected virtual network.
 
-:::image type="content" source="./media/overview-vnet-integration/vnetint-how-gateway-works.png" alt-text="Diagram that shows how gateway-required VNet integration works.":::
+:::image type="content" source="./media/overview-vnet-integration/vnetint-how-gateway-works.png" alt-text="Diagram that shows how gateway-required virtual network integration works.":::
 
 ### Access on-premises resources
 
-Apps can access on-premises resources by integrating with virtual networks that have site-to-site connections. If you use gateway-required VNet integration, update your on-premises VPN gateway routes with your point-to-site address blocks. When the site-to-site VPN is first set up, the scripts used to configure it should set up routes properly. If you add the point-to-site addresses after you create your site-to-site VPN, you need to update the routes manually. Details on how to do that vary per gateway and aren't described here. You can't have BGP configured with a site-to-site VPN connection.
+Apps can access on-premises resources by integrating with virtual networks that have site-to-site connections. If you use gateway-required virtual network integration, update your on-premises VPN gateway routes with your point-to-site address blocks. When the site-to-site VPN is first set up, the scripts used to configure it should set up routes properly. If you add the point-to-site addresses after you create your site-to-site VPN, you need to update the routes manually. Details on how to do that vary per gateway and aren't described here. You can't have BGP configured with a site-to-site VPN connection.
 
-No extra configuration is required for the regional VNet integration feature to reach through your virtual network to on-premises resources. You simply need to connect your virtual network to on-premises resources by using ExpressRoute or a site-to-site VPN.
+No extra configuration is required for the regional virtual network integration feature to reach through your virtual network to on-premises resources. You simply need to connect your virtual network to on-premises resources by using ExpressRoute or a site-to-site VPN.
 
 > [!NOTE]
-> The gateway-required VNet integration feature doesn't integrate an app with a virtual network that has an ExpressRoute gateway. Even if the ExpressRoute gateway is configured in [coexistence mode](../expressroute/expressroute-howto-coexist-resource-manager.md), the virtual network integration doesn't work. If you need to access resources through an ExpressRoute connection, use the regional VNet integration feature or an [App Service Environment](./environment/intro.md), which runs in your virtual network.
+> The gateway-required virtual network integration feature doesn't integrate an app with a virtual network that has an ExpressRoute gateway. Even if the ExpressRoute gateway is configured in [coexistence mode](../expressroute/expressroute-howto-coexist-resource-manager.md), the virtual network integration doesn't work. If you need to access resources through an ExpressRoute connection, use the regional virtual network integration feature or an [App Service Environment](./environment/intro.md), which runs in your virtual network.
 
 ### Peering
 
-If you use peering with regional VNet integration, you don't need to do any more configuration.
+If you use peering with regional virtual network integration, you don't need to do any more configuration.
 
-If you use gateway-required VNet integration with peering, you need to configure a few more items. To configure peering to work with your app:
+If you use gateway-required virtual network integration with peering, you need to configure a few more items. To configure peering to work with your app:
 
 1. Add a peering connection on the virtual network your app connects to. When you add the peering connection, enable **Allow virtual network access** and select **Allow forwarded traffic** and **Allow gateway transit**.
 1. Add a peering connection on the virtual network that's being peered to the virtual network you're connected to. When you add the peering connection on the destination virtual network, enable **Allow virtual network access** and select **Allow forwarded traffic** and **Allow remote gateways**.
-1. Go to the **App Service plan** > **Networking** > **VNet integration** UI in the portal. Select the virtual network your app connects to. Under the routing section, add the address range of the virtual network that's peered with the virtual network your app is connected to.
+1. Go to **App Service plan** > **Networking** > **VNet integration** in the portal. Select the virtual network your app connects to. Under the routing section, add the address range of the virtual network that's peered with the virtual network your app is connected to.
 
 ## Manage virtual network integration
 
@@ -191,32 +191,32 @@ Connecting and disconnecting with a virtual network is at an app level. Operatio
 
 The only operation you can take in the app view of your virtual network integration instance is to disconnect your app from the virtual network it's currently connected to. To disconnect your app from a virtual network, select **Disconnect**. Your app is restarted when you disconnect from a virtual network. Disconnecting doesn't change your virtual network. The subnet or gateway isn't removed. If you then want to delete your virtual network, first disconnect your app from the virtual network and delete the resources in it, such as gateways.
 
-The App Service plan VNet Integration UI shows you all the virtual network integrations used by the apps in your App Service plan. To see details on each virtual network, select the virtual network you're interested in. There are two actions you can perform here for gateway-required VNet integration:
+The App Service plan virtual network integration UI shows you all the virtual network integrations used by the apps in your App Service plan. To see details on each virtual network, select the virtual network you're interested in. There are two actions you can perform here for gateway-required virtual network integration:
 
-* **Sync network**: The sync network operation is used only for the gateway-required VNet integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your virtual network, perform a sync network operation. This operation restarts any apps that use this virtual network. This operation won't work if you're using an app and a virtual network belonging to different subscriptions.
+* **Sync network**: The sync network operation is used only for the gateway-required virtual network integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your virtual network, perform a sync network operation. This operation restarts any apps that use this virtual network. This operation won't work if you're using an app and a virtual network belonging to different subscriptions.
 * **Add routes**: Adding routes drives outbound traffic into your virtual network.
 
-The private IP assigned to the instance is exposed via the environment variable WEBSITE_PRIVATE_IP. Kudu console UI also shows the list of environment variables available to the web app. This IP is assigned from the address range of the integrated subnet. For regional VNet integration, the value of WEBSITE_PRIVATE_IP is an IP from the address range of the delegated subnet. For gateway-required VNet integration, the value is an IP from the address range of the point-to-site address pool configured on the virtual network gateway. This IP will be used by the web app to connect to the resources through the Azure virtual network.
+The private IP assigned to the instance is exposed via the environment variable WEBSITE_PRIVATE_IP. Kudu console UI also shows the list of environment variables available to the web app. This IP is assigned from the address range of the integrated subnet. For regional virtual network integration, the value of WEBSITE_PRIVATE_IP is an IP from the address range of the delegated subnet. For gateway-required virtual network integration, the value is an IP from the address range of the point-to-site address pool configured on the virtual network gateway. This IP will be used by the web app to connect to the resources through the Azure virtual network.
 
 > [!NOTE]
 > The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the integration subnet or the point-to-site address range, so you'll need to allow access from the entire address range.
 >
 
-### Gateway-required VNet integration routing
+### Gateway-required virtual network integration routing
 
-The routes that are defined in your virtual network are used to direct traffic into your virtual network from your app. To send more outbound traffic into the virtual network, add those address blocks here. This capability only works with gateway-required VNet integration. Route tables don't affect your app traffic when you use gateway-required VNet integration the way that they do with regional VNet integration.
+The routes that are defined in your virtual network are used to direct traffic into your virtual network from your app. To send more outbound traffic into the virtual network, add those address blocks here. This capability only works with gateway-required virtual network integration. Route tables don't affect your app traffic when you use gateway-required virtual network integration the way that they do with regional virtual network integration.
 
-### Gateway-required VNet integration certificates
+### Gateway-required virtual network integration certificates
 
-When gateway-required VNet integration is enabled, there's a required exchange of certificates to ensure the security of the connection. Along with the certificates are the DNS configuration, routes, and other similar things that describe the network.
+When gateway-required virtual network integration is enabled, there's a required exchange of certificates to ensure the security of the connection. Along with the certificates are the DNS configuration, routes, and other similar things that describe the network.
 
 If certificates or network information is changed, select **Sync Network**. When you select **Sync Network**, you cause a brief outage in connectivity between your app and your virtual network. Your app isn't restarted, but the loss of connectivity could cause your site to not function properly.
 
 ## Pricing details
 
-The regional VNet integration feature has no extra charge for use beyond the App Service plan pricing tier charges.
+The regional virtual network integration feature has no extra charge for use beyond the App Service plan pricing tier charges.
 
-Three charges are related to the use of the gateway-required VNet integration feature:
+Three charges are related to the use of the gateway-required virtual network integration feature:
 
 * **App Service plan pricing tier charges**: Your apps need to be in a Standard, Premium, Premium v2, or Premium v3 App Service plan. For more information on those costs, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
 * **Data transfer costs**: There's a charge for data egress, even if the virtual network is in the same datacenter. Those charges are described in [Data transfer pricing details](https://azure.microsoft.com/pricing/details/data-transfers/).
