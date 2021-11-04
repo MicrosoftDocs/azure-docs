@@ -59,7 +59,7 @@ sections:
       - question: |
           Do I have to use the new full-disk encryption scheme with CVMs? Can I use one of the standard schemes?
         answer: |
-          The new full-disk encryption scheme is optional. You can also use any other disk encryption scheme (instead or in addition).
+          The new optional full-disk encryption scheme is Azure's most secure. It is designed to meet [Confidential Computing principles](https://azure.microsoft.com/en-us/blog/azure-confidential-computing/). However, you can also use other [disk encryption schemes](https://docs.microsoft.com/en-us/azure/security/fundamentals/azure-disk-encryption-vms-vmss) (instead or in addition).
           If you use multiple disk encryption schemes this may result in double encryption, and negatively impact performance.
           
       - question: |
@@ -104,6 +104,6 @@ sections:
       - question: |
           Is there an additional cost to using CVMs?
         answer: |
-          CVMs are billed based on virtual machine and storage usage according to the size and region. CVMs are offered through dedicated sizes, so prices may be different from general-purpose VMs. In addition, CVMs utilize an additional small encrypted "VMGS" disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This may result in a storage fee of a fraction of one cent per VM per month.
-          Lastly, for some of the highest security and privacy settings you may choose to create additional linked resources, such as a Managed HSM Pool. Such resources would be billed separately.
+          CVMs are billed based on virtual machine and storage usage according to the size and region. CVMs are offered through dedicated sizes, so prices may be different from general-purpose VMs. In addition, CVMs utilize an additional small encrypted "VMGS" disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This may result in a storage fee of a fraction of one US cent per VM per month.
+          Lastly, for some of the highest security and privacy settings you may choose to create additional linked resources, such as a [Managed HSM Pool](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Such resources would be billed separately.
 

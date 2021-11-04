@@ -25,6 +25,7 @@ Azure is now offering confidential VMs (CVMs) based on AMD processors with SEV-S
 - VM encryption keys that are owned and managed by the platform or customer (optional). 
 - Secure key release with cryptographic binding between the platform's successful attestation and the VM's encryption keys.
 - Dedicated virtual TPM instance for attestation and protection of keys and secrets in the virtual machine.
+- All the benefits of [Trusted Launch](https://docs.microsoft.com/en-us/azure/virtual-machines/trusted-launch)
 
 ## Full-disk encryption
 
@@ -41,6 +42,12 @@ Because full-disk encryption can lengthen the initial VM creation time, we have 
 
 For further integrity and protection, confidential VMs offer [Secure Boot](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot) by default. 
 With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. All compatible confidential VM images support Secure Boot. 
+
+> [!NOTE]
+> In addition to the OS disk, CVMs utilize a small encrypted "VMGS" disk of several megabytes. This VMGS disk encapsulates the VM security state of components such the vTPM and UEFI bootloader. This small disk may result in an associated storage fee of a fraction of one US cent per VM per month.
+
+> Confidential virtual machines run on specialized hardware available in specific regions. For the latest available regions for confidential 
+> virtual machines, see [available regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ## Customizable attestation policies
 
@@ -78,14 +85,14 @@ Depending on your confidential VM size. Refer to the [Pricing Calculator](https:
 
 **The following features are not currently supported in the preview**:
 - Virtual machine scale sets
-- VM resize
 - Azure Batch
 - Backup
 - Azure Site Recovery
 - Capturing a VM
 - Shared Image Gallery
-- Ephemeral OS disk
-- Shared disk
+- Ephemeral OS disks
+- Shared disks
+- Ultra disks
 - Azure Dedicated Host 
 - User attestable platform reports
 - Live Migration
