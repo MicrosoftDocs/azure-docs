@@ -331,7 +331,7 @@ Kubernetes clusters created with AKS Engine support both the [kubenet][kubenet] 
 Learn more about networking in AKS in the following articles:
 
 * [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
-* [Use an internal load balancer with Azure Container Service (AKS)](internal-lb.md)
+* [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
 
 * [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 * [Enable the HTTP application routing add-on][aks-http-app-routing]
