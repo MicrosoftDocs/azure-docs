@@ -118,6 +118,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
+## Troubleshooting
+
+If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
+
+> [!NOTE] 
+> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.  
+
 ## Connecting to your cluster
 
 Azure Managed Instance for Apache Cassandra does not create nodes with public IP addresses, so to connect to your newly created Cassandra cluster, you will need to create another resource inside the VNet. This could be an application, or a Virtual Machine with Apache's open-source query tool [CQLSH](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html) installed. You can use a [template](https://azure.microsoft.com/resources/templates/vm-simple-linux/) to deploy an Ubuntu Virtual Machine. When deployed, use SSH to connect to the machine, and install CQLSH using the below commands:
@@ -141,7 +148,8 @@ export SSL_VALIDATE=false
 host=("<IP>" "<IP>" "<IP>")
 initial_admin_password="Password provided when creating the cluster"
 cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
-```  
+```
+
 
 ## Clean up resources
 
