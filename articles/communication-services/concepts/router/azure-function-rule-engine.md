@@ -57,7 +57,7 @@ Building on the previous sample situation, let's create a custom Azure Function 
 
 Before moving on any further in the process, let us first define an Azure function that scores worker in the following manner:
 > [!NOTE]
-> The following Azure function is using C#. For more information, please refer to [Quickstart: Create your first C# function in Azure using Visual Studio](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-your-first-function-visual-studio?tabs=in-process&pivots=programming-runtime-functions-v3)
+> The following Azure function is using C#. For more information, please refer to [Quickstart: Create your first C# function in Azure using Visual Studio](../../../azure-functions/functions-create-your-first-function-visual-studio.md)
 
 
 ```text
@@ -422,8 +422,8 @@ Now that the Azure function app is ready, let us create an instance of **BestWor
 **Output**
 As shown below from the snippet, Susan is made an offer.
 
+:::image type="content" source="../media/router/acs-router-azure-function-best-worker-example.png" alt-text="Diagram showing Communication Services' Job Router Routing offer using best worker distribution with Azure Function Rule.":::
 
-    :::image type="content" source="../media/router/acs-router-azure-function-best-worker-example.png" alt-text="Diagram showing Communication Services' Job Router Routing offer using best worker distribution with Azure Function Rule.":::
 
 
 ## See also
