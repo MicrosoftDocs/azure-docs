@@ -92,6 +92,7 @@ Below is a list of common deployment errors that are reported as part of the dep
 * [OutOfCapacity](#err-outofcapacity)
 * [BadArgument](#err-badargument)
 * [ResourceNotReady](#err-resourcenotready)
+* [ResourceNotFound](#err-resourcenotfound)
 * [OperationCancelled](#err-operationcancelled)
 * [InternalServerError](#err-internalservererror)
 
@@ -209,6 +210,12 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 - If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) instead.
 - Readiness or liveness probes are not set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
+
+### ERR: ResourceNotFound
+
+This error occurs when Azure Resource Manager (ARM) can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources which may have been supplied by exact path or the spelling of their names.
+
+More details on this error can be found [here](https://aka.ms/ARMResourceNotFoundFix). 
 
 ### ERR: OperationCancelled
 
