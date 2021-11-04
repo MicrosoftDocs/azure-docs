@@ -2,7 +2,7 @@
 title: Discover Bicep on Microsoft Learn
 description: Provides an overview of the units that are available on Microsoft Learn for Bicep.
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 11/04/2021
 ---
 # Bicep on Microsoft Learn
 
@@ -10,7 +10,15 @@ Ready to see how Bicep can help simplify and accelerate your deployments to Azur
 
 ## Get started
 
-These two learning paths will help you get started:
+If you're new to Bicep, you can start by building your first Bicep file:
+
+<img src="media/learn-bicep/build-first-bicep-template.svg" width="101" height="120" alt="The badge for the Build your first Bicep template module on Microsoft Learn." role="presentation"></img>
+
+[Build your first Bicep template](/learn/modules/build-first-bicep-template/)
+
+## Learn more
+
+To learn even more about Bicep, use these learning paths:
 
 :::row:::
 :::column:::
