@@ -1,22 +1,22 @@
 ---
-title: Troubleshooting managed online endpoints deployment (preview)
+title: Troubleshooting online endpoints deployment (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to troubleshoot some common deployment and scoring errors with Managed Online Endpoints.
+description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 author: petrodeg
 ms.author:  petrodeg
 ms.reviewer: laobri
-ms.date: 05/13/2021
+ms.date: 11/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-#Customer intent: As a data scientist, I want to figure out why my managed online endpoint deployment failed so that I can fix it.
+#Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
-# Troubleshooting managed online endpoints deployment and scoring (preview)
+# Troubleshooting online endpoints deployment and scoring (preview)
 
-Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning managed online endpoints (preview).
+Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints (preview).
 
 This document is structured in the way you should approach troubleshooting:
 
@@ -38,11 +38,15 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 
 Local deployment is deploying a model to a local Docker environment. Local deployment is useful for testing and debugging before to deployment to the cloud.
 
+> [!TIP]
+> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+
 Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. To use local deployment, add `--local` to the appropriate CLI command:
 
 ```azurecli
-az ml endpoint create -n <endpoint-name> -f <spec_file.yaml> --local
+az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
+
 As a part of local deployment the following steps take place:
 
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
@@ -57,13 +61,13 @@ You can't get direct access to the VM where the model is deployed. However, you 
 To see log output from container, use the following CLI command:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> -d <deployment-name> -l 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 or
 
 ```azurecli
-    az ml endpoint get-logs --name <endpoint-name> --deployment <deployment-name> --lines 100
+    az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> --lines 100
 ```
 
 Add `--resource-group` and `--workspace-name` to the commands above if you have not already set these parameters via `az configure`.
@@ -71,7 +75,7 @@ Add `--resource-group` and `--workspace-name` to the commands above if you have 
 To see information about how to set these parameters, and if current values are already set, run:
 
 ```azurecli
-az ml endpoint get-logs -h
+az ml online-deployment get-logs -h
 ```
 
 By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
@@ -126,7 +130,7 @@ For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed0
 To get more details about this error, run:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --tail 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### ERR_1300: Unable to download user model\code artifacts
@@ -157,7 +161,7 @@ After provisioning the compute resource, during deployment creation, Azure tries
 To get more details about this error, run:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### ERR_1350: Unable to download user model, not enough space on the disk
@@ -173,7 +177,7 @@ This error means that this container couldn't start, which means scoring could n
 To get the exact reason for an error, run: 
 
 ```azurecli
-az ml endpoint get-logs
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### ERR_2101: Kubernetes unschedulable
@@ -200,9 +204,13 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 
 While we do our best to provide a stable and reliable service, sometimes things don't go according to plan. If you get this error, it means something isn't right on our side and we need to fix it. Submit a [customer support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) with all related information and we'll address the issue.  
 
+## Autoscaling issues
+
+If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale](../azure-monitor/autoscale/autoscale-troubleshoot.md).
+
 ## HTTP status codes
 
-When you access managed online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how managed endpoint invocation and prediction errors map to HTTP status codes.
+When you access online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how endpoint invocation and prediction errors map to HTTP status codes.
 
 | Status code| Reason phrase |	Why this code might get returned |
 | --- | --- | --- |

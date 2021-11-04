@@ -6,7 +6,7 @@ author: luisquintanilla
 ms.author: luquinta
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 06/18/2021
+ms.date: 10/21/2021
 ms.topic: how-to 
 ---
 

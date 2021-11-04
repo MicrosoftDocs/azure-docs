@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/03/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
