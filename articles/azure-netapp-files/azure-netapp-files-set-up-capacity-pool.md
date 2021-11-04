@@ -46,7 +46,7 @@ You must have already created a NetApp account.
 
     * **Size**     
      Specify the size of the capacity pool that you are purchasing.        
-     The minimum capacity pool size is 4 TiB. You can change the size of a capacity pool in 1 TiB increments.
+     The minimum capacity pool size is 4 TiB. You can change the size of a capacity pool in 1-TiB increments.
 
    * **QoS**   
      Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  
