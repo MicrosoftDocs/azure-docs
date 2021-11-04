@@ -62,7 +62,7 @@ After creating an Azure Purview account, the first thing to do is create collect
 
 > [!NOTE]
 > If you created your Azure Purview account using a service principal, to be able to access the Purview Studio and assign permissions to users, you will need to grant a user collection admin permissions on the root collection.
-> You can use [this Azure CLI command](https://docs.microsoft.com/cli/azure/purview/account#az_purview_account_add_root_collection_admin):
+> You can use [this Azure CLI command](/cli/azure/purview/account#az_purview_account_add_root_collection_admin):
 >
 >   ```azurecli
 >   az purview account add-root-collection-admin --account-name --resource-group [--object-id]
