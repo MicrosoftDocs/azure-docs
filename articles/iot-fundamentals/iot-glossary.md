@@ -296,7 +296,7 @@ Applies to: Iot Hub
 
 A JSON-LD language for describing [models](#model) and [interfaces](#interface) for [IoT Plug and Play devices](#iot-plug-and-play-device) and [Azure Digital Twins](#azure-digital-twins) entities. The language enables the IoT platform and IoT [solutions](#solution) to use the semantics of the entity.
 
-[Learn more]((https://github.com/Azure/opendigitaltwins-dtdl)
+[Learn more](https://github.com/Azure/opendigitaltwins-dtdl)
 
 Applies to: Iot Hub, IoT Central, Digital Twins
 
