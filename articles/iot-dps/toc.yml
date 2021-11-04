@@ -109,7 +109,7 @@
     - name: Troubleshooting DPS
       href: how-to-troubleshoot-dps.md
     - name: DSP FAQ
-      href: faq-dps.md
+      href: dps-faq.yml
 - name: Reference
   items:
   - name: REST API

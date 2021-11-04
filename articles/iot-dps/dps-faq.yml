@@ -36,8 +36,8 @@ additionalContent: |
   * [MSFT Q&A page for Azure DPS(/answers/topics/azure-dps.html).
   * Microsoft Support. To create a new support request, in the [Azure portal](https://portal.azure.com/), on the Help tab, select the **Help +** support button, and then select **New support request**.
   
-  More information link here
+
   > [!div class="nextstepaction"]
-  > [Request Real-time weather data ](how-to-request-weather-data.md)
+  > [https://github.com/anastasia-ms/azure-docs-pr/pull/new/dps-faq](how-to-troubleshoot-dps.md)
   
 
