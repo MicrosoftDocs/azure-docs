@@ -46,10 +46,10 @@ Create a cloud resource group to manage all the resources you'll use in this qui
 
 Make sure your IoT Edge device meets the following requirements:
 
-* Editions
-  * Windows 10 version 1809 or later; build 17763 or later
-    * Professional, Enterprise, IoT Enterprise
-  * Windows Server 2019 build 17763 or later
+* System Requirements
+   * Windows 10¹/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows Server 2019¹/2022  
+   <sub>¹ Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
 
 * Hardware requirements
   * Minimum Free Memory: 1 GB
