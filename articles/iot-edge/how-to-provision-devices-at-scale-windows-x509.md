@@ -22,7 +22,7 @@ This article provides end-to-end instructions for autoprovisioning one or more W
 >
 >Consider using the new method for running IoT Edge on Windows devices, [Azure IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md).
 >
->If you want to use Azure IoT Edge for Linux on Windows, you can follow the steps in the [equivalent how-to guide](how-to-provision-device-at-scale-linux-on-windows-x509.md).
+>If you want to use Azure IoT Edge for Linux on Windows, you can follow the steps in the [equivalent how-to guide](how-to-provision-devices-at-scale-linux-on-windows-x509.md).
 
 The tasks are as follows:
 
