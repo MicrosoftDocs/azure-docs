@@ -26,7 +26,7 @@ You can use this library to:
 Install the package as follows:
 
 ```bash
-python -m pip install azure-messaging-webpubsubservice
+python -m pip install azure-messaging-webpubsubservice==1.0.0b1
 ```
 
 ### Prerequisites
