@@ -66,7 +66,6 @@ Grant the Synapse workspace's managed identity **Data Curator** role on your Pur
 
 When connecting Synapse workspace to Purview in Synapse Studio, Synapse tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection and have access to Purview account from your network, this operation is done successfully.
 
-
 ## Monitor Purview connection
 
 Once you connect the Synapse workspace to a Purview account, you see the following page with details on the enabled integration capabilities.
