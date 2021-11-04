@@ -1,5 +1,5 @@
 ---
-title: "Capture Heap Dump, Thread Dump and JFR Manually in Azure Spring Cloud"
+title: "Capture heap dump, thread dump and JFR manually in Azure Spring Cloud"
 description: Learn how to manually capture a heap dump, a thread dump or start JFR.
 author: YinglueZhang-MS
 ms.author: yinglzh
@@ -9,7 +9,7 @@ ms.date: 10/31/2021
 ms.custom: devx-track-java
 ---
 
-# Capture Heap Dump, Thread Dump and JFR Manually in Azure Spring Cloud
+# Capture heap dump, thread dump and JFR manually in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ❌ C#
 
@@ -22,13 +22,13 @@ To complete this exercise, you need:
 * At least one application already created in your service instance.
 * At least one [persistent storage already bind on your app](how-to-built-in-persistent-storage.md) to save generated diagnostic files.
 
-## Generate A Heap Dump
+## Generate a heap dump
 Generate a heap dump of our app in Azure Spring Cloud.
 ```heap dump command
    az spring-cloud app deployment generate-heap-dump -g <resource-group-name> -s <service-instance-name> --app <app-name> --deployment <deployment-name> --app-instance <app-instance name> --file-path <your-target-file-path-in-your-persistent-storage-mount-path>
 ```
 
-## Generate A Thread Dump
+## Generate a thread dump
 Generate a thread dump of our app in Azure Spring Cloud.
 ```thread dump command
    az spring-cloud app deployment generate-thread-dump -g <resource-group-name> -s <service-instance-name> --app <app-name> --deployment <deployment-name> --app-instance <app-instance name> --file-path <your-target-file-path-in-your-persistent-storage-mount-path>
@@ -40,5 +40,5 @@ Start a JFR of our app in Azure Spring Cloud.
    az spring-cloud app deployment start-JFR -g <resource-group-name> -s <service-instance-name> --app <app-name> --deployment <deployment-name> --app-instance <app-instance name> --file-path <your-target-file-path-in-your-persistent-storage-mount-path> --duration <duration-of-JFR>
 ```
 
-## Get Your Diagnostic Files
+## Get your diagnostic files
 Go to the target file path in your persistent storage and find your dump/JFR. You can download them to your local machine.
