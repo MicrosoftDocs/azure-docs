@@ -21,7 +21,7 @@ Exact phrases are a string of the exact words that you will want to match. For e
 
 > "Take me to floor seven". 
 
-Patterns are a phrase that contains a marked entity. Entities are marked with "{}" to define the place and name of the PatternMatchingEntity. Given the previous example perhaps you would want to extract the floor name in an entity named "floorName". You would do so with a pattern like this:
+A pattern is a phrase that contains a marked entity. Entities are marked with "{}" to define the place inside the pattern and the text inside the "{}" references the entity ID. Given the previous example perhaps you would want to extract the floor name in an entity named "floorName". You would do so with a pattern like this:
 
 > "Take me to floor {floorName}"
 
@@ -69,7 +69,7 @@ When an entity with an Id is of type "List" and is in "Strict" mode, the engine 
 
 It is important to note that the Intent will not match, not just the entity.
 
-When an entity with an Id is of type "List" and is in "Fuzzy" mode, the engine will still match the Intent, and will return the text that appeared in the slot in the utterance even if it is not in the list. This is useful behind the scenes to help make the speech recognition better.
+When an entity is of type "List" and is in "Fuzzy" mode, the engine will still match the Intent, and will return the text that appeared in the slot in the utterance even if it is not in the list. This is useful behind the scenes to help make the speech recognition better.
 >WARNING: THIS FEATURE IS NOT IMPLEMENTED YET.
 
 ### Prebuilt Integer Entity
