@@ -286,7 +286,7 @@ To score a deployed model using REST, see [Consume an Azure Machine Learning mod
 
 ## Create a workspace using REST 
 
-Every Azure ML workspace has a dependency on four other Azure resources: a container registry with administration enabled, a key vault, an Application Insights resource, and a storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
+Every Azure ML workspace has a dependency on four other Azure resources: an Azure Container Registry resource, Azure Key Vault, Azure Application Insights, and an Azure Storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
 
 To create a workspace, PUT a call similar to the following to `management.azure.com`. While this call requires you to set a large number of variables, it's structurally identical to other calls that this article has discussed. 
 
