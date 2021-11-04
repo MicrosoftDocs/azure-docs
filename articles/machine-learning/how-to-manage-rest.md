@@ -390,7 +390,7 @@ providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>",
       "encryption": {
         "status": "Enabled",
         "identity": {
-        	"userAssignedIdentity": null
+          "userAssignedIdentity": null
         },      
         "keyVaultProperties": {
            "keyVaultArmId": "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.KeyVault/vaults/<YOUR-VAULT>",
