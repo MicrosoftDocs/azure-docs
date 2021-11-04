@@ -77,7 +77,7 @@ Use `EnableAnalyticalStorage true` for both **create** or **update** operations.
 
 ## <a id="create-analytical-ttl"></a> Create an analytical store enabled container
 
-You can turn on analytical store on an Azure Cosmos DB container while creating the container. You can use the Azure portal or configure the `analyticalTTL` property to `-1` during container creation by using the Azure Cosmos DB SDKs or command line tools.
+You can turn on analytical store when creating an Azure Cosmos DB container by setting `analytical TTL` property. While Portal will implicitly set it to `-1`, that means infinite retention of the data, SDKs and command line tools allow you to also use positive integers, that represent the retention in seconds. For information on the various `analytical TTL` config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article. Please note that you can change `analytical TTL` to another value later.
 
 ### Azure portal
 
@@ -200,15 +200,19 @@ Use the options below using `-AnalyticalStorageTtl -1` to enable analytical stor
 
 ## <a id="update-analytical-ttl"></a> Enable analytical store for an existing container
 
-You can turn analytical store on for existing containers in Cosmos DB SQL API accounts only. Please note these important information about the process.
+You can turn on analytical store on an existing Azure Cosmos DB SQL API container by setting `analytical TTL` property. While Portal will implicitly set it to `-1`, that means infinite retention of the data, SDKs and command line tools allow you to also use positive integers, that represent the retention in seconds. For information on the various `analytical TTL` config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article. Please note that you can change `analytical TTL` to another value later.
+
+Please note these important information about the process.
 
 * The initial sync with analytical store total time will vary depending on your data volume and on the complexity of the documents.
 * The throughput of your container or database account also influences the total sync time. Although RU/s are not used in this migration, the total RU/s available influences the performance of the sync process.
 * You won't be able to query analytical store of an existing container until the end of the initial sync process.
  
 > [!NOTE]
-> Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Please come back here to check the status. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com). This step is required once per subscription, and all new database accounts will also have this capability enabled.
+> Currently exiosting MongoDB API collections are not supported. The alternative is to migrate the data into a new collection, created with analytical store turned on.
 
+> [!NOTE]
+> Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Please come back here to check the status. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com). This step is required once per subscription, and all new database accounts will also have this capability enabled.
 
 > [!NOTE]
 > Currently it is not possible to turn off analytical store from a container. Click [here](analytical-store-introduction.md#analytical-store-pricing) for more information about analytical store pricing.
@@ -249,7 +253,7 @@ Use the options below using `-AnalyticalStorageTtl -1` to enable analytical stor
 
 ## <a id="update-analytical-ttl"></a> Optional - Update the analytical store time to live
 
-After the analytical store is enabled with a particular TTL value, you may want to update it to a different valid value later. You can update the value by using the Azure portal, Azure CLI, PowerShell, or Cosmos DB SDKs. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+After the analytical store is enabled with a particular TTL value, you may want to update it to a different valid value. You can update the value by using the Azure portal, Azure CLI, PowerShell, or Cosmos DB SDKs. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 
 ### Azure portal
