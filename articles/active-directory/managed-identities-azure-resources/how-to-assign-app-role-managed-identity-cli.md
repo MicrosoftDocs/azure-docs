@@ -33,7 +33,7 @@ In this article, you learn how to assign a managed identity to an application ro
 
 ## Assign a managed identity access to another application's app role
 
-1. Enable managed identity on an Azure resource, [such as an Azure VM](qs-configure-cli-windows-vm).
+1. Enable managed identity on an Azure resource, [such as an Azure VM](qs-configure-cli-windows-vm.md).
 
 1. Find the object ID of the managed identity's service principal.
 
@@ -68,7 +68,7 @@ In this article, you learn how to assign a managed identity to an application ro
     > [!NOTE]
     > Display names for applications are not unique, so you should verify that you obtain the correct application's service principal.
 
-Alternatively you can find the Object Id by the unique Application Id for your application registration:
+    Alternatively you can find the Object Id by the unique Application Id for your application registration:
 
     ```azurecli
     appID="{application id for your application}"
