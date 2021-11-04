@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 11/15/2021
 ms.author: b-juche
 ---
 # Understand Azure NetApp Files application volume group for SAP HANA 
@@ -67,4 +67,4 @@ Application volume group for SAP HANA helps you simplify the deployment process 
 * [Manage volumes in an application volume group](application-volume-group-manage-volumes.md)
 * [Delete an application volume group](application-volume-group-delete.md)
 * [Application volume group FAQs](faq-application-volume-group.md)
-
+* [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)

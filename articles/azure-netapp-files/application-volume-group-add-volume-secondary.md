@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 11/15/2021
 ms.author: b-juche
 ---
 # Add volumes for an SAP HANA system as a secondary database in HSR
@@ -129,3 +129,4 @@ To add more HANA hosts for a multiple-host SAP HANA system, follow steps in [Add
 * [Manage volumes in an application volume group](application-volume-group-manage-volumes.md)
 * [Delete an application volume group](application-volume-group-delete.md)
 * [Application volume group FAQs](faq-application-volume-group.md)
+* [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)

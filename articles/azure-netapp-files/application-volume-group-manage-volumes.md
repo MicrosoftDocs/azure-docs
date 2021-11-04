@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 11/15/2021
 ms.author: b-juche
 ---
 # Manage volumes in an application volume group
@@ -51,4 +51,4 @@ You can manage a volume from its volume group. You can resize, delete, or change
 * [Add volumes for an SAP HANA system as a DR system using cross-region replication](application-volume-group-disaster-recovery.md)
 * [Delete an application volume group](application-volume-group-delete.md)
 * [Application volume group FAQs](faq-application-volume-group.md)
-
+* [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)

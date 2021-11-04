@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-juche
 ms.author: b-juche
-ms.date: 10/04/2021
+ms.date: 11/15/2021
 ---
 # Application volume group FAQs
 
@@ -15,6 +15,9 @@ This article answers frequently asked questions (FAQs) about Azure NetApp Files 
 ## Why do I have to use a manual QoS capacity pool for all of my volumes?
 
 Manual QoS capacity pool provides the best way to define capacity and throughput individually to fit the SAP HANA needs. It avoids over-provisioning to reach the performance of, for example, the log volume or data volume. It can also reserve larger space for log-backups while keeping the performance to a value that suits your needs. Overall, using manual QoS capacity pool results in a price reduction.
+
+> [!NOTE]
+> Only manual QoS capacity pools will be displayed in the list to select from.
 
 ## Will all the volumes be provisioned in close proximity to my HANA servers?
 
@@ -58,7 +61,7 @@ For each host and each partition you want to create, you need to rerun applicati
 
 ## Why is 1500 MiB/s the maximum throughput value that application volume group for SAP HANA proposes for the data volume?
 
-NFSv4.1 is the supported protocol for SAP HANA.  As such, one TCP/IP session is supported when you mount a single volume. For running a single TCP session (that is, from a single host) against a single volume, 1500 MiB/s is the typical I/O limit identified. That's why application volume group for SAP HANA avoids allocating more throughput than you can realistically achieve. If you need more throughput, especially for larger HANA databases (for example, 12 TiB), you should use multiple partitions.
+NFSv4.1 is the supported protocol for SAP HANA.  As such, one TCP/IP session is supported when you mount a single volume. For running a single TCP session (that is, from a single host) against a single volume, 1500 MiB/s is the typical I/O limit identified. That's why application volume group for SAP HANA avoids allocating more throughput than you can realistically achieve. If you need more throughput, especially for larger HANA databases (for example, 12 TiB), you should use multiple partitions or use the `nconnect` mount option.
 
 ## Can I use `nconnect` as a mount option?
 
@@ -80,6 +83,17 @@ Data-backups are written with 250 MiB/s.
 
 If you know your systems (from running HANA before), you can provide your data instead of these generic assumptions. 
 
+## I’ve received a warning message `Not enough pool capacity`. What can I do?
+Application volume group will calculate the capacity and throughput demand of all volumes based on your input of the HANA memory. When selecting the capacity pool it immediately checks if there is enough space or throughput left in the capacity pool. 
+
+At the initial “SAP HANA” screen you may ignore this message and continue with the workflow with the "Next" button, to later adapt the proposed values for each volume individually so that all volumes will fit into the capacity pool. This error message will reappear when changing each individual volume until all volumes fit into the capacity pool.
+You may also want to increase the size of the pool to avoid this warning message.
+
+## Why is the `hostid` (for example, 00001) added to my names even when I’ve removed the `{Hostid}` placeholder?  
+
+Application volume group requires the placeholder `{Hostid}` to be part of the names. If it’s removed, the `hostid` is automatically added to the provided string.
+You can see the final names for each of the volumes after selecting **Review + Create**.
+
 ## Next steps  
 
 * [Understand Azure NetApp Files application volume group for SAP HANA](application-volume-group-introduction.md)
@@ -90,3 +104,4 @@ If you know your systems (from running HANA before), you can provide your data i
 * [Add volumes for an SAP HANA system as a DR system using cross-region replication](application-volume-group-disaster-recovery.md)
 * [Manage volumes in an application volume group](application-volume-group-manage-volumes.md)
 * [Delete an application volume group](application-volume-group-delete.md)
+* [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)

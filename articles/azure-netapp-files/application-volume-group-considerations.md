@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 11/15/2021
 ms.author: b-juche
 ---
 # Requirements and considerations for application volume group for SAP HANA 
@@ -35,7 +35,7 @@ This article describes the requirements and considerations you need to be aware 
 
     It is recommended that you lay out the VNet and delegated subnet at design time. 
 
-    Application volume group for SAP HANA will create multiple IP addresses, up to six IP addresses for larger-sized estates. Ensure that the delegated subnet has sufficient free IP addresses. It’s recommended that you use a delegated subnet with a minimum of 32 IP addresses. 
+    Application volume group for SAP HANA will create multiple IP addresses, up to six IP addresses for larger-sized estates. Ensure that the delegated subnet has sufficient free IP addresses. It’s recommended that you use a delegated subnet with a minimum of 59 IP addresses with a subnet size of /26. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
 
 ## Best practices about proximity placement groups
 
@@ -58,6 +58,9 @@ This situation leads to two possible scenarios:
 
     SAP HANA capable virtual machine series (that is, M-Series) are mostly placed close to Azure NetApp Files so that the application volume group with the help of a PPG can create the required volumes with lowest possible latency. This relationship between volumes and HANA hosts will not change if at least one virtual machine is up and running.
 
+    > [!NOTE]
+    > When you use application volume group to deploy your HANA volumes, at least one VM in the availability set must be started. Without a running VM, the PPG cannot be used to find the optimal Azure NetApp files hardware, and provisioning will fail.
+
 ## Next steps
 
 * [Understand Azure NetApp Files application volume group for SAP HANA](application-volume-group-introduction.md)
@@ -68,4 +71,4 @@ This situation leads to two possible scenarios:
 * [Manage volumes in an application volume group](application-volume-group-manage-volumes.md)
 * [Delete an application volume group](application-volume-group-delete.md)
 * [Application volume group FAQs](faq-application-volume-group.md)
-
+* [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)

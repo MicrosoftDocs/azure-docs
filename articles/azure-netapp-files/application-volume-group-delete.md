@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 11/15/2021
 ms.author: b-juche
 ---
 # Delete an application volume group
@@ -43,4 +43,4 @@ This article describes how to delete an application volume group.
 * [Add volumes for an SAP HANA system as a DR system using cross-region replication](application-volume-group-disaster-recovery.md)
 * [Manage volumes in an application volume group](application-volume-group-manage-volumes.md)
 * [Application volume group FAQs](faq-application-volume-group.md)
-
+* [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)
