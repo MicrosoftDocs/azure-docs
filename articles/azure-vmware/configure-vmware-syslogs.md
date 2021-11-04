@@ -28,7 +28,7 @@ Make sure you have an Azure VMware Solution private cloud with access to the vCe
 1. Select the **vmwaresyslog**, **All metrics**, and select one of the following options presented.
 
    >[!IMPORTANT]
-   >The **Send to log analytics workspace** option does not currently work.
+   >The **Send to log analytics workspace** option is currently unavailable.
  
    ### Archive to storage account
 
