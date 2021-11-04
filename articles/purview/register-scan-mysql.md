@@ -112,12 +112,12 @@ To create and run a new scan, do the following:
         * Store the user password used to connect to the database server in the secret key.
 
     1. **Database**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %.
-        For example: `A%; %B; %C%; D`
-           - start with A or
-           - end with B or
-           - contain C or
-           - equal D
+
+        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For Example: `A%; %B; %C%; D`
+        * start with A or
+        * end with B or
+        * contain C or
+        * equal D
 
         Usage of NOT and special characters are not acceptable.
 
