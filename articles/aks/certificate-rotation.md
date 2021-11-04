@@ -50,7 +50,7 @@ az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id Ru
 az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
 ```
 
-## Certificate auto-rotation
+## Certificate Auto Rotation
 
 Azure Kubernetes Service will automatically rotate non-ca certificates on both the control plane and agent nodes before they expire with no downtime for the cluster.
 
@@ -66,6 +66,11 @@ For AKS to automatically rotate non-CA certificates, the cluster must have [TLS 
 
 > [!IMPORTANT]
 >Once a region is configured either create a new cluster or upgrade 'az aks upgrade -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME' an existing cluster to set that cluster for auto-cert rotation. 
+
+### Limititation
+
+Auto cert rotation won't be enabled on non-rbac cluster.
+
 
 ## Rotate your cluster certificates
 
