@@ -35,26 +35,26 @@ With the Calling SDK, a Communication Services user or endpoint can start a 1:1 
  
 [Manage calls - An Azure Communication Services how-to guide | Microsoft Docs](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web)
 
-Calling another ACS user:
+Calling another Communication Services endpoint using [communicationUserId](/javascript/api/@azure/communication-common/communicationuseridentifier?view=azure-node-latest#communicationUserId):
 ```js
-const acsCallee = { communicationUserId: '<ACS_USER_ID>' }
+const acsCallee = { communicationUserId: '<ACS User ID>' }
 const call = callAgent.startCall([acsCallee]);
 ```
 
-Calling a Teams user:
+Calling a Teams user using [microsoftTeamsUserId](/javascript/api/@azure/communication-common/microsoftteamsuseridentifier?view=azure-node-latest#microsoftTeamsUserId):
 ```js
-const teamsCallee = { microsoftTeamsUserId: '<Teams User AAD Object ID>' }
+const teamsCallee = { microsoftTeamsUserId: '8:orgid:<Teams User AAD Object ID>' }
 const call = callAgent.startCall([teamsCallee]);
 ```
  
 **Limitations and known issues**
 - Teams users must be in "TeamsOnly" mode. Skype for Business users can't receive 1:1 calls from Communication Services users.
 - Escalation to a group call isn't supported.
-- Communication Services users are not displayed correctly in the Call history
 - Communication Services call recording isn't available for 1:1 calls.
 - Advanced call routing capabilities such as call forwarding, group call pickup, simulring, and voice mail are not supported.
 - Teams users can't set Communication Services users as forwarding/transfer targets.
-- LyncIpPhone fork is not supported.
+- There are a number of features in the Teams client that do not work as expected during 1:1 calls with Communication Services users.
+- Third party [devices for Teams](/MicrosoftTeams/devices/teams-ip-phones) and [Skype IP phones](/skypeforbusiness/certification/devices-ip-phones) are not supported.
 
 ## Chat
 With the Chat SDK, Communication Services users or endpoints can start 1:n chat with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users:

@@ -648,14 +648,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 
 
 
-## Domain name server
+## DNS (Preview)
 
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md#log-analytics-agent-based-connections)** |
-| **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
-| **Supported by** | Microsoft |
-| | |
+**See [Windows DNS Server (Preview)](#windows-dns-server-preview).**
 
 ## Dynamics 365
 
@@ -1391,14 +1386,17 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** (Top connector article) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
 
+
 For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
 
 See also: [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
+
+[Configure the **Security events / Windows Security Events connector** for **anomalous RDP login detection**](#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
 
 ## SentinelOne (Preview)
 
@@ -1626,25 +1624,75 @@ Follow the instructions to obtain the credentials.
 | | |
 
 
-## Windows firewall
+## Windows DNS Server (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md#log-analytics-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
+| **Supported by** | Microsoft |
+| | |
+
+## Windows Forwarded Events (Preview)
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Azure Monitor Agent-based connections](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections)**<br><br>[Additional instructions for deploying the Windows Forwarded Events connector](#additional-instructions-for-deploying-the-windows-forwarded-events-connector) |
+| **Prerequisites** | You must have Windows Event Collection (WEC) enabled and running.<br>Install the Azure Monitor Agent on the WEC machine. |
+| **xPath queries prefix** | "ForwardedEvents!*" |
+| **Log Analytics table(s)** | WindowsEvents |
+| **Supported by** | Microsoft |
+| | |
+
+### Additional instructions for deploying the Windows Forwarded Events connector
+
+We recommend installing the [Azure Sentinel Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.
+
+## Windows Firewall
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
 | **Log Analytics table(s)** | WindowsFirewall |
 | **Supported by** | Microsoft |
 | | |
 
-## Windows security events via AMA
+## Windows Security Events via AMA
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md?tabs=AMA)** (Top connector article) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Azure Monitor Agent-based connections](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections)** |
+| **xPath queries prefix** | "Security!*" |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
 
+
 See also: [**Security events via legacy agent**](#security-events-via-legacy-agent-windows) connector.
+
+### Configure the Security events / Windows Security Events connector for anomalous RDP login detection
+
+> [!IMPORTANT]
+> Anomalous RDP login detection is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Sentinel can apply machine learning (ML) to Security events data to identify anomalous Remote Desktop Protocol (RDP) login activity. Scenarios include:
+
+- **Unusual IP** - the IP address has rarely or never been observed in the last 30 days
+
+- **Unusual geo-location** - the IP address, city, country, and ASN have rarely or never been observed in the last 30 days
+
+- **New user** - a new user logs in from an IP address and geo-location, both or either of which were not expected to be seen based on data from the 30 days prior.
+
+**Configuration instructions**
+
+1. You must be collecting RDP login data (Event ID 4624) through the **Security events** or **Windows Security Events** data connectors. Make sure you have selected an [event set](windows-security-event-id-reference.md) besides "None", or created a data collection rule that includes this event ID, to stream into Azure Sentinel.
+
+1. From the Azure Sentinel portal, select **Analytics**, and then select the **Rule templates** tab. Choose the **(Preview) Anomalous RDP Login Detection** rule, and move the **Status** slider to **Enabled**.
+
+    > [!NOTE]
+    > As the machine learning algorithm requires 30 days' worth of data to build a baseline profile of user behavior, you must allow 30 days of Windows Security events data to be collected before any incidents can be detected.
 
 ## Workplace from Facebook (Preview)
 

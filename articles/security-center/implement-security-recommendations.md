@@ -7,7 +7,6 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
 ---
 # Implement security recommendations in Microsoft Defender for Cloud
 

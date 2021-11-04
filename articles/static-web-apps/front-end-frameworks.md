@@ -26,7 +26,7 @@ The intent of the table columns is explained by the following items:
 | Framework | App artifact location | Custom build command |
 |--|--|--|
 | [Alpine.js](https://github.com/alpinejs/alpine/) | `/` | n/a <sup>2</sup> |
-| [Angular](https://angular.io/) | `dist/<APP_NAME>` | `npm run build -- --prod` |
+| [Angular](https://angular.io/) | `dist/<APP_NAME>` | `npm run build -- --configuration production` |
 | [Angular Universal](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | `npm run prerender` |
 | [Aurelia](https://aurelia.io/) | `dist` | n/a |
 | [Backbone.js](https://backbonejs.org/) | `/` | n/a |
