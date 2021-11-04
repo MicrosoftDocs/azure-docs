@@ -34,7 +34,7 @@ Azure AD becomes an independent Kerberos realm (kerberos.microsoftonline.com) th
 - Traditional on-premises applications to move to the cloud without changing their fundamental authentication scheme.
 - Applications trust Azure AD directly and there is no need for traditional AD.
 
-For Azure AD Kerberos authentication for Azure Files, the end user device must be joined to either Azure AD or a hybrid environment. For step-by-step guidance, see [Create a profile container with Azure Files and Azure Active Directory](https://review.docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-azure-ad?branch=pr-en-us-173530). 
+For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure Files, see [Create a profile container with Azure Files and Azure Active Directory](https://review.docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-azure-ad?branch=pr-en-us-173530).
 
 <!--- add image--->
 
@@ -43,6 +43,7 @@ For Azure AD Kerberos authentication for Azure Files, the end user device must b
 |Prerequisite | Description |
 |-------------|-------------|
 | Windows 10 Insider build 21304 or higher | Download Windows Insider Preview builds Guide to Windows Insider Program<br>Until an ISO is available for download, you will have to install a current OS and upgrade to the Windows Insiders Dev Channel as needed. |
+| Device | For for Azure Files, the end user device must be joined to either Azure AD or a hybrid environment. |
 | Azure AD connect installed | Hybrid environments where identities exist both in Azure AD and Active Directory Domain Services. Only hybrid identities are supported. |
 
 ## Limitations
