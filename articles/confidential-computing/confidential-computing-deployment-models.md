@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 11/03/2021
+ms.date: 11/04/2021
 ms.author: JenCook
 ms.custom: ignite-fall-2021
 ---
@@ -39,7 +39,7 @@ Containers also increase portability of applications, and improve resource usage
 Normally, you might deploy your solution on confidential VMs if:
 
 - You've got legacy applications that cannot be modified or containerized. However, you still need to introduce protection of data in memory, while the data is being processed.
-- You're running multiple applications requiring different operating systems (OSes) on a single piece of infrastructure.
+- You're running multiple applications requiring different operating systems (OS) on a single piece of infrastructure.
 - You want to emulate an entire computing environment, including all OS resources.
 - You're migrating your existing VMs from on-premises to Azure.
 

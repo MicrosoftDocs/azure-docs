@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: overview
-ms.date: 11/03/2021
+ms.date: 11/04/2021
 ms.author: JenCook
 ms.custom: ignite-fall-2021
 ---
@@ -24,8 +24,6 @@ When used with data encryption at rest and in transit, confidential computing el
 ## Navigating Azure confidential computing
 
 [Microsoft's offerings](https://aka.ms/azurecc) for confidential computing extend from Infrastructure as a Service (IaaS) to Platform as a Service (PaaS) and as well as developer tools to support your journey to data and code confidentiality in the cloud.
-
-:::image type="content" source="media/overview-azure-products/acc-stack.png" alt-text="Screenshot of the Azure confidential computing stack, showing tools and services.":::
 
 ## Reducing the attack surface
 The trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people. Azure confidential computing aims to lower the TCB for your cloud workloads by offering TEEs. 

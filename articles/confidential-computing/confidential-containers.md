@@ -4,7 +4,7 @@ description: Learn about unmodified container support with confidential containe
 services: container-service
 author: agowdamsft
 ms.topic: article
-ms.date: 11/03/2011
+ms.date: 11/04/2021
 ms.author: amgowda
 ms.service: container-service
 ms.custom: ignite-fall-2021
@@ -17,8 +17,6 @@ Azure confidential computing offers confidential containers. There are multiple 
 A hardware-based Trusted Execution Environment (TEE) provides strong assurances. A TEE provides hardware and software measurements from trusted computing base (TCB) components. Confidential containers offerings on Azure allow verification of these measurements and validate if the container apps run in a verifiable execution environment.
 
 Confidential containers support custom applications developed with any programming languages. You can also run Docker container apps off the shelf.
-
-![Diagram of confidential container protection boundary in Kubernetes.]()
 
 :::image type="content" source="./media/confidential-containers/sgx-confidential-container.png" alt-text="Diagram of confidential container protection boundary in Kubernetes, showing no access for admins.":::
 
