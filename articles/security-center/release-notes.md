@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 11/02/2021
+ms.date: 11/04/2021
 ms.author: memildin
 ---
 # What's new in Microsoft Defender for Cloud?
@@ -36,7 +36,7 @@ Our Ignite release includes:
 Other changes in November include:
 
 - [Microsoft Threat and Vulnerability Management added as vulnerability assessment solution - released for general availability (GA)](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution---released-for-general-availability-ga)
-- [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers - released for general availability (GA)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers---released-for-general-availability-ga)
+- [Microsoft Defender for Endpoint for Linux now supported by Microsoft Defender for servers - released for general availability (GA)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-microsoft-defender-for-servers---released-for-general-availability-ga)
 - [Snapshot export for recommendations and security findings (in preview)](#snapshot-export-for-recommendations-and-security-findings-in-preview)
 - [Auto provisioning of vulnerability assessment solutions released for general availability (GA)](#auto-provisioning-of-vulnerability-assessment-solutions-released-for-general-availability-ga)
 - [Software inventory filters in asset inventory released for general availability (GA)](#software-inventory-filters-in-asset-inventory-released-for-general-availability-ga)
@@ -129,7 +129,7 @@ To automatically surface the vulnerabilities, on existing and new machines, with
 
 Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
 
-### Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers - released for general availability (GA)
+### Microsoft Defender for Endpoint for Linux now supported by Microsoft Defender for servers - released for general availability (GA)
 
 In August, [we announced](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview) preview support for deploying the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines. This feature is now released for general availability (GA).
 

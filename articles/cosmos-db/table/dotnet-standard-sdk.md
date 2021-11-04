@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/18/2019
+ms.date: 11/03/2021
 ms.custom: devx-track-dotnet
 
 ---
