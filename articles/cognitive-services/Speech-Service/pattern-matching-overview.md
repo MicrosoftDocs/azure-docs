@@ -1,3 +1,15 @@
+---
+title: Pattern Matching overview
+titleSuffix: Azure Cognitive Services
+description: Pattern Matching with the IntentRecognizer helps you get started quickly with offline intent matching.
+author: chschrae
+manager: travisw
+ms.topic: conceptual
+ms.date: 10/13/2020
+ms.author: chschrae
+keywords: intent recognition pattern matching
+---
+
 # Pattern Matching overview
 
 Pattern matching can be customized to group together pattern intents and entities inside a PatternMatchingModel. Using this grouping, it is possible to access more advanced entity types that will help make your intent recognition more precise.
