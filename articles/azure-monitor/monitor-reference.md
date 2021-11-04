@@ -4,7 +4,7 @@ description: Reference of all services and other resources monitored by Azure Mo
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 10/15/2021
+ms.date: 11/02/2021
 
 ---
 
@@ -30,7 +30,7 @@ The table below lists the available curated visualizations and more detailed inf
 | [Azure Backup Insights](/azure/backup/backup-azure-monitoring-use-azuremonitor) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_DataProtection/BackupCenterMenuBlade/backupReportsConfigure/menuId/backupReportsConfigure) | Provides built-in monitoring and alerting capabilities in a Recovery Services vault. | 
 | [Azure Monitor for Azure Cache for Redis (preview)](/azure/azure-monitor/insights/redis-cache-insights-overview) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/redisCacheInsights) | Provides a unified, interactive view of overall performance, failures, capacity, and operational health | 
 | [Azure Cosmos DB Insights](/azure/azure-monitor/insights/cosmosdb-insights-overview) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/cosmosDBInsights) | Provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. | 
-| [Azure Data Explorer Cluster](/azure/azure-monitor/insights/data-explorer) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/adxClusterInsights) | Azure Data Explorer Insights provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures. | 
+| [Azure Data Explorer insights](/azure/azure-monitor/insights/data-explorer) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/adxClusterInsights) | Azure Data Explorer Insights provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures. | 
 | [Azure HDInsight (preview)](/azure/hdinsight/log-analytics-migration#insights) | Preview | No | An Azure Monitor workbook that collects important performance metrics from your HDInsight cluster and provides the visualizations and dashboards for most common scenarios. Gives a complete view of a single HDInsight cluster including resource utilization and application status|
  | [Azure IoT Edge Insights](/azure/iot-edge/how-to-explore-curated-visualizations/) | GA | No | Visualize and explore metrics collected from the IoT Edge device right in the Azure portal using Azure Monitor Workbooks based public templates. The curated workbooks use built-in metrics from the IoT Edge runtime. These views don't need any metrics instrumentation from the workload modules. | 
  | [Azure Key Vault Insights (preview)](/azure/azure-monitor/insights/key-vault-insights-overview) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/keyvaultsInsights) | Provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. | 
@@ -77,7 +77,7 @@ The other services and older monitoring solutions in the following table store t
 |:---|:---|
 | [ITSM](alerts/itsmc-overview.md) | The IT Service Management Connector (ITSMC) allows you to connect Azure and a supported IT Service Management (ITSM) product/service.  |
 | [Azure Monitor Partners](/azure/azure-monitor/partners/) | A list of partners that integrate with Azure Monitor in some form | 
-| [Datadog Integration](/azure/partner-solutions/datadog/overview) | A specialized integration between Azure Monitor and Datadog for companies who have already built their monitoring infrastructure on Datadog |
+| [Azure Monitor Partner integrations](/azure/partner-solutions/overview/)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms if you've already built on them.  Examples include Datadog and Elastic|
 
 
 ## Resources outside of Azure

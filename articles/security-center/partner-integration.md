@@ -8,7 +8,7 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: memildin
-ms.custom: ignite-fall-2021
+
 ---
 # Integrate security solutions in Microsoft Defender for Cloud
 

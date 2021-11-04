@@ -115,6 +115,9 @@ az spring-cloud connection create confluent-cloud -g <your-spring-cloud-resource
 * **Replace** *\<kafka-schema-registry-endpoint>* with your kafka Schema Registry endpoint (the value should be like `https://psrc-xxxx.westus2.azure.confluent.cloud`)
 * **Replace** *\<registry-api-key>* and *\<registry-api-secret>* with your kafka Schema Registry API key and secret.
 
+> [!NOTE]
+> If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again. 
+
 #### [Portal](#tab/Azure-portal)
 
 Click **Service Connector (Preview)** Select or enter the following settings.

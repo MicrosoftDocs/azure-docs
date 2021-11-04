@@ -6,7 +6,7 @@ ms.topic: sample
 author: memildin
 ms.author: memildin
 ms.service: security-center
-ms.custom: subject-resourcegraph-sample, ignite-fall-2021
+ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Microsoft Defender for Cloud
 

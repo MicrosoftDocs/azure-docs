@@ -34,10 +34,10 @@ Azure Machine Learning data labeling is a central place to create, manage, and m
 > [!Important]
 > Text data must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload files during project creation.)
 
-Text data can be either ".txt" or ".csv" files.
+Data formats available for text data:
 
-* For ".txt" files, each file represents one item to be labeled.
-* For ".csv" files, each row represents one item presented to the labeler.  You can display one or more columns to use when labeling that row.
+* **.txt**: each file represents one item to be labeled.
+* **.csv** or **.tsv**: each row represents one item presented to the labeler.  You decide which columns the labeler can see in order to label the row.
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**:
-    * Select **Tabular** if you're using a .csv file, where each row contains a response.
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
     * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
@@ -96,16 +96,16 @@ To directly upload your data:
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**.
-    * Select **Tabular** if you're using a .csv file, where each row is a response.
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response.
     * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description of your dataset.
 1. Select **Next**
 1. (Optional) Select or create a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
 1. Select **Upload** to select the local file(s) or folder(s) to upload.
 1. Select **Next**.
-1. If uploading .csv files:
+1. If uploading .csv or .tsv files:
     * Confirm the settings and preview, select **Next**.
-    * Include all columns of text you'd like the labeler to see when classifying that row.
+    * Include all columns of text you'd like the labeler to see when classifying that row.  If you'll be using ML assisted labeling, adding numeric columns may degrade the ML assist model.
     * Select **Next**.
 1.  Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
@@ -113,6 +113,9 @@ To directly upload your data:
 ## <a name="incremental-refresh"> </a> Configure incremental refresh
 
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
+
+> [!NOTE]
+> Incremental refresh isn't available for projects that use tabular (.csv or .tsv) dataset input.
 
 ## Specify label classes
 

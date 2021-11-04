@@ -9,7 +9,6 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Triage, investigate, and respond to security alerts
@@ -102,7 +101,7 @@ Other quickstarts and tutorials in this collection build upon this quickstart. I
 
 If you don't plan to continue, or you want to disable either of these features:
 
-1. From Defender for Cloud's menu, select **Environment settings**.
+1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. Select **Defender plans** and select **Enhanced security off**.
 
@@ -113,7 +112,7 @@ If you don't plan to continue, or you want to disable either of these features:
     > [!NOTE]
     > After you disable enhanced security features - whether you disable a single plan or all plans at once - data collection may continue for a short period of time. 
 
-1. From Defender for Cloud's menu, select **Environment settings**.
+1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. Select **Auto provisioning**.
 1. Disable the relevant extensions.
