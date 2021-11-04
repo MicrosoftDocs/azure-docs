@@ -389,7 +389,7 @@ Azure Information Protection Premium is part of the [Enterprise Mobility + Secur
 
 ### [Azure Security Center](../security-center/security-center-introduction.md)
 
-For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud-apps).
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud).
 
 ### [Azure Sentinel](../sentinel/overview.md)
 

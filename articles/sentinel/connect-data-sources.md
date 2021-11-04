@@ -33,10 +33,9 @@ The **Data connectors** page, accessible from the Microsoft Sentinel navigation 
 
 This article describes supported data connection methods. For more information, see [Microsoft Sentinel data connectors reference](data-connectors-reference.md) and the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
-
 <a name="agent-options"></a>
 <a name="data-connection-methods"></a>
-<a name="map-data-types-with-azure-sentinel-connection-options"></a>
+<a name="map-data-types-with-microsoft-sentinel-connection-options"></a>
 
 ## Enable a data connector
 
@@ -95,7 +94,7 @@ The device's built-in Syslog daemon collects local events of the specified types
 
 Depending on the device type, the agent is installed either directly on the device, or on a dedicated Linux-based log forwarder. The Log Analytics agent receives events from the Syslog daemon over UDP. If a Linux machine is expected to collect a high volume of Syslog events, it sends events over TCP from the Syslog daemon to the agent, and from there to Log Analytics.
 
-For more information, see [Connect Syslog-based appliances to Microsoft Sentinel](connect-syslog.md). 
+For more information, see [Connect Syslog-based appliances to Microsoft Sentinel](connect-syslog.md).
 
 ### Common Event Format (CEF)
 
@@ -113,7 +112,7 @@ Follow the steps in each Microsoft Sentinel data connector page to connect using
 
 For more information, see [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md).
 
-## Service to service integration
+## Service-to-service integration
 
 Microsoft Sentinel uses the Azure foundation to provide out-of-the-box, service-to-service support for  Microsoft services and Amazon Web Services.
 
@@ -121,9 +120,10 @@ For more information, see [Connect to Azure, Windows, Microsoft, and Amazon serv
 
 ## Deploy as part of a solution
 
-[Microsoft Sentinel solutions](sentinel-solutions.md) provide packages of security content, including data connectors, workbooks, analytics rules, playbooks, and more. When you deploy a solution with a data connector, you'll get the data connector together with related content in the same deployment. 
+[Microsoft Sentinel solutions](sentinel-solutions.md) provide packages of security content, including data connectors, workbooks, analytics rules, playbooks, and more. When you deploy a solution with a data connector, you'll get the data connector together with related content in the same deployment.
 
 For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) and the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
+
 ## Data connector support
 
 Both Microsoft and other organizations author Microsoft Sentinel data connectors. Each data connector has one of the following support types:
