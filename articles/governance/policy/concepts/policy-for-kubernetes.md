@@ -234,7 +234,7 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](/
 
 1. Before installing the Azure Policy extension or enabling any of the service features, your subscription must enable the **Microsoft.PolicyInsights** resource providers.
     > Note: To enable the resource provider, follow the steps in
-   [Resource providers and types](../../../azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)
+   [Resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)
    or run either the Azure CLI or Azure PowerShell command:
    - Azure CLI
 
@@ -382,7 +382,7 @@ cluster service principal.
 
 1. The Kubernetes cluster must be version _1.14_ or higher.
 
-1. Install [Helm 3](../../../v3.helm.sh/docs/intro/install/).
+1. Install [Helm 3](https://v3.helm.sh/docs/intro/install/).
 
 1. Your Kubernetes cluster enabled for Azure Arc. For more information, see
    [onboarding a Kubernetes cluster to Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md).
@@ -874,11 +874,11 @@ For more information about troubleshooting the Add-on for Kubernetes, see the
 of the Azure Policy troubleshooting article.
 
 For Azure Policy extension for Arc extension related issues, please see:
-- [Azure Arc enabled Kubernetes troubleshooting](https://docs.microsoft.com/azure/azure-arc/kubernetes/troubleshooting#azure-arc-enabled-kubernetes-troubleshooting)
+- [Azure Arc enabled Kubernetes troubleshooting](/azure/azure-arc/kubernetes/troubleshooting#azure-arc-enabled-kubernetes-troubleshooting)
 
 For Azure Policy related issues, please see:
-- [Inspect Azure Policy logs](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#logging)
-- [General troubleshooting for Azure Policy on Kubernetes](https://docs.microsoft.com/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors)
+- [Inspect Azure Policy logs](/azure/governance/policy/concepts/policy-for-kubernetes#logging)
+- [General troubleshooting for Azure Policy on Kubernetes](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors)
 
 ## Remove the add-on
 
