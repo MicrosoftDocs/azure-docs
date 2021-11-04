@@ -381,7 +381,7 @@ This section outlines variations and considerations when using Security services
 
 ### [Azure Defender for IoT](../defender-for-iot/index.yml)
 
-For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-defender-for-iot).
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-iot).
 
 ### [Azure Information Protection](/azure/information-protection/what-is-information-protection)
 
@@ -389,7 +389,7 @@ Azure Information Protection Premium is part of the [Enterprise Mobility + Secur
 
 ### [Azure Security Center](../security-center/security-center-introduction.md)
 
-For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-security-center).
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud-apps).
 
 ### [Azure Sentinel](../sentinel/overview.md)
 

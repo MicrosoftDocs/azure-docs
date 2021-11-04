@@ -45,7 +45,7 @@ Fusion is enabled by default in Microsoft Sentinel, as an [analytics rule](detec
 
 The volume of security events continues to grow, and the scope and sophistication of attacks are ever increasing. We can define the known attack scenarios, but how about the emerging and unknown threats in your environment?  
 
-Microsoft Sentinel's ML-powered Fusion engine can help you find the **emerging and unknown threats** in your environment by applying **extended ML analysis** and by correlating **a broader scope of anomalous signals**, while keeping the alert fatigue low. 
+Microsoft Sentinel's ML-powered Fusion engine can help you find the **emerging and unknown threats** in your environment by applying **extended ML analysis** and by correlating **a broader scope of anomalous signals**, while keeping the alert fatigue low.
 
 The Fusion engine's ML algorithms constantly learn from existing attacks and apply analysis based on how security analysts think. It can therefore discover previously undetected threats from millions of anomalous behaviors across the kill-chain throughout your environment, which helps you stay one step ahead of the attackers.
 
@@ -53,14 +53,14 @@ The Fusion engine's ML algorithms constantly learn from existing attacks and app
 
 - [Out-of-the-box anomaly detections](soc-ml-anomalies.md)
 - Alerts from Microsoft products:
-    - Azure Active Directory Identity Protection
-    - Microsoft Defender for Cloud
-    - Microsoft Defender for IoT
-    - Microsoft 365 Defender
-    - Microsoft Defender for Cloud Apps
-    - Microsoft Defender for Endpoint
-    - Microsoft Defender for Identity
-    - Microsoft Defender for Office 365
+  - Azure Active Directory Identity Protection
+  - Microsoft Defender for Cloud
+  - Microsoft Defender for IoT
+  - Microsoft 365 Defender
+  - Microsoft Defender for Cloud Apps
+  - Microsoft Defender for Endpoint
+  - Microsoft Defender for Identity
+  - Microsoft Defender for Office 365
 - [**Alerts from scheduled analytics rules**](configure-fusion-rules.md#configure-scheduled-analytics-rules-for-fusion-detections), both [built-in](detect-threats-built-in.md#scheduled) and those [created by your security analysts](detect-threats-custom.md). Analytics rules must contain kill-chain (tactics) and entity mapping information in order to be used by Fusion.
 
 You don’t need to have connected *all* the data sources listed above in order to make Fusion for emerging threats work. However, the more data sources you have connected, the broader the coverage, and the more threats Fusion will find.
@@ -74,7 +74,7 @@ Microsoft Sentinel's Fusion engine generates an incident when it detects multipl
 - [Microsoft Defender for Cloud](connect-azure-security-center.md)
 - [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
 - [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
-- [Microsoft Defender for Cloud Apps](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
+- [Microsoft Defender for Cloud Apps](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
 - [Microsoft Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information and mapped entities.
 
 Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
@@ -87,7 +87,7 @@ For example, Microsoft Sentinel would generate an incident for possible ransomwa
 | **'GandCrab' ransomware was prevented** | Microsoft Defender for Cloud | medium |
 | **'Emotet' malware was detected** | Microsoft Defender for Endpoint | informational |
 | **'Tofsee' backdoor was detected** | Microsoft Defender for Cloud | low |
-| **'Parite' malware was detected** | Microsoft Defender for Endpoint | informational 
+| **'Parite' malware was detected** | Microsoft Defender for Endpoint | informational |
 
 ## Scenario-based Fusion detections
 
@@ -120,6 +120,7 @@ In order to enable these Fusion-powered attack detection scenarios, their associ
 ## Next steps
 
 Get more information about Fusion advanced multistage attack detection:
+
 - Learn more about the [Fusion scenario-based attack detections](fusion-scenario-reference.md).
 - Learn how to [configure the Fusion rules](configure-fusion-rules.md).
 

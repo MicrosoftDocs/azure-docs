@@ -1,10 +1,10 @@
 ---
-title: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel | Microsoft Docs
-description: Walk through the Microsoft Sentinel Getting Started Guide For Microsoft Sentinel ML Notebooks to learn the basics of Microsoft Sentinel notebooks with MSTICPy and queries.
-services: Sentinel
+title: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel
+description: Walk through the Getting Started Guide For Microsoft Sentinel ML Notebooks to learn the basics of Microsoft Sentinel notebooks with MSTICPy and queries.
+services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-Sentinel
+ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 08/23/2021
 ---
