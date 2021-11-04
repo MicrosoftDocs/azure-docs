@@ -99,7 +99,7 @@ Tagging threat indicators is an easy way to group them together to make them eas
 
 :::image type="content" source="media/understand-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/understand-threat-intelligence/threat-intel-tagging-indicators.png":::
 
-For more details on viewing and managing your threat indicators, see [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md#view-your-threat-indicators-in-azure-sentinel).
+For more details on viewing and managing your threat indicators, see [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md#view-your-threat-indicators-in-microsoft-sentinel).
 
 ### View your GeoLocation and WhoIs data enrichments (Public preview)
 

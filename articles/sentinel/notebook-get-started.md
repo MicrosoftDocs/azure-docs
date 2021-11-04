@@ -35,7 +35,7 @@ For more information, see [Use notebooks to power investigations](hunting.md#use
 
 ## Prerequisites
 
-- To use notebooks in Microsoft Sentinel, make sure that you have the required permissions. For more information, see [Manage access to Microsoft Sentinel notebooks](notebooks.md#manage-access-to-azure-sentinel-notebooks).
+- To use notebooks in Microsoft Sentinel, make sure that you have the required permissions. For more information, see [Manage access to Microsoft Sentinel notebooks](notebooks.md#manage-access-to-microsoft-sentinel-notebooks).
 
 - To perform the steps in this tutorial, you'll need Python 3.6 or later. In Azure ML you can use either a Python 3.8 kernel (recommended) or a Python 3.6 kernel.
 
@@ -53,7 +53,6 @@ For more information, see [Use notebooks to power investigations](hunting.md#use
 ## Run and initialize the Getting Started Guide notebook
 
 This procedure describes how to launch your notebook and initialize MSTICpy.
-
 
 1. In Microsoft Sentinel, select **Notebooks** from the left.
 
@@ -200,7 +199,6 @@ This procedure describes how to store a [MaxMind GeoLite2 account key](#prerequi
 
     - On Windows, this folder is mapped to the **%USERPROFILE%/.msticpy**.
     - On Linux or macOS, this path is mapped to the **.msticpy** folder in your home folder.
-
 
 > [!TIP]
 > For more information about other supported geolocation lookup services, see the [MSTICPy GeoIP Providers documentation](https://msticpy.readthedocs.io/en/latest/data_acquisition/GeoIPLookups.html).
@@ -672,7 +670,6 @@ You can also use these Azure settings to define default preferences for the Azur
 For example:
 
 :::image type="content" source="media/notebook-get-started/settings-for-azure-gov-cloud.png" alt-text="Screenshot of settings defined for the Azure Government cloud.":::
-
 
 ## Next steps
 

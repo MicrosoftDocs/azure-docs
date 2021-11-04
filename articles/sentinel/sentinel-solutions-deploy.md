@@ -43,7 +43,7 @@ This article describes how to install solutions in your Microsoft Sentinel works
 
     Filter the list displayed, either by selecting specific values from the filters, or entering any part of a solution name or description in the **Search** field.
 
-    For more information, see [Microsoft Sentinel out-of-the-box content and solution categories](sentinel-solutions.md#azure-sentinel-out-of-the-box-content-and-solution-categories).
+    For more information, see [Microsoft Sentinel out-of-the-box content and solution categories](sentinel-solutions.md#microsoft-sentinel-out-of-the-box-content-and-solution-categories).
 
     > [!TIP]
     > If a solution that you've deployed has updates since you deployed it, an orange triangle will indicate that you have updates to deploy, and it'll be indicated in the blue triangle at the top of the page.
@@ -58,7 +58,6 @@ For example, in the following image, the **Cisco Umbrella** solution shows a cat
 ## Install or update a solution
 
 1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**, if you need updates. For example:
-
 
 1. On the solution details page, select **Create** or **Update** to start the solution wizard. On the wizard's **Basics** tab, enter the subscription, resource group, and workspace to which you want to deploy the solution. For example:
 
@@ -75,7 +74,6 @@ For example, in the following image, the **Cisco Umbrella** solution shows a cat
 1. Finally, in the **Review + create** tab, wait for the `Validation Passed` message, then select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
 For more information, see [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md) and [Find your Microsoft Sentinel data connector](data-connectors-reference.md).
-
 
 ## Find the support model for your solution
 

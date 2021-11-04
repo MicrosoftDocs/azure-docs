@@ -21,7 +21,6 @@ This article describes how to deploy the Microsoft Sentinel SAP data connector w
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Prerequisites
 
@@ -120,9 +119,9 @@ We recommend that you perform this procedure after you have a [key vault](#creat
 
     You'll need to edit all configurations except for the key vault secrets. For more information, see [Manually configure the SAP data connector](sap-solution-deploy-alternate.md#manually-configure-the-sap-data-connector).
 
-1. Define the logs that you want to ingest into Microsoft Sentinel using the instructions in the **systemconfig.ini** file. 
+1. Define the logs that you want to ingest into Microsoft Sentinel using the instructions in the **systemconfig.ini** file.
 
-    For example, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-azure-sentinel).
+    For example, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
     > [!NOTE]
     > Relevant logs for SNC communications are only those logs that are retrieved via the NetWeaver / ABAP interface. SAP Control and HANA logs are out of scope for SNC.
@@ -139,13 +138,12 @@ We recommend that you perform this procedure after you have a [key vault](#creat
 
 1. Save your updated **systemconfig.ini** file in the **sapcon** directory on your VM.
 
-1. Download and run the pre-defined Docker image with the SAP data connector installed.  Run:
+1. Download and run the pre-defined Docker image with the SAP data connector installed. Run:
 
     ```bash
     docker pull docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
     docker create -v $(pwd):/sapcon-app/sapcon/config/system -v /home/azureuser /sap/sec:/sapcon-app/sec --env SCUDIR=/sapcon-app/sec --name sapcon-snc mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
     ```
-
 
 ## Post-deployment SAP system procedures
 
@@ -196,7 +194,6 @@ After deploying your SAP data connector, perform the following SAP system proced
     ```
 
     For more information, see [Exchanging the Public-Key Certificates](https://help.sap.com/viewer/4773a9ae1296411a9d5c24873a8d418c/8.0/en-US/7bbf90b29c694e6080e968559170fbcd.html) in the SAP documentation.
-
 
 ## Edit the SAP data connector configuration
 

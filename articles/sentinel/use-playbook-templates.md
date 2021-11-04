@@ -39,17 +39,17 @@ You can get playbook templates from the following sources:
 
 - Playbook templates can also be obtained as part of an [**Microsoft Sentinel Solution**](sentinel-solutions.md) in the context of a specific product. The deployment of the solution produces active playbooks.
 
-- The [**Microsoft Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button. 
+- The [**Microsoft Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button.
 
-Technically, a playbook template is an [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/index.yml) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved. 
+Technically, a playbook template is an [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/index.yml) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved.
 
 This article focuses on deploying a playbook template from the **Playbook templates** tab under **Automation**.
 
 This article helps you understand how to:
 
 > [!div class="checklist"]
-> * Explore out-of-the-box playbook templates
-> * Deploy a playbook template
+> - Explore out-of-the-box playbook templates
+> - Deploy a playbook template
 
 ## Explore playbook templates
 
@@ -61,25 +61,25 @@ The playbook templates displayed here demonstrate leading automation scenarios t
 
 To find a playbook template that fits your requirements, you can filter the list by the following criteria:
 
-- **Trigger** indicates the playbook is triggered by incident creation (and can therefore be attached to an automation rule), by alert creation (and can therefore be attached to an analytics rule), or by something else. [Learn more](playbook-triggers-actions.md#azure-sentinel-triggers-summary)
+- **Trigger** indicates the playbook is triggered by incident creation (and can therefore be attached to an automation rule), by alert creation (and can therefore be attached to an analytics rule), or by something else. [Learn more](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary)
 
 - **Logic Apps connectors** shows the external services this playbook will interact with. During the deployment process, each connector will need to assume an identity to authenticate to the external service.
 
 - **Entities** shows the entity types explicitly filtered and parsed by a playbook that expects to find those entity types in the incident. For example, a playbook that tells a firewall to block an IP address will expect to operate on incidents created by analytics rules that generate alerts containing IP addresses, such as a Brute Force attack detection rule.
 
 - **Tags** show labels applied to the playbook to relate it to a specific scenario, or to indicate a special characteristic.
- 
-    Examples:
 
-    - **Enrichment** - The playbook fetches information from another service to add information to an incident. This information is usually added as a comment to the incident or sent to the SOC.
+  Examples:
 
-    - **Remediation** - The playbook takes an action on the affected entities to eliminate a potential threat.
+  - **Enrichment** - The playbook fetches information from another service to add information to an incident. This information is usually added as a comment to the incident or sent to the SOC.
 
-    - **Sync** - The playbook helps to keep an external service, such as an incident management service, updated with the incident's properties.
+  - **Remediation** - The playbook takes an action on the affected entities to eliminate a potential threat.
 
-    - **Notification** - The playbook sends an email or message.
+  - **Sync** - The playbook helps to keep an external service, such as an incident management service, updated with the incident's properties.
 
-    - **Response from Teams** - The playbook allows the analysts to take a manual action from Teams using interactive cards.
+  - **Notification** - The playbook sends an email or message.
+
+  - **Response from Teams** - The playbook allows the analysts to take a manual action from Teams using interactive cards.
 
 :::image type="content" source="media/use-playbook-templates/filters.png" alt-text="Filter the list of playbook templates":::
 
@@ -87,7 +87,7 @@ To find a playbook template that fits your requirements, you can filter the list
 
 This procedure describes how to deploy playbook templates.
 
-You can repeat this process to create multiple playbooks on the same template. 
+You can repeat this process to create multiple playbooks on the same template.
 
 1. Select a playbook name from the **Playbook templates** tab.
 
@@ -103,14 +103,14 @@ You can repeat this process to create multiple playbooks on the same template.
         :::image type="content" source="media/use-playbook-templates/basics.png" alt-text="Playbook creation wizard, basics tab":::
 
     - **Parameters:** Enter customer-specific values that playbook will use. For example, if this playbook will send an email to the SOC, you can define the recipient address here. This tab will be shown only if the playbook has parameters.
-    
+
         > [!NOTE]
         > If this playbook has a custom connector in use, it should be deployed in the same resource group, and you will be able to insert its name in this tab.
 
         :::image type="content" source="media/use-playbook-templates/parameters.png" alt-text="Playbook creation wizard, parameters tab":::
 
     - **Connections:** Expand each action to see the existing connections you created for previous playbooks. Learn more about [creating connections for playbooks](authenticate-playbooks-to-sentinel.md).
-    
+
         > [!NOTE]
         > For custom connectors, connections will be displayed by the name of the custom connector entered in the **Parameters** tab.
 
@@ -122,7 +122,6 @@ You can repeat this process to create multiple playbooks on the same template.
 
     - **Review and Create:** View a summary of the process and await validation of your input before creating the playbook.
 
-
 1. After following the steps in the playbook creation wizard to the end, you will be taken to the new playbook's workflow design in the Logic Apps designer.
 
     :::image type="content" source="media/use-playbook-templates/designer.png" alt-text="See playbook in Logic Apps designer":::
@@ -133,7 +132,7 @@ You can repeat this process to create multiple playbooks on the same template.
     1. Select **Edit API connection** from the navigation menu.
     1. Fill in the required parameters and click **Save**.
         :::image type="content" source="media/use-playbook-templates/edit-api-connection.png" alt-text="Screenshot showing how to edit A P I connections.":::
-    
+
     Alternatively, you can create a new connection from within the relevant steps in the Logic Apps designer:
     1. For each step which appears with an error sign, select it to expand.
     1. Select **Add new**.

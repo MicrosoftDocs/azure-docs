@@ -27,13 +27,12 @@ Analytics rules search for specific events or sets of events across your environ
 
 > [!TIP]
 > When creating custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any changes needed.
-> 
 
 > [!div class="checklist"]
-> * Create analytics rules
-> * Define how events and alerts are processed
-> * Define how alerts and incidents are generated
-> * Choose automated threat responses for your rules
+> - Create analytics rules
+> - Define how events and alerts are processed
+> - Define how alerts and incidents are generated
+> - Choose automated threat responses for your rules
 
 ## Create a custom analytics rule with a scheduled query
 
@@ -45,11 +44,11 @@ Analytics rules search for specific events or sets of events across your environ
 
 ### Analytics rule wizard - General tab
 
-- Provide a unique **Name** and a **Description**. 
+- Provide a unique **Name** and a **Description**.
 
 - In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
 
-- Set the alert **Severity** as appropriate. 
+- Set the alert **Severity** as appropriate.
 
 - When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
@@ -75,7 +74,8 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     ```
 
     > [!NOTE]
-    > **Rule query best practices**: 
+    > **Rule query best practices**:
+    >
     > - The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) to overcome the query length limitation.
     >
     > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
@@ -108,14 +108,14 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Set query schedule and event grouping" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2-new.png":::
 
-    - Set **Run query every** to control how often the query is run - as frequently as every 5 minutes or as infrequently as once every 14 days.
+  - Set **Run query every** to control how often the query is run - as frequently as every 5 minutes or as infrequently as once every 14 days.
 
-    - Set **Lookup data from the last** to determine the time period of the data covered by the query - for example, it can query the past 10 minutes of data, or the past 6 hours of data. The maximum is 14 days.
+  - Set **Lookup data from the last** to determine the time period of the data covered by the query - for example, it can query the past 10 minutes of data, or the past 6 hours of data. The maximum is 14 days.
 
-        > [!NOTE]
-        > **Query intervals and lookback period**
-        >
-        >  These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
+    > [!NOTE]
+    > **Query intervals and lookback period**
+    >
+    >  These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
         >
         > **Ingestion delay**
         >
@@ -140,34 +140,33 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 > [!IMPORTANT]
 > Event grouping is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-- Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**: 
+- Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**:
 
-    - **Group all events into a single alert** (the default setting). The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** above. The alert includes a summary of all the events returned in the results. 
+  - **Group all events into a single alert** (the default setting). The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** above. The alert includes a summary of all the events returned in the results.
 
-    - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or something else. You can define these parameters in the query.
+  - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or something else. You can define these parameters in the query.
 
-        Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the 20th alert will summarize the entire set of returned events. In other words, the 20th alert is what would have been generated under the **Group all events into a single alert** option.
+    Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the 20th alert will summarize the entire set of returned events. In other words, the 20th alert is what would have been generated under the **Group all events into a single alert** option.
 
-        If you choose this option, Microsoft Sentinel will add a new field, **OriginalQuery**, to the results of the query. Here is a comparison of the existing **Query** field and the new field:
+    If you choose this option, Microsoft Sentinel will add a new field, **OriginalQuery**, to the results of the query. Here is a comparison of the existing **Query** field and the new field:
 
-        | Field name | Contains | Running the query in this field<br>results in... |
-        | - | :-: | :-: |
-        | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert |
-        | **OriginalQuery** | The original query as written in the analytics&nbsp;rule | The most recent event in the timeframe in which the query runs, that fits the parameters defined by the query |
-        |
+    | Field name | Contains | Running the query in this field<br>results in... |
+    | - | :-: | :-: |
+    | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert |
+    | **OriginalQuery** | The original query as written in the analytics&nbsp;rule | The most recent event in the timeframe in which the query runs, that fits the parameters defined by the query |
 
-        In other words, the **OriginalQuery** field behaves like the **Query** field usually behaves. The result of this extra field is that the problem described by the first item in the [Troubleshooting](#troubleshooting) section below has been solved.
- 
-    > [!NOTE]
-    > What's the difference between **events** and **alerts**?
-    >
-    > - An **event** is a description of a single occurrence of an action. For example, a single entry in a log file could count as an event. In this context an event refers to a single result returned by a query in an analytics rule.
-    >
-    > - An **alert** is a collection of events that, taken together, are significant from a security standpoint. An alert could contain a single event if the event had significant security implications - an administrative login from a foreign country outside of office hours, for example.
-    >
-    > - By the way, what are **incidents**? Microsoft Sentinel's internal logic creates **incidents** from **alerts** or groups of alerts. The incidents queue is the focal point of SOC analysts' work - triage, investigation and remediation.
-    > 
-    > Microsoft Sentinel ingests raw events from some data sources, and already-processed alerts from others. It is important to note which one you're dealing with at any time.
+    In other words, the **OriginalQuery** field behaves like the **Query** field usually behaves. The result of this extra field is that the problem described by the first item in the [Troubleshooting](#troubleshooting) section below has been solved.
+
+  > [!NOTE]
+  > What's the difference between **events** and **alerts**?
+  >
+  > - An **event** is a description of a single occurrence of an action. For example, a single entry in a log file could count as an event. In this context an event refers to a single result returned by a query in an analytics rule.
+  >
+  > - An **alert** is a collection of events that, taken together, are significant from a security standpoint. An alert could contain a single event if the event had significant security implications - an administrative login from a foreign country outside of office hours, for example.
+  >
+  > - By the way, what are **incidents**? Microsoft Sentinel's internal logic creates **incidents** from **alerts** or groups of alerts. The incidents queue is the focal point of SOC analysts' work - triage, investigation and remediation.
+  >
+  > Microsoft Sentinel ingests raw events from some data sources, and already-processed alerts from others. It is important to note which one you're dealing with at any time.
 
 - In the **Suppression** section, you can turn the **Stop running query after alert is generated** setting **On** if, once you get an alert, you want to suspend the operation of this rule for a period of time exceeding the query interval. If you turn this on, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
 
@@ -194,7 +193,6 @@ In the **Incident settings** section, **Create incidents from alerts triggered b
 
 In the **Alert grouping** section, if you want a single incident to be generated from a group of up to 150 similar or recurring alerts (see note), set **Group related alerts, triggered by this analytics rule, into incidents** to **Enabled**, and set the following parameters.
 
-
 - **Limit the group to alerts created within the selected time frame**: Determine the time frame within which the similar or recurring alerts will be grouped together. All of the corresponding alerts within this time frame will collectively generate an incident or a set of incidents (depending on the grouping settings below). Alerts outside this time frame will generate a separate incident or set of incidents.
 
 - **Group alerts triggered by this analytics rule into a single incident by**: Choose the basis on which alerts will be grouped together:
@@ -207,7 +205,7 @@ In the **Alert grouping** section, if you want a single incident to be generated
     |
 
 - **Re-open closed matching incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the alert to create a new incident.
-    
+
     > [!NOTE]
     > **Up to 150 alerts** can be grouped into a single incident. If more than 150 alerts are generated by a rule that groups them into a single incident, a new incident will be generated with the same incident details as the original, and the excess alerts will be grouped into the new incident.
 
@@ -217,7 +215,7 @@ In the **Alert grouping** section, if you want a single incident to be generated
     - For alert-based automation, select from the drop-down list under **Alert automation** any playbooks you want to run automatically when an alert is generated.
     - For incident-based automation, select or create an automation rule under **Incident automation (preview)**. You can call playbooks (those based on the **incident trigger**) from these automation rules, as well as automate triage, assignment, and closing.
     - For more information and instructions on creating playbooks and automation rules, see [Automate threat responses](tutorial-respond-threats-playbook.md#automate-threat-responses).
-    - For more information about when to use the **alert trigger** or the **incident trigger**, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md#azure-sentinel-triggers-summary).
+    - For more information about when to use the **alert trigger** or the **incident trigger**, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary).
 
     :::image type="content" source="media/tutorial-detect-threats-custom/automated-response-tab.png" alt-text="Define the automated response settings":::
 
@@ -244,7 +242,7 @@ If you want to package your rule to be managed and deployed as code, you can eas
 
 ### Issue: No events appear in query results
 
-If **event grouping** is set to **trigger an alert for each event**, then in certain scenarios, when viewing the query results at a later time (such as when pivoting back to alerts from an incident), it's possible that no query results will appear. This is because the event's connection to the alert is accomplished by the hashing of the particular event's information, and the inclusion of the hash in the query. If the query results have changed since the alert was generated, the hash will no longer be valid and no results will be displayed. 
+If **event grouping** is set to **trigger an alert for each event**, then in certain scenarios, when viewing the query results at a later time (such as when pivoting back to alerts from an incident), it's possible that no query results will appear. This is because the event's connection to the alert is accomplished by the hashing of the particular event's information, and the inclusion of the hash in the query. If the query results have changed since the alert was generated, the hash will no longer be valid and no results will be displayed.
 
 To see the events, manually remove the line with the hash from the rule's query, and run the query.
 
