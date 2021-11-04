@@ -173,7 +173,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
         # Or call .\env\Scripts\activate when you are using CMD
 
-        pip install azure-messaging-webpubsubservice
+        pip install azure-messaging-webpubsubservice==1.0.0b1
 
         ```
 2. Now let's use Azure Web PubSub SDK to publish a message to the service. Create a `publish.py` file with the below code:

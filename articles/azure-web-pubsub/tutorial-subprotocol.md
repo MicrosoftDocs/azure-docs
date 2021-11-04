@@ -103,7 +103,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
 
     # Or call .\env\Scripts\activate when you are using CMD under Windows
 
-    pip install azure-messaging-webpubsubservice
+    pip install azure-messaging-webpubsubservice==1.0.0b1
     ```
     
     ---
