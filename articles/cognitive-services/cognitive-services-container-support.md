@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/24/2021
+ms.date: 10/28/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
 #Customer intent: As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
@@ -86,7 +86,7 @@ Additionally, some containers are supported in the Cognitive Services [multi-ser
 * Computer Vision
 * Face
 * LUIS
-* Text Analytics
+* Language service
 
 ## Prerequisites
 

@@ -1,8 +1,8 @@
 ---
 title: Connect to and manage Oracle
-description: This guide describes how to connect to v in Azure Purview, and use Purview's features to scan and manage your Oracle source.
-author: chandrakavya
-ms.author: kchandra
+description: This guide describes how to connect to Oracle in Azure Purview, and use Purview's features to scan and manage your Oracle source.
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to

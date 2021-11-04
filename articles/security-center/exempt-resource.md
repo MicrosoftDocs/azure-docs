@@ -7,7 +7,7 @@ ms.date: 05/12/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
+
 ---
 
 # Exempting resources and recommendations from your secure score 
