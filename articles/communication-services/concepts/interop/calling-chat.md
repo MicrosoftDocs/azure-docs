@@ -76,11 +76,11 @@ const threadId = createChatThreadResult.chatThread.id; return threadId; }
 To make it easier to test, we have published a sample app [here](https://github.com/Azure-Samples/communication-services-web-chat-hero/tree/teams-interop-chat-adhoc). Update the app with your Communication Services resource and interop enabled Teams tenant to get started. 
 
 **Limitations and known issues** </br>
-While in private preview, a Communicaton User can perform various actions using the Communication Services Chat SDK, including sending and receiving of plain and rich text messages, typing indicators, read receipts, real-time notifications and more. However, most of the Teams chat features are not supported. Here are some key behaviours and known issues:
+While in private preview, a Communication Services user can do various actions using the Communication Services Chat SDK, including sending and receiving of plain and rich text messages, typing indicators, read receipts, real-time notifications and more. However, most of the Teams chat features aren't supported. Here are some key behaviors and known issues:
 -	Chats can only be initiated by Communication Services users. 
--	Communication Services users can't send or receive gifs, images or files. Links to files and images can be shared.
+-	Communication Services users can't send or receive gifs, images, or files. Links to files and images can be shared.
 -	Communication Services users can delete the chat. This removes the Teams user from the chat thread and hides the message history from the Teams client.
-- Known issue: Communication Services users are not displayed correctly in the participant list. They are currently displayed as External but their people card might be inconsistent. 
+- Known issue: Communication Services users aren't displayed correctly in the participant list. They are currently displayed as External but their people card might be inconsistent. 
 - Known issue: A chat can't be escalated to a call from within the Teams app. 
 - Known issue: Editing of messages by the Teams user is not supported. 
 
