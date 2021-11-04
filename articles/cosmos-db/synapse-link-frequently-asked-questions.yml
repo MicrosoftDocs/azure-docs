@@ -64,7 +64,7 @@ sections:
       - question: |
           Can I enable analytical store on existing containers?
         answer: |
-          Yes, for SQL API accounts. Please check our [documentation](configure-synapse-link.md) for more information. Currently it's not supported for MongoDB API accounts.
+          Currently you can only enable analytical store for existing SQL API containers.
 
       - question: |
           Can I disable analytical store on my Azure Cosmos DB containers after enabling it during container creation?
