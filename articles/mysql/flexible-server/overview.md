@@ -157,7 +157,7 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | --- | --- | --- | --- |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Canada East | :heavy_check_mark: | :x: | :x: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -171,19 +171,22 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | Japan West | :heavy_check_mark: | :x: | :x: |
 | Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Korea South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :x: | :x: |
-| UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ## Contacts
 
@@ -193,7 +196,7 @@ In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).
 
 ## Next steps
 
