@@ -9,7 +9,7 @@ ms.author: timmitchell
 ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: analytics
+ms.subservice: data
 ---
 
 # Communications Services Insights Preview

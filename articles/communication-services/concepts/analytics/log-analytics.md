@@ -140,7 +140,7 @@ ACSCallSummary
 
 Sample output:
 
-:::image type="content" source="media\log-analytics\sdk-ratio-sample.png" alt-text="sdk version ratio query"::: :::image type="content" source="media\log-analytics\sdk-ratio-table-sample.png" alt-text="sdk version ratio query":::
+:::image type="content" source="media\log-analytics\sdk-ratio-sample.png" alt-text="Pie chart showing the ratio of SDK Versions."::: :::image type="content" source="media\log-analytics\sdk-ratio-table-sample.png" alt-text="Table showing SDK Versions":::
 
 #### Ratio of OS Versions (simplified OS name)
 
@@ -160,8 +160,8 @@ ACSCallSummary
 
 Sample output:
 
-:::image type="content" source="media\log-analytics\os-version-graph.png" alt-text="sdk version ratio query":::
-:::image type="content" source="media\log-analytics\os-version-table.png" alt-text="sdk version ratio query":::
+:::image type="content" source="media\log-analytics\os-version-graph.png" alt-text="Pie chart showing operating system ratios":::
+:::image type="content" source="media\log-analytics\os-version-table.png" alt-text="Table showing OS Versions":::
 
 ### Media Stream Queries
 #### Streams per call
@@ -199,7 +199,7 @@ ACSCallDiagnostics
 | render piechart title="Media Type Ratio"
 ```
 
-:::image type="content" source="media\log-analytics\media-type-ratio.png" alt-text="streams per call histogram":::
+:::image type="content" source="media\log-analytics\media-type-ratio.png" alt-text="pie chart showing media type ratios":::
 
 ### Quality Metrics Queries
 

@@ -144,7 +144,7 @@ items:
       - name: Log Analytics
         href: concepts/analytics/log-analytics.md
       - name: Insights
-        href: concepts/analytics/workbooks.md
+        href: concepts/analytics/insights.md
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md
   - name: Client and server architecture
