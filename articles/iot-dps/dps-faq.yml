@@ -1,0 +1,43 @@
+### YamlMime:FAQ
+metadata:
+  title: Microsoft Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ) 
+  description: Find answer to common questions about Azure IoT Hub Device Provisioning Service.
+  author: anastasia-ms
+  ms.author: v-stharr
+  ms.date: 11/904/2021
+  ms.topic: conceptual
+  ms.service: iot-dps
+  services: iot-dps
+  
+    
+title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ)
+summary: |
+  This article answers to common questions about Azure IoT Hub Device Provisioning Service. The following topics are covered:
+  
+  * DPS Management
+
+  
+
+sections:
+  - name: DPS Management
+    questions:
+      - question: |
+          What is the recommended way to update a linked hub when the primary key for the IoT Hub access policy is regenerated? 
+        answer: |
+          Since the primary key is embedded within the connection string (the string DPS uses to auth) it gets changed whenever the primary is modified. To fix stale DPS-Hub links because of the connection string having changed you need to relink the Hub to the DPS.
+
+additionalContent: |
+
+  ## Next steps
+  
+  If this FAQ doesn’t answer your question, you can contact us through the following channels (in escalating order):
+
+  * The comments section of this article.
+  * [MSFT Q&A page for Azure DPS(/answers/topics/azure-dps.html).
+  * Microsoft Support. To create a new support request, in the [Azure portal](https://portal.azure.com/), on the Help tab, select the **Help +** support button, and then select **New support request**.
+  
+  More information link here
+  > [!div class="nextstepaction"]
+  > [Request Real-time weather data ](how-to-request-weather-data.md)
+  
+
