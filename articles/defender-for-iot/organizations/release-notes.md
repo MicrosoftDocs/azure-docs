@@ -1,11 +1,13 @@
 ---
-title: What's new in Azure Defender for IoT 
+title: What's new in Azure Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 10/31/2021
+ms.date: 11/04/2021
 ---
 
 # What's new in Azure Defender for IoT?  
+
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 This article lists new features and feature enhancements for Defender for IoT.
 
@@ -130,7 +132,7 @@ New fields are available for users working with alert APIs.
 - Source and destination address
 - Remediation steps
 - The name of sensor defined by the user
-- The name of zone associated with the sensor 
+- The name of zone associated with the sensor
 - The name of site associated with the sensor
 
 **Sensor**
@@ -175,6 +177,7 @@ This feature is available on the on-premises management console with the release
 - [Onboarding](#onboarding)
 - [Usability](#usability)
 - [Other updates](#other-updates)
+
 ### Security
 
 Certificate and password recovery enhancements were made for this release.
