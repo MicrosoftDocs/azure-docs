@@ -73,7 +73,7 @@ Azure services that assist with application monitoring are:
 
 #### Microsoft Defender for Cloud
 
-[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into (and control over) the security of your Azure resources, including web applications. Azure Security Center helps detect threats that might otherwise go unnoticed. It works with various security solutions.
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into (and control over) the security of your Azure resources, including web applications. Microsoft Defender for Cloud helps detect threats that might otherwise go unnoticed. It works with various security solutions.
 
 Defender for Cloud’s Free tier offers limited security for your Azure resources only. The [Defender for Cloud Standard tier](../../security-center/security-center-get-started.md)
 extends these capabilities to on-premises resources and other clouds.

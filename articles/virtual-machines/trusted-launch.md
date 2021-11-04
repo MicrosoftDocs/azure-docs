@@ -102,16 +102,16 @@ With trusted launch and VBS you can enable Windows Defender Credential Guard. Th
 
 Trusted launch is integrated with Microsoft Defender for Cloud to ensure your VMs are properly configured. Microsoft Defender for Cloud will continually assess compatible VMs and issue relevant recommendations.
 
-- **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Azure Security Center will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
-- **Recommendation to enable vTPM** - If your VM has vTPM enabled, Azure Security Center can use it to perform Guest Attestation and identify advanced threat patterns. If Azure Security Center identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it. 
-- **Recommendation to install guest attestation extension** - If your VM has secure boot and vTPM enabled but it doesn't have the guest attestation extension installed, Azure Security Center will issue a low severity recommendation to install the guest attestation extension on it. This extension allows Azure Security Center to proactively attest and monitor the boot integrity of your VMs. Boot integrity is attested via remote attestation.  
-- **Attestation health assessment** - If your VM has vTPM enabled and attestation extension installed, Azure Security Center can remotely validate that your VM booted in a healthy way. This is known as remote attestation. Azure Security Center issues an assessment, indicating the status of remote attestation.
+- **Recommendation to enable Secure Boot:** This recommendation only applies for VMs that support trusted launch. Microsoft Defender for Cloud will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
+- **Recommendation to enable vTPM:** If your VM has vTPM enabled, Microsoft Defender for Cloud can use it to perform Guest Attestation and identify advanced threat patterns. If Microsoft Defender for Cloud identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it. 
+- **Recommendation to install guest attestation extension:** If your VM has secure boot and vTPM enabled but it doesn't have the guest attestation extension installed, Microsoft Defender for Cloud will issue a low severity recommendation to install the guest attestation extension on it. This extension allows Microsoft Defender for Cloud to proactively attest and monitor the boot integrity of your VMs. Boot integrity is attested via remote attestation.  
+- **Attestation health assessment:** If your VM has vTPM enabled and attestation extension installed, Microsoft Defender for Cloud can remotely validate that your VM booted in a healthy way. This is known as remote attestation. Microsoft Defender for Cloud issues an assessment, indicating the status of remote attestation.
 
 ## Microsoft Defender for Cloud integration
 
 If your VMs are properly set up with trusted launch, Microsoft Defender for Cloud can detect and alert you of VM health problems.
 
-- **Alert for VM attestation failure** - Microsoft Defender for Cloud will periodically perform attestation on your VMs. This also happens after your VM boots. If the attestation fails, it will trigger a medium severity alert.
+- **Alert for VM attestation failure:** Microsoft Defender for Cloud will periodically perform attestation on your VMs. This also happens after your VM boots. If the attestation fails, it will trigger a medium severity alert.
     VM attestation can fail for the following reasons:
     - The attested information, which includes a boot log, deviates from a trusted baseline. This can indicate that untrusted modules have been loaded, and the OS may be compromised.
     - The attestation quote could not be verified to originate from the vTPM of the attested VM. This can indicate that malware is present and may be intercepting traffic to the vTPM.
@@ -119,7 +119,7 @@ If your VMs are properly set up with trusted launch, Microsoft Defender for Clou
     > [!NOTE]
     >  This alert is available for VMs with vTPM enabled and the Attestation extension installed. Secure Boot must be enabled for attestation to pass. Attestation will fail if Secure Boot is disabled. If you must disable Secure Boot, you can suppress this alert to avoid false positives.
 
-- **Alert for Untrusted Linux Kernel module** - For trusted launch with secure boot enabled, it’s possible for a VM to boot even if a kernel driver fails validation and is prohibited from loading. If this happens, Microsoft Defender for Cloud will issue a low severity alert. While there is no immediate threat, because the untrusted driver has not been loaded, these events should be investigated. Consider the following:
+- **Alert for Untrusted Linux Kernel module:** For trusted launch with secure boot enabled, it’s possible for a VM to boot even if a kernel driver fails validation and is prohibited from loading. If this happens, Microsoft Defender for Cloud will issue a low severity alert. While there is no immediate threat, because the untrusted driver has not been loaded, these events should be investigated. Consider the following:
     - Which kernel driver failed? Am I familiar with this driver and expect it to be loaded?
     - Is this the exact version of the driver I am expecting? Are the driver binaries intact? If this is a 3rd party driver, did the vendor pass the OS compliance tests to get it signed?
 

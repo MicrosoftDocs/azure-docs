@@ -101,7 +101,7 @@ The six plans include:
 - JBoss EAP 7.3 on RHEL 8.3 Clustered virtual machine scale sets (PAYG)
 - JBoss EAP 7.3 on RHEL 8.3 Clustered virtual machine scale sets (BYOS)
 
-:::image type="content" source="./media/red-hat-marketplace-image-1.png" alt-text="Image shows the the option to deploy the Red Hat image using the GitHub deploy link.":::
+:::image type="content" source="./media/red-hat-marketplace-image-1.png" alt-text="Image shows the option to deploy the Red Hat image using the GitHub deploy link.":::
 
 ### Azure Quickstart Templates
 

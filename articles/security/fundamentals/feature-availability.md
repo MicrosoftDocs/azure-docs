@@ -131,7 +131,7 @@ For more information, see the [Azure Information Protection product documentatio
 
 <sup><a name="aipnote7" /></a>7</sup> The number of [Sensitive Information Types](/microsoft-365/compliance/sensitive-information-type-entity-definitions) in your Microsoft 365 Security & Compliance Center may vary based on region.
 
-## Azure Security Center
+## Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 
