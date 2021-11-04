@@ -25,7 +25,7 @@ Enterprises can move their traditional services that require Kerberos authentica
 Azure AD Kerberos authentication is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How Azure AD Kerberos authentication works 
-<!---This list of scenarios will grow after they have SQL online, native Azure Files support, and then app proxy--->
+<!---This list of scenarios will grow after they have SQL online, native Azure Files support, and then app proxy. Only Azure Files scenario requires AAD or hybrid domain join. SQL will require only domain join.--->
 
 This feature allows customer to mount Azure file shares on Azure Virtual Desktop using Kerberos. This is achieved by flipping the traditional trust model to where Azure AD becomes the trusted source for both cloud and on-premises authentication. 
 
@@ -34,7 +34,7 @@ Azure AD becomes an independent Kerberos realm (kerberos.microsoftonline.com) th
 - Traditional on-premises applications to move to the cloud without changing their fundamental authentication scheme.
 - Applications trust Azure AD directly and there is no need for traditional AD.
 
-For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure Files, see [Create a profile container with Azure Files and Azure Active Directory](https://review.docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-azure-ad?branch=pr-en-us-173530).
+For Azure AD Kerberos authentication for Azure Files, the end user device must be joined to either Azure AD or a hybrid environment. For step-by-step guidance, see [Create a profile container with Azure Files and Azure Active Directory](https://review.docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-azure-ad?branch=pr-en-us-173530). 
 
 <!--- add image--->
 
@@ -43,7 +43,6 @@ For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure F
 |Prerequisite | Description |
 |-------------|-------------|
 | Windows 10 Insider build 21304 or higher | Download Windows Insider Preview builds Guide to Windows Insider Program<br>Until an ISO is available for download, you will have to install a current OS and upgrade to the Windows Insiders Dev Channel as needed. |
-| Device | The end user device must be joined to either Azure AD or a hybrid environment. |
 | Azure AD connect installed | Hybrid environments where identities exist both in Azure AD and Active Directory Domain Services. Only hybrid identities are supported. |
 
 ## Limitations
