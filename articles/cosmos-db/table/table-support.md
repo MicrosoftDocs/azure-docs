@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB Table API and Azure Storage Tables work t
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 11/03/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
