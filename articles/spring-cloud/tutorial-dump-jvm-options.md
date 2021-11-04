@@ -84,7 +84,7 @@ Or customer may use the commands below to append the persistent storage.
    az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <azure-file-share-name> --mount-path <unique-mount-path e.g. /test/Path> --storage-name <storage-resource-name> -n <app-name> -g <resource-group-name> -s <spring-instance-name>
 ```
    
-   If customers want to have the dump under <azure-file-share-name>, please give <PATH_TO_HEAP_DUMP_FOLDER> as "/test/Path" and <PATH_TO_THREAD_DUMP_FILE> as "/test/Path/threaddump"
+   If customers want to have the dump under their own azure file given above, please give <PATH_TO_HEAP_DUMP_FOLDER> as "/test/Path" and <PATH_TO_THREAD_DUMP_FILE> as "/test/Path/threaddump"
 
 
 
