@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/25/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -39,7 +39,7 @@ HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/r
 To configure an API Connector with HTTP basic authentication, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Under **Azure services**, select **Azure AD B2C**.
+2. Under **Azure services**, select **Azure AD B2C** or search for and select **Azure AD B2C**.
 3. Select **API connectors**, and then select the **API Connector** you want to configure.
 4. For the **Authentication type**, select **Basic**.
 5. Provide the **Username**, and **Password** of your REST API endpoint.

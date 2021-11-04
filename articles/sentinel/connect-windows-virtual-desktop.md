@@ -6,7 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
+
 # Connect Windows Virtual Desktop data to Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes how you can monitor your Windows Virtual Desktop (WVD) environments using Azure Sentinel.
 

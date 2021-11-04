@@ -110,10 +110,10 @@ Identity-based connections are supported by the following components:
 
 | Connection source                                       | Plans supported | Learn more                                                                                                         |
 |---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|
-| Azure Blob triggers and bindings - Preview              | All             | [Extension version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)     |
-| Azure Queue triggers and bindings - Preview             | All             | [Extension version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
-| Azure Event Hubs triggers and bindings - Preview        | All             | [Extension version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)    |
-| Azure Service Bus triggers and bindings - Preview       | All             | [Extension version 5.0.0-beta2 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)  |
+| Azure Blob triggers and bindings               | All             | [Extension version 5.0.0 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)     |
+| Azure Queue triggers and bindings            | All             | [Extension version 5.0.0 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
+| Azure Event Hubs triggers and bindings     | All             | [Extension version 5.0.0 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)    |
+| Azure Service Bus triggers and bindings       | All             | [Extension version 5.0.0 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)  |
 | Azure Cosmos DB triggers and bindings - Preview         | Elastic Premium | [Extension version 4.0.0-preview1 or later](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) |
 | Host-required storage ("AzureWebJobsStorage") - Preview | All             | [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity-preview)                        |
 
@@ -140,11 +140,11 @@ Choose a tab below to learn about permissions for each component:
 
 [!INCLUDE [functions-service-bus-permissions](../../includes/functions-service-bus-permissions.md)]
 
-# [Azure Cosmos DB extension](#tab/cosmos)
+# [Azure Cosmos DB extension (preview)](#tab/cosmos)
 
 [!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
 
-# [Functions host storage](#tab/azurewebjobsstorage)
+# [Functions host storage (preview)](#tab/azurewebjobsstorage)
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
@@ -162,6 +162,9 @@ An identity-based connection for an Azure service accepts the following common p
 Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
 
 ##### Local development with identity-based connections
+
+> [!NOTE]
+> Local development with identity-based connections requires updated versions of the [Azure Functions Core Tools](./functions-run-local.md). You can check your currently installed version by running `func -v`. For Functions v3, use version `3.0.3904` or later. For Functions v4, use version `4.0.3904` or later. 
 
 When running locally, the above configuration tells the runtime to use your local developer identity. The connection will attempt to get a token from the following locations, in order:
 
