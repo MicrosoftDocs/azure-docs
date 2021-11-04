@@ -7,6 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 07/23/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Asset normalization

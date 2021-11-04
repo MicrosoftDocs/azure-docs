@@ -8,8 +8,8 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: jpe316
 ms.author:  jordane
-ms.date: 07/08/2021
 ms.custom: seodec18, mktng-kw-nov2021
+ms.date: 11/04/2021
 ---
 
 # MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning

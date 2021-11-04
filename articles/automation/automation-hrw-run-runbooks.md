@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/30/2021
+ms.date: 11/01/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -27,8 +27,18 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 ### Windows 
 
 Jobs for Hybrid Runbook Workers run under the local **System** account.
+>[!NOTE]
+>  To run PowerShell 7.x on a Windows Hybrid Runbook Worker, See [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
+>  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](/azure/automation/extension-based-hybrid-runbook-worker-install) 
+
+Make sure the path where the *pwsh.exe* executable is located and is added to the PATH environment variable. Restart the Hybrid Runbook Worker after installation completes.
 
 ### Linux
+
+>[!NOTE]
+> To run PowerShell 7.x on a Linux Hybrid Runbook Worker, See [Installing PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
+>  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](/azure/automation/extension-based-hybrid-runbook-worker-install)
+
 
 Service accounts **nxautomation** and **omsagent** are created. The creation and permission assignment script can be viewed at [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data). The accounts, with the corresponding sudo permissions, must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker, and the account is not present or doesn't have the appropriate permissions, the installation fails. Do not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the accounts and the permissions shouldn't be removed. Restricting this to certain folders or commands may result in a breaking change. The **nxautomation** user enabled as part of Update Management executes only signed runbooks.
 
@@ -220,6 +230,9 @@ You can configure a Windows Hybrid Runbook Worker to run only signed runbooks.
 > [!IMPORTANT]
 > Once you've configured a Hybrid Runbook Worker to run only signed runbooks, unsigned runbooks fail to execute on the worker.
 
+> [!NOTE]
+>  PowerShell 7.x does not support signed runbooks for Windows and Linux Hybrid Runbook Worker.  
+
 ### Create signing certificate
 
 The following example creates a self-signed certificate that can be used for signing runbooks. This code creates the certificate and exports it so that the Hybrid Runbook Worker can import it later. The thumbprint is also returned for later use in referencing the certificate.
@@ -288,6 +301,9 @@ You will perform the following steps to complete this configuration:
 * Make the keyring available to the Hybrid Runbook Worker
 * Verify that signature validation is on
 * Sign a runbook
+
+> [!NOTE]
+>  PowerShell 7.x does not support signed runbooks for Windows and Linux Hybrid Runbook Worker.
 
 ### Create a GPG keyring and keypair
 

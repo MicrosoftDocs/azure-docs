@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: automl, responsible-ml, mktng-kw-nov2021
 ms.author: mithigpe
 author: minthigpen
-ms.date: 07/09/2020
+ms.date: 10/21/2021
 ---
 
 # Interpretability: Model explainability in automated ML (preview)

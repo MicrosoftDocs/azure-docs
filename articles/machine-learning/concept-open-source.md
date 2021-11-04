@@ -8,8 +8,8 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/14/2020
 ms.custom: mktng-kw-nov2021
+ms.date: 11/04/2021
 ---
 
 # Use open-source machine learning libraries and platforms with Azure Machine Learning
