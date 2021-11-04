@@ -24,7 +24,7 @@ Including the global Azure cloud, Azure Active Directory (Azure AD) is deplo
 
 - Azure Government
 - Azure China 21Vianet
-- Azure Germany ([Closing on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions)). Learn more about [Azure Germany migration](#azure-germany-microsoft-cloud-deutschland).
+- Azure Germany ([Closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions)). Learn more about [Azure Germany migration](#azure-germany-microsoft-cloud-deutschland).
 
 The individual national clouds and the global Azure cloud are cloud _instances_. Each cloud instance is separate from the others and has its own environment and _endpoints_. Cloud-specific endpoints include OAuth 2.0 access token and OpenID Connect ID token request endpoints, and URLs for app management and deployment, like the Azure portal.
 
