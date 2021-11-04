@@ -210,7 +210,7 @@ Examples:
 
 For more information about using the IoT connector custom functions with Device mappings, see:
 
-In this article you learned how to use custom functions. Learn how to use Device mappings.
+In this article, you learned how to use custom functions. Learn how to use Device mappings.
 
 >[!div class="nextstepaction"]
 >[How to use Device mappings](how-to-use-device-mapping-iot.md)

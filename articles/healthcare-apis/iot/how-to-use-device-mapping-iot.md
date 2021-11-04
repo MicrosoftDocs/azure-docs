@@ -1075,7 +1075,7 @@ If you're using Azure IoT Central's Data Export feature and custom properties in
 
 ## Next steps
 
-In this article you learned how to use Device mappings. Learn how to use FHIR destination mappings.
+In this article, you learned how to use Device mappings. Learn how to use FHIR destination mappings.
 
 >[!div class="nextstepaction"]
 >[How to use FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
