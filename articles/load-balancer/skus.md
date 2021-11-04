@@ -18,10 +18,9 @@ ms.author: allensu
 Azure Load Balancer has two SKUs.
 
 ## <a name="skus"></a> SKU comparison
+Azure Load Balancer has 3 SKUs - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and have differences in scale, features, and pricing. 
 
-Load balancer supports both Standard and Basic SKUs. These SKUs differ in scenario scale, features, and pricing. Basic load balancers are used for small-scale applications that don't need high availability or redundancy. While Standard load balancers are equipped for load-balancing network layer traffic when high performance and super-low latency are needed. Standard load balancers also route traffic within and across regions, and to availability zones for high resiliency. Any scenario that's possible with Basic load balancer can be created with Standard load balancer.
-
-To compare and understand the differences, see the following table. For more information, see [Azure Standard Load Balancer overview](./load-balancer-overview.md).
+To compare and understand the differences between Basic and Standard SKU, see the following table. For more information, see [Azure Standard Load Balancer overview](./load-balancer-overview.md). For information on Gateway SKU - catered for third-party network virtual appliances (NVAs) currently in preview, see [Gateway Load Balancer overview](gateway-overview.md)
 
 >[!NOTE]
 > Microsoft recommends Standard load balancer.
@@ -29,6 +28,7 @@ Standalone VMs, availability sets, and virtual machine scale sets can be connect
 
 | | Standard Load Balancer | Basic Load Balancer |
 | --- | --- | --- |
+| **Scenario** |  Equipped for load-balancing network layer traffic when high performance and ultra-low latency is needed. Routes traffic within and across regions, and to availability zones for high resiliency. | Equipped for small-scale applications that don't need high availability or redundancy. Not compatible with availability zones. |
 | **Backend type** | IP based, NIC based | NIC based |
 | **[Backend pool size](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supports up to 1000 instances. | Supports up to 300 instances. |
 | **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network. | Virtual machines in a single availability set or virtual machine scale set. |
