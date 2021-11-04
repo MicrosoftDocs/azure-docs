@@ -56,7 +56,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/develop-deploy-grpc-inference-srvn.md",
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/develop-deploy-grpc-inference-srv.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/develop-deploy-grpc-inference-srv",
       "redirect_document_id": false
     },

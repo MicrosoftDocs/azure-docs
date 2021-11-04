@@ -76,7 +76,7 @@ For Windows Admin Center, use the following steps:
 
 ---
 
-## Verify successful configuration
+## Verify successful installation
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
 
