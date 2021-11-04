@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021
 
 When you choose the **Logic App (Standard)** resource type to create workflows that run in single-tenant Azure Logic Apps, App Service Environment v3, or outside Azure, you also need to create an Azure Storage account to save workflow-related artifacts, states, and runtime data. However, if you want more flexibility and control over your logic app workflows' runtime environment, throughput, scaling, performance, and management, you can use the SQL Storage Provider instead of Azure Storage for workflow-related storage transactions.
 
-This article provides an overview for why you might want to use SQL storage as the primary storage provider for Azure Logic Apps as an alternative to fsAzure Storage and shows how to set up SQL for storage use either during logic app creation in the Azure portal or during logic app deployment from Visual Studio Code.
+This article provides an overview for why you might want to use SQL storage as the primary storage provider for Azure Logic Apps as an alternative to Azure Storage and shows how to set up SQL for storage use either during logic app creation in the Azure portal or during logic app deployment from Visual Studio Code.
 
 If you're new to logic apps, review the following documentation:
 

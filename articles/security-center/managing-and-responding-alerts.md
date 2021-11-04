@@ -8,7 +8,7 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
+
 ---
 # Manage and respond to security alerts in Microsoft Defender for Cloud
 

@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 # Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Custom partitioning enables you to partition the analytical store data on fields that are commonly used as filters in analytical queries resulting in improved query performance.
+Custom partitioning enables you to partition analytical store data, on fields that are commonly used as filters in analytical queries, resulting in improved query performance.
 
 In this article, you will learn how to partition your data in Azure Cosmos DB analytical store using keys that are critical for your analytical workloads. It also explains how to take advantage of the improved query performance with partition pruning. You will also learn how the partitioned store helps to improve the query performance when your workloads have a significant number of updates or deletes.
 
@@ -20,32 +20,31 @@ In this article, you will learn how to partition your data in Azure Cosmos DB an
 > Custom partitioning feature is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Azure Cosmos DB accounts should have Azure Synapse Link enabled to take advantage of custom partitioning. Custom partitioning is currently supported for Azure Synapse Spark 2.0 only.
+> Azure Cosmos DB accounts should have [Azure Synapse Link](synapse-link.md) enabled to take advantage of custom partitioning. Custom partitioning is currently supported for Azure Synapse Spark 2.0 only.
 
 ## How does it work?
 
-With custom partitioning, you can choose a single field or a combination of fields from your dataset as the analytical store partition key.
+Analytical store partitioning is independent of partitioning in the transactional store. By default, analytical store is not partitioned. If you want to query analytical store frequently based on fields such as Date, Time, Category etc. you leverage custom partitioning to create a separate partitioned store based on these keys. You can choose a single field or a combination of fields from your dataset as the analytical store partition key.
 
-The analytical store partitioning is independent of partitioning in the transactional store. By default, analytical store is not partitioned. If you want to query analytical store frequently based on fields such as Date, Time, Category etc. we recommend that you create a partitioned store based on these keys.
-
-To trigger partitioning, you can periodically execute partitioning job from an Azure Synapse Spark notebook using Azure Synapse Link. You can schedule it to run as a background job at your convenient schedule.
+You can trigger partitioning from an Azure Synapse Spark notebook using Azure Synapse Link. You can schedule it to run as a background job, once or twice a day but can be executed more often, if needed. 
 
 > [!NOTE]
 > The partitioned store points to the ADLS Gen2 primary storage account that is linked with the Azure Synapse workspace.
 
 :::image type="content" source="./media/custom-partitioning-analytical-store/partitioned-store-architecture.png" alt-text="Architecture of partitioned store in Azure Synapse Link for Azure Cosmos DB" lightbox="./media/custom-partitioning-analytical-store/partitioned-store-architecture.png" border="false":::
 
-The partitioned store contains Azure Cosmos DB analytical data until the last timestamp you ran your partitioning job. When you query your analytical data using the partition key filters in Synapse Spark, Synapse Link will automatically merge most recent data from the analytical store with the data in partitioned store. This way it gives you the latest results. Although it merges the data before querying, the delta isn’t written back to the partitioned store. As the delta between data in analytical store and partitioned store widens, the query times on partitioned data may vary. Triggering partitioning job more frequently will reduce this delta. Each time you execute the partition job, only incremental changes in the analytical store will be processed, instead of the full data set.
+The partitioned store contains Azure Cosmos DB analytical data until the last timestamp you ran your partitioning job. When you query your analytical data using the partition key filters in Synapse Spark, Synapse Link will automatically merge the data in partitioned store with the most recent data from the analytical store. This way it gives you the latest results for your queries. Although it merges the data before querying, the delta isn’t written back to the partitioned store. As the delta between data in analytical store and partitioned store widens, the query times on partitioned data may vary. Triggering partitioning job more frequently will reduce this delta. Each time you execute the partition job, only incremental changes in the analytical store will be processed, instead of the full data set.
 
 ## When to use?
 
 Using partitioned store is optional when querying analytical data in Azure Cosmos DB. You can directly query the same data using Synapse Link with the existing analytical store. You may want to turn on partitioned store if you have following requirements:
+* Common analytical query filters that could be used as partition columns
+* Low cardinality partition columns
+* Partition column distributes data equally across partitions
+* High volume of update or delete operations
+* Slow data ingestion 
 
-* You want to frequently query analytical data filtered on some fields.
-
-* You have high volume of updates/delete operations or data is ingested slowly. Partitioned store provides better query performance in these cases, irrespective of whether you are querying using partition keys or not.
-
-Except for the workloads above, if you are querying live data using query filters that are different from the partition keys, we recommend that you query this directly from the analytical store, especially if the partitioning jobs are not run frequently.
+Except for the workloads that meet above requirements, if you are querying live data using query filters that are different from the partition keys, we recommend that you query  directly from the analytical store. This is especially true if the partitioning jobs are not scheduled to run frequently.
 
 ## Benefits
 
@@ -55,9 +54,7 @@ Because the data corresponding to each unique partition key is colocated in the 
 
 ### Flexibility to partition your analytical data
 
-You can have multiple partitioning strategies for a given analytical store container where the analytical store data can be partitioned using separate partition keys. For example, the "store_sales" container can be partitioned using "sold_date" as key and can also be partitioned using "item" as key. You must have two separate partitioning jobs in this case, which will essentially partition the data into two separate partitioned stores. This partitioning strategy is beneficial if some of the queries use "sold_date" as the query filter and some other queries use "item" as the query filter.
-
-The data across different partition keys will be part of the same partitioned store and you can query based on the partition key to pick the corresponding data.
+You can have multiple partitioning strategies for a given analytical store container. You could use composite or separate partition keys based on your query requirements. Please see partition strategies for guidance on this. 
 
 ### Query performance improvements
 
@@ -77,13 +74,57 @@ If you configured [managed private endpoints](analytical-store-private-endpoints
 
 Similarly, if you configured [customer-managed keys on analytical store](how-to-setup-cmk.md#is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store), you must directly enable it on the Synapse workspace primary storage account, which is the partitioned store, as well.
 
+## Partitioning strategies
+You could use one or more partition keys for your analytical data. If you are using multiple partition keys, below are some recommendations on how to partition the data: 
+   - **Using composite keys:**
+
+     Say, you want to frequently query based on Key1 and Key2. 
+      
+     For example, "Query for all records where  ReadDate = ‘2021-10-08’ and Location = ‘Sydney’". 
+       
+     In this case, using composite keys will be more efficient, to look up all records that match the ReadDate and the records that match Location within that ReadDate. 
+       
+     Sample configuration options:      
+     ```python
+     .option("spark.cosmos.asns.partition.keys", "ReadDate String, Location String") \
+     .option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
+     ```
+      
+     Now, on above partitioned store, if you want to only query based on "Location" filter:      
+     * You may want to query analytical store directly. Partitioned store will scan all records by ReadDate first and then by Location. 
+     So, depending on your workload and cardinality of your analytical data, you may get better results by querying analytical store directly. 
+     * You could also run another partition job to also partition based on ‘Location’ on the same partitioned store.
+                           
+  *  **Using multiple keys separately:**
+     
+     Say, you want to frequently query sometimes based on 'ReadDate' and other times, based on 'Location'. 
+     
+     For example, 
+     - Query for all records where ReadDate = ‘2021-10-08’
+     - Query for all records where Location = ‘Sydney’
+     
+     Run two partition jobs with partition keys as defined below for this scenario:      
+     
+     Job 1:
+     ```python
+     .option("spark.cosmos.asns.partition.keys", "ReadDate String") \
+     .option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
+     ```                  
+     Job 2: 
+     ```python
+     .option("spark.cosmos.asns.partition.keys", "Location String") \
+     .option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
+     ```        
+     Please note that it's not efficient to now frequently query based on "ReadDate" and "Location" filters together, on above partitioning. Composite keys will give 
+     better query performance in that case. 
+      
 ## Limitations
 
 * Custom partitioning is only available for Azure Synapse Spark. Custom partitioning is currently not supported for serverless SQL pools.
 
-* Currently partitioned store can only point to the primary storage account associated with the Synapse workspace. We do not support selecting custom storage accounts at this point.
+* Currently partitioned store can only point to the primary storage account associated with the Synapse workspace. Selecting custom storage accounts is not supported at this point.
 
-* Although the API for MongoDB supports analytical store and Synapse Link, it currently doesn't support custom partitioning.
+* Custom partitioning is only available for SQL API in Cosmos DB. API for Mongo DB, Gremlin and Cassandra are not supported at this time. 
 
 ## Pricing
 
@@ -116,13 +157,12 @@ Yes, the partition key for the given container can be changed and the new partit
 
 ### Can different partition keys point to the same BasePath?
 
-Yes, since the partition key definition is part of the partitioned store path, different partition keys will have different paths branching from the same BasePath.
+Yes, you can specify multiple partition keys on the same partitioned store as below: 
 
-Base path format could be specified as: /mnt/partitionedstorename/\<Cosmos_DB_account_name\>/\<Cosmos_DB_database_rid\>/\<Cosmos_DB_container_rid\>/partition=partitionkey/
-
-For example:
-/mnt/CosmosDBPartitionedStore/store_sales/…/partition=sold_date/...
-/mnt/CosmosDBPartitionedStore/store_sales/…/partition=Date/...
+```python
+.option("spark.cosmos.asns.partition.keys", "ReadDate String, Location String") \
+.option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
+```
 
 ## Next steps
 

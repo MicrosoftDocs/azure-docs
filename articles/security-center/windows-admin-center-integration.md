@@ -8,7 +8,7 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.custom: ignite-fall-2021
+
 ---
 # Protect Windows Admin Center resources with Microsoft Defender for Cloud
 
