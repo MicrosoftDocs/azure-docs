@@ -103,7 +103,7 @@ To create and run a new scan, do the following:
         * Provide the consumer key from the connected app definition. You can find it on the connected app's Manage Connected Apps page or from the connected app's definition.
         * Stored the consumer secret from the connected app definition in an Azure Key Vault secret. You can find it along with consumer key.
 
-    1. **Objects**: Provide a list of object names to scope your scan. For example, `object1; object2`. An empty list means that all available objects. You can specify object names as a wildcard pattern. For example, `topic?`, `*topic*`, or `topic_?,*topic*`.
+    1. **Objects**: Provide a list of object names to scope your scan. For example, `object1; object2`. An empty list means retrieving all available objects. You can specify object names as a wildcard pattern. For example, `topic?`, `*topic*`, or `topic_?,*topic*`.
 
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Salesforce source to be scanned.
 
