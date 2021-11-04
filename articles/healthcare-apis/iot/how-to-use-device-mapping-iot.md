@@ -83,11 +83,11 @@ Various template types exist and may be used when building the Device mapping fi
 
 |Name                                                                     | Description                                                                   |  
 |-------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-|[JsonPathContentTemplate](##JsonPathContentTemplate)                     |A template that supports writing expressions using JsonPath                  
-|[CollectionContentTemplate](##CollectionContentTemplate)                 |A template used to represent a list of templates that will be used during the normalization.                                                            |                                                           
-|[CalculatedContentTemplate](##CalculatedContentTemplate)                 |A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JmesPath functions.|
-|[IotJsonPathContentTemplate](##IotJsonPathContentTemplate)               |A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.                                        |
-|[IotCentralJsonPathContentTemplate](##IotCentralJsonPathContentTemplate) |A template that supports messages sent via the Export Data feature of Azure Iot Central.|  
+|[JsonPathContentTemplate](#jsonpathcontenttemplate)                      |A template that supports writing expressions using JsonPath                  
+|[CollectionContentTemplate](#collectioncontenttemplate)                  |A template used to represent a list of templates that will be used during the normalization.                                                            |                                                           
+|[CalculatedContentTemplate](#calculatedcontenttemplate)                  |A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JmesPath functions.|
+|[IotJsonPathContentTemplate](#iotjsonpathcontenttemplate)                |A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.                                        |
+|[IotCentralJsonPathContentTemplate](##iotcentraljsonpathcontenttemplate) |A template that supports messages sent via the Export Data feature of Azure Iot Central.|  
 
 ## JsonPathContentTemplate
 
@@ -414,9 +414,9 @@ When specifying the language to use for the expression, the below values are val
 | JmesPath            | **JmesPath** |
 
 >[!TIP]
->For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). The [CalculatedContentTemplate](##CalculatedContentTemplate) uses the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
+>For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 >
->For more information on JmesPath, see [JmesPath](https://jmespath.org/specification.html). The [CalculatedContentTemplate](##CalculatedContentTemplate) uses the [JmesPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JmesPath expressions.
+>For more information on JmesPath, see [JmesPath](https://jmespath.org/specification.html). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JmesPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JmesPath expressions.
 
 ### Custom Functions
 

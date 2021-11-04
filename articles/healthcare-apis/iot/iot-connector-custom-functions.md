@@ -76,6 +76,7 @@ number add(number $left, number $right)
 Returns the result of adding the left argument to the right.
 
 Examples:
+
 | Given                       | Expression       | Result |
 |-----------------------------|------------------|--------|
 | n/a                         | add(`10`, `10`)  | 20     |
@@ -91,6 +92,7 @@ number divide(number $left, number $right)
 Returns the result of dividing the left argument by the right.
 
 Examples:
+
 | Given                       | Expression          | Result                           |
 |-----------------------------|---------------------|----------------------------------|
 | n/a                         | divide(`10`, `10`)  | 1                                |
@@ -107,6 +109,7 @@ number multiply(number $left, number $right)
 Returns the result of multiplying the left argument with the right.
 
 Examples:
+
 | Given                       | Expression            | Result |
 |-----------------------------|-----------------------|--------|
 | n/a                         | multiply(`10`, `10`)  | 100    |
@@ -122,6 +125,7 @@ number pow(number $left, number $right)
 Returns the result of raising the left argument to the power of the right.
 
 Examples:
+
 | Given                         | Expression       | Result                     |
 |-------------------------------|------------------|----------------------------|
 | n/a                           | pow(`10`, `10`)  | 10000000000                |
@@ -138,6 +142,7 @@ number subtract(number $left, number $right)
 Returns the result of subtracting the right argument from the left.
 
 Examples:
+
 | Given                       | Expression            | Result |
 |-----------------------------|-----------------------|--------|
 | n/a                         | subtract(`10`, `10`)  | 0      |
@@ -159,6 +164,7 @@ If the positional argument is zero based, the position of zero refers to the fir
 If the positional argument provided is out of range of the length of *original*, then an error will occur.
 
 Examples:
+
 | Given                                                     | Expression                                         | Result              |
 |-----------------------------------------------------------|----------------------------------------------------|---------------------|
 | {"original": "mple", "toInsert": "sa", "pos": 0}          | insertString(original, toInsert, pos)              | "sample"            |
@@ -179,6 +185,7 @@ string fromUnixTimestamp(number $unixTimestampInSeconds)
 Produces an [ISO 8061](https://en.wikipedia.org/wiki/ISO_8601) compliant time stamp from the given Unix timestamp. The timestamp is represented as the number of seconds since the Epoch (January 1 1970).
 
 Examples:
+
 | Given                 | Expression              | Result                  |
 |-----------------------|-------------------------|-------------------------|
 | {"unix": 1625677200} | fromUnixTimestamp(unix)  | "2021-07-07T17:00:00+0" |
@@ -193,6 +200,7 @@ string fromUnixTimestampMs(number $unixTimestampInMs)
 Produces an [ISO 8061](https://en.wikipedia.org/wiki/ISO_8601) compliant time stamp from the given Unix timestamp. The timestamp is represented as the number of milliseconds since the Epoch (January 1 1970).
 
 Examples:
+
 | Given                    | Expression                | Result                  |
 |--------------------------|---------------------------|-------------------------|
 | {"unix": 1626799080000}  | fromUnixTimestampMs(unix) | "2021-07-20T16:38:00+0" |
