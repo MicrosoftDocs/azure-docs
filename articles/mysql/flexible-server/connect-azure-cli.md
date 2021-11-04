@@ -21,10 +21,10 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL Flexi
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or above)
-- Login using Azure CLI with ```az login``` command
+- Log in using Azure CLI with ```az login``` command
 - Turn on parameter persistence with ```az config param-persist on```. Parameter persistence will help you use local context without having to repeat a lot of arguments like resource group or location etc.
 
-## Create an MySQL Flexible Server
+## Create a MySQL Flexible Server
 
 The first thing we'll create is a managed MySQL server. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
 
@@ -69,9 +69,9 @@ Successfully connected to mysqldemoserver1.
 ```
 If the connection failed, try these solutions:
 - Check if port 3306 is open on your client machine.
-- if your server administrator user name and password are correct
-- if you have configured firewall rule for your client machine
-- if you have configured your server with private access in virtual networking, make sure your client machine is in the same virtual network.
+- If your server administrator user name and password are correct
+- If you have configured firewall rule for your client machine
+- If you have configured your server with private access in virtual networking, make sure your client machine is in the same virtual network.
 
 ## Run multiple queries using interactive mode
 You can run multiple queries using the **interactive** mode. To enable interactive mode, run the following command
