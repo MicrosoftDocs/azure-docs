@@ -27,14 +27,14 @@ Learn more about [event handling in Azure Communication Services](../../event-gr
 
 ## Deliver push notifications via Azure Notification Hubs
 
-You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call. You should use these push notifications to wake up your application from the background and display UI that lets the user accept or decline the call.
+You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call or a chat event. You should use these push notifications to wake up your application from the background and display UI that lets the user accept or decline the call, or handling the chat event.
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram showing how communication services integrates with Azure Notification Hubs.":::
 
 Communication Services uses Azure Notification Hub as a pass-through service to communicate with the various platform-specific push notification services using the [Direct Send](/rest/api/notificationhubs/direct-send) API. This allows you to reuse your existing Azure Notification Hub resources and configurations to deliver low latency, reliable calling notifications to your applications.
 
 > [!NOTE]
-> Currently only calling push notifications are supported.
+> Currently push notifications are supported for calling and chat Android.
 
 ### Notification Hub provisioning
 
@@ -83,7 +83,7 @@ If you'd like to use a different hub for the resource, select **Disconnect**, an
 
 ### Device registration
 
-Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn how to register your device handle with Communication Services.
+Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) and [chat quickstart](../quickstarts/chat/get-started.md?pivots=programming-language-android) to learn how to register your device handle with Communication Services.
 
 ### Troubleshooting guide for push notifications
 
