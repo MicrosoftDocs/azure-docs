@@ -207,21 +207,21 @@ similar to the following output:
 ```
 ## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes (preview)
 
-[Azure Policy for Kubernetes](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place.
+[Azure Policy for Kubernetes](./policy-for-kubernetes.md) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place.
 
 This article describes how to [create](#create-azure-policy-extension), [show extension status](#show-azure-policy-extension), and [delete](#delete-azure-policy-extension) the Azure Policy for Kubernetes extension.
 
-For an overview of the extensions platform, see [Azure Arc cluster extensions](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-extensions).
+For an overview of the extensions platform, see [Azure Arc cluster extensions](/azure/azure-arc/kubernetes/conceptual-extensions).
 
 ## Prerequisites
 
-> Note: If you have already deployed Azure Policy for Kubernetes on an Azure Arc cluster using Helm directly without extensions, follow the instructions listed to [delete the Helm chart](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#remove-the-add-on-from-azure-arc-enabled-kubernetes). Once the deletion is done, you can then proceed.
+> Note: If you have already deployed Azure Policy for Kubernetes on an Azure Arc cluster using Helm directly without extensions, follow the instructions listed to [delete the Helm chart](#remove-the-add-on-from-azure-arc-enabled-kubernetes). Once the deletion is done, you can then proceed.
 1. Ensure your Kubernetes cluster is a supported distribution.
 
     > Note: Azure Policy for Arc extension is supported on [the following Kubernetes distributions](https://docs.microsoft.com/azure/azure-arc/kubernetes/validation-program).
-1. Ensure you have met all the common prerequisites for Kubernetes extensions listed [here](https://docs.microsoft.com/azure/azure-arc/kubernetes/extensions) including [connecting your cluster to Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster).
+1. Ensure you have met all the common prerequisites for Kubernetes extensions listed [here](/azure/azure-arc/kubernetes/extensions) including [connecting your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
-    > Note: Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-arc).
+    > Note: Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](/global-infrastructure/services/?products=azure-arc).
 1. Open ports for the Azure Policy extension. The Azure Policy extension uses these domains and ports to fetch policy
    definitions and assignments and report compliance of the cluster back to Azure Policy.
 
@@ -234,7 +234,7 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](h
 
 1. Before installing the Azure Policy extension or enabling any of the service features, your subscription must enable the **Microsoft.PolicyInsights** resource providers.
     > Note: To enable the resource provider, follow the steps in
-   [Resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)
+   [Resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)
    or run either the Azure CLI or Azure PowerShell command:
    - Azure CLI
 
@@ -348,7 +348,7 @@ az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER
 ## <a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Add-on Using Helm for Azure Arc enabled Kubernetes (preview)
 
 > [!NOTE]
-> Azure Policy Add-on Helm model will soon begin deprecation. Please opt for the [Azure Policy Extension for Azure Arc enabled Kubernetes](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) instead.
+> Azure Policy Add-on Helm model will soon begin deprecation. Please opt for the [Azure Policy Extension for Azure Arc enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) instead.
 
 Before installing the Azure Policy Add-on or enabling any of the service features, your subscription
 must enable the **Microsoft.PolicyInsights** resource provider and create a role assignment for the
