@@ -117,3 +117,7 @@
     href: reports-faq.yml
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
+  - name: workbooks
+    items:
+    - name: Conditional access gap analyzer
+      href: workbook-conditional-access-gap-analyzer.md
