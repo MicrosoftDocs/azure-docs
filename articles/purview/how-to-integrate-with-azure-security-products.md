@@ -42,9 +42,11 @@ The integration supports PaaS data sources in Azure and PaaS data sources in AWS
 
 ### FAQ
 - **Why don't I see the AWS data source I have scanned with Azure Purview in Microsoft Defender for Cloud?**
+
 Data sources have to be onboarded to Microsoft Defender for Cloud as well. Learn more about how to [connect your AWS accounts](../security-center/quickstart-onboard-aws.md) and see your AWS data sources in Microsoft Defender for Cloud.
 
 - **Why don't I see sensitivity labels in Microsoft Defender for Cloud?**
+
 Assets must first be labeled in Azure Purview, before the labels are shown in Microsoft Defender for Cloud. Check if you have the [prerequisites of sensitivity labels](./how-to-automatically-label-your-content.md) in place. Once your scan the data, the labels will show up in Azure Purview and then automatically in Microsoft Defender for Cloud.
 
 ### Next steps
