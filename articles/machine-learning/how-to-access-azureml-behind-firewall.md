@@ -15,7 +15,7 @@ ms.custom: devx-track-python, ignite-fall-2021
 
 # Configure inbound and outbound network traffic
 
-In this article, learn about the network communication requirements when securing Azure Machine Learning workspace in a virtual network (VNet). This includes how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
+In this article, learn about the network communication requirements when securing Azure Machine Learning workspace in a virtual network (VNet). Including how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
 
 > [!NOTE]
 > The information in this article applies to Azure Machine Learning workspace configured with a private endpoint.
@@ -67,7 +67,7 @@ These rule collections are described in more detail in [What are some Azure Fire
     | Keyvault.region | TCP | 443 |
 
     > [!TIP]
-    > * ContainerRegistry.region is only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.
+    > * ContainerRegistry.region is only needed for custom Docker images. Including small modifications (such as additional packages) to base images provided by Microsoft.
     > * MicrosoftContainerRegistry.region is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
     > * Keyvault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
     > * For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
@@ -310,7 +310,7 @@ Enable outbound access to the following endpoints when deploying the Azure Machi
 | quay.io, *.quay.io | https:443 | Quay.io registry, required to pull container images for AML extension components |
 | gcr.io| https:443 | Google cloud repository, required to pull container images for AML extension components |
 | storage.googleapis.com | https:443 | Google cloud storage, gcr images are hosted on |
-| registry-1.docker.io, production.cloudflare.docker.com  | https:443 | Docker hub registry,required to pull container images for AML extension components |
+| registry-1.docker.io, production.cloudflare.docker.com  | https:443 | Docker hub registry, required to pull container images for AML extension components |
 | auth.docker.io| https:443 | Docker repository authentication, required to access docker hub registry |
 | *.kusto.windows.net, *.table.core.windows.net, *.queue.core.windows.net | https:443 | Required to upload and analyze system logs in Kusto |
 
