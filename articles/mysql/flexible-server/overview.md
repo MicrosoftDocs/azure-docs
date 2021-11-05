@@ -15,8 +15,8 @@ ms.date: 08/10/2021
 
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 
-- Single Server
 - Flexible Server
+- Single Server
 
 In this article, we'll provide an overview and introduction to core concepts of flexible server deployment model. For information on how to decide what deployment option is appropriate for your workload, see [choosing the right MySQL server option in Azure](./../select-right-deployment-type.md).
 
@@ -31,7 +31,7 @@ Flexible servers are best suited for
 - Application developments requiring community version of MySQL with better control and customizations
 - Production workloads with same-zone, zone redundant high availability and managed maintenance windows
 - Simplified development experience 
-- Enterprise grade security
+- Enterprise grade security, compliance and privacy
 
 For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Flexible Server](whats-new.md).
 
@@ -119,7 +119,7 @@ The flexible server service allows you to stop and start server on-demand to opt
 
 For more information, see [Server concepts](concept-servers.md).
 
-## Enterprise grade security and privacy
+## Enterprise grade security, compliance and privacy
 
 The flexible server service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default).
 
