@@ -39,7 +39,7 @@ LUIS supports Azure Active Directory (AAD) authentication. For more information,
 
 Use the following table to determine access needs for your LUIS application.
 
-These custom roles only apply to authoring (Language Understanding Authoring) and not prediction resources (Language Understanding)
+These custom roles only apply to authoring (Language Understanding Authoring) and not prediction resources (Language Understanding).
 
 ### Cognitive Services LUIS reader
 
