@@ -64,7 +64,11 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 #### Set capabilities
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have it open from the previous step).
 2. Make sure the **Universal Windows Platform Settings** tab is selected
-3. In the **Publishing Settings** Configuration section, check **InternetClientServer** and **SpatialPerception**.
+3. In the **Publishing Settings** Configuration section, check the following
+    1. InternetClient
+    1. InternetClientServer
+    1. PrivateNetworkClientServer
+    1. SpatialPerception
 
 #### Set up the main camera
 1. In the **Hierarchy Panel**, select **Main Camera**.
@@ -76,12 +80,6 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 
 ## Creating the Scene
 
-### Create our script
-1. In the **Project** pane, create a new folder, **Scripts**, under the **Assets** folder.
-2. Right-click on the folder, then select **Create >**, **C# Script**. Title it **AzureSpatialAnchorsScript**.
-3. Go to **GameObject** -> **Create Empty**.
-4. Select it, and in the **Inspector** rename it from **GameObject** to **AzureSpatialAnchors**. Select **Add Component** and search for and add the **AzureSpatialAnchorsScript**.
-
 ### Create the cube prefab
 1. Go to **GameObject** -> **3D Object** -> **Cube**.
 2. In the **Inspector**, set its scale to **0.1, 0.1, 0.1**.
@@ -92,6 +90,14 @@ You should now have a cube prefab in your **Project** pane.
 
 ## Trying it out
 To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow Chapter 6 from the [**MR Basics 100: Getting started with Unity** course](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) to do so. You should see the Unity start screen, and then a clear display.
+
+## Creating Scripts
+
+1. In the **Project** pane, create a new folder, **Scripts**, under the **Assets** folder.
+2. Right-click on the folder, then select **Create >**, **C# Script**. Title it **AzureSpatialAnchorsScript**.
+3. Go to **GameObject** -> **Create Empty**.
+4. Select it, and in the **Inspector** rename it from **GameObject** to **AzureSpatialAnchors**. Select **Add Component** and search for and add the **AzureSpatialAnchorsScript**
+5. Still on the **AzureSpatialAnchors** select **Add Component** again and search for and add the **SpatialAnchorManager** script.
 
 ## Place an object in the real world
 Let's create & place an object using your app. Open the Visual Studio solution that we created when we [deployed our app](#trying-it-out).
