@@ -13,11 +13,15 @@ ms.topic: article
 
 Static models are expected to visually maintain their position when you move around them. If they appear to be unstable, this behavior may hint at LSR issues. Mind that additional dynamic transformations, like animations or explosion views, might mask this behavior.
 
-You may choose between two different LSR modes, namely **Planar LSR** or **Depth LSR**. Which one is active is determined by whether the client application submits a depth buffer.
+You may choose between two different LSR modes, namely **Planar LSR** or **Depth LSR**. Both LSR modes improve hologram stability, although they have their distinct limitations. Start by trying Depth LSR, as it is arguably giving better results in most cases.
 
-Both LSR modes improve hologram stability, although they have their distinct limitations. Start by trying Depth LSR, as it is arguably giving better results in most cases.
+## How to set the LSR mode
 
-## Choose LSR mode in Unity
+Which of the LSR modes is used is determined by whether the client application submits a depth buffer. If the depth buffer is submitted it uses **Depth LSR** and **Planar LSR** otherwise.
+
+The following paragraphs explain how this is accomplished in Unity and native applications respectively.
+
+### Unity
 
 In the Unity editor, go to *:::no-loc text="File > Build Settings":::*. Select *:::no-loc text="Player Settings":::* in the lower left, then check under *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* whether **:::no-loc text="Enable Depth Buffer Sharing":::** is checked:
 
@@ -69,6 +73,10 @@ public class OverrideReprojection : MonoBehaviour
 }
 ```
 
+### Native C++ applications
+
+Submitting the depth buffer is fully under control of the native C++ binding code, independent of the WMR or OpenXR version. The only condition that needs to be met is that at the time that `GraphicsBinding::BlitRemoteFrame` is called, a depth buffer must be bound to the graphics API.
+
 ## Depth LSR
 
 For Depth LSR to work, the client application must supply a valid depth buffer that contains all the relevant geometry to consider during LSR.
@@ -92,7 +100,53 @@ You can calculate the focus point yourself, though it might make sense to base i
 
 Usually both the client and the host render content that the other side isn't aware of, such as UI elements on the client. Therefore, it might make sense to combine the remote focus point with a locally calculated one.
 
-The focus points calculated in two successive frames can be quite different. Simply using them as-is can lead to holograms appearing to be jumping around. To prevent this behavior, interpolating between the previous and current focus points is advisable.
+The focus points calculated in two successive frames can vary a lot. Simply using them as-is can lead to holograms appearing to be jumping around. To prevent this behavior, interpolating between the previous and current focus points is advisable.
+
+## Reprojection pose modes
+
+The general problem scope with hybrid rendering can be stated like this: Remote and local content are within distinct poses (i.e. coordinate spaces) because the remote pose is from the time the pose was sent to the server whereas the local pose is the current one. However, in the end of a rendering frame both remote and local content need to be aligned and brought to the display. The following illustration shows an example where local and remote pose are translated compared to the display viewport:
+
+![Remote and local pose](./media/reprojection-remote-local.png)
+
+ARR provides two reprojection modes that work orthogonally to the LSR mode discussed above. These modes are referred to as **:::no-loc text="Remote pose mode":::** and **:::no-loc text="Local pose mode":::**. Unlike the LSR mode, the pose modes define how remote and local content is combined. The choice of the mode trades visual quality of local content for runtime performance, so applications should carefully consider which option is appropriate. See considerations below.
+
+### :::no-loc text="Remote pose mode":::
+
+This is the default mode in ARR. In this mode, the local content is rendered on top of the incoming remote image stream using the remote pose from the remote frame. Then the combined result is forwarded to the OS for the final transform. Accordingly, this approach uses only one reprojection transform, but the final correction is based on the round-trip interval so the full reprojection error is applied to the local content as well. As a consequence, this may result in significant distortions of local geometry including UI elements.
+
+Using the illustration above, this is what happens in :::no-loc text="Remote"::: pose mode:
+
+![Reprojection steps in remote pose mode](./media/reprojection-posemode-remote.png)
+
+### :::no-loc text="Local pose mode":::
+
+In this mode, the reprojection is split into two distinct steps: In the first step, the remote content is reprojected into local pose space, i.e. the space that the local content is usually rendered with on VR/AR devices. After that, the local content is rendered on top of this pre-transformed image using the usual local pose. In the second step, the combined result is forwarded to the OS for the final reprojection. Since this second reprojection incurs only a small delta - in fact the same delta that would be used if ARR was not present - the distortion artifacts on local content are mitigated significantly.
+
+Accordingly, the illustration looks like this:
+
+![Reprojection steps in remote pose mode](./media/reprojection-posemode-local.png)
+
+### Performance and quality considerations
+
+The choice of the pose mode has visual quality and performance implications. The additional runtime cost on the client side for doing the additional reprojection in :::no-loc text="Local"::: pose mode on a Hololens 2 device amounts to about 1 millisecond per frame. This needs to be put into consideration if the client application is already close to the 16 milliseconds frame budget. On the other hand, there are types of applications with either no local content or local content that is not prone to distortion artifacts. In those cases :::no-loc text="Local"::: pose mode does not gain any visual benefit because the quality of the remote content reprojection is unaffected.
+
+The general advice would thus be to test the modes on a per use case basis and see whether the gain in visual quality justifies the additional performance overhead. It is also possible to toggle the mode dynamically, for instance enable local mode only when important UIs are shown.
+
+### How to change the :::no-loc text="Pose mode"::: at runtime
+
+The following client API can be used to change the mode at runtime:
+
+```cs
+RenderingSession session = ...;
+session.GraphicsBinding.SetPoseMode(PoseMode.Local); // set local pose mode
+```
+ 
+```cpp
+ApiHandle<RenderingSession> session = ...;
+session->GetGraphicsBinding()->SetPoseMode(PoseMode::Local); // set local pose mode
+```
+
+The mode can be changed anytime the graphics binding object is available.
 
 ## Next steps
 
