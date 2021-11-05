@@ -7,12 +7,15 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 10/26/2021
 ---
 
 # Plan a SaaS offer for the commercial marketplace
 
 This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers to let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
+
+> [!TIP]
+> To see the customer's view of purchasing a SaaS offer in the Azure portal, see [Purchase a SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal) and [Purchase SaaS apps on Microsoft AppSource](/marketplace/purchase-software-appsource).
 
 ## Listing options
 

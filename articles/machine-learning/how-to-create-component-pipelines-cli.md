@@ -82,7 +82,7 @@ You should receive a JSON dictionary with information about the pipeline job, in
 
 Open `ComponentA.yaml` to see how the first component is defined: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
 
 In the current preview, only components of type `command` are supported. The `name` is the unique identifier and used in Studio to describe the component, and `display_name` is used to provide friendly name . The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
 
@@ -101,7 +101,7 @@ For more information on components and their specification, see [What is an Azur
 
 In the example directory, the `pipeline.yaml` file looks like the following code:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/pipeline.yml":::
 
 If you open the job's URL in Studio (the value of `services.Studio.endpoint` from the `job create` command when creating a job or `job show` after the job has been created), you'll see a graph representation of your pipeline:
 
@@ -168,11 +168,11 @@ Each of these phases may have multiple components. For instance, the data prepar
 
 The `job.yml` begins with the mandatory `type: pipeline` key-value pair. Then, it defines inputs and outputs as follows:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="8-25":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="5-22":::
 
 As described previously, these entries specify the input data to the pipeline, in this case the dataset in `./data`, and the intermediate and final outputs of the pipeline, which are stored in separate paths. The names within these input and output entries become values in the `inputs` and `outputs` entries of the individual jobs: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="29-75":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="26-72":::
 
 Notice how `jobs.train_job.outputs.model_output` is used as an input to both the prediction job and the scoring job, as shown in the following diagram: 
 

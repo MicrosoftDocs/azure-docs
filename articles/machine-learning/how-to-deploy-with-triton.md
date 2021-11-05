@@ -47,6 +47,9 @@ The information in this document is based on using a model stored in ONNX format
 
 This section shows how you can deploy Triton to managed online endpoint using the Azure CLI with the Machine Learning extension (v2).
 
+> [!IMPORTANT]
+> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
+
 1. To avoid typing in a path for multiple commands, use the following command to set a `BASE_PATH` environment variable. This variable points to the directory where the model and associated YAML configuration files are located:
 
     ```azurecli
