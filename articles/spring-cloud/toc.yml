@@ -188,7 +188,7 @@
           href: troubleshoot.md
         - name: Capture heap dump/thread dump/JFR guide
           href: how-to-capture-dumps.md
-        - name: diagnostic settings of JVM options for dumps and GC logs
+        - name: JVM option based troubleshooting
           href: tutorial-dump-jvm-options.md
     - name: Migrate
       items:
