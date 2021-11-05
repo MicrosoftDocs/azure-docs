@@ -22,7 +22,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!IMPORTANT]
-> This article requires the Azure CLI version 2.17.1 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
+> This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 
 ## <a id="create-cluster"></a>Create a managed instance cluster
 

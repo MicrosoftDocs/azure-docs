@@ -20,8 +20,14 @@ items:
 - name: Concepts
   expanded: true
   items:
-    - name: IoT data flow
+    - name: IoT connector data flow
       href: iot-data-flow.md
+    - name: IoT connector and Azure Machine Learning Service
+      href: iot-connector-machine-learning.md
+    - name: IoT connector and Microsoft Power BI
+      href: iot-connector-power-bi.md
+    - name: IoT connector and Microsoft Teams
+      href: iot-connector-teams.md
 
 - name: How-to guides
   expanded: true
@@ -44,4 +50,3 @@ items:
       href: iot-git-projects.md
     - name: Troubleshooting guide
       href: iot-troubleshoot-guide.md
-      
