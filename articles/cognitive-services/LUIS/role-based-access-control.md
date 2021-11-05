@@ -123,7 +123,7 @@ These users are the gatekeepers for LUIS applications in a production environmen
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalties under Cognitive Services LUIS Writer
+      * All functionalities under Cognitive Services LUIS Writer
       * Deploy a model
       * Delete an application
     :::column-end:::
