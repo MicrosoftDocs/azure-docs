@@ -60,7 +60,7 @@ MGMT-client-secret
 
 Q: While deploying the Landscape phase, I am getting the error: Either an Access Key / SAS Token or the Resource Group for the Storage Account must be specified - or Azure AD Authentication must be enabled 
 
-A: Ensure that you are passing in the correct parameter for the storageaccountname field 
+A: Ensure that you are passing in the correct parameter for the storageaccountname parameter. This parameter should specify the account containing the Terraform state files.
 
 Q: While running New-SAPAutomationRegion, I am getting the error: “The repository path: <repo path> is incorrect!” 
 
