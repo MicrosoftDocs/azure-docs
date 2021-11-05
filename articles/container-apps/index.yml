@@ -19,6 +19,8 @@ landingContent:
         links:
           - text: What is Azure Container Apps?
             url: overview.md
+          - text: Compare container options in Azure
+            url: compare-options.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
