@@ -60,6 +60,15 @@ Users can only be added to a collection by a collection admin, or through permis
 
 After creating an Azure Purview account, the first thing to do is create collections and assign users to roles within those collections.
 
+> [!NOTE]
+> If you created your Azure Purview account using a service principal, to be able to access the Purview Studio and assign permissions to users, you will need to grant a user collection admin permissions on the root collection.
+> You can use [this Azure CLI command](/cli/azure/purview/account#az_purview_account_add_root_collection_admin):
+>
+>   ```azurecli
+>   az purview account add-root-collection-admin --account-name --resource-group [--object-id]
+>   ```
+>
+
 ### Create collections
 
 Collections can be customized for structure of the sources in your Purview account, and can act like organized storage bins for these resources. When you're thinking about the collections you might need, consider how your users will access or discover information. Are your sources broken up by departments? Are there specialized groups within those departments that will only need to discover some assets? Are there some sources that should be discoverable by all your users?
