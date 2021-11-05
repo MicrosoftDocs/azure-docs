@@ -1,13 +1,13 @@
 ---
-title: 'Train models (create jobs) with the CLI (v2)'
+title: 'Train models with the CLI (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to train models (create jobs) using Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: lostmygithubaccount
-ms.author: copeters
+author: amibp
+ms.author: amipatel
 ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2

@@ -61,7 +61,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Availability zone** - Check this box if you want availability zones to be enabled.
    * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
    * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
-   * **SKU Size** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
+   * **No. of nodes** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
 
    :::image type="content" source="./media/create-cluster-portal/create-datacenter-page.png" alt-text="Review summary to create the datacenter." lightbox="./media/create-cluster-portal/create-datacenter-page.png" border="true":::
 
