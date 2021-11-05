@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Sensitive operations report workbook
 
-As an It administrator, you need to be able to identify comprmises in your environment to ensure that you can keep it in a healty state. 
+As an It administrator, you need to be able to identify compromises in your environment to ensure that you can keep it in a healthy state. 
 
 The sensitive operations report workbook is intended to help identify suspicious application and service principal activity that may indicate compromises in your environment.
 
@@ -35,7 +35,7 @@ This article provides you with an overview of this workbook.
 
 This workbook identifies recent sensitive operations that have been performed in your tenant and which may service principal compromise.
 
-If you organization is new to Azure monitor workbooks, you need to integrate your Azure AD sign-in and audit logs with Azure Monitor before accessing the workbook. This allows you to store, and query, and visualize your logs using workbooks for up to 2 years. Only sign-in and audit events created after Azure Monitor integration will be stored, so the workbook will not contain insights prior to that date. Learn more about the prerequisites to Azure Monitor workbooks for Azure Active Directory. If you have previously integrated your Azure AD sign-in and audit logs with Azure Monitor, you can use the workbook to assess past information. 
+If your organization is new to Azure monitor workbooks, you need to integrate your Azure AD sign-in and audit logs with Azure Monitor before accessing the workbook. This allows you to store, and query, and visualize your logs using workbooks for up to two years. Only sign-in and audit events created after Azure Monitor integration will be stored, so the workbook will not contain insights prior to that date. Learn more about the prerequisites to Azure Monitor workbooks for Azure Active Directory. If you have previously integrated your Azure AD sign-in and audit logs with Azure Monitor, you can use the workbook to assess past information. 
  
  
 
@@ -147,7 +147,7 @@ This paragraph lists the supported filters for each section.
 
 - **New permissions granted to service principals** to look out for broad or excessive permissions being added to service principals by actors that may be compromised.  
 
-- **Modified federation settings** section to confirm that the added or modified target domain/URL is a legitimate admin behavior. Any actions which modify or add domain federation trusts are rare and should be treated as high fidelity to be investigated as soon as possible.
+- **Modified federation settings** section to confirm that the added or modified target domain/URL is a legitimate admin behavior. Actions that modify or add domain federation trusts are rare and should be treated as high fidelity to be investigated as soon as possible.
 
 
 
