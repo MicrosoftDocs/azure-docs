@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 11/05/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,6 +25,10 @@ Organizations who have deployed Microsoft Intune can use the information returne
 * Requiring a device is not jailbroken or rooted
 
 This policy compliance information is forwarded to Azure AD where Conditional Access can make decisions to grant or block access to resources. More information about device compliance policies can be found in the article, [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started)
+
+## Template deployment
+
+Organizations can choose to deploy this policy using the steps outlined below or using the [Conditional Access templates (Preview)](concept-conditional-access-policy-common.md#conditional-access-templates-preview). 
 
 ## Create a Conditional Access policy
 
@@ -45,8 +49,10 @@ The following steps will help create a Conditional Access policy to require devi
    1. Select **Require device to be marked as compliant** and **Require Hybrid Azure AD joined device**
    1. **For multiple controls** select **Require one of the selected controls**.
    1. Select **Select**.
-1. Confirm your settings and set **Enable policy** to **On**.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
+
+After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 > [!NOTE]
 > You can enroll your new devices to Intune even if you select **Require device to be marked as compliant** for **All users** and **All cloud apps** using the steps above. **Require device to be marked as compliant** control does not block Intune enrollment. 

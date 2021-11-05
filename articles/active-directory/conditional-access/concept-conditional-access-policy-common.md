@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/03/2021
+ms.date: 11/05/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,25 +17,20 @@ ms.collection: M365-identity-device-management
 ---
 # Common Conditional Access policies
 
-[Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) are great for some but many organizations need more flexibility than they offer. Many organizations need to exclude specific accounts like their emergency access or break-glass administration accounts from Conditional Access policies. The policies referenced in this article can be customized based on organizational needs.
-
-:::image type="content" source="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png" alt-text="Conditional Access policies and templates in the Azure portal." lightbox="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png":::
-
-## Emergency access accounts
-
-More information about emergency access accounts and why they're important can be found in the following articles: 
-
-* [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
-* [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
+[Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) are great for some but many organizations need more flexibility than they offer. Many organizations need to exclude specific accounts like their emergency access or break-glass administration accounts from Conditional Access policies. The policies referenced in this article can be customized based on organizational needs. Organizations can [use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)
 
 ## Conditional Access templates (Preview)
 
 Conditional Access templates are designed to provide a convenient method to deploy new policies aligned with Microsoft recommendations. These templates are designed to provide maximum protection aligned with commonly used policies across various customer types and locations.
 
+:::image type="content" source="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png" alt-text="Conditional Access policies and templates in the Azure portal." lightbox="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png":::
+
 The 14 policy templates are split into policies that would be assigned to user identities or devices. Find the templates in the **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **Create new policy from template**.
 
 > [!IMPORTANT]
-> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts]((../roles/security-emergency-access.md)) open the policy and modify the excluded users and groups to include them.
+> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts]((../roles/security-emergency-access.md)) open the policy and modify the excluded users and groups to include them. 
+> 
+> By default, each policy is created in [report-only mode](concept-conditional-access-report-only.md), we recommended organizations test and monitor usage, to ensure intended result, before turning each policy on.
 
 - Identities
    - [Require multi-factor authentication for admins](howto-conditional-access-policy-admin-mfa.md)\*
@@ -58,13 +53,20 @@ The 14 policy templates are split into policies that would be assigned to user i
 
 Organizations not comfortable allowing Microsoft to create these policies can create them manually by copying the settings from **View policy summary** or use the linked articles to create policies themselves. 
 
-## Other policies
+### Other policies
 
 * [Block access by location](howto-conditional-access-policy-location.md)
 * [Block access except specific apps](howto-conditional-access-policy-block-access.md)
+
+## Emergency access accounts
+
+More information about emergency access accounts and why they're important can be found in the following articles: 
+
+* [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
+* [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 ## Next steps
 
 - [Simulate sign in behavior using the Conditional Access What If tool.](troubleshoot-conditional-access-what-if.md)
 
-- [Use report-only mode for Conditional Access to determine the impact of new policy decisions.](concept-conditional-access-report-only.md)
+- [Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)

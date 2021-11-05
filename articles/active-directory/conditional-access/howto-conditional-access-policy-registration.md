@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 11/05/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,6 +20,10 @@ ms.collection: M365-identity-device-management
 Securing when and how users register for Azure AD Multi-Factor Authentication and self-service password reset is possible with user actions in a Conditional Access policy. This feature is available to organizations who have enabled the [combined registration](../authentication/concept-registration-mfa-sspr-combined.md). This functionality allows organizations to treat the registration process like any application in a Conditional Access policy and use the full power of Conditional Access to secure the experience. Users signing in to the Microsoft Authenticator app or enabling passwordless phone sign-in are subject to this policy.
 
 Some organizations in the past may have used trusted network location or device compliance as a means to secure the registration experience. With the addition of [Temporary Access Pass](../authentication/howto-authentication-temporary-access-pass.md) in Azure AD, administrators can provision time-limited credentials to their users that allow them to register from any device or location. Temporary Access Pass credentials satisfy Conditional Access requirements for multi-factor authentication.
+
+## Template deployment
+
+Organizations can choose to deploy this policy using the steps outlined below or using the [Conditional Access templates (Preview)](concept-conditional-access-policy-common.md#conditional-access-templates-preview). 
 
 ## Create a policy to secure registration
 
@@ -48,8 +52,10 @@ The following policy applies to the selected users, who attempt to register usin
       1. Include **Any location**.
       1. Exclude **All trusted locations**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **On**.
-1. Select **Save** to create to enable your policy.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
+1. Select **Create** to create to enable your policy.
+
+After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 Administrators will now have to issue Temporary Access Pass credentials to new users so they can satisfy the requirements for multi-factor authentication to register. Steps to accomplish this task, are found in the section [Create a Temporary Access Pass in the Azure AD Portal](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass).
 
@@ -74,8 +80,10 @@ For [guest users](../external-identities/what-is-b2b.md) who need to register fo
 1. Under **Access controls** > **Grant**.
    1. Select **Block access**.
    1. Then click **Select**.
-1. Set **Enable policy** to **On**.
-1. Then select **Save**.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
+1. Select **Create** to create to enable your policy.
+
+After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Next steps
 
