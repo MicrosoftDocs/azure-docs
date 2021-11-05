@@ -35,6 +35,7 @@ In this article, learn about the network communication requirements when securin
 The following are well-known ports used by services listed in this article. If a port range is used in this article and is not listed in this section, it is specific to the service and may not have published information on what it is used for.
 
 | **Port** | **Description** |
+| ---- | ---- | 
 | 80 | Unsecured web traffic (HTTP) |
 | 443 | Secured web traffic (HTTPS) |
 | 445 | SMB traffic used to access file shares in Azure File storage |
