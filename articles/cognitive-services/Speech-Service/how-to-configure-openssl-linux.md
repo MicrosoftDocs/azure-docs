@@ -16,7 +16,8 @@ ROBOTS: NOINDEX
 
 # Configure OpenSSL for Linux
 
-When using any Speech SDK version 1.19.0 and onwards, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version. In earlier versions (1.9.0 to 1.18.0) of the Speech SDK OpenSSL is statically linked to the core library of the Speech SDK.
+In the Speech SDK version 1.19.0 and onwards, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version.
+In earlier versions (1.9.0 to 1.18.0) of the Speech SDK, OpenSSL is statically linked to the core library of the SDK.
 
 To ensure connectivity, verify that OpenSSL certificates have been installed in your system. Run a command:
 ```bash
@@ -49,6 +50,7 @@ export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
 ## Certificate Revocation Checks
+
 When connecting to the Speech Service, the Speech SDK will verify that the TLS certificate used by the Speech Service has not been revoked. To conduct this check, the Speech SDK will need access to the CRL distribution points for Certificate Authorities used by Azure. A list of possible CRL download locations can be found in [this document](../../security/fundamentals/tls-certificate-changes.md). If a certificate has been revoked or the CRL cannot be downloaded the Speech SDK will abort the connection and raise the Canceled event.
 
 In the event the network where the Speech SDK is being used from is configured in a manner that does not permit access to the CRL download locations, the CRL check can either be disabled or set to not fail if the CRL cannot be retrieved. This configuration is done through the configuration object used to create a Recognizer object.
