@@ -5,7 +5,7 @@ author: prsandhu
 ms.service: azure
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: prsandhu
+ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
 ---
