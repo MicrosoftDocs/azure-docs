@@ -37,7 +37,7 @@ gstreamer1.0-plugins-ugly
 * Download [installer](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi) 
 * Copy the installer to c:\gstreamer
 * Open PowerShell as an administrator.
-* Run the following command in the powershell 
+* Run the following command in the PowerShell:
 
 ```powershell
 cd c:\gstreamer
