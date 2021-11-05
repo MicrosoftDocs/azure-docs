@@ -33,7 +33,7 @@ Within a few minutes, the target will be assigned the selected role at the selec
 
 ## Security 
 
-LUIS supports Azure Active Directory (AAD) authentication. For more information, see [Authenticate with Azure Active Directory](/azure/cognitive-services/authentication#authenticate-with-azure-active-directory)
+LUIS supports Azure Active Directory (AAD) authentication. For more information, see [Authenticate with Azure Active Directory](/azure/cognitive-services/authentication#authenticate-with-azure-active-directory).
 
 ## LUIS role types
 
