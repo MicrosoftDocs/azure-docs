@@ -16,7 +16,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Appaegis Isolation Access Cloud for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Appaegis Isolation Access Cloud and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Appaegis Isolation Access Cloud](https://www.appaegis.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to do in both Appaegis Isolation Access Cloud and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Appaegis Isolation Access Cloud](https://www.appaegis.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities
@@ -44,11 +44,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure Appaegis Isolation Access Cloud to support provisioning with Azure AD
 
 1. Enabled [SSO](appaegis-isolation-access-cloud-tutorial.md) with Appaegis Cloud.
-2. When at the **Identity Provider Details** page (the page lists ACS URL and Entity ID), you will find the SCIM URL and SCIM Token.
+2. When at the **Identity Provider Details** page (the page lists ACS URL and Entity ID), you'll find the SCIM URL and SCIM Token.
 
 ## Step 3. Add Appaegis Isolation Access Cloud from the Azure AD application gallery
 
-Add Appaegis Isolation Access Cloud from the Azure AD application gallery to start managing provisioning to Appaegis Isolation Access Cloud. If you have previously setup Appaegis Isolation Access Cloud for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Appaegis Isolation Access Cloud from the Azure AD application gallery to start managing provisioning to Appaegis Isolation Access Cloud. If you have previously setup Appaegis Isolation Access Cloud for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -61,7 +61,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to Appaegis Isolation Access Cloud 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users or groups in TestApp based on user and/or group assignments in Azure AD.
 
 ### To configure automatic user provisioning for Appaegis Isolation Access Cloud in Azure AD:
 
@@ -93,7 +93,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Appaegis Isolation Access Cloud**.
 
-9. Review the user attributes that are synchronized from Azure AD to Appaegis Isolation Access Cloud in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Appaegis Isolation Access Cloud for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Appaegis Isolation Access Cloud API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Appaegis Isolation Access Cloud in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Appaegis Isolation Access Cloud for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Appaegis Isolation Access Cloud API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
     |Attribute|Type|Supported for filtering|
     |---|---|---|
