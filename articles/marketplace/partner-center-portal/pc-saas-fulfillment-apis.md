@@ -15,10 +15,10 @@ The SaaS Fulfillment APIs enable publishers, also known as independent software 
 
 To learn about the SaaS fulfillment APIs, we recommend you also read the following articles:
 - [Managing the SaaS subscription life cycle](pc-saas-fulfillment-life-cycle.md)
-- [SaaS fulfillment Subscription APIs v2](pc-saas-fulfillment-subscription-api)
-- [SaaS fulfillment Operations APIs v2](pc-saas-fulfillment-operations-api)
-- [Implementing a webhook on the SaaS service](pc-saas-fulfillment-webhook)
-- [Common questions about SaaS fulfillment APIs](saas-fulfillment-apis-faq)
+- [SaaS fulfillment Subscription APIs v2](pc-saas-fulfillment-subscription-api.md)
+- [SaaS fulfillment Operations APIs v2](pc-saas-fulfillment-operations-api.md)
+- [Implementing a webhook on the SaaS service](pc-saas-fulfillment-webhook.md)
+- [Common questions about SaaS fulfillment APIs](saas-fulfillment-apis-faq.md)
 
 ## API flows
 

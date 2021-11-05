@@ -13,7 +13,7 @@ ms.author: souchak
 
 ## Resolve a purchased subscription
 
-The resolve endpoint enables the publisher to exchange the purchase identification token from the commercial marketplace (referred to as *token* in [Purchased but not yet activated](#purchased-but-not-yet-activated-pendingfulfillmentstart)) to a persistent purchased SaaS subscription ID and its details.
+The resolve endpoint enables the publisher to exchange the purchase identification token from the commercial marketplace (referred to as *token* in [Purchased but not yet activated](pc-saas-fulfillment-life-cycle.md#purchased-but-not-yet-activated-pendingfulfillmentstart)) to a persistent purchased SaaS subscription ID and its details.
 
 When a customer is redirected to the partner's landing page URL, the customer identification token is passed as the *token* parameter in this URL call. The partner is expected to use this token and make a request to resolve it. The Resolve API response contains the SaaS subscription ID and other details to uniquely identify the purchase. The *token* provided with the landing page URL call is usually valid for 24 hours. If the *token* that you receive has already expired, we recommend that you provide the following guidance to the end user:
 

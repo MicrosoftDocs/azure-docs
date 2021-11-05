@@ -35,7 +35,7 @@ An example of such call is `https://contoso.com/signup?token=<blob>`, whereas th
 > [!IMPORTANT]
 > The landing page URL must be up and running all day, every day, and ready to receive new calls from Microsoft at all times. If the landing page becomes unavailable, customers won't be able to sign up for the SaaS service and start using it.
 
-Next, the publisher must pass the *token* back to Microsoft by calling the [SaaS Resolve API](#resolve-a-purchased-subscription), and entering the token as the value of the `x-ms-marketplace-token header` header parameter. As the result of the Resolve API call, the token is exchanged for details of the SaaS purchase such as unique ID of the purchase, purchased offer ID, and purchased plan ID.
+Next, the publisher must pass the *token* back to Microsoft by calling the [SaaS Resolve API](pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription), and entering the token as the value of the `x-ms-marketplace-token header` header parameter. As the result of the Resolve API call, the token is exchanged for details of the SaaS purchase such as unique ID of the purchase, purchased offer ID, and purchased plan ID.
 
 On the landing page, the customer should be signed in to the new or existing SaaS account via Azure Active Directory (Azure AD) single sign-on (SSO).
 
@@ -47,14 +47,14 @@ The publisher should implement SSO to provide the user experience required by Mi
 > [!NOTE]
 >If SSO requires that an administrator must grant permission to an app, the description of the offer in Partner Center must disclose that admin-level access is required. This disclosure is to comply with [commercial marketplace certification policies](/legal/marketplace/certification-policies#10003-authentication-options).
 
-After sign-in, the customer should complete the SaaS configuration on the publisher side. Then the publisher must call the [Activate Subscription API](#activate-a-subscription) to send a signal to Azure Marketplace that the provisioning of the SaaS account is complete.
+After sign-in, the customer should complete the SaaS configuration on the publisher side. Then the publisher must call the [Activate Subscription API](pc-saas-fulfillment-subscription-api.md#activate-a-subscription) to send a signal to Azure Marketplace that the provisioning of the SaaS account is complete.
 This action will start the customer's billing cycle. If the Activate Subscription API call is not successful, the customer isn't billed for the purchase.
 
 ![Diagram showing the A P I calls for a provisioning scenario.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
 ### Active (*Subscribed*)
 
-*Active (Subscribed)* is the steady state of a provisioned SaaS subscription. After the Microsoft side has processed the [Activate Subscription API](#activate-a-subscription) call, the SaaS subscription is marked as *Subscribed*. The customer can now use the SaaS service on the publisher's side and will be billed.
+*Active (Subscribed)* is the steady state of a provisioned SaaS subscription. After the Microsoft side has processed the [Activate Subscription API](pc-saas-fulfillment-subscription-api.md#activate-a-subscription) call, the SaaS subscription is marked as *Subscribed*. The customer can now use the SaaS service on the publisher's side and will be billed.
 
 When an SaaS subscription is already active, the customer can select **Manage SaaS experience** from the Azure portal or Microsoft 365 Admin Center. This action also causes Microsoft to call the **landing page URL** with the *token* parameter, as happens in the Activate flow. The publisher should distinguish between new purchases and the management of existing SaaS accounts, and handle this landing page URL call accordingly.
 
@@ -78,11 +78,11 @@ Only an active subscription can be updated. While the subscription is being upda
 In this flow, the customer changes the subscription plan or quantity of seats from the Azure portal or Microsoft 365 Admin Center.
 
 1. After an update is entered, Microsoft will call the publisher's webhook URL, configured in the **Connection webhook** field on the _Technical configuration_ page in Partner Center, with an appropriate value for *action* and other relevant parameters.
-1. The publisher side should make the required changes to the SaaS service, and notify Microsoft when finished by calling the [Update Status of Operation API](#update-the-status-of-an-operation).
+1. The publisher side should make the required changes to the SaaS service, and notify Microsoft when finished by calling the [Update Status of Operation API](pc-saas-fulfillment-operations-api.md#update-the-status-of-an-operation).
 1. If the patch is sent with *fail* status, the update process won't finish on the Microsoft side. The SaaS subscription will keep the existing plan and quantity of seats.
 
 > [!NOTE]
-> The publisher should invoke PATCH to [update the Status of Operation API](#update-the-status-of-an-operation) with a Failure/Success response *within a 10-second time window* after receiving the webhook notification. If PATCH of operation status is not received within the 10 seconds, the change plan is *automatically patched as Success*. 
+> The publisher should invoke PATCH to [update the Status of Operation API](pc-saas-fulfillment-operations-api.md#update-the-status-of-an-operation) with a Failure/Success response *within a 10-second time window* after receiving the webhook notification. If PATCH of operation status is not received within the 10 seconds, the change plan is *automatically patched as Success*.
 
 The sequence of API calls for an update scenario that's initiated from the commercial marketplace is shown in the following diagram.
 
@@ -92,11 +92,11 @@ The sequence of API calls for an update scenario that's initiated from the comme
 
 In this flow, the customer changes the subscription plan or quantity of seats purchased from the SaaS service itself. 
 
-1. The publisher code must call the [Change Plan API](#change-the-plan-on-the-subscription) and/or the [Change Quantity API](#change-the-quantity-of-seats-on-the-saas-subscription) before making the requested change on the publisher side. 
+1. The publisher code must call the [Change Plan API](pc-saas-fulfillment-subscription-api.md#change-the-plan-on-the-subscription) and/or the [Change Quantity API](pc-saas-fulfillment-subscription-api.md#change-the-quantity-of-seats-on-the-saas-subscription) before making the requested change on the publisher side.
 
 1. Microsoft will apply the change to the subscription, and then notify the publisher via **Connection webhook** to apply the same change.
 
-1. Only then should the publisher make the required change to the SaaS subscription, and notify Microsoft when the change is done by calling [Update Status of Operation API](#update-the-status-of-an-operation).
+1. Only then should the publisher make the required change to the SaaS subscription, and notify Microsoft when the change is done by calling [Update Status of Operation API](pc-saas-fulfillment-operations-api.md#update-the-status-of-an-operation).
 
 The sequence of API calls for an update scenario that's initiated from the publisher side is shown in the following diagram.
 
@@ -124,7 +124,7 @@ This action indicates that the customer's payment instrument has become valid ag
 
 1. Microsoft calls webhook with an *action* parameter set to the *Reinstate* value.
 1. The publisher makes sure that the subscription is fully operational again on the publisher side.
-1. The publisher calls the [Patch Operation API](#update-the-status-of-an-operation) with success status.
+1. The publisher calls the [Patch Operation API](pc-saas-fulfillment-operations-api.md#update-the-status-of-an-operation) with success status.
 1. The Reinstate process is successful and the customer is billed again for the SaaS subscription. 
 
 If the patch is sent with *fail* status, the reinstatement process won't finish on the Microsoft side and the subscription will remain *Suspended*.
