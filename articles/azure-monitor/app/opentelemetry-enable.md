@@ -35,7 +35,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Instrumentation libraries support on Azure Functions worker
+ - Instrumentation libraries support on Azure Functions
 
 Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
