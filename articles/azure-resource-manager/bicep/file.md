@@ -235,7 +235,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 }
 ```
 
-To [deploy more than one instance](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md) of a resource type, add a `for` expression. The expression can iterate over members of an array.
+To [deploy more than one instance](loops.md) of a resource type, add a `for` expression. The expression can iterate over members of an array.
 
 ```bicep
 resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {
