@@ -5,13 +5,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 11/04/2021
+ms.date: 11/05/2021
 ms.author: jasteppe
 ---
 
 # IoT connector and Microsoft Power BI
 
-In this article, we'll explore using IoT connector and  Microsoft Power Business Intelligence (BI).
+In this article, we'll explore using IoT connector and Microsoft Power Business Intelligence (BI).
 
 ## IoT connector and Power BI reference architecture
 
