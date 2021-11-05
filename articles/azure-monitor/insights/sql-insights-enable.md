@@ -153,7 +153,8 @@ When settings up your profile for SQL monitoring, you will need one of the follo
 
 If you have these permissions, a new Key Vault access policy will be automatically created as part of creating your SQL Monitoring profile that uses the Key Vault you specified. 
 
-You also need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](/key-vault/general/access-behind-firewall.md) and [Configure Azure Key Vault networking settings](/key-vault/general/how-to-azure-key-vault-network-security.md).
+> [!IMPORTANT]
+> You need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](/key-vault/general/access-behind-firewall.md) and [Configure Azure Key Vault networking settings](/key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ## Create SQL monitoring profile
 Open SQL insights by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click **Create new profile**. 
