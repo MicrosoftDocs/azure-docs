@@ -91,7 +91,7 @@ Azure Bastion currently supports the following keyboard layouts inside the VM:
 * sv-se-qwerty
 * tr-tr-qwerty
 
-For the correct key mappings for your target language, you must set either your local language on your computer or your remote language inside the VM to en-us-qwerty. That is, your local computer language must be set to English (United States) while your remote VM language is set to your target language, or vice versa. You can add English (United States) language to your machine in your computer settings.
+To establish the correct key mappings for your target language, you must set either your language on your local computer or your language inside the target VM to English (United States). That is, your local computer language must be set to English (United States) while your target VM language is set to your target language, or vice versa. You can add English (United States) language to your machine in your computer settings.
 
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
