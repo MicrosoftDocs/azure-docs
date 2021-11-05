@@ -31,7 +31,7 @@ The following table describes the components in this release.
 
 ## August 3, 2021
 
-This release updates the Azure Arc extension for Azure Data Studio to align with July 30, general availability. The following table describes the components in this release. 
+This release updates the Azure Arc extension for Azure Data Studio to align with July 30, general availability. The following table describes the components this release updates. 
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|
