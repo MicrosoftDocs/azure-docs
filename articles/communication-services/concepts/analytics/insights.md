@@ -23,15 +23,15 @@ Within your Communications Resource, we have provided an **Insights Preview** fe
 
 1. From the **Azure Portal** homepage, select your **Communication Service** resource:
 
-:::image type="content" source="media\workbooks\azure_portal_home_browser.png" alt-text="Azure Portal Home":::
+    :::image type="content" source="media\workbooks\azure_portal_home_browser.png" alt-text="Azure Portal Home":::
 
 2. Once you are inside your resource, scroll down on the left nav bar to the **Monitor** category and click on the **Insights** tab:
 
-:::image type="content" source="media\workbooks\acs_insights_nav.png" alt-text="Insights navigation":::
+    :::image type="content" source="media\workbooks\acs_insights_nav.png" alt-text="Insights navigation":::
 
 3. This should display the **Insights** dashboard for your Communication Service resource:
 
-:::image type="content" source="media\workbooks\acs_insights_tab.png" alt-text="Communication Services Insights tab":::
+    :::image type="content" source="media\workbooks\acs_insights_tab.png" alt-text="Communication Services Insights tab":::
 
 ## Insights dashboard navigation
 

@@ -12,9 +12,9 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# Log Analytics for Communications Services Preview
+# Log analytics for Communications Services preview
 
-## Overview and Access
+## Overview and access
 
 Before you can take advantage of [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) for your Communications Services logs, you must first follow the steps outlined in [Enable logging in Diagnostic Settings](enable-logging.md). Once you have enabled your logs and a [Log Analytics Workspace](/azure/azure-monitor/logs/design-logs-deployment), you will have access to a number of helpful [default query packs](/azure/azure-monitor/logs/query-packs#default-query-pack) that will help you quickly visualize and understand the data available in your logs, which are described below. Through Log Analytics, you also get access to additional Communications Services Insights via Azure Monitor Workbooks (see: [Communications Services Insights](insights.md)), as well as the ability to create our own queries and Workbooks, as well as [REST API access](https://dev.loganalytics.io/) to any query.
 
@@ -25,15 +25,15 @@ You can access the queries by starting on your Communications Services resource 
 
 From there, you are presented with a modal screen that contains all of the [default query packs](/azure/azure-monitor/logs/query-packs#default-query-pack) available for your Communications Services, with list of Query Packs available to navigate to the left.
 
-:::image type="content" source="media\log-analytics\log-analytics-modal-resource.png" alt-text="log analytics queries modal":::
+:::image type="content" source="media\log-analytics\log-analytics-modal-resource.png" alt-text="log analytics queries modal" lightbox="media\log-analytics\log-analytics-modal-resource.png":::
 
 If you close the modal screen, you can still navigate to the various query packs, as well as directly access  data in the form of tables based on the schema of the logs and metrics you have enabled in your Diagnostic Setting. Here, you can create your own queries from the data using [KQL (Kusto)](/azure/data-explorer/kusto/query/). Learn more about using, editing, and creating queries by reading more about: [Log Analytics Queries](/azure/azure-monitor/logs/queries)
 
-:::image type="content" source="media\log-analytics\log-analytics-queries-resource.png" alt-text="Log Analytics queries in resource":::
+:::image type="content" source="media\log-analytics\log-analytics-queries-resource.png" alt-text="Log Analytics queries in resource" lightbox="media\log-analytics\log-analytics-queries-resource.png":::
 
-:::image type="content" source="media\log-analytics\log-analytics-tables-resource.png" alt-text="Log Analytics tables in resource":::
+:::image type="content" source="media\log-analytics\log-analytics-tables-resource.png" alt-text="Log Analytics tables in resource" lightbox="media\log-analytics\log-analytics-tables-resource.png":::
 
-## Default Query Packs for Call Summary and Call Diagnostic logs
+## Default query packs for call summary and call diagnostic logs
 The following are descriptions of each query in the [default query pack](/azure/azure-monitor/logs/query-packs#default-query-pack), for the [Call Summary and Call Diagnostic logs](call-logs-azure-monitor.md) including code samples and example outputs for each query available:
 ### Call Overview Queries
 #### Number of participants per call
@@ -110,7 +110,7 @@ Sample output:
 
 :::image type="content" source="media\log-analytics\call-duration-percentile-example.png" alt-text="call duration percentile query":::
 
-### Endpoint Information Queries
+### Endpoint information queries
 
 #### Number of endpoints per call
 
@@ -127,7 +127,7 @@ Sample output:
 
 :::image type="content" source="media\log-analytics\endpoints-per-call.png" alt-text="endpoints per call query":::
 
-#### Ratio of SDK Versions
+#### Ratio of SDK versions
 
 ```
 // Ratio of SDK Versions
@@ -142,7 +142,7 @@ Sample output:
 
 :::image type="content" source="media\log-analytics\sdk-ratio-sample.png" alt-text="Pie chart showing the ratio of SDK Versions."::: :::image type="content" source="media\log-analytics\sdk-ratio-table-sample.png" alt-text="Table showing SDK Versions":::
 
-#### Ratio of OS Versions (simplified OS name)
+#### Ratio of OS versions (simplified OS name)
 
 ```
 // Ratio of OS Versions (simplified OS name)
@@ -163,7 +163,7 @@ Sample output:
 :::image type="content" source="media\log-analytics\os-version-graph.png" alt-text="Pie chart showing operating system ratios":::
 :::image type="content" source="media\log-analytics\os-version-table.png" alt-text="Table showing OS Versions":::
 
-### Media Stream Queries
+### Media stream queries
 #### Streams per call
 
 ```
@@ -201,7 +201,7 @@ ACSCallDiagnostics
 
 :::image type="content" source="media\log-analytics\media-type-ratio.png" alt-text="pie chart showing media type ratios":::
 
-### Quality Metrics Queries
+### Quality metrics queries
 
 #### Average telemetry values
 
@@ -254,7 +254,7 @@ ACSCallDiagnostics
 | render columnchart with (xcolumn = PacketLossRateAvg, title="PacketLossRateAvg histogram")
 ```
 
-:::image type="content" source="media\log-analytics\packeloss-avg-histogram.png" alt-text="packet loss average histogram":::
+:::image type="content" source="media\log-analytics\packetloss-avg-histogram.png" alt-text="packet loss average histogram":::
 
 #### PacketLossRateMax histogram
 ```

@@ -32,7 +32,7 @@ This applies to the following Communications Services logs:
 
 To access Diagnostic Settings for your Communications Services, start by navigating to your Communications Services home page within Azure Portal:
 
-:::image type="content" source="media\enable-logging\portal_home_goto_acs_resource.png" alt-text="Communications Services resource":::
+:::image type="content" source="media\enable-logging\portal_home_go-to_acs_resource.png" alt-text="Communications Services resource":::
 
 From there, click on "Diagnostic settings" within the Monitoring section of the left-hand navigation pane:
 

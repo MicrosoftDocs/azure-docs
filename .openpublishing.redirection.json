@@ -45722,6 +45722,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/communication-services/concepts/call-logs-azure-monitor.md",
+      "redirect_url": "/azure/communication-services/concepts/analytics/call-logs-azure-monitor",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
       "redirect_url": "/azure/virtual-desktop/teams-on-avd",
       "redirect_document_id": false
