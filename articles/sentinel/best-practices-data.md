@@ -8,9 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
+ms.custom: ignite-fall-2021
 ---
 
 #  Data collection best practices
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This section reviews best practices for collecting data using Azure Sentinel data connectors. For more information, see [Connect data sources](connect-data-sources.md), [Azure Sentinel data connectors reference](data-connectors-reference.md), and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 

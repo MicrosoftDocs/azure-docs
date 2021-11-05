@@ -428,6 +428,9 @@
     - name: Knowledge Exploration
       tocHref: /azure/cognitive-services/kes/
       topicHref: /azure/cognitive-services/kes/overview
+    - name: Language service
+      tocHref: /azure/cognitive-services/language-service/
+      topicHref: /azure/cognitive-services/language-service/
     - name: Language Understanding (LUIS)
       tocHref: /azure/cognitive-services/LUIS/
       topicHref: /azure/cognitive-services/LUIS/
@@ -801,6 +804,9 @@
           - name: IP services
             tocHref: /azure/virtual-network/ip-services
             topicHref: /azure/virtual-network/ip-services
+      - name: Virtual Network Manager
+        tocHref: /azure/virtual-network-manager/
+        topicHref: /azure/virtual-network-manager/
       - name: Virtual WAN
         tocHref: /azure/virtual-wan/
         topicHref: /azure/virtual-wan/
@@ -1054,7 +1060,14 @@
     items:
     - name: Video Analyzer
       tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
-      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
+      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/   
+      items:
+      - name: Edge
+        tocHref: /azure/azure-video-analyzer/video-analyzer-docs/edge
+        topicHref: /azure/azure-video-analyzer/video-analyzer-docs/edge
+      - name: Cloud
+        tocHref: /azure/azure-video-analyzer/video-analyzer-docs/cloud
+        topicHref: /azure/azure-video-analyzer/video-analyzer-docs/cloud        
     - name: Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
