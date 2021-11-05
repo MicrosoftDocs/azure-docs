@@ -28,7 +28,7 @@ Conditional Access templates are designed to provide a convenient method to depl
 The 14 policy templates are split into policies that would be assigned to user identities or devices. Find the templates in the **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **Create new policy from template**.
 
 > [!IMPORTANT]
-> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts]((../roles/security-emergency-access.md)) open the policy and modify the excluded users and groups to include them. 
+> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md) open the policy and modify the excluded users and groups to include them. 
 > 
 > By default, each policy is created in [report-only mode](concept-conditional-access-report-only.md), we recommended organizations test and monitor usage, to ensure intended result, before turning each policy on.
 
