@@ -3,7 +3,7 @@ title: Mount a virtual file system on a pool
 description: Learn how to mount a virtual file system on a Batch pool.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 08/18/2021
+ms.date: 11/10/2021
 ---
 
 # Mount a virtual file system on a Batch pool
@@ -41,6 +41,269 @@ When the file system is mounted, an environment variable `AZ_BATCH_NODE_MOUNTS_D
 
 > [!IMPORTANT]
 > The maximum number of mounted file systems on a pool is 10. See [Batch service quotas and limits](batch-quota-limit.md#other-limits) for details and other limits.
+
+## Mount Azure file share with PowerShell
+
+You can mount an Azure file share on a Batch pool using [Azure PowerShell](/powershell/) or [Azure CloudShell](../cloud-shell/overview.md).
+
+# [Windows](#tab/windows)
+
+1. Sign in to your Azure subscription.
+
+    ```powershell
+    Connect-AzAccount -Subscription "<subscription-ID>"
+    ```
+
+1. Get the context for your Batch account.
+    
+    ```powershell
+    $context = Get-AzBatchAccount -AccountName <batch-account-name>
+    ```
+
+1. Create a Batch pool with the following settings. Replace the sample values with your own information as needed.
+
+    ```powershell
+    $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<Storage-Account-name>", https://<Storage-Account-name>.file.core.windows.net/batchfileshare1, "S", "Storage-Account-key")
+    
+    $mountConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSMountConfiguration" -ArgumentList @($fileShareConfig)
+    
+    $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("WindowsServer", "MicrosoftWindowsServer", "2016-Datacenter", "latest")
+    
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageReference, "batch.node.windows amd64")
+    
+    New-AzBatchPool -Id "<Pool-Name>" -VirtualMachineSize "STANDARD_D2_V2" -VirtualMachineConfiguration $configuration -TargetDedicatedComputeNodes 1 -MountConfiguration @($mountConfig) -BatchContext $Context
+    ```
+
+1. Access the mount files using your drive's direct path. For example:
+
+    ```powershell
+    cmd /c "more S:\folder1\out.txt & timeout /t 90 > NULL"
+    ```
+
+1. Check that the output file is accurate.
+
+1. If you're using Remote Desktop Protocol (RDP) or SSH, add credentials to access the `S` drive directly. The Azure Batch agent only grants access for Azure Batch tasks in Windows. When you RDP to the node, your user account doesn't have automatic access to the mounting drive. 
+
+    Use `cmdkey` to add your credentials. Replace the sample values with your own information.
+
+    ```powershell
+    cmdkey /add:"<storage-account-name>.file.core.windows.net" /user:"Azure\<storage-account-name>" /pass:"<storage-account-key>"
+    ```
+
+# [Linux](#tab/linux)
+
+1. Sign in to your Azure subscription.
+
+    ```powershell
+    Connect-AzAccount -Subscription "<subscription-ID>"
+    ```
+
+1. Get the context for your Batch account.
+
+    ```powershell
+    $context = Get-AzBatchAccount -AccountName <batch-account-name>
+    ```
+
+1. Create a Batch pool with the following settings. Replace the sample values with your own information as needed.
+
+    ```powershell
+    $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<Storage-Account-name>", https://<Storage-Account-name>.file.core.windows.net/batchfileshare1, "S", "<Storage-Account-key>", "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp")
+    
+    $mountConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSMountConfiguration" -ArgumentList @($fileShareConfig)
+    
+    $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("ubuntuserver", "canonical", "18.04-lts", "latest")
+    
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageReference, "batch.node.ubuntu 18.04")
+    
+    New-AzBatchPool -Id "<Pool-Name>" -VirtualMachineSize "STANDARD_D2_V2" -VirtualMachineConfiguration $configuration -TargetDedicatedComputeNodes 1 -MountConfiguration @($mountConfig) -BatchContext $Context
+     
+    ```
+
+1. Access the mount files using the environment variable `AZ_BATCH_NODE_MOUNTS_DIR`. For example:
+
+    ```bash
+    /bin/bash -c 'more $AZ_BATCH_NODE_MOUNTS_DIR/S/folder1/out.txt; sleep 20s'
+    ```
+
+    Optionally, you can also access the mount files using the direct path.
+
+1. Check that the output file is accurate.
+
+1. If you're using RDP or SSH, you can manually access the `S` drive directly. Use the path `/mnt/batch/tasks/fsmounts/S`.
+
+---
+
+### Troubleshoot PowerShell mounting
+
+When you mount an Azure file share to a Batch pool with PowerShell or CloudShell, you might receive the following error:
+
+```text
+Mount Configuration Error | An error was encountered while configuring specified mount(s)
+Message: System error (out of memory, cannot fork, no more loop devices)
+MountConfigurationPath: S
+```
+
+If you receive this error, RDP or SSH to the node to check the related log files. The Batch agent implements mounting differently on Windows and Linux. On Linux, Batch installs the package `cifs-utils`. Then, Batch issues the mount command. On Windows, Batch uses `cmdkey` to add your Batch account credentials. Then, Batch issues the mount command through `net use`. For example:
+
+```powershell
+net use S: \\<storage-account-name>.file.core.windows.net\<fileshare> /u:AZURE\<storage-account-name> <storage-account-key>
+```
+
+# [Windows](#tab/windows)
+
+1. Connect to the node over RDP.
+
+1. Open the log file, `fshare-S.log`. The file path is `D:\batch\tasks\fsmounts`.
+
+1. Review the error messages. For example:
+
+    ```text
+    CMDKEY: Credential added successfully.
+    
+    System error 86 has occurred.
+    
+    The specified network password is not correct.
+    ```
+
+1. Troubleshoot the problem using [Troubleshoot Azure Files problems in Windows (SMB)](../storage/files/storage-troubleshoot-windows-file-connection-problems.md).
+
+# [Linux](#tab/linux)
+
+1. Connect to the node over SSH.
+
+1. Open the log file, `fshare-S.log`. The file path is `/mnt/batch/tasks/fsmounts`.
+
+1. Review the error messages. For example, `mount error(13): Permission denied`.
+
+1. Troubleshoot the problem using [Troubleshoot Azure Files problems in Linux (SMB)](../storage/files/storage-troubleshoot-linux-file-connection-problems.md).
+
+---
+
+If you can't use RDP or SSH to check the log files on the node, check the Batch logs directly. Use this method for both Windows and LInux logs.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search bar, enter and select **Batch accounts**.
+
+1. On the **Batch accounts** page, select the account with your Batch pool.
+
+1. On the Batch account page's menu, under **Features**, select **Pools**.
+
+1. Select the pool's name.
+
+1. On the Batch pool page's menu, under **General**, select **Nodes**.
+
+1. Select the node's name.
+
+1. On the **Overview** page for the node, select **Upload batch logs**.
+
+1. In the **Upload batch logs** pane, select your Azure Storage container. Then, select **Pick storage container**.
+
+1. Select and download the log files from the storage container. 
+
+1. Open `agent-debug.log`.
+
+1. Review the error messages. For example: 
+
+    ```text
+    ..20210322T113107.448Z.00000000-0000-0000-0000-000000000000.ERROR.agent.mount.filesystems.basefilesystem.basefilesystem.py.run_cmd_persist_output_async.59.2912.MainThread.3580.Mount command failed with exit code: 2, output:
+    
+    CMDKEY: Credential added successfully.
+    
+    System error 86 has occurred.
+    
+    The specified network password is not correct.
+    ```
+
+1. Troubleshoot the problem using [Troubleshoot Azure Files problems in Windows (SMB)](../storage/files/storage-troubleshoot-windows-file-connection-problems.md) or [Troubleshoot Azure Files problems in Linux (SMB)](../storage/files/storage-troubleshoot-linux-file-connection-problems.md).
+
+If you're still unable to find the cause of the failure, you can [mount the file share manually with PowerShell](#manually-mount-file-share-with-powershell) instead.
+
+### Manually mount file share with PowerShell
+
+If you're unable to diagnose or fix mounting errors with PowerShell, you can mount the file share manually.
+
+# [Windows](#tab/windows)
+
+1. Create a pool without a mounting configuration. For example:
+
+    ```powershell
+    $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("WindowsServer", "MicrosoftWindowsServer", "2016-Datacenter", "latest")
+    
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageReference, "batch.node.windows amd64")
+    
+    New-AzBatchPool -Id "<Pool-Name>" -VirtualMachineSize "STANDARD_D2_V2" -VirtualMachineConfiguration $configuration -TargetDedicatedComputeNodes 1  -BatchContext $Context
+    ```
+
+1. Wait for the node to be in the **Idle** state.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search bar, enter and select **Storage accounts**.
+
+1. Select the name of the storage account with your file share.
+
+1. On the storage account page's menu, under **Data storage**, select **File shares**.
+
+1. On the **File shares** page, select the file share's name.
+
+1. On the file share's **Overview** page, select **Connect**.
+
+1. In the **Connect** pane, select the **Windows** tab.
+
+1. For **Drive letter**, enter the drive you want to use. The default is `Z`.
+
+1. For **Authentication method**, select how you want to connect to the file share.
+
+1. Copy the PowerShell command for mounting the file share.
+
+1. Connect to the node over RDP.
+
+1. Run the command you copied to mount the file share.
+
+1. Note any error messages in the output. Use this information to troubleshoot any networking-related issues.
+
+# [Linux](#tab/linux)
+
+
+1. Create a pool without a mounting configuration. For example:
+
+    ```bash
+    $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("ubuntuserver", "canonical", "18.04-lts", "latest")
+    
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageReference, "batch.node.ubuntu 18.04")
+    
+    New-AzBatchPool -Id "<Pool-Name>" -VirtualMachineSize "STANDARD_D2_V2" -VirtualMachineConfiguration $configuration -TargetDedicatedComputeNodes 1 -BatchContext $Context
+    ```
+
+1. Wait for the node to be in the **Idle** state.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search bar, enter and select **Storage accounts**.
+
+1. Select the name of the storage account with your file share.
+
+1. On the storage account page's menu, under **Data storage**, select **File shares**.
+
+1. On the **File shares** page, select the file share's name.
+
+1. On the file share's **Overview** page, select **Connect**.
+
+1. In the **Connect** pane, select the **Linux** tab.
+
+1. Enter the **Mount point** you want to use.
+
+1. Copy the Linux command for mounting the file share.
+
+1. Connect to the node over SSH.
+
+1. Run the command you copied to mount the file share.
+
+1. Note any error messages in the output. Use this information to troubleshoot any networking-related issues.
+
+
+---
 
 ## Examples
 
