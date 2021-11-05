@@ -39,6 +39,8 @@ When scanning Salesforce, Purview supports extracting metadata including Salesfo
 
 * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
+* Ensure the self-hosted integration runtime machine's IP is within the [trusted IP ranges for your organization](https://help.salesforce.com/s/articleView?id=sf.security_networkaccess.htm&type=5) set on Salesforce. Otherwise, you need to additionally provide the security token to authenticate to Salesforce from an untrusted network. Learn more from the credential configuration in [Scan](#scan) section.
+
 * In the event that users will be submitting Salesforce Documents, certain security settings must be configured to allow this access on Standard Objects and Custom Objects. To configure permissions:
     - Within Salesforce, click on Setup and then click on Manage Users.
     - Under the Manage Users tree click on Profiles.
@@ -99,7 +101,9 @@ To create and run a new scan, do the following:
     1. **Credential**: Select the credential to connect to your data source. Make sure to:
         * Select **Consumer key** while creating a credential.
         * Provide the username of the user that the connected app is imitating in the User name input field.
-        * Store the password of the user that the connected app is imitating in an Azure Key Vault secret. The security token is an automatically generated key that must be added to the end of the password to log in to Salesforce from an untrusted network. Concatenate the password and token when passing the request for authentication.
+        * Store the password of the user that the connected app is imitating in an Azure Key Vault secret. 
+            * If your self-hosted integration runtime machine's IP is within the [trusted IP ranges for your organization](https://help.salesforce.com/s/articleView?id=sf.security_networkaccess.htm&type=5) set on Salesforce, provide just the password of the user.
+            * Otherwise, concatenate the password and security token as the value of the secret. The security token is an automatically generated key that must be added to the end of the password when logging in to Salesforce from an untrusted network. Learn more about how to [get or reset a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm).
         * Provide the consumer key from the connected app definition. You can find it on the connected app's Manage Connected Apps page or from the connected app's definition.
         * Stored the consumer secret from the connected app definition in an Azure Key Vault secret. You can find it along with consumer key.
 
