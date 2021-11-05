@@ -21,6 +21,9 @@ ms.collection: M365-identity-device-management
 
 # Sensitive operations report workbook
 
+As an It administrator, you need to be able to identify comprmises in your environment to ensure that you can keep it in a healty state. 
+
+The sensitive operations report workbook is intended to help identify suspicious application and service principal activity that may indicate compromises in your environment.
 
 
 This article provides you with an overview of this workbook.
@@ -30,13 +33,10 @@ This article provides you with an overview of this workbook.
 
 ![Workbook category](./media/workbook-sesitive-operations-report/workbook-category.png)
 
+This workbook identifies recent sensitive operations that have been performed in your tenant and which may service principal compromise.
 
-This workbook is intended to help identify suspicious application and service principal activity that may indicate compromises in your environment.
-
-
-This workbook identifies recent sensitive operations that have been performed in your tenant and which may service principal compromise. 
+If you organization is new to Azure monitor workbooks, you need to integrate your Azure AD sign-in and audit logs with Azure Monitor before accessing the workbook. This allows you to store, and query, and visualize your logs using workbooks for up to 2 years. Only sign-in and audit events created after Azure Monitor integration will be stored, so the workbook will not contain insights prior to that date. Learn more about the prerequisites to Azure Monitor workbooks for Azure Active Directory. If you have previously integrated your Azure AD sign-in and audit logs with Azure Monitor, you can use the workbook to assess past information. 
  
-
  
 
 ## Sections
@@ -104,7 +104,37 @@ This section includes the following data:
 
 ## Filters
 
-This workbook doesn't have filters.
+This paragraph lists the supported filters for each section.
+
+
+### Modified Application and Service Principal Credentials/Authentication Methods
+
+- Time range
+- Operation name
+- Credential
+- Actor
+- Exclude actor
+
+
+### New permissions granted to service principals
+
+- Time range
+- Client app
+- Resource
+
+### Directory role and group membership updates to service principals
+
+- Time range
+- Operation
+- Initiating user or app
+
+### Modified federation settings
+
+- Time range
+- Operation
+- Initiating user or app
+
+
 
 
 ## Best practice
