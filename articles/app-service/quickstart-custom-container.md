@@ -27,12 +27,12 @@ To complete this tutorial:
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. In VS Community, ensure **.NET Framework project and item templates** component is selected with **ASP.NET and web development workload**. 
-    :::image type="content" source="./media/quickstart-custom-container/vs-community-install.png?text=VS Community install" alt-text="Screenshot of VS Community installation":::
-- If you've installed Visual Studio 2022 already:
-
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2022 already:
     - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by selecting **Tools** > **Get Tools and Features**.
+- In Visual Studio 2022 Community, ensure **.NET Framework project and item templates** component is selected with **ASP.NET and web development workload**. 
+    :::image type="content" source="./media/quickstart-custom-container/vs-community-install.png?text=VS Community install" alt-text="Screenshot of VS Community installation":::
+
 
 ## Create an ASP.NET web app
 
@@ -44,15 +44,15 @@ Create an ASP.NET web app by following these steps:
 
    :::image type="content" source="./media/quickstart-custom-container/create-new-project.png?text=VS create a new project" alt-text="Create a new project":::
 
-1. In **Configure your new project**, under **Project name**, name the application _myfirstazurewebapp_. Under **Framework** select **.NET Framework 4.8** and then select **Create**.
+1. In **Configure your new project**, under **Project name**, name the application _myfirstazurewebapp_. Under **Framework**, select **.NET Framework 4.8** and then select **Create**.
 
-   ![Configure your web app project](./media/quickstart-custom-container/configure-web-app-project-container.png)
+    :::image type="content" source="./media/quickstart-custom-container/configure-web-app-project-container.png?text=Configure your web app project" alt-text="Configure your web app project":::
 
 1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
 
 1. Under **Authentication**, select **None**. Under **Advanced**, select **Docker support** and uncheck **Configure for HTTPS**. Select **Create**.
 
-   ![Create ASP.NET Web Application](./media/quickstart-custom-container/select-mvc-template-for-container.png)
+     :::image type="content" source="./media/quickstart-custom-container/select-mvc-template-for-container.png?text=Create ASP.NET Web Application" alt-text="Create ASP.NET Web Application":::
 
 1. If the _Dockerfile_ file isn't opened automatically, open it from the **Solution Explorer**.
 
@@ -64,17 +64,33 @@ Create an ASP.NET web app by following these steps:
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-   ![Run app locally](./media/quickstart-custom-container/local-web-app.png)
+    :::image type="content" source="./media/quickstart-custom-container/local-web-app.png?text=Run app locally" alt-text="Run app locally":::
 
-## Publish to Docker Hub
+## Publish to Azure Container Registry
 
 1. In **Solution Explorer**, right-click the **myfirstazurewebapp** project and select **Publish**.
 
 1. Choose **App Service** and then select **Publish**.
 
-1. In Pick a **publish target**, select **Container Registry** and **Docker Hub**, and then click **Publish**.
+1. In **Target**, select **Docker Container Registry**, and then click **Next**.
 
-   ![Publish from project overview page](./media/quickstart-custom-container/publish-to-docker-vs2019.png)
+    :::image type="content" source="./media/quickstart-custom-container/select-docker-container-registry-vs2022.png?text=Publish from project overview page" alt-text="Publish from project overview page":::
+
+1. In **Specific Target**, select **Azure Container Registry**, and then click **Next**.
+
+    :::image type="content" source="./media/quickstart-custom-container/publish-to-azure-container-registry-vs2022.png?text=Publish to Azure Container Registry" alt-text="Publish from project overview page":::
+
+1. In **Publish**, make sure the correct subscription is chosen. In **Container registries** select the **+** button.
+
+    :::image type="content" source="./media/quickstart-custom-container/create-new-azure-container-registry.png?text=Create new Azure Container Registry" alt-text="Create new Azure Container Registry":::
+
+1. In **Create new**, make sure the correct subscription is chosen. Under **Resource group**, select **New** and type *myResourceGroup* for the name, and click **OK**. Under **SKU**, select **Basic**. Under **Registry location**, select a location of the registry then select **Create**.
+
+    :::image type="content" source="./media/quickstart-custom-container/new-azure-container-registry-details.png?text=Azure Container Registry details" alt-text="Azure Container Registry details":::
+
+1. Select existing azure container registry. Click Finish.
+
+    :::image type="content" source="./media/quickstart-custom-container/select-existing-azure-container-registry.png?text=Select existing Azure Container Registry" alt-text="Select existing Azure Container Registry":::
 
 1. Supply your Docker Hub account credentials and select **Save**.
 
