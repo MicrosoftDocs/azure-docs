@@ -52,7 +52,7 @@ Take the following steps in the Azure portal to create an action rule for your A
 
       <!--![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01.png)-->
 
-      [ ![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01.png) ](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01.png#lightbox)
+      [ ![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01-inline.png) ](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01-expanded.png#lightbox)
 
    2. Select the **Subscription** for the action rule, and optionally filter by a **Resource** type. To filter to Azure Stack Edge resources, select **Data Box Edge devices (dataBoxEdge)**.
    
