@@ -1030,6 +1030,8 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 ## Microsoft Defender for Cloud Apps
 
+<a name="microsoft-cloud-app-security-mcas"></a>
+
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)**<br><br>For Cloud Discovery logs, [enable Microsoft Sentinel as your SIEM in Microsoft Defender for Cloud Apps](/cloud-app-security/siem-sentinel) |
