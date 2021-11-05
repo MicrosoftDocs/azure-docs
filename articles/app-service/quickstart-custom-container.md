@@ -27,7 +27,9 @@ To complete this tutorial:
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. In VS Community, ensure **.NET Framework project and item templates** component is selected with **ASP.NET and web development workload**. 
+    :::image type="content" source="./media/quickstart-custom-container/vs-community-install.png?text=VS Community install" alt-text="Screenshot of VS Community installation":::
+- If you've installed Visual Studio 2022 already:
 
     - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by selecting **Tools** > **Get Tools and Features**.
@@ -40,13 +42,15 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)** for C#, then select **Next**.
 
-1. In **Configure your new project**, name the application _myfirstazurewebapp_, and then select **Create**.
+   :::image type="content" source="./media/quickstart-custom-container/create-new-project.png?text=VS create a new project" alt-text="Create a new project":::
+
+1. In **Configure your new project**, under **Project name**, name the application _myfirstazurewebapp_. Under **Framework** select **.NET Framework 4.8** and then select **Create**.
 
    ![Configure your web app project](./media/quickstart-custom-container/configure-web-app-project-container.png)
 
 1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
 
-1. Select **Docker support**, and make sure authentication is set to **No Authentication**. Select **Create**.
+1. Under **Authentication**, select **None**. Under **Advanced**, select **Docker support** and uncheck **Configure for HTTPS**. Select **Create**.
 
    ![Create ASP.NET Web Application](./media/quickstart-custom-container/select-mvc-template-for-container.png)
 
@@ -55,7 +59,7 @@ Create an ASP.NET web app by following these steps:
 1. You need a [supported parent image](configure-custom-container.md#supported-parent-images). Change the parent image by replacing the `FROM` line with the following code and save the file:
 
    ```dockerfile
-   FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
+   FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
    ```
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
