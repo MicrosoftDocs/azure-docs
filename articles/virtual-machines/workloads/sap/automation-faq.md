@@ -44,7 +44,7 @@ A: This is an issue with the line endings in the sap-hana -> deploy -> terraform
 
 Q: During deployment, I am getting the following error: "Error: building account: getting authenticated object ID: Error parsing json result from the Azure CLI: Error waiting for the Azure CLI: exit status 1: ERROR: Error occurred in request., ConnectionError: HTTPSConnectionPool(host='graph.windows.net', port=443): Max retries exceeded with url: /d1ffef09-2e44-4182-ad9c-d55a72c588a8/me?api-version=1.6 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x040F73E8>: Failed to establish a new connection: [Errno 11002] getaddrinfo failed'))"
 
-A: Use the Az Logout and Az Login commands again. 
+A: Use the az logout command and login again using the az login command. 
 
 Q: When deploying the Library, I am getting the following error: "Error: KeyVault Secret "<secret name>"…does not exist" 
 
