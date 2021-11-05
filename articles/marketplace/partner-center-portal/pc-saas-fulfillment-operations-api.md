@@ -1,6 +1,6 @@
 ---
 title: SaaS fulfillment Operations APIs v2 in the Microsoft commercial marketplace
-description: Learn how to use the Operations APIs, which are part of the  the SaaS Fulfillment APIs version 2, to manage a SaaS offer on Microsoft AppSource, Azure Marketplace, and Azure portal.
+description: Learn how to use the Operations APIs, which are part of the SaaS Fulfillment APIs version 2, to manage a SaaS offer on Microsoft AppSource, Azure Marketplace, and Azure portal.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
@@ -9,11 +9,11 @@ author: saasguide
 ms.author: souchak
 ---
 
-# SaaS fulfillment Operations APIs v2 in the Microsoft commercial marketplace
+# SaaS fulfillment operations APIs v2 in the Microsoft commercial marketplace
 
 ## List outstanding operations
 
-Get list of the pending operations for the specified SaaS subscription.  The publisher should acknowledge returned operations by calling the [Operation Patch API](#update-the-status-of-an-operation).
+Get list of the pending operations for the specified SaaS subscription. The publisher should acknowledge returned operations by calling the [Operation Patch API](#update-the-status-of-an-operation).
 
 ### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
@@ -65,9 +65,9 @@ Code: 400
 Bad request: validation failures.
 
 Code: 403
-Forbidden. The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or was not provided. The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
 Code: 404
 Not found.  The SaaS subscription with `subscriptionId` is not found.
@@ -126,9 +126,9 @@ Response body:
 ```
 
 Code: 403
-Forbidden. The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or was not provided. The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
 Code: 404
 Not found.  
@@ -179,7 +179,7 @@ A call to inform of completion of an operation on the partner side.  For example
 
 Code: 403
 - Forbidden.  The authorization token is not available, is invalid, or expired. The request may be attempting to access a subscription that doesn't belong to the current publisher.
-- Forbidden.  The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
+- Forbidden.  The authorization token is invalid, expired, or was not provided. The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
