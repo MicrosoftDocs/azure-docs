@@ -21,7 +21,7 @@ Some applications require a stream processing approach, made easy with [Azure St
 
 The benefit of not running these jobs continuously will be **cost savings**, as Stream Analytics jobs are [billed](https://azure.microsoft.com/pricing/details/stream-analytics/) per Streaming Unit **over time.**
 
-This article will explain how to set up auto-pause for an Azure Stream Analytics job. In it we configure a task that automatically pauses and resumes a job on a schedule. If we're using the term **pause**, the actual job [state](/azure/stream-analytics/job-states) is **stopped**, as to avoid any billing.
+This article will explain how to set up auto-pause for an Azure Stream Analytics job. In it, we configure a task that automatically pauses and resumes a job on a schedule. If we're using the term **pause**, the actual job [state](/azure/stream-analytics/job-states) is **stopped**, as to avoid any billing.
 
 We'll discuss the overall design first, then go through the required components, and finally discuss some implementation details.
 
@@ -43,7 +43,7 @@ When running, the job should not be stopped until the entire input backlog is pr
 
 As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. Potential cost savings are up to 66%.
 
-Finally we'll make these actions idempotent, meaning that they can be repeated at will with no side effects, both for ease of use and resiliency.
+The last consideration is to make these actions idempotent. This way, they can be repeated at will with no side effects. This gives us both ease of use and resiliency.
 
 ## Components
 
@@ -179,7 +179,7 @@ else {
 }
 ```
 
-Finally, we log the job completion:
+At the end, we log the job completion:
 
 ```PowerShell
 
@@ -213,7 +213,7 @@ Now we can grant the right permissions to that identity on the ASA job we want t
 
 ![Adding the managed identity to the contributor role for the ASA job](./media/automation/function-asa-role.png)
 
-Finally in the PowerShell script, we'll later add a check that ensures the managed identity is set properly (the final script is available [here](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/run.ps1))
+In the PowerShell script, we can add a check that ensures the managed identity is set properly (the final script is available [here](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/run.ps1))
 
 ```PowerShell
 
@@ -276,13 +276,11 @@ To do that, we can go in `Functions` > `App files` of the Function App page, sel
 
 Once all that configuration is done, we can create the specific function, inside the Function App, that will run our script.
 
-We'll develop in the portal, a function triggered on a timer (every minute or so):
+We'll develop in the portal, a function triggered on a timer (every minute with `0 */1 * * * *`, which [reads]((/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions)) "*on second 0 of every 1 minute*"):
 
 ![Creating a new timer trigger function in the function app](./media/automation/new-function-timer.png)
 
-We'll then need to upload our final script, and set the timer.
-
-In `Integration`, we can change the timer to every minute by setting the [schedule](/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions) to `0 */1 * * * *` (which reads: on second 0 for every minute):
+If needed, we can change the timer value in `Integration`, by updating the schedule:
 
 ![Setting the function to run every minute](./media/automation/function-timer.png)
 
@@ -290,7 +288,7 @@ Then in `Code + Test`, we can copy our script in `run.ps1` and test it. The full
 
 ![Pasting the script in Function](./media/automation/function-code.png)
 
-We can check that everything went according to plan in the `Monitor` pane (but it's always a couple of executions late) or via **Test/Run** in the `Code + Test` pane.
+We can check that everything runs fine via **Test/Run** in the `Code + Test` pane. We can also look at the `Monitor` pane, but it's always late of a couple of executions.
 
 ![Output of a successful run](./media/automation/function-run.png)
 
@@ -357,7 +355,7 @@ For that, in the Portal for the **ASA job** (not the Automation page), in **Acce
 
 ![Adding the managed identity to the contributor role for the ASA job](./media/automation/function-asa-role.png)
 
-Finally in the PowerShell script, we'll later add a check that ensures the managed identity is set properly (the final script is available [here](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1))
+In the PowerShell script, we can add add a check that ensures the managed identity is set properly (the final script is available [here](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1))
 
 ```PowerShell
 # Ensures you do not inherit an AzContext in your runbook
@@ -387,13 +385,13 @@ We can check that everything is wired properly in the `Test Pane`.
 
 After that we need to `Publish` the job, which will allow us to link the runbook to a schedule. Creating and linking the schedule is a straightforward process that won't be discussed here. Now is a good time to remember that there are [workarounds](/azure/automation/shared-resources/schedules#schedule-runbooks-to-run-more-frequently) to achieve schedule intervals under 1 hour.
 
-Finally, we can set up alerts by enabling logs in [Diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD#create-in-azure-portal) of the Automation Account, and capturing errors via a query like we did for Functions.
+Finally, we can set up an alert. The first step is to enable logs via the [Diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD#create-in-azure-portal) of the Automation Account. The second step is to capture errors via a query like we did for Functions.
 
 ## Outcome
 
 Looking at our ASA job, we can see that everything is running as expected in two places.
 
-In the Activity Log (here with Function and Automation competing to start and stop the same job!):
+In the Activity Log:
 
 ![Logs of the ASA job](./media/automation/asa-logs.png)
 
