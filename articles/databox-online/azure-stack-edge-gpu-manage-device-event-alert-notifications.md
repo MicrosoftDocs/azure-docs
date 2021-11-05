@@ -18,7 +18,7 @@ This article describes how to create action rules in the Azure portal to trigger
 
 ## About action rules
 
-An action rule can trigger or suppress alert notifications. The action rule is added to an *action group* - a set of notification preferences that's used to notify users who need to act on alerts triggered in different contexts for a resource or set of resources.
+An action rule can trigger or suppress alert notifications. The action rule is added to an *action group* - a set of notification preferences that's used to notify users who need to act on alerts triggered in different contexts for a resource or set of resources.<!--What's an alert processing rule? Comes up on a screen.-->
 
 For more information about action rules, see [Configuring an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule). For more information about action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
 
@@ -41,25 +41,26 @@ Take the following steps in the Azure portal to create an action rule for your A
 
    ![Manage actions, Action rules option](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-02.png)
 
-3. On the **Create action rule** screen, use **Scope** to select an Azure subscription, resource group, or target resource. The action rule will act on all alerts generated within that scope.<!--STOPPED to reboot.-->
+3. On the **Create action rule** screen, use **Scope** to select an Azure subscription, resource group, or target resource. The action rule will act on all alerts generated within that scope.
 
-   1. Select **Edit** beside **Scope**.
+   1. Select **Edit** beside **Scope** to open the **Select scope** panel.
 
       ![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01.png)
 
-   2. Select the **Subscription** for the action rule, optionally filter by a **Resource** type. To filter to Azure Stack Edge resources, select **Data Box Edge devices (dataBoxEdge)**.
+   2. Select the **Subscription** for the action rule, and optionally filter by a **Resource** type. To filter to Azure Stack Edge resources, select **Data Box Edge devices (dataBoxEdge)**.
+   
+      ![Available resources on the Select Scope screen](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-02.png)<!--Reshoot. Too deep. Text too large.-->
 
       The **Resource** area lists the available resources based on your selections.
-  
-      ![Available resources on the Select Scope screen](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-02.png)
+
 
    3. Select the check box by each resource you want to apply the rule to. You can select the subscription, resource groups, or individual resources. Then select **Done**.
 
-      ![Sample settings for an action rule scope](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-03.png)
+      ![Available resources on the Select Scope screen](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-03.png)<!--Reshoot. Text too large. Red boxes have shadow.>
 
       The **Create action rule** screen shows the selected scope.
 
-      ![Completed scope for an Azure Stack Edge action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-04.png)
+      ![Option for adding filters to an action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-04.png)
 
 4. Use **Filter** options to narrow the application of the rule to subset of alerts within the selected scope.
 
@@ -84,13 +85,13 @@ Take the following steps in the Azure portal to create an action rule for your A
    > [!NOTE]
    > To create a rule that suppresses notifications, you would choose **Suppression**. For more information, see [Configuring an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule).
 
-6. Select the action group that you want to use with this action rule. Then choose **Select**. Your new action rule will be added to the notification preferences of the selected action group.
+6. Select the action group that you want to use with this action rule. Then choose **Select**. Your new action rule will be added to the notification preferences of the selected action group.<!--Informational text is confusing. They can select as many as 5 action groups for the alert rule, but only one action group per alert processing rule. So, what's an alert processing rule? Couldn't select more than one action group; tried several things.-->
 
    If you need to create a new action group, select **+ Create action group**, and follow the steps in [Create an action group by using the Azure portal](../azure-monitor/alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal).
 
    ![Select an action group to use with the rule, and then choose Select.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-action-group-02.png)
 
-7. Give the new action rule a **Name** and **Description**, and assign the rule to a resource group.
+7. Give the new action rule a **Name** and **Description** (optional), and assign the rule to a resource group.
 
 9. The new rule is enabled by default. If you don't want to start using the rule immediately, select **No** for **Enable rule update creation**.
 
