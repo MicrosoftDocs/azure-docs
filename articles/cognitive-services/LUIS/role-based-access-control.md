@@ -75,7 +75,7 @@ A user that should only be validating and reviewing LUIS applications, typically
 
 ### Cognitive Services LUIS writer
 
-A user that is responsible for building and modifying LUIS application, as a collaborator in a larger team. The collaborator can modify the LUIS application in any way, train those changes, and validate/test those changes in the portal. However, this user Wouldn't have access to deploying this application to the runtime, as they may accidentally reflect their changes in a production environment. They also wouldn't be able to delete the application or alter its prediction resources and endpoint settings (assigning or unassigning prediction resources, making the endpoint public). This restricts this role from altering an application currently being used in a production environment. They may also create new applications under this resource, but with the restrictions mentioned.
+A user that is responsible for building and modifying LUIS application, as a collaborator in a larger team. The collaborator can modify the LUIS application in any way, train those changes, and validate/test those changes in the portal. However, this user wouldn't have access to deploying this application to the runtime, as they may accidentally reflect their changes in a production environment. They also wouldn't be able to delete the application or alter its prediction resources and endpoint settings (assigning or unassigning prediction resources, making the endpoint public). This restricts this role from altering an application currently being used in a production environment. They may also create new applications under this resource, but with the restrictions mentioned.
 
 :::row:::
     :::column span="":::
