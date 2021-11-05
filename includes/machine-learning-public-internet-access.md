@@ -16,7 +16,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | ----- |:-----:| ----- | ----- |
 | Inbound | 29876-29877 | BatchNodeManagement | Create, update, and delete of Azure Machine Learning compute instance and compute cluster. |
 | Inbound | 44224 | AzureMachineLearning | Create, update, and delete of Azure Machine Learning compute instance. |
-| Outbound | * | AzureActiveDirectory | Authentication using Azure AD. |
+| Outbound | 80, 443 | AzureActiveDirectory | Authentication using Azure AD. |
 | Outbound | 443 | AzureMachineLearning | Using Azure Machine Learning services. |
 | Outbound | 443 | AzureResourceManager | Creation of Azure resources with Azure Machine Learning. |
 | Outbound | 443, 445 | Storage.region | Access data stored in the Azure Storage Account for the Azure Batch service. |
