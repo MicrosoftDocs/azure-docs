@@ -124,6 +124,23 @@ Here's the retry policy in the *function.json* file:
 }
 ```
 
+Here's a python sample to use retry context in a function:
+
+```Python
+import azure.functions
+import logging
+
+
+def main(req: azure.functions.HttpRequest, context: azure.functions.Context) -> None:
+    logging.log(f'Current retry count: {context.retry_context.retry_count}')
+    
+    if context.retry_context.retry_count == context.retry_context.max_retry_count:
+        logging.log(
+            f"Max retries of {context.retry_context.max_retry_count} for "
+            f"function {context.function_name} has been reached")
+   
+```
+
 # [Java](#tab/java)
 
 Here's the retry policy in the *function.json* file:
@@ -243,6 +260,23 @@ Here's the retry policy in the *function.json* file:
         "maximumInterval": "00:15:00"
     }
 }
+```
+
+Here's a python sample to use retry context in a function:
+
+```Python
+import azure.functions
+import logging
+
+
+def main(req: azure.functions.HttpRequest, context: azure.functions.Context) -> None:
+    logging.log(f'Current retry count: {context.retry_context.retry_count}')
+    
+    if context.retry_context.retry_count == context.retry_context.max_retry_count:
+        logging.log(
+            f"Max retries of {context.retry_context.max_retry_count} for "
+            f"function {context.function_name} has been reached") 
+            
 ```
 
 # [Java](#tab/java)

@@ -957,7 +957,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-saas-facebook-at-work-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-provisioning-tutorial",
+            "redirect_url": "/azure/active-directory/saas-apps/workplace-by-facebook-provisioning-tutorial",
             "redirect_document_id": false
         },
         {
@@ -9887,7 +9887,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-saas-workplacebyfacebook-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/saas-apps/workplacebyfacebook-provisioning-tutorial",
+            "redirect_url": "/azure/active-directory/saas-apps/workplace-by-facebook-provisioning-tutorial",
             "redirect_document_id": true
         },
         {
