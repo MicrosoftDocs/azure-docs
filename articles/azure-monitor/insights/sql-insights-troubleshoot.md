@@ -178,13 +178,15 @@ For common cases, we provide troubleshooting tips in our logs view:
 
 :::image type="content" source="media/sql-insights-enable/troubleshooting-logs-view.png" alt-text="Troubleshooting logs view.":::
 
-## Known issues and best practices
+## Known issues
 
 During preview of SQL Insights, you may encounter the following known issues.
 
-* **'Login failed' error connecting to server or database**. Using certain special characters in SQL authentication passwords that are saved in the monitoring VM configuration or in Key Vault may prevent the monitoring VM from connecting to SQL server or database. This set of characters includes parentheses, square and curly brackets, the dollar sign, forward and back slashes, and dot (`[ { ( ) } ] $ \ / .`).
+* **'Login failed' error connecting to server or database**. Using certain special characters in SQL authentication passwords saved in the monitoring VM configuration or in Key Vault may prevent the monitoring VM from connecting to a SQL server or database. This set of characters includes parentheses, square and curly brackets, the dollar sign, forward and back slashes, and dot (`[ { ( ) } ] $ \ / .`).
 
-* **Errors accessing Key Vault**. If you use Key Vault to store SQL authentication passwords (strongly recommended), you need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](/key-vault/general/access-behind-firewall.md) and [Configure Azure Key Vault networking settings](/key-vault/general/how-to-azure-key-vault-network-security.md). To verify that the monitoring VM can access Key Vault, you can execute the following commands from an SSH session connected to the VM. You should be able to successfully retrieve the access token and the secret. Replace `[YOUR-KEY-VAULT-URL]`, `[YOUR-KEY-VAULT-SECRET]`, and `[YOUR-KEY-VAULT-ACCESS-TOKEN]` with actual values.
+## Best practices
+
+* **Ensure access to Key Vault from the monitoring VM**. If you use Key Vault to store SQL authentication passwords (strongly recommended), you need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](/key-vault/general/access-behind-firewall.md) and [Configure Azure Key Vault networking settings](/key-vault/general/how-to-azure-key-vault-network-security.md). To verify that the monitoring VM can access Key Vault, you can execute the following commands from an SSH session connected to the VM. You should be able to successfully retrieve the access token and the secret. Replace `[YOUR-KEY-VAULT-URL]`, `[YOUR-KEY-VAULT-SECRET]`, and `[YOUR-KEY-VAULT-ACCESS-TOKEN]` with actual values.
 
   ```bash
   # Get an access token for accessing Key Vault secrets
@@ -192,9 +194,11 @@ During preview of SQL Insights, you may encounter the following known issues.
   
   # Get Key Vault secret
   curl 'https://[YOUR-KEY-VAULT-URL]/secrets/[YOUR-KEY-VAULT-SECRET]?api-version=2016-10-01' -H "Authorization: Bearer [YOUR-KEY-VAULT-ACCESS-TOKEN]"
-    ```
+  ```
 
-* **Various errors due to invalid configuration**. If you have a working monitoring profile, and want to make changes to either profile or monitoring VM configuration, we recommend saving a working copy of your configuration. From the SQL Insights page in Azure portal, select **Manage profile** > **Edit profile**, and copy the text from **Current Monitoring Profile Config** to a file. Similarly, select **Manage profile** > **Configure** for the monitoring VM, and copy the text from **Current monitoring configuration** to a file. If data collection errors occur after configuration changes, you can compare the new configuration to the known working configuration using a text diff tool to help you find any changes that might have impacted collection.
+* **Update software on the monitoring VM**. We strongly recommend periodically updating the operating system and extensions on the monitoring VM. If an extension supports automatic upgrade, enable that option.
+
+* **Save previous configurations**. If you want to make changes to either monitoring profile or monitoring VM configuration, we recommend saving a working copy of your configuration data first. From the SQL Insights page in Azure portal, select **Manage profile** > **Edit profile**, and copy the text from **Current Monitoring Profile Config** to a file. Similarly, select **Manage profile** > **Configure** for the monitoring VM, and copy the text from **Current monitoring configuration** to a file. If data collection errors occur after configuration changes, you can compare the new configuration to the known working configuration using a text diff tool to help you find any changes that might have impacted collection.
 
 ## Next steps
 
