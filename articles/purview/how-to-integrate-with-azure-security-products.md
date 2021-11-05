@@ -16,8 +16,6 @@ Azure Purview provides rich insights into the sensitivity of your data. This mak
 
 The integration with Azure Purview extends security visibility in Defender for Cloud down into the data layer, enabling security teams to prioritize resources that contain sensitive data. The new Information Protection tile in Defender for Cloud shows current scan coverage and a graph with the number of recommendations and alerts by classified resource types.
 
-Learn more about the various experiences in Microsoft Defender for Cloud that are enriched using the data shared from Azure Purview.
-
 ### Supported data sources
 The integration supports PaaS data sources in Azure and PaaS data sources in AWS; sensitive data discovered in these resources is shared with Azure Security Center:
 - [Azure Blob Storage](./register-scan-azure-blob-storage-source.md)
@@ -37,13 +35,17 @@ The integration supports PaaS data sources in Azure and PaaS data sources in AWS
 ### Known issues
 1. Data sensitivity information is currently not shared for sources hosted inside virtual machines - like SAP, Erwin, and Teradata.
 2. Data sensitivity information is currently not shared for Amazon RDS.
-3. Data sensitivity information is currently not shared for Azure PaaS data sources registered using a connection string.4. 
+3. Data sensitivity information is currently not shared for Azure PaaS data sources registered using a connection string. 
 5. Unregistering the data source in Azure Purview does not remove the data sensitivity enrichment in Microsoft Defender for Cloud.
 6. Deleting the Azure Purview account will persist the data sensitivity enrichment for 30 days in Microsoft Defender for Cloud.
 7. Custom classifications defined in the Microsoft 365 Compliance Center or in Azure Purview are not shared with Microsoft Defender for Cloud.
 
 ### FAQ
-1. Why don't I see the AWS data source I have scanned with Azure Purview in Microsoft Defender for Cloud?
+- Why don't I see the AWS data source I have scanned with Azure Purview in Microsoft Defender for Cloud?
+Data sources have to be onboarded to Microsoft Defender for Cloud as well. Learn more about how to [connect your AWS accounts](../security-center/quickstart-onboard-aws.md) and see your AWS data sources in Microsoft Defender for Cloud.
 
+- Why don't I see sensitivity labels in Microsoft Defender for Cloud?
+Assets must first be labeled in Azure Purview, before the labels are shown in Microsoft Defender for Cloud. Check if you have the [prerequisites of sensitivity labels](./how-to-automatically-label-your-content.md) in place. Once your scan the data, the labels will show up in Azure Purview and then automatically in Microsoft Defender for Cloud.
 
-2. Why don't I see sensitivity labels in Microsoft Defender for Cloud?
+### Next steps
+- [Experiences in Microsoft Defender for Cloud enriched using sensitivity from Azure Purview](../security-center/information-protection.md)
