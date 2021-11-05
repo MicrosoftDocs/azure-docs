@@ -259,6 +259,8 @@ items:
     href: disaster-recovery.md
   - name: Monitor with Azure Monitor
     href: how-to-monitor-with-azure-monitor.md
+  - name: Integrate with Azure security products
+    href: how-to-integrate-with-azure-security-products.md
 - name: Reference
   items:
     - name: Azure Purview product glossary
