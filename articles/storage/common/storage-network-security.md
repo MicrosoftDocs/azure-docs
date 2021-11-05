@@ -160,7 +160,7 @@ To enable access to your storage account from a virtual network in a different r
 
 During the preview you must use either PowerShell or the Azure CLI to enable this feature.
 
-#### [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 1. Open a Windows PowerShell command window.
 
