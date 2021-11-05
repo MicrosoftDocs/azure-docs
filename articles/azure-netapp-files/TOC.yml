@@ -274,7 +274,7 @@
     - name: Troubleshoot volume errors
       href: troubleshoot-volumes.md
     - name: Troubleshoot application volume group errors
-      href: azure-netapp-files\troubleshoot-application-volume-groups.md
+      href: troubleshoot-application-volume-groups.md
     - name: Troubleshoot snapshot policy errors
       href: troubleshoot-snapshot-policies.md
     - name: Troubleshoot cross-region replication errors
