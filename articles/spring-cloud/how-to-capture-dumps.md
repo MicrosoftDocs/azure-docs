@@ -41,4 +41,4 @@ Start a JFR of our app in Azure Spring Cloud.
 ```
 The default value of duration is 60s.
 ## Get your diagnostic files
-Go to the target file path in your persistent storage and find your dump/JFR. You can download them to your local machine. The name of the generated file will be like {appInstance}_heapdump_{timeStamp}.hprof for heap dump, {appInstance}_threaddump_{timeStamp}.txt for thread dump, and {appInstance}_JFR_{timeStamp}.jfr for JFR.
+Go to the target file path in your persistent storage and find your dump/JFR. You can download them to your local machine. The name of the generated file will be like '{appInstance}\_heapdump\_{timeStamp}.hprof' for heap dump, '{appInstance}\_threaddump\_{timeStamp}.txt' for thread dump, and '{appInstance}\_JFR\_{timeStamp}.jfr' for JFR.
