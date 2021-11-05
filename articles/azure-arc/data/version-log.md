@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 08/06/2021
+ms.date: 11/04/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand what versions of components align with specific releases.
 ---
