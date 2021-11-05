@@ -1455,6 +1455,8 @@ items:
   items:
   - name: Plan and manage costs
     href: plan-manage-costs.md
+  - name: Browse an ADLS Gen2 folder with ACLs
+    href: how-to-access-container-with-access-control-lists.md
 - name: Reference
   items:
   - name: Azure CLI

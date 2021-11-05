@@ -21,6 +21,7 @@ Some more complex solutions may require creating a chain of trust to establish s
 ## Limitations and other details
 
 The following scenarios are **not** supported:
+- Monitoring addon
 - Different proxy configurations per node pool
 - Updating proxy settings post cluster creation
 - User/Password authentication
