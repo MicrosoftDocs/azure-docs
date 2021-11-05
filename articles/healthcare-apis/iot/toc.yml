@@ -20,7 +20,7 @@ items:
 - name: Concepts
   expanded: true
   items:
-    - name: IoT data flow
+    - name: IoT connector data flow
       href: iot-data-flow.md
     - name: IoT connector and Azure Machine Learning Service
       href: iot-connector-machine-learning.md
