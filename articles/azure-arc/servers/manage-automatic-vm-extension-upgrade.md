@@ -1,19 +1,22 @@
 ---
-title: Automatic Extension Upgrade for Azure Arc-enabled servers
-description: Learn how to enable the Automatic Extension Upgrade for your Azure Arc-enabled servers.
+title: Automatic Extension Upgrade (preview) for Azure Arc-enabled servers
+description: Learn how to enable the Automatic Extension Upgrade (preview) for your Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 11/04/2021
 ---
 
-# Automatic Extension Upgrade for Azure Arc-enabled servers
+# Automatic Extension Upgrade (preview) for Azure Arc-enabled servers
 
-Automatic Extension Upgrade is available for Azure Arc-enabled servers that have supported VM extensions installed. When Automatic Extension Upgrade is enabled on a machine, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
+Automatic Extension Upgrade (preview) is available for Azure Arc-enabled servers that have supported VM extensions installed. When Automatic Extension Upgrade (preview) is enabled on a machine, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
 
  Automatic Extension Upgrade has the following features:
 
 - You can opt in and out of automatic upgrades at any time.
 - Each supported extension is enrolled individually, and you can choose which extensions to upgrade automatically.
 - Supported in all public cloud regions.
+
+> [!NOTE]
+> In this release, only the Azure CLI is supported to configure Automatic Extension Upgrade.
 
 ## How does Automatic Extension Upgrade work?
 
@@ -27,66 +30,34 @@ How does the upgrade process work for an Arc-enabled server?
 
 ## Supported extensions
 
-Automatic Extension Upgrade supports the following extensions (and more are added periodically):
+Automatic Extension Upgrade (preview) supports the following extensions (and more are added periodically):
 
-- Dependency Agent – [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) and [Windows](../../virtual-machines/extensions/agent-dependency-windows.md)
-- [Guest Configuration Extension](../../virtual-machines/extensions/guest-configuration.md) – Linux and Windows
-- Key Vault – [Linux](../../virtual-machines/extensions/key-vault-linux.md) and [Windows](../../virtual-machines/extensions/key-vault-windows.md)
+- Dependency agent – Linux and Windows
+- Azure Monitor Agent - Linux and Windows
+- Azure Security agent - Linux and Windows
+- Key Vault Extension - Linux only
+- Log Analytics agent - Linux only
 
-## Enabling Automatic Extension Upgrade
+## Enabling Automatic Extension Upgrade (preview)
 
-To enable Automatic Extension Upgrade for an extension, you must ensure the property `enableAutomaticUpgrade` is set to `true` and added to every extension definition individually.
-
-### Using the REST API
-
-To enable automatic extension upgrade for an extension (in this example the Dependency Agent extension), run the following command:
-
-```rest
-PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.HybridCompute/machines/<machineName>/extensions/<extensionName>?api-version=2019-12-01`
-```
-
-```json
-{    
-    "name": "extensionName",
-    "type": "Microsoft.Compute/HybridMachines/extensions",
-    "location": "<location>",
-    "properties": {
-        "autoUpgradeMinorVersion": true,
-        "enableAutomaticUpgrade": true, 
-        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-        "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5"
-        }
-}
-```
-
-### Using Azure PowerShell
-
-Use the [Set-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) cmdlet with the `-MachineName`, `-ExtensionName`, `-Publisher`, `-ExtensionType`, `-EnableAutomaticUpgrade`, and `ResourceGroupName` parameters.
-
-```azurepowershell
-Set-AzConnectedMachineExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
-    -ResourceGroupName "myResourceGroup" `
-    -MachineName "machineName" `
-    -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
-    -ExtensionType "DependencyAgentWindows" `
-    -TypeHandlerVersion 9.5 `
-    -Location WestUS `
-    -EnableAutomaticUpgrade $true
-```
-
-### Using the Azure CLI
+To enable Automatic Extension Upgrade (preview) for an extension, you must ensure the property `enable-auto-upgrade` is set to `true` and added to every extension definition individually.
 
 Use the [az connectedmachine extension ](/cli/azure/connectedmachine/extension) cmdlet with the `--extension-name`, `--machine-name`, `-publisher`, `--enable-auto-upgrade`, and `--resource-group` parameters.
 
 ```azurecli
 az connectedmachine extension set \
-    --resource-group myResourceGroup \
-    --machine-name myVM \
+    --resource-group resourceGroupName \
+    --machine-name machineName \
     --extension-name DependencyAgentLinux \
     --publisher Microsoft.Azure.Monitoring.DependencyAgent \
     --version 9.5 \
     --enable-auto-upgrade true
+```
+
+To verify Automatic Extension Upgrade (preview) is available, run the following command:
+
+```azurecli
+az connectedmachine extension list --resource-group resourceGroupName --machine-name machineName --query "[].{Name:name, AutoUpgrade:properties.enableAutoUpgrade}" --output table
 ```
 
 ## Extension upgrades with multiple extensions
@@ -97,45 +68,7 @@ If multiple extension upgrades are available for a machine, the upgrades may be 
 
 ## Disable Automatic Extension Upgrade
 
-To disable Automatic Extension Upgrade for an extension, you must ensure the property `enableAutomaticUpgrade` is set to `false` and added to every extension definition individually.
-
-### Using the REST API
-
-To disable automatic extension upgrade for an extension (in this example the Dependency Agent extension), run the following command:
-
-```rest
-PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.HybridCompute/machines/<machineName>/extensions/<extensionName>?api-version=2019-12-01`
-```
-
-```json
-{    
-    "name": "extensionName",
-    "type": "Microsoft.Compute/HybridMachines/extensions",
-    "location": "<location>",
-    "properties": {
-        "autoUpgradeMinorVersion": true,
-        "enableAutomaticUpgrade":false, 
-        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-        "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5"
-        }
-}
-```
-
-### Using Azure PowerShell
-
-Use the [Set-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) cmdlet with the `-MachineName`, `-ExtensionName`, `-Publisher`, `-ExtensionType`, `-EnableAutomaticUpgrade`, and `ResourceGroupName` parameters.
-
-```azurepowershell
-Set-AzConnectedMachineExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
-    -ResourceGroupName "myResourceGroup" `
-    -VMName "myVM" `
-    -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
-    -ExtensionType "DependencyAgentWindows" `
-    -TypeHandlerVersion 9.5 `
-    -Location WestUS `
-    -EnableAutomaticUpgrade $false
-```
+To disable Automatic Extension Upgrade (preview) for an extension, you must ensure the property `enable-auto-upgrade` is set to `false` and added to every extension definition individually.
 
 ### Using the Azure CLI
 
@@ -143,8 +76,8 @@ Use the [az connectedmachine extension ](/cli/azure/connectedmachine/extension) 
 
 ```azurecli
 az connectedmachine extension set \
-    --resource-group myResourceGroup \
-    --vm-name myVM \
+    --resource-group resourceGroupName \
+    --machine-name machineName \
     --name DependencyAgentLinux \
     --publisher Microsoft.Azure.Monitoring.DependencyAgent \
     --version 9.5 \
