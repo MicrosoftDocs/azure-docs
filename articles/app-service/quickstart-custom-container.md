@@ -14,7 +14,7 @@ zone_pivot_groups: app-service-containers-windows-linux
 ::: zone pivot="container-windows"
 [Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows container environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on. For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead.
 
-This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Docker Hub](https://hub.docker.com/) from Visual Studio. You run the app in a custom container in Azure App Service.
+This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Azure Container Registry](../container-registry/container-registry-intro.md) from Visual Studio. You run the app in a custom container in Azure App Service.
 
 > [!NOTE]
 > Windows Containers is limited to Azure Files and does not currently support Azure Blob.
@@ -24,15 +24,15 @@ This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Dock
 
 To complete this tutorial:
 
-- <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2022 already:
     - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by selecting **Tools** > **Get Tools and Features**.
-- In Visual Studio 2022 Community, ensure **.NET Framework project and item templates** component is selected with **ASP.NET and web development workload**. 
+- In Visual Studio 2022 Community, ensure **.NET Framework project and item templates** component is selected with **ASP.NET and web development workload**.
+<!-- 
     :::image type="content" source="./media/quickstart-custom-container/vs-community-install.png?text=VS Community install" alt-text="Screenshot of VS Community installation":::
-
+-->
 
 ## Create an ASP.NET web app
 
@@ -78,7 +78,7 @@ Create an ASP.NET web app by following these steps:
 
     :::image type="content" source="./media/quickstart-custom-container/publish-to-azure-container-registry-vs2022.png?text=Publish to Azure Container Registry" alt-text="Publish from project overview page":::
 
-1. In **Publish**, make sure the correct subscription is chosen. In **Container registries** select the **+** button.
+1. In **Publish**, make sure the correct subscription is chosen. In **Container registries** select the **+** button to create a new Azure Container Registry.
 
     :::image type="content" source="./media/quickstart-custom-container/create-new-azure-container-registry.png?text=Create new Azure Container Registry" alt-text="Create new Azure Container Registry":::
 
@@ -86,7 +86,7 @@ Create an ASP.NET web app by following these steps:
 
     :::image type="content" source="./media/quickstart-custom-container/new-azure-container-registry-details.png?text=Azure Container Registry details" alt-text="Azure Container Registry details":::
 
-1. In **Publish**, under **Container Registry**, select the Azure Container Registry you created. Click Finish.
+1. In **Publish**, under **Container Registry**, select the registry you created, and then select **Finish**.
 
     :::image type="content" source="./media/quickstart-custom-container/select-existing-azure-container-registry.png?text=Select existing Azure Container Registry" alt-text="Select existing Azure Container Registry":::
 
