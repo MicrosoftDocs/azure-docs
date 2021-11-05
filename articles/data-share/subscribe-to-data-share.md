@@ -116,7 +116,7 @@ Start by preparing your environment for PowerShell. You can either run PowerShel
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
-    [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+   [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
 1. Use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command to connect to your Azure account.
 
@@ -322,7 +322,7 @@ Use these commands to configure where you want to receive data.
        Set-AzStorageBlobContent -File "D:\testFiles\textfile.csv" -Container $containerName -Blob "textfile.csv" -Context $ctx
        ```
 
-    For more information about working with Azure Storage in PowerShell, follow this [Azure Storage PowerShell guide](../storage/blobs/storage-quickstart-blobs-powershell).
+    For more information about working with Azure Storage in PowerShell, follow this [Azure Storage PowerShell guide](../storage/blobs/storage-quickstart-blobs-powershell.md).
 
 1. Use the [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) command to get the storage account ID:
 
