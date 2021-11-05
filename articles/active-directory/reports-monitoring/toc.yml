@@ -121,3 +121,5 @@
     items:
     - name: Conditional access gap analyzer
       href: workbook-conditional-access-gap-analyzer.md
+    - name: Sensitive Operations Report 
+      href: workbook-sensitive-operations-report.md
