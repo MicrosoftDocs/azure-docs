@@ -39,7 +39,7 @@ You need to complete two steps on your device before it's ready to install the I
 
    ```bash
    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trust.gpg.d/
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
 > [!NOTE]

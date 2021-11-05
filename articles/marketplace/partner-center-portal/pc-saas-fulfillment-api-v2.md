@@ -113,7 +113,10 @@ This state indicates that a customer's payment for the SaaS service has not been
 
 The publisher might or might not make changes to the SaaS service on the publisher side. We recommend that the publisher makes this information available to the suspended customer and limits or blocks the customer's access to the SaaS service. There is a probability the payment will never be received.
 
-Microsoft gives the customer a 30-day grace period before automatically canceling the subscription. When a subscription is in the *Suspended* state:
+> [!NOTE]
+> Microsoft gives the customer a 30-day grace period before automatically canceling the subscription. After the 30-day grace period is over the webhook will receive an [Unsubscribe](#cancel-a-subscription) action.
+
+When a subscription is in the *Suspended* state:
 
 * The partner or ISV must keep the SaaS account in a recoverable state, so that full functionality can be restored without any loss of data or settings.
 * The partner or ISV should expect a request to reinstate the subscription, if the payment is received during the grace period, or a request to de-provision the subscription at the end of the grace period. Both requests will be sent via the webhook mechanism.

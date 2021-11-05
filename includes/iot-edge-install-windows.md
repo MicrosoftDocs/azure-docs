@@ -25,9 +25,9 @@ To install the IoT Edge runtime:
 
 2. Run the [Deploy-IoTEdge](../articles/iot-edge/reference-windows-scripts.md#deploy-iotedge) command, which performs the following tasks:
 
-   * Checks that your Windows machine is on a supported version.
-   * Turns on the containers feature.
-   * Downloads the moby engine and the IoT Edge runtime.
+   * Checks that your Windows machine is on a supported version
+   * Turns on the containers feature
+   * Downloads the moby engine and the IoT Edge runtime
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
@@ -39,6 +39,6 @@ To install the IoT Edge runtime:
 When you install IoT Edge on a device, you can use additional parameters to modify the process including:
 
 * Direct traffic to go through a proxy server
-* Point the installer to a local directory for offline installation.
+* Point the installer to a local directory for offline installation
 
 For more information about these additional parameters, see [PowerShell scripts for IoT Edge with Windows containers](../articles/iot-edge/reference-windows-scripts.md).
