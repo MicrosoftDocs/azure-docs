@@ -168,7 +168,7 @@ The minimum set of roles for accessing the dashboard and managing standards is *
 
 
 ### The regulatory compliance dashboard isn't loading for me
-To use the regulatory compliance dashboard, Microsoft Defender for Cloud must have Defender enabled at the subscription level. If the dashboard isn't loading correctly, try the following steps:
+To use the regulatory compliance dashboard, Microsoft Defender for Cloud must have Defender for Cloud enabled at the subscription level. If the dashboard isn't loading correctly, try the following steps:
 
 1. Clear your browser's cache.
 1. Try a different browser.

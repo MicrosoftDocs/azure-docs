@@ -36,7 +36,7 @@ You’ll get traceability information such as the GitHub workflow and the GitHub
 
 ## Prerequisites
 
-To scan your images as they're pushed by CI/CD workflows into your registries, you must have **Microsoft Defender for container registries** enabled on the subscription. 
+To scan your images as they're pushed by CI/CD workflows into your registries, you must have **Microsoft Defender for container registries** enabled on the subscription.
 
 ## Set up vulnerability scanning of your CI/CD workflows
 
@@ -68,8 +68,6 @@ To enable vulnerability scans of images in your GitHub workflows:
 
     > [!IMPORTANT]
     >  The push to the registry must happen prior to the results being published.
-
-
 
     ```yml
     - run: |
@@ -105,9 +103,9 @@ To enable vulnerability scans of images in your GitHub workflows:
 
     ![Recommendation to remediate issues .](media/monitor-container-security/acr-finding.png)
 
-1. Select the recommendation. 
+1. Select the recommendation.
 
-    The recommendation details page opens with additional information. This information includes the list of registries with vulnerable images ("Affected resources") and the remediation steps. 
+    The recommendation details page opens with additional information. This information includes the list of registries with vulnerable images ("Affected resources") and the remediation steps.
 
 1. Open the **affected resources** list and select an unhealthy registry to see the repositories within it that have vulnerable images.
 
@@ -133,8 +131,6 @@ To enable vulnerability scans of images in your GitHub workflows:
 
     :::image type="content" source="media/defender-for-container-registries-cicd/cicd-findings.png" alt-text="CI/CD findings about specific GitHub branches and commits.":::
 
-
-
 ## Next steps
 
-Learn more about [the advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md).
+Learn more about the [advanced protection plans of Microsoft Defender for Cloud](defender-for-cloud-introduction.md).

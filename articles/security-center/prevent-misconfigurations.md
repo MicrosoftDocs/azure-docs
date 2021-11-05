@@ -63,7 +63,7 @@ These recommendations can be used with the **deny** option:
 These recommendations can be used with the **enforce** option:
 
 - Auditing on SQL server should be enabled
-- Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed
+- Azure Arc enabled Kubernetes clusters should have Microsoft Defender for Cloud's extension installed
 - Azure Backup should be enabled for virtual machines
 - Microsoft Defender for App Service should be enabled
 - Microsoft Defender for container registries should be enabled

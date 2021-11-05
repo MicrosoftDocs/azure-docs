@@ -53,12 +53,12 @@ Defender for Cloud includes the entire ruleset of the CIS Docker Benchmark and a
 
 For details of the relevant Defender for Cloud recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
-When you're exploring the security issues of a VM, Defender for Cloud provides additional information about the containers on the machine. Such information includes the Docker version and the number of images running on the host. 
+When you're exploring the security issues of a VM, Defender for Cloud provides additional information about the containers on the machine. Such information includes the Docker version and the number of images running on the host.
 
 To monitor unmanaged containers hosted on IaaS Linux VMs, enable the optional [Microsoft Defender for servers](defender-for-servers-introduction.md).
 
-
 ### Continuous monitoring of your Kubernetes clusters
+
 Defender for Cloud works together with Azure Kubernetes Service (AKS), Microsoft's managed container orchestration service for developing, deploying, and managing containerized applications.
 
 AKS provides security controls and visibility into the security posture of your clusters. Defender for Cloud uses these features to constantly monitor the configuration of your AKS clusters and generate security recommendations aligned with industry standards.
@@ -80,25 +80,21 @@ You can see that the items received and analyzed by Defender for Cloud include:
 
 For details of the relevant Defender for Cloud recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
-
-###  Workload protection best-practices using Kubernetes admission control
+### Workload protection best-practices using Kubernetes admission control
 
 For a bundle of recommendations to protect the workloads of your Kubernetes containers, install the  **Azure Policy add-on for Kubernetes**. You can also auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
 
-As explained in [this Azure Policy for Kubernetes page](../governance/policy/concepts/policy-for-kubernetes.md), the add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). Kubernetes admission controllers are plugins that enforce how your clusters are used. The add-on registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. 
+As explained in [this Azure Policy for Kubernetes page](../governance/policy/concepts/policy-for-kubernetes.md), the add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). Kubernetes admission controllers are plugins that enforce how your clusters are used. The add-on registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
 
-With the add-on on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to **enforce** the best practices and mandate them for future workloads. 
+With the add-on on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to **enforce** the best practices and mandate them for future workloads.
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
 Learn more in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
 
-
 ## Run-time protection for Kubernetes nodes and clusters
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
-
-
 
 ## Next steps
 

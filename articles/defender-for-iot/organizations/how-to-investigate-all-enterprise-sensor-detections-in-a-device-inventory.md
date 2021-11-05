@@ -20,7 +20,7 @@ The following table describes the table columns in the device inventory.
 | **Region** | The region that contains this device. |
 | **Site** | The site that contains this device. |
 | **Zone** | The zone that contains this device. |
-| **Appliance** | The Azure Defender for IoT sensor that protects this device. |
+| **Appliance** | The Microsoft Defender for IoT sensor that protects this device. |
 | **Name** | The name of this device as Defender for IoT discovered it. |
 | **Type** | The type of device, such as PLC or HMI. |
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. |

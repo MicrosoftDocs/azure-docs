@@ -12,7 +12,7 @@ manager: rkarlin
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft Defender detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
+Microsoft Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
 
 - [Azure Database for PostgreSQL](../postgresql/index.yml)
 - [Azure Database for MySQL](../mysql/index.yml)
@@ -37,7 +37,7 @@ Learn more about this Microsoft Defender plan in [Introduction to Microsoft Defe
 
 ## Respond to security alerts
 
-When Microsoft Defender is enabled on your database, it detects anomalous activities and generates alerts. These alerts are available from multiple locations, including:
+When Microsoft Defender for Cloud is enabled on your database, it detects anomalous activities and generates alerts. These alerts are available from multiple locations, including:
 
 - In the Azure portal:
     - **Microsoft Defender for Cloud's security alerts page** - Shows alerts for all resources protected by Defender for Cloud in the subscriptions you've got permissions to view.

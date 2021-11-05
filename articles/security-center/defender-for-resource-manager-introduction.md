@@ -21,7 +21,7 @@ The cloud management layer is a crucial service connected to all your cloud reso
 Microsoft Defender for Resource Manager automatically monitors the resource management operations in your organization, whether they're performed through the Azure portal, Azure REST APIs, Azure CLI, or other Azure programmatic clients. Defender for Cloud runs advanced security analytics to detect threats and alerts you about suspicious activity.
 
 >[!NOTE]
-> Some of these analytics are powered by [Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security). To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
+> Some of these analytics are powered by [Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security). To benefit from these analytics, you must activate a Defender for Cloud Apps license. If you have a Defender for Cloud Apps license, then these alerts are enabled by default. To disable the alerts:
 >
 > 1. From Defender for Cloud's menu, open **Environment settings**.
 > 1. Select the subscription you want to change.
