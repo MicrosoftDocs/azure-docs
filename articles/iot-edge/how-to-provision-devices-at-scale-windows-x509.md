@@ -17,6 +17,13 @@ monikerRange: "=iotedge-2018-06"
 
 This article provides end-to-end instructions for autoprovisioning one or more Windows IoT Edge devices using X.509 certificates. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
+>[!NOTE]
+>Azure IoT Edge with Windows containers will not be supported starting with version 1.2 of Azure IoT Edge.
+>
+>Consider using the new method for running IoT Edge on Windows devices, [Azure IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md).
+>
+>If you want to use Azure IoT Edge for Linux on Windows, you can follow the steps in the [equivalent how-to guide](how-to-provision-devices-at-scale-linux-on-windows-x509.md).
+
 The tasks are as follows:
 
 1. Generate certificates and keys.
@@ -82,13 +89,13 @@ Have the following information ready:
 
 1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers, so use the `-DpsX509` flag to use automatic provisioning with X.509 certificate authentication.
 
-   Replace the placeholder values for `{scope_id}`, `{identity cert chain path}`, and `{identity key path}` with the appropriate values from your DPS instance and the file paths on your device.
+   Replace the placeholder values for `scope_id`, `identity cert chain path`, and `identity key path` with the appropriate values from your DPS instance and the file paths on your device.
 
-   Add the `-RegistrationId {registration_id}` parameter if you want to set the device ID as something other than the CN name of the identity certificate.
+   Add the `-RegistrationId paste_registration_id_here` parameter if you want to set the device ID as something other than the CN name of the identity certificate.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -DpsX509 -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
+   Initialize-IoTEdge -DpsX509 -ScopeId paste_scope_id_here -X509IdentityCertificate paste_identity_cert_chain_path_here -X509IdentityPrivateKey paste_identity_key_path_here
    ```
 
    >[!TIP]
