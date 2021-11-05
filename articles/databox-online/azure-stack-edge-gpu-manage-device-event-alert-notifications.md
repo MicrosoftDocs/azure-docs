@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 11/05/2021
 ms.author: alkohli
 ---
 # Use action rules to manage alert notifications on Azure Stack Edge devices
@@ -33,26 +33,32 @@ Take the following steps in the Azure portal to create an action rule for your A
 > [!NOTE]
 > These steps create an action rule that sends notifications to an action group. For details about creating an action rule to suppress notifications, see [Configuring an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule).
 
-1. Go to the Azure Stack Edge device in the Azure portal, and then select the **Alerts** menu item under **Monitoring**. Then select **Action rules (preview)**.
+1. Go to the Azure Stack Edge device in the Azure portal, and select the **Alerts** menu item (under **Monitoring**). Then select **Action rules (preview)**.<!--Add portal link.-->
 
-   ![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01.png)
+   <!--![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01.png)-->
+
+   [ ![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01-inline.png) ](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01-expanded.png#lightbox)
 
 2. In the **Action rules (preview)**, select **+ Create**.
 
-   ![Manage actions, Action rules option](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-02.png)
+   <!--![Manage actions, Action rules option](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-02.png)-->
+
+   [ ![Manage actions, Action rules option](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-02-inline.png) ](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-02-expanded.png#lightbox)
+
 
 3. On the **Create action rule** screen, use **Scope** to select an Azure subscription, resource group, or target resource. The action rule will act on all alerts generated within that scope.
 
    1. Select **Edit** beside **Scope** to open the **Select scope** panel.
 
-      ![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01.png)
+      <!--![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01.png)-->
+
+      [ ![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01.png) ](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01.png#lightbox)
 
    2. Select the **Subscription** for the action rule, and optionally filter by a **Resource** type. To filter to Azure Stack Edge resources, select **Data Box Edge devices (dataBoxEdge)**.
    
       ![Available resources on the Select Scope screen](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-02.png)<!--Reshoot. Too deep. Text too large.-->
 
       The **Resource** area lists the available resources based on your selections.
-
 
    3. Select the check box by each resource you want to apply the rule to. You can select the subscription, resource groups, or individual resources. Then select **Done**.
 
