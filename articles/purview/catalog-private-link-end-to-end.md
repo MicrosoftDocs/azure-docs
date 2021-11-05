@@ -22,7 +22,7 @@ Azure Purview can scan data sources in Azure or an on-premises environment by us
 
  - Blob private endpoint is linked to an Azure Purview managed storage account.
  - Queue private endpoint is linked to an Azure Purview managed storage account.
- - namespace private endpoint is linked to an Azure Purview managed event hub namespace.
+ - namespace private endpoint is linked to an Azure Purview managed Event Hub namespace.
 
   :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Diagram that shows Azure Purview and Private Link architecture.":::
 
