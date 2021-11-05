@@ -18,7 +18,7 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 - Zone redundant and same zone high availability.
 - Maximum control with ability to select your scheduled maintenance window.
 - Data protection using automatic backups and point-in-time-restore for up to 35 days.
-- Scheduled maintenance for underlying hardware, operating system and database engine to keep the service secure and up to date.
+- Automated patching and maintenance for underlying hardware, operating system and database engine to keep the service secure and up to date.
 - Predictable performance, using inclusive pay-as-you-go pricing.
 - Elastic scaling within seconds.
 - Cost optimization controls with low cost burstable SKU and ability to stop/start server.
