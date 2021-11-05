@@ -143,6 +143,8 @@ items:
     href: concepts/identity-model.md
   - name: Authentication
     href: concepts/authentication.md
+  - name: Network Traversal
+    href: concepts/network-traversal.md    
   - name: Privacy
     href: concepts/privacy.md
   - name: Pricing
