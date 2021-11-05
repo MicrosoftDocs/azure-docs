@@ -94,7 +94,7 @@ Ports are used to generate unique identifiers used to maintain distinct flows. T
 
 If a port is used for inbound connections, it has a **listener** for inbound connection requests on that port. That port can't be used for outbound connections. To establish an outbound connection, an **ephemeral port** is used to provide the destination with a port on which to communicate and maintain a distinct traffic flow. When these ephemeral ports are used for SNAT, they're called **SNAT ports**.
 
-By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). When a public IP address is added as a frontend IP to a load balancer, 64,000 ports are eligible for SNAT.
+By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). When a public IP address is added as a frontend IP to a load balancer, 64,000 ports are eligible for SNAT. While all public IPs that are added as frontend IPs can be allocated, frontend IPs are consumed one at a time. For example, if two backend instances are allocated 64,000 ports each, with access to 2 frontend IPs, both backend instances will consume ports from the first frontend IP until all 64,000 ports have been exhausted.  
 
 A port used for a load balancing or inbound NAT rule consumes eight ports from the 64,000 ports. This usage reduces the number of ports eligible for SNAT. If a load-balancing or inbound NAT rule is in the same range of eight as another, it doesn't use extra ports. 
 
@@ -193,6 +193,7 @@ If you have Virtual Machine Scale Sets in the backend, it's recommended to alloc
   *	A TCP SNAT port can be used for multiple connections to the same destination IP provided the destination ports are different.
 *	SNAT exhaustion occurs when a backend instance runs out of given SNAT Ports. A load balancer can still have unused SNAT ports. If a backend instance’s used SNAT ports exceed its given SNAT ports, it will be unable to establish new outbound connections.
 *	Fragmented packets will be dropped unless outbound is through an instance level public IP on the VM's NIC.
+*	Secondary IP configurations of a network interface do not outbound communication (unless a Public IP is associated to it) via Load Balancer.
 
 ## Next steps
 

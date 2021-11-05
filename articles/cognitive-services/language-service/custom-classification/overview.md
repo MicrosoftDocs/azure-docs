@@ -22,7 +22,13 @@ Custom text classification is offered as part of the custom features within Azur
 Custom text classification supports two types of projects: 
 
 * **Single label classification** - you can assign a single class for each file of your dataset. For example, a movie script could only be classified as "Action" or "Thriller". 
-* **Multiple label classification** - You can assign multiple classes for each file of your dataset. For example, a movie script could be classified as "Action" or "Action and Thriller". 
+* **Multiple label classification** - You can assign multiple classes for each file of your dataset. For example, a movie script could be classified as "Action" or "Action and Thriller".
+
+This documentation contains the following article types:
+
+* [Quickstarts](quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [Concepts](concepts/evaluation.md) provide explanations of the service functionality and features.
+* [How-to guides](how-to/tag-data.md) contain instructions for using the service in more specific or customized ways.
 
 ## Example usage scenarios
 
