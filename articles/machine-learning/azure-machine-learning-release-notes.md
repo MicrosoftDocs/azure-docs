@@ -19,9 +19,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-11-08
 
 ### Azure Machine Learning SDK for Python v1.36.0
- + **azureml-automl-core**
-    + Featurization summary is now stored as an artifact on the run (check for a file named 'featurization_summary.json' under the outputs folder)
-    + Enable categorical indicators support for Tabnet Learner.
   + **azureml-automl-dnn-vision**
     + Cleaned up minor typos on some error messages.
   + **azureml-contrib-reinforcementlearning**
