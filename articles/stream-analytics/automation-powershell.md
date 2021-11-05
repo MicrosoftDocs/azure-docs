@@ -43,7 +43,7 @@ When running, the job should not be stopped until the entire input backlog is pr
 
 As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. Potential cost savings are up to 66%.
 
-The last consideration is to make these actions idempotent. This way, they can be repeated at will with no side effects. This gives us both ease of use and resiliency.
+The last consideration is to make these actions idempotent. This way, they can be repeated at will with no side effects, for both ease of use and resiliency.
 
 ## Components
 
