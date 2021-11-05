@@ -58,52 +58,47 @@ The environment in which this problem occurs is the following:
 - Browser: Safari
 - Operating system: iOS
 
-### Repeatedly switching video devices might cause video streaming to temporarily stop
+### Repeatedly switching video devices might cause video streaming to stop temporarily
 
-Switching between video devices may cause your video stream to pause while the stream is acquired from the selected device.
+Switching between video devices might cause your video stream to pause while the stream is acquired from the selected device. Switching between devices frequently can cause performance degradation. It's best for developers to stop one device stream before starting another.
 
-##### Possible causes
-Switching between devices frequently can cause performance degradation. Developers are encouraged to stop one device stream before starting another.
+### Bluetooth headset microphone isn't detected or audible during the call on Safari on iOS
 
-#### Bluetooth headset microphone is not detected therefore is not audible during the call on Safari on iOS
-Bluetooth headsets aren't supported by Safari on iOS. Your Bluetooth device won't be listed in available microphone options and other participants won't be able to hear you if you try using Bluetooth over Safari.
+Bluetooth headsets aren't supported by Safari on iOS. Your Bluetooth device won't be listed in available microphone options, and other participants won't be able to hear you if you try using Bluetooth over Safari.
 
-##### Possible causes
-This is a known macOS/iOS/iPadOS operating system limitation. 
+This is a known operating system limitation. With Safari on macOS and iOS/iPadOS, it's not possible to enumerate or select speaker devices through Communication Services device manager. This is because Safari doesn't support the enumeration or selection of speakers. In this scenario, use the operating system to update your device selection.
 
-With Safari on **macOS** and **iOS/iPadOS**, it is not possible to enumerating/selecting speaker devices through the Communication Services Device Manager since speakers enumeration/selection is not supported by Safari. In this scenario, your device selection should be updated via the operating system.
+### Rotation of a device can create poor video quality
 
-#### Rotation of a device can create poor video quality
-Users may experience degraded video quality when devices are rotated.
+When users rotate a device, this movement can degrade the quality of video that is streaming.
 
-<br/>Devices affected: Google Pixel 5, Google Pixel 3a, Apple iPad 8, and Apple iPad X
-<br/>Client library: Calling (JavaScript)
-<br/>Browsers: Safari, Chrome
-<br/>Operating System: iOS, Android
+The environment in which this problem occurs is the following:
 
+- Devices affected: Google Pixel 5, Google Pixel 3a, Apple iPad 8, and Apple iPad X
+- Client library: Calling (JavaScript)
+- Browsers: Safari, Chrome
+- Operating systems: iOS, Android
 
-#### Camera switching makes the screen freeze 
-When a Communication Services user joins a call using the JavaScript calling SDK and then hits the camera switch button, the UI may become unresponsive until the application is refreshed or browser is pushed to the background by user.
+### Camera switching makes the screen freeze 
 
-<br/>Devices affected: Google Pixel 4a
-<br/>Client library: Calling (JavaScript)
-<br/>Browsers: Chrome
-<br/>Operating System: iOS, Android
+When a Communication Services user joins a call by using the JavaScript calling SDK, and then selects the camera switch button, the UI might become unresponsive. The user must then refresh the application, or push the browser to the background.
 
+The environment in which this problem occurs is the following:
 
-##### Possible causes
-Under investigation.
+- Devices affected: Google Pixel 4a
+- Client library: Calling (JavaScript)
+- Browser: Chrome
+- Operating systems: iOS, Android
 
-#### If the video signal was stopped while the call is in "connecting" state, the video will not be sent after the call started 
-If users decide to quickly turn video on/off while call is in `Connecting` state - this may lead to problem with stream acquired for the call. We encourage developers to build their apps in a way that doesn't require video to be turned on/off while call is in `Connecting` state. This issue may cause degraded video performance in the following scenarios:
+### Video signal problem when the call is in connecting state 
 
- - If the user starts with audio and then start and stop video while the call is in `Connecting` state.
- - If the user starts with audio and then start and stop video while the call is in `Lobby` state.
+If a user turns video on and off quickly while the call is in the *Connecting* state, this might lead to a problem with the stream acquired for the call. It's best for developers to build their apps in a way that doesn't require video to be turned on and off while the call is in the *Connecting* state. Degraded video performance might occur in the following scenarios:
 
-##### Possible causes
-Under investigation.
+ - If the user starts with audio, and then starts and stops video, while the call is in the *Connecting* state.
+ - If the user starts with audio, and then starts and stops video, while the call is in the *Lobby* state.
 
-#### Enumerating/accessing devices for Safari on macOS and iOS 
+### Enumerating or accessing devices for Safari on macOS and iOS 
+
 If access to devices are granted, after some time, device permissions are reset. Safari on macOS and on iOS does not keep permissions for very long time unless there is a stream acquired. The simplest way to work around this is to call DeviceManager.askDevicePermission() API before calling the device manager's device enumeration APIs (DeviceManager.getCameras(), DeviceManager.getSpeakers(), and DeviceManager.getMicrophones()). If the permissions are there, then user will not see anything, if not, it will re-prompt.
 
 <br/>Devices affected: iPhone
