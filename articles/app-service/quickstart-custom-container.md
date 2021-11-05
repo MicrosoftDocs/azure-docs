@@ -70,11 +70,9 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Solution Explorer**, right-click the **myfirstazurewebapp** project and select **Publish**.
 
-1. Choose **App Service** and then select **Publish**.
-
 1. In **Target**, select **Docker Container Registry**, and then click **Next**.
 
-    :::image type="content" source="./media/quickstart-custom-container/select-docker-container-registry-vs2022.png?text=Publish from project overview page" alt-text="Publish from project overview page":::
+    :::image type="content" source="./media/quickstart-custom-container/select-docker-container-registry-vs2022.png?text=Select Docker Container Registry" alt-text="Select Docker Container Registry":::
 
 1. In **Specific Target**, select **Azure Container Registry**, and then click **Next**.
 
@@ -88,21 +86,17 @@ Create an ASP.NET web app by following these steps:
 
     :::image type="content" source="./media/quickstart-custom-container/new-azure-container-registry-details.png?text=Azure Container Registry details" alt-text="Azure Container Registry details":::
 
-1. Select existing azure container registry. Click Finish.
+1. In **Publish**, under **Container Registry**, select the Azure Container Registry you created. Click Finish.
 
     :::image type="content" source="./media/quickstart-custom-container/select-existing-azure-container-registry.png?text=Select existing Azure Container Registry" alt-text="Select existing Azure Container Registry":::
 
-1. Supply your Docker Hub account credentials and select **Save**.
+   Wait for the deployment to complete. The **Publish** page now shows the repository name. Select the *copy button* to copy the **Repository** name for later.
 
-   Wait for the deployment to complete. The **Publish** page now shows the repository name to use later.
-
-   ![Screenshot that highlights the repository name.](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
-
-1. Copy this repository name for later.
+    :::image type="content" source="./media/quickstart-custom-container/published-docker-repository-vs2022.png?text=Screenshot that highlights the repository name." alt-text="Screenshot that highlights the repository name.":::
 
 ## Create a Windows container app
 
-1. Sign in to the [Azure portal]( https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Choose **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -114,7 +108,7 @@ Create an ASP.NET web app by following these steps:
 
    ![Create a Web App for Containers](media/quickstart-custom-container/create-web-app-container.png)
 
-1. For **Image Source**, choose **Docker Hub** and for **Image and tag**, enter the repository name you copied in [Publish to Docker Hub](#publish-to-docker-hub).
+1. For **Image Source**, choose **Docker Hub** and for **Image and tag**, enter the repository name you copied in [Publish to Azure Container Registry](#publish-to-azure-container-registry).
 
    ![Configure your a Web App for Containers](media/quickstart-custom-container/configure-web-app-container.png)
 
