@@ -34,13 +34,13 @@ This section shows you examples to help you understand the Azure NetApp Files co
 
 #### Example 1: One month cost with static versus dynamic capacity pool provisioning 
 
-If your capacity pool size requirements fluctuate (for example, because of variable capacity or performance needs), consider dynamically resizing your volumes and capacity pools to balance cost with capacity and performance needs.
+If your capacity pool size requirements fluctuate (for example, because of variable capacity or performance needs), consider [dynamically resizing your volumes and capacity pools](azure-netapp-files-resize-capacity-pools-or-volumes.md) to balance cost with capacity and performance needs.
 
 For example, you are using the Premium capacity 24 hours (1 day) at 10 TiB, 96 hours (4 days) at 24 TiB, four times at 6 hours (1 day) at 5 TiB, 480 hours (20 days) at 6 TiB, and the month’s remaining hours at 0 TiB. A dynamic cloud consumption deployment profile looks different from a traditional static on-premises consumption profile: 
 
 ![Bar chart that shows dynamic versus static capacity pool provisioning.](../media/azure-netapp-files/cost-model-dynamic-vs-static-tib-ex1.png)
 
-When costs are billed at $0.000403 per GiB/hour (pricing varies depending on the region), the monthly cost breakdown looks like this:
+When costs are billed at $0.000403 per GiB/hour ([pricing depending on the region](https://azure.microsoft.com/pricing/details/netapp/)), the monthly cost breakdown looks like this:
 
 *Static provisioning on Premium (peak capacity/performance)*
 
@@ -65,7 +65,7 @@ Consider a scenario where the capacity requirement is a constant 24 TiB. But you
 
 ![Bar chart that shows provisioning with and without dynamic service level change.](../media/azure-netapp-files/cost-model-dynamic-vs-static-tib-ex2.png)
 
-In this case, when costs are billed at $0.000202 per GiB/hour (Standard), $0.000403 per GiB/hour (Premium) and $0.000538 per GiB/hour (Ultra) respectively (pricing depending on the region), the monthly cost breakdown looks like this: 
+In this case, when costs are billed at $0.000202 per GiB/hour (Standard), $0.000403 per GiB/hour (Premium) and $0.000538 per GiB/hour (Ultra) respectively ([pricing depending on the region](https://azure.microsoft.com/pricing/details/netapp/)), the monthly cost breakdown looks like this: 
 
 *Static provisioning on Ultra service level (peak performance)*
 
