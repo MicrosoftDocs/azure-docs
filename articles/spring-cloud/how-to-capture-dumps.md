@@ -1,5 +1,5 @@
 ---
-title: "Capture heap dump, thread dump and, JFR manually in Azure Spring Cloud"
+title: "How to manually capture heap dump, thread dump, and JFR in Azure Spring Cloud"
 description: Learn how to manually capture a heap dump, a thread dump or start JFR.
 author: YinglueZhang-MS
 ms.author: yinglzh
@@ -9,7 +9,7 @@ ms.date: 10/31/2021
 ms.custom: devx-track-java
 ---
 
-# Capture heap dump, thread dump and, JFR manually in Azure Spring Cloud
+# How to manually capture heap dump, thread dump, and JFR in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ❌ C#
 
@@ -39,6 +39,6 @@ Start a JFR of our app in Azure Spring Cloud.
 ```JFR command
    az spring-cloud app deployment start-JFR -g <resource-group-name> -s <service-instance-name> --app <app-name> --deployment <deployment-name> --app-instance <app-instance name> --file-path <your-target-file-path-in-your-persistent-storage-mount-path> --duration <duration-of-JFR>
 ```
-
+The default value of duration is 60s.
 ## Get your diagnostic files
-Go to the target file path in your persistent storage and find your dump/JFR. You can download them to your local machine.
+Go to the target file path in your persistent storage and find your dump/JFR. You can download them to your local machine. The name of the generated file will be like {appInstance}_heapdump_{timeStamp}.hprof for heap dump, {appInstance}_threaddump_{timeStamp}.txt for thread dump, and {appInstance}_JFR_{timeStamp}.jfr for JFR.
