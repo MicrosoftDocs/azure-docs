@@ -11,15 +11,15 @@ ms.topic: article
 
 *Late Stage Reprojection* (LSR) is a hardware feature that helps stabilize holograms when the user moves.
 
-Static models are expected to visually maintain their position when you move around them. If they appear to be unstable, this behavior may hint at LSR issues. Mind that additional dynamic transformations, like animations or explosion views, might mask this behavior.
+Static models are expected to visually maintain their position when you move around them. If they appear to be unstable, this behavior may hint at LSR issues. Mind that extra dynamic transformations, like animations or explosion views, might mask this behavior.
 
 You may choose between two different LSR modes, namely **Planar LSR** or **Depth LSR**. Both LSR modes improve hologram stability, although they have their distinct limitations. Start by trying Depth LSR, as it is arguably giving better results in most cases.
 
 ## How to set the LSR mode
 
-Which of the LSR modes is used is determined by whether the client application submits a depth buffer. If the depth buffer is submitted it uses **Depth LSR** and **Planar LSR** otherwise.
+Which of the LSR modes is used is determined by whether the client application submits a depth buffer. If the depth buffer is submitted, it uses **Depth LSR** and **Planar LSR** otherwise.
 
-The following paragraphs explain how this is accomplished in Unity and native applications respectively.
+The following paragraphs explain how submitting the depth buffer is accomplished in Unity and native applications respectively.
 
 ### Unity
 
@@ -104,7 +104,7 @@ The focus points calculated in two successive frames can vary a lot. Simply usin
 
 ## Reprojection pose modes
 
-The general problem scope with hybrid rendering can be stated like this: Remote and local content are within distinct poses (i.e. coordinate spaces) because the remote pose is from the time the pose was sent to the server whereas the local pose is the current one. However, in the end of a rendering frame both remote and local content need to be aligned and brought to the display. The following illustration shows an example where local and remote pose are translated compared to the display viewport:
+The general problem scope with hybrid rendering can be stated like this: Remote and local contents are within distinct poses (that is, coordinate spaces) because the remote pose is from the time the pose was sent to the server whereas the local pose is the current one. However, in the end of a rendering frame both remote and local content need to be aligned and brought to the display. The following illustration shows an example where local and remote poses are translated compared to the display viewport:
 
 ![Remote and local pose](./media/reprojection-remote-local.png)
 
@@ -112,15 +112,15 @@ ARR provides two reprojection modes that work orthogonally to the LSR mode discu
 
 ### :::no-loc text="Remote pose mode":::
 
-This is the default mode in ARR. In this mode, the local content is rendered on top of the incoming remote image stream using the remote pose from the remote frame. Then the combined result is forwarded to the OS for the final transform. Accordingly, this approach uses only one reprojection transform, but the final correction is based on the round-trip interval so the full reprojection error is applied to the local content as well. As a consequence, this may result in significant distortions of local geometry including UI elements.
+:::no-loc text="Remote pose mode"::: is the default mode in ARR. In this mode, the local content is rendered on top of the incoming remote image stream using the remote pose from the remote frame. Then the combined result is forwarded to the OS for the final transform. While this approach uses only one reprojection transform, the final correction is based on the round-trip interval so the full reprojection error is applied to the local content as well. As a consequence, the large correction delta may result in significant distortions of local geometry including UI elements.
 
-Using the illustration above, this is what happens in :::no-loc text="Remote"::: pose mode:
+Using the illustration above, the following transforms are applied in :::no-loc text="Remote"::: pose mode:
 
 ![Reprojection steps in remote pose mode](./media/reprojection-posemode-remote.png)
 
 ### :::no-loc text="Local pose mode":::
 
-In this mode, the reprojection is split into two distinct steps: In the first step, the remote content is reprojected into local pose space, i.e. the space that the local content is usually rendered with on VR/AR devices. After that, the local content is rendered on top of this pre-transformed image using the usual local pose. In the second step, the combined result is forwarded to the OS for the final reprojection. Since this second reprojection incurs only a small delta - in fact the same delta that would be used if ARR was not present - the distortion artifacts on local content are mitigated significantly.
+In this mode, the reprojection is split into two distinct steps: In the first step, the remote content is reprojected into local pose space, that is, the space that the local content is rendered with on VR/AR devices. After that, the local content is rendered on top of this pre-transformed image using the usual local pose. In the second step, the combined result is forwarded to the OS for the final reprojection. Since this second reprojection incurs only a small delta - in fact the same delta that would be used if ARR was not present - the distortion artifacts on local content are mitigated significantly.
 
 Accordingly, the illustration looks like this:
 
@@ -128,9 +128,9 @@ Accordingly, the illustration looks like this:
 
 ### Performance and quality considerations
 
-The choice of the pose mode has visual quality and performance implications. The additional runtime cost on the client side for doing the additional reprojection in :::no-loc text="Local"::: pose mode on a Hololens 2 device amounts to about 1 millisecond per frame. This needs to be put into consideration if the client application is already close to the 16 milliseconds frame budget. On the other hand, there are types of applications with either no local content or local content that is not prone to distortion artifacts. In those cases :::no-loc text="Local"::: pose mode does not gain any visual benefit because the quality of the remote content reprojection is unaffected.
+The choice of the pose mode has visual quality and performance implications. The additional runtime cost on the client side for doing the extra reprojection in :::no-loc text="Local"::: pose mode on a HoloLens 2 device amounts to about 1 millisecond per frame. This extra cost needs to be put into consideration if the client application is already close to the frame budget of 16 milliseconds. On the other hand, there are types of applications with either no local content or local content that is not prone to distortion artifacts. In those cases :::no-loc text="Local"::: pose mode does not gain any visual benefit because the quality of the remote content reprojection is unaffected.
 
-The general advice would thus be to test the modes on a per use case basis and see whether the gain in visual quality justifies the additional performance overhead. It is also possible to toggle the mode dynamically, for instance enable local mode only when important UIs are shown.
+The general advice would thus be to test the modes on a per use case basis and see whether the gain in visual quality justifies the extra performance overhead. It is also possible to toggle the mode dynamically, for instance enable local mode only when important UIs are shown.
 
 ### How to change the :::no-loc text="Pose mode"::: at runtime
 
