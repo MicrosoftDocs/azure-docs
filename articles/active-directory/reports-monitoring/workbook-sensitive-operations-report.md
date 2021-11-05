@@ -31,7 +31,7 @@ This article provides you with an overview of this workbook.
 
 ## Description
 
-![Workbook category](./media/workbook-sesitive-operations-report/workbook-category.png)
+![Workbook category](./media/workbook-sensitive-operations-report/workbook-category.png)
 
 This workbook identifies recent sensitive operations that have been performed in your tenant and which may service principal compromise.
 
@@ -43,7 +43,7 @@ If you organization is new to Azure monitor workbooks, you need to integrate you
 
 This workbook is split into four sections:
 
-![Workbook sections](./media/workbook-sesitive-operations-report/workbook-sections.png)
+![Workbook sections](./media/workbook-sensitive-operations-report/workbook-sections.png)
 
 
 - **Modified application and service principal credentials/authentication methods** - This report flags actors who have recently changed many service principal credentials, as well as how many of each type of service principal credentials have been changed.
@@ -80,7 +80,7 @@ In cases where the attacker cannot find a service principal or an application wi
 This section includes a breakdown of the AppOnly permissions grants to existing service principals. Admins should investigate any instances of excessive high permissions being granted, including, but not limited to, Exchange Online, Microsoft Graph and Azure AD Graph.
 
 
-## Directory role and group membership updates for service principals 
+### Directory role and group membership updates for service principals 
 
 Following the logic of the attacker adding new permissions to existing service principals and applications, another approach is adding them to existing directory roles or groups.
 
