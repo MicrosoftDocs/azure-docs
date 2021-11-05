@@ -84,4 +84,4 @@ A: The netAppAccounts resource provider has not been registered with the subscri
 
 Q: I am getting a fatal error while deploying the SAP HANA Software from test_menu.sh on the following task: Retrieve SSH Key Secret Details
 
-A: Ensure that the name of the machine secrets in the Landscape Key Vault align with the environment SID, e.g. DEV-XXXX-SAP01 vs DEV-XXXX-SAP 
+A: Ensure that the name of the secrets in the user credentials Key Vault align with the environment naming prefix, e.g. DEV-XXXX-SAP01 vs DEV-XXXX-SAP 
