@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 11/05/2021
 ms.author: jasteppe
 ---
 
@@ -25,7 +25,7 @@ Below is a conceptual example of what happens during the normalization and trans
 
 ## FHIR destination mappings
 
-Once the device content is extracted into a normalized model, the data is collected and grouped according to device identifier, measurement type, and time period. The output of this grouping is sent for conversion into a FHIR resource ([Observation](https://www.hl7.org/fhir/observation.html) currently). The FHIR destination mapping template controls how the data is mapped into a FHIR observation. Should an observation be created for a point in time or over a period of an hour? What codes should be added to the observation? Should value be represented as [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) or a [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)? These data types are all options the FHIR destination mappings 
+Once the device content is extracted into a normalized model, the data is collected and grouped according to device identifier, measurement type, and time period. The output of this grouping is sent for conversion into a FHIR resource ([Observation](https://www.hl7.org/fhir/observation.html) currently). The FHIR destination mapping template controls how the data is mapped into a FHIR observation. Should an observation be created for a point in time or over a period of an hour? What codes should be added to the observation? Should the value be represented as [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) or a [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)? These data types are all options the FHIR destination mappings 
 configuration controls.
 
 > [!NOTE]
@@ -269,7 +269,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 
 ## Next steps
 
-In this article, you learned how to use FHIR destination mappings. Learn how to use Device mappings.
+In this article, you learned how to use FHIR destination mappings. Tp learn how to use Device mappings, see
 
 >[!div class="nextstepaction"]
 >[How to use Device mappings](how-to-use-device-mapping-iot.md)

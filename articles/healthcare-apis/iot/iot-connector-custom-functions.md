@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 11/05/2021
 ms.author: jasteppe
 ---
 
@@ -18,15 +18,6 @@ Many functions are available when using **JmesPath** as the expression language.
 
 > [!TIP]
 > For more information on JmesPath functions, see the JmesPath [specification](https://jmespath.org/specification.html#built-in-functions).
-
-## IoT data normalization and transformation overview
-
-Below is a high-level overview of the IoT device data normalization and transformation process once received by IoT connector.
-
- :::image type="content" source="media/iot-data-normalization-high-level.png" alt-text="IoT connector2" lightbox="media/iot-data-normalization-high-level.png":::
-
-> [!TIP]
-> For more information on IoT connector Device mappings, see [How to use Device mappings](./how-to-use-device-mapping-iot.md).
 
 ## Function signature
 
@@ -45,25 +36,12 @@ The signature indicates the valid types for the arguments. If an invalid type is
 
 Exceptions may occur at various points within the event processing lifecycle. Here are the various points where they can occur:
 
-**Template Parsing**
-
-|When|Exceptions that may occur during template parsing|Outcome|
-|----|-------------------------------------------------|-------|
-|Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse the template.|System will attempt to reload and parse the latest Device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
-
-|When|Exceptions that may occur during template parsing|Outcome|
-|----|-------------------------------------------------|-------|
-|Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse any expressions.|System will attempt to reload and parse the latest Device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
-
-**Function Execution**
-                      
-|When|Exceptions that may occur during function execution|Outcome|
-|-----|--------------------------------------------------|-------|
-|Each time a function is executed against data within a message.|Input data doesn't match that of the function signature.|System stops processing that message. The message isn't retried.|
-
-|When|Exceptions that may occur during function execution|Outcome|
-|----|---------------------------------------------------|-------|
-|Each time a function is executed against data within a message.|Any other exceptions listed in the description of the function.|System stops processing that message. The message isn't retried.|
+|Action|When|Exceptions that may occur during template parsing|Outcome|
+|------|----|-------------------------------------------------|-------|
+|**Template parsing**|Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse the template.|System will attempt to reload and parse the latest Device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
+|**Template parsing**|Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse any expressions.|System will attempt to reload and parse the latest Device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
+|**Function Execution**|Each time a function is executed against data within a message.|Input data doesn't match that of the function signature.|System stops processing that message. The message isn't retried.|
+|**Function execution**|Each time a function is executed against data within a message.|Any other exceptions listed in the description of the function.|System stops processing that message. The message isn't retried.|
 
 ## Mathematical functions
 
@@ -210,7 +188,7 @@ Examples:
 
 For more information about using the IoT connector custom functions with Device mappings, see:
 
-In this article, you learned how to use custom functions. Learn how to use Device mappings.
+In this article, you learned how to use custom functions. Learn how to use Device mappings, see
 
 >[!div class="nextstepaction"]
 >[How to use Device mappings](how-to-use-device-mapping-iot.md)
