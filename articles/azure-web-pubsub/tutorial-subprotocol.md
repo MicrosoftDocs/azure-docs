@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 08/16/2021
+ms.date: 11/01/2021
 ---
 
 # Tutorial: Publish and subscribe messages between WebSocket clients using subprotocol
@@ -74,7 +74,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     cd logstream
     dotnet new web
     dotnet add package Microsoft.Extensions.Azure
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
     
     # [JavaScript](#tab/javascript)
@@ -86,7 +86,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     npm install --save express
     npm install --save ws
     npm install --save node-fetch
-    npm install --save @azure/web-pubsub
+    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
     ```
 
     # [Python](#tab/python)
@@ -103,7 +103,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
 
     # Or call .\env\Scripts\activate when you are using CMD under Windows
 
-    pip install azure-messaging-webpubsubservice
+    pip install azure-messaging-webpubsubservice==1.0.0b1
     ```
     
     ---
@@ -184,11 +184,11 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     const express = require('express');
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-    let endpoint = new WebPubSubServiceClient(process.argv[2], 'stream');
+    let endpoint = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, 'stream');
     const app = express();
 
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getAuthenticationToken({
+      let token = await endpoint.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       res.send({
@@ -298,8 +298,8 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     Now run the below command, replacing `<connection-string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use), and open http://localhost:8080 in browser:
 
     ```bash
-    
-    node server "<connection-string>"
+    export WebPubSubConnectionString="<connection-string>"
+    node server
     ```
     
     # [Python](#tab/python)
@@ -403,17 +403,19 @@ This will be useful if you want to stream a large amount of data to other client
       let res = await fetch(`http://localhost:8080/negotiate`);
       let data = await res.json();
       let ws = new WebSocket(data.url, 'json.webpubsub.azure.v1');
+      let ackId = 0;
       ws.on('open', () => {
         process.stdin.on('data', data => {
           ws.send(JSON.stringify({
             type: 'sendToGroup',
             group: 'stream',
+            ackId: ++ackId,
             dataType: 'text',
             data: data.toString()
           }));
-          process.stdout.write(data);
         });
       });
+      ws.on('message', data => console.log("Received: %s", data));
       process.stdin.on('close', () => ws.close());
     }
 
@@ -487,11 +489,13 @@ This will be useful if you want to stream a large amount of data to other client
 2.  Since we use group here, we also need to update the web page `index.html` to join the group when the WebSocket connection is established inside `ws.onopen` callback.
     
     ```javascript
+    let ackId = 0;
     ws.onopen = () => {
       console.log('connected');
       ws.send(JSON.stringify({
         type: 'joinGroup',
-        group: 'stream'
+        group: 'stream',
+        ackId: ++ackId
       }));
     };
     ```
@@ -522,11 +526,11 @@ This will be useful if you want to stream a large amount of data to other client
 
     # [JavaScript](#tab/javascript)
 
-    Add the `roles` when `getAuthenticationToken` in `server.js` like below:
+    Add the `roles` when `getClientAccessToken` in `server.js` like below:
 
     ```javascript
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getAuthenticationToken({
+      let token = await endpoint.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       ...

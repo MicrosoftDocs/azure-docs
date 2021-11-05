@@ -143,13 +143,13 @@ To access data stored in an Azure SQL Database with a managed identity, you must
 
 After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
-## Intermediate module output
+## Intermediate component output
 
-When using the Azure Machine Learning designer intermediate module output, you can specify the output location for any module in the designer. Use this to store intermediate datasets in separate location for security, logging, or auditing purposes. To specify output, use the following steps:
+When using the Azure Machine Learning designer intermediate component output, you can specify the output location for any component in the designer. Use this to store intermediate datasets in separate location for security, logging, or auditing purposes. To specify output, use the following steps:
 
-1. Select the module whose output you'd like to specify.
-1. In the module settings pane that appears to the right, select **Output settings**.
-1. Specify the datastore you want to use for each module output.
+1. Select the component whose output you'd like to specify.
+1. In the component settings pane that appears to the right, select **Output settings**.
+1. Specify the datastore you want to use for each component output.
 
 Make sure that you have access to the intermediate storage accounts in your virtual network. Otherwise, the pipeline will fail.
 

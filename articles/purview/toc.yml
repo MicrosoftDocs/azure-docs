@@ -80,7 +80,7 @@ items:
     href: concept-account-upgrade.md
 - name: How-to guides
   items:
-  - name: Create and manage collections
+  - name: Manage collections
     href: how-to-create-and-manage-collections.md
   - name: Manage sources
     items: 
