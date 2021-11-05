@@ -68,7 +68,7 @@ This workbook supports setting a time range filter.
 
 
 
-## Best practice
+## Best practices
 
 Use this workbook to ensure that your tenant is configured to the following Conditional Access best practices:  
 

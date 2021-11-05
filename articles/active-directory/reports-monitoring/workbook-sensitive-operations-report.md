@@ -140,7 +140,7 @@ This paragraph lists the supported filters for each section.
 
 
 
-## Best practice
+## Best practices
 
 
 **Use:**
