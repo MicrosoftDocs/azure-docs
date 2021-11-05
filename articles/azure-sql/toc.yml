@@ -1512,6 +1512,8 @@
       href: database/troubleshoot-common-errors-issues.md
     - name: Common connection issues
       href: database/troubleshoot-common-connectivity-issues.md
+    - name: Troubleshoot out of memory errors
+      href: database/troubleshoot-memory-errors-issues.md
     - name: Import/Export service hangs
       href: database/database-import-export-hang.md
     - name: Transaction log errors

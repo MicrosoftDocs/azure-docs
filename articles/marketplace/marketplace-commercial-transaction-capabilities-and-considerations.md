@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 10/26/2021
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -12,6 +12,9 @@ author: mingshen-ms
 # Commercial marketplace transact capabilities
 
 This article describes pricing, billing, invoicing and payout considerations for *transactable* offers sold through the commercial marketplace. For information about publishing non-transactable (free or BYOL) offers, see [Introduction to listing options](determine-your-listing-type.md).
+
+> [!TIP]
+> To see the customer's view of purchasing in the commercial marketplace, see [Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing). For SaaS offers, see [Purchase SaaS apps on Microsoft AppSource](/marketplace/purchase-software-appsource).
 
 ## Transactions by listing option
 

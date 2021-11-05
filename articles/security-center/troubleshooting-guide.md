@@ -5,19 +5,19 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/15/2021
+ms.date: 11/02/2021
 ms.author: memildin
 ---
 # Microsoft Defender for Cloud Troubleshooting Guide
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations are using Microsoft Defender for Cloud and need to troubleshoot Defender for Cloud related issues.
+This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations need to troubleshoot Defender for Cloud related issues.
 
 Defender for Cloud uses the Log Analytics agent to collect and store data. See [Microsoft Defender for Cloud Platform Migration](./enable-data-collection.md) to learn more. The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
 
 > [!TIP]
-> A dedicated area of the Defender for Cloud pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Defender for Cloud and Azure Defender.
+> A dedicated area of the Defender for Cloud pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Defender for Cloud.
 > 
 > When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is good place to look for solutions:
 > 
@@ -143,6 +143,6 @@ Some issues can be identified using the guidelines provided in this article, oth
 
 In this page, you learned how to configure security policies in Microsoft Defender for Cloud. To learn more about Microsoft Defender for Cloud, see the following:
 
-* [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
-* [Alerts Validation in Microsoft Defender for Cloud](alert-validation.md)
-* [Microsoft Defender for Cloud FAQ](faq-general.yml) — Find frequently asked questions about using the service
+- [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
+- [Alerts Validation in Microsoft Defender for Cloud](alert-validation.md)
+- [Microsoft Defender for Cloud FAQ](faq-general.yml) — Find frequently asked questions about using the service
