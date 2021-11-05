@@ -63,6 +63,10 @@ After you delete Azure Synapse resources, the following resources might continue
 
 You can pay for Azure Synapse charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
 
+### Pre-purchase plan for Azure Synapse
+
+You can save on your Azure Synapse Analytics costs when you pre-purchase Azure Synapse commit units (SCU) for one year. You can use the pre-purchased SCUs at any time during the purchase term. For more information see [Optimize Azure Synapse Analytics costs with a Pre-Purchase Plan](../cost-management-billing/reservations/synapse-analytics-pre-purchase-plan.md)
+
 
 ## Review estimated costs in the Azure portal
 
