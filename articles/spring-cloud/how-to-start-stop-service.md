@@ -31,13 +31,13 @@ You can only start, view, or delete a stopped Azure Spring Cloud service instanc
 ## Prerequisites
 
 - An existing service instance in Azure Spring Cloud. To create a new service instance, see [Quickstart: Deploy your first application in Azure Spring Cloud](./quickstart.md).
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.11.2 or later.
+- (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.11.2 or later.
 
 # [Portal](#tab/azure-portal)
 
 ## Stop a running instance
 
-Use the following steps to stop a running Azure Spring Cloud instance:
+In the Azure portal, use the following steps to stop a running Azure Spring Cloud instance:
 
 1. Go to the Azure Spring Cloud service overview page.
 1. Select **Stop** to stop a running instance.
@@ -48,7 +48,7 @@ Use the following steps to stop a running Azure Spring Cloud instance:
 
 ## Start a stopped instance
 
-Use the following steps to start a stopped Azure Spring Cloud instance:
+In the Azure portal, use the following steps to start a stopped Azure Spring Cloud instance:
 
 1. Go to Azure Spring Cloud service overview page.
 2. Select **Start** to start a stopped instance.
@@ -61,7 +61,7 @@ Use the following steps to start a stopped Azure Spring Cloud instance:
 
 ## Stop a running instance
 
-Use the following command to stop a running Azure Spring Cloud instance:
+With the Azure CLI, use the following command to stop a running Azure Spring Cloud instance:
 
 ```azurecli
 az spring-cloud stop \
@@ -71,7 +71,7 @@ az spring-cloud stop \
 
 ## Start a stopped instance
 
-Use the following command to start a stopped Azure Spring Cloud instance:
+With the Azure CLI, use the following command to start a stopped Azure Spring Cloud instance:
 
 ```azurecli
 az spring-cloud start \
