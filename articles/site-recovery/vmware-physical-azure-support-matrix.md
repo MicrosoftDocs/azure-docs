@@ -287,6 +287,7 @@ Secure transfer option | Yes
 Import/export service | No
 Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache storage account (used to store replication data).
 General-purpose v2 storage accounts (hot and cool tiers) | Yes (Transaction costs are substantially higher for V2 compared to V1)
+Soft delete | Not supported.
 
 ## Azure compute
 
