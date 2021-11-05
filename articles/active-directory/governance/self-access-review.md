@@ -32,7 +32,7 @@ You can review your own access to a group, application, or access package in two
 
 1. Look for an email from Microsoft that asks you to review access. Here's an example email message.
 
- ![Screenshot that shows an example email from Microsoft that asks you to review access to a group.](./media/self-access-review/access-review-email-preview.png)
+   ![Screenshot that shows an example email from Microsoft that asks you to review access to a group.](./media/self-access-review/access-review-email-preview.png)
 
 1. Select **Review access** to open the access review.
 

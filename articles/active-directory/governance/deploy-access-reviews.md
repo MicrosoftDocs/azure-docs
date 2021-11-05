@@ -232,7 +232,7 @@ Use access reviews to review and clean up collaboration partners' identities fro
 External identities can be granted access to company resources. They can be:
 
 * Added to a group.
-* Invited to teams.
+* Invited to Teams.
 * Assigned to an enterprise application or access package.
 * Assigned a privileged role in Azure AD or in an Azure subscription.
 

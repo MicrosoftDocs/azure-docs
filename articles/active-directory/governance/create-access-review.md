@@ -63,14 +63,16 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
    ![Screenshot that shows the interface that appears if you selected applications instead of groups.](./media/create-access-review/select-application-detailed.png)
 
-   Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
+    > [!NOTE]
+    > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
 
 1. Now you can select a scope for the review. Your options are:
 
     - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
     - **Everyone**: This option scopes the access review to all user objects associated with the resource.
 
-    If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
+    > [!NOTE]  
+    > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
 
 1. Select **Next: Reviews**.
 
