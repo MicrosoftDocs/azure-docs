@@ -33,16 +33,19 @@ One could also give the specific name of the file. But only giving the folder pa
 All the path user given below should be under the mount path of user's persistent storage already bind on customer's app.
 
 ## Generate a thread dump
+We just give an example of how to use JVM options related to thread dump. You could go to official JVM doc for more information.
 ```thread dump
    -XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:LogFile=<PATH_TO_THREAD_DUMP_FILE>
 ```
 
 ## GC logs
+We just give an example of how to use JVM options related to GC logs. You could go to official JVM doc for more information.
 ```GC Logs
    -XX:+PrintGCDetails -Xloggc:<PATH_TO_GC_LOG_FILE>
 ```
 
 ## JFR on exit
+We just give an example of how to use JVM options related to JFR. You could go to official JVM doc for more information.
 ```JFR on exit
    -XX:StartFlightRecording=dumponexit=true,dumponexitpath=<PATH_TO_JFR_FILE>
 ```
@@ -84,7 +87,7 @@ Or customer may use the commands below to append the persistent storage.
    az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <azure-file-share-name> --mount-path <unique-mount-path e.g. /test/Path> --storage-name <storage-resource-name> -n <app-name> -g <resource-group-name> -s <spring-instance-name>
 ```
    
-   If customers want to have the dump under their own azure file given above, please give <PATH_TO_HEAP_DUMP_FOLDER> as "/test/Path" and <PATH_TO_THREAD_DUMP_FILE> as "/test/Path/threaddump"
+   If customers want to have the dump under their own azure file given above, please give <PATH_TO_HEAP_DUMP_FOLDER> as "/test/Path" and <PATH_TO_THREAD_DUMP_FILE> as "/test/Path/threaddump". If customers want to use path under mount path, please ensure that the sub-path already exists.
 
 
 
