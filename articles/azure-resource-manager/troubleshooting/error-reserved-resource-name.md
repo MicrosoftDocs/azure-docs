@@ -2,11 +2,11 @@
 title: Reserved resource name errors
 description: Describes how to resolve errors when providing a resource name that includes a reserved word.
 ms.topic: troubleshooting
-ms.date: 11/08/2017
+ms.date: 11/02/2021
 ---
 # Resolve reserved resource name errors
 
-This article describes the error you encounter when deploying a resource that includes a reserved word in its name.
+This article describes the error you get when deploying a resource that includes a reserved word in its name.
 
 ## Symptom
 
@@ -19,11 +19,18 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 
 ## Cause
 
-Resources that have a public endpoint cannot use reserved words or trademarks in the name.
+Resources that have a public endpoint can't use reserved words or trademarks in the name.
 
 The following words are reserved:
 
 * ACCESS
+* APP_CODE
+* APP_THEMES
+* APP_DATA
+* APP_GLOBALRESOURCES
+* APP_LOCALRESOURCES
+* APP_WEBREFERENCES
+* APP_BROWSERS
 * AZURE
 * BING
 * BIZSPARK
@@ -53,13 +60,11 @@ The following words are reserved:
 * VISIO
 * VISUALSTUDIO
 
-The following words cannot be used as either a whole word or a substring in the name:
+The following words can't be used as either a whole word or a substring in the name:
 
-* LOGIN
 * MICROSOFT
 * WINDOWS
-* XBOX
 
 ## Solution
 
-Provide a name that does not use one of the reserved words.
+Provide a name that doesn't use one of the reserved words.
