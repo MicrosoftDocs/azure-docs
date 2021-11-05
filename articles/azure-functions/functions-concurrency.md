@@ -97,7 +97,7 @@ The Service Bus trigger currently supports three execution models. Dynamic concu
 - **Session based single dispatch topic/queue processing**: Each invocation of your function processes a single message. Depending on the number of active sessions for your topic/queue, each instance leases one or more sessions. Messages in each session are processed serially, to guarantee ordering in a session. When not using dynamic concurrency, concurrency is governed by the `MaxConcurrentSessions` setting. With dynamic concurrency enabled, `MaxConcurrentSessions` is ignored and the number of sessions each instance is processing is dynamically adjusted. 
 - **Batch processing**: Each invocation of your function processes a batch of messages, governed by the `MaxMessageCount` setting. Because batch invocations are serial, concurrency for your batch-triggered function is always one and dynamic concurrency doesn't apply. 
 
-To enable your Service Bus trigger to use dynamic concurrency, you must use [version 5.x)](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) of the Service Bus extension. 
+To enable your Service Bus trigger to use dynamic concurrency, you must use [version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) of the Service Bus extension. 
 
 ## Next steps
 
