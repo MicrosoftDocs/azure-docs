@@ -17,7 +17,7 @@ The Azure native services that you can integrate with Azure VMware Solution incl
 
    With Azure Monitor, you can collect data from different [sources to monitor and analyze](../azure-monitor/agents/data-sources.md) and different types of [data for analysis, visualization, and alerting](../azure-monitor/data-platform.md). You can also create alert rules to identify issues in your environment, like high use of resources, missing patches, low disk space, and heartbeat of your VMs. You can set an automated response to detected events by sending an alert to IT Service Management (ITSM) tools. Alert detection notification can also be sent via email.
 
-- **Azure Security Center** strengthens data centers' security and provides advanced threat protection across hybrid workloads in the cloud or on-premises. It assesses Azure VMware Solution VMs' vulnerability, raises alerts as needed, and forwards them to Azure Monitor for resolution. For instance, it assesses missing operating system patches, security misconfigurations, and [endpoint protection](../security-center/security-center-services.md). You can also define security policies in [Azure Security Center](azure-security-integration.md).
+- **Microsoft Defender for Cloud** strengthens data centers' security and provides advanced threat protection across hybrid workloads in the cloud or on-premises. It assesses Azure VMware Solution VMs' vulnerability, raises alerts as needed, and forwards them to Azure Monitor for resolution. For instance, it assesses missing operating system patches, security misconfigurations, and [endpoint protection](../security-center/security-center-services.md). You can also define security policies in [Microsoft Defender for Cloud](azure-security-integration.md).
 
 - **Azure Update Management** manages operating system updates for your Windows and Linux machines in a hybrid environment in Azure Automation. It monitors patching compliance and forwards patching deviation alerts to Azure Monitor for remediation. Azure Update Management must connect to your Log Analytics workspace to use stored data to assess the status of updates on your VMs.
 
@@ -30,7 +30,7 @@ The Azure native services that you can integrate with Azure VMware Solution incl
 - Azure native services can be used to manage your VMs in a hybrid environment (Azure, Azure VMware Solution, and on-premises).
 - Integrated monitoring and visibility of your Azure, Azure VMware Solution, and on-premises VMs.
 - With Azure Update Management in Azure Automation, you can manage operating system updates for both your Windows and Linux machines. 
-- Azure Security Center provides advanced threat protection, including:
+- Microsoft Defender for Cloud provides advanced threat protection, including:
     - File integrity monitoring
     - Fileless security alerts
     - Operating system patch assessment
@@ -54,9 +54,9 @@ The diagram shows the integrated monitoring architecture for Azure VMware Soluti
 
 The Log Analytics agent enables collection of log data from Azure, Azure VMware Solution, and on-premises VMs. The log data is sent to Azure Monitor Logs and stored in a Log Analytics workspace. You can deploy the Log Analytics agent using Arc enabled servers [VM extensions support](../azure-arc/servers/manage-vm-extensions.md) for new and existing VMs. 
 
-Once the Log Analytics workspace collects the logs, you can configure the Log Analytics workspace with Azure Security Center to assess the vulnerability status of Azure VMware Solution VMs and raise an alert for any critical vulnerability.  For instance, it assesses missing operating system patches, security misconfigurations, and [endpoint protection](../security-center/security-center-services.md).
+Once the Log Analytics workspace collects the logs, you can configure the Log Analytics workspace with Microsoft Defender for Cloud to assess the vulnerability status of Azure VMware Solution VMs and raise an alert for any critical vulnerability.  For instance, it assesses missing operating system patches, security misconfigurations, and [endpoint protection](../security-center/security-center-services.md).
 
-You can configure the Log Analytics workspace with Azure Sentinel for alert detection, threat visibility, hunting, and threat response. In the preceding diagram, Azure Security Center is connected to Azure Sentinel using Azure Security Center connector. Azure Security Center forwards the environment vulnerability to Azure Sentinel to create an incident and map with other threats. You can also create the scheduled rules query to detect unwanted activity and convert it to the incidents.
+You can configure the Log Analytics workspace with Microsoft Sentinel for alert detection, threat visibility, hunting, and threat response. In the preceding diagram, Microsoft Defender for Cloud is connected to Microsoft Sentinel using Microsoft Defender for Cloud connector. Microsoft Defender for Cloud forwards the environment vulnerability to Microsoft Sentinel to create an incident and map with other threats. You can also create the scheduled rules query to detect unwanted activity and convert it to the incidents.
 
 
 ## Before you start
@@ -65,7 +65,7 @@ If you are new to Azure or unfamiliar with any of the services previously mentio
 
 - [Automation account authentication overview](../automation/automation-security-overview.md)
 - [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md) and [Azure Monitor](../azure-monitor/overview.md)
-- [Planning](../security-center/security-center-planning-and-operations-guide.md) and [Supported platforms](../security-center/security-center-os-coverage.md) for Azure Security Center
+- [Planning](../security-center/security-center-planning-and-operations-guide.md) and [Supported platforms](../security-center/security-center-os-coverage.md) for Microsoft Defender for Cloud
 - [Enable Azure Monitor for VMs overview](../azure-monitor/vm/vminsights-enable-overview.md)
 - [What is Azure Arc enabled servers?](../azure-arc/servers/overview.md) and [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
 - [Update Management overview](../automation/update-management/overview.md)
@@ -87,11 +87,11 @@ If you are new to Azure or unfamiliar with any of the services previously mentio
  
 1. Once you've enabled Update Management, you can [deploy updates on VMs and review the results](../automation/update-management/deploy-updates.md). 
 
-## Enable Azure Security Center
+## Enable Microsoft Defender for Cloud
 
 Assess the vulnerability of Azure VMware Solution VMs and raise alerts as needed. These security alerts can be forwarded to Azure Monitor for resolution. For more information, see [Supported features for VMs](../security-center/security-center-services.md).
 
-Azure Security Center offers many features, including:
+Microsoft Defender for Cloud offers many features, including:
 - File integrity monitoring
 - Fileless attack detection
 - Operating system patch assessment 
@@ -99,16 +99,16 @@ Azure Security Center offers many features, including:
 - Endpoint protection assessment
 
 >[!NOTE]
->Azure Security Center is a pre-configured tool that doesn't require deployment, but you'll need to enable it in the Azure portal. 
+>Microsoft Defender for Cloud is a pre-configured tool that doesn't require deployment, but you'll need to enable it in the Azure portal. 
 
 
-1. [Add Azure VMware Solution VMs to Security Center](azure-security-integration.md#add-azure-vmware-solution-vms-to-security-center). 
+1. [Add Azure VMware Solution VMs to Defender for Cloud](azure-security-integration.md#add-azure-vmware-solution-vms-to-defender-for-cloud). 
 
-2. [Enable Azure Defender in Security Center](../security-center/enable-azure-defender.md). Security Center assesses the VMs for potential security issues. It also provides [security recommendations](../security-center/security-center-recommendations.md) in the Overview tab. 
+2. [Enable Microsoft Defender for Cloud in Defender for Cloud](../security-center/enable-azure-defender.md). Defender for Cloud assesses the VMs for potential security issues. It also provides [security recommendations](../security-center/security-center-recommendations.md) in the Overview tab. 
 
-3. [Define security policies](../security-center/tutorial-security-policy.md) in Azure Security Center. 
+3. [Define security policies](../security-center/tutorial-security-policy.md) in Microsoft Defender for Cloud. 
 
-For more information, see [Integrate Azure Security Center with Azure VMware Solution](azure-security-integration.md).
+For more information, see [Integrate Microsoft Defender for Cloud with Azure VMware Solution](azure-security-integration.md).
 
 
 
@@ -158,4 +158,4 @@ Monitor guest operating system performance to discover and map application depen
 
 ## Next steps
 
-Now that you've covered Azure VMware Solution network and interconnectivity concepts, you may want to learn about [integrating Azure Security Center with Azure VMware Solution](azure-security-integration.md).
+Now that you've covered Azure VMware Solution network and interconnectivity concepts, you may want to learn about [integrating Microsoft Defender for Cloud with Azure VMware Solution](azure-security-integration.md).

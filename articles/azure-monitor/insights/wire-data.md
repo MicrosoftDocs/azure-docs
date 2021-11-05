@@ -12,12 +12,12 @@ ms.date: 03/26/2021
 
 ![Wire Data symbol](media/wire-data/wire-data2-symbol.png)
 
->[!NOTE]
->The Wire Data solution has been replaced with [VM insights](../vm/vminsights-overview.md) and [Service Map solution](../vm/service-map.md).  Both use the Log Analytics agent and Dependency agent to collect network connection data into Azure Monitor.
+> [!NOTE]
+> The Wire Data solution has been replaced with [VM insights](../vm/vminsights-overview.md) and [Service Map solution](../vm/service-map.md).  Both use the Log Analytics agent and Dependency agent to collect network connection data into Azure Monitor.
 >
->Support for Wire Data solution will end on **March 31, 2022**.  Until the retirement date, existing customers using the Wire Data 2.0 (preview) solution may continue to use it.
+> Support for Wire Data solution will end on **March 31, 2022**.  Until the retirement date, existing customers using the Wire Data 2.0 (preview) solution may continue to use it.
 >
->New and existing customers should install the [VM insights](../vm/vminsights-enable-overview.md) or [Service Map solution](../vm/service-map.md).  The Map data set they collect is comparable to the Wire Data 2.0 (preview) data set.  VM insights includes the Service Map data set along with additional performance data and features for analysis. Both offerings have [connections with Azure Sentinel](../../sentinel/connect-data-sources.md#map-data-types-with-microsoft-sentinel-connection-options).
+> New and existing customers should install the [VM insights](../vm/vminsights-enable-overview.md) or [Service Map solution](../vm/service-map.md).  The Map data set they collect is comparable to the Wire Data 2.0 (preview) data set.  VM insights includes the Service Map data set along with additional performance data and features for analysis. Both offerings have [connections with Microsoft Sentinel](../../sentinel/connect-data-sources.md#map-data-types-with-microsoft-sentinel-connection-options).
 
 Wire data is consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent, including those monitored by Operations Manager in your environment. Network data is combined with your other log data to help you correlate data.
 
@@ -178,7 +178,7 @@ You can use the **Agents capturing network traffic** blade to determine how much
 
 Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas for their applications. This blade offers a view into those areas.
 
-![Screenshot of the Local Subnets blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by a each LocalSubnet.](./media/wire-data/log-search-example02.png)
+![Screenshot of the Local Subnets blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each LocalSubnet.](./media/wire-data/log-search-example02.png)
 
 The **Application-level Protocols** blade is useful because it's helpful know what protocols are in use. For example, you might expect SSH to not be in use in your network environment. Viewing information available in the blade can quickly confirm or disprove your expectation.
 

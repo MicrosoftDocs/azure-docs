@@ -44,7 +44,7 @@ Microsoft Azure Cloud Services (Classic) cannot be placed in Azure Resource Mana
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
@@ -52,7 +52,7 @@ Microsoft Azure Cloud Services (Classic) cannot be placed in Azure Resource Mana
 
 If the service is part of a virtual network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg. Note that Azure Policy is not supported for Classic deployments for configuration enforcement.
 
-Set a cloud service's configuration values in the service configuration file (.cscfg) and the definition in an service definition (.csdef) file. Use the service definition file to define the service model for an application. Define the roles, which are available to a cloud service and also specify the service endpoints. Log the configuration for Azure Cloud Services with service configuration file. Any reconfiguration can be done through the ServiceConfig.cscfg file. 
+Set a cloud service's configuration values in the service configuration file (.cscfg) and the definition in a service definition (.csdef) file. Use the service definition file to define the service model for an application. Define the roles, which are available to a cloud service and also specify the service endpoints. Log the configuration for Azure Cloud Services with service configuration file. Any reconfiguration can be done through the ServiceConfig.cscfg file. 
 
 Monitor the optional NetworkTrafficRules element service definition which restricts which roles can communicate to specified internal endpoints. Configure the NetworkTrafficRules node, an optional element in the service definition file, to specify how roles should communicate with each other. Place limits on which roles can access the internal endpoints of the specific role.  Note that the service definition cannot be altered. 
 
@@ -66,7 +66,7 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.3: Protect critical web applications
 
@@ -78,7 +78,7 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.4: Deny communications with known malicious IP addresses
 
@@ -101,7 +101,7 @@ Configure a Deny Apply rule to classic subscription administrator assignments. B
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.5: Record network packets
 
@@ -115,7 +115,7 @@ Configure flow logging on a network security group. Review details on how to dep
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
@@ -127,7 +127,7 @@ functionality.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.7: Manage traffic to web applications
 
@@ -147,7 +147,7 @@ Generally, to protect web applications and to secure them against attacks such a
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.9: Maintain standard security configurations for network devices
 
@@ -159,7 +159,7 @@ Note that Azure Policy is not supported with Azure Cloud Services for configurat
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.10: Document traffic configuration rules
 
@@ -171,7 +171,7 @@ Use the "Description" field for individual network security group rules within A
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
@@ -189,7 +189,7 @@ Create a diagnostic setting to send the Activity log to Azure Monitor, Azure Eve
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Logging and Monitoring
 
@@ -203,18 +203,18 @@ Create a diagnostic setting to send the Activity log to Azure Monitor, Azure Eve
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.2: Configure central security log management
 
-**Guidance**: Consume your cloud service streaming data programmatically with Azure Event Hubs. Integrate and send all this data to Azure Sentinel to monitor and review your logs, or use a third-party SIEM. For central security log management, configure continuous export of your chosen Azure Security Center data to Azure Event Hubs and set up the appropriate connector for your SIEM. Here are some options for Azure Sentinel including third-party tools:
+**Guidance**: Consume your cloud service streaming data programmatically with Azure Event Hubs. Integrate and send all this data to Microsoft Sentinel to monitor and review your logs, or use a third-party SIEM. For central security log management, configure continuous export of your chosen Microsoft Defender for Cloud data to Azure Event Hubs and set up the appropriate connector for your SIEM. Here are some options for Microsoft Sentinel including third-party tools:
 
-- Azure Sentinel - Use the native Security Center alerts data connector
+- Microsoft Sentinel - Use the native Defender for Cloud alerts data connector
 - Splunk - Use the Azure Monitor add-on for Splunk
 - IBM QRadar - Use a manually configured log source
 - ArcSight – Use SmartConnector
 
-Review the Azure Sentinel documentation for additional details on available connectors with Azure Sentinel. 
+Review the Microsoft Sentinel documentation for additional details on available connectors with Microsoft Sentinel. 
 
 - [Connect data sources](../sentinel/connect-data-sources.md)
 
@@ -226,7 +226,7 @@ Review the Azure Sentinel documentation for additional details on available conn
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.3: Enable audit logging for Azure resources
 
@@ -247,7 +247,7 @@ Azure Cloud Services can be monitored by Application Insights for availability, 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.5: Configure security log storage retention
 
@@ -259,7 +259,7 @@ Note that Advanced monitoring involves using the Azure Diagnostics extension (Ap
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.6: Monitor and review Logs
 
@@ -279,17 +279,17 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.7: Enable alerts for anomalous activities
 
-**Guidance**: You can monitor Azure Cloud Services log data by integration with Azure Sentinel, or with a third-party SIEM, by enable alerting for anomalous activities.
+**Guidance**: You can monitor Azure Cloud Services log data by integration with Microsoft Sentinel, or with a third-party SIEM, by enable alerting for anomalous activities.
 
 - [Integrate with a SIEM](../security-center/continuous-export.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.8: Centralize anti-malware logging
 
@@ -299,7 +299,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Identity and Access Control
 
@@ -325,7 +325,7 @@ Review the differences between classic subscription administrative roles.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 3.3: Use dedicated administrative accounts
 
@@ -335,7 +335,7 @@ Review the differences between classic subscription administrative roles.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
@@ -345,7 +345,7 @@ Review the differences between classic subscription administrative roles.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
@@ -357,7 +357,7 @@ Review the differences between classic subscription administrative roles.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Data Protection
 
@@ -383,7 +383,7 @@ Review Azure Cloud Service REST APIs documentation and create a process for data
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
@@ -399,7 +399,7 @@ You can also edit the "permissionLevel" in Azure Cloud Service's Certificate ele
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
@@ -409,7 +409,7 @@ You can also edit the "permissionLevel" in Azure Cloud Service's Certificate ele
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.4: Encrypt all sensitive information in transit
 
@@ -427,7 +427,7 @@ For additional reference, the classic deployment model API provides programmatic
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
@@ -437,7 +437,7 @@ For additional reference, the classic deployment model API provides programmatic
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.7: Use host-based data loss prevention to enforce access control
 
@@ -451,7 +451,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.8: Encrypt sensitive information at rest
 
@@ -463,7 +463,7 @@ The application data stored in temporary disks is not encrypted. The customer is
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
@@ -479,7 +479,7 @@ Additionally, Application Insights can monitor Azure Cloud Services apps for ava
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Vulnerability Management
 
@@ -503,7 +503,7 @@ When a customer chooses a specific operating system version for their Azure Clou
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 5.3: Deploy an automated patch management solution for third-party software titles
 
@@ -513,7 +513,7 @@ This allows Update Management to patch machines that use Configuration Manager a
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
@@ -533,7 +533,7 @@ Supporting documentation:
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Inventory and Asset Management
 
@@ -545,7 +545,7 @@ Supporting documentation:
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.3: Delete unauthorized Azure resources
 
@@ -553,7 +553,7 @@ Supporting documentation:
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.4: Define and maintain an inventory of approved Azure resources
 
@@ -561,15 +561,15 @@ Supporting documentation:
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
 - Comply with your organization's security policy that dictates the use of only licensed software.
@@ -584,15 +584,15 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
@@ -612,15 +612,15 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.7: Remove unapproved Azure resources and software applications
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
@@ -640,15 +640,15 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.8: Use only approved applications
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
@@ -668,15 +668,15 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.10: Maintain an inventory of approved software titles
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
 - Comply with your organization's security policy that dictates the use of only licensed software.
@@ -691,15 +691,15 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.12: Limit users' ability to execute scripts in compute resources
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
@@ -719,7 +719,7 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.13: Physically or logically segregate high risk applications
 
@@ -733,7 +733,7 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Secure Configuration
 
@@ -741,15 +741,15 @@ More details are available at the referenced links.
 
 ### 7.1: Establish secure configurations for all Azure resources
 
-**Guidance**: Use the recommendations from Azure Security Center as a secure configuration baseline for your Azure Cloud Services resources. 
+**Guidance**: Use the recommendations from Microsoft Defender for Cloud as a secure configuration baseline for your Azure Cloud Services resources. 
 
-On the Azure portal, choose Security Center, then Compute &amp; apps, and Azure Cloud Services to see the recommendations applicable to your service resources.
+On the Azure portal, choose Defender for Cloud, then Compute &amp; apps, and Azure Cloud Services to see the recommendations applicable to your service resources.
 
 - [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.3: Maintain secure Azure resource configurations
 
@@ -757,7 +757,7 @@ On the Azure portal, choose Security Center, then Compute &amp; apps, and Azure 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.5: Securely store configuration of Azure resources
 
@@ -765,7 +765,7 @@ On the Azure portal, choose Security Center, then Compute &amp; apps, and Azure 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
@@ -773,7 +773,7 @@ On the Azure portal, choose Security Center, then Compute &amp; apps, and Azure 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.8: Deploy configuration management tools for operating systems
 
@@ -781,27 +781,27 @@ On the Azure portal, choose Security Center, then Compute &amp; apps, and Azure 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
-**Guidance**: Use Azure Security Center to perform baseline scans for your Azure Resources.  
+**Guidance**: Use Microsoft Defender for Cloud to perform baseline scans for your Azure Resources.  
 
-- [How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
+- [How to remediate recommendations in Microsoft Defender for Cloud](../security-center/security-center-remediate-recommendations.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
-**Guidance**: In Azure Security Center, choose Compute &amp; Apps feature, and follow the recommendations for virtual machines, servers, and containers.
+**Guidance**: In Microsoft Defender for Cloud, choose Compute &amp; Apps feature, and follow the recommendations for virtual machines, servers, and containers.
 
-- [Understand Azure Security Center container recommendations](../security-center/container-security.md)
+- [Understand Microsoft Defender for Cloud container recommendations](../security-center/container-security.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.11: Manage Azure secrets securely
 
@@ -816,7 +816,7 @@ Additionally, it is recommended to store the private keys for certificates used 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.13: Eliminate unintended credential exposure
 
@@ -831,7 +831,7 @@ Store the private keys for certificates used in Azure Cloud Services to a secure
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Malware Defense
 
@@ -845,7 +845,7 @@ Use the PowerShell based Antimalware cmdlet to get the Antimalware configuration
 
 Enable the Antimalware extension with a PowerShell script in the Startup Task in Azure Cloud Services.
 
-Choose the Adaptive application control feature in Azure Security Center, an intelligent, automated, end-to-end solution. It helps harden your machines against malware and enables you to block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
+Choose the Adaptive application control feature in Microsoft Defender for Cloud, an intelligent, automated, end-to-end solution. It helps harden your machines against malware and enables you to block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
 - [How can I add an Antimalware extension for my Azure Cloud Services in an automated way](./cloud-services-configuration-and-management-faq.yml#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way-)
 
@@ -855,7 +855,7 @@ Choose the Adaptive application control feature in Azure Security Center, an int
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Incident Response
 
@@ -865,7 +865,7 @@ Choose the Adaptive application control feature in Azure Security Center, an int
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-- [How to configure Workflow Automations within Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
+- [How to configure Workflow Automations within Microsoft Defender for Cloud](../security-center/security-center-planning-and-operations-guide.md)
 
 - [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process)
 
@@ -875,17 +875,17 @@ Choose the Adaptive application control feature in Azure Security Center, an int
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
-**Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
+**Guidance**: Microsoft Defender for Cloud assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Defender for Cloud is in the finding or the analytics used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
 
 Clearly mark subscriptions (for example, production, non-production) and create a naming system to clearly identify and categorize Azure resources.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 10.3: Test security response procedures
 
@@ -895,39 +895,39 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved. 
 
-- [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
+- [How to set the Microsoft Defender for Cloud Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Security Center data connector to stream the alerts to Azure Sentinel. 
+**Guidance**: Export your Microsoft Defender for Cloud alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Defender for Cloud data connector to stream the alerts to Microsoft Sentinel. 
 
 - [How to configure continuous export](../security-center/continuous-export.md) 
 
-- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [How to stream alerts into Microsoft Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 10.6: Automate the response to security alerts
 
-**Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
+**Guidance**: Use the Workflow Automation feature in Microsoft Defender for Cloud to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
 - [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Penetration Tests and Red Team Exercises
 
@@ -943,7 +943,7 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Next steps
 

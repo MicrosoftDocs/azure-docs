@@ -67,7 +67,7 @@ sections:
       - question: |
           Where does Azure Monitor get its data?
         answer: |
-          Azure Monitor collects data from a variety of sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Azure Security Center and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
+          Azure Monitor collects data from a variety of sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
           
       - question: |
           What data is collected by Azure Monitor?
