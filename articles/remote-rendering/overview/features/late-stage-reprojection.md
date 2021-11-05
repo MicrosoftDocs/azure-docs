@@ -104,7 +104,7 @@ The focus points calculated in two successive frames can vary a lot. Simply usin
 
 ## Reprojection pose modes
 
-The general problem scope with hybrid rendering can be stated like this: Remote and local contents are within distinct poses (that is, coordinate spaces) because the remote pose is from the time the pose was sent to the server whereas the local pose is the current one. However, in the end of a rendering frame both remote and local content need to be aligned and brought to the display. The following illustration shows an example where local and remote poses are translated compared to the display viewport:
+The general problem scope with hybrid rendering can be stated like this: Remote and local contents are within distinct poses (that is, coordinate spaces) because the remote pose is predicted by the server whereas the local pose is the actual current one. However, in the end of a rendering frame both remote and local content need to be aligned and brought to the display. The following illustration shows an example where local and remote poses are translated compared to the display viewport:
 
 ![Remote and local pose](./media/reprojection-remote-local.png)
 
