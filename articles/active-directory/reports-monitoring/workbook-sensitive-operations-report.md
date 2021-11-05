@@ -1,7 +1,7 @@
 ---
 
-title: Conditional access gap analyzer workbook in  Azure AD | Microsoft Docs
-description: Learn how to use the conditional access gap analyzer workbook.
+title: Sensitive operations report workbook in  Azure AD | Microsoft Docs
+description: Learn how to use the sensitive operations report workbook.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
