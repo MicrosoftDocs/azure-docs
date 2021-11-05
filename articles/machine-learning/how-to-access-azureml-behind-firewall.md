@@ -57,7 +57,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 
     | Service tag | Protocol | Port |
     | ----- |:-----:|:-----:|
-    | AzureActiveDirectory | TCP | 80</br>443 |
+    | AzureActiveDirectory | TCP | 80, 443 |
     | AzureMachineLearning | TCP | 443 |
     | AzureResourceManager | TCP | 443 |
     | Storage.region       | TCP | 443, 445 |
