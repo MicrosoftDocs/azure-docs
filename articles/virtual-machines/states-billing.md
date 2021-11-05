@@ -1,5 +1,5 @@
 ---
-title: States and billing of Azure Virtual Machines 
+title: States and billing status of Azure Virtual Machines 
 description: Overview of various states a VM can enter and when a user is billed. 
 services: virtual-machines
 author: mimckitt
@@ -11,7 +11,7 @@ ms.author: mimckitt
 ms.reviewer: cynthn
 ---
 
-# States and billing of Azure Virtual Machines
+# States and billing status of Azure Virtual Machines
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
