@@ -276,7 +276,7 @@ To do that, we can go in `Functions` > `App files` of the Function App page, sel
 
 Once all that configuration is done, we can create the specific function, inside the Function App, that will run our script.
 
-We'll develop in the portal, a function triggered on a timer (every minute with `0 */1 * * * *`, which [reads]((/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions)) "*on second 0 of every 1 minute*"):
+We'll develop in the portal, a function triggered on a timer (every minute with `0 */1 * * * *`, which [reads](/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions) "*on second 0 of every 1 minute*"):
 
 ![Creating a new timer trigger function in the function app](./media/automation/new-function-timer.png)
 
