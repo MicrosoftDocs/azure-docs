@@ -40,7 +40,7 @@ To apply published labels to groups, you must first enable the feature. These st
 1. Fetch the current group settings for the Azure AD organization.
 
     ```PowerShell
-    $setting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
+    $grpUnifiedSetting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
     $template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
     $setting = $template.CreateDirectorySetting()
     ```
@@ -59,11 +59,17 @@ To apply published labels to groups, you must first enable the feature. These st
     ```PowerShell
     $Setting["EnableMIPLabels"] = "True"
     ```
+ 
+1. Check the new applied value
 
+    ```PowerShell
+    $Setting.Values
+    ```
+    
 1. Then save the changes and apply the settings:
 
     ```PowerShell
-    New-AzureADDirectorySetting -DirectorySetting $setting
+    Set-AzureADDirectorySetting -Id grpUnifiedSetting.Id -DirectorySetting $setting
     ```
 
 You will also need to synchronize your sensitivity labels to Azure AD. For instructions, see [How to enable sensitivity labels for containers and synchronize labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
