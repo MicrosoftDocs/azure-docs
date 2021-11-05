@@ -3,7 +3,7 @@ title: Tutorial - Onboard external users to Azure AD through an approval process
 description: Step-by-step tutorial for how to create an access package for external users requiring approvals in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: sama
+author: Sammak
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
