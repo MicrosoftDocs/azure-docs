@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 11/05/2021
 ms.custom: devx-track-python, ignite-fall-2021
 ---
 
@@ -29,6 +29,16 @@ In this article, learn about the network communication requirements when securin
 > * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
+
+## Well-known ports
+
+The following are well-known ports used by services listed in this article. If a port range is used in this article and is not listed in this section, it is specific to the service and may not have published information on what it is used for.
+
+| **Port** | **Description** |
+| 80 | Unsecured web traffic (HTTP) |
+| 443 | Secured web traffic (HTTPS) |
+| 445 | SMB traffic used to access file shares in Azure File storage |
+| 8787 | Used when connecting to RStudio on a compute instance |
 
 ## Required public internet access
 
