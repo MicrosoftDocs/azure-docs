@@ -1,5 +1,5 @@
 ---
-title: Conceptual Documentation for  Azure Communication Services - Network Traversal
+title: Conceptual documentation for  Azure Communication Services - Network Traversal
 titleSuffix: An Azure Communication Services Concept Document
 description: Learn more about Azure Communication Services Network Traversal SDKs and REST APIs.
 author: rahulva
