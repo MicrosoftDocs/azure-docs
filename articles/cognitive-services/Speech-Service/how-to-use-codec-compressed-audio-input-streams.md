@@ -49,7 +49,7 @@ msiexec /passive INSTALLLEVEL=1000 INSTALLDIR=C:\gstreamer /i gstreamer-1.0-msvc
 * Reboot the machine
 
 ## Using Gstreamer in Android
-Please look at the Java tab above for the details about building libgstreamer_android.so 
+Look at the Java tab above for the details about building libgstreamer_android.so 
 
 ## Speech SDK version required for compressed audio input
 * Speech SDK version 1.10.0 or later is required for RHEL 8 and CentOS 8
