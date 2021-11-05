@@ -22,7 +22,9 @@ The autoscale feature (preview) lets you scale your Azure Virtual Desktop deploy
 
 >[!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support the autoscale feature. 
+> - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI 
 > - Autsoscale doesn't support scaling of ephemeral disks.
+
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
 
