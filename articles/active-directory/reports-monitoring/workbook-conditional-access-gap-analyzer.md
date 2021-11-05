@@ -56,9 +56,9 @@ The workbook has four sections:
 - Number of sign-ins by location that were not affected by conditional access policies 
 
 
-![Workbook category](./media/workbook-conditional-access-gap-analyzer/workbook-category.png)
+![Conditional access coverage by location](./media/workbook-conditional-access-gap-analyzer/conditianal-access-by-location.png)
 
-
+Each of these trends offers a breakdown of sign ins to the user level, so that you can see which users per scenario are bypassing conditional access. 
 
 ## Filters
 
