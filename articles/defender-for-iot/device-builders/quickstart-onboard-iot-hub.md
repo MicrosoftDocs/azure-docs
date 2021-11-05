@@ -44,8 +44,7 @@ To verify the toggle is set to **On**:
 
 ## Onboard Defender for IoT to an existing IoT Hub
 
-You can onboard Defender for IoT to an existing IoT Hub, where
-you can then monitor the device identity management, device to cloud, and cloud to device communication patterns.
+You can onboard Defender for IoT to an existing IoT Hub, where you can then monitor the device identity management, device to cloud, and cloud to device communication patterns.
 
 To onboard Defender for IoT to an existing IoT Hub:
 
@@ -68,4 +67,4 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 Advance to the next article to configure your solution...
 
 > [!div class="nextstepaction"]
-> [Create a Defender Iot micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md)
+> [Create a Defender for Cloud Iot micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md)

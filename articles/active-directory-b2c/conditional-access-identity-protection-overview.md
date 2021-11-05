@@ -39,7 +39,7 @@ By pairing Conditional Access policies with Identity Protection risk detection, 
 
 Identity Protection and Conditional Access in Azure AD B2C generally work the same way as in Azure AD, with the following exceptions:
 
-- The Security Center isn't available in Azure AD B2C.
+- The Defender for Cloud isn't available in Azure AD B2C.
 
 - Identity Protection and Conditional Access aren't supported for ROPC server-to-server flows in Azure AD B2C tenants.
 

@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Feature support and retirement
 
-This article describes Azure Defender for IoT features and support for different capabilities within Defender for IoT.
+This article describes Microsoft Defender for IoT features and support for different capabilities within Defender for IoT.
 
 ## Defender for IoT C, C#, and Edge Defender-IoT-micro-agent deprecation
 
@@ -33,4 +33,4 @@ During the preview the micro agent may experience breaking changes without notic
 
 ## Next steps
 
-Check out [Azure Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md).
+Check out [Microsoft Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md).
