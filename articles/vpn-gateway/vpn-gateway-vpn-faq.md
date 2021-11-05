@@ -149,6 +149,8 @@ They are required for Azure infrastructure communication. They are protected (lo
 
 A virtual network gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
 
+The ports which are expected to be open include 8081, 8082, 8443, 8444, 10001, 10002, and 20000.
+
 ### More information about gateway types, requirements, and throughput
 
 For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
