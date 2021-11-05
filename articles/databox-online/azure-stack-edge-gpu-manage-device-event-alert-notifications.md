@@ -35,9 +35,9 @@ Take the following steps in the Azure portal to create an action rule for your A
 
 1. Go to the Azure Stack Edge device in the Azure portal, and select the **Alerts** menu item (under **Monitoring**). Then select **Action rules (preview)**.<!--Add portal link.-->
 
-   <!--![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01.png)-->
+   ![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01.png)
 
-   [ ![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01-inline.png) ](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01-expanded.png#lightbox)
+   <!--[ ![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01-inline.png) ](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01-expanded.png#lightbox)-->
 
 2. In the **Action rules (preview)**, select **+ Create**.
 
