@@ -1,5 +1,5 @@
 ---
-title: Prepare Bill of Materials for automation
+title: SAP Delpoyment automation - frequently asked questions
 description: How to prepare a full SAP Bill of Materials (BoM) for use with the SAP deployment automation framework on Azure.
 author: jhajduk
 ms.author: kimforss
