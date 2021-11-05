@@ -22,7 +22,7 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 - Predictable performance, using inclusive pay-as-you-go pricing.
 - Elastic scaling within seconds.
 - Cost optimization controls with low cost burstable SKU and ability to stop/start server.
-- Enterprise grade security and industry-leading compliance to protect sensitive data at-rest and in-motion.
+- Enterprise grade security and industry-leading compliance and privacy to protect sensitive data at-rest and in-motion.
 - Monitoring and automation to simplify management and monitoring for large-scale deployments.
 - Industry-leading support experience.
 
