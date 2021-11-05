@@ -38,7 +38,7 @@ If your capacity pool size requirements fluctuate (for example, because of varia
 
 For example, you are using the Premium capacity 24 hours (1 day) at 10 TiB, 96 hours (4 days) at 24 TiB, four times at 6 hours (1 day) at 5 TiB, 480 hours (20 days) at 6 TiB, and the month’s remaining hours at 0 TiB. A dynamic cloud consumption deployment profile looks different from a traditional static on-premises consumption profile: 
 
-![Bar chart that shows dynamic versus static capacity pool provisioning.](../media/azure-netapp-files/cost-model-dynamic-vs-static-tib-ex1.png)
+![Bar chart that shows dynamic versus static capacity pool provisioning.](../media/azure-netapp-files/cost-model-example-one-capacity.png)
 
 When costs are billed at $0.000403 per GiB/hour ([pricing depending on the region](https://azure.microsoft.com/pricing/details/netapp/)), the monthly cost breakdown looks like this:
 
@@ -53,7 +53,7 @@ When costs are billed at $0.000403 per GiB/hour ([pricing depending on the regio
 * 6 TiB x 480 hours x $0.000403 per GiB/hour =	**$1,188.50**
 * Total = $2,238.33
 
-![Bar chart that shows static versus dynamic service level cost model.](../media/azure-netapp-files/cost-model-dynamic-vs-static-cost-ex1.png)
+![Bar chart that shows static versus dynamic service level cost model.](../media/azure-netapp-files/cost-model-example-one-pricing.png)
 
 This scenario constitutes a monthly savings of $4,892.64 compared to static provisioning.
 
@@ -63,7 +63,7 @@ If your capacity pool size requirements remain the same but performance requirem
 
 Consider a scenario where the capacity requirement is a constant 24 TiB. But your performance needs fluctuate between 384 hours (16 days) of Standard service level, 120 hours (5 days) of Premium service level, 168 hours (7 days) of Ultra service level, and then back to 48 hours (2 days) of standard service level performance. In this scenario, a dynamic cloud consumption deployment profile looks different compared to a traditional static on-premises consumption profile: 
 
-![Bar chart that shows provisioning with and without dynamic service level change.](../media/azure-netapp-files/cost-model-dynamic-vs-static-tib-ex2.png)
+![Bar chart that shows provisioning with and without dynamic service level change.](../media/azure-netapp-files/cost-model-example-two-capacity.png)
 
 In this case, when costs are billed at $0.000202 per GiB/hour (Standard), $0.000403 per GiB/hour (Premium) and $0.000538 per GiB/hour (Ultra) respectively ([pricing depending on the region](https://azure.microsoft.com/pricing/details/netapp/)), the monthly cost breakdown looks like this: 
 
@@ -77,9 +77,9 @@ In this case, when costs are billed at $0.000202 per GiB/hour (Standard), $0.000
 * 24 TiB x 120 hours x $0.000403 per GiB/hour  = $1,188.50  
 * 24 TiB x 168 hours x $0.000538 per GiB/hour  = $2,221.28  
 * 24 TiB x 48 hours x $0.000202 per GiB/hour   = **$238.29** 
-* Total                                       = $5,554.37 
+* Total = $5,554.37 
 
-![Bar chart that shows static versus dynamic service level change cost model.](../media/azure-netapp-files/cost-model-dynamic-vs-static-cost-ex2.png)
+![Bar chart that shows static versus dynamic service level change cost model.](../media/azure-netapp-files/cost-model-example-two-pricing.png)
 
 This scenario constitutes a monthly savings of $3,965.39 compared to static provisioning.
 
