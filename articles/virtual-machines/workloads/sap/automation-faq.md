@@ -76,7 +76,7 @@ A: If the workload zone was not successfully deployed, you may delete the .terra
 
 Q: While deploying the Workload Zone, I am getting the following error: Could not set the secrets. 
 
-A: This error is in reference to the Key Vault being created in the Workload Zone. Ensure that you are passing in the correct deployer user Key Vault name for the vault parameter 
+A: This error is in reference to the Key Vault being created in the Workload Zone. Ensure that you are passing in the deployment credentials Key Vault name for the vault parameter 
 
 Q: While deploying the Landscape, I am getting the following error: 'netAppAccounts' has been restricted in this region. 
 
