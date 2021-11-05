@@ -40,22 +40,22 @@ You can only start, view, or delete a stopped Azure Spring Cloud service instanc
 In the Azure portal, use the following steps to stop a running Azure Spring Cloud instance:
 
 1. Go to the Azure Spring Cloud service overview page.
-1. Select **Stop** to stop a running instance.
+2. Select **Stop** to stop a running instance.
 
 :::image type="content" source="media/stop-start-service/spring-cloud-stop-service.png" alt-text="Azure portal screenshot showing the Azure Spring Cloud Overview page with the Stop button and Status value highlighted":::
 
-1. After the instance stops, the status will show **Succeeded (Stopped)**.
+3. After the instance stops, the status will show **Succeeded (Stopped)**.
 
 ## Start a stopped instance
 
 In the Azure portal, use the following steps to start a stopped Azure Spring Cloud instance:
 
 1. Go to Azure Spring Cloud service overview page.
-1. Select **Start** to start a stopped instance.
+2. Select **Start** to start a stopped instance.
 
 :::image type="content" source="media/stop-start-service/spring-cloud-start-service.png" alt-text="Azure portal screenshot showing the Azure Spring Cloud Overview page with the Start button and Status value highlighted":::
 
-1. After the instance starts, the status will show **Succeeded (Running)**.
+3. After the instance starts, the status will show **Succeeded (Running)**.
 
 # [Azure CLI](#tab/azure-cli)
 
