@@ -34,7 +34,7 @@ A managed identity from Azure Active Directory (Azure AD) allows your runbook to
 Managed identities are the recommended way to authenticate in your runbooks, and is the default authentication method for your Automation account.
 
 > [!NOTE]
-> When you create an Automation account, the option to create a Run As account is no longer available. However, we continue to support a RunAs account for existing and new Automation accounts. You can continue to [create a Run As account](create-run-as-account.md) from the **Run As accounts** page in your Automation account.
+> When you create an Automation account, the option to create a Run As account is no longer available. However, we continue to support a RunAs account for existing and new Automation accounts. You can [create a Run As account](create-run-as-account.md) from the **Run As accounts** option in your Automation account.
 
 Here are some of the benefits of using managed identities:
 
@@ -66,7 +66,7 @@ To create or renew a Run As account, permissions are needed at three levels:
 - Automation account
 
 > [!NOTE]
-> Azure Automation does not automatically create the Run As account. It has been replaced by using managed identities.
+> Azure Automation does not automatically create the Run As account, it has been replaced by using managed identities. However, we continue to support a RunAs account for existing and new Automation accounts. You can [create a Run As account](create-run-as-account.md) from the **Run As accounts** option in your Automation account.
 
 ### Subscription permissions
 
