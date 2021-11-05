@@ -1,6 +1,6 @@
 ---
-title: Run workloads on cost-effective low-priority VMs
-description: Learn how to provision low-priority VMs to reduce the cost of Azure Batch workloads.
+title: Run workloads on cost-effective Spot or low-priority VMs
+description: Learn how to provision Spot or low-priority VMs to reduce the cost of Azure Batch workloads.
 author: mscurrell
 ms.topic: how-to
 ms.date: 03/03/2021
@@ -18,12 +18,27 @@ The tradeoff for using low-priority VMs is that those VMs may not always be avai
 
 Low-priority VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
-> [!NOTE]
-> [Spot VMs](https://azure.microsoft.com/pricing/spot/) are now available for [single instance VMs](../virtual-machines/spot-vms.md) and [VM scale sets](../virtual-machine-scale-sets/use-spot.md). Spot VMs are an evolution of low-priority VMs, but differ in that pricing can vary and an optional maximum price can be set when allocating Spot VMs.
->
->Azure Batch pools will start supporting Spot VMs in the future, with new versions of the [Batch APIs and tools](./batch-apis-tools.md). After Spot VM support is available, low-priority VMs will be deprecated, though they will continue to be supported using current APIs and tool versions for at least 12 months, to allow sufficient time for migration to Spot VMs.
->
-> Spot VMs will only be supported for Virtual Machine Configuration pools. To use Spot VMs, any Cloud Services Configuration pools will need to be [migrated to Virtual Machine Configuration pools](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+## Differences between Spot and low-priority VMs
+
+Batch offers two types of low-priority nodes:
+
+- Spot VMs, a modern Azure-wide offering also available as single-instance VMs or Virtual Machine Scale Sets.
+- Low-priority VMs, a legacy offering only available through Azure Batch.
+
+The type of node you get depends on your Batch account's pool allocation mode, which is settable during account creation. Batch accounts that use the **user subscription** pool allocation mode always get Spot VMs. Batch accounts that use the **Batch managed** pool allocation mode always get low-priority VMs.
+
+Azure Spot and Batch low-priority are similar but have a few differences in behavior.
+
+|  | Spot VMs | Low-priority VMs |
+| -- | -- | -- |
+| **Supported Batch accounts** | User-subscription Batch accounts | Batch-managed Batch accounts |
+| **Supported Batch pool configurations** | Virtual Machine Configuration | Virtual Machine Configuration and Cloud Service Configuration (deprecated) |
+| **Available regions** | All regions except Microsoft Azure China 21Vianet | All regions except Microsoft Azure China 21Vianet |
+| **Customer eligibility** | Not available to some subscription offer types | Available for all Batch customers |
+| **Possible reasons for eviction** | Capacity | Capacity |
+| **Pricing Model** | Variable discounts relative to standard VM prices | Fixed discounts relative to standard VM prices |
+| **Quota model** | Subject to core quotas on your subscription | Subject to core quotas on your Batch account |
+| **Availability SLA** | None | None |
 
 ## Batch support for low-priority VMs
 
@@ -33,9 +48,6 @@ Azure Batch provides several capabilities that make it easy to consume and benef
 - Batch pools automatically seek the target number of low-priority VMs. If VMs are preempted or unavailable, Batch attempts to replace the lost capacity and return to the target.
 - When tasks are interrupted, Batch detects and automatically requeues tasks to run again.
 - Low-priority VMs have a separate vCPU quota that differs from the one for dedicated VMs. The quota for low-priority VMs is higher than the quota for dedicated VMs, because low-priority VMs cost less. For more information, see [Batch service quotas and limits](batch-quota-limit.md#resource-quotas).
-
-> [!NOTE]
-> Low-priority VMs are not currently supported for Batch accounts created in [user subscription mode](accounts.md).
 
 ## Considerations and use cases
 
@@ -65,18 +77,20 @@ Keep in mind the following when planning your use of low-priority VMs:
 
 A Batch pool can contain both dedicated and low-priority VMs (also referred to as compute nodes). You can set the target number of compute nodes for both dedicated and low-priority VMs. The target number of nodes specifies the number of VMs you want to have in the pool.
 
+Batch-managed Batch accounts will always get low-priority VMs and user-subscription Batch accounts will always get Spot VMs. All code examples below are the same for both types of Batch accounts and both types of low-priority nodes.
+
 For example, to create a pool using Azure virtual machines (in this case Linux VMs) with a target of 5 dedicated VMs and 20 low-priority VMs:
 
 ```csharp
 ImageReference imageRef = new ImageReference(
     publisher: "Canonical",
     offer: "UbuntuServer",
-    sku: "16.04-LTS",
+    sku: "20.04-LTS",
     version: "latest");
 
 // Create the pool
 VirtualMachineConfiguration virtualMachineConfiguration =
-    new VirtualMachineConfiguration("batch.node.ubuntu 16.04", imageRef);
+    new VirtualMachineConfiguration("batch.node.ubuntu 20.04", imageRef);
 
 pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
@@ -146,6 +160,12 @@ To view these metrics in the Azure portal
 1. Navigate to your Batch account in the Azure portal.
 2. Select **Metrics** from the **Monitoring** section.
 3. Select the metrics you desire from the **Metric** list.
+
+## Limitations
+
+- Spot VMs in Batch do not support setting a max price and do not support price-based evictions. They can only be evicted for capacity reasons.
+- Spot VMs are only available for Virtual Machine Configuration pools and not for Cloud Service Configuration pools, which are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
+- Spot VMs are not available for some clouds, VM sizes, and subscription offer types. See more about [Spot limitations](../virtual-machines/spot-vms.md#limitations).
 
 ## Next steps
 
