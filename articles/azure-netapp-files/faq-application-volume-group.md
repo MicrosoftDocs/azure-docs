@@ -79,19 +79,22 @@ Contact an SAP Azure NetApp Files sizing expert to help you plan the overall SAP
 Important information you need to provide for each of the systems include the following: SID, role (production, Dev, pre-prod/QA), HANA memory, Snapshot reserve in percentage, number of days for local snapshot retention, number of file-based backups, single-host/multiple-host with the number of hosts, and HSR (primary, secondary).
 
 In General, we assume a typical load contribution of 100% for production, 75% pre-production, 50% QA, 25% development, 30% daily change rate of the data volume for production, 20% daily change rate for QA, 10% daily change rate for development. 
+
 Data-backups are written with 250 MiB/s. 
 
 If you know your systems (from running HANA before), you can provide your data instead of these generic assumptions. 
 
-## I’ve received a warning message `Not enough pool capacity`. What can I do?
-Application volume group will calculate the capacity and throughput demand of all volumes based on your input of the HANA memory. When selecting the capacity pool it immediately checks if there is enough space or throughput left in the capacity pool. 
+## I’ve received a warning message `"Not enough pool capacity"`. What can I do?
+Application volume group will calculate the capacity and throughput demand of all volumes based on your input of the HANA memory. When you select the capacity pool, it immediately checks if there is enough space or throughput left in the capacity pool. 
 
-At the initial “SAP HANA” screen you may ignore this message and continue with the workflow with the "Next" button, to later adapt the proposed values for each volume individually so that all volumes will fit into the capacity pool. This error message will reappear when changing each individual volume until all volumes fit into the capacity pool.
-You may also want to increase the size of the pool to avoid this warning message.
+At the initial **SAP HANA** screen, you may ignore this message and continue with the workflow by clicking the **Next** button. And you can later adapt the proposed values for each volume individually so that all volumes will fit into the capacity pool. This error message will reappear when you change each individual volume until all volumes fit into the capacity pool.
+
+You might also want to increase the size of the pool to avoid this warning message.
 
 ## Why is the `hostid` (for example, 00001) added to my names even when I’ve removed the `{Hostid}` placeholder?  
 
 Application volume group requires the placeholder `{Hostid}` to be part of the names. If it’s removed, the `hostid` is automatically added to the provided string.
+
 You can see the final names for each of the volumes after selecting **Review + Create**.
 
 ## Next steps  

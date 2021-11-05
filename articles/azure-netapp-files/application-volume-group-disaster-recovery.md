@@ -50,10 +50,12 @@ The following table summarizes the replication schedule options. It also describ
 
 The schedule for replication frequency has impacts on the SLAs: 
 
-* Recover Time Objective (RTO):  The minimum amount of time a recovery would take.
-To recover by using the latest available application-consistent snapshot, all available log backups need to be replayed. RTO depends on your backup frequency and the data volume replication frequency. For example, if your backup frequency is every 6 hours and your replication schedule is "Daily", then the oldest backup could be 30 hours (24 hours + 6 hours) old. In this scenario, replaying up to 30 hours of log backups would be required.
-* Recover Point Objective (RPO): The minimum data loss that might occur.
-The SAP HANA log-backup frequency is typically 15 minutes, but this setting can be configured differently. Assuming a 10-minute replication schedule for log backups, the maximum loss of transaction would be `[15+10+transfer_time]` minutes.
+* **Recover Time Objective (RTO)**:  
+    The minimum amount of time a recovery would take.   
+    To recover by using the latest available application-consistent snapshot, all available log backups need to be replayed. RTO depends on your backup frequency and the data volume replication frequency. For example, if your backup frequency is every 6 hours and your replication schedule is "Daily", then the oldest backup could be 30 hours (24 hours + 6 hours) old. In this scenario, replaying up to 30 hours of log backups would be required.
+* **Recover Point Objective (RPO)**:  
+    The minimum data loss that might occur.   
+    The SAP HANA log-backup frequency is typically 15 minutes, but this setting can be configured differently. Assuming a 10-minute replication schedule for log backups, the maximum loss of transaction would be `[15+10+transfer_time]` minutes.
 
 ## Add volumes  
 
@@ -134,7 +136,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     [ ![Screenshot that shows volume types in Create a Volume Group page.](../media/azure-netapp-files/application-cross-region-volume-types.png) ](../media/azure-netapp-files/application-cross-region-volume-types.png#lightbox)
 
-8. Click each volume with the DP type to specify the **Source volume ID**. See [Locate the source volume resource ID](cross-region-replication-create-peering.md#locate-the-source-volume-resource-id) for details. 
+8. Click each volume with the DP type to specify the **Source volume ID**. For more information, see [Locate the source volume resource ID](cross-region-replication-create-peering.md#locate-the-source-volume-resource-id). 
  
     You can optionally change the default replication schedule of a volume. See [Replication schedules, RTO, and RPO](#replication-schedules-rto-and-rpo) for the replication schedule options. 
 
