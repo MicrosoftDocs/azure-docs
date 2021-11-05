@@ -80,13 +80,13 @@ Dynamic concurrency is enabled for a function app at the host level, and any ext
 
 The Azure Queue storage trigger has its own message polling loop. When using static config, concurrency is governed by the `BatchSize`/`NewBatchThreshold` config options. When using dynamic concurrency, those configuration values are ignored. Dynamic concurrency is integrated into the message loop, so the number of messages fetched per iteration are dynamically adjusted. When throttles are enabled (host is overloaded), message processing will be paused until throttles are disabled. When throttles are disabled, concurrency will increase.
 
-To use dynamic concurrency for Queues, you must use [version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) of the **Microsoft.Azure.WebJobs.Extensions.Storage.Queues** extension.
+To use dynamic concurrency for Queues, you must use [version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) of the storage extension.
 
 #### Azure Blobs
 
 Internally, the Azure Blob storage trigger uses the same infrastructure that the Azure Queue Trigger uses. When new/updated blobs need to be processed, messages are written to a platform managed control queue, and that queue is processed using the same logic used for QueueTrigger. When dynamic concurrency is enabled, concurrency for the processing of that control queue will be dynamically managed.
 
-To use dynamic concurrency for Blobs, you must use [version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) of the **Microsoft.Azure.WebJobs.Extensions.Storage.Blobs** extension.
+To use dynamic concurrency for Blobs, you must use [version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) of the storage extension.
 
 
 #### Service Bus 
@@ -97,7 +97,7 @@ The Service Bus trigger currently supports three execution models. Dynamic concu
 - **Session based single dispatch topic/queue processing**: Each invocation of your function processes a single message. Depending on the number of active sessions for your topic/queue, each instance leases one or more sessions. Messages in each session are processed serially, to guarantee ordering in a session. When not using dynamic concurrency, concurrency is governed by the `MaxConcurrentSessions` setting. With dynamic concurrency enabled, `MaxConcurrentSessions` is ignored and the number of sessions each instance is processing is dynamically adjusted. 
 - **Batch processing**: Each invocation of your function processes a batch of messages, governed by the `MaxMessageCount` setting. Because batch invocations are serial, concurrency for your batch-triggered function is always one and dynamic concurrency doesn't apply. 
 
-To enable your Service Bus trigger to use dynamic concurrency, you must use [version 5.x)](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) of the **Microsoft.Azure.WebJobs.Extensions.ServiceBus** extension. 
+To enable your Service Bus trigger to use dynamic concurrency, you must use [version 5.x)](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) of the Service Bus extension. 
 
 ## Next steps
 
