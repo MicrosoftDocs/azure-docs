@@ -39,7 +39,7 @@ You can monitor Azure VPN gateways using Azure Monitor. This article discusses m
 | **User Vpn Route Count**                   | Count        | 5 minutes           | Number of user VPN routes configured on the VPN Gateway.                                |
 | **VNet Address Prefix Count**              | Count        | 5 minutes           | Number of VNet address prefixes that are used/advertised by the gateway.                |
 
-## The following steps help you locate and view metrics:
+## The following steps help you locate and view metrics
 
 1. Navigate to the virtual network gateway resource in the Portal
 2. Select **Overview** to see the Total tunnel ingress and egress metrics.
