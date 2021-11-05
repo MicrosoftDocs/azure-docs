@@ -125,8 +125,55 @@ These triggers to Logic Apps are controlled in a new tab within access package p
 
 ## Troubleshooting and Validation 
 
-To verify that your custom extension has correctly triggered the associated Logic App when called upon by the access package **Do** option, you can view the Logic App logs. 
+To verify that your custom extension has correctly triggered the associated Logic App when called upon by the access package **Do** option, you can view the Logic App logs. The overview page for a specific Logic App will show timestamps of when the Logic App was last executed.  
 
-The overview page for a specific Logic App will show timestamps of when the Logic App was last executed. Also, the Resource Group overview for a resource group with a linked custom extension will show the name of that custom extension in the overview if it has been configured correctly.  
+When a custom extension triggers the Logic App, a JSON payload is posted to the Logic App. View the **Run history** of a triggered run to see the details - click on the **When a HTTP request is received** trigger to expand it, then click **Show raw outputs** to see the payload.
+
+This is an example of a JSON payload posted to the Logic App by a custom extension:
+
+```json
+{
+    "headers": {
+        "Connection": "Keep-Alive",
+        "Authorization": "*sanitized*",
+        "Expect": "100-continue",
+        "Host": "prod-xx.region.logic.azure.com",
+        "x-ms-client-request-id": "29ff1e57-77bc-47db-8c33-9d81ab3768dc",
+        "client-request-id": "29ff1e57-77bc-47db-8c33-9d81ab3768dc",
+        "x-ms-correlation-request-id": "29ff1e57-77bc-47db-8c33-9d81ab3768dc",
+        "Content-Length": "713",
+        "Content-Type": "application/json; charset=utf-8"
+    },
+    "body": {
+        "AccessPackageId": "838f517f-8b33-4536-a159-9748c93edf5c",
+        "AccessPackageAssignmentRequestId": "c04e060e-b467-4d3c-a598-330c532d12cd",
+        "AccessPackageAssignmentId": "bfb0d494-5864-4017-96b8-eef33a14fd82",
+        "AccessPackageName": "Contoso Access Package 1",
+        "AccessPackagePolicyName": "Initial Policy",
+        "AccessPackagePolicyId": "9bcc045c-4682-4953-89de-fe03b2356385",
+        "CatalogId": "53e93ef8-76c5-4f9c-80a4-f37dbae37f8c",
+        "CatalogName": "Contoso Catalog",
+        "ConnectedOrganizationName": null,
+        "Event": "AssignmentRequestGranted",
+        "RequestCreatedDateTime": "2021-11-04T09:49:17.473+00:00",
+        "TargetEmail": "AdeleV@contoso.com",
+        "TargetId": "c07471bd-5d93-46f1-844d-3c714e2f8634",
+        "TargetDisplayName": "Adele Vance"
+    }
+}
+```
+
+Notice the `Event` value in the JSON payload. The following event stages will be posted to the Logic App if created as a custom extension rule in an access package:
+
+| Stage | Event value | Description |
+|-------|-------------|-------------|
+| Request is created | AssignmentRequestCreated | Request is created |
+| Request is approved | AssignmentRequestApproved | Request is approved |
+| Request is granted | AssignmentRequestGranted | Access package is assigned |
+| Assignment is about to expire in 14 days | AssignmentNear14daysExpiration | Access package assignment expires in 14 days |
+| Assignment is about to expire in 1 day | AssignmentNear1dayExpiration | Access package assignment expires in 1 day |
+| Assignment is removed | AssignmentRemoved | Access package is unassigned |
+
+Also, the Resource Group overview for a resource group with a linked custom extension will show the name of that custom extension in the overview if it has been configured correctly.
 
 ## Next steps
