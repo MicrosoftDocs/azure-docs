@@ -90,7 +90,10 @@ This section includes an overview of all changes made to service principal membe
 
 ### Modified federation settings
 
-Another common approach to gain a long-term foothold in the environment is to modify the tenant’s federated domain trusts, and to add an additional, attacker controlled, SAML IDP as a trusted authentication source.
+Another common approach to gain a long-term foothold in the environment is to:
+
+- Modify the tenant’s federated domain trusts.
+- Add an additional SAML IDP that is controlled by the attacker as a trusted authentication source. 
 
 This section includes the following data:
 
@@ -142,7 +145,7 @@ This paragraph lists the supported filters for each section.
 
 **Use:**
  
-- **Modified application and service principal credentials** to look out for credentials being added to service principals which are not frequently used in your organization. Use the filters present in this section to further investigate any of the suspicious actors or service principals that were modified.
+- **Modified application and service principal credentials** to look out for credentials being added to service principals that are not frequently used in your organization. Use the filters present in this section to further investigate any of the suspicious actors or service principals that were modified.
 
 
 - **New permissions granted to service principals** to look out for broad or excessive permissions being added to service principals by actors that may be compromised.  
