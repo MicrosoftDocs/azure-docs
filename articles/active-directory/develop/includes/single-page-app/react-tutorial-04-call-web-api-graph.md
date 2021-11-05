@@ -20,12 +20,12 @@ ms.custom: include
 
 Before calling an API, such as Microsoft Graph, you'll need to acquire an access token. Add the following code to index.js
 
-:::code language="JavaScript" source="~/blob/main/src/index.js" id="ms_docref_get_graph_token":::
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_get_graph_token":::
 
 
 ## Call Microsoft Graph API
 
-:::code language="JavaScript" source="~/blob/main/src/index.js" id="ms_docref_make_graph_call":::
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_make_graph_call":::
 
 ## Next steps
 
