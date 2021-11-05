@@ -1,7 +1,7 @@
 ---
 
-title: Find user activity reports in Azure portal | Microsoft Docs
-description: Learn where the Azure Active Directory user activity reports are in the Azure portal.
+title: Conditional access gap analyzer workbook in  Azure AD | Microsoft Docs
+description: Learn how to use the conditional access gap analyzer workbook.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,20 +9,22 @@ manager: karenho
 editor: ''
 
 ms.service: active-directory
-ms.topic: how-to
+ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/05/2021
 ms.author: markvi
-ms.reviewer: dhanyahk 
+ms.reviewer: sarbar 
 
 ms.collection: M365-identity-device-management
 ---
 
 # Conditional access gap analyzer workbook
 
+In Azure AD, you can protect access to your resources by configuring conditional access policies.
+As an IT administrator, you want to ensure that your conditional access policies work as expected to ensure that your resources are properly protected. With the conditional access gap analyzer workbook, you can detect gaps in your conditional access implementation.  
 
-
+This article provides you with an overview of this workbook.
 
 
 ## Description
