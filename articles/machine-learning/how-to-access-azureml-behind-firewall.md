@@ -119,7 +119,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 
 **General Azure hosts**
 
-# [Azure public](#tabs/public)
+# [Azure public](#tab/public)
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ---- | 
@@ -127,7 +127,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Azure portal | management.azure.com | TCP | 443 |
 | Azure Resource Manager | management.azure.com | TCP | 443 |
 
-# [Azure Government](#tabs/gov)
+# [Azure Government](#tab/gov)
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ---- |
@@ -135,7 +135,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Azure portal | management.azure.us | TCP | 443 |
 | Azure Resource Manager | management.usgovcloudapi.net | TCP | 443 |
 
-# [Azure China 21Vianet](#tabs/china)
+# [Azure China 21Vianet](#tab/china)
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ----- |
@@ -150,7 +150,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 > [!IMPORTANT]
 > In the following table, replace `<storage>` with the name of the default storage account for your Azure Machine Learning workspace.
 
-# [Azure public](#tabs/public)
+# [Azure public](#tab/public)
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ----- |
@@ -163,7 +163,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Integrated notebook | graph.microsoft.com | TCP | 443 |
 | Integrated notebook | \*.aznbcontent.net | TCP | 443 |
 
-# [Azure Government](#tabs/gov)
+# [Azure Government](#tab/gov)
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ----- |
@@ -176,7 +176,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Integrated notebook | graph.microsoft.us | TCP | 443 |
 | Integrated notebook | \*.aznbcontent.net | TCP | 443 |
 
-# [Azure China 21Vianet](#tabs/china)
+# [Azure China 21Vianet](#tab/china)
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ----- |
@@ -196,7 +196,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 > [!TIP]
 > The host for Azure Key Vault is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
 
-# [Azure public](#tabs/public)
+# [Azure public](#tab/public)
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ----- |
@@ -208,7 +208,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Azure Storage Account | \*.queue.core.windows.net | TCP | 443 |
 | Azure Key Vault | \*.vault.azure.net | TCP | 443 |
 
-# [Azure Government](#tabs/gov)
+# [Azure Government](#tab/gov)
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ----- |
@@ -220,7 +220,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Azure Storage Account | \*.queue.core.usgovcloudapi.net | TCP | 443 |
 | Azure Key Vault | \*.vault.usgovcloudapi.net | TCP | 443 |
 
-# [Azure China 21Vianet](#tabs/china)
+# [Azure China 21Vianet](#tab/china)
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ----- |
