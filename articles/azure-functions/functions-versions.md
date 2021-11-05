@@ -141,17 +141,6 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 - Default and maximum timeouts are now enforced in 4.x Linux consumption function apps. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 
-- Application Insights is not included by default in Azure Functions preview version 4.0.0.16714. It is available as a separate extension. ([#2027](https://github.com/Azure/Azure-Functions/issues/2027))
-    
-    > [!NOTE]
-    > This is a temporary change in version 4.0.0.16714. An extension is not required to use Application Insights in future versions. If you have installed the extension, remove it from your app if you are using Azure Functions version 4.0.1.16815 or later.
-    
-    - For in-process .NET apps, add the [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) extension package to your function app.
-    - For isolated .NET apps:
-        - Add the [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) extension package to your function app.
-        - Update the [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) packages to the latest versions.
-    - For other languages, a future update to [Azure Functions extension bundles](functions-bindings-register.md#extension-bundles) will include the Application Insights extension. Your app will automatically use the new bundle when it is available. Until the updated extension bundle is ready, remove both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` app settings from your function app. This will prevent the host from failing to start.
-
 - Function apps that share storage accounts will fail to start if their computed hostnames are the same. Use a separate storage account for each function app. ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 
 ::: zone pivot="programming-language-csharp" 
