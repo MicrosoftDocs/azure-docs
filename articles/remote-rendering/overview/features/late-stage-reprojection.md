@@ -124,7 +124,7 @@ In this mode, the reprojection is split into two distinct steps: In the first st
 
 Accordingly, the illustration looks like this:
 
-![Reprojection steps in remote pose mode](./media/reprojection-posemode-local.png)
+![Reprojection steps in local pose mode](./media/reprojection-posemode-local.png)
 
 ### Performance and quality considerations
 
