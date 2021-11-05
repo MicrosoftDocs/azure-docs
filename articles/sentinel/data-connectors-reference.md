@@ -335,6 +335,8 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 | **Supported by** | Microsoft |
 | | |
 
+<a name="azure-defender-for-iot"></a>
+
 ## Microsoft Defender for IoT
 
 | Connector attribute | Description |
@@ -1028,9 +1030,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
-## Microsoft Defender for Cloud Apps
-
 <a name="microsoft-cloud-app-security-mcas"></a>
+
+## Microsoft Defender for Cloud Apps
 
 | Connector attribute | Description |
 | --- | --- |

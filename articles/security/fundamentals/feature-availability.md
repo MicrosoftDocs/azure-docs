@@ -8,7 +8,6 @@ ms.topic: reference
 ms.date: 09/13/2021
 ---
 
-
 # Cloud feature availability for US Government customers
 
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
@@ -88,9 +87,9 @@ For more information, see the [Azure Information Protection product documentatio
 | - Office 365 DoD | - | GA |
 | |  |  |
 
-<sup><a name="aipnote1" /></a>1</sup> The scanner can function without Office 365 to scan files only. The scanner cannot apply labels to files without Office 365.
+<sup><a name="aipnote1"></a>1</sup> The scanner can function without Office 365 to scan files only. The scanner cannot apply labels to files without Office 365.
 
-<sup><a name="aipnote2" /></a>2</sup> The classification and labeling add-in is only supported for government customers with Microsoft 365 Apps (version 9126.1001 or higher), including Professional Plus (ProPlus) and Click-to-Run (C2R) versions. Office 2010, Office 2013, and other Office 2016 versions are not supported.
+<sup><a name="aipnote2"></a>2</sup> The classification and labeling add-in is only supported for government customers with Microsoft 365 Apps (version 9126.1001 or higher), including Professional Plus (ProPlus) and Click-to-Run (C2R) versions. Office 2010, Office 2013, and other Office 2016 versions are not supported.
 
 ### Office 365 features
 
@@ -119,15 +118,15 @@ For more information, see the [Azure Information Protection product documentatio
 |- [Protection for non-Microsoft Office file formats, including PTXT, PJPG, and PFILE (generic protection)](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
 |     |         |         |         |
 
-<sup><a name="aipnote3" /></a>3</sup> The Mobile Device Extension for AD RMS is currently not available for government customers.
+<sup><a name="aipnote3"></a>3</sup> The Mobile Device Extension for AD RMS is currently not available for government customers.
 
-<sup><a name="aipnote4" /></a>4</sup> Information Rights Management with SharePoint Online (IRM-protected sites and libraries) is currently not available.
+<sup><a name="aipnote4"></a>4</sup> Information Rights Management with SharePoint Online (IRM-protected sites and libraries) is currently not available.
 
-<sup><a name="aipnote5" /></a>5</sup> Information Rights Management (IRM) is supported only for Microsoft 365 Apps (version 9126.1001 or higher), including Professional Plus (ProPlus) and Click-to-Run (C2R) versions. Office 2010, Office 2013, and other Office 2016 versions are not supported.
+<sup><a name="aipnote5"></a>5</sup> Information Rights Management (IRM) is supported only for Microsoft 365 Apps (version 9126.1001 or higher), including Professional Plus (ProPlus) and Click-to-Run (C2R) versions. Office 2010, Office 2013, and other Office 2016 versions are not supported.
 
-<sup><a name="aipnote6" /></a>6</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
+<sup><a name="aipnote6"></a>6</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
 
-<sup><a name="aipnote7" /></a>7</sup> The number of [Sensitive Information Types](/microsoft-365/compliance/sensitive-information-type-entity-definitions) in your Microsoft 365 Security & Compliance Center may vary based on region.
+<sup><a name="aipnote7"></a>7</sup> The number of [Sensitive Information Types](/microsoft-365/compliance/sensitive-information-type-entity-definitions) in your Microsoft 365 Security & Compliance Center may vary based on region.
 
 ## Microsoft Defender for Cloud
 
@@ -178,21 +177,23 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Connect GCP account](../../security-center/quickstart-onboard-gcp.md)                                                                                                      | GA             | Not Available                  |
 |                                                                                                                                                                                  |                |                                |
 
-<sup><a name="footnote1" /></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
+<sup><a name="footnote1"></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
-<sup><a name="footnote2" /></a>2</sup> Vulnerability scans of container registries on Azure Gov can only be performed with the scan on push feature.
+<sup><a name="footnote2"></a>2</sup> Vulnerability scans of container registries on Azure Gov can only be performed with the scan on push feature.
 
-<sup><a name="footnote3" /></a>3</sup> Requires Microsoft Defender for container registries.
+<sup><a name="footnote3"></a>3</sup> Requires Microsoft Defender for container registries.
 
-<sup><a name="footnote4" /></a>4</sup> Partially GA: Support for Azure Arc-enabled clusters is in public preview and not available on Azure Government.
+<sup><a name="footnote4"></a>4</sup> Partially GA: Support for Azure Arc-enabled clusters is in public preview and not available on Azure Government.
 
-<sup><a name="footnote5" /></a>5</sup> Requires Microsoft Defender for Kubernetes.
+<sup><a name="footnote5"></a>5</sup> Requires Microsoft Defender for Kubernetes.
 
-<sup><a name="footnote6" /></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview.
+<sup><a name="footnote6"></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview.
 
-<sup><a name="footnote7" /></a>7</sup> These features all require [Microsoft Defender for servers](../../security-center/defender-for-servers-introduction.md).
+<sup><a name="footnote7"></a>7</sup> These features all require [Microsoft Defender for servers](../../security-center/defender-for-servers-introduction.md).
 
-<sup><a name="footnote8" /></a>8</sup> There may be differences in the standards offered per cloud type.
+<sup><a name="footnote8"></a>8</sup> There may be differences in the standards offered per cloud type.
+
+<a name="azure-sentinel"></a>
 
 ## Microsoft Sentinel
 
@@ -314,7 +315,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Zscaler](../../sentinel/data-connectors-reference.md#zscaler)                                         | GA             | GA             |
 | | | |
 
-<sup><a name="footnote1" /></a>1</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
+<sup><a name="footnote1"></a>1</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
 ### Microsoft 365 data connectors
 
@@ -363,6 +364,8 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
 |  |  |
+
+<a name="azure-defender-for-iot"></a>
 
 ## Microsoft Defender for IoT
 
