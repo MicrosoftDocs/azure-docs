@@ -46,14 +46,23 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 :::zone target="docs" pivot="development-environment-vs"
 
+### [.NET 6.0](#tab/net60)
+
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload.
 
-    If you've already installed Visual Studio 2022:
+### [.NET Framework 4.8](#tab/netframework48)
 
-    1. Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
-    1. Add the workload by selecting **Tools** > **Get Tools and Features**.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload (make sure the optional checkbox **.NET Framework project and item templates** is selected).
 
+-----
+
+If you've already installed Visual Studio 2022:
+
+1. Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
+1. Add the workload by selecting **Tools** > **Get Tools and Features**.
+    
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-vscode"
