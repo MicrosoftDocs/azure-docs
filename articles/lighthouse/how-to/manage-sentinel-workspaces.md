@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
 description: Azure Lighthouse helps you effectively manage Azure Sentinel across delegated customer resources.
-ms.date: 08/16/2021
+ms.date: 11/05/2021
 ms.topic: how-to
 ---
 
@@ -16,11 +16,14 @@ This topic provides an overview of how to use [Microsoft Sentinel](../../sentine
 > [!TIP]
 > Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
 
+> [!NOTE]
+> You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
+
 ## Architectural considerations
 
 For a managed security service provider (MSSP) who wants to build a Security-as-a-service offering using Microsoft Sentinel, a single security operations center (SOC) may be needed to centrally monitor, manage, and configure multiple Microsoft Sentinel workspaces deployed within individual customer tenants. Similarly, enterprises with multiple Azure AD tenants may want to centrally manage multiple Microsoft Sentinel workspaces deployed across their tenants.
 
-This centralized model of deployment has the following advantages:
+This model of deployment has the following advantages:
 
 - Ownership of data remains with each managed tenant.
 - Supports requirements to store data within geographical boundaries.
@@ -30,12 +33,13 @@ This centralized model of deployment has the following advantages:
 - Data from all data sources and data connectors that are integrated with Microsoft Sentinel (such as Azure AD Activity Logs, Office 365 logs, or Microsoft Threat Protection alerts) will remain within each customer tenant.
 - Reduces network latency.
 - Easy to add or remove new subsidiaries or customers.
-
-> [!NOTE]
-> You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
+- Able to use a multi-workspace view when working through Azure Lighthouse.
+- To protect your intellectual property, you can use playbooks and workbooks to work across tenants without sharing code directly with customers. Only analytic and hunting rules will need to be saved directly in each customer's tenant.
 
 > [!IMPORTANT]
-> If all workspaces are created in customer tenants, the Microsoft.SecurityInsights & Microsoft.OperationalInsights resource provider must also be [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant.
+> If all workspaces are created in customer tenants, the Microsoft.SecurityInsights & Microsoft.OperationalInsights resource providers must also be [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant.
+
+An alternate deployment model is to create one Azure Sentinel workspace in the managing tenant. In this model, Azure Lighthouse enables log collection from data sources across managed tenants. However, there are some data sources that can't be connected across tenants, such as Microsoft Defender. Because of this limitation, this model is not suitable for many service provider scenarios.
 
 ## Granular Azure role-based access control (Azure RBAC)
 
@@ -85,6 +89,12 @@ Use Azure Lighthouse in conjunction with Microsoft Sentinel to monitor the secur
 [Microsoft Defender for Cloud Apps connector](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas) to stream alerts and Cloud Discovery logs into Microsoft Sentinel. This gives you visibility into cloud apps, provides sophisticated analytics to identify and combat cyberthreats, and helps yuo control how data travels. Activity logs for Defender for Cloud Apps can be [consumed using the Common Event Format (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
 
 After setting up Office 365 data connectors, you can use cross-tenant Microsoft Sentinel capabilities such as viewing and analyzing the data in workbooks, using queries to create custom alerts, and configuring playbooks to respond to threats.
+
+## Protect intellectual property
+
+When working with customers, you may want to protect the intellectual property you've developed in Azure Sentinel, such as Azure Sentinel analytics rules, hunting queries, playbooks, and workbooks. There are different methods you can use to ensure that customers don't have complete access to the code used in these resources.
+
+For more information, see [Protecting MSSP intellectual property in Azure Sentinel](../../sentinel/mssp-protect-intellectual-property.md).
 
 ## Next steps
 

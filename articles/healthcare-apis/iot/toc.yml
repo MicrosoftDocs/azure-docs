@@ -28,9 +28,9 @@ items:
   items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md 
-    - name: Use Device mapping
+    - name: Use Device mappings
       href: how-to-use-device-mapping-iot.md
-    - name: Use FHIR destination mapping
+    - name: Use FHIR destination mappings
       href: how-to-use-fhir-mapping-iot.md
     - name: Export IoT connector Metrics through Diagnostic settings
       href: iot-metrics-diagnostics-export.md
@@ -44,3 +44,4 @@ items:
       href: iot-git-projects.md
     - name: Troubleshooting guide
       href: iot-troubleshoot-guide.md
+      

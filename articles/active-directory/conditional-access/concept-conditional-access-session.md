@@ -78,6 +78,9 @@ For more information, see the article [Configure authentication session manageme
    - Non-CAE capable clients shouldn't get a regular token for CAE-capable services.
    - Reject when IP seen by resource provider isn't in the allowed range.
 
+> [!NOTE] 
+> You should only enable strict enforcement after you ensure that all the client applications support CAE and you have included all your IP addresses seen by Azure AD and the resource providers, like Exchange online and Azure Resource Mananger, in your location policy under Conditional Access. Otherwise, users in your tenants could be blocked.
+
 :::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="CAE Settings in a new Conditional Access policy in the Azure portal." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
 
 ## Disable resilience defaults (Preview)
