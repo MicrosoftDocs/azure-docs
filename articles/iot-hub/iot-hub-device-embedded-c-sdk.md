@@ -13,7 +13,7 @@ ms.custom: mqtt
 
 # Azure IoT Embedded C SDK
 
-The [Embedded C SDK is an SDK](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot) for constrained devices that supports the bring your own network (BYON) approach. IoT developers have the freedom to bring the MQTT client, TLS, and socket of their choice to create a device solution. The following design decisions make this a perfect option to build solutions for constrained devices.
+The [Embedded C SDK is an SDK](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot) for constrained devices that supports the bring your own network (BYON) approach. IoT developers have the freedom to bring the MQTT client, TLS, and socket of their choice to create a device solution. The following design decisions make this SDK a perfect option to build solutions for constrained devices.
 
 - Customers of our SDK compile our source code along with their own.
 - We target the C99 programming language and test with gcc, clang, & MS Visual C compilers.
@@ -35,7 +35,7 @@ As mentioned before, the Azure IoT Embedded C SDK uses a "bring-your-own-network
 
 ![img](./media/iot-hub-device-embedded-c-sdk/embc_high_level_arch.png)
 
-As you can see in the picture, the Azure IoT Embedded C SDK is meant to be used *alongside* your application code. This is not an SDK to be built on top of since there are no networking dependencies. This gives the most freedom to choose the components you need for your solution, whether that be offloaded, hardware MQTT or TLS or any other custom networking stack.
+As you can see in the picture, the Azure IoT Embedded C SDK is meant to be used *alongside* your application code. This is not an SDK to be built on top of since there are no networking dependencies. Instead, it enables the most freedom to choose the components you need for your solution, whether that be offloaded, hardware MQTT or TLS or any other custom networking stack.
 
 ## Samples
 
