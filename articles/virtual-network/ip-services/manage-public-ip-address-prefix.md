@@ -58,6 +58,9 @@ Alternatively, you may use the CLI and PowerShell commands below with the **--pu
 |PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
 
 >[!NOTE]
+>When requesting a Public IP address from a Public IP Prefix, the allocation is not deterministic or sequential. If a specific Public IP address from a Public IP Prefix is required, the PowerShell or CLI commands allow for this.  For PowerShell, the `IpAddress` parameter (followed by the desired IP) should be used; for CLI, the `ip-address` parameter (followed by the desired IP) should be used.
+
+>[!NOTE]
 >Only static public IP addresses created with the Standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](public-ip-addresses.md#public-ip-addresses).
 
 ## View or delete a prefix
