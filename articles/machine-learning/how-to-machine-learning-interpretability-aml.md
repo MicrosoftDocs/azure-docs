@@ -566,7 +566,7 @@ Supported explanation tab | Raw features (dense) | Raw features (sparse) | Engin
 :----- | :--- | :--- | :---- | :---- |
 Model performance   | Supported (not forecasting) | Supported (not forecasting)  | Supported | Supported |
 Dataset explorer  | Supported (not forecasting)   | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | 
- Aggregatge feature importance | Supported | Supported | Supported | Supported |
+ Aggregate feature importance | Supported | Supported | Supported | Supported |
  Individual feature importance| Supported (not forecasting)   | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | 
 
 
