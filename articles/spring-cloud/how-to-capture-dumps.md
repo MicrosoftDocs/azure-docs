@@ -22,6 +22,8 @@ To complete this exercise, you need:
 * At least one application already created in your service instance.
 * At least one [persistent storage already bind on your app](how-to-built-in-persistent-storage.md) to save generated diagnostic files.
 
+**If customers want to use path under mount path, please ensure that the sub-path have already been created.**
+
 ## Generate a heap dump
 Generate a heap dump of our app in Azure Spring Cloud.
 ```heap dump command
