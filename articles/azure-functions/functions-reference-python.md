@@ -376,7 +376,7 @@ ID of the current function invocation.
 Context for distributed tracing. Please refer to  [`Trace Context`](https://www.w3.org/TR/trace-context/) for more information..
 
 `retry_context`
-Context for retries to the function. Please refer to [`retry-policies`](../../includes/functions-bindings-errors-retries.md#retry-policies-preview) for more information.
+Context for retries to the function. Please refer to [`retry-policies`](./functions-bindings-errors.md#retry-policies-preview) for more information.
 
 ## Global variables
 
