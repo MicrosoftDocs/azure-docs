@@ -23,7 +23,7 @@ The instance view API provides VM running-state information. For more informatio
 
 Azure Resources Explorer provides a simple UI for viewing the VM running state: [Resource Explorer](https://resources.azure.com/).
 
-The VM provisioning state is available (in slightly different forms) from within the VM properties (`provisioningState` property) and the InstanceView. Within the VM InstanceView there will be an element within the `status` arrow in the form of `ProvisioningState/<state>[/<errorCode>]`
+The VM provisioning state is available (in slightly different forms) from within the VM properties `provisioningState` and the InstanceView. In the VM InstanceView there will be an element within the `status` array in the form of `ProvisioningState/<state>[/<errorCode>]`.
 
 To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
 
@@ -47,7 +47,6 @@ The following table provides a  description of each instance state and indicates
 | Deallocating | This is the transitional state between running and deallocated. | Not billed* | 
 | Deallocated | The Virtual Machine has released the lease on the underlying hardware and is completely powered off. This state is also referred to as *Stopped (Deallocated)*. | Not billed* | 
 
-&#42; Some Azure resources, such as [Disks](https://azure.microsoft.com/pricing/details/managed-disks) and [Networking](https://azure.microsoft.com/pricing/details/bandwidth/) will continue to incur charges.
 
 **Example of PowerState in JSON**
 
@@ -58,6 +57,8 @@ The following table provides a  description of each instance state and indicates
           "displayStatus": "VM running"
         }
 ```
+
+&#42; Some Azure resources, such as [Disks](https://azure.microsoft.com/pricing/details/managed-disks) and [Networking](https://azure.microsoft.com/pricing/details/bandwidth/) will continue to incur charges.
 
 
 ## Provisioning states
