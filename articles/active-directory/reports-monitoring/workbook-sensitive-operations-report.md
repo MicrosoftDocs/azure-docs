@@ -61,7 +61,7 @@ This workbook is split into four sections:
 
 ### Modified application and service principal credentials/authentication methods
 
-One of the most common ways for attackers to gain persistence in the environment is by adding new credentials to existing applications and service principals. This allows the attacker to authenticate as the target application or service principal, granting them access to all resources to which it has permissions.
+One of the most common ways for attackers to gain persistence in the environment is by adding new credentials to existing applications and service principals. The credentials allow the attacker to authenticate as the target application or service principal, granting them access to all resources to which it has permissions.
 
 This section includes the following data to help you detect:
 
@@ -90,7 +90,7 @@ This section includes an overview of all changes made to service principal membe
 
 ### Modified federation settings
 
-Another common approach to gaining a long-term foothold in the environment is modifying the tenant’s federated domain trusts and effectively adding an additional, attacker controlled, SAML IDP as a trusted authentication source.
+Another common approach to gain a long-term foothold in the environment is to modify the tenant’s federated domain trusts, and to add an additional, attacker controlled, SAML IDP as a trusted authentication source.
 
 This section includes the following data:
 

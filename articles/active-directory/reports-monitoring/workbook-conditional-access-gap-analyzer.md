@@ -58,7 +58,7 @@ The workbook has four sections:
 
 ![Conditional access coverage by location](./media/workbook-conditional-access-gap-analyzer/conditianal-access-by-location.png)
 
-Each of these trends offers a breakdown of sign ins to the user level, so that you can see which users per scenario are bypassing conditional access. 
+Each of these trends offers a breakdown of sign-ins to the user level, so that you can see which users per scenario are bypassing conditional access. 
 
 ## Filters
 
@@ -70,7 +70,7 @@ This workbook supports setting a time range filter.
 
 ## Best practice
 
-You should use this workbook to ensure that your tenant is configured to the following Conditional Access best practices:  
+Use this workbook to ensure that your tenant is configured to the following Conditional Access best practices:  
 
 - Block all legacy authentication sign-ins 
 
