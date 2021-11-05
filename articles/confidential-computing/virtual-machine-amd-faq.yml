@@ -61,7 +61,12 @@ sections:
         answer: |
           The new optional full-disk encryption scheme is Azure's most secure. It is designed to meet [Confidential Computing principles](https://azure.microsoft.com/en-us/blog/azure-confidential-computing/). However, you can also use other [disk encryption schemes](https://docs.microsoft.com/en-us/azure/security/fundamentals/azure-disk-encryption-vms-vmss) (instead or in addition).
           If you use multiple disk encryption schemes this may result in double encryption, and negatively impact performance.
-          
+
+      - question: |
+          Can I enable or disable the new full-disk encryption scheme after I've created my CVM?
+        answer: |
+          No. After you've created a CVM (with or without OS full-disk encryption) you can't deactivate or reactivate it. 
+
       - question: |
           Can I convert a non-confidential VM into a confidential VM?
         answer: |
