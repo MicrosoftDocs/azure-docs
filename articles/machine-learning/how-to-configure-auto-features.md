@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: automl,contperf-fy21q2
-ms.date: 12/18/2020
+ms.date: 10/21/2021
 ---
 
 # Data featurization in automated machine learning

@@ -23,9 +23,9 @@ This reference shows how to connect to Azure Event Grid using Azure Functions tr
 | Control the returned HTTP status code |  [HTTP endpoint](../event-grid/receive-events.md) | 
 
 
-## Install extension
-
 ::: zone pivot="programming-language-csharp"
+
+## Install extension
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
@@ -47,9 +47,9 @@ The functionality of the extension varies depending on the extension version:
 
 # [Extension v3.x](#tab/extensionv3/in-process)
 
-Preview version of the extension that supports new Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Azure.Messaging.EventGrid.EventGridEvent](/dotnet/api/azure.messaging.eventgrid.eventgridevent).
+This version of the extension supports updated Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Azure.Messaging.EventGrid.EventGridEvent](/dotnet/api/azure.messaging.eventgrid.eventgridevent).
 
-Add the preview extension to your project by installing the [NuGet package], version 3.x.
+Add this version of the extension to your project by installing the [NuGet package], version 3.x.
 
 # [Extension v2.x](#tab/extensionv2/in-process)
 
@@ -79,15 +79,15 @@ The Event Grid output binding is only available for Functions 2.x and higher.
 
 # [Extension v3.x](#tab/extensionv3/csharp-script)
 
-Supports new Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Microsoft.Azure.EventGrid.Models.EventGridEvent](/dotnet/api/microsoft.azure.eventgrid.models.eventgridevent).
+This version of the extension supports updated Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Microsoft.Azure.EventGrid.Models.EventGridEvent](/dotnet/api/microsoft.azure.eventgrid.models.eventgridevent).
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
+You can install this version of the extension in your function app by registering the [extension bundle], version 3.x. 
 
 # [Extension v2.x](#tab/extensionv2/csharp-script)
 
 Supports the default Event Grid binding parameter type of [Microsoft.Azure.EventGrid.Models.EventGridEvent](/dotnet/api/microsoft.azure.eventgrid.models.eventgridevent).
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 1.x.
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
 
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 
@@ -101,18 +101,20 @@ The Event Grid output binding is only available for Functions 2.x and higher.
 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell,programming-language-typescript"  
 
+## Install bundle
+
 The Event Grid extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the Event Grid binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
 # [Bundle v3.x](#tab/extensionv3)
 
-You can add this version of the extension from the preview extension bundle v3 by adding or replacing the following code in your `host.json` file:
+You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
   }
 }
 ```

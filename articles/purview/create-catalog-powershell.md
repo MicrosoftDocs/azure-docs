@@ -128,7 +128,15 @@ For more information about Purview, [see our overview page](overview.md). For mo
     ---
 
 1. The deployment command returns results. Look for `ProvisioningState` to see whether the deployment succeeded.
-    
+
+1. If you deployed the Azure Purview account using a service principal, instead of a user account, you will also need to run the below command in the Azure CLI:
+
+    ```azurecli
+    az purview account add-root-collection-admin --account-name --resource-group [--object-id]
+    ```
+  
+    This command will grant the user account [collection admin](catalog-permissions.md#roles) permissions on the root collection in your Azure Purview account. This allows the user to access the Purview Studio and add permission for other users. For more information about permissions in Azure Purview, see our [permissions guide](catalog-permissions.md). For more information about collections, see our [manage collections article](how-to-create-and-manage-collections.md).
+
 ## Next steps
 
 In this quickstart, you learned how to create an Azure Purview account.
@@ -136,5 +144,5 @@ In this quickstart, you learned how to create an Azure Purview account.
 Follow these next articles to learn how to navigate the Purview Studio, create a collection, and grant access to Purview.
 
 * [How to use the Purview Studio](use-purview-studio.md)
-* [Create a collection](quickstart-create-collection.md)
 * [Add users to your Azure Purview account](catalog-permissions.md)
+* [Create a collection](quickstart-create-collection.md)
