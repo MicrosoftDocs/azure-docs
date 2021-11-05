@@ -17,8 +17,8 @@ The [Embedded C SDK is an SDK](https://github.com/Azure/azure-sdk-for-c/tree/mas
 
 - Customers of our SDK compile our source code along with their own.
 - We target the C99 programming language and test with gcc, clang, & MS Visual C compilers.
-- We offer very few abstractions making our code easy to understand and debug.
-- Our SDK is non allocating. That is, customers must allocate our data structures where they desire (global memory, heap, stack, etc.) and then pass the address of the allocated structure into our functions to initialize them and in order to perform various operations.
+- We offer few abstractions making our code easy to understand and debug.
+- Our SDK is non allocating. Customers must allocate our data structures where they desire (global memory, heap, stack, etc.) and then pass the address of the allocated structure into our functions to initialize them and to perform various operations.
 - Unlike our other language SDKs, many things (such as composing an HTTP pipeline of policies) are done in source code as opposed to runtime. This reduces code size, improves execution speed and locks-in behavior, reducing the chance of bugs at runtime.
 - We support microcontrollers with no operating system, microcontrollers with a real-time operating system (like [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/)), Linux, and Windows. Customers can implement custom platform layers to use our SDK on custom devices. We provide some platform layers, and encourage the community to submit platform layers to increase the out-of-the-box supported platforms.
 
@@ -31,7 +31,7 @@ The [Embedded C SDK is an SDK](https://github.com/Azure/azure-sdk-for-c/tree/mas
 
 ## Architecture
 
-As mentioned before, the Azure IoT Embedded C SDK uses a "bring-your-own-network" approach. That means you are free to choose your MQTT, TLS, and TCP/IP stacks and use them in conjunction with the Azure IoT Embedded C SDK. The utility of this SDK is to help make Azure IoT MQTT features easier to use by providing functionality such as parsing inbound topics, provide authentication details, and creating subscription topics (among other features).
+As mentioned before, the Azure IoT Embedded C SDK uses a "bring-your-own-network" approach. That means you are free to choose your MQTT, TLS, and TCP/IP stacks and use them with the Azure IoT Embedded C SDK. The utility of this SDK is to help make Azure IoT MQTT features easier to use. It provides functionality such as parsing inbound topics, provide authentication details, and creating subscription topics (among other features).
 
 ![img](./media/iot-hub-device-embedded-c-sdk/embc_high_level_arch.png)
 
@@ -39,7 +39,7 @@ As you can see in the picture, the Azure IoT Embedded C SDK is meant to be used 
 
 ## Samples
 
-We have several samples to help get you started. Please see the below links for our available samples.
+We have several samples to help get you started. See the below links for our available samples.
 
 - [Linux and Windows](https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/samples/iot)
 - [ESP32](https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/samples/iot/aziot_esp32)
