@@ -2,7 +2,7 @@
 title: Configure network settings for Service Fabric managed clusters
 description: Learn how to configure your Service Fabric managed cluster for NSG rules, RDP port access, load-balancing rules, and more.
 ms.topic: how-to
-ms.date: 8/23/2021
+ms.date: 11/10/2021
 ---
 # Configure network settings for Service Fabric managed clusters
 
@@ -14,6 +14,9 @@ Service Fabric managed clusters are created with a default networking configurat
 - [Enable IPv6](#ipv6)
 - [Bring your own virtual network](#byovnet)
 - [Bring your own load balancer](#byolb)
+- [Enable accelerated networking](#accelnet)
+- [Configure Auxillary Subnets](#auxsubnet)
+
 
 <a id="nsgrules"></a>
 ## Manage NSG rules
@@ -432,23 +435,27 @@ Managed clusters create an Azure Load Balancer and fully qualified domain name w
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
 * Map a Load Balancer to a specific node type
-* Configure NSG rules per node type because each node type is deployed in its own VNET
+* Configure NSG rules per node type because each node type is deployed in its own subnet
 * Maintain existing policies and controls you may have in place
+* Configure an internal-only load balancer and use the default load balancer for external traffic
 
 > [!NOTE]
 > You can not switch from default to custom after cluster deployment for a node type, but you can modify custom load balancer configuration post-deployment.
 
 **Feature Requirements**
  * Basic and Standard SKU Azure Load Balancer types are supported
- * You must have backend and NAT pools configured on the existing Azure Load Balancer. See full [create and assign role sample here](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json) for an example. 
+ * You must have backend and NAT pools configured on the existing external/Azure Load Balancer for external load balancers. See full [create and assign role sample here](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json) for an example. 
 
 Here are a couple example scenarios customers may use this for:
 
 In this example, a customer wants to route traffic through an existing Azure Load Balancer configured with an existing static ip address to two node types.
 ![Bring your own Load Balancer example 1][sfmc-byolb-example-1]
 
-In this example, a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind it's own NSG that you can manage.
+In this example, a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind it's own managed NSG.
 ![Bring your own Load Balancer example 2][sfmc-byolb-example-2]
+
+In this example, a customer wants to route traffic through existing internal Azure Load Balancers. This helps them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind it's own managed NSG and use the default load balancer for external traffic.
+![Bring your own Load Balancer example 3][sfmc-byolb-example-3]
 
 To configure bring your own load balancer:
 
@@ -538,6 +545,47 @@ To configure bring your own load balancer:
    ```
 
    After deployment, your secondary node type is configured to use the specified load balancer for inbound and outbound traffic. The Service Fabric client connection and gateway endpoints will still point to the public DNS of the managed cluster primary node type static IP address.
+
+
+
+<a id="accelnet"></a>
+## Enable Accelerated Networking (preview)
+Service Fabric managed cluster node types can be provisioned with Accelerated Networking. 
+
+* Please note that Accelerated Networking requires at least 4 vCPUs
+
+Enable accelerated networking by declaring `enableAcceleratedNetworking` property in your Resource Manager template, the following snippet is of a Virtual Machine Scale Set NetworkInterfaceConfigurations that enables Accelerated Networking:
+```json
+
+
+```
+
+To enable Accelerated Networking on an existing Service Fabric cluster, you need to first Scale a Service Fabric cluster out by adding a new node type and perform the following:
+
+Provision a NodeType with Accelerated Networking enabled
+Migrate your services and their state to the provisioned NodeType with Accelerated Networking enabled
+
+Scaling out infrastructure is required to enable Accelerated Networking on an existing cluster, because enabling Accelerated Networking in place would cause downtime, as it requires all virtual machines in an availability set be stop and deallocate before enabling Accelerated networking on any existing NIC.
+
+
+<a id="auxsubnet"></a>
+## Configure Auxillary Subnets (preview)
+Auxillary subnets provide the ability to create additional managed subnets without a node type for supporting scenarios such as Private Link Service and Bastion Hosts.
+
+
+```json
+"auxiliarySubnets" : 
+[
+{
+"name" : "<string>",
+"enableIpv6" : "<null|true|false>", -> Null means use same settings as the cluster
+"privateEndpointNetworkPolicies": "<enabled|disabled>",
+"privateLinkServiceNetworkPolicies": "<enabled|disabled>",
+"NetworkSecurityGroupId" : "<string>"
+}
+] 
+```
+
 
 
 ## Next steps
