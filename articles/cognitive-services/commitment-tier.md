@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 11/04/2021
 ---
 
-# Purchase commitment tier pricing
+# Quickstart: Purchase commitment tier pricing
 
 Cognitive Services offers commitment tier pricing,  each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
 
