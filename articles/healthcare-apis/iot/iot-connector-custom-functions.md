@@ -14,7 +14,7 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Many functions are available when using **JmesPath** as the expression language. Besides the functions available as part of the JmesPath specification, many custom functions may also be used. This article describes IoT connector-specific custom functions for use with the Device mapping template during the normalization process.
+Many functions are available when using **JmesPath** as the expression language. Besides the functions available as part of the JmesPath specification, many custom functions may also be used. This article describes IoT connector-specific custom functions for use with the Device mappings template during the normalization process.
 
 > [!TIP]
 > For more information on JmesPath functions, see the JmesPath [specification](https://jmespath.org/specification.html#built-in-functions).
@@ -57,7 +57,7 @@ Examples:
 
 | Given                       | Expression       | Result |
 |-----------------------------|------------------|--------|
-| n/a                         | add(`10`, `10`)  | 20     |
+| n/a                         | add(10, 10)      | 20     |
 | {"left": 40, "right": 50}   | add(left, right) | 90     |
 | {"left": 0, "right": 50}    | add(left, right) | 50     |
 
@@ -73,7 +73,7 @@ Examples:
 
 | Given                       | Expression          | Result                           |
 |-----------------------------|---------------------|----------------------------------|
-| n/a                         | divide(`10`, `10`)  | 1                                |
+| n/a                         | divide(10, 10)      | 1                                |
 | {"left": 40, "right": 50}   | divide(left, right) | 0.8                              |
 | {"left": 0, "right": 50}    | divide(left, right) | 0                                |
 | {"left": 50, "right": 0}    | divide(left, right) | mathematic error: divide by zero |
@@ -90,7 +90,7 @@ Examples:
 
 | Given                       | Expression            | Result |
 |-----------------------------|-----------------------|--------|
-| n/a                         | multiply(`10`, `10`)  | 100    |
+| n/a                         | multiply(10, 10)      | 100    |
 | {"left": 40, "right": 50}   | multiply(left, right) | 2000   |
 | {"left": 0, "right": 50}    | multiply(left, right) | 0      |
 
@@ -106,7 +106,7 @@ Examples:
 
 | Given                         | Expression       | Result                     |
 |-------------------------------|------------------|----------------------------|
-| n/a                           | pow(`10`, `10`)  | 10000000000                |
+| n/a                           | pow(10, 10)      | 10000000000                |
 | {"left": 40, "right": 50}     | pow(left, right) | mathematic error: overflow |
 | {"left": 0, "right": 50}      | pow(left, right) | 0                          |
 | {"left": 100, "right": 0.5}   | pow(left, right) | 10                         |
@@ -123,7 +123,7 @@ Examples:
 
 | Given                       | Expression            | Result |
 |-----------------------------|-----------------------|--------|
-| n/a                         | subtract(`10`, `10`)  | 0      |
+| n/a                         | subtract(10, 10)      | 0      |
 | {"left": 40, "right": 50}   | subtract(left, right) | -10    |
 | {"left": 0, "right": 50}    | subtract(left, right) | -50    |
 
@@ -186,9 +186,7 @@ Examples:
 
 ## Next steps
 
-For more information about using the IoT connector custom functions with Device mappings, see:
-
-In this article, you learned how to use custom functions. Learn how to use Device mappings, see
+In this article, you learned how to use IoT connector custom functions. To learn how to use Device mappings, see
 
 >[!div class="nextstepaction"]
 >[How to use Device mappings](how-to-use-device-mapping-iot.md)
