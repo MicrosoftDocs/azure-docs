@@ -465,7 +465,7 @@ Span attributes can be added using either of the following two ways.
 1. Using options provided by [instrumentation libraries](#instrumentation-libraries).
 2. Adding a custom span processor.
 
-These attributes may include adding a custom business property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as Client IP.
+These attributes may include adding a custom property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as Client IP.
 
 > [!TIP]
 > The advantage of using "options provided by instrumentation libraries" (when available) is that the entire context is available, meaning users can select to add or filter additional attributes. For example, the enrich option the HttpClient instrumentation library includes giving users access to the httpRequestMessage itself, to select anything from it and store it as an attribute.
