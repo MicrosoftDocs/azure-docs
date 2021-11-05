@@ -51,6 +51,12 @@
     href: marketplace-criteria-content-validation.md
   - name: Lead management
     href: partner-center-portal/commercial-marketplace-get-customer-leads.md
+  - name: Private offers
+    items:
+      - name: For Cloud Resellers
+        href: isv-csp-reseller.md
+      - name: FAQs
+        href: isv-csp-faq.yml
   - name: Test drives
     items:
       - name: What is a test drive?
@@ -503,8 +509,8 @@
     href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
   - name: Commercial marketplace review policies
     href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
-  - name: Azure Marketplace terms
-    href: https://azure.microsoft.com/support/legal/marketplace-terms/
+  - name: Commercial Marketplace terms
+    href: /legal/marketplace/marketplace-terms
   - name: Microsoft Publisher Agreement
     href: /legal/marketplace/msft-publisher-agreement
   - name: Change history for Microsoft Publisher Agreement
@@ -609,3 +615,5 @@
     href: supported-html-tags.md
   - name: Reference architecture diagram
     href: reference-architecture-diagram.md
+  - name: Customer documentation
+    href: /marketplace/

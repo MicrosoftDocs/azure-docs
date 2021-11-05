@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
+ms.custom: ignite-fall-2021
 ---
 
 # How to configure a Microphone Array
 
-In this article, you learn how to configure a [microphone array](./speech-devices-sdk-microphone.md). It includes setting the working angle, and how to select which microphone is used for the Speech Devices SDK.
+In this article, you learn how to configure a [microphone array](./speech-sdk-microphone.md). It includes setting the working angle, and how to select which microphone is used for the Speech Devices SDK.
 
-The Speech Devices SDK works best with a microphone array that has been designed according to [our guidelines](./speech-devices-sdk-microphone.md). The microphone array configuration can be provided by the Operating System or supplied through one of the following methods.
+The Speech Devices SDK works best with a microphone array that has been designed according to [our guidelines](./speech-sdk-microphone.md). The microphone array configuration can be provided by the Operating System or supplied through one of the following methods.
 
 The Speech Devices SDK initially supported microphone arrays by selecting from a fixed set of configurations.
 

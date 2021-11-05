@@ -1,9 +1,9 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/04/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-js
 ---
 
@@ -197,7 +197,7 @@ With everything set up, call [`startContinuousRecognitionAsync`](/javascript/api
 recognizer.startContinuousRecognitionAsync();
 
 // make the following call at some point to stop recognition.
-// recognizer.StopContinuousRecognitionAsync();
+// recognizer.stopContinuousRecognitionAsync();
 ```
 
 ### Dictation mode

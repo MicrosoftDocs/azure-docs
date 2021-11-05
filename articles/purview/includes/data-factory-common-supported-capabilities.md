@@ -4,7 +4,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
-ms.date: 09/27/2021
+ms.date: 11/01/2021
 ---
 
 ### Copy activity support
@@ -25,6 +25,7 @@ ms.date: 09/27/2021
 | Azure SQL Database \* | Yes | 
 | Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes | 
+| Azure Dedicated SQL pool (formerly SQL DW) \* | Yes | 
 | Azure Table Storage | Yes |
 | Amazon S3 | Yes | 
 | Hive \* | Yes | 
@@ -36,6 +37,8 @@ ms.date: 09/27/2021
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 If you use Self-hosted Integration Runtime, note the minimal version with lineage support for:
+
+- Any use case: version 5.9.7885.3 or later
 - Copying data from Oracle: version 5.10 or later
 - Copying data into Azure Synapse Analytics via COPY command or PolyBase: version 5.10 or later
 
@@ -66,6 +69,7 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 | Azure SQL Database \* | Yes |
 | Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes |
+| Azure Dedicated SQL pool (formerly SQL DW) \* | Yes | 
 
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 

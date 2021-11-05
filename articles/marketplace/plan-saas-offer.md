@@ -1,18 +1,21 @@
 ---
-title: How to plan a SaaS offer for the Microsoft commercial marketplace - Azure Marketplace
-description: How to plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
+title: Plan a SaaS offer for the Microsoft commercial marketplace - Azure Marketplace
+description: Plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 10/26/2021
 ---
 
-# How to plan a SaaS offer for the commercial marketplace
+# Plan a SaaS offer for the commercial marketplace
 
 This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers to let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
+
+> [!TIP]
+> To see the customer's view of purchasing a SaaS offer in the Azure portal, see [Purchase a SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal) and [Purchase SaaS apps on Microsoft AppSource](/marketplace/purchase-software-appsource).
 
 ## Listing options
 
@@ -67,7 +70,7 @@ If you’re creating a transactable offer, you'll need to gather the following i
 
     The Landing page you configure should be up and running 24/7. This is the only way you’ll be notified about new purchases of your SaaS offers made in the commercial marketplace, or configuration requests for an active subscription of an offer.
 
-- **Connection webhook**: For all asynchronous events that Microsoft needs to send to you (for example, when a SaaS subscription has been canceled), we require you to provide a connection webhook URL. We will call this URL to notify you on the event.
+- **Connection webhook**: For all asynchronous events that Microsoft needs to send to you (for example, when a SaaS subscription has been canceled), we require you to [provide a connection webhook URL](./partner-center-portal/pc-saas-fulfillment-api-v2.md#implementing-a-webhook-on-the-saas-service). We will call this URL to notify you on the event.
 
   The webhook you provide should be up and running 24/7. This is the only way you’ll be notified about updates about your customers' SaaS subscriptions purchased via the commercial marketplace.
 

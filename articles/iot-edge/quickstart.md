@@ -46,17 +46,17 @@ Create a cloud resource group to manage all the resources you'll use in this qui
 
 Make sure your IoT Edge device meets the following requirements:
 
-* Editions
-  * Windows 10 version 1809 or later; build 17763 or later
-    * Professional, Enterprise, IoT Enterprise
-  * Windows Server 2019 build 17763 or later
+* System Requirements
+   * Windows 10¹/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows Server 2019¹/2022  
+   <sub>¹ Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
 
 * Hardware requirements
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
 
 >[!NOTE]
->This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md?tabs=windowsadmincenter).
+>This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=windowsadmincenter).
 
 ## Create an IoT hub
 
@@ -146,7 +146,7 @@ Run the following PowerShell commands on the target device where you want to dep
 
 1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference. A successful deployment is pictured below.
 
-   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment-2.png)
+   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/quickstart/successful-powershell-deployment.png)
 
 1. Provision your device using the device connection string that you retrieved in the previous section. Replace the placeholder text with your own value.
 
