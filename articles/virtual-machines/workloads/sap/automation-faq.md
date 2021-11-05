@@ -28,7 +28,7 @@ A:  Ensure that the SPN created for the deployment has permissions over the subs
 
 Q: During the apply phase, I am getting an error in the Terraform deployment: "authorization.RoleAssignment.Client#Create: The client…with object ID…does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope…or scope is invalid" 
 
-A: Ensure that you are passing in the correct Application ID and Application Secret for the deployment. You can double check the values that were passed by looking at the secrets in the user key vault 
+A: Ensure that you are passing in the correct Application ID and Application Secret for the deployment. You can double check the values that were passed by looking at the secrets in the deployment credentials vault 
 
 Q: When deploying the Deployer, I am getting the error: "A resource with ID…already exists - to be managed via Terraform this resource needs to be imported into the State" 
 
