@@ -56,7 +56,7 @@ Take the following steps in the Azure portal to create an action rule for your A
 
    2. Select the **Subscription** for the action rule, and optionally filter by a **Resource** type. To filter to Azure Stack Edge resources, select **Data Box Edge devices (dataBoxEdge)**.
    
-      ![Available resources on the Select Scope screen](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-02.png)<!--Reshoot. Too deep. Text too large.-->
+      ![Available resources on the Select Scope screen](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-02.png)
 
       The **Resource** area lists the available resources based on your selections.
 
