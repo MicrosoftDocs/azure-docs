@@ -112,15 +112,15 @@ ARR provides two reprojection modes that work orthogonally to the LSR mode discu
 
 ### :::no-loc text="Remote pose mode":::
 
-:::no-loc text="Remote pose mode"::: is the default mode in ARR. In this mode, the local content is rendered on top of the incoming remote image stream using the remote pose from the remote frame. Then the combined result is forwarded to the OS for the final transform. While this approach uses only one reprojection transform, the final correction is based on the round-trip interval so the full reprojection error is applied to the local content as well. As a consequence, the large correction delta may result in significant distortions of local geometry including UI elements.
+:::no-loc text="Remote pose mode"::: is the default mode in ARR. In this mode, the local content is rendered on top of the incoming remote image stream using the remote pose from the remote frame. Then the combined result is forwarded to the OS for the final reprojection. While this approach uses only one reprojection, the final correction is based on the round-trip interval so the full reprojection error is applied to the local content as well. As a consequence, the large correction delta may result in significant distortions of local geometry including UI elements.
 
-Using the illustration above, the following transforms are applied in :::no-loc text="Remote"::: pose mode:
+Using the illustration above, the following transform is applied in :::no-loc text="Remote"::: pose mode:
 
 ![Reprojection steps in remote pose mode](./media/reprojection-posemode-remote.png)
 
 ### :::no-loc text="Local pose mode":::
 
-In this mode, the reprojection is split into two distinct steps: In the first step, the remote content is reprojected into local pose space, that is, the space that the local content is rendered with on VR/AR devices. After that, the local content is rendered on top of this pre-transformed image using the usual local pose. In the second step, the combined result is forwarded to the OS for the final reprojection. Since this second reprojection incurs only a small delta - in fact the same delta that would be used if ARR was not present - the distortion artifacts on local content are mitigated significantly.
+In this mode, the reprojection is split into two distinct steps: In the first step, the remote content is reprojected into local pose space, that is, the space that the local content is rendered with on VR/AR devices by default. After that, the local content is rendered on top of this pre-transformed image using the usual local pose. In the second step, the combined result is forwarded to the OS for the final reprojection. Since this second reprojection incurs only a small delta - in fact the same delta that would be used if ARR was not present - the distortion artifacts on local content are mitigated significantly.
 
 Accordingly, the illustration looks like this:
 
