@@ -96,6 +96,8 @@
           href: how-to-deploy-powershell.md
     - name: Manage
       items:
+        - name: Start or stop a service
+          href: how-to-start-stop-service.md
         - name: Start, stop, and delete an app
           href: how-to-start-stop-delete.md
         - name: Use built-in persistent storage
