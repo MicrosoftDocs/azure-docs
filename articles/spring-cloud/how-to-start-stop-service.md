@@ -75,7 +75,7 @@ With the Azure CLI, use the following command to start a stopped Azure Spring Cl
 
 ```azurecli
 az spring-cloud start \
-    --name <service-instance-name> 
+    --name <service-instance-name> \
     --resource-group <resource-group-name>
 ```
 
