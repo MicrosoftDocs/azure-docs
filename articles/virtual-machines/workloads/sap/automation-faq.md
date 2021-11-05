@@ -50,7 +50,7 @@ Q: When deploying the Library, I am getting the following error: "Error: KeyVaul
 
 A: Ensure that the user Key Vault contains the following secrets:  
 
-MGMT-subscription-id 
+<ENVIRONMENT>-subscription-id 
 
 MGMT-tenant-id 
 
