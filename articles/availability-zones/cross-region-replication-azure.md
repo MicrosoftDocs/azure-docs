@@ -84,5 +84,5 @@ Regions are paired for cross-region replication based on proximity and other fac
 
 ## Next steps
 
-- [Regions that support availability zones in Azure](az-regions.md)
+- [Regions that support availability zones in Azure](az-region.md)
 - [Quickstart templates](https://aka.ms/azqs)
