@@ -22,6 +22,10 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 >
 > To enroll in the preview, see [this form](https://forms.office.com/r/gZguN0j65Y).
 
+## Data redundancy options
+
+- Geo-redundant storage (GRS), and Geo-zone-redundant storage (GZRS) are not yet supported in accounts that have SFTP enabled?
+
 ## Authorization
 
 - Local users are the only form of identity management that is currently supported.
