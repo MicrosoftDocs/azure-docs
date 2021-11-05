@@ -236,9 +236,6 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 
 **Docker images maintained by by Azure Machine Learning**
 
-> [!IMPORTANT]
-> The hosts in the following table are used for all regions; Azure public, Azure Government, and Azure China 21Vianet.
-
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ----- |
 | Microsoft Container Registry | mcr.microsoft.com | TCP | 443 |
