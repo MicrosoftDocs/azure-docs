@@ -90,7 +90,7 @@ The commitment plans have a calendar month commitment period. You can purchase a
 
 If you need a larger commitment plan than any of the ones offered, contact `csgate@microsoft.com`.
 
-## Ending a commitment plan
+## End a commitment plan
 
 If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You will be able to continue using the Azure resource to make API calls, and you would be charged at pay-as-you-go pricing.
 
