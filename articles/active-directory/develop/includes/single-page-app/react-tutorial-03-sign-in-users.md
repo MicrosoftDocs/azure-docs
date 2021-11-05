@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: tutorial
+ms.topic: include
 ms.workload: identity
 ms.date: 09/27/2021
 ms.author: dmwendia
