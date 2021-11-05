@@ -20,7 +20,7 @@ A: Not at this time
 
 Q: How do I customize my naming convention? 
 
-A:  The naming convention chosen for the SAP infrastructure has been carefully chosen to comply with Azure naming standards. Having said that, we understand that organizations employ their own naming conventions and require that their SAP components assimilate into their naming standards. Please follow the instructions [here](automaiton-naming-module.md)
+A:  The naming convention chosen for the SAP infrastructure has been carefully chosen to comply with Azure naming standards. Having said that, we understand that organizations employ their own naming conventions and require that their SAP components assimilate into their naming standards. Please follow the instructions [here](automation-naming-module.md)
 
 Q: During the apply phase, while deploying the Deployer/Library, I am getting the following type of error in the Terraform deployment: "Error: checking for existing Secret….User, group, or application…does not have secrets get permission on key vault… 
 
@@ -32,7 +32,7 @@ A: Ensure that you are passing in the correct Application ID and Application Sec
 
 Q: When deploying the Deployer, I am getting the error: "A resource with ID…already exists - to be managed via Terraform this resource needs to be imported into the State" 
 
-A: Resources were added outside of the Terraform deployment. Please update the state file 
+A: Resources were added outside of the Terraform deployment. Please [update the state file](bash/automation-advanced_state_management.md)
 
 Q: Multiline commands are failing due to whitespace error 
 
@@ -66,9 +66,9 @@ Q: While running New-SAPAutomationRegion, I am getting the error: “The reposit
 
 A: Go to the location of the sap_deployment_automation.ini file in in one of the following locations based on your execution environment: My Documents (Windows), ~/sap_deployment_automation (Linux). Enter the fully qualified path to the repository in the sap_deployment_automation.ini file under the Common -> Repo variable. 
 
-Q: While running a phase, I am getting the error: Error loading state error 
+Q: While running the Landscape phase, I am getting the error: "Error loading state error" 
 
-A: Go to the location of the sap_deployment_automation.ini file in in one of the following locations based on your execution environment: My Documents (Windows), ~/sap_deployment_automation (Linux). Look at your SAP_Automated_Deployment.ini file and ensure that the values to each key do not have relative paths. A
+A: Go to the location of the sap_deployment_automation.ini file in in one of the following locations based on your execution environment: My Documents (Windows), ~/sap_deployment_automation (Linux). Look at your SAP_Automated_Deployment.ini file and ensure that the values to each key do not have relative paths prior to the state file names - any values indicating state files should only contain the name of the state files from the state file storage account in the Library resource group.
 
 Q: I am getting this error while deploying the workload zone: Error loading state: blobs.Client#Get: Invalid input: `blobName` cannot be an empty string. 
 
