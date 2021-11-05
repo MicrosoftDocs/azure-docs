@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 11/05/2021
 ms.author: jasteppe
 ---
 
@@ -36,15 +36,15 @@ The result is a normalized data object representing the value or values parsed b
 
 The normalized data model has a few required properties that must be found and extracted:
 
-| Property             | Description                                                                                                                                                                                                                                                   |
-|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Type**             | The name/type to classify the measurement. This value is used to bind to the required FHIR destination mapping.  Multiple mappings can output to the same type allowing you to map different representations across multiple devices to a single common output. |
-| **OccurenceTimeUtc** | The time the measurement occurred.                                                                                                                                                                                                                            |
-| **DeviceId**         | The identifier for the device. This value should match an identifier on the device resource that exists on the destination FHIR service.                                                                                                                       |
-| **Properties**       | Extract at least one property so the value can be saved in the Observation resource created.  Properties are a collection of key value pairs extracted during normalization.                                                                                  |
+|Property|Description|
+|--------|-----------|
+|**Type**|The name/type to classify the measurement. This value is used to bind to the required FHIR destination mapping. Multiple mappings can output to the same type allowing you to map different representations across multiple devices to a single common output.|
+|**OccurenceTimeUtc**|The time the measurement occurred.|
+|**DeviceId**|The identifier for the device. This value should match an identifier on the device resource that exists on the destination FHIR service.|
+|**Properties**|Extract at least one property so the value can be saved in the Observation resource created. Properties are a collection of key value pairs extracted during normalization.|
 
 > [!IMPORTANT]
-The full normalized model is defined by the [IMeasurement](https://github.com/microsoft/iomt-fhir/blob/master/src/lib/Microsoft.Health.Fhir.Ingest.Schema/IMeasurement.cs) interface.
+> The full normalized model is defined by the [IMeasurement](https://github.com/microsoft/iomt-fhir/blob/master/src/lib/Microsoft.Health.Fhir.Ingest.Schema/IMeasurement.cs) interface.
 
 Below are conceptual examples of what happens during normalization and and transformation process within IoT connector:
 
@@ -1075,7 +1075,7 @@ If you're using Azure IoT Central's Data Export feature and custom properties in
 
 ## Next steps
 
-In this article, you learned how to use Device mappings. Learn how to use FHIR destination mappings.
+In this article, you learned how to use Device mappings. To learn how to use FHIR destination mappings, see
 
 >[!div class="nextstepaction"]
 >[How to use FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
