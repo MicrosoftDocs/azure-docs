@@ -19,70 +19,76 @@ This tutorial will show you how to create a new HoloLens Unity app with Azure Sp
 
 To complete this tutorial, make sure you have:
 
-1. A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component, and <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
-2. The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-3. A HoloLens device with [developer mode](/windows/mixed-reality/using-visual-studio) enabled. This article requires a HoloLens device with the [Windows 10 May 2020 Update](/windows/mixed-reality/whats-new/release-notes-may-2020). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select the **Check for updates** button.
+1. **PC** - A PC running Windows
+2. **Visual Studio** - <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+3. **HoloLens** - A HoloLens device with [developer mode](/windows/mixed-reality/using-visual-studio) enabled. This article requires a HoloLens device with the [Windows 10 May 2020 Update](/windows/mixed-reality/whats-new/release-notes-may-2020). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select the **Check for updates** button.
+4. **Unity** - [Unity 2020.3.21](https://unity3d.com/get-unity/download) with modules **Universal Windwos Platform Build Support** and **Windows Build Support (IL2CPP)**
 
-## Getting started
+## Creating and setting up Unity Project
 
-We'll first set up our project and Unity scene:
-1. Start Unity.
-2. Select **New**.
-4. Ensure **3D** is selected.
-5. Name your project and enter a save **Location**.
-6. Select **Create project**.
-7. Save the empty default scene to a new file using: **File** > **Save As**.
-8. Name the new scene **Main** and press the **Save** button.
+### Create New Project
+1. Create a new **Unity** Project in **Unity Hub**
+2. Select **3D**
+3. Name your project and enter a save **Location**.
+4. Select **Create**.
+5. Save the empty default scene to a new file using: **File** > **Save As**.
+6. Name the new scene **Main** and press the **Save** button.
 
-**Set up the project settings**
+### Import ASA and OpenXR
+1. Launch [Mixed Reality Feature Toolkit](https://docs.microsoft.com/en-us/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool)
+2. Select your project path - This is the folder that contains folders such as *Assets*, *Library*, *Logs*, etc - and click **Discover Features**
+3. Under **Azure Mixed Reality Services** select **Azure Spatial Anchors SDK Core** and **Azure Spatial Anchors SDK for Windows**
+4. Under **Platform Support** select **Mixed Reality OpenXR Plugin**
+5. Press **Get Features** --> **Import** --> **Approve** --> **Exit**
+6. When refocussing your Unity window, Unity will start importing the modules
+7. If you get a message about using the new input system click **Yes** to restart Unity and enable the backends.
 
+### Set up the project settings
 We'll now set some Unity project settings that help us target the Windows Holographic SDK for development.
+#### Change Build Platform
+1. Select **File** > **Build Settings**
+1. Select **Universal Windows Platform** then **Switch Platform**. Wait until Unity has finished processing all files.
+#### Change OpenXR Settings 
+1. Select **File** > **Build Settings** (it might still be open from the previous step)
+1. Select **Player Settings...**
+1. Select **XR Plug-in Management**
+1. Make sure the **Universal Windows Platform Settings** tab is selected and check the box next to **OpenXR** and next to **Microsoft HoloLens feature group**
+1. Click on the yellow warning sign next to **OpenXR** to display all OpenXR issues.
+1. Select **Fix all**
+1. To fix the issue *At least one interaction profile must be added* click on *Edit* to open the OpenXR Project settings. Then under **Interaction Profiles** select the **+** symbol and select **Microsoft Hand Interaction Profile**
 
-First, let's set quality settings for our application.
+#### Change Quality Settings
 1. Select **Edit** > **Project Settings** > **Quality**
-2. In the column under the **Windows Store** logo, click on the arrow at the **Default** row and select **Very Low**. You'll know the setting is applied correctly when the box in the **Windows Store** column and **Very Low** row is green.
+2. In the column under the **Universal Windows Platform** logo, click on the arrow at the **Default** row and select **Very Low**. You'll know the setting is applied correctly when the box in the **Universal Windows Platform**  column and **Very Low** row is green.
 
-We need to configure our Unity app with an immersive view, rather than a 2D view. We can create an immersive view by enabling Virtual Reality support on Unity targeting the Windows 10 SDK.
-1. Go to **Edit** > **Project Settings** > **Player**.
-2. In the **Inspector Panel** for **Player Settings**, select the **Windows** icon.
-3. Expand the **XR Settings** group.
-4. In the **Rendering** section, check the **Virtual Reality Supported** checkbox to add a new **Virtual Reality SDKs** list.
-5. Verify that **Windows Mixed Reality** appears in the list. If not, select the **+** button at the bottom of the list and choose **Windows Mixed Reality**.
-
-> [!NOTE]
-> If you do not see the Windows icon, double check to make sure you selected the Windows .NET Scripting Backend prior to installation. If not, you may need to reinstall Unity with the correct Windows installation.
-
-**Verify Scripting Backend configuration**
-1. Go to **Edit** > **Project Settings** > **Player** (you may still have **Player** open from the previous step).
-2. In the **Inspector Panel** for **Player Settings**, select the **Windows Store** icon.
-3. In the **Other Settings** Configuration section, make sure that **Scripting Backend** is set to **IL2CPP**.
-
-**Set capabilities**
-1. Go to **Edit** > **Project Settings** > **Player** (you may still have **Player** open from the previous step).
-2. In the **Inspector Panel** for **Player Settings**, select the **Windows Store** icon.
+#### Set capabilities
+1. Go to **Edit** > **Project Settings** > **Player** (you may still have it open from the previous step).
+2. Make sure the **Universal Windows Platform Settings** tab is selected
 3. In the **Publishing Settings** Configuration section, check **InternetClientServer** and **SpatialPerception**.
 
-**Set up the main virtual camera**
+#### Set up the main camera
 1. In the **Hierarchy Panel**, select **Main Camera**.
 2. In the **Inspector**, set its transform position to **0,0,0**.
 3. Find the **Clear Flags** property, and change the dropdown from **Skybox** to **Solid Color**.
 4. Click on the **Background** field to open a color picker.
 5. Set **R, G, B, and A** to **0**.
-6. Select **Add Component** and search for and add the **Spatial Mapping Collider**.
+6. Click **Add Component** and add the **Tracked Pose Driver** Component to the camera
 
-**Create our script**
+## Creating the Scene
+
+### Create our script
 1. In the **Project** pane, create a new folder, **Scripts**, under the **Assets** folder.
 2. Right-click on the folder, then select **Create >**, **C# Script**. Title it **AzureSpatialAnchorsScript**.
 3. Go to **GameObject** -> **Create Empty**.
-4. Select it, and in the **Inspector** rename it from **GameObject** to **MixedRealityCloud**. Select **Add Component** and search for and add the **AzureSpatialAnchorsScript**.
+4. Select it, and in the **Inspector** rename it from **GameObject** to **AzureSpatialAnchors**. Select **Add Component** and search for and add the **AzureSpatialAnchorsScript**.
 
-**Create the sphere prefab**
-1. Go to **GameObject** -> **3D Object** -> **Sphere**.
-2. In the **Inspector**, set its scale to **0.25, 0.25, 0.25**.
-3. Find the **Sphere** object in the **Hierarchy** pane. Click on it and drag it into the **Assets** folder in the **Project** pane.
-4. Right click and **Delete** the original sphere you created in the **Hierarchy** pane.
+### Create the cube prefab
+1. Go to **GameObject** -> **3D Object** -> **Cube**.
+2. In the **Inspector**, set its scale to **0.1, 0.1, 0.1**.
+3. Find the **Cube** object in the **Hierarchy** pane. Click on it and drag it into the **Assets** folder in the **Project** pane.
+4. Right click and **Delete** the original cube you created in the **Hierarchy** pane.
 
-You should now have a sphere prefab in your **Project** pane.
+You should now have a cube prefab in your **Project** pane.
 
 ## Trying it out
 To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow Chapter 6 from the [**MR Basics 100: Getting started with Unity** course](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) to do so. You should see the Unity start screen, and then a clear display.
