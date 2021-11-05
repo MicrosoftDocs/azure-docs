@@ -19,29 +19,29 @@ Some applications require a stream processing approach, made easy with [Azure St
 - Business processes that benefit from time windowing capabilities, but are running in batch by essence (Finance or HR...)
 - Demonstrations, prototypes, or tests that involve **long running jobs at low scale**
 
-The benefit of not running these jobs continuously will be **cost savings**, as Stream Analytics jobs are [billed](https://azure.microsoft.com/en-us/pricing/details/stream-analytics/) per Streaming Unit **over time.**
+The benefit of not running these jobs continuously will be **cost savings**, as Stream Analytics jobs are [billed](https://azure.microsoft.com/pricing/details/stream-analytics/) per Streaming Unit **over time.**
 
-This article will explain how to set up auto-pause for an Azure Stream Analytics job, that is building a task that will automatically pause and resume a job on a schedule. Note that if we're using the term **pause**, the actual job [state](/azure/stream-analytics/job-states) is **stopped**, as to avoid any billing.
+This article will explain how to set up auto-pause for an Azure Stream Analytics job. In it we configure a task that automatically pauses and resumes a job on a schedule. If we're using the term **pause**, the actual job [state](/azure/stream-analytics/job-states) is **stopped**, as to avoid any billing.
 
-We will discuss the overall design first, then go through the required components, and finally discuss some implementation details.
+We'll discuss the overall design first, then go through the required components, and finally discuss some implementation details.
 
 > [!NOTE]
 > There are downsides to auto-pausing a job. The main ones being the loss of the low latency / real time capabilities, and the potential risks from allowing the input event backlog to grow unsupervised while a job is paused. This should not be considered for most production scenarios running at scale.
 
 ## Design
 
-For this example, we want our job to run for N minutes, before pausing it for M minutes. When the job is paused, the input data will not be consumed, accumulating upstream. After the job is started, it will catch-up with that backlog, process the data trickling in, before being shut down again.
+For this example, we want our job to run for N minutes, before pausing it for M minutes. When the job is paused, the input data won't be consumed, accumulating upstream. After the job is started, it will catch-up with that backlog, process the data trickling in, before being shut down again.
 
 ![Behavior of the auto-paused job over time](./media/automation/principle.png)
 
-When running, the job should not be stopped until the entire input backlog is processed. Instead of letting it run for N minutes, we'll instead set a cool down period of N minutes. During that period, the backlogged input events should stay at 0. In terms of behavior, this translates to two actions:
+When running, the job should not be stopped until the entire input backlog is processed. Instead of letting it run for N minutes, we'll instead set a cool down period of N minutes. During that period, the backlogged input events should stay at 0. This behavior translates to two actions:
 
-- A stopped job needs to be started after M minutes
-- A running job needs to be stopped if it has accumulated no backlogged input events for at least N minutes
+- A stopped job is restarted after M minutes
+- A running job is, that has no backlogged input events, is stopped after N minutes
 
 ![State diagram of the job](./media/automation/States.png)
 
-As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. This means potential cost savings of up to 66%.
+As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. Potential cost savings are up to 66%.
 
 Finally we'll make these actions idempotent, meaning that they can be repeated at will with no side effects, both for ease of use and resiliency.
 
@@ -81,17 +81,17 @@ To host our PowerShell task, we'll need a service that offers scheduled runs. Th
 - [Azure Functions](/azure/azure-functions/functions-overview), a serverless compute engine that can run almost any piece of code. Functions offer a [timer trigger](/azure/azure-functions/functions-bindings-timer?tabs=csharp) that can run up to every second
 - [Azure Automation](/azure/automation/overview), a managed service built for operating cloud workloads and resources. Which fits the bill, but whose minimal schedule interval is 1 hour (less with [workarounds](/azure/automation/shared-resources/schedules#schedule-runbooks-to-run-more-frequently)).
 
-Azure Automation is the easier way to deploy the task, if we don't mind the workaround. Now in this article we'll be writing a script that works locally first, and see how to deploy it both in Functions and in an Automation Account.
+Azure Automation is the easier way to deploy the task, if we don't mind the workaround. Here we'll be writing a local script first, then discuss how to deploy it both in Functions and in an Automation Account.
 
 ### Developer tools
 
-We highly recommend local development using [VSCode](https://code.visualstudio.com/), both for [Functions](/azure/azure-functions/create-first-function-vs-code-powershell) and [ASA](/azure/stream-analytics/quick-create-visual-studio-code). Using a local IDE allows to use source control and to easily repeat deployments . But for the sake of brevity, here we'll illustrate the process in the [Azure portal](https://portal.azure.com).
+We highly recommend local development using [VSCode](https://code.visualstudio.com/), both for [Functions](/azure/azure-functions/create-first-function-vs-code-powershell) and [ASA](/azure/stream-analytics/quick-create-visual-studio-code). Using a local IDE allows us to use source control and to easily repeat deployments. But for the sake of brevity, here we'll illustrate the process in the [Azure portal](https://portal.azure.com).
 
 ## Writing the PowerShell Script locally
 
-The best way to develop the script is locally. PowerShell being cross-platform, the script can be written and tested on any OS. On Windows this can be done with [Windows Terminal](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701), [PowerShell 7](/powershell/scripting/install/installing-powershell-on-windows) and [Az PowerShell](/powershell/azure/install-az-ps).
+The best way to develop the script is locally. PowerShell being cross-platform, the script can be written and tested on any OS. On Windows we can use [Windows Terminal](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701) with [PowerShell 7](/powershell/scripting/install/installing-powershell-on-windows), and [Az PowerShell](/powershell/azure/install-az-ps).
 
-The final script that will be used is available for [Functions](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/run.ps1) (and [Azure Automation](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1)). It is different than the one explained below, as it is wired to the hosting environment (Functions or Automation). We will discuss that aspect later.
+The final script that will be used is available for [Functions](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/run.ps1) (and [Azure Automation](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1)). It's different than the one explained below, having been wired to the hosting environment (Functions or Automation). We'll discuss that aspect later.
 
 So first, let's step through a version of it that only **runs locally**.
 
@@ -205,7 +205,7 @@ Once it's provisioned, let's start with its overall configuration.
 
 ### Managed identity for Functions
 
-The Function needs permissions to start and stop the ASA job. We will assign these permissions via a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
+The Function needs permissions to start and stop the ASA job. We'll assign these permissions via a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
 
 The first step is to enable a **system-assigned managed identity** for the Function, following that [procedure](/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet#using-the-azure-portal).
 
@@ -226,7 +226,7 @@ if (-not $AzContext.Subscription.Id)
 
 ```
 
-We will also add some logging info to make sure the Function is firing up:
+We'll also add some logging info to make sure the Function is firing up:
 
 ```PowerShell
 
@@ -241,7 +241,7 @@ Write-Host "asaRobotPause - PowerShell timer trigger function is starting at tim
 
 The best way to pass our parameters to the script in Functions is to use the Function App application settings as [environment variables](/azure/azure-functions/functions-reference-powershell?tabs=portal#environment-variables).
 
-To do so, the first step is in the Function App page, to define our parameters as **App Settings** following that [procedure](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings). We will need:
+To do so, the first step is in the Function App page, to define our parameters as **App Settings** following that [procedure](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings). We'll need:
 
 |Name|Value|
 |-|-|
@@ -251,7 +251,7 @@ To do so, the first step is in the Function App page, to define our parameters a
 |resourceGroupName|The Resource Group Name of the ASA job to be auto-paused|
 |asaJobName|The Name of the ASA job to be aut-paused|
 
-We will later need to update our PowerShell script to load the variables accordingly:
+We'll later need to update our PowerShell script to load the variables accordingly:
 
 ```PowerShell
 
@@ -276,11 +276,11 @@ To do that, we can go in `Functions` > `App files` of the Function App page, sel
 
 Once all that configuration is done, we can create the specific function, inside the Function App, that will run our script.
 
-We will develop in the portal, a function triggered on a timer (every minute or so):
+We'll develop in the portal, a function triggered on a timer (every minute or so):
 
 ![Creating a new timer trigger function in the function app](./media/automation/new-function-timer.png)
 
-We will then need to upload our final script, and set the timer.
+We'll then need to upload our final script, and set the timer.
 
 In `Integration`, we can change the timer to every minute by setting the [schedule](/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions) to `0 */1 * * * *` (which reads: on second 0 for every minute):
 
@@ -296,7 +296,7 @@ We can check that everything went according to plan in the `Monitor` pane (but i
 
 ### Setting an alert on the function execution
 
-Finally, we want to be notified via an alert if the function doesn't run successfully. Alerts have a minor cost, but they can spare us a job not being stopped as it should be which could amount to more.
+Finally, we want to be notified via an alert if the function doesn't run successfully. Alerts have a minor cost, but they may prevent more expensive situations.
 
 In the **Function App** page, under `Logs`, run the following query that returns all non-successful runs in the last 5 minutes:
 
@@ -314,13 +314,13 @@ In the query editor, pick `New alert rule`. In the following screen, define the 
 - Aggregation type: Total
 - Aggregation granularity: 5 minutes
 
-Next set up the **Alert logic** as follow:
+Next set up the **Alert logic** as follows:
 
 - Operator: Greater than
 - Threshold value: 0
 - Frequency of evaluation: 5 minutes
 
-From there, reuse or create a new [action group](/azure/azure-monitor/alerts/action-groups?WT.mc_id=Portal-Microsoft_Azure_Monitoring), then finalize the alert.
+From there, reuse or create a new [action group](/azure/azure-monitor/alerts/action-groups?WT.mc_id=Portal-Microsoft_Azure_Monitoring), then complete the configuration.
 
 To check that the alert was set up properly, we can add `throw "Testing the alert"` anywhere in the PowerShell script, and wait 5 minutes to receive an email.
 
@@ -349,7 +349,7 @@ Param(
 
 ### Managed identity for Automation
 
-If this wasn't set up during the creation of the Automation Account, we can enable a system-assigned managed identity using that [procedure](/azure/automation/enable-managed-identity-for-automation).
+The Automation Account should have received a managed identity during provisioning. But if needed, we can enable one using that [procedure](/azure/automation/enable-managed-identity-for-automation).
 
 Like for the function, we'll need to grant the right permissions on the ASA job we want to auto-pause.
 
