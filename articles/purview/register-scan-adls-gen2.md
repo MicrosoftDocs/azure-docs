@@ -1,11 +1,11 @@
 ---
-title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
+title: 'Register, scan and share data from Azure Data Lake Storage (ADLS) Gen2'
 description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Azure Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 11/05/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 # Connect to Azure Data Lake Gen2 in Azure Purview
@@ -284,6 +284,7 @@ Source storage account can support up to 20 targets, and target storage account 
 
 Now that you have registered your source, follow the below guides to learn more about Purview and your data.
 
+- [Data share in Azure Purview](concept-data-share.md)
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

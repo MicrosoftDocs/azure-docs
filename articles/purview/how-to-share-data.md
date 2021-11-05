@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 11/05/2021
 ---
 # Share Data with Purview Data Share
 
@@ -27,8 +27,8 @@ In-place data sharing is currently supported for storage account with the follow
 * [A Purview account](create-catalog-portal.md) in the supported Azure region. If you are getting an error related to *quota* when creating a Purview account, open a support ticket to increase the service limit. 
 * **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you are automatically assigned these roles to the root collection. Refer to [Azure Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
 * Your recipient's Azure sign-in email address which you can use to send the invitation to. The recipient's email alias won't work.
-* If the source Azure data store is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types) in the Azure subscription where the Azure data store is located.
-* Different Azure data stores have different permission requirements for sharing. To share data from storage account, you need **Owner** or **Blob Storage Data Owner** role to the source storage account. You can find additional details on the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source page.
+* If the source Azure data store is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the Azure data store is located.
+* Different Azure data stores have different permission requirements for sharing. To share data from storage account, you need **Owner** or **Blob Storage Data Owner** role to the source storage account. You can find additional details on the [ADLS Gen2](register-scan-adls-gen2.md#data-share) or [Blob storage](register-scan-azure-blob-storage-source.md#data-share) data source page.
 
 ## Create a share
 
@@ -40,31 +40,31 @@ In-place data sharing is currently supported for storage account with the follow
 
     Note: If you do not see a collection from the drop down list, it means you do not have Data Share Contributor role access to any Purview collection to share data. Please contact your Collection Admin to grant you access. 
 
-    ![Screenshot showing data share details.](./media/how-to-share-data/create-share-details.png "Enter the data share details.") 
+    <img src="./media/how-to-share-data/create-share-details.png" alt="Create share and enter details" width=500/>
 
 1. To add assets to your share, select **Add Assets**. 
 
-    ![Screenshot showing how to add assets to your share.](./media/how-to-share-data/create-share-add-asset.png "Add assets.")
+    <img src="./media/how-to-share-data/create-share-add-asset.png" alt="Add assets" width=500/>
 
 1. Select a asset type, and a data source which has already been registered with Purview. Select **Continue**. 
 
     Note: If you do not see a data source from the drop down list, click on the **Register a new source to share from** link below to register your data source. Azure resource needs to be registered with Purview before you can share data from that resource. Your data source needs to be registered in the same collection as the share. If you do not see the collection from the drop down list when registering your data source, it means you do not have Data Source Admin role access to the collection. Please contact your Collection Admin to grant you access.
 
-    ![Screenshot showing where to select an asset type.](./media/how-to-share-data/create-share-select-source.png "Select source.")    
+    <img src="./media/how-to-share-data/create-share-select-source.png" alt="Select source" width=500/>
 
 1. Browse your data source hierarchy and select (check) the objects you want to share. Then select **Add**. When sharing from storage account, only files and folders are currently supported. Sharing from container is not currently supported. 
 
-    ![Screenshot showing how to select an object to share.](./media/how-to-share-data/create-share-select-contents.png "Select objects to share.")    
+    <img src="./media/how-to-share-data/create-share-select-contents.png" alt="Select objects to share" width=500/>  
 
 1. Review the assets selected. Optionally, edit **Name** and **Display name** which the recipient will see. Select **Continue**.
 
-    ![Screenshot showing how to edit asset name and display name.](./media/how-to-share-data/create-share-edit-asset-name.png "Edit asset name and display name.") 
+    <img src="./media/how-to-share-data/create-share-edit-asset-name.png" alt="Edit asset name and display name" width=500/>   
 
 1. Select **Add Recipient**. Enter the Azure login email address of who you want to share data with. Select **Create and Share**. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
 
     Note in Purview Studio, you can only use user's Azure login email address as recipient. In Purview SDK or API, you can use object ID of the user or service principal as a recipient, and you can also optionally specify a target tenant ID (i.e. the Azure tenant recipient can receive the share into).
 
-    ![Screenshot showing how to add recipient email addresses.](./media/how-to-share-data/create-share-add-recipient.png "Add recipients.") 
+    <img src="./media/how-to-share-data/create-share-add-recipient.png" alt="Add recipients" width=500/>   
 
 You've now created your Azure data share. The recipients of your share will receive an invitation and they can view the pending share in their Purview account. 
 

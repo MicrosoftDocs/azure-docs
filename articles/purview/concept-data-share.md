@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: conceptual
-ms.date: 11/03/2021
+ms.date: 11/05/2021
 ---
 
 # Understand Data Share in Azure Purview
@@ -32,7 +32,7 @@ Purview Data Share currently supports sharing of files and folders in-place from
 
 <br/>
 
-<img src="media/concept-data-share/data-share-flow.png" alt="Data share flow" width=470/>
+<img src="./media/concept-data-share/data-share-flow.png" alt="Data share flow" width=500/>
 
 ## Key capabilities
 

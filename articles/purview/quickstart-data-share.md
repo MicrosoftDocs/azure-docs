@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: quickstart
-ms.date: 11/03/2021
+ms.date: 11/05/2021
 ---
 # Quick start: Share and receive data with Azure Purview
 
@@ -30,7 +30,7 @@ In-place data sharing is currently supported for storage account with the follow
 * **Owner** or **Blob Storage Data Owner** role to the source storage account. 
 * A target storage account which you will use to access shared data. The target storage account must be in the same region as the source storage account. Both source and target need to be of the same type. If the source is ADLS Gen2, then target must be ADLS Gen2. If the source is Blob storage, then target must be Blob storage. 
 * **Contributor**, **Owner**, **Blob Storage Data Contributor**, or **Blob Storage Data Owner** role to the target storage account.
-* If the storage account is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types) in the Azure subscription where the storage account is located.
+* If the storage account is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the storage account is located.
 * Your recipient's Azure sign-in email address which you can use to send the invitation to. The recipient's email alias won't work.
 
 ## Create a share
@@ -42,32 +42,31 @@ In-place data sharing is currently supported for storage account with the follow
 
     Note: If you do not see a collection from the drop down list, it means you do not have Data Share Contributor role access to any Purview collection to share data. Please contact your Collection Admin to grant you access. 
 
-    ![Screenshot showing data share details.](./media/how-to-share-data/create-share-details.png "Enter the data share details.") 
+    <img src="./media/how-to-share-data/create-share-details.png" alt="Create share and enter details" width=500/>
 
 1. To add assets to your share, select **Add Assets**. 
 
-    ![Screenshot showing how to add assets to your share.](./media/how-to-share-data/create-share-add-asset.png "Add assets.")
+    <img src="./media/how-to-share-data/create-share-add-asset.png" alt="Add assets" width=500/>
 
 1. Select a asset type, and a data source which has already been registered with Purview. Select **Continue**. 
 
     Note: If you do not see a data source from the drop down list, click on the **Register a new source to share from** link below to register your data source. Azure resource needs to be registered with Purview before you can share data from that resource. Your data source needs to be registered in the same collection as the share. If you do not see the collection from the drop down list when registering your data source, it means you do not have Data Source Admin role access to the collection. Please contact your Collection Admin to grant you access.
 
-    ![Screenshot showing where to select an asset type.](./media/how-to-share-data/create-share-select-source.png "Select source.")    
+    <img src="./media/how-to-share-data/create-share-select-source.png" alt="Select source" width=500/> 
 
 1. Browse your data source hierarchy and select (check) the objects you want to share. Then select **Add**. When sharing from storage account, only files and folders are currently supported. Sharing from container is not currently supported. 
 
-    ![Screenshot showing how to select an object to share.](./media/how-to-share-data/create-share-select-contents.png "Select objects to share.")    
+    <img src="./media/how-to-share-data/create-share-select-contents.png" alt="Select objects to share" width=500/> 
 
 1. Review the assets selected. Optionally, edit **Name** and **Display name** which the recipient will see. Select **Continue**.
 
-    ![Screenshot showing how to edit asset name and display name.](./media/how-to-share-data/create-share-edit-asset-name.png "Edit asset name and display name.") 
+    <img src="./media/how-to-share-data/create-share-edit-asset-name.png" alt="Edit asset name and display name" width=500/>   
 
 1. Select **Add Recipient**. Enter the Azure login email address of who you want to share data with. Select **Create and Share**. 
     
     Note you can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
 
-    ![Screenshot showing how to add recipient email addresses.](./media/how-to-share-data/create-share-add-recipient.png "Add recipients.") 
-
+    <img src="./media/how-to-share-data/create-share-add-recipient.png" alt="Add recipients" width=500/>   
 
 You've now created your Azure data share. The recipients of your share will receive an invitation and they can view the pending share in their Purview account.
 
@@ -87,25 +86,25 @@ You've now created your Azure data share. The recipients of your share will rece
 
 1. Specify a **Received share name** and a collection. Review all the fields, including the **Terms of use**. If you agree to the terms, select the check box. Select **Accept and configure**. If you do not want to accept the invitation, select *Reject*.
 
-   ![Screenshot showing accepting pending share.](./media/how-to-receive-share/receive-share-accept.png "Accept pending share.") 
+    <img src="./media/how-to-receive-share/receive-share-accept.png" alt="Accept pending share" width=500/>   
 
 1. Continue to map assets. Select **Map** next to each asset to specify a target data store to receive or access shared data. 
 
-   ![Screenshot showing mapping.](./media/how-to-receive-share/receive-share-map.png "Map asset.") 
+    <img src="./media/how-to-receive-share/receive-share-map.png" alt="Map asset" width=500/>   
 
 1. For in-place sharing, target type and locations are determined by the data provider's source type and location. Select a data store with the same type and location. 
 
     Enter additional information required to map assets. This could be different depending on the asset types. Select **Map to target**.
 
-   ![Screenshot showing mapping to target.](./media/how-to-receive-share/receive-share-map-target.png "Map asset to target.") 
+    <img src="./media/how-to-receive-share/receive-share-map-target.png" alt="Map asset to target" width=500/>   
 
     Note: If you do not see a data source from the drop down list, click on the **Register a new data store to map assets** link below to register your data store. Azure resource needs to be registered with Purview before you can share data from that resource. Your data store needs to be registered in the same collection as the received share. If you do not see the collection from the drop down list when registering your data store, it means you do not have Data Source Admin role access to the collection. Please contact your Collection Admin to grant you access.
 
 1. The screen will show *Mapping* in progress. Asset mapping can take a few minutes. Map all the assets and select **Close**. 
 
-Note: You can select "Close" after you configured all the asset mapping. You don't need to wait for the mapping to complete.
+    Note: You can select "Close" after you configured all the asset mapping. You don't need to wait for the mapping to complete.
 
-   ![Screenshot showing mapping to target in progress.](./media/how-to-receive-share/receive-share-map-inprogress.png "Map asset to target in progress.") 
+    <img src="./media/how-to-receive-share/receive-share-map-inprogress.png" alt="Map asset to target in progress" width=500/>  
 
 1. Select **Assets** tab to monitor mapping status. Once mapping is completed, you will get a notification in the screen. The status will change from *Mapping* to *Mapped*. You can now access the data in the target data store. 
 

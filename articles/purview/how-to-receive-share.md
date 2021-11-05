@@ -1,11 +1,11 @@
 ---
 title: How to Receive Shared Data
-description: Learn how to share and receive data from Azure Blob Storage and Azure Data Lake Storage.
+description: Learn how to receive shared data from Azure Blob Storage and Azure Data Lake Storage.
 author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 11/05/2021
 ---
 # Receive shared data from Purview Data Share
 
@@ -26,8 +26,8 @@ In-place data sharing is currently supported for storage account with the follow
 
 * [A Purview account](create-catalog-portal.md) in the supported Azure region. If you are getting an error related to *quota* when creating a Purview account, open a support ticket to increase the service limit. 
 * **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you are automatically assigned these roles to the root collection. Refer to [Azure Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
-* If the target Azure data store is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types) in the Azure subscription where the Azure data store is located.
-* Different Azure data stores have different permission requirements for receiving share. To receive data into a target storage account, you need **Contributor**, **Owner**, **Blob Storage Data Contributor**, or **Blob Storage Data Owner** role to the target storage account. You can find additional details on the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source page.
+* If the target Azure data store is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the Azure data store is located.
+* Different Azure data stores have different permission requirements for receiving share. To receive data into a target storage account, you need **Contributor**, **Owner**, **Blob Storage Data Contributor**, or **Blob Storage Data Owner** role to the target storage account. You can find additional details on the [ADLS Gen2](register-scan-adls-gen2.md#data-share) or [Blob storage](register-scan-azure-blob-storage-source.md#data-share) data source page.
 
 ## Receive share
 
@@ -45,25 +45,25 @@ In-place data sharing is currently supported for storage account with the follow
 
 1. Specify a **Received share name** and a collection. Review all the fields, including the **Terms of use**. If you agree to the terms, select the check box. Select **Accept and configure**. If you do not want to accept the invitation, select *Reject*.
 
-   ![Screenshot showing accepting pending share.](./media/how-to-receive-share/receive-share-accept.png "Accept pending share.") 
+    <img src="./media/how-to-receive-share/receive-share-accept.png" alt="Accept pending share" width=500/>   
 
 1. Continue to map assets. Select **Map** next to each asset to specify a target data store to receive or access shared data. 
 
-   ![Screenshot showing mapping.](./media/how-to-receive-share/receive-share-map.png "Map asset.") 
+    <img src="./media/how-to-receive-share/receive-share-map.png" alt="Map asset" width=500/>   
 
 1. For in-place sharing, target type and locations are determined by the data provider's source type and location. Select a data store with the same type and location. 
 
     Enter additional information required to map assets. This could be different depending on the asset types. Select **Map to target**.
 
-   ![Screenshot showing mapping to target.](./media/how-to-receive-share/receive-share-map-target.png "Map asset to target.") 
+    <img src="./media/how-to-receive-share/receive-share-map-target.png" alt="Map asset to target" width=500/>   
 
     Note: If you do not see a data source from the drop down list, click on the **Register a new data store to map assets** link below to register your data store. Azure resource needs to be registered with Purview before you can share data from that resource. Your data store needs to be registered in the same collection as the received share. If you do not see the collection from the drop down list when registering your data store, it means you do not have Data Source Admin role access to the collection. Please contact your Collection Admin to grant you access.
 
 1. The screen will show *Mapping* in progress. Asset mapping can take a few minutes. Map all the assets and select **Close**. 
 
-Note: You can select "Close" after you configured all the asset mapping. You don't need to wait for the mapping to complete.
+    Note: You can select "Close" after you configured all the asset mapping. You don't need to wait for the mapping to complete.
 
-   ![Screenshot showing mapping to target in progress.](./media/how-to-receive-share/receive-share-map-inprogress.png "Map asset to target in progress.") 
+    <img src="./media/how-to-receive-share/receive-share-map-inprogress.png" alt="Map asset to target in progress" width=500/>  
 
 1. Select **Assets** tab to monitor mapping status. Once mapping is completed, you will get a notification in the screen. The status will change from *Mapping* to *Mapped*. You can now access the data in the target data store. 
 
@@ -102,7 +102,7 @@ If you cannot select a collection when accepting a pending share or register a d
 If your storage account is not listed for you to select after register the source, it is likely the storage account is not in the [supported regions](#supported-regions) or does not have the [supported redundancy](#supported-storage-account-redundancy-options).
 
 If you failed to map asset, it is likely due to the following issues:
-1. Permission issue to the target data store. Check [Prerequisite](#prerequisites-to-share-data) for required data store permissions.
+1. Permission issue to the target data store. Check [Prerequisite](#prerequisites-to-receive-shared-data) for required data store permissions.
 1. The share and target data store do not belong to the same Purview collection. In order to receive data into a data store, the share and target data store need to belong to the same Purview collection. 
 1. The *New Folder* you specified to receive storage data is not empty.
 1. Source and target storage account is the same. Sharing from the same source storage account to the same target is not supported.
