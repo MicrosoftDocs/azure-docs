@@ -506,6 +506,7 @@ Release note for `2.5.0-amd64-<locale>`:
 
 
 This container has the following locales available.
+
 | Locale for v2.15.0          | Notes                                    | Digest                                                                    |
 |-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
 | `ar-ae`                     | Container image with the `ar-AE` locale. | `sha256:d2c650631f10bb3d13b90ac13cc8f9780a791b6b6eae4d3663703d61d4fcfa0b` |
