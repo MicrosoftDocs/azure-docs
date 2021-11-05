@@ -72,7 +72,7 @@ kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
 Now force CoreDNS to reload the ConfigMap. The [kubectl delete pod][kubectl delete] command isn't destructive and doesn't cause down time. The `kube-dns` pods are deleted, and the Kubernetes Scheduler then recreates them. These new pods contain the change in TTL value.
 
 ```console
-kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+kubectl rollout restart --namespace kube-system deployment/coredns
 ```
 
 > [!Note]
@@ -99,7 +99,7 @@ As in the previous examples, create the ConfigMap using the [kubectl apply confi
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
+kubectl rollout restart --namespace kube-system deployment/coredns
 ```
 
 ## Use custom domains
@@ -139,6 +139,8 @@ data:
             errors
             cache 30
             forward . 168.63.129.16 # forward all requests to the Azure Private DNS Zone forwarder
+            # alternatively
+            # forward . /etc/resolv.conf
     }
 ```
 
@@ -146,7 +148,7 @@ As in the previous examples, create the ConfigMap using the [kubectl apply confi
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
+kubectl rollout restart --namespace kube-system deployment/coredns
 ```
 
 ## Stub domains
@@ -178,14 +180,7 @@ As in the previous examples, create the ConfigMap using the [kubectl apply confi
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
-```
-
-As in the previous examples, create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] for the Kubernetes Scheduler to recreate them:
-
-```console
-kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
+kubectl rollout restart --namespace kube-system deployment/coredns
 ```
 
 ## Hosts plugin
