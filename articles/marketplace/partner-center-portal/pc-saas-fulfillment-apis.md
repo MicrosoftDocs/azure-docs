@@ -11,7 +11,16 @@ ms.author: souchak
 
 # SaaS fulfillment APIs in the Microsoft commercial marketplace
 
-The SaaS Fulfillment APIs enable publishers, also known as independent software vendors (ISVs), to publish and sell their SaaS applications in Microsoft AppSource, Azure Marketplace, and Azure portal. These APIs enable ISV applications to participate in all commerce enabled channels: direct, partner-led (reseller), and field-led.  Integrating with these APIs is a requirement for creating and publishing a transactable SaaS offer in Partner Center.
+The SaaS Fulfillment APIs enable publishers, also known as independent software vendors (ISVs), to publish and sell their SaaS applications in Microsoft AppSource, Azure Marketplace, and Azure portal. These APIs enable ISV applications to participate in all commerce enabled channels: direct, partner-led (reseller), and field-led. Integrating with these APIs is a requirement for creating and publishing a transactable SaaS offer in Partner Center.
+
+To learn about the SaaS fulfillment APIs, we recommend you also read the following articles:
+- [Managing the SaaS subscription life cycle](pc-saas-fulfillment-life-cycle.md)
+- [SaaS fulfillment Subscription APIs v2](pc-saas-fulfillment-subscription-api)
+- [SaaS fulfillment Operations APIs v2](pc-saas-fulfillment-operations-api)
+- [Implementing a webhook on the SaaS service](pc-saas-fulfillment-webhook)
+- [Common questions about SaaS fulfillment APIs](saas-fulfillment-apis-faq)
+
+## API flows
 
 ISVs must implement the following API flows by adding into their SaaS service code to maintain the same subscription status for both ISVs and Microsoft:
 
@@ -52,4 +61,4 @@ For more information about CSP, please refer to https://partner.microsoft.com/li
 
 ## Next steps
 
-If you have not already done so, register your SaaS application in the [Azure portal](https://ms.portal.azure.com) as explained in [Register an Azure AD Application](./pc-saas-registration.md).  Afterwards, use the most current version of this interface for development: [SaaS Fulfillment API Version 2](./pc-saas-fulfillment-api-v2.md).
+- If you have not already done so, register your SaaS application in the [Azure portal](https://ms.portal.azure.com) as explained in [Register an Azure AD Application](./pc-saas-registration.md).  Afterwards, use the most current version of this interface for development: [SaaS fulfillment Subscription APIs v2](pc-saas-fulfillment-subscription-api.md) and [SaaS fulfillment Operations APIs v2](pc-saas-fulfillment-operations-api.md).
