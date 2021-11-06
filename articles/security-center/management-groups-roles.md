@@ -125,7 +125,7 @@ You can add subscriptions to the management group that you created.
 
 ## Remove elevated access 
 
-Once the Azure roles have been assigned to the users, the tenant administrator should remove itself from the user access administrator role.
+Once the Azure roles have been assigned to the users, the tenant administrator should remove themself from the user access administrator role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com).
 
