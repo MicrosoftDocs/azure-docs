@@ -26,7 +26,7 @@ Storage Explorer supports several connection options. This article describes con
   1. On the **Custom image** page, under **VHD**, select the **Upload a VHD using PowerShell** link.
      ![Screenshot that shows the Upload VHD using PowerShell link.](media/devtest-lab-upload-vhd-using-storage-explorer/upload-image-using-psh.png)
   1. On the **Upload an image using PowerShell** page, in the call to the **Add-AzureVhd** cmdlet, the `Destination` parameter shows the lab's storage account name in the following format:
-     `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/`
+     `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/`.
   1. Copy the storage account name to use in the following steps.
 
 ## Step-by-step instructions
@@ -39,7 +39,7 @@ Storage Explorer supports several connection options. This article describes con
 
    ![Screenshot that shows the storage accounts for a selected Azure subscription.](media/devtest-lab-upload-vhd-using-storage-explorer/storage-accounts-list.png)
 
-1. Select the dropdown arrow next to the lab storage account name you saved earlier. Nodes appear for **Blob Containers**, **File Shares**, **Queues**, and **Tables**.
+1. Select the dropdown arrow next to the lab storage account name you saved earlier.
 
 1. Expand the **Blob Containers** node, and then select **uploads**.
 
@@ -57,7 +57,7 @@ Storage Explorer supports several connection options. This article describes con
 
    ![Screenshot that shows the Upload Files dialog box.](media/devtest-lab-upload-vhd-using-storage-explorer/upload-file.png)
 
-1. The **Activities** pane shows upload status, along with links to cancel the upload. Uploading the VHD file can take a long time, depending on the size of the VHD file and your connection speed.
+1. The **Activities** pane at the bottom shows upload status. Uploading the VHD file can take a long time, depending on the size of the VHD file and your connection speed.
 
    ![Screenshot that shows the Activities pane with upload status.](media/devtest-lab-upload-vhd-using-storage-explorer/upload-status.png)
 
