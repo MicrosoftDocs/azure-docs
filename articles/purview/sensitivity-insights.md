@@ -8,6 +8,7 @@ ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 09/27/2021
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
+ms.custom: ignite-fall-2021
 ---
 
 # Sensitivity label insights about your data in Azure Purview
@@ -17,7 +18,7 @@ This how-to guide describes how to access, view, and filter security insights pr
 > [!IMPORTANT]
 > Azure Purview Sensitivity Label Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 buckets
+Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 buckets, Amazon RDS databases (public preview), Power BI
 
 In this how-to guide, you'll learn how to:
 
@@ -26,11 +27,7 @@ In this how-to guide, you'll learn how to:
 > - View sensitivity labeling insights on your data
 > - Drill down for more sensitivity labeling details on your data
 
-> [!NOTE]
-> Sensitivity labels found on [Power BI assets](register-scan-power-bi-tenant.md) that are scanned by Purview are not currently shown in the Sensitivity labeling Insights report. 
->
-> To view sensitivity labels on Power BI assets, view the asset in the [Purview Data Catalog](how-to-search-catalog.md).
-> 
+ 
 ## Prerequisites
 
 Before getting started with Purview insights, make sure that you've completed the following steps:

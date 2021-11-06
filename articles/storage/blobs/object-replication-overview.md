@@ -61,7 +61,7 @@ Object replication does not support blob snapshots. Any snapshots on a blob in t
 
 ### Blob tiering
 
-Object replication is supported when the source and destination accounts are in the hot or cool tier. The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md).
+Object replication is supported when the source and destination accounts are in the hot or cool tier. The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ### Immutable blobs
 
@@ -95,7 +95,7 @@ You can also specify one or more filters as part of a replication rule to filter
 
 The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, write operations to the destination container are not permitted. Any attempts to write to the destination container fail with error code 409 (Conflict). To write to a destination container for which a replication rule is configured, you must either delete the rule that is configured for that container, or remove the replication policy. Read and delete operations to the destination container are permitted when the replication policy is active.
 
-You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md#archive-access-tier).
+You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md#archive-access-tier).
 
 ## Policy definition file
 

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 10/21/2021
 ms.reviewer: larryfr
 ms.custom: deploy
 ---
@@ -189,21 +189,35 @@ def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))
     if request.method == 'GET':
-        # For this example, just return the URL for GETs.
+        # For this example, just return the URL for GET.
+        # For a real-world solution, you would load the data from URL params or headers
+        # and send it to the model. Then return the response.
         respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
+        resp = AMLResponse(respBody, 200)
+        resp.headers["Allow"] = "OPTIONS, GET, POST"
+        resp.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST"
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        resp.headers['Access-Control-Allow-Headers'] = "*"
+        return resp
     elif request.method == 'POST':
         reqBody = request.get_data(False)
         # For a real-world solution, you would load the data from reqBody
         # and send it to the model. Then return the response.
-
-        # For demonstration purposes, this example
-        # adds a header and returns the request body.
         resp = AMLResponse(reqBody, 200)
+        resp.headers["Allow"] = "OPTIONS, GET, POST"
+        resp.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST"
         resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        resp.headers['Access-Control-Allow-Headers'] = "*"
+        return resp
+    elif request.method == 'OPTIONS':
+        resp = AMLResponse("", 200)
+        resp.headers["Allow"] = "OPTIONS, GET, POST"
+        resp.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST"
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        resp.headers['Access-Control-Allow-Headers'] = "*"
         return resp
     else:
-        return AMLResponse("bad request", 500)
+        return AMLResponse("bad request", 400)
 ```
 
 > [!IMPORTANT]
