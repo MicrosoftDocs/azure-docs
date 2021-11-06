@@ -67,7 +67,7 @@ Q: I get the error: `Either an Access Key / SAS Token or the Resource Group for 
 
 A: Ensure that you are passing in the correct value for the `storageaccountname` parameter. This parameter should specify the account containing the Terraform state files.
 
-Q: While running New-SAPAutomationRegion, I am getting the error: “The repository path: <repo path> is incorrect!” 
+Q: While running New-SAPAutomationRegion, I am getting the error: “The repository path: \<repo path\> is incorrect!” 
 
 A: Go to the location of the `sap_deployment_automation.ini` file in in one of the following locations based on your execution environment: My Documents (Windows), ~/sap_deployment_automation (Linux). Enter the fully qualified path to the repository in the sap_deployment_automation.ini file under the Common -> Repo variable. 
 
