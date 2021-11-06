@@ -52,29 +52,28 @@ The table below contains the networking parameters.
 
 | Variable                         | Type        | Description                           | Notes  |
 | -------------------------------- | ----------- | ------------------------------------- | ------ |
-| `network_name`                   | Required    | The logical name of the network (DEV-WEEU-MGMT01-INFRASTRUCTURE) | |
+| `network_logical_name`           | Required    | The logical name of the network (MGMT01 in DEV-WEEU-MGMT01-INFRASTRUCTURE) | |
 | `network_arm_id`                 | Optional *  | The Azure resource identifier for the virtual network | Required for brown field deployments |
-| `network_address_space`          | Required * | The address range for the virtual network | Required for green field.  |
 | `admin_subnet_name`              | Optional    | The name of the 'admin' subnet | |
-| `admin_subnet_address_prefix`    | Required * | The address range for the 'admin' subnet | Required for green field deployments |
-| `admin_subnet_arm_id`	           | Required * | The Azure resource identifier for the 'admin' subnet | Required for brown field deployments |
-| `admin_subnet_nsg_name`          | Optional	 | The name of the 'admin' Network Security Group name | |
-| `admin_subnet_nsg_arm_id`        | Required * | The Azure resource identifier for the 'admin' Network Security Group | Required for brown field deployments |
+| `admin_subnet_address_prefix`    | Required *  | The address range for the 'admin' subnet | Required for green field deployments |
+| `admin_subnet_arm_id`	           | Required *  | The Azure resource identifier for the 'admin' subnet | Required for brown field deployments |
+| `admin_subnet_nsg_name`          | Optional	   | The name of the 'admin' Network Security Group name | |
+| `admin_subnet_nsg_arm_id`        | Required *  | The Azure resource identifier for the 'admin' Network Security Group | Required for brown field deployments| 
 | `db_subnet_name`                 | Optional    | The name of the 'db' subnet | |
-| `db_subnet_address_prefix`       | Required * | The address range for the 'db' subnet | Required for green field deployments |
-| `db_subnet_arm_id`	           | Required * | The Azure resource identifier for the 'db' subnet | Required for brown field deployments |
-| `db_subnet_nsg_name`             | Optional	 | The name of the 'db' Network Security Group name | |
-| `db_subnet_nsg_arm_id`           | Required * | The Azure resource identifier for the 'db' Network Security Group | Required for brown field deployments |
+| `db_subnet_address_prefix`       | Required *  | The address range for the 'db' subnet | Required for green field deployments |
+| `db_subnet_arm_id`	             | Required *  | The Azure resource identifier for the 'db' subnet | Required for brown field deployments |
+| `db_subnet_nsg_name`             | Optional	   | The name of the 'db' Network Security Group name | |
+| `db_subnet_nsg_arm_id`           | Required *  | The Azure resource identifier for the 'db' Network Security Group | Required for brown field deployments |
 | `app_subnet_name`                | Optional    | The name of the 'app' subnet | |
-| `app_subnet_address_prefix`      | Required * | The address range for the 'app' subnet | Required for green field deployments |
-| `app_subnet_arm_id`	           | Required * | The Azure resource identifier for the 'app' subnet | Required for brown field deployments |
-| `app_subnet_nsg_name`            | Optional	 | The name of the 'app' Network Security Group name | |
-| `app_subnet_nsg_arm_id`          | Required * | The Azure resource identifier for the 'app' Network Security Group | Required for brown field deployments |
+| `app_subnet_address_prefix`      | Required *  | The address range for the 'app' subnet | Required for green field deployments |
+| `app_subnet_arm_id`	             | Required *  | The Azure resource identifier for the 'app' subnet | Required for brown field deployments |
+| `app_subnet_nsg_name`            | Optional	   | The name of the 'app' Network Security Group name | |
+| `app_subnet_nsg_arm_id`          | Required *  | The Azure resource identifier for the 'app' Network Security Group | Required for brown field deployments |
 | `web_subnet_name`                | Optional    | The name of the 'web' subnet | |
-| `web_subnet_address_prefix`      | Required * | The address range for the 'web' subnet | Required for green field deployments |
-| `web_subnet_arm_id`	           | Required * | The Azure resource identifier for the 'web' subnet | Required for brown field deployments |
-| `web_subnet_nsg_name`            | Optional	 | The name of the 'web' Network Security Group name | |
-| `web_subnet_nsg_arm_id`          | Required * | The Azure resource identifier for the 'web' Network Security Group | Required for brown field deployments |
+| `web_subnet_address_prefix`      | Required *  | The address range for the 'web' subnet | Required for green field deployments |
+| `web_subnet_arm_id`	             | Required *  | The Azure resource identifier for the 'web' subnet | Required for brown field deployments |
+| `web_subnet_nsg_name`            | Optional	   | The name of the 'web' Network Security Group name | |
+| `web_subnet_nsg_arm_id`          | Required *  | The Azure resource identifier for the 'web' Network Security Group | Required for brown field deployments |
 
 * = Required for brown field deployments
 
@@ -92,15 +91,18 @@ The database tier defines the infrastructure for the database tier, supported da
 
 | Variable                          | Type        | Description                             | Notes  |
 | --------------------------------  | ----------- | --------------------------------------- | ------ |
-| `database_platform`               | Required    | Defines the database backend  
- | |
+| `database_platform`               | Required    | Defines the database backend            | |
 | `database_high_availability`      | Optional    | Defines if the database tier is deployed highly available | |
+| `database_server_count`           | Optional    | Defines the number of database servers | Default value is 1|
+| `database_vm_names`               | Optional    | Defines the database server virtual machine names if the default naming is not acceptable | |
 | `database_size`                   | Required    | Defines the database sizing information | See [Custom Sizing](automation-configure-extra-disks.md) |
 | `database_sid`                    | Required    | Defines the database SID                |       |
 | `db_disk_sizes_filename`          | Optional    | Defines the custom database sizing      | See [Custom Sizing](automation-configure-extra-disks.md) |
 | `database_sid`                    | Required    | Defines the database SID | |
-| `database_vm_image`	            | Optional	  | Defines the Virtual machine image to use, see below | 
+| `database_vm_image`	              | Optional	  | Defines the Virtual machine image to use, see below | 
 | `database_vm_use_DHCP`            | Optional    | Controls if Azure subnet provided IP addresses should be used (dynamic) true |
+| `database_vm_db_nic_ips`          | Optional    | Defines the static IP addresses for the database servers (database subnet) | |
+| `database_vm_admin_nic_ips`       | Optional    | Defines the static IP addresses for the database servers (admin subnet) | |
 | `database_vm_authentication_type` | Optional	  | Defines the authentication type for the database virtual machines (key/password) | | 
 | `database_vm_zones`               | Optional	  | Defines the Availability Zones | |
 | `database_vm_avset_arm_ids`       | Optional	  | Defines the existing availability sets Azure resource IDs | Primarily used together with ANF pinning | 
