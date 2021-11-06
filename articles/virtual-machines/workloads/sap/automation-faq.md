@@ -52,14 +52,14 @@ Q: I get the following error: `Error: building account: getting authenticated ob
 
 A: Use the az logout command and login again using the az login command to resolve the issue. 
 
-Q: I get the following error: "Error: KeyVault Secret "<secret name>"…does not exist" 
+Q: I get the following error: `Error: KeyVault Secret "<secret name>` …does not exist" 
 
 A: Ensure that the user Key Vault contains the following secrets:  
 
-<ENVIRONMENT>-subscription-id 
+`<ENVIRONMENT>-subscription-id 
 <ENVIRONMENT>-tenant-id 
 <ENVIRONMENT>-client-id 
-<ENVIRONMENT>-client-secret 
+<ENVIRONMENT>-client-secret`
 
 Substitute <ENVIRONMENT> with your environment name.
 
@@ -85,7 +85,7 @@ A: This error is in reference to the Key Vault being created in the Workload Zon
 
 Q: While deploying the Landscape, I get the following error: 'netAppAccounts' has been restricted in this region. 
 
-A: The subscription is not registered for the netAppAccounts resource provider. Follow these steps to register the provider: https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-register. 
+A: The subscription is not registered for the netAppAccounts resource provider. Follow these steps to [register the provider](/azure/azure-netapp-files/azure-netapp-files-register). 
 
 > [!NOTE]
 > Azure NetApp Accounts can only be created in a subscription that is connected to a payment method 
