@@ -56,12 +56,12 @@ Q: I get the following error: `Error: KeyVault Secret "<secret name>` …does no
 
 A: Ensure that the user Key Vault contains the following secrets:  
 
-`<ENVIRONMENT>-subscription-id 
-<ENVIRONMENT>-tenant-id 
-<ENVIRONMENT>-client-id 
-<ENVIRONMENT>-client-secret`
+\<ENVIRONMENT\>-subscription-id 
+\<ENVIRONMENT\>-tenant-id 
+\<ENVIRONMENT\>-client-id 
+\<ENVIRONMENT\>-client-secret`
 
-Substitute <ENVIRONMENT> with your environment name.
+Substitute \<ENVIRONMENT>\ with your environment name.
 
 Q: I get the error: `Either an Access Key / SAS Token or the Resource Group for the Storage Account must be specified - or Azure AD Authentication must be enabled` when deploying the workload zone
 
