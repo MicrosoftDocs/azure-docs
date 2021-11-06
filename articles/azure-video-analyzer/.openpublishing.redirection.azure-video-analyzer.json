@@ -177,7 +177,7 @@
     },
     {
       "source_path_from_root": "/articles/media-services/live-video-analytics-edge/analyze-live-video-concept.md",
-      "redirect_url": "\"/azure/azure-video-analyzer/video-analyzer-docs/pipeline",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/pipeline",
       "redirect_document_id": false
     },
     {
