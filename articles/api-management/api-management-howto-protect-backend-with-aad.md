@@ -186,7 +186,7 @@ In this example, you enable OAuth 2.0 user authorization in the Developer Consol
 
    Now that the Developer Console can obtain access tokens from Azure AD via your OAuth 2.0 authorization server, enable OAuth 2.0 user authorization for your API. This enables the Developer Console to know that it needs to obtain an access token on behalf of the user, before making calls to your API.
 
-15. Browse to your API Management instance, and go to **APIs**.
+1. Browse to your API Management instance, and go to **APIs**.
 
 1. Select the API you want to protect. For example, `Echo API`.
 
