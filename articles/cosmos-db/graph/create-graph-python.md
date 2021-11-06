@@ -31,6 +31,11 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 - [Python Driver for Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
 - [Git](https://git-scm.com/downloads).
 
+you can also install Python Driver for Gremlin by `pip` command line:
+```bash
+pip install gremlinpython
+```
+
 > [!NOTE]
 > This quickstart requires a graph database account created after December 20th, 2017. Existing accounts will support Python once they’re migrated to general availability.
 
