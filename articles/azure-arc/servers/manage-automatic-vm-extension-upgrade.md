@@ -2,7 +2,7 @@
 title: Automatic Extension Upgrade (preview) for Azure Arc-enabled servers
 description: Learn how to enable the Automatic Extension Upgrade (preview) for your Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 11/04/2021
+ms.date: 11/06/2021
 ---
 
 # Automatic Extension Upgrade (preview) for Azure Arc-enabled servers
@@ -24,9 +24,21 @@ The extension upgrade process replaces the existing Azure VM extension version s
 
 A failed extension update is automatically retried. A retry is attempted every few days automatically without user intervention.
 
-## Upgrade process
+### Availability-first Updates
 
-How does the upgrade process work for an Arc-enabled server?
+The availability-first model for platform orchestrated updates ensures that availability configurations in Azure are respected across multiple availability levels.
+
+For a group of Arc-enabled servers undergoing an update, the Azure platform will orchestrate updates following the model described in the [Automation Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md#availability-first-updates). However, there are some notable differences between Arc-enabled servers and Azure VMs:
+
+**Across regions:**
+
+- Geo-paired regions is not applicable.
+- The success of an update is measured by tracking the health of a machine post update. Machine health is tracked through platform health indicators for the Arc-enabled server.
+
+**Within a region:**
+
+- Availability Zones are not applicable.
+- Machines are batched on a best effort basis to avoid concurrent updates for all machines registered with Arc-enabled servers in a subscription.  
 
 ## Supported extensions
 
