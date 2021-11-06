@@ -49,7 +49,7 @@ Storage Explorer supports several connection options. This article describes con
 
    ![Screenshot that shows the Upload button and Upload Files.](media/devtest-lab-upload-vhd-using-storage-explorer/upload-button.png)
 
-1. In the **Upload Files** dialog box, select **...** next to the **Selected files** field, browse to your VHD file, select it, and then select **Open**.
+1. In the **Upload Files** dialog box, select **...** next to the **Selected files** field, browse to the VHD file on your machine, select it, and then select **Open**.
 
 1. Under **Blob type**, change **Block Blob** to **Page Blob**.
 
@@ -57,9 +57,9 @@ Storage Explorer supports several connection options. This article describes con
 
    ![Screenshot that shows the Upload Files dialog box.](media/devtest-lab-upload-vhd-using-storage-explorer/upload-file.png)
 
-1. The **Activities** pane at the bottom shows upload status. Uploading the VHD file can take a long time, depending on the size of the VHD file and your connection speed.
+The **Activities** pane at the bottom shows upload status. Uploading the VHD file can take a long time, depending on the size of the VHD file and your connection speed.
 
-   ![Screenshot that shows the Activities pane with upload status.](media/devtest-lab-upload-vhd-using-storage-explorer/upload-status.png)
+![Screenshot that shows the Activities pane with upload status.](media/devtest-lab-upload-vhd-using-storage-explorer/upload-status.png)
 
 ## Next steps
 
