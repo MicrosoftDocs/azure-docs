@@ -111,8 +111,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-use-your-model-grp.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grp",
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-use-your-model-grpc.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grpc",
       "redirect_document_id": false
     },
     {
@@ -177,7 +177,7 @@
     },
     {
       "source_path_from_root": "/articles/media-services/live-video-analytics-edge/analyze-live-video-concept.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/pipeline",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/analyze-live-video-without-recording",
       "redirect_document_id": false
     },
     {
