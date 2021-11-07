@@ -15,7 +15,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Kubernetes is a popular open-source platform to orchestrate containerized applications. This article provides an overview of Kubernetes and then describes how Kubernetes works on your 2-node Azure Stack Edge device including the failure modes and the corresponding device responses. 
+Kubernetes is a popular open-source platform to orchestrate containerized applications. This article describes how Kubernetes works on your 2-node Azure Stack Edge device including the failure modes and the corresponding device responses. 
 
 ## About Kubernetes on Azure Stack Edge 
 

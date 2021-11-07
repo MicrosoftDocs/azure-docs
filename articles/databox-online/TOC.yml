@@ -184,6 +184,16 @@
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-gpu-certificate-troubleshooting.md 
 
+    - name: Clustering (Preview)
+      items:
+      - name: What is clustering?
+        href: azure-stack-edge-gpu-clustering-overview.md
+      - name: Cluster witness
+        href: azure-stack-edge-gpu-cluster-witness-overview.md
+      - name: Cluster failover scenarios
+        href: azure-stack-edge-gpu-cluster-failover-scenarios.md
+
+
     - name: Virtual machines (Preview)
       items:
       - name: What are VMs?
@@ -274,7 +284,9 @@
       - name: Kubernetes RBAC
         href: azure-stack-edge-gpu-kubernetes-rbac.md 
       - name: Kubernetes workloads
-        href: azure-stack-edge-gpu-kubernetes-workload-management.md
+        href: azure-stack-edge-gpu-kubernetes-workload-management.
+      - name: Kubernetes failover scenarios
+        href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
       - name: Deploy Kubernetes workloads
         items:
         - name: Via kubectl
