@@ -321,7 +321,7 @@ Update
 
 ##### Results
 
-:::image type="content" source="./media/kql-overview/table-security-updates.png" alt-text="Count the occurrence of different EventIDs in the SecurityEvent table.":::
+:::image type="content" source="./media/kql-overview/table-security-updates.png" alt-text="Retrieve entries needing security or critical updates.":::
 
 
 
