@@ -284,7 +284,7 @@
       - name: Kubernetes RBAC
         href: azure-stack-edge-gpu-kubernetes-rbac.md 
       - name: Kubernetes workloads
-        href: azure-stack-edge-gpu-kubernetes-workload-management.
+        href: azure-stack-edge-gpu-kubernetes-workload-management.md
       - name: Kubernetes failover scenarios
         href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
       - name: Deploy Kubernetes workloads
