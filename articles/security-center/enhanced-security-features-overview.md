@@ -84,9 +84,13 @@ No. When you enable [Microsoft Defender for servers](defender-for-servers-introd
 An alternative is to enable Microsoft Defender for servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include just-in-time VM access, network detections, regulatory compliance, adaptive network hardening, adaptive application control, and more. 
 
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Defender for servers?
-If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Defender for servers license.
+If you've already got a license for **Microsoft Defender For Endpoint Server**, you won't have to pay for that part of your Microsoft Defender for Servers license.
 
-To request your discount, contact Defender for Cloud's support team and provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint licenses applied for machines in the given workspace.
+To request your discount, contact Defender for Cloud's support team and provide this information:
+- Tenant Name and ID.
+- Relevant workspace ID.
+- Workspace region.
+- The number of Microsoft Defender For Endpoint Server licenses applied for machines in the given workspace.
 
 The discount will be effective starting from the approval date, and will not take place retroactively.
 
