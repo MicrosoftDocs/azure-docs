@@ -148,7 +148,7 @@ See below how to create data collection rules.
 
 ### Prerequisites
 
-- You must have read and write permissions on the Azure Sentinel workspace.
+- You must have read and write permissions on the Microsoft Sentinel workspace.
 
 - To collect events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) installed and enabled *before* you enable the Azure Monitor Agent-based connector.
 
@@ -160,7 +160,7 @@ See below how to create data collection rules.
 
 ### Instructions
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**. Select your connector from the list, and then select **Open connector page** on the details pane. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
+1. From the Microsoft Sentinel navigation menu, select **Data connectors**. Select your connector from the list, and then select **Open connector page** on the details pane. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
 1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
@@ -274,7 +274,7 @@ See this [complete description of data collection rules](../azure-monitor/agents
 
 > [!NOTE]
 >
-> To allow Windows systems without the necessary internet connectivity to still stream events to Azure Sentinel, download and install the **Log Analytics Gateway** on a separate machine, using the **Download Log Analytics Gateway** link on the **Agents Management** page, to act as a proxy.  You will still need to install the Log Analytics agent on each Windows system whose events you want to collect.
+> To allow Windows systems without the necessary internet connectivity to still stream events to Microsoft Sentinel, download and install the **Log Analytics Gateway** on a separate machine, using the **Download Log Analytics Gateway** link on the **Agents Management** page, to act as a proxy.  You still need to install the Log Analytics agent on each Windows system whose events you want to collect.
 >
 > For more information on this scenario, see the [**Log Analytics gateway** documentation](../azure-monitor/agents/gateway.md).
 
