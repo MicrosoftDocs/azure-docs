@@ -2,7 +2,7 @@
 title: Edv5 and Edsv5-series - Azure Virtual Machines
 description: Specifications for the Edv5 and Edsv5-series VMs.
 author: styli365
-ms.author: sttsinar
+ms.author: joelpell
 ms.reviewer: joelpell
 ms.custom: mimckitt
 ms.service: virtual-machines
