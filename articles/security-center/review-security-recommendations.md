@@ -39,6 +39,10 @@ Defender for Cloud analyzes the security state of your resources to identify pot
     1. **Severity indicator**.
     1. **Freshness interval** (where relevant).
     1. **Count of exempted resources** if exemptions exist for this recommendation, this shows the number of resources that have been exempted.
+    1. **Mapping to MITRE ATT&CK ® tactics and techniques** if this recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. 
+
+        :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
+
     1. **Description** - A short description of the security issue.
     1. When relevant, the details page also includes a table of **related recommendations**:
 
