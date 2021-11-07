@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 11/07/2021
 ms.author: alkohli
 ---
 
@@ -39,6 +39,8 @@ The Kubernetes master node is responsible for maintaining the desired state for 
 
 The following diagram illustrates the implementation of Kubernetes on a 1-node Azure Stack Edge device. The 1-node device has one master node and one worker node. The 1-node device is not highly available and if the single node fails, the device goes down. The Kubernetes cluster also goes down.
 
+**NOTE: Diagram needs to be updated to be consistent with 2-node diagram!**
+
 ![Kubernetes architecture for a 1-node Azure Stack Edge device](media/azure-stack-edge-gpu-kubernetes-overview/kubernetes-architecture-1-node.png)
 
 ### Kubernetes cluster on two-node device
@@ -46,7 +48,7 @@ The following diagram illustrates the implementation of Kubernetes on a 1-node A
 The following diagram illustrates the implementation of Kubernetes on a 2-node Azure Stack Edge device. The 2-node device has one master node and two worker nodes. The 2-node device is highly available and if one of the node fails, the master node fails over to the other node. Both the device and the Kubernetes cluster keep running. 
 
 
-![Kubernetes architecture for a 2-node Azure Stack Edge device](media/azure-stack-edge-gpu-kubernetes-overview/kubernetes-architecture-1-node.png)
+![Kubernetes architecture for a 2-node Azure Stack Edge device](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-workloads-infrastructure-cluster.png)
 
 For more information on the Kubernetes cluster architecture, go to [Kubernetes core concepts](https://kubernetes.io/docs/concepts/architecture/).
 
@@ -59,6 +61,7 @@ The Kubernetes master and the worker nodes are virtual machines that consume CPU
 |---------|---------|
 |Master VM|4 cores, 4-GB RAM|
 |Worker VM|12 cores, 32-GB RAM|
+
 <!--The Kubernetes cluster control plane components make global decisions about the cluster. The control plane has:
 
 - *kubeapiserver* that is the front end of the Kubernetes API and exposes the API.
@@ -122,6 +125,8 @@ For more information on deploying applications on your Kubernetes cluster via Io
 ### Kubernetes and Azure Arc
 
 Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. Azure Arc also allows you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md). For information on Azure Arc pricing, go to [Azure Arc pricing](https://azure.microsoft.com/services/azure-arc/#pricing).
+
+<!-- confirm with Anoob/Rohan if this needs to be updated as Azure Arc is now GA-->
 
 Beginning March 2021, Azure Arc-enabled Kubernetes will be generally available to the users and standard usage charges apply. As a valued preview customer, the Azure Arc-enabled Kubernetes will be available to you at no charge for Azure Stack Edge device(s). To avail the preview offer, create a [Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
 

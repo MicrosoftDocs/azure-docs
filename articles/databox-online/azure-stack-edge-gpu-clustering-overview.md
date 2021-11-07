@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 11/07/2021
 ms.author: alkohli
 ---
 
@@ -45,11 +45,13 @@ The infrastructure cluster on your device provides persistent storage and is sho
 1. You can deploy your application workloads on top of the infrastructure cluster. 
     1. Non-containerized workloads such as VMs can be directly deployed on top of the Storage Spaces Direct layer.
 
-    ![VMs workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-virtual-machine-worloads-infrastructure-cluster.png)
+        ![VMs workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-virtual-machine-workloads-infrastructure-cluster.png)
 
     1. Containerized workloads use Kubernetes for workload deployment and management. A Kubernetes cluster that consists of a master VM and two worker VMs (one for each node) is deployed on top of the infrastructure cluster. 
+    
+        **NOTE: Diagram needs to be updated, show networking as well!**
 
-    ![Kubernetes or IoT Edge workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-worloads-infrastructure-cluster.png)
+        ![Kubernetes or IoT Edge workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-workloads-infrastructure-cluster.png)
 
     
     The Kubernetes cluster allows for application orchestration whereas the infrastructure cluster provides persistent storage.
@@ -116,13 +118,15 @@ On your two-node cluster, you can deploy non-containerized workloads or containe
 
 You can manage the Azure Stack Edge cluster via the PowerShell interface of the device, or through the local UI. Some typical management tasks are:
 
-- [Add a node]()
-- [Unprepare a node]()
-- [Configure cloud witness]().
-- [Set up a local witness]().
-- [Remove the cluster]().
-- [Update the cluster]().
-- [Configure virtual IP settings for the cluster]()
+**NOTE: Management scenarios are work in progress!**
+
+- [Add a node](azure-stack-edge-placeholder.md)
+- [Unprepare a node](azure-stack-edge-placeholder.md)
+- [Configure cloud witness](azure-stack-edge-placeholder.md).
+- [Set up a local witness](azure-stack-edge-placeholder.md).
+- [Remove the cluster](azure-stack-edge-placeholder.md).
+- [Update the cluster](azure-stack-edge-placeholder.md).
+- [Configure virtual IP settings for the cluster](azure-stack-edge-placeholder.md)
 
 
 ## Cluster upgrades
