@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/13/2021
+ms.date: 11/07/2021
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -54,29 +54,36 @@ Before you configure device related settings on your Azure Stack Edge Pro device
 
 Follow these steps to configure device related settings:
 
-1. On the **Device** page, take the following steps:
+1. In the local web UI for your device, go to the **Device** page.
 
-    1. Enter a friendly name for your device. The friendly name must contain from 1 to 13 characters and can have letter, numbers, and hyphens.
+1. Enter a **Name** for your device. The name must contain from 1 to 13 characters and can have letter, numbers, and hyphens.
 
-    2. Provide a **DNS domain** for your device. This domain is used to set up the device as a file server.
+1. Provide a **DNS domain** for your device. This domain is used to set up the device as a file server.
 
-    3. To validate and apply the configured device settings, select **Apply**.
+1. To validate and apply the configured device settings, select **Apply**.
 
-        ![Local web UI "Device" page 1](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
+    ![Local web UI "Device" page 1](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
-        If you have changed the device name and the DNS domain, the automatically generated self-signed certificates on the device will not work. You need to choose one of the following options when you configure certificates.: 
+    If you have changed the device name and the DNS domain, the automatically generated self-signed certificates on the device will not work. You need to choose one of the following options when you configure certificates.: 
         
-        - Generate and download the device certificates. 
-        - Bring your own certificates for the device including the signing chain.
+    - Generate and download the device certificates. 
+    - Bring your own certificates for the device including the signing chain.
     
 
-        ![Local web UI "Device" page 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
+    ![Local web UI "Device" page 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
 
-    4. When the device name and the DNS domain are changed, the SMB endpoint is created.  
+    When the device name and the DNS domain are changed, the SMB endpoint is created.  
 
-    5. After the settings are applied, select **Next: Update server**.
+1. After the settings are applied, select **Next: Update server**.
 
-        ![Local web UI "Device" page 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
+    ![Local web UI "Device" page 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
+
+::: zone pivot="two-node"
+
+1. Repeat all the above steps for the second node of your device. Make sure that the same DNS domain is used for both the nodes.
+
+::: zone-end
+
 
 ## Configure update
 
@@ -93,8 +100,14 @@ Follow these steps to configure device related settings:
         > [!NOTE] 
         > If a separate Windows Update server is configured and if you choose to connect over *https* (instead of *http*), then signing chain certificates required to connect to the update server are needed. For information on how to create and upload certificates, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md). 
 
-2. Select **Apply**.
-3. After the update server is configured, select **Next: Time**.
+1. Select **Apply**.
+1. After the update server is configured, select **Next: Time**.
+
+::: zone pivot="two-node"
+
+1. Repeat all the above steps for the second node of your device. Make sure that the same update server is used for both the nodes.
+
+::: zone-end 
     
 
 ## Configure time
@@ -120,8 +133,13 @@ NTP servers are required because your device must synchronize time so that it ca
 
         ![Local web UI "Time" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/time-2.png)
 
-2. After the settings are applied, select **Next: Certificates**.
+1. After the settings are applied, select **Next: Certificates**.
 
+::: zone pivot="two-node"
+
+1. Repeat all the above steps for the second node of your device. Make sure that the same NTP server is used for both the nodes.
+
+::: zone-end 
 
 ## Next steps
 
