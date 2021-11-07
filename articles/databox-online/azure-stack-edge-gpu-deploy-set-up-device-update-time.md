@@ -12,19 +12,24 @@ ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
+
 # Tutorial: Configure the device settings for Azure Stack Edge Pro GPU
 
 ::: zone pivot="single-node"
+
+This tutorial describes how to configure device related settings for your 1-node Azure Stack Edge Pro GPU device. You can set up your device name, update server, and time server via the local web UI.
+
+The device settings can take around 5-7 minutes to complete.
 
 ::: zone-end
 
 ::: zone pivot="two-node"
 
-::: zone-end
-
-This tutorial describes how you configure device related settings for your Azure Stack Edge Pro device with an onboard GPU. You can set up your device name, update server, and time server via the local web UI.
+This tutorial describes how to configure device related settings for your 2-node Azure Stack Edge Pro GPU device. You can set up your device name, update server, and time server via the local web UI.
 
 The device settings can take around 5-7 minutes to complete.
+
+::: zone-end
 
 In this tutorial, you learn about:
 
