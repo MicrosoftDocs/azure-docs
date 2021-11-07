@@ -12,11 +12,11 @@ ms.date: 10/19/2021
 
 Read this article to learn how to use Kusto Query Language (KQL) in Microsoft Sentinel.
 
-Microsoft Sentinel data is stored in Azure Monitor [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-overview) workspaces. Log Analytics is build on top of [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/), and uses the same [KQL language](https://docs.microsoft.com/azure/data-explorer/kusto/query/) (with specific Azure Monitor features) to retrieve, visualize, and analyze, and parse data. In Microsoft Sentinel, you use KQL when you visualize and analyze data, build rules and workbooks, and hunt for threats.
+Microsoft Sentinel data is stored in Azure Monitor [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) workspaces. Log Analytics is build on top of [Azure Data Explorer](/data-explorer/), and uses the same [KQL language](/data-explorer/kusto/query/) (with specific Azure Monitor features) to retrieve, visualize, and analyze, and parse data. In Microsoft Sentinel, you use KQL when you visualize and analyze data, build rules and workbooks, and hunt for threats.
 
 ## KQL queries
 
-KQL queries are plain text and read-only. They don't modify data or metadata. Queries operate on data that's gathered into [databases](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/databases), [tables](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/tables), and [columns](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/columns), similar to SQL. You start KQL queries with a data source (table) and then perform actions on those tables with operators and functions. You tie tables and operators together with a [pipe (|) delimiter](https://docs.microsoft.com/azure/data-explorer/kusto/query/queries).
+KQL queries are plain text and read-only. They don't modify data or metadata. Queries operate on data that's gathered into [databases](/data-explorer/kusto/query/schema-entities/databases), [tables](/data-explorer/kusto/query/schema-entities/tables), and [columns](/data-explorer/kusto/query/schema-entities/columns), similar to SQL. You start KQL queries with a data source (table) and then perform actions on those tables with operators and functions. You tie tables and operators together with a [pipe (|) delimiter](/data-explorer/kusto/query/queries).
 
 
 ## KQL demo environment
@@ -31,7 +31,7 @@ In this article all the examples are run in the demo environment, so you can try
 
 ## Before you start
 
-Before you start trying out KQL queries for Microsoft Sentinel, review some [query best practices](https://docs.microsoft.com/azure/data-explorer/kusto/query/best-practices).
+Before you start trying out KQL queries for Microsoft Sentinel, review some [query best practices](/data-explorer/kusto/query/best-practices).
 
 ## Using KQL in Sentinel
 
@@ -238,7 +238,7 @@ SecurityEvent
 
 ```kusto
 //Operators that use the present time as start point return data changes each time your run the query.
-//This example uses the [startofday function](https://docs.microsoft.com/azure/data-explorer/kusto/query/startofdayfunction) as a fixed point in time (one day ago), until the present time. 
+//This example uses the [startofday function](/data-explorer/kusto/query/startofdayfunction) as a fixed point in time (one day ago), until the present time. 
 
 SecurityEvent
 | where TimeGenerated > startofday(ago(1d))
@@ -271,7 +271,7 @@ The query ran on October 26 2021, sorted in ascending order. The first record is
 
 #### More examples
 
-There are additional timeline examples in Clive Watson's [TechCommunity blog](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-align-your-analytics-with-time-windows-in-azure-sentinel/ba-p/1667574), and in the [KQL docs](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?pivots=azuremonitor#date-and-time-operations).
+There are additional timeline examples in Clive Watson's [TechCommunity blog](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-align-your-analytics-with-time-windows-in-azure-sentinel/ba-p/1667574), and in the [KQL docs](/data-explorer/kusto/query/samples?pivots=azuremonitor#date-and-time-operations).
 
 
 ## Prepare data
@@ -292,7 +292,7 @@ Use *summarize* to query table data and output a new table aggregated by one or 
 #### Example 1
 
 ```kusto
-//Return multiple EventIDs in the SecurityEvent table using the [count() aggregation function](https://docs.microsoft.com/azure/data-explorer/kusto/query/count-aggfunction).
+//Return multiple EventIDs in the SecurityEvent table using the [count() aggregation function](/data-explorer/kusto/query/count-aggfunction).
 // count_ is the automatically generated column name for the count() of requests for each EventID.
 
 SecurityEvent
@@ -327,5 +327,5 @@ Update
 
 ### Other aggregation options
 
-In addition to count() aggregation, there are a lot of other KQL [aggregation functions](https://docs.microsoft.com/azure/data-explorer/kusto/query/aggregation-functions) you might use in Microsoft Sentinel.  Let's look at a few examples.
+In addition to count() aggregation, there are a lot of other KQL [aggregation functions](/data-explorer/kusto/query/aggregation-functions) you might use in Microsoft Sentinel.  Let's look at a few examples.
 
