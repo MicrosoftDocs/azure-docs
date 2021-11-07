@@ -50,6 +50,8 @@ These scenarios are covered in detail in the next section on [Failure Modes and 
 
 ## Failure modes and behavior
 
+The Azure Stack Edge device nodes may fail under certain conditions. The various failure modes and the corresponding device responses are tabulated in this section.
+
 #### Azure Stack Edge node failures or reboots
 
 | Node                 | Failures     | Responses                         |
