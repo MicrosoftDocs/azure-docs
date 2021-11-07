@@ -38,8 +38,8 @@ Defender for Cloud analyzes the security state of your resources to identify pot
         - **Open query** - All recommendations have the option to view the detailed information about the affected resources using Azure Resource Graph Explorer.
     1. **Severity indicator**.
     1. **Freshness interval** (where relevant).
-    1. **Count of exempted resources** if exemptions exist for this recommendation, this shows the number of resources that have been exempted.
-    1. **Mapping to MITRE ATT&CK ® tactics and techniques** if this recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. 
+    1. **Count of exempted resources** if exemptions exist for a recommendation, this shows the number of resources that have been exempted with a link to view the specific resources.
+    1. **Mapping to MITRE ATT&CK ® tactics and techniques** if a recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. 
 
         :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
 
@@ -62,7 +62,6 @@ Defender for Cloud analyzes the security state of your resources to identify pot
     1. **Affected resources** - Your resources are grouped into tabs:
         - **Healthy resources** – Relevant resources which either aren't impacted or on which you've already  remediated the issue.
         - **Unhealthy resources** – Resources which are still impacted by the identified issue.
-        - **Removed** - Resources that were deleted between assessment cycles (as defined by the freshness interval).
         - **Not applicable resources** – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource. 
 
             :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::

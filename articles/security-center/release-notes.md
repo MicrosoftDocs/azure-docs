@@ -120,9 +120,9 @@ We've also enhanced the "Auditing on SQL server should be enabled" recommendatio
 
 ### Recommendations mapped to the MITRE ATT&CK® framework - released for general availability (GA)
 
-Wherever relevant, we're added references information to recommendations to show their position on the MITRE ATT&CK® framework. This globally accessible knowledge base of adversary tactics and techniques based on real-world observations, provides more context to help you understand the associated risks of a recommendation.  
+We've enhanced Defender for Cloud's security recommendations to show their position on the MITRE ATT&CK® framework. This globally accessible knowledge base of threat actors' tactics and techniques based on real-world observations, provides more context to help you understand the associated risks of the recommendations for your environment.
 
-You'll find this information in the locations where recommendation information is used:
+You'll find these tactics wherever you access recommendation information:
 
 - **Azure Resource Graph query results** for relevant recommendations include the MITRE ATT&CK® tactics and techniques.
 
@@ -131,8 +131,6 @@ You'll find this information in the locations where recommendation information i
     :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
 
 - **The recommendations page in Defender for Cloud** has a new :::image type="icon" source="media/review-security-recommendations/tactics-filter-recommendations-page.png" border="false"::: filter to select recommendations according to their associated tactic:
-
-
 
 Learn more in [Review your security recommendations](review-security-recommendations.md).
 
