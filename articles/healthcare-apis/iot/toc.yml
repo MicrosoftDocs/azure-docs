@@ -36,6 +36,8 @@ items:
       href: device-data-through-iot-hub.md 
     - name: Use Device mappings
       href: how-to-use-device-mapping-iot.md
+    - name: Use custom functions
+      href: iot-connector-custom-functions.md  
     - name: Use FHIR destination mappings
       href: how-to-use-fhir-mapping-iot.md
     - name: Export IoT connector Metrics through Diagnostic settings
