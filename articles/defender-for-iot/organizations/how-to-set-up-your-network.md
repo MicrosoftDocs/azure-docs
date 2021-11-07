@@ -129,10 +129,10 @@ Open these ports to allow extra services for Defender for IoT.
 | [SNMP](how-to-set-up-snmp-mib-monitoring.md) | UDP | Out | 161 | Monitoring | Monitors the sensor's health. | On-premises management console and Sensor | SNMP server |
 | SMTP | TCP | Out | 25 | Email | Used to open the customer's mail server, in order to send emails for alerts, and events. | Sensor and On-premises management console | Email server |
 | Syslog | UDP | Out | 514 | LEEF | The logs that are sent from the on-premises management console to Syslog server. | On-premises management console and Sensor | Syslog server |
-| DNS | TCP  | In/Out | 53 | DNS | The DNS server port. | On-premises management console and Sensor | DNS server |
+| DNS | TCP & UDP | In/Out | 53 | DNS | The DNS server port. | On-premises management console and Sensor | DNS server |
 | [WMI](how-to-configure-windows-endpoint-monitoring.md) | TCP & UDP | Out | 135, 1025-65535 | Monitoring | Windows Endpoint Monitoring. | Sensor | Relevant network element |
 | Tunneling | TCP | In | 9000 </br></br> in addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console. </br></br> Port 22 from the sensor to the on-premises management console. | Monitoring | Tunneling | Sensor | On-premises management console |
-| Proxy | UDP | | 443| Proxy | To connect the sensor to a proxy server | On-premises management console and Sensor| Proxy server |
+| Proxy | TCP & UDP | | 443| Proxy | To connect the sensor to a proxy server | On-premises management console and Sensor| Proxy server |
 
 ### Plan rack installation
 
