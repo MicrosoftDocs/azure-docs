@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 10/27/2021
+ms.date: 11/07/2021
 ---
 
 # Create a codeless connector for Azure Sentinel (Public preview)
@@ -633,16 +633,19 @@ Then connect by passing credentials with one of the following methods:
 If you're connecting via API, and you've defined the `userRequestPlaceHoldersInput` value in the `instructionsSteps` > `instructions` section, you'll also need to send those parameters in the API call. For example:
 
 ```rest
-"requestConfigUserInputValues":
 "requestConfigUserInputValues": [
     {
-       "displayText": "<The_Display_Name>",
-       "placeHolderName": "<The_Place_Holder_Name_You_Choosed>",
-       "placeHolderValue": "<Some_Value>",
-       "requestObjectKey": "<The_Request_Property_You_Want_To_Set>"
+       "displayText": "<A display name>",
+       "placeHolderName": "<A placeholder name>",
+       "placeHolderValue": "<A value for the placeholder>",
+       "pollingKeyPaths": "<Array of items to use in place of the placeHolderName>"
      }
 ]
 ```
+
+The `pollingKeyPaths` parameter value is an array, in [JsonPath](https://www.npmjs.com/package/JSONPath) syntax.
+
+For example: `"pollingKeyPaths":["$.request.queryParameters.test1"]`
 
 ## Disconnect your connector
 
