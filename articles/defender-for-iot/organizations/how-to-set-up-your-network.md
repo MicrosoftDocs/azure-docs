@@ -132,7 +132,7 @@ Open these ports to allow extra services for Defender for IoT.
 | DNS | TCP & UDP | In/Out | 53 | DNS | The DNS server port. | On-premises management console and Sensor | DNS server |
 | [WMI](how-to-configure-windows-endpoint-monitoring.md) | TCP & UDP | Out | 135, 1025-65535 | Monitoring | Windows Endpoint Monitoring. | Sensor | Relevant network element |
 | Tunneling | TCP | In | 9000 </br></br> in addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console. </br></br> Port 22 from the sensor to the on-premises management console. | Monitoring | Tunneling | Sensor | On-premises management console |
-| Proxy | TCP & UDP | | 443| Proxy | To connect the sensor to a proxy server | On-premises management console and Sensor| Proxy server |
+| Proxy | TCP & UDP | In & Out | 443 | Proxy | To connect the sensor to a proxy server | On-premises management console and Sensor | Proxy server |
 
 ### Plan rack installation
 
