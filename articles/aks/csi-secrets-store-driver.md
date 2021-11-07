@@ -116,7 +116,7 @@ The Secrets Store CSI Driver allows for the following methods to access an Azure
 - [Azure Active Directory pod identity][aad-pod-identity]
 - User or System-assigned managed identity
 
-Follow the steps to [provide an identity to access Azure Key Vault][csi-secrets-store-identity-access.md] for your chosen method.
+Follow the steps to [provide an identity to access Azure Key Vault][identity-access-methods] for your chosen method.
 
 ## Validate the secrets
 
@@ -202,7 +202,7 @@ When creating a SecretProviderClass, use the `secretObjects` field to define the
 > Make sure the `objectName` in `secretObjects` matches the file name of the mounted content. If `objectAlias` is used instead, then it should match the object alias.
 
 ```yml
-apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
+apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
   name: azure-sync

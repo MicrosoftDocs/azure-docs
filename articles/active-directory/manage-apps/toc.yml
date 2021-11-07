@@ -136,6 +136,8 @@
       items:
       - name: Secure hybrid access with Azure AD 
         href: secure-hybrid-access.md
+      - name: Secure hybrid access partner integrations
+        href: secure-hybrid-access-integrations.md
       - name: Datawiza
         href: datawiza-with-azure-ad.md 
       - name: F5

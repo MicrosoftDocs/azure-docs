@@ -193,6 +193,7 @@ If you have Virtual Machine Scale Sets in the backend, it's recommended to alloc
   *	A TCP SNAT port can be used for multiple connections to the same destination IP provided the destination ports are different.
 *	SNAT exhaustion occurs when a backend instance runs out of given SNAT Ports. A load balancer can still have unused SNAT ports. If a backend instance’s used SNAT ports exceed its given SNAT ports, it will be unable to establish new outbound connections.
 *	Fragmented packets will be dropped unless outbound is through an instance level public IP on the VM's NIC.
+*	Secondary IP configurations of a network interface do not outbound communication (unless a Public IP is associated to it) via Load Balancer.
 
 ## Next steps
 
