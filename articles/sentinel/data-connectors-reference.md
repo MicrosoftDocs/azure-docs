@@ -1650,7 +1650,7 @@ Follow the instructions to obtain the credentials.
 
 ### Additional instructions for deploying the Windows Forwarded Events connector
 
-We recommend installing the [Azure Sentinel Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.
+We recommend installing the [Advanced SIEM Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [`Azure-Sentinel` GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.
 
 ## Windows Firewall
 
@@ -1671,7 +1671,6 @@ We recommend installing the [Azure Sentinel Information Model (ASIM)](normalizat
 | **Supported by** | Microsoft |
 | | |
 
-
 See also: [**Security events via legacy agent**](#security-events-via-legacy-agent-windows) connector.
 
 ### Configure the Security events / Windows Security Events connector for anomalous RDP login detection
@@ -1681,7 +1680,7 @@ See also: [**Security events via legacy agent**](#security-events-via-legacy-age
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Sentinel can apply machine learning (ML) to Security events data to identify anomalous Remote Desktop Protocol (RDP) login activity. Scenarios include:
+Microsoft Sentinel can apply machine learning (ML) to Security events data to identify anomalous Remote Desktop Protocol (RDP) login activity. Scenarios include:
 
 - **Unusual IP** - the IP address has rarely or never been observed in the last 30 days
 
@@ -1691,9 +1690,9 @@ Azure Sentinel can apply machine learning (ML) to Security events data to identi
 
 **Configuration instructions**
 
-1. You must be collecting RDP login data (Event ID 4624) through the **Security events** or **Windows Security Events** data connectors. Make sure you have selected an [event set](windows-security-event-id-reference.md) besides "None", or created a data collection rule that includes this event ID, to stream into Azure Sentinel.
+1. You must be collecting RDP login data (Event ID 4624) through the **Security events** or **Windows Security Events** data connectors. Make sure you have selected an [event set](windows-security-event-id-reference.md) besides "None", or created a data collection rule that includes this event ID, to stream into Microsoft Sentinel.
 
-1. From the Azure Sentinel portal, select **Analytics**, and then select the **Rule templates** tab. Choose the **(Preview) Anomalous RDP Login Detection** rule, and move the **Status** slider to **Enabled**.
+1. From the Microsoft Sentinel portal, select **Analytics**, and then select the **Rule templates** tab. Choose the **(Preview) Anomalous RDP Login Detection** rule, and move the **Status** slider to **Enabled**.
 
     > [!NOTE]
     > As the machine learning algorithm requires 30 days' worth of data to build a baseline profile of user behavior, you must allow 30 days of Windows Security events data to be collected before any incidents can be detected.

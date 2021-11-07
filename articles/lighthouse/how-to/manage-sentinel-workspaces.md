@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Sentinel workspaces at scale
-description: Azure Lighthouse helps you effectively manage Azure Sentinel across delegated customer resources.
+title: Manage Microsoft Sentinel workspaces at scale
+description: Azure Lighthouse helps you effectively manage Microsoft Sentinel across delegated customer resources.
 ms.date: 11/05/2021
 ms.topic: how-to
 ---
@@ -39,7 +39,7 @@ This model of deployment has the following advantages:
 > [!IMPORTANT]
 > If all workspaces are created in customer tenants, the Microsoft.SecurityInsights & Microsoft.OperationalInsights resource providers must also be [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant.
 
-An alternate deployment model is to create one Azure Sentinel workspace in the managing tenant. In this model, Azure Lighthouse enables log collection from data sources across managed tenants. However, there are some data sources that can't be connected across tenants, such as Microsoft Defender. Because of this limitation, this model is not suitable for many service provider scenarios.
+An alternate deployment model is to create one Microsoft Sentinel workspace in the managing tenant. In this model, Azure Lighthouse enables log collection from data sources across managed tenants. However, there are some data sources that can't be connected across tenants, such as Microsoft Defender. Because of this limitation, this model is not suitable for many service provider scenarios.
 
 ## Granular Azure role-based access control (Azure RBAC)
 
@@ -92,9 +92,9 @@ After setting up Office 365 data connectors, you can use cross-tenant Microsoft 
 
 ## Protect intellectual property
 
-When working with customers, you may want to protect the intellectual property you've developed in Azure Sentinel, such as Azure Sentinel analytics rules, hunting queries, playbooks, and workbooks. There are different methods you can use to ensure that customers don't have complete access to the code used in these resources.
+When working with customers, you may want to protect the intellectual property you've developed in Microsoft Sentinel, such as Microsoft Sentinel analytics rules, hunting queries, playbooks, and workbooks. There are different methods you can use to ensure that customers don't have complete access to the code used in these resources.
 
-For more information, see [Protecting MSSP intellectual property in Azure Sentinel](../../sentinel/mssp-protect-intellectual-property.md).
+For more information, see [Protecting MSSP intellectual property in Microsoft Sentinel](../../sentinel/mssp-protect-intellectual-property.md).
 
 ## Next steps
 

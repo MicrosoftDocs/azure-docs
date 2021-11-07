@@ -49,23 +49,25 @@ The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace t
 Use the Azure Monitor agent if you need to:
 
 - Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc-enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
-- Manage data collection configuration centrally, using [data collection rules](./data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall
+- Manage data collection configuration centrally, using [data collection rules](./data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall.
 - Send data to Azure Monitor Logs and Azure Monitor Metrics (preview) for analysis with Azure Monitor. 
-- Leverage Windows event filtering or multi-homing for logs on Windows and Linux
+- Use Windows event filtering or multi-homing for logs on Windows and Linux.
+
 <!--- Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
-- Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md). (Available in private preview.)
+- Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Microsoft Sentinel](../../sentinel/overview.md). (Available in private preview.)
 - Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
-- Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
+- Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Microsoft Sentinel](../../sentinel/overview.md).
 - Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application. */
 -->
+
 Limitations of the Azure Monitor Agent include:
+
 - Cannot use the Log Analytics solutions in production (only available in preview, [see what's supported](./azure-monitor-agent-overview.md#supported-services-and-features)).
 - No support yet for networking scenarios involving private links. 
 - No support yet collecting custom logs (files) or IIS log files. 
 - No support yet for Event Hubs and Storage accounts as destinations.
 - No support for Hybrid Runbook workers.
-
 
 ## Log Analytics agent
 
@@ -195,7 +197,8 @@ The following tables list the operating systems that are supported by the Azure 
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.
 
-<sup>3</sup> Known issue collecting Syslog events in versions prior to 1.9.0
+<sup>3</sup> Known issue collecting Syslog events in versions prior to 1.9.0.
+
 #### Dependency agent Linux kernel support
 
 Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
