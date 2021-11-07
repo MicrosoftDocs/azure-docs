@@ -273,19 +273,11 @@ TableName
 |---------|---------|---------|
 | **title**	| String | A title for your instructions (optional) |
 | **description** | 	String	| A meaningful description for your instructions (optional) |
-| **instructions** |	[ConnectorInstructionModelBase[]](#connectorinstructionmodelbase---abstract-type)	| An array of instruction widgets |
-| **innerSteps**	| [InstructionStep[]](#instructionstep) | An array of inner instruction steps (Optional) |
+| **innerSteps**	| [InstructionStep](#instructionstep) | An array of inner instruction steps (optional) |
 | **bottomBorder** | 	Boolean	| When `true`, adds a bottom border to the instructions area on the connector page in Azure Sentinel |
 | **isComingSoon** |	Boolean	| When `true`, adds a **Coming soon** title on the connector page in Azure Sentinel |
 | | | |
 
-#### ConnectorInstructionModelBase - abstract type
-
-|Name  |Type  |Description  |
-|---------|---------|---------|
-| **type** | 	ENUM	| A widget type as listed in [Supported widgets](#supported-widgets). |
-| **parameters** | 	T	| Parameters required by each widget, as listed in [Supported widgets](#supported-widgets). |
-| | | |
 
 #### CopyableLabel
 
