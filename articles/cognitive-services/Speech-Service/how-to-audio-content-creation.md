@@ -3,13 +3,13 @@ title: Audio Content Creation - Speech service
 titleSuffix: Azure Cognitive Services
 description: Audio Content Creation is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products.
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.author: lajanuar
+ms.author: eur
 ---
 
 # Improve synthesis with the Audio Content Creation tool
@@ -133,13 +133,12 @@ The user need to prepare a [Microsoft account](https://account.microsoft.com/acc
 Follow these steps to add a user to a speech resource so they can use Audio Content Creation.
 
 1. Search for **Cognitive services** in the [Azure portal](https://portal.azure.com/), select the speech resource that you want to add users to.
-2. Click **Access control (IAM)**. Click the **Role assignments** tab to view all the role assignments for this subscription.
-    :::image type="content" source="media/audio-content-creation/access-control-roles.png" alt-text="Role assignment tab":::
-3. Click **Add** > **Add role assignment** to open the Add role assignment pane. In the Role drop-down list, select the **Cognitive Service User** role. If you want to give the user ownership of this speech resource, you can select the **Owner** role.
-4. Type in user's email address and select the user in the directory. The email address must be a **Microsoft account**, which is trusted by Azure active directory. Users can easily sign up a [Microsoft account](https://account.microsoft.com/account) using a personal email address. 
-5. Click **Save** to assign the role. 
-6. The user will receive an email invitation. Accept the invitation by clicking **Accept invitation** > **Accept to join Azure** in the email. Then the user will be redirected to the Azure portal. The user does not need to take further action in the Azure portal. After a few moments, the user is assigned the role at the speech resource scope, and will have the access to this speech resource. If the user didn't receive the invitation email, you can search the user's account under "Role assignments" and go inside the user's profile. Find "Identity" -> "Invitation accepted", and click **(manage)** to resend the email invitation. You can also copy the invitation link to the users. 
-7. The user now visits or refreshes the [Audio Content Creation](https://aka.ms/audiocontentcreation) product page, and sign in with the user's Microsoft account. Select **Audio Content Creation** block among all speech products. Choose the speech resource in the pop-up window or in the settings at the upper right of the page. If the user cannot find available speech resource, check if you are in the right directory. To check the right directory, click the account profile in the upper right corner, and click **Switch** besides the "Current directory". If there are more than one directory available, it means you have access to multiple directories. Switch to different directories and go to settings to see if the right speech resource is available. 
+2. Click **Access control (IAM)**. Select **Add** > **Add role assignment (Preview)** to open the Add role assignment pane. 
+1. On the **Role** tab, select the **Cognitive Service User** role. If you want to give the user ownership of this speech resource, you can select the **Owner** role.
+1. On the **Members** tab, type in user's email address and select the user in the directory. The email address must be a **Microsoft account**, which is trusted by Azure active directory. Users can easily sign up a [Microsoft account](https://account.microsoft.com/account) using a personal email address. 
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+1. The user will receive an email invitation. Accept the invitation by clicking **Accept invitation** > **Accept to join Azure** in the email. Then the user will be redirected to the Azure portal. The user does not need to take further action in the Azure portal. After a few moments, the user is assigned the role at the speech resource scope, and will have the access to this speech resource. If the user didn't receive the invitation email, you can search the user's account under "Role assignments" and go inside the user's profile. Find "Identity" -> "Invitation accepted", and click **(manage)** to resend the email invitation. You can also copy the invitation link to the users. 
+1. The user now visits or refreshes the [Audio Content Creation](https://aka.ms/audiocontentcreation) product page, and sign in with the user's Microsoft account. Select **Audio Content Creation** block among all speech products. Choose the speech resource in the pop-up window or in the settings at the upper right of the page. If the user cannot find available speech resource, check if you are in the right directory. To check the right directory, click the account profile in the upper right corner, and click **Switch** besides the "Current directory". If there are more than one directory available, it means you have access to multiple directories. Switch to different directories and go to settings to see if the right speech resource is available. 
 
     :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Add role dialog":::
 

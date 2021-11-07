@@ -7,7 +7,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
-ms.author: absha
+ms.author: victorh
 ms.custom: mvc
 ---
 

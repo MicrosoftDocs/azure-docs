@@ -1,6 +1,6 @@
 ---
 title: Specify Marketplace purchase plan information using Azure PowerShell 
-description: Learn how to specify Azure Marketplace purchase plan details when creating images in a Shared Image Gallery.
+description: Learn how to specify Azure Marketplace purchase plan details when creating images in an Azure Compute Gallery (formerly known as Shared Image Gallery).
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
-ms.reviewer: akjosh 
 ms.custom: devx-track-azurepowershell
  
 ---
@@ -34,7 +33,7 @@ $vm.Plan
 
 ## Create the image definition
 
-Get the image gallery that you want to use to store the image. You can list all of the galleries first.
+Get the gallery you want to use to store the image. You can list all of the galleries first.
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
@@ -67,7 +66,7 @@ Create the image definition, using the  `-PurchasePlanPublisher`, `-PurchasePlan
    -PurchasePlanName  $vm.Plan.Name
 ```
 
-Then create your image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You can create an image version from a [VM](image-version-vm-powershell.md#create-an-image-version), [managed image](image-version-managed-image-powershell.md#create-an-image-version), [VHD\snapshot](image-version-snapshot-powershell.md#create-an-image-version), or [another image version](image-version-another-gallery-powershell.md#create-the-image-version). 
+Then create your [image version](image-version.md) using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion).  
 
 
 ## Create the VM

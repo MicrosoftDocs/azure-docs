@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 08/06/2021
+ms.date: 11/01/2021
 ---
 
 # Quickstart: Publish messages using the service SDK for the Azure Web PubSub instance
@@ -69,7 +69,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     mkdir publisher
     cd publisher
     dotnet new console
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
 
 2. Update the `Program.cs` file to use the `WebPubSubServiceClient` class and send messages to the clients.
@@ -125,23 +125,22 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     mkdir publisher
     cd publisher
     npm init -y
-    npm install --save @azure/web-pubsub
-
+    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
     ```
+
 2. Now let's use Azure Web PubSub SDK to publish a message to the service. Create a `publish.js` file with the below code:
 
     ```javascript
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-    if (process.argv.length !== 5) {
-    console.log('Usage: node publish <connection-string> <hub-name> <message>');
-    return 1;
+    if (process.argv.length !== 3) {
+      console.log('Usage: node publish <message>');
+      return 1;
     }
-
-    let serviceClient = new WebPubSubServiceClient(process.argv[2], process.argv[3]);
-
+    const hub = "pubsub";
+    let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
-    serviceClient.sendToAll(process.argv[4], { contentType: "text/plain" });
+    serviceClient.sendToAll(process.argv[2], { contentType: "text/plain" });
     ```
 
     The `sendToAll()` call simply sends a message to all connected clients in a hub.
@@ -149,7 +148,8 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
 
     ```bash
-    node publish "<connection_string>" "myHub1" "Hello World"
+    export WebPubSubConnectionString="<connection-string>"
+    node publish "Hello World"
     ```
 
 4. You can see that the previous CLI client received the message.
@@ -173,7 +173,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
         # Or call .\env\Scripts\activate when you are using CMD
 
-        pip install azure-messaging-webpubsubservice
+        pip install azure-messaging-webpubsubservice==1.0.0b1
 
         ```
 2. Now let's use Azure Web PubSub SDK to publish a message to the service. Create a `publish.py` file with the below code:

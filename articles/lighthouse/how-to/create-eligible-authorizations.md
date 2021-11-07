@@ -1,7 +1,7 @@
 ---
 title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
-ms.date: 08/26/2021
+ms.date: 09/08/2021
 ms.topic: how-to
 ---
 
@@ -57,7 +57,7 @@ You can't use eligible authorizations with service principals, since there's cur
 
 Each eligible authorization needs to include an [Azure built-in role](../../role-based-access-control/built-in-roles.md) that the user will be eligible to use on a just-in-time basis.
 
-The role can be any Azure built-in role that is supported for Azure delegated resource management except for User Access Administrator.
+The role can be any Azure built-in role that is [supported for Azure delegated resource management](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse), except for User Access Administrator.
 
 > [!IMPORTANT]
 > If you include multiple eligible authorizations that use the same role, each of the eligible authorizations must have the same access policy settings.

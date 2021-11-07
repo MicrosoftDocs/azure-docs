@@ -5,7 +5,7 @@ author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 08/24/2021
+ms.date: 11/01/2021
 ---
 
 # Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service
@@ -64,64 +64,69 @@ In this tutorial, you learn how to:
 
 1. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package explicitly.
 
-   a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
-    ```json
-    {
+   1. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
+
+      ```json
+      {
         "version": "2.0"
-    }
-    ```
-   b. Run command to install specific function extension package.
-    ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
-    ```
+      }
+      ```
+
+   1. Run command to install specific function extension package.
+
+      ```bash
+      func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+      ```
 
 1. Create an `index` function to read and host a static web page for clients.
-    ```bash
-    func new -n index -t HttpTrigger
-    ```
+
+   ```bash
+   func new -n index -t HttpTrigger
+   ```
+
    # [JavaScript](#tab/javascript)
    - Update `index/function.json` and copy following json codes.
-        ```json
-        {
-            "bindings": [
-                {
-                    "authLevel": "anonymous",
-                    "type": "httpTrigger",
-                    "direction": "in",
-                    "name": "req",
-                    "methods": [
-                      "get",
-                      "post"
-                    ]
-                },
-                {
-                    "type": "http",
-                    "direction": "out",
-                    "name": "res"
-                }
-            ]
-        }
-        ```
+     ```json
+     {
+         "bindings": [
+             {
+                 "authLevel": "anonymous",
+                 "type": "httpTrigger",
+                 "direction": "in",
+                 "name": "req",
+                 "methods": [
+                   "get",
+                   "post"
+                 ]
+             },
+             {
+                 "type": "http",
+                 "direction": "out",
+                 "name": "res"
+             }
+         ]
+     }
+     ```
    - Update `index/index.js` and copy following codes.
-        ```js
-        var fs = require('fs');
-        module.exports = function (context, req) {
-            fs.readFile('index.html', 'utf8', function (err, data) {
-                if (err) {
-                    console.log(err);
-                    context.done(err);
-                }
-                context.res = {
-                    status: 200,
-                    headers: {
-                        'Content-Type': 'text/html'
-                    },
-                    body: data
-                };
-                context.done();
-            });
-        }
-        ```
+     ```js
+     var fs = require('fs');
+     module.exports = function (context, req) {
+         fs.readFile('index.html', 'utf8', function (err, data) {
+             if (err) {
+                 console.log(err);
+                 context.done(err);
+             }
+             context.res = {
+                 status: 200,
+                 headers: {
+                     'Content-Type': 'text/html'
+                 },
+                 body: data
+             };
+             context.done();
+         });
+     }
+     ```
 
    # [C#](#tab/csharp)
    - Update `index.cs` and replace `Run` function with following codes.
@@ -353,7 +358,7 @@ Use the following commands to create these item.
 
 1. Deploy the function project to Azure:
 
-    After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](/azure-functions/functions-run-local) command.
+    After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](../azure-functions/functions-run-local.md) command.
 
     ```bash
     func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings

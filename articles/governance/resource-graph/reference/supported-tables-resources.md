@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.topic: reference
 ms.custom: generated
 ---
@@ -18,6 +18,7 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.advisor/configurations
 - microsoft.advisor/recommendations
   - Sample query: [Get cost savings summary from Azure Advisor](../samples/samples-by-category.md#get-cost-savings-summary-from-azure-advisor)
+  - Sample query: [List Arc-enabled servers not running latest released agent version](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version)
 - microsoft.advisor/recommendations/suppressions
 - microsoft.advisor/suppressions
 
@@ -55,6 +56,15 @@ For sample queries for this table, see [Resource Graph sample queries for health
   - Sample query: [List of virtual machines and associated availability states by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
   - Sample query: [List of virtual machines by availability state and power state with Resource Ids and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - Sample query: [List of virtual machines that are not Available by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
+
+## iotsecurityresources
+
+- microsoft.iotsecurity/locations/devicegroups/alerts
+- microsoft.iotsecurity/locations/devicegroups/devices
+- microsoft.iotsecurity/locations/devicegroups/recommendations
+- microsoft.iotsecurity/onpremisesensors
+- microsoft.iotsecurity/sensors
+- microsoft.iotsecurity/sites
 
 ## kubernetesconfigurationresources
 
@@ -311,6 +321,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.ContainerRegistry/registries/webhooks (Container registry webhooks)
 - microsoft.containerservice/containerservices
 - Microsoft.ContainerService/managedClusters (Kubernetes services)
+  - Sample query: [List impacted resources when transferring an Azure subscription](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.containerservice/openshiftmanagedclusters
 - microsoft.contoso/clusters
 - microsoft.contoso/employees
@@ -331,6 +342,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.DataFactory/factories (Data factories (V2))
 - Microsoft.DataLakeAnalytics/accounts (Data Lake Analytics)
 - Microsoft.DataLakeStore/accounts (Data Lake Storage Gen1)
+  - Sample query: [List impacted resources when transferring an Azure subscription](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.datamigration/controllers
 - Microsoft.DataMigration/services (Azure Database Migration Services)
 - Microsoft.DataMigration/services/projects (Azure Database Migration Projects)
@@ -430,6 +442,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.HybridCompute/machines (Servers - Azure Arc)
   - Sample query: [Get count and percentage of Arc-enabled servers by domain](../samples/samples-by-category.md#get-count-and-percentage-of-arc-enabled-servers-by-domain)
   - Sample query: [List all extensions installed on an Azure Arc-enabled server](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
+  - Sample query: [List Arc-enabled servers not running latest released agent version](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version)
 - microsoft.hybridcompute/machines/extensions
   - Sample query: [List all extensions installed on an Azure Arc-enabled server](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - Microsoft.HybridCompute/privateLinkScopes (Azure Arc Private Link Scopes)
@@ -474,6 +487,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.KeyVault/vaults (Key vaults)
   - Sample query: [Count key vault resources](../samples/samples-by-category.md#count-key-vault-resources)
   - Sample query: [Key vaults with subscription name](../samples/samples-by-category.md#key-vaults-with-subscription-name)
+  - Sample query: [List impacted resources when transferring an Azure subscription](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - Microsoft.Kubernetes/connectedClusters (Kubernetes - Azure Arc)
   - Sample query: [List all Azure Arc-enabled Kubernetes clusters without Azure Monitor extension](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
   - Sample query: [List all Azure Arc-enabled Kubernetes resources](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-resources)
@@ -509,6 +523,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.maintenance/maintenancepolicies
 - microsoft.managedidentity/groups
 - Microsoft.ManagedIdentity/userAssignedIdentities (Managed Identities)
+  - Sample query: [List impacted resources when transferring an Azure subscription](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.managednetwork/managednetworkgroups
 - microsoft.managednetwork/managednetworkpeeringpolicies
 - microsoft.managednetwork/managednetworks
@@ -713,6 +728,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.Sql/managedInstances/databases (Managed databases)
 - Microsoft.Sql/servers (SQL servers)
 - Microsoft.Sql/servers/databases (SQL databases)
+  - Sample query: [List impacted resources when transferring an Azure subscription](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
   - Sample query: [List SQL Databases and their elastic pools](../samples/samples-by-category.md#list-sql-databases-and-their-elastic-pools)
 - Microsoft.Sql/servers/elasticpools (SQL elastic pools)
   - Sample query: [List SQL Databases and their elastic pools](../samples/samples-by-category.md#list-sql-databases-and-their-elastic-pools)
@@ -726,6 +742,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
   - Sample query: [List all storage accounts with specific tag value](../samples/samples-by-category.md#list-all-storage-accounts-with-specific-tag-value)
+  - Sample query: [List impacted resources when transferring an Azure subscription](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.storagecache/amlfilesystems
 - Microsoft.StorageCache/caches (HPC caches)
 - Microsoft.StoragePool/diskPools (Disk Pools)

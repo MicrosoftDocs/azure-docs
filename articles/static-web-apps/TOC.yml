@@ -30,11 +30,13 @@
           href: functions-bring-your-own.md
     - name: Configuration
       items:
+        - name: Configuration overview
+          href: configuration-overview.md
         - name: Application configuration
           href: configuration.md
           displayName: routing, routes
         - name: Build configuration
-          href: github-actions-workflow.md
+          href: build-configuration.md
         - name: App settings
           href: application-settings.md
           displayName: environment variables
@@ -104,6 +106,10 @@
       href: publish-devops.md
     - name: Publish with an ARM template
       href: publish-azure-resource-manager.md
+    - name: Add Azure Front Door
+      href: front-door-manual.md
+    - name: Set user roles programmatically
+      href: assign-roles-microsoft-graph.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -124,3 +130,5 @@
       href: https://azure.microsoft.com/pricing/details/app-service/static/
     - name: Quotas
       href: quotas.md
+    - name: Frequently asked questions
+      href: faq.yml

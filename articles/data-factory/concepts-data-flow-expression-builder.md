@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ---
 
 # Build expressions in mapping data flow
@@ -24,25 +24,25 @@ In mapping data flow, many transformation properties are entered as expressions.
 
 There are multiple entry points to opening the expression builder. These are all dependent on the specific context of the data flow transformation. The most common use case is in transformations like [derived column](data-flow-derived-column.md) and [aggregate](data-flow-aggregate.md) where users create or update columns using the data flow expression language. The expression builder can be opened by selecting **Open expression builder** above the list of columns. You can also click on a column context and open the expression builder directly to that expression.
 
-![Open Expression Builder derive](media/data-flow/open-expression-builder-derive.png "Open Expression Builder derive")
+:::image type="content" source="media/data-flow/open-expression-builder-derive.png" alt-text="Open Expression Builder derive":::
 
 In some transformations like [filter](data-flow-filter.md), clicking on a blue expression text box will open the expression builder. 
 
-![Blue expression box](media/data-flow/expressionbox.png "Blue expression box")
+:::image type="content" source="media/data-flow/expressionbox.png" alt-text="Blue expression box":::
 
 When you reference columns in a matching or group-by condition, an expression can extract values from columns. To create an expression, select **Computed column**.
 
-![Computed column option](media/data-flow/computedcolumn.png "Computed column option")
+:::image type="content" source="media/data-flow/computedcolumn.png" alt-text="Computed column option":::
 
 In cases where an expression or a literal value are valid inputs, select **Add dynamic content** to build an expression that evaluates to a literal value.
 
-![Add dynamic content option](media/data-flow/add-dynamic-content.png "Add dynamic content option")
+:::image type="content" source="media/data-flow/add-dynamic-content.png" alt-text="Add dynamic content option":::
 
 ## Expression elements
 
 In mapping data flows, expressions can be composed of column values, parameters, functions, local variables, operators, and literals. These expressions must evaluate to a Spark data type such as string, boolean, or integer.
 
-![Expression elements](media/data-flow/expression-elements.png "Expression elements")
+:::image type="content" source="media/data-flow/expression-elements.png" alt-text="Expression elements":::
 
 ### Functions
 
@@ -52,7 +52,7 @@ Mapping data flows has built-in functions and operators that can be used in expr
 
 When dealing with columns or functions that return array types, use brackets ([]) to access a specific element. If the index doesn't exist, the expression evaluates into NULL.
 
-![Expression Builder array](media/data-flow/expression-array.png "Expression Data Preview")
+:::image type="content" source="media/data-flow/expression-array.png" alt-text="Expression Builder array":::
 
 > [!IMPORTANT]
 > In mapping data flows, arrays are one-based meaning the first element is referenced by index one. For example, myArray[1] will access the first element of an array called 'myArray'.
@@ -65,7 +65,7 @@ If your data flow uses a defined schema in any of its sources, you can reference
 
 When you have column names that include special characters or spaces, surround the name with curly braces to reference them in an expression.
 
-```{[dbo].this_is my complex name$$$}```
+`{[dbo].this_is my complex name$$$}`
 
 ### Parameters
 
@@ -79,7 +79,7 @@ A cached lookup allows you to do an inline lookup of the output of a cached sink
 
 `outputs()` takes no parameters and  returns the entire cache sink as an array of complex columns. This can't be called if key columns are specified in the sink and should only be used if there is a small number of rows in the cache sink. A common use case is appending the max value of an incrementing key. If a cached single aggregated row `CacheMaxKey` contains a column `MaxKey`, you can reference the first value by calling `CacheMaxKey#outputs()[1].MaxKey`.
 
-![Cached lookup](media/data-flow/cached-lookup-example.png "Cached lookup")
+:::image type="content" source="media/data-flow/cached-lookup-example.png" alt-text="Cached lookup":::
 
 ### Locals
 
@@ -89,7 +89,7 @@ If you are sharing logic across multiple columns or want to compartmentalize you
 
 If [debug mode](concepts-data-flow-debug-mode.md) is switched on, you can interactively use the debug cluster to preview what your expression evaluates to. Select **Refresh** next to data preview to update the results of the data preview. You can see the output of each row given the input columns.
 
-![In-progress preview](media/data-flow/preview-expression.png "Expression Data Preview")
+:::image type="content" source="media/data-flow/preview-expression.png" alt-text="In-progress preview":::
 
 ## String interpolation
 
@@ -121,7 +121,7 @@ The following examples are valid comments:
 
 If you put a comment at the top of your expression, it appears in the transformation text box to document your transformation expressions.
 
-![Comment in the transformation text box](media/data-flow/comment-expression.png "Comments")
+:::image type="content" source="media/data-flow/comment-expression.png" alt-text="Comment in the transformation text box":::
 
 ## Regular expressions
 
@@ -154,13 +154,13 @@ Below are a list of shortcuts available in the expression builder. Most intellis
 
 ### Convert to dates or timestamps
 
-To include string literals in your timestamp output, wrap your conversion in ```toString()```.
+To include string literals in your timestamp output, wrap your conversion in `toString()`.
 
-```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+`toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')`
 
 To convert milliseconds from epoch to a date or timestamp, use `toTimestamp(<number of milliseconds>)`. If time is coming in seconds, multiply by 1,000.
 
-```toTimestamp(1574127407*1000l)```
+`toTimestamp(1574127407*1000l)`
 
 The trailing "l" at the end of the previous expression signifies conversion to a long type as inline syntax.
 

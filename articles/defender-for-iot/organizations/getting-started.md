@@ -58,6 +58,8 @@ Registration includes:
 - Defining committed devices.
 - Downloading an activation file for the on-premises management console.
 
+You can also use a trial subscription to monitor 1000 devices for free  for 30 days. See [Onboard a trial subscription](how-to-manage-subscriptions.md#onboard-a-trial-subscription) for more information.
+
 **To register**:
 
 1. Go to the Azure Defender for IoT portal.

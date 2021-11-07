@@ -44,9 +44,9 @@ Make sure you have a valid Red Hat Subscription Manager (RHSM) username, passwor
 
 A RHEL image (OpenShift Container Platform) or CentOS image (OKD) needs to be added to your Azure Stack environment to deploy an OpenShift cluster. Contact your Azure Stack administrator to add these images. Instructions can be found here:
 
-- https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image
-- https://docs.microsoft.com/azure/azure-stack/azure-stack-marketplace-azure-items
-- https://docs.microsoft.com/azure/azure-stack/azure-stack-redhat-create-upload-vhd
+- [Add and remove a custom VM image to Azure Stack Hub](/azure-stack/operator/azure-stack-add-vm-image)
+- [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items)
+- [Offer a Red Hat-based virtual machine for Azure Stack Hub](/azure-stack/operator/azure-stack-redhat-create-upload-vhd)
 
 ## Deploy by using the OpenShift Container Platform or OKD Resource Manager template
 

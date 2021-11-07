@@ -7,13 +7,13 @@ ms.date: 12/15/2020
 
 # Quickstart: Connect hybrid machines with Azure Arc-enabled servers
 
-[Azure Arc-enabled servers](../overview.md) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge, and multicloud environments. In this quickstart, you'll deploy and configure the Connected Machine agent on your Windows or Linux machine hosted outside of Azure for management by Arc-enabled servers.
+[Azure Arc-enabled servers](../overview.md) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge, and multicloud environments. In this quickstart, you'll deploy and configure the Connected Machine agent on your Windows or Linux machine hosted outside of Azure for management by Azure Arc-enabled servers.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Deploying the Arc-enabled servers Hybrid Connected Machine agent requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
+* Deploying the Azure Arc-enabled servers Hybrid Connected Machine agent requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
 
 * Before you get started, be sure to review the agent [prerequisites](../agent-overview.md#prerequisites) and verify the following:
 
@@ -51,7 +51,7 @@ The script to automate the download, installation, and establish the connection 
 
 1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Servers - Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Search for Arc-enabled servers in All Services" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Search for Azure Arc-enabled servers in All Services" border="false":::
 
 1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
 

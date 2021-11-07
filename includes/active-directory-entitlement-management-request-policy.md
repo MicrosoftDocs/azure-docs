@@ -205,7 +205,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Click **Next**.
 
-## Add Requestor information (preview) to an access package
+## Add Requestor information to an access package
 
 1. Go to the **Requestor information** tab and click the **Questions** sub tab.
  

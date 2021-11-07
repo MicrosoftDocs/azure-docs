@@ -9,16 +9,13 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/21/2021
+ms.date: 10/21/2021
 
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
-
-
-<br>
 
 In this article, you learn several ways to create an Azure Machine Learning workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
@@ -34,9 +31,15 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
+### Multiple workspaces in the same VNet
+
+The template doesn't support multiple Azure Machine Learning workspaces deployed in the same VNet. This is because the template creates new DNS zones during deployment.
+
+If you want to create a template that deploys multiple workspaces in the same VNet, set this up manually (using the Azure Portal or CLI) and then [use the Azure portal to generate a template](../azure-resource-manager/templates/export-template-portal.md).
+
 ## Workspace Resource Manager template
 
-The Azure Resource Manager template used throughout this document can be found in the [machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json) directory of the Azure quickstart templates GitHub repository.
+The Azure Resource Manager template used throughout this document can be found in the [microsoft.machineleaerningservices/machine-learning-workspace-vnet](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json) directory of the Azure quickstart templates GitHub repository.
 
 This template creates the following Azure services:
 
@@ -102,7 +105,7 @@ Once your resource group is successfully created, deploy the template with the f
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" location="eastus"
 ```
 
@@ -112,7 +115,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus"
 ```
@@ -130,7 +133,7 @@ By default, all of the resources created as part of the template are new. Howeve
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       storageAccountOption="existing" \
@@ -143,7 +146,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -storageAccountOption "existing" `
@@ -224,7 +227,7 @@ To enable use of Customer Managed Keys, set the following parameters when deploy
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       encryption_status="Enabled" \
@@ -238,7 +241,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -encryption_status "Enabled" `
@@ -281,7 +284,7 @@ If your associated resources are not behind a virtual network, you can set the *
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       privateEndpointType="AutoApproval"
@@ -293,7 +296,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -privateEndpointType "AutoApproval"
@@ -311,7 +314,7 @@ To deploy a resource behind a new virtual network, set the **vnetOption** to **n
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       vnetOption="new" \
@@ -326,7 +329,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -vnetOption "new" `
@@ -345,7 +348,7 @@ Alternatively, you can deploy multiple or all dependent resources behind a virtu
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       vnetOption="new" \
@@ -364,7 +367,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -vnetOption "new" `
@@ -390,7 +393,7 @@ New-AzResourceGroupDeployment `
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       vnetOption="new" \
@@ -404,7 +407,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -vnetOption "new" `
@@ -452,7 +455,7 @@ To deploy a workspace with existing associated resources you have to set the **v
     az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       vnetOption="existing" \
@@ -473,7 +476,7 @@ To deploy a workspace with existing associated resources you have to set the **v
     New-AzResourceGroupDeployment `
       -Name "exampledeployment" `
       -ResourceGroupName "examplegroup" `
-      -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
+      -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
       -workspaceName "exampleworkspace" `
       -location "eastus" `
       -vnetOption "existing" `
@@ -501,7 +504,7 @@ To deploy a workspace with existing associated resources you have to set the **v
 az deployment group create \
     --name "exampledeployment" \
     --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
       vnetOption="existing" \
@@ -518,7 +521,7 @@ az deployment group create \
 New-AzResourceGroupDeployment `
   -Name "exampledeployment" `
   -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -vnetOption "existing" `

@@ -85,7 +85,7 @@ You can also review the recommended App Service SKU for migrating to Azure App S
 
 #### Azure App Service cost details
 
-An [App Service plan](/azure/app-service/overview-hosting-plans) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses.
+An [App Service plan](../app-service/overview-hosting-plans.md) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses.
 
 ### Review readiness
 

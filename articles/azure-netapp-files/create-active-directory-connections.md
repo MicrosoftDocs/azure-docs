@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 11/02/2021
 ms.author: b-juche
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -22,7 +22,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 ## Before you begin  
 
-* You must have already set up a capacity pool. See [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
+* You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="requirements-for-active-directory-connections"></a>Requirements and considerations for Active Directory connections
@@ -88,6 +88,17 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 * For non-AD integrated DNS, you should add a DNS A/PTR record to enable Azure NetApp Files to function by using a “friendly name". 
 
+* The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
+
+    |     Error condition    |     Resolution    |
+    |-|-|
+    | Cache |  Default Timeout |
+    | Group membership list  | 24-hour TTL  |
+    | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
+    | Unix users  | 24-hour TTL, 1-minute negative TTL  |
+
+    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries do not linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.”   
+
 ## Decide which Domain Services to use 
 
 Azure NetApp Files supports both [Active Directory Domain Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (ADDS) and Azure Active Directory Domain Services (AADDS) for AD connections.  Before you create an AD connection, you need to decide whether to use ADDS or AADDS.  
@@ -115,6 +126,7 @@ Additional AADDS considerations apply for Azure NetApp Files:
 * Azure NetApp Files supports `user` and `resource forest` types.
 * For synchronization type, you can select `All` or `Scoped`.   
     If you select `Scoped`, ensure the correct Azure AD group is selected for accessing SMB shares.  If you are uncertain, you can use the `All` synchronization type.
+* If you use AADDS with a dual-protocol volume, you must be in a custom OU in order to apply POSIX attributes. See [Manage LDAP POSIX Attributes](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) for details.
 
 When you create an Active Directory connection, note the following specifics for AADDS:
 
@@ -246,6 +258,29 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         ```
         
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
+
+    * **Administrators** 
+
+        You can specify users or groups that will be given administrator privileges on the volume. 
+
+        ![Screenshot that shows the Administrators box of Active Directory connections window.](../media/azure-netapp-files/active-directory-administrators.png) 
+        
+        The **Administrators** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAdAdministrators
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAdAdministrators
+        ```
+        
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * Credentials, including your **username** and **password**
 

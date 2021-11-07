@@ -6,12 +6,11 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2021
@@ -19,6 +18,8 @@ ms.author: bagol
 ---
 
 # Resources for creating Azure Sentinel custom connectors
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](connect-data-sources.md), and also supports ingesting data from some sources without a dedicated connector.
 
@@ -180,7 +181,7 @@ While calling a RESTful endpoint directly requires more programming, it also pro
 For more information, see the [Log Analytics Data collector API](../azure-monitor/logs/data-collector-api.md), especially the following examples:
 
 - [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
-- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
+- [Python](../azure-monitor/logs/data-collector-api.md#python-sample)
 
 ## Connect with Azure Functions
 
@@ -188,10 +189,10 @@ Use Azure Functions together with a RESTful API and various coding languages, su
 
 For examples of this method, see:
 
-- [Connect your VMware Carbon Black Cloud Endpoint Standard to Azure Sentinel with Azure Function](connect-vmware-carbon-black.md)
-- [Connect your Okta Single Sign-On to Azure Sentinel with Azure Function](connect-okta-single-sign-on.md)
-- [Connect your Proofpoint TAP to Azure Sentinel with Azure Function](connect-proofpoint-tap.md)
-- [Connect your Qualys VM to Azure Sentinel with Azure Function](connect-qualys-vm.md)
+- [Connect your VMware Carbon Black Cloud Endpoint Standard to Azure Sentinel with Azure Function](./data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)
+- [Connect your Okta Single Sign-On to Azure Sentinel with Azure Function](./data-connectors-reference.md#okta-single-sign-on-preview)
+- [Connect your Proofpoint TAP to Azure Sentinel with Azure Function](./data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)
+- [Connect your Qualys VM to Azure Sentinel with Azure Function](./data-connectors-reference.md#qualys-vulnerability-management-vm-preview)
 - [Ingesting XML, CSV, or other formats of data](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Azure Sentinel GitHub community)
@@ -213,7 +214,7 @@ For more information on parsing at query time, see [Parsers](normalization-about
 
 > [!NOTE]
 > Updating your parser also applies to data that you've already ingested into Azure Sentinel.
-> 
+
 ## Next steps
 
 Use the data ingested into Azure Sentinel to secure your environment with any of the following processes:

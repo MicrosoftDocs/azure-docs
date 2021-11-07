@@ -41,7 +41,12 @@ Azure Attestation provides a regional shared provider in every available region.
 | North Europe | `https://sharedneu.neu.attest.azure.net` | 
 | West Europe| `https://sharedweu.weu.attest.azure.net` | 
 | US East 2 | `https://sharedeus2.eus2.attest.azure.net` | 
-| Central US | `https://sharedcus.cus.attest.azure.net` | 
+| Central US | `https://sharedcus.cus.attest.azure.net` |
+| South East Asia | `https://sharedsasia.sasia.attest.azure.net` | 
+| North Central US | `https://sharedncus.ncus.attest.azure.net` | 
+| South Central US | `https://sharedscus.scus.attest.azure.net` | 
+| US Gov Virginia | `https://sharedugv.ugv.attest.azure.us` | 
+| US Gov Arizona | `https://shareduga.uga.attest.azure.us` | 
 
 ## Attestation request
 
@@ -135,7 +140,7 @@ Example of JWT generated for an SGX enclave:
 
 Some of the claims used above are considered deprecated but are fully supported.  It is recommended that all future code and tooling use the non-deprecated claim names. See [claims issued by Azure Attestation](claim-sets.md) for more information.
 
-The below claims will appear only in the attestation token generated for Intel® Xeon® Scalable processor-based server platforms. The claims will not appear if the SGX enclave is not configured with [Key Separation and and Sharing Support](https://github.com/openenclave/openenclave/issues/3054)
+The below claims will appear only in the attestation token generated for Intel® Xeon® Scalable processor-based server platforms. The claims will not appear if the SGX enclave is not configured with [Key Separation and Sharing Support](https://github.com/openenclave/openenclave/issues/3054)
 
 **x-ms-sgx-config-id**
 

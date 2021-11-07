@@ -681,7 +681,7 @@ The BAI Bentley AssetWise Connector makes it possible to surface content from As
 
 by [Accenture](https://www.accenture.com)
 
-The Box connector will crawl content from a Box repository. The connector will retrieve the supported elements using the RESTful API, providing full or incremental crawling, metadata extraction, fetching ACLs, and more.
+The Box connector will crawl content from a Box repository. The connector will retrieve the supported elements via the REST API, providing full or incremental crawling, metadata extraction, fetching ACLs, and more.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Box++Connector)
 

@@ -30,7 +30,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy Cloud Foundry on Azure
-            url: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
+            url: ./cloudfoundry-deploy-your-first-app.md
       - linkListType: how-to-guide
         links:
           - text: Deploy your first app

@@ -6,7 +6,7 @@ ms.author: avneets
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 01/09/2020
+ms.date: 09/01/2021
 ---
 
 # Tutorial: Deploy and walk through the micro-fulfillment center application template
@@ -84,7 +84,7 @@ From the dashboard, you can:
    * See an example of the dashboard that an operator can use to monitor conditions within the fulfillment center.
    * Monitor the health of the payloads that are running on the gateway device within the fulfillment center.
 
-  :::image type="content" source="media/tutorial-micro-fulfillment-center-app/mfc-dashboard-2.png" alt-text="Screenshot of the botton half of the Northwind Traders micro-fulfillment center dashboard.":::
+  :::image type="content" source="media/tutorial-micro-fulfillment-center-app/mfc-dashboard-2.png" alt-text="Screenshot of the bottom half of the Northwind Traders micro-fulfillment center dashboard.":::
 
 
 ### Device template

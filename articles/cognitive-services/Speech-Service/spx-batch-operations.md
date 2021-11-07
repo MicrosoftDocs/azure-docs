@@ -3,13 +3,13 @@ title: "Speech CLI batch operations - Speech service"
 titleSuffix: Azure Cognitive Services
 description: learn how to do batch speech to text (speech recognition), batch text to speech (speech synthesis) with the Speech CLI.
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
-ms.author: lajanuar
+ms.author: eur
 ---
 
 # Speech CLI batch operations

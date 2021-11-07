@@ -15,12 +15,16 @@
   items:
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
-  - name: Use automation to respond to threats
-    href: tutorial-respond-threats-playbook.md
   - name: Create KQL queries for Azure Sentinel (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+  - name: Use automation to respond to threats
+    href: tutorial-respond-threats-playbook.md
+  - name: Get started with notebooks and MSTICPy
+    href: notebook-get-started.md
   - name: Create a Power BI report from Azure Sentinel
     href: powerbi.md
+  - name: Deploy and monitor decoy honeytokens
+    href: monitor-key-vault-honeytokens.md
 - name: Concepts
   items:
   - name: Azure Sentinel prerequisites
@@ -43,6 +47,12 @@
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
+  - name: Azure Sentinel content
+    items:
+    - name: About Sentinel content
+      href: sentinel-solutions.md
+    - name: Content hub catalog
+      href: sentinel-solutions-catalog.md
   - name: Data collection and analysis
     items:
     - name: Data collection methods
@@ -59,12 +69,6 @@
         href: normalization-content.md
     - name: Classifying data with entities
       href: entities-in-azure-sentinel.md
-  - name: Azure Sentinel solutions
-    items:
-    - name: About Sentinel solutions
-      href: sentinel-solutions.md
-    - name: Solutions catalog
-      href: sentinel-solutions-catalog.md
   - name: Threat intelligence
     items:
     - name: Understand threat intelligence in Azure Sentinel
@@ -73,9 +77,13 @@
       href: threat-intelligence-integration.md
   - name: Threat detection
     items:
+    - name: Built-in threat detection rules
+      href: detect-threats-built-in.md
+    - name: Near-real-time (NRT) analytics rules
+      href: near-real-time-rules.md
     - name: User and entity behavior analytics (UEBA)
       href: identify-threats-with-entity-behavior-analytics.md
-    - name: SOC-ML anomalies
+    - name: Anomaly detection rules
       href: soc-ml-anomalies.md
     - name: Multistage attacks (Fusion)
       href: fusion.md
@@ -107,6 +115,12 @@
       href: resource-context-rbac.md
   - name: Migrate to Azure Sentinel
     href: migration.md
+  - name: Manage Azure Sentinel content
+    items:
+    - name: Discover and deploy out-of-the-box content
+      href: sentinel-solutions-deploy.md
+    - name: Deploy custom content from your repository
+      href: ci-cd.md
   - name: Collect data
     items:
     - name: Connect your data source
@@ -123,7 +137,7 @@
       - name: Microsoft 365 Defender
         href: connect-microsoft-365-defender.md
       - name: Windows security events
-        href: connect-windows-security-events.md
+        href: data-connectors-reference.md#windows-security-events-via-ama
     - name: Connection instructions by type
       items:
       - name: Azure, Windows, and Microsoft connectors
@@ -154,8 +168,6 @@
       href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
-  - name: Discover and deploy solutions
-    href: sentinel-solutions-deploy.md
   - name: Use threat intelligence
     items:
     - name: Connect threat intelligence platforms
@@ -169,14 +181,12 @@
     - name: Visualize collected data
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
-      href: /azure/sentinel/monitor-your-data
+      href: ./monitor-your-data.md
   - name: Detect threats and analyze data
     items:
-    - name: Use built-in rules
-      href: detect-threats-built-in.md
-    - name: Create custom rules
+    - name: Create threat detection rules
       items:
-      - name: Create a rule
+      - name: Create a scheduled query rule
         href: detect-threats-custom.md
       - name: Map data fields to entities
         href: map-data-fields-to-entities.md
@@ -186,12 +196,20 @@
         href: customize-alert-details.md
       - name: Export and import analytics rules
         href: import-export-analytics-rules.md
-      - name: Work with SOC-ML anomaly rules
+      - name: Create near-real-time (NRT) analytics rules
+        href: create-nrt-rules.md
+      - name: Work with anomaly detection rules
         href: work-with-anomaly-rules.md
+      - name: Manage template versions for analytics rules
+        href: manage-analytics-rule-templates.md
+      - name: Get fine-tuning recommendations
+        href: detection-tuning.md
     - name: Enable User and Entity Behavior Analytics (UEBA)
       href: enable-entity-behavior-analytics.md
-    - name: Work with SOC-ML anomaly rules
+    - name: Work with out-of-the-box anomaly rules
       href: work-with-anomaly-rules.md
+    - name: Configure multistage attack (Fusion) rules
+      href: configure-fusion-rules.md
     - name: Handle false positives
       href: false-positives.md
     - name: Create incidents from Microsoft Security alerts
@@ -201,7 +219,13 @@
   - name: Hunt for threats
     items:
     - name: Hunt with Jupyter notebooks
-      href: notebooks.md
+      items:
+      - name: Overview
+        href: notebooks.md
+      - name: Advanced MSTICPy settings for Jupyter notebooks
+        href: notebooks-msticpy-advanced.md
+      - name: Large-scale security analytics with Azure Synapse
+        href: notebooks-with-synapse.md
     - name: Hunt with bookmarks
       href: bookmarks.md
     - name: Hunt with livestream
@@ -218,6 +242,8 @@
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
       href: playbook-triggers-actions.md
+    - name: Customize playbooks from templates
+      href: use-playbook-templates.md
   - name: Manage Azure Sentinel
     items:
     - name: Azure Sentinel for MSSPs
@@ -282,14 +308,20 @@
         href: authentication-normalization-schema.md
       - name: DNS normalization schema
         href: dns-normalization-schema.md
+      - name: DHCP normalization schema
+        href: dhcp-normalization-schema.md
       - name: File event normalization schema
         href: file-event-normalization-schema.md
       - name: Network normalization schema
-        href: normalization-schema.md
+        href: network-normalization-schema.md
       - name: Process event normalization schema
         href: process-events-normalization-schema.md
       - name: Registry event normalization schema
         href: registry-event-normalization-schema.md
+      - name: Legacy network normalization schema
+        href: normalization-schema-v1.md
+    - name: Windows security event sets
+      href: windows-security-event-id-reference.md
   - name: Detection and analysis references
     items:
     - name: Top Azure Sentinel workbooks
@@ -298,6 +330,8 @@
       href: entities-reference.md
     - name: UEBA enrichments
       href: ueba-enrichments.md
+    - name: Multistage attack detection scenarios
+      href: fusion-scenario-reference.md
     - name: Watchlist template schemas
       href: watchlist-schemas.md
     - name: Kusto Query Language

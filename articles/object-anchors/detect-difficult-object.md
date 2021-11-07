@@ -5,8 +5,8 @@ author: rgarcia
 manager: vrivera
 
 ms.author: rgarcia
-ms.date: 05/28/2021
-ms.topic: overview
+ms.date: 09/08/2021
+ms.topic: troubleshooting
 ms.service: azure-object-anchors
 #Customer intent: Describe mechanisms that can be configured to detect difficult objects.
 ---
@@ -18,6 +18,8 @@ Sometimes, an object may turn out to be more difficult to detect. For example:
 - When a large surface area isn't accessible because the object is against a wall
 - When an object is too large and it takes too long to walk around it
 - When the object's surface isn't detected by the device sensors
+
+## Adjusting object query values
 
 Some mechanisms offered by the Azure Object Anchors SDK that can help in these situations are:
 
@@ -37,3 +39,11 @@ Some mechanisms offered by the Azure Object Anchors SDK that can help in these s
   - A sphere, by using `ObjectSearchArea.FromSphere`.
 
 For more information, see the `ObjectQuery` class for [Unity](/dotnet/api/microsoft.azure.objectanchors.objectquery) or [HoloLens C++/WinRT](/cpp/api/object-anchors/winrt/objectquery).
+
+## Next steps
+
+In this troubleshooting guide, you learned how to troubleshoot detection of difficult to detect objects.
+Here are some related articles:
+
+> [!div class="nextstepaction"]
+> [Troubleshooting object detection](./troubleshoot/object-detection.md)

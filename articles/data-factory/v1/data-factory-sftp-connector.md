@@ -4,8 +4,9 @@ description: Learn about how to move data from an on-premises or a cloud SFTP se
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 10/22/2021
 robots: noindex
 ---
 # Move data from an SFTP server using Azure Data Factory

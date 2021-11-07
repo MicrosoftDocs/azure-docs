@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 09/01/2021
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -433,9 +433,9 @@ You get the subscriptionId as part of the response from the command.
 
 ---
 
-## Use ARM template
+## Use ARM template or Bicep
 
-The previous section showed how to create a subscription with PowerShell, CLI, or REST API. If you need to automate creating subscriptions, consider using an Azure Resource Manager template (ARM template).
+The previous section showed how to create a subscription with PowerShell, CLI, or REST API. If you need to automate creating subscriptions, consider using an Azure Resource Manager template (ARM template) or [Bicep file](../../azure-resource-manager/bicep/overview.md).
 
 The following template creates a subscription. For `billingScope`, provide the invoice section ID. The subscription is created in the root management group. After creating the subscription, you can move it to another management group.
 
@@ -474,7 +474,29 @@ The following template creates a subscription. For `billingScope`, provide the i
 }
 ```
 
-Deploy the template at the [management group level](../../azure-resource-manager/templates/deploy-to-management-group.md).
+Or, use a Bicep file to create the subscription.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide a name for the alias. This name will also be the display name of the subscription.')
+param subscriptionAliasName string
+
+@description('Provide the full resource ID of billing scope to use for subscription creation.')
+param billingScope string
+
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+  scope: tenant()
+  name: subscriptionAliasName
+  properties: {
+    workload: 'Production'
+    displayName: subscriptionAliasName
+    billingScope: billingScope
+  }
+}
+```
+
+Deploy the template at the [management group level](../../azure-resource-manager/templates/deploy-to-management-group.md). The following examples show deploying the JSON ARM template, but you can deploy a Bicep file instead.
 
 ### [REST](#tab/rest)
 
@@ -529,7 +551,7 @@ az deployment mg create \
 
 ---
 
-To move a subscription to a new management group, use the following template.
+To move a subscription to a new management group, use the following ARM template.
 
 ```json
 {
@@ -560,6 +582,23 @@ To move a subscription to a new management group, use the following template.
         }
     ],
     "outputs": {}
+}
+```
+
+Or, the following Bicep file.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
 }
 ```
 

@@ -7,7 +7,7 @@ ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 # Redundancy options for managed disks
@@ -29,7 +29,7 @@ If your workflow doesn't support application-level synchronous writes across zon
 
 ## Zone-redundant storage for managed disks
 
-Zone-redundant storage (ZRS) synchronously replicates your Azure managed disk across three Azure availability zones in the region you select. Each availability zone is a separate physical location with independent power, cooling, and networking. 
+Zone-redundant storage (ZRS) synchronously replicates your Azure managed disk across three Azure availability zones in the region you select. Each availability zone is a separate physical location with independent power, cooling, and networking.
 
 A ZRS disk lets you recover from failures in availability zones. If a zone went down, a ZRS disk can be attached to a virtual machine (VM) in a different zone. ZRS disks can also be shared between VMs for improved availability with clustered or distributed applications like SQL FCI, SAP ASCS/SCS, or GFS2. A shared ZRS disk can be attached to primary and secondary VMs in different zones to take advantage of both ZRS and [availability zones](../availability-zones/az-overview.md). If your primary zone fails, you can quickly fail over to the secondary VM using [SCSI persistent reservation](disks-shared-enable.md#supported-scsi-pr-commands).
 
@@ -39,7 +39,7 @@ For details see the [Azure pricing page](https://azure.microsoft.com/pricing/det
 
 ### Comparison with other disk types
 
-Except for more write latency, disks using ZRS are identical to disks using LRS, they have the same scale targets. [Benchmark your disks](disks-benchmarks.md) to simulate the workload of your application and compare the latency between LRS and ZRS disks. 
+Except for more write latency, disks using ZRS are identical to disks using LRS, they have the same scale targets. [Benchmark your disks](disks-benchmarks.md) to simulate the workload of your application and compare the latency between LRS and ZRS disks.
 
 ### Limitations
 

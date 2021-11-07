@@ -18,7 +18,7 @@ This guide summarizes solutions for issues that are commonly seen in Storage Exp
 
 ## Azure RBAC permissions issues
 
-Azure role-based access control [Azure RBAC](../../role-based-access-control/overview.md) enables highly granular access management of Azure resources by combining sets of permissions into _roles_. Here are some strategies to get Azure RBAC working optimally in Storage Explorer.
+Azure role-based access control [Azure RBAC](../../role-based-access-control/overview.md) enables highly granular access management of Azure resources by combining sets of permissions into *roles*. Here are some strategies to get Azure RBAC working optimally in Storage Explorer.
 
 ### How do I access my resources in Storage Explorer?
 
@@ -26,22 +26,22 @@ If you're having problems accessing storage resources through Azure RBAC, you mi
 
 #### "Read: List/Get Storage Account(s)" permissions issue
 
-You must have permission to list storage accounts. To get this permission, you must be assigned the _Reader_ role.
+You must have permission to list storage accounts. To get this permission, you must be assigned the *Reader* role.
 
 #### List storage account keys
 
-Storage Explorer can also use account keys to authenticate requests. You can get access to account keys through more powerful roles, such as the _Contributor_ role.
+Storage Explorer can also use account keys to authenticate requests. You can get access to account keys through more powerful roles, such as the *Contributor* role.
 
 > [!NOTE]
 > Access keys grant unrestricted permissions to anyone who holds them. Therefore, we don't recommend that you hand out these keys to account users. If you need to revoke access keys, you can regenerate them from the [Azure portal](https://portal.azure.com/).
 
 #### Data roles
 
-You must be assigned at least one role that grants access to read data from resources. For example, if you want to list or download blobs, you'll need at least the _Storage Blob Data Reader_ role.
+You must be assigned at least one role that grants access to read data from resources. For example, if you want to list or download blobs, you'll need at least the *Storage Blob Data Reader* role.
 
 ### Why do I need a management layer role to see my resources in Storage Explorer?
 
-Azure Storage has two layers of access: _management_ and _data_. Subscriptions and storage accounts are accessed through the management layer. Containers, blobs, and other data resources are accessed through the data layer. For example, if you want to get a list of your storage accounts from Azure, you send a request to the management endpoint. If you want a list of blob containers in an account, you send a request to the appropriate service endpoint.
+Azure Storage has two layers of access: *management* and *data*. Subscriptions and storage accounts are accessed through the management layer. Containers, blobs, and other data resources are accessed through the data layer. For example, if you want to get a list of your storage accounts from Azure, you send a request to the management endpoint. If you want a list of blob containers in an account, you send a request to the appropriate service endpoint.
 
 Azure roles can grant you permissions for management or data layer access. The Reader role, for example, grants read-only access to management layer resources.
 
@@ -49,7 +49,7 @@ Strictly speaking, the Reader role provides no data layer permissions and isn't 
 
 Storage Explorer makes it easy to access your resources by gathering the necessary information to connect to your Azure resources. For example, to display your blob containers, Storage Explorer sends a "list containers" request to the blob service endpoint. To get that endpoint, Storage Explorer searches the list of subscriptions and storage accounts you have access to. To find your subscriptions and storage accounts, Storage Explorer also needs access to the management layer.
 
-If you don’t have a role that grants any management layer permissions, Storage Explorer can’t get the information it needs to connect to the data layer.
+If you don't have a role that grants any management layer permissions, Storage Explorer can't get the information it needs to connect to the data layer.
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
@@ -67,7 +67,7 @@ For other resource types, we don't currently have an Azure RBAC-related solution
 1. Select the resource type you want to connect to.
 1. Select **Shared access signature (SAS)**. Select **Next**.
 1. Enter the SAS URL you received and enter a unique display name for the connection. Select **Next** then **Connect**.
- 
+
 For more information on attaching to resources, see [Attach to an Individual Resource](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### Recommended Azure built-in roles
@@ -110,11 +110,11 @@ If you don't have a copy of the self-signed certificates, try talking to your IT
 You you can try following these steps to find them:
 
 1. Install OpenSSL.
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): Any of the light versions should be sufficient.
-    * Mac and Linux: Should be included with your operating system.
+    - [Windows](https://slproweb.com/products/Win32OpenSSL.html): Any of the light versions should be sufficient.
+    - Mac and Linux: Should be included with your operating system.
 2. Run OpenSSL.
-    * Windows: Open the installation directory, select **/bin/**, and then double-click **openssl.exe**.
-    * Mac and Linux: Run `openssl` from a terminal.
+    - Windows: Open the installation directory, select **/bin/**, and then double-click **openssl.exe**.
+    - Mac and Linux: Run `openssl` from a terminal.
 3. Run this command: `s_client -showcerts -connect <hostname>:443`, for any of the Microsoft or Azure hostnames that your storage resources are behind. You can find a list of hostnames that are frequently accessed by Storage Explorer here.
 4. Look for self-signed certificates. If the subject `("s:")` and issuer `("i:")` are the same, then the certificate is most likely self signed.
 5. When you find the self-signed certificates, for each one, copy and paste everything from (and including) `-----BEGIN CERTIFICATE-----` to `-----END CERTIFICATE-----` into a new .cer file.
@@ -187,7 +187,7 @@ If you continue to have issues after doing a reset then try these steps:
 1. Open Storage Explorer
 2. Remove all accounts and then close Storage Explorer.
 3. Delete the `.IdentityService` folder from your machine. On Windows, the folder is located at `C:\users\<username>\AppData\Local`. For Mac and Linux, you can find the folder at the root of your user directory.
-4. If you're running Mac or Linux, you'll also need to delete the Microsoft.Developer.IdentityService entry from your operating system's keystore. On the Mac, the keystore is the *Gnome Keychain* application. In Linux, the application is typically called _Keyring_, but the name might differ depending on your distribution.
+4. If you're running Mac or Linux, you'll also need to delete the Microsoft.Developer.IdentityService entry from your operating system's keystore. On the Mac, the keystore is the *Gnome Keychain* application. In Linux, the application is typically called *Keyring*, but the name might differ depending on your distribution.
 6. Restart Storage Explorer and try signing in again.
 
 ### macOS: keychain errors or no sign-in window
@@ -220,19 +220,19 @@ If none of the above apply to your sign-in issue or if they fail to resolve you 
 
 If you can't retrieve your subscriptions after you successfully sign in, try the following troubleshooting methods:
 
-* Verify that your account has access to the subscriptions you expect. You can verify your access by signing in to the portal for the Azure environment you're trying to use.
-* Make sure you've signed in through the correct Azure environment (Azure, Azure China 21Vianet, Azure Germany, Azure US Government, or Custom Environment).
-* If you're behind a proxy server, make sure you've configured the Storage Explorer proxy correctly.
-* Try removing and re-adding the account.
-* If there's a "More information" or "Error details" link, check which error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, feel free to [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+- Verify that your account has access to the subscriptions you expect. You can verify your access by signing in to the portal for the Azure environment you're trying to use.
+- Make sure you've signed in through the correct Azure environment (Azure, Azure China 21Vianet, Azure Germany, Azure US Government, or Custom Environment).
+- If you're behind a proxy server, make sure you've configured the Storage Explorer proxy correctly.
+- Try removing and re-adding the account.
+- If there's a "More information" or "Error details" link, check which error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, feel free to [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## Can't remove an attached storage account or resource
 
 If you can't remove an attached account or storage resource through the UI, you can manually delete all attached resources by deleting the following folders:
 
-* Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
-* Linux: `~/.config/StorageExplorer`
+- Windows: `%AppData%/StorageExplorer`
+- macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
+- Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
 > Close Storage Explorer before you delete these folders.
@@ -275,9 +275,9 @@ A networking tool, such as Fiddler, can help you diagnose problems.
 1. Configure your networking tool as a proxy server running on the local host. If you have to continue working behind an actual proxy, you may have to configure your networking tool to connect through the proxy.
 2. Check the port number used by your networking tool.
 3. Configure Storage Explorer proxy settings to use the local host and the networking tool's port number (such as "localhost:8888").
- 
+
 When set correctly, your networking tool will log network requests made by Storage Explorer to management and service endpoints.
- 
+
 If your networking tool doesn't appear to be logging Storage Explorer traffic, try testing your tool with a different application. For example, enter the endpoint URL for one of your storage resources (such as `https://contoso.blob.core.windows.net/`) in a web browser, and you'll receive a response similar to:
 
   ![Code sample](./media/storage-explorer-troubleshooting/4022502_en_2.png)
@@ -290,8 +290,8 @@ If your networking tool only shows traffic from other applications, you may need
 
 If your proxy settings are correct, you may have to contact your proxy server administrator to:
 
-* Make sure your proxy doesn't block traffic to Azure management or resource endpoints.
-* Verify the authentication protocol used by your proxy server. Storage Explorer only supports basic authentication protocols. Storage Explorer doesn't support NTLM proxies.
+- Make sure your proxy doesn't block traffic to Azure management or resource endpoints.
+- Verify the authentication protocol used by your proxy server. Storage Explorer only supports basic authentication protocols. Storage Explorer doesn't support NTLM proxies.
 
 ## "Unable to Retrieve Children" error message
 
@@ -312,17 +312,17 @@ If you receive this error message when you try to add a custom connection, the c
 1. Start Storage Explorer. From the menu, go to **Help** > **Toggle Developer Tools**.
 2. In the opened window, on the **Application** tab, go to **Local Storage** (left side) > **file://**.
 3. Depending on the type of connection you're having an issue with, look for its key and then copy its value into a text editor. The value is an array of your custom connection names, like the following:
-    * Storage accounts
-        * `StorageExplorer_CustomConnections_Accounts_v1`
-    * Blob containers
-        * `StorageExplorer_CustomConnections_Blobs_v1`
-        * `StorageExplorer_CustomConnections_Blobs_v2`
-    * File shares
-        * `StorageExplorer_CustomConnections_Files_v1`
-    * Queues
-        * `StorageExplorer_CustomConnections_Queues_v1`
-    * Tables
-        * `StorageExplorer_CustomConnections_Tables_v1`
+    - Storage accounts
+        - `StorageExplorer_CustomConnections_Accounts_v1`
+    - Blob containers
+        - `StorageExplorer_CustomConnections_Blobs_v1`
+        - `StorageExplorer_CustomConnections_Blobs_v2`
+    - File shares
+        - `StorageExplorer_CustomConnections_Files_v1`
+    - Queues
+        - `StorageExplorer_CustomConnections_Queues_v1`
+    - Tables
+        - `StorageExplorer_CustomConnections_Tables_v1`
 4. After you save your current connection names, set the value in Developer Tools to `[]`.
 
 If you want to preserve the connections that aren't corrupted, you can use the following steps to locate the corrupted connections. If you don't mind losing all existing connections, you can skip these steps and follow the platform-specific instructions to clear your connection data.
@@ -361,9 +361,9 @@ If you still encounter this error after running these steps, or if you want to s
 
 If you're connecting to a service through a SAS URL and experiencing an error:
 
-* Verify that the URL provides the necessary permissions to read or list resources.
-* Verify that the URL has not expired.
-* If the SAS URL is based on an access policy, verify that the access policy has not been revoked.
+- Verify that the URL provides the necessary permissions to read or list resources.
+- Verify that the URL has not expired.
+- If the SAS URL is based on an access policy, verify that the access policy has not been revoked.
 
 If you accidentally attached by using an invalid SAS URL and now cannot detach, follow these steps:
 
@@ -395,49 +395,53 @@ Storage Explorer as provided in the .tar.gz download is supported for the follow
 - Ubuntu 18.04 x64
 - Ubuntu 16.04 x64
 
-Storage Explorer requires .NET Core to be installed on your system. We recommend .NET Core 2.1, but Storage Explorer will work with 2.2 as well.
+Storage Explorer requires .NET Core 3.1 to be installed on your system.
 
 > [!NOTE]
-> Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed, you'll have to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or later, you need at least .NET Core 2.1.
+> Storage Explorer versions 1.8.0 through 1.20.1 require .NET Core 2.1. Storage Explorer version 1.7.0 and earlier require .NET Core 2.0.
 
 ### [Ubuntu 20.04](#tab/2004)
 
 1. Download the Storage Explorer .tar.gz file.
 2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 
 ### [Ubuntu 18.04](#tab/1804)
 
 1. Download the Storage Explorer .tar.gz file.
 2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 
 ### [Ubuntu 16.04](#tab/1604)
 
 1. Download the Storage Explorer .tar.gz file.
 2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
+
 ---
 
 Many libraries needed by Storage Explorer come preinstalled with Canonical's standard installations of Ubuntu. Custom environments may be missing some of these libraries. If you have issues launching Storage Explorer, we recommend making sure the following packages are installed on your system:
@@ -465,16 +469,16 @@ For Storage Explorer 1.7.0 or earlier, you might have to patch the version of .N
 3. Unzip the package.
 4. Open the `streamjsonrpc.1.5.43/lib/netstandard1.1/` folder.
 5. Copy `StreamJsonRpc.dll` to the following locations in the Storage Explorer folder:
-   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   - `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   - `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## "Open In Explorer" from the Azure portal doesn't work
 
 If the **Open In Explorer** button on the Azure portal doesn't work, make sure you're using a compatible browser. The following browsers have been tested for compatibility:
-* Microsoft Edge
-* Mozilla Firefox
-* Google Chrome
-* Microsoft Internet Explorer
+- Microsoft Edge
+- Mozilla Firefox
+- Google Chrome
+- Microsoft Internet Explorer
 
 ## Gathering logs
 
@@ -529,11 +533,11 @@ Part 1: Install and Configure Fiddler
 2. Start Fiddler
 3. Go to Tools > Options
 4. Click on the HTTPS tab
-5. Make sure Capture  CONNECTs and Decrypt HTTPS traffic are checked
+5. Make sure Capture  CONNECTs and Decrypt HTTPS traffic are checked
 6. Click on the Actions button
 7. Choose "Trust Root Certificate" and then "Yes" in the next dialog
 8. Click on the Actions button again
-9. Choose “Export Root Certificate to Desktop”
+9. Choose "Export Root Certificate to Desktop"
 10. Go to your desktop
 11. Find the FiddlerRoot.cer file
 12. Double-click to open
@@ -553,7 +557,7 @@ Part 1: Install and Configure Fiddler
 Part 2: Reproduce the issue
 1. Close all apps other than Fiddler
 2. Clear the Fiddler log (X icon in the top left, near the View menu)
-3. Optional/recommended: let Fiddler set for few minutes, if you see network calls appear, right-click on them and choose 'Filter Now' > 'Hide <process name>'
+3. Optional/recommended: let Fiddler set for few minutes, if you see network calls appear that aren't Storage Explorer related, right-click on them and choose 'Filter Now' > 'Hide (process name)'
 4. Start Storage Explorer
 5. Reproduce the issue
 6. Click File > Save > All Sessions…, save somewhere you won't forget

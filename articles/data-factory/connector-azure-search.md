@@ -1,17 +1,17 @@
 ---
 title: Copy data to Search index
+description: Learn about how to push or copy data to an Azure search index using the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about how to push or copy data to an Azure search index by using the Copy Activity in an Azure Data Factory pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ---
 
-# Copy data to an Azure Cognitive Search index using Azure Data Factory
+# Copy data to an Azure Cognitive Search index using Azure Data Factory or Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-search-connector.md)
@@ -19,7 +19,7 @@ ms.date: 08/30/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data into Azure Cognitive Search index. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data into Azure Cognitive Search index. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -64,7 +64,7 @@ The following properties are supported for Azure Cognitive Search linked service
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureSearch** | Yes |
 | url | URL for the search service. | Yes |
-| key | Admin key for the search service. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| key | Admin key for the search service. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 > [!IMPORTANT]
@@ -101,7 +101,7 @@ To copy data into Azure Cognitive Search, the following properties are supported
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **AzureSearchIndex** | Yes |
-| indexName | Name of the search index. Data Factory does not create the index. The index must exist in Azure Cognitive Search. | Yes |
+| indexName | Name of the search index. The service does not create the index. The index must exist in Azure Cognitive Search. | Yes |
 
 **Example:**
 
@@ -202,4 +202,4 @@ The following table specifies whether an Azure Cognitive Search data type is sup
 Currently other data types e.g. ComplexType are not supported. For a full list of Azure Cognitive Search supported data types, see [Supported data types (Azure Cognitive Search)](/rest/api/searchservice/supported-data-types).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

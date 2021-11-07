@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -34,7 +34,8 @@ properties from related resource types. Here is the list of tables available in 
 |DesktopVirtualizationResources |Yes |Includes resources _related_ to `Microsoft.DesktopVirtualization`. |
 |ExtendedLocationResources |No |Includes resources _related_ to `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |No |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
-|HealthResources|Yes |Includes resources _related_ to `Microsoft.ResourceHealth/availabilitystatuses`. |
+|HealthResources|Yes (preview) |Includes resources _related_ to `Microsoft.ResourceHealth/availabilitystatuses`. |
+|IoTSecurityResources |No |Includes resources _related_ to `Microsoft.IoTSecurity`. |
 |KubernetesConfigurationResources |No |Includes resources _related_ to `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Maintenance`. |
 |PatchAssessmentResources|No |Includes resources _related_ to Azure Virtual Machines patch assessment. |

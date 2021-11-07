@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 11/01/2021
 tags: connectors
 ---
 
@@ -25,7 +25,7 @@ This article explains how you can access your SAP resources from Azure Logic App
 
   * If you're running your logic app workflow in multi-tenant Azure, review the [multi-tenant prerequisites](#multi-tenant-azure-prerequisites).
 
-  * If you're running your logic app workflow in a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), review the [ISE prerequisites](#ise-prerequisites).
+  * If you're running your logic app workflow in a Premium-level [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), review the [ISE prerequisites](#ise-prerequisites).
 
 * An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Azure Logic Apps. For information about the SAP servers that support this connector, review [SAP compatibility](#sap-compatibility).
 
@@ -151,7 +151,7 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
 
 An ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let logic app workflows directly access on-premises resources without using the on-premises data gateway.
 
-1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md).
 
 1. [Download and install the latest SAP client library](#sap-client-library-prerequisites) on your local computer. You should have the following assembly files:
 
@@ -270,7 +270,7 @@ First, if you have already deployed the SAP connector without the SNC or SAPGENP
 
    1. Wait for the portal notification that the connection has been deleted.
 
-1. Or, delete connections to your SAP connector from your ISE's API connections.
+1. Or, delete connections to your SAP connector from the API connections in your ISE.
 
    1. Open your ISE resource in the Azure portal.
 
@@ -334,7 +334,7 @@ Last, create new connections that use SNC in all your logic apps that use the SA
 
    1. For **SNC Partner Name**, enter the backend's SNC name. For example, `p:CN=DV3, OU=LA, O=MS, C=US`.
 
-   1. For **SNC Certificate**, enter your SNC client's public certificate in base64-encoded format. Don't include the PEM header or footer.
+   1. For **SNC Certificate**, enter your SNC client's public certificate in base64-encoded format. Don't include the PEM header or footer. Don't enter the private certificate here because the PSE might contain multiple private certificates, but this **SNC Certificate** parameter identifies the certificates that must be used for this connection. For more information, review the following note.
 
    1. Optionally, enter SNC settings for **SNC My Name**, **SNC Quality of Protection** as needed.
 
@@ -360,9 +360,37 @@ Last, create new connections that use SNC in all your logic apps that use the SA
 
    The connector detects the PSE change and updates its own copy during the next connection request.
 
+   To convert a binary PSE file into base64-encoded format, follow these steps:
+   
+   1. Use a PowerShell script, for example:
+
+      ```powershell
+      Param ([Parameter(Mandatory=$true)][string]$psePath, [string]$base64OutputPath)
+      $base64String = [convert]::ToBase64String((Get-Content -path $psePath -Encoding byte))
+      if ($base64OutputPath -eq $null)
+      {
+          Write-Output $base64String
+      }
+      else
+      {
+          Set-Content -Path $base64OutputPath -Value $base64String
+          Write-Output "Output written to $base64OutputPath"
+      } 
+      ```
+
+   1. Save the script as a `pseConvert.ps1` file, and then invoke the script, for example:
+
+      ```output
+      .\pseConvert.ps1 -psePath "C:\Temp\SECUDIR\request.pse" -base64OutputPath "connectionInput.txt"
+      Output written to connectionInput.txt 
+      ```
+
+      If the output path parameter is not provided, the script's output to the console will have line breaks. Remove the line breaks of the base 64-encoded string for the connection input parameter.
+
    > [!NOTE]
    > If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. 
-   > You can set the client public certificate parameter to specific the certificate for each connection used in your ISE.
+   > The PSE must contain the client private certificate for each and all of the connections. 
+   > You must set the client public certificate parameter to match the specific private certificate for each connection used in your ISE.
 
 1. Select **Create** to create your connection. If the parameters are correct, the connection is created. If there's a problem with the parameters, the connection creation dialog displays an error message.
 
@@ -491,14 +519,14 @@ Next, create an action to send your IDoc message to SAP when your [Request trigg
 
 You can use IDocs with a flat file schema if you wrap them in an XML envelope. To send a flat file IDoc, use the generic instructions to [create an SAP action to send your IDoc message](#create-sap-action-to-send-message) with the following changes.
 
-1. For the **Send message to SAP** action, use the SAP action URI `http://microsoft.lobservices.sap/2007/03/Idoc/SendIdoc`.
+1. For the **Send message to SAP** action, use the SAP action URI `http://Microsoft.LobServices.Sap/2007/03/Idoc/SendIdoc`.
 
 1. Format your input message with an XML envelope.
 
 For example, review the following example XML payload:
 
 ```xml
-<ReceiveIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
+<SendIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
 <idocData>EDI_DC 3000000001017945375750 30INVOIC011BTSVLINV30KUABCABCFPPC LDCA X004010810 4 SAPMSX LSEDI ABCABCFPPC 000d3ae4-723e-1edb-9ca4-cc017365c9fd 20210217054521INVOICINVOIC01ZINVOIC2RE 20210217054520
 E2EDK010013000000001017945375000001E2EDK01001000000010 ABCABC1.00000 0060 INVO9988298128 298.000 298.000 LB Z4LR EN 0005065828 L
 E2EDKA1 3000000001017945375000002E2EDKA1 000000020 RS ABCABCFPPC 0005065828 ABCABCABC ABCABC Inc. Limited Risk Distributor ABCABC 1950 ABCABCABCA Blvd ABCABAABCAB L5N8L9 CA ABCABC E ON V-ABCABC LDCA
@@ -611,7 +639,7 @@ E2EDS01 3000000001017945375000108E2EDS01 000000020 EXT
 Z2XSK010003000000001017945375000109Z2XSK01000000108030 Z400 52269.20
 Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 </idocData>
-</ReceiveIdoc>
+</SendIdoc>
 ```
 
 ### Create HTTP response action
@@ -872,13 +900,13 @@ For full error messages, check your SAP Adapter's extended logs. You can also [e
 
     ```xml
     <setting name="SapTraceLevel" serializeAs="String">
-       <value>"Verbose"</value>
+       <value>Verbose</value>
     </setting>
     ```
 
 ### Extended SAP logging in on-premises data gateway
 
-If you use an [on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files.
+If you use an [on-premises data gateway for Azure Logic Apps](logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files.
 
 You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
@@ -1682,7 +1710,7 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
    [![Screenshot showing the Azure portal with Application Insights open to the "Logs" pane for creating queries.](./media/logic-apps-using-sap-connector/application-insights-query-panel.png)](./media/logic-apps-using-sap-connector/application-insights-query-panel.png#lightbox)
 
-1. On the **Logs** pane, you can create a [query](/data-explorer/kusto/query) using the [Kusto Query Language (KQL)](/data-explorer/kusto/concepts) that's based on your specific requirements.
+1. On the **Logs** pane, you can create a [query](/azure/data-explorer/kusto/query/) using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/concepts/) that's based on your specific requirements.
 
    You can use a query pattern similar to the following example query:
 
@@ -1835,7 +1863,13 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 
 1. For **Transaction ID**, enter the name of your variable again. For example, `IDOCtransferID`.
 
-1. Optionally, validate the deduplication in your test environment. Repeat the **\[IDOC] Send document to SAP** action with the same **Transaction ID** GUID that you used in the previous step.
+1. Optionally, validate the deduplication in your test environment.
+
+    1. Repeat the **\[IDOC] Send document to SAP** action with the same **Transaction ID** GUID that you used in the previous step.
+    
+    1. To validate which IDoc number got assigned after each call to the **\[IDOC] Send document to SAP** action, use the **\[IDOC] Get IDOC list for transaction** action with the same **Transaction ID** and the **Receive** direction.
+    
+       If the same, single IDoc number is returned for both calls, the IDoc was deduplicated.
 
    When you send the same IDoc twice, you can validate that SAP is able to identify the duplication of the tRFC call and resolve the two calls to a single inbound IDoc message.
 
@@ -1853,7 +1887,9 @@ Here are the currently known issues and limitations for the managed (non-ISE) SA
 
 * The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system you want to connect.
 
-* For [logic apps in an ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
+* In the **\[BAPI] Call method in SAP** action, the auto-commit feature won't commit the BAPI changes if at least one warning exists in the **CallBapiResponse** object returned by the action. To commit BAPI changes despite any warnings, create a session explicitly with the **\[BAPI - RFC] Create stateful session** action, disable the auto-commit feature in the **\[BAPI] Call method in SAP** action, and call the **\[BAPI] Commit transaction** action instead.
+
+* For [logic apps in an ISE](connect-virtual-network-vnet-isolated-environment-overview.md), this connector's ISE-labeled version uses the [ISE message limits](logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Connector reference
 
@@ -2053,5 +2089,5 @@ For more information about the SAP connector, review the [connector reference](/
 ## Next steps
 
 * [Connect to on-premises systems](logic-apps-gateway-connection.md) from Azure Logic Apps
-* Learn how to validate, transform, and use other message operations with the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* Learn how to validate, transform, and use other message operations with the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)

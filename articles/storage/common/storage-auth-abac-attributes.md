@@ -54,11 +54,11 @@ The following table lists the supported actions and suboperations for conditions
 > | --- | --- | --- |
 > | Delete a blob | DataAction for deleting blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
 > | Read a blob | DataAction for reading blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-> | Read content from a blob with tag conditions  | REST operations: Get Blob, Get Blob Metadata, Get Blob Properties, Get Block List, Get Page Ranges and Query Blob Contents. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperation**<br/>`Blob.Read.WithTagConditions` | 
+> | Read content from a blob with tag conditions  | REST operations: Get Blob, Get Blob Metadata, Get Blob Properties, Get Block List, Get Page Ranges and Query Blob Contents. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperation**<br/>`Blob.Read.WithTagConditions` |
 > | Write to a blob | DataAction for writing to blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
-> | Write to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperation**<br/>`Blob.Write.WithTagHeaders` | 
+> | Write to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperation**<br/>`Blob.Write.WithTagHeaders` |
 > | Create a blob or snapshot, or append data | DataAction for creating blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |
-> | Write content to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperation**<br/>`Blob.Write.WithTagHeaders` | 
+> | Write content to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperation**<br/>`Blob.Write.WithTagHeaders` |
 > | Delete a version of a blob | DataAction for deleting a version of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
 > | Changes ownership of a blob | DataAction for changing ownership of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
 > | Modify permissions of a blob | DataAction for modifying permissions of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
@@ -137,4 +137,3 @@ The following table lists which attributes you can use in your condition express
 - [Example Azure role assignment conditions (preview)](storage-auth-abac-examples.md)
 - [Azure role assignment condition format and syntax (preview)](../../role-based-access-control/conditions-format.md)
 - [What is Azure attribute-based access control (Azure ABAC)? (preview)](../../role-based-access-control/conditions-overview.md)
-

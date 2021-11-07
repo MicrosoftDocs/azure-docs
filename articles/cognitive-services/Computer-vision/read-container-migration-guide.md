@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 05/24/2021
+ms.date: 09/28/2021
 ms.author: aahi
 ---
 
@@ -20,7 +20,7 @@ If you're using version 2 of the Computer Vision Read OCR container, Use this ar
 ## Configuration changes
 
 * `ReadEngineConfig:ResultExpirationPeriod` is no longer supported. The Read OCR container has a built Cron job that removes the results and metadata associated with a request after 48 hours.
-* `Cache:Redis:Configuration` is no longer supported. The Cache is not used in the v3.x containers, so you don't need to set it.
+* `Cache:Redis:Configuration` is no longer supported. The Cache isn't used in the v3.x containers, so you don't need to set it.
 
 ## API changes
 
@@ -34,7 +34,7 @@ See the [Computer Vision v3 REST API migration guide](./upgrade-api-versions.md)
 
 ## Memory requirements
 
-The requirements and recommendations are based on benchmarks with a single request per second, using an 8-MB image of a scanned business letter that contains 29 lines and a total of 803 characters. The following table describes the minimum and recommended allocation of resources for each Read OCR container.
+The requirements and recommendations are based on benchmarks with a single request per second, using an 8-MB image of a scanned business letter that contains 29 lines and a total of 803 characters. The following table describes the minimum and recommended allocations of resources for each Read OCR container.
 
 |Container  |Minimum | Recommended  |
 |---------|---------|------|

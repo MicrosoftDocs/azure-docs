@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: 'How to configure the required inbound and outbound network traffic when using a secure Azure Machine Learning workspace.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/12/2021
-ms.custom: devx-track-python
+ms.date: 10/21/2021
+ms.custom: devx-track-python, ignite-fall-2021
 ---
 
 # Configure inbound and outbound network traffic
@@ -18,7 +18,7 @@ ms.custom: devx-track-python
 In this article, learn about the network communication requirements when securing Azure Machine Learning workspace in a virtual network (VNet). This includes how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
 
 > [!NOTE]
-> The information in this article applies to Azure Machine Learning workspace whether it uses a private endpoint or a service endpoint.
+> The information in this article applies to Azure Machine Learning workspace configured with a private endpoint.
 
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
@@ -64,10 +64,12 @@ These rule collections are described in more detail in [What are some Azure Fire
     | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | TCP | 443 | 
     | ContainerRegistry.region  | TCP | 443 |
     | MicrosoftContainerRegistry.region | TCP | 443 |
+    | Keyvault.region | TCP | 443 |
 
     > [!TIP]
     > * ContainerRegistry.region is only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.
     > * MicrosoftContainerRegistry.region is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+    > * Keyvault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
     > * For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
 
 1. Add __Application rules__ for the following hosts:
@@ -86,6 +88,9 @@ These rule collections are described in more detail in [What are some Azure Fire
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
     | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script.|
     | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
+    | **dc.applicationinsights.azure.com** | Used to collect metrics and diagnostics information when working with Microsoft support. |
+    | **dc.applicationinsights.microsoft.com** | Used to collect metrics and diagnostics information when working with Microsoft support. |
+    | **dc.services.visualstudio.com** | Used to collect metrics and diagnostics information when working with Microsoft support. | 
     
 
     For __Protocol:Port__, select use __http, https__.
@@ -101,19 +106,6 @@ When using Azure Kubernetes Service with Azure Machine Learning, the following t
 * General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) article.
 * __Outbound__ to mcr.microsoft.com.
 * When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) article.
-
-### Diagnostics for support
-
-If you need to gather diagnostics information when working with Microsoft support, use the following steps:
-
-1. Add a __Network rule__ to allow traffic to and from the `AzureMonitor` tag.
-1. Add __Application rules__ for the following hosts. Select __http, https__ for the __Protocol:Port__ for these hosts:
-
-    + **dc.applicationinsights.azure.com**
-    + **dc.applicationinsights.microsoft.com**
-    + **dc.services.visualstudio.com**
-
-    For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
 ## Other firewalls
 
@@ -162,11 +154,13 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 > [!IMPORTANT]
 > Your firewall must allow communication with \*.instances.azureml.ms over __TCP__ ports __18881, 443, and 8787__.
 
+> [!TIP]
+> The FQDN for Azure Key Vault is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
+
 **Docker images maintained by by Azure Machine Learning**
 
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 | Azure Machine Learning pre-built images | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
 
@@ -179,8 +173,15 @@ Also, use the information in the [inbound configuration](#inbound-configuration)
 
 For information on restricting access to models deployed to AKS, see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
-> [!TIP]
-> If you are working with Microsoft Support to gather diagnostics information, you must allow outbound traffic to the IP addresses used by Azure Monitor hosts. For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
+**Support diagnostics**
+
+For Microsoft Support to be able to diagnose any problems you run into with your workspace, you must allow outbound traffic to the following hosts:
+
+* **dc.applicationinsights.azure.com**
+* **dc.applicationinsights.microsoft.com**
+* **dc.services.visualstudio.com**
+
+For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
 ### Python hosts
 
@@ -215,6 +216,45 @@ When using Azure Kubernetes Service with Azure Machine Learning, the following t
 * General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) article.
 * __Outbound__ to mcr.microsoft.com.
 * When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) article.
+
+### Azure Arc enabled Kubernetes <a id="arc-kubernetes"></a>
+
+Azure Arc enabled Kubernetes clusters depend on Azure Arc connections. Make sure to meet [Azure Arc network requirements](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements).
+
+The hosts in this section are used to deploy the Azure Machine Learning extension to Kubernetes clusters and submit training and inferencing workloads to the clusters.
+
+**Azure Machine Learning extension deployment**
+
+Enable outbound access to the following endpoints when deploying the Azure Machine Learning extension to the cluster.
+
+| Destination Endpoint| Port | Use |
+|--|--|--|
+|  *.data.mcr.microsoft.com| https:443 | Required for MCR storage backed by the Azure content delivery network (CDN). |
+| quay.io, *.quay.io | https:443 | Quay.io registry, required to pull container images for AML extension components |
+| gcr.io| https:443 | Google cloud repository, required to pull container images for AML extension components |
+| storage.googleapis.com | https:443 | Google cloud storage, gcr images are hosted on |
+| registry-1.docker.io, production.cloudflare.docker.com  | https:443 | Docker hub registry,required to pull container images for AML extension components |
+| auth.docker.io| https:443 | Docker repository authentication, required to access docker hub registry |
+| *.kusto.windows.net, *.table.core.windows.net, *.queue.core.windows.net | https:443 | Required to upload and analyze system logs in Kusto |
+
+**Training workloads only**
+
+Enable outbound access to the following endpoints to submit training workloads to the cluster.
+
+| Destination Endpoint| Port | Use |
+|--|--|--|
+| pypi.org | https:443 | Python package index, to install pip packages used to initialize the job environment |
+| archive.ubuntu.com, security.ubuntu.com, ppa.launchpad.net | http:80 | This address lets the init container download the required security patches and updates |
+
+**Training and inferencing workloads**
+
+In addition to the endpoints for training workloads, enable outbound access for the following endpoints to submit training and inferencing workloads.
+
+| Destination Endpoint| Port | Use |
+|--|--|--|
+| *.azurecr.io | https:443 | Azure container registry, required to pull container images to host training or inference jobs|
+| *.blob.core.windows.net | https:443 | Azure blob storage, required to fetch machine learning project scripts, container images and job logs/metrics |
+| *.workspace.\<region\>.api.azureml.ms ,  \<region\>.experiments.azureml.net,  \<region\>.api.azureml.ms | https:443 | Azure mahince learning service api, required to communicate with AML |
 
 ### Visual Studio Code hosts
 

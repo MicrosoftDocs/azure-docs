@@ -17,13 +17,13 @@ The [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) de
 ## Scope of the scenario
 This scenario is intended for customers using Azure Monitor to monitor AKS. It does not include the following, although this content may be added in subsequent updates to the scenario.
 
-- Monitoring of Kubernetes clusters outside of Azure except for referring to existing content for Azure Arc enabled Kubernetes. 
+- Monitoring of Kubernetes clusters outside of Azure except for referring to existing content for Azure Arc-enabled Kubernetes. 
 - Monitoring of AKS with tools other than Azure Monitor except to fill gaps in Azure Monitor and Container Insights.
 
 > [!NOTE]
 > Azure Monitor was designed to monitor the availability and performance of cloud resources. While the operational data stored in Azure Monitor may be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring for AKS is done with [Azure Sentinel](../sentinel/overview.md) and [Azure Security Center](../security-center/security-center-introduction.md). See [Monitor virtual machines with Azure Monitor - Security monitoring](../azure-monitor/vm/monitor-virtual-machine-security.md) for a description of the security monitoring tools in Azure and their relationship to Azure Monitor.
 >
-> For information on using the security services to monitor AKS, see [Azure Defender for Kubernetes - the benefits and features](../security-center/defender-for-kubernetes-introduction.md) and  [Connect Azure Kubernetes Service (AKS) diagnostics logs to Azure Sentinel](../sentinel/connect-azure-kubernetes-service.md).
+> For information on using the security services to monitor AKS, see [Azure Defender for Kubernetes - the benefits and features](../security-center/defender-for-kubernetes-introduction.md) and  [Connect Azure Kubernetes Service (AKS) diagnostics logs to Azure Sentinel](../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks).
 ## Container insights
 AKS generates [platform metrics and resource logs](monitor-aks-reference.md), like any other Azure resource, that you can use to monitor its basic health and performance. Enable [Container insights](../azure-monitor/containers/container-insights-overview.md) to expand on this monitoring. Container insights is a feature in Azure Monitor that monitors the health and performance of managed Kubernetes clusters hosted on AKS in addition to other cluster configurations. Container insights provides interactive views and workbooks that analyze collected data for a variety of monitoring scenarios. 
 

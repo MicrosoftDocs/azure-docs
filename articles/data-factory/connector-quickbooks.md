@@ -1,20 +1,20 @@
 ---
-title: Copy data from QuickBooks Online using Azure Data Factory (Preview) 
+title: Copy data from QuickBooks Online (Preview) 
+description: Learn how to copy data from QuickBooks Online to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from QuickBooks Online to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ---
 
-# Copy data from QuickBooks Online using Azure Data Factory (Preview)
+# Copy data from QuickBooks Online using Azure Data Factory or Synapse Analytics (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from QuickBooks Online. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from QuickBooks Online. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
@@ -73,8 +73,8 @@ The following properties are supported for QuickBooks linked service:
 | endpoint | The endpoint of the QuickBooks Online server. (that is, quickbooks.api.intuit.com)  | Yes |
 | companyId | The company ID of the QuickBooks company to authorize. For info about how to find the company ID, see [How do I find my Company ID](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Yes |
 | consumerKey | The client ID of your QuickBooks Online application for OAuth 2.0 authentication. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). | Yes |
-| consumerSecret | The client secret of your QuickBooks Online application for OAuth 2.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| refreshToken | The OAuth 2.0 refresh token associated with the QuickBooks application. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Note refresh token will be expired after 180 days. Customer need to regularly update the refresh token. <br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
+| consumerSecret | The client secret of your QuickBooks Online application for OAuth 2.0 authentication. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | The OAuth 2.0 refresh token associated with the QuickBooks application. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Note refresh token will be expired after 180 days. Customer need to regularly update the refresh token. <br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 
 **Example:**
@@ -178,7 +178,7 @@ To copy data from QuickBooks Online, set the source type in the copy activity to
 ```
 ## Copy data from Quickbooks Desktop
 
-The Copy Activity in Azure Data Factory cannot copy data directly from Quickbooks Desktop. To copy data from Quickbooks Desktop, export your Quickbooks data to a comma-separated-values (CSV) file and then upload the file to Azure Blob Storage. From there, you can use Data Factory to copy the data to the sink of your choice.
+The Copy Activity in the service cannot copy data directly from Quickbooks Desktop. To copy data from Quickbooks Desktop, export your Quickbooks data to a comma-separated-values (CSV) file and then upload the file to Azure Blob Storage. From there, you can use the service to copy the data to the sink of your choice.
 
 ## Lookup activity properties
 
@@ -186,4 +186,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

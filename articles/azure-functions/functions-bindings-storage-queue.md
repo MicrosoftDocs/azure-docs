@@ -32,10 +32,21 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 #### Storage extension 5.x and higher
 
-A new version of the Storage bindings extension is available as a [preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.3). This preview introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For .NET applications, it also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
+A new version of the Storage bindings extension is now available. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
 
-> [!NOTE]
-> The preview package is not included in an extension bundle and must be installed manually. For .NET apps, add a reference to the package. For all other app types, see [Update your extensions].
+This extension version is available by installing the [NuGet package], version 5.x, or it can be added from the extension bundle v3 by adding the following in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
+  }
+}
+```
+
+To learn more, see [Update your extensions].
 
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
@@ -53,7 +64,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in versions 2.x and higher. The example *host.json* file below contains only the version 2.x+ settings for this binding. For more information about global configuration settings in versions 2.x and beyond, see [host.json reference for Azure Functions](functions-host-json.md).
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 > [!NOTE]
 > For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).

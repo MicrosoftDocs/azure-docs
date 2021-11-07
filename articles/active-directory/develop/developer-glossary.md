@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
@@ -30,7 +30,7 @@ Access tokens are sometimes referred to as "User+App" or "App-Only", depending o
 * ["Authorization code" authorization grant](#authorization-grant), the end user authenticates first as the resource owner, delegating authorization to the client to access the resource. The client authenticates afterward when obtaining the access token. The token can sometimes be referred to more specifically as a "User+App" token, as it represents both the user that authorized the client application, and the application.
 * ["Client credentials" authorization grant](#authorization-grant), the client provides the sole authentication, functioning without the resource-owner's authentication/authorization, so the token can sometimes be referred to as an "App-Only" token.
 
-See the [Microsoft identity platform Token Reference][AAD-Tokens-Claims] for more details.
+See the [access tokens reference][AAD-Tokens-Claims] for more details.
 
 ## application ID (client ID)
 
@@ -109,7 +109,7 @@ See [consent framework](consent-framework.md) for more information.
 
 An [OpenID Connect][OpenIDConnect-ID-Token] [security token](#security-token) provided by an [authorization server's](#authorization-server) [authorization endpoint](#authorization-endpoint), which contains [claims](#claim) pertaining to the authentication of an end user [resource owner](#resource-owner). Like an access token, ID tokens are also represented as a digitally signed [JSON Web Token (JWT)][JWT]. Unlike an access token though, an ID token's claims are not used for purposes related to resource access and specifically access control.
 
-See the [Microsoft identity platform token reference][AAD-Tokens-Claims] for more details.
+See the [ID token reference](id-tokens.md) for more details.
 
 ## Microsoft identity platform
 
@@ -141,6 +141,8 @@ Permission requests are configured on the **API permissions** page for an applic
 A type of [security token](#security-token) issued by an [authorization server](#authorization-server), and used by a [client application](#client-application) in order to request a new [access token](#access-token) before the access token expires. Typically in the form of a [JSON Web Token (JWT)][JWT].
 
 Unlike access tokens, refresh tokens can be revoked. If a client application attempts to request a new access token using a refresh token that has been revoked, the authorization server will deny the request, and the client application will no longer have permission to access the [resource server](#resource-server) on behalf of the [resource owner](#resource-owner).
+
+See the [refresh tokens](refresh-tokens.md) for more details.
 
 ## resource owner
 

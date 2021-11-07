@@ -4,21 +4,22 @@ description: Learn how to configure Azure AD role settings in Azure AD Privilege
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/25/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 # Configure Azure AD role settings in Privileged Identity Management
 
-A privileged role administrator can customize Privileged Identity Management (PIM) in their Azure Active Directory (Azure AD) organization, including changing the experience for a user who is activating an eligible role assignment.
+A privileged role administrator can customize Privileged Identity Management (PIM) in their Azure Active Directory (Azure AD) organization, including changing the experience for a user who is activating an eligible role assignment. For information on the PIM events that trigger notifications and which administrators receive them, see [Email notifications in Privileged Identity Management](pim-email-notifications.md#notifications-for-azure-ad-roles)
 
 ## Open role settings
 
@@ -73,9 +74,9 @@ To require multifactor authentication to activate the role assignment, select th
 
 ### On active assignment
 
-In some cases, you might want to assign a user to a role for a short duration (one day, for example). In this case, the assigned users don't need to request activation. In this scenario, Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
+This option requires admins must complete a multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
 
-To require multifactor authentication when the assignment is active, select the **Require Azure Multi-Factor Authentication on active assignment** option in the Assignment tab of **Edit role setting**.
+To require multifactor authentication when creating an active role assignment, select the **Require Azure Multi-Factor Authentication on active assignment** option in the Assignment tab of **Edit role setting**.
 
 For more information, see [Multifactor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
 

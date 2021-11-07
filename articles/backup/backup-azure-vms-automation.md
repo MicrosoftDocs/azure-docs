@@ -526,6 +526,12 @@ $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetV
 $details = Get-AzRecoveryServicesBackupJobDetail -Job $restorejob -VaultId $targetVault.ID
 ```
 
+#### Using managed identity to restore disks
+
+Azure Backup also allows you to use managed identity (MSI) during restore operation to access storage accounts where disks have to be restored to. This option is currently supported only for managed disk restore.
+
+If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***-UseSystemAssignedIdentity*** to the Restore-AzRecoveryServicesBackupItem command. If you wish to use a user-assigned managed identity, pass a parameter ***-UserAssignedIdentityId*** with the ARM id of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
+
 #### Restore selective disks
 
 A user can selectively restore few disks instead of the entire backed up set. Provide the required disk LUNs as parameter to only restore them instead of the entire set as documented [here](selective-disk-backup-restore.md#restore-selective-disks-with-powershell).

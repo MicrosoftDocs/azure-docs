@@ -1,11 +1,11 @@
 ---
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/18/2020
-ms.author: aahi
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 

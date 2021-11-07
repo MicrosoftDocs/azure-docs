@@ -35,54 +35,6 @@ Once Azure accepts a reservation request, it's available to be consumed by VMs o
 > [!NOTE]
 > Capacity Reservation also comes with Azure availability SLA for use with virtual machines. The SLA won't be enforced during public preview and will be defined when Capacity Reservation is generally available.
 
-
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must register your subscription for the preview. The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
-
-### [CLI](#tab/cli1)
-
-1. Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription:
-
-    ```azurecli-interactive
-    az feature register --namespace Microsoft.Compute --name CapacityReservationPreview
-    ```
-
-1. Feature registration can take up to 15 minutes. Check the registration status:
-
-    ```azurecli-interactive
-    az feature show --namespace Microsoft.Compute --name CapacityReservationPreview
-    ```
-
-1. Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider:
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.Compute
-    ``` 
-
-### [PowerShell](#tab/powershell1)
-
-1. Use the [Register-AzProviderFeature cmdlet](/powershell/module/az.resources/register-azproviderfeature) to enable the preview for your subscription:
-
-    ```powershell-interactive
-    Register-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
-    ``` 
-
-1. Feature registration can take up to 15 minutes. Check the registration status:
-
-    ```powershell-interactive
-    Get-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
-    ``` 
-
-1. Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider:
-
-    ```powershell-interactive
-    Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-    ``` 
-
---- 
-<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
-
 ## Benefits of Capacity Reservation 
 
 - Once deployed, capacity is reserved for your use and always available within the scope of applicable SLAs  
@@ -117,6 +69,18 @@ If you then deploy a D2s_v3 VM and specify reservation as its property, the capa
 
 Both used and unused capacity reservation are eligible for Reserved Instances term commitment discounts. In the above example, if you have Reserved Instances for 2 D2s_v3 VM in the same Azure region, the billing for 2 resources (either VM or unused capacity reservation) will be zeroed out and you'll only pay for the rest of the 8 resources (that is, 5 unused capacity reservations and 3 D2s_v3 VMs). In this case, the term commitment discounts could be applied on either the VM or the unused Capacity Reservation, both of which are charged at the same PAYG rate. 
 
+## Difference between On-demand Capacity Reservation and Reserved Instances 
+
+
+| Differences | On-demand Capacity Reservation | Reserved Instances|
+|---|---|---|
+| Term | No term commitment required. Can be created and deleted as per the customer requirement | Fixed term commitment of either one-year or three-years|
+| Billing discount | Charged at pay-as-you-go rates for the underlying VM size* | Significant cost savings over pay-as-you-go rates |
+| Capacity SLA | Provides capacity guarantee in the specified location (region or availability zone) | Does not provide a capacity guarantee. Customers can choose “capacity priority” to gain better access, but that option does not carry an SLA |
+| Region vs Availability Zones | Can be deployed per region or per availability zone | Only available at regional level |
+
+*Eligible for Reserved Instances discount if purchased separately
+
 
 ## Work with Capacity Reservation 
 
@@ -133,7 +97,7 @@ Capacity Reservation doesn’t create limits on the number of VM deployments. Az
 
 When a reservation is created, Azure sets aside the requested number of capacity instances in the specified location: 
 
-![Capacity Reservation image 1.](\media\capacity-reservation-overview\capacity-reservation-1.jpg) 
+![Capacity Reservation image 1.](./media/capacity-reservation-overview/capacity-reservation-1.jpg) 
 
 Track the state of the overall reservation through the following properties:  
 - `capacity` = Total quantity of instances reserved by the customer 
@@ -144,7 +108,7 @@ The above example will start with `capacity` as 2 and length of `virutalMachines
 
 When a VM is then allocated against the Capacity Reservation, it will logically consume one of the reserved capacity instances: 
 
-![Capacity Reservation image 2.](\media\capacity-reservation-overview\capacity-reservation-2.jpg) 
+![Capacity Reservation image 2.](./media/capacity-reservation-overview/capacity-reservation-2.jpg) 
 
 The status of the Capacity Reservation will now show `capacity` as 2 and length of `virutalMachinesAllocated` and `virtualMachinesAssociated` as 1.  
 
@@ -152,23 +116,23 @@ Allocations against the Capacity Reservation will succeed as along as the VMs ha
 
 Using our example, when a third VM is allocated against the Capacity Reservation, the reservation enters the [overallocated](capacity-reservation-overallocate.md) state. This third VM will require unused quota and extra capacity fulfillment from Azure. Once the third VM is allocated, the Capacity Reservation now looks like this: 
 
-![Capacity Reservation image 3.](\media\capacity-reservation-overview\capacity-reservation-3.jpg) 
+![Capacity Reservation image 3.](./media/capacity-reservation-overview/capacity-reservation-3.jpg) 
 
 The `capacity` is 2 and the length of `virutalMachinesAllocated` and `virtualMachinesAssociated` is 3. 
 
 Now suppose the application scales down to the minimum of two VMs. Since VM 0 needs an update, it's chosen for deallocation. The reservation automatically shifts to this state: 
 
-![Capacity Reservation image 4.](\media\capacity-reservation-overview\capacity-reservation-4.jpg) 
+![Capacity Reservation image 4.](./media/capacity-reservation-overview/capacity-reservation-4.jpg) 
 
 The `capacity` and the length of `virtualMachinesAllocated` are both 2. However, the length for `virtualMachinesAssociated` is still 3 as VM 0, though deallocated, is still associated with the capacity reservation.  
 
 The Capacity Reservation will exist until explicitly deleted. To delete a Capacity Reservation, the first step is to dissociate all the VMs in the `virtualMachinesAssociated` property. Once disassociation is complete, the Capacity Reservation should look like this: 
 
-![Capacity Reservation image 5.](\media\capacity-reservation-overview\capacity-reservation-5.jpg) 
+![Capacity Reservation image 5.](./media/capacity-reservation-overview/capacity-reservation-5.jpg) 
 
 The status of the Capacity Reservation will now show `capacity` as 2 and length of `virtualMachinesAssociated` and `virtualMachinesAllocated` as 0. From this state, the Capacity Reservation can be deleted. Once deleted, you'll not pay for the reservation anymore.  
 
-![Capacity Reservation image 6.](\media\capacity-reservation-overview\capacity-reservation-6.jpg)
+![Capacity Reservation image 6.](./media/capacity-reservation-overview/capacity-reservation-6.jpg)
 
 
 ## Usage and billing 
@@ -179,13 +143,13 @@ When a Capacity Reservation is empty, VM usage will be reported for the correspo
 
 For example, let's say a Capacity Reservation with quantity reserved 2 has been created. The subscription has access to one matching Reserved VM Instance of the same size. The result is two usage streams for the Capacity Reservation, one of which is covered by the Reserved Instance: 
 
-![Capacity Reservation image 7.](\media\capacity-reservation-overview\capacity-reservation-7.jpg)
+![Capacity Reservation image 7.](./media/capacity-reservation-overview/capacity-reservation-7.jpg)
 
 In the image above, a Reserved VM Instance discount is applied to one of the unused instances and the cost for that instance will be zeroed out. For the other instance, PAYG rate will be charged for the VM size reserved.  
 
 When a VM is allocated against the Capacity Reservation, the other VM components such as disks, network, extensions, and any other requested components must also be allocated. In this state, the VM usage will reflect one allocated VM and one unused capacity instance. The Reserved VM Instance will zero out the cost of either the VM or the unused capacity instance. The other charges for disks, networking, and other components associated with the allocated VM will also appear on the bill. 
 
-![Capacity Reservation image 8.](\media\capacity-reservation-overview\capacity-reservation-8.jpg)
+![Capacity Reservation image 8.](./media/capacity-reservation-overview/capacity-reservation-8.jpg)
 
 In the image above, the VM Reserved Instance discount is applied to VM 0, which will only be charged for other components such as disk and networking. The other unused instance is being charged at PAYG rate for the VM size reserved.
 

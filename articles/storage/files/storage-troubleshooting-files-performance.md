@@ -77,6 +77,8 @@ To determine whether most of your requests are metadata-centric, start by follow
 
 - Check to see whether the application can be modified to reduce the number of metadata operations.
 - Add a virtual hard disk (VHD) on the file share and mount the VHD over SMB from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
+    -   To mount a VHD on a Windows client, use the [Mount-DiskImage](/powershell/module/storage/mount-diskimage) Powershell cmdlet.
+    -   To mount a VHD on Linux, consult the documentation for your Linux distribution.     
 
 ### Cause 3: Single-threaded application
 

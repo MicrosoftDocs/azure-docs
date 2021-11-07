@@ -46,7 +46,7 @@ Type the commands below to create a called **ExampleKey** :
 Add-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -Name "ExampleKey" -Destination "Software"
 ```
 
-You can now reference this key that you added to Azure Key Vault by using its URI. Use **"https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey"** to get the current version. 
+You can now reference this key that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey`** to get the current version. 
 
 To view previously stored key:
 

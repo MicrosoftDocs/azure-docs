@@ -61,7 +61,7 @@ To renew a nonintegrated CA certificate, do the following:
 > [!NOTE]
 > It's important to merge the signed CSR with the same CSR request that you created. Otherwise, the key won't match.
 
-For more information about creating a new CSR, see [Create and merge a CSR in Key Vault]( https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request#azure-portal).
+For more information about creating a new CSR, see [Create and merge a CSR in Key Vault](create-certificate-signing-request.md).
 
 ## Renew a self-signed certificate
 

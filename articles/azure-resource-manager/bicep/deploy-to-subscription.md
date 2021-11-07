@@ -14,6 +14,10 @@ To simplify the management of resources, you can deploy resources at the level o
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
 
+### Microsoft Learn
+
+To learn more about deployment scopes, and for hands-on guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
+
 ## Supported resources
 
 Not all resource types can be deployed to the subscription level. This section lists which resource types are supported.

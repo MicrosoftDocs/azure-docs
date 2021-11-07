@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/10/2020
+ms.date: 10/28/2021
 ms.author: lajanuar
 ---
 # Translator language support
@@ -33,6 +33,7 @@ ms.author: lajanuar
 | Assamese | `as` |✔|✔||||
 | Azerbaijani | `az` |✔|✔||||
 | Bangla | `bn` |✔|✔|✔||✔|
+| Bashkir | `ba` |✔|||||
 | Bosnian (Latin) | `bs` |✔|✔|✔||✔|
 | Bulgarian | `bg` |✔|✔|✔|✔|✔|
 | Cantonese (Traditional) | `yue` |✔|✔||||
@@ -44,6 +45,7 @@ ms.author: lajanuar
 | Czech | `cs` |✔|✔|✔|✔|✔|
 | Danish | `da` |✔|✔|✔|✔|✔|
 | Dari | `prs` |✔|✔||||
+| Divehi | `dv` |✔|||✔||
 | Dutch | `nl` |✔|✔|✔|✔|✔|
 | English | `en` |✔|✔|✔|✔|✔|
 | Estonian | `et` |✔|✔|✔|✔||
@@ -52,6 +54,7 @@ ms.author: lajanuar
 | Finnish | `fi` |✔|✔|✔|✔|✔|
 | French | `fr` |✔|✔|✔|✔|✔|
 | French (Canada) | `fr-ca` |✔|✔||||
+| Georgian | `ka` |✔|||✔||
 | German | `de` |✔|✔|✔|✔|✔|
 | Greek | `el` |✔|✔|✔|✔|✔|
 | Gujarati | `gu` |✔|✔|✔|✔||
@@ -74,15 +77,19 @@ ms.author: lajanuar
 | Korean | `ko` |✔|✔|✔|✔|✔|
 | Kurdish (Central) | `ku` |✔|✔||✔||
 | Kurdish (Northern) | `kmr` |✔|✔||||
+| Kyrgyz | `ky` |✔|||||
 | Lao | `lo` |✔|✔||✔||
 | Latvian | `lv` |✔|✔|✔|✔|✔|
 | Lithuanian | `lt` |✔|✔|✔|✔|✔|
+| Macedonian | `mk` |✔|||✔||
 | Malagasy | `mg` |✔|✔|✔|||
 | Malay | `ms` |✔|✔|✔|✔|✔|
 | Malayalam | `ml` |✔|✔||||
 | Maltese | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Marathi | `mr` |✔|✔|✔|||
+| Mongolian (Cyrillic) | `mn-Cyrl` |✔|||||
+| Mongolian (Traditional) | `mn-Mong` |✔|||✔||
 | Myanmar | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
@@ -106,13 +113,18 @@ ms.author: lajanuar
 | Swedish | `sv` |✔|✔|✔|✔|✔|
 | Tahitian | `ty` |✔| |✔|✔||
 | Tamil | `ta` |✔|✔|||✔|
+| Tatar | `tt` |✔|||||
 | Telugu | `te` |✔|✔||||
 | Thai | `th` |✔| |✔|✔|✔|
+| Tibetan | `bo` |✔||||
 | Tigrinya | `ti` |✔|✔||||
 | Tongan | `to` |✔|✔|✔|||
 | Turkish | `tr` |✔|✔|✔|✔|✔|
+| Turkmen | `tk` |✔||||
 | Ukrainian | `uk` |✔|✔|✔|✔|✔|
 | Urdu | `ur` |✔|✔|✔|✔|✔|
+| Uyghur | `ug` |✔||||
+| Uzbek (Latin | `uz` |✔|||✔||
 | Vietnamese | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||
@@ -167,7 +179,8 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 Add additional capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for additional services are below.
 * [Computer Vision](../computer-vision/language-support.md) 
 * [Speech](../speech-service/language-support.md) 
-* [Text Analytics ](../text-analytics/language-support.md) 
+* [Language service](../language-service/index.yml) 
+    * Select the feature you want to use, and then **Language support** on the left navigation menu.
 
 View all [Cognitive Services](../index.yml). 
 

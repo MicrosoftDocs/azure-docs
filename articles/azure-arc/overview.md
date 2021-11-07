@@ -51,25 +51,25 @@ Key features of Azure Arc include:
 
 The following are pricing details for the features available today with Azure Arc.
 
-### Arc-enabled servers
+### Azure Arc-enabled servers
 
-The following Azure Arc control plane functionality is offered at no extra cost:
+The following Azure Arc control plane functionality is offered at no extra cost:
 
-* Resource organization through Azure management groups and tags.
+* Resource organization through Azure management groups and tags.
 
-* Searching and indexing through Azure Resource Graph.
+* Searching and indexing through Azure Resource Graph.
 
-* Access and security through Azure RBAC and subscriptions.
+* Access and security through Azure RBAC and subscriptions.
 
-* Environments and automation through templates and extensions.
+* Environments and automation through templates and extensions.
 
-* Update management.
+* Update management.
 
-Any Azure service that is used on Arc-enabled servers, for example Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
+Any Azure service that is used on Azure Arc-enabled servers, such as Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
 
 ### Azure Arc-enabled Kubernetes
 
-Any Azure service that is used on Arc-enabled Kubernetes, for example Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information on pricing for configurations on top of Azure Arc-enabled Kubernetes, see [Azure pricing page](https://azure.microsoft.com/pricing/).
+Any Azure service that is used on Azure Arc-enabled Kubernetes, such as Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information on pricing for configurations on top of Azure Arc-enabled Kubernetes, see [Azure pricing page](https://azure.microsoft.com/pricing/).
 
 ### Azure Arc-enabled data services
 

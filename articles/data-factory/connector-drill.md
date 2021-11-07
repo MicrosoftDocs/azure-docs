@@ -1,20 +1,20 @@
 ---
-title: Copy data from Drill using Azure Data Factory 
+title: Copy data from Drill
+description: Learn how to copy data from Drill to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Drill to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
-# Copy data from Drill using Azure Data Factory
+# Copy data from Drill using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Drill. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Drill. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -25,7 +25,7 @@ This Drill connector is supported for the following activities:
 
 You can copy data from Drill to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 ## Prerequisites
 
@@ -197,4 +197,4 @@ To copy data from Drill, set the source type in the copy activity to **DrillSour
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

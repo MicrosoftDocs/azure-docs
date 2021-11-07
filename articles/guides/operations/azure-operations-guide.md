@@ -337,7 +337,7 @@ Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template
 
 ### Access and security for virtual machines
 
-Accessing a virtual machine from the Internet requires the associated network interface, or load balancer if applicable, to be configured with a public IP address. The public IP address includes a DNS name that will resolve to the virtual machine or load balancer. For more information, see [IP addresses in Azure](../../virtual-network/public-ip-addresses.md).
+Accessing a virtual machine from the Internet requires the associated network interface, or load balancer if applicable, to be configured with a public IP address. The public IP address includes a DNS name that will resolve to the virtual machine or load balancer. For more information, see [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md).
 
 You manage access to the virtual machine over the public IP address by using a network security group (NSG) resource. An NSG acts like a firewall and allows or denies traffic across the network interface or subnet on a set of defined ports. For instance, to create a Remote Desktop session with an Azure VM, you need to configure the NSG to allow inbound traffic on port 3389. For more information, see [Opening ports to a VM in Azure using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 

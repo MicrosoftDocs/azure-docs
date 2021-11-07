@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: saachigopal
 ms.author:  sagopal
-ms.date: 07/27/2021
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 ---
@@ -159,6 +159,14 @@ RUN apt-get update && \
 ```
 
 Running this command installs the correct module dependencies to configure your environment. 
+
+### Build failure when using Spark packages
+
+Configure the environment to not precache the packages. 
+
+```python
+env.spark.precache_packages = False
+```
 
 ## Service-side failures
 

@@ -1,24 +1,24 @@
 ---
-title: Copy data to or from Azure Data Explorer
+title: Copy and transform data in Azure Data Explorer
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data to or from Azure Data Explorer by using a copy activity in an Azure Data Factory pipeline.
-ms.author: susabat
-author: ssabat
+description: Learn how to copy or transform data in Azure Data Explorer by using Data Factory or Azure Synapse Analytics.
+ms.author: orspodek
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 10/14/2021
 ---
 
-# Copy data to or from Azure Data Explorer by using Azure Data Factory
+# Copy data to or from Azure Data Explorer using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how to use the copy activity in Azure Data Factory to copy data to or from [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). It builds on the [copy activity overview](copy-activity-overview.md) article, which offers a general overview of copy activity.
+This article describes how to use the copy activity in Azure Data Factory and Synapse Analytics pipelines to copy data to or from [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). It builds on the [copy activity overview](copy-activity-overview.md) article, which offers a general overview of copy activity.
 
 >[!TIP]
->For Azure Data Factory and Azure Data Explorer integration in general, learn more from [Integrate Azure Data Explorer with Azure Data Factory](/azure/data-explorer/data-factory-integration).
+>To learn more about Azure Data Explorer integration with the service generally read [Integrate Azure Data Explorer](/azure/data-explorer/data-factory-integration).
 
 ## Supported capabilities
 
@@ -41,7 +41,7 @@ With the Azure Data Explorer connector, you can do the following:
 ## Getting started
 
 >[!TIP]
->For a walkthrough of Azure Data Explorer connector, see [Copy data to/from Azure Data Explorer using Azure Data Factory](/azure/data-explorer/data-factory-load-data) and [Bulk copy from a database to Azure Data Explorer](/azure/data-explorer/data-factory-template).
+>For a walkthrough of Azure Data Explorer connector, see [Copy data to/from Azure Data Explorer](/azure/data-explorer/data-factory-load-data) and [Bulk copy from a database to Azure Data Explorer](/azure/data-explorer/data-factory-template).
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
@@ -95,7 +95,7 @@ To use service principal authentication, follow these steps to get a service pri
     - **As sink**, grant at least the **Database ingestor** role to your database
 
 >[!NOTE]
->When you use the Data Factory UI to author, by default your login user account is used to list Azure Data Explorer clusters, databases, and tables. You can choose to list the objects using the service principal by clicking the dropdown next to the refresh button, or manually enter the name if you don't have permission for these operations.
+>When you use the UI to author, by default your login user account is used to list Azure Data Explorer clusters, databases, and tables. You can choose to list the objects using the service principal by clicking the dropdown next to the refresh button, or manually enter the name if you don't have permission for these operations.
 
 The following properties are supported for the Azure Data Explorer linked service:
 
@@ -106,7 +106,7 @@ The following properties are supported for the Azure Data Explorer linked servic
 | database | Name of database. | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is known as "Authority ID" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering the mouse pointer in the upper-right corner of the Azure portal. | Yes |
 | servicePrincipalId | Specify the application's client ID. This is known as "AAD application client ID" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
-| servicePrincipalKey | Specify the application's key. This is known as "AAD application key" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalKey | Specify the application's key. This is known as "AAD application key" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
 
 **Example: using service principal key authentication**
@@ -136,7 +136,7 @@ To learn more about managed identities for Azure resources, see [Managed identit
 
 To use system-assigned managed identity authentication, follow these steps to grant permissions:
 
-1. [Retrieve the Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your factory.
+1. [Retrieve the managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your factory or Synapse workspace.
 
 2. Grant the managed identity the correct permissions in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions) for detailed information about roles and permissions and about managing permissions. In general, you must:
 
@@ -144,7 +144,7 @@ To use system-assigned managed identity authentication, follow these steps to gr
     - **As sink**, grant at least the **Database ingestor** role to your database
 
 >[!NOTE]
->When you use the Data Factory UI to author, your login user account is used to list Azure Data Explorer clusters, databases, and tables. Manually enter the name if you don't have permission for these operations.
+>When you use the UI to author, your login user account is used to list Azure Data Explorer clusters, databases, and tables. Manually enter the name if you don't have permission for these operations.
 
 The following properties are supported for the Azure Data Explorer linked service:
 
@@ -180,7 +180,7 @@ To use user-assigned managed identity authentication, follow these steps:
     - **As source**, grant at least the **Database viewer** role to your database
     - **As sink**, grant at least the **Database ingestor** role to your database
      
-2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity.
+2. Assign one or multiple user-assigned managed identities to your data factory or Synapse workspace, and [create credentials](credentials.md) for each user-assigned managed identity.
 
 The following properties are supported for the Azure Data Explorer linked service:
 
@@ -212,7 +212,7 @@ The following properties are supported for the Azure Data Explorer linked servic
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md). This section lists properties that the Azure Data Explorer dataset supports.
+For a full list of sections and properties available for defining datasets, see [Datasets](concepts-datasets-linked-services.md). This section lists properties that the Azure Data Explorer dataset supports.
 
 To copy data to Azure Data Explorer, set the type property of the dataset to **AzureDataExplorerTable**.
 
@@ -244,7 +244,7 @@ The following properties are supported:
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md). This section provides a list of properties that Azure Data Explorer sources and sinks support.
+For a full list of sections and properties available for defining activities, see [Pipelines and activities](concepts-pipelines-activities.md). This section provides a list of properties that Azure Data Explorer sources and sinks support.
 
 ### Azure Data Explorer as source
 
@@ -336,12 +336,87 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 ]
 ```
 
+## Mapping data flow properties
+
+When transforming data in mapping data flow, you can read from and write to tables in Azure Data Explorer. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use an Azure Data Explorer dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
+
+### Source transformation
+
+The below table lists the properties supported by Azure Data Explorer source. You can edit these properties in the **Source options** tab.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Table | If you select Table as input, data flow will fetch all the data from the table specified in the Azure Data Explorer dataset or in the source options when using inline dataset. | No | String | *(for inline dataset only)*<br>tableName |
+| Query | A read-only request given in a [KQL format](/azure/data-explorer/kusto/query/). Use the custom KQL query as a reference.  | No | String | query |
+| Timeout | The wait time before the query request times out. Default is '172000' (2 days)  | No | Integer | timeout |
+
+#### Azure Data Explorer source script examples
+
+When you use Azure Data Explorer dataset as source type, the associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	query: 'table | take 10',
+	format: 'query') ~> AzureDataExplorerSource
+
+```
+
+If you use inline dataset, the associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'table | take 10',
+    store: 'azuredataexplorer') ~> AzureDataExplorerSource
+
+```
+
+### Sink transformation
+
+The below table lists the properties supported by Azure Data Explorer sink. You can edit these properties in the **Settings** tab. When using inline dataset, you will see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section. 
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Table action | Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
+| Pre and Post SQL scripts | Specify multiple [Kusto control commands](/azure/data-explorer/kusto/query/#control-commands) scripts that will execute before (pre-processing) and after (post-processing) data is written to your sink database. | No | String | preSQLs; postSQLs |
+| Timeout | The wait time before the query request times out. Default is '172000' (2 days) | No | Integer | timeout |
+
+
+#### Azure Data Explorer sink script examples
+
+When you use Azure Data Explorer dataset as sink type, the associated data flow script is:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+	validateSchema: false,
+	format: 'table',
+	preSQLs:['pre SQL scripts'],
+	postSQLs:['post SQL script'],
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> AzureDataExplorerSink
+
+```
+
+If you use inline dataset, the associated data flow script is:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    store: 'azuredataexplorer',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzureDataExplorerSink
+
+```
+
 ## Lookup activity properties
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 
-* For a list of data stores that the copy activity in Azure Data Factory supports as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+* For a list of data stores that the copy activity supports as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
-* Learn more about how to [copy data from Azure Data Factory to Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
+* Learn more about how to [copy data from Azure Data Factory and Synapse Analytics to Azure Data Explorer](/azure/data-explorer/data-factory-load-data).

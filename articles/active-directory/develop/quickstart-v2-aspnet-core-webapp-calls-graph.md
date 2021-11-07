@@ -33,7 +33,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `AspNetCoreWebAppCallsGraph-Quickstart`. Users of your app might see this name, and you can change it later.
@@ -42,7 +42,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Enter a **Front-channel logout URL** of `https://localhost:44321/signout-oidc`.
 > 1. Select **Save**.
-> 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
+> 1. Under **Manage**, select **Certificates & secrets** > **Client secrets** > **New client secret**.
 > 1. Enter a **Description**, for example `clientsecret1`.
 > 1. Select **In 1 year** for the secret's expiration.
 > 1. Select **Add** and immediately record the secret's **Value** for use in a later step. The secret value is *never displayed again* and is irretrievable by any other means. Record it in a secure location as you would any password.

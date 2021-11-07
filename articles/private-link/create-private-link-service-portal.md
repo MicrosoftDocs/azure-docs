@@ -46,7 +46,7 @@ In this section, you create a virtual network and subnet to host the load balanc
     | Resource Group   | Select **Create new**. Enter **CreatePrivLinkService-rg**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **(US) East US** |
+    | Region           | Select **(US) East US 2** |
 
 5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 

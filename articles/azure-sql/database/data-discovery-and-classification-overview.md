@@ -128,7 +128,7 @@ These are the activites that are actually auditable with sensitivity information
 - DBCC SHOW_STATISTICS
 - sys.dm_db_stats_histogram
 
-Use [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) to returns information from an audit file stored in an Azure Storage account.
+Use [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) to returns information from an audit file stored in an Azure Storage account.
 
 ## <a id="permissions"></a>Permissions
 
@@ -212,10 +212,10 @@ You can use the REST API to programmatically manage classifications and recommen
 
 You can use the following SQL drivers to retrieve classification metadata:
 
-- [ODBC Driver](https://docs.microsoft.com/sql/connect/odbc/data-classification)
-- [OLE DB Driver](https://docs.microsoft.com/sql/connect/oledb/features/using-data-classification)
-- [JDBC Driver](https://docs.microsoft.com/sql/connect/jdbc/data-discovery-classification-sample)
-- [Microsoft Drivers for PHP for SQL Server](https://docs.microsoft.com/sql/connect/php/release-notes-php-sql-driver)
+- [ODBC Driver](/sql/connect/odbc/data-classification)
+- [OLE DB Driver](/sql/connect/oledb/features/using-data-classification)
+- [JDBC Driver](/sql/connect/jdbc/data-discovery-classification-sample)
+- [Microsoft Drivers for PHP for SQL Server](/sql/connect/php/release-notes-php-sql-driver)
 
 ## FAQ - Advanced classification capabilities
 
