@@ -1,7 +1,7 @@
 ---
 title: Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
-ms.date: 11/04/2021
+ms.date: 11/07/2021
 ms.topic: how-to
 ---
 
@@ -130,7 +130,7 @@ Open these ports to allow extra services for Defender for IoT.
 | SMTP | TCP | Out | 25 | Email | Used to open the customer's mail server, in order to send emails for alerts, and events. | Sensor and On-premises management console | Email server |
 | Syslog | UDP | Out | 514 | LEEF | The logs that are sent from the on-premises management console to Syslog server. | On-premises management console and Sensor | Syslog server |
 | DNS | TCP  | In/Out | 53 | DNS | The DNS server port. | On-premises management console and Sensor | DNS server |
-| [WMI](how-to-configure-windows-endpoint-monitoring.md) | TCP | Out | 1025-65535 | Monitoring | Windows Endpoint Monitoring. | Sensor | Relevant network element |
+| [WMI](how-to-configure-windows-endpoint-monitoring.md) | TCP & UDP | Out | 135, 1025-65535 | Monitoring | Windows Endpoint Monitoring. | Sensor | Relevant network element |
 | Tunneling | TCP | In | 9000 </br></br> in addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console. </br></br> Port 22 from the sensor to the on-premises management console. | Monitoring | Tunneling | Sensor | On-premises management console |
 | Proxy | UDP | | 443| Proxy | To connect the sensor to a proxy server | On-premises management console and Sensor| Proxy server |
 
