@@ -12,59 +12,48 @@ ms.date: 10/19/2021
 
 Read this article to learn how to use Kusto Query Language (KQL) in Microsoft Sentinel.
 
-Microsoft Sentinel data is stored in Azure Monitor [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-overview) workspaces. Log Analytics is build on top of [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/), and uses the same [KQL language](https://docs.microsoft.com/azure/data-explorer/kusto/query/) (with some specific Azure Monitor features) to retrieve, visualize, and analyze, and parse data. In Microsoft Sentinel, you use KQL when you visualize and analyze data, build rules and workbooks, and hunt for threats.
+Microsoft Sentinel data is stored in Azure Monitor [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-overview) workspaces. Log Analytics is build on top of [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/), and uses the same [KQL language](https://docs.microsoft.com/azure/data-explorer/kusto/query/) (with specific Azure Monitor features) to retrieve, visualize, and analyze, and parse data. In Microsoft Sentinel, you use KQL when you visualize and analyze data, build rules and workbooks, and hunt for threats.
 
 ## KQL queries
 
-KQL queries are read-only and plain text, and operate on data that's gathered into [databases](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/databases), [tables](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/tables), and [columns](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/columns), similar to SQL. Queries don't modify data or metadata. You start KQL queries with a data source (table) and then perform actions on those tables with operators and functions. Tables and operators are tied together with a [pipe (|) delimiter](https://docs.microsoft.com/azure/data-explorer/kusto/query/queries).
+KQL queries are plain text and read-only. They don't modify data or metadata. Queries operate on data that's gathered into [databases](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/databases), [tables](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/tables), and [columns](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/columns), similar to SQL. You start KQL queries with a data source (table) and then perform actions on those tables with operators and functions. You tie tables and operators together with a [pipe (|) delimiter](https://docs.microsoft.com/azure/data-explorer/kusto/query/queries).
 
 
+## KQL demo environment
 
-## Learning KQL
+You can practice KQL statements in a [Log Analytics demo environment](https://aka.ms/lademo) in the Azure portal. The practice environment has no charges. You just need an account to sign into Azure.
 
-### Demo environment
+The demo environment has a number of tables with columns (shown on the left). You type one or more queries into the query window, and run them.
 
-Microsoft provides a [Log Analytics demo environment](https://aka.ms/lademo) in the Azure portal so that you can practice KQL statements. The practice environment has no charges. You just need an account to sign into Azure.
+:::image type="content" source="./media/kql-overview/demo-environment.png" alt-text="Shows the Log Analytics demo environment.":::
 
-The demo environment has a number of tables on the left. You type a query into the query window (you can add in multiple queries), and then run it. Results appear below.
+In this article all the examples are run in the demo environment, so you can try them out. 
 
-:::image type="content" source="/media/kql-overview/demo-environment.png" alt-text="KQL queries in the Sentinel portal.":::
-
-![KQL queries in the Sentinel portal](./media/kql-overview/demo-environment.png)
-
-In this article we'll provide a number of suggested queries that you can use for practice.
-
-### Before you start
+## Before you start
 
 Before you start trying out KQL queries for Microsoft Sentinel, review some [query best practices](https://docs.microsoft.com/azure/data-explorer/kusto/query/best-practices).
 
 ## Using KQL in Sentinel
 
-Typically when you search for data in Microsoft Sentinel, you move through a query process using KQL as follows.
+When you search for data in Microsoft Sentinel, you typically move through a query process as follows.
 
-:::image type="content" source="/media/kql-overview/pipe-command.png" alt-text="Shows how the pipe command works.":::
 
-![KQL queries in the Sentinel portal](./media/kql-overview/pipe-command.png)
+:::image type="content" source="./media/kql-overview/pipe-command.png" alt-text="Shows how the pipe command works.":::
 
-1. **Step 1: Get data*: Data streamed into Microsoft Sentinel is stored in Log Analytics tables. Select tables containing the input data you want to query.
-2. **Step 2: Narrow down data**: 
-    1. **Filter**: Use operators to filter table and column data.
-    2. **Parse and prepare**. Prepare the filtered data with parsing, aggregrating etc. 
-    3. **Analyze**: Analyze the results. After analysis, you might want to further filter or parse the results data.
+1. **Step 1: Retrieve data**: Data that streams into Microsoft Sentinel is stored in Log Analytics tables. You select tables that contain the data you want to query.
+2. **Step 2: Narrow down**. 
+    - **Filter**: Use operators to filter table and column data.
+    - **Parse and prepare**. Prepare the filtered data further by parsing, aggregating etc. 
+    - **Analyze**: Analyze the prepared results. After analysis, you might filter or parse again to hone in more sharply.
 3. **Step 3: Gather the evidence**: Prepare the results so that they're useful in your Microsoft Sentinel environment.
 
-You query and filter data in the Microsoft Sentinel console  > **Logs** page.
-- When you select a table, you see the columns within that table.
-- You can use tables and columns to filter for specific values.
-- Sentinel sets some defaults for columns, but you can modify those.
+You can query and filter data in the Microsoft Sentinel console  > **Logs** page. You can select a table and drill down to see columns. You can modify the default columns shown, and the default time range for queries.
 
-:::image type="content" source="/media/kql-overview/portal-placement.png" alt-text="KQL queries in the Sentinel portal.":::
+:::image type="content" source="./media/kql-overview/portal-placement.png" alt-text="Shows where to run KQL queries in the Sentinel portal.":::
 
-![KQL queries in the Sentinel portal](./media/kql-overview/portal-placement.png)
+## Retrieve data
 
-## Getting data
-
-Microsoft Sentinel data is organized into tables with ordered columns and rows of data. Different types of tables store different kinds of data, including:
+Microsoft Sentinel data is organized into different types of tables: 
 
 - Tables created by default in Log Analytics.
 - Tables created when you set up data connectors and Microsoft Sentinel ingests data.
@@ -80,9 +69,8 @@ SecurityEvent
 | count
 ```
 #### Results
-:::image type="content" source="/media/kql-overview/table-count-results.png" alt-text="KQL queries in the Sentinel portal.":::
+:::image type="content" source="./media/kql-overview/table-count-results.png" alt-text="Shows the result for counting records in the SecurityEvent table.":::
 
-![KQL queries in the Sentinel portal](./media/kql-overview/table-count-results.png)
 
 ### Example 2
 
@@ -91,22 +79,20 @@ SecurityEvent
 SecurityEvent 
 | union SecurityAlert  
 ```
-
 #### Results
 
-:::image type="content" source="/media/kql-overview/table-union-results.png" alt-text="KQL queries in the Sentinel portal.":::
-
-![KQL queries in the Sentinel portal](./media/kql-overview/table-union-results.png)
+:::image type="content" source="./media/kql-overview/table-union-results.png" alt-text="Shows the union of the SecurityEvent and SecurityAlert tables.":::
 
 
-### Limiting and sorting data
+### Limit and sort data
 
 For datasets that are large you might want to sort results, or limit data that's returned.
 
 #### Example 1
 
 ```kusto
-//Use order to sort data by with the TimeGenerated column, in descending order, and get the first five records in the results.
+//Use order to sort data in descending order in the TimeGenerated column. 
+//Get the first five records in the results.
 SecurityEvent 
 | order by TimeGenerated desc
 | take 5
@@ -114,14 +100,13 @@ SecurityEvent
 
 ##### Results
 
-:::image type="content" source="/media/kql-overview/table-sort-limit.png" alt-text="KQL queries in the Sentinel portal.":::
-
-![KQL queries in the Sentinel portal](./media/kql-overview/table-sort-limit.png)
+:::image type="content" source="./media/kql-overview/table-sort-limit.png" alt-text="Shows five records of sorted data in the TimeGenerated column.":::
 
 #### Example 2
 
 ```kusto
-//If two or more records in the TimeGenerated column have the same value, try to sort by the AccountName column, and get the first five records in the results.
+//If two or more records in the TimeGenerated column have the same value, sort by the AccountName column
+// Get the first five records.
 SecurityEvent 
 | order by TimeGenerated, AcccountName desc
 | take 5
@@ -129,22 +114,35 @@ SecurityEvent
 
 ##### Results
 
-:::image type="content" source="/media/kql-overview/table-sort-multiple.png" alt-text="KQL queries in the Sentinel portal.":::
+:::image type="content" source="./media/kql-overview/table-sort-multiple.png" alt-text="Shows five records by AccountName column for duplicated TimeGenerated values.":::
 
-![KQL queries in the Sentinel portal](./media/kql-overview/table-sort-multiple.png)
+#### Example 3
 
-## Filtering data
+```kusto
+// Sort security events (newest first).
+// Focus on the project columns for the last seven days (default time period).
+SecurityEvent
+| project TimeGenerated, Account, Activity, Computer
+| sort by TimeGenerated desc
+```
 
-After retrieving and perhaps sorting table data, you'll want to filter it by columns/values to narrow down results to points of interest.
+##### Results
+
+:::image type="content" source="./media/kql-overview/table-security-events-newest.png" alt-text="Show latest security events for columns specified by project operator.AccountName column for duplicated TimeGenerated values.":::
+
+
+## Filter data
+
+After retrieving and perhaps sorting table data, you can filter it to narrow down results to points of interest.
 
 ### Using where
 
-The where operator is one of the most common you'll use. It's best to use where to filter early on in the query. This improves performance by reducing the amount of data you need to process as you dig down into the query results.
+The where operator is one of the most common filters. It's best to use *where* early in a query. This improves performance by reducing the amount of data you need to process as you dig down into the query results.
 
 #### Example 1
 
 ```kusto
-//Retrieve the latest 10 occurrences of EventID 4624 (Successful Windows logon) that occurred in the SecurityEvent table.
+//Retrieve the latest 10 occurrences of EventID 4624 (successful Windows logon) in the SecurityEvent table.
 SecurityEvent
 | where EventID == 4624
 | order by TimeGenerated desc
@@ -153,15 +151,15 @@ SecurityEvent
 
 ##### Results
 
-:::image type="content" source="/media/kql-overview/table-where-event-sort.png" alt-text="KQL queries in the Sentinel portal.":::
+:::image type="content" source="./media/kql-overview/table-where-event-sort.png" alt-text="Get occurrences of EventID 4624 in the SecurityEvent table.":::
 
-![KQL queries in the Sentinel portal](./media/kql-overview/table-where-event-sort.png)
+![Get occurrences of EventID 4624 in the SecurityEvent table](./media/kql-overview/table-where-event-sort.png)
 
 
 #### Example 2
 
 ```kusto
-//Retrieve 10 occurrences (in descending TimeGenerated order) of EventID 4624 (Successful Windows logon) or EventID 4634 that occurred in the SecurityEvent table seven or more days ago. Note that you can combine where statement.
+//Retrieve 10 occurrences (descending TimeGenerated order) of EventID 4624 or 4634 in the SecurityEvent table, seven or more days ago. Note that you can combine where statements.
 SecurityEvent
 | where EventID in (4624, 4634)
 | where TimeGenerated >= ago(7d)
@@ -171,15 +169,12 @@ SecurityEvent
 
 ##### Results
 
-:::image type="content" source="/media/kql-overview/table-where-multiple-events.png" alt-text="KQL queries in the Sentinel portal.":::
-
-![KQL queries in the Sentinel portal](./media/kql-overview/table-where-multiple-events.png)
-
+:::image type="content" source="/media/kql-overview/table-where-multiple-events.png" alt-text="Get 10 occurrences in descending order for EventID 4624, 4634.":::
 
 #### Example 3
 
 ```kusto
-//You can also combine where statements using the and operator.
+//Combine where statements using the and operator.
 SecurityEvent
 | where EventID == 4624
   and TimeGenerated <= ago(1d)
@@ -188,15 +183,14 @@ SecurityEvent
 
 ##### Results
 
-:::image type="content" source="/media/kql-overview/table-where-and.png" alt-text="KQL queries in the Sentinel portal.":::
+:::image type="content" source="./media/kql-overview/table-where-and.png" alt-text="Get 10 occurrences of EventID 4624 using the where with and operator.":::
 
-![KQL queries in the Sentinel portal](./media/kql-overview/table-where-and.png)
 
 
 #### Example 4
 
 ```kusto
-//Turns the EventID into a string to filter on all EventIDs that start with "47"
+//This example turns the EventID value into a string to filter on all EventIDs that start with "47"
 
 SecurityEvent  
 | where tostring(EventId) startswith "47" 
@@ -204,14 +198,12 @@ SecurityEvent
 
 ##### Results
 
-:::image type="content" source="/media/kql-overview/table-where-event-string.png" alt-text="KQL queries in the Sentinel portal.":::
-
-![KQL queries in the Sentinel portal](./media/kql-overview/table-where-event-string.png)
+:::image type="content" source="./media/kql-overview/table-where-event-string.png" alt-text="Turn EventIDs that start with 47 into string operators.":::
 
 
 ### Time queries
 
-Many of the queries and query examples in Microsoft Sentinel rules, hunting, and workbooks use time filters. KQL is optimized for time filters, and they're useful in narrowing down results. Note that by default Microsoft Sentinel filters on the last 24 hours.
+Many Microsoft Sentinel rule queries and examples use time filters. KQL is optimized for time filters, and they're useful in narrowing down results. By default Microsoft Sentinel filters on the last 24 hours.
 
 #### Example 1
 
@@ -225,9 +217,7 @@ SecurityEvent
 
 ##### Results
 
-:::image type="content" source="/media/kql-overview/table-time-five-seven-days.png" alt-text="KQL queries in the Sentinel portal.":::
-
-![KQL queries in the Sentinel portal](./media/kql-overview/table-time-five-seven-days.png)
+:::image type="content" source="./media/kql-overview/table-time-five-seven-days.png" alt-text="Get EventID 4624 occurrences from 5 to 7 days ago.":::
 
 #### Example 2
 
@@ -241,15 +231,14 @@ SecurityEvent
 
 #### Results
 
-:::image type="content" source="/media/kql-overview/table-time-between-dates.png" alt-text="KQL queries in the Sentinel portal.":::
-
-![KQL queries in the Sentinel portal](./media/kql-overview/table-time-between-dates.png)
+:::image type="content" source="./media/kql-overview/table-time-between-dates.png" alt-text="Get EventID 4624 occurrences from July 1 to July 30.":::
 
 
 #### Example 4
 
 ```kusto
-//When you use a element that uses now as a start point to pivot from, returned data changes each time your run the query this example uses the [startofday function](https://docs.microsoft.com/azure/data-explorer/kusto/query/startofdayfunction) for one day ago as a fixed point in time, until the present time. 
+//Operators that use the present time as start point return data changes each time your run the query.
+//This example uses the [startofday function](https://docs.microsoft.com/azure/data-explorer/kusto/query/startofdayfunction) as a fixed point in time (one day ago), until the present time. 
 
 SecurityEvent
 | where TimeGenerated > startofday(ago(1d))
@@ -257,16 +246,15 @@ SecurityEvent
 ```
 ##### Results
 
-The query is running on October 26 2021, and is sorted in ascending order. We see that the first record is close to midnight on October 25, 2021.
+The query ran on October 26 2021, sorted in ascending order.
 
-:::image type="content" source="/media/kql-overview/table-start-day.png" alt-text="KQL queries in the Sentinel portal.":::
+:::image type="content" source="./media/kql-overview/table-start-day.png" alt-text="Get occurrences of EventID 4624 with the startofday function.":::
 
-![KQL queries in the Sentinel portal](./media/kql-overview/table-start-day.png)
 
 #### Example 5 
 
 ```kusto
-//The startofday function can be combined with the endofday function, to guarantee you have two fixed points for retrieving data. You will get the same results each time you run the query. In this example we mix and match hours and days. Startofday is set to 2 days ago, endofday is set to one day ago.
+//This example combines the startofday function with the endofday function, to guarantee two fixed points for retrieving , with the same results each time the query runs. In this example we mix and match hours and days. Startofday is set to two days ago, endofday is set to one day ago.
 
 SecurityEvent
 | where TimeGenerated between ( startofday(ago(48hrs)) .. endofday(ago(1d)) )
@@ -275,11 +263,10 @@ SecurityEvent
 
 ##### Results
 
-The query is running on October 26 2021, and is sorted in ascending order. We see that the first record is close to midnight on October 24th, 2021.
+The query ran on October 26 2021, sorted in ascending order. The first record is close to midnight on October 24th, 2021.
 
-:::image type="content" source="/media/kql-overview/table-start-end-day.png" alt-text="KQL queries in the Sentinel portal.":::
+:::image type="content" source="./media/kql-overview/table-start-end-day.png" alt-text="Get occurrences of EventID 4624 with the startofday and endofday functions.":::
 
-![KQL queries in the Sentinel portal](./media/kql-overview/table-start-end-day.png)
 
 
 #### More examples
@@ -289,23 +276,24 @@ There are additional timeline examples in Clive Watson's [TechCommunity blog](ht
 
 ## Prepare data
 
-After initial filtering to narrow down data, you can manipulate the data to make it more useful. Typically, you might summarize data and output a new table, aggregate values, parse data, add or remove table columns, or join tables. 
+After initial filtering, you can manipulate data to make it more useful. Typically, you might summarize to aggregate data and output a new table, parse data, add or remove table columns, or join tables. 
 
 After preparing the data, you might then refilter to further pin down results.
 
-:::image type="content" source="/media/kql-overview/filter-flow.png" alt-text="Shows the filtering flow.":::
+:::image type="content" source="./media/kql-overview/filter-flow.png" alt-text="Shows the query filtering flow.":::
 
-![KQL queries in the Sentinel portal](./media/kql-overview/filter-flow.png)
+![Shows the query filtering flow](./media/kql-overview/filter-flow.png)
 
 
 ### Summarize data
 
-You can use summarize to aggregate data. Summarize summarizes the contents of the input tables you specify in the query, and outputs a new table.When you use summarize, any columns that you don't specify in the query won't be taken into account.
+Use *summarize* to query table data and output a new table aggregated by one or more columns that you specify.
 
 #### Example 1
 
 ```kusto
-//Return multiple EventIDs in the SecurityEvent table. count_ is the automatically generated column name for the count() of requests for each
+//Return multiple EventIDs in the SecurityEvent table using the [count() aggregation function](https://docs.microsoft.com/azure/data-explorer/kusto/query/count-aggfunction).
+// count_ is the automatically generated column name for the count() of requests for each EventID.
 
 SecurityEvent
 | summarize count() by EventID
@@ -314,163 +302,30 @@ SecurityEvent
 
 ##### Results
 
-:::image type="content" source="/media/kql-overview/table-summarize-event.png" alt-text="KQL queries in the Sentinel portal.":::
+:::image type="content" source="./media/kql-overview/table-summarize-event.png" alt-text="Count the occurrence of different EventIDs in the SecurityEvent table.":::
 
-![KQL queries in the Sentinel portal](./media/kql-overview/table-summarize-event .png)
 
 #### Example 2
 
 ```kusto
-//Aggregrate to compare the number of sign ins with a threshold you set. Use Let to set values. In this case we're setting the signin_threshold to five. We \'re setting suspicious_signins to entries in the SigninLogs that correspond to the where statements. We'll summarize by IP addresses from which the sign in occurs
+// Retrieve entries from the Classification table where security or critical updates are needed in the last 10 days.
+// Show the results by Classification, Computer, and Resource ID
 
-Let signin_threshold = 5;
-let suspicious_signins =
-SigninLogs
-| where ResultType !in ("0", "50125", "50140")
-| where IPAddress != "127.0.0.1"
-| summarize count() by IPAddress
-| where count_ > signin_threshold
-| summarize make_list(IPAddress)
+Update
+| where Classification in ("Security Updates", "Critical Updates")
+| where UpdateState == 'Needed' and Optional == false and Approved == true
+| where TimeGenerated <= ago(10d)
+| summarize count() by Classification, Computer, _ResourceId
+// This query requires the Security or Update solutions
 ```
 
+##### Results
+
+:::image type="content" source="./media/kql-overview/table-security-updates.png" alt-text="Count the occurrence of different EventIDs in the SecurityEvent table.":::
 
 
 
+### Other aggregation options
 
+In addition to count() aggregation, there are a lot of other KQL [aggregation functions](https://docs.microsoft.com/azure/data-explorer/kusto/query/aggregation-functions) you might use in Microsoft Sentinel.  Let's look at a few examples.
 
-
-
-
-
-This is a real-world example using a real Microsoft Sentinel [threat intelligence rule](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/Syslog/squid_tor_proxies.yaml) that checks for Squid proxy events associated with common ToR proxies.
-
-This example uses these operators
-
-[let](): The let statement maps names to expressions, where expressions can be tabular, scalar, or user-defined functions.
-[where](https://docs.microsoft.com/azure/data-explorer/kusto/query/whereoperator): filters a table based on a [boolean data type](https://docs.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/bool).
-[contains](https://docs.microsoft.com/azure/data-explorer/kusto/query/contains-operator): filters for a case-insensitive string.
-[extend](https://docs.microsoft.com/azure/data-explorer/kusto/query/extendoperator): Creates calculated columns and appends them to the result set.
-
-Here's how the query works:
-
-1. Define names: We define names using let.
-    - timeframe is set as one day (to better organize the query).
-    - DomainList is set as any of the values specified, including tor2web.org, tor2web.com, and others.
-
-2. Filter: We filter on the Syslog table. On the TimeGenerated column up to 24 hours ago, where the ProcessName column contains squid.
-3. Parse: 
- 
-
-
-T | extend [ColumnName | (ColumnName[, ...]) =] Expression [, ...]
-
-
-Name of colum to add update. If omitted name is generated
-Column 
-
-
-### Example 2
-
-In the example, we'll show you how to find all Windows logon events that occured on a computer with name beginning with *App*, from two weeks to to one week ago.
-
-The example uses these operators:
-
-where: 
-limit
-summarize
-startswith
-count()
-
-
-
-
-
-#### search operator
-
-The search operator is simple to use. It's ineffienct and should be used interactively in general search in Microsoft Sentinel, but not in content (writing rules).
-
-- Syntax: T|] search "string": [in (Tables)]
-- Example 1: search "10.1.55". This example searches for the text string across all tables.
-- Example 2: SecurityEvent | where TimeGenerated > ago(1h) | search "Guest". This example searches the SecurityEvent table for the string during the last hour.
-
-Note that:
-- "T|" and "in (Tables)" are optional. You don't have to specify a table. If you don't, all tables are searched.
-- The '$table" field will include the table name if you're doing a multi-table search.
-
-##### Search shortcuts
-
-The right hand shows the where equivalent for the search. 
-
-Syntax | Meaning (equivalent where)
---- | ---
-search "err" union * | where * has "err"
-search in (T1,T2,A*) and "err" union T1,T2,A* | where * has "err"
-search col:"err" union * | where col has "err"
-search col=="err" union * | where col == "err"
-search "err*" union * | where * hasprefix "err"
-search "Lab*PC" union * | where * matches regex @"\bLab\w*PC\b"
-search "abc" and ("def" or "hij") union * | where * has "abc" and (* has "def" or * has hij")
-
-#### Use the Extend operator
-
-The extend operator creates calculated columns and appends them to the result set. This operator is used extensively for parsing.
-
-Syntax: T | extend ColumnName [=Expression] [, ...]
-Example: SecurityEvent| extend ComputerNameLength = strlen(Computer). This example 
-
-Note that:
-- The added column isn't stored.
-- If you want to change only a column name, use project-rename.
-- There are a wide range of expression capabilities.
-- The Extend operator is used for parsing, as shown in the following graphic.
-
-    :::image type="content" source="/media/kql-overview/extend-parsing.png" alt-text="Shows how to use the extend operator for parsing.":::
-
-This example uses extract to take a regular expression and extract one field out of it. Here we're extracting the resource group from the resoruce id available in any sentinel event. I'm also use parse to parse an entire line in a single expression. I'm parse the sub and rgroup from the source ID.
-
-#### Real world example
-
-
-
-
-
-## Analyze
-
-### Use the Summarize operator
-
-The summarize operator produces a table that aggregates the content of the input table.
-
-Syntax: T|summarize Aggregation [by Group Expression]
-Examples: SecurityEvent| summarize count() by Computer
-Simple aggregation functions: count(), sum(), avg(), min(), max()
-Advanced functions: arg_min(), arg_max(), make_list(), cuntif()
-
-#### Variants and add-ons
-
-##### Shortcuts
-
-SecurityEvent | distinct Computer, Account
-SecurityEvent | where EventID == <id> | order by Account
-SecurityEvent | top 10 by TimeGenerated desc
-
-## Prepare
-
-## Visualize
-
-## Next steps
-
-> [!div class="nextstepaction"]
->[On-board Azure Sentinel](quickstart-onboard.md)
-
-> [!div class="nextstepaction"]
->[Get visibility into alerts](get-visibility.md)
-
-
-Our example uses the [where](https://docs.microsoft.com/azure/data-explorer/kusto/query/whereoperator) operator.
-
-### Learn more
-
-- [Review](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype#azure-sentinel) the list of Sentinel tables.
-- Read about [Kusto tables](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/tables). 
-- Read about table operations, including [union](https://docs.microsoft.com/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor), [externaldata](https://docs.microsoft.com/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor), [join](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor), [datatable](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) and [stored functions](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/stored-functions) 
-- [Read our TechCommunity blog](https://techcommunity.microsoft.com/t5/azure-sentinel/implementing-lookups-in-azure-sentinel/ba-p/1091306) for a deep dive on *externaldata* and implementing lookups.
