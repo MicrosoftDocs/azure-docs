@@ -1,6 +1,6 @@
 ---
-title: Overview of Kubernetes on a clustered Azure Stack Edge Pro GPU, Pro R, Mini R device
-description: Describes how Kubernetes is implemented on your Azure Stack Edge Pro GPU, Pro R, Mini R 1-node and 2-node cluster device.
+title: Kubernetes failover scenarios on a clustered Azure Stack Edge Pro GPU, Pro R, Mini R device
+description: Describes Kubernetes failover scenarios and the device responses on your Azure Stack Edge Pro GPU, Pro R, Mini R 2-node cluster device.
 services: databox
 author: alkohli
 
@@ -11,7 +11,7 @@ ms.date: 11/07/2021
 ms.author: alkohli
 ---
 
-# Kubernetes on a clustered Azure Stack Edge device
+# Kubernetes failover scenarios on a clustered Azure Stack Edge device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
