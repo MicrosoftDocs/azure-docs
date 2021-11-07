@@ -30,20 +30,20 @@ Use latest version of [Microsoft.IdentityModel.*](https://www.nuget.org/packages
 In the `ConfigureServices` method of the Startup.cs, ensure that `JwtBearerOptions.RefreshOnIssuerKeyNotFound` is set to true, and that you're using the latest Microsoft.IdentityModel.* library. This property should be enabled by default.
 
 ```csharp
-services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
-{
-    …
-    // shouldn’t be necessary as it’s true by default
-    options.RefreshOnIssuerKeyNotFound = true;
-    …
-};
+  services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
+  {
+	…
+	// shouldn’t be necessary as it’s true by default
+	options.RefreshOnIssuerKeyNotFound = true;
+	…
+   };
 ```
 
 ## ASP.NET/ OWIN
 
-Microsoft recommends that you move to ASP.NET Core, as development has stopped on ASP.NET.
+Microsoft recommends that you move to ASP.NET Core, as development has stopped on ASP.NET. 
 
-If you're using ASP.NET classic, use the latest [`Microsoft.IdentityModel.*`](https://www.nuget.org/packages?q=Microsoft.IdentityModel).
+If you're using ASP.NET classic, use the latest [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel).
 
 OWIN has an automatic 24-hour refresh interval for the `OpenIdConnectConfiguration`. This refresh will only be triggered if a request is received after the 24-hour time span has passed. As far as we know, there's no way to change this value or trigger a refresh early, aside from restarting the application.
 
@@ -52,20 +52,18 @@ OWIN has an automatic 24-hour refresh interval for the `OpenIdConnectConfigurati
 If you validate your token yourself, for instance in an Azure Function, use the latest version of [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel) and follow the metadata guidance illustrated by the code snippets below.
 
 ```csharp
-var configManager =
-  new ConfigurationManager<OpenIdConnectConfiguration>(
-    "http://someaddress.com",
-    new OpenIdConnectConfigurationRetriever());
-
-var config = await configManager.GetConfigurationAsync().ConfigureAwait(false);
-var validationParameters = new TokenValidationParameters()
+ConfigurationManager<OpenIdConnectConfiguration> configManager = 
+  new ConfigurationManager<OpenIdConnectConfiguration>("http://someaddress.com", 
+                                                       new OpenIdConnectConfigurationRetriever());
+OpenIdConnectConfiguration config = await configManager.GetConfigurationAsync().ConfigureAwait(false);
+TokenValidationParameters validationParameters = new TokenValidationParameters()
 {
   …
   IssuerSigningKeys = config.SigningKeys;
   …
 }
 
-var tokenHandler = new JsonWebTokenHandler();
+JsonWebTokenHandler tokenHandler = new JsonWebTokenHandler();
 result = Handler.ValidateToken(jwtToken, validationParameters);
 if (result.Exception != null && result.Exception is SecurityTokenSignatureKeyNotFoundException)
 {
@@ -77,12 +75,11 @@ if (result.Exception != null && result.Exception is SecurityTokenSignatureKeyNot
     IssuerSigningKeys = config.SigningKeys,
     …
   };
-
   // attempt to validate token again after refresh
   result = Handler.ValidateToken(jwtToken, validationParameters);
 }
 ```
 
-## Next steps
+## Next Steps
 
 To learn more, see [token validation in a protected web API](scenario-protected-web-api-app-configuration.md#token-validation)
