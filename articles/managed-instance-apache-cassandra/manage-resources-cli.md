@@ -1,27 +1,23 @@
 ---
-title: Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI
+title: Manage resources with Azure CLI - Azure Resource Manager | Microsoft Docs
 description: Learn about the common commands to automate the management of your Azure Managed Instance for Apache Cassandra using Azure CLI.
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 11/02/2021
 ms.author: thvankra
-
+ms.custom: devx-track-azurecli, seo-azure-cli, ignite-fall-2021
+keywords: azure resource manager cli
 ---
 
-# Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI (Preview)
+# Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI
 
 This article describes common commands to automate the management of your Azure Managed Instance for Apache Cassandra clusters using Azure CLI.
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> This article requires the Azure CLI version 2.17.1 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
+> This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 >
 > Manage Azure Managed Instance for Apache Cassandra resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
 
@@ -93,7 +89,7 @@ Get cluster details by using the [az managed-cassandra cluster node-status](/cli
 clusterName='cassandra-hybrid-cluster'
 resourceGroupName='MyResourceGroup'
 
-az managed-cassandra cluster node-status \
+az managed-cassandra cluster status \
     --cluster-name $clusterName \
     --resource-group $resourceGroupName
 ```
@@ -116,7 +112,7 @@ List clusters by subscription ID by using the [az managed-cassandra cluster list
 
 ```azurecli-interactive
 # set your subscription id
-az account set -s <subscription id>
+az account set -s <subscriptionID>
 
 az managed-cassandra cluster list
 ```
@@ -132,7 +128,6 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 * [Update or scale a datacenter](#update-datacenter)
 * [Update Cassandra configuration](#update-yaml)
 
-
 ### <a id="create-datacenter"></a>Create a datacenter
 
 Create a datacenter by using the [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) command:
@@ -142,7 +137,7 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 dataCenterLocation='eastus2'
-delegatedSubnetId='/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
+delegatedSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
 
 az managed-cassandra datacenter create \
     --resource-group $resourceGroupName \
@@ -167,6 +162,9 @@ az managed-cassandra datacenter delete \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName 
 ```
+
+> [!WARNING]
+> If you have more than one datacenter in your cluster, you must remove any references to the datacenter you are trying to delete in any [keyspace replication strategy settings](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/operations/opsChangeKSStrategy.html) first. This command will fail if there are still references to the datacenter in any keyspaces within your cluster. 
 
 ### <a id="get-datacenter-details"></a>Get datacenter details
 

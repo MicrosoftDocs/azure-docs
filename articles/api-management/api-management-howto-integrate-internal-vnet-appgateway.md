@@ -4,11 +4,11 @@ titleSuffix: Azure API Management
 description: Set up and configure Azure API Management in an internal virtual network with Application Gateway (Web Application Firewall) as a front end
 services: api-management
 documentationcenter: ''
-author: solankisamir
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.author: sasolank
+ms.author: danlep
 ms.date: 06/10/2021
 ms.custom: devx-track-azurepowershell,contperf-fy21q4
 
@@ -134,8 +134,11 @@ Create network security groups and NSG rules for the Application Gateway and API
 $appGwRule1 = New-AzNetworkSecurityRuleConfig -Name appgw-in -Description "AppGw inbound" `
     -Access Allow -Protocol * -Direction Inbound -Priority 100 -SourceAddressPrefix `
     GatewayManager -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 65200-65535
+$appGwRule2 = New-AzNetworkSecurityRuleConfig -Name appgw-in-internet -Description "AppGw inbound Internet" `
+    -Access Allow -Protocol "TCP" -Direction Inbound -Priority 110 -SourceAddressPrefix `
+    Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 443
 $appGwNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-    "NSG-APPGW" -SecurityRules $appGwRule1
+    "NSG-APPGW" -SecurityRules $appGwRule1, $appGwRule2
 
 $apimRule1 = New-AzNetworkSecurityRuleConfig -Name apim-in -Description "APIM inbound" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix `
@@ -201,7 +204,7 @@ $apimAdminEmail = "admin@contoso.com" # administrator's email address
 $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
-It can take between 30 and 40 minutes to create and activate an API Management service in this tier. After the previous command succeeds, refer to [DNS Configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to confirm access it. 
+It can take between 30 and 40 minutes to create and activate an API Management service in this tier. After the previous command succeeds, refer to [DNS Configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#dns-configuration) to confirm access to it. 
 
 ## Set up custom domain names in API Management
 

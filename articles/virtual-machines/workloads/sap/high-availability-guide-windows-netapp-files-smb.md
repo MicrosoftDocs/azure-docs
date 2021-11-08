@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/30/2021
+ms.date: 07/29/2021
 ms.author: radeltch
 
 ---
@@ -27,7 +27,6 @@ ms.author: radeltch
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -107,10 +106,9 @@ The share for the SAP Central services in this reference architecture is offered
 
 Perform the following steps, as preparation for using Azure NetApp Files.  
 
-1. Follow the steps to [Register for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md)  
-2. Create Azure NetApp account, following the steps described in  [Create a NetApp account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)  
-3. Set up capacity pool, following the instructions in [Set up a capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
-4. Azure NetApp Files resources must reside in delegated subnet. Follow the instructions in [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) to create delegated subnet.  
+1. Create Azure NetApp account, following the steps described in  [Create a NetApp account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)  
+2. Set up capacity pool, following the instructions in [Set up a capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
+3. Azure NetApp Files resources must reside in delegated subnet. Follow the instructions in [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) to create delegated subnet.  
 
    > [!IMPORTANT]
    > You need to create Active Directory connections before creating an SMB volume. Review the [requirements for Active Directory connections](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
@@ -118,9 +116,9 @@ Perform the following steps, as preparation for using Azure NetApp Files.
    > When creating the Active Directory connection, make sure to enter SMB Server (Computer Account) Prefix no longer than 8 characters to avoid the 13 characters hostname limitation for SAP Applications (a suffix is automatically added to the SMB Computer Account name).     
    > The hostname limitations for SAP applications are described in [2718300 - Physical and Virtual hostname length limitations](https://launchpad.support.sap.com/#/notes/2718300) and [611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/611361).  
 
-5. Create Active Directory connection, as described in [Create an Active Directory connection](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
-6. Create SMB Azure NetApp Files SMB volume, following the instructions in [Add an SMB volume](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
-7. Mount the SMB volume on your Windows Virtual Machine.
+4. Create Active Directory connection, as described in [Create an Active Directory connection](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
+5. Create SMB Azure NetApp Files SMB volume, following the instructions in [Add an SMB volume](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
+6. Mount the SMB volume on your Windows Virtual Machine.
 
 > [!TIP]
 > You can find the instructions on how to mount the Azure NetApp Files volume, if you navigate in [Azure Portal](https://portal.azure.com/#home) to the Azure NetApp Files object, click on the **Volumes** blade, then **Mount Instructions**.  

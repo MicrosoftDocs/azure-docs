@@ -6,7 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -16,9 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
+
 # Audit Azure Sentinel queries and activities
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes how you can view audit data for queries run and activities performed in your Azure Sentinel workspace, such as for internal and external compliance requirements in your Security Operations (SOC) workspace.
 
@@ -43,7 +45,7 @@ You can use the **AzureActivity** table when auditing activity in your SOC envir
 
 **To query the AzureActivity table**:
 
-1. Connect the [Azure Activity](connect-azure-activity.md) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
+1. Connect the [Azure Activity](./data-connectors-reference.md#azure-activity) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
 
 1. Then, query the data using KQL, like you would any other table.
 
@@ -253,4 +255,4 @@ Use Azure Sentinel's own features to monitor events and actions that occur withi
 
 In Azure Sentinel, use the **Workspace audit** workbook to audit the activities in your SOC environment.
 
-For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](monitor-your-data.md).

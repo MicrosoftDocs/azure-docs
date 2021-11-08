@@ -12,6 +12,8 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Use the Azure CLI to enable double encryption at rest for managed disks
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, as well as other managed disk encryption types, see the [Double encryption at rest](../disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
 
 ## Prerequisites

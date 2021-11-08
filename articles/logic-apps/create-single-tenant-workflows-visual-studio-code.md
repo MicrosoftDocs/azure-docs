@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 09/13/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in Visual Studio Code
@@ -77,7 +78,7 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
 
-  * [Azure Functions Core Tools 3.0.3477 or later](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3477) by using the Microsoft Installer (MSI) version, which is `func-cli-3.0.3477-x*.msi`.
+  * [Azure Functions Core Tools - latest version](https://github.com/Azure/azure-functions-core-tools/releases) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`.
 
     These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
@@ -215,6 +216,8 @@ Before you can create your logic app, create a local project so that you can man
    The Explorer pane shows your project, which now includes automatically generated project files. For example, the project has a folder that shows your workflow's name. Inside this folder, the **workflow.json** file contains your workflow's underlying JSON definition.
 
    ![Screenshot that shows the Explorer pane with project folder, workflow folder, and "workflow.json" file.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
+
+   [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
 <a name="enable-built-in-connector-authoring"></a>
 
@@ -557,7 +560,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
       ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
-   1. Return to Visual Studio Code. from the workflow's overview page, copy the **Callback URL** property value.
+   1. Return to Visual Studio Code. From the workflow's overview page, copy the **Callback URL** property value.
 
    1. Return to Postman. On the request pane, next the method list, which currently shows **GET** as the default request method, paste the callback URL that you previously copied in the address box, and select **Send**.
 
@@ -744,6 +747,8 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 From Visual Studio Code, you can directly publish your project to Azure, which deploys your logic app using the **Logic App (Standard)** resource type. You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Standard)** resource, which overwrites that logic app.
 
 Deployment for the **Logic App (Standard)** resource type requires a hosting plan and pricing tier, which you select during deployment. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
+
+<a name="publish-new-logic-app"></a>
 
 ### Publish to a new Logic App (Standard) resource
 
@@ -943,7 +948,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Standard)" extension pane and the deployed workflow.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. To view all the workflows in the logic app, expand your logic app, and then expand the node that's named **Workflows**.
+1. To view all the workflows in the logic app, expand your logic app, and then expand the **Workflows** node.
 
 1. To view a specific workflow, open the workflow's shortcut menu, and select **Open in Designer**, which opens the workflow in read-only mode.
 

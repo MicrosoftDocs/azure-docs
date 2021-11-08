@@ -144,7 +144,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 ### Azure Functions Core Tools
 
-You can also start an instance directly by using the [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` command. It takes the following parameters:
+You can also start an instance directly by using the [`func durable start-new` command](../functions-core-tools-reference.md#func-durable-start-new) in Core Tools, which takes the following parameters:
 
 * **`function-name` (required)**: Name of the function to start.
 * **`input` (optional)**: Input to the function, either inline or through a JSON file. For files, add a prefix to the path to the file with `@`, such as `@path/to/file.json`.
@@ -249,10 +249,10 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### Azure Functions Core Tools
 
-It's also possible to get the status of an orchestration instance directly by using the [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` command.
+It's also possible to get the status of an orchestration instance directly by using the [`func durable get-runtime-status` command](../functions-core-tools-reference.md#func-durable-get-runtime-status) in Core Tools.
 
 > [!NOTE]
-> The Core Tools commands are currently only supported when using the default [Azure Storage provider](durable-functions-storage-providers.md) for persisting runtime state.
+> Core Tools commands are currently only supported when using the default [Azure Storage provider](durable-functions-storage-providers.md) for persisting runtime state.
 
 The `durable get-runtime-status` command takes the following parameters:
 
@@ -348,7 +348,7 @@ See [Start instances](#javascript-function-json) for the function.json configura
 
 ### Azure Functions Core Tools
 
-It's also possible to query instances directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` command.
+It's also possible to query instances directly, by using the [`func durable get-instances` command](../functions-core-tools-reference.md#func-durable-get-instances) in Core Tools.
 
 > [!NOTE]
 > The Core Tools commands are currently only supported when using the default [Azure Storage provider](durable-functions-storage-providers.md) for persisting runtime state.
@@ -539,7 +539,7 @@ A terminated instance will eventually transition into the `Terminated` state. Ho
 
 ### Azure Functions Core Tools
 
-You can also terminate an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable terminate` command.
+You can also terminate an orchestration instance directly, by using the [`func durable terminate` command](../functions-core-tools-reference.md#func-durable-terminate) in Core Tools.
 
 > [!NOTE]
 > The Core Tools commands are currently only supported when using the default [Azure Storage provider](durable-functions-storage-providers.md) for persisting runtime state.
@@ -620,7 +620,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### Azure Functions Core Tools
 
-You can also raise an event to an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` command.
+You can also raise an event to an orchestration instance directly, by using the [`func durable raise-event` command](../functions-core-tools-reference.md#func-durable-raise-event) in Core Tools.
 
 > [!NOTE]
 > The Core Tools commands are currently only supported when using the default [Azure Storage provider](durable-functions-storage-providers.md) for persisting runtime state.
@@ -881,7 +881,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### Azure Functions Core Tools
 
-You can also rewind an orchestration instance directly by using the [Azure Functions Core Tools](../functions-run-local.md) `durable rewind` command.
+You can also rewind an orchestration instance directly by using the [`func durable rewind` command](../functions-core-tools-reference.md#func-durable-rewind) in Core Tools.
 
 > [!NOTE]
 > The Core Tools commands are currently only supported when using the default [Azure Storage provider](durable-functions-storage-providers.md) for persisting runtime state.
@@ -1030,7 +1030,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### Azure Functions Core Tools
 
-You can purge an orchestration instance's history by using the [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` command. Similar to the second C# example in the preceding section, it purges the history for all orchestration instances created during a specified time interval. You can further filter purged instances by runtime status.
+You can purge an orchestration instance's history by using the [`func durable purge-history` command](../functions-core-tools-reference.md#func-durable-purge-history) in Core Tools. Similar to the second C# example in the preceding section, it purges the history for all orchestration instances created during a specified time interval. You can further filter purged instances by runtime status.
 
 > [!NOTE]
 > The Core Tools commands are currently only supported when using the default [Azure Storage provider](durable-functions-storage-providers.md) for persisting runtime state.
@@ -1051,7 +1051,7 @@ func durable purge-history --created-before 2021-11-14T19:35:00.0000000Z --runti
 
 ## Delete a task hub
 
-Using the [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` command, you can delete all storage artifacts associated with a particular task hub, including Azure storage tables, queues, and blobs. 
+Using the [`func durable delete-task-hub` command](../functions-core-tools-reference.md#func-durable-delete-task-hub) in Core Tools, you can delete all storage artifacts associated with a particular task hub, including Azure storage tables, queues, and blobs. 
 
 > [!NOTE]
 > The Core Tools commands are currently only supported when using the default [Azure Storage provider](durable-functions-storage-providers.md) for persisting runtime state.

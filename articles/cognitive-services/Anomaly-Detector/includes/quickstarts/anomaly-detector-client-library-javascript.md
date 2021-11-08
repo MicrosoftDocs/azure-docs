@@ -19,7 +19,7 @@ Use the Anomaly Detector client library for JavaScript to:
 * Detect the anomaly status of the latest data point in your time series
 * Detect trend change points in your data set.
 
-[Library reference documentation](https://go.microsoft.com/fwlink/?linkid=2090788) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (npm)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector) | [Find the code on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
+[Library reference documentation](https://go.microsoft.com/fwlink/?linkid=2090788) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [Package (npm)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector) | [Find the code on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
 ## Prerequisites
 

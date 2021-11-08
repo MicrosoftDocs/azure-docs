@@ -13,6 +13,8 @@ ms.author: guybo
 
 # Endorsed Linux distributions on Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
+
 Partners provide Linux images in Azure Marketplace. Microsoft works with various Linux communities to add even more flavors to the Endorsed Distribution list. For distributions that are not available from the Marketplace, you can always bring your own Linux by following the guidelines at [Create and upload a virtual hard disk that contains the Linux operating system](./create-upload-generic.md).
 
 ## Supported distributions and versions
@@ -68,7 +70,7 @@ Microsoft has two (2) channels of migration for CoreOS users.
 credativ is an independent consulting and services company that specializes in the development and implementation of professional solutions by using free software. As leading open-source specialists, credativ has international recognition with many IT departments that use their support. In conjunction with Microsoft, credativ is preparing Debian images. The images are specially designed to run on Azure and can be easily managed via the platform. credativ will also support the long-term maintenance and updating of the Debian images for Azure through its Open Source Support Centers.
 
 ### Kinvolk
-[https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)
+[https://www.flatcar-linux.org/](https://www.flatcar-linux.org/)
 
 Kinvolk is the company behind Flatcar Container Linux, continuing the original CoreOS vision for a minimal, immutable, and auto-updating foundation for containerized applications. As a minimal distro, Flatcar contains just those packages required for deploying containers. Its immutable file system guarantees consistency and security, while its auto-update capabilities, enable you to be always up-to-date with the latest security fixes. 
 

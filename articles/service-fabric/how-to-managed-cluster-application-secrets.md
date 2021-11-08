@@ -1,13 +1,13 @@
 ---
-title: Use application secrets in Service Fabric managed clusters
-description: Learn about Azure Service Fabric application secrets and how to gather info required for use in managed clusters
+title: Deploy application secrets to a Service Fabric managed cluster
+description: Learn about Azure Service Fabric application secrets and how to deploy them to a managed cluster
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ---
 
-# Use application secrets in Service Fabric managed clusters
+# Deploy application secrets to a Service Fabric managed cluster
 
-Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. This article uses Azure Key Vault to manage keys and secrets as it's for Service Fabric managed clusters. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere.
+Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. We recommend using Azure Key Vault to manage keys and secrets for Service Fabric managed clusters and leverage it for this article. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere.
 
 The recommended way to manage service configuration settings is through [service configuration packages][config-package]. Configuration packages are versioned and updatable through managed rolling upgrades with health-validation and auto rollback. This is preferred to global configuration as it reduces the chances of a global service outage. Encrypted secrets are no exception. Service Fabric has built-in features for encrypting and decrypting values in a configuration package Settings.xml file using certificate encryption.
 
@@ -40,11 +40,11 @@ This certificate must be installed on each node in the cluster and Service Fabri
 For managed clusters you'll need three values, two from Azure Key Vault, and one you decide on for the local store name on the nodes.
 
 Parameters: 
-* Source Vault: This is the 
+* `Source Vault`: This is the 
     * e.g.:  /subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1
-* Certificate URL: This is the full object identifier and is case-insensitive and immutable
+* `Certificate URL`: This is the full object identifier and is case-insensitive and immutable
     * https://mykeyvault1.vault.azure.net/secrets/{secretname}/{secret-version}
-* Certificate Store: This is the local certificate store on the nodes where the cert will be placed
+* `Certificate Store`: This is the local certificate store on the nodes where the cert will be placed
     * certificate store name on the nodes, e.g.: "MY"
 
 Service Fabric managed clusters supports two methods for adding version-specific secrets to your nodes.
@@ -58,26 +58,25 @@ Insert values from above in to this area:
 
 ```json
 {
-    "apiVersion": "2021-05-01",
-    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "properties": {
-        "vmSecrets": [
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "properties": {
+    "vmSecrets": [
+      {
+        "sourceVault": {
+          "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
+        },
+        "vaultCertificates": [
           {
-            "sourceVault": {
-              "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
-            },
-            "vaultCertificates": [
-              {
-                "certificateStore": "MY",
-                "certificateUrl": "https://mykeyvault1.vault.azure.net/certificates/{certificatename}/{secret-version}"
-              }
-            ]
+            "certificateStore": "MY",
+            "certificateUrl": "https://mykeyvault1.vault.azure.net/certificates/{certificatename}/{secret-version}"
           }
         ]
-    }    
+      }
+    ]
+  }
 }
 ```
-
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/general/overview.md

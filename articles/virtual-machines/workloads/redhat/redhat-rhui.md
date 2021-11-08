@@ -1,18 +1,19 @@
 ---
 title: Red Hat Update Infrastructure | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux instances in Microsoft Azure
-author: asinn826
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 02/10/2020
-ms.author: alsin
 ms.reviewer: cynthn
-
-
+ms.author: mamccrea
 ---
 # Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux VMs in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs 
+
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) allows cloud providers, such as Azure, to mirror Red Hat-hosted repository content, create custom repositories with Azure-specific content, and make it available to end-user VMs.
 
 Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured to access Azure RHUI. No additional configuration is needed. To get the latest updates, run `sudo yum update` after your RHEL instance is ready. This service is included as part of the RHEL PAYG software fees.
@@ -283,16 +284,14 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 - For RHEL 8:
     1. Create a config file:
         ```bash
-        vi rhel8.config
-        ```
-    1. Add the following content into the config file:
-        ```bash
+        cat <<EOF > rhel8.config
         [rhui-microsoft-azure-rhel8]
         name=Microsoft Azure RPMs for Red Hat Enterprise Linux 8
         baseurl=https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-2.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-3.microsoft.com/pulp/repos/microsoft-azure-rhel8
         enabled=1
         gpgcheck=1
         gpgkey=https://rhelimage.blob.core.windows.net/repositories/RPM-GPG-KEY-microsoft-azure-release sslverify=1
+        EOF
         ```
     1. Save the file and run the following command:
         ```bash

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create incidents from alerts in Azure Sentinel | Microsoft Docs
 description: Learn how to create incidents from alerts in Azure Sentinel.
 services: sentinel
@@ -6,19 +6,20 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-
 ---
+
 # Automatically create incidents from Microsoft security alerts
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Alerts triggered in Microsoft security solutions that are connected to Azure Sentinel, such as Microsoft Cloud App Security and Microsoft Defender for Identity (formerly Azure ATP), do not automatically create incidents in Azure Sentinel. By default, when you connect a Microsoft solution to Azure Sentinel, any alert generated in that service will be stored as raw data in Azure Sentinel, in the Security Alert table in your Azure Sentinel workspace. You can then use that data like any other raw data you connect into Azure Sentinel.
 
@@ -38,7 +39,7 @@ Use the built-in rules available in Azure Sentinel to choose which connected Mic
 
     ![Rule templates](media/incidents-from-alerts/rule-templates.png)
 
-1. Choose the **Microsoft security** analytics rule template that you want to use, and click on **Create rule**.
+1. Choose the **Microsoft security** analytics rule template that you want to use, and select  **Create rule**.
 
     ![Security analytics rule](media/incidents-from-alerts/security-analytics-rule.png)
 
@@ -67,4 +68,4 @@ When you connect a Microsoft security solution, you can select whether you want 
 ## Next steps
 
 - To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data and potential threats](quickstart-get-visibility.md).
+- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data and potential threats](get-visibility.md).

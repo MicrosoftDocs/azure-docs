@@ -1,22 +1,22 @@
 ---
 title: Copy data from Amazon Simple Storage Service (S3) Compatible Storage
-description: Learn about how to copy data from Amazon S3 Compatible Storage to supported sink data stores by using Azure Data Factory.
+description: Learn about how to copy data from Amazon S3 Compatible Storage to supported sink data stores using an Azure Data Factory or Synapse Analytics pipeline.
+titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 05/11/2021
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
-# Copy data from Amazon S3 Compatible Storage by using Azure Data Factory
+# Copy data from Amazon S3 Compatible Storage by using Azure Data Factory or Synapse Analytics
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data from Amazon Simple Storage Service (Amazon S3) Compatible Storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
-
-
+This article outlines how to copy data from Amazon Simple Storage Service (Amazon S3) Compatible Storage. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 
@@ -35,15 +35,40 @@ Specifically, this Amazon S3 Compatible Storage connector supports copying files
 
 To copy data from Amazon S3 Compatible Storage, make sure you've been granted the following permissions for Amazon S3 object operations: `s3:GetObject` and `s3:GetObjectVersion`.
 
-If you use Data Factory UI to author, additional `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` permissions are required for operations like testing connection to linked service and browsing from root. If you don't want to grant these permissions, you can choose "Test connection to file path" or "Browse from specified path" options from the UI.
+If you use UI to author, additional `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` permissions are required for operations like testing connection to linked service and browsing from root. If you don't want to grant these permissions, you can choose "Test connection to file path" or "Browse from specified path" options from the UI.
 
 For the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) on the AWS site.
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Amazon S3 Compatible Storage.
+## Create a linked service to Amazon S3 Compatible Storage using UI
+
+Use the following steps to create a linked service to Amazon S3 Compatible Storage in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+2. Search for Amazon and select the Amazon S3 Compatible Storage connector.
+
+   :::image type="content" source="media/connector-amazon-s3-compatible-storage/amazon-s3-compatible-storage-connector.png" alt-text="Select the Amazon S3 Compatible Storage connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-amazon-s3-compatible-storage/configure-amazon-s3-compatible-storage-linked-service.png" alt-text="Configure a linked service to Amazon S3 Compatible Storage.":::
+
+## Connector configuration details 
+
+The following sections provide details about properties that are used to define entities specific to Amazon S3 Compatible Storage.
 
 ## Linked service properties
 
@@ -53,7 +78,7 @@ The following properties are supported for an Amazon S3 Compatible linked servic
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AmazonS3Compatible**. | Yes |
 | accessKeyId | ID of the secret access key. |Yes |
-| secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | serviceUrl | Specify the custom S3 endpoint `https://<service url>`. | No |
 | forcePathStyle | Indicates whether to use S3 [path-style access](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access) instead of virtual hosted-style access. Allowed values are: **false** (default), **true**.<br> Check each data store’s documentation on if path-style access is needed or not. |No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
@@ -213,7 +238,7 @@ This section describes the resulting behavior of using a file list path in a Cop
 
 Assume that you have the following source folder structure and want to copy the files in bold:
 
-| Sample source structure                                      | Content in FileListToCopy.txt                             | Data Factory configuration                                            |
+| Sample source structure                                      | Content in FileListToCopy.txt                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Bucket: `bucket`<br>- Folder path: `FolderA`<br><br>**In Copy activity source:**<br>- File list path: `bucket/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line, with the relative path to the path configured in the dataset. |
 
@@ -232,4 +257,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 
 
 ## Next steps
-For a list of data stores that the Copy activity in Azure Data Factory supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that the Copy activity supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

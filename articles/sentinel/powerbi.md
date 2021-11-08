@@ -6,9 +6,12 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 06/08/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Create a Power BI report from Azure Sentinel data
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Power BI](https://powerbi.microsoft.com/) is a reporting and analytics platform that turns data into coherent, immersive, interactive visualizations. Power BI lets you easily connect to data sources, visualize and discover relationships, and share insights with whoever you want.
 
@@ -24,6 +27,9 @@ In this tutorial, you:
 
 People you granted access in the Power BI service, and members of the Teams channel, can see the report without needing Azure Sentinel permissions.
 
+> [!NOTE]
+> This tutorial provides a scenario-based procedure for a top customer ask: viewing analysis reports in PowerBI for your Azure Sentinel data. For more information, see [Connect data sources](connect-data-sources.md) and [Visualize collected data](get-visibility.md).
+>
 ## Prerequisites
 
 To complete this tutorial, you need:
@@ -198,5 +204,5 @@ Refresh your Power BI report on a schedule, so updated data always appears in th
 
 ## Next steps
 
-- [Import Azure Monitor log data into Power BI](../azure-monitor/visualize/powerbi.md)
+- [Import Azure Monitor log data into Power BI](../azure-monitor/logs/log-powerbi.md)
 - [Power Query M formula language](/powerquery-m/)

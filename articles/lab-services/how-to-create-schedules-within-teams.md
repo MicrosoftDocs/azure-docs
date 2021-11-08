@@ -1,7 +1,7 @@
 ---
 title: Create Azure Lab Services schedules within Teams
 description: Learn how to create Lab Services schedules within Teams. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/07/2020
 ---
 

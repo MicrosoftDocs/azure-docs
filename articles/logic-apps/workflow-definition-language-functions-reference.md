@@ -3,21 +3,20 @@ title: Reference guide for functions in expressions
 description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 07/16/2021
+ms.date: 09/09/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
 
-For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/flow/getting-started), some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference these values or process the values in these expressions, you can use *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/power-automate/getting-started), some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference these values or process the values in these expressions, you can use *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> This reference page applies to both Azure Logic Apps and Power Automate, 
-> but appears in the Azure Logic Apps documentation. Although this page refers 
-> specifically to logic apps, these functions work for both flows and logic apps. 
-> For more information about functions and expressions in Power Automate, see 
-> [Use expressions in conditions](/flow/use-expressions-in-conditions).
+> This reference page applies to both Azure Logic Apps and Power Automate, but appears in the 
+> Azure Logic Apps documentation. Although this page refers specifically to logic app workflows, 
+> these functions work for both flows and logic app workflows. For more information about functions 
+> and expressions in Power Automate, see [Use expressions in conditions](/power-automate/use-expressions-in-conditions).
 
 For example, you can calculate values by using math functions, such as the [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, when you want the sum from integers or floats. Here are other example tasks that you can perform with functions:
 
@@ -63,9 +62,11 @@ you get a combined string, for example, "SophiaOwen":
 
 Either way, both examples assign the result to the `customerName` property.
 
-Here are some other notes about functions in expressions:
+## Considerations for using functions
 
 * Function parameters are evaluated from left to right.
+
+* The designer doesn't evaluate runtime expressions that are used as function parameters at design time. The designer requires that all expressions can be fully evaluated at design time.
 
 * In the syntax for parameter definitions, a question mark (?) that appears after a parameter means the parameter is optional. For example, see [getFutureTime()](#getFutureTime).
 
@@ -206,11 +207,13 @@ Logic Apps automatically or implicitly performs base64 encoding or decoding, so 
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> If you manually add any of these functions to your workflow through the Logic App Designer, for example, by using the expression editor, navigate away 
-> from the designer, and return to the designer, the function disappears from the designer, leaving behind only the parameter values. This behavior also 
-> happens if you select a trigger or action that uses this function without editing the function's parameter values. This result affects only the function's 
-> visibility and not the effect. In code view, the function is unaffected. However, if you edit the function's parameter values, the function and its effect 
-> are both removed from code view, leaving behind only the function's parameter values.
+> If you manually add any of these functions while using the workflow designer, either directly to a trigger 
+> or action or by using the expression editor, navigate away from the designer, and then return to the designer, 
+> the function disappears from the designer, leaving behind only the parameter values. This behavior also happens 
+> if you select a trigger or action that uses this function without editing the function's parameter values. 
+> This result affects only the function's visibility and not the effect. In code view, the function is unaffected. 
+> However, if you edit the function's parameter values, the function and its effect are both removed from code view, 
+> leaving behind only the function's parameter values.
 
 <a name="math-functions"></a>
 
@@ -1043,9 +1046,7 @@ This example converts the "aGVsbG8=" base64-encoded string to a binary string:
 base64ToBinary('aGVsbG8=')
 ```
 
-And returns this result:
-
-`"0110000101000111010101100111001101100010010001110011100000111101"`
+For example, suppose you're using an HTTP action to send a request. You can use `base64ToBinary()` to convert a base64-encoded string to binary data and send that data using the `application/octet-stream` content type in the request.
 
 <a name="base64ToString"></a>
 
@@ -1106,6 +1107,7 @@ binary('<value>')
 *Example*
 
 For example, you're using an HTTP action that returns an image or video file. You can use `binary()` to convert the value to a base-64 encoded content envelope model. Then, you can reuse the content envelope in other actions, such as `Compose`.
+You can use this function expression to send the string bytes with the `application/octet-stream` content type in the request.
 
 <a name="body"></a>
 
@@ -1230,17 +1232,6 @@ And returns these results:
 
 Combine two or more strings, and return the combined string.
 
-> [!NOTE]
-> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions when you use the 
-> `concat()` function with data that needs encoding or decoding:
-> 
-> * `concat('data:;base64,',<value>)`
-> * `concat('data:,',encodeUriComponent(<value>))`
-> 
-> However, if you use this function anyway in the designer, you might experience unexpected rendering behaviors in the designer. These behaviors affect only 
-> the function's visibility and not the effect unless you edit the function's parameter values, which removes the function and the effect from your code. 
-> For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
-
 ```
 concat('<text1>', '<text2>', ...)
 ```
@@ -1252,8 +1243,20 @@ concat('<text1>', '<text2>', ...)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*text1text2...*> | String | The string created from the combined input strings |
+| <*text1text2...*> | String | The string created from the combined input strings. <p><p>**Note**: The length of the result must not exceed 104,857,600 characters. |
 ||||
+
+> [!NOTE]
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually 
+> perform these conversions when you use the `concat()` function with data that needs encoding or decoding:
+>
+> * `concat('data:;base64,',<value>)`
+> * `concat('data:,',encodeUriComponent(<value>))`
+>
+> However, if you use this function anyway in the designer, you might experience unexpected rendering behaviors in 
+> the designer. These behaviors affect only the function's visibility and not the effect unless you edit the function's 
+> parameter values, which removes the function and the effect from your code. For more information, review 
+> [Base64 encoding and decoding](#base64-encoding-decoding).
 
 *Example*
 
@@ -1264,9 +1267,6 @@ concat('Hello', 'World')
 ```
 
 And returns this result: `"HelloWorld"`
-  
-> [!NOTE]
-> The length of the result must not exceed 104,857,600 characters.
 
 <a name="contains"></a>
 
@@ -1327,7 +1327,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, please review: [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1969,10 +1969,7 @@ And return these results:
 
 ### float
 
-Convert a string version for a floating-point
-number to an actual floating point number.
-You can use this function only when passing custom
-parameters to an app, for example, a logic app or flow.
+Convert a string version for a floating-point number to an actual floating point number. You can use this function only when passing custom parameters to an app, for example, a logic app or flow.
 
 ```
 float('<value>')
@@ -1980,12 +1977,12 @@ float('<value>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | The string that has a valid floating-point number to convert |
+| <*value*> | Yes | String | The string that has a valid floating-point number to convert. The minimum and maximum values are the same as the limits for the float data type. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | The floating-point number for the specified string |
+| <*float-value*> | Float | The floating-point number for the specified string. The minimum and maximum values are the same as the limits for the float data type. |
 ||||
 
 *Example*
@@ -2425,7 +2422,7 @@ And returns this result: `6`
 
 ### int
 
-Return the integer version for a string.
+Convert the string version for an integer to an actual integer number.
 
 ```
 int('<value>')
@@ -2433,12 +2430,12 @@ int('<value>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | The string to convert |
+| <*value*> | Yes | String | The string version for the integer to convert. The minimum and maximum values are the same as the limits for the integer data type. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*integer-result*> | Integer | The integer version for the specified string |
+| <*integer-result*> | Integer | The integer version for the specified string. The minimum and maximum values are the same as the limits for the integer data type. |
 ||||
 
 *Example*
@@ -2769,7 +2766,7 @@ join([<collection>], '<delimiter>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | The resulting string created from all the items in the specified array |
+| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | The resulting string created from all the items in the specified array. <p><p>**Note**: The length of the result must not exceed 104,857,600 characters. |
 ||||
 
 *Example*
@@ -2782,9 +2779,6 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 And returns this result: `"a.b.c"`
-  
-> [!NOTE]
-> The length of the result must not exceed 104,857,600 characters.
 
 <a name="last"></a>
 
@@ -3399,7 +3393,7 @@ range(<startIndex>, <count>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | Yes | Integer | An integer value that starts the array as the first item |
-| <*count*> | Yes | Integer | The number of integers in the array |
+| <*count*> | Yes | Integer | The number of integers in the array. The `count` parameter value must be a positive integer that doesn't exceed 100,000. <p><p>**Note**: The sum of the `startIndex` and `count` values must not exceed 2,147,483,647. |
 |||||
 
 | Return value | Type | Description |
@@ -3417,9 +3411,6 @@ range(1, 4)
 ```
 
 And returns this result: `[1, 2, 3, 4]`
-  
-> [!NOTE]
-> The `count` parameter value must be a positive integer that doesn't exceed 100,000. The sum of the `startIndex` and `count` values must not exceed 2,147,483,647.
 
 <a name="replace"></a>
 
@@ -3826,7 +3817,7 @@ split('<text>', '<delimiter>')
 | [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings from the original string, separated by commas |
 ||||
 
-*Example*
+*Example 1*
 
 This example creates an array with substrings from the specified
 string based on the specified character as the delimiter:
@@ -3836,6 +3827,16 @@ split('a_b_c', '_')
 ```
 
 And returns this array as the result: `["a","b","c"]`
+
+*Example 2*
+  
+This example creates an array with a single element when no delimiter exists in the string:
+
+```
+split('a_b_c', ' ')
+```
+
+And returns this array as the result: `["a_b_c"]`
 
 <a name="startOfDay"></a>
 

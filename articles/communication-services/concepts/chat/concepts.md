@@ -3,13 +3,15 @@ title: Chat concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document	
 description: Learn about Communication Services Chat concepts.	
 author: knvsl	
-manager: jken	
+manager: chpalm	
 services: azure-communication-services	
-ms.author: mikben	
+
+ms.author: rifox	
 ms.date: 06/30/2021
-ms.topic: overview	
-ms.service: azure-communication-services	
----	
+ms.topic: conceptual
+ms.service: azure-communication-services
+ms.subservice: chat
+---
 
 # Chat concepts	
 
@@ -29,8 +31,6 @@ Chat conversations happen within **chat threads**. Chat threads have the followi
 
 ### User access
 Typically the thread creator and participants have same level of access to the thread and can execute all related operations available in the SDK, including deleting it. Participants don't have write access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they'll get an error. 
-
-If you want to limit access to chat features for a set of users, you can configure access as part of your trusted service. Your trusted service is the service that orchestrates the authentication and authorization of chat participants. We'll explore this in further detail below.  
 
 ### Chat Data 
 Communication Services stores chat history until explicitly deleted. Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users removed from a chat thread will be able to view previous message history, but they won't be able to send or receive new messages as part of that chat thread. A fully idle thread with no participants will be automatically deleted after 30 days. To learn more about data being stored by Communication Services, refer to documentation on [privacy](../privacy.md).  

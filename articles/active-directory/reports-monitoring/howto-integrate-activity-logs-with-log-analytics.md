@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Active Directory logs with Azure Monit
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -17,6 +17,7 @@ ms.subservice: report-monitor
 ms.date: 07/09/2021
 ms.author: markvi
 ms.reviewer: besiler
+ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
 ---

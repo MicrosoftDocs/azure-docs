@@ -196,7 +196,7 @@ For disaster recovery, you need to have HANA Large Instance units in multiple Az
  - Copying backups between HANA Large Instance units in different regions to make system copies or do system refreshes.
 
 
-![Virtual network connected to Azure Large Instance stamps in different Azure regions](./media/hana-overview-architecture/image8-multiple-regions.png)
+[![Virtual network connected to Azure Large Instance stamps in different Azure regions](./media/hana-overview-architecture/image8-multiple-regions.png)](./media/hana-overview-architecture/image8-multiple-regions.png#lightbox)
 
 The preceding figure shows how the virtual networks in both regions are connected to two ExpressRoute circuits. The circuits are used to connect to SAP HANA on Azure (Large Instances) in both Azure regions (grey lines). The reason for the two cross connections is to protect from an outage of the MSEEs on either side. The communication flow between the two virtual networks in the two Azure regions is supposed to be handled over the [global peering](/archive/blogs/azureedu/how-to-setup-global-vnet-peering-in-azure) of the two virtual networks in the two different regions (blue dotted line). The thick red line describes the ExpressRoute Global Reach connection. This connection allows the HANA Large Instance units of your tenants in different regions to communicate with each other. 
 

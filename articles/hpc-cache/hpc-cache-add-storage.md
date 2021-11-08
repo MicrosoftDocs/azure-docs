@@ -1,12 +1,12 @@
 ---
 title: Add storage to an Azure HPC Cache
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 09/22/2021
 ms.custom: subject-rbac-steps
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Add storage targets
@@ -397,7 +397,7 @@ From the Azure portal, open your cache instance and click **Storage targets**, w
 
 Click on a storage target's name to open its details page.
 
-Read [Edit storage targets](hpc-cache-edit-storage.md) to learn more.
+Read [View and manage storage targets](manage-storage-targets.md) and [Edit storage targets](hpc-cache-edit-storage.md) to learn more.
 
 ### [Azure CLI](#tab/azure-cli)
 

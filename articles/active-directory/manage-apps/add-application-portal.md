@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Add an application to your tenant'
+title: 'Quickstart: Add an enterprise application'
+description: Add an enterprise application in Azure Active Directory.
 titleSuffix: Azure AD
-description: This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,66 +9,47 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 09/22/2021
 ms.author: davidmu
-ms.reviewer: ergreenl
+ms.reviewer: ergleenl
+# Customer intent: As an administrator of an Azure AD tenant, I want to add an enterprise application.
 ---
 
-# Quickstart: Add an application to your tenant
+# Quickstart: Add an enterprise application in Azure Active Directory
 
-Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications. Many of the applications your organization uses are probably already in the gallery.
+In this quickstart, you use the Azure Active Directory Admin Center to add an enterprise application to your Azure Active Directory (Azure AD) tenant. Azure AD has a gallery that contains thousands of enterprise applications that have been pre-integrated. Many of the applications your organization uses are probably already in the gallery. This quickstart uses the application named **Azure AD SAML Toolkit** as an example, but the concepts apply for most [enterprise applications in the gallery](../saas-apps/tutorial-list.md).
 
-After an application is added to your Azure AD tenant, you can:
-
-- Configure properties for the app.
-- Manage user access to the app with a Conditional Access policy.
-- Configure single sign-on so users can sign in to the app with their Azure AD credentials.
+It is recommended that you use a non-production environment to test the steps in this quickstart.
 
 ## Prerequisites
 
-To add an application to your Azure AD tenant, you need:
+To add an enterprise application to your Azure AD tenant, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- (Optional: Completion of [View your apps](view-applications-portal.md)).
 
->[!IMPORTANT]
->We recommend using a non-production environment to test the steps in this quickstart.
+## Add an enterprise application
 
-## Add an app to your Azure AD tenant
+To add an enterprise application to your tenant:
 
-To add an application to your Azure AD tenant:
+1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant.
+1. In the **Enterprise applications** pane, select **New application**.
+1. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning. Search for and select the application. In this quickstart, **Azure AD SAML Toolkit** is being used.
 
-1. In the [Azure portal](https://portal.azure.com), in the **Azure services** pane select **Enterprise applications**. The **All applications** pane opens and displays a random sample of the applications in your Azure AD tenant.
-2. In the **Enterprise applications** pane, select **New application**.
-3. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
-4. Switch back to the legacy app galley experience: In the banner at the top of the **Add an application page**, select the link that says **You're in the new and improved app gallery experience. Click here to switch back to the legacy app gallery experience**.
-    ![Search for an app by name or category](media/add-application-portal/browse-gallery.png)
-5. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results.
-6. The next step depends on the way the developer of the application implemented single sign-on (SSO). Single sign-on can be implemented by app developers in four ways. The four ways are SAML, OpenID Connect, Password, and Linked. When you add an app, you can choose to filter and see only apps using a particular SSO implementation as shown in the screenshot. For example, a popular standard to implement SSO is called Security Assertion Markup Language (SAML). Another standard that is popular is called OpenId Connect (OIDC). The way you configure SSO with these standards is different so take note of the type of SSO that is implemented by the app that you are adding.
+    :::image type="content" source="media/add-application-portal/browse-gallery.png" alt-text="Browse in the enterprise application gallery for the application that you want to add.":::
 
-    - If the developer of the app used the **OIDC standard** for SSO then select **Sign Up**. A setup page appears. Next, go to the quickstart on setting up OIDC-based single sign-on.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Screenshot shows adding an OIDC-based SSO app.":::
+1. Enter a name that you want to use to recognize the instance of the application. For example, `Azure AD SAML Toolkit 1`.
+1. Select **Create**.
 
-    - If the developer of the app used the **SAML standard** for SSO then select **Create**. A getting started page appears with the options for configuring the application for your organization. In the form, you can edit the name of the application to match the needs of your organization. Next, go to the quickstart on setting up SAML-based single sign-on.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Screenshot shows adding an SAML-based SSO app.":::
-
-> [!IMPORTANT]
-> There are some key differences between SAML-based and OIDC-based SSO implementations. With SAML-based apps you can add multiple instances of the same app. For example, GitHub1, GitHub2, etc.. For OIDC-based apps you can only add one instance of an app. If you have already added an OIDC-based app and try to add the same app again and provide consent twice, it will not be added again in the tenant.
-
-If the application you are looking for is not in the gallery then you can select the link **Create your own application** and then under **What are you looking to do with your application?** choose **Integrate any other application you don't find in the gallery**. Microsoft has already worked with many application developers to pre-configure them to work with Azure AD. The pre-configured apps show up in the gallery. But if the app you want to add is not listed then you can create a new, generic, app and then configure it yourself or with the guidance of the developer that created it.
-
-You've finished adding an application. The next quickstart shows you how to change the logo and edit other properties for your application.
-
-> [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
+If you choose to install an application that uses OpenID Connect based SSO, instead of seeing a **Create** button, you see a button that redirects you to the application sign-in or sign-up page depending on whether you already have an account there. For more information, see [Add an OpenID Connect based single sign-on application](add-application-portal-setup-oidc-sso.md). After sign-in, the application is added to your tenant.
 
 ## Clean up resources
 
-If you're not going to continue with the quickstart series, then consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+If you are planning to complete the next quickstart, keep the enterprise application that you created. Otherwise, you can consider deleting it to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
 
 ## Next steps
 
-Advance to the next article to learn how to configure an app.
+Learn how to create a user account and assign it to the enterprise application that you added.
 > [!div class="nextstepaction"]
-> [Configure an app](add-application-portal-configure.md)
+> [Create and assign a user account](add-application-portal-assign-users.md)

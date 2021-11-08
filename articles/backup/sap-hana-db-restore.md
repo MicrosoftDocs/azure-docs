@@ -2,7 +2,10 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 11/7/2019
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Restore SAP HANA databases on Azure VMs
@@ -31,23 +34,21 @@ Before restoring a database, note the following:
 
 * To ensure that the target SAP HANA instance is ready for restore, check its **Backup readiness** status:
 
-  1. Open the vault in which the target SAP HANA instance is registered.
+  1. In the Azure portal, go to **Backup center** and click **+Backup**.
 
-  1. On the vault dashboard, under **Getting started**, choose **Backup**.
+     :::image type="content" source="./media/sap-hana-db-restore/backup-center-configure-inline.png" alt-text="Screenshot showing to start the process to check if the target SAP HANA instance is ready for restore." lightbox="./media/sap-hana-db-restore/backup-center-configure-expanded.png":::
 
-      ![Backup in vault dashboard](media/sap-hana-db-restore/getting-started-backup.png)
+  1. Select **SAP HANA in Azure VM** as the datasource type, select the vault to which the SAP HANA instance is registered, and then click **Continue**.
 
-  1. In **Backup**, under **What do you want to backup?** choose **SAP HANA in Azure VM**.
-
-      ![Choose SAP HANA in Azure VM](media/sap-hana-db-restore/sap-hana-backup.png)
+     :::image type="content" source="./media/sap-hana-db-restore/hana-select-vault.png" alt-text="Screenshot showing to select SAP HANA in Azure VM.":::
 
   1. Under **Discover DBs in VMs**, select **View details**.
 
-      ![View details](media/sap-hana-db-restore/view-details.png)
+     :::image type="content" source="./media/sap-hana-db-restore/hana-discover-databases.png" alt-text="Screenshot showing to view database details.":::
 
   1. Review the **Backup Readiness** of the target VM.
 
-      ![Protected servers](media/sap-hana-db-restore/protected-servers.png)
+     :::image type="content" source="./media/sap-hana-db-restore/hana-select-virtual-machines-inline.png" alt-text="Screenshot showing protected servers." lightbox="./media/sap-hana-db-restore/hana-select-virtual-machines-expanded.png":::
 
 * To learn more about the restore types that SAP HANA supports, refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148)
 
@@ -61,43 +62,27 @@ To restore, you need the following permissions:
   * If you're restoring to the same VM, this is the source VM.
   * If you're restoring to an alternate location, this is the new target VM.
 
-1. Open the vault in which the SAP HANA database to be restored is registered
+1. In the Azure portal, go to **Backup center** and click **Restore**.
 
-1. On the vault dashboard, under **Protected Items**, choose **Backup Items**
+   :::image type="content" source="./media/sap-hana-db-restore/backup-center-restore-inline.png" alt-text="Screenshot showing to start restoring an SAP HANA database." lightbox="./media/sap-hana-db-restore/backup-center-restore-expanded.png":::
 
-    ![Backup items](media/sap-hana-db-restore/backup-items.png)
+1. Select **SAP HANA in Azure VM** as the datasource type, select the database you wish to restore, and then click **Continue**.
 
-1. In **Backup Items**, under **Backup Management Type** select **SAP HANA in Azure VM**
-
-    ![Backup management type](media/sap-hana-db-restore/backup-management-type.png)
-
-1. Select the database to be restored
-
-    ![Database to restore](media/sap-hana-db-restore/database-to-restore.png)
-
-1. Review the database menu. It provides information about database backup, including:
-
-    * The oldest and latest restore points
-
-    * The log backup status for the last 24 and 72 hours for the database
-
-    ![Database menu](media/sap-hana-db-restore/database-menu.png)
-
-1. Select **Restore DB**
+   :::image type="content" source="./media/sap-hana-db-restore/hana-restore-select-database.png" alt-text="Screenshot showing to restore the backup items.":::
 
 1. Under **Restore Configuration**, specify where (or how) to restore data:
 
-    * **Alternate Location**: Restore the database to an alternate location and keep the original source database.
+   * **Alternate Location**: Restore the database to an alternate location and keep the original source database.
 
-    * **Overwrite DB**: Restore the data to the same SAP HANA instance as the original source. This option overwrites the original database.
+   * **Overwrite DB**: Restore the data to the same SAP HANA instance as the original source. This option overwrites the original database.
 
-      ![Restore configuration](media/sap-hana-db-restore/restore-configuration.png)
+   :::image type="content" source="./media/sap-hana-db-restore/hana-restore-configuration.png" alt-text="Screenshot showing to restore configuration.":::
 
 ### Restore to alternate location
 
 1. In the **Restore Configuration** menu, under **Where to Restore**, select **Alternate Location**.
 
-    ![Restore to alternate location](media/sap-hana-db-restore/restore-alternate-location.png)
+   :::image type="content" source="./media/sap-hana-db-restore/hana-alternate-location-recovery.png" alt-text="Screenshot showing to restore to alternate location.":::
 
 1. Select the SAP HANA host name and instance name to which you want to restore the database.
 1. Check if the target SAP HANA instance is ready for restore by ensuring its **Backup Readiness.** Refer to the [prerequisites section](#prerequisites) for more details.
@@ -107,9 +92,6 @@ To restore, you need the following permissions:
     > Single Database Container (SDC) restores must follow these [checks](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore).
 
 1. If applicable, select **Overwrite if the DB with the same name already exists on selected HANA instance**.
-1. Select **OK**.
-
-    ![Restore configuration - final screen](media/sap-hana-db-restore/restore-configuration-last.png)
 
 1. In **Select restore point**, select **Logs (Point in Time)** to [restore to a specific point in time](#restore-to-a-specific-point-in-time). Or select **Full & Differential** to [restore to a specific recovery point](#restore-to-a-specific-recovery-point).
 
@@ -117,11 +99,14 @@ To restore, you need the following permissions:
 
 1. In the **Restore Configuration** menu, under **Where to Restore**, select **Overwrite DB** > **OK**.
 
-    ![Overwrite DB](media/sap-hana-db-restore/overwrite-db.png)
+   :::image type="content" source="./media/sap-hana-db-restore/hana-overwrite-database.png" alt-text="Screenshot showing to overwrite database.":::
 
 1. In **Select restore point**, select **Logs (Point in Time)** to [restore to a specific point in time](#restore-to-a-specific-point-in-time). Or select **Full & Differential** to [restore to a specific recovery point](#restore-to-a-specific-recovery-point).
 
 ### Restore as files
+
+>[!Note]
+>Restore as files doesn't work on CIFS share, but works for NFS.
 
 To restore the backup data as files instead of a database, choose **Restore as Files**. Once the files are dumped to a specified path, you can take these files to any SAP HANA machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
 
@@ -140,11 +125,11 @@ To restore the backup data as files instead of a database, choose **Restore as F
     >[!NOTE]
     >To restore the database backup files on an Azure file share mounted on the target registered VM, make sure that root account has read/ write permissions on the Azure file share.
 
-    ![Choose destination path](media/sap-hana-db-restore/restore-as-files.png)
+   :::image type="content" source="./media/sap-hana-db-restore/hana-restore-as-files.png" alt-text="Screenshot showing to choose destination path.":::
 
 1. Select the **Restore Point** corresponding to which all the backup files and folders will be restored.
 
-    ![Select restore point](media/sap-hana-db-restore/select-restore-point.png)
+   :::image type="content" source="./media/sap-hana-db-restore/hana-select-recovery-point-inline.png" alt-text="Screenshot showing to select restore point." lightbox="./media/sap-hana-db-restore/hana-select-recovery-point-expanded.png":::
 
 1. All the backup files associated with the selected restore point are dumped into the destination path.
 1. Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full backups, and the other folder named `Log` contains the log backups and other backups (such as differential, and incremental).
@@ -188,7 +173,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
         * `<DatabaseName>` - Name of the new database or existing database that you want to restore
         * `<Timestamp>` - Exact timestamp of the Point in time restore
-        * `<DatabaseName@HostName>` - Name of the database whose backup is used for restore and the **host** / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>` option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it doesn't need be specified for restores done on the same HANA server from where the backup is taken.
+        * `<DatabaseName@HostName>` - Name of the database whose backup is used for restore and the **host** / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>` option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So, it doesn't need to be specified for restores done on the same HANA server from where the backup is taken.
         * `<PathToGeneratedCatalogInStep3>` - Path to the catalog file generated in **Step C**
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups (if any)
@@ -249,7 +234,7 @@ If you've selected **Full & Differential** as the restore type, do the following
 
 As one of the restore options, Cross Region Restore (CRR) allows you to restore SAP HANA databases hosted on Azure VMs in a secondary region, which is an Azure paired region.
 
-To onboard to the feature during the preview, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
+To onboard to the feature, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
 
 To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
 
@@ -269,26 +254,22 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 ### Restore in secondary region
 
-The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
+The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters. A vault should exist in the secondary region and the SAP HANA server should be registered to the vault in the secondary region.
 
 ![Where and how to restore](./media/sap-hana-db-restore/restore-secondary-region.png)
-
->[!NOTE]
->The virtual network in the secondary region needs to be assigned uniquely, and can't be used for any other VMs in that resource group.
 
 ![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
 >[!NOTE]
->
 >* After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
->* The Azure roles needed to restore in the secondary region are the same as those in the primary region.
+>* The role/access level required to perform restore operation in cross-regions are _Backup Operator_ role in the subscription and _Contributor(write)_ access on the source and target virtual machines. To view backup jobs, _ Backup reader_ is the minimum premission required in the subscription.
 
 ### Monitoring secondary region restore jobs
 
-1. From the portal, go to **Recovery Services vault** > **Backup Jobs**
-1. Select **Secondary Region** to view the items in the secondary region.
+1. In the Azure portal, go to **Backup center** > **Backup Jobs**.
+1. Filter **Operation** for value **CrossRegionRestore** to view the jobs in the secondary region.
 
-    ![Backup jobs filtered](./media/sap-hana-db-restore/backup-jobs-secondary-region.png)
+   :::image type="content" source="./media/sap-hana-db-restore/hana-view-jobs-inline.png" alt-text="Screenshot showing filtered Backup jobs." lightbox="./media/sap-hana-db-restore/hana-view-jobs-expanded.png":::
 
 ## Next steps
 

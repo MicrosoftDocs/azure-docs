@@ -16,8 +16,9 @@ ms.date: 04/11/2018
 ms.author: msangapu
 ---
 # Create PHP web and worker roles
-
 ## Overview
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](cloud-services/includes/deprecation-announcement.md)]
 
 This guide will show you how to create PHP web or worker roles in a Windows development environment, choose a specific version of PHP from the "built-in" versions available, change the PHP configuration, enable extensions, and finally, deploy to Azure. It also describes how to configure a web or worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
 

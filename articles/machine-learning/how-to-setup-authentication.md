@@ -7,8 +7,8 @@ author: cjgronlund
 ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 05/27/2021
+ms.subservice: enterprise-readiness
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps
 ---
@@ -232,7 +232,8 @@ from azureml.core import Workspace
 
 ws = Workspace.get(name="ml-example",
                    auth=sp,
-                   subscription_id="your-sub-id")
+                   subscription_id="your-sub-id",
+                   resource_group="your-rg-name")
 ws.get_details()
 ```
 
