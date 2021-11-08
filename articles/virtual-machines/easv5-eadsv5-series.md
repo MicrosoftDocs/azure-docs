@@ -19,7 +19,7 @@ The Easv5-series and Eadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup
 
 ## Easv5-series
 
-Easv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.7GHz. The Easv5-series sizes offer a combination of vCPU and memory that is ideal for memory-intensive enterprise applications. The new VMs with no local disk provide a better value proposition for workloads that do not require local temp disk.
+Easv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.5GHz. The Easv5-series sizes offer a combination of vCPU and memory that is ideal for memory-intensive enterprise applications. The new VMs with no local disk provide a better value proposition for workloads that do not require local temp disk.
 
 > [!NOTE]
 > For frequently asked questions, see [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
@@ -53,7 +53,7 @@ Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 
 ## Eadsv5-series
 
-Eadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.7GHz. The Eadsv5-series sizes offer a combination of vCPU, memory and temporary storage that is ideal for memory-intensive enterprise applications. The new VMs have 50% larger local storage, as well as better local disk IOPS for both read and write compared to the [Eav4/Easv4](eav4-easv4-series.md) sizes with [Gen2](generation-2.md) VMs.
+Eadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.5GHz. The Eadsv5-series sizes offer a combination of vCPU, memory and temporary storage that is ideal for memory-intensive enterprise applications. The new VMs have 50% larger local storage, as well as better local disk IOPS for both read and write compared to the [Eav4/Easv4](eav4-easv4-series.md) sizes with [Gen2](generation-2.md) VMs.
 
 Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 

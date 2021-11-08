@@ -9,15 +9,16 @@ services: iot-edge
 
 ### IoT Edge for Linux on Windows installation
 
-A Windows device with the following minimum system requirements:
+A Windows device with the following minimum requirements:
 
-* Windows 10 version 1809 or later, build 17763 or later; or Windows 11 version 21H2 or later, build 22000 or later
+* System Requirements
+   * Windows 10¹/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows Server 2019¹/2022  
+   <sub>¹ Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
 
-* Professional, Enterprise, or Server (2019 or 2022) editions
-
-* Minimum Free Memory: 1 GB
-
-* Minimum Free Disk Space: 10 GB
+* Hardware requirements
+  * Minimum Free Memory: 1 GB
+  * Minimum Free Disk Space: 10 GB
 
 * Virtualization support
   * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).

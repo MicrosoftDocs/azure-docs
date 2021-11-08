@@ -182,7 +182,7 @@ namespace Monitor
             var result = await httpClient.PostAsync(endpoint, new StringContent(""));
 
             // Get the result back as a DatabaseAccountListKeysResult.
-            DatabaseAccountListKeysResult keys = await result.Content.ReadAsAsync<DatabaseAccountListKeysResult>();
+            DatabaseAccountListKeysResult keys = await result.Content.ReadFromJsonAsync<DatabaseAccountListKeysResult>();
 
             log.LogInformation("Starting to create the client");
 

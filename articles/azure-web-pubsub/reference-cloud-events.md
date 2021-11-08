@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
-ms.date: 08/16/2021
+ms.date: 11/08/2021
 ---
 
 #  CloudEvents extension for Azure Web PubSub

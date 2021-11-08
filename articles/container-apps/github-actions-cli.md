@@ -1,9 +1,9 @@
 ---
 title: Publish revisions with GitHub Actions in Azure Container Apps Preview
 description: Learn to automatically create new revisions using GitHub Actions in Azure Container Apps Preview
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: cshoe

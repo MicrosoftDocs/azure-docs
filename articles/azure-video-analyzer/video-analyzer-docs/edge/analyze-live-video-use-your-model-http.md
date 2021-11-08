@@ -3,7 +3,7 @@ title: Analyze live video with your own model - HTTP
 description: This quickstart describes how to analyze live video with your own model (HTTP) with Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 09/10/2021
+ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021
 ---
