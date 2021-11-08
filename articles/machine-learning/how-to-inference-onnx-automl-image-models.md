@@ -486,7 +486,7 @@ img_data = preprocess(img, resize_size, crop_size_onnx)
 
 # [Object detection with Faster R-CNN](#tab/object-detect-cnn)
 
-For object detection with the Faster R-CNN algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
+For object detection with the Faster R-CNN algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`. You can get the expected input height and width with the following code.
 
 ```python
 batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
@@ -614,6 +614,9 @@ img_data = preprocess(img, resize_height, resize_width)
 
 Inferencing with ONNX Runtime differs for each computer vision task.
 
+>[!WARNING]
+> Batch scoring is not currently supported for all computer vision tasks. 
+
 # [Multi-class image classification](#tab/multi-class)
 
 ```python
@@ -718,9 +721,6 @@ result = get_predictions_from_ONNX(session, img_data)
 ```
 
 # [Instance segmentation](#tab/instance-segmentation)
-
->[!WARNING]
-> Batch scoring is not currently supported for instance segmentation tasks. 
 
 The instance segmentation model predicts boxes, labels, scores, and masks. ONNX outputs a predicted mask per instance, along with corresponding bounding boxes and class confidence score. You might need to convert from binary mask to polygon if necessary.
 
