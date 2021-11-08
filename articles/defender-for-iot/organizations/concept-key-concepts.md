@@ -110,6 +110,20 @@ Using custom, condition-based alert triggering and messaging helps pinpoint spec
 
 For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md#supported-protocols).
 
+## What is an Inventory Device
+
+The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
+
+Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
+
+1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
+1. Devices composed of multiple backplane components (including all racks/slots/modules)
+1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+
+Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
+Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
+
+
 ## High availability
 
 Increase the resilience of your Defender for IoT deployment by installing a high-availability appliance in the on-premises management console. High-availability deployments ensure that your managed sensors continuously report to an active on-premises management console.
