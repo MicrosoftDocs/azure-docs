@@ -22,7 +22,7 @@ To learn even more about Bicep's features, take these learning paths:
 
 :::row:::
 :::column:::
-  [<img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>]](/learn/paths/bicep-deploy/)
+  [<img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>](/learn/paths/bicep-deploy/)
 
   [Part 1: Deploy and manage resources in Azure by using Bicep](/learn/paths/bicep-deploy/)
 :::column-end:::
