@@ -15,7 +15,7 @@ Standard Functions billing applies to proxy executions. For more information, se
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE] 
-> Proxies is available in Azure Functions 1.0 to 3.0.
+> Proxies is available in Azure Functions [versions](./functions-versions.md) 1.x to 3.x.
 > 
 > You should also consider using [Azure API Management](../api-management/api-management-key-concepts.md) for your application. It provides the same capabilities as Functions Proxies as well as other tools for building and maintaining APIs, such as OpenAPI integration, rate limiting, and advanced policies. 
 
