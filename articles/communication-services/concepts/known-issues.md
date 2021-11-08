@@ -23,6 +23,31 @@ This article provides information about limitations and known issues related to 
 
 This section provides information about known issues associated with the Azure Communication Services JavaScript voice and video calling SDKs.
 
+#### iOS 15.1 regression - iOS/Safari will crash and refresh the page if ACS user tries to send video in a call
+
+---
+**Important**
+
+iOS 15.1 introduced a bug that will impact majority of ACS calls with video that are placed in iOS/Safari.
+
+---
+
+**Issue Description**
+When joining an ACS calls or a joining a Teams meeting using ACS on iOS 15.1 on any browser with video turn on – this will cause Safari browser to crash.
+
+**Details**
+This is a [known bug on iOS 15.1 Safari](https://bugs.webkit.org/show_bug.cgi?id=231505) that was introduced with the release of iOS 15.1. We expect this issue to be fixed with the release if iOS 15.2. Currently the only known work around is to not turn off video when using ACS on iOS 15.1 Safari.
+
+**Versions**
+iOS 15.1 and any ACS Web SDK version
+
+**Mitigations**
+Prevent users using (turning on) any video on when using iOS 15.1 Safari for ACS video calls and Microsoft Teams to ACS video call meetings.
+We're evaluating workarounds and working with Apple on the next steps
+
+Next release - iOS 15.2 fixed this issue
+
+
 #### Refreshing a page doesn't immediately remove the user from their call
 
 If a user is in a call and decides to refresh the page, the Communication Services media service won't remove this user immediately from the call. It will wait for the user to rejoin. The user will be removed from the call after the media service times out.
