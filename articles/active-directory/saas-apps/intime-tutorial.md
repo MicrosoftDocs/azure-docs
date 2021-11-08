@@ -101,7 +101,7 @@ To configure Azure AD single sign-on with InTime, perform the following steps:
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `https://auth.intimesoft.com/auth/realms/master`
 
-5. Your InTime application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. InTime application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+5. Your InTime application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. InTime application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping. Ensure 'Name identifier format' is set to Default or Persistent.
 
 	![image](common/edit-attribute.png)
 
