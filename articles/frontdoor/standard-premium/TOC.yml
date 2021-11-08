@@ -42,7 +42,7 @@
   - name: Geo-filtering
     href: geo-filtering.md
   - name: Health probes
-    href: concept-health-probes.md
+    href: ../front-door-health-probes.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Private Link
     href: concept-private-link.md
   - name: Caching
