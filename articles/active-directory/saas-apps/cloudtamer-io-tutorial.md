@@ -180,7 +180,7 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 To easily manage cloudtamer.io user permissions by using existing Azure Active Directory groups, complete these steps:
 
-### Azure Active Directory configuration
+### Azure AD configuration
 
 1. In the Azure portal, go to **Azure Active Directory** > **Enterprise Applications**.
 1. In the list, select the enterprise application for cloudtamer.io.
@@ -195,20 +195,20 @@ To easily manage cloudtamer.io user permissions by using existing Azure Active D
 1. For **Source attribute**, leave the default **Group ID**.
 1. Select the **Customize the name of the group claim** checkbox.
 1. For **Name**, enter **memberOf**.
-1. Select **Save** to complete the configuration with Azure Active Directory.
+1. Select **Save** to complete the configuration with Azure AD.
 
 ### cloudtamer.io configuration
 
 1. In cloudtamer.io, go to **Users** > **Identity Management Systems**.
-1. Select the IDMS that you've created for Azure Active Directory.
+1. Select the IDMS that you've created for Azure AD.
 1. On the overview page, select the **User Group Associations** tab.
 1. For each user group mapping that you want, complete these steps:
    1. Select **Add** > **Add New**.
    1. In the dialog that appears:
-	1. For **Name**, enter **memberOf**.
-	1. For **Regex**, enter the object ID (from Azure Active Directory) of the group you want to match.
-	1. For **User Group**, select the cloudtamer.io internal group you want to map to the group in **Regex**.
-	1. Select the **Update on Login** checkbox.
+      1. For **Name**, enter **memberOf**.
+      1. For **Regex**, enter the object ID (from Azure AD) of the group you want to match.
+      1. For **User Group**, select the cloudtamer.io internal group you want to map to the group in **Regex**.
+      1. Select the **Update on Login** checkbox.
    1. Select **Add** to add the group association.
 
 ## Next steps
