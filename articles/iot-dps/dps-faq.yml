@@ -15,6 +15,7 @@ summary: |
   This article answers to common questions about Azure IoT Hub Device Provisioning Service. The following topics are covered:
   
   * DPS Management
+  * DPS Billing
 
   
 
@@ -25,12 +26,12 @@ sections:
          What is the recommended way to update a linked hub when the primary key for the IoT Hub access policy is regenerated? 
         answer: |
          Since the primary key is embedded within the connection string (the string DPS uses to auth) it gets changed whenever the primary is modified. To fix stale DPS-Hub links because of the connection string having changed you need to relink the Hub to the DPS.
-  - name: DPS Development
+  - name: DPS Billing
     questions:
       - question: |
-         First question? 
+         Which Device Provisioning Service API operations are billable and what are their prices?” 
         answer: |
-         First answer.
+         To information on which operations are billable and their prices, see [Billable service operations and pricing for Microsoft Device Provisioning Service](concepts-prices.md)
 
 additionalContent: |
 

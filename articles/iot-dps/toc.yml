@@ -68,6 +68,8 @@
     href: tls-support.md
   - name: Security practices for device manufacturers
     href: concepts-device-oem-security-practices.md
+  - name: DPS billable services and pricing
+    href: concepts-prices.md
 - name: How-to guides
   items:
   - name: Development
