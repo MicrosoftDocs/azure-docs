@@ -75,7 +75,7 @@ In this section, you'll select a test run, and then select other test runs to co
 
 1. Select **Compare**. The test runs will now be rendered in the dashboard by overlaying each run on the different graphs.
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/compare-screen.png" alt-text="Screenshot that whos two test runs being compared.":::
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/compare-screen.png" alt-text="Screenshot that shows two test runs being compared.":::
 
     You can use filters to customize the graphs. There are separate filters for the client and the server metrics.
 
