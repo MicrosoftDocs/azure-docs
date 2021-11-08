@@ -7,7 +7,7 @@ author: luisquintanilla
 ms.author: luquinta
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devplatv2
 ---

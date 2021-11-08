@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
-ms.date: 08/26/2021
+ms.date: 11/08/2021
 ---
 
 # Python server SDK for Azure Web PubSub
@@ -26,7 +26,7 @@ You can use this library to:
 Install the package as follows:
 
 ```bash
-python -m pip install azure-messaging-webpubsubservice
+python -m pip install azure-messaging-webpubsubservice==1.0.0b1
 ```
 
 ### Prerequisites
