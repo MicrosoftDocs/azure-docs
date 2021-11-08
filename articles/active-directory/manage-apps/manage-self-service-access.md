@@ -21,11 +21,11 @@ ms.reviewer: phsignor
 
 In this article, you learn how to enable self-service application access using the Azure Active Directory Admin Center.
 
-Before your users can self-discover applications from the My Apps portal, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to. This functionality is available for applications that were added from the [Azure AD Gallery](./add-application-portal.md), [Azure AD Application Proxy](../app-proxy/application-proxy.md) or were added using [user or admin consent](../develop/application-consent-experience.md).
+Before your users can self-discover applications from the [My Apps portal](my-apps-deployment-plan.md), you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to. This functionality is available for applications that were added from the [Azure AD Gallery](./add-application-portal.md), [Azure AD Application Proxy](../app-proxy/application-proxy.md) or were added using [user or admin consent](../develop/application-consent-experience.md).
 
 Using this feature, you can:
 
-- Let users self-discover applications from the [My Apps portal](https://myapps.microsoft.com/) without bothering the IT group.
+- Let users self-discover applications from the My Apps portal without bothering the IT group.
 
 - Add those users to a pre-configured group so you can see who has requested access, remove access, and manage the roles assigned to them.
 
