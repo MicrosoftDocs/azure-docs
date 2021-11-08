@@ -1,4 +1,5 @@
 ---
+
 title: How To: Access activity logs in Azure AD | Microsoft Docs
 description: Learn how to choose the right method for accessing the activity logs in Azure AD.
 services: active-directory
