@@ -191,16 +191,16 @@ az aks create \
 ### Configure the allocated outbound ports
 
 > [!IMPORTANT]
-> If you have applications on your cluster which are expected to establish a large number of connection to small set of destinations, e.g. many frontend instances connecting to an SQL DB, you have a scenario very susceptible to encounter SNAT Port exhaustion (running out of ports to connect from). For these scenarios it is highly recommended to increase the allocated outbound ports and outbound frontend IPs on the load balancer. See below for information on how to properly calculate these values.
+> If you have applications on your cluster which can establish a large number of connections to small set of destinations, for example many instances of a frontend application connecting to a database, you may have a scenario very susceptible to encounter SNAT port exhaustion. SNAT port exhaustion happens when an application runs out of outbound ports to use to establish a connection to another application or host. If you have a scenario where you may encounter SNAT port exhaustion, it is highly recommended that you increase the allocated outbound ports and outbound frontend IPs on the load balancer to prevent SNAT port exhaustion. See below for information on how to properly calculate outbound ports and outbound frontend IP values.
 
-Unless otherwise specified, AKS will use the default value of Allocated Outbound Ports that Standard Load Balancer defines when configuring it. This value is **null** on the AKS API or **0** on the SLB API as shown by the below command:
+By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster is increased, fewer ports will be available per node. To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`. For example:
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az network lb outbound-rule list --resource-group $NODE_RG --lb-name kubernetes -o table
 ```
 
-The previous commands will list the outbound rule for your load balancer, for example:
+The following example output shows that automatic outbound port assignment based on backend pool size is enabled for the cluster:
 
 ```console
 AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name             Protocol    ProvisioningState    ResourceGroup
@@ -208,19 +208,31 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-This output does not mean that the cluster has 0 ports but instead that it is using [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports]. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster is increased, fewer ports will be available per node.
+To configure a specific value for *AllocatedOutboundPorts* and outbound IP address when creating or updating a cluster, use `load-balancer-outbound-ports` and either `load-balancer-managed-outbound-ip-count`, `load-balancer-outbound-ips`, or `load-balancer-outbound-ip-prefixes`. Before setting a specific value or increasing an existing value for either for outbound ports and outbound IP address, you must calculate the appropriate number of outbound ports and IP address. Use the following equation for this calculation rounded to the nearest integer: `64,000 ports per IP / <outbound ports per node> * <number of outbound IPs> = <maximum number of nodes in the cluster>`.
 
-To define or increase the number of Allocated Outbound ports, the appropriate values for number of outbound ports and number of IPs must be calculated. The number of outbound ports is fixed per instance to the value specified here. The value for outbound ports must be a multiple of 8.
+When calculating the number of outbound ports and IPs and setting the values, remember:
+* The number of outbound ports is fixed per node based on the value you set.
+* The value for outbound ports must be a multiple of 8.
+* Adding more IPs does not add more ports to any node. It provides capacity for more nodes in the cluster.
+* You must account for nodes that may be added as part of upgrades, including the count of nodes specified via [maxSurge values][maxsurge].
 
-Adding more IPs does not add more ports to any node - instead, it provides capacity for more nodes in the cluster. When performing this calculation, make sure to account for nodes that may be added as part of upgrades, including the count of nodes specified via [maxSurge values](upgrade-cluster.md#customize-node-surge-upgrade). The calculation for the number of IPs required is `(<maximum number of nodes in the cluster> * <outbound ports per node>) / 64000`, rounded up to the nearest integer.
+The following examples show how the number of outbound ports and IP addresses are affected by the values you set:
+- If the default values are used and the cluster has 48 nodes, each node will have 1024 ports available.
+- If the default values are used and the cluster scales from 48 to 52 nodes, each node will be updated from 1024 ports available to 512 ports available.
+- If outbound ports is set to 1,000 and outbound IP count is set to 2, then the cluster can support a maximum of 128 nodes: `64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes`.
+- If outbound ports is set to 1,000 and outbound IP count is set to 7, then the cluster can support a maximum of 448 nodes: `64,000 ports per IP / 1,000 ports per node * 7 IPs = 448 nodes`.
+- If outbound ports is set to 4,000 and outbound IP count is set to 2, then the cluster can support a maximum of 32 nodes: `64,000 ports per IP / 4,000 ports per node * 2 IPs = 32 nodes`.
+- If outbound ports is set to 4,000 and outbound IP count is set to 7, then the cluster can support a maximum of 112 nodes: `64,000 ports per IP / 4,000 ports per node * 7 IPs = 112 nodes`.
 
-Examples:
-- If no values are supplied and the cluster has 48 nodes, each node will have 1024 ports available.
-- If no values are supplied and the cluster grows to 52 nodes, each node will now have 512 ports available.
-- If outbound ports is set to 1,000 and outbound IP count is set to 2, then the cluster can support a maximum of 128 nodes (64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes).
-- If outbound ports is set to 4,000 and outbound IP count is set to 7, then the cluster can support a maximum of 112 nodes (64,000 ports per IP / 4,000 ports per node * 7 IPs = 112 nodes).
+> [!IMPORTANT]
+> After calculating the number outbound ports and IPs, verify you have additional outbound port capacity to handle node surge during upgrades. It is critical to allocate sufficient excess ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade operations. If using [maxSurge values][maxsurge], multiply the outbound ports per node by your maxSurge value to determine the number of ports required. For example if you calculated you needed 4000 ports per node with 7 IP address on a cluster with a maximum of 100 nodes and a max surge of 2:
+> * 2 surge nodes * 4000 ports per node = 8000 ports needed for node surge during upgrades.
+> * 100 nodes * 4000 ports per node = 400,000 ports required for your cluster.
+> * 7 IPs * 64000 ports per IP = 448,000 ports available for your cluster.
+>
+> The above example shows the cluster has an excess capacity of 48,000 ports, which is sufficient to handle the 8000 ports needed for node surge during upgrades.
 
-Once the values have been calculated, the following command can be used to apply them to the cluster:
+Once the values have been calculated and verified, you can apply those values using `load-balancer-outbound-ports` and either `load-balancer-managed-outbound-ip-count`, `load-balancer-outbound-ips`, or `load-balancer-outbound-ip-prefixes` when creating or updating a cluster. For example:
 
 ```azurecli-interactive
 az aks update \
@@ -228,25 +240,6 @@ az aks update \
     --name myAKSCluster \
     --load-balancer-managed-outbound-ip-count 7 \
     --load-balancer-outbound-ports 4000
-```
-
-To check these values, assume our cluster has a maximum size of 100 nodes and calculate the number of ports required (400,000) vs. the number of ports available (448,000). This configuration would provide sufficient ports for a 100 node cluster with space for node surge during upgrades.
-
-- 100 nodes * 4000 ports per node = 400,000 ports required
-- 7 IPs * 64000 ports per IP = 448,000 ports available.
-
-> [!IMPORTANT]
-> You must [calculate your required quota and check the requirements][requirements] before customizing *allocatedOutboundPorts* to avoid connectivity or scaling issues. It is critical to allocate sufficient ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade. If using [maxSurge values](upgrade-cluster.md#customize-node-surge-upgrade), multiply the outbound ports per node by your maxSurge value to determine the number of ports required.
-
-You can also use the **`load-balancer-outbound-ports`** parameters when creating a cluster, but you must also specify either **`load-balancer-managed-outbound-ip-count`**, **`load-balancer-outbound-ips`**, or **`load-balancer-outbound-ip-prefixes`** as well.  For example:
-
-```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --load-balancer-sku standard \
-    --load-balancer-managed-outbound-ip-count 2 \
-    --load-balancer-outbound-ports 1024 
 ```
 
 ### Configure the load balancer idle timeout
@@ -425,3 +418,4 @@ Learn more about using Internal Load Balancer for Inbound traffic at the [AKS In
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
+[maxsurge]: upgrade-cluster.md#customize-node-surge-upgrade

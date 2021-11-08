@@ -3,7 +3,7 @@ title: Microsoft Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for container registries.
 author: memildin
 ms.author: memildin
-ms.date: 10/04/2021
+ms.date: 11/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -59,7 +59,7 @@ There are three triggers for an image scan:
 
 - **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for container registries** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
  
-The scan completes typically within 2 minutes, but it might take up to 15 minutes. Findings are made available as security recommendations such as this one:
+The scan completes typically within 2 minutes, but it might take up to 40 minutes. Findings are made available as security recommendations such as this one:
 
 [![Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image.](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
