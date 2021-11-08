@@ -22,6 +22,12 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
+### iOS with Safari crashes and refreshes the page if a user tries to send video in a call
+
+iOS 15.1 introduced a bug that affects the majority of Communication Services calls with video that are placed in iOS with Safari. Specifically, the problem occurs when a user joins a Communication Services call or a meeting in Microsoft Teams by using Communication Services on iOS 15.1 on any browser with video turned on. This set of circumstances causes the Safari browser to crash.
+
+This is a [known bug on iOS 15.1 with Safari](https://bugs.webkit.org/show_bug.cgi?id=231505). You should prevent users from using (turning on) any video when using iOS 15.1 with Safari for Communication Services video calls. You should also prevent this activity for video call meetings between Microsoft Teams and Communication Services.
+
 ### Refreshing a page doesn't immediately remove the user from their call
 
 If a user is in a call and decides to refresh the page, the Communication Services media service won't remove this user immediately from the call. It will wait for the user to rejoin. The user will be removed from the call after the media service times out.
