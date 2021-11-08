@@ -1134,14 +1134,14 @@ Patches and fixes for major security vulnerabilities will be released as soon as
 
 Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomcat.apache.org/tomcat-80-eol.html). While the runtime is still available on Azure App Service, Azure will not apply security updates to Tomcat 8.0. If possible, migrate your applications to Tomcat 8.5 or 9.0. Both Tomcat 8.5 and 9.0 are available on Azure App Service. See the [official Tomcat site](https://tomcat.apache.org/whichversion.html) for more information. 
 
-Community support for Java 7 will terminate on July 29th, 2022 and [Java 7 will be retired from App Service](https://azure.microsoft.com/en-us/updates/transition-to-java-11-or-8-by-29-july-2022/) at that time. If you have a web app runnning on Java 7, please upgrade to Java 8 or 11 before July 29th. 
+Community support for Java 7 will terminate on July 29th, 2022 and [Java 7 will be retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/) at that time. If you have a web app runnning on Java 7, please upgrade to Java 8 or 11 before July 29th. 
 
 ### Deprecation and retirement
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
 
-- [Reasons to move to Java 11](https://docs.microsoft.com/en-us/java/openjdk/reasons-to-move-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json)
-- [Java 7 migration guide](https://docs.microsoft.com/en-us/java/openjdk/transition-from-java-7-to-java-8?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json)
+- [Reasons to move to Java 11](https://docs.microsoft.com/java/openjdk/reasons-to-move-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json)
+- [Java 7 migration guide](https://docs.microsoft.com/java/openjdk/transition-from-java-7-to-java-8?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json)
 
 ### Local development
 
@@ -1149,7 +1149,7 @@ Developers can download the Production Edition of Azul Zulu Enterprise JDK for l
 
 ### Development support
 
-Product support for the [Azure-supported Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
+Product support for the [Microsoft Build of OpenJDK](https://docs.microsoft.com/java/openjdk/download) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
 
 ## Next steps
 
