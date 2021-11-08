@@ -53,7 +53,7 @@ Before you configure and set up your Azure Stack Edge Pro GPU device, make sure 
 
 2. Connect the computer to PORT 1 on your device. If connecting the computer to the device directly (without a switch), use a crossover cable or a USB Ethernet adapter. Use the following illustration to identify PORT 1 on your device.
 
-    ![Backplane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
+    ![Backplane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/two-pci-slots.png)
 
     The backplane of the device may look slightly different depending on the exact model you have received. For more information, see [Cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
 
