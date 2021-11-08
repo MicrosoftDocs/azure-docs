@@ -402,7 +402,7 @@ This is an optional configuration. Although web proxy configuration is optional,
 
 ::: zone pivot="two-node"
 
-1. Repeat the above steps for the second node of the 2-node device. Make sure to use the same web proxy settings on both the device nodes.
+Repeat the above steps for the second node of the 2-node device. Make sure to use the same web proxy settings on both the device nodes.
 
 ::: zone-end
 

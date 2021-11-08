@@ -16,13 +16,15 @@ zone_pivot_groups: azure-stack-edge-device-deployment
 
 ::: zone pivot="single-node"
 
+This tutorial describes how you can configure certificates for your Azure Stack Edge Pro device with an onboard GPU by using the local web UI.
+
 ::: zone-end
 
 ::: zone pivot="two-node"
 
-::: zone-end
+This tutorial describes how you can configure certificates for your 2-node Azure Stack Edge Pro GPU device by using the local web UI.
 
-This tutorial describes how you can configure certificates for your Azure Stack Edge Pro device with an onboard GPU by using the local web UI.
+::: zone-end
 
 The time taken for this step can vary depending on the specific option you choose and how the certificate flow is established in your environment.
 

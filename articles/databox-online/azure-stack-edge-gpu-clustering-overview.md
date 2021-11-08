@@ -40,18 +40,18 @@ The infrastructure cluster on your device provides persistent storage and is sho
 
 ![Infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-infrastructure-cluster.png)
 
-1. The infrastructure cluster consists of the two independent nodes running Windows Server operating system with a Hyper-V layer. The nodes contain physical disks for storage and network interfaces that are connected back-to-back or with switches.
-1. The disks across the two nodes are used to create a logical storage pool. The storage spaces direct on this pool provides mirroring and parity for the cluster. 
-1. You can deploy your application workloads on top of the infrastructure cluster. 
-    1. Non-containerized workloads such as VMs can be directly deployed on top of the infrastructure cluster.
+- The infrastructure cluster consists of the two independent nodes running Windows Server operating system with a Hyper-V layer. The nodes contain physical disks for storage and network interfaces that are connected back-to-back or with switches.
+- The disks across the two nodes are used to create a logical storage pool. The storage spaces direct on this pool provides mirroring and parity for the cluster. 
+- You can deploy your application workloads on top of the infrastructure cluster. 
+
+    - Non-containerized workloads such as VMs can be directly deployed on top of the infrastructure cluster.
 
         ![VMs workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-virtual-machine-workloads-infrastructure-cluster.png)
 
-    1. Containerized workloads use Kubernetes for workload deployment and management. A Kubernetes cluster that consists of a master VM and two worker VMs (one for each node) is deployed on top of the infrastructure cluster.   
+    - Containerized workloads use Kubernetes for workload deployment and management. A Kubernetes cluster that consists of a master VM and two worker VMs (one for each node) is deployed on top of the infrastructure cluster.   
 
         <!--![Kubernetes or IoT Edge workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-workloads-infrastructure-cluster.png)-->
-
-    
+   
     The Kubernetes cluster allows for application orchestration whereas the infrastructure cluster provides persistent storage.
 
 
@@ -116,15 +116,13 @@ On your two-node cluster, you can deploy non-containerized workloads or containe
 
 You can manage the Azure Stack Edge cluster via the PowerShell interface of the device, or through the local UI. Some typical management tasks are:
 
-**NOTE: Management scenarios are work in progress!**
-
-- [Add a node](azure-stack-edge-placeholder.md)
-- [Unprepare a node](azure-stack-edge-placeholder.md)
-- [Configure cloud witness](azure-stack-edge-placeholder.md).
-- [Set up a local witness](azure-stack-edge-placeholder.md).
-- [Remove the cluster](azure-stack-edge-placeholder.md).
-- [Update the cluster](azure-stack-edge-placeholder.md).
-- [Configure virtual IP settings for the cluster](azure-stack-edge-placeholder.md)
+- Add a node
+- Unprepare a node
+- Configure cloud witness
+- Set up a local witness
+- Remove the cluster
+- Update the cluster
+- Configure virtual IP settings for the cluster
 
 
 <!--## Cluster upgrades

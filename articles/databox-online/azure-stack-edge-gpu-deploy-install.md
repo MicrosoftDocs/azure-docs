@@ -267,19 +267,19 @@ Take the following steps to cable your device for power and network.
 
     - Device with two Peripheral Component Interconnect (PCI) slots and one GPU
 
-        ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
+        ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/two-pci-slots.png)
 
     - Device with three PCI slots and one GPU
 
-        ![Back plane of a cabled device 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![Back plane of a cabled device 2](./media/azure-stack-edge-gpu-deploy-install/three-pci-slots-one-gpu.png)
 
     - Device with three PCI slots and two GPUs
 
-        ![Back plane of a cabled device 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![Back plane of a cabled device 3](./media/azure-stack-edge-gpu-deploy-install/three-pci-slots-two-gpu.png)
 
 2. Locate the disk slots and the power button on the front of the device.
 
-    ![Front plane of a device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-device-front-plane-labeled.png)
+    ![Front plane of a device](./media/azure-stack-edge-gpu-deploy-install/front-plane-labeled.png)
 
 3. Connect the power cords to each of the PSUs in the enclosure. To ensure high availability, install and connect both PSUs to different power sources. 
 4. Attach the power cords to the rack power distribution units (PDUs). Make sure that the two PSUs use separate power sources.
@@ -301,17 +301,17 @@ Take the following steps to cable your device for power and network.
 
 1. Identify the various ports on the back plane of your device. <!--You may have received one of the following devices from the factory depending on the number of GPUs in your device.-->
 
-    ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-backplane-ports.png)
+    ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/backplane-ports.png)
 
 
 2. Locate the disk slots and the power button on the front of the device.
 
-    ![Front plane of a device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-device-front-plane-labeled.png)
+    ![Front plane of a device](./media/azure-stack-edge-gpu-deploy-install/front-plane-labeled.png)
 
 3. Connect the power cords to each of the PSUs in the enclosure. 
 1. To ensure high availability, the right power supply of the two devices should be connected to a Power Distribution Unit (PDU) or power source. The left power supply of both the devices should be connected to another PDU or power source. 
 
-    ![Back plane of clustered device cabled for power](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-cluster-power-cabling.png)
+    ![Back plane of clustered device cabled for power](./media/azure-stack-edge-gpu-deploy-install/cluster-power-cabling.png)
 
 1. Press the power button in the front panel of the device to turn on the device.
 

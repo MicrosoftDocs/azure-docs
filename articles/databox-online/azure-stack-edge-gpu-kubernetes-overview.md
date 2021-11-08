@@ -39,8 +39,6 @@ The Kubernetes master node is responsible for maintaining the desired state for 
 
 The following diagram illustrates the implementation of Kubernetes on a 1-node Azure Stack Edge device. The 1-node device has one master node and one worker node. The 1-node device is not highly available and if the single node fails, the device goes down. The Kubernetes cluster also goes down.
 
-**NOTE: Diagram needs to be updated to be consistent with 2-node diagram!**
-
 ![Kubernetes architecture for a 1-node Azure Stack Edge device](media/azure-stack-edge-gpu-kubernetes-overview/kubernetes-architecture-1-node.png)
 
 ### Kubernetes cluster on two-node device
