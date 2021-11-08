@@ -12,40 +12,25 @@ metadata:
     
 title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ)
 summary: |
-  This article answers to common questions about Azure IoT Hub Device Provisioning Service.
+  This article answers to common questions about Azure IoT Hub Device Provisioning Service. The following topics are covered:
   
+  * DPS Management
 
   
 
 sections:
-  - name: General Questions
+  - name: DPS Management
     questions:
       - question: |
          What is the recommended way to update a linked hub when the primary key for the IoT Hub access policy is regenerated? 
         answer: |
          Since the primary key is embedded within the connection string (the string DPS uses to auth) it gets changed whenever the primary is modified. To fix stale DPS-Hub links because of the connection string having changed you need to relink the Hub to the DPS.
-  - name: Billable API Operations
+  - name: DPS Development
     questions:
       - question: |
-         Which API operations in Device Registration State service are billable?
+         First question? 
         answer: |
-         The following table shows which Device Registration State service API operations are billable, and which are non-billable: 
-
-            | Operation | Billable? 
-            |-------|---|
-            | DELETE |  ✓| 
-            | GET | ✓| 
-            | POST | ✓| 
-              - question: |
-         Which API operations in Device Registration State service are billable?
-        answer: |
-         The following table shows which Device Registration State service API operations are billable, and which are non-billable: 
-
-            | Operation | Billable? 
-            |-------|---|
-            | DELETE |  ✓| 
-            | GET | ✓| 
-            | POST | ✓| 
+         First answer.
 
 additionalContent: |
 
