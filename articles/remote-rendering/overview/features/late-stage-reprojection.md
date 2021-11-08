@@ -128,7 +128,7 @@ Accordingly, the illustration looks like this:
 
 ### Performance and quality considerations
 
-The choice of the pose mode has visual quality and performance implications. The additional runtime cost on the client side for doing the extra reprojection in :::no-loc text="Local"::: pose mode on a HoloLens 2 device amounts to about 1 millisecond per frame. This extra cost needs to be put into consideration if the client application is already close to the frame budget of 16 milliseconds. On the other hand, there are types of applications with either no local content or local content that is not prone to distortion artifacts. In those cases :::no-loc text="Local"::: pose mode does not gain any visual benefit because the quality of the remote content reprojection is unaffected.
+The choice of the pose mode has visual quality and performance implications. The additional runtime cost on the client side for doing the extra reprojection in :::no-loc text="Local pose mode"::: on a HoloLens 2 device amounts to about 1 millisecond per frame of GPU time. This extra cost needs to be put into consideration if the client application is already close to the frame budget of 16 milliseconds. On the other hand, there are types of applications with either no local content or local content that is not prone to distortion artifacts. In those cases :::no-loc text="Local pose mode"::: does not gain any visual benefit because the quality of the remote content reprojection is unaffected.
 
 The general advice would thus be to test the modes on a per use case basis and see whether the gain in visual quality justifies the extra performance overhead. It is also possible to toggle the mode dynamically, for instance enable local mode only when important UIs are shown.
 
