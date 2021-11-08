@@ -31,7 +31,7 @@ Before we jump into creating the Logic app, we to have to set up a One drive fol
 
 2. Select "+New" in the upper left corner and select Folder.
 
-  ![MakeNewFolder]()
+  ![New Folder](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/media/logic-apps-tutorial/new-folder.png)
   
 3. Enter a name for your new folder and select create.
 
