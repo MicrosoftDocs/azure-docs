@@ -16,7 +16,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ### Issue
 
-* You would receive a critical **"Metrics Collector Process"** alert in Ambari UI and show below similar message.
+* You could receive a critical **"Metrics Collector Process"** alert in Ambari UI and show below similar message.
     `Connection failed: timed out to <headnode fqdn>:6188`
 * Ambari Metrics Collector maybe getting restarted in the headnode frequently
 * Some Apache Ambari metrics may not show up. For example, **NAMENODE** shows **Started** instead of **Active/Standby** status 
@@ -58,14 +58,14 @@ java.lang.OutOfMemoryError: Java heap space
 
 To avoid these issues, consider using one of the following options:
 
-1. Increase the heap memory of Apache Ambari Metrics Collector from `Ambari -> Ambari Metric Collector -> Configuration -> Metics Collector Heap Size`
+1. Increase the heap memory of Apache Ambari Metrics Collector from **Ambari** > **Ambari Metric Collector** > **Configuration** > **Metics Collector Heap Size**
 
    :::image type="content" source="./media/apache-ambari-troubleshoot-ams-issues/editing-ams-configuration-ambari.png" alt-text="Editing AMS configuration properties in Ambari" border="true":::
- 
-2. Cleanup AMS data
 
-> [!NOTE]
-> Cleaning up the AMS data would remove all the historical AMS data available
+2. Follow these steps to cleanup AMS data.
+
+   > [!NOTE]
+   > Cleaning up the AMS data would remove all the historical AMS data available
 
    1.  Login into the Ambari portal  
 	1.  Set AMS to maintenance  
