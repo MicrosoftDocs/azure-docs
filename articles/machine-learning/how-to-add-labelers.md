@@ -43,12 +43,12 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 1. Replace these two lines with:
     
     ```json
-    "actions": [
-        "Microsoft.MachineLearningServices/workspaces/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"],
-    "notActions": [
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"],
+                    "actions": [
+                        "Microsoft.MachineLearningServices/workspaces/read",
+                        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+                        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"],
+                    "notActions": [
+                        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"],
     ```
 
 1. Select **Save** at the top of the edit box to save your changes.
@@ -59,6 +59,26 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 1. After you save your edits, select **Next**.
 1. Select **Create** to create the custom role.
 1. Select **OK**.
+
+### Labeling team lead
+
+You may want to create a second role for a labeling team lead.  A labeling team lead can reject the labeled dataset and view labeling insights.  To add this custom role, repeat the above steps.  Use the name **Labeling Team Lead** and replace the two lines with:
+
+```json
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+                ],
+                "notActions": [
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
+                ],
+```
 
 ## Add labelers into Azure
 
@@ -96,13 +116,13 @@ Now that you have your labelers added to the system, you're ready to add them to
 
     :::image type="content" source="media/how-to-add-labeler/add-role-assignment.png" alt-text="Add role assignment from your workspace.":::
 
-1. Select the **Labeler** role in the list.  Use **Search** if necessary to find it.
+1. Select the **Labeler** or **Labeling Team Lead** role in the list.  Use **Search** if necessary to find it.
 1. Select **Next**.
 1. In the middle of the page, next to **Members**, select the **+ Select members** link.
-1. Select each of the users you added above. Use **Search** if necessary to find them.
+1. Select each of the users you want to add. Use **Search** if necessary to find them.
 1. At the bottom of the page, select the **Select** button.
 1. Select **Next**.
-1. Verify that the **Role** is listed as **Labeler**, and that your users appear in the **Members** list.
+1. Verify that the **Role** is correct, and that your users appear in the **Members** list.
 1. Select **Review + assign**.
 
 ## For your labelers
@@ -114,7 +134,7 @@ If you haven't created your labeling project yet, do so before you contact your 
 * [Create an image labeling project](how-to-create-image-labeling-projects.md).
 * [Create a text labeling project (preview)](how-to-create-text-labeling-projects.md)
 
-Sent the following to your labelers, after filling in your workspace and project names:
+Send the following to your labelers, after filling in your workspace and project names:
 
 1. Accept the invite from **Microsoft Invitations (invites@microsoft.com)**.
 1. If you don't yet have a Microsoft account, you'll be prompted to create one.  If you do have one, sign in.
