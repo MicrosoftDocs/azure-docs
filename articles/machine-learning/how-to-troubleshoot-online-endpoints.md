@@ -175,7 +175,7 @@ During this process, you can run into a few different issues depending on which 
 To get more details about these errors, run:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
+az ml online-deployment get-logs -n <endpoint-name> --deployment <deployment-name> --l 100
 ``` 
 
 #### Unable to download user container image
