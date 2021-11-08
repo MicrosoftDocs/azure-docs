@@ -1,5 +1,5 @@
 ---
-title: Outbound Firewall Rules
+title: Outbound Firewall Rules (preview)
 description: Overview of Outbound Firewall Rules feature.
 author: rohitnayakmsft
 ms.author: rohitna
@@ -12,7 +12,7 @@ ms.reviewer: vanto
 ms.date: 11/03/2021
 ---
 
-# Outbound Firewall Rules for Azure SQL Database and Azure Synapse Analytics
+# Outbound Firewall Rules for Azure SQL Database and Azure Synapse Analytics (preview)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)] 
 
 Outbound Firewall Rules limits network traffic from Azure SQL logical server to a customer defined list of Azure Storage accounts and Azure SQL logical servers. Any attempt to access Storage accounts or SQL Databases not in this list is denied. The following  Azure SQL DB features support this feature Auditing, Vulnerability Assessment,  I/E Service, OpenRowset, Bulk Insert and Elastic Query.
