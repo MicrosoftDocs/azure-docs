@@ -98,9 +98,9 @@ To use custom NER, you'll need to [create an Azure storage account](/azure/stora
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
-## Roles for your Azure resource
+## Roles for your Azure Language resource
 
-You should have the owner or contributor role assigned on your Azure resource.
+You should have the **owner** or **contributor** role assigned on your Azure Language resource.
 
 ## Enable identity management for your resource
 
