@@ -4,7 +4,7 @@ description: Introduction to Azure Active Directory activity logs in Azure Monit
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
