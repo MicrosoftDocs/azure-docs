@@ -5,7 +5,7 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 1/22/2020
+ms.date: 11/04/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ---
@@ -21,6 +21,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Configure static website hosting
 > - Deploy a Hello World website
+
+[!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
 ## Prerequisites
 

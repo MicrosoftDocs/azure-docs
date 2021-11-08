@@ -24,11 +24,11 @@ Azure Static Web Apps provides [managed authentication](authentication-authoriza
 
 Custom identity providers are configured in the `auth` section of the [configuration file](configuration.md).
 
-To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
+To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md#configure-application-settings) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
 
 # [Azure Active Directory](#tab/aad)
 
-To create the registration, begin by creating the following [application settings](application-settings.md):
+To create the registration, begin by creating the following [application settings](application-settings.md#configure-application-settings):
 
 | Setting Name | Value |
 | --- | --- |
