@@ -49,6 +49,15 @@ The storage account connection string must be updated when you regenerate storag
 
 It's possible for multiple function apps to share the same storage account without any issues. For example, in Visual Studio you can develop multiple apps using the Azure Storage Emulator. In this case, the emulator acts like a single storage account. The same storage account used by your function app can also be used to store your application data. However, this approach isn't always a good idea in a production environment.
 
+### Blob Lifecycle Management Policy considerations
+A Storage account for Azure Functions has a number of items stored as blobs in the underlying Blob Storage. 
+It's possible that a customer has decided to apply a Blob Lifecycle management policy to the Blob Storage account. 
+This functionality is discussed at [Managing the Data Lifecycle](https://docs.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview)
+
+The Default Policy defintion has no filtering and so may remove blobs that the Azure Functions Host relies on. 
+An example of this is the Azure Functions Keys which reside in blob storage by default. 
+A default policy will not exclude the azure-webjobs-secrets container and so this could lead to unexpected removal of the Azure Functions keys.
+
 ### Optimize storage performance
 
 [!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
