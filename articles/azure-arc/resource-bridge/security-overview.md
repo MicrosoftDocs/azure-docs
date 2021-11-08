@@ -2,22 +2,22 @@
 title: Azure Arc resource bridge (preview) security overview 
 description: Security information about Azure resource bridge (preview).
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 11/08/2021
 ---
 
 # Azure Arc resource bridge (preview) security overview
 
 This article describes the security configuration and considerations you should evaluate before deploying Azure Arc resource bridge (preview) in your enterprise.
 
-## Identity and access control
-
-Azure Arc resource bridge (preview) has a managed identity as part of a resource group inside an Azure subscription. That identity represents the resource bridge running in your on-premises environment. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc resource bridge (preview).
-
-Users and applications granted [contributor](../../role-based-access-control/built-in-roles.md#contributor) or administrator role access to the resource can make changes to the resource, including deploying or deleting cluster extensions.
-
 ## Using a managed identity
 
 By default, an Azure Active Directory system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created and assigned to the Azure Arc resource bridge (preview). Azure Arc resource bridge (preview) currently supports only a system-assigned identity. The `clusteridentityoperator` identity initiates the first outbound communication and fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure.
+
+## Identity and access control
+
+Azure Arc resource bridge (preview) is represented as a resource in a resource group inside an Azure subscription. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc resource bridge (preview).
+
+Users and applications granted [contributor](../../role-based-access-control/built-in-roles.md#contributor) or administrator role access to the resource can make changes to the resource, including deploying or deleting cluster extensions.
 
 ## Data encryption at rest
 
