@@ -20,7 +20,10 @@ In this tutorial, you learn how to:
 > * Set up a server or Virtual Machine (VM)
 > * Prepare your environment
 > * Setup an EIoT sensor
-> * 
+> * Install the sensor
+> * Run the Enterprise IoT sensor installation
+> * Validate your setup
+> * View your enterprise IoT devices in the EIoT device inventory
 
 ## Prerequisites
 
@@ -125,15 +128,13 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
     :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
 
-1. Select a subscription from the drop down menu. If you do not have a subscription you can onboard a subscription by selecting the **Onboard subscription** button.
+1. Select a subscription from the drop down menu.
+
+    If you do not have a subscription you can onboard a subscription by selecting the **Onboard subscription** button.
 
     :::image type="content" source="media/tutorial-get-started-eiot/onboard-subscription.png" alt-text="Screenshot of the onboard subscription button.":::
 
-    If you do not already have a subscription, you can select **Onboard subscription** to onboard a new subscription. To learn more about onboarding a subscription, see [Onboard a subscription](organizations/how-to-manage-subscriptions.md#onboard-a-subscription).
-
-1. In the Deploy for field, select **An enterprise network (Cloud connected)**.
-
-    :::image type="content" source="media/tutorial-get-started-eiot/enterprise-network.png" alt-text="Ensure An enterprise network is selected on your screen.":::
+    To learn more about onboarding a subscription, see [Onboard a subscription](organizations/how-to-manage-subscriptions.md#onboard-a-subscription).
 
 1. Enter a site name.
 
@@ -141,13 +142,13 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
 1. Select **Setup**.
 
-1. On the Download activation file tab, select **Download activation file**.
+1. Copy the command provided to you.
 
-1. Use WinSCP, or similar to copy the file to the sensor.
+    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an EIoT sensor.":::
 
-1. Select **Finish**.
+1. Navigate to ????????????, and run the command provided to you.
 
-1. (Optional) If you are using a proxy environment, enter your credentials, and set the proxy to allow a connection to Azure. **Proxies without passwords are not supported**.
+    **AND THEN WHAT????????????????????????**
 
 ## Install the sensor
 
