@@ -32,7 +32,7 @@ These instructions apply to the following Communications Services logs:
 
 To access Diagnostic Settings for your Communications Services, start by navigating to your Communications Services home page within Azure Portal:
 
-:::image type="content" source="media\enable-logging\portal_home_go-to_acs_resource.png" alt-text="Communications Services resource":::
+:::image type="content" source="media\enable-logging\portal-home-go-to-acs-resource.png" alt-text="Communications Services resource":::
 
 From there, click on "Diagnostic settings" within the Monitoring section of the left-hand navigation pane:
 
@@ -40,13 +40,13 @@ From there, click on "Diagnostic settings" within the Monitoring section of the 
 
 Click on the "Add diagnostic setting" link (note the various logs and metrics sources available for Communications Services):
 
-:::image type="content" source="media\enable-logging\diagnostic_setting_add.png" alt-text="Diagnostic Settings Category Details":::
+:::image type="content" source="media\enable-logging\diagnostic-setting-add.png" alt-text="Diagnostic Settings Category Details":::
 
 ## Adding a Diagnostic Setting
 
 You'll then be prompted to choose a name for your Diagnostic Setting, which is useful if you have many Azure resources you are monitoring. You'll also be prompted to select the log and metric data sources you wish to monitor as either logs or metrics. See [Azure Monitor data platform](/azure/azure-monitor/data-platform) for more detail on the difference.
 
-:::image type="content" source="media\enable-logging\diagnostic_setting_catdetails_acs.png" alt-text="Adding a Diagnostic Setting":::
+:::image type="content" source="media\enable-logging\diagnostic-setting-catdetails-acs.png" alt-text="Adding a Diagnostic Setting":::
 
 ## Choose Destinations
 
@@ -60,7 +60,7 @@ You'll also be prompted to select a destination to store the logs. Platform logs
 
 The following settings are an example of what you would see within your Communications Services resource:
 
-:::image type="content" source="media\enable-logging\diagnostic_setting_destination_acs.png" alt-text="Diagnostic Settings Destination Details":::
+:::image type="content" source="media\enable-logging\diagnostic-setting-destination-acs.png" alt-text="Diagnostic Settings Destination Details":::
 
 They're all viable and flexible options that can adapt to your specific storage needs; however, we provide other features and built in analytic insights when the Log Analytics Workspace option is selected.
 
