@@ -66,7 +66,7 @@ The Azure Stack Edge device nodes may fail under certain conditions. The various
 | Update type |Responses              |
 |-------------|-----------------------|
 | Device node update  | Rolling updates are applied to device nodes and the nodes will reboot.  |
-| Kubernetes service update  | Kubernetes service update includes: <ul><li> A failover of the Kubernetes master VM from device node A to device node B </li><li> A Kubernetes master update. </li><li> Kubernetes worker node updates (not necessarily in that order). </li></ul>. The entire update process could take 30 minutes or more, and during this window the Kubernetes cluster is available for any management operations (like deploying a new workload). Although pods will be drained from the device node while it is being updated, workloads may be offline for several seconds during this process. |
+| Kubernetes service update  | Kubernetes service update includes: <ul><li> A failover of the Kubernetes master VM from device node A to device node B </li><li> A Kubernetes master update. </li><li> Kubernetes worker node updates (not necessarily in that order). </li></ul>The entire update process could take 30 minutes or more, and during this window the Kubernetes cluster is available for any management operations (like deploying a new workload). Although pods will be drained from the device node while it is being updated, workloads may be offline for several seconds during this process. |
 
 
 ## Next steps
