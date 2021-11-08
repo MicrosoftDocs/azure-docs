@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 10/25/2021
+ms.date: 11/20/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -32,7 +32,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Roles that can be assigned with administrative unit scope
 
-The following Azure AD roles that can be assigned with administrative unit scope:
+The following Azure AD roles can be assigned with administrative unit scope:
 
 | Role | Description |
 | -----| ----------- |
