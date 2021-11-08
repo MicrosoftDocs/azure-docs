@@ -4,7 +4,7 @@ description: Tutorial to configure diagnostic settings to send resource logs fro
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 09/15/2021
+ms.date: 11/08/2021
 ---
 
 # Tutorial: Collect and analyze resource logs from an Azure resource
@@ -36,16 +36,19 @@ To complete this tutorial you need the following:
 
 Under the **Monitoring** section of your resource's menu, select **Diagnostic settings** and click **Add diagnostic setting**.
 
+> [!NOTE]
+> Some resource may require additional selections. For example, a storage account requires you to select a resource before the **Add diagnostic setting** option is displayed. You may also notice a **Preview** label for some resources as their diagnostic settings are currently in public preview.
+
 :::image type="content" source="media/tutorial-resource-logs/diagnostic-settings.png" lightbox="media/tutorial-resource-logs/diagnostic-settings.png"alt-text="Diagnostic settings":::
 
 
 Each diagnostic setting has three basic parts:
  
    - **Name**: This has no significant effect and should simply be descriptive to you.
-   - **Destinations**: One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. 
    - **Categories**: Categories of logs to send to each of the destinations. The set of categories will vary for each Azure service.
+   - **Destinations**: One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. 
 
-Select **Send to Log Analytics workspace** and then select the workspace that you created. Select the categories that you want to collect. See the documentation for each service for a definition of its available categories. **AllMetrics** will send that same platform metrics available in Azure Monitor Metrics for the resource to the workspace. This allows you to analyze this data with log queries along with other monitoring data.
+Enter a name for the diagnostic setting and select the categories that you want to collect. See the documentation for each service for a definition of its available categories. **AllMetrics** will send that same platform metrics available in Azure Monitor Metrics for the resource to the workspace. This allows you to analyze this data with log queries along with other monitoring data. Select **Send to Log Analytics workspace** and then select the workspace that you created. 
 
 :::image type="content" source="media/tutorial-resource-logs/diagnostic-setting-details.png" lightbox="media/tutorial-resource-logs/diagnostic-setting-details.png"alt-text="Diagnostic setting details":::
 
@@ -56,13 +59,10 @@ Click **Save** to save the diagnostic settings.
  ## Use a log query to retrieve logs
 Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). A set of precreated queries are available for many Azure services so that you don't require knowledge of KQL to get started.
 
-Select **Logs** from your resource's menu. Log Analytics opens with an empty query window with the scope set to your resource. Any queries will include only records from that resource.
+Select **Logs** from your resource's menu. Log Analytics opens with the **Queries** windowthat includes  prebuilt queries for your **Resource type**. 
 
-
-:::image type="content" source="media/tutorial-resource-logs/logs.png" lightbox="media/tutorial-resource-logs/logs.png"alt-text="Screenshot shows Logs for a logic app displaying a new query with the logic app name highlighted.":::
-
-
-Click **Queries** to view prebuilt queries for your **Resource type**. 
+> [!NOTE]
+> If the **Queries** window doesn't open, click **Queries** in the top right. 
 
 :::image type="content" source="media/tutorial-resource-logs/queries.png" lightbox="media/tutorial-resource-logs/queries.png"alt-text="Screenshot shows sample queries using resource logs.":::
 

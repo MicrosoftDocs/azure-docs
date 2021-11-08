@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 
 > [!NOTE]
-> VM insights installs the Log Analytics agent which and collects performance data from the guest operating system of virtual machines. It doesn't collect logs from the guest operating system and doesn't send performance data to Azure Monitor Metrics. For this functionality, see [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md).
+> VM insights installs the Log Analytics agent which collects performance data from the guest operating system of virtual machines. It doesn't collect logs from the guest operating system and doesn't send performance data to Azure Monitor Metrics. For this functionality, see [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md).
 
 ## Prerequisites
 To complete this tutorial you need the following: 
@@ -70,7 +70,7 @@ The **Maps** view provides different tabs with information collected about the v
 :::image type="content" source="media/tutorial-monitor-vm/map-details.png" lightbox="media/tutorial-monitor-vm/map-details.png" alt-text="VM insights map view with machine details":::
 
 ## Next steps
-Now that you're collecting data from the virtual meeting, you can use that data to create alerts to proactively notify you when issues are detected.
+Now that you're collecting data from the virtual machine, you can use that data to create alerts to proactively notify you when issues are detected.
 
 > [!div class="nextstepaction"]
 > [Create alert when Azure virtual machine is unavailable](tutorial-monitor-vm-alert.md)

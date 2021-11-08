@@ -4,7 +4,7 @@ description: Learn how to create a metric chart with Azure metrics explorer.
 author: bwren
 ms.author: bwren
 ms.topic: tutorial
-ms.date: 09/15/2021
+ms.date: 11/08/2021
 ---
 
 # Tutorial: Create a metric alert for an Azure resource
@@ -53,8 +53,8 @@ Click **Done** when you're done configuring the signal logic.
 ## Configure details
 [!INCLUDE [Alert details](../../../includes/azure-monitor-tutorial-alert-details.md)]
 
+:::image type="content" source="./media/tutorial-metric-alert/alert-details.png" lightbox="./media/tutorial-metric-alert/alert-details.png" alt-text="Alert rule details":::
 
-Keep the box checked to **Enable alert upon creation** and the box to **Automatically resolve alerts**. This will automatically resolve the alert when the metric value drops below the threshold. For example, you may create an alert when the CPU of a virtual machine exceeds 80%. If the alert fires, then next time the CPU drops below 80%, the alert will be automatically resolved.
 
 Click **Create alert rule** to create the alert rule.
 

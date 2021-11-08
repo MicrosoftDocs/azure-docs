@@ -22,8 +22,5 @@ On the **Basics** tab, select a **Subscription**, **Resource group**, and **Regi
 
 :::image type="content" source="media/azure-monitor-tutorial-workspace/workspace-basics.png" lightbox="media/azure-monitor-tutorial-workspace/workspace-basics.png" alt-text="Workspace basics":::
 
-On the **Pricing tier tab**, select *Pay-as-you-go (Per GB 2018)* as the pricing tier. You can change this pricing tier later. Click the **Learn more** link or refer to [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more about different pricing tiers.
-
-:::image type="content" source="media/azure-monitor-tutorial-workspace/workspace-pricing-tier.png" lightbox="media/azure-monitor-tutorial-workspace/workspace-pricing-tier.png" alt-text="Workspace pricing tier":::
 
 Click **Review + Create** to create the workspace.

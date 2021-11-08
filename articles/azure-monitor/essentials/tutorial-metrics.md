@@ -4,11 +4,11 @@ description: Learn how analyze metrics for an Azure resource using metrics explo
 author: bwren
 ms.author: bwren
 ms.topic: tutorial
-ms.date: 09/15/2021
+ms.date: 11/08/2021
 ---
 
 # Tutorial: Analyze metrics for an Azure resource
-Metrics are numerical values that are automatically collected at regular intervals and describe some aspect of a resource. For example, a metric might tell you the processor utilization of a virtual machine. the free space in a storage account, or the incoming traffic for a virtual network. Metrics explorer is a feature of Azure Monitor in the Azure portal that allows you to create charts from metric values, visually correlate trends, and investigate spikes and dips in metric values. Use the metrics explorer to plot charts from metrics created by your Azure resources and investigate their health and utilization. 
+Metrics are numerical values that are automatically collected at regular intervals and describe some aspect of a resource. For example, a metric might tell you the processor utilization of a virtual machine, the free space in a storage account, or the incoming traffic for a virtual network. Metrics explorer is a feature of Azure Monitor in the Azure portal that allows you to create charts from metric values, visually correlate trends, and investigate spikes and dips in metric values. Use the metrics explorer to plot charts from metrics created by your Azure resources and investigate their health and utilization. 
 
 In this tutorial, you learn how to:
 
@@ -68,7 +68,7 @@ See [examples of the charts](../essentials/metric-chart-samples.md) that have fi
 
 ## Advanced chart settings
 
-You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. See [Advanced features of Azure Metrics Explorer](../essentials/metrics-charts.md#locking the-range-of-the-y-axis) to learn about these and other advanced features of Azure Monitor metrics explorer.
+You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. See [Advanced features of Azure Metrics Explorer](../essentials/metrics-charts.md#locking-the-range-of-the-y-axis) to learn about these and other advanced features of Azure Monitor metrics explorer.
 
 
 ## Next steps
