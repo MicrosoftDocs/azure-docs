@@ -357,7 +357,7 @@ Use this configuration if you need an extra port for workload traffic and port l
 
 ## Next steps
 
-In this tutorial, you learned about Azure Stack Edge Pro topics such as how to:
+In this tutorial, you learned about Azure Stack Edge Pro GPU topics such as how to:
 
 > [!div class="checklist"]
 > * Unpack the device
