@@ -70,6 +70,8 @@
       href: howto-conditional-access-policy-risk-user.md
     - name: Require compliant or hybrid joined devices
       href: howto-conditional-access-policy-compliant-device.md
+    - name: Require approved app or app protection policy
+      href: howto-policy-approved-app-or-app-protection.md
     - name: Block access by location
       href: howto-conditional-access-policy-location.md
     - name: Block access
@@ -80,10 +82,6 @@
     href: howto-conditional-access-insights-reporting.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
-  - name: Require approved client apps
-    href: app-based-conditional-access.md
-  - name: Require app protection policy
-    href: app-protection-based-conditional-access.md
   - name: Require terms of use
     href: terms-of-use.md
   - name: Sign-in frequency and browser persistence controls

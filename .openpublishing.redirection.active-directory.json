@@ -1681,6 +1681,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/active-directory/conditional-access/app-based-conditional-access.md",
+            "redirect_url": "/azure/active-directory/conditional-access/howto-policy-approved-app-or-app-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/conditional-access/app-protection-based-conditional-access.md",
+            "redirect_url": "/azure/active-directory/conditional-access/howto-policy-approved-app-or-app-protection",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/active-directory/authentication/quickstart-sspr.md",
             "redirect_url": "/azure/active-directory/authentication/tutorial-enable-sspr",
             "redirect_document_id": false
