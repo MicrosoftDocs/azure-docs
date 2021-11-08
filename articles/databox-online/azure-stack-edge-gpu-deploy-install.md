@@ -239,13 +239,13 @@ The front panel on Azure Stack Edge device:
 The backplane of Azure Stack Edge device: 
 
 - Includes redundant power supply units (PSUs).
-- The back plane has six network interfaces:
+- Has six network interfaces:
 
     - Two 1-Gbps interfaces.
     - Four 25-Gbps interfaces that can also serve as 10-Gbps interfaces.
     - A baseboard management controller (BMC).
 
-- The back plane has two network cards corresponding to the six ports:
+- Has two network cards corresponding to the six ports:
 
     - **Custom Microsoft `Qlogic` Cavium 25G NDC adapter** - Port 1 through port 4.
     - **Mellanox dual port 25G ConnectX-4 channel network adapter** - Port 5 and port 6.
@@ -303,19 +303,6 @@ Take the following steps to cable your device for power and network.
 
     ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-backplane-ports.png)
 
-    <!-- check if 2 GPU devices are shipped for the cluster-->
-
-<!--- Device with two Peripheral Component Interconnect (PCI) slots and one GPU
-
-        ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
-
-    - Device with three PCI slots and one GPU
-
-        ![Back plane of a cabled device 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
-
-    - Device with three PCI slots and two GPUs
-
-        ![Back plane of a cabled device 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)-->
 
 2. Locate the disk slots and the power button on the front of the device.
 
