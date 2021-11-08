@@ -107,13 +107,13 @@ storageaccount=<storageaccountName>
 statefile_subscription=<statefile_subscription>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
-        --parameter_file DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars  \
+        --parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars   \
         --keyvault $keyvault                                   \
         --state_subscription $statefile_subscription           \
         --subscription $subscriptionID                         \
         --spn_id $appID                                        \
-        --spn_secret "$spn_secret"                             \ 
-        --tenant_id $tenant
+        --spn_secret "$spn_secret"                             \
+        --tenant_id $tenant_id
 ```
 # [Windows](#tab/windows)
 

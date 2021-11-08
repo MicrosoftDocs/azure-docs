@@ -127,7 +127,7 @@ Running the command below will deploy the SAP System.
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X01
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh          \
-        --parameter_file DEV-WEEU-SAP01-X01.tfvars           \
+        --parameterfile DEV-WEEU-SAP01-X01.tfvars           \
         --type sap_system
 ```
 # [Windows](#tab/windows)
