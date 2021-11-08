@@ -42,6 +42,7 @@ When you request to change your payment method to check/wire transfer, there are
 1. Depending on your approval status:  
 
     - If you're automatically approved, the page shows a message stating that you've been approved to pay by check or wire transfer. Enter your **Company name** and then select **Save**.  
+        :::image type="content" source="./media/pay-by-invoice/pay-check-wire-transfer.png" alt-text="Screenshot showing pay by check/wire transfer approval." lightbox="./media/pay-by-invoice/pay-check-wire-transfer.png" :::
 
         You're all set to pay your next bill by check or wire transfer.
     - If the request couldn't be processed or if you're disapproved, you'll see a message stating the reason. You need to follow the steps in the next [Submit a request to set up pay by check or wire transfer](#submit-a-request-to-set-up-pay-by-check-or-wire-transfer) section.
