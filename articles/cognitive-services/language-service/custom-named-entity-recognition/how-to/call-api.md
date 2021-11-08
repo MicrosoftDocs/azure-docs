@@ -245,3 +245,9 @@ The response returned from the Get result call will be a JSON document with the 
         }
     }
 ```
+
+### Use the SDK
+
+You can also use the client library for one of the following languages:
+
+[!INCLUDE [SDK links](../includes/sdk-links.md)]

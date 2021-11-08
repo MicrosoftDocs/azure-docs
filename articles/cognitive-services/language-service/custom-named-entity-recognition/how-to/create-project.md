@@ -141,8 +141,7 @@ To set proper roles on your storage account:
 
 ## Create a custom named entity recognition project
 
->[!NOTE]
-> If your dataset contains files of different languages or if you expect different languages during runtime, you can enable the multi-lingual option.
+[!INCLUDE [SDK limitations](includes/sdk-limitations.md)]
 
 [!INCLUDE [Create custom NER project](../includes/create-project.md)]
 
