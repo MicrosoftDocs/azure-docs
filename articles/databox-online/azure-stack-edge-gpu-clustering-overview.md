@@ -43,15 +43,13 @@ The infrastructure cluster on your device provides persistent storage and is sho
 1. The infrastructure cluster consists of the two independent nodes running Windows Server operating system with a Hyper-V layer. The nodes contain physical disks for storage and network interfaces that are connected back-to-back or with switches.
 1. The disks across the two nodes are used to create a logical storage pool. The storage spaces direct on this pool provides mirroring and parity for the cluster. 
 1. You can deploy your application workloads on top of the infrastructure cluster. 
-    1. Non-containerized workloads such as VMs can be directly deployed on top of the Storage Spaces Direct layer.
+    1. Non-containerized workloads such as VMs can be directly deployed on top of the infrastructure cluster.
 
         ![VMs workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-virtual-machine-workloads-infrastructure-cluster.png)
 
-    1. Containerized workloads use Kubernetes for workload deployment and management. A Kubernetes cluster that consists of a master VM and two worker VMs (one for each node) is deployed on top of the infrastructure cluster. 
-    
-        **NOTE: Diagram needs to be updated, show networking as well!**
+    1. Containerized workloads use Kubernetes for workload deployment and management. A Kubernetes cluster that consists of a master VM and two worker VMs (one for each node) is deployed on top of the infrastructure cluster.   
 
-        ![Kubernetes or IoT Edge workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-workloads-infrastructure-cluster.png)
+        <!--![Kubernetes or IoT Edge workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-workloads-infrastructure-cluster.png)-->
 
     
     The Kubernetes cluster allows for application orchestration whereas the infrastructure cluster provides persistent storage.
@@ -107,10 +105,10 @@ For more information, see the 2-node device deployment tutorials starting with [
 
 On your two-node cluster, you can deploy non-containerized workloads or containerized workloads.
 
-- **Non-containerized workloads such as VMs**: The two-node cluster will ensure load balancing and high availability of the virtual machines that are deployed on the device cluster. Your two-node device actively manages capacity to ensure successful failover of the deployed VMs. Live migration of VMs is not supported.
+- **Non-containerized workloads such as VMs**: The two-node cluster will ensure high availability of the virtual machines that are deployed on the device cluster. <!--Your two-node device actively manages capacity to ensure successful failover of the deployed VMs.--> Live migration of VMs is not supported.
 
 - **Containerized workloads such as Kubernetes or IoT Edge**: The Kubernetes cluster deployed on top of the device cluster consists of one Kubernetes master VM and two Kubernetes worker VMs. Each Kubernetes node has a worker VM that is pinned to each Azure Stack Edge node. Failover results in the failover of Kubernetes master VM (if needed) and Kubernetes-based rebalancing of pods on the surviving worker VM.
-- 
+ 
     For more information, see [Kubernetes on a clustered Azure Stack Edge device](azure-stack-edge-gpu-kubernetes-failover-scenarios.md).
 
 
@@ -129,9 +127,9 @@ You can manage the Azure Stack Edge cluster via the PowerShell interface of the 
 - [Configure virtual IP settings for the cluster](azure-stack-edge-placeholder.md)
 
 
-## Cluster upgrades
+<!--## Cluster upgrades
 
-A two-node clustered device upgrade will first apply the device updates followed by the Kubernetes cluster updates. Rolling updates to device nodes ensure minimal downtime of workloads. For step-by-step instructions, see [Apply updates to your two-node Azure Stack Edge device](azure-stack-edge-gpu-install-update.md).
+A two-node clustered device upgrade will first apply the device updates followed by the Kubernetes cluster updates. Rolling updates to device nodes ensure minimal downtime of workloads. For step-by-step instructions, see [Apply updates to your two-node Azure Stack Edge device](azure-stack-edge-gpu-install-update.md).-->
 
 ## Billing
 
