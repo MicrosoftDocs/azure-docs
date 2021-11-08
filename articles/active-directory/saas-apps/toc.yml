@@ -519,6 +519,8 @@
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
         href: coupa-risk-assess-tutorial.md
+      - name: Coverity Static Application Security Testing
+        href: coverity-static-application-security-testing-tutorial.md  
       - name: CPQSync by Cincom
         href: cpqsync-by-cincom-tutorial.md
       - name: Creatio
@@ -1652,6 +1654,8 @@
         href: quickhelp-tutorial.md
       - name: Qumu Cloud
         href: qumucloud-tutorial.md
+      - name: R and D Tax Credit Services
+        href: r-and-d-tax-credit-services-tutorial.md
       - name: Rackspace SSO
         href: rackspacesso-tutorial.md
       - name: Raketa

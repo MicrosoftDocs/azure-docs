@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Deploy a Dapr application to Azure Container Apps using the Azure CLI'
 description: Deploy a Dapr application to Azure Container Apps using the Azure CLI.
-services: app-service
+services: container-apps
 author: asw101
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aawislan
