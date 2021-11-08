@@ -2,7 +2,7 @@
 title: Configure Azure Sentinel with Defender for IoT for organizations
 description: Explains how to configure Azure Sentinel to receive data from your Defender for IoT solution.
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 11/08/2021
 ---
 
 # Connect your data from Defender for IoT for organizations to Azure Sentinel (Public preview)
@@ -23,7 +23,7 @@ This integration enables organizations to quickly detect multistage attacks that
 
 1. From the bottom of the right pane, click **Open connector page**.
 
-1. Click **Connect**, next to each IoT Hub subscription whose alerts and device alerts you want to stream into Azure Sentinel.
+1. Click **Connect**, next to each subscription whose alerts and device alerts you want to stream into Azure Sentinel.
 
     > [!NOTE]
     > You will receive an error message if Defender for IoT is not enabled on at least one IoT Hub within that subscription. Enable Defender for IoT within the IoT Hub to remove the error.
