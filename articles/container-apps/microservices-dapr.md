@@ -140,7 +140,7 @@ az provider register --namespace Microsoft.Web
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az provider register --namespace Microsoft.Web
 ```
 

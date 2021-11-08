@@ -89,7 +89,6 @@ You can continue to use `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment vari
 
 - Upgrade instances of Azure Arc-enabled SQL Managed Instance general purpose in-place
 - The SQL binaries are updated to a new version
-- Azure Data Studio provides projected price information
 - Direct connected mode deployment of Azure Arc enabled SQL Managed Instance using Azure CLI
 - Point in time restore for Azure Arc enabled SQL Managed Instance is being made generally available with this release. Currently point in time restore is only supported for the general purpose SQL Managed Instance. Point in time restore for business critical SQL Managed Instance is still under preview.
 - New `--dry-run` option provided for point in time restore

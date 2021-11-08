@@ -45,7 +45,7 @@ In order to start using the **Azure Sentinel Deception (Honey Tokens)** solution
 
 ## Install the solution
 
-Install the **Azure Sentinel Deception (Honey Tokens)** solution as you would [other solutions](monitor-key-vault-honeytokens.md). On the **Azure Sentinel Deception** solution page, select **Start** to get started.
+Install the **Azure Sentinel Deception (Honey Tokens)** solution as you would [other solutions](sentinel-solutions-deploy.md). On the **Azure Sentinel Deception** solution page, select **Start** to get started.
 
 :::image type="content" source="media/monitor-key-vault-honeytokens/honeytoken-create-solution.png" alt-text="Screenshot of the create solution page.":::
 
@@ -336,7 +336,7 @@ For more information, see the [Azure Security Center documentation](/azure/secur
 For more information, see:
 
 - [About Azure Sentinel solutions](sentinel-solutions.md)
-- [Discover and deploy Azure Sentinel solutions](monitor-key-vault-honeytokens.md)
+- [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md)
 - [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
 - [Detect threats out-of-the-box](detect-threats-built-in.md)
 - [Commonly used Azure Sentinel workbooks](top-workbooks.md)
