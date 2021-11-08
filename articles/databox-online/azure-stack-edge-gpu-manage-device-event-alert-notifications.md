@@ -84,7 +84,7 @@ Take the following steps in the Azure portal to create an action rule for your A
    > [!NOTE]
    > To create a rule that suppresses notifications, you would choose **Suppression**. For more information, see [Configuring an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule).
 
-6. Select the action group that you want to use with this action rule. Then choose **Select**. Your new action rule will be added to the notification preferences of the selected action group.<!--Informational text is confusing. They can select as many as 5 action groups for the alert rule, but only one action group per alert processing rule. So, what's an alert processing rule? Couldn't select more than one action group; tried several things.-->
+6. Select the action group that you want to use with this action rule. Then choose **Select**. Your new action rule will be added to the notification preferences of the selected action group.
 
    If you need to create a new action group, select **+ Create action group**, and follow the steps in [Create an action group by using the Azure portal](../azure-monitor/alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal).
 
