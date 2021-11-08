@@ -14,11 +14,11 @@ Azure Logic Apps has different maximum limits on the message content size that t
 If you're using built-in HTTP actions or specific managed connector actions, and you need Azure Logic Apps to work with messages larger than the default limits, you can enable *chunking*, which splits a large message into smaller messages. That way, you can still transfer large files under specific conditions. In fact, when you use these built-in HTTP actions or specific managed connector actions, chunking is the only way that Azure Logic Apps can consume large messages. This requirement means that either the underlying HTTP message exchange between Azure Logic Apps and other services must use chunking, or that the connections created by the managed connectors that you want to use must also support chunking.
 
 > [!NOTE]
-> Azure Logic Apps implements chunking for HTTP actions using its own protocol as described in this article. > So, even if your web site or web service supports chunking, they won't work with HTTP action chunking. 
-> To use HTTP action chunking with your web site or web service, you have to implement the same protocol 
-> that's used by Azure Logic Apps. Otherwise, don't enable chunking on the HTTP action.
->
 > Azure Logic Apps doesn't support chunking on triggers due to the increased overhead from exchanging multiple messages.
+> Also, Azure Logic Apps implements chunking for HTTP actions using its own protocol as described in this article. 
+> So, even if your web site or web service supports chunking, they won't work with HTTP action chunking. 
+> To use HTTP action chunking with your web site or web service, you have to implement the same protocol 
+> that's used by Azure Logic Apps. Otherwise, don't enable chunking on the HTTP action. 
 
 This article provides an overview about how chunking works in Azure Logic Apps and how to set up chunking on supported actions.
 
