@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
 > [!NOTE]
-> Examples in this article refer to both 1.0 CLI and CLI (v2) versions. The machine learning CLI (v2) is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads.
+> Examples in this article refer to both 1.0 CLI and 2.0 CLI versions. If no version is specified for a command, it will work with either the 1.0 or 2.0 CLI. The machine learning 2.0 CLI is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads.
 
 ## Prerequisites
 
@@ -121,24 +121,16 @@ az ml workspace create -w <workspace-name>
                        --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
-# [Bring existing resources (CLI (v2) - preview)](#tab/bringexistingresources2)
+# [Bring existing resources (2.0 CLI - preview)](#tab/bringexistingresources2)
 
 To create a new workspace while bringing existing associated resources using the CLI, you will first have to define how your workspace should be configured in a configuration file.
 
-```yaml workspace.yml
-name: azureml888
-location: EastUS
-description: Description of my workspace
-storage_account: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
-container_registry: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.ContainerRegistry/registries/<registry-name>
-key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.KeyVault/vaults/<vault-name>
-application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
-```
+:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/with-existing-resources.yml":::
 
 Then, you can reference this configuration file as part of the workspace creation CLI command.
 
 ```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
+az ml workspace create -g <resource-group-name> --file workspace.yml
 ```
 
 If attaching existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure portal, or by running the following commands using the Azure CLI.
@@ -210,92 +202,70 @@ az ml workspace create -w <workspace-name>
 
 For more details on how to use these commands, see the [CLI reference pages](/cli/azure/ml(v1)/workspace).
 
-# [CLI (v2) - preview](#tab/vnetpleconfigurationsv2cli)
+# [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
 
-To set up private network connectivity for your workspace using the CLI (v2), use the following steps:
+When using private link, your workspace cannot use Azure Container Registry tasks compute for image building. Hence, you must set the image_build_compute property to a CPU compute cluster name to use for Docker image environment building. You can also specify whether the private link workspace should be accessible over the internet using the public_network_access property.
 
-1. Create the VNet and subnets to use with your workspace. For more information on creating a VNet, see [Create a virtual network using the Azure CLI](../virtual-network/quick-create-cli.md).
-1. Use the following command to disable the private endpoint network policy for the virtual network:
+:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/privatelink.yml":::
 
-    ```azurecli
-    az network vnet subnet update --disable-private-endpoint-network-policies true \
-      --name <subnet-name> \
-      --resource-group <resource-group-name> \
-      --vnet-name <vnet-name>
-    ```
+```azurecli-interactive
+az ml workspace create -g <resource-group-name> --file privatelink.yml
+```
 
-    For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md).
+After creating the workspace, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) to create a private link endpoint for the workspace.
 
-1.  Use the following command to get the Azure Resource Manager ID for your workspace:
+```azurecli-interactive
+az network private-endpoint create \
+    --name <private-endpoint-name> \
+    --vnet-name <vnet-name> \
+    --subnet <subnet-name> \
+    --private-connection-resource-id "/subscriptions/<subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>" \
+    --group-id amlworkspace \
+    --connection-name workspace -l <location>
+```
 
-    ```azurecli
-    az resource show -n larryws1108 \
-        --resource-type "Microsoft.MachineLearningServices/Workspaces" \
-        -g $RESOURCE_GROUP \
-        --query 'id' \
-        -o tsv
-    ```
+To create the private DNS zone entries for the workspace, use the following commands:
 
-    The response from this command is in the following format `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>`.
+```azurecli-interactive
+# Add privatelink.api.azureml.ms
+az network private-dns zone create \
+    -g <resource-group-name> \
+    --name 'privatelink.api.azureml.ms'
 
-1. Use the following command to create a private endpoint for the workspace:
+az network private-dns link vnet create \
+    -g <resource-group-name> \
+    --zone-name 'privatelink.api.azureml.ms' \
+    --name <link-name> \
+    --virtual-network <vnet-name> \
+    --registration-enabled false
 
-    ```azurecli
-    az network private-endpoint create --name <private-endpoint-name> \
-      -g <resource-group-name> \
-      --vnet-name <vnet-name> \
-      --subnet <subnet-name> \
-      --group-id 'amlworkspace' \
-      --connection-name <connection-name> \
-      --private-connection-resource-id <workspace-id>
-    ```
+az network private-endpoint dns-zone-group create \
+    -g <resource-group-name> \
+    --endpoint-name <private-endpoint-name> \
+    --name myzonegroup \
+    --private-dns-zone 'privatelink.api.azureml.ms' \
+    --zone-name 'privatelink.api.azureml.ms'
 
-1. Use the following commands to create the private DNS zone and DNS entries for the `privatelink.api.azureml.ms` zone:
+# Add privatelink.notebooks.azure.net
+az network private-dns zone create \
+    -g <resource-group-name> \
+    --name 'privatelink.notebooks.azure.net'
 
-    ```azurecli
-    az network private-dns zone create \
-      -g <resource-group-name> \
-      --name 'privatelink.api.azureml.ms'
+az network private-dns link vnet create \
+    -g <resource-group-name> \
+    --zone-name 'privatelink.notebooks.azure.net' \
+    --name <link-name> \
+    --virtual-network <vnet-name> \
+    --registration-enabled false
 
-    az network private-dns link vnet create \
-      -g <resource-group-name> \
-      --zone-name 'privatelink.api.azureml.ms' \
-      --name <link-name> \
-      --virtual-network <vnet-name> \
-      --registration-enabled false
+az network private-endpoint dns-zone-group add \
+    -g <resource-group-name> \
+    --endpoint-name <private-endpoint-name> \
+    --name myzonegroup \
+    --private-dns-zone 'privatelink.notebooks.azure.net' \
+    --zone-name 'privatelink.notebooks.azure.net'
+```
 
-    az network private-endpoint dns-zone-group create \
-      -g <resource-group-name> \
-      --endpoint-name <private-endpoint-name> \
-      --name myzonegroup \
-      --private-dns-zone 'privatelink.api.azureml.ms' \
-      --zone-name 'privatelink.api.azureml.ms'
-    ```
-
-1. Use the following commands to create create the DNS zone and entries for the `privatelink.notebooks.azure.net` zone:
-
-    > [!NOTE]
-    > Note that the last command uses __add__, not create. This adds the DNS zone to the zone group named `myzonegroup`, which was created in the previous step.
-
-    ```azurecli
-    az network private-dns zone create \
-      -g <resource-group-name> \
-      --name 'privatelink.notebooks.azure.net'
-
-    az network private-dns link vnet create \
-      -g <resource-group-name> \
-      --zone-name 'privatelink.notebooks.azure.net' \
-      --name <link-name> \
-      --virtual-network <vnet-name> \
-      --registration-enabled false
-
-    az network private-endpoint dns-zone-group add \
-      -g <resource-group-name> \
-      --endpoint-name <private-endpoint-name> \
-      --name myzonegroup \
-      --private-dns-zone 'privatelink.notebooks.azure.net' \
-      --zone-name 'privatelink.notebooks.azure.net'
-    ```
 ---
 
 ### Customer-managed key and high business impact workspace
@@ -304,7 +274,7 @@ By default, metadata for the workspace is stored in an Azure Cosmos DB instance 
 
 To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](./concept-data-encryption.md#azure-cosmos-db).
 
-Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the 1.0 CLI and CLI (v2) versions.
+Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the 1.0 CLI and 2.0 CLI versions.
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
@@ -320,32 +290,18 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# [CLI (v2) - preview](#tab/vnetpleconfigurationsv2cli)
+# [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
 
 Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource ID and uri of the key within the vault.
 
 To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `hbi_workspace` property. 
 
-```yaml workspace.yml
-name: azureml888
-location: EastUS
-description: Description of my workspace
-storage_account: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
-container_registry: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.ContainerRegistry/registries/<registry-name>
-key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.KeyVault/vaults/<vault-name>
-application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
-
-hbi_workspace: true
-customer_managed_key:
-  key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers//Microsoft.KeyVault/<vaulttype>/<vaultname>
-  key_uri: https://<keyvaultid>.vault.azure.net/keys/<keyname>/<keyversion>
-
-```
+:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/cmk.yml":::
 
 Then, you can reference this configuration file as part of the workspace creation CLI command.
 
 ```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
+az ml workspace create -g <resource-group-name> --file cmk.yml
 ```
 ---
 
@@ -361,16 +317,6 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 For more information on customer-managed keys and high business impact workspace, see [Enterprise security for Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
 
 ## Using the CLI to manage workspaces
-
-### List workspaces
-
-To list all the workspaces for your Azure subscription, use the following command:
-
-```azurecli-interactive
-az ml workspace list
-```
-
-For more information, see the [az ml workspace list](/cli/azure/ml/workspace#az_ml_workspace_list) documentation.
 
 ### Get workspace information
 

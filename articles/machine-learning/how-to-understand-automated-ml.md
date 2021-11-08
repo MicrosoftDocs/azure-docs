@@ -6,7 +6,7 @@ services: machine-learning
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 12/09/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl
 ---

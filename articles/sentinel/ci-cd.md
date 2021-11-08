@@ -1,6 +1,6 @@
 ---
-title: Manage custom content for Azure Sentinel in your own repository | Microsoft Docs
-description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can save your custom content.
+title: Deploy custom content from your repository | Microsoft Docs
+description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can save your custom content and deploy it to Azure Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -115,12 +115,14 @@ Each connection can support multiple types of custom content, including analytic
     ---
 
     > [!NOTE]
-    > You cannot create create duplicate connections, with the same repository and branch, in a single Azure Sentinel workspace.
+    > You cannot create duplicate connections, with the same repository and branch, in a single Azure Sentinel workspace.
     >
 
 After the connection is created, a new workflow or pipeline is generated in your repository, and the content stored in your repository is deployed to your Azure Sentinel workspace.
 
-The deployment time may vary depending on the amount of content that you're deploying. View the deployment status:
+The deployment time may vary depending on the amount of content that you're deploying. 
+
+### View the deployment status:
 
 - **In GitHub**: On the repository's **Actions** tab. Select the workflow **.yaml** file shown there to access detailed deployment logs and any specific error messages, if relevant.
 - **In Azure DevOps**: On the repository's **Pipelines** tab.

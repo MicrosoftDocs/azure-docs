@@ -1,18 +1,14 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Microsoft Defender for Cloud FAQ - data collection and agents'
+  title: Microsoft Defender for Cloud FAQ - data collection and agents
   description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: security-center
-  documentationcenter: na
   author: memildin
   manager: rkarlin
   ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
   ms.service: security-center
-  ms.devlang: na
   ms.topic: conceptual
-  ms.tgt_pltfrm: na
-  ms.workload: na
-  ms.date: 11/15/2020
+  ms.date: 11/04/2021
   ms.author: memildin
   
     
@@ -224,7 +220,7 @@ sections:
         answer: |
           Manually install the Log Analytics agent extension so Defender for Cloud can collect security data from your VMs and provide recommendations and alerts. See [agent installation for Windows VM](../virtual-machines/extensions/oms-windows.md) or [agent installation for Linux VM](../virtual-machines/extensions/oms-linux.md) for guidance on installation.
           
-          You can connect the agent to any existing custom workspace or Defender for Cloud created workspace. If a custom workspace does not have the "Security" or "SecurityCenterFree" solutions enabled, then you will need to apply a solution. To apply, select the custom workspace or subscription and apply a pricing tier via the **Security policy – Pricing tier** page.
+          You can connect the agent to any existing custom workspace or Defender for Cloud created workspace. If a custom workspace does not have the "Security" or "SecurityCenterFree" solutions enabled, then you will need to apply a solution. To apply, select the custom workspace and apply a pricing tier via the **Security policy – Pricing tier** page.
           
           :::image type="content" source="./media/platform-migration-faq/pricing-tier.png" alt-text="Enable or disable Azure Defender":::
           
