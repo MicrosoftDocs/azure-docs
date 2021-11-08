@@ -52,7 +52,7 @@ java.lang.OutOfMemoryError: Java heap space
    ps -fu ams | grep 'org.apache.ambari.metrics.AMSApplicationServer'
    ```
        
-3. Check the garbage collection status using `jstat -gcutil <pid> 1000 100`. If you see the **FGCT** increase a lot in short seconds, this indicates Apache Ambari Metrics Collector is busy in Full GC and unable to process the other requests.
+3. Check the garbage collection status using `jstat -gcutil <pid> 1000 100`. If you see the **FGCT** increase a lot in short seconds, it indicates Apache Ambari Metrics Collector is busy in Full GC and unable to process the other requests.
 
 ### Resolution
 
@@ -62,7 +62,7 @@ To avoid these issues, consider using one of the following options:
 
    :::image type="content" source="./media/apache-ambari-troubleshoot-ams-issues/editing-ams-configuration-ambari.png" alt-text="Editing AMS configuration properties in Ambari" border="true":::
 
-2. Follow these steps to cleanup Ambari Metrics service (AMS) data.
+2. Follow these steps to clean up Ambari Metrics service (AMS) data.
 
    > [!NOTE]
    > Cleaning up the AMS data removes all the historical AMS data available. If you need the history, this may not be the best option.
@@ -77,7 +77,7 @@ To avoid these issues, consider using one of the following options:
 	1. Remove the AMS zookeeper data by **backing up** and removing the contents of  `'hbase.tmp.dir'/zookeeper`
 	2. Remove any Phoenix spool files from `<hbase.tmp.dir>/phoenix-spool` folder 
 	3. ***(It is worthwhile to skip this step initially and try restarting AMS to see if the issue is resolved. If AMS is still failing to come up, try this step)***  
-	    	AMS data would be stored in `hbase.rootdir` identified above. Use regular OS commands to backup and remove the files. Example:  	
+	    	AMS data would be stored in `hbase.rootdir` identified above. Use regular OS commands to back up and remove the files. Example:  	
         	`tar czf /mnt/backupof-ambari-metrics-collector-hbase-$(date +%Y%m%d-%H%M%S).tar.gz /mnt/data/ambari-metrics-collector/hbase`  
    3.  Restart AMS using Ambari.
 
