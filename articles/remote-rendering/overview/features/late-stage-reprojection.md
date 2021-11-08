@@ -106,7 +106,7 @@ The focus points calculated in two successive frames can vary a lot. Simply usin
 
 The general problem scope with hybrid rendering can be stated like this: Remote and local contents are within distinct poses (that is, coordinate spaces) because the remote pose is predicted by the server whereas the local pose is the actual current one. However, in the end of a rendering frame both remote and local content need to be aligned and brought to the display. The following illustration shows an example where local and remote poses are translated compared to the display viewport:
 
-![Remote and local pose.](./media/reprojection-remote-local.png)
+![Diagram that illustrates remote and local pose in relation to target viewport.](./media/reprojection-remote-local.png)
 
 ARR provides two reprojection modes that work orthogonally to the LSR mode discussed above. These modes are referred to as **:::no-loc text="Remote pose mode":::** and **:::no-loc text="Local pose mode":::**. Unlike the LSR mode, the pose modes define how remote and local content is combined. The choice of the mode trades visual quality of local content for runtime performance, so applications should carefully consider which option is appropriate. See considerations below.
 
