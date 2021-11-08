@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](/powershell/azure/) for information on how to install and run Azure PowerShell.
 
 > [!NOTE]
-> Minimum version of Az modules required to support attestation operations:
+> AZ.Attestation module is now integrated into AZ PowerShell module. Minimum version of Az module required to support attestation operations:
   - Az 6.5.0
 
 The PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. Hence you may receive the following errors:
