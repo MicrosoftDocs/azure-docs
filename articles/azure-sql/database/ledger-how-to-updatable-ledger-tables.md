@@ -7,7 +7,7 @@ ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
 author: rothja
-author: jroth
+ms.author: jroth
 ---
 
 # Create and use updatable ledger tables

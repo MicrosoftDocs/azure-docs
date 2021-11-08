@@ -7,7 +7,7 @@ ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: rothja
-author: jroth
+ms.author: jroth
 ---
 
 # What is the database ledger?
