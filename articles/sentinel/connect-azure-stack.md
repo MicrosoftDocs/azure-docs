@@ -4,7 +4,6 @@ description: This article shows you how to provision the Azure Monitor, Update, 
 services: sentinel
 documentationcenter: na
 author: yelevin
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -13,9 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Connect Azure Stack Hub virtual machines to Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 With Azure Sentinel, you can monitor your VMs running on Azure and Azure Stack Hub in one place. To on-board your Azure Stack machines to Azure Sentinel, you first need to add the virtual machine extension to your existing Azure Stack Hub virtual machines. 
 

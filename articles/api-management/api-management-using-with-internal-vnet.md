@@ -148,7 +148,6 @@ To access these API Management service endpoints, you can create a virtual machi
 
 You can then access all the service endpoints from the virtual machine you created.
 
-If you use a custom DNS server in a VNET, you can also create DNS A-records and access these endpoints from anywhere in your VNET.
 
 ### Access on custom domain names
 

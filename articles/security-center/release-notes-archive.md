@@ -1,24 +1,207 @@
 ---
-title: Archive of what's new in Azure Security Center
-description: A description of what's new and changed in Azure Security Center from six months ago and earlier.
+title: Archive of what's new in Defender for Cloud
+description: A description of what's new and changed in Defender for Cloud from six months ago and earlier.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/03/2021
+ms.date: 11/02/2021
 ms.author: memildin
 
 ---
 
-# Archive for what's new in Azure Security Center?
+# Archive for what's new in Defender for Cloud?
 
-The primary [What's new in Azure Security Center?](release-notes.md) release notes page contains updates for the last six months, while this page contains older items.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+The primary [What's new in Defender for Cloud?](release-notes.md) release notes page contains updates for the last six months, while this page contains older items.
 
 This page provides you with information about:
 
 - New features
 - Bug fixes
 - Deprecated functionality
+
+## May 2021
+
+Updates in May include:
+
+- [Azure Defender for DNS and Azure Defender for Resource Manager released for general availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
+- [Azure Defender for open-source relational databases released for general availability (GA)](#azure-defender-for-open-source-relational-databases-released-for-general-availability-ga)
+- [New alerts for Azure Defender for Resource Manager](#new-alerts-for-azure-defender-for-resource-manager)
+- [CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)](#cicd-vulnerability-scanning-of-container-images-with-github-workflows-and-azure-defender-preview)
+- [More Resource Graph queries available for some recommendations](#more-resource-graph-queries-available-for-some-recommendations)
+- [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
+- [New recommendations to enable trusted launch capabilities (in preview)](#new-recommendations-to-enable-trusted-launch-capabilities-in-preview)
+- [New recommendations for hardening Kubernetes clusters (in preview)](#new-recommendations-for-hardening-kubernetes-clusters-in-preview)
+- [Assessments API expanded with two new fields](#assessments-api-expanded-with-two-new-fields)
+- [Asset inventory gets a cloud environment filter](#asset-inventory-gets-a-cloud-environment-filter)
+
+
+### Azure Defender for DNS and Azure Defender for Resource Manager released for general availability (GA)
+
+These two cloud-native breadth threat protection plans are now GA.
+
+These new protections greatly enhance your resiliency against attacks from threat actors, and significantly increase the number of Azure resources protected by Azure Defender.
+
+- **Azure Defender for Resource Manager** - automatically monitors all resource management operations performed in your organization. For more information, see:
+    - [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+    - [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
+    - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+
+- **Azure Defender for DNS** - continuously monitors all DNS queries from your Azure resources. For more information, see:
+    - [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
+    - [Respond to Azure Defender for DNS alerts](defender-for-dns-usage.md)
+    - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-dns)
+
+To simplify the process of enabling these plans, use the recommendations:
+
+- **Azure Defender for Resource Manager should be enabled**
+- **Azure Defender for DNS should be enabled**
+
+> [!NOTE]
+> Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center.
+
+
+### Azure Defender for open-source relational databases released for general availability (GA)
+
+Azure Security Center expands its offer for SQL  protection with a new bundle to cover your open-source relational databases:
+
+- **Azure Defender for Azure SQL database servers** - defends your Azure-native SQL Servers
+- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multi-cloud, and on-premises environments
+- **Azure Defender for open-source relational databases** - defends your Azure Databases for MySQL, PostgreSQL, and MariaDB single servers
+
+Azure Defender for open-source relational databases constantly monitors your servers for security threats and detects anomalous database activities indicating potential threats to Azure Database for MySQL, PostgreSQL, and MariaDB. Some examples are:
+
+- **Granular detection of brute force attacks** -  Azure Defender for open-source relational databases provides detailed information on attempted and successful brute force attacks. This lets you investigate and respond with a more complete understanding of the nature and status of the attack on your environment.
+- **Behavioral alerts detection** - Azure Defender for open-source relational databases alerts you to suspicious and unexpected behaviors on your servers, such as changes in the access pattern to your database.
+- **Threat intelligence-based detection** - Azure Defender applies Microsoft’s threat intelligence and vast knowledge base to surface threat alerts so you can act against them.
+
+Learn more in [Introduction to Azure Defender for open-source relational databases](defender-for-databases-introduction.md).
+
+### New alerts for Azure Defender for Resource Manager
+
+To expand the threat protections provided by Azure Defender for Resource Manager, we've added the following alerts:
+
+| Alert (alert type)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE tactics | Severity |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|----------|
+|**Permissions granted for an RBAC role in an unusual way for your Azure environment (Preview)**<br>(ARM_AnomalousRBACRoleAssignment)|Azure Defender for Resource Manager detected an RBAC role assignment that's unusual when compared with other assignments performed by the same assigner /  performed for the same assignee / in your tenant due to the following anomalies: assignment time, assigner location, assigner, authentication method, assigned entities, client software used, assignment extent. This operation might have been performed by a legitimate user in your organization. Alternatively, it might indicate that an account in your organization was breached, and that the threat actor is trying to grant permissions to an additional user account they own.|Lateral Movement, Defense Evasion|Medium|
+|**Privileged custom role created for your subscription in a suspicious way (Preview)**<br>(ARM_PrivilegedRoleDefinitionCreation)|Azure Defender for Resource Manager detected a suspicious creation of privileged custom role definition in your subscription. This operation might have been performed by a legitimate user in your organization. Alternatively, it might indicate that an account in your organization was breached, and that the threat actor is trying to create a privileged role to use in the future to evade detection.|Lateral Movement, Defense Evasion|Low|
+|**Azure Resource Manager operation from suspicious IP address (Preview)**<br>(ARM_OperationFromSuspiciousIP)|Azure Defender for Resource Manager detected an operation from an IP address that has been marked as suspicious in threat intelligence feeds.|Execution|Medium|
+|**Azure Resource Manager operation from suspicious proxy IP address (Preview)**<br>(ARM_OperationFromSuspiciousProxyIP)|Azure Defender for Resource Manager detected a resource management operation from an IP address that is associated with proxy services, such as TOR. While this behavior can be legitimate, it's often seen in malicious activities, when threat actors try to hide their source IP.|Defense Evasion|Medium|
+||||
+
+For more information, see:
+- [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+- [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
+- [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+
+
+### CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)
+
+Azure Defender for container registries now provides DevSecOps teams observability into GitHub Action workflows.
+
+The new vulnerability scanning feature for container images, utilizing Trivy, helps your developers scan for common vulnerabilities in their container images *before* pushing images to container registries.
+
+Container scan reports are summarized in Azure Security Center, providing security teams better insight and understanding about the source of vulnerable container images and the workflows and repositories from where they originate.
+
+Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-container-registries-cicd.md).
+
+### More Resource Graph queries available for some recommendations
+
+All of Security Center's recommendations have the option to view the information about the status of affected resources using Azure Resource Graph from the **Open query**. For full details about this powerful feature, see [Review recommendation data in Azure Resource Graph Explorer (ARG)](review-security-recommendations.md#review-recommendation-data-in-azure-resource-graph-explorer-arg).
+
+Security Center includes built-in vulnerability scanners to scan your VMs, SQL servers and their hosts, and container registries for security vulnerabilities. The findings are returned as recommendations with all the individual findings for each resource type gathered into a single view. The recommendations are:
+
+- Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
+- Vulnerabilities in your virtual machines should be remediated
+- SQL databases should have vulnerability findings resolved
+- SQL servers on machines should have vulnerability findings resolved
+
+With this change, you can use the **Open query** button to also open the query showing the security findings.
+
+:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="The open query button now offers options for a deeper query showing the security findings for vulnerability scanner-related recommendations.":::
+
+The **Open query** button offers additional options for some other recommendations where relevant.
+
+Learn more about Security Center's vulnerability scanners:
+
+- [Azure Defender's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
+- [Azure Defender's integrated vulnerability assessment scanner for SQL servers](defender-for-sql-on-machines-vulnerability-assessment.md)
+- [Azure Defender's integrated vulnerability assessment scanner for container registries](defender-for-container-registries-usage.md)
+
+### SQL data classification recommendation severity changed
+
+The severity of the recommendation **Sensitive data in your SQL databases should be classified** has been changed from **High** to **Low**.
+
+This is part of the ongoing changes to this recommendation announced in [Enhancements to recommendation to classify sensitive data in SQL databases](upcoming-changes.md#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases).
+
+### New recommendations to enable trusted launch capabilities (in preview)
+
+Azure offers trusted launch as a seamless way to improve the security of [generation 2](../virtual-machines/generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats. Learn more in [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+
+> [!IMPORTANT]
+> Trusted launch requires the creation of new virtual machines. You can't enable trusted launch on existing virtual machines that were initially created without it.
+> 
+> Trusted launch is currently in public preview. The preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+
+Security Center's recommendation, **vTPM should be enabled on supported virtual machines**, ensures your Azure VMs are using a vTPM. This virtualized version of a hardware Trusted Platform Module enables attestation by measuring the entire boot chain of your VM (UEFI, OS, system, and drivers).
+
+With the vTPM enabled, the **Guest Attestation extension** can remotely validate the secure boot. The following recommendations ensure this extension is deployed:
+
+- **Secure Boot should be enabled on supported Windows virtual machines**
+- **Guest Attestation extension should be installed on supported Windows virtual machines**
+- **Guest Attestation extension should be installed on supported Windows virtual machine scale sets**
+- **Guest Attestation extension should be installed on supported Linux virtual machines**
+- **Guest Attestation extension should be installed on supported Linux virtual machine scale sets**
+
+Learn more in [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md). 
+
+### New recommendations for hardening Kubernetes clusters (in preview)
+
+The following recommendations allow you to further harden your Kubernetes clusters
+
+- **Kubernetes clusters should not use the default namespace** - To protect against unauthorized access for ConfigMap, Pod, Secret, Service, and ServiceAccount resource types, prevent usage of the default namespace in Kubernetes clusters.
+- **Kubernetes clusters should disable automounting API credentials** - To prevent a potentially compromised Pod resource from running API commands against Kubernetes clusters, disable automounting API credentials.
+- **Kubernetes clusters should not grant CAPSYSADMIN security capabilities**
+
+Learn how Security Center can protect your containerized environments in [Container security in Security Center](container-security.md).
+
+### Assessments API expanded with two new fields
+
+We've added the following two fields to the [Assessments REST API](/rest/api/securitycenter/assessments):
+
+- **FirstEvaluationDate** – The time that the recommendation was created and first evaluated. Returned as UTC time in ISO 8601 format.
+- **StatusChangeDate** – The time that the status of the recommendation last changed. Returned as UTC time in ISO 8601 format.
+
+The initial default value for these fields - for all recommendations - is `2021-03-14T00:00:00+0000000Z`.
+
+To access this information, you can use any of the methods in the table below.
+
+| Tool                 | Details                                                                                                                                                                |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| REST API call        | GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates |
+| Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
+| Continuous export    | The two dedicated fields will be available the Log Analytics workspace data                                                                                            |
+| [CSV export](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | The two fields are included in the CSV files                                                        |
+|                      |                                                                                                                                                                        |
+
+
+Learn more about the [Assessments REST API](/rest/api/securitycenter/assessments).
+
+
+### Asset inventory gets a cloud environment filter
+
+Security Center's asset inventory page offers many filters to quickly refine the list of resources displayed. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
+
+A new filter offers the option to refine the list according to the cloud accounts you've connected with Security Center's multi-cloud features:
+
+:::image type="content" source="media/asset-inventory/filter-environment.png" alt-text="Inventory's environment filter":::
+
+Learn more about the multi-cloud capabilities:
+
+- [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
+- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
 
 
 ## April 2021
@@ -41,7 +224,7 @@ Updates in April include:
 
 Security Center's resource health has been expanded, enhanced, and improved to provide a snapshot view of the overall health of a single resource. 
 
-You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using [Azure Defender](azure-defender.md), you can see outstanding security alerts for that specific resource too.
+You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using [the advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md), you can see outstanding security alerts for that specific resource too.
 
 To open the resource health page for a resource, select any resource from the [asset inventory page](asset-inventory.md).
 
@@ -91,14 +274,14 @@ Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi
 
 ### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for general availability (GA)
 
-Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
+Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
 When you enable Azure Defender for servers on a Windows server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
 
 Support has now been expanded to include Windows Server 2019 and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 
 ### Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)
@@ -111,7 +294,7 @@ Two new recommendations have been added to simplify the process of enabling [Azu
 Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center.
 
 > [!TIP]
-> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
 
 
 ### Three regulatory compliance standards added: Azure CIS 1.3.0, CMMC Level 3, and New Zealand ISM Restricted
@@ -128,8 +311,8 @@ You can assign these to your subscriptions as described in [Customize the set of
 
 Learn more in:
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
-- [Tutorial: Improve your regulatory compliance](security-center-compliance-dashboard.md)
-- [FAQ - Regulatory compliance dashboard](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
+- [Tutorial: Improve your regulatory compliance](regulatory-compliance-dashboard.md)
+- [FAQ - Regulatory compliance dashboard](regulatory-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
 ### Four new recommendations related to guest configuration (in preview)
 
@@ -354,7 +537,7 @@ Now on the page you'll see:
 
 :::image type="content" source="media/release-notes/recommendations-grid-enhancements-initiatives.png" alt-text="Enhancements to Azure Security Center's recommendations 'flat' list - March 2021" lightbox="media/release-notes/recommendations-grid-enhancements-initiatives.png":::
 
-Learn more in [Security recommendations in Azure Security Center](security-center-recommendations.md).
+Learn more in [Security recommendations in Azure Security Center](review-security-recommendations.md).
 
 ## February 2021
 
@@ -380,9 +563,9 @@ Azure Security Center's security alerts page has been redesigned to provide:
 - **Better performance** for large alerts lists.
 - **Keyboard navigation** through the alert list.
 - **Alerts from Azure Resource Graph** - you can query alerts in Azure Resource Graph, the Kusto-like API for all of your resources. This is also useful if you're building your own alerts dashboards. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
-- **Create sample alerts feature** - To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+- **Create sample alerts feature** - To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](alert-validation.md#generate-sample-security-alerts).
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
+:::image type="content" source="media/managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
 
 
 ### Kubernetes workload protection recommendations released for general availability (GA)
@@ -398,19 +581,19 @@ For example, you can mandate that privileged containers shouldn't be created, an
 Learn more in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
 
 > [!NOTE]
-> While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+> While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
 
 
 ### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) (in preview)
 
-Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
+Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
 When you enable Azure Defender for servers on a Windows server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
 
 Support has now been expanded to include Windows Server 2019 and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 ### Direct link to policy from recommendation details page
 
@@ -574,9 +757,9 @@ This capability means that Security Center provides visibility and protection ac
 - Incorporate all of your resources into Security Center's secure score calculations
 - Regulatory compliance assessments of your AWS and GCP resources
 
-From Security Center's menu, select **Multi cloud connectors** and you'll see the options for creating new connectors:
+From Defender for Cloud's menu, select **Multi-cloud connectors** and you'll see the options for creating new connectors:
 
-:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi cloud connectors page":::
+:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi-cloud connectors page":::
 
 Learn more in:
 - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
@@ -603,7 +786,7 @@ Learn more in [Exempting resources and recommendations from your secure score](e
 
 If a user doesn't have permissions to see Security Center data, they'll now see a link to request permissions from their organization's global administrator. The request includes the role they'd like and the justification for why it's necessary.
 
-:::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
+:::image type="content" source="media/management-groups-roles/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
 
 Learn more in [Request tenant-wide permissions when yours are insufficient](tenant-wide-permissions-management.md#request-tenant-wide-permissions-when-yours-are-insufficient).
 
@@ -615,7 +798,7 @@ Learn more in [Request tenant-wide permissions when yours are insufficient](tena
 To increase the coverage of this benchmark, the following 35 preview recommendations have been added to Security Center.
 
 > [!TIP]
-> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
 
 | Security control                     | New recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -644,9 +827,9 @@ With this announcement, we're changing the behavior of the **Download to CSV** b
 
 For example, in the image below you can see that the list has been filtered to two recommendations. The CSV file that is generated includes the status details for every resource affected by those two recommendations.   
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exporting filtered recommendations to a CSV file.":::
+:::image type="content" source="media/managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exporting filtered recommendations to a CSV file.":::
 
-Learn more in [Security recommendations in Azure Security Center](security-center-recommendations.md).
+Learn more in [Security recommendations in Azure Security Center](review-security-recommendations.md).
 
 
 ### "Not applicable" resources now reported as "Compliant" in Azure Policy assessments
@@ -755,9 +938,9 @@ Azure Security Center's security alerts page has been redesigned to provide:
 
 To access the new experience, use the 'try it now' link from the banner at the top of the security alerts page.
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience.":::
+:::image type="content" source="media/managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience.":::
 
-To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](alert-validation.md#generate-sample-security-alerts).
 
 
 ### Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance 
@@ -814,7 +997,7 @@ The filters added this month provide options to refine the recommendations list 
     > The response actions filter replaces the **Quick fix available (Yes/No)** filter. 
     > 
     > Learn more about each of these response options:
-    > - [Fix button](security-center-remediate-recommendations.md#fix-button)
+    > - [Fix button](implement-security-recommendations.md#fix-button)
     > - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control." lightbox="./media/release-notes/added-recommendations-filters.png":::
@@ -857,7 +1040,7 @@ Azure Security Benchmark is the Microsoft-authored, Azure-specific, set of guide
 
 The following 29 preview recommendations have been added to Security Center to increase the coverage of this benchmark.
 
-Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
 
 | Security control                     | New recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -913,7 +1096,7 @@ You can now configure the auto provisioning of:
 - (New) Azure Policy Add-on for Kubernetes
 - (New) Microsoft Dependency agent
 
-Learn more in [Auto provisioning agents and extensions from Azure Security Center](security-center-enable-data-collection.md).
+Learn more in [Auto provisioning agents and extensions from Azure Security Center](enable-data-collection.md).
 
 
 ### Secure score is now available in continuous export (preview)
@@ -1019,7 +1202,7 @@ Azure Resource Graph is a service in Azure that is designed to provide efficient
 For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data. For example:
 
 - Asset inventory utilizes (ARG)
-- We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+- We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
 Within ARG, there are tables of data for you to use in your queries.
 
@@ -1301,7 +1484,7 @@ The following areas of the emails regarding security alerts have been improved:
 - We're proactively notifying subscription owners by default on high-severity alerts (which have a high-probability of being genuine breaches)
 - We've removed the phone number field from the email notifications configuration page
 
-Learn more in [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
+Learn more in [Set up email notifications for security alerts](configure-email-notifications.md).
 
 
 ### Secure score doesn't include preview recommendations 
@@ -1533,7 +1716,7 @@ The adaptive application controls feature has received two significant updates:
     * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with a known executable, automatically generated folder names, etc.).
 
 
-[Learn more about adaptive application controls](security-center-adaptive-application.md).
+[Learn more about adaptive application controls](adaptive-application-controls.md).
 
 
 
@@ -1718,7 +1901,7 @@ This update brings the following changes to this feature:
 
 - The recommendation is triggered only if there are open management ports.
 
-Learn more about [the JIT access feature](security-center-just-in-time.md).
+Learn more about [the JIT access feature](just-in-time-access-usage.md).
 
 
 ### Custom recommendations have been moved to a separate security control
@@ -1784,7 +1967,7 @@ Learn more about [enhancing your custom recommendations with detailed informatio
 
 ### Crash dump analysis capabilities migrating to fileless attack detection 
 
-We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shell code discovered, and Suspicious code segment detected.
+We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](defender-for-servers-introduction.md#what-are-the-benefits-of-microsoft-defender-for-servers). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shell code discovered, and Suspicious code segment detected.
 
 Some of the benefits of this transition:
 
@@ -1841,7 +2024,7 @@ If you have subscriptions on the free pricing tier, their secure scores will be 
 
 Learn more about [identity and access recommendations](recommendations-reference.md#recs-identityandaccess).
 
-Learn more about [Managing multi-factor authentication (MFA) enforcement on your subscriptions](security-center-identity-access.md).
+Learn more about [Managing multi-factor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
 
 
 
@@ -1903,7 +2086,7 @@ The features, operation, and UI for Azure Security Center's just-in-time tools t
 - **Justification field** - When requesting access to a virtual machine (VM) through the just-in-time page of the Azure portal, a new optional field is available to enter a justification for the request. Information entered into this field can be tracked in the activity log. 
 - **Automatic cleanup of redundant just-in-time (JIT) rules** - Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. The tool looks for mismatches between rules in your policy and rules in the NSG. If the cleanup tool finds a mismatch, it determines the cause and, when it's safe to do so, removes built-in rules that aren't needed anymore. The cleaner never deletes rules that you've created. 
 
-Learn more about [the JIT access feature](security-center-just-in-time.md).
+Learn more about [the JIT access feature](just-in-time-access-usage.md).
 
 
 ### Two security recommendations for web applications deprecated
@@ -2089,7 +2272,7 @@ Updates in September include:
 
 The experience of managing rules for virtual machines using adaptive application controls has improved. Azure Security Center's adaptive application controls help you control which applications can run on your virtual machines. In addition to a general improvement to rule management, a new benefit enables you to control which file types will be protected when you add a new rule.
 
-[Learn more about adaptive application controls](security-center-adaptive-application.md).
+[Learn more about adaptive application controls](adaptive-application-controls.md).
 
 
 ### Control container security recommendation using Azure Policy
@@ -2135,7 +2318,7 @@ See which recommendations have quick fix enabled in the [reference guide to secu
 
 Security Center now supports cross-tenant management scenarios as part of Azure Lighthouse. This enables you to gain visibility and manage the security posture of multiple tenants in Security Center. 
 
-[Learn more about cross-tenant management experiences](security-center-cross-tenant-management.md).
+[Learn more about cross-tenant management experiences](cross-tenant-management.md).
 
 
 ## July 2019
@@ -2153,4 +2336,4 @@ Azure Security Center (ASC) has launched new networking recommendations and impr
 
 One of the biggest attack surfaces for workloads running in the public cloud are connections to and from the public Internet. Our customers find it hard to know which Network Security Group (NSG) rules should be in place to make sure that Azure workloads are only available to required source ranges. With this feature, Security Center learns the network traffic and connectivity patterns of Azure workloads and provides NSG rule recommendations, for Internet facing virtual machines. This helps our customer better configure their network access policies and limit their exposure to attacks. 
 
-[Learn more about adaptive network hardening](security-center-adaptive-network-hardening.md).
+[Learn more about adaptive network hardening](adaptive-network-hardening.md).

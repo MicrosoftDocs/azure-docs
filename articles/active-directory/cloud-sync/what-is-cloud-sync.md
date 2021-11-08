@@ -63,7 +63,9 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow minimal set of attributes to be synchronized (MinSync) |● |● |
 | Allow removing attributes from flowing from AD to Azure AD |● |● |
 | Allow advanced customization for attribute flows |● | |
-| Support for writeback (passwords, devices, groups) |● | |
+| Support for password writeback |● |● |
+| Support for device writeback|● | |
+| Support for group writeback|● | |
 | Azure AD Domain Services support|● | |
 | [Exchange hybrid writeback](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Unlimited number of objects per AD domain |● | |
