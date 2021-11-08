@@ -21,10 +21,8 @@ In this tutorial, you sign in users in a single-page application that uses the M
 Follow the steps in this tutorial to:
 
 > [!div class="checklist"]
-
 > - Initialize the auth SDK
 > - Sign in users 
-> - Add Login 
 > - Display logged-in content
 > - Display MSAL provider content
 
