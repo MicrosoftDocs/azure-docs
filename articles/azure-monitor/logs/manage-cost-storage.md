@@ -197,7 +197,7 @@ By default, two data types - `Usage` and `AzureActivity` - are retained for a mi
 
 Data types from workspace-based Application Insights resources (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents`, and `AppTraces`) are also retained for 90 days at no charge by default. Their retention can be adjusted using the retention by data type functionality. 
 
-The Log Analytics [purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types. 
+The Log Analytics [purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types. Learn more about managing [personal data stored in Log Analytics and Application Insights](./personal-data-mgmt.md).
 
 ### Retention by data type
 
@@ -583,9 +583,7 @@ This table lists some suggestions for reducing the volume of logs collected.
 
 ### Getting nodes as billed in the Per Node pricing tier
 
-To get a list of computers that will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes that are sending **billed data types** (some data types are free). 
-To do this, use the [_IsBillable property](./log-standard-columns.md#_isbillable) and use the leftmost field of the fully qualified domain name. This returns the count of computers with billed 
-data per hour (which is the granularity at which nodes are counted and billed):
+To get a list of computers that will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes that are sending **billed data types** (some data types are free). To do this, use the [_IsBillable property](./log-standard-columns.md#_isbillable) and use the leftmost field of the fully qualified domain name. This returns the count of computers with billed data per hour (which is the granularity at which nodes are counted and billed):
 
 ```kusto
 find where TimeGenerated > ago(24h) project Computer, TimeGenerated

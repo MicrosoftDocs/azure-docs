@@ -46,5 +46,5 @@ Consider [sharing feedback][feedback] for the features that you would like to se
 If you want to get started with Azure AD DS again, see [Create and configure an Azure Active Directory Domain Services managed domain][create-instance].
 
 <!-- INTERNAL LINKS -->
-[feedback]: https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593%3fcategory_id%3d160593
+[feedback]: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789?c=5d63b5b7-ae25-ec11-b6e6-000d3a4f0789
 [create-instance]: tutorial-create-instance.md
