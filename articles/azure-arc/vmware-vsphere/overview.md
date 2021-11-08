@@ -135,4 +135,4 @@ resource:
 
 ## Next steps
 
-- [Connect VMware vCenter to Azure Arc using CLI](quick-start-connect-vcenter-to-arc-using-script.md)
+- [Connect VMware vCenter to Azure Arc using the helper script](quick-start-connect-vcenter-to-arc-using-script.md)
