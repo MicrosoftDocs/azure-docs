@@ -41,7 +41,7 @@ Search-AzGraph -Query "iotsecurityresources | where type == 'microsoft.iotsecuri
 
 ### Count how many IoT Devices there are in your network, by operation system
 
-This query summarize all IoT Devices by their operation system's platform.
+This query summarizes all IoT Devices by their operation system's platform.
 
 ```kusto
 iotsecurityresources
