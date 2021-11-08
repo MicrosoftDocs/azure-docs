@@ -57,7 +57,7 @@ The rest of the tabs display log data that is related to a specific modality.
 
 Since **Voice and video** logs are the most complex in nature, this modality is broken down into four subsections:
 
-:::image type="content" source="media\workbooks\voice-and-video_nav.png" alt-text="Voice and video navigation":::
+:::image type="content" source="media\workbooks\voice-and-video-nav.png" alt-text="Voice and video navigation":::
 
 The **Summary** tab contains general information about Voice and video usage, including the types of media streams shared, the types of endpoints participating in a call (e.g. VoIP, Bot, Application, PSTN, or Server), the OS usage, and participant end reasons:
 
@@ -90,7 +90,7 @@ Quality can also be filtered by the types of media streams (**Media Type** param
 
 And can also be filtered by endpoint types (**Endpoint Type** parameter), e.g. getting the participant end reasons for PSTN participants. These filters allow for multiple selections:
 
-:::image type="content" source="media\workbooks\voice-and-video-params_2.png" alt-text="Voice and video quality endpoint type parameter":::
+:::image type="content" source="media\workbooks\voice-and-video-params-2.png" alt-text="Voice and video quality endpoint type parameter":::
 
 The **Details** tab offers a quick way to navigate through the **Voice and video** calls made in a time range by grouping calls by dates, and showing the details of every call made in terms of the participants in that call and the outgoing streams per participant, together with duration and telemetry values for these:
 
