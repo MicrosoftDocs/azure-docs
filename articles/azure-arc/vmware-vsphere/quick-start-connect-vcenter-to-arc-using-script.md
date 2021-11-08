@@ -16,10 +16,9 @@ Before using the Azure Arc-enabled VMware vSphere features, you'll need to conne
 
 ### Azure
 
-- An Azure subscription. 
+- An Azure subscription.
 
 - A resource group in the above subscription where you have the *Owner/Contributor* role.
-
 
 ### vCenter Server
 
@@ -30,12 +29,11 @@ Before using the Azure Arc-enabled VMware vSphere features, you'll need to conne
    >[!NOTE]
    >As of today, only the default port of 443 is supported. If you use a different port, the appliance VM creation fails.  
 
-- A resource pool with a minimum capacity of 16 GB of RAM, four vCPUs. 
+- A resource pool with a minimum capacity of 16 GB of RAM, four vCPUs.
 
 - A datastore with a minimum of 100 GB of free disk space available through the resource pool.
 
 - An external virtual network/switch and internet access, directly or through a proxy.
-
 
 ### vSphere accounts
 
@@ -44,10 +42,9 @@ A vSphere account that can read all inventory, deploy, and update VMs to all the
 >[!NOTE]
 >If you are using Azure VMware solution, this account would be the `cloudadmin` account.  
 
-### Workstation 
+### Workstation
 
 A Windows or Linux machine that can access both your vCenter server and internet, directly or through proxy.
-
 
 ## Prepare vCenter Server
 
@@ -55,13 +52,11 @@ A Windows or Linux machine that can access both your vCenter server and internet
 
 1. Ensure the vSphere accounts have the appropriate permissions.
 
-
-
-## Run the script 
+## Run the script
 
  Refer to the table for the script parameters:
 
-| **Parameter** | **Details** | 
+| **Parameter** | **Details** |
 | --- | --- |
 | **Subscription** | Azure subscription name or ID where you'll create the Azure resources. |
 | **ResourceGroup** | Resource group where you'll create the Arc resources. |
@@ -69,7 +64,7 @@ A Windows or Linux machine that can access both your vCenter server and internet
 | **ApplianceName** | You can provide the Arc resource bridge a name of your choice, for example, *contoso-nyc-appliance*. |
 | **CustomLocationName** | Name for the custom location in Azure. |
 | **VcenterName** | Name for the vCenter in Azure, which is the name your teams see when deploying their VMs through Arc. </br> Name it for the data center or physical location of your data center, for example, *contoso-nyc-dc*. |
- 
+
 ### Windows
 
 1. Open PowerShell and navigate to the folder where you want to keep the setup files.
@@ -81,13 +76,13 @@ A Windows or Linux machine that can access both your vCenter server and internet
 
    ```
 
-3.  Allow the script to run as an unsigned script. If you close the session before completing all the steps, rerun this for a new session.
+3. Allow the script to run as an unsigned script. If you close the session before completing all the steps, rerun this for a new session.
 
     ```powershell-interactive
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
     ```
 
-3. Execute the script by providing the parameters (refer to the table [above](#run-the-script) to know about the parameters).
+4. Execute the script by providing the parameters (refer to the table [above](#run-the-script) to know about the parameters).
 
      ```powershell-interactive
      ./arcvmware-setup.ps1 -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VcenterName <VcenterName>
@@ -124,6 +119,7 @@ Follow the below instructions to run the script on a Linux machine:
     ```
 
 ## Script runtime
+
 The script execution may take up to 30 minutes to complete and you'll be prompted for the various details. Refer to the table below for information.
 
 | Requirements | Details |
@@ -142,7 +138,7 @@ The script execution may take up to 30 minutes to complete and you'll be prompte
 | **Control Pane IP** | Provide a reserved IP address. A reserved IP address in your DHCP range or a static IP outside of DHCP range but still available on the network. The key thing is this IP address shouldn't be assigned to any other machine on the network. |
 | **Appliance proxy settings** | If you have a proxy in your appliance network, type **y** and then populate the following: <ul><li><b>Http</b>: Address of HTTP proxy server.</li><li><b>NoProxy</b>: addresses to be excluded from proxy.</li><li><b>CertificateFilePath</b>: for SSL-based proxies, path to certificate to be used.</li></ul> |
 
-Once the command execution completes, you can [try out the capabilities](browse-and-enable-vcenter-resources-in-azure.md) of Azure Arc enabled VMware vSphere. 
+Once the command execution completes, you can [try out the capabilities](browse-and-enable-vcenter-resources-in-azure.md) of Azure Arc enabled VMware vSphere.
 
 ### Retry command - Windows
 
