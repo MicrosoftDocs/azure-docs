@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 10/25/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -294,6 +294,29 @@ There are several scenarios which can trigger this behavior, all of which involv
 #### Resolution
 
 New runs of the parent pipeline will automatically begin succeeding, so typically no action is needed. However, to prevent these errors, customers should consider dependencies while authoring and planning deployments to avoid breaking changes. 
+
+### Cannot parameterize integration run time in linked service
+
+#### Issue
+Need to parameterize linked service integration run time
+
+#### Cause
+This feature is not supported. 
+
+#### Resolution
+You have to select manually and set an integration runtime. You can use PowerShell API to change as well.  This change can have downstream implications. 
+
+### Update/change Integration runtime during CI/CD. 
+ 
+#### Issue
+Changing Integration runtime name during CI/CD deployment.  
+ 
+#### Cause
+Parameterizing an entity reference (Integration runtime in Linked service, Dataset in activity, Linked Service in dataset) is not supported.  Changing the runtime name during deployment will cause the depended resource (Resource referencing the Integration runtime) to become malformed with invalid reference.  
+ 
+#### Resolution
+Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. 
+
 
 ## Next steps
 

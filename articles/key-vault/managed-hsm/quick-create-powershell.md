@@ -7,10 +7,8 @@ ms.date: 01/26/2021
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
-tags:
-  - azure-resource-manager
-ms.custom: devx-track-azurepowershell
-  - mode-api
+tags: azure-resource-manager
+ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a managed key from Azure Key Vault using PowerShell

@@ -1,14 +1,14 @@
 ﻿---
 title:  Supported data format details | Microsoft Azure Maps
 description: Learn how delimited spatial data is parsed in the spatial IO module.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 03/03/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-
 ---
+
 # Supported data format details
 
 This article provides specifics on the read and write support for all XML tags and Well-Known Text geometry types. It also details how the delimited spatial data is parsed in the spatial IO module.
@@ -18,7 +18,7 @@ This article provides specifics on the read and write support for all XML tags a
 The spatial IO module supports XML tags from the following namespaces.
 
 | Namespace Prefix | Namespace URI   | Notes                                                                    |
-|:------------------|:-----------------|:----------------------------------------|
+|:-----------------|:----------------|:----------------------------------------|
 | `atom`           | `http://www.w3.org/2005/Atom`   |                                         |
 | `geo`            | `http://www.w3.org/2003/01/geo/wgs84_pos#`  | Read only support in GeoRSS files.           |
 | `georss`         | `http://www.georss.org/georss`  |                                                |
@@ -39,8 +39,8 @@ The spatial IO module supports the following XML elements. Any XML tags that are
 
 The spatial IO module supports the following KML elements.
 
-| Element Name         | Read    | Write   | Notes                                                                                                                      |
-|----------------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------|
+| Element Name         | Read    | Write   | Notes                                                                   |
+|----------------------|---------|---------|-------------------------------------------------------------------------|
 | `address`            | partial | yes     | Object is parsed but isn't used for positioning shape.                                                                    |
 | `AddressDetails`     | partial | no      | Object is parsed but isn't used for positioning shape.                                                                    |
 | `atom:author`        | yes     | yes     |                                                                                                                            |
@@ -115,7 +115,7 @@ The spatial IO module supports the following KML elements.
 | `TimeSpan`           | yes     | yes     |                                                                                                                            |
 | `TimeStamp`          | yes     | yes     |                                                                                                                            |
 | `value`              | yes     | yes     |                                                                                                                            |
-| `viewRefreshMode`    | partial | no      |  If pointing to a WMS service, then only `onStop` is supported for ground overlays. Will append `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` to the URL and update as the map moves.  |
+| `viewRefreshMode`    | partial | no      |  If pointing to a WMS service, then only `onStop` is supported for ground overlays. Will append `BBOX={bboxWest},{bboxSouth},{bboxEast},{bboxNorth}` to the URL and update as the map moves.  |
 | `visibility`         | yes     | yes     |                                                                                                                            |
 | `west`               | yes     | yes     |                                                                                                                            |
 | `when`               | yes     | yes     |                                                                                                                            |
@@ -195,7 +195,7 @@ The spatial IO module supports the following GeoRSS elements.
 
 ### GML elements
 
-The spatial IO module supports the following GML elements. 
+The spatial IO module supports the following GML elements.
 
 | Element Name            | Read | Write | Notes                                                                                  |
 |-------------------------|------|-------|----------------------------------------------------------------------------------------|
@@ -271,7 +271,7 @@ The spatial IO module supports the following GPX elements.
 | `gpx:rtept`              | yes     | yes     |                                                                                             |
 | `gpx:sat`                | yes     | yes     |                                                                                             |
 | `gpx:src`                | yes     | yes     |                                                                                             |
-| `gpx:sym`                | yes     | yes     | Value is captured, but it isn't used to alter the pushpin icon.                               |
+| `gpx:sym`                | yes     | yes     | Value is captured, but it isn't used to alter the pushpin icon.                             |
 | `gpx:text`               | yes     | yes     |                                                                                             |
 | `gpx:time`               | yes     | yes     |                                                                                             |
 | `gpx:trk`                | yes     | yes     |                                                                                             |
@@ -281,10 +281,10 @@ The spatial IO module supports the following GPX elements.
 | `gpx:vdop`               | yes     | yes     |                                                                                             |
 | `gpx:wpt`                | yes     | yes     |                                                                                             |
 | `gpx_style:color`        | yes     | yes     |                                                                                             |
-| `gpx_style:line`         | partial | partial | `color`, `opacity`, `width`, `lineCap` are supported.                                           |
+| `gpx_style:line`         | partial | partial | `color`, `opacity`, `width`, `lineCap` are supported.                                       |
 | `gpx_style:opacity`      | yes     | yes     |                                                                                             |
 | `gpx_style:width`        | yes     | yes     |                                                                                             |
-| `gpxx:DisplayColor`      | yes     | no      | Used to specify the color of a shape. When writing, `gpx_style:line` color will be used instead.  |
+| `gpxx:DisplayColor`      | yes     | no      | Used to specify the color of a shape. When writing, `gpx_style:line` color will be used instead.|
 | `gpxx:RouteExtension`    | partial | no      | All properties are read into `properties`. Only `DisplayColor` is used.                     |
 | `gpxx:TrackExtension`    | partial | no      | All properties are read into `properties`. Only `DisplayColor` is used.                     |
 | `gpxx:WaypointExtension` | partial | no      | All properties are read into `properties`. Only `DisplayColor` is used.                     |
@@ -296,40 +296,40 @@ The spatial IO module supports the following GPX elements.
 When writing;
 
 - MultiPoints will be broken up into individual waypoints.
-- Polygons and MultiPolygons will be written as tracks. 
+- Polygons and MultiPolygons will be written as tracks.
   
 ## Supported Well-Known Text geometry types
 
 | Geometry type | Read | Write |
 |--------------|:----:|:-----:|
 | POINT | x | x |
-| POINT Z | x | x | 
+| POINT Z | x | x |
 | POINT M | x | x<sup>[2]</sup> |
-| POINT ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| POINT ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | LINESTRING | x | x |
 | LINESTRING Z | x | x | 
 | LINESTRING M | x | x<sup>[2]</sup> |
-| LINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| LINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | POLYGON | x | x |
 | POLYGON Z | x | x |
 | POLYGON M | x | x<sup>[2]</sup> |
-| POLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| POLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | MULTIPOINT | x | x |
-| MULTIPOINT Z | x | x | 
+| MULTIPOINT Z | x | x |
 | MULTIPOINT M | x | x<sup>[2]</sup> |
-| POMULTIPOINTINT ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| POMULTIPOINTINT ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | MULTILINESTRING | x | x |
-| MULTILINESTRING Z | x | x | 
+| MULTILINESTRING Z | x | x |
 | MULTILINESTRING M | x | x<sup>[2]</sup> |
-| MULTILINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| MULTILINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | MULTIPOLYGON | x | x |
 | MULTIPOLYGON Z | x | x | 
 | MULTIPOLYGON M | x | x<sup>[2]</sup> |
-| MULTIPOLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| MULTIPOLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | GEOMETRYCOLLECTION | x | x |
 | GEOMETRYCOLLECTION Z | x | x | 
-| GEOMETRYCOLLECTION M | x | x<sup>[2]</sup> | 
-| GEOMETRYCOLLECTION ZM | x<sup>[1]</sup><sup>[2]</sup> | x | 
+| GEOMETRYCOLLECTION M | x | x<sup>[2]</sup> |
+| GEOMETRYCOLLECTION ZM | x<sup>[1]</sup><sup>[2]</sup> | x |
 
 \[1\] Only Z parameter is captured and added as a third value in the Position value.
 
