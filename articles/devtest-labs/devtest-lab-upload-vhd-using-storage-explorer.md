@@ -31,9 +31,13 @@ Storage Explorer supports several connection options. This article describes con
 
 ## Step-by-step instructions
 
-1. When you open Storage Explorer, the left **Explorer** pane shows all the Azure subscriptions you're signed in to. If you need to add a different account, select the **Account Management** icon, and in the **Account Management** pane, select **Add an account**. Follow the prompts to sign in with the Microsoft account associated with your Azure subscription.
+1. When you open Storage Explorer, the left **Explorer** pane shows all the Azure subscriptions you're signed in to.
+
+   If you need to add a different account, select the **Account Management** icon, and in the **Account Management** pane, select **Add an account**.
 
    ![Screenshot that shows Add an account in the Account Management pane.](media/devtest-lab-upload-vhd-using-storage-explorer/add-account-link.png)
+
+   Follow the prompts to sign in with the Microsoft account associated with your Azure subscription.
 
 1. After you sign in, the **Explorer** pane shows the Azure subscriptions associated with your account. Select the dropdown arrow next to the Azure subscription you want to use. The left pane shows the storage accounts associated with the selected Azure subscription.
 
