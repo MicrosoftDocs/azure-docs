@@ -4,7 +4,7 @@ metadata:
   description: Find answer to common questions about Azure IoT Hub Device Provisioning Service.
   author: anastasia-ms
   ms.author: v-stharr
-  ms.date: 11/904/2021
+  ms.date: 11/08/2021
   ms.topic: conceptual
   ms.service: iot-dps
   services: iot-dps
@@ -12,25 +12,40 @@ metadata:
     
 title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ)
 summary: |
-  This article answers to common questions about Azure IoT Hub Device Provisioning Service. The following topics are covered:
+  This article answers to common questions about Azure IoT Hub Device Provisioning Service.
   
-  * DPS Management
 
   
 
 sections:
-  - name: DPS Management
+  - name: General Questions
     questions:
       - question: |
          What is the recommended way to update a linked hub when the primary key for the IoT Hub access policy is regenerated? 
         answer: |
          Since the primary key is embedded within the connection string (the string DPS uses to auth) it gets changed whenever the primary is modified. To fix stale DPS-Hub links because of the connection string having changed you need to relink the Hub to the DPS.
-  - name: DPS Development
+  - name: Billable API Operations
     questions:
       - question: |
-         First question? 
+         Which API operations in Device Registration State service are billable?
         answer: |
-         First answer.
+         The following table shows which Device Registration State service API operations are billable, and which are non-billable: 
+
+            | Operation | Billable? 
+            |-------|---|
+            | DELETE |  ✓| 
+            | GET | ✓| 
+            | POST | ✓| 
+              - question: |
+         Which API operations in Device Registration State service are billable?
+        answer: |
+         The following table shows which Device Registration State service API operations are billable, and which are non-billable: 
+
+            | Operation | Billable? 
+            |-------|---|
+            | DELETE |  ✓| 
+            | GET | ✓| 
+            | POST | ✓| 
 
 additionalContent: |
 
