@@ -31,7 +31,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md).
 
 In this quickstart, you use a sample thermostat device that's written in Java as the IoT Plug and Play device. To run the sample device:
 

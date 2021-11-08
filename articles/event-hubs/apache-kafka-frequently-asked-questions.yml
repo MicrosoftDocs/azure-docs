@@ -4,7 +4,7 @@ metadata:
   description: This article answers frequent questions asked about Azure Event Hubs' support for Apache Kafka clients not covered elsewhere.
   ms.topic: article
   ms.service: event-hubs
-  ms.date: 06/23/2020
+  ms.date: 09/20/2021
     
 title: Frequently asked questions - Event Hubs for Apache Kafka 
 summary: This article provides answers to some of the frequently asked questions on migrating to Event Hubs for Apache Kafka.

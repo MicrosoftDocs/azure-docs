@@ -42,6 +42,10 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
 - [Git](https://www.git-scm.com/downloads). 
 - [Azure Cosmos DB SQL API SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
 
+## Important update on Python 2.x Support
+
+New releases of this SDK won't support Python 2.x starting January 1st, 2022. Please check the [CHANGELOG](./sql-api-sdk-python.md) for more information.
+
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
@@ -65,8 +69,9 @@ Now let's clone a SQL API app from GitHub, set the connection string, and run it
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
     ```cmd
-    md "git-samples"
+    md git-samples
     ```
+
    If you are using a bash prompt, you should instead use the following command:
 
    ```bash

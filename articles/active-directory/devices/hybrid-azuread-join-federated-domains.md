@@ -10,7 +10,7 @@ ms.date: 05/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure Active Directory (Azure AD) joined devices for federated domains so I can automatically create and manage device identities in Azure AD for my Active Directory domain-joined computers

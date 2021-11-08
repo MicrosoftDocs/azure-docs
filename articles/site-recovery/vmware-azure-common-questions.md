@@ -19,7 +19,7 @@ To change the experience -
 1. Open the vault on Azure portal. 
 2. Click on **Site Recovery** in the **Getting started** section. 
 3. Click on the banner on top of this page. 
-
+    
     [![Modify VMware stack step 1](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
 
 4. This will open the experience selection blade. Select the classic experience if you want to use configuration server and then click on **OK**. If not, close the pane. 
@@ -159,7 +159,7 @@ Replication is continuous when replicating VMware VMs to Azure.
 
 ### Can I extend replication?
 
-Extended or chained replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Extended or chained replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84).
 
 ### How can I track progress of initial replication/synchronization?
 
@@ -167,7 +167,7 @@ This capability has been recently to Site Recovery services. Update your Site Re
 
 ### Can I do an offline initial replication?
 
-Offline replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Offline replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/d365community/idea/7c09c396-2e25-ec11-b6e6-000d3a4f0f84).
 
 ### What is asrseeddisk?
 

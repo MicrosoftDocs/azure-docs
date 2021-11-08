@@ -32,62 +32,62 @@ Service Fabric managed clusters enable you to assign NSG rules directly within t
 Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) property of your *Microsoft.ServiceFabric/managedclusters* resource (version `2021-05-01` or later) to assign NSG rules. For example:
 
 ```json
-            "apiVersion": "2021-05-01",
-            "type": "Microsoft.ServiceFabric/managedclusters",
-            ...
-            "properties": {
-                ...
-                "networkSecurityRules" : [
-                    {
-                        "name": "AllowCustomers",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "Internet",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33000-33499",
-                        "access": "Allow",
-                        "priority": 2001,
-                        "direction": "Inbound"
-                    },
-                    {
-                        "name": "AllowARM",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "AzureResourceManager",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33500-33699",
-                        "access": "Allow",
-                        "priority": 2002,
-                        "direction": "Inbound"
-                    },
-                    {
-                        "name": "DenyCustomers",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "Internet",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33700-33799",
-                        "access": "Deny",
-                        "priority": 2003,
-                        "direction": "Outbound"
-                    },
-                    {
-                        "name": "DenyRDP",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "*",
-                        "destinationAddressPrefix": "VirtualNetwork",
-                        "destinationPortRange": "3389",
-                        "access": "Deny",
-                        "priority": 2004,
-                        "direction": "Inbound",
-                        "description": "Override for optional SFMC_AllowRdpPort rule. This is required in tests to avoid Sev2 incident for security policy violation."
-                    }
-                ],
-                "fabricSettings": [
-                ...
-                ]
-            }
+{
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "properties": {
+    "networkSecurityRules": [
+      {
+        "name": "AllowCustomers",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33000-33499",
+        "access": "Allow",
+        "priority": 2001,
+        "direction": "Inbound"
+      },
+      {
+        "name": "AllowARM",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "AzureResourceManager",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33500-33699",
+        "access": "Allow",
+        "priority": 2002,
+        "direction": "Inbound"
+      },
+      {
+        "name": "DenyCustomers",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33700-33799",
+        "access": "Deny",
+        "priority": 2003,
+        "direction": "Outbound"
+      },
+      {
+        "name": "DenyRDP",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "destinationPortRange": "3389",
+        "access": "Deny",
+        "priority": 2004,
+        "direction": "Inbound",
+        "description": "Override for optional SFMC_AllowRdpPort rule. This is required in tests to avoid Sev2 incident for security policy violation."
+      }
+    ],
+    "fabricSettings": [
+      "..."
+    ]
+  }
+}
 ```
 
 ## ClientConnection and HttpGatewayConnection default and optional rules
@@ -194,7 +194,9 @@ Using Azure portal, locate the managed cluster created inbound NAT rules for Rem
 
    ![Inbound Nat Rules][Inbound-NAT-Rules]
 
-   By default, for Windows clusters, the Frontend Port is in the 50000 and higher range and the target port is port 3389, which maps to the RDP service on the target node.
+   By default, for Windows clusters, the Frontend Port allocation starts at 50000 and the target port is port 3389, which maps to the RDP service on the target node.
+   >[!NOTE]
+   > If you are using the BYOLB feature and you want RDP, you must configure a NAT pool separately to do so. This will not automatically create any NAT rules for those node types.
 
 4. Remotely connect to the specific node (scale set instance). You can use the user name and password that you set when you created the cluster or any other credentials you have configured.
 
@@ -324,7 +326,11 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
 This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy its resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering. Additionally, you can [bring your own Azure Load balancer](#byolb) if needed also.
 
 > [!NOTE]
+> When using BYOVNET, managed cluster resources will be deployed in one subnet. 
+
+> [!NOTE]
 > This setting cannot be changed once the cluster is created and the managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
+
 
 **To bring your own virtual network:**
 
@@ -432,8 +438,11 @@ Managed clusters create an Azure Load Balancer and fully qualified domain name w
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
 * Map a Load Balancer to a specific node type
-* Configure NSG rules per node type because each node type is deployed in its own VNET
+* Configure network security group rules per node type because each node type is deployed in its own subnet with a unique NSG 
 * Maintain existing policies and controls you may have in place
+
+> [!NOTE]
+> When using BYOVNET, managed cluster resources will be deployed in one subnet with one NSG regardless of additional configured load balancers.
 
 > [!NOTE]
 > You can not switch from default to custom after cluster deployment for a node type, but you can modify custom load balancer configuration post-deployment.
@@ -481,7 +490,7 @@ To configure bring your own load balancer:
 
 2. Add a role assignment to the Service Fabric Resource Provider application. Adding a role assignment is a one time action. You add the role by running the following PowerShell commands or by configuring an Azure Resource Manager (ARM) template as detailed below.
 
-   In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group. The subnet is named default.
+   In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group.
 
    Obtain the required `Id` property info from the existing Azure Load Balancer. We'll 
 
@@ -503,7 +512,7 @@ To configure bring your own load balancer:
    New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
    ```
 
-   Or you can add the role assignment by using an Azure Resource Manager (ARM) template configured with proper values for `principalId`, `roleDefinitionId`, `vnetName`, and `subnetName`:
+   Or you can add the role assignment by using an Azure Resource Manager (ARM) template configured with proper values for `principalId` obtained in step 1, `loadBalancerRoleAssignmentID`, and `roleDefinitionId`:
 
    ```JSON
       "type": "Microsoft.Authorization/roleAssignments",

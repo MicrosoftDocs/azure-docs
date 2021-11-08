@@ -136,7 +136,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
 2. In **Discover machines** > **Are your machines virtualized?**, click **Not virtualized/Other**.
 3. In **Target region**, select the Azure region to which you want to migrate the machines.
-4. Select **Confirm that the target region for migration is <region-name>**.
+4. Select **Confirm that the target region for migration is \<region-name\>**.
 5. Click **Create resources**. This creates an Azure Site Recovery vault in the background.
     - If you've already set up migration with Azure Migrate Server Migration, the target option can't be configured, since resources were set up previously.
     - You can't change the target region for this project after clicking this button.
@@ -324,7 +324,7 @@ Do a test migration as follows:
 5. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
 6. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
 
-    ![Clean up migration](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/clean-up-inline.png" alt-text="Screenshot showing the result after the clean up of test migration." lightbox="./media/tutorial-migrate-physical-virtual-machines/clean-up-expanded.png":::
 
     > [!NOTE]
     > You can now register your servers running SQL server with SQL VM RP to take advantage of automated patching, automated backup and simplified license management using SQL IaaS Agent Extension.
@@ -376,8 +376,7 @@ After you've verified that the test migration works as expected, you can migrate
 ## Troubleshooting / Tips
 
 **Question:** I cannot see my AWS VM in the discovered list of servers for migration   
-**Answer:** Check if your replication appliance meets the requirements. Make sure
-Mobility Agent is installed on the source VM to be migrated and is registered the Configuration Server. Check the network setting and firewall rules to enable a network path between the replication appliance and source AWS VMs.  
+**Answer:** Check if your replication appliance meets the requirements. Make sure Mobility Agent is installed on the source VM to be migrated and is registered the Configuration Server. Check the network setting and firewall rules to enable a network path between the replication appliance and source AWS VMs.  
 
 **Question:** How do I know if my VM was successfully migrated   
 **Answer:** Post-migration, you can view and manage the VM from the Virtual Machines page. Connect to the migrated VM to validate.  

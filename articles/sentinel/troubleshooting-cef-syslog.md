@@ -6,7 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot your CEF or Syslog data connector
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Azure Sentinel.
 
@@ -501,7 +502,7 @@ In such cases, continue troubleshooting by verifying the following:
 
 - Make sure that you can see logs being written to the local log file, either **/var/log/messages** or **/var/log/syslog**
 
-- Make sure that you can see data packets flowing on port 25524, 25526, or both
+- Make sure that you can see data packets flowing on port 25224, 25226, or both
 
 - Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](../azure-monitor/agents/log-analytics-agent.md#network-requirements)
 

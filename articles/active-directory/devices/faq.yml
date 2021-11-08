@@ -10,7 +10,7 @@ metadata:
   ms.date: 09/02/2021
   ms.author: joflore
   author: MicrosoftGuyJFlo
-  manager: daveba
+  manager: karenhoran
   ms.reviewer: ravenn
   ms.collection: M365-identity-device-management
     
@@ -154,6 +154,12 @@ sections:
           Typically, the device is aware of the user state in less than four hours. Then Windows blocks those users' access to the desktop. As the user is deleted or disabled in Azure AD, all their tokens are revoked. So they can't access any resources. 
           
           Deleted or disabled users who didn't sign in previously can't access a device. There's no cached username and password enabled for them. 
+          
+          
+          
+      - question: Can a guest user sign in to an Azure AD joined device?
+        answer: |
+          No, currently, guest users can not sign in to an Azure AD joined device.
           
           
           

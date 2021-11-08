@@ -20,7 +20,7 @@ A workspace environment can be complex and include connected sources, managed so
 - To export the workspace configuration to a template that can be deployed to another region, you need the [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) or [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role, or higher.
 
 - Identify all the resources that are currently associated with your workspace, including:
-  - *Connected agents*: Enter **Logs** in your workspace and query a [heartbeat](../insights/solution-agenthealth.md#heartbeat-records) table to list connected agents.
+  - *Connected agents*: Enter **Logs** in your workspace and query a [heartbeat](../insights/solution-agenthealth.md#azure-monitor-log-records) table to list connected agents.
     ```kusto
     Heartbeat
     | summarize by Computer, Category, OSType, _ResourceId
@@ -207,7 +207,7 @@ The following procedures show how to prepare the workspace and resources for the
         },
         {
           "type": "microsoft.insights/scheduledqueryrules",
-          "apiVersion": "2021-02-01-preview",
+          "apiVersion": "2021-08-01",
           "name": "[parameters('alertName')]",
           "location": "france central",
           "properties": {

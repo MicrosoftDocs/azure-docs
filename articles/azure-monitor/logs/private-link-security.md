@@ -73,10 +73,10 @@ Therefore, Private Links created starting September 2021 have new mandatory AMPL
 * Open mode - uses Private Link to communicate with resources in the AMPLS, but also allows traffic to continue to other resources as well. See [Control how Private Links apply to your networks](./private-link-design.md#control-how-private-links-apply-to-your-networks) to learn more.
 
 > [!NOTE]
-> Log Analytics ingestion uses resource-specific endpoints. As such, it doesn’t adhere to AMPLS access modes. Ingestion to workspaces in the AMPLS is sent through the private link, while ingestion to workspaces not in the AMPLS uses the default public endpoints. To assure ingestion requests can’t access resources out of the AMPLS, block the network’s access to public endpoints.
+> Log Analytics ingestion uses resource-specific endpoints. As such, it doesn’t adhere to AMPLS access modes. **To assure Log Analytics ingestion requests can’t access workspaces out of the AMPLS, set the network firewall to block traffic to public endpoints, regardless of the AMPLS access modes**.
 
 ## Next steps
 - [Design your Private Link setup](private-link-design.md)
 - Learn how to [configure your Private Link](private-link-configure.md)
-
+- Learn about [private storage](private-storage.md) for Custom Logs and Customer managed keys (CMK)
 <h3><a id="connect-to-a-private-endpoint"></a></h3>

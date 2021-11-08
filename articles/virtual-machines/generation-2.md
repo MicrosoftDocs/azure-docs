@@ -3,7 +3,7 @@ title: Azure support for generation 2 VMs
 description: Overview of Azure support for generation 2 VMs
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: generation-2-vm
+ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
@@ -22,7 +22,7 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 
 ## Generation 2 VM sizes
 
-Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series and Msv2 and Mdsv2 Medium Memory Series VMs). Azure now offers generation 2 support for the following selected VM series:
+Azure now offers generation 2 support for the following selected VM series:
 
 
 * [B-series](sizes-b-series-burstable.md)
@@ -32,10 +32,20 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series a
 * [Dsv4-series](dv4-dsv4-series.md)
 * [Dasv4-series](dav4-dasv4-series.md)
 * [Ddsv4-series](ddv4-ddsv4-series.md)
+* [Dasv5-series](dasv5-dadsv5-series.md)
+* [Dadsv5-series](dasv5-dadsv5-series.md)
+* [Dv5-series](dv5-dsv5-series.md)
+* [Dsv5-series](dv5-dsv5-series.md)
 * [Esv3-series](ev3-esv3-series.md)
 * [Esv4-series](ev4-esv4-series.md)
 * [Easv4-series](eav4-easv4-series.md)
 * [Edsv4-series](edv4-edsv4-series.md)
+* [Easv5-series](easv5-eadsv5-series.md)
+* [Eadsv5-series](easv5-eadsv5-series.md)
+* [Edv5-series](edv5-edsv5-series.md)
+* [Edsv5-series](edv5-edsv5-series.md)
+* [Ev5-series](ev5-esv5-series.md)
+* [Esv5-series](ev5-esv5-series.md)
 * [Fsv2-series](fsv2-series.md)
 * [GS-series](sizes-previous-gen.md#gs-series)
 * [HB-series](hb-series.md)
@@ -48,11 +58,14 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series a
 * [NCv2-series](ncv2-series.md) 
 * [NCv3-series](ncv3-series.md)
 * [ND-series](nd-series.md)
+* [ND A100 v4-series](nda100-v4-series.md)
+* [NDv2-series](ndv2-series.md)
 * [NVv3-series](nvv3-series.md)
 * [NVv4-series](nvv4-series.md)
 * [NCasT4_v3-series](nct4-v3-series.md)
+* [NDm A100 v4-series](ndm-a100-v4-series.md)
 
-<sup>1</sup> Mv2-series, Msv2 and Mdsv2-series Medium Memory does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](mv2-series.md) and [Msv2 and Mdsv2 Medium Memory Series](msv2-mdsv2-series.md) for details.
+<sup>1</sup> Mv2-series, DC-series, NDv2-series, Msv2 and Mdsv2-series Medium Memory do not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](mv2-series.md), [DSv2-series](dv2-dsv2-series.md), [ND A100 v4-series](nda100-v4-series.md), [NDv2-series](ndv2-series.md), and [Msv2 and Mdsv2 Medium Memory Series](msv2-mdsv2-series.md) for details.
 
 
 ## Generation 2 VM images in Azure Marketplace
@@ -69,7 +82,7 @@ Generation 2 VMs support the following Marketplace images:
 * Oracle Linux 7.7, 7.7-CI, 7.8
 
 > [!NOTE]
-> Specific Virtual machine sizes like Mv2-Series may only support a subset of these images - please look at the relevant virtual machine size documentation for complete details.
+> Specific Virtual machine sizes like Mv2-Series, DC-series, ND A100 v4-series, NDv2-series, Msv2 and Mdsv2-series may only support a subset of these images - please look at the relevant virtual machine size documentation for complete details.
 
 ## On-premises vs. Azure generation 2 VMs
 
@@ -80,7 +93,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 | Secure boot                         | :heavy_check_mark:  | With trusted launch (preview)   |
 | Shielded VM                         | :heavy_check_mark:  | :x:   |
 | vTPM                                | :heavy_check_mark:  | With trusted launch (preview)  |
-| Virtualization-based security (VBS) | :heavy_check_mark:  | With trusted launch (preview)   |
+| Virtualization-based security (VBS) | :heavy_check_mark:  | :heavy_check_mark:   |
 | VHDX format                         | :heavy_check_mark:  | :x:   |
 
 For more information, see [Trusted launch (preview)](trusted-launch.md).
@@ -104,9 +117,10 @@ For more information, see [Trusted launch (preview)](trusted-launch.md).
 | Virtual machine scale set support | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
-| Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Compute Gallery             | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
+
 
 ## Creating a generation 2 VM
 

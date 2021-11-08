@@ -68,7 +68,7 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
 - **Authentication and authorization:** If authentication and authorization policies aren't already set up on your existing Functions app, then the static web app has exclusive access to the API. To make your Functions app accessible to other applications, add another identity provider or change the security settings to allow unauthenticated access.
 
   > [!NOTE]
-  > If you enable authentication and authorization in your linked Functions app, it must use Azure App Service Authentication and authorization provider is version 2.
+  > If you enable authentication and authorization in your linked Functions app, it must use Azure App Service Authentication and authorization provider version 2.
 
 - **Required public accessibility:** An existing Functions app needs to not apply the following security configurations.
   - Restricting the IP address of the Functions app.

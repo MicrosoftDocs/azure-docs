@@ -106,7 +106,7 @@ These offer plans create all the Azure compute resources to run JBoss EAP setup 
 ## After a successful deployment
 
 1. [Create a Jump VM with VNet Peering](../../windows/quick-create-portal.md#create-virtual-machine) in a different Virtual Network and access the server and expose the application using [Virtual Network Peering](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
-2. [Create a Public IP](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) to access the server and the application.
+2. [Create a Public IP](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) to access the server and the application.
 3. [Create a Jump VM in the same Virtual Network (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) in a different subnet (new subnet) in the same VNet and access the server via a Jump VM. The Jump VM can be used to expose the application.
 4. Expose the application using an [Application Gateway](../../../application-gateway/quick-create-portal.md#create-an-application-gateway).
 5. Expose the application using an External Load Balancer (ELB).
@@ -123,7 +123,7 @@ These offer plans create all the Azure compute resources to run JBoss EAP setup 
 
 ### 2. Create a Public IP to access the RHEL VM and JBoss EAP Admin Console.
 
-1. The RHEL VM you created don't have a Public IP associated with it. You can [create a Public IP](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) for accessing the VM and [associate the Public IP to the VM](../../../virtual-network/associate-public-ip-address-vm.md). Creating a Public IP can be done using Azure portal or [Azure PowerShell](/powershell/) commands or [Azure CLI](/cli/azure/install-azure-cli) commands.
+1. The RHEL VM you created don't have a Public IP associated with it. You can [create a Public IP](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) for accessing the VM and [associate the Public IP to the VM](../../../virtual-network/ip-services/associate-public-ip-address-vm.md). Creating a Public IP can be done using Azure portal or [Azure PowerShell](/powershell/) commands or [Azure CLI](/cli/azure/install-azure-cli) commands.
 2. Obtain the Public IP of a VM - go to the VM details page and copy the Public IP. Use Public IP to access the VM and JBoss EAP Admin Console.
 3. View the JBoss EAP on Azure web page - open a web browser and go to *http://<PUBLIC_HOSTNAME>:8080/* and you should see the default EAP welcome page.
 4. Log into the JBoss EAP Admin Console - open a web browser and go to *http://<PUBLIC_HOSTNAME>:9990*. Enter the JBoss EAP username and password to log in.

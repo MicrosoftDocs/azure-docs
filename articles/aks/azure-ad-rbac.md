@@ -423,7 +423,7 @@ For best practices on identity and resource control, see [Best practices for aut
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
-[azure-ad-aks-cli]: azure-ad-integration-cli.md
+[azure-ad-aks-cli]: managed-aad.md
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-ad-group-create]: /cli/azure/ad/group#az_ad_group_create
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

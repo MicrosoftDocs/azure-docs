@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to version machine learning datasets and how versioning works with machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: nibaccam
-ms.date: 03/09/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
 

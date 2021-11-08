@@ -2,13 +2,13 @@
 title: Download Azure billing invoice
 description: Describes how to download or view your Azure billing invoice.
 keywords: billing invoice,invoice download,azure invoice
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 10/28/2021
 ms.author: banders
 ---
 

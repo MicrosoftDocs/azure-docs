@@ -5,7 +5,6 @@ description: Learn about the quotas and limits on resources for Azure Purview an
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
 ---

@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	   | Environment | URL |
       |:--- |:--- |
       | PC |`https://ap.sansan.com/v/saml2/<COMPANY_NAME>/acs` |
-      | Smartphone App |`https://internal.api.sansan.com/<COMPANY_NAME>/acs` |
+      | Smartphone App |`https://internal.api.sansan.com/saml2/<COMPANY_NAME>/acs` |
       | Smartphone Web |`https://ap.sansan.com/s/saml2/<COMPANY_NAME>/acs` |
 
    1. In the **Sign-on URL** text box, type the URL: 

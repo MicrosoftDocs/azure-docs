@@ -9,7 +9,7 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 10/28/2021
 ms.author: pafarley
 #How to set any of the configurations in the review tool.
 ---
@@ -97,7 +97,7 @@ The [Review tool](./human-in-the-loop.md) includes the following connectors:
 - Emotion
 - Face
 - PhotoDNA Cloud Service
-- Text Analytics
+- Language service
 
 ### Add a connector
 

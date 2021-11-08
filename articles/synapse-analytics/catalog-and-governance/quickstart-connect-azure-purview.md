@@ -5,7 +5,7 @@ author: Jejiang
 ms.service: synapse-analytics
 ms.subservice: purview
 ms.topic: quickstart
-ms.date: 09/02/2021
+ms.date: 09/29/2021
 ms.author: jejiang
 ms.reviewer: jrasnick
 ---
@@ -62,17 +62,24 @@ The Purview connection information is stored in the Synapse workspace resource l
 
 Synapse workspace's managed identity is used to authenticate lineage push operations from Synapse workspace to Purview.
 
-- For Purview account created **on or after August 18, 2021**, grant the Synapse workspace's managed identity **Data Curator** role on your Purview **root collection**. Learn more about [Access control in Azure Purview](../../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
+Grant the Synapse workspace's managed identity **Data Curator** role on your Purview **root collection**. Learn more about [Access control in Azure Purview](../../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    When connecting Synapse workspace to Purview in Synapse Studio, Synapse tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection and have access to Purview account from your network, this operation is done successfully.
+When connecting Synapse workspace to Purview in Synapse Studio, Synapse tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection and have access to Purview account from your network, this operation is done successfully.
 
-- For Purview account created **before August 18, 2021**, grant the Synapse workspace's managed identity Azure built-in [**Purview Data Curator**](../../role-based-access-control/built-in-roles.md#purview-data-curator) role on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../../purview/catalog-permissions.md#legacy-permission-guide).
+## Monitor Purview connection
 
-    When connecting Synapse workspace to Purview in Synapse Studio, Synapse tries to add such role assignment automatically. If you have Azure built-in **Owner** or **User Access Administrator** role on the Purview account, this operation is done successfully.
+Once you connect the Synapse workspace to a Purview account, you see the following page with details on the enabled integration capabilities.
 
-You may see below warning if you have the privilege to read Purview role assignment information and the needed role is not granted. To make sure the connection is properly set for the pipeline lineage push, go to your Purview account and check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. If not, manually add the role assignment.
+:::image type="content" source="./media/monitor-purview-connection-status.png" alt-text="Screenshot for monitoring the integration status between Azure Synapse and Purview.":::
 
-:::image type="content" source="./media/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
+For **Data Lineage - Synapse Pipeline**, you may see one of below status:
+
+- **Connected**: The Synapse workspace is successfully connected to the Purview account. Note this indicates Synapse workspace is associated with a Purview account and has permission to push lineage to it. If your Purview account is protected by firewall, you also need to make sure the integration runtime used to execute the activities and conduct lineage push can reach the Purview account. Learn more from [Access a secured Azure Purview account](how-to-access-secured-purview-account.md).
+- **Disconnected**: The Synapse workspace cannot push lineage to Purview because Purview Data Curator role is not granted to Synapse workspace's managed identity. To fix this issue, go to your Purview account to check the role assignments, and manually grant the role as needed. Learn more from [Set up authentication](#set-up-authentication) section.
+- **Unknown**: Azure Synapse cannot check the status. Possible reasons are:
+
+    - Cannot reach the Purview account from your current network because the account is protected by firewall. You can launch the Synapse Studio from a private network that has connectivity to your Purview account instead.
+    - You don't have permission to check role assignments on the Purview account. You can contact the Purview account admin to check the role assignments for you. Learn about the needed Purview role from [Set up authentication](#set-up-authentication) section.
 
 ## Report lineage to Azure Purview
 

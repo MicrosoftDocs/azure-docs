@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/26/2021
+ms.date: 09/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management, has-adal-ref
@@ -73,7 +73,7 @@ This upgrade is especially important since we have had to update our prerequisit
 No – this release does not contain any new functionality. This release only contains updates of some of the foundational components on Azure AD Connect. 
 
 **Can I upgrade from any previous version to V2.0?** </br>
-Yes – upgrades from any previous version of Azure AD Connect to Azure AD Connect V2.0 is supported. Please follow the guidance in this article to determine what is the best upgrade strategy for you. 
+Yes – upgrades from any previous version of Azure AD Connect to Azure AD Connect V2.0 is supported. Please follow the guidance in [this article](how-to-upgrade-previous-version.md) to determine what is the best upgrade strategy for you. 
 
 **Can I export the configuration of my current server and import it in Azure AD Connect V2.0?** </br>
 Yes, you can do that, and it is a great way to migrate to Azure AD Connect V2.0 – especially if you are also upgrading to a new operating system version. You can read more about the Import/export configuration feature and how you can use it in this [article](how-to-connect-import-export-config.md). 
@@ -85,7 +85,7 @@ No – Azure AD Connect V2.0 will not be made available for auto upgrade at this
 You should upgrade to Azure AD Connect V2.0 as soon as you can. **__All Azure AD Connect V1 versions will be retired on 31 August, 2022.__** For the time being we will continue to support older versions of Azure AD Connect, but it may prove difficult to provide a good support experience if some of the components in Azure AD Connect have dropped out of support. This upgrade is particularly important for ADAL and TLS1.0/1.1 as these services might stop working unexpectedly after they are deprecated. 
 
 **I use an external SQL database and do not use SQL 2012 LocalDb – do I still have to upgrade?** </br>
-Yes, you still need to upgrade to remain in a supported state even if you do not use SQL Server 2012, due to the TLS1.0/1.1 and ADAL deprecation. 
+Yes, you still need to upgrade to remain in a supported state even if you do not use SQL Server 2012, due to the TLS1.0/1.1 and ADAL deprecation. Note that SQL Server 2012 can still be used as an external SQL database with Azure AD Connect V2.0 - the SQL 2019 drivers in Azure AD Connect V2.0 are compatible with SQL Server 2012.
 
 **After the upgrade of my Azure AD Connect instance to V2.0, will the SQL 2012 components automatically get uninstalled?** </br>
 No, the upgrade to SQL 2019 does not remove any SQL 2012 components from your server. If you no longer need these components then you should follow [the SQL Server uninstallation instructions](/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
