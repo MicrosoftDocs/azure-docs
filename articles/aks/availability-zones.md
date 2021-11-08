@@ -27,15 +27,20 @@ AKS clusters can currently be created using availability zones in the following 
 * Australia East
 * Brazil South
 * Canada Central
+* Central India
 * Central US
+* East Asia
 * East US 
 * East US 2
 * France Central
 * Germany West Central
 * Japan East
+* Korea Central
 * North Europe
+* Norway East
 * Southeast Asia
 * South Central US
+* Sweden Central
 * UK South
 * US Gov Virginia
 * West Europe
