@@ -7,23 +7,25 @@ ms.date: 11/08/2021
 
 # Connect your data from Defender for IoT for organizations to Azure Sentinel (Public preview)
 
-Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel. 
+Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel.
 
-This integration enables organizations to quickly detect multistage attacks that often cross IT and OT boundaries. Additionally, Defender for IoT’s integration with Azure Sentinel's security orchestration, automation, and response (SOAR) capabilities enables automated response and prevention using built-in OT-optimized playbooks.
+This integration enables organizations to quickly detect multistage attacks that often cross IT and OT boundaries. Additionally, Defender for IoT’s integration with Azure Sentinel's security orchestration, automation, and response (SOAR) capabilities enable automated response and prevention using built-in OT-optimized playbooks.
 
 ## Prerequisites
 
 - **Read** and **Write** permissions on the Workspace onto which Azure Sentinel is deployed
+
 - **Defender for IoT** must be **enabled** on your relevant IoT Hub(s)
+
 - You must have **Contributor** permissions on the **Subscription** you want to connect
 
 ## Connect to Defender for IoT
 
 1. In Azure Sentinel, select **Data connectors** and then select the **Defender for IoT** (may still be called Azure Security Center for IoT) from the gallery.
 
-1. From the bottom of the right pane, click **Open connector page**.
+1. From the bottom of the right pane, select **Open connector page**.
 
-1. Click **Connect**, next to each subscription whose alerts and device alerts you want to stream into Azure Sentinel.
+1. Select **Connect**, next to each subscription whose alerts and device alerts you want to stream into Azure Sentinel.
 
     > [!NOTE]
     > You will receive an error message if Defender for IoT is not enabled on at least one IoT Hub within that subscription. Enable Defender for IoT within the IoT Hub to remove the error.
