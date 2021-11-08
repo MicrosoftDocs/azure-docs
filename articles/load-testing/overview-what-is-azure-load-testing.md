@@ -14,7 +14,7 @@ adobe-target: true
 
 Azure Load Testing Preview is a fully managed load testing service that enables you to generate high-scale load. The service will simulate traffic for your applications, regardless of where they're hosted. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity. 
 
-You can create a load test by using existing test scripts, based on Apache JMeter, an open-source load and performance tool. For Azure-based applications, detailed resource metrics help you to identify performance bottlenecks. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing.
+You can create a load test by using existing test scripts, based on Apache JMeter, a popular open-source load and performance tool. For Azure-based applications, detailed resource metrics help you to identify performance bottlenecks. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in PREVIEW.
@@ -39,7 +39,7 @@ Azure Load Testing automatically incorporates Azure networking best practices to
 
 ## How to identify performance bottlenecks by using high-scale load tests?
 
-Performance problems often remain undetected until the application is under load. You can start a high-scale load test in the Azure portal. While the test is running, the Azure Load Testing dashboard provides a live update of the client and server-side metrics.
+Performance problems often remain undetected until the application is under load. You can start a high-scale load test in the Azure portal to learn sooner how your application behaves under stress. While the test is running, the Azure Load Testing dashboard provides a live update of the client and server-side metrics.
 
 After the load test finishes, you can use the dashboard to analyze the test results and identify performance bottlenecks. For Azure-hosted applications, the dashboard shows detailed resource metrics of the Azure application components.
 
