@@ -1,11 +1,13 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 10/17/2021
+ms.date: 11/08/2021
 ms.topic: reference
 ---
 
 # Defender for IoT sensor and management console APIs
+
+Defender for IoT APIs are governed by [Microsoft API License and Terms of use](/legal/microsoft-apis/terms-of-use).
 
 Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
 

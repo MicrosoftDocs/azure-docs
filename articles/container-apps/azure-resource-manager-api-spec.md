@@ -1,9 +1,9 @@
 ---
 title: Container Apps Preview ARM template API specification
 description: Explore the available properties in the Container Apps ARM template.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: reference
 ms.date: 11/02/2021
 ms.author: cshoe

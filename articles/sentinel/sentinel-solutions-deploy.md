@@ -1,5 +1,5 @@
 ---
-title: Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions | Microsoft Docs
+title: Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions
 description: This article shows how customers can easily find and deploy data analysis tools, packaged together with data connectors and other content.
 services: sentinel
 cloud: na
