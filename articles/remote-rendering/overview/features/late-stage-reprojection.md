@@ -106,7 +106,7 @@ The focus points calculated in two successive frames can vary a lot. Simply usin
 
 The general problem scope with hybrid rendering can be stated like this: Remote and local contents are within distinct poses (that is, coordinate spaces) because the remote pose is predicted by the server whereas the local pose is the actual current one. However, in the end of a rendering frame both remote and local content need to be aligned and brought to the display. The following illustration shows an example where local and remote poses are translated compared to the display viewport:
 
-![Remote and local pose](./media/reprojection-remote-local.png)
+![Remote and local pose.](./media/reprojection-remote-local.png)
 
 ARR provides two reprojection modes that work orthogonally to the LSR mode discussed above. These modes are referred to as **:::no-loc text="Remote pose mode":::** and **:::no-loc text="Local pose mode":::**. Unlike the LSR mode, the pose modes define how remote and local content is combined. The choice of the mode trades visual quality of local content for runtime performance, so applications should carefully consider which option is appropriate. See considerations below.
 
@@ -114,9 +114,9 @@ ARR provides two reprojection modes that work orthogonally to the LSR mode discu
 
 :::no-loc text="Remote pose mode"::: is the default mode in ARR. In this mode, the local content is rendered on top of the incoming remote image stream using the remote pose from the remote frame. Then the combined result is forwarded to the OS for the final reprojection. While this approach uses only one reprojection, the final correction is based on the round-trip interval so the full reprojection error is applied to the local content as well. As a consequence, the large correction delta may result in significant distortions of local geometry including UI elements.
 
-Using the illustration above, the following transform is applied in :::no-loc text="Remote"::: pose mode:
+Using the illustration above, the following transform is applied in :::no-loc text="Remote pose mode"::::
 
-![Reprojection steps in remote pose mode](./media/reprojection-posemode-remote.png)
+![Reprojection steps in remote pose mode.](./media/reprojection-pose-mode-remote.png)
 
 ### :::no-loc text="Local pose mode":::
 
@@ -124,7 +124,7 @@ In this mode, the reprojection is split into two distinct steps: In the first st
 
 Accordingly, the illustration looks like this:
 
-![Reprojection steps in local pose mode](./media/reprojection-posemode-local.png)
+![Reprojection steps in local pose mode.](./media/reprojection-pose-mode-local.png)
 
 ### Performance and quality considerations
 
