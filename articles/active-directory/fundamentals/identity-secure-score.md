@@ -94,7 +94,7 @@ The score is calculated once per day (around 1:00 AM PST). If you make a change 
 
 ### My score changed. How do I figure out why?
 
-Head over to the [Microsoft 365 security center](https://security.microsoft.com/), where you’ll find your complete Microsoft secure score. You can easily see all the changes to your secure score by reviewing the in-depth changes on the history tab.
+Head over to the [Microsoft Defender 365 portal](https://security.microsoft.com/), where you’ll find your complete Microsoft secure score. You can easily see all the changes to your secure score by reviewing the in-depth changes on the history tab.
 
 ### Does the secure score measure my risk of getting breached?
 

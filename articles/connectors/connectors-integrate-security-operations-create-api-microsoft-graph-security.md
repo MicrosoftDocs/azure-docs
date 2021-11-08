@@ -115,8 +115,8 @@ For more information about the queries you can use with this connector, see the 
 
 | Action | Description |
 |--------|-------------|
-| **Get alerts** | Get alerts filtered based on one or more [alert properties](/graph/api/resources/alert), for example, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. | 
-| **Get alert by ID** | Get a specific alert based on the alert ID. | 
+| **Get alerts** | Get alerts filtered based on one or more [alert properties](/graph/api/resources/alert), for example, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. |
+| **Get alert by ID** | Get a specific alert based on the alert ID. |
 | **Update alert** | Update a specific alert based on the alert ID. To make sure you pass the required and editable properties in your request, see the [editable properties for alerts](/graph/api/alert-update). For example, to assign an alert to a security analyst so they can investigate, you can update the alert's **Assigned to** property. |
 |||
 

@@ -642,7 +642,7 @@ To facilitate this assessment, the following query can be used to make a recomme
 
 - Whether the workspace is using Microsoft Defender for Cloud by setting **workspaceHasSecurityCenter** to **true** or **false**. 
 - Update the prices if you have specific discounts.
-- Specify the number of days to look back and analyze by setting **daysToEvaluate**. This is useful if the query is taking too long trying to look at seven days of data. 
+- Specify the number of days to look back and analyze by setting **daysToEvaluate**. This is useful if the query is taking too long trying to look at seven days of data.
 
 Here is the pricing tier recommendation query:
 
@@ -650,8 +650,8 @@ Here is the pricing tier recommendation query:
 // Set these parameters before running query
 // Pricing details available at https://azure.microsoft.com/pricing/details/monitor/
 let daysToEvaluate = 7; // Enter number of previous days to analyze (reduce if the query is taking too long)
-let workspaceHasSecurityCenter = false;  // Specify if the workspace has Azure Security Center
-let PerNodePrice = 15.; // Enter your montly price per monitored nodes
+let workspaceHasSecurityCenter = false;  // Specify if the workspace has Defender for Cloud
+let PerNodePrice = 15.; // Enter your monthly price per monitored nodes
 let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
 let CommitmentTier100Price = 196.; // Enter your price for the 100 GB/day commitment tier

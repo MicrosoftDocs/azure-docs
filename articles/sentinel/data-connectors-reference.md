@@ -43,14 +43,12 @@ This article describes how to deploy data connectors in Microsoft Sentinel, list
 1. When deploying a specific connector, choose the appropriate article linked to its **data ingestion method**, and use the information and extra guidance in the relevant section below to supplement the information in that article.
 
 > [!TIP]
-> - Many data connectors can also be deployed as part of an [Microsoft Sentinel solution](sentinel-solutions.md), together with related analytics rules, workbooks and playbooks. For more information, see the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
 >
+> - Many data connectors can also be deployed as part of a [Microsoft Sentinel solution](sentinel-solutions.md), together with related analytics rules, workbooks and playbooks. For more information, see the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
 >
 > - More data connectors are provided by the Microsoft Sentinel community and can be found in the Azure Marketplace. Documentation for community data connectors is the responsibility of the organization that created the connector.
 >
->
 > - If you have a data source that isn't listed or currently supported, you can also create your own, custom connector. For more information, see [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).
->
 
 > [!IMPORTANT]
 > Noted Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

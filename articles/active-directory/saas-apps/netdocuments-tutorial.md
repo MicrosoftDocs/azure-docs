@@ -139,6 +139,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+<!-- docutune:ignore "Security Center" -->
+
 ## Configure NetDocuments SSO
 
 1. In a different web browser window, sign into your NetDocuments company site as an administrator.
@@ -147,7 +149,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. Select **Security Center**.
 
-    ![Repository](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![Security Center](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Select **Advanced Authentication**.
 

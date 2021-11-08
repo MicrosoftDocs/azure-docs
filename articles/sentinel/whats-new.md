@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 
 This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
 
-If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
+If you're looking for items older than six months, you'll find them in the [Archive for What's new in Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 > [!IMPORTANT]
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -29,7 +29,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Microsoft Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
->
 
 ## November 2021
 
@@ -217,7 +216,7 @@ For more information, see [Use Jupyter notebooks to hunt for security threats](n
 
 Starting in November 2021, Azure Sentinel is being renamed to Microsoft Sentinel, and you'll see upcoming updates in the portal, documentation, and other resources in parallel.
 
-Earlier entries in this article and the older [Archive for What's new in Microsoft Sentinel](whats-new-archive.md) continue to use the name *Azure* Sentinel, as that was the service name when those features were new.
+Earlier entries in this article and the older [Archive for What's new in Sentinel](whats-new-archive.md) continue to use the name *Azure* Sentinel, as that was the service name when those features were new.
 
 For more information, see our [blog on recent security enhancements](https://aka.ms/secblg11).
 
@@ -252,7 +251,7 @@ In addition to those from Microsoft Defender for Endpoint, you can now ingest ra
 
 A playbook template is a pre-built, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
 
-Playbook templates have been developed by the Microsoft Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, and you can find them in the **Playbook templates** tab (under **Automation**), as part of an [**Microsoft Sentinel Solution**](sentinel-solutions.md), or in the [**Azure Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). 
+Playbook templates have been developed by the Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, and you can find them in the **Playbook templates** tab (under **Automation**), as part of a [Microsoft Sentinel solution](sentinel-solutions.md), or in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks).
 
 For more information, see [Create and customize playbooks from built-in templates](use-playbook-templates.md).
 

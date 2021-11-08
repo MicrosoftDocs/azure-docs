@@ -281,7 +281,7 @@ After you've removed your connection, content that was previously deployed via t
 
 ### Removing the Microsoft Sentinel app from your GitHub repository
 
-If you intend to delete the Microsoft Sentinel App from a GitHub repository, we recommend that you *first* remove all associated connections from the Microsoft Sentinel **Repositories** page.
+If you intend to delete the Microsoft Sentinel app from a GitHub repository, we recommend that you *first* remove all associated connections from the Microsoft Sentinel **Repositories** page.
 
 Each Microsoft Sentinel App installation has a unique ID that's used when both adding and removing the connection. If the ID is missing or has been changed, you'll need to both remove the connection from the Microsoft Sentinel **Repositories** page and manually remove the workflow from your GitHub repository to prevent any future content deployments.
 

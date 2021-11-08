@@ -267,11 +267,11 @@ Add SAP-related watchlists to your Microsoft Sentinel workspace manually.
 
 1. Add SAP-related watchlists to use in your search, detection rules, threat hunting, and response playbooks. These watchlists provide the configuration for the Microsoft Sentinel SAP Continuous Threat Monitoring solution.
 
-    1. Download SAP watchlists from the Microsoft Sentinel GitHub repository at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists.
+    1. Download [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) from the Microsoft Sentinel GitHub repository.
 
-    1. In the Microsoft Sentinel **Watchlists** area, add the watchlists to your Microsoft Sentinel workspace. Use the downloaded CSV files as the sources, and then customize them as needed for your environment. 
+    1. In the Microsoft Sentinel **Watchlists** area, add the watchlists to your Microsoft Sentinel workspace. Use the downloaded CSV files as the sources, and then customize them as needed for your environment.
 
-        [ ![SAP-related watchlists added to Microsoft Sentinel.](media/sap/sap-watchlists.png) ](media/sap/sap-watchlists.png#lightbox)
+        [![SAP-related watchlists added to Microsoft Sentinel.](media/sap/sap-watchlists.png)](media/sap/sap-watchlists.png#lightbox)
 
         For more information, see [Use Microsoft Sentinel watchlists](watchlists.md) and [Available SAP watchlists](sap-solution-security-content.md#available-watchlists).
 

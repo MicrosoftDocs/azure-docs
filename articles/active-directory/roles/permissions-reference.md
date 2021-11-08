@@ -835,7 +835,7 @@ This administrator manages federation between Azure AD organizations and externa
 
 ## Global Administrator
 
-Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like the Microsoft 365 security center, the Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators.
+Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like the Microsoft 365 Defender portal, the Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators.
 
 > [!NOTE]
 > As a best practice, Microsoft recommends that you assign the Global Administrator role to fewer than five people in your organization. For more information, see [Best practices for Azure AD roles](best-practices.md).
@@ -1671,7 +1671,7 @@ Users in this role can create, manage, and delete content for Microsoft Search i
 
 ## Security Administrator
 
-Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Users with this role have permissions to manage security-related features in the Microsoft 365 Defender portal, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 In | Can do
 --- | ---

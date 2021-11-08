@@ -126,6 +126,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+<!-- docutune:ignore "Security Center" -->
+
 ## Configure Pipedrive SSO
 
 1. In a different browser window, sign into Pipedrive website as an administrator.
