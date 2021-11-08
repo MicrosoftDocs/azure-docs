@@ -93,7 +93,10 @@ For a tutorial on using Log Analytics to analyze log data, see [Log Analytics tu
 ## View guest metrics
 You can view metrics for your host virtual machine with metrics explorer without a data collection rule just like [any other Azure resource](../essentials/tutorial-metrics.md). With the data collection rule though, you can use metrics explorer to view guest metrics in addition to host metrics.
 
-Select **Metrics** from your virtual machines's menu. Metrics explorer opens with the scope set to your virtual machine. Click **Metric Namespace**, and select **Virtual machine guest**. 
+Select **Metrics** from your virtual machines's menu. Metrics explorer opens with the scope set to your virtual machine. Click **Metric Namespace**, and select **Virtual Machine Guest**. 
+
+> [!NOTE]
+> If you don't see **Virtual Machine Guest**, you may just need to wait a few more minutes for the agent to be deployed and data to begin collecting.
 
 
 :::image type="content" source="media/tutorial-monitor-vm/metrics-explorer.png" lightbox="media/tutorial-monitor-vm/metrics-explorer.png" alt-text="Metrics explorer":::
