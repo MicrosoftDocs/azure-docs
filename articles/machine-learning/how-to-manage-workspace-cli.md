@@ -186,7 +186,7 @@ The output of the workspace creation command is similar to the following JSON. Y
 ## Advanced configurations
 ### Configure workspace for private network connectivity
 
-Dependent on your use case and organizational requirements, you can choose to configure Azure Machine Learning using private network connectivity. You can use the Azure CLI to deploy a workspace and a Private link endpoint for the workspace resource. For more information on using a private endpoint and virtual network with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md). For complex resource configurations, also refer to template based deployment options including [Azure Resource Manager](how-to-create-workspace-template.md).
+Dependent on your use case and organizational requirements, you can choose to configure Azure Machine Learning using private network connectivity. You can use the Azure CLI to deploy a workspace and a Private link endpoint for the workspace resource. For more information on using a private endpoint and virtual network (VNet) with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md). For complex resource configurations, also refer to template based deployment options including [Azure Resource Manager](how-to-create-workspace-template.md).
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
@@ -212,34 +212,90 @@ For more details on how to use these commands, see the [CLI reference pages](/cl
 
 # [CLI (v2) - preview](#tab/vnetpleconfigurationsv2cli)
 
-To set up private network connectivity for your workspace using the CLI (v2), extend the workspace configuration file to include private link endpoint resource details.
+To set up private network connectivity for your workspace using the CLI (v2), use the following steps:
 
-```yaml workspace.yml
-name: azureml888
-location: EastUS
-description: Description of my workspace
-storage_account: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
-container_registry: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.ContainerRegistry/registries/<registry-name>
-key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.KeyVault/vaults/<vault-name>
-application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
+1. Create the VNet and subnets to use with your workspace. For more information on creating a VNet, see [Create a virtual network using the Azure CLI](../virtual-network/quick-create-cli.md).
+1. Use the following command to disable the private endpoint network policy for the virtual network:
 
-private_endpoints:
-  approval_type: AutoApproval
-  connections:
-    my-endpt1:
-      subscription_id: <subscription-id>
-      resource_group: <resourcegroup>
-      location: <location>
-      vnet_name: <vnet-name>
-      subnet_name: <subnet-name>
-```
+    ```azurecli
+    az network vnet subnet update --disable-private-endpoint-network-policies true \
+      --name <subnet-name> \
+      --resource-group <resource-group-name> \
+      --vnet-name <vnet-name>
+    ```
 
-Then, you can reference this configuration file as part of the workspace creation CLI command.
+    For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md).
 
-```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
-```
+1.  Use the following command to get the Azure Resource Manager ID for your workspace:
 
+    ```azurecli
+    az resource show -n larryws1108 \
+        --resource-type "Microsoft.MachineLearningServices/Workspaces" \
+        -g $RESOURCE_GROUP \
+        --query 'id' \
+        -o tsv
+    ```
+
+    The response from this command is in the following format `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>`.
+
+1. Use the following command to create a private endpoint for the workspace:
+
+    ```azurecli
+    az network private-endpoint create --name <private-endpoint-name> \
+      -g <resource-group-name> \
+      --vnet-name <vnet-name> \
+      --subnet <subnet-name> \
+      --group-id 'amlworkspace' \
+      --connection-name <connection-name> \
+      --private-connection-resource-id <workspace-id>
+    ```
+
+1. Use the following commands to create the private DNS zone and DNS entries for the `privatelink.api.azureml.ms` zone:
+
+    ```azurecli
+    az network private-dns zone create \
+      -g <resource-group-name> \
+      --name 'privatelink.api.azureml.ms'
+
+    az network private-dns link vnet create \
+      -g <resource-group-name> \
+      --zone-name 'privatelink.api.azureml.ms' \
+      --name <link-name> \
+      --virtual-network <vnet-name> \
+      --registration-enabled false
+
+    az network private-endpoint dns-zone-group create \
+      -g <resource-group-name> \
+      --endpoint-name <private-endpoint-name> \
+      --name myzonegroup \
+      --private-dns-zone 'privatelink.api.azureml.ms' \
+      --zone-name 'privatelink.api.azureml.ms'
+    ```
+
+1. Use the following commands to create create the DNS zone and entries for the `privatelink.notebooks.azure.net` zone:
+
+    > [!NOTE]
+    > Note that the last command uses __add__, not create. This adds the DNS zone to the zone group named `myzonegroup`, which was created in the previous step.
+
+    ```azurecli
+    az network private-dns zone create \
+      -g <resource-group-name> \
+      --name 'privatelink.notebooks.azure.net'
+
+    az network private-dns link vnet create \
+      -g <resource-group-name> \
+      --zone-name 'privatelink.notebooks.azure.net' \
+      --name <link-name> \
+      --virtual-network <vnet-name> \
+      --registration-enabled false
+
+    az network private-endpoint dns-zone-group add \
+      -g <resource-group-name> \
+      --endpoint-name <private-endpoint-name> \
+      --name myzonegroup \
+      --private-dns-zone 'privatelink.notebooks.azure.net' \
+      --zone-name 'privatelink.notebooks.azure.net'
+    ```
 ---
 
 ### Customer-managed key and high business impact workspace
