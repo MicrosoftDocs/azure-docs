@@ -13,7 +13,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ## Release notes
 
-### September 2021
+### November 2021
 * [Azure Role-based access control (RBAC) article](role-based-access-control.md)
 
 ### August 2021
