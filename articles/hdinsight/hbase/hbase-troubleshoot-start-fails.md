@@ -3,7 +3,7 @@ title: Apache HBase Master fails to start in Azure HDInsight
 description: Apache HBase Master (HMaster) fails to start in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/14/2019
+ms.date: 11/07/2021
 ---
 
 # Apache HBase Master (HMaster) fails to start in Azure HDInsight
@@ -150,16 +150,10 @@ Misconfigured HDFS and HBase settings for a secondary storage account.
 
 ### Resolution
 
-set hbase.rootdir: wasb://@.blob.core.windows.net/hbase and restart services on Ambari.
+`set hbase.rootdir: wasb://@.blob.core.windows.net/hbase` and restart services on Ambari.
 
 ---
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [notes](../includes/hdinsight-troubleshooting-next-steps.md)]
