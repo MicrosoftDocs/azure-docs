@@ -18,7 +18,7 @@ ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 Use this article to learn which natural languages are supported by Sentiment Analysis and Opinion Mining.
 
 > [!NOTE]
-> Languages are added as new [model versions](how-to/call-api.md#specify-the-sentiment-analysis-model) are released. The current Generally Available model version for Sentiment Analysis is `2020-04-01`. The latest preview model version is `2021-10-01-preview`.
+> Languages are added as new model versions are released. The current Generally Available model version for Sentiment Analysis is `2020-04-01`. To use the latest preview model version (`2021-10-01-preview`), specify it in your API call. See [how to call the API](how-to/call-api.md#specify-the-sentiment-analysis-model) for more information.
 
 ## Sentiment Analysis language support
 
