@@ -27,7 +27,7 @@ For example, if you're building a product recommendation solution for your retai
 
 You can set up this use case by selecting the six tables in the retail database template. 
 
-[[retail-database-template-example.png|alt=Retail database template example]]
+![image](https://user-images.githubusercontent.com/84302758/140736847-9d93436d-47b4-4175-8b09-a33de0bcde05.png)
 
 A typical database template addresses the core requirements of a specific industry and consists of: 
 
