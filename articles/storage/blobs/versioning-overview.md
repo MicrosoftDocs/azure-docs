@@ -123,6 +123,9 @@ The following diagram shows how modifying a blob after versioning is disabled cr
 
 :::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram showing base blob modified after versioning disabled.":::
 
+> [!NOTE]
+> Versioning can only be disabled when all policies for object replication have been deleted on the account.
+
 ## Blob versioning and soft delete
 
 Microsoft recommends enabling both versioning and blob soft delete for your storage accounts for optimal data protection. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md).
