@@ -103,6 +103,8 @@ Consider these options for a successful deployment:
 
 + For [Premium plan hosting](functions-premium-plan.md), consider adding a warmup trigger to reduce latency when new instances are added. To learn more, see [Azure Functions warm-up trigger](functions-bindings-warmup.md). 
 
++ Use Deployment Slots to follow safe deployment practices and ensure that the changes can be rolled back. To learn more, see [Azure Functions Deployment Slots](functions-deployment-slots.md)
+
 ## Write robust functions
 
 There are several design principles you can following when writing your function code that help with general performance and availability of your functions. These principles include:
