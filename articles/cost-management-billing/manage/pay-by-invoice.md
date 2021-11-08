@@ -26,6 +26,7 @@ When you request to change your payment method to check/wire transfer, there are
 > [!IMPORTANT]
 > * Pay by check or wire transfer is only available for customers using Azure on behalf of a company.
 > * Pay all outstanding charges before switching to pay by by check or wire transfer.
+> * An outstanding invoice is paid by your default payment method. In order to have it paid by check or wire transfer, you must change your default payment method to check or wire transfer after you've been approved.
 > * Currently, payment by check or wire transfer isn't supported for Global Azure in China.
 > * If you switch to pay by check or wire transfer, you can't switch back to paying by credit or debit card.
 
