@@ -5,7 +5,7 @@
   - name: What is Azure Front Door?
     href: front-door-overview.md
   - name: Choosing the right load balancer
-    href: front-door-lb-with-azure-app-delivery-suite.md
+    href: /architecture/guide/technology-choices/load-balancing-overview.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -20,7 +20,7 @@
     href: quickstart-create-front-door-template.md
 - name: Tutorials
   items:
-  - name: Add Security headers with Rules Engine
+  - name: Add security headers with Rules engine
     href: front-door-security-headers.md
   - name: Web Application Firewall and Front Door
     href: front-door-waf.md
@@ -36,10 +36,10 @@
     href: front-door-caching.md
   - name: Routing
     items:
-    - name: Route matching
-      href: front-door-route-matching.md
     - name: Routing architecture
       href: front-door-routing-architecture.md
+    - name: Route matching
+      href: front-door-route-matching.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
   - name: Load balancing method
@@ -72,9 +72,11 @@
       href: concept-end-to-end-tls.md
   - name: Protocol
     items:
-    - name: HTTP/2 support
+    - name: HTTP/2
       href: front-door-http2.md
-  - name: Front Door FAQ
+  - name: Load-balancing with Azure's application delivery subscription-offers.md
+    href: front-door-lb-with-azure-app-delivery-suite.md
+  - name: FAQ
     href: front-door-faq.yml
 - name: How-to guides
   items:
