@@ -76,7 +76,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Distributed Tracing context propagation (instrumentation libraries) through Azure Functions Worker
+ - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
 
 Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
