@@ -130,7 +130,7 @@ The environment in which this problem occurs is the following:
 - Browser: Safari
 - Operating system: iOS
 
-The cause of this problem might be that acquiring your own stream from the same device will have a side-effect of running into race conditions. Acquiring streams from other devices might lead the user into insufficient USB/IO bandwidth, and the `sourceUnavailableError` rate will skyrocket.  
+The cause of this problem might be that acquiring your own stream from the same device will have a side effect of running into race conditions. Acquiring streams from other devices might lead the user into insufficient USB/IO bandwidth, and the `sourceUnavailableError` rate will skyrocket.  
 
 ### Support for simulcast
 
@@ -138,7 +138,7 @@ Simulcast is a technique by which a client encodes the same video stream twice, 
 
 ## Communication Services Call Automation APIs
 
-The following are the known issues in the Communication Services Call Automation APIs:
+The following are known issues in the Communication Services Call Automation APIs:
 
 - The only authentication currently supported for server applications is to use a connection string.
 
