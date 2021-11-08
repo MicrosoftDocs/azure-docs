@@ -1,5 +1,5 @@
 ---
-title: How to deploy machine learning models 
+title: Deploy machine learning models 
 titleSuffix: Azure Machine Learning
 description: 'Learn how and where to deploy machine learning models. Deploy to Azure Container Instances, Azure Kubernetes Service, and FPGA.'
 services: machine-learning
@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 04/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
+ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021
 adobe-target: true
 ---
 
@@ -19,15 +19,17 @@ Learn how to deploy your machine learning or deep learning model as a web servic
 > [!TIP]
 > Managed online endpoints (preview) provide a way to deploy your trained model without your having to create and manage the underlying infrastructure. For more information, see [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 
+## Workflow for deploying a model
+
 The workflow is similar no matter where you deploy your model:
 
-1. Register the model
-1. Prepare an entry script
-1. Prepare an inference configuration
-1. Deploy the model locally to ensure everything works
-1. Choose a compute target
-1. Re-deploy the model to the cloud
-1. Test the resulting web service
+1. Register the model.
+1. Prepare an entry script.
+1. Prepare an inference configuration.
+1. Deploy the model locally to ensure everything works.
+1. Choose a compute target.
+1. Re-deploy the model to the cloud.
+1. Test the resulting web service.
 
 For more information on the concepts involved in the machine learning deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
 
@@ -78,7 +80,7 @@ For more information on using the SDK to connect to a workspace, see the [Azure 
 
 ---
 
-## <a id="registermodel"></a> Register your model
+## <a id="registermodel"></a> Register the model
 
 A typical situation for a deployed machine learning service is that you need the following components:
 	

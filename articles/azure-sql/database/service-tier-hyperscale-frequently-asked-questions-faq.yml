@@ -11,7 +11,7 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: mathoma
-  ms.date: 09/10/2021
+  ms.date: 11/4/2021
     
 title: Azure SQL Database Hyperscale FAQ
 summary: |
@@ -381,6 +381,11 @@ sections:
           Does my throughput get affected as I provision additional compute replicas?
         answer: |
           Because the storage is shared and there is no direct physical replication happening between primary and secondary compute replicas, the throughput on primary replica will not be directly affected by adding secondary replicas. However, we may throttle continuous aggressively writing workload on the primary to allow log apply on secondary replicas and page servers to catch up, to avoid poor read performance on secondary replicas.
+
+      - question: |
+          Is Hyperscale well suited for resource-intensive, long-running queries and transactions?
+        answer: |
+          Yes. However, please consider that very infrequently, connections might be terminated by transient errors, which may abort long-running queries and roll back transactions. One cause of transient errors is when the system quickly shifts the database to a different compute node to ensure continued compute and storage resource availability, or to perform planned maintenance. Most of these reconfiguration events finish in less than 10 seconds. Applications that connect to your database should be built to expect and tolerate these infrequent transient errors by implementing retry logic. Additionally, consider configuring a [maintenance window](maintenance-window.md) that matches your workload schedule to avoid transient errors due to planned maintenance.
 
       - question: |
           How do I diagnose and troubleshoot performance problems in a Hyperscale database?
