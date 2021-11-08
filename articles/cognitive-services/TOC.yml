@@ -20,6 +20,8 @@
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
     href: create-account-resource-manager-template.md  
+  - name: Create a new resource with commitment tier pricing 
+    href: commitment-tier.md  
 - name: How-To
   items:
   - name: Plan and manage costs 

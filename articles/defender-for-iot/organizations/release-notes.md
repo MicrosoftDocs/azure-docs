@@ -2,8 +2,7 @@
 title: What's new in Azure Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 10/20/2021
-ms.custom: ignite-fall-2021
+ms.date: 11/07/2021
 ---
 
 # What's new in Azure Defender for IoT?  
@@ -56,35 +55,47 @@ If the Key state is detected as Program or the Run state is detected as either R
 
 #### Visibility and risk assessment
 
-- Use the Device Inventory to view the PLC state of organizational PLCs as well as contextual device information. Use the Device Inventory Settings dialog box to add this column to the Inventory.
+- Use the Device Inventory to view the PLC state of organizational PLCs, and contextual device information. Use the Device Inventory Settings dialog box to add this column to the Inventory.
 
-    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing plc operating mode.":::
+    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing PLC operating mode.":::
 
 - View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false. For more information, see [View and manage device properties](how-to-work-with-the-sensor-device-map.md#view-and-manage-device-properties).
 
-    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing plc information.":::
+    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing PLC information.":::
 
 - View all network PLC Run and Key State statuses by creating a Data Mining with PLC operating mode information.
 
-    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Data inventory screen showing plc option.":::
+    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Data inventory screen showing PLC option.":::
 
 - Use the Risk Assessment Report to review the number of network PLCs in the unsecure mode, and additional information you can use to mitigate unsecure PLC risks.
 
 ### PCAP API
 
-The new PCAP API lets the user retrieve PCAP files from the sensor via the on-premises management console with, or without direct access to the sensor itself. This is accomplished by using the management console as a proxy.
+The new PCAP API lets the user retrieve PCAP files from the sensor via the on-premises management console with, or without direct access to the sensor itself.
 
 ### On-premises Management Console audit
 
-Audit logs for your sensor’s deployment are now available from the On-premises management console.
+Audit logs for the on-premises management console can now be exported to facilitate investigations into what changes were made, and by who.
 
 ### Webhook extended
 
-Webhook extended can be used to send all of the information in the Webhook alert, as well as  extra data to the endpoint.
+Webhook extended can be used to send extra data to the endpoint. The extended feature includes all of the information in the Webhook alert and adds the following information to the report:
 
-### Unicode support for certificate passphrases 
+- sensorID
+- sensorName
+- zoneID
+- zoneName
+- siteID
+- siteName
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- handled
+- additionalInformation
 
-Unicode characters are now supported when working with sensor certificate passphrases. For more information see, [About certificates](how-to-deploy-certificates.md#about-certificates)
+### Unicode support for certificate passphrases
+
+Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md#about-certificates)
 
 ## April 2021
 
@@ -121,7 +132,7 @@ New fields are available for users working with alert APIs.
 - Source and destination address
 - Remediation steps
 - The name of sensor defined by the user
-- The name of zone associated with the sensor 
+- The name of zone associated with the sensor
 - The name of site associated with the sensor
 
 **Sensor**
@@ -166,6 +177,7 @@ This feature is available on the on-premises management console with the release
 - [Onboarding](#onboarding)
 - [Usability](#usability)
 - [Other updates](#other-updates)
+
 ### Security
 
 Certificate and password recovery enhancements were made for this release.
