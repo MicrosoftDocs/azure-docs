@@ -120,4 +120,4 @@ Sample response:
 
 ## Next steps
 
-Your Azure AD-secured app can now use the [SaaS Fulfillment API Version 2](./pc-saas-fulfillment-api-v2.md).
+Your Azure AD-secured app can now use the [SaaS Fulfillment Subscription APIs Version 2](pc-saas-fulfillment-subscription-api.md) and [SaaS Fulfillment Operations APIs Version 2](pc-saas-fulfillment-operations-api.md).

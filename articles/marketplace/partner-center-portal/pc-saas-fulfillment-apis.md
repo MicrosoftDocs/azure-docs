@@ -18,7 +18,7 @@ To learn about the SaaS fulfillment APIs, we recommend you also read the followi
 - [SaaS fulfillment Subscription APIs v2](pc-saas-fulfillment-subscription-api.md)
 - [SaaS fulfillment Operations APIs v2](pc-saas-fulfillment-operations-api.md)
 - [Implementing a webhook on the SaaS service](pc-saas-fulfillment-webhook.md)
-- [Common questions about SaaS fulfillment APIs](saas-fulfillment-apis-faq.md)
+- [Common questions about SaaS fulfillment APIs](saas-fulfillment-apis-faq.yml)
 
 ## API flows
 
