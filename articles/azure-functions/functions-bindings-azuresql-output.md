@@ -113,11 +113,11 @@ namespace AzureSQLSamples
 
 # [JavaScript](#tab/javascript)
 
-The Azure SQL binding for Azure Functions does not yet support JavaScript.
+The Azure SQL binding for Azure Functions does not currently support JavaScript.
 
 # [Python](#tab/python)
 
-The Azure SQL binding for Azure Functions does not yet support Python.
+The Azure SQL binding for Azure Functions does not currently support Python.
 
 ---
 
@@ -143,11 +143,11 @@ Here's a `Sql` attribute example in a method signature:
 
 # [JavaScript](#tab/javascript)
 
-The Azure SQL binding for Azure Functions does not yet support JavaScript.
+The Azure SQL binding for Azure Functions does not currently support JavaScript.
 
 # [Python](#tab/python)
 
-The Azure SQL binding for Azure Functions does not yet support Python.
+The Azure SQL binding for Azure Functions does not currently support Python.
 
 ---
 

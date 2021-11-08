@@ -107,11 +107,11 @@ namespace AzureSQLSamples
 
 # [JavaScript](#tab/javascript)
 
-The Azure SQL binding for Azure Functions does not yet support JavaScript.
+The Azure SQL binding for Azure Functions does not currently support JavaScript.
 
 # [Python](#tab/python)
 
-The Azure SQL binding for Azure Functions does not yet support Python.
+The Azure SQL binding for Azure Functions does not currently support Python.
 
  ---
 
@@ -121,7 +121,7 @@ The Azure SQL binding for Azure Functions does not yet support Python.
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [Sql](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/SqlAttribute.cs) attribute.
 
-The attribute's constructor takes the SQL command text, the command type, parameters, and the connection string setting name. The command can be a T-SQL query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-3.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
+The attribute's constructor takes the SQL command text, the command type, parameters, and the connection string setting name. The command can be a Transact-SQL (T-SQL) query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-3.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
 
 Here's a `Sql` attribute example in a method signature:
 
@@ -142,11 +142,11 @@ Here's a `Sql` attribute example in a method signature:
 
 # [JavaScript](#tab/javascript)
 
-The Azure SQL binding for Azure Functions does not yet support JavaScript.
+The Azure SQL binding for Azure Functions does not currently support JavaScript.
 
 # [Python](#tab/python)
 
-The Azure SQL binding for Azure Functions does not yet support Python.
+The Azure SQL binding for Azure Functions does not currently support Python.
 
 
 ---

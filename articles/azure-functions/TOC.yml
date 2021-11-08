@@ -563,6 +563,17 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Azure SQL
+          items:
+            - name: Overview
+              href: functions-bindings-azuresql.md
+              displayName: Azure SQL
+            - name: Input
+              href: functions-bindings-azuresql-input.md
+              displayName: Azure SQL
+            - name: Output
+              href: functions-bindings-azuresql-output.md
+              displayName: Azure SQL
         - name: Dapr
           href: https://github.com/dapr/azure-functions-extension
         - name: Event Grid
