@@ -144,7 +144,23 @@ StorageBlobLogs
 | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
 
-Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=portal). To get started with Azure AD, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md)
+Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=portal). To get started with Azure AD, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md).
+
+#### Identifying which SAS made the call
+
+SAS is recorded as a hash value of the SAS. This is done for security so SAS tokens don't appear in logs. If you've distributed SAS tokens to different users or organizations, you might want to audit logs and determine use based on token. While you can't convert a hash to a SAS token, you can convert the SAS tokens that you distributed to a HASH value and then compare that hash value against the logs related to that hash value to determine use.
+
+First decode url string using PowerShell. Here's an example:
+
+```powershell
+[uri]::UnescapeDataString("<SAS token>")
+```
+
+Then to create a hash of the SAS token using either of these two approaches:
+
+- You can pass the output of the above command to the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) cmdlet. For an example, see [Example 4: Compute the hash of a string](/powershell/module/microsoft.powershell.utility/get-filehash#example-4--compute-the-hash-of-a-string).
+
+- You can pass the output of the above command to the [hash_sha256()](/data-explorer/kusto/query/sha256hashfunction) function in a kusto query.
 
 ## Optimize cost for infrequent queries
 
