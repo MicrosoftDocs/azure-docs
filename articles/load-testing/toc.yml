@@ -5,6 +5,11 @@
     - name: What is Azure Load Testing?
       displayName: ALT, load, MALT
       href: overview-what-is-azure-load-testing.md
+- name: Quickstarts
+  expanded: true
+  items: 
+    - name: Create and run a load test
+      href: quickstart-create-and-run-load-test.md
 - name: Tutorials
   expanded: true
   items: 
