@@ -98,7 +98,7 @@ If `ackId` is not specified, it's fire-and-forget. Even there're errors when bro
 
 #### Idempotent publish
 
-`ackId` is a int32 number and should be unique within a client with the same connection id. Web PubSub Service records the `ackId` and messages with the same `ackId` will be treated as the same message. The service refuses to broker the same message more than once, which is useful in retry to avoid duplicated messages. For example, if a client sends a message with `ackId=5` and fails to receive an ack response with `ackId=5`, then the client retries and sends the same message again. In some cases, the message is already brokered and the ack response is lost for some reason, the service will reject the retry and response an ack response with `Duplicate` reason.
+`ackId` is a uint64 number and should be unique within a client with the same connection id. Web PubSub Service records the `ackId` and messages with the same `ackId` will be treated as the same message. The service refuses to broker the same message more than once, which is useful in retry to avoid duplicated messages. For example, if a client sends a message with `ackId=5` and fails to receive an ack response with `ackId=5`, then the client retries and sends the same message again. In some cases, the message is already brokered and the ack response is lost for some reason, the service will reject the retry and response an ack response with `Duplicate` reason.
 
 #### Ack Response
 
@@ -111,7 +111,7 @@ Format:
     "ackId": 1, // The ack id for the request to ack
     "success": false, // true or false
     "error": {
-        "name": "Forbidden|InternalServerError|Duplicate|InvocationFailed",
+        "name": "Forbidden|InternalServerError|Duplicate",
         "message": "<error_detail>"
     }
 }
@@ -125,7 +125,6 @@ Format:
     - `Forbidden`: The client doesn't have the permission to the request. The client needs to be added relevant roles.
     - `InternalServerError`: Some internal error happened in the service. Retry is required.
     - `Duplicate`: The message with the same `ackId` has been already processed by the service.
-    - `InvocationFailed`: Event handler is not registered or the invocation is failed.
 
 
 For more information about the JSON subprotocol, see [JSON subprotocol](./reference-json-webpubsub-subprotocol.md).

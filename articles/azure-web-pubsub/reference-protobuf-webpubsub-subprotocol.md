@@ -64,24 +64,24 @@ message UpstreamMessage {
 
     message SendToGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
         MessageData data = 3;
     }
 
     message EventMessage {
         string event = 1;
         MessageData data = 2;
-        optional int32 ack_id = 3;
+        optional uint64 ack_id = 3;
     }
     
     message JoinGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
     }
 
     message LeaveGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
     }
 }
 
@@ -343,7 +343,7 @@ message DownstreamMessage {
     }
     
     message AckMessage {
-        int32 ack_id = 1;
+        uint64 ack_id = 1;
         bool success = 2;
         optional ErrorMessage error = 3;
     
