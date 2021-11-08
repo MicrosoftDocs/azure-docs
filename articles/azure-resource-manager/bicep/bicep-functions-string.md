@@ -495,8 +495,8 @@ guid(resourceGroup().id, deployment().name)
 
 A string containing 36 characters in the format of a globally unique identifier.
 
-    > [!NOTE]
-    > Importance of order: It's not just the same parameters, they need to be in the same order. For example: guid('hello', 'world') != guid('world', 'hello')
+> [!NOTE]
+> Importance of order: It is not just the same parameters, they need to be in the same order. For example: `guid('hello', 'world') != guid('world', 'hello')`
 
 ### Examples
 
