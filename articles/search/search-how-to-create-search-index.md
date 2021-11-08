@@ -32,18 +32,18 @@ Index creation is largely a schema definition exercise. Before creating one, you
 
   Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"), and this key is mapped to a source field containing a unique identifier. The ability to uniquely identify specific search documents is required for retrieving a specific document in the search index, and for selective data processing by pulling the right one from source data.
 
-+ Index location. Moving an existing index to a different search service is not supported out-of-the-box.
++ Index location. Moving an existing index to a different search service is not supported out-of-the-box. Revisit application requirements and make sure the existing search service, its capacity and location, are sufficient for your needs.
 
 Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you are experimenting on the Free tier, you can only have 3 indexes at any given time. Within the index itself, there are limits on the number of complex fields and collections.
 
 ## Allowed updates
 
-A [Create Index](/rest/api/searchservice/create-index) operation creates physical data structures (files and inverted indexes) on your search service. Your ability to update an existing index is contingent upon whether the modification invalidates those physical structures. Most field attributes can't be changed once the field is created in your index.
+[Create Index](/rest/api/searchservice/create-index) is an operation that creates physical data structures (files and inverted indexes) on your search service. Your ability to update an index is contingent upon whether the modification invalidates those physical structures. Most field attributes can't be changed once the field is created in your index.
 
 To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
 
-| Element | Mutable |
-|---------|---------|
+| Element | Allowed update |
+|---------|----------------|
 | Name | No |
 | Key | No |
 | Field names and types | No |
@@ -55,23 +55,31 @@ To minimize churn in the design process, the following table describes which ele
 | [cross-origin remote scripting (CORS)](search-what-is-an-index.md#corsoptions) | Yes |
 | [Encryption](search-security-manage-encryption-keys.md) | Yes |
 
-[Synonym maps](search-synonyms.md) are not part of an index definition. Modifications to a synonym map have no impact on the physical search index.
+> [!NOTE]
+> [Synonym maps](search-synonyms.md) are not part of an index definition. Modifications to a synonym map have no impact on the physical search index.
 
 ## Schema checklist
 
-+ Review [naming conventions](/rest/api/searchservice/naming-rules) so that index and field names conform to the naming rules.
-+ Review [supported data types](/rest/api/searchservice/supported-data-types). Data type will impact how the field is used. For example, numeric content is filterable but not full text searchable.
-+ Identify one field in the data source that will be used as the key field in your index.
-+ Identify which source fields have searchable content. If the content is text and verbose (phrases or longer), experiment with different analyzers to see how the text is tokenized.
-+ Identify which source fields can be used as filters. Numeric content and short text fields, particularly those with repeating values, are good choices. When working with filters, remember:
+Use this checklist to help drive design decisions for your search index.
+
+1. Review [naming conventions](/rest/api/searchservice/naming-rules) so that index and field names conform to the naming rules.
+
+1. Review [supported data types](/rest/api/searchservice/supported-data-types). Data type will impact how the field is used. For example, numeric content is filterable but not full text searchable.
+
+1. Identify one field in the data source that will be used as the key field in your index.
+
+1. Identify which source fields have searchable content. If the content is text and verbose (phrases or longer), experiment with different analyzers to see how the text is tokenized.
+
+1. Identify which source fields can be used as filters. Numeric content and short text fields, particularly those with repeating values, are good choices. When working with filters, remember:
+
   + Filterable fields can optionally be used in faceted navigation. 
   + Filterable fields are returned in arbitrary order, so consider making them sortable as well.
 
 ## Formulate a request
 
-When you are ready to create the index, there are several ways to move forward. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
+When you're ready to create the index, there are several ways to move forward. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
-During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary for most modifications. You might consider working with a subset of your data to make rebuilds go faster.
+During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary for many modifications. You might consider working with a subset of your data to make rebuilds go faster.
 
 ### [**Azure portal**](#tab/indexer-portal)
 
