@@ -143,6 +143,10 @@ To get your SAP Download Basket manifest JSON file (`DownloadBasket.json`):
 
 1. For **Password**, enter your SAP password.
 
+1. Select the **Headers** tab.
+
+1. Uncheck the Accept-Encoding and User-Agent check boxes
+
 1. Select the **Send** button.
 
 1. On the **Body** tab, make sure to select the **Raw** view.
