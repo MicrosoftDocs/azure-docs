@@ -47,9 +47,9 @@ Each customer subscription that an MSSP will manage must be [onboarded to Azure 
 
 When creating your authorizations, you can assign the Microsoft Sentinel built-in roles to users, groups, or service principals in your managing tenant:
 
-- [Microsoft Sentinel Reader](../../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
-- [Microsoft Sentinel Responder](../../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
-- [Microsoft Sentinel Contributor](../../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
+- [Microsoft Sentinel Reader](../../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)
+- [Microsoft Sentinel Responder](../../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)
+- [Microsoft Sentinel Contributor](../../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)
 
 You may also want to assign additional built-in roles to perform additional functions. For information about specific roles that can be used with Microsoft Sentinel, see [Permissions in Microsoft Sentinel](../../sentinel/roles.md).
 

@@ -33,8 +33,8 @@ For the complete specification of the Microsoft Sentinel connector, see the [Log
 
 | Roles \ Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |
 | ------------- | :-----------: | :------------: | :-----------: |
-| **[Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
-| **Microsoft Sentinel [Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
+| **[Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
+| **Microsoft Sentinel [Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)/[Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 | 
 
 [Learn more about permissions in Microsoft Sentinel](./roles.md).
