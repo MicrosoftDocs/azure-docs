@@ -9,7 +9,7 @@ author: sdgilley
 ms.subservice: mldata
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 10/21/2021
 ms.custom: data4ml
 # Customer intent: As a data scientist I want to optimize data processing speeds at scale
 ---
