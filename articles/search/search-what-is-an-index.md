@@ -15,9 +15,11 @@ ms.date: 11/08/2021
 
 Cognitive Search stores searchable content used for full text and filtered queries in a *search index*. An index is defined by a schema and saved to the service, with data import following as a second step. 
 
-Indexes contain *search documents*. Conceptually, a document is a single unit of searchable data in your index. A retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+This article is an introduction to search indexes. Prefer to get started? See [Create a search index](search-hwo-to-create-search-index.md).
 
-## What's an index schema?
+## What's a search index?
+
+In Cognitive Search, indexes contain *search documents*. Conceptually, a document is a single unit of searchable data in your index. For example, a retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
 The physical structure of an index is determined by the schema. The 'fields' collection is typically the largest part of an index, where each field is named, assigned a [data type](/rest/api/searchservice/Supported-data-types), and attributed with allowable behaviors that determine how it is used.
 
@@ -126,7 +128,7 @@ You can get hands-on experience creating an index using almost any sample or wal
 
 But you'll also want to become familiar with methodologies for loading an index with data. Index definition and data import strategies are defined in tandem. The following articles provide more information about creating and loading an index.
 
-+ [Creating a search index](search-how-to-create-search-index.md)
++ [Create a search index](search-how-to-create-search-index.md)
 
 + [Data import overview](search-what-is-data-import.md)
 

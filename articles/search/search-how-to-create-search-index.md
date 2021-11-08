@@ -36,13 +36,15 @@ Index creation is largely a schema definition exercise. Before creating one, you
 
 Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you are experimenting on the Free tier, you can only have 3 indexes at any given time. Within the index itself, there are limits on the number of complex fields and collections.
 
-## Mutable and immutable changes
+## Allowed updates
 
-To minimize churn in the design process, the following table describes which elements are fixed and flexible. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
+A [Create Index](/rest/api/searchservice/create-index) operation creates the physical data structures (files and inverted indexes) on your search service. Your ability to update an existing index hinges on whether the modification invalidates those physical structures.
+
+To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
 
 | Element | Mutable |
 |---------|---------|
-| Name | No |
+| Name | No. Refer to [naming conventions](/rest/api/searchservice/naming-rules) when naming an index. |
 | Key | No |
 | Field names and types | No |
 | Field attributes (searchable, filterable, facetable, sortable) | No. You can add new fields at any time, but changing an existing field is not supported. |
@@ -63,35 +65,88 @@ During development, plan on frequent rebuilds. Because physical structures are c
 
 ### [**Azure portal**](#tab/indexer-portal)
 
-The portal provides two options for creating a search index: [**Import data wizard**](search-import-data-portal.md) and **Add Index** that provides fields for specifying an index schema. 
+Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. In the portal, there are two options for creating a search index: 
+
++ **Add Index** is an embedded editor for specifying an index schema
++ [**Import data*](search-import-data-portal.md) is a wizard
 
 The wizard packs in additional operations by also creating an indexer, data source, and loading data. If this is more than what you want, you should just use **Add Index** or another approach.
 
-The following screenshot shows where you can find **Add Index** and **Import data** on the command bar.
+The following screenshot shows where you can find **Add Index** and **Import data** on the command bar. After an index is created, you can find it again in the Indexes tab.
 
   :::image type="content" source="media/search-what-is-an-index/add-index.png" alt-text="Add index command" border="true":::
 
 > [!Tip]
-> Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. Once you have a workable index, you can copy the JSON from the portal and add it to your solution.
+> After creating an index in the portal, you can copy the JSON representation and add it to your application code.
 
 ### [**REST**](#tab/kstore-rest)
 
-Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as a search index client. Using either tool, you can connect to your search service and send [Create Index (REST)](/rest/api/searchservice/create-index) requests. There are numerous tutorials and examples that demonstrate REST clients for creating objects. 
-
-Start with either of these articles to learn about each client:
+[**Create Index (REST)**](/rest/api/searchservice/create-index) is used to create an index. Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as a search index client. Using either tool, you can connect to your search service and send requests:
 
 + [Create a search index using REST and Postman](search-get-started-rest.md)
 + [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md)
 
+The REST API provides defaults for field attribution. For example, all Edm.String fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
+
 Refer to the [Index operations (REST)](/rest/api/searchservice/index-operations) for help with formulating index requests.
+
+```json
+POST https://[servicename].search.windows.net/indexes?api-version=[api-version] 
+{
+  "name": "hotels",
+  "fields": [
+    { "name": "HotelId", "type": "Edm.String", "key": true, "retrievable": true, "searchable": true, "filterable": true },
+    { "name": "HotelName", "type": "Edm.String", "retrievable": true, "searchable": true, "filterable": false, "sortable": true, "facetable": false },
+    { "name": "Description", "type": "Edm.String", "retrievable": true, "searchable": true, "filterable": false, "sortable": false, "facetable": false, "analyzer": "en.microsoft" },
+    { "name": "Description_fr", "type": "Edm.String", "retrievable": true, "searchable": true, "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.microsoft" },
+    { "name": "Address", "type": "Edm.ComplexType", 
+      "fields": [
+          { "name": "StreetAddress", "type": "Edm.String", "retrievable": true, "filterable": false, "sortable": false, "facetable": false, "searchable": true },
+          { "name": "City", "type": "Edm.String", "retrievable": true, "searchable": true, "filterable": true, "sortable": true, "facetable": true },
+          { "name": "StateProvince", "type": "Edm.String", "retrievable": true, "searchable": true, "filterable": true, "sortable": true, "facetable": true }
+        ]
+    }
+  ],
+  "suggesters": [ ],
+  "scoringProfiles": [ ],
+  "analyzers":(optional)[ ... ]
+  }
+}
+```
 
 ### [**.NET SDK**](#tab/kstore-dotnet)
 
-For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create a search index. All of them provide a **SearchIndexClient** that has methods for creating and updating indexes.
+The Azure SDK for .NET has [**SearchIndexClient**](/dotnet/api/azure.search.documents.indexes.searchindexclient) with methods for creating and updating indexes.
 
-| Azure SDK | Client | Examples |
-|-----------|--------|----------|
-| .NET | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [azure-search-dotnet-samples/quickstart/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) |
+```csharp
+// Create the index
+string indexName = "hotels";
+SearchIndex index = new SearchIndex(indexName)
+{
+    Fields =
+    {
+        new SimpleField("hotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true },
+        new SearchableField("hotelName") { IsFilterable = true, IsSortable = true },
+        new SearchableField("description") { AnalyzerName = LexicalAnalyzerName.EnLucene },
+        new SearchableField("descriptionFr") { AnalyzerName = LexicalAnalyzerName.FrLucene }
+        new ComplexField("address")
+        {
+            Fields =
+            {
+                new SearchableField("streetAddress"),
+                new SearchableField("city") { IsFilterable = true, IsSortable = true, IsFacetable = true },
+                new SearchableField("stateProvince") { IsFilterable = true, IsSortable = true, IsFacetable = true },
+                new SearchableField("country") { SynonymMapNames = new[] { synonymMapName }, IsFilterable = true, IsSortable = true, IsFacetable = true },
+                new SearchableField("postalCode") { IsFilterable = true, IsSortable = true, IsFacetable = true }
+            }
+        }
+    }
+};
+
+await indexClient.CreateIndexAsync(index);
+```
+
+For more examples, see[azure-search-dotnet-samples/quickstart/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11).
 
 ### [**Other SDKs**](#tab/other-sdks)
 
@@ -104,71 +159,6 @@ For Cognitive Search, the Azure SDKs implement generally available features. As 
 | Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations.py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
 
 ---
-
-<!-- ## Define fields
-
-A search document is defined by the `fields` collection. You will need fields for queries and keys. You will probably also need fields to support filters, facets, and sorts. You might also need fields for data that a user never sees, for example you might want fields for profit margins or marketing promotions that you can use to modify search rank.
-
-One field of type Edm.String must be designated as the document key. It's used to uniquely identify each search document and is case-sensitive. You can retrieve a document by its key to populate a details page.
-
-If incoming data is hierarchical in nature, assign the [complex type](search-howto-complex-data-types.md) data type to represent the nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple sub-fields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
-
-Assign any analyzers to string fields before the index is created. Do the same for suggesters if you want to enable autocomplete on specific fields. -->
-
-<!-- <a name="index-attributes"></a>
-
-### Attributes
-
-Field attributes determine how a field is used, such as whether it is used in full text search, faceted navigation, sort operations, and so forth. 
-
-String fields are often marked as "searchable" and "retrievable". Fields used to narrow search results include "sortable", "filterable", and "facetable".
-
-|Attribute|Description|  
-|---------------|-----------------|  
-|"searchable" |Full-text searchable, subject to lexical analysis such as word-breaking during indexing. If you set a searchable field to a value like "sunny day", internally it will be split into the individual tokens "sunny" and "day". For details, see [How full text search works](search-lucene-query-architecture.md).|  
-|"filterable" |Referenced in $filter queries. Filterable fields of type `Edm.String` or `Collection(Edm.String)` do not undergo word-breaking, so comparisons are for exact matches only. For example, if you set such a field f to "sunny day", `$filter=f eq 'sunny'` will find no matches, but `$filter=f eq 'sunny day'` will. |  
-|"sortable" |By default the system sorts results by score, but you can configure sort based on fields in the documents. Fields of type `Collection(Edm.String)` cannot be "sortable". |  
-|"facetable" |Typically used in a presentation of search results that includes a hit count by category (for example, hotels in a specific city). This option cannot be used with fields of type `Edm.GeographyPoint`. Fields of type `Edm.String` that are filterable, "sortable", or "facetable" can be at most 32 kilobytes in length. For details, see [Create Index (REST API)](/rest/api/searchservice/create-index).|  
-|"key" |Unique identifier for documents within the index. Exactly one field must be chosen as the key field and it must be of type `Edm.String`.|  
-|"retrievable" |Determines whether the field can be returned in a search result. This is useful when you want to use a field (such as *profit margin*) as a filter, sorting, or scoring mechanism, but do not want the field to be visible to the end user. This attribute must be `true` for `key` fields.|  
-
-Although you can add new fields at any time, existing field definitions are locked in for the lifetime of the index. For this reason, developers typically use the portal for creating simple indexes, testing ideas, or using the portal pages to look up a setting. Frequent iteration over an index design is more efficient if you follow a code-based approach so that you can rebuild the index easily.
-
-> [!NOTE]
-> The APIs you use to build an index have varying default behaviors. For the [REST APIs](/rest/api/searchservice/Create-Index), most attributes are enabled by default (for example, "searchable" and "retrievable" are true for string fields) and you often only need to set them if you want to turn them off. For the .NET SDK, the opposite is true. On any property you do not explicitly set, the default is to disable the corresponding search behavior unless you specifically enable it.
-
-<a name="index-size"></a>
-
-## Attributes and index size (storage implications)
-
-The size of an index is determined by the size of the documents you upload, plus index configuration, such as whether you include suggesters, and how you set attributes on individual fields. 
-
-The following screenshot illustrates index storage patterns resulting from various combinations of attributes. The index is based on the **real estate sample index**, which you can create easily using the Import data wizard. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the "searchable" attribute selected and nothing else, *realestate-retrievable* index has the "retrievable" attribute selected and nothing else, and so forth.
-
-![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
-
-Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect storage. Does setting "retrievable" increase index size? No. Does adding fields to a **suggester** increase index size? Yes. 
-
-Making a field filterable or sortable also adds to storage consumption because filtered and sorted fields are not tokenized so that character sequences can be matched verbatim.
-
-Also not reflected in the above table is the impact of [analyzers](search-analyzers.md). If you are using the edgeNgram tokenizer to store verbatim sequences of characters (a, ab, abc, abcd), the size of the index will be larger than if you used a standard analyzer.
-
-> [!Note]
-> Storage architecture is considered an implementation detail of Azure Cognitive Search and could change without notice. There is no guarantee that current behavior will persist in the future.
-
-<a name="corsoptions"></a>
-
-## About `corsOptions`
-
-Index schemas include a section for setting `corsOptions`. Client-side JavaScript cannot call any APIs by default since the browser will prevent all cross-origin requests. To allow cross-origin queries to your index, enable CORS (Cross-Origin Resource Sharing) by setting the **corsOptions** attribute. For security reasons, only query APIs support CORS. 
-
-The following options can be set for CORS:
-
-+ **allowedOrigins** (required): This is a list of origins that will be granted access to your index. This means that any JavaScript code served from those origins will be allowed to query your index (assuming it provides the correct api-key). Each origin is typically of the form `protocol://<fully-qualified-domain-name>:<port>` although `<port>` is often omitted. See [Cross-origin resource sharing (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) for more details.
-
-  If you want to allow access to all origins, include `*` as a single item in the **allowedOrigins** array. *This is not recommended practice for production search services* but it is often useful for development and debugging.
-
-+ **maxAgeInSeconds** (optional): Browsers use this value to determine the duration (in seconds) to cache CORS preflight responses. This must be a non-negative integer. The larger this value is, the better performance will be, but the longer it will take for CORS policy changes to take effect. If it is not set, a default duration of 5 minutes will be used. -->
 
 ## Next steps
 
