@@ -10,7 +10,9 @@ Ready to see how Bicep can help simplify and accelerate your deployments to Azur
 
 ## Get started
 
-If you're new to Bicep, a great way to get started is by taking this module on Microsoft Learn. There you'll learn how Bicep makes it easier to define how your Azure resources should be configured and deployed in a way that's automated and repeatable. In this module, you’ll deploy several Azure resources so you can see for yourself how Bicep works. We provide free access to Azure resources to help you practice the concepts.
+If you're new to Bicep, a great way to get started is by taking this module on Microsoft Learn.
+
+There you'll learn how Bicep makes it easier to define how your Azure resources should be configured and deployed in a way that's automated and repeatable. You’ll deploy several Azure resources so you can see for yourself how Bicep works. We provide free access to Azure resources to help you practice the concepts.
 
 [<img src="media/learn-bicep/build-first-bicep-template.svg" width="101" height="120" alt="The badge for the Build your first Bicep template module on Microsoft Learn." role="presentation"></img>](/learn/modules/build-first-bicep-template/)
 
