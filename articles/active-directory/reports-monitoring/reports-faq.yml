@@ -84,12 +84,12 @@ sections:
         answer: |
           You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records.
 
-  - name: Risky sign-ins
+  - name: Sign-in logs
     questions:
       - question: |
-          There is a risk detection in Identity Protection but I’m not seeing corresponding sign-in in the sign-ins report. Is this expected?
+          I see .XXX in part of the IP address from a user in my sign in logs. Why is that happening?
         answer: |
-          Yes, Identity Protection evaluates risk for all authentication flows whether interactive or non-interactive. However, all sign-ins only report shows only the interactive sign-ins.
+          Azure AD may redact part of an IP address in the sign in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service was not able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
 
       - question: |
           How do I know why a sign-in or a user was flagged risky in the Azure portal?
