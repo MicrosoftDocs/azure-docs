@@ -121,7 +121,7 @@ At this point, the Azure AD identity provider has been set up, but it's not yet 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Azure AD identity provider.
 1. Under **Settings**, select **Identity providers**
-1. Under the **Custom identity providers**, select **Contoso Azure AD**.
+1. Under **Custom identity providers**, select **Contoso Azure AD**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`. 
