@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: vikurpad
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 
 # Form Recognizer v3.0 migration | Preview
@@ -99,6 +100,7 @@ The new response format is more compact and the full output is always returned.
 ## Changes to analyze result
 
 Analyze response has been refactored to the following top-level results to support multi page elements.
+
 * pages
 * tables
 * keyValuePairs
@@ -241,9 +243,10 @@ Analyze response has been refactored to the following top-level results to suppo
 
 ```
 
-## Build or Train model
+## Build or train model
 
 The model object has two updates in the new API
+
 * ```modelId``` is now a property that can be set on a model for a human readable name.
 * ```modelName``` has been renamed to ```description```
 
@@ -263,6 +266,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build
   }
 }
 ```
+
 ## Changes to compose model
 
 Model compose is now limited to single level of nesting. Composed models are now consistent with custom models with the addition of ```modelId``` and ```description``` properties.
@@ -293,7 +297,8 @@ The only changes to the copy model function are:
 * HTTP action on the ```authorizeCopy``` is now a POST request.
 * The authorization payload contains all the information needed to submit the copy request.
 
-Authorize the copy.
+***Authorize the copy***
+
 ```json
 POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-version=2021-09-30-preview
 {
@@ -301,6 +306,7 @@ POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-versio
   "description": "{targetModelDescription}",
 }
 ```
+
 Use the response body from the authorize action to construct the request for the copy.
 
 ```json
@@ -315,11 +321,11 @@ POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?
 }
 ```
 
-## Changes to List models
+## Changes to list models
 
 List models have been extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels).
 
-Sample list models request
+***Sample list models request***
 
 ```json
 GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2021-09-30-preview
@@ -334,12 +340,15 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{model
 ```
 
 ## New get info operation
+
 The ```info``` operation on the service returns the custom model count and custom model limit.
 
 ```json
 GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=2021-09-30-preview
 ```
-Sample response
+
+***Sample response***
+
 ```json
 {
   "customDocumentModels": {

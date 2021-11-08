@@ -14,9 +14,6 @@ ms.date: 9/21/2020
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
-
 In this quickstart, you connect to an Azure Database for MySQL Flexible Server by using Python. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
 
 This article assumes that you're familiar with developing using Python, but you're new to working with Azure Database for MySQL Flexible Server.

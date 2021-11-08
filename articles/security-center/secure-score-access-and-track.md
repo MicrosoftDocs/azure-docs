@@ -1,15 +1,16 @@
 ---
-title: Tracking your secure score in Azure Security Center
-description: Learn about the multiple ways to access and track your secure score in Azure Security Center.
+title: Tracking your secure score in Microsoft Defender for Cloud
+description: Learn about the multiple ways to access and track your secure score in Microsoft Defender for Cloud.
 author: memildin
 ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 11/02/2021
 ---
-
 # Access and track your secure score
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 You can find your overall secure score, as well as your score per subscription, through the Azure portal or programmatically as described in the following sections:
 
@@ -18,26 +19,26 @@ You can find your overall secure score, as well as your score per subscription, 
 
 ## Get your secure score from the portal
 
-Security Center displays your score prominently in the portal: it's the first main tile the Security Center overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score. 
+Defender for Cloud displays your score prominently in the portal: it's the first main tile the Defender for Cloud overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score. 
 
-To recap, your secure score is shown in the following locations in Security Center's portal pages.
+To recap, your secure score is shown in the following locations in Defender for Cloud's portal pages.
 
-- In a tile on Security Center's **Overview** (main dashboard):
+- In a tile on Defender for Cloud's **Overview** (main dashboard):
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="The secure score on Defender for Cloud's dashboard":::
 
 - In the dedicated **Secure score** page you can see the secure score for your subscription and your management groups:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score for subscriptions on Security Center's secure score page":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score for subscriptions on Defender for Cloud's secure score page":::
 
-    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="The secure score for management groups on Security Center's secure score page":::
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="The secure score for management groups on Defender for Cloud's secure score page":::
 
     > [!NOTE]
     > Any management groups for which you don't have sufficient permissions, will show their score as “Restricted.” 
 
 - At the top of the **Recommendations** page:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Security Center's recommendations page":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Defender for Cloud's recommendations page":::
 
 ## Get your secure score from the REST API
 
@@ -55,7 +56,7 @@ To access the secure score for multiple subscriptions with Azure Resource Graph:
 
 1. From the Azure portal, open **Azure Resource Graph Explorer**.
 
-    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
 
 1. Enter your Kusto query (using the examples below for guidance).
 
@@ -84,16 +85,16 @@ To access the secure score for multiple subscriptions with Azure Resource Graph:
 
 ### Secure Score Over Time report in workbooks page
 
-Security Center's workbooks page includes a ready-made report for visually tracking the scores of your subscriptions, security controls, and more. Learn more in [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
+Defender for Cloud's workbooks page includes a ready-made report for visually tracking the scores of your subscriptions, security controls, and more. Learn more in [Create rich, interactive reports of Defender for Cloud data](custom-dashboards-azure-workbooks.md).
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="A section of the secure score over time report from Azure Security Center's workbooks gallery":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="A section of the secure score over time report from Microsoft Defender for Cloud's workbooks gallery":::
 
 ### Power BI Pro dashboards
 
 If you're a Power BI user with a Pro account, you can use the **Secure Score Over Time** Power BI dashboard to track your secure score over time and investigate any changes.
 
 > [!TIP]
-> You can find this dashboard, as well as other tools for working programmatically with secure score, in the dedicated area of the Azure Security Center community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+> You can find this dashboard, as well as other tools for working programmatically with secure score, in the dedicated area of the Microsoft Defender for Cloud community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
 
 The dashboard contains the following two reports to help you analyze your security status:
 
@@ -107,6 +108,6 @@ The dashboard contains the following two reports to help you analyze your securi
 
 This article described how to access and track your secure score. For related material, see the following articles:
 
-- [Learn about the different elements of a recommendation](security-center-recommendations.md)
-- [Learn how to remediate recommendations](security-center-remediate-recommendations.md)
+- [Learn about the different elements of a recommendation](review-security-recommendations.md)
+- [Learn how to remediate recommendations](implement-security-recommendations.md)
 - [View the GitHub-based tools for working programmatically with secure score](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
