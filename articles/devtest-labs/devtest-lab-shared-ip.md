@@ -11,7 +11,7 @@ Azure DevTest Labs virtual machines (VMs) can share a public IP address, to mini
 
 ## Shared IP settings
 
-Azure DevTest Labs creates labs in virtual networks, which can have one or more subnets. The default subnet has **Enable shared public IP** set to **Yes**.  This configuration creates one public IP address for the entire subnet. Any VMs in this subnet default to using a shared IP.
+Azure DevTest Labs creates labs in virtual networks, which can have one or more subnets. The default subnet has **Enable shared public IP** set to **Yes**.  This configuration creates one public IP address for the entire subnet. Any VMs in this subnet default to using the shared IP.
 
 For more information about configuring virtual networks and subnets, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
 

@@ -54,7 +54,7 @@ If you don't specify a source VM, the script automatically imports all VMs in th
 
 The REST call is simple. You provide the information to identify the source and destination resources. The operation takes place on the destination lab resource.
 
-```rest-api
+```http
 POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/resourceGroups/<DestinationResourceGroup>/providers/Microsoft.DevTestLab/labs/<DestinationLab>/ImportVirtualMachine?api-version=2017-04-26-preview
 {
    sourceVirtualMachineResourceId: "/subscriptions/<SourceSubscriptionID>/resourcegroups/<SourceResourceGroup>/providers/microsoft.devtestlab/labs/<SourceLab>/virtualmachines/<NameofVMTobeImported>",
