@@ -41,9 +41,7 @@ The following table describes the table columns in the device inventory.
 
 ## What is an Inventory device?
 
-The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
-
-Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
+The Defender for IoT Device Inventory displays an extensive range of device attributes that are detected by sensors monitoring organizational networks and managed endpoints. Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
 
 1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
 1. Devices composed of multiple backplane components (including all racks/slots/modules)
