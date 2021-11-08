@@ -1,5 +1,5 @@
 ---
-title: Modify a Service Fabric managed cluster node type
+title: Configure or modify a Service Fabric managed cluster node type
 description: This article walks through how to modify a managed cluster node type
 ms.topic: how-to
 ms.date: 10/25/2021 
@@ -258,6 +258,34 @@ Service Fabric managed cluster does not support in-place modification of the VM 
 * [Create a new node type](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal) with the required VM SKU.
 * Migrate your workload over. One way is to use a [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
 * [Delete old node type](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal)
+
+
+## Enable encryption at host (preview)
+
+This encryption method improves on [Azure Disk encryption](how-to-managed-cluster-enable-disk-encryption.md) by supporting any OS types and images, including custom images, for your VMs by encrypting data in the Azure Storage service. This method does not use your VM's CPU nor does it impact your VM's performance enabling workloads to fully use all of the VM SKUs resources.
+
+> [!Note]
+> You can not enable on existing node types. You must provision a new node type and migrate your workload.
+
+To enable encryption at host on a managed cluster node type:
+1) Review the following [restrictions](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) to validate the meet your requirements
+
+2) Setup the required [prerequsites](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites)
+
+3) Set the following in the managed cluster template in each node type you want this enabled for
+
+```json
+     {
+            "apiVersion": "2021-11-01-preview",
+            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+            "location": "[resourcegroup().location]",
+            "properties": {
+                "enableEncryptionAtHost": true
+                ...
+            }
+    }
+```
 
 
 ## Next steps

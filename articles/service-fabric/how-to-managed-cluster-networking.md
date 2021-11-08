@@ -431,7 +431,7 @@ This feature allows customers to use an existing virtual network by specifying a
 
 <a id="byolb"></a>
 ## Bring your own Azure Load Balancer (preview)
-Managed clusters create an Azure Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. This feature allows you to create or reuse an Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
+Managed clusters create a Standard SKU public Azure Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. Bring your own load balancer allows you to use an existing Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
 * Map a Load Balancer to a specific node type
@@ -440,11 +440,12 @@ Managed clusters create an Azure Load Balancer and fully qualified domain name w
 * Configure an internal-only load balancer and use the default load balancer for external traffic
 
 > [!NOTE]
-> You can not switch from default to custom after cluster deployment for a node type, but you can modify custom load balancer configuration post-deployment.
+> You can not switch from the default load balancer to a custom one after deployment of a node type, but you can modify custom load balancer configuration post-deployment if enabled.
 
 **Feature Requirements**
  * Basic and Standard SKU Azure Load Balancer types are supported
- * You must have backend and NAT pools configured on the existing external/Azure Load Balancer for external load balancers. See full [create and assign role sample here](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json) for an example. 
+ * You must have backend and NAT pools configured on the Azure Load Balancer
+ * You must enable outbound connectivity either using a provided public load balancer or the default public load balancer
 
 Here are a couple example scenarios customers may use this for:
 
@@ -488,7 +489,7 @@ To configure bring your own load balancer:
 
 2. Add a role assignment to the Service Fabric Resource Provider application. Adding a role assignment is a one time action. You add the role by running the following PowerShell commands or by configuring an Azure Resource Manager (ARM) template as detailed below.
 
-   In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group. The subnet is named default.
+   In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group. 
 
    Obtain the required `Id` property info from the existing Azure Load Balancer. We'll 
 
@@ -510,7 +511,7 @@ To configure bring your own load balancer:
    New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
    ```
 
-   Or you can add the role assignment by using an Azure Resource Manager (ARM) template configured with proper values for `principalId`, `roleDefinitionId`, `vnetName`, and `subnetName`:
+   Or you can add the role assignment by using an Azure Resource Manager (ARM) template configured with proper values for `principalId`, `roleDefinitionId`":
 
    ```JSON
       "type": "Microsoft.Authorization/roleAssignments",
@@ -528,42 +529,73 @@ To configure bring your own load balancer:
    > [!NOTE]
    > loadBalancerRoleAssignmentID has to be a [GUID](../azure-resource-manager/templates/template-functions-string.md#examples-16). If you deploy a template again including this role assignment, make sure the GUID is the same as the one originally used. We suggest you run this isolated or remove this resource from the cluster template post-deployment as it just needs to be created once.
 
-3. Configure required outbound connectivity. All nodes must be able to route outbound on port 443 to ServiceFabric resource provider. You can use the `ServiceFabric` service tag in your NSG to restrict the traffic destination to the Azure endpoint.
+   See this example template to [create a public load balancer and assign a role](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json).
+
+
+3. Configure required outbound connectivity for the node type. You must either configure a public load balancer to provide outbound connectivity or use the default public load balancer. 
+   
+   Configure `outboundRules` to configure a public load balancer to provide outbound connectivity
+   See the [create load balancer and assign role sample Azure Resource Manager (ARM) template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json)
+   
+   OR
+   
+   To configure the node type to use the default load balancer set the following in your template: 
+   
+   ```json
+      {
+      "apiVersion": "2021-11-01-preview",
+      "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+      ...
+      "properties": {
+          "isPrimary": false,
+          "useDefaultPublicLoadBalancer": true
+          ...
+      }
+   ```
 
 4. Optionally configure an inbound application port and related probe on your existing Azure Load Balancer.
+   See the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) for an example
 
 5. Optionally configure the managed cluster NSG rules applied to the node type to allow any required traffic that you've configured on the Azure Load Balancer or traffic will be blocked.
-
-   See the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) for an example on how to open inbound rules.
+   See the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) for an example inbound NSG rule configuration. In the template, look for the `networkSecurityRules` property.
 
 6. Deploy the configured managed cluster ARM Template
+   For this step we'll use the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB)
 
-   In the following example, we'll create a resource group called `MyResourceGroup` in `westus` and deploy a cluster with this feature enabled.
+   The following will create a resource group called `MyResourceGroup` in `westus` and deploy a cluster using an existing load balancer.
    ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
    ```
 
-   After deployment, your secondary node type is configured to use the specified load balancer for inbound and outbound traffic. The Service Fabric client connection and gateway endpoints will still point to the public DNS of the managed cluster primary node type static IP address.
+   After deployment, the secondary node type is configured to use the specified load balancer for inbound and outbound traffic. The Service Fabric client connection and gateway endpoints will still point to the public DNS of the managed cluster primary node type static IP address.
 
 
 
 <a id="accelnet"></a>
 ## Enable Accelerated Networking (preview)
-Service Fabric managed cluster node types can be provisioned with Accelerated Networking. 
+Accelerated networking enables single root I/O virtualization (SR-IOV) to a VMSS VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) for additional considerations. 
 
-* Please note that Accelerated Networking requires at least 4 vCPUs
+* Note that Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs.
 
-Enable accelerated networking by declaring `enableAcceleratedNetworking` property in your Resource Manager template, the following snippet is of a Virtual Machine Scale Set NetworkInterfaceConfigurations that enables Accelerated Networking:
+Enable accelerated networking by declaring `enableAcceleratedNetworking` property in your Resource Manager template as follows:
+
 ```json
-
-
+   {
+   "apiVersion": "2021-11-01-preview",
+   "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+   ...
+   "properties": {
+       ...
+       "enableAcceleratedNetworking": true,
+       ...
+   }
 ```
 
 To enable Accelerated Networking on an existing Service Fabric cluster, you need to first Scale a Service Fabric cluster out by adding a new node type and perform the following:
 
-Provision a NodeType with Accelerated Networking enabled
-Migrate your services and their state to the provisioned NodeType with Accelerated Networking enabled
+1) Provision a node type with Accelerated Networking enabled
+2) Migrate your services and their state to the provisioned node type with Accelerated Networking enabled
 
 Scaling out infrastructure is required to enable Accelerated Networking on an existing cluster, because enabling Accelerated Networking in place would cause downtime, as it requires all virtual machines in an availability set be stop and deallocate before enabling Accelerated networking on any existing NIC.
 

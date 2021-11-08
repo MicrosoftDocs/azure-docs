@@ -1,8 +1,8 @@
 ---
-title: Enable disk encryption for Service Fabric managed cluster nodes
+title: Enable Azure Disk Encryption for Service Fabric managed cluster nodes
 description: Learn how to enable disk encryption for Azure Service Fabric managed cluster nodes in Windows using an ARM template.
 ms.topic: how-to
-ms.date: 5/10/2021 
+ms.date: 11/8/2021 
 ms.custom: devx-track-azurepowershell
 ---
 # Enable disk encryption for Service Fabric managed cluster nodes
