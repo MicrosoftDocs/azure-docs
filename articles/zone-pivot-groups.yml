@@ -186,6 +186,14 @@ groups:
     title: Language Studio
   - id: rest-api
     title: REST API
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-ten
 # Owner: aahill
   title: Programming languages
