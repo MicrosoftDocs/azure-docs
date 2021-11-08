@@ -25,7 +25,7 @@ sections:
       - question: |
          What is the recommended way to update a linked hub when the primary key for the IoT Hub access policy is regenerated? 
         answer: |
-         Since the primary key is embedded within the connection string (the string DPS uses to auth) it gets changed whenever the primary is modified. To fix stale DPS-Hub links because of the connection string having changed you need to relink the Hub to the DPS.
+         The primary key is embedded inside the connection string that DPS uses for authentication. Whenever the primary connection string is modified, the primary key will also be modified, and you'll need to relink the hub to your DPS.
   - name: DPS Billing
     questions:
       - question: |
