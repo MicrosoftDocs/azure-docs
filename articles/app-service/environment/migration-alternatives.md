@@ -12,7 +12,7 @@ ms.author: jordanselig
 > The App Service Environment v3 [migration tool](migrate.md) is now available in preview for a set of supported environment configurations. Consider that tool which provides an automated migration path to [App Service Environment v3](overview.md).
 >
 
-If you're currently using App Service Environment v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs. Consider using the [migration tool](migration.md) if your environment falls into one of the [supported configurations](migrate.md#supported-scenarios). If your environment isn't currently supported by the migration tool, you can wait for support if your scenario is listed in the [upcoming supported scenarios](migrate.md#preview-limitations). Otherwise, you choose to use one of the alternative migration options given below.
+If you're currently using App Service Environment v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs. Consider using the [migration tool](migrate.md) if your environment falls into one of the [supported configurations](migrate.md#supported-scenarios). If your environment isn't currently supported by the migration tool, you can wait for support if your scenario is listed in the [upcoming supported scenarios](migrate.md#preview-limitations). Otherwise, you choose to use one of the alternative migration options given below.
 
 > [!IMPORTANT]
 > If your App Service Environment will [not be supported for migration](migrate.md#migration-tool-limitations) with the migration tool, you must use one of the alternative methods to migrate to App Service Environment v3.
@@ -22,7 +22,7 @@ If you're currently using App Service Environment v1 or v2, you have the opportu
 
 Scenario: An existing app running on an App Service Environment v1 or v2 and you need that app to run on an App Service Environment v3.
 
-For any migration method that doesn't use the [migration tool](migration.md), you'll need to [create the App Service Environment v3](creation.md) and a new subnet using the method of your choice. There are feature differences between App Service Environment v1/v2 and v3 as well as [networking changes](networking.md) that will involve new (and an extra one for internet facing environments) IP addresses. You'll need to update any infrastructure that relies on these IPs.
+For any migration method that doesn't use the [migration tool](migrate.md), you'll need to [create the App Service Environment v3](creation.md) and a new subnet using the method of your choice. There are feature differences between App Service Environment v1/v2 and v3 as well as [networking changes](networking.md) that will involve new (and an extra one for internet facing environments) IP addresses. You'll need to update any infrastructure that relies on these IPs.
 
 > [!WARNING]
 > Multiple App Service Environments can't exist in a single subnet. If you need to use your existing subnet for your new App Service Environment v3, you'll need to delete the existing App Service Environment before creating a new one. 
@@ -32,14 +32,14 @@ For any migration method that doesn't use the [migration tool](migration.md), yo
 
 ### Checklist before migrating apps
 
-<!-- TO DO
-- create new ase
-- update networking dependencies with new IPs
-- ... -->
+- [Create an App Service Environment v3](creation.md)
+- After creating the new environment, update any networking dependencies with the IP addresses associated with the new environment
+- Plan for downtime (if applicable)
+- Decide on a process for recreating your apps in your new environment
 
 ## Isolated v2 App Service Plans
 
-App Service Environment v3 uses Isolated v2 App Service plans which are priced and sized differently than those from Isolated plans. Review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/) to understand how you're new environment will need to be sized and scaled to ensure appropriate capacity. There is no difference in how you provision App Service Plans for App Service Environment v3 compared to previous versions.
+App Service Environment v3 uses Isolated v2 App Service plans that are priced and sized differently than plans from Isolated plans. Review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/) to understand how you're new environment will need to be sized and scaled to ensure appropriate capacity. There's no difference in how you create App Service Plans for App Service Environment v3 compared to previous versions.
 
 ## Manually migrate your apps onto an App Service Environment v3
 
@@ -47,7 +47,7 @@ App Service Environment v3 uses Isolated v2 App Service plans which are priced a
 
 The [back up](../manage-backup.md) and [restore](../web-sites-restore.md) feature allows you to keep your app configuration, file content, and database connected to your app when migrating to your new environment. Make sure you review the [requirements and restrictions](../manage-backup.md#requirements-and-restrictions) of this feature.
 
-The step-by-step instructions in the current documentation for [back up](../manage-backup.md) and [restore](../web-sites-restore.md) should be sufficient to allow you to use this feature. Note that when restoring, the **Storage** option lets you select any backup ZIP file from any existing Azure Storage account and container in your subscription. Also note that you can create the apps that you'll be restoring to before starting the process, or you can configure the new apps during the restoration process. A sample of the restore configuration screen is given below.
+The step-by-step instructions in the current documentation for [back up](../manage-backup.md) and [restore](../web-sites-restore.md) should be sufficient to allow you to use this feature. When restoring, the **Storage** option lets you select any backup ZIP file from any existing Azure Storage account and container in your subscription. Also note that you can create the apps that you'll be restoring to before starting or during the back up and restore process. A sample of the restore configuration screen is given below.
 
 ![back up and restore sample](./media/migration/back-up-restore_sample.png)
 
@@ -77,7 +77,7 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 - Use your App Service Environment v3 name for **Region**
 - Choose whether or not to clone your deployment source
 - You can use an existing Windows **App Service Plan** from your new environment if you created one already, or create a new one. The available Windows App Service Plans in your new App Service Environment v3, if any, will be listed in the dropdown.
-- Modify **SKU and size** as needed using one of the Isolated V2 options if creating a new App Service Plan. Note App Service Environment v3 uses Isolated V2 plans, which have more memory and cores per corresponding instance size for the Isolated plan. For more details, see [App Service v3 pricing](overview.md#pricing).
+- Modify **SKU and size** as needed using one of the Isolated V2 options if creating a new App Service Plan. Note App Service Environment v3 uses Isolated V2 plans, which have more memory and cores per corresponding instance size for the Isolated plan. For more information, see [App Service v3 pricing](overview.md#pricing).
 
 ![clone sample](./media/migration/portal_clone_sample.png)
 
@@ -93,9 +93,9 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 
 ### Manually create your apps on an App Service Environment v3
 
-If the above features don't support your apps or you're looking to take a more manual route, you have the option of deploying your apps following the same process you used for your old App Service Environment. All deployment methods except FTP are supported on App Service Environment v3 and you shouldn't need to make any changes when deploying your apps to your new environment unless you want to make changes or take advantage of App Service Environment v3's dedicated features. 
+If the above features don't support your apps or you're looking to take a more manual route, you have the option of deploying your apps following the same process you used for your old App Service Environment. All deployment methods except FTP are supported on App Service Environment v3. You shouldn't need to make updates when deploying your apps to your new environment unless you want to make changes or take advantage of App Service Environment v3's dedicated features. 
 
-You have the ability to export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them on your new environment. To export a template for just your app, head over to your App Service and go to **Export template** under **Automation**. 
+You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them on your new environment. To export a template for just your app, head over to your App Service and go to **Export template** under **Automation**. 
 
 ![export from toc](./media/migration/export_toc.png)
 
@@ -103,7 +103,7 @@ You can also export templates for multiple resources directly from your resource
 
 ![export template sample](./media/migration/export_template_sample.png)
 
-The following initial changes to your Azure Resource Manager templates are required to get your apps on your App Service Environment v3:
+The following initial changes to your Azure Resource Manager templates are required to get your apps onto your App Service Environment v3:
 
 - Update SKU parameters for App Service plan to Isolated v2 if creating a new plan
     ```json
@@ -141,11 +141,12 @@ The following initial changes to your Azure Resource Manager templates are requi
     }
     ```
 
-Additional changes may be required depending on how your app is configured.
+Other changes may be required depending on how your app is configured.
 
-Azure Resource Manager templates can be [deployed](../deploy-complex-application-predictably.md) using a number of methods including using the Azure portal, Azure CLI, or PowerShell.
+Azure Resource Manager templates can be [deployed](../deploy-complex-application-predictably.md) using multiple methods including using the Azure portal, Azure CLI, or PowerShell.
 
-## Recommendations
+## Guidance for manual migration
 
-<!-- TO DO
-manual with app gateway and traffic redirection for testing to ensure functions as intended -->
+The [migration tool](migrate.md) automates the migration to App Service Environment v3 and at the same time transfers all of your apps to the new environment. There's about one hour of downtime during this migration. If you're in a position where you can't have any downtime, the recommendation is to use one of the manual options described above to recreate your apps in an App Service Environment v3. If you're using an Internal Load Balancer (ILB) App Service Environment, you can [create an Azure Application Gateway](integrate-with-application-gateway.md) with an extra backend pool to distribute traffic between your environments. You can also use services like [Azure Front Door](../../frontdoor/quickstart-create-front-door.md), [Azure Content Delivery Network (CDN)](../../cdn/cdn-add-to-web-app.md), and [Azure Traffic Manager](../../cdn/cdn-traffic-manager.md) to distribute traffic between environments. Using this process also allows for testing your new environment in a controlled manner and allows you to move to your new environment at your own pace.
+
+Once your migration and any testing with your new environment is complete, delete your old App Service Environment, the apps that are on it, and any supporting resources that you no longer need. You'll continue to be charged for any resources that haven't been deleted.
