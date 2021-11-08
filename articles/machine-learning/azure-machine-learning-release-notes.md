@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 10/21/2021
+ms.date: 11/01/2021
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -17,6 +17,31 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+## 2021-11-08
+
+### Azure Machine Learning SDK for Python v1.36.0
+  + **azureml-automl-dnn-vision**
+    + Cleaned up minor typos on some error messages.
+  + **azureml-contrib-reinforcementlearning**
+    + Submitting Reinforcement Learning runs that use simulators is no longer supported.
+  + **azureml-core**
+    + Added support for partitioned premium blob.
+    + Specifying non-public clouds for Managed Identity authentication is no longer supported.
+    + User can migrate AKS web service to online endpoint and deployment which is managed by CLI (v2).
+    + The instance type for training jobs on Kubernetes compute targets can now be set via a RunConfiguration property: run_config.kubernetescompute.instance_type.
+  + **azureml-defaults**
+    + Removed redundant dependencies like gunicorn and werkzeug
+  + **azureml-interpret**
+    + azureml-interpret package updated to 0.21.* version of interpret-community
+  + **azureml-pipeline-steps**
+    + Deprecate MpiStep in favor of using CommandStep for running ML training (including distributed training) in pipelines.
+  + **azureml-train-automl-rutime**
+    + Update the AutoML model test predictions output format docs.
+    + Added docstring descriptions for Naive, SeasonalNaive, Average, and SeasonalAverage forecasting model.
+    + Featurization summary is now stored as an artifact on the run (check for a file named 'featurization_summary.json' under the outputs folder)
+    + Enable categorical indicators support for Tabnet Learner.
+    + Add downsample parameter to automl_setup_model_explanations to allow users to get explanations on all data without downsampling by setting this parameter to be false.
+    
 
 ## 2021-10-11
 

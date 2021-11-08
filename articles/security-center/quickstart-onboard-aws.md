@@ -3,7 +3,7 @@ title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 author: memildin
 ms.author: memildin
-ms.date: 11/02/2021
+ms.date: 11/07/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
@@ -49,20 +49,12 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 - To connect an AWS account to your Azure subscription, you'll obviously need access to an AWS account.
 
 - **To enable the Defender for Kubernetes plan**, you'll need:
-    - At least one Amazon EKS cluster with permission to access to the EKS K8s API server.
+    - At least one Amazon EKS cluster with permission to access to the EKS K8s API server. If you need to create a new EKS cluster, follow the instructions in [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html).
     - The resource capacity to create a new SQS queue, Kinesis Fire Hose delivery stream, and S3 bucket in the cluster's region.
-    
-    > [!TIP]
-    > To create a new EKS cluster follow guidance in [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)
 
 - **To enable the Defender for servers plan**, you'll need:
-    - Microsoft Defender for servers enabled (see [Quickstart: Enable enhanced security features](enable-enhanced-security.md)
-    - An active AWS account with EC2 instances managed by AWS Systems Manager (SSM) and using SSM agent
-
-    > [!TIP]
-    > Some Amazon Machine Images (AMIs) have the SSM agent pre-installed, their AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). 
-
-    - If your EC2 instances don't have the SSM Agent, follow the relevant instructions from Amazon:
+    - Microsoft Defender for servers enabled (see [Quickstart: Enable enhanced security features](enable-enhanced-security.md).
+    - An active AWS account with EC2 instances managed by AWS Systems Manager (SSM) and using SSM agent. Some Amazon Machine Images (AMIs) have the SSM agent pre-installed, their AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, follow the relevant instructions from Amazon:
         - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
         - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
 
@@ -82,10 +74,13 @@ Follow the steps below to create your AWS cloud connector.
 
 1. The select plans tab is where you choose which Defender for Cloud capabilities to enable for this AWS account. 
 
-    > [!IMPORTANT]
+    > [!NOTE]
     > Each capability has its own requirements for permissions and might incur charges.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-plans-selection.png" alt-text="The select plans tab is where you choose which Defender for Cloud capabilities to enable for this AWS account.":::
+
+    > [!IMPORTANT]
+    > To present the current status of your recommendations, the CSPM plan queries the AWS resource APIs several times a day. These read-only API calls incur no charges, but they *are* registered in CloudTrail if you've enabled a trail for read events. As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM), this increased volume of calls might also increase ingestion costs. In such cases, We recommend filtering out the read-only calls from the Defender for Cloud user or role ARN: arn:aws:iam::[accountId]:role/CspmMonitorAws (this is the default role name, confirm the role name  configured on your account).
 
     - To extend Defender for Servers coverage to your AWS EC2, set the **Servers** plan to **On** and edit the configuration as required. 
 
