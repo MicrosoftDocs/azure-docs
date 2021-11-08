@@ -115,7 +115,7 @@ Each connection can support multiple types of custom content, including analytic
     ---
 
     > [!NOTE]
-    > You cannot create create duplicate connections, with the same repository and branch, in a single Azure Sentinel workspace.
+    > You cannot create duplicate connections, with the same repository and branch, in a single Azure Sentinel workspace.
     >
 
 After the connection is created, a new workflow or pipeline is generated in your repository, and the content stored in your repository is deployed to your Azure Sentinel workspace.
