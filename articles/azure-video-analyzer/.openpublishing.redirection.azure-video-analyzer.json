@@ -281,11 +281,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/index.yml",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/index.yml",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/media-services/live-video-analytics-edge/inference-metadata-schema.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/inference-metadata-schema",
       "redirect_document_id": false
@@ -387,7 +382,7 @@
     },
     {
       "source_path_from_root": "/articles/media-services/live-video-analytics-edge/video-playback-concept.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/access-policies",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/playback-recordings-how-to",
       "redirect_document_id": false
     },
     {
