@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.author: linjzhu
 author: jacky-hdi
 ms.topic: troubleshooting
-ms.date: 11/03/2020
+ms.date: 11/03/2021
 ---
 
 # Apache Ambari Metrics Collector issues in Azure HDInsight
@@ -60,7 +60,7 @@ To avoid these issues, consider using one of the following options:
 
 1. Increase the heap memory of Apache Ambari Metrics Collector from **Ambari** > **Ambari Metric Collector** > **Configuration** > **Metrics Collector Heap Size**
 
-   :::image type="content" source="./media/apache-ambari-troubleshoot-ams-issues/editing-ams-configuration-ambari.png" alt-text="Editing AMS configuration properties in Ambari" border="true":::
+   :::image type="content" source="./media/apache-ambari-troubleshoot-ams-issues/editing-ams-configuration-ambari.png" alt-text="Screenshot of editing Ambari Metric Service configuration properties." border="true":::
 
 2. Follow these steps to clean up Ambari Metrics service (AMS) data.
 
