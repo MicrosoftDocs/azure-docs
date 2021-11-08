@@ -143,6 +143,9 @@ The following diagram shows what happens when you delete a blob or a blob versio
 
 :::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram showing deletion of a version with soft delete enabled.":::
 
+> [!NOTE]
+> On Azure Portal, if Soft delete is disabled while versioning is enabled, the deleted blob will come up under **Show deleted blobs** option. This is due to the above explained behavior.
+
 ### Restoring a soft-deleted version
 
 You can use the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation to restore soft-deleted versions during the soft delete retention period. The **Undelete Blob** operation always restores all soft-deleted versions of the blob. It is not possible to restore only a single soft-deleted version.
