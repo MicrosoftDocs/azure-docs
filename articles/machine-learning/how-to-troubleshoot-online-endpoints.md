@@ -114,7 +114,7 @@ Below is a list of common resources that might run out of quota when using Azure
 
 Before deploying a model, you need to have enough compute quota. This quota defines how much virtual cores are available per subscription, per workspace, per SKU, and per region. Each deployment subtracts from available quota and adds it back after deletion, based on type of the SKU.
 
-A possible mitigation is to check if there are unused deployments that can be deleted. Or you can submit a [request for a quota increase](./how-to-manage-quotas.md#request-quota-increases).
+A possible mitigation is to check if there are unused deployments that can be deleted. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases).
 
 #### Role assignment quota
 
@@ -222,7 +222,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 
 This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources which might have been supplied by exact path or the spelling of their names.
 
-For more information, see [Resolve resource not found errors](../azure-resource-manager/troubleshooting/error-not-found). 
+For more information, see [Resolve resource not found errors](../azure-resource-manager/troubleshooting/error-not-found.md). 
 
 ### ERROR: OperationCancelled
 
