@@ -38,28 +38,38 @@ Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#
 
 ## Allowed updates
 
-A [Create Index](/rest/api/searchservice/create-index) operation creates the physical data structures (files and inverted indexes) on your search service. Your ability to update an existing index hinges on whether the modification invalidates those physical structures.
+A [Create Index](/rest/api/searchservice/create-index) operation creates physical data structures (files and inverted indexes) on your search service. Your ability to update an existing index is contingent upon whether the modification invalidates those physical structures. Most field attributes can't be changed once the field is created in your index.
 
 To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
 
 | Element | Mutable |
 |---------|---------|
-| Name | No. Refer to [naming conventions](/rest/api/searchservice/naming-rules) when naming an index. |
+| Name | No |
 | Key | No |
 | Field names and types | No |
-| Field attributes (searchable, filterable, facetable, sortable) | No. You can add new fields at any time, but changing an existing field is not supported. |
-| Field attribute (retrievable) | Yes. You can change this attribute on an Update Index operation without incurring an index rebuild. |
+| Field attributes (searchable, filterable, facetable, sortable) | No |
+| Field attribute (retrievable) | Yes |
 | [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify "searchAnalyzer". All other assignments and modifications require a rebuild. |
-| [Scoring profiles](index-add-scoring-profiles.md) | Yes. You can change scoring profiles at any time. |
+| [Scoring profiles](index-add-scoring-profiles.md) | Yes |
 | [Suggesters](index-add-suggesters.md) | No |
 | [cross-origin remote scripting (CORS)](search-what-is-an-index.md#corsoptions) | Yes |
-| [Encryption](search-security-manage-encryption-keys.md) | Yes. You can add encryption support to an index without having to rebuild it. |
+| [Encryption](search-security-manage-encryption-keys.md) | Yes |
 
 [Synonym maps](search-synonyms.md) are not part of an index definition. Modifications to a synonym map have no impact on the physical search index.
 
+## Schema checklist
+
++ Review [naming conventions](/rest/api/searchservice/naming-rules) so that index and field names conform to the naming rules.
++ Review [supported data types](/rest/api/searchservice/supported-data-types). Data type will impact how the field is used. For example, numeric content is filterable but not full text searchable.
++ Identify one field in the data source that will be used as the key field in your index.
++ Identify which source fields have searchable content. If the content is text and verbose (phrases or longer), experiment with different analyzers to see how the text is tokenized.
++ Identify which source fields can be used as filters. Numeric content and short text fields, particularly those with repeating values, are good choices. When working with filters, remember:
+  + Filterable fields can optionally be used in faceted navigation. 
+  + Filterable fields are returned in arbitrary order, so consider making them sortable as well.
+
 ## Formulate a request
 
-There are several ways to create a search index. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
+When you are ready to create the index, there are several ways to move forward. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
 During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary for most modifications. You might consider working with a subset of your data to make rebuilds go faster.
 
@@ -68,7 +78,7 @@ During development, plan on frequent rebuilds. Because physical structures are c
 Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. In the portal, there are two options for creating a search index: 
 
 + **Add Index** is an embedded editor for specifying an index schema
-+ [**Import data*](search-import-data-portal.md) is a wizard
++ [**Import data**](search-import-data-portal.md) is a wizard
 
 The wizard packs in additional operations by also creating an indexer, data source, and loading data. If this is more than what you want, you should just use **Add Index** or another approach.
 

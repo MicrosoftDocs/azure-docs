@@ -15,7 +15,7 @@ ms.date: 11/08/2021
 
 Cognitive Search stores searchable content used for full text and filtered queries in a *search index*. An index is defined by a schema and saved to the service, with data import following as a second step. 
 
-This article is an introduction to search indexes. Prefer to get started? See [Create a search index](search-hwo-to-create-search-index.md).
+This article is an introduction to search indexes. Prefer to get started? See [Create a search index](search-how-to-create-search-index.md).
 
 ## What's a search index?
 
