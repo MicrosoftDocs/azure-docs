@@ -5,7 +5,7 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -78,7 +78,7 @@ Secrets are defined using the `--secrets` parameter.
 - The parameter accepts a comma-delimited set of name/value pairs.
 - Each pair is delimited by an equals sign (`=`).
 
-```powershell
+```azurecli
 az containerapp create `
   --resource-group "my-resource-group" `
   --name queuereader `
@@ -129,7 +129,7 @@ Here, the environment variable named `connection-string` gets its value from the
 
 In this example, you create an application with a secret that's referenced in an environment variable using the Azure CLI.
 
-```powershell
+```azurecli
 az containerapp create `
   --resource-group "my-resource-group" `
   --name myQueueApp `

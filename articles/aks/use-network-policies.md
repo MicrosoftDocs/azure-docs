@@ -301,7 +301,7 @@ kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. This time, set a timeout value to *2* seconds. The network policy now blocks all inbound traffic, so the page can't be loaded, as shown in the following example:
 
 ```console
-wget -qO- --timeout=2 http://backend
+wget -O- --timeout=2 --tries=1 http://backend
 ```
 
 ```output
@@ -388,7 +388,7 @@ kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. The network policy blocks the inbound traffic, so the page can't be loaded, as shown in the following example:
 
 ```console
-wget -qO- --timeout=2 http://backend
+wget -O- --timeout=2 --tries=1 http://backend
 ```
 
 ```output
@@ -485,7 +485,7 @@ kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubu
 At the shell prompt, use `wget` to see that the network policy now denies traffic:
 
 ```console
-wget -qO- --timeout=2 http://backend.development
+wget -O- --timeout=2 --tries=1 http://backend.development
 ```
 
 ```output

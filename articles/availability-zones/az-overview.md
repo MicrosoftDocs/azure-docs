@@ -5,7 +5,7 @@ author: prsandhu
 ms.service: azure
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: prsandhu
+ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
 ---
@@ -48,8 +48,8 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
-| South Central US | West Europe |  | East Asia* |
-| US Gov Virginia | Sweden* | | |
+| South Central US | West Europe |  | East Asia |
+| US Gov Virginia | Sweden | | |
 | West US 2 | | | |
 | West US 3 | | | |
 

@@ -9,15 +9,11 @@ ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
 ---
-# Azure CLI samples for Azure Database for MySQL - Flexible Server (Preview) 
+# Azure CLI samples for Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 The following table includes links to sample Azure CLI scripts for Azure Database for MySQL - Flexible Server.
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
-
 
 | Sample link | Description  |
 |---|---|
