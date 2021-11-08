@@ -15,6 +15,15 @@ ms.author: dmwendia
 ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
+
+In this tutorial, you register a single-page application that uses the Microsoft Authentication Library (MSAL) in the Microsoft Identity platform. 
+
+Follow the steps in this tutorial to:
+
+> [!div class="checklist"]
+> - Register your application with Azure AD
+> - Configure redirect URIs in your single-page app   
+
 ## Register your application with Azure AD
 
 ## Configure a redirect URI

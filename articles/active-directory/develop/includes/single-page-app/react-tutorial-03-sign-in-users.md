@@ -15,6 +15,19 @@ ms.author: dmwendia
 ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
+
+In this tutorial, you sign in users in a single-page application that uses the Microsoft Authentication Library (MSAL). 
+
+Follow the steps in this tutorial to:
+
+> [!div class="checklist"]
+
+> - Initialize the auth SDK
+> - Sign in users 
+> - Add Login 
+> - Display logged-in content
+> - Display MSAL provider content
+
 ## Initialize the auth SDK
 
 ## Sign in users
