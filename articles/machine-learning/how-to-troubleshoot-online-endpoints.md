@@ -100,7 +100,7 @@ Below is a list of common deployment errors that are reported as part of the dep
 * [OperationCancelled](#err-operationcancelled)
 * [InternalServerError](#err-internalservererror)
 
-### ERR: OutOfQuota
+### ERROR: OutOfQuota
 
 Below is a list of common resources that may run out of quota when using Azure services.
 
@@ -140,11 +140,11 @@ To get the exact reason for an error, run:
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
-### ERR: OutOfCapacity
+### ERROR: OutOfCapacity
 
 The specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region.
 
-### ERR: BadArgument
+### ERROR: BadArgument
 
 Below is a list of reasons you may run into this error:
 
@@ -203,7 +203,7 @@ You can also check if the blobs are present in the workspace storage account.
 
     `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
 
-### ERR: ResourceNotReady
+### ERROR: ResourceNotReady
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.  The error in this scenario is that this container is crashing when running, which means scoring couldn't happen. This error happens when:
 
@@ -215,17 +215,17 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 - Readiness or liveness probes are not set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
 
-### ERR: ResourceNotFound
+### ERROR: ResourceNotFound
 
 This error occurs when Azure Resource Manager (ARM) can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources which may have been supplied by exact path or the spelling of their names.
 
 More details on this error can be found [here](https://aka.ms/ARMResourceNotFoundFix). 
 
-### ERR: OperationCancelled
+### ERROR: OperationCancelled
 
 Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation which has a higher priority. Retrying the operation may allow it to be performed without cancellation.
 
-### ERR: InternalServerError
+### ERROR: InternalServerError
 
 While we do our best to provide a stable and reliable service, sometimes things don't go according to plan. If you get this error, it means something isn't right on our side and we need to fix it. Submit a [customer support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) with all related information and we'll address the issue. 
 
