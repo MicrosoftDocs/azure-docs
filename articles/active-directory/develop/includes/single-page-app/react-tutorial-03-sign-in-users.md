@@ -23,9 +23,17 @@ ms.custom: include
 
 ### Sign in users with redirects
 
+
+## Display logged in content
+
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_check_logged_in_state":::
+
+
 ## Display MSAL provider content
 
 :::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_use_msal_provider":::
+
+
 
 ## Next steps
 
