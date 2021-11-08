@@ -16,7 +16,7 @@ ms.subservice: data
 
 ## Overview and access
 
-Before you can take advantage of [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) for your Communications Services logs, you must first follow the steps outlined in [Enable logging in Diagnostic Settings](enable-logging.md). Once you have enabled your logs and a [Log Analytics Workspace](/azure/azure-monitor/logs/design-logs-deployment), you will have access to a number of helpful [default query packs](/azure/azure-monitor/logs/query-packs#default-query-pack) that will help you quickly visualize and understand the data available in your logs, which are described below. Through Log Analytics, you also get access to additional Communications Services Insights via Azure Monitor Workbooks (see: [Communications Services Insights](insights.md)), as well as the ability to create our own queries and Workbooks, as well as [REST API access](https://dev.loganalytics.io/) to any query.
+Before you can take advantage of [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) for your Communications Services logs, you must first follow the steps outlined in [Enable logging in Diagnostic Settings](enable-logging.md). Once you have enabled your logs and a [Log Analytics Workspace](/azure/azure-monitor/logs/design-logs-deployment), you will have access to many helpful [default query packs](/azure/azure-monitor/logs/query-packs#default-query-pack) that will help you quickly visualize and understand the data available in your logs, which are described below. Through Log Analytics, you also get access to more Communications Services Insights via Azure Monitor Workbooks (see: [Communications Services Insights](insights.md)), the ability to create our own queries and Workbooks, [REST API access](https://dev.loganalytics.io/) to any query.
 
 ### Access
 You can access the queries by starting on your Communications Services resource page, and then clicking on "Logs" in the left navigation within the Monitor section:
@@ -27,7 +27,7 @@ From there, you are presented with a modal screen that contains all of the [defa
 
 :::image type="content" source="media\log-analytics\log-analytics-modal-resource.png" alt-text="log analytics queries modal" lightbox="media\log-analytics\log-analytics-modal-resource.png":::
 
-If you close the modal screen, you can still navigate to the various query packs, as well as directly access  data in the form of tables based on the schema of the logs and metrics you have enabled in your Diagnostic Setting. Here, you can create your own queries from the data using [KQL (Kusto)](/azure/data-explorer/kusto/query/). Learn more about using, editing, and creating queries by reading more about: [Log Analytics Queries](/azure/azure-monitor/logs/queries)
+If you close the modal screen, you can still navigate to the various query packs, directly access data in the form of tables based on the schema of the logs and metrics you have enabled in your Diagnostic Setting. Here, you can create your own queries from the data using [KQL (Kusto)](/azure/data-explorer/kusto/query/). Learn more about using, editing, and creating queries by reading more about: [Log Analytics Queries](/azure/azure-monitor/logs/queries)
 
 :::image type="content" source="media\log-analytics\log-analytics-queries-resource.png" alt-text="Log Analytics queries in resource" lightbox="media\log-analytics\log-analytics-queries-resource.png":::
 
