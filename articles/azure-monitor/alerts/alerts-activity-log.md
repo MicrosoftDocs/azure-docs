@@ -3,7 +3,7 @@ title: Create, view, and manage activity log alerts in Azure Monitor
 description: Create activity log alerts by using the Azure portal, an Azure Resource Manager template, and Azure PowerShell.
 ms.topic: conceptual
 ms.subservice: alerts
-ms.date: 08/12/2021
+ms.date: 11/08/2021
 
 ---
 
@@ -39,10 +39,10 @@ Here's how to create an activity log alert rule in the Azure portal:
     > [!TIP]
     > Most resource panes also have **Alerts** in their resource menu, under **Monitoring**. You can also create alert rules from there.
 
-3. In the **Scope** tab, click **Select scope**. Then, in the context pane that loads, select the target resource(s) that you want to alert on. Use **Filter by subscription**, **Filter by resource type**, and **Filter by location** drop-downs to find the resourcevirtual you want to monitor. You can also use the search bar to find your resource.
+3. In the **Scope** tab, click **Select scope**. Then, in the context pane that loads, select the target resource(s) that you want to alert on. Use **Filter by subscription**, **Filter by resource type**, and **Filter by location** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
     
     > [!NOTE]
-    > As a target, you can select an entire subscription, a resource group, or a specific resource. If you choose a subscription or a resource group as a target, and you also select a resource type, the rule will apply to all resources of that type within the selected subscription or a resource group. If you choose a specific target resource, the rule will apply only to that resource. You can't explicitly select multiple subscriptions, resource groups, or resources by using the target selector. 
+    > As a target, you can select an entire subscription, a resource group, or one or more a specific resources from the same subscription. If you choose a subscription or a resource group as a target, and you also select a resource type, the rule will apply to all resources of that type within the selected subscription or a resource group. If you choose a specific target resource, the rule will apply only to that resource. You can't select multiple subscriptions, or multiple resources from different subscriptions. 
 
 4. If the selected resource has activity log operations that you can create alert rules on, you'll see that **Available signal types** lists **Activity Log**. You can view the full list of resource types supported for activity log alerts in [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md).
 
