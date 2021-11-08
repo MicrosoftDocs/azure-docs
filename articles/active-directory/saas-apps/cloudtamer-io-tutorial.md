@@ -61,6 +61,7 @@ To configure and test Azure AD SSO with cloudtamer.io, perform the following ste
 1. **[Configure cloudtamer.io SSO](#configure-cloudtamerio-sso)** - to configure the single sign-on settings on application side.
     1. **[Create cloudtamer.io test user](#create-cloudtamerio-test-user)** - to have a counterpart of B.Simon in cloudtamer.io that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Group assertions](#group-assertions)** - to set group assertions for Azure AD and cloudtamer.io.
 
 ### Begin cloudtamer.io SSO Configuration
 
@@ -175,35 +176,40 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the cloudtamer.io tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the cloudtamer.io for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-## Group Assertions
+## Group assertions
 
-In order to easily manage cloudtamer.io user permissions using existing Azure Active Directory groups, you can follow the steps below:
+To easily manage cloudtamer.io user permissions by using existing Azure Active Directory groups, complete these steps:
 
-### Azure Active Directory Configuration
-1. Within Azure Active Directory, navigate to Azure Active Directory > Enterprise Applications.
-2. Select the Enterprise Application for cloudtamer.io from the list.
-3. On the Overview screen that appears, select **Single sign-on** from the menu on the left.
-4. On the Single Sign-On screen, locate the User Attributes & Claims box and select **Edit**.
-5. Select **Add a group claim** from the top. (Note: You can only have one group claim. If this option is disabled, you may already have a group claim defined.)
-6. On the Group Claims screen that appears, make a selection for the groups that should be returned in the claim:
-	1. If you will always have every group you intend to use in cloudtamer.io assigned to this Enterprise Application, select **Groups assigned to the application**.
-	1. Otherwise, if you want all groups to appear (this can cause a large number of group assertions and may be subject to limits), select **Groups assigned to the application**.
-7. For **Source attribute**, leave Group ID by default.
-8. Place a checkmark in the box labeled **Customize the name of the group claim** and specify the name **memberOf** in the **Name** field.
-9. Select **Save** to complete the configuration with Azure Active Directory.
+### Azure Active Directory configuration
 
-### cloudtamer.io Configuration
-1. Within cloudtamer.io, navigate to Users > Identity Management Systems.
-2. Select the IDMS that you've created for Azure Active Directory.
-3. On the overview screen that appears, select the User Group Associations tab.
-4. For each user group mapping you desire, follow these steps:
-	1. Select Add > Add New.
-	1. On the dialog that appears:
-		1. In the Name field, specify **memberOf**.
-		1. In the Regex field, specify the Object Id (from Azure Active Directory) of the group you wish to match.
-		1. In the User Group field, select the cloudtamer.io internal group you wish to map to the group in the Regex field.
-		1. Place a checkmark in **Update on Login**.
-	1. Select **Add** to add the group association.
+1. In the Azure portal, go to **Azure Active Directory** > **Enterprise Applications**.
+1. In the list, select the enterprise application for cloudtamer.io.
+1. On **Overview**, in the left menu, select **Single sign-on**.
+1. On **Single Sign-On**, under **User Attributes & Claims**, select **Edit**.
+1. Select **Add a group claim**. 
+   > [!NOTE]
+   > You can have only one group claim. If this option is disabled, you might already have a group claim defined.
+1. On **Group Claims**, select the groups that should be returned in the claim:
+   - If you will always have every group you intend to use in cloudtamer.io assigned to this enterprise application, select **Groups assigned to the application**.
+   - If you want all groups to appear (this selection can cause a large number of group assertions and might be subject to limits), select **Groups assigned to the application**.
+1. For **Source attribute**, leave the default **Group ID**.
+1. Select the **Customize the name of the group claim** checkbox.
+1. For **Name**, enter **memberOf**.
+1. Select **Save** to complete the configuration with Azure Active Directory.
+
+### cloudtamer.io configuration
+
+1. In cloudtamer.io, go to **Users** > **Identity Management Systems**.
+1. Select the IDMS that you've created for Azure Active Directory.
+1. On the overview page, select the **User Group Associations** tab.
+1. For each user group mapping that you want, complete these steps:
+   1. Select **Add** > **Add New**.
+   1. In the dialog that appears:
+	1. For **Name**, enter **memberOf**.
+	1. For **Regex**, enter the object ID (from Azure Active Directory) of the group you want to match.
+	1. For **User Group**, select the cloudtamer.io internal group you want to map to the group in **Regex**.
+	1. Select the **Update on Login** checkbox.
+   1. Select **Add** to add the group association.
 
 ## Next steps
 
