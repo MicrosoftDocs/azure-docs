@@ -1,28 +1,28 @@
 ---
-title: Identify bottlenecks in Azure portal
+title: 'Tutorial: Run a load test to identify performance bottlenecks'
 titleSuffix: Azure Load Testing
-description: In Azure portal, identify and monitor performance bottlenecks with Azure Load Testing.
+description: In this tutorial, you learn how to identify and monitor performance bottlenecks in a web app by running a high-scale load test with Azure Load Testing.
 services: load-testing
 ms.service: load-testing
-ms.author: jmartens
-author: j-martens
-ms.date: 10/14/2021
+ms.author: nicktrog
+author: ntrogh
+ms.date: 11/05/2021
 ms.topic: tutorial
 #Customer intent: As a Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps I have running in Azure.
 ---
 
-# Tutorial: Run a load test in Azure portal to identify performance bottlenecks
+# Tutorial: Run a load test to identify performance bottlenecks
 
-In this tutorial, you'll load test a sample web app learn how to identify performance bottlenecks. The application consists of a web API deployed to an Azure App Service. The app and service interacts with an Azure Cosmos DB data store.
+In this tutorial, you'll learn how to load test a sample application to identify performance bottlenecks. The application consists of a web API deployed to an Azure App Service. The app and service interact with an Azure Cosmos DB data store.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Deploy the sample app.  
-> * Create and run a load test.  
-> * Identify performance bottlenecks in the app.  
-> * Remove the bottleneck.  
-> * Re-run the load test to check performance improvements.  
+> * Deploy the sample app.
+> * Create and run a load test.
+> * Identify performance bottlenecks in the app.
+> * Remove the bottleneck.
+> * Re-run the load test to check performance improvements.
 
 ## Prerequisites
 
@@ -31,9 +31,6 @@ In this tutorial, you'll learn how to:
 * Download and install:
   * [VS Code](https://code.visualstudio.com/Download).
   * The [Azure Load Testing extension](https://github.com/microsoft/azureloadtest#installation-of-vs-code-extension) for VS Code.
-  * [Java](https://java.com/download/windows_manual.jsp).
-  * [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi).
-  * [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/). Since the sample app's `SampleApp.jmx` uses an Ultimate Thread group, install Plugins Manager to run the Apache JMeter script on a fresh Apache JMeter install.
 
 ## Deploy the sample app
 
@@ -45,7 +42,7 @@ Before you can load test the sample app, you have to get it up and running. Use 
    az login
    az account set --subscription <your-Azure-Subscription-ID>
    ```
-
+    
 1. Clone the sample application's source repo.
 
    ```powershell
@@ -60,54 +57,59 @@ Before you can load test the sample app, you have to get it up and running. Use 
     cd nodejs-appsvc-cosmosdb-bottleneck
     .\deploymentscript.ps1
    ```
-
+   
    > [!TIP]
-   > You can install PowerShell Core on [Linux/WASL](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-1804&preserve-view=true) or [macOS](/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7.1&preserve-view=true).  
+   > You can install PowerShell Core on [Linux/WSL](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-1804&preserve-view=true) or [macOS](/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7.1&preserve-view=true).  
    >
    > After installing it, you can run the previous command as `pwsh .\deploymentscript.ps1`.  
 
-1. At the prompt, provide:  
+1. At the prompt, provide:
 
-   * Your Subscription ID.
+   * Your Azure subscription ID.
    * A unique name for your web app.
-   * A location. By default, the location is `eastus`.  
+   * A location. By default, the location is `eastus`. You can obtain region codes by running the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command.
 
    > [!IMPORTANT]
-   > For your webapp name, use only lowercase letters and numbers. No spaces. No special characters.  
+   > For your webapp name, use only lowercase letters and numbers. No spaces. No special characters.
 
-1. Once deployment finishes, go to the running sample application.  
-
-   ```powershell
-   Start-Process "https://<yourappname>.azurewebsites.net"
-   ```
+1. Once deployment finishes, go to the running sample application by opening `https://<yourappname>.azurewebsites.net` in a browser window.
 
 1. To see the application's components, sign in to the [Azure portal](https://portal.azure.com) and go to the resource group you created.  
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/resource-group.png" alt-text="Resource groups.":::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/resource-group.png" alt-text="Screenshot that shows the list of Azure Resource Groups.":::
 
-Now that you have the application deployed and running, go ahead and get started with running your first load test against it.  
+Now that you have the application deployed and running, go ahead and get started with running your first load test against it.
 
-## Create the load test
+## Configure and create the load test
+
+In this section, you'll create a load test by using an existing JMeter test script.
+
+### Configure the Apache JMeter script
 
 The sample application's source repo includes an Apache JMeter script named `SampleApp.jmx`. This script carries out three API calls on each test iteration:  
 
-* `add` - Carries out a data insert operation on Cosmos DB for the number of visitors on the webapp.  
+* `add` - Carries out a data insert operation on Cosmos DB for the number of visitors on the webapp.
+* `get` - Carries out a GET operation from Cosmos DB to retrieve the count.
+* `lasttimestamp` - Updates the timestamp since the last user went to the website.
 
-* `get` - Carries out a GET operation from Cosmos DB to retrieve the count.  
+In this section, you update the Apache JMeter script with the URL of the sample web app you deployed in the previous section.
 
-* `lasttimestamp` - Updates the timestamp since the last user went to the website.  
+Before you start, make sure you have the directory of the cloned sample app open in VS Code.
 
-Here, you'll update the Apache JMeter script with the URL of the webapp deployed in the previous section.  
+1. Open the directory of the cloned sample app in the Cloud Shell editor.
 
-Before you start, make sure you have the directory of the cloned sample app open in VS Code.  
+    ```powershell
+    cd nodejs-appsvc-cosmosdb-bottleneck
+    code .
+    ```
+ 
+1. Open `SampleApp.jmx`.
 
-1. Open `SampleApp.jmx`.  
+1. Search for `<stringProp name="HTTPSampler.domain">`.
 
-1. Search for `<stringProp name="HTTPSampler.domain">`.  
+   You'll see three instances of `<stringProp name="HTTPSampler.domain">` in the file.
 
-   You'll see three instances of `<stringProp name="HTTPSampler.domain">` in the file.  
-
-1. Replace the values in all three instances with the URL of your newly deployed sample application.  
+1. Replace the value with the URL of the newly deployed sample application in all three instances.
 
    ```xml
    <stringProp name="HTTPSampler.domain">yourappname.azurewebsites.net</stringProp>
@@ -115,148 +117,154 @@ Before you start, make sure you have the directory of the cloned sample app open
 
    Update the value in all three places. Don't include the `https://` prefix.  
 
-1. Save your changes and close the file.  
+1. Save your changes and close the file.
 
-1. Use **Ctrl** + **Shift** + **P** to launch the command palette. Begin typing `Azure load`. You'll see two commands associated with the Azure Load Test extension:  
+### Create the Azure Load Testing resource
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-new-load-test.png" alt-text="Create a new Azure Load Testing test.":::
+The Cloud Native Load Test is a top-level resource for your load testing activities. This resource provides a centralized place to view and manage load tests, test results, and other related artifacts.
 
-    * **Run Current File as Load Test in Cloud**: Use this command to run an existing cloud load test at scale in Azure.
-    * **Create New Test**: Use this command to author a new cloud load test from an existing JMeter script.  
+If you  already have a Load Testing resource, skip this section and continue to [Create a load test](#create_test).
 
-1. Select **Create New Test**.  
+If you don't yet have a Load Testing resource, create one now:
 
-1. Select the **SampleApp.jmx** test plan.  
+[!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/browse-for-load-test-plans.png" alt-text="Search for Azure Load Testing plans.":::
+In the next section, you create a new load test for the sample app in the Azure Load Testing resource.
 
-   A YAML-based load test with smart defaults opens.  
+### <a name="create_test"></a> Create a load test
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-yaml-based-test.png" alt-text="YAML-based load test for Azure Load Testing.":::
+1. Navigate to the load test resource and select **Create new test** in the command bar.
 
-   By default, the name of the load test matches the Apache JMeter script name you selected in the previous step. You can rename this script. The cloud load test YAML is saved in the current workspace. For more information about YAML properties, see [Common Terminologies](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies).  
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-test.png" alt-text="Screenshot that shows Create new test." :::
 
-1. Edit the parameters or comment out the optional parameters if they don’t apply.  
+1. In the **Basics** tab, fill the **Test name** and **Test description** input fields. Optionally, you can check the **Run test after creation** box to automatically start running the load test.
 
-   For instance, since you don’t have configuration files associated with your current test plan, you can comment them out for now.  
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/basics.png" alt-text="Screenshot that shows the basics tab when creating a new test." :::
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-yaml-based-test-updated.png" alt-text="(Updated) YAML-based load test for Azure Load Testing.":::
+1. In the **Test plan** tab, select the **JMeter script** test method and select the *SampleApp.jmx* test script from the cloned sample application directory. Select **Upload** to upload the file to Azure and configure the load test.
 
-1. Save the changes to your YAML file.  
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload a JMeter script." :::
+
+    Optionally, you can select and upload more JMeter configuration files.
+
+1. In the **Load** tab, configure the following details. You can leave the default values for this tutorial:
+
+    |Setting  |Value  |Description  |
+    |---------|---------|---------|
+    |Engine instances     |1         |The number of parallel test engines that execute the JMeter script. |
+    
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/load.png" alt-text="Screenshot that shows the Load tab when creating a new test." :::
+
+1. In the **Monitoring** tab, specify the application components for which to monitor the resource metrics. Select **add/modify** to manage the list of application components.
+
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/monitoring.png" alt-text="Screenshot that shows the Monitoring tab when creating a new test." :::
+
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/add-resource.png" alt-text="Screenshot that shows how to add Azure resources to monitor during the load test." :::
+
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/added-resource.png" alt-text="Screenshot that shows the Monitoring tab with the list of Azure resources to monitor." :::
+
+1. Select **Review + create**, review all settings, and select **Create**.
+
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create.png" alt-text="Screenshot that shows the Review + create tab when creating a new test." :::
 
 ## Run the load test
 
-Now that you've got the load test created and configured, feel free to run it.  
+In this section, you'll run the load test that you created in the previous section. If checked the **Run test after creation** box, the load test will start automatically.
 
-1. With the YAML file still open, go to the command pallet and select **Run Current File as Load Test in Cloud**.  
+1. On the Azure Load Testing resource page, select the test created previously to navigate to test page.
 
-1. Sign in to Azure if prompted.  
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-run.png" alt-text="Screenshot that shows the list of tests." :::
 
-1. Select the subscription from which you'll run your load test.  
+   >[!TIP]
+   > You can use the search box and the pil filter for time range to find the test too.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/select-a-subscription.png" alt-text="Select an Azure subscription for Azure Load Testing.":::
+1. In the load test details page, select **Run** or **Run test**.
 
-1. Select **Create new Test Environment...** and follow the prompts to create the resource.  
+    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/rerun.png" alt-text="Screenshot that shows how to run a test." :::
 
-   The Test Environment is an Azure resource that will store load tests, test results, and other related artifacts.  
+1. Select **Run** on the run summary page to start the load test. You'll then see the list of test runs.
 
-1. Select the resource group *of the sample application you're testing* and select **OK**.  
+    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/run-summary.png" alt-text="Screenshot that shows the run summary page." :::
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/app-server-results.png" alt-text="Application's server metrics monitored by Azure Load Testing.":::
+    Azure Load Testing begins to monitor and display the application's server metrics in the dashboard.
+    
+    You can see the streaming client-side metrics while the test is running. By default, the results refresh automatically every five seconds.
 
-   The test will start and the **OUTPUT** section will show status messages.  
+    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/aggregated-by-percentile.png" alt-text="Screenshot that shows the test results dashboard.":::
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-run-messages.png" alt-text="Azure Load Testing status messages.":::
-
-1. Select **View Progress**, or follow the link to see the metrics related to your load test in Azure portal.  
-
-   Azure Load Testing service begins to monitor and display the application's server metrics in the test results.  
+    You can apply multiple filters or aggregate the results to different percentiles to customize the charts.
 
    > [!TIP]
-   > You can stop a load test at any time from the Azure portal UI.  
+   > You can stop a load test at any time from the Azure portal UI by selecting **Stop**.
 
-You can see the streaming client-side metrics while the test is running which auto refreshes every 5 seconds. You can stop the test by selecting **Stop** and also apply filters to the requests by sampler and errors. You can aggregate the response times for different percentiles.  
-
-:::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-aggregated-by-percentile.png" alt-text="Azure Load Testing: results by percentile.":::
-
-Wait until the load test finishes fully before proceeding to the next section.  
+Wait until the load test finishes fully before proceeding to the next section.
 
 ## Identify performance bottlenecks
 
-Now, you'll analyze the load test results. Check for performance bottlenecks in the application. Examine the client-side and server-side metrics in the dashboard.  
+In this section, you'll analyze the load test results to identify performance bottlenecks in the application. Examine both the client-side and server-side metrics to determine the root cause of the problem.
 
-1. Take a look at the client-side metrics.  
+1. First, take a look at the client-side metrics. You can notice that the 90th percentile for the **Response time** metric for API requests `add` and `get` are higher than for the `lasttimestamp` API.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-client-side-metrics.png" alt-text="Azure Load Testing: Client-side metrics.":::
+    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/client-side-metrics.png" alt-text="Screenshot that shows the client-side metrics.":::
+    
+    The issue might be database-related, because the `add` and `get` APIs interact with Azure Cosmos DB. You can see a similar pattern for **Errors**, where the `lasttimestamp` API has much fewer errors than the other APIs.
+    
+    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/client-side-metrics-errors.png" alt-text="Screenshot that shows the errors chart.":::
 
-    The metrics reveal an increase in the 90th percentile **Response time** for the API requests (`add` and `get`). That's compared to the `lasttimestamp` API.  
+1. To learn why this increase occurred, scroll down to the **Server-side metrics** section. This section shows your Azure application components: Azure App Service Plan, App Service, and Cosmos DB.
 
-   The issues may be database-related since the `add` and `get` APIs interact with Cosmos DB. Notice a similar pattern for **Errors**.  
+    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/app-service-metrics-for-load-testing.png" alt-text="Screenshot that shows the Azure App Service Plan metrics.":::
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-client-side-metrics-errors.png" alt-text="Errors in Azure Load Testing.":::
+    In the Azure App Service Plan metrics, you can see that the **CPU Percentage** and **Memory Percentage** metrics are within healthy ranges.
 
-1. To learn why this increase occurred, scroll down to the **Server-side metrics** section.  
+1. Now, take a look at the Cosmos DB server-side metrics.
 
-   It shows your application's components - in this case an App Service Plan, App Service, and Cosmos DB - and their server metrics.  
+    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/cosmos-db-metrics.png" alt-text="Screenshot that shows Azure Cosmos DB metrics.":::
+    
+    You notice that the **Normalized RU Consumption** metric shows that the database was running at 100% utilization soon after the load test began. The high resource usage would have caused database throttling errors, and increased response times for the `add` and `get` web APIs.
+    
+    In the previous chart, you can see from the **Provisioned Throughput** metric for the Azure Cosmos DB instance has a maximum throughput of 400 RUs. In the next section, you'll increase the throughput and verify if it fixes the performance bottleneck.
 
-1. For the App Service Plan metrics, you'll note that the **CPU Percentage** and **Memory Percentage** metrics are within healthy ranges.  
+## Remove performance bottlenecks
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/app-service-metrics-for-load-testing.png" alt-text="App Service Plan metrics.":::
+In the previous section, you've discovered that the database forms a performance bottleneck. In this section, you'll increase the RU scale setting for the Azure Cosmos DB instance to improve the application performance.
 
-1. Examine metrics for Cosmos DB.  
+1. Open a new browser tab.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-cosmos-db-metrics.png" alt-text="Cosmos DB Metrics.":::
+1. Go to the Cosmos DB resource that you provisioned as part of the sample application deployment.
 
-   The **Normalized RU Consumption** metric shows that you were running at 100% utilization soon after the load test began.  
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/ru-scaling-for-cosmos-db.png" alt-text="Screenshot that shows Cosmos DB scale settings.":::
 
-   High utilization would have caused throttling errors and increased response times for the `add` and `get` web APIs.  
+1. Select the **Scale & Settings** option, and set its value to 1200 RU.
+ 
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/1200-ru-scaling-for-cosmos-db.png" alt-text="Screenshot that shows the updated Cosmos DB scale settings.":::
 
-1. In the chart above, check out the **Provisioned Throughput** metric.  
+1. Select **Save**.
 
-   Your Cosmos DB is set up with a maximum throughput of 400 RUs. Go to the next section and adjust this limit to see if it fixes your performance bottleneck.  
+## Rerun and verify the performance
 
-## Remove bottleneck
+Now that you've increased the database throughput, you'll rerun the load test and analyze the test results.
 
-To remove the bottleneck, manually increase the RU settings:  
+1. Go to the load test browser tab, and select **Run**.
+ 
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/rerun-test.png" alt-text="Screenshot that shows how to run the load test.":::
 
-1. Open a new browser tab.  
+   You'll see a new test run entry, with the status column that cycles through the **Provisioning**, **Executing**, and **Done** state. At any time, select the test run item to monitor how the load test is progressing.
 
-1. Go to the Cosmos DB resource that was provisioned as part of the sample application deployment.  
+1. Once the load test finishes, check the **Response time** and the **Errors** of the client-side metrics.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/ru-scaling-for-cosmos-db.png" alt-text="RU scaling for Cosmos DB.":::
+1. Then check the server-side metrics for Azure Cosmos DB and ensure that the performance has improved.
+ 
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/cosmos-db-metrics.png" alt-text="Screenshot that shows the original Cosmos DB client-side metrics.":::
 
-1. Select the **Scale & Settings** option and set the value to 1200 RU.  
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/cosmos-db-metrics-post-run.png" alt-text="Screenshot that shows the Cosmos DB client-side metrics after the scale settings update.":::
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/1200-ru-scaling-for-cosmos-db.png" alt-text="Azure Load Testing scale at 1200 RU.":::
+After changing the scale settings of the database, you now see that:
 
-1. Select **Save**.  
+* The response time for the `add` and `get` APIs has improved.
+* The normalized RU consumption remains well under the maximum limit.
 
-## Check the performance
-
-Go back to your load test, rerun it, and check the results.  
-
-1. Go to your load test's browser tab, and select **Rerun**.  
-
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-rerun-test.png" alt-text="Rerun in Azure Load Testing.":::
-
-   You'll see an entry for the new test run with the status column that cycles through **Provisioning**, **Executing**, and **Done**.  
-
-1. At any time, select the test run to see how the load test is progressing.  
-
-1. Once the load test finishes, check the **Response time** and the **Errors** of the client-side metrics.  
-
-1. Then check the server-side metrics for Cosmos DB and check that performance has improved.  
-
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-cosmos-db-metrics.png" alt-text="Cosmos DB client-side metrics.":::
-
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/azure-load-testing-cosmos-db-metrics-post-run.png" alt-text="Cosmos DB client-side metrics after the run.":::
-
-After the changes you've made, you'll see that:  
-
-* The response time for the `add` and `get` APIs has improved compared to the first test run.  
-* The normalized RU consumption was well under the limits.  
-
-Both the improved response times and the normalized RU consumption increase the overall performance of your application.  
+As a result, the overall performance of your application was improved.
 
 ## Clean up resources
 
@@ -264,9 +272,7 @@ Both the improved response times and the normalized RU consumption increase the 
 
 ## Next steps
 
-You now have a web app and a load test app running in the Azure portal.  
-
-Advance to the next article to learn how to identify bottlenecks using VS Code.  
+Advance to the next tutorial to learn how to set up an automated regression testing workflow by using Azure Pipelines or GitHub Actions.
 
 > [!div class="nextstepaction"]
-> [Identify bottlenecks using VS Code](how-to-identify-bottlenecks-vs-code.md)
+> [Set up automated regression testing](./tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md)
