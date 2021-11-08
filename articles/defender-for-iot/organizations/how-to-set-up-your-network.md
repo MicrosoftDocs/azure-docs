@@ -108,7 +108,7 @@ Verify that your organizational security policy allows access to the following:
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| HTTPS / Websocket | TCP | In/Out | 443 | Gives the sensor access to the Azure portal. (Optional) Access can be granted through a proxy. | Access to Azure Portal | Sensor | Azure portal |
+| HTTPS / Websocket | TCP | In/Out | 443 | Gives the sensor access to the Azure portal. (Optional) Access can be granted through a proxy. | Access to Azure portal | Sensor | Azure portal |
 
 #### Sensor access to the on-premises management console
 
@@ -117,7 +117,7 @@ Verify that your organizational security policy allows access to the following:
 | SSL | TCP | In/Out | 443 | Give the sensor access to the on-premises management console. | The connection between the sensor, and the on-premises management console | Sensor | On-premises management console |
 | NTP | UDP | In/Out | 123 | Time Sync | Connects the NTP to the on-premises management console. | Sensor | On-premises management console |
 
-#### Additional firewall rules for external services (Optional)
+#### Additional firewall rules for external services (optional)
 
 Open these ports to allow extra services for Defender for IoT.
 
