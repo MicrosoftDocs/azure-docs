@@ -599,7 +599,7 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 ```
 
 ## EntryPoint Override
-With 8.2 version of ServiceFabric Runtime, you can now override entrypoint for **container** and **exe host** code package. 
+With 8.2 version of ServiceFabric Runtime, you can now override entrypoint for **container** and **exe host** code package. You can use this in cases for ex: where you don't want to provision a different container image when all other elements remains same, or you want to pass different argumets based on test or prod scenario and the entry point remains the same.
 
 Following is an example on how to override container entry point:
 
@@ -671,7 +671,7 @@ Following is an example on how to override container entry point:
   <ConfigPackage Name="Config" Version="1.0.0" />
 </ServiceManifest>
 ```
-One you specify the o errides in manifest your container with image name myregistry.azurecr.io/samples/helloworldapp, command commandsOverride, source sourceOverride, and entryPoint entryPointOverride will be started.
+One you specify the overrides in manifest your container with image name myregistry.azurecr.io/samples/helloworldapp, command commandsOverride, source sourceOverride, and entryPoint entryPointOverride will be started.
 
 Similarly, you can also override the same for **ExeHost** like below:
 ```xml
