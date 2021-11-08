@@ -9,7 +9,7 @@ ms.custom: generated
 
 ### Count all sensors by type
 
-This query summarize all sensors by their type (OT, EIoT).
+This query summarizes all sensors by their type (OT, EIoT).
 
 ```kusto
 iotsecurityresources
