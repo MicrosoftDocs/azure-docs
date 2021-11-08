@@ -4,7 +4,7 @@ description:
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 11/08/2021
 ms.custom: template-tutorial
 ---
 
@@ -17,18 +17,38 @@ Defender for IoT has extended the agentless capabilities to go beyond operationa
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Set up a server or Virtual Machine (VM)
+> * Prepare your environment
 > * Setup an EIoT sensor
 > * 
 
 ## Prerequisites
 
-### Configure your environment
+An Azure subscription is required for this tutorial.
 
-Before you are able to deploy your EIoT sensor, you will need to configure server, or Virtual Machine (VM). and connect a Network Interface Cared (NIC) to a switch monitoring (SPAN) port.
+If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-**To configure your environment**:
+If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you will need to create a new subscription.
 
-1. Set up a server, or VM.
+There is a minimum security level needed to access different parts of Azure Defender for Iot. You must have a level of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface.
+
+The following table describes user access permissions to Azure Defender for IoT portal tools:
+
+| Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
+|--|--|--|--|--|
+| View details and access software, activation files and threat intelligence packages | ✓ | ✓ | ✓ | ✓ |
+| Onboard a sensor |  | ✓ | ✓ | ✓ |
+| Update pricing |  | ✓ | ✓ | ✓ |
+| Recover password | ✓ | ✓ | ✓ | ✓ |
+
+> [!Note]
+> Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
+
+## Set up a server or Virtual Machine (VM)
+
+Before you are able to deploy your EIoT sensor, you will need to configure your server, or VM, and connect a Network Interface Cared (NIC) to a switch monitoring (SPAN) port.
+
+**To set up a server, or VM**:
 
 1. Ensure the minimum resources are set to:
 
@@ -62,7 +82,7 @@ Before you are able to deploy your EIoT sensor, you will need to configure serve
 
     If the number of RX packets increases each time, the interface is receiving incoming traffic. Repeat this step for each interface you have.
 
-### Prepare your environment
+## Prepare your environment
 
 Once your environment has been configured, the environment will now have to be prepared.
 
@@ -89,32 +109,6 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 > [!Note]
 > The Azure public IP range are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
-### Prepare an Azure instance
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you would need to choose an alternate, or create a new subscription.
-
-There is a minimum security level needed to access different parts of Azure Defender for Iot. You must have a level of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface.
-
-The following table describes user access permissions to Azure Defender for IoT portal tools:
-
-| Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
-|--|--|--|--|--|
-| View details and access software, activation files and threat intelligence packages | ✓ | ✓ | ✓ | ✓ |
-| Onboard a sensor |  | ✓ | ✓ | ✓ |
-| Update pricing |  | ✓ | ✓ | ✓ |
-| Recover password | ✓ | ✓ | ✓ | ✓ |
-
-> [!Note]
-> Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
-
-### Onboard a new subscription ????????????CAN THIS SECTION BE REMOVED?????????
-
-Onboard a new subscription, and provide the subscription ID to your Azure Defender for IoT contact to ensure you will not be billed.
-
-Learn how to [Onboard a subscription](organizations/how-to-manage-subscriptions.md#onboard-a-subscription).
-
 ## Setup an EIoT sensor
 
 A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will leverage the EIoT network and endpoint sensors to gain comprehensive visibility.
@@ -135,7 +129,7 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
     :::image type="content" source="media/tutorial-get-started-eiot/onboard-subscription.png" alt-text="Screenshot of the onboard subscription button.":::
 
-    To learn more about onboarding a subscription, see [Onboard a subscription](organizations/how-to-manage-subscriptions.md#onboard-a-subscription).
+    If you do not already have a subscription, you can select **Onboard subscription** to onboard a new subscription. To learn more about onboarding a subscription, see [Onboard a subscription](organizations/how-to-manage-subscriptions.md#onboard-a-subscription).
 
 1. In the Deploy for field, select **An enterprise network (Cloud connected)**.
 
