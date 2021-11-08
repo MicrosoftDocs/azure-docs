@@ -11,6 +11,8 @@ ms.author: souchak
 
 # SaaS fulfillment operations APIs v2 in the Microsoft commercial marketplace
 
+This article describes version 2 of the SaaS fulfillment operations APIs.
+
 ## List outstanding operations
 
 Get list of the pending operations for the specified SaaS subscription. The publisher should acknowledge returned operations by calling the [Operation Patch API](#update-the-status-of-an-operation).

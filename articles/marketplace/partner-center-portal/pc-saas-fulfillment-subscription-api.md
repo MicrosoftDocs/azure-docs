@@ -11,6 +11,8 @@ ms.author: souchak
 
 # SaaS fulfillment Subscription APIs v2 in Microsoft commercial marketplace
 
+This article describes version 2 of the SaaS fulfillment subscription APIs.
+
 ## Resolve a purchased subscription
 
 The resolve endpoint enables the publisher to exchange the purchase identification token from the commercial marketplace (referred to as *token* in [Purchased but not yet activated](pc-saas-fulfillment-life-cycle.md#purchased-but-not-yet-activated-pendingfulfillmentstart)) to a persistent purchased SaaS subscription ID and its details.

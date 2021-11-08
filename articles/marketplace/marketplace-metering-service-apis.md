@@ -36,7 +36,7 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 
 *Query parameters:*
 
-| Paramter | Recommendation          |
+| Parameter | Recommendation          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Use 2018-08-31. |
 | | |

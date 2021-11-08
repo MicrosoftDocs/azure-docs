@@ -1,5 +1,5 @@
 ---
-title: Managing the SaaS subscription life cycle
+title: Managing the SaaS subscription life cycle | Microsoft commercial marketplace
 description: Learn how to manage the SaaS subscription life cycle by using the fulfillment APIs version 2.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -11,13 +11,13 @@ ms.author: souchak
 
 # Managing the SaaS subscription life cycle
 
-The commercial marketplace manages the entire life cycle of a SaaS subscription after its purchase by the end user. It uses the landing page, Fulfillment APIs, Operations APIs, and the webhook as a mechanism to drive the actual SaaS subscription activation, usage, updates, and cancellation. The end user's bill is based on the state of the SaaS subscription that Microsoft maintains. 
+The commercial marketplace manages the entire life cycle of a SaaS subscription after its purchase by the end user. It uses the landing page, Fulfillment APIs, Operations APIs, and the webhook as a mechanism to drive the actual SaaS subscription activation, usage, updates, and cancellation. The end user's bill is based on the state of the SaaS subscription that Microsoft maintains.
 
 ## States of a SaaS subscription
 
 The following diagram shows the states of a SaaS subscription and the applicable actions.
 
-![Diagram showing the life cycle of a software as a service subscription in the marketplace.](./media/saas-subscription-lifecycle-api-v2.png)
+[ ![Diagram showing the life cycle of a software as a service subscription in the marketplace.](./media/saas-subscription-lifecycle-api-v2.png) ](./media/saas-subscription-lifecycle-api-v2.png#lightbox)
 
 ### Purchased but not yet activated (*PendingFulfillmentStart*)
 
@@ -146,3 +146,8 @@ Subscriptions reach this state in response to an explicit customer or CSP action
 After the publisher receives a cancellation webhook call, they should retain customer data for recovery on request for at least seven days. Only then can customer data be deleted.
 
 A SaaS subscription can be canceled at any point in its life cycle. After a subscription is canceled, it can't be reactivated.
+
+## Next steps
+
+- [SaaS fulfillment Subscription APIs v2](pc-saas-fulfillment-subscription-api.md)
+- [SaaS fulfillment operations APIs v2](pc-saas-fulfillment-operations-api.md)
