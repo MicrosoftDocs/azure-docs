@@ -111,8 +111,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-use-your-model-grp.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grp",
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-use-your-model-grpc.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grpc",
       "redirect_document_id": false
     },
     {
