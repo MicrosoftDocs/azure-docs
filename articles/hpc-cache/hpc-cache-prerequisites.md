@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 11/03/2021
-ms.author: ron.hogue
+ms.author: rohogue
 ---
 
 # Prerequisites for Azure HPC Cache
