@@ -143,7 +143,7 @@ In the next section, you create a new load test for the sample app in the Azure 
 
 1. In the **Test plan** tab, select the **JMeter script** test method and select the *SampleApp.jmx* test script from the cloned sample application directory. Select **Upload** to upload the file to Azure and configure the load test.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/testplan.png" alt-text="Screenshot that shows the Test plan tab and how to upload a JMeter script." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload a JMeter script." :::
 
     Optionally, you can select and upload more JMeter configuration files.
 
@@ -159,9 +159,9 @@ In the next section, you create a new load test for the sample app in the Azure 
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/monitoring.png" alt-text="Screenshot that shows the Monitoring tab when creating a new test." :::
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/addresource.png" alt-text="Screenshot that shows how to add Azure resources to monitor during the load test." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/add-resource.png" alt-text="Screenshot that shows how to add Azure resources to monitor during the load test." :::
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/addedresource.png" alt-text="Screenshot that shows the Monitoring tab with the list of Azure resources to monitor." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/added-resource.png" alt-text="Screenshot that shows the Monitoring tab with the list of Azure resources to monitor." :::
 
 1. Select **Review + create**, review all settings, and select **Create**.
 
@@ -173,7 +173,7 @@ In this section, you'll run the load test that you created in the previous secti
 
 1. On the Azure Load Testing resource page, select the test created previously to navigate to test page.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/testrun.png" alt-text="Screenshot that shows the list of tests." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-run.png" alt-text="Screenshot that shows the list of tests." :::
 
    >[!TIP]
    > You can use the search box and the pil filter for time range to find the test too.
@@ -184,7 +184,7 @@ In this section, you'll run the load test that you created in the previous secti
 
 1. Select **Run** on the run summary page to start the load test. You'll then see the list of test runs.
 
-    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/runsummary.png" alt-text="Screenshot that shows the run summary page." :::
+    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/run-summary.png" alt-text="Screenshot that shows the run summary page." :::
 
     Azure Load Testing begins to monitor and display the application's server metrics in the dashboard.
     
@@ -225,9 +225,9 @@ In this section, you'll analyze the load test results to identify performance bo
     
     In the previous chart, you can see from the **Provisioned Throughput** metric for the Azure Cosmos DB instance has a maximum throughput of 400 RUs. In the next section, you'll increase the throughput and verify if it fixes the performance bottleneck.
 
-## Remove bottleneck
+## Remove performance bottlenecks
 
-In this section, you'll increase the RU scale setting for the Azure Cosmos DB instance.
+In the previous section, you've discovered that the database forms a performance bottleneck. In this section, you'll increase the RU scale setting for the Azure Cosmos DB instance to improve the application performance.
 
 1. Open a new browser tab.
 
@@ -241,7 +241,7 @@ In this section, you'll increase the RU scale setting for the Azure Cosmos DB in
 
 1. Select **Save**.
 
-## Check the performance
+## Rerun and verify the performance
 
 Now that you've increased the database throughput, you'll rerun the load test and analyze the test results.
 
