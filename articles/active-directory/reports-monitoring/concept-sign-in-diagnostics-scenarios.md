@@ -5,7 +5,7 @@ description: Lists the scenarios that are supported by the sign-in diagnostics f
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526

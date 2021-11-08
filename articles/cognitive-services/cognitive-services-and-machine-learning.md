@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/22/2019    
+ms.date: 10/28/2021
 ---
 # Cognitive Services and machine learning
 
@@ -96,7 +96,7 @@ The following data categorizes each service by which kind of data it allows or r
 |[Speech Text-to-speech (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Speech Speech-to-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
-|[Text Analytics](./text-analytics/overview.md)|x|||
+|[Language service](./language-service/overview.md)|x|||
 |[Translator](./translator/translator-overview.md)|x|||
 |[Translator - custom translator](./translator/custom-translator/overview.md)||x||
 

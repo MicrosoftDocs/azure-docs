@@ -17,7 +17,7 @@ This article describes common commands to automate the management of your Azure 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> This article requires the Azure CLI version 2.17.1 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
+> This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 >
 > Manage Azure Managed Instance for Apache Cassandra resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
 
@@ -89,7 +89,7 @@ Get cluster details by using the [az managed-cassandra cluster node-status](/cli
 clusterName='cassandra-hybrid-cluster'
 resourceGroupName='MyResourceGroup'
 
-az managed-cassandra cluster node-status \
+az managed-cassandra cluster status \
     --cluster-name $clusterName \
     --resource-group $resourceGroupName
 ```
@@ -162,6 +162,9 @@ az managed-cassandra datacenter delete \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName 
 ```
+
+> [!WARNING]
+> If you have more than one datacenter in your cluster, you must remove any references to the datacenter you are trying to delete in any [keyspace replication strategy settings](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/operations/opsChangeKSStrategy.html) first. This command will fail if there are still references to the datacenter in any keyspaces within your cluster. 
 
 ### <a id="get-datacenter-details"></a>Get datacenter details
 

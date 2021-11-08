@@ -3,11 +3,11 @@ title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions and helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/19/2021
+ms.date: 11/05/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, contperf-fy21q2, contperf-fy22q1
+ms.custom: mvc, contperf-fy21q2, contperf-fy22q1, contperf-fy22q2
 ---
 
 # What is Azure IoT Central?
@@ -18,25 +18,16 @@ The web UI lets you quickly connect devices, monitor device conditions, create r
 
 This article outlines, for IoT Central:
 
-- The typical user roles associated with a project.
 - How to create your application.
 - How to connect your devices to your application.
 - How to integrate your application with other services.
 - How to administer your application.
+- The typical user roles associated with a project.
 - Pricing options.
-
-## User roles
-
-The IoT Central documentation refers to four user roles that interact with an IoT Central application:
-
-- A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](quick-export-data.md), and further customizing the application for operators and device developers.
-- An _operator_ [manages the devices](howto-manage-devices-individually.md) connected to the application.
-- An _administrator_ is responsible for administrative tasks such as managing [user roles and permissions](howto-administer.md) within the application and [configuring managed identities](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) for securing connects to other services.
-- A _device developer_ [creates the code that runs on a device](concepts-telemetry-properties-commands.md) or [IoT Edge module](concepts-iot-edge.md) connected to your application.
 
 ## Create your IoT Central application
 
-You can quickly deploy a new IoT Central application and then customize it to your specific requirements. Start with a generic _application template_ or with one of the industry-focused application templates:
+[Quickly deploy a new IoT Central application](quick-deploy-iot-central.md) and then customize it to your specific requirements. Start with a generic _application template_ or with one of the industry-focused application templates:
 
 - [Retail](../retail/overview-iot-central-retail.md)
 - [Energy](../energy/overview-iot-central-energy.md)
@@ -75,7 +66,7 @@ You have several options for creating device templates:
 
 ### Customize the UI
 
-You can also customize the IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations you can make include:
+Customize the IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations you can make include:
 
 - Configuring custom dashboards to help operators discover insights and resolve issues faster.
 - Configuring custom analytics to explore time series data from your connected devices.
@@ -83,7 +74,7 @@ You can also customize the IoT Central application UI for the operators who are 
 
 ## Manage your devices
 
-As an operator, you use the IoT Central application to [manage the devices](howto-manage-devices-individually.md) in your IoT Central solution. Operators do tasks such as:
+Use the IoT Central application to [manage the devices](howto-manage-devices-individually.md) in your IoT Central solution. Operators do tasks such as:
 
 - Monitoring the devices connected to the application.
 - Troubleshooting and remediating issues with devices.
@@ -131,6 +122,15 @@ You can create IoT Central application using a 7-day free trial, or use a standa
 
 - Applications you create using the *free* plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
 - Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 0**, **Standard 1**, or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
+
+## User roles
+
+The IoT Central documentation refers to four user roles that interact with an IoT Central application:
+
+- A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](quick-export-data.md), and further customizing the application for operators and device developers.
+- An _operator_ [manages the devices](howto-manage-devices-individually.md) connected to the application.
+- An _administrator_ is responsible for administrative tasks such as managing [user roles and permissions](howto-administer.md) within the application and [configuring managed identities](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) for securing connects to other services.
+- A _device developer_ [creates the code that runs on a device](concepts-telemetry-properties-commands.md) or [IoT Edge module](concepts-iot-edge.md) connected to your application.
 
 ## Next steps
 

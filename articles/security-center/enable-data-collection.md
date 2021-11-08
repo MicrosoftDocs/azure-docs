@@ -5,9 +5,8 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 10/08/2021
+ms.date: 11/08/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
@@ -24,7 +23,7 @@ To get started with Defender for Cloud, you must have a subscription to Microsof
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:          | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA, Guest Configuration agent is preview  |
 | Pricing:                | Free                                                                                                                                                                                                                         |
-| Supported destinations: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Arc machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
+| Supported destinations: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
 | Clouds:                 | **Feature**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agent and extensions**:<br>Log Analytics agent for Azure VMs is available on all clouds, Policy Add-on for Kubernetes is available on all clouds, Guest Configuration agent is only available on commercial clouds  |
 |                         |                                                                                                                                                                                                                              |
 
@@ -62,7 +61,7 @@ When automatic provisioning is on for the Log Analytics agent, Defender for Clou
 
 To enable auto provisioning of the Log Analytics agent:
 
-1. From Defender for Cloud's menu, select **Environment settings**.
+1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. In the **Auto provisioning** page, set the status of auto provisioning for the Log Analytics agent to **On**.
 
@@ -205,7 +204,7 @@ To manually install the Log Analytics agent:
 
 1. Enable Microsoft Defender on the workspace on which you're installing the Log Analytics agent:
 
-    1. From Defender for Cloud's menu, select **Environment settings**.
+    1. From Defender for Cloud's menu, open **Environment settings**.
 
     1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Defender for Cloud and that you have read/write permissions for the workspace.
 

@@ -36,7 +36,8 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Microsoft Insider Risk Management** |[Data connector](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), workbook, analytics rules, hunting queries |Security - Insider threat | Microsoft|
-|**Microsoft MITRE ATT&CK solution for Cloud**| Workbooks, analytics rules, hunting queries|Security - Threat protection, Security - Others |Microsoft |
+| **Microsoft MITRE ATT&CK solution for Cloud**| Workbooks, analytics rules, hunting queries|Security - Threat protection, Security - Others |Microsoft |
+| **Azure Sentinel Deception** | [Workbooks, analytics rules, watchlists](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft |
 |**Zero Trust** (TIC3.0) |Workbooks |Identity, Security - Others |Microsoft |
 | | | | |
 

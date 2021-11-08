@@ -1,11 +1,11 @@
 ---
 title: Scaling in Azure Container Apps
 description: Learn how applications scale in and out in Azure Container Apps.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -161,7 +161,7 @@ The following example shows how to create a CPU scaling rule.
 
 ## Memory
 
-CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information regarding this scaler, see [KEDA Memory scaler](https://keda.sh/docs/scalers/memory/).
+Memory scaling allows your app to scale in or out depending on how much of the memory is being used. Memory scaling doesn't allow your container app to scale to 0. For more information regarding this scaler, see [KEDA Memory scaler](https://keda.sh/docs/scalers/memory/).
 
 The following example shows how to create a memory scaling rule.
 
