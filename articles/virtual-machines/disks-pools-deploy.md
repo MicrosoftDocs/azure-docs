@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/08/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021
@@ -27,6 +27,7 @@ To successfully deploy a disk pool, you must have:
 
 - A set of managed disks you want to add to a disk pool.
 - A virtual network with a dedicated subnet deployed for your disk pool.
+    - Ports 443 and 5671 must be open.
 
 If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
 
