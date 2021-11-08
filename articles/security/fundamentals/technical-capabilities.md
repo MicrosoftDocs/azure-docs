@@ -254,7 +254,7 @@ Azure also provides several easy-to-use features to help secure both inbound and
 
 - [Remove standard server headers to avoid tools from fingerprinting your app](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
-- [Securely connect your app with resources in a private network using Point-To-Site VPN](../../app-service/web-sites-integrate-with-vnet.md)
+- [Securely connect your app with resources in a private network using Point-To-Site VPN](../../app-service/overview-vnet-integration.md)
 
 - [Securely connect your app with resources in a private network using Hybrid Connections](../../app-service/app-service-hybrid-connections.md)
 

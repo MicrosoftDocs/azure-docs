@@ -1,6 +1,6 @@
 ---
-title: Stream your alerts from Azure Security Center to Security Information and Event Management (SIEM) systems and other monitoring solutions
-description: Learn how to stream your security alerts to Azure Sentinel, third-party SIEMs, SOAR, or ITSM solutions
+title: Stream your alerts from Microsoft Defender for Cloud to Security Information and Event Management (SIEM) systems and other monitoring solutions
+description: Learn how to stream your security alerts to Microsoft Sentinel, third-party SIEMs, SOAR, or ITSM solutions
 services: security-center
 author: memildin
 manager: rkarlin
@@ -13,11 +13,13 @@ ms.author: memildin
 
 # Stream alerts to a SIEM, SOAR, or IT Service Management solution
 
-Azure Security Center can stream your security alerts into the most popular Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+Microsoft Defender for Cloud can stream your security alerts into the most popular Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions.
 
 There are Azure-native tools for ensuring you can view your alert data in all of the most popular solutions in use today, including:
 
-- **Azure Sentinel**
+- **Microsoft Sentinel**
 - **Splunk Enterprise and Splunk Cloud**
 - **IBM's QRadar**
 - **ServiceNow**
@@ -25,49 +27,49 @@ There are Azure-native tools for ensuring you can view your alert data in all of
 - **Power BI**
 - **Palo Alto Networks**
 
-## Stream alerts to Azure Sentinel 
+## Stream alerts to Microsoft Sentinel 
 
-Security Center natively integrates with Azure Sentinel, Azure's cloud-native SIEM and SOAR solution. 
+Defender for Cloud natively integrates with Microsoft Sentinel, Azure's cloud-native SIEM and SOAR solution. 
 
-[Learn more about Azure Sentinel](../sentinel/overview.md).
+[Learn more about Microsoft Sentinel](../sentinel/overview.md).
 
-### Azure Sentinel's connectors for Security Center
+### Microsoft Sentinel's connectors for Defender for Cloud
 
-Azure Sentinel includes built-in connectors for Azure Security Center at the subscription and tenant levels:
+Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud at the subscription and tenant levels:
 
-- [Stream alerts to Azure Sentinel at the subscription level](../sentinel/connect-azure-security-center.md)
-- [Connect all subscriptions in your tenant to Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539) 
+- [Stream alerts to Microsoft Sentinel at the subscription level](../sentinel/connect-azure-security-center.md)
+- [Connect all subscriptions in your tenant to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539) 
 
-When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender "won't"* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
+When you connect Defender for Cloud to Microsoft Sentinel, the status of Defender for Cloud alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Defender for Cloud, that alert will display as closed in Microsoft Sentinel as well. Changing the status of an alert in Defender for Cloud "won't"* affect the status of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert, only that of the synchronized alert itself.
 
-Enabling the preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, Azure Defender will automatically close the corresponding original alert.
+Enabling the preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of those Defender for Cloud alerts. So, for example, when a Microsoft Sentinel incident containing an Defender for Cloud alert is closed, Defender for Cloud will automatically close the corresponding original alert.
 
-Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md).
+Learn more in [Connect Defender for Cloud alerts from Microsoft Defender for Cloud](../sentinel/connect-azure-security-center.md).
 
 > [!NOTE]
 > The bi-directional alert synchronization feature isn't available in the Azure Government cloud. 
 
-### Configure ingestion of all audit logs into Azure Sentinel 
+### Configure ingestion of all audit logs into Microsoft Sentinel 
 
-Another alternative for investigating Security Center alerts in Azure Sentinel is to stream your audit logs into Azure Sentinel:
+Another alternative for investigating Defender for Cloud alerts in Microsoft Sentinel is to stream your audit logs into Microsoft Sentinel:
     - [Connect Windows security events](../sentinel/connect-windows-security-events.md)
     - [Collect data from Linux-based sources using Syslog](../sentinel/connect-syslog.md)
     - [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity)
 
 > [!TIP]
-> Azure Sentinel is billed based on the volume of data ingested for analysis in Azure Sentinel and stored in the Azure Monitor Log Analytics workspace. Azure Sentinel offers a flexible and predictable pricing model. [Learn more at the Azure Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+> Microsoft Sentinel is billed based on the volume of data ingested for analysis in Microsoft Sentinel and stored in the Azure Monitor Log Analytics workspace. Microsoft Sentinel offers a flexible and predictable pricing model. [Learn more at the Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 
 
 ## Stream alerts with Microsoft Graph Security API
 
-Security Center has out-of-the-box integration with Microsoft Graph Security API. No configuration is required and there are no additional costs. 
+Defender for Cloud has out-of-the-box integration with Microsoft Graph Security API. No configuration is required and there are no additional costs. 
 
 You can use this API to stream alerts from your **entire tenant** (and data from many other Microsoft Security products) into third-party SIEMs and other popular platforms:
 
 - **Splunk Enterprise and Splunk Cloud** - [Use the Microsoft Graph Security API Add-On for Splunk](https://splunkbase.splunk.com/app/4564/) 
 - **Power BI** - [Connect to the Microsoft Graph Security API in Power BI Desktop](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow** - [Follow the instructions to install and configure the Microsoft Graph Security API application from the ServiceNow Store](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
-- **QRadar** - [IBM's Device Support Module for Azure Security Center via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
+- **QRadar** - [IBM's Device Support Module for Microsoft Defender for Cloud via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
 - **Palo Alto Networks**, **Anomali**, **Lookout**, **InSpark**, and more - [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
 
 [Learn more about Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api).
@@ -75,9 +77,9 @@ You can use this API to stream alerts from your **entire tenant** (and data from
 
 ## Stream alerts with Azure Monitor 
 
-To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions. connect Security Center with Azure monitor via Azure Event Hubs:
+To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions. connect Defender for Cloud with Azure monitor via Azure Event Hubs:
 
-1. Enable [continuous export](continuous-export.md) to stream Security Center alerts into a dedicated Azure Event Hub at the subscription level. 
+1. Enable [continuous export](continuous-export.md) to stream Defender for Cloud alerts into a dedicated Azure Event Hub at the subscription level. 
     > [!TIP]
     > To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies)
 
@@ -91,8 +93,8 @@ To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, *
 
 ## Next steps
 
-This page explained how to ensure your Azure Security Center alert data is available in your SIEM, SOAR, or ITSM tool of choice. For related material, see:
+This page explained how to ensure your Microsoft Defender for Cloud alert data is available in your SIEM, SOAR, or ITSM tool of choice. For related material, see:
 
-- [What is Azure Sentinel?](../sentinel/overview.md)
-- [Alert validation in Azure Security Center](security-center-alert-validation.md) - Verify your alerts are correctly configured
-- [Continuously export Security Center data](continuous-export.md)
+- [What is Microsoft Sentinel?](../sentinel/overview.md)
+- [Alert validation in Microsoft Defender for Cloud](alert-validation.md) - Verify your alerts are correctly configured
+- [Continuously export Defender for Cloud data](continuous-export.md)

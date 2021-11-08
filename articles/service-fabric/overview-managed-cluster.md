@@ -2,7 +2,7 @@
 title: Service Fabric managed clusters
 description: Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines deployment and cluster management.
 ms.topic: overview
-ms.date: 5/10/2021
+ms.date: 10/22/2021
 ---
 
 # Service Fabric managed clusters
@@ -56,7 +56,7 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 
 | Feature | Basic | Standard |
 | ------- | ----- | -------- |
-| Network resource (SKU for [Load Balancer](../load-balancer/skus.md), [Public IP](../virtual-network/public-ip-addresses.md)) | Basic | Standard |
+| Network resource (SKU for [Load Balancer](../load-balancer/skus.md), [Public IP](../virtual-network/ip-services/public-ip-addresses.md)) | Basic | Standard |
 | Min node (VM instance) count | 3 | 5 |
 | Max node count per node type | 100 | 1000 |
 | Max node type count | 1 | 20 |
@@ -69,7 +69,7 @@ The capabilities of managed clusters will continue to expand. Currently there is
 
 * [Application deployment using ARM templates](how-to-managed-cluster-app-deployment-template.md)
 * [Application secrets](how-to-managed-cluster-application-secrets.md)
-* [Automatic OS image upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Automatic OS image upgrades](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades)
 * [Availability zone spanning](how-to-managed-cluster-availability-zones.md)
 * [Disk encryption](how-to-enable-managed-cluster-disk-encryption.md) and [managed disk type](how-to-managed-cluster-managed-disk.md) selection
 * Managed identity support for managed cluster [node types](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) and [application authentication](how-to-managed-cluster-application-managed-identity.md)

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 10/25/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -71,14 +71,23 @@ For more information, see the article [Configure authentication session manageme
 
 ## Customize continuous access evaluation
 
-For organizations who wish to disable or strictly enforce [continuous access evaluation](concept-continuous-access-evaluation.md), this configuration is now an option in Conditional Access. 
+[Continuous access evaluation](concept-continuous-access-evaluation.md) is auto enabled as part of an organization's Conditional Access policies. For organizations who wish to disable or strictly enforce continuous access evaluation, this configuration is now an option within the session control within Conditional Access. Continuous access evaluation policies can be scoped to all users or specific users and groups. Admins can make the following selections while creating a new policy or while editing an existing Conditional Access policy.
 
-**Disable** works when **All cloud apps** are selected, and no conditions are selected.
+- **Disable** only work when **All cloud apps** are selected, no conditions are selected, and **Disable** is selected under **Session** > **Customize continuous access evaluation** in a Conditional Access policy. You can choose to disable all users or specific users and groups.
+- **Strict enforcement** can be used to further strengthen the security benefits from CAE. It will make sure that any critical event and policy will be enforced in real time.  There are two additional scenarios where CAE will enforce when strict enforcement mode is turned on:
+   - Non-CAE capable clients will not be allowed to access CAE-capable services.
+   - Access will be rejected when client's IP address seen by resource provider isn't in the Conditional Access's allowed range.
 
-**Strict enforcement** means that any critical event and policy will be enforced in real time. All CAE-capable services always get CAE tokens, whatever the client or user might ask for or do. There are two scenarios where CAE won't come into play when strict enforcement mode is turned on:
+> [!NOTE] 
+> You should only enable strict enforcement after you ensure that all the client applications support CAE and you have included all your IP addresses seen by Azure AD and the resource providers, like Exchange online and Azure Resource Mananger, in your location policy under Conditional Access. Otherwise, users in your tenants could be blocked.
 
-- Non-CAE capable clients shouldn't get a regular token for CAE-capable services.
-- Reject when IP seen by resource provider isn't in the allowed range.
+:::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="CAE Settings in a new Conditional Access policy in the Azure portal." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
+
+## Disable resilience defaults (Preview)
+
+During an outage, Azure AD will extend access to existing sessions while enforcing Conditional Access policies. If a policy cannot be evaluated, access is determined by resilience settings. 
+
+If resilience defaults are disabled, access is denied once existing sessions expire.​ For more information, see the article [Conditional Access: Resilience defaults](resilience-defaults.md).
 
 ## Next steps
 

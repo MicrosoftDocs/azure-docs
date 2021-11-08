@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 09/23/2021
+ms.date: 11/02/2021
 ms.author: duau
 ---
 
@@ -86,6 +86,12 @@ No, Azure Route Server doesn't support NSG association to the RouteServerSubnet.
 ***Topology: NVA1 -> RouteServer1 -> (via VNet Peering) -> RouteServer2 -> NVA2***
 
 No, Azure Route Server doesn't forward data traffic. To enable transit connectivity through the NVA, set up a direct connection (for example, an IPsec tunnel) between the NVAs and use the route servers for dynamic route propagation. 
+
+### Can I use Azure Route Server to direct traffic between subnets in the same virtual network to flow inter-subnet traffic through the NVA?
+
+No. System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints, are preferred routes, even if BGP routes are more specific. As Route Server uses BGP to advertise routes, currently this is not supported by design. You must continue to use UDRs to force override the routes, and you can't utilize BGP to quickly failover these routes. You must continue to use a third party solution to update the UDRs via the API in a failover situation, or use an Azure Load Balancer with HA ports mode to direct traffic.
+
+You can still use Route Server to direct traffic between subnets in different virtual networks to flow using the NVA. The only possible design that may work is one subnet per "spoke" virtual network and all virtual networks are peered to a "hub" virtual network, but this is very limiting and needs to take into scaling considerations and Azure's maximum limits on virtual networks vs subnets.
 
 ## <a name = "limitations"></a>Route Server Limits
 

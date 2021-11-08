@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 11/4/2021
 ---
 # MySQL drivers and management tools compatible with Azure Database for MySQL
 
@@ -14,10 +14,13 @@ ms.date: 3/18/2020
 This article describes the drivers and management tools that are compatible with Azure Database for MySQL Single Server.
 
 > [!NOTE]
-> This article is only applicable to Azure Database for MySQL Single Server to ensure drivers are compatible with [connectivity architecture](concepts-connectivity-architecture.md) of Single Server service. [Azure Database for MySQL Flexible Server](./flexible-server/overview.md) is compatible with all the drivers and tools supported and compatible with MySQL community edition. 
+> This article is only applicable to Azure Database for MySQL Single Server to ensure drivers are compatible with [connectivity architecture](concepts-connectivity-architecture.md) of Single Server service. [Azure Database for MySQL Flexible Server](./flexible-server/overview.md) is compatible with all the drivers and tools supported and compatible with MySQL community edition.
 
 ## MySQL Drivers
 Azure Database for MySQL uses the world's most popular community edition of MySQL database. As such, it's compatible with a wide variety of programming languages and drivers. The goal is to support the three most recent versions MySQL drivers, and efforts with authors from the open-source community to constantly improve the functionality and usability of MySQL drivers continue. A list of drivers that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 is provided in the following table:
+
+> [!WARNING]
+> The MySQL 8.0.27 client is incompatible with Azure Database for MySQL - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27) or creating an instance of [Azure Database for MySQL - Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/overview) instead.
 
 | **Programming Language** | **Driver** | **Links** | **Compatible Versions** | **Incompatible Versions** | **Notes** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |

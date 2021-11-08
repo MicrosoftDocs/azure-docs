@@ -6,10 +6,12 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 05/11/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Handle false positives in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Azure Sentinel analytics rules](detect-threats-built-in.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
 
