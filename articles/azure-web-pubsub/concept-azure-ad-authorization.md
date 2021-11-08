@@ -4,7 +4,7 @@ description: This article provides information on authorizing access to Azure We
 author: terencefan
 
 ms.author: tefa
-ms.date: 09/06/2021
+ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---

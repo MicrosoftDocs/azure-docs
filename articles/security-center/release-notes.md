@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 11/04/2021
+ms.date: 11/07/2021
 ms.author: memildin
 ---
 # What's new in Microsoft Defender for Cloud?
@@ -32,6 +32,7 @@ Our Ignite release includes:
 - [Expanded security control assessments with Azure Security Benchmark v3](#expanded-security-control-assessments-with-azure-security-benchmark-v3)
 - [Microsoft Sentinel connector's optional bi-directional alert synchronization released for general availability (GA)](#microsoft-sentinel-connectors-optional-bi-directional-alert-synchronization-released-for-general-availability-ga)
 - [New recommendation to push Azure Kubernetes Service (AKS) logs to Sentinel](#new-recommendation-to-push-azure-kubernetes-service-aks-logs-to-sentinel)
+- [Recommendations mapped to the MITRE ATT&CK® framework - released for general availability (GA)](#recommendations-mapped-to-the-mitre-attck-framework---released-for-general-availability-ga)
 
 Other changes in November include:
 
@@ -116,6 +117,22 @@ The new recommendation, "Diagnostic logs in Kubernetes services should be enable
 
 We've also enhanced the "Auditing on SQL server should be enabled" recommendation with the same Sentinel streaming capabilities. 
 
+
+### Recommendations mapped to the MITRE ATT&CK® framework - released for general availability (GA)
+
+We've enhanced Defender for Cloud's security recommendations to show their position on the MITRE ATT&CK® framework. This globally accessible knowledge base of threat actors' tactics and techniques based on real-world observations, provides more context to help you understand the associated risks of the recommendations for your environment.
+
+You'll find these tactics wherever you access recommendation information:
+
+- **Azure Resource Graph query results** for relevant recommendations include the MITRE ATT&CK® tactics and techniques.
+
+- **Recommendation details pages** show the mapping for all relevant recommendations:
+
+    :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
+
+- **The recommendations page in Defender for Cloud** has a new :::image type="icon" source="media/review-security-recommendations/tactics-filter-recommendations-page.png" border="false"::: filter to select recommendations according to their associated tactic:
+
+Learn more in [Review your security recommendations](review-security-recommendations.md).
 
 ### Microsoft Threat and Vulnerability Management added as vulnerability assessment solution - released for general availability (GA)
 
