@@ -198,7 +198,7 @@ After your Azure billing account is updated, you'll get an email from Microsoft 
 
 - You have access to perform billing administration through one of your other emails. 
 
-    This typically happens when you get an email, asking you to accept the terms of the Microsoft Customer Agreement. You click on the link and you see an error message - `You don't have permission to accept the agreement. This typically happens when you sign in with an email, which doesn’t have permission to accept the agreement. Check you’ve signed in with the correct email address. If you are still seeing the error, see Why I can't accept an agreement`. Verify that you're signed in with the email address that has permission to perform billing administration.
+    This typically happens when you get an email asking you to accept the terms of the Microsoft Customer Agreement. You click on the link and you see an error message - `You don't have permission to accept the agreement. This typically happens when you sign in with an email, which doesn’t have permission to accept the agreement. Check you’ve signed in with the correct email address. If you are still seeing the error, see Why I can't accept an agreement`. Verify that you're signed in with the email address that has permission to perform billing administration.
 
 - You have access to the invoice through a different identity. 
 
@@ -206,7 +206,7 @@ After your Azure billing account is updated, you'll get an email from Microsoft 
 
 - You have signed in to the incorrect Azure Active Directory (Azure AD) tenant. 
 
-    Your billing account is associated with an Azure AD tenant. If you're signed in to an incorrect tenant, you won't be able to accept the terms. Verify that you're signed in to the correct Azure AD tenant. If you aren't signed in the correct tenant, use the following to switch the tenant in the Azure portal:
+    Your billing account is associated with an Azure AD tenant. If you're signed in to an incorrect tenant, you won't be able to accept the terms. Verify that you're signed in to the correct Azure AD tenant. If you aren't signed in to the correct tenant, use the following to switch the tenant in the Azure portal:
 
     1. Select your email from the top right of the page.
 
