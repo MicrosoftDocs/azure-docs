@@ -24,7 +24,6 @@ You can turn on diagnostic settings for Azure Cache for Redis instances and send
 - **Storage account** - must be in the same region as the cache.
 - **Event hub** - diagnostic settings can't access event hub resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hub resources. The event hub must be in the same region as the cache.
 
-
 For more information on diagnostic requirements, see [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD).
 
 You'll be charged normal data rates for storage account and event hub usage when you send diagnostic logs to either destination. You're billed under Azure Monitor not Azure Cache for Redis. When sending logs to **Log Analytics**, you're only charged for Log Analytics data ingestion.
@@ -97,6 +96,8 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
 Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
 
+[Create diagnostic settings to send platform logs and metrics to different destinations](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest.md#az_monitor_diagnostic_settings_create)
+
 ```azurecli
 az monitor diagnostic-settings create 
     --resource /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/Microsoft.Cache/Redis/myname
@@ -128,7 +129,7 @@ These fields and properties appear in the `ConnectedClientList` log category. In
 
 ### Sample storage account log
 
-If you send your logs to a storage account, the contents of the logs look like this. You might need to change the IP address, tenant name, and resource IDs.
+If you send your logs to a storage account, the contents of the logs look like this.
 
 ```json
 {
@@ -156,7 +157,7 @@ If you send your logs to a storage account, the contents of the logs look like t
 }
 ```
 
-## Logs Analytics Queries
+## Log Analytics Queries
 
 Here are some basic queries to use as models.
 
