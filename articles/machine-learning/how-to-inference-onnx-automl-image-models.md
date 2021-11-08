@@ -223,6 +223,9 @@ The output is a list of boxes, labels, and scores. For YOLO, you need the first 
 
 For this instance segmentation example, you use the Mask R-CNN model that has been trained on the [fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on training of the instance segmentation model, see the [instance segmentation notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
 
+>[!IMPORTANT]
+> Only Mask R-CNN is supported for instance segmentation tasks. The input and output formats are based on Mask R-CNN only.
+
 ### Input format
 
 The input is a preprocessed image. The ONNX model for Mask R-CNN has been exported to work with images of different shapes. We recommend that you resize them to a fixed size that's consistent with training image sizes, for better performance.
@@ -551,6 +554,8 @@ img_data, pad = preprocess(test_image_path)
 ```
 
 # [Instance segmentation](#tab/instance-segmentation)
+>[!IMPORTANT]
+> Only Mask R-CNN is supported for instance segmentation tasks. The preprocessing steps are based on Mask R-CNN only.
 
 Perform the following preprocessing steps for the ONNX model inference:
 
@@ -713,6 +718,9 @@ result = get_predictions_from_ONNX(session, img_data)
 ```
 
 # [Instance segmentation](#tab/instance-segmentation)
+
+>[!WARNING]
+> Batch scoring is not currently supported for instance segmentation tasks. 
 
 The instance segmentation model predicts boxes, labels, scores, and masks. ONNX outputs a predicted mask per instance, along with corresponding bounding boxes and class confidence score. You might need to convert from binary mask to polygon if necessary.
 
