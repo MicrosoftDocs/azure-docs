@@ -10544,6 +10544,33 @@
             "source_path_from_root": "/articles/active-directory-b2c/troubleshoot-custom-policies.md",
             "redirect_url": "/azure/active-directory-b2c/troubleshoot",
             "redirect_document_id": false
-          }
+          },
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest",
+            "redirect_document_id": false
+        }
+   
+         
     ]
 }
