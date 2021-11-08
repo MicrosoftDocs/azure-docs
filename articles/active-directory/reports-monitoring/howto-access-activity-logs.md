@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Access activity logs in Azure AD
 
-The data in your Azure AD logs enables you to asses how your Azure AD is doing. To cover a broad range of scenarios, Azure AD provides you with various options to access your log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
+The data in your Azure AD logs enables you to assess how your Azure AD is doing. To cover a broad range of scenarios, Azure AD provides you with various options to access your log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
 
 This article lists the common use cases for accessing Azure AD logs data and gives recommendations for the right access method. 
 
@@ -40,7 +40,7 @@ Investigating a single sign-in includes scenarios, in which you need to:
 
 ### Recommendation
 
-For these one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need. In the the Azure portal, you find solutions to directly access:
+For these one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need. In the Azure portal, you find solutions to directly access:
 
 - Sign-ins logs
 
@@ -59,64 +59,72 @@ To **get started**, see [Analyze sign-ins with the Azure AD sign-ins log](quicks
 
 ## Access from an app or script 
 
+There are cases where you need to periodically access activity logs (user sign-in info) from an app or a script.
+For example, you need to: 
 
-**You need to:**
-
-- Build an app or script that periodically requests user log in info. 
-
+- Ben example 1
+- Ben example 2
+- Ben example 3
 
 ### Recommendation 
 
-The graph API provides a lightweight way to pull Azure AD activity data, which doesn’t require an admin or developer to set up additional infrastructure to support a script or app. However, the MS Graph API is **not** designed for pulling all of a tenant’s sign in records. For large tenants, pulling all records leads to issues with pagination and performance. 
+The right access method for accessing activity logs from code depends on the scope of your project. One option you have is to access your activity logs from the Microsoft Graph API. 
+
+The **Microsoft Graph API**:
+
+- Provides a RESTful way to query sign-in data from Azure AD in Azure AD Premium tenants.
+- Doesn't require an administrator or developer to set up additional infrastructure to support your script or app. 
+- Is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API leads to issues with pagination and performance. 
+
+Another method for accessing activity logs from your code is to use **Azure Event Hubs**. Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
+
+**Use:**
+
+- **The graph API** - For scoped queries (a limited set of users or time). For more information, see [access Azure AD logs with the Microsoft Graph API](quickstart-access-log-with-graph-api.md). 
+- **Azure Event hubs** - For pulling large sets of sign-in data. For more information, see [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
 
 
-### Recommendation
+## Real-time security event detection 
 
-Use:
+If you are planning on implementing a monitoring solution, you need real-time access to your activity logs. 
 
-- **The graph API** - For scoped queries (a limited set of users or time). 
-- **Event hubs** - For pulling large sets of sign-in data.  
-
-
-The graph API provides a RESTful way to query sign-in data from Azure AD for customers with Premium licenses.  
-
-To learn more about querying signins through Graph, start here: Access Azure AD logs with the Microsoft Graph API | Microsoft Docs   
-
-
-## Near real time security event detection 
 
 Near real time security event detection includes scenarios, in which you need to:
 
-- A
-- B
+- Ben example 1
+- Ben example 2
+- Ben example 3
 
 
 ### Recommendation
 
-Use Azure sentinel or event hubs export to another security tool. If you need to provide sign-in and audit data to your security operations center for a near real time security detection, you can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see Connect Azure Active Directory data to Azure Sentinel | Microsoft Docs 
+For real-time security detection, you [Microsoft Sentinel](../../sentinel/overview.md), or [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
+
+Use:
+
+- **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real- time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
+
+- **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub). 
+  
  
+Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:
 
-If your Security Operations Center uses another tool, you can stream Azure AD events using an Azure Event Hubs: Tutorial - Stream logs to an Azure event hub | Microsoft Docs. Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:  
+- [ArcSight](howto-integrate-activity-logs-with-arcsight.md)
+- [Splunk](howto-integrate-activity-logs-with-splunk.md) 
+- [SumoLogic](howto-integrate-activity-logs-with-sumologic.md) 
 
-Integrate logs with ArcSight using Azure Monitor | Microsoft Docs 
 
-Integrate Splunk using Azure Monitor | Microsoft Docs 
 
-Integrate Splunk using Azure Monitor | Microsoft Docs 
+## Threat hunting 
 
-Use Azure AD data for threat hunting 
 
-Use Azure Sentinel or Event Hubs export. Admins who need to provide Azure AD data to their security operations center for threat hunting can use the same options as listed for security detections above.  You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector: Connect Azure Active Directory data to Azure Sentinel | Microsoft Docs 
+The term *threat hunting* refers to a proactive approach to improve the security posture of your environment.  
+As opposed to classic protection, thread hunting tries to identify potential threats that might harm your system.
 
- 
 
-If your Security Operations Center uses another tool, you can stream Azure AD events using an Azure Event Hubs: Tutorial - Stream logs to an Azure event hub | Microsoft Docs. Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:  
+## Recommendation
 
-Integrate logs with ArcSight using Azure Monitor | Microsoft Docs 
-
-Integrate Splunk using Azure Monitor | Microsoft Docs 
-
-Integrate Splunk using Azure Monitor | Microsoft Docs 
+Because thread hunting requires real-time access to your activity logs, the same recommendations apply.
 
 
 ## Export data for long term storage 
@@ -131,34 +139,28 @@ The right solution for your long term storage is tight to two ABC (pillars?):
 
 - Your budget
 
-- What you plan to do with the data
+- What you plan on doing with the data
   
 
-The cheapest method to create a long-term backup of your log data is a manual download. The logs user interface provides you with an option to download the data as **JSON** or **CSV**. However, this method requires a lot of manual interaction.
+The simplest method to create a long-term backup of your log data is a manual download. The user interface of the activity logs provides you with an option to download the data as **JSON** or **CSV**. For more information, see [How to download logs in Azure Active Directory](howto-download-logs.md). 
 
-If you only need a more sophisticated backup method for your data, use Azure storage. 
+One trade off of the manual download is that it requires a lot of manual interaction. If you only need a more sophisticated backup method for your data, use Azure storage. 
 
     
-If you also plan to query the logs often or to run reports or analysis on the stored logs, you should store your data in Azure monitor. Azure monitor provides you with built-in reporting and alerting capabilities.
-
-
-### Next step
-
-
+If you also plan to query the logs often, to run reports or analysis on the stored logs, you should store your data in Azure monitor. Azure monitor provides you with built-in reporting and alerting capabilities.
 
 
 ## Export data for a logs analysis 
 
 
-### Considerations
-
-Azure Monitor provides you with a very easy way to analyze logs from Azure AD, as well as other Azure services and independent tools. You can easily export logs to Azure Monitor using the built in connector. For more information, see [Azure AD activity logs in Azure Monitor](concept-activity-logs-azure-monitor.md).
-
 
 
 ### Recommendation
 
-To use:
+
+Azure Monitor provides you with a very easy way to analyze logs from Azure AD, as well as other Azure services and independent tools. You can easily export logs to Azure Monitor using the built in connector. For more information, see [Azure AD activity logs in Azure Monitor](concept-activity-logs-azure-monitor.md).
+
+**To use:**
 
 - **Azure AD** - Use Azure Monitor or Event Hubs. For example, you can [export logs to Azure monitor]()
 
