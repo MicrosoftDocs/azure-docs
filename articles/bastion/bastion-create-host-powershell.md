@@ -3,13 +3,12 @@ title: 'Create a Bastion host using Azure PowerShell | Microsoft Docs'
 description: Learn how to create an Azure Bastion host using PowerShell.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
 ms.date: 09/22/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
-
+ms.custom: ignite-fall-2021
 ---
 
 # Create an Azure Bastion host using Azure PowerShell
@@ -20,7 +19,7 @@ Optionally, you can create an Azure Bastion host by using the following methods:
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure CLI](create-host-cli.md)
 
-[!INCLUDE [Note about SKU limitations for preview.](../../includes/bastion-preview-sku-note.md)]
+[!INCLUDE [About SKUs](../../includes/bastion-sku-note.md)]
 
 ## Prerequisites
 
@@ -59,7 +58,7 @@ This section helps you create a new Azure Bastion resource using Azure PowerShel
    ```
 ## Disassociate the VM public IP address
 
-Azure Bastion does not use the public IP address to connect to the client VM. If you do not need the public IP address for your VM, you can disassociate the public IP address by using the steps in this article: [Dissociate a public IP address from an Azure VM](../virtual-network/remove-public-ip-address-vm.md).
+Azure Bastion does not use the public IP address to connect to the client VM. If you do not need the public IP address for your VM, you can disassociate the public IP address by using the steps in this article: [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
 
 ## Next steps
 

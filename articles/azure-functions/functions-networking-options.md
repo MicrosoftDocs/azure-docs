@@ -65,8 +65,8 @@ Azure Functions supports two kinds of virtual network integration:
 
 Virtual network integration in Azure Functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration, see:
 
-* [Regional virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
-* [Gateway-required virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+* [Regional virtual network Integration](../app-service/overview-vnet-integration.md#regional-virtual-network-integration)
+* [Gateway-required virtual network Integration](../app-service/overview-vnet-integration.md#gateway-required-virtual-network-integration)
 
 To learn how to set up virtual network integration, see [Enable Vnet Integration](#enable-vnet-integration).
 
@@ -87,7 +87,7 @@ To learn how to set up virtual network integration, see [Enable Vnet Integration
 
 During the integration, your app is restarted. When integration is finished, you'll see details on the VNet you're integrated with. By default, Route All will be enabled, and all traffic will be routed into your VNet.
 
-If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/web-sites-integrate-with-vnet.md#application-routing).
+If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/overview-vnet-integration.md#application-routing).
 
 ## Regional virtual network integration
 
@@ -161,7 +161,7 @@ To control inbound traffic to your app, use the Access Restrictions feature. An 
 
 ### Routes
 
-You can use route tables to route outbound traffic from your app to wherever you want. By default, route tables only affect your RFC1918 destination traffic. When Route All is enabled, all of your outbound calls are affected. When [Route All](../app-service/web-sites-integrate-with-vnet.md#application-routing) is disabled, only private traffic (RFC1918) is affected by your route tables. Routes that are set on your integration subnet won't affect replies to inbound app requests. Common destinations can include firewall devices or gateways.
+You can use route tables to route outbound traffic from your app to wherever you want. By default, route tables only affect your RFC1918 destination traffic. When Route All is enabled, all of your outbound calls are affected. When [Route All](../app-service/overview-vnet-integration.md#application-routing) is disabled, only private traffic (RFC1918) is affected by your route tables. Routes that are set on your integration subnet won't affect replies to inbound app requests. Common destinations can include firewall devices or gateways.
 
 If you want to route all outbound traffic on-premises, you can use a route table to send all outbound traffic to your ExpressRoute gateway. If you do route traffic to a gateway, be sure to set routes in the external network to send any replies back.
 
@@ -271,7 +271,7 @@ To learn more about networking and Azure Functions:
 
 * [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
 * [Read the Functions networking FAQ](./functions-networking-faq.yml)
-* [Learn more about virtual network integration with App Service/Functions](../app-service/web-sites-integrate-with-vnet.md)
+* [Learn more about virtual network integration with App Service/Functions](../app-service/overview-vnet-integration.md)
 * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
 * [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
 * [Connect to individual on-premises resources without firewall changes by using Hybrid Connections](../app-service/app-service-hybrid-connections.md)

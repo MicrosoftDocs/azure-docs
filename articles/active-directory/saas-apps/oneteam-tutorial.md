@@ -187,7 +187,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, a user called Britta Simon is created in Oneteam. Oneteam supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Oneteam, a new one is created after authentication.
 
 >[!NOTE]
->If you need to create an user manually, you can raise the support ticket with Oneteam support team.
+>If you need to create a user manually, you can raise the support ticket with Oneteam support team.
 
 ### Test single sign-on 
 

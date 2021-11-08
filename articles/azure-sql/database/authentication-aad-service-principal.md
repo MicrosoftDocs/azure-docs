@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 05/11/2021
+ms.date: 10/21/2021
 ---
 
 # Azure Active Directory service principal with Azure SQL
@@ -46,14 +46,14 @@ Supporting this functionality is useful in Azure AD application automation proce
 
 To enable an Azure AD object creation in SQL Database on behalf of an Azure AD application, the following settings are required:
 
-1. Assign the server identity. The assigned server identity represents the Managed Service Identity (MSI). Currently, the server identity for Azure SQL does not support User Managed Identity (UMI).
+1. Assign the server identity. The assigned server identity represents the Managed Service Identity (MSI). Currently, the server identity for Azure SQL does not support user-assigned managed identities (UMI).
     - For a new Azure SQL logical server, execute the following PowerShell command:
     
     ```powershell
     New-AzSqlServer -ResourceGroupName <resource group> -Location <Location name> -ServerName <Server name> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -AssignIdentity
     ```
 
-    For more information, see the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command.
+    For more information, see the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command, or [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) command for SQL Managed Instance.
 
     - For existing Azure SQL Logical servers, execute the following command:
     
@@ -61,7 +61,7 @@ To enable an Azure AD object creation in SQL Database on behalf of an Azure AD a
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <Server name> -AssignIdentity
     ```
 
-    For more information, see the [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) command.
+    For more information, see the [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) command, or [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) command for SQL Managed Instance.
 
     - To check if the server identity is assigned to the server, execute the Get-AzSqlServer command.
 

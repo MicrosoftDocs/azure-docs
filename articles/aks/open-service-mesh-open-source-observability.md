@@ -28,23 +28,20 @@ In this tutorial, you will:
 > [!div class="checklist"]
 >
 > - Create and deploy a Prometheus instance
-> - Configure OSM to allow Prometheus scraping
 > - Update the Prometheus `Configmap`
 > - Create and deploy a Grafana instance
 > - Configure Grafana with the Prometheus datasource
+> - Enable Prometheus metrics for a user namespace
 > - Import OSM dashboard for Grafana
 > - Create and deploy a Jaeger instance
 > - Configure Jaeger tracing for OSM
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
 
 You must have the following resources installed:
 
 - The Azure CLI, version 2.20.0 or later
-- The `aks-preview` extension version 0.5.5 or later
-- OSM version v0.8.0 or later
+- OSM version v0.11.1 or later
 - JSON processor "jq" version 1.6+
 
 ## Deploy and configure a Prometheus instance for OSM
@@ -103,29 +100,9 @@ For more information on running Prometheus, visit:
 https://prometheus.io/
 ```
 
-### Configure OSM to allow Prometheus scraping
-
-To ensure that the OSM components are configured for Prometheus scrapes, we'll want to check the **prometheus_scraping** configuration located in the osm-config config file. View the configuration with the following command:
-
-```azurecli-interactive
-kubectl get configmap -n kube-system osm-config -o json | jq '.data.prometheus_scraping'
-```
-
-The output of the previous command should return `true` if OSM is configured for Prometheus scraping. If the returned value is `false`, we will need to update the configuration to be `true`. Run the following command to turn **on** OSM Prometheus scraping:
-
-```azurecli-interactive
-kubectl patch configmap -n kube-system osm-config --type merge --patch '{"data":{"prometheus_scraping":"true"}}'
-```
-
-You should see the following output.
-
-```Output
-configmap/osm-config patched
-```
-
 ### Update the Prometheus Configmap
 
-The default installation of Prometheus will contain two Kubernetes `configmaps`. You can view the list of Prometheus `configmaps` with the following command.
+By default, Prometheus is set to scrape the OSM components. The default installation of Prometheus will contain two Kubernetes `configmaps`. You can view the list of Prometheus `configmaps` with the following command.
 
 ```azurecli-interactive
 kubectl get configmap | grep prometheus
@@ -455,11 +432,17 @@ Click the **Add data source** button and select Prometheus under time series dat
 
 On the **Configure your Prometheus data source below** page, enter the Kubernetes cluster FQDN for the Prometheus service for the HTTP URL setting. The default FQDN should be `stable-prometheus-server.default.svc.cluster.local`. Once you have entered that Prometheus service endpoint, scroll to the bottom of the page and select **Save & Test**. You should receive a green checkbox indicating the data source is working.
 
+### Enable Prometheus metrics for a user namespace
+In order to configure Prometheus to scrape metrics from an application namespace, run the following command.
+```azurecli-interactive
+osm metrics enable --namespace <app-namespace>
+```
+
 ### Importing OSM Dashboards
 
 OSM Dashboards are available both through:
 
-- [Our repository](https://github.com/grafana/grafana), and are importable as json blobs through the web admin portal
+- [Our repository](https://github.com/openservicemesh/osm/tree/release-v0.11/charts/osm/grafana/dashboards), and are importable as json blobs through the web admin portal
 - or [online at Grafana.com](https://grafana.com/grafana/dashboards/14145)
 
 To import a dashboard, look for the `+` sign on the left menu and select `import`.
@@ -476,6 +459,12 @@ As soon as you select import, it will bring you automatically to your imported d
 [Jaeger](https://www.jaegertracing.io/) is an open-source tracing system used for monitoring and troubleshooting distributed systems. It can be deployed with OSM as a new instance or you may bring your own instance. The following instructions deploy a new instance of Jaeger to the `jaeger` namespace on the AKS cluster.
 
 ### Deploy Jaeger to the AKS cluster
+
+First, create a jaeger namespace:
+
+```azurecli-interactive
+kubectl create namespace jaeger
+```
 
 Apply the following manifest to install Jaeger:
 
@@ -538,6 +527,42 @@ deployment.apps/jaeger created
 service/jaeger created
 ```
 
+### Add RBAC for Jaeger SA
+
+Apply the following RBAC to grant the Jaeger Service Account the specified Cluster Role:
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: jaeger
+  name: jaeger
+  namespace: jaeger
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  labels:
+    app: jaeger
+  name: jaeger
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: jaeger
+  labels:
+    app: jaeger
+subjects:
+  - kind: ServiceAccount
+    name: jaeger
+    namespace: jaeger
+roleRef:
+  kind: ClusterRole
+  name: jaeger
+  apiGroup: rbac.authorization.k8s.io
+```
+
 ### Enable Tracing for the OSM add-on
 
 Next we will need to enable tracing for the OSM add-on.
@@ -545,7 +570,7 @@ Next we will need to enable tracing for the OSM add-on.
 Run the following command to enable tracing for the OSM add-on:
 
 ```azurecli-interactive
-kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"enable":true}}}}' --type=merge
+kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"enable":true, "address": "jaeger.jaeger.svc.cluster.local"}}}}' --type=merge
 ```
 
 ```Output

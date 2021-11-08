@@ -302,6 +302,8 @@ def main(req, context):
         'ctx_invocation_id': context.invocation_id,
         'ctx_trace_context_Traceparent': context.trace_context.Traceparent,
         'ctx_trace_context_Tracestate': context.trace_context.Tracestate,
+        'ctx_retry_context_RetryCount': context.retry_context.retry_count,
+        'ctx_retry_context_MaxRetryCount': context.retry_context.max_retry_count,
     })
 ```
 
@@ -369,6 +371,12 @@ Name of the function.
 
 `invocation_id`
 ID of the current function invocation.
+
+`trace_context`
+Context for distributed tracing. Please refer to  [`Trace Context`](https://www.w3.org/TR/trace-context/) for more information..
+
+`retry_context`
+Context for retries to the function. Please refer to [`retry-policies`](./functions-bindings-errors.md#retry-policies-preview) for more information.
 
 ## Global variables
 
