@@ -220,10 +220,10 @@ Please note the following about the process:
 ### Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
-1. Navigate to your Azure Cosmos DB account and open the **Power Bi" / Enable Synapse Link"** tab in the **Integrations** section.
-1. Click **Register** to request approval for your subscription. To see the status of request, please come back to this same portal pane. 
-1. When approved, you will see your account’s containers list and you will be able to select those that will have analytical store enabled.
-1. Optionally, you can click **Next** to create power BI dashboards on these containers.
+2. Navigate to your Azure Cosmos DB account and open the **Synapse Link"** tab in the **Integrations** section. In this tab you can:
+3. Click **Register** to request approval for your subscription. To see the status of request, please come back to this same portal pane. 
+4. When approved, you will see your account’s containers list and you will be able to select those that will have analytical store enabled.
+5. Optionally, you can go to the  **Power BI** tab to create Power BI dashboards on your Synapse Link enabled containers.
 
 
 ### Command Line Tools
