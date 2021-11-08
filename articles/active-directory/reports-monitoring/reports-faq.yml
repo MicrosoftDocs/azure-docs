@@ -57,6 +57,33 @@ sections:
         answer: |
           No, you can also access the reporting data through the portal or through the API if you are a **Security Reader** or **Security Administrator** for the tenant. Of course, **Global Administrators** will also have access to this data.
 
+  - name: Activity logs
+    questions:
+      - question: |
+          What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal? 
+        answer: |
+          For more information, see [data retention policies for Azure AD reports](reference-reports-data-retention.md).
+          
+      - question: |
+          How long does it take until I can see the activity data after I have completed my task?
+        answer: |
+          Audit logs have a latency ranging from 15 minutes to an hour. Sign-in activity logs can take from 15 minutes to up to 2 hours for some records.
+
+      - question: |
+          Can I get Microsoft 365 activity log information through the Azure portal?
+        answer: |
+          Even though Microsoft 365 activity and Azure AD activity logs share a lot of the directory resources, if you want a full view of the Microsoft 365 activity logs, you should go to the [Microsoft 365 admin center](https://admin.microsoft.com) to get Office 365 Activity log information.
+          
+      - question: |
+          Which APIs do I use to get information about Microsoft 365 Activity logs?
+        answer: |
+          Use the [Microsoft 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview) to access the Microsoft 365 Activity logs through an API.
+          
+      - question: |
+          How many records I can download from Azure portal?
+        answer: |
+          You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records.
+
 
   - name: Sign-in logs
     questions:
@@ -110,31 +137,4 @@ sections:
           My sign-in was blocked due to a Conditional Access policy, but the sign-in activity report shows that the sign-in succeeded. Why?
         answer: |
           Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a Conditional Access policy.
-
-  - name: Activity logs
-    questions:
-      - question: |
-          What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal? 
-        answer: |
-          For more information, see [data retention policies for Azure AD reports](reference-reports-data-retention.md).
-          
-      - question: |
-          How long does it take until I can see the activity data after I have completed my task?
-        answer: |
-          Audit logs have a latency ranging from 15 minutes to an hour. Sign-in activity logs can take from 15 minutes to up to 2 hours for some records.
-
-      - question: |
-          Can I get Microsoft 365 activity log information through the Azure portal?
-        answer: |
-          Even though Microsoft 365 activity and Azure AD activity logs share a lot of the directory resources, if you want a full view of the Microsoft 365 activity logs, you should go to the [Microsoft 365 admin center](https://admin.microsoft.com) to get Office 365 Activity log information.
-          
-      - question: |
-          Which APIs do I use to get information about Microsoft 365 Activity logs?
-        answer: |
-          Use the [Microsoft 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview) to access the Microsoft 365 Activity logs through an API.
-          
-      - question: |
-          How many records I can download from Azure portal?
-        answer: |
-          You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records.
 
