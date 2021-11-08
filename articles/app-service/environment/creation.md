@@ -1,12 +1,10 @@
 ---
 title: Create an App Service Environment
 description: Learn how to create an App Service Environment.
-author: ccompy
-ms.assetid: 7690d846-8da3-4692-8647-0bf5adfd862a
+author: madsd
 ms.topic: article
-ms.date: 09/07/2021
-ms.author: ccompy
-ms.custom: seodec18
+ms.date: 11/15/2021
+ms.author: madsd
 ---
 
 # Create an App Service Environment

@@ -29,7 +29,7 @@
   - name: Diagnostics
     href: ../overview-diagnostics.md
   - name: Certificates
-    href: certificates.md
+    href: overview-certificates.md
 - name: How-To guides
   items:
   - name: Using App Service Environment
@@ -82,6 +82,8 @@
       href: using-an-ase.md
     - name: Network architecture
       href: network-info.md
+    - name: Certificates
+      href: certificates.md
 - name: Resources
   items:
   - name: Azure Roadmap
