@@ -44,7 +44,7 @@ To migrate to Gen2, we recommend the following approach.
 
 3. Review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
 
-4. Gen2 supports Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob storage lifecycle management policies](./lifecycle-management-overview.md). If you're interesting in using any of these features, review [current level of support](./storage-feature-support-in-storage-accounts.md).
+4. Gen2 supports Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](access-tiers-overview.md), and [Blob storage lifecycle management policies](./lifecycle-management-overview.md). If you're interesting in using any of these features, review [current level of support](./storage-feature-support-in-storage-accounts.md).
 
 5. Review the current state of [Azure ecosystem support](./data-lake-storage-multi-protocol-access.md) to ensure that Gen2 supports any services that your solutions depend upon.
 
@@ -222,5 +222,5 @@ Check out our sample code for the bidirectional sync pattern in our [Bidirection
 ## Next steps
 
 - Learn about the various parts of setting up security for a storage account. For more information, see [Azure Storage security guide](./security-recommendations.md).
-- Optimize the performance for your Data Lake Store. See [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md)
+- Optimize the performance for your Data Lake Store. See [Optimize Azure Data Lake Storage Gen2 for performance](./data-lake-storage-best-practices.md)
 - Review the best practices for managing your Data Lake Store. See [Best practices for using Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)

@@ -1,7 +1,7 @@
 ---
 title: Integrate Palo Alto with Azure Defender for IoT
 description: Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
-ms.date: 09/26/2021
+ms.date: 09/29/2021
 ms.topic: tutorial
 ---
 

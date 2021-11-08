@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Sentinel Authentication normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Authentication information model is used to describe events related to user authentication, sign-in, and sign-out. Authentication events are sent by many reporting devices, usually as part of the event stream alongside other events.
 
@@ -190,5 +190,5 @@ For more information, see:
 - [Normalization in Azure Sentinel](normalization.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
 - [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Azure Sentinel network normalization schema reference](normalization-schema.md)
+- [Azure Sentinel network normalization schema reference](./network-normalization-schema.md)
 - [Azure Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)

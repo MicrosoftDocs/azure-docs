@@ -116,7 +116,7 @@ To stop protection, navigate to Backup center and select the **Backup Instances*
 
 [Learn more about performing on-demand backups for Azure Virtual Machines](backup-azure-manage-vms.md#run-an-on-demand-backup).
 
-[Learn more about performing on-demand backups for Azure Database for PostgreSQL Server](backup-azure-database-postgresql.md#generate-an-on-demand-backup).
+[Learn more about performing on-demand backups for Azure Database for PostgreSQL Server](backup-azure-database-postgresql.md).
 
 ## Stop backup for a backup instance
 

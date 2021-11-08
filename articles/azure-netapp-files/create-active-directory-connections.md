@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/09/2021
+ms.date: 11/02/2021
 ms.author: b-juche
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -22,7 +22,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 ## Before you begin  
 
-* You must have already set up a capacity pool. See [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
+* You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="requirements-for-active-directory-connections"></a>Requirements and considerations for Active Directory connections
@@ -87,6 +87,17 @@ Several features of Azure NetApp Files require that you have an Active Directory
     [LDAP channel binding](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) configuration alone has no effect on the Azure NetApp Files service. However, if you use both LDAP channel binding and secure LDAP (for example, LDAPS or `start_tls`), then the SMB volume creation will fail.
 
 * For non-AD integrated DNS, you should add a DNS A/PTR record to enable Azure NetApp Files to function by using a “friendly name". 
+
+* The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
+
+    |     Error condition    |     Resolution    |
+    |-|-|
+    | Cache |  Default Timeout |
+    | Group membership list  | 24-hour TTL  |
+    | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
+    | Unix users  | 24-hour TTL, 1-minute negative TTL  |
+
+    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries do not linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.”   
 
 ## Decide which Domain Services to use 
 

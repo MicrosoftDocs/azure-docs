@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/01/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Sentinel Registry Event normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Registry Event schema is used to describe the Windows activity of creating, modifying, or deleting Windows Registry entities.
 
@@ -130,10 +130,10 @@ For more information, see [Structure of the Registry](/windows/win32/sysinfo/str
 | **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `SID`         |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. If you are using a Windows machine and the source sends a different type, make sure to convert the value. For example, if source sends a hexadecimal value, convert it to a decimal value.   |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Optional     | String     |   The file name of the acting process image file. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
-| **ActingProcessId**| Mandatory    | Integer        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
+| **ActingProcessId**| Mandatory    | String        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
 | **ActingProcessGuid**              | Optional     | String     |  A generated unique identifier (GUID) of the acting process.   <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ParentProcessName**              | Optional     | String     |  The file name of the parent process image file. This value is typically considered to be the process name.    <br><br>Example: `C:\Windows\explorer.exe` |
-| **ParentProcessId**| Mandatory    | Integer    | The process ID (PID) of the parent process.   <br><br>     Example:  `48610176`    |
+| **ParentProcessId**| Mandatory    | String    | The process ID (PID) of the parent process.   <br><br>     Example:  `48610176`    |
 | **ParentProcessGuid**              | Optional     | String     |  A generated unique identifier (GUID) of the parent process.     <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 
 
@@ -173,4 +173,4 @@ For more information, see:
 - [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
 - [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Azure Sentinel network normalization schema reference](normalization-schema.md)
+- [Azure Sentinel network normalization schema reference](./network-normalization-schema.md)

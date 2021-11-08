@@ -2391,7 +2391,7 @@
     "redirect_document_id": true
   },
   {
-    "source_path_from_root": "/articles/cosmos-db/sql-query-datetimeaddsql-query-datetimeadd.md",
+    "source_path_from_root": "/articles/cosmos-db/sql-query-datetimeadd.md",
     "redirect_url": "/azure/cosmos-db/sql/sql-query-datetimeadd",
     "redirect_document_id": true
   },

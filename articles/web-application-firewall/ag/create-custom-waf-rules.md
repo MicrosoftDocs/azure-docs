@@ -543,6 +543,66 @@ Corresponding JSON:
   }
 ```
 
+## Example 7
+
+It is not uncommon to see Azure Front Door deployed in front of Application Gateway.  In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on this, please see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
+
+Logic: **not** p
+
+```azurepowershell
+$expectedFDID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$variable = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestHeaders `
+   -Selector X-Azure-FDID
+
+$condition = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable `
+   -Operator Equal `
+   -MatchValue $expectedFDID `
+   -Transform Lowercase `
+   -NegationCondition $True
+
+$rule = New-AzApplicationGatewayFirewallCustomRule `
+   -Name blockNonAFDTraffic `
+   -Priority 2 `
+   -RuleType MatchRule `
+   -MatchCondition $condition `
+   -Action Block
+```
+
+And here is the corresponding JSON:
+
+```json
+  {
+    "customRules": [
+      {
+        "name": "blockNonAFDTraffic",
+        "priority": 2,
+        "ruleType": "MatchRule",
+        "action": "Block",
+        "matchConditions": [
+          {
+            "matchVariables": [
+                {
+                    "variableName": "RequestHeaders",
+                    "selector": "X-Azure-FDID"
+                }
+            ],
+            "operator": "Equal",
+            "negationConditon": true,
+            "matchValues": [
+                "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            ],
+            "transforms": [
+                "Lowercase"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+```
+
 ## Next steps
 
 After you create your custom rules, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).

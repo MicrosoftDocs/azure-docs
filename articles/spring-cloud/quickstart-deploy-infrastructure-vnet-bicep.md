@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-java
 ms.author: ssarwa
-ms.date: 08/06/2021
+ms.date: 10/12/2021
 ---
 
 # Quickstart: Provision Azure Spring Cloud using Bicep

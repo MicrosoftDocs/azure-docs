@@ -6,9 +6,9 @@ services: machine-learning
 author: cjgronlund
 ms.author: cgronlun
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: nibaccam
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ---

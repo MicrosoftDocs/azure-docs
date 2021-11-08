@@ -60,10 +60,10 @@ landingContent:
         links:
           - text: Migrate to Azure SQL Database
             url: tutorial-sql-server-to-azure-sql.md
-          - text: Migrate to Azure SQL Managed Instance (online)
-            url: tutorial-sql-server-managed-instance-online.md
-          - text: Migrate to SQL Managed Instance (offline)
-            url: tutorial-sql-server-to-managed-instance.md
+          - text: Migrate to Azure SQL Managed Instance (online) using Azure Data Studio
+            url: tutorial-sql-server-managed-instance-online-ads.md
+          - text: Migrate to SQL Managed Instance (offline) using Azure Data Studio
+            url: tutorial-sql-server-managed-instance-offline-ads.md
       - linkListType: reference
         links:
           - text: Known issues - Online migration to SQL Managed Instance

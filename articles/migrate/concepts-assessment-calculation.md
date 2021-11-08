@@ -203,8 +203,13 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 If you use performance-based sizing in an Azure VM assessment, the assessment makes sizing recommendations as follows:
 
 - The assessment considers the performance history of the server to identify the VM size and disk type in Azure.
-- If you import servers by using a CSV file, the values you specify are used. This method is especially helpful if you've overallocated the on-premises server, utilization is low, and you want to rightsize the Azure VM to save costs.
+
+> [!NOTE] 
+> If you import serves by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.
+
+- This method is especially helpful if you've overallocated the on-premises server, utilization is low, and you want to rightsize the Azure VM to save costs.
 - If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section.
+
 
 #### Calculate storage sizing
 
@@ -227,7 +232,7 @@ For Ultra disks, there is a range of IOPS and throughput that is allowed for a p
     - One disk (Disk 2) is found that can satisfy total IOPS requirement
         - IOPS to be provisioned =  (source disk throughput) *1024/256
     - One disk (Disk 3) is found that can satisfy total throughput requirement
-1. Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](../virtual-machines/disks-types.md#disk-size). This is the provisioned Ultra disk size.
+1. Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](../virtual-machines/disks-types.md#ultra-disks). This is the provisioned Ultra disk size.
 1. Provisioned IOPS is calculated using the following logic:
     - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS is equal to source disk IOPS
     - Else, provisioned IOPS is calculated using IOPS to be provisioned =  (source disk throughput) *1024/256

@@ -2,21 +2,21 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
-ms.date: 08/17/2021
+ms.date: 11/02/2021
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
 
-You can run App Service, Functions, and Logic Apps on an Azure Arc enabled Kubernetes cluster. The Kubernetes cluster can be on-premises or hosted in a third-party cloud. This approach lets app developers take advantage of the features of App Service. At the same time, it lets their IT administrators maintain corporate compliance by hosting the App Service apps on internal infrastructure. It also lets other IT operators safeguard their prior investments in other cloud providers by running App Service on existing Kubernetes clusters.
+You can run App Service, Functions, and Logic Apps on an Azure Arc-enabled Kubernetes cluster. The Kubernetes cluster can be on-premises or hosted in a third-party cloud. This approach lets app developers take advantage of the features of App Service. At the same time, it lets their IT administrators maintain corporate compliance by hosting the App Service apps on internal infrastructure. It also lets other IT operators safeguard their prior investments in other cloud providers by running App Service on existing Kubernetes clusters.
 
 > [!NOTE]
 > To learn how to set up your Kubernetes cluster for App Service, Functions, and Logic Apps, see [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md).
 
 In most cases, app developers need to know nothing more than how to deploy to the correct Azure region that represents the deployed Kubernetes environment. For operators who provide the environment and maintain the underlying Kubernetes infrastructure, you need to be aware of the following Azure resources:
 
-- The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
-- A cluster extension, which is a sub-resource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
-- A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
+- The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
+- A cluster extension, which is a sub-resource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
+- A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
 - An App Service Kubernetes environment, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment. This is described in greater detail in [App Service Kubernetes environment](#app-service-kubernetes-environment).
 
 ## Public preview limitations
@@ -27,6 +27,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 |---------------------------------------------------------|---------------------------------------------------------------------------------------|
 | Supported Azure regions                                 | East US, West Europe                                                                  |
 | Cluster networking requirement                          | Must support `LoadBalancer` service type and provide a publicly addressable static IP |
+| Cluster storage requirement                             | Must have cluster attached storage class available for use by the extension to support deployment and build of code-based apps where applicable                      |
 | Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported)      |
 | Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                                    |
 | Feature: Key vault references                           | Not available (depends on managed identities)                                         |
@@ -37,7 +38,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 
 ## Pods created by the App Service extension
 
-When the App Service extension is installed on the Arc-enabled Kubernetes cluster, you see several pods created in the release namespace that was specified. These pods enable your Kubernetes cluster to be an extension of the `Microsoft.Web` resource provider in Azure and support the management and operation of your apps. Optionally, you can choose to have the extension install [KEDA](https://keda.sh/) for event-driven scaling.
+When the App Service extension is installed on the Azure Arc-enabled Kubernetes cluster, you see several pods created in the release namespace that was specified. These pods enable your Kubernetes cluster to be an extension of the `Microsoft.Web` resource provider in Azure and support the management and operation of your apps. Optionally, you can choose to have the extension install [KEDA](https://keda.sh/) for event-driven scaling.
  <!-- You can only have one installation of KEDA on the cluster. If you have one already, you must disable this behavior during installation of the cluster extension `TODO`. -->
 
 The following table describes the role of each pod that is created by default:
@@ -118,6 +119,31 @@ When creating a Kubernetes environment resource, some subscriptions may see a "N
 ### Can I deploy the Application services extension on an ARM64 based cluster?
 
 ARM64 based clusters are not supported at this time.  
+
+## Extension Release Notes
+
+### Application services extension v 0.9.0 (May 2021)
+
+- Initial public preview release of Application services extension.
+- Support for code and container-based deployments of Web, Function, and Logic Applications.
+- Web application runtime support - .NET 3.1 and 5.0; Node JS 12 and 14; Python 3.6, 3.7, and 3.8; PHP 7.3 and 7.4; Ruby 2.5, 2.5.5, 2.6, and 2.6.2; Java SE 8u232, 8u242, 8u252, 11.05, 11.06 and 11.07; Tomcat 8.5, 8.5.41, 8.5.53, 8.5.57, 9.0, 9.0.20, 9.0.33, and 9.0.37.
+
+### Application services extension v 0.10.0 (November 2021)
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to enabled the extension will upgrade automatically.  To manually upgrade the extension to the latest version of the extension you can run the command below
+
+- Removed requirement for pre-assigned Static IP Address required for assignment to the Envoy endpoint
+- Upgrade Keda to v2.4.0
+- Upgrade Envoy to v1.19.0
+- Upgrade Azure Function runtime to v3.3.1
+- Set default replica count of App Controller and Envoy Controller to 2 to add further stability
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension will upgrade automatically.  To manually upgrade the extension to the latest version, you can run the command below:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.10.0
+```
+
 
 ## Next steps
 

@@ -4,11 +4,10 @@ description: Learn how to use blob index tags to categorize, manage, and query f
 author: normesta
 
 ms.author: normesta
-ms.date: 08/25/2021
+ms.date: 11/01/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
@@ -256,27 +255,38 @@ Callers using an [Azure AD identity](../common/authorize-data-access.md) may be 
 | [Get Blob Tags](/rest/api/storageservices/get-blob-tags)           | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read     |
 | [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 
-Additional permissions, separate from the underlying blob data, are required for index tag operations. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is granted permissions for all three blob index tag operations. The [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) is only granted permissions for the `Get Blob Tags` operation.
+Additional permissions, separate from the underlying blob data, are required for index tag operations. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is granted permissions for all three blob index tag operations. 
 
 ### SAS permissions
 
 Callers using a [shared access signature (SAS)](../common/storage-sas-overview.md) may be granted scoped permissions to operate on blob index tags.
 
-#### Blob SAS
+#### Service SAS for a blob
 
-The following permissions may be granted in a blob SAS to allow access to blob index tags. Blob read and write permissions alone aren't enough to allow reading or writing its index tags.
+The following permissions may be granted in a service SAS for a blob to allow access to blob index tags. The blob read (`r`) and write (`w`) permissions alone aren't enough to allow reading or writing its index tags.
 
 | Permission | URI symbol | Allowed operations                |
 |------------|------------|-----------------------------------|
 | Index tags |     t      | Get and set index tags for a blob |
 
-#### Container SAS
+#### Service SAS for a container
 
-The following permissions may be granted in a container SAS to allow filtering on blob tags. The `Blob List` permission isn't enough to allow filtering blobs by their index tags.
+The following permissions may be granted in a service SAS for a container to allow filtering on blob tags. The blob list (`i`) permission isn't enough to allow filtering blobs by their index tags.
 
 | Permission | URI symbol | Allowed operations         |
 |------------|------------|----------------------------|
 | Index tags |     f      | Find blobs with index tags |
+
+#### Account SAS
+
+The following permissions may be granted in an account SAS to allow access to blob index tags and filtering on blob tags. 
+
+| Permission | URI symbol | Allowed operations                |
+|------------|------------|-----------------------------------|
+| Index tags |     t      | Get and set index tags for a blob |
+| Index tags |     f      | Find blobs with index tags |
+
+The blob read (`r`) and write (`w`) permissions alone aren't enough to allow reading or writing its index tags, and the list (`i`) permission isn't enough to allow filtering blobs by their index tags.
 
 ## Choosing between metadata and blob index tags
 

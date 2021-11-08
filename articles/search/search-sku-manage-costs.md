@@ -47,7 +47,7 @@ A solution built on Azure Cognitive Search can incur costs in the following ways
 + Add-on services required for specific capabilities or premium features:
 
   + AI enrichment using billable skills (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)). Image extraction is also billable.
-  + Knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + Knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/)). Operations to storage by indexer will be billable.
   + Incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
   + Customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
   + Private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))

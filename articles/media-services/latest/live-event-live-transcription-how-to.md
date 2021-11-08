@@ -29,16 +29,7 @@ This article describes how to enable live transcription when streaming a Live Ev
 
 ## Live transcription preview regions and languages
 
-Live transcription is available in the following regions:
-
-- Southeast Asia
-- West Europe
-- North Europe
-- East US
-- Central US
-- South Central US
-- West US 2
-- Brazil South
+Live transcription is available in the regions as documented [here](azure-clouds-regions.md).
 
 This is the list of available languages that can be transcribed, use the language code in the API.
 
@@ -72,7 +63,7 @@ To create a live event with the transcription turned on, send the PUT operation 
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-The operation has the following body (where a pass-through Live Event is created with RTMP as the ingest protocol). Note the addition of a transcriptions property.
+The operation has the following body (where a basic pass-through Live Event is created with RTMP as the ingest protocol). Note the addition of a transcriptions property.
 
 ```
 {
@@ -106,7 +97,7 @@ The operation has the following body (where a pass-through Live Event is created
       }
     },
     "encoding": {
-      "encodingType": "None"
+      "encodingType": "PassthroughBasic"
     },
     "transcriptions": [
       {

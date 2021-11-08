@@ -127,7 +127,7 @@ This preference affects only the route-specific endpoint. This preference doesn'
 
    - To create a route-specific endpoint that uses the Microsoft network routing preference, set the `-PublishMicrosoftEndpoint` parameter to `true`.
 
-   - To create a route-specific endpoint that uses the Internet routing preference, set the `-PublishInternetEndpointTo` parameter to `true`.
+   - To create a route-specific endpoint that uses the Internet routing preference, set the `-PublishInternetEndpoint` parameter to `true`.
 
    The following example creates a route-specific endpoint that uses the Microsoft network routing preference.
 

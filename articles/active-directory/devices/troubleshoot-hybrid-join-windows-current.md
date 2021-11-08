@@ -232,7 +232,7 @@ This content applies only to federated domain accounts.
 Reasons for failure:
 
 - Unable to get an access token silently for the DRS resource.
-   - Windows&nbsp;10 devices acquire the authentication token from the Federation Service by using Integrated Windows Authentication to an active WS-Trust endpoint. For more information, see [Federation Service configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
+   - Windows&nbsp;10 devices acquire the authentication token from the Federation Service by using integrated Windows authentication to an active WS-Trust endpoint. For more information, see [Federation Service configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
 
 **Common error codes**:
 
@@ -442,7 +442,7 @@ The "Attempt Status" field under the "AzureAdPrt" field will provide the status 
 
 Use Event Viewer to look for the log entries that are logged by the Azure AD CloudAP plug-in during PRT acquisition. 
 
-1. In Event Viewer, open the Azure AD event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**. 
+1. In Event Viewer, open the Azure AD Operational event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **AAD**. 
 
    > [!NOTE]
    > The CloudAP plug-in logs error events in the operational logs, and it logs the info events in the analytics logs. The analytics and operational log events are both required to troubleshoot issues. 

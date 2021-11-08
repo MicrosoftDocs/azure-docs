@@ -17,6 +17,7 @@ We've also added links to some user-generated content. Those items will be marke
 
 ### September 2021
 * Anomaly Detector (univariate) available in Jio India West.
+* Multivariate anomaly detection APIs deployed in five more regions: East Asia, West US, Central India, Korea Central, Germany West Central.
 
 ### August 2021
 

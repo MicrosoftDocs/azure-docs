@@ -4,7 +4,7 @@ description: Learn how you can prepay for software plans to save money over your
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
-ms.subservice: reserved-instances
+ms.subservice: billing
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders

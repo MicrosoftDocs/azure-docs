@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/20/2021
 ms.author: robinsh
 ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-csharp]
 ---
@@ -217,7 +217,5 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
 ## Next steps
 
 In this how-to, you learned how to send and receive cloud-to-device messages.
-
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator](/azure/iot-suite/).
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
