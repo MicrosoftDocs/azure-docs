@@ -21,7 +21,7 @@ The Azure Load Testing dashboard allows you to visually compare multiple test ru
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 
-- An Azure Load Testing resource with a test plan that has multiple test runs. To create a Load Test resource, see [Create and run a load test](./quickstart-create-and-run-loadtest.md), or [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal).
+- An Azure Load Testing resource with a test plan that has multiple test runs. To create a Load Test resource, see [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).
 
     > [!NOTE]
     > A test run needs to be in the **Done**, **Stopped**, or **Failed** state to compare it.
