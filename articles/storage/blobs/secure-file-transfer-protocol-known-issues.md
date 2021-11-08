@@ -78,6 +78,8 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - Account metrics such as transactions and capacity are available. Filter logs by operations to see SFTP activity.
 
+- Network File System (NFS) 3.0 and SFTP can't be enabled on the same storage account.
+
 ## Performance
 
 - Upload performance with default settings for some clients can be slow. Some of this is expected because of the many small blocks that are written by default. For OpenSSH, increasing the buffer size option to 100,000 will help (`For example: sftp -B 100000 testaccount.user1@testaccount.blob.core.windows.net`). Also consider using multiple connections to transfer data. For example, if you use WinSCP, you can use a maximum of 9 concurrent connections to upload multiple files.
