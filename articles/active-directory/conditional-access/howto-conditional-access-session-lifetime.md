@@ -30,7 +30,7 @@ Before diving into details on how to configure the policy, let’s examine the d
 
 ## User sign-in frequency
 
-Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
+Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource. 
 
 The Azure Active Directory (Azure AD) default configuration for user sign-in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire: users that are trained to enter their credentials without thinking can unintentionally supply them to a malicious credential prompt.
 
@@ -101,6 +101,10 @@ Conditional Access is an Azure AD Premium capability and requires a premium lice
 1. Enter the required value of days and hours in the first text box
 1. Select a value of **Hours** or **Days** from dropdown
 1. Save your policy
+
+> [!NOTE]
+> SignIn Frequency can be implemented on all Devices  Unregistered,  Azure AD joined, Hybrid Azure AD joined, and Azure AD registered. 
+
 
 ![Conditional Access policy configured for sign-in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
