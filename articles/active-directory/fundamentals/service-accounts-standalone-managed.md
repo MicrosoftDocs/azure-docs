@@ -96,7 +96,7 @@ To manage your sMSAs, you can use the following Active Directory PowerShell cmdl
 ` Remove-ADServiceAccount`  
 `Set-ADServiceAccount`  
 `Test-ADServiceAccount`  
-`Ininstall-ADServiceAccount`
+`Uninstall-ADServiceAccount`
 
 ## Move to sMSAs
 
