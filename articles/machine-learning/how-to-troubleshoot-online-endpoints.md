@@ -92,17 +92,17 @@ Add `--help` and/or `--debug` to commands to see more information. Include the `
 
 Below is a list of common deployment errors that are reported as part of the deployment operation status.
 
-* [OutOfQuota](#err-outofquota)
-* [OutOfCapacity](#err-outofcapacity)
-* [BadArgument](#err-badargument)
-* [ResourceNotReady](#err-resourcenotready)
-* [ResourceNotFound](#err-resourcenotfound)
-* [OperationCancelled](#err-operationcancelled)
-* [InternalServerError](#err-internalservererror)
+* [OutOfQuota](#error-outofquota)
+* [OutOfCapacity](#error-outofcapacity)
+* [BadArgument](#error-badargument)
+* [ResourceNotReady](#error-resourcenotready)
+* [ResourceNotFound](#error-resourcenotfound)
+* [OperationCancelled](#error-operationcancelled)
+* [InternalServerError](#error-internalservererror)
 
 ### ERROR: OutOfQuota
 
-Below is a list of common resources that may run out of quota when using Azure services.
+Below is a list of common resources that might run out of quota when using Azure services:
 
 * [CPU](#cpu-quota)
 * [Role assignments](#role-assignment-quota)
@@ -114,7 +114,7 @@ Below is a list of common resources that may run out of quota when using Azure s
 
 Before deploying a model, you need to have enough compute quota. This quota defines how much virtual cores are available per subscription, per workspace, per SKU, and per region. Each deployment subtracts from available quota and adds it back after deletion, based on type of the SKU.
 
-A possible mitigation is to check if there are unused deployments that can be deleted. Or you can submit a [request for a quota increase](./how-to-manage-quotas.md).
+A possible mitigation is to check if there are unused deployments that can be deleted. Or you can submit a [request for a quota increase](./how-to-manage-quotas.md#request-quota-increases).
 
 #### Role assignment quota
 
@@ -132,7 +132,7 @@ The requested CPU or memory couldn't be satisfied. Please adjust your request or
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.
 
-If your container could not start, this means scoring could not happen. It could be that the container is requesting more resources than what `instance_type` could support. If so, consider updating the `instance_type` of the online deployment.
+If your container could not start, this means scoring could not happen. It might be that the container is requesting more resources than what `instance_type` can support. If so, consider updating the `instance_type` of the online deployment.
 
 To get the exact reason for an error, run: 
 
@@ -146,7 +146,7 @@ The specified VM Size failed to provision due to a lack of Azure Machine Learnin
 
 ### ERROR: BadArgument
 
-Below is a list of reasons you may run into this error:
+Below is a list of reasons you might run into this error:
 
 * [Resource request was greater than limits](#resource-requests-greater-than-limits)
 * [Unable to download resources](#unable-to-download-resources)
@@ -167,10 +167,10 @@ To pull blobs, Azure uses [managed identities](../active-directory/managed-ident
 
   - If you created the associated endpoint with UserAssigned, the user's managed identity must have Storage blob data reader permission on the workspace storage account.
 
-During this process, you can run into a few different issues depending on which stage the operation failed at.
+During this process, you can run into a few different issues depending on which stage the operation failed at:
 
 * [Unable to download user container image](#unable-to-download-user-container-image)
-* [Unable to download user model/code artifacts](#unable-to-download-user-modelcode-artifacts)
+* [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
 
 To get more details about these errors, run:
 
@@ -183,51 +183,54 @@ az ml online-deployment get-logs -n <endpoint-name> --deployment <deployment-nam
 It is possible that the user container could not be found.
 
 Make sure container image is available in workspace ACR.
-- For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed011c3c42d35acb:latest` check the repository with
+
+For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed011c3c42d35acb:latest` check the repository with
 `az acr repository show-tags -n testacr --repository azureml/azureml_92a029f831ce58d2ed011c3c42d35acb --orderby time_desc --output table`.
 
-#### Unable to download user model/code artifacts
+#### Unable to download user model or code artifacts
 
-It is possible that the user model/code artifacts could not be found.
+It is possible that the user model or code artifacts can't be found.
 
 Make sure model and code artifacts are registered to the same workspace as the deployment. Use the `show` command to show details for a model or code artifact in a workspace. 
+
 - For example: 
   
-    ```azurecli
-    az ml model show --name <model-name>
-    az ml code show --name <code-name> --version <version>
-    ```
-You can also check if the blobs are present in the workspace storage account.
+  ```azurecli
+  az ml model show --name <model-name>
+  az ml code show --name <code-name> --version <version>
+  ```
+ 
+  You can also check if the blobs are present in the workspace storage account.
 
-- For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl` you can use this command to check if it exists:
+- For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl`, you can use this command to check if it exists:
 
-    `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+  `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
 
 ### ERROR: ResourceNotReady
 
-To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.  The error in this scenario is that this container is crashing when running, which means scoring couldn't happen. This error happens when:
+To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container. The error in this scenario is that this container is crashing when running, which means scoring can't happen. This error happens when:
 
 - There's an error in `score.py`. Use `get-logs` to help diagnose common problems:
-    - A package that was  imported but is not in the conda environment
-    - A syntax error
-    - A failure in the `init()` method
+    - A package that was  imported but is not in the conda environment.
+    - A syntax error.
+    - A failure in the `init()` method.
 - If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) instead.
 - Readiness or liveness probes are not set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
 
 ### ERROR: ResourceNotFound
 
-This error occurs when Azure Resource Manager (ARM) can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources which may have been supplied by exact path or the spelling of their names.
+This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources which might have been supplied by exact path or the spelling of their names.
 
-More details on this error can be found [here](https://aka.ms/ARMResourceNotFoundFix). 
+For more information, see [Resolve resource not found errors](../azure-resource-manager/troubleshooting/error-not-found). 
 
 ### ERROR: OperationCancelled
 
-Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation which has a higher priority. Retrying the operation may allow it to be performed without cancellation.
+Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation that has a higher priority. Retrying the operation might allow it to be performed without cancellation.
 
 ### ERROR: InternalServerError
 
-While we do our best to provide a stable and reliable service, sometimes things don't go according to plan. If you get this error, it means something isn't right on our side and we need to fix it. Submit a [customer support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) with all related information and we'll address the issue. 
+Although we do our best to provide a stable and reliable service, sometimes things don't go according to plan. If you get this error, it means that something isn't right on our side, and we need to fix it. Submit a [customer support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) with all related information and we'll address the issue. 
 
 ## Autoscaling issues
 
