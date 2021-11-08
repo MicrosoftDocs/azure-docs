@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/06/2021
+ms.date: 11/08/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -119,7 +119,8 @@ Do the following steps to prepare the drives.
 6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files aren't processed.
 
     > [!IMPORTANT]
-    > Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
+    > - If you don't have long paths enabled on the client, and any path and file name in your data copy exceeds 256 characters, the client tools will report failures. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
+    > - Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
 
 For additional samples, go to [Samples for journal files](#samples-for-journal-files).
 

@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 11/08/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -105,8 +105,10 @@ Perform the following steps to prepare the drives.
    Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of the journal file when creating a job if the journal file is too big.
 
 > [!IMPORTANT]
+>* If you don't have long paths enabled on the client, and any path and file name in your data copy exceeds 256 characters, the client tools will report failures. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
 > * Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
 > * The maximum size of the journal file that the portal allows is 2 MB. If the journal file exceeds that limit, an error is returned.
+
 
 ## Step 2: Create an import job
 
