@@ -28,7 +28,6 @@ This is the basic template format:
       "<name>": "<value>"
     },
     "identity": {},			 
-    "dependsOn": [], 
     "properties": { 
       "buildTimeoutInMinutes": <minutes>, 
       "vmProfile": {
