@@ -17,11 +17,11 @@ The Azure portal includes a Kubernetes resource view for easy access to the Kube
 
 ## Prerequisites
 
-1. An existing Kubernetes cluster [connected](quickstart-connect-cluster.md) to Azure as an Azure Arc-enabled Kubernetes resource.
+- An existing Kubernetes cluster [connected](quickstart-connect-cluster.md) to Azure as an Azure Arc-enabled Kubernetes resource.
 
-2. [Cluster Connect feature has to be enabled](cluster-connect.md#enable-cluster-connect-feature) on the Azure Arc-enabled Kubernetes cluster.
+- [Cluster Connect feature has to be enabled](cluster-connect.md#enable-cluster-connect-feature) on the Azure Arc-enabled Kubernetes cluster.
 
-3. [Service account token](cluster-connect.md#service-account-token-authentication-option) for authentication to the cluster.
+- [Service account token](cluster-connect.md#service-account-token-authentication-option) for authentication to the cluster.
 
 ## View Kubernetes resources
 
@@ -48,5 +48,4 @@ After editing the YAML, changes are applied by selecting **Review + save**, conf
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> Azure Monitor for containers provides more in-depth information about nodes and containers of the cluster when compared to the logical view of the Kubernetes resources available with Kubernetes resources view described in this article. Learn how to [deploy Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) on your cluster.
+Azure Monitor for containers provides more in-depth information about nodes and containers of the cluster when compared to the logical view of the Kubernetes resources available with Kubernetes resources view described in this article. Learn how to [deploy Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) on your cluster.
