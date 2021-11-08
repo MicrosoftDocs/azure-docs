@@ -26,7 +26,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 The following scenarios are possible causes of these issues:
 
-#### An out of memory exception happens freqently 
+#### An out of memory exception happens frequently
 
 Check the Apache Ambari Metrics Collector log `/var/log/ambari-metrics-collector/ambari-metrics-collector.log*`.
 
@@ -58,14 +58,14 @@ java.lang.OutOfMemoryError: Java heap space
 
 To avoid these issues, consider using one of the following options:
 
-1. Increase the heap memory of Apache Ambari Metrics Collector from **Ambari** > **Ambari Metric Collector** > **Configuration** > **Metics Collector Heap Size**
+1. Increase the heap memory of Apache Ambari Metrics Collector from **Ambari** > **Ambari Metric Collector** > **Configuration** > **Metrics Collector Heap Size**
 
    :::image type="content" source="./media/apache-ambari-troubleshoot-ams-issues/editing-ams-configuration-ambari.png" alt-text="Editing AMS configuration properties in Ambari" border="true":::
 
-2. Follow these steps to cleanup AMS data.
+2. Follow these steps to cleanup Ambari Metrics service (AMS) data.
 
    > [!NOTE]
-   > Cleaning up the AMS data would remove all the historical AMS data available
+   > Cleaning up the AMS data removes all the historical AMS data available. If you need the history, this may not be the best option.
 
    1.  Login into the Ambari portal  
 	1.  Set AMS to maintenance  
@@ -76,7 +76,7 @@ To avoid these issues, consider using one of the following options:
    2. SSH into headnode where Apache Ambari Metrics Collector exists. As superuser:
 	1. Remove the AMS zookeeper data by **backing up** and removing the contents of  `'hbase.tmp.dir'/zookeeper`
 	2. Remove any Phoenix spool files from `<hbase.tmp.dir>/phoenix-spool` folder 
-	3. ***(It is worthwhile to skip this step intially and try restarting AMS to see if the issue is resolved. If AMS is still failing to come up, try this step)***  
+	3. ***(It is worthwhile to skip this step initially and try restarting AMS to see if the issue is resolved. If AMS is still failing to come up, try this step)***  
 	    	AMS data would be stored in `hbase.rootdir` identified above. Use regular OS commands to backup and remove the files. Example:  	
         	`tar czf /mnt/backupof-ambari-metrics-collector-hbase-$(date +%Y%m%d-%H%M%S).tar.gz /mnt/data/ambari-metrics-collector/hbase`  
    3.  Restart AMS using Ambari.
