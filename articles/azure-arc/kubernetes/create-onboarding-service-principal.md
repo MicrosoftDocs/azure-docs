@@ -24,7 +24,7 @@ Walk through the following steps to learn how to use service principals for conn
 Create a new service principal with an informative name that is unique for your Azure Active Directory tenant.
 
 ```azurecli
-az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding" --role Contributor
+az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
 ```
 
 **Output:**
