@@ -7,7 +7,7 @@ ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ---
 
 # Tutorial: Deploy your ASP.NET app to Azure virtual machines by using Azure DevOps Starter
