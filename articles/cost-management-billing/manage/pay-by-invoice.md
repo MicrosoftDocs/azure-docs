@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/13/2021
+ms.date: 11/08/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -27,25 +27,29 @@ When you request to change your payment method to check/wire transfer, there are
 > * Pay by check or wire transfer is only available for customers using Azure on behalf of a company.
 > * Pay all outstanding charges before switching to pay by by check or wire transfer.
 > * Currently, payment by check or wire transfer isn't supported for Global Azure in China.
-
-If you switch to pay by check or wire transfer, you can't switch back to paying by credit or debit card.
+> * If you switch to pay by check or wire transfer, you can't switch back to paying by credit or debit card.
 
 ## Request to pay by check or wire transfer
 
 1. Sign in to the Azure portal.
 1. Navigate to **Subscriptions** and then select the one that you want to set up check or wire transfer for.
 1. In the left menu, select **Payment methods**.
-1. On the payment methods page, select **Pay by check/wire transfer**.
-1. On the **Pay by check/wire transfer** page and you see a message stating `Paying by check or wire transfer is only available to customers using Azure on behalf of an organization`, then you don't qualify for automatic approval. Instead, you need a submit a support request to set up pay by check or wire transfer. Follow the steps in the [Submit a request to set up pay by check or wire transfer](#submit-a-request-to-set-up-pay-by-check-or-wire-transfer) section.
-1. If you see the **Pay by check/wire transfer** page select **Continue** and Azure checks to determine if you qualify for automatic approval.
-1. If you're automatically approved, the **Pay by check/wire transfer** page shows a message stating that you're approved to pay by check or wire transfer. Enter your **Company name** and then select **Next**.
-1. You're prompted to save your information. Select **Save**.
-    You're all set to pay your next bill by check or wire transfer.
-1. If the request couldn't be processed or if you're disapproved, you'll see a message stating the reason. You need to follow the steps in the [Submit a request to set up pay by check or wire transfer](#submit-a-request-to-set-up-pay-by-check-or-wire-transfer) section.
+1. On the Payment methods page, select **Pay by check/wire transfer**.  
+    :::image type="content" source="./media/pay-by-invoice/payment-methods.png" alt-text="Screenshot showing the Payment methods page." lightbox="./media/pay-by-invoice/payment-methods.png" :::
+1.  On the **Pay by check/wire transfer** page, you see a message stating that you can request to use check/wire transfer instead of automatic payment using a credit or debit card. Select **Continue** to start the check.  
+    
+    :::image type="content" source="./media/pay-by-invoice/pay-check-wire-transfer-continue.png" alt-text="Screenshot showing the Continue option." :::
+1. Depending on your approval status:  
+
+    - If you're automatically approved, the page shows a message stating that you've been approved to pay by check or wire transfer. Enter your **Company name** and then select **Save**.  
+    :::image type="content" source="./media/pay-by-invoice/pay-check-wire-transfer.png" alt-text="Screenshot showing the pay by invoice page." lightbox="./media/pay-by-invoice/pay-check-wire-transfer.png" :::
+
+        You're all set to pay your next bill by check or wire transfer.
+    - If the request couldn't be processed or if you're disapproved, you'll see a message stating the reason. You need to follow the steps in the next [Submit a request to set up pay by check or wire transfer](#submit-a-request-to-set-up-pay-by-check-or-wire-transfer) section.
 
 ## Submit a request to set up pay by check or wire transfer
 
-To become eligible to pay for your Azure subscription by check or wire transfer, submit a request to Azure support. Once your request is approved, you can switch to pay by check or wire transfer in the Azure portal.
+If you're not automatically approved, you can submit a request to Azure support to approve payment by check or wire transfer. If your request is approved, you can switch to pay by check or wire transfer in the Azure portal.
 
 1. Sign in to the Azure portal to submit a support request. Search for and select **Help + support**.  
     :::image type="content" source="./media/pay-by-invoice/search-for-help-and-support.png" alt-text="Screenshot of searching for Help and support." lightbox="./media/pay-by-invoice/search-for-help-and-support.png" :::
@@ -81,11 +85,11 @@ To become eligible to pay for your Azure subscription by check or wire transfer,
 
 If we need to run a credit check because of the amount of credit that you need, we'll send you a credit check application. We might ask you to provide your company’s audited financial statements. If no financial information is provided or if the information isn't strong enough to support the amount of credit limit required, we might ask for a security deposit or a standby letter of credit to approve your credit check request.
 
-## Switch to pay by check or wire transfer
+## Switch to pay by check or wire transfer after approval
 
-Once you're approved to pay by pay by check or wire transfer, you can switch your payment method in the Azure portal.
+If you have a Microsoft Online Services Program (pay-as-you-go) account and you've been approved to pay by pay by check or wire transfer, you can switch your payment method in the Azure portal.
 
-If you have a Microsoft Online Services Program (pay-as-you-go) account, you can switch your Azure subscription to check/wire transfer. With a Microsoft Customer Agreement, you can switch your billing profile to check/wire transfer.
+With a Microsoft Customer Agreement, you can switch your billing profile to check/wire transfer.
 
 ### Switch Azure subscription to check/wire transfer
 
@@ -95,8 +99,8 @@ Follow the steps below to switch your Azure subscription to pay by check or wire
     :::image type="content" source="./media/pay-by-invoice/search.png" alt-text="Screenshot showing search for Cost Management + Billing in the Azure portal." lightbox="./media/pay-by-invoice/search.png" :::
 1. Select the subscription you'd like to switch to pay by check or wire transfer.
 1. Select **Payment methods**.
-1. In the command bar, select **Pay by invoice**.  
-    :::image type="content" source="./media/pay-by-invoice/pay-by-invoice.png" alt-text="Screenshot showing Pay by invoice." lightbox="./media/pay-by-invoice/pay-by-invoice.png" :::
+On the Payment methods page, select **Pay by check/wire transfer**.  
+    :::image type="content" source="./media/pay-by-invoice/payment-methods.png" alt-text="Screenshot showing the Pay by check/wire transfer option." lightbox="./media/pay-by-invoice/payment-methods.png" :::
 
 ### Switch billing profile to check/wire transfer
 
