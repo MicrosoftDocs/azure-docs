@@ -80,3 +80,5 @@ In order for the vendor labeling company to have access into your projects, you'
 
 * [Create an image labeling project and export labels](how-to-create-image-labeling-projects.md)
 * [Create a text labeling project and export labels (preview)](how-to-create-text-labeling-projects.md)
+* [Add labeler access to your data labeling project](how-to-add-labelers.md)
+* 

@@ -1,7 +1,7 @@
 ---
-title: Add labelers to your data labeling project
+title: Add labeler access to your data labeling project
 title.suffix: Azure Machine Learning
-description: Use data labeling tools to rapidly label text or label images for a Machine Learning in a data labeling project.
+description: Grant users access to your data labeling project so that they can label data, but not see the rest of your workspace.
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: vkann
@@ -11,13 +11,18 @@ ms.topic: how-to
 ms.date: 11/05/2021
 ---
 
-# Add labelers to your data labeling project
+# Add labeler access to your data labeling project
 
+This article shows how to grant users access to your data labeling project so that they can label data, but not see the rest of your workspace.  You can use these steps for anyone, whether or not they are from [data labeling vendor company](how-to-outsource-data-labeling.md).  
+  
 ## Prerequisites
 
-[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
+* An Azure subscription. If you don't have an Azure subscription [create a free account](https://azure.microsoft.com/free) before you begin.
+* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
 
 ## Add custom role
+
+To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner).
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com)
 1. Open the menu on the top right and select **View all properties in Azure Portal**. 
@@ -102,15 +107,23 @@ Now that you have your labelers added to the system, you're ready to add them to
 
 ## For your labelers
 
-Your labelers are now all set up to begin labeling in your project.  But they'll still need information from you to access the project.  Send them an email, which includes the following information:
+Your labelers are now all set up to begin labeling in your project.  But they'll still need information from you to access the project.  
+
+If you haven't created your labeling project yet, do so before you contact your labelers.
+
+    * [Create an image labeling project](how-to-create-image-labeling-projects.md).
+    * [Create a text labeling project (preview)](how-to-create-text-labeling-projects.md)
+
+Sent the following to your labelers, after filling in your workspace and project names:
 
 1. Accept the invite from **Microsoft Invitations (invites@microsoft.com)**.
 1. If you don't yet have a Microsoft account, you'll be prompted to create one.  If you do have one, sign in.
 1. Open [Azure Machine Learning studio](https://ml.azure.com).
-1. Use the dropdown to select the workspace <workspace-name>.  
-1. Select the project <project-name>.
+1. Use the dropdown to select the workspace **\<workspace-name\>**.  
+1. Select the project **\<project-name\>**.
 1. Select **Start labeling** at the bottom of the page.
 1. For more information about how to create labels, see [Labeling images and text documents](how-to-label-data.md).
 
 ## Next steps
 
+Learn more about [working with a data labeling vendor company](how-to-outsource-data-labeling.md)
