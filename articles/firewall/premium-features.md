@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 11/04/2021
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -46,8 +46,8 @@ Azure Firewall Premium provides signature-based IDPS to allow rapid detection of
 
 The Azure Firewall signatures/rulesets include:
 - An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
-- Over 55,000 rules in over 50 categories.
-    - The categories include malware command and control, DoS attacks, botnets, informational events, exploits, vulnerabilities, SCADA network protocols, exploit kit activity, and more.
+- Over 58,000 rules in over 50 categories.
+    - The categories include malware command and control, phishing, trojans, botnets, informational events, exploits, vulnerabilities, SCADA network protocols, exploit kit activity, and more.
 - 20 to 40+ new rules are released each day.
 - Low false positive rating by using state-of-the-art malware sandbox and global sensor network feedback loop.
 
@@ -82,6 +82,26 @@ You can view traffic that has been filtered by **Web categories** in the Applica
 ### Category exceptions
 
 You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category.
+
+### Web category search
+
+You can identify what category a given FQDN or URL is by using the **Web Category Check** feature. To use this, select the **Web Categories** tab under **Firewall Policy Settings**. This is particularly useful when defining your application rules for destination traffic.
+
+:::image type="content" source="media/premium-features/firewall-category-search.png" alt-text="Firewall category search dialog":::
+
+### Category change
+
+Under the **Web Categories** tab in **Firewall Policy Settings**, you can request a categorization change if you: 
+
+- think an FQDN or URL should be under a different category 
+
+   or 
+
+- have a suggested category for an uncategorized FQDN or URL 
+
+ Once you submit a category change report, you will be given a token in the notifications that indicate that we have received the request for processing. You can check whether the request is in progress, denied, or approved by entering the token in the search bar.  Be sure to save your token ID to do so.
+
+:::image type="content" source="media/premium-features/firewall-category-change.png" alt-text="Firewall category report dialog":::
 
  ## Supported regions
 

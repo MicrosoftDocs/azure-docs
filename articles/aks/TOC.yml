@@ -26,6 +26,8 @@
       items:
         - name: Develop with Helm
           href: quickstart-helm.md
+        - name: Develop with Dapr (preview)
+          href: quickstart-dapr.md
     - name: Subscribe to AKS events with Event Grid (Preview)
       href: quickstart-event-grid.md
 - name: Tutorials
@@ -184,6 +186,8 @@
           href: availability-zones.md
         - name: Use node pools
           items:
+            - name: Node pool snapshot
+              href: node-pool-snapshot.md
             - name: Use multiple node pools
               href: use-multiple-node-pools.md
             - name: Use spot node pools
@@ -270,6 +274,9 @@
               href: egress-outboundtype.md
             - name: Use a basic load balancer and static IP address
               href: egress.md
+            - name: Managed NAT Gateway (preview)
+              href: nat-gateway.md
+              
         - name: Customize CoreDNS
           href: coredns-custom.md
     - name: Security and authentication
@@ -300,6 +307,8 @@
               href: managed-aad.md
             - name: Azure AD integration (legacy)
               href: azure-ad-integration-cli.md
+            - name: Enable GMSA integration (Preview)
+              href: use-group-managed-service-accounts.md
         - name: Use Azure RBAC for Kubernetes Authorization
           href: manage-azure-rbac.md
         - name: Use Kubernetes RBAC with Azure AD integration
@@ -313,8 +322,16 @@
           href: azure-disk-customer-managed-keys.md
         - name: Enable host-based encryption
           href: enable-host-encryption.md
-        - name: CSI Secrets Store driver (preview)
-          href: csi-secrets-store-driver.md
+        - name: Secrets Store CSI Driver
+          items:
+          - name: Secrets Store CSI Driver configuration
+            href: csi-secrets-store-driver.md
+          - name: Provide Azure Key Vault access
+            href: csi-secrets-store-identity-access.md
+          - name: Configure TLS for NGINX ingress controller
+            href: csi-secrets-store-nginx-tls.md
+          - name: Troubleshooting
+            href: csi-secrets-store-troubleshooting.md
     - name: Monitoring and logging
       items:
         - name: Monitor AKS
@@ -365,12 +382,14 @@
           href: howto-deploy-java-liberty-app.md
         - name: Use Azure API Management
           href: ../api-management/api-management-kubernetes.md
+        - name: Use Dapr (preview)
+          href: dapr.md
           maintainContext: true
     - name: Deploy a service mesh
       items:
         - name: About Service Meshes
           href: servicemesh-about.md
-        - name: Open Service Mesh AKS add-on (preview)
+        - name: Open Service Mesh AKS add-on
           items:
             - name: OSM overview
               href: open-service-mesh-about.md
@@ -386,7 +405,7 @@
               items:
                 - name: Manage a new application deployment
                   href: open-service-mesh-deploy-new-application.md
-                - name: Manage an existing application deployment
+                - name: Onboard applications to the mesh
                   href: open-service-mesh-deploy-existing-application.md
                 - name: Using Azure Application Gateway Ingress
                   href: open-service-mesh-azure-application-gateway-ingress.md
