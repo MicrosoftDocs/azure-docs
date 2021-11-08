@@ -201,4 +201,4 @@ You now have an Azure Load Testing resource, which you used to load test an exte
 Use this resource to learn how to identify performance bottlenecks in an Azure-hosted application.
 
 > [!div class="nextstepaction"]
-> [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure.md)
+> [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
