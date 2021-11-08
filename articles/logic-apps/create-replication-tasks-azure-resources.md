@@ -177,7 +177,7 @@ The following examples illustrate hosting plan pricing tier and configuration op
 The examples in this section use 800 as the default value for the prefetch count and maximum message count, assuming that the message size is 1 KB. Based on your message sizes, you might want to adjust the prefetch count and maximum message count. For example, if your message size is over 1 KB, you might want to reduce the values for the prefetch count and maximum message count from 800.
 
 | Pricing tier | Messages per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum message count* |
-|--------------|---------------------|-----------------|-------------------------|-----------------|---------------------|
+|--------------|---------------------|-----------------|-------------------------|-----------------|------------------------|
 | **WS1** | 2000 | 1 | 1 | 800 | 800 |
 | **WS2** | 2500 | 1 | 1 | 800 | 800 |
 | **WS3** | 3500 | 1 | 1 | 800 | 800 |
