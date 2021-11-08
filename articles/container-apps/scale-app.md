@@ -26,6 +26,7 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
 - Changes to scaling rules are a [revision-scope](overview.md) change.
+- When using non-HTTP event scale rules, setting the `activeRevisionMode` to `single` is recommended.
 
 > [!IMPORTANT]
 > Replica quantities are a target amount, not a guarantee. Even if you set `maxReplicas` to `1`, there is no assurance of thread safety.
