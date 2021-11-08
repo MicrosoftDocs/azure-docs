@@ -70,7 +70,9 @@ To prepare for [downloading the SAP installation media](#download-media):
 
     1. Optionally, change the Maintenance Plan name.
 
-    1. Select **Install New S4HANA System**.
+    1. Select **Install New S4HANA System**. 
+    
+    1. Click **Next**
 
     1. For **Install a New System**, enter the SAP SID you're using.
 
@@ -142,6 +144,10 @@ To get your SAP Download Basket manifest JSON file (`DownloadBasket.json`):
 1. For **Username**, enter your SAP username.
 
 1. For **Password**, enter your SAP password.
+
+1. Select the **Headers** tab.
+
+1. Uncheck the Accept-Encoding and User-Agent check boxes
 
 1. Select the **Send** button.
 

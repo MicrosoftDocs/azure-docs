@@ -19,6 +19,7 @@ The [SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-
 
 The dependency between the control plane and the application plane is illustrated in the diagram below
 
+
 :::image type="content" source="./media/automation-deployment-framework/automation_diagram_full.png" alt-text="Diagram of dependency between the Control Plane and Application plane.":::
 
 

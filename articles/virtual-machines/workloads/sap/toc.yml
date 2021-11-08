@@ -366,6 +366,8 @@
       href: automation-manual-deployment.md
     - name: Sample deployment configurations
       href: automation-new-vs-existing.md
+    - name: Frequently Asked Questions
+      href: automation-faq.md
   - name: SAP Software
     items:               
     - name: Download and prepare software media
