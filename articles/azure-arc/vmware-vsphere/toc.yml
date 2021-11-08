@@ -12,8 +12,6 @@
   items:
   - name: Deploy
     items: 
-    - name: Connect vCenter to Azure Arc
-      href: deploy-connect-vcenter-to-arc.md
   - name: Enable VMware vCenter resources in Azure
     href: browse-and-enable-vcenter-resources-in-azure.md
   - name: Manage access to VMware resources through Azure RBAC
