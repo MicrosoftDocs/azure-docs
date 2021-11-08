@@ -5,8 +5,7 @@ author: spelluru
 ms.author: spelluru
 ms.date: 09/15/2021
 ms.topic: quickstart
-ms.custom:
-  - mode-portal
+ms.custom: mode-portal
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 

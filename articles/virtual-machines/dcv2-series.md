@@ -7,6 +7,7 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
+ms.custom: ignite-fall-2021
 ---
 
 # DCsv2-series
@@ -17,7 +18,8 @@ The DCsv2-series virtual machines help protect the confidentiality and integrity
 
 These machines are backed by 3.7 GHz Intel® Xeon E-2288G (Coffee Lake) with SGX technology. With Intel® Turbo Boost Max Technology 3.0 these machines can go up to 5.0 GHz. 
 
-[!NOTE] Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
+> [!NOTE]
+> Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
 
 Example confidential use cases include: databases, blockchain, multiparty data analytics, fraud detection, anti-money laundering, usage analytics, intelligence analysis and machine learning.
 
@@ -35,7 +37,7 @@ Example confidential use cases include: databases, blockchain, multiparty data a
 
 ## Technical specifications
 
-| Size             | Physical Cores | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (MBps) | EPC Memory (MiB) |
+| Size             | Physical Cores | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (MBps) | EPC Memory MiB |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
 | Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
 | Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |
@@ -58,7 +60,7 @@ Example confidential use cases include: databases, blockchain, multiparty data a
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 - [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-- [More On Disk Types](./disks-types.md#ultra-disk)
+- [More On Disk Types](./disks-types.md#ultra-disks)
 
 Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 

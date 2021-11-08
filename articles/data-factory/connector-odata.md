@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ---
 # Copy data from an OData source by using Azure Data Factory or Synapse Analytics
@@ -350,7 +350,7 @@ When you copy data from OData, the following mappings are used between OData dat
 
 ## Copy data from Project Online
 
-To copy data from Project Online, you can use the OData connector and an access token obtained from tools like Postman.
+Project Online requires user-based OAuth, which is not supported by Azure Data Factory. To copy data from Project Online, you can use the OData connector and an access token obtained from tools like Postman.
 
 > [!CAUTION]
 > The access token expires in 1 hour by default, you need to get a new access token when it expires.
@@ -371,7 +371,7 @@ To copy data from Project Online, you can use the OData connector and an access 
    1. You will be asked to login with your username and password.
    1. Once you get your access token, please copy and save it for the next step.
    
-    [:::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox" alt-text="Use Postman to get the access token](./media/connector-odata/odata-project-online-postman-access-token-inline.png)":::
+    :::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-inline.png" alt-text="Screenshot of using Postman to get the access token." lightbox="./media/connector-odata/odata-project-online-postman-access-token-expanded.png":::        
 
 1. Create the OData linked service:
     - **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 

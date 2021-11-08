@@ -89,13 +89,6 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
 - microsoft.maintenance/applyupdates
 - microsoft.maintenance/configurationassignments
 - microsoft.maintenance/updates
-- microsoft.resources/subscriptions (Subscriptions)
-  - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
-  - Sample query: [Key vaults with subscription name](../samples/samples-by-category.md#key-vaults-with-subscription-name)
-  - Sample query: [List all management group ancestors for a specified subscription](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-subscription)
-  - Sample query: [List all subscriptions under a specified management group](../samples/samples-by-category.md#list-all-subscriptions-under-a-specified-management-group)
-  - Sample query: [Remove columns from results](../samples/samples-by-category.md#remove-columns-from-results)
-  - Sample query: [Secure score per management group](../samples/samples-by-category.md#secure-score-per-management-group)
 
 ## patchassessmentresources
 
@@ -141,13 +134,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.management/managementgroups
   - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
   - Sample query: [List all management group ancestors for a specified management group](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-management-group)
-- microsoft.resources/subscriptions (Subscriptions)
-  - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
-  - Sample query: [Key vaults with subscription name](../samples/samples-by-category.md#key-vaults-with-subscription-name)
-  - Sample query: [List all management group ancestors for a specified subscription](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-subscription)
-  - Sample query: [List all subscriptions under a specified management group](../samples/samples-by-category.md#list-all-subscriptions-under-a-specified-management-group)
-  - Sample query: [Remove columns from results](../samples/samples-by-category.md#remove-columns-from-results)
-  - Sample query: [Secure score per management group](../samples/samples-by-category.md#secure-score-per-management-group)
 - Microsoft.Resources/subscriptions/resourceGroups (Resource groups)
   - Sample query: [Combine results from two queries into a single result](../samples/samples-by-category.md)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)

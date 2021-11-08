@@ -1,7 +1,7 @@
 ---
 title: Accelerated lab setup guide for Azure Lab Services
 description: If you're a lab creator, this guide can help you quickly set up a lab account at your school.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

@@ -28,13 +28,11 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [azure-resource-graph-samples-table-healthresources](../../../../includes/resource-graph/samples/bytable/healthresources.md)]
 
-## IoT Defender
-
-[!INCLUDE [azure-resource-graph-samples-table-iot-defender](../../../../includes/resource-graph/samples/bytable/iot-defender.md)]
-
 ## IotSecurityResources
 
 [!INCLUDE [azure-resource-graph-samples-table-iotsecurityresources](../../../../includes/resource-graph/samples/bytable/iotsecurityresources.md)]
+
+[!INCLUDE [azure-resource-graph-samples-table-iot-defender](../../../../includes/resource-graph/samples/bytable/iot-defender.md)]
 
 ## KubernetesConfigurationResources
 
