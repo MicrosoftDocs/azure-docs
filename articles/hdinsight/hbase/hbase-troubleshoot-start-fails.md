@@ -10,15 +10,17 @@ ms.date: 11/07/2021
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
-## Scenario: Master startup cannot progress, in holding-pattern until region onlined
+## Scenario: Master startup cannot progress, in holding-pattern until region comes online
 
 ### Issue
 
-HMaster fails to start due to below WARNING
-```
+HMaster fails to start due to the following warning:
+```output
 hbase:namespace,,<timestamp_region_create>.<encoded_region_name>.is NOT online; state={<encoded_region_name> state=OPEN, ts=<some_timestamp>, server=<server_name>}; ServerCrashProcedures=true. Master startup cannot progress, in holding-pattern until region onlined. 
+```
 
-# For example,
+For example, the parameter values may vary in the actual message:
+```output
 hbase:namespace,,1546588612000.0000010bc582e331e3080d5913a97000. is NOT online; state={0000010bc582e331e3080d5913a97000 state=OPEN, ts=1633935993000, server=<wn fqdn>,16000,1622012792000}; ServerCrashProcedures=false. Master startup cannot progress, in holding-pattern until region onlined.
 ```
 
@@ -28,8 +30,10 @@ HMaster will check for the WAL directory on the region servers before bringing b
 
 ### Resolution
 
-Create this dummy directory using the command `sudo -u hbase hdfs dfs -mkdir /hbase-wals/WALs/<wn fqdn>,16000,1622012792000` and restart HMaster service from Ambari UI
+1. Create this dummy directory using the command:
+`sudo -u hbase hdfs dfs -mkdir /hbase-wals/WALs/<wn fqdn>,16000,1622012792000`
 
+2. Restart the HMaster service from the Ambari UI.
 
 ## Scenario: Atomic renaming failure
 
