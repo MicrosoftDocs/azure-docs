@@ -36,8 +36,8 @@ The following list summarizes the availability of Microsoft Defender for Storage
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
   - [Azure Files](../files/storage-files-introduction.md) (general availability)
   - Azure Data Lake Storage Gen2 (general availability)
-- Clouds:<br>
-    ✔ Commercial clouds<br
+- Clouds:
+    ✔ Commercial clouds<br>
     ✔ Azure Government<br>
     ✘ Azure China 21Vianet
 

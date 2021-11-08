@@ -173,7 +173,7 @@ To enable Azure AD users to sign in to NetDocuments, they must be provisioned in
 
 1. Sign on to your **NetDocuments** company site as administrator.
 
-2. In the upper-right corner, select your name>**Admin**.
+2. In the upper-right corner, select your name > **Admin**.
 
     ![Admin](./media/netdocuments-tutorial/user-admin.png "Admin")
 
