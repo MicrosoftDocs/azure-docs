@@ -94,6 +94,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
             - Account key or Basic Authentication (for example, for SAP S/4HANA sources)
             > [!Note]
             > If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
+            > While setting up a new credential, the credential name can only contain _letters, numbers, underscores and hyphens_. 
 
     - **Integration runtime**
         - Use Azure Auto Resolve Integration runtime, where feasible.
