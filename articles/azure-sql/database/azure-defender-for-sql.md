@@ -76,8 +76,7 @@ We recommend enabling Microsoft Defender plans at the subscription level and thi
 > [!NOTE]
 > A storage account is automatically created and configured to store your **Vulnerability Assessment** scan results. If you've already enabled Microsoft Defender for another server in the same resource group and region, then the existing storage account is used.
 >
-> The cost of Microsoft Defender for Cloud is aligned with Microsoft Defender for Cloud standard tier pricing per node, where a node is the entire server or managed instance. You are thus paying only once for protecting all databases on the server or managed instance with Microsoft Defender for Cloud. You can try Microsoft Defender for Cloud out initially with a free trial.
-
+> The cost of Microsoft Defender for SQL is aligned with Microsoft Defender for Cloud standard tier pricing per node, where a node is the entire server or managed instance. You are thus paying only once for protecting all databases on the server or managed instance with Microsoft Defender for Cloud. You can evaluate Microsoft Defender for Cloud via a free trial.
 
 ## Manage Microsoft Defender for Cloud settings
 

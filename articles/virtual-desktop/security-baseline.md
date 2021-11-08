@@ -28,7 +28,7 @@ To see how Azure Virtual Desktop completely maps to the Azure Security Benchmark
 
 **Guidance**: You must create or use an existing virtual network when you deploy virtual machines to be registered to Azure Virtual Desktop. Ensure that all Azure virtual networks follow an enterprise segmentation principle that aligns to the business risks. Any system that could incur higher risk for the organization should be isolated within its own virtual network and sufficiently secured with either a network security group or Azure Firewall.
 
-Use Adaptive Network Hardening features in Microsoft Defender for Cloud to recommend network security group configurations which limit ports and source IPs with reference to external network traffic rules.
+Use [adaptive network hardening](../security-center/adaptive-network-hardening.md) features in Microsoft Defender for Cloud to recommend network security group configurations which limit ports and source IPs with reference to external network traffic rules.
 
 Based on your applications and enterprise segmentation strategy, restrict or allow traffic between internal resources based on network security group rules. For specific well-defined applications (such as a 3-tier app), this can be a highly secure "deny by default, permit by exception" approach. This might not scale well if you have many applications and endpoints interacting with each other. You can also use Azure Firewall in circumstances where central management is required over a large number of enterprise segments or spokes (in a hub/spoke topology)
 

@@ -77,7 +77,7 @@ To enable auto provisioning of the Log Analytics agent:
         - Workspace: DefaultWorkspace-[subscription-ID]-[geo] 
         - Resource Group: DefaultResourceGroup-[geo] 
 
-        Defender for Cloud automatically enables a Defender for Cloud solution on the workspace per the pricing tier set for the subscription. 
+        A Defender for Cloud solution is automatically enabled on the workspace per the pricing tier set for the subscription.
 
         > [!TIP]
         > For questions regarding default workspaces, see:
@@ -226,12 +226,11 @@ To manually install the Log Analytics agent:
     - [For Linux machines](../virtual-machines/extensions/oms-linux.md?toc=%2fazure%2fazure-monitor%2ftoc.json#azure-cli-deployment)
 
 > [!TIP]
-> For instructions on how to onboard Defender for Cloud using PowerShell, see [Automate onboarding of Microsoft Defender for Cloud using PowerShell](powershell-onboarding.md).
+> For more information about onboarding, see [Automate onboarding of Microsoft Defender for Cloud using PowerShell](powershell-onboarding.md).
 
+## Automatic provisioning in cases of a pre-existing agent installation <a name="preexisting"></a>
 
-## Automatic provisioning in cases of a pre-existing agent installation <a name="preexisting"></a> 
-
-The following use cases specify how automatic provision works in cases when there is already an agent or extension installed. 
+The following use cases specify how automatic provision works in cases when there is already an agent or extension installed.
 
 - **Log Analytics agent is installed on the machine, but not as an extension (Direct agent)** - If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Defender for Cloud will install the Log Analytics agent extension, and might upgrade the Log Analytics agent to the latest version. The agent installed will continue to report to its already configured workspace(s), and additionally will report to the workspace configured in Defender for Cloud (Multi-homing is supported on Windows machines).
 

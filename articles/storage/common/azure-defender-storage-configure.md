@@ -47,7 +47,7 @@ You can configure Microsoft Defender for Storage in any of several ways, describ
 
 ### [Microsoft Defender for Cloud](#tab/azure-security-center)
 
-Microsoft Defender for Cloud is built into Microsoft Defender for Cloud. When you enable Microsoft Defender for Cloud on your subscription, Microsoft Defender for Azure Storage is automatically enabled for all of your storage accounts. You can enable or disable Microsoft Defender for your storage accounts under a specific subscription as follows:
+Microsoft Defender for Storage is built into Microsoft Defender for Cloud. When you enable Microsoft Defender for Cloud on your subscription, Microsoft Defender for Storage is automatically enabled for all of your storage accounts. You can enable or disable Microsoft Defender for your storage accounts under a specific subscription as follows:
 
 1. Launch **Microsoft Defender for Cloud** in the [Azure portal](https://portal.azure.com).
 1. From the main menu, under **Management**, select **Pricing & settings**.

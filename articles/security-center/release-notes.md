@@ -105,7 +105,6 @@ When you enable **bi-directional alert synchronization** you'll automatically sy
 
 Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md) and [Stream alerts to Azure Sentinel](export-to-siem.md#stream-alerts-to-microsoft-sentinel).
 
-
 ### New recommendation to push Azure Kubernetes Service (AKS) logs to Sentinel
 
 In a further enhancement to the combined value of Defender for Cloud and Microsoft Sentinel, we'll now highlight Azure Kubernetes Service instances that aren't sending log data to Microsoft Sentinel.

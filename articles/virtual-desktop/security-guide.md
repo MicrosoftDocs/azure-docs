@@ -46,15 +46,13 @@ This section describes best practices for securing your Azure ecosystem.
 
 ### Enable Microsoft Defender for Cloud
 
-We recommend you enable Microsoft Defender for Cloud Standard for subscriptions, virtual machines, key vaults, and storage accounts.
+We recommend enabling Microsoft Defender for Cloud's enhanced security features to:
 
-With Microsoft Defender for Cloud Standard, you can:
+- Manage vulnerabilities.
+- Assess compliance with common frameworks like PCI.
+- Strengthen the overall security of your environment.
 
-* Manage vulnerabilities.
-* Assess compliance with common frameworks like PCI.
-* Strengthen the overall security of your environment.
-
-To learn more, see [Onboard your Azure subscription to Defender for Cloud Standard](../security-center/security-center-get-started.md).
+To learn more, see [Enable enhanced security features](../security-center/enable-enhanced-security.md).
 
 ### Improve your Secure Score
 

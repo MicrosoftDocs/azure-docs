@@ -18,19 +18,19 @@ ms.custom: ignite-fall-2021
 
 ## Background
 
-[Microsoft Defender for Cloud](../security-center/azure-defender.md), the integrated cloud workload protection platform (CWPP) of [Microsoft Defender for Cloud](../security-center/security-center-introduction.md), is a security management tool that allows you to detect and quickly respond to threats across hybrid cloud workloads. 
+[Microsoft Defender for Cloud](../security-center/azure-defender.md), the integrated cloud workload protection platform (CWPP) of [Defender for Cloud](../security-center/security-center-introduction.md), is a security management tool that allows you to detect and quickly respond to threats across hybrid cloud workloads.
 
-This connector allows you to stream your Microsoft Defender for Cloud security alerts from Microsoft Defender for Cloud into Microsoft Sentinel, so you can view, analyze, and respond to security alerts, and the incidents they generate, in a broader organizational threat context.
+This connector allows you to stream security alerts from Defender for Cloud into Microsoft Sentinel, so you can view, analyze, and respond to security alerts, and the incidents they generate, in a broader organizational threat context.
 
-As Microsoft Defender for Cloud itself is enabled per subscription, the Microsoft Defender for Cloud connector too is enabled or disabled separately for each subscription.
+As Defender for Cloud itself is enabled per subscription, the Defender for Cloud connector is also enabled or disabled separately for each subscription.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ### Alert synchronization
 
-- When you connect Microsoft Defender for Cloud to Microsoft Sentinel, the status of security alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Microsoft Defender for Cloud, that alert will display as closed in Microsoft Sentinel as well.
+- When you connect Microsoft Defender for Cloud to Microsoft Sentinel, the status of security alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Defender for Cloud, that alert will display as closed in Microsoft Sentinel as well.
 
-- Changing the status of an alert in Microsoft Defender for Cloud will *not* affect the status of any Microsoft Sentinel **incidents** that contain the Microsoft Sentinel alert, only that of the alert itself.
+- Changing the status of an alert in Defender for Cloud will *not* affect the status of any Microsoft Sentinel **incidents** that contain the Microsoft Sentinel alert, only that of the alert itself.
 
 ### Bi-directional alert synchronization
 
@@ -46,9 +46,9 @@ As Microsoft Defender for Cloud itself is enabled per subscription, the Microsof
 
 - You must have the Security Reader role in the subscriptions of the logs you stream.
 
-- You will need to enable at least one **Microsoft Defender for Cloud** plan within Microsoft Defender for Cloud for each subscription for which you want to enable the connector. To enable Microsoft Defender plans on a subscription, you must have the **Security Admin** role for that subscription.
+- You will need to enable at least one plan within Microsoft Defender for Cloud for each subscription where you want to enable the connector. To enable Microsoft Defender plans on a subscription, you must have the **Security Admin** role for that subscription.
 
--  To enable bi-directional sync, you must have the **Contributor** or **Security Admin** role on the relevant subscription.
+- To enable bi-directional sync, you must have the **Contributor** or **Security Admin** role on the relevant subscription.
 
 ## Connect to Microsoft Defender for Cloud
 
