@@ -1,3 +1,4 @@
+items:
 - name: Azure HDInsight documentation
   href: index.yml
 - name: HDInsight service
@@ -268,6 +269,8 @@
       items:
       - name: Request increase for CPU core quota
         href: ./quota-increase-request.md
+      - name: Troubleshoot Apache Ambari metrics collector
+        href: ./apache-ambari-troubleshoot-ams-issues.md
       - name: Troubleshoot script actions
         href: ./troubleshoot-script-action.md
       - name: Resource creation failures
