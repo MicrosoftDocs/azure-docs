@@ -70,7 +70,9 @@ To prepare for [downloading the SAP installation media](#download-media):
 
     1. Optionally, change the Maintenance Plan name.
 
-    1. Select **Install New S4HANA System**.
+    1. Select **Install New S4HANA System**. 
+    
+    1. Click **Next**
 
     1. For **Install a New System**, enter the SAP SID you're using.
 
