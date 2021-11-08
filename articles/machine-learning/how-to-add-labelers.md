@@ -18,7 +18,7 @@ This article shows how to grant users access to your data labeling project so th
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription [create a free account](https://azure.microsoft.com/free) before you begin.
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Add custom role
 
@@ -111,8 +111,8 @@ Your labelers are now all set up to begin labeling in your project.  But they'll
 
 If you haven't created your labeling project yet, do so before you contact your labelers.
 
-    * [Create an image labeling project](how-to-create-image-labeling-projects.md).
-    * [Create a text labeling project (preview)](how-to-create-text-labeling-projects.md)
+* [Create an image labeling project](how-to-create-image-labeling-projects.md).
+* [Create a text labeling project (preview)](how-to-create-text-labeling-projects.md)
 
 Sent the following to your labelers, after filling in your workspace and project names:
 
