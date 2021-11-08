@@ -208,36 +208,47 @@ The following tables display the current Azure Sentinel feature availability in 
 
 | Feature | Azure | Azure Government  |
 | ----- | ----- | ---- |
+| **Incidents** | |
 |- [Automation rules](../../sentinel/automate-incident-handling-with-automation-rules.md) | Public Preview | Public Preview |
-|- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](../../sentinel/multiple-workspace-view.md) |Public Preview | Public Preview |
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
-| - Entity behavior timeline activity customization | Public Preview | Not Available |
-| - Windows security events for UEBA | Public Preview | Not available |
-| - [Fusion](../../sentinel/fusion.md)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | GA |
-| - [Hunting](../../sentinel/hunting.md) | GA | GA |
-|- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
-| - Notebook integration with Azure Synapse | Public Preview | Not available |
+| - Entity behavior timeline activity customization | Public Preview | Public Preview |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
+| - Incident advanced search |Public Preview |Public Preview |
+|- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
+| - Windows security events for UEBA | Public Preview | Public Preview |
+| **Notebooks** | | |
+|- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
+| - Notebook integration with Azure Synapse | Public Preview | Public Preview|
+| **Watchlists** | | |
 |- [Watchlists](../../sentinel/watchlists.md) | GA | GA |
-| **Content management** | | |
-| - Content hub | Public preview | Not Available |
-| - Repositories  | Public preview | Not Available |
+| - Watchlist templates | Public Preview | Public Preview |
+| **Hunting** | |
+| - [Hunting](../../sentinel/hunting.md) | GA | GA |
+| - Hunting support for ADX queries |Public Preview |Public Preview |
+| - Bookmark enhanced entity mapping | Public Preview | Public Preview |
+| **Content  and content management** | | |
+| - Content hub | Public preview | Public Preview |
+| - Repositories  | Public preview | Public Preview |
 | - Solutions  | Public preview | Public preview |
-| - Playbooks gallery  | Public preview | Not Available |
+| - Playbook template gallery  | Public preview | Public Preview |
 | **Threat intelligence support** | | |
 | - [Threat Intelligence - TAXII data connector](../../sentinel/understand-threat-intelligence.md)  | GA | GA |
-| - [Threat Intelligence Platform data connector](../../sentinel/understand-threat-intelligence.md)  | Public Preview | Not Available |
+| - [Threat Intelligence Platform data connector](../../sentinel/understand-threat-intelligence.md)  | Public Preview | Public Preview |
 | - [Threat Intelligence Research Blade](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | GA |
 | - [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | Public Preview | Not Available |
 | - [Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | GA |
-| - GeoLocation and WhoIs data enrichment | Public Preview | Not Available |
+| - GeoLocation and WhoIs data enrichment | Public Preview | Public Preview |
+| - Threat intelligence matching analytics | Public Preview | Public Preview |
 |**Detection support** | | |
+| - [Fusion](../../sentinel/fusion.md)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | GA |
+| - Fusion detection for ransomware | Public Preview | Public Preview |
+| - Fusion for emerging threats | Public Preview | Public Preview |
 | - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](../../sentinel/connect-windows-security-events.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - Azure Defender bi-directional synch | Public Preview | Not Available  |
-| - NRT detections for Azure Sentinel analytics | Public Preview | Not Available  |
+| - Near Real Time (NRT) detections | Public Preview | Not Available  |
 | - Automated analytics rule tuning | Public Preview | Not Available |
 | **Azure service connectors** |  |  |
 | - [Azure Activity Logs](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
@@ -255,6 +266,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | **Windows connectors** |  |  |
 | - [Windows Firewall](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
 | - [Windows Security Events](../../sentinel/connect-windows-security-events.md) | GA | GA |
+| - Windows event forwarding |Public Preview |Public Preview |
 | **External connectors** |  |  |
 | - [Agari Phishing Defense and Brand Protection](../../sentinel/data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) | Public Preview | Public Preview |
 | - [AI Analyst Darktrace](../../sentinel/connect-data-sources.md) | Public Preview | Public Preview |
