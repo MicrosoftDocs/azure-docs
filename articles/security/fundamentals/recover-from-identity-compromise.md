@@ -441,15 +441,13 @@ In addition to the recommended actions listed above, we recommend that you consi
     - [Revoke user access in an emergency in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
     - [Revoke-AzureADUserAllRefreshToken PowerShell documentation](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
 
-
-
 ## Next steps
 
-- **Get help from inside Microsoft products**, including the Microsoft 365 Defender portal, Microsoft 365 Security & Compliance center, and Microsoft Defender Security Center by selecting the **Help** (**?**) button in the top navigation bar.
+- **Get help from inside Microsoft products**, including the Microsoft 365 Defender portal, Microsoft 365 compliance center, Office 365 Security & Compliance Center by selecting the **Help** (**?**) button in the top navigation bar.
 
 - **For deployment assistance**, contact us at [FastTrack](https://fasttrack.microsoft.com)
 
-- **If you have product support-related needs**, file a Microsoft support case at https://support.microsoft.com/contactus.
+- **If you have product support-related needs**, file a [Microsoft support case](https://support.microsoft.com/contactus).
 
     > [!IMPORTANT]
     > If you believe you have been compromised and require assistance through an incident response, open a **Sev A** Microsoft support case.
