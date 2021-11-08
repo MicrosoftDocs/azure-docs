@@ -74,7 +74,7 @@
     items:
     - name: HTTP/2
       href: front-door-http2.md
-  - name: Load-balancing with Azure's application delivery subscription-offers.md
+  - name: Load-balancing with Azure's application delivery
     href: front-door-lb-with-azure-app-delivery-suite.md
   - name: FAQ
     href: front-door-faq.yml
@@ -92,12 +92,16 @@
       href: front-door-tutorial-rules-engine.md
     - name: Configure HTTP to HTTPS redirect
       href: front-door-how-to-redirect-https.md
-  - name: Configure Web Application Firewall
+  - name: Secure with Web Application Firewall
     items:
     - name: Configure a security policy
-      href: ../web-application-firewall/afds/waf-front-door-create-portal.md
+      href: ../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Configure geo-filtering
-    href: front-door-tutorial-geo-filtering.md
+      href: front-door-tutorial-geo-filtering.md
+    - name: Configure rate limits
+      href: ../web-application-firewall/afds/waf-front-door-rate-limit-powershell.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    - name: Configure IP restriction
+      href: ../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Monitoring
     href: front-door-diagnostics.md
   - name: Troubleshoot
