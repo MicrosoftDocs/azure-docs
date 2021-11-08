@@ -3,14 +3,16 @@ title: Connect your VMware vCenter to Azure Arc using the helper script
 description: In this quickstart, you'll learn how to use the helper script to connect your VMware vCenter to Azure Arc.
 ms.topic: quickstart 
 ms.custom: references_regions
-ms.date: 09/28/2021
+ms.date: 11/08/2021
 
 # Customer intent: As a VI admin, I want to connect my vCenter to Azure to enable self-service through Arc.
 ---
 
 # Quickstart: Connect your VMware vCenter to Azure Arc using the helper script
 
-Before using the Azure Arc-enabled VMware vSphere features, you'll need to connect your VMware vCenter to Azure Arc. This quickstart shows you how to connect your VMware vCenter to Azure Arc using a helper script. First, the script deploys a lightweight Azure Arc appliance, called Azure Arc resource bridge, as a virtual machine running in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between your vCenter server and Azure Arc.
+Before using the Azure Arc-enabled VMware vSphere features, you'll need to connect your VMware vCenter to Azure Arc. This quickstart shows you how to connect your VMware vCenter to Azure Arc using a helper script.
+
+First, the script deploys a lightweight Azure Arc appliance, called Azure Arc resource bridge (preview), as a virtual machine running in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between your vCenter server and Azure Arc.
 
 ## Prerequisites
 
@@ -37,7 +39,7 @@ Before using the Azure Arc-enabled VMware vSphere features, you'll need to conne
 
 ### vSphere accounts
 
-A vSphere account that can read all inventory, deploy, and update VMs to all the resource pools (or clusters), networks, and virtual machine templates that you want to use with Azure Arc.  This account is used for the ongoing operation of Azure Arc enabled VMware vSphere and the Arc Resource bridge VM deployment.
+A vSphere account that can read all inventory, deploy, and update VMs to all the resource pools (or clusters), networks, and virtual machine templates that you want to use with Azure Arc.  This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere and the Arc Resource bridge VM deployment.
 
 >[!NOTE]
 >If you are using Azure VMware solution, this account would be the `cloudadmin` account.  
@@ -138,7 +140,7 @@ The script execution may take up to 30 minutes to complete and you'll be prompte
 | **Control Pane IP** | Provide a reserved IP address. A reserved IP address in your DHCP range or a static IP outside of DHCP range but still available on the network. The key thing is this IP address shouldn't be assigned to any other machine on the network. |
 | **Appliance proxy settings** | If you have a proxy in your appliance network, type **y** and then populate the following: <ul><li><b>Http</b>: Address of HTTP proxy server.</li><li><b>NoProxy</b>: addresses to be excluded from proxy.</li><li><b>CertificateFilePath</b>: for SSL-based proxies, path to certificate to be used.</li></ul> |
 
-Once the command execution completes, you can [try out the capabilities](browse-and-enable-vcenter-resources-in-azure.md) of Azure Arc enabled VMware vSphere.
+Once the command execution completes, you can [try out the capabilities](browse-and-enable-vcenter-resources-in-azure.md) of Azure Arc- enabled VMware vSphere.
 
 ### Retry command - Windows
 

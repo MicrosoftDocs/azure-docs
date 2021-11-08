@@ -2,13 +2,12 @@
 title: Manage access to VMware resources through Azure Role-Based Access Control
 description: Learn how to manage access to your on-premises VMware resources through Azure Role-Based Access Control (RBAC). 
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 11/08/2021
 
 #Customer intent: As a VI admin, I want to manage access to my vCenter resources in Azure so that I can keep environments secure
 ---
 
 # Manage access to VMware resources through Azure Role-Based Access Control
-
 
 Once your VMware vCenter resources have been enabled for access through Azure, the final step is setting up a self-service experience for your teams. It provides access to the compute, storage, networking, and other vCenter resources to deploy and manage virtual machines (VMs).
 
@@ -18,11 +17,11 @@ This article describes how to use custom roles to manage granular access to VMwa
 
 You can select from three custom roles to meet your RBAC needs. You can apply these roles to a whole subscription, resource group, or a single resource.
 
-- Azure Arc VMware Administrator role - is used by administrators
+- **Azure Arc VMware Administrator** role - is used by administrators
 
-- Azure Arc VMware Private Cloud User role - is used by anyone who needs to deploy and manage VMs
+- **Azure Arc VMware Private Cloud User** role - is used by anyone who needs to deploy and manage VMs
 
-- Azure Arc VMware VM Contributor role - is used by anyone who needs to deploy and manage VMs
+- **Azure Arc VMware VM Contributor** role - is used by anyone who needs to deploy and manage VMs
 
 >[!NOTE]
 >These roles will eventually be converted into built-in roles.
@@ -158,12 +157,9 @@ In this step, you'll add the custom roles to your subscription. Repeat these ste
 
 1. Select **Review + Create** to review and then select **Create**.
 
-
-
 ## Assign custom roles to users or groups
 
-In this step, you'll add the custom roles to users or groups in the subscription, resource group, or a single resource.  Repeat these steps for each scope and role. 
-
+In this step, you'll add the custom roles to users or groups in the subscription, resource group, or a single resource.  Repeat these steps for each scope and role.
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com) and select the subscription, resource group, or a single resource.
 
@@ -180,7 +176,6 @@ In this step, you'll add the custom roles to users or groups in the subscription
    - **Azure Arc VMware VM Contributor**
 
 1. Search for and select the Azure Active Directory (AAD) user or group.  Repeat these steps for each user or group you want to grant permission.
-
 
 ## Next steps
 
