@@ -24,7 +24,7 @@ The extension upgrade process replaces the existing Azure VM extension version s
 
 A failed extension update is automatically retried. A retry is attempted every few days automatically without user intervention.
 
-### Availability-first Updates
+### Availability-first updates
 
 The availability-first model for platform orchestrated updates ensures that availability configurations in Azure are respected across multiple availability levels.
 
