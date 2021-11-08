@@ -274,17 +274,63 @@ To enable encryption at host on a managed cluster node type:
 
 3) Set the following in the managed cluster template in each node type you want this enabled for
 
+   * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
+
+   ```json
+        {
+               "apiVersion": "[variables('sfApiVersion')]",
+               "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+               "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+               "location": "[resourcegroup().location]",
+               "properties": {
+                   "enableEncryptionAtHost": true
+                   ...
+               }
+       }
+   ```
+
+
+
+## Configure multiple managed disks (preview)
+Service Fabric managed clusters by default configure one managed disk. By configuring the following optional properties and values you can add additional managed disks to node types within a cluster. You are also able to specify per disk the drive letter, disk type, and size.
+
+* The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+
 ```json
      {
-            "apiVersion": "2021-11-01-preview",
+            "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
             "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
             "location": "[resourcegroup().location]",
             "properties": {
-                "enableEncryptionAtHost": true
-                ...
+                "placementProperties": {
+                    "PremiumSSD": "true",
+                    "NodeColor": "green",
+                    "SomeProperty": "5"
             }
-    }
+        }
+}
+```
+
+## Configure the primary data disk drive letter (preview)
+Service Fabric managed clusters by default configure a primary data disk and automatically configure the drive letter on all nodes of a node type. By configuring these optional properties and values you can specify and retrieve the Service Fabric primary data disk letter if you have specific requirements for drive letter mapping.
+
+* The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+
+```json
+     {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+            "location": "[resourcegroup().location]",
+            "properties": {
+                "placementProperties": {
+                    "PremiumSSD": "true",
+                    "NodeColor": "green",
+                    "SomeProperty": "5"
+            }
+        }
+}
 ```
 
 
