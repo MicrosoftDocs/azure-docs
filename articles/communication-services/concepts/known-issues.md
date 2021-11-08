@@ -99,40 +99,46 @@ If a user turns video on and off quickly while the call is in the *Connecting* s
 
 ### Enumerating or accessing devices for Safari on macOS and iOS 
 
-If access to devices are granted, after some time, device permissions are reset. Safari on macOS and on iOS does not keep permissions for very long time unless there is a stream acquired. The simplest way to work around this is to call DeviceManager.askDevicePermission() API before calling the device manager's device enumeration APIs (DeviceManager.getCameras(), DeviceManager.getSpeakers(), and DeviceManager.getMicrophones()). If the permissions are there, then user will not see anything, if not, it will re-prompt.
+In certain environments, you might notice that device permissions are reset after some period of time. On macOS and iOS, Safari doesn't keep permissions for a long time unless there is a stream acquired. The simplest way to work around this is to call the `DeviceManager.askDevicePermission()` API, before calling the device manager's device enumeration APIs. These enumeration APIs include `DeviceManager.getCameras()`, `DeviceManager.getSpeakers()`, and `DeviceManager.getMicrophones()`. If the permissions are there, the user won't see anything. If the permissions aren't there, the user will be prompted for the permissions again.
 
-<br/>Devices affected: iPhone
-<br/>Client library: Calling (JavaScript)
-<br/>Browsers: Safari
-<br/>Operating System: iOS
+The environment in which this problem occurs is the following:
 
-####  Sometimes it takes a long time to render remote participant videos
-During an ongoing group call, _User A_ sends video and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. This issue could be caused by a network environment that requires further configuration. Refer to the [network requirements](./voice-video-calling/network-requirements.md) documentation for network configuration guidance.
+- Device affected: iPhone
+- Client library: Calling (JavaScript)
+- Browser: Safari
+- Operating system: iOS
 
-#### Using 3rd party libraries to access GUM during the call may result in audio loss
-Using getUserMedia separately inside the application will result in losing audio stream since a third party library takes over device access from ACS library.
-Developers are encouraged to do the following:
-- Don't use 3rd party libraries that are using internally GetUserMedia API during the call.
-- If you still need to use 3rd party library, only way to recover is to either change the selected device (if the user has more than one) or restart the call.
+### Delay in rendering remote participant videos
 
-<br/>Browsers: Safari
-<br/>Operating System: iOS
+During an ongoing group call, suppose that _User A_ sends video, and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. A network environment configuration problem might cause this delay. For more information, see [Network recommendations](./voice-video-calling/network-requirements.md).
 
-##### Possible causes
-In some browsers (Safari for example), acquiring your own stream from the same device will have a side-effect of running into race conditions. Acquiring streams from other devices may lead the user into insufficient USB/IO bandwidth, and sourceUnavailableError rate will skyrocket.  
+### Using third-party libraries during the call might result in audio loss
 
-#### Support for Simulcast
-Simulcast is a technique by which a client encodes the same video stream twice in different resolutions and bitrates and letting the ACS infrastructure decide which stream a client should receive. The ACS calling library SDK for Windows, Android, or iOS support sending simulcast streams. The ACS Web SDK does not currently support sending simulcast streams out.
+If you use `getUserMedia` separately inside the application, the audio stream is lost. This is because a third-party library takes over device access from the Azure Communication Services library.
 
-## Azure Communication Services Call Automation APIs
+- Don't use third-party libraries that are using the `getUserMedia` API internally during the call.
+- If you still need to use a third-party library, the only way to recover the audio stream is to change the selected device (if the user has more than one), or to restart the call.
 
-Following are the known issues in the Azure Communication Services Call Automation APIs
+The environment in which this problem occurs is the following:
 
-- The only authentication supported at this time for server applications is using a connection string.
+- Browser: Safari
+- Operating system: iOS
 
-- Calls should be make only between entities of the same Azure Communication Service resource. Cross resource communication is blocked.
+The cause of this problem might be that acquiring your own stream from the same device will have a side-effect of running into race conditions. Acquiring streams from other devices might lead the user into insufficient USB/IO bandwidth, and the `sourceUnavailableError` rate will skyrocket.  
 
-- Calls between Teams' tenant users and Azure Communication Service user or server application entities are not allowed.
+### Support for simulcast
 
-- If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities would be dropped.
+Simulcast is a technique by which a client encodes the same video stream twice, in different resolutions and bitrates. The client then lets Communication Services decide which stream a client should receive. The Communication Services calling library SDK for Windows, Android, or iOS supports sending simulcast streams. The Communication Services Web SDK doesn't currently support sending simulcast streams out.
+
+## Communication Services Call Automation APIs
+
+The following are the known issues in the Communication Services Call Automation APIs:
+
+- The only authentication currently supported for server applications is to use a connection string.
+
+- Make calls only between entities of the same Communication Services resource. Cross-resource communication is blocked.
+
+- Calls between tenant users of Microsoft Teams and Communication Services users or server application entities aren't allowed.
+
+- If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities drops.
 
