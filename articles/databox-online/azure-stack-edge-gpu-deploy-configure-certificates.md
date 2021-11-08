@@ -7,13 +7,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/30/2020
+ms.date: 10/13/2021
 ms.author: alkohli
+zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro GPU so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Configure certificates for your Azure Stack Edge Pro with GPU
 
+::: zone pivot="single-node"
+
 This tutorial describes how you can configure certificates for your Azure Stack Edge Pro device with an onboard GPU by using the local web UI.
+
+::: zone-end
+
+::: zone pivot="two-node"
+
+This tutorial describes how you can configure certificates for your 2-node Azure Stack Edge Pro GPU device by using the local web UI.
+
+::: zone-end
 
 The time taken for this step can vary depending on the specific option you choose and how the certificate flow is established in your environment.
 
