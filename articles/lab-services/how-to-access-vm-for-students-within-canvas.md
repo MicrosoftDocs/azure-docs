@@ -21,6 +21,6 @@ For more information, see the following articles:
 
 - [Use Azure Lab Services within Canvas overview](lab-services-within-canvas-overview.md)
 - [Get started and create a lab within Canvas](how-to-get-started-create-lab-within-canvas.md)
-- [Manage lab user lists within Teams](how-to-manage-user-lists-within-teams.md)
-- [Manage lab's VM pool within Teams](how-to-manage-vm-pool-within-teams.md)
-- [Create and manage lab schedules within Teams](how-to-create-schedules-within-teams.md)
+- [Manage lab user lists within Canvas](how-to-manage-user-lists-within-canvas.md)
+- [Manage lab's VM pool within Canvas](how-to-manage-vm-pool-within-canvas.md)
+- [Create and manage lab schedules within Canvas](how-to-create-schedules-within-canvas.md)

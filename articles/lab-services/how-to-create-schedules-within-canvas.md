@@ -2,7 +2,7 @@
 title: Create Azure Lab Services schedules within Canvas
 description: Learn how to create Lab Services schedules within Canvas. 
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 11/08/2021
 ---
 
 # Create and manage Lab Services schedules within Canvas

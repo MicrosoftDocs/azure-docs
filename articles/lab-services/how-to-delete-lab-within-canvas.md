@@ -2,7 +2,7 @@
 title: Delete an Azure Lab Services lab from Canvas
 description: Learn how to delete an Azure Lab Services lab from Canvas. 
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/0872021
 ---
 
 # Delete labs within Canvas
