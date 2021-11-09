@@ -58,7 +58,7 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
 
 2. Select the dashboard you would like to display IoT connector Metrics on. For this example, we'll use a private dashboard named `IoT connector Metrics`. Select **Pin** to add the Metrics tile to the dashboard.
 
-    :::image type="content" source="media\iot-metrics\iot-select-pin-to-dashboard.png" alt-text="Select Pin button." lightbox="media\iot-metrics\iot-select-pin-to-dashboard.png":::
+    :::image type="content" source="media\iot-metrics\iot-select-pin-to-dashboard.png" alt-text="Select dashboard and Pin button to complete the dashboard pinning process." lightbox="media\iot-metrics\iot-select-pin-to-dashboard.png":::
 
 3. You'll receive a confirmation that the Metrics tile was successfully added to the dashboard.
 
