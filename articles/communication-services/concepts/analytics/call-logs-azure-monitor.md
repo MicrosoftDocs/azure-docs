@@ -1,22 +1,25 @@
 ---
-title: Azure Communication Services - Call Summary and Call Diagnostic Logs
+title: Azure Communication Services - Call Logs Preview
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Call Summary and Call Diagnostic Logs in Azure Monitor
 author:  timmitchell
 services: azure-communication-services
 
 ms.author: timmitchell
-ms.date: 07/22/2021
+ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Call Summary and Call Diagnostic Logs
+# Call Summary and Call Diagnostic Logs Preview
 
-[!INCLUDE [Private Preview Notice](../includes/private-preview-include.md)]
+> [!IMPORTANT]
+> The following refers to logs enabled through [Azure Monitor](/azure/azure-monitor/overview) (see also [FAQ](/azure/azure-monitor/faq)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](./enable-logging.md)
+
 
 ## Data Concepts
+The following are high level descriptions of data concepts specific to Voice and Video calling within you Communications Services that are important to review in order to understand the meaning of the data captured in the logs.
 
 ### Entities and IDs
 
@@ -34,11 +37,13 @@ There are two types of Calls (represented by `callType`): P2P and Group.
 
 **P2P** calls are a connection between only two Endpoints, with no server Endpoint. P2P calls are initiated as a Call between those Endpoints and are not created as a group Call event prior to the connection.
 
-:::image type="content" source="media\call-logs-images\call-logs-concepts-p2p.png" alt-text="p2p call":::
+  :::image type="content" source="media\call-logs-azure-monitor\p2p-diagram.png" alt-text="p2p call":::
+
 
 **Group** Calls include any Call that's created ahead of time as a meeting/calendar event and any Call that has more than 2 Endpoints connected. Group Calls will include a server Endpoint, and the connection between each Endpoint and the server constitutes a Participant. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. By viewing the `participantStartTime` and `participantDuration`, the timeline of when each Endpoint joined the Call can be determined.
 
-:::image type="content" source="media\call-logs-images\call-logs-concepts-group.png" alt-text="Group Call":::
+
+  :::image type="content" source="media\call-logs-azure-monitor\group-call-version-a.png" alt-text="Group Call":::
 
 ## Log Structure
 Two types of logs are created: **Call Summary** logs and **Call Diagnostic** logs. 
@@ -51,14 +56,14 @@ Call Diagnostic Logs contain information about the Stream as well as a set of me
 
 The below diagram represents two endpoints connected directly in a P2P Call. In this example, 2 Call Summary Logs would be created (1 per `endpointId`) and 4 Call Diagnostic Logs would be created (1 per media stream). Each log will contain data relating to the outbound stream of the `endpointId`.
 
-:::image type="content" source="media\call-logs-images\call-logs-p2p-streams.png" alt-text="p2p Call streams":::
+:::image type="content" source="media\call-logs-azure-monitor\example-1-p2p-call.png" alt-text="p2p Call streams":::
 
 
 ### Example 2: Group Call
 
 The below diagram represents a Group Call example with three `particpantIds`, which means three `endpointIds` (`endpointIds` can potentially appear in multiple Participants, e.g. when rejoining a Call from the same device) and a Server Endpoint. For `participantId` 1, two Call Summary Logs would be created: one for for `endpointId`, and another for the server. Four Call Diagnostic Logs would be created relating to `participantId` 1, one for each media stream. The three logs with `endpointId` 1 would contain data relating to the outbound media streams, and the one log with `endpointId = null, endpointType = "Server"` would contain data relating to the inbound stream.
 
-:::image type="content" source="media\call-logs-images\call-logs-concepts-group-call-endpoint-detail.png" alt-text="group Call detail":::
+:::image type="content" source="media\call-logs-azure-monitor\example-2-group-call-version-a.png" alt-text="group Call detail":::
 
 ## Data Definitions
 
@@ -71,8 +76,8 @@ The Call Summary Log contains data to help you identify key properties of all Ca
 |     operationName             |     The operation associated with log record.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |     operationVersion          |     The api-version associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future.                                                                                                                                                                           |
 |     category                  |     The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the `properties` blob of an event are the same within a particular log category and resource type.                                                                                                                                                                                                    |
-|     correlationIdentifier     |     The `correlationIdentifier` identifies correlated events from all of the participants and endpoints that connect during a single Call. `correlationIdentifier` is the unique ID for a Call. If you ever need to open a support case with Microsoft, the `correlationID` will be used to easily identify the Call you're troubleshooting.                                                                                                                                                                      |
-|     identifier                |     This is the unique ID for the user, matching the identity assigned by the Authentication service (MRI).                                                                                                                                                                                                                                                                                                                                                              |
+|     correlationIdentifier     |    `correlationIdentifier` is the unique ID for a Call. The `correlationIdentifier` identifies correlated events from all of the participants and endpoints that connect during a single Call, and it can be used to join data from different logs.  If you ever need to open a support case with Microsoft, the `correlationID` will be used to easily identify the Call you're troubleshooting.                                                                                                                                                                      |
+|     identifier                |     This is the unique ID for the user, matching the identity assigned by the Communications Authentication service. You can use this ID to correlate user events across different logs. This ID can also be used to identify Microsoft Teams "Interoperability" scenarios described later in this document.                                                                                                                                                                                                                                                                                                                                                               |
 |     callStartTime             |     A timestamp for the start of the call, based on the first attempted connection from any Endpoint.                                                                                                                                                                                                                                                                                                                                                                   |
 |     callDuration              |     The duration of the Call expressed in seconds, based on the first attempted connection and end of the last connection between two endpoints.                                                                                                                                                                                                                                                                                                                         |
 |     callType                  |     Will contain either `"P2P"` or `"Group"`. A `"P2P"` Call is a direct 1:1 connection between only two, non-server endpoints. A `"Group"` Call is a Call that has more than two endpoints or is created as `"Group"` Call prior to the connection.                                                                                                                                                                                                                                 |
@@ -85,6 +90,7 @@ The Call Summary Log contains data to help you identify key properties of all Ca
 |     endpointType              |     This value describes the properties of each Endpoint connected to the Call. Can contain `"Server"`, `"VOIP"`, `"PSTN"`, `"BOT"`, or `"Unknown"`.                                                                                                                                                                                                                                                                                                                               |
 |     sdkVersion                |     Version string for the Communication Services Calling SDK version used by each relevant Endpoint. (Example: `"1.1.00.20212500"`)                                                                                                                                                                                                                                                                                                                                                          |
 |     osVersion                 |     String that represents the operating system and version of each Endpoint device.                                                                                                                                                                                                                                                                                                                                                                                       |
+
 
 ### Call Diagnostic Log
 Call Diagnostic Logs provide important information about the Endpoints and the media transfers for each Participant, as well as measurements that help to understand quality issues. 
@@ -133,11 +139,11 @@ The `participantEndReason` will contain a value from the set of Calling SDK erro
 
 ### P2P Call
 
-:::image type="content" source="media\call-logs-images\call-logs-concepts-p2p-sample.png" alt-text="P2P Sample Log Example":::
+:::image type="content" source="media\call-logs-azure-monitor\call-examples-and-sample-data-p2p-call.png" alt-text="P2P Sample Log Example":::
 
 Shared fields for all logs in the call:
 
-```
+```json
 "time":                     "2021-07-19T18:46:50.188Z",
 "resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-PROD-CCTS-TESTS/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
 "correlationId":            "8d1a8374-344d-4502-b54b-ba2d6daaf0ae",
@@ -146,14 +152,14 @@ Shared fields for all logs in the call:
 #### Call Summary Logs
 Call Summary Logs have shared operation and category information:
 
-```
+```json
 "operationName":            "CallSummary",
 "operationVersion":         "1.0",
 "category":                 "CallSummaryPRIVATEPREVIEW",
 
 ```
 Call Summary for VoIP user 1
-```
+```json
 "properties": {
     "identifier":               "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
     "callStartTime":            "2021-07-19T17:54:05.113Z",
@@ -172,7 +178,7 @@ Call Summary for VoIP user 1
 ```
 
 Call summary for VoIP user 2
-```
+```json
 "properties": {
     "identifier":               "acs:7af14122-9ac7-4b81-80a8-4bf3582b42d0_06f9276d-8efe-4bdd-8c22-ebc5434903f0",
     "callStartTime":            "2021-07-19T17:54:05.335Z",
@@ -191,13 +197,13 @@ Call summary for VoIP user 2
 ```
 #### Call Diagnostic Logs
 Call diagnostics logs share operation information:
-```
+```json
 "operationName":            "CallDiagnostics",
 "operationVersion":         "1.0",
 "category":                 "CallDiagnosticsPRIVATEPREVIEW",
 ```
 Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2:
-```
+```json
 "properties": {
     "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
     "participantId":        "null",
@@ -215,7 +221,7 @@ Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2:
 }
 ```
 Diagnostic log for audio stream from VoIP Endpoint 2 to VoIP Endpoint 1:
-```
+```json
 "properties": {
     "identifier":           "acs:7af14122-9ac7-4b81-80a8-4bf3582b42d0_06f9276d-8efe-4bdd-8c22-ebc5434903f0",
     "participantId":        "null",
@@ -233,7 +239,7 @@ Diagnostic log for audio stream from VoIP Endpoint 2 to VoIP Endpoint 1:
 }
 ```
 Diagnostic log for video stream from VoIP Endpoint 1 to VoIP Endpoint 2:
-```
+```json
 "properties": {
     "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
     "participantId":        "null",
@@ -253,12 +259,12 @@ Diagnostic log for video stream from VoIP Endpoint 1 to VoIP Endpoint 2:
 ### Group Call
 In the following example, there are three users in a Group Call, two connected via VOIP, and one connected via PSTN. All are using only Audio. 
 
-:::image type="content" source="media\call-logs-images\call-logs-concepts-group-sample.png" alt-text="Group Call Sample Log Example":::
+:::image type="content" source="media\call-logs-azure-monitor\call-examples-and-sample-data-group-call.png" alt-text="Group Call Sample Log Example":::
 
 The data would be generated in three Call Summary Logs and 6 Call Diagnostic Logs.
 
 Shared fields for all logs in the Call:
-```
+```json
 "time":                     "2021-07-05T06:30:06.402Z",
 "resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-PROD-CCTS-TESTS/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
 "correlationId":            "341acde7-8aa5-445b-a3da-2ddadca47d22",
@@ -266,14 +272,14 @@ Shared fields for all logs in the Call:
 
 #### Call Summary Logs
 Call Summary Logs have shared operation and category information:
-```
+```json
 "operationName":            "CallSummary",
 "operationVersion":         "1.0",
 "category":                 "CallSummaryPRIVATEPREVIEW",
 ```
 
 Call summary for VoIP Endpoint 1:
-```
+```json
 "properties": {
     "identifier":               "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-729f-ac00-343a0d00d975",
     "callStartTime":            "2021-07-05T06:16:40.240Z",
@@ -291,7 +297,7 @@ Call summary for VoIP Endpoint 1:
 }
 ```
 Call summary for VoIP Endpoint 3:
-```
+```json
 "properties": {
     "identifier":               "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-57c6-ac00-343a0d00d972",
     "callStartTime":            "2021-07-05T06:16:40.240Z",
@@ -309,7 +315,7 @@ Call summary for VoIP Endpoint 3:
 }
 ```
 Call summary for PSTN Endpoint 2:
-```
+```json
 "properties": {
     "identifier":               "null",
     "callStartTime":            "2021-07-05T06:16:40.240Z",
@@ -328,13 +334,13 @@ Call summary for PSTN Endpoint 2:
 ```
 #### Call Diagnostic Logs
 Call diagnostics logs share operation information:
-```
+```json
 "operationName":            "CallDiagnostics",
 "operationVersion":         "1.0",
 "category":                 "CallDiagnosticsPRIVATEPREVIEW",
 ```
 Diagnostic log for audio stream from VoIP Endpoint 1 to Server Endpoint:
-```
+```json
 "properties": {
     "identifier":           "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-729f-ac00-343a0d00d975",
     "participantId":        "04cc26f5-a86d-481c-b9f9-7a40be4d6fba",
@@ -352,7 +358,7 @@ Diagnostic log for audio stream from VoIP Endpoint 1 to Server Endpoint:
 }
 ```
 Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 1:
-```
+```json
 "properties": {
     "identifier":           null,
     "participantId":        "04cc26f5-a86d-481c-b9f9-7a40be4d6fba",
@@ -370,7 +376,7 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 1:
 }
 ```
 Diagnostic log for audio stream from VoIP Endpoint 3 to Server Endpoint:
-```
+```json
 "properties": {
     "identifier":           "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-57c6-ac00-343a0d00d972",
     "participantId":        "1a9cb3d1-7898-4063-b3d2-26c1630ecf03",
@@ -388,7 +394,7 @@ Diagnostic log for audio stream from VoIP Endpoint 3 to Server Endpoint:
 }
 ```
 Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3:
-```
+```json
 "properties": {
     "identifier":           "null",
     "participantId":        "1a9cb3d1-7898-4063-b3d2-26c1630ecf03",
@@ -403,7 +409,3 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3:
     "jitterMax":            "4",
     "packetLossRateAvg":    "0",
 ```
-
-## Next Steps
-
-- Learn more about [Logging and Diagnostics](./logging-and-diagnostics.md)
