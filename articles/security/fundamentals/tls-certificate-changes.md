@@ -21,7 +21,7 @@ Microsoft is updating Azure services to use TLS certificates from a different se
 
 Existing Azure endpoints have been transitioning in a phased manner since August 13, 2020. All newly created Azure TLS/SSL endpoints contain updated certificates chaining up to the new Root CAs.
 
-All Azure services are impacted by this change. Here are some additional details for specific services:
+All Azure services are impacted by this change. Here are some more details for specific services:
 
 - [Azure Active Directory](../../active-directory/index.yml) (Azure AD) services began this transition on July 7, 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](../../iot-dps/index.yml) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
@@ -67,7 +67,7 @@ Here are some ways to detect if your application is impacted:
 
 - If you have an application that integrates with Azure APIs or other Azure services and you are unsure if it uses certificate pinning, check with the application vendor.
 
-- Different operating systems and language runtimes that communicate with Azure services may require additional steps to correctly build the certificate chain with these new roots:
+- Different operating systems and language runtimes that communicate with Azure services may require more steps to correctly build the certificate chain with these new roots:
     - **Linux**: Many distributions require you to add CAs to /etc/ssl/certs. For specific instructions, refer to the distribution’s documentation.
     - **Java**: Ensure that the Java key store contains the CAs listed above.
     - **Windows running in disconnected environments**: Systems running in disconnected environments will need to have the new roots added to the Trusted Root Certification Authorities store, and the intermediates added to the Intermediate Certification Authorities store.
