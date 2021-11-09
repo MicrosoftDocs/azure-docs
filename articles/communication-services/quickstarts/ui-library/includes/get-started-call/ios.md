@@ -60,7 +60,7 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 <string></string>
 ```
 
-To verify view the `Info.plist` as **Open As** > **Property List** and should expect to see the following:
+To verify requesting the permission is added correctly, view the `Info.plist` as **Open As** > **Property List** and should expect to see the following:
 
 ![Screenshot showing the Camera and Microphone privacy in Xcode.](../../media/xcode-info-plist.png)
 
@@ -174,7 +174,7 @@ Initialize a `GroupCallOptions` instance inside the `startCallComposite` functio
 // let uuid = UUID() to create a new call
 let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
 let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                               displayName: displayName,
+                               displayName: "<DISPLAY_NAME>",
                                groupId: uuid)
 ```
 
@@ -183,10 +183,9 @@ let options = GroupCallOptions(communicationTokenCredential: communicationTokenC
 Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
-let link = "<TEAMS_MEETING_LINK>"
 let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
-                                  displayName: displayName,
-                                  meetingLink: link)
+                                  displayName: "<DISPLAY_NAME>",
+                                  meetingLink: "<TEAMS_MEETING_LINK>")
 ```
 
 #### Get a Microsoft Teams meeting link
