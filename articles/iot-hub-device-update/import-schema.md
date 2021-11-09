@@ -29,7 +29,7 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 | --------- | --------- | --------- | --------- |
 | Provider | string | Provider part of the update identity. | 1-64 characters, alphanumeric, dot and dash. |
 | Name | string | Name part of the update identity. | 1-64 characters, alphanumeric, dot and dash. |
-| Version | version | Version part of the update identity. | 2 to 4 part, dot separated version number between 0 and 2147483647. Leading zeroes will be dropped. |
+| Version | version | Version part of the update identity. | 2 to 4 part, dot-separated version number. The total number of _each_ dot-separated part can be between 0 and 2147483647. Leading zeroes are not supported.
 
 ## File Object
 
