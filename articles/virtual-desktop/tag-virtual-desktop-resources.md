@@ -72,7 +72,7 @@ Like with the [general suggestions](#suggested-tags-for-azure-virtual-desktop), 
 
 - If you use the Azure portal to create a new host pool, the creation workflow will give you the chance to add existing tags. These tags will be passed along to all resources you create during the host pool creation process. Tags will also be applied to any session hosts you add to an existing host pool in the Azure portal. However, you'll need to enter the tags manually every time you add a new session host.
 
-- It's unlikely you'll ever get a complete cost report of every supporting Azure service working with your host pools since configuration options are limitless and unique to each customer. It's up to you to decide how closely you want to track costs across any Azure services associated with your Azure Virtual Desktop deployment. The more thoroughly you track these costs by tagging, the more accurate your monthly Azure Virtual Desktop cost report will become.
+- It's unlikely you'll ever get a complete cost report of every supporting Azure service working with your host pools, since configuration options are both limitless and unique to each customer. It's up to you to decide how closely you want to track costs across any Azure services associated with your Azure Virtual Desktop deployment. The more thoroughly you track these costs by tagging, the more accurate your monthly Azure Virtual Desktop cost report will become.
 
 - If you build your tagging system around your host pools, make sure to use key-value pairs that make sense to add to other Azure services later.
 

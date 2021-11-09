@@ -109,3 +109,4 @@ If you'd like to get a clearer idea of how much specific parts of your deploymen
 
 - [Understanding licensing and per-user access pricing](licensing.md)
 - [Estimate per-user app streaming costs for Azure Virtual Desktop](streaming-costs.md)
+- [Tag Azure Virtual Desktop resources to manage costs](../tag-virtual-desktop-resources.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
