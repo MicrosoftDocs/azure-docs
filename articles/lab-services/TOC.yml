@@ -87,6 +87,11 @@
         href: class-type-solidworks.md
       - name: Sql database management and development
         href: class-type-sql-server.md
+    - name: Use Azure Lab Services within Canvas
+      items:
+        - name: Overview 
+          displayName: labs within Canvas
+          href: lab-services-within-canvas-overview.md
     - name: Use Azure Lab Services within Teams
       items:
         - name: Overview 
@@ -208,7 +213,7 @@
   - name: Use labs within Canvas
     items:
       - name: Create a lab from Canvas
-        href: how-to-get-started-create-labs-within-canvas.md
+        href: how-to-get-started-create-lab-within-canvas.md
       - name: Manage user lists
         href: how-to-manage-user-lists-within-canvas.md
       - name: Manage VM pool
