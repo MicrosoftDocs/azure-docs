@@ -139,31 +139,29 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-<!-- docutune:ignore "Security Center" -->
-
 ## Configure NetDocuments SSO
 
 1. In a different web browser window, sign into your NetDocuments company site as an administrator.
 
-2. In the upper-right corner, select your name > **Admin**.
+2. In the upper-right corner, select your name>**Admin**.
 
 3. Select **Security Center**.
-
+   
     ![Repository](./media/netdocuments-tutorial/security-center.png "Defender for Cloud")
 
 4. Select **Advanced Authentication**.
-
+    
     ![Configure advanced authentication options](./media/netdocuments-tutorial/advance-authentication.png "Configure advanced authentication options")
 
-5. On the **Federated ID** tab, perform the following steps:  
-
+5.	On the **Federated ID** tab, perform the following steps:   
+   
     [![Federated Identity](./media/netdocuments-tutorial/federated-id.png "Federated Identity")](./media/netdocuments-tutorial/federated-id.png#lightbox)
-
-    1. For **Federated identity server type**, select as **Windows Azure Active Directory**.
-
-    1. Select **Choose File**, to upload the downloaded metadata file which you have downloaded from Azure portal.
-
-    1. Select **SAVE**.
+   
+    a. For **Federated identity server type**, select as **Windows Azure Active Directory**.
+    
+    b.	Select **Choose File**, to upload the downloaded metadata file which you have downloaded from Azure portal.
+    
+    c.	Select **SAVE**.
 
 ### Create NetDocuments test user
 
@@ -173,18 +171,18 @@ To enable Azure AD users to sign in to NetDocuments, they must be provisioned in
 
 1. Sign on to your **NetDocuments** company site as administrator.
 
-2. In the upper-right corner, select your name > **Admin**.
-
+2. In the upper-right corner, select your name>**Admin**.
+   
     ![Admin](./media/netdocuments-tutorial/user-admin.png "Admin")
 
 3. Select **Users and groups**.
-
+   
     ![Users and groups](./media/netdocuments-tutorial/users-groups.png "Repository")
 
 4. In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
-
+   
     ![Email Address](./media/netdocuments-tutorial/user-mail.png "Email Address")
-
+   
     > [!NOTE]
     > The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active. 
     You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision Azure Active Directory user accounts.
