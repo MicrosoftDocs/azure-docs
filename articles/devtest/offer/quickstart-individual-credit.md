@@ -1,5 +1,5 @@
 ---
-title: Start using individual your Azure Dev/Test credit
+title: Start using individual Azure Dev/Test credit
 description: As a Visual Studio subscriber, learn how to access an Azure Credit subscription.
 author: jamestramel
 ms.author: jametra
