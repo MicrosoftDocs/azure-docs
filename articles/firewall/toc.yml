@@ -49,6 +49,8 @@
       href: logs-and-metrics.md
     - name: Threat intelligence
       href: threat-intel.md
+    - name: Firewall Policy rule sets
+      href: policy-rule-sets.md
     - name: Rule processing logic
       href: rule-processing.md
     - name: Service tags
