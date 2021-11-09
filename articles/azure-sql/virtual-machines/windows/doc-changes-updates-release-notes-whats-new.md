@@ -23,7 +23,7 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 
 | Changes | Details |
 | --- | --- |
-| **Eliminate need for HADR Azure Load Balancer or DNN** | Deploy your SQL Server VMs to multiple subnets to eliminate the dependency on the Azure Load Balancer or distributed network name (DNN) to route traffic to your high availability / disaster recovery (HADR) solution! See the [multi-subnet availability group](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) tutorial, or [prepare SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md#choose-subnet-deployment) article to learn more. | 
+| **Eliminate need for HADR Azure Load Balancer or DNN** | Deploy your SQL Server VMs to multiple subnets to eliminate the dependency on the Azure Load Balancer or distributed network name (DNN) to route traffic to your high availability / disaster recovery (HADR) solution! See the [multi-subnet availability group](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) tutorial, or [prepare SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md#subnets) article to learn more. | 
 | **SQL Assessment** | It's now possible to assess the health of your SQL Server VM in the Azure portal using [SQL Assessment](sql-assessment-for-sql-vm.md) to surface recommendations that improve performance, and identify missing best practices configurations. This feature is currently in preview. |
 | &nbsp; | &nbsp; |
 
