@@ -2,7 +2,7 @@
 title: Delete an Azure Lab Services lab from Canvas
 description: Learn how to delete an Azure Lab Services lab from Canvas. 
 ms.topic: how-to
-ms.date: 11/0872021
+ms.date: 11/08/2021
 ---
 
 # Delete labs within Canvas
@@ -12,7 +12,7 @@ This article shows how to delete a lab from the **Azure Lab Services** app.
 ## Prerequisites
 
 * [Create a Lab Plan](tutorial-setup-lab-plan.md#create-a-lab-plan) in the Azure portal.
-* [Get started and create a Lab Services lab within Canvas](how-to-get-started-create-lab-within-Canvas.md).
+* [Get started and create a Lab Services lab within Canvas](how-to-get-started-create-lab-within-canvas.md).
 
 ## Delete labs
 
@@ -27,9 +27,9 @@ If the tab is deleted, users on the team membership list will still be able to a
 
 ## Next steps
 
-- [Use Azure Lab Services within Canvas overview](lab-services-within-Canvas-overview.md)
-- [Manage lab user lists within Canvas](how-to-manage-user-lists-within-Canvas.md)
-- [Manage lab's VM pool within Canvas](how-to-manage-vm-pool-within-Canvas.md)
-- [Create and manage lab schedules within Canvas](how-to-create-schedules-within-Canvas.md)
-- [Access a VM within Canvas – Student view](how-to-access-vm-for-students-within-Canvas.md)
+- [Use Azure Lab Services within Canvas overview](lab-services-within-canvas-overview.md)
+- [Manage lab user lists within Canvas](how-to-manage-user-lists-within-canvas.md)
+- [Manage lab's VM pool within Canvas](how-to-manage-vm-pool-within-canvas.md)
+- [Create and manage lab schedules within Canvas](how-to-create-schedules-within-canvas.md)
+- [Access a VM within Canvas – Student view](how-to-access-vm-for-students-within-canvas.md)
 

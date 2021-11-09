@@ -34,8 +34,8 @@ For more details, refer to the article on [configuring auto-shutdown settings fo
 
 See the following articles:
 
-- [Use Azure Lab Services within Canvas overview](lab-services-within-Canvas-overview.md)
-- [Get started and create a lab within Canvas](how-to-get-started-create-lab-within-Canvas.md)
-- [Manage lab user lists within Canvas](how-to-manage-user-lists-within-Canvas.md)
-- [Manage lab's VM pool within Canvas](how-to-manage-vm-pool-within-Canvas.md)
-- [Access a VM within Canvas – Student view](how-to-access-vm-for-students-within-Canvas.md)
+- [Use Azure Lab Services within Canvas overview](lab-services-within-canvas-overview.md)
+- [Get started and create a lab within Canvas](how-to-get-started-create-lab-within-canvas.md)
+- [Manage lab user lists within Canvas](how-to-manage-user-lists-within-canvas.md)
+- [Manage lab's VM pool within Canvas](how-to-manage-vm-pool-within-canvas.md)
+- [Access a VM within Canvas – Student view](how-to-access-vm-for-students-within-canvas.md)
