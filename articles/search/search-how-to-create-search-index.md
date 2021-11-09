@@ -24,7 +24,7 @@ Write permissions are required for creating and loading indexes, granted through
 
 Index creation is largely a schema definition exercise. Before creating one, you should have:
 
-+ A clear idea of which fields you want to make searchable, retrievable, filterable, facetable, and sortable in your index (discussed in [schema checklist](#schema-checklist)).
++ A clear idea of which fields you want to make searchable, retrievable, filterable, facetable, and sortable in your index (more about this is discussed in [schema checklist](#schema-checklist)).
 
 + A unique identifier in source data that can be used as the document key (or ID) in the index.
 
@@ -64,7 +64,7 @@ Use this checklist to help drive the design decisions for your search index.
 
 1. Identify one field in the source data that contains unique values, allowing it to function as the key field in your index. For example, if you're indexing from Blob Storage, the storage path is often used as the document key. 
 
-  Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"). The key should be mapped to the unique identifier in your source data. The ability to uniquely identify specific search documents is required for retrieving a specific document in the search index, and for selective data processing at the per-document level.
+   Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"). The key should be mapped to the unique identifier in your source data. The ability to uniquely identify specific search documents is required for retrieving a specific document in the search index, and for selective data processing at the per-document level.
 
 1. Identify the fields in your data source that will contribute searchable content in the index. Searchable content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
 
