@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to 
-ms.date: 08/26/2021
+ms.date: 11/08/2021
 ---
 
 #  Start a WebSocket connection to Azure Web PubSub
