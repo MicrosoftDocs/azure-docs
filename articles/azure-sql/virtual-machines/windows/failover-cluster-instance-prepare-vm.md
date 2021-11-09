@@ -113,11 +113,11 @@ To create the virtual network in the Azure portal, follow these steps:
    - For example, if your **default** IP range is *10.38.0.0/24*, and your **SQL-subnet-1** is *10.38.1.0/24*, then enter `10.38.2.0/24` for the new subnet
    - Likewise, if your **default** IP range is *10.5.0.0/24*, and your **SQL-subnet-1** is *10.5.1.0/24*, then enter the IP address range `10.5.2.0/24` for **SQL-subnet-2** . 
 
-   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/06-create-vnet-ipaddress-add-sql-subnet-2.png" alt-text="Name your second subnet, such as sql-subnet-2, and then iterate the third octet by 2, so that if your DC-subnet IP address is 10.38.0.0/24, your new subnet should be 10.38.2.0/24":::
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/06-create-vnet-ip-address-add-sql-subnet-2.png" alt-text="Name your second subnet, such as sql-subnet-2, and then iterate the third octet by 2, so that if your DC-subnet IP address is 10.38.0.0/24, your new subnet should be 10.38.2.0/24":::
 
 1. After you've added the second subnet, review your subnet names and ranges (your IP address ranges may differ from the image). If everything looks correct, select **Review + create**, then **Create** to create your new virtual network. 
 
-   :::image type="content" source="./media/failover-cluster-instance-prepare-vm/07-create-vnet-ipaddress.png" alt-text="After you've added the second subnet, review your subnet names and ranges, like the image example (though your IP addresses may be different). If everything looks correct, select Review + create, then Create to create your new virtual network.":::
+   :::image type="content" source="./media/failover-cluster-instance-prepare-vm/07-create-vnet-ip-address.png" alt-text="After you've added the second subnet, review your subnet names and ranges, like the image example (though your IP addresses may be different). If everything looks correct, select Review + create, then Create to create your new virtual network.":::
 
    Azure returns you to the portal dashboard and notifies you when the new network is created.
 
@@ -182,7 +182,7 @@ If you're on Windows Server 2019 or later, only assign a secondary IP address fo
 
 To assign additional secondary IPs to the VMs, follow these steps: 
 
-1. Go to your resource group in the [Azure Portal](https://portal.azure.com/) and select the first SQL Server VM. 
+1. Go to your resource group in the [Azure portal](https://portal.azure.com/) and select the first SQL Server VM. 
 1. Select **Networking** in the **Settings** pane, and then select the **Network Interface**: 
 
     :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/19-sql-vm-network-interface.png" alt-text="Select Networking in the Settings pane, and then select the Network Interface":::
@@ -202,7 +202,7 @@ To assign additional secondary IPs to the VMs, follow these steps:
 
 1. Select **+ Add** again to configure an additional IP address for the FCI network name (with a name such as **FCI-network-name**), again specifying an unused IP address in **SQL-subnet-1** such as `10.38.1.11`: 
 
-   :::image type="content" source="./media/failover-cluster-instance-prepare-vm/22-add-ip-ag-listener.png" alt-text="Select + Add again to configure an additional IP address for the availability group listener (with a name such as availability-group-listener), again using an unused IP address in SQL-subnet-1 such as 10.31.1.11":::
+   :::image type="content" source="./media/failover-cluster-instance-prepare-vm/22-add-fci-ip-address.png" alt-text="Select + Add again to configure an additional IP address for the availability group listener (with a name such as availability-group-listener), again using an unused IP address in SQL-subnet-1 such as 10.31.1.11":::
 
 1. Repeat these steps again for the second SQL Server VM. Assign two unused secondary IP addresses within **SQL-subnet-2**. Use the values from the following table to add the IP configuration (though the IP addresses are just examples, yours may vary): 
 

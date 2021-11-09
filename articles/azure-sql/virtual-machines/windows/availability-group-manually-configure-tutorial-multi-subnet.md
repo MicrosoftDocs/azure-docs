@@ -57,7 +57,7 @@ Add the failover cluster feature to both SQL Server VMs. To do so, follow these 
 1. Open **Server Manager Dashboard**.
 1. Select the **Add roles and features** link on the dashboard.
 
-    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/09-addfeatures.png" alt-text="Server Manager - Add roles":::
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/09-add-features.png" alt-text="Select the Add roles and features link on the dashboard.":::
 
 1. Select **Next** until you get to the **Server Features** section.
 1. In **Features**, select **Failover Clustering**.
@@ -76,7 +76,7 @@ To create the cluster, follow these steps:
 2. In the **Server Manager** dashboard, select **Tools**, and then select **Failover Cluster Manager**.
 3. In the left pane, right-click **Failover Cluster Manager**, and then select **Create a Cluster**.
 
-   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/01-createcluster.png" alt-text="Create Cluster":::
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/01-create-cluster.png" alt-text="Create Cluster":::
 
 4. In the **Create Cluster Wizard**, create a two-node cluster by stepping through the pages using the settings provided in the following table:
 
@@ -88,7 +88,7 @@ To create the cluster, follow these steps:
    | Before you Begin | Select Next. |
    | Testing Options | Choose **Run only the tests I select**. |
    | Test Selection | Uncheck Storage. Ensure **Inventory**, **Network** and **System Configuration** are selected. 
-   | Confirmation | Select Next.<br/>Wait for the validation to complete.<br/>Select **View Report** to review the report. You can safely ignore the warning regarding VMs being reacheable on only one network interface. Azure infrastructure has physical redundancy and therefore it is not required to add additional network interfaces.<br/> Select **Finish**.|
+   | Confirmation | Select Next.<br/>Wait for the validation to complete.<br/>Select **View Report** to review the report. You can safely ignore the warning regarding VMs being reachable on only one network interface. Azure infrastructure has physical redundancy and therefore it is not required to add additional network interfaces.<br/> Select **Finish**.|
    | Access Point for Administering the Cluster |Type a cluster name, for example **SQLAGCluster1** in **Cluster Name**.|
    | Confirmation | Uncheck **Add all eligible storage to the cluster** and select **Next**. |
    | Summary | Select **Finish**. | 
@@ -124,11 +124,11 @@ To change the cluster IP address, follow these steps:
 
 1. Select **Static IP Address** and update the IP address to the [dedicated windows cluster IP address](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#add-secondary-ips-to-sql-server-vms) in the subnet you assigned to the first SQL Server VM (such as **SQL-VM-1**). Select **OK**.
    
-    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/03-first-static-ipaddress.png" alt-text=" Select **Static IP Address** and update the IP address to the dedicated windows cluster IP address in the same subnet you assigned to the SQL Server VM in the prerequisites article":::
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/03-first-static-ip-address.png" alt-text=" Select **Static IP Address** and update the IP address to the dedicated windows cluster IP address in the same subnet you assigned to the SQL Server VM in the prerequisites article":::
 
 1. Repeat the steps for the second failed **IP Address** resource, using the [dedicated windows cluster IP address](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#add-secondary-ips-to-sql-server-vms) for the subnet of the second SQL Server VM (such as **SQL-VM-2**). 
 
-    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/04-second-static-ipaddress.png" alt-text="Repeat the steps for the second failed **IP Address** resource, using the dedicated windows cluster IP address for the subnet of the other SQL Server VM.":::
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/04-second-static-ip-address.png" alt-text="Repeat the steps for the second failed **IP Address** resource, using the dedicated windows cluster IP address for the subnet of the other SQL Server VM.":::
 
 1. In the **Cluster Core Resources** section, right-click cluster name and select **Bring Online**. Wait until the name and one of the IP address resource are online. 
 
@@ -163,7 +163,7 @@ After you have the access key copied, create the cloud witness for the cluster q
 To create the cloud witness, follow these steps: 
 
 1. Connect to the first SQL Server VM **SQL-VM-1** with remote desktop.
-1. Open **Windows Powershell** in Administrator mode.
+1. Open **Windows PowerShell** in Administrator mode.
 1. Run the PowerShell script to set TLS (Transport Layer Security) value for the connection to 1.2:
 
     ```powershell
@@ -178,7 +178,7 @@ To create the cloud witness, follow these steps:
     
 1. The following example output indicates success:  
 
-    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/06-configurequorum.png" alt-text="Your output should display the Cloud Witness as this example":::
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/06-configure-quorum.png" alt-text="Your output should display the Cloud Witness as this example":::
 
 The cluster core resources are configured with a cloud witness.
 
@@ -193,7 +193,7 @@ To enable the availability group feature, follow these steps:
 1. In the browser tree, highlight **SQL Server Services**, right-click the **SQL Server (MSSQLSERVER)** service and select **Properties**.
 1. Select the **AlwaysOn High Availability** tab, then check the box to **Enable AlwaysOn availability groups**:
 
-    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/08-enablealwayson.png" alt-text="Enable AlwaysOn availability groups":::
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/08-enable-always-on.png" alt-text="Enable AlwaysOn availability groups":::
 
 1. Select **Apply**. Select **OK** in the pop-up dialog.
 1. Restart the SQL Server service.
@@ -233,7 +233,7 @@ To create the backup file share, follow these steps:
 
 3. Right-click **Shares**, and select **New Share...** and then use the **Create a Shared Folder Wizard** to create a share.
 
-   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/09-newshare.png" alt-text="Select New Share":::
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/09-new-share.png" alt-text="Select New Share":::
 
 4. For **Folder Path**, select **Browse** and locate or create a path for the database backup shared folder, such as `C:\Backup`. Select **Next**.
 
@@ -245,7 +245,7 @@ To create the backup file share, follow these steps:
 
 8. Check **Full Control** to grant full access to the share for *both* SQL Server service accounts (`Corp\SQLSvc1` and `Corp\SQLSvc2`):  
 
-   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/10-backupsharepermission.png" alt-text="Make sure that the SQL Server service accounts for both servers have full control.":::
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/10-backup-share-permission.png" alt-text="Make sure that the SQL Server service accounts for both servers have full control.":::
 
 9. Select **OK**.
 
@@ -259,24 +259,24 @@ To create your availability group, follow these steps.
 
 1. In **Object Explorer** in SQL Server Management Studio (SSMS) on the first SQL Server VM (such as **SQL-VM-1**), right-click **Always On High Availability** and select **New Availability Group Wizard**.
 
-    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/11-newagwiz.png" alt-text="Launch New availability group Wizard":::
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/11-new-ag-wizard.png" alt-text="Launch New availability group Wizard":::
 
 1. On the **Introduction** page, select **Next**. In the **Specify availability group Name** page, type a name for the availability group in **Availability group name**, such as **AG1**. Select **Next**.
 
-    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/12-newagname.png" alt-text="New availability group Wizard, Specify availability group Name":::
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/12-new-ag-name.png" alt-text="New availability group Wizard, Specify availability group Name":::
 
 1. On the **Select Databases** page, select your database, and then select **Next**. If your database does not meet the prerequisites, make sure it's in full recovery mode, and [take a backup](#create-database): 
 
-   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/13-newagselectdatabase.png" alt-text="New availability group Wizard, Select Databases":::
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/13-new-ag-select-database.png" alt-text="New availability group Wizard, Select Databases":::
 
 1. On the **Specify Replicas** page, select **Add Replica**.
 
-   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/14-newagaddreplica.png" alt-text="New availability group Wizard, Specify Replicas":::
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/14-new-ag-add-replica.png" alt-text="New availability group Wizard, Specify Replicas":::
 
 1. The **Connect to Server** dialog pops up. Type the name of the second server in **Server name**, such as **SQL-VM-2**. Select **Connect**.
 1. On the **Specify Replicas** page, check the boxes for **Automatic Failover** and choose **Synchronous commit** for the availability mode from the drop-down:
 
-   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/15-newagreplica.png" alt-text=" On the **Specify Replicas** page, check the boxes for Automatic Failover and choose Synchronous commit for the availability mode":::
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/15-new-ag-replica.png" alt-text=" On the **Specify Replicas** page, check the boxes for Automatic Failover and choose Synchronous commit for the availability mode":::
 
 1. Select the **Endpoints** tab to confirm the ports used for the database mirroring endpoint are those you [opened in the firewall](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#configure-the-firewall): 
 
@@ -339,16 +339,16 @@ To check the status of the availability group, follow these steps:
 
 1. In **Object Explorer**, expand **Always On High Availability**, and then expand **availability groups**. You should now see the new availability group in this container. Right-click the availability group and select **Show Dashboard**.
 
-   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/24-showdashboard.png" alt-text="Show availability group Dashboard":::
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/24-show-dashboard.png" alt-text="Show availability group Dashboard":::
 
    The availability group dashboard shows the replica, the failover mode of each replica, and the synchronization state, such as the following example: 
 
-   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/25-agdashboard.png" alt-text="availability group Dashboard":::
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/25-ag-dashboard.png" alt-text="availability group Dashboard":::
 
 
 2. Open the **Failover Cluster Manager**, select your cluster, and choose **Roles** to view the availability group role you created within the cluster. Choose the role **AG1** and select the **Resources** tab to view the listener and the associated IP addresses, such as the following example: 
 
-   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/26-clustermanager.png" alt-text="availability group in Failover Cluster Manager":::
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/26-cluster-manager.png" alt-text="availability group in Failover Cluster Manager":::
 
 At this point, you have an availability group with replicas on two instances of SQL Server and a corresponding availability group listener as well. You can connect using the listener and you can move the availability group between instances using **SQL Server Management Studio**. 
 
@@ -367,7 +367,7 @@ To test the connection, follow these steps:
 
 2. Open **SQL Server Management Studio**, and in the **Connect to Server** dialog box type the name of the listener (such as **AG1-Listener**) in **Server name:**, and then select **Options**: 
 
-    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/27-ssms-listerner-connect.png" alt-text="Open SQL Server Management Studio and in Server name: type the name of the listener, such as AG1-Listener":::
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/27-ssms-listener-connect.png" alt-text="Open SQL Server Management Studio and in Server name: type the name of the listener, such as AG1-Listener":::
 
 3. Enter `MultiSubnetFailover=True` in the **Additional Connection Parameters** window and then choose **Connect** to automatically connect to whichever instance is hosting the primary SQL Server replica:  
 

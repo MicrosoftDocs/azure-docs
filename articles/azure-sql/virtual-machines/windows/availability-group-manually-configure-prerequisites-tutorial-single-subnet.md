@@ -34,7 +34,7 @@ While this article manually configures the availability group environment, it is
 
 The following diagram illustrates what you build in the tutorial.
 
-![Availability group](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/00-EndstateSampleNoELB.png)
+:::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/00-EndstateSampleNoELB.png" alt-text="Availability group":::
 
 >[!NOTE]
 > It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
@@ -53,11 +53,11 @@ You need an Azure account. You can [open a free Azure account](https://signup.az
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **+** to create a new object in the portal.
 
-   ![New object](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/01-portalplus.png)
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/01-portalplus.png" alt-text="New object":::
 
 3. Type **resource group** in the **Marketplace** search window.
 
-   ![Resource group](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/01-resourcegroupsymbol.png)
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/01-resourcegroupsymbol.png" alt-text="Resource group":::
 
 4. Select **Resource group**.
 5. Select **Create**.
@@ -66,7 +66,7 @@ You need an Azure account. You can [open a free Azure account](https://signup.az
 8. Select a location. The location is the Azure region where you want to create the availability group. This article builds all resources in one Azure location.
 9. Verify that **Pin to dashboard** is checked. This optional setting places a shortcut for the resource group on the Azure portal dashboard.
 
-   ![Resource group shortcut for the Azure portal](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/01-resourcegroup.png)
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/01-resourcegroup.png" alt-text="Resource group shortcut for the Azure portal":::
 
 10. Select **Create** to create the resource group.
 
@@ -82,10 +82,10 @@ To create the virtual network in the Azure portal:
 
 1. In your resource group, select **+ Add**. 
 
-   ![New item](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/02-newiteminrg.png)
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/02-newiteminrg.png" alt-text="New item":::
 2. Search for **virtual network**.
 
-     ![Search virtual network](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/04-findvirtualnetwork.png)
+     :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/04-findvirtualnetwork.png" alt-text="Search virtual network":::
 3. Select **Virtual network**.
 4. On the **Virtual network**, select the **Resource Manager** deployment model, and then select **Create**.
 
@@ -107,7 +107,7 @@ To create the virtual network in the Azure portal:
 
 5. Select **Create**.
 
-   ![Configure the virtual network](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/06-configurevirtualnetwork.png)
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/06-configurevirtualnetwork.png" alt-text="Configure the virtual network":::
 
 Azure returns you to the portal dashboard and notifies you when the new network is created.
 
@@ -185,13 +185,13 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 
 1. In the portal, open the **SQL-HA-RG** resource group and select the **ad-primary-dc** machine. On **ad-primary-dc**, select **Connect** to open an RDP file for remote desktop access.
 
-    ![Connect to a virtual machine](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/20-connectrdp.png)
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/20-connectrdp.png" alt-text="Connect to a virtual machine":::
 
 2. Sign in with your configured administrator account (**\DomainAdmin**) and password (**Contoso!0000**).
 3. By default, the **Server Manager** dashboard should be displayed.
 4. Select the **Add roles and features** link on the dashboard.
 
-    ![Server Manager - Add roles](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/22-addfeatures.png)
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/22-addfeatures.png" alt-text="Server Manager - Add roles":::
 
 5. Select **Next** until you get to the **Server Roles** section.
 6. Select the **Active Directory Domain Services** and **DNS Server** roles. When you're prompted, add any additional features that are required by these roles.
@@ -200,7 +200,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
    > Windows warns you that there is no static IP address. If you're testing the configuration, select **Continue**. For production scenarios, set the IP address to static in the Azure portal, or [use PowerShell to set the static IP address of the domain controller machine](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip).
    >
 
-    ![Add Roles dialog](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/23-addroles.png)
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/23-addroles.png" alt-text="Add Roles dialog":::
 
 7. Select **Next** until you reach the **Confirmation** section. Select the **Restart the destination server automatically if required** check box.
 8. Select **Install**.
@@ -208,7 +208,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 10. Select the new **AD DS** option on the left-hand pane.
 11. Select the **More** link on the yellow warning bar.
 
-    ![AD DS dialog on the DNS Server VM](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/24-addsmore.png)
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/24-addsmore.png" alt-text="AD DS dialog on the DNS Server VM":::
     
 12. In the **Action** column of the **All Server Task Details** dialog, select **Promote this server to a domain controller**.
 13. In the **Active Directory Domain Services Configuration Wizard**, use the following values:
@@ -233,7 +233,7 @@ One way to get the primary domain controller IP address is through the Azure por
 
 3. On the primary domain controller, select **Network interfaces**.
 
-![Network interfaces](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/25-primarydcip.png)
+:::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/25-primarydcip.png" alt-text="Network interfaces":::
 
 Note the private IP address for this server.
 
@@ -258,7 +258,7 @@ After the primary domain controller reboots, you can configure the second domain
 3. Change the preferred DNS server address to the address of the domain controller.
 4. In **Network and Sharing Center**, select the network interface.
 
-   ![Network interface](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/26-networkinterface.png)
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/26-networkinterface.png" alt-text="Network interface":::
 
 5. Select **Properties**.
 6. Select **Internet Protocol Version 4 (TCP/IPv4)** and then select **Properties**.
@@ -271,7 +271,7 @@ After the primary domain controller reboots, you can configure the second domain
 9. From the remote desktop to the secondary domain controller, open **Server Manager Dashboard**.
 10. Select the **Add roles and features** link on the dashboard.
 
-    ![Server Manager - Add roles](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/22-addfeatures.png)
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/22-addfeatures.png" alt-text="Server Manager - Add roles":::
 11. Select **Next** until you get to the **Server Roles** section.
 12. Select the **Active Directory Domain Services** and **DNS Server** roles. When you're prompted, add any additional features that are required by these roles.
 13. After the features finish installing, return to the **Server Manager** dashboard.
@@ -280,7 +280,7 @@ After the primary domain controller reboots, you can configure the second domain
 16. In the **Action** column of the **All Server Task Details** dialog, select **Promote this server to a domain controller**.
 17. Under **Deployment Configuration**, select **Add a domain controller to an existing domain**.
 
-    ![Deployment configuration](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/28-deploymentconfig.png)
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/28-deploymentconfig.png" alt-text="Deployment configuration":::
 
 18. Click **Select**.
 19. Connect by using the administrator account (**CORP.CONTOSO.COM\domainadmin**) and password (**Contoso!0000**).
@@ -315,7 +315,7 @@ Use the following steps to create each account.
 3. Select **corp (local)** from the left pane.
 4. On the right **Tasks** pane, select **New**, and then select **User**.
 
-   ![Active Directory Administrative Center](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/29-addcnewuser.png)
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/29-addcnewuser.png" alt-text="Active Directory Administrative Center":::
 
    >[!TIP]
    >Set a complex password for each account.<br/> For non-production environments, set the user account to never expire.
@@ -328,7 +328,7 @@ Use the following steps to create each account.
 
 1. In the **Active Directory Administrative Center**, select **corp (local)** in the left pane. Then in the right-hand **Tasks** pane, select **Properties**.
 
-    ![CORP user properties](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/31-addcproperties.png)
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/31-addcproperties.png" alt-text="CORP user properties":::
 
 2. Select **Extensions**, and then select the **Advanced** button on the **Security** tab.
 3. In the **Advanced Security Settings for corp** dialog, select **Add**.
@@ -337,7 +337,7 @@ Use the following steps to create each account.
 
 6. Select the **Create Computer objects** check box.
 
-     ![Corp user permissions](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/33-addpermissions.png)
+     :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/33-addpermissions.png" alt-text="Corp user permissions":::
 
 7. Select **OK**, and then select **OK** again. Close the **corp** properties window.
 
@@ -492,7 +492,7 @@ To add Failover Clustering features, do the following steps on both SQL Server V
 1. Connect to the SQL Server virtual machine through the Remote Desktop Protocol (RDP) by using the *CORP\install* account. Open **Server Manager Dashboard**.
 2. Select the **Add roles and features** link on the dashboard.
 
-    ![Server Manager - Add roles](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/22-addfeatures.png)
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/22-addfeatures.png" alt-text="Server Manager - Add roles":::
 
 3. Select **Next** until you get to the **Server Features** section.
 4. In **Features**, select **Failover Clustering**.
@@ -529,7 +529,7 @@ The method of opening the ports depends on the firewall solution that you use. T
 3. For **Rule Type**, choose **Port**.
 4. For the port, specify **TCP** and type the appropriate port numbers. See the following example:
 
-   ![SQL firewall](./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/35-tcpports.png)
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-single-subnet/35-tcpports.png" alt-text="SQL firewall":::
 
 5. Select **Next**.
 6. On the **Action** page, keep **Allow the connection** selected, and then select **Next**.
