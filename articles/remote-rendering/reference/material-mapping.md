@@ -50,7 +50,7 @@ Additionally to the base feature set, Azure Remote Rendering supports the follow
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
 * [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): Corresponds to [color materials](../overview/features/color-materials.md). For *emissive* materials, it's recommended to use this extension.
-* [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): Instead of metallic-roughness textures, you can provide diffuse-specular-glossiness textures. The Azure Remote Rendering implementation directly follows the conversion formulas from the extension.
+* [KHR_materials_pbrSpecularGlossiness](https://kcoley.github.io/glTF/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/): Instead of metallic-roughness textures, you can provide diffuse-specular-glossiness textures. The Azure Remote Rendering implementation directly follows the conversion formulas from the extension.
 
 ## FBX
 
