@@ -599,7 +599,7 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 ```
 
 ## EntryPoint Override
-With 8.2 version of ServiceFabric Runtime, you can now override entrypoint for **container** and **exe host** code package. You can use this in cases for ex: where you don't want to provision a different container image when all other elements remains same, or you want to pass different argumets based on test or prod scenario and the entry point remains the same.
+With 8.2 version of ServiceFabric Runtime, entrypoint for **container** and **exe host** code package can be overridden. This can be  used in cases for ex: where all the manifest elements remains the same but the container image needs to be changed, then provisioning a different app type version is not required anymore, or different argumets needs to be passed based on test or prod scenario and the entry point remains the same.
 
 Following is an example on how to override container entry point:
 
@@ -612,7 +612,6 @@ Following is an example on how to override container entry point:
                      xmlns:xsd="https://www.w3.org/2001/XMLSchema"
                      xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
-    <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
     <Parameter Name="ImageName" DefaultValue="myregistry.azurecr.io/samples/helloworldapp" />
     <Parameter Name="Commands" DefaultValue="commandsOverride" />
     <Parameter Name="FromSource" DefaultValue="sourceOverride" />
@@ -660,10 +659,10 @@ Following is an example on how to override container entry point:
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>dummy imagename</ImageName>
-        <Commands>dummy cmd</Commands>
-        <EntryPoint>dummy entrypoint</EntryPoint>
-        <FromSource>dummy source</FromSource>
+        <ImageName>default imagename</ImageName>
+        <Commands>default cmd</Commands>
+        <EntryPoint>default entrypoint</EntryPoint>
+        <FromSource>default source</FromSource>
       </ContainerHost>
     </EntryPoint>
   </CodePackage>
@@ -671,9 +670,9 @@ Following is an example on how to override container entry point:
   <ConfigPackage Name="Config" Version="1.0.0" />
 </ServiceManifest>
 ```
-One you specify the overrides in manifest your container with image name myregistry.azurecr.io/samples/helloworldapp, command commandsOverride, source sourceOverride, and entryPoint entryPointOverride will be started.
+After the overrides in application manifest are specified, container with image name myregistry.azurecr.io/samples/helloworldapp, command commandsOverride, source sourceOverride, and entryPoint entryPointOverride will be started.
 
-Similarly, you can also override the same for **ExeHost** like below:
+Similarly, below is an example on how to override the **ExeHost**:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Policies>
