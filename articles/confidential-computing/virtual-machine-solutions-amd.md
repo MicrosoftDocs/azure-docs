@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 11/15/2021
 ms.author: EdCohen
 ---
 

@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 10/09/2021
+ms.date: 11/15/2021
 ms.author: RunCai
 ---
 

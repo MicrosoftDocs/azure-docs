@@ -6,7 +6,7 @@ author: edcohen
 ms.service: container-service
 ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 10/08/2021
+ms.date: 11/15/2021
 ms.author: edcohen
  
 ---

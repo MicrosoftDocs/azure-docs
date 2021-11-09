@@ -5,8 +5,8 @@ services: attestation, secure key release
 author: 
 ms.service: attestation, secure key release
 ms.topic: overview
-ms.date: 11/01/2021
-ms.author: 
+ms.date: 11/15/2021
+ms.author: EdCohen
 
 
 ---
