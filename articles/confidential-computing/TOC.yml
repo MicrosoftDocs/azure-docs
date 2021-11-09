@@ -12,6 +12,12 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Confidential VMs
+    items:
+      - name: Create confidential VM with Azure CLI
+        href: quick-create-arm-amd-cvm.md
+      - name: Create confidential VM with Azure portal
+        href: quick-create-portal-cvm.md
   - name: Confidential VMs with enclaves
     items:
       - name: Deploy Intel SGX
@@ -33,6 +39,12 @@
     href: confidential-computing-deployment-models.md
   - name: Confidential virtual machines
     items:
+    - name: About confidential VMs
+      href: confidential-vm-overview.md
+    - name: FAQ for AMD confidential VMs
+      href: virtual-machine-amd-faq.yml
+    - name: Secure key release policies for AMD confidential VMs
+      href: amd-secure-key-release.md
     - name: Build with enclaves
       items:
       - name: Enclaves overview
@@ -47,6 +59,8 @@
           href: attestation.md
       - name: Deploying Intel SGX virtual machines
         href: virtual-machine-solutions-sgx.md
+      - name: Deploying AMD virtual machines
+        href: virtual-machine-solutions-amd.md
       - name: Application enclave VM FAQ
         href: faq-application-enclaves.yml 
   - name: Confidential containers
