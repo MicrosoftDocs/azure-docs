@@ -111,7 +111,7 @@ Continuous export can be configured and managed via the Microsoft Defender for C
 
 The API provides additional functionality not available from the Azure portal, for example:
 
-* **Greater volume** - The API allows you to create multiple export configurations on a single subscription. The **Continuous Export** page in Defender for Cloud's portal UI supports only one export configuration per subscription.
+* **Greater volume** - You can create multiple export configurations on a single subscription with the API. The **Continuous Export** page in Defender for Cloud's portal UI supports only one export configuration per subscription.
 
 * **Additional features** - The API offers additional parameters that aren't shown in the UI. For example, you can add tags to your automation resource as well as define your export based on a wider set of alert and recommendation properties than those offered in the **Continuous Export** page in Defender for Cloud's portal UI.
 
