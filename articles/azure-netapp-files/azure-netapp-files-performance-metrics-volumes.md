@@ -35,11 +35,11 @@ You should perform the benchmark testing in the same VNet as Azure NetApp Files.
 
 ## Performance benchmarking tools
 
-This section describes a few benchmarking tools for your consideration. 
+This section provides details about a few benchmarking tools. 
 
-### SSB: SQL Storage Benchmark 
+### SSB
 
-SSB is an open-source benchmark tool written in Python. It is designed to generate a "real-world" workload that emulates database interaction in such a way to measure the performance of the storage subsystem. 
+SQL Storage Benchmark (SSB) is an open-source benchmark tool written in Python. It is designed to generate a "real-world" workload that emulates database interaction in such a way to measure the performance of the storage subsystem. 
 
 The intent of SSB is to allow organizations and individuals to measure the performance of their storage subsystem under the stress of a SQL database workload.
 
@@ -49,7 +49,7 @@ Follow the [Getting started](https://github.com/NetApp/SQL_Storage_Benchmark/blo
 
 ### FIO 
 
-FIO stands for Flexible I/O Tester. It is a free and open source disk I/O tool used both for benchmark and stress/hardware verification. 
+Flexible I/O Tester (FIO) is a free and open source disk I/O tool used both for benchmark and stress/hardware verification. 
 
 FIO is available in binary format for both Linux and Windows. 
 
