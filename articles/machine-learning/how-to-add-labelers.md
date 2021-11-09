@@ -43,7 +43,7 @@ You'll need certain permission levels to follow the steps in this article. If yo
 1. In the **JSON** tab, above the edit box, select **Edit**.
 1. Select lines starting with **"actions:"** and **"notActions:"**.
 
-    :::image type="content" source="media/how-to-add-labeler/replace-lines.png" alt-text="Select lines to replace them in the editor.":::
+    :::image type="content" source="media/how-to-add-labeler/replace-lines.png" alt-text="Create custom role: select lines to replace them in the editor.":::
 
 1. Replace these two lines with:
     
@@ -99,7 +99,7 @@ If your labelers are outside of your organization, you'll now add them so that t
 1. Add a message for the new user.
 1. At the bottom of the page, select **Invite**.
 
-    :::image type="content" source="media/how-to-add-labeler/invite-user.png" alt-text="Invite user from Azure Active Directory.":::
+    :::image type="content" source="media/how-to-add-labeler/invite-user.png" alt-text="Invite guest user from Azure Active Directory.":::
 
 Repeat for each of your labelers.  Or use the link at the bottom of the **Invite user** box to invite multiple users in bulk.
 
@@ -112,8 +112,7 @@ Now that you have your labelers added to the system, you're ready to add them to
 
 1. In [Azure portal](https::/portal.azure.com), in the top search field, type **Machine Learning**.  
 1. Select **Machine Learning**.
-
-   ![Search for Azure Machine Learning workspace](./media/how-to-manage-workspace/find-workspaces.png)
+    :::image type="content" source="media/how-to-manage-workspace/find-workspaces.png" alt-text="Search for Azure Machine Learning workspace.":::
 
 1. Select the workspace that contains your data labeling project.
 1. On the left, select **Access control (IAM)**.
