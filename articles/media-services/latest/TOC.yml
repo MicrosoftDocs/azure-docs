@@ -371,9 +371,10 @@
           displayName: trusted storage, storage, access, storage access, security
       - name: Network security
         items:
-          - name: Create a Media Services and Storage account with a Private Link
-            href: security-private-link-how-to.md
-            displayName: security, private link, links, firewall, storage account, storage, private, links, secure
+          - name: Private endpoint connections
+            href: security-private-link-connect-private-endpoint-concept.md
+          - name: Private Link with Azure Media Services
+            href: security-private-link-concept.md
           - name: Key delivery IP allowlist
             href: drm-content-protection-key-delivery-ip-allow.md   
             displayName: DRM, AES, content key, allow list, IP, whitelist, access control, IP allow list, IP restriction, key delivery, license delivery, AES Key, AES-128, common encryption, security, secure, protect, encrypt                
@@ -621,8 +622,10 @@
           href: ../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md
       - name: Network security
         items:
-        - name: How to use Private Link with a media and storage account
-          href: security-private-link-how-to.md
+        - name: Use a Private Link with a Streaming endpoint
+          href: security-private-link-streaming-endpoint-how-to.md
+        - name: How to use Private Link with and ARM template
+          href: security-private-link-arm-how-to.md
           displayName: security, private link, links, firewall, storage account, storage, private, links, secure
       - name: Secure streaming
         items:

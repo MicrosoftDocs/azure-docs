@@ -502,7 +502,7 @@ The following table shows current supported Node.js versions for each major vers
 
 | Functions version | Node version (Windows) | Node Version (Linux) |
 |---|---| --- |
-| 4.x (preview) | `~14` | `node|14` |
+| 4.x | `~14` | `node|14` |
 | 3.x (recommended) | `~14` (recommended)<br/>`~12`<br/>`~10` | `node|14` (recommended)<br/>`node|12`<br/>`node|10` |
 | 2.x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
 | 1.x | 6.11.2 (locked by the runtime) | n/a |

@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 07/13/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -23,7 +23,6 @@ Managed identities for Azure resources provide Azure services with an automatica
 ## Azure services that support managed identities for Azure resources
 
 The following Azure services support managed identities for Azure resources:
-
 
 ### Azure API Management
 
@@ -97,12 +96,12 @@ Refer to the following document to reconfigure a managed identity if you have mo
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | Preview | Preview | Not available | Preview |
-| User assigned | Preview | Preview | Not available | Preview |
+| System assigned | ![Available][Check]| ![Available][Check] | Not available | ![Available][Check] |
+| User assigned | ![Available][Check] | ![Available][Check] | Not available | ![Available][Check] |
 
 Refer to the following documents to use managed identity with [Azure Automation](../../automation/automation-intro.md):
 
-* [Automation account authentication overview - Managed identities](../../automation/automation-security-overview.md#managed-identities-preview)
+* [Automation account authentication overview - Managed identities](../../automation/automation-security-overview.md#managed-identities)
 * [Enable and use managed identity for Automation](../../automation/enable-managed-identity-for-automation.md)
 
 ### Azure Blueprints
@@ -321,7 +320,7 @@ Refer to the following list to configure managed identity for Azure Service Fabr
 | User assigned | Not Available | Not Available | Not Available | Not Available |
 
 
-For more information, see [How to enable system-assigned managed identity for Azure Spring Cloud application](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md).
+For more information, see [How to enable system-assigned managed identity for applications in Azure Spring Cloud](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md).
 
 ### Azure Stack Edge
 

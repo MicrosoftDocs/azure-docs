@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 10/28/2021
 ms.author: banders
 ---
 
@@ -87,6 +87,8 @@ To allow other people to manage reservations, you have two options:
 
 Users that have owner access for reservations orders, users with elevated access, and [User Access Administrators](../../role-based-access-control/built-in-roles.md#user-access-administrator) can delegate access management for all reservation orders they have access to.
 
+Access granted using PowerShell isn't shown in the Azure portal. Instead, you use the `get-AzRoleAssignment` command in the following section to view assigned roles.
+
 ## Assign the owner role for all reservations
 
 Use the following Azure PowerShell script to give a user Azure RBAC access to all reservations orders in their Azure AD tenant (directory).
@@ -107,9 +109,15 @@ $reservationObjects = $responseJSON.value
 foreach ($reservation in $reservationObjects)
 {
   $reservationOrderId = $reservation.id.substring(0, 84)
-  Write-Host "Assiging Owner role assignment to "$reservationOrderId
+  Write-Host "Assigning Owner role assignment to "$reservationOrderId
   New-AzRoleAssignment -Scope $reservationOrderId -ObjectId <ObjectId> -RoleDefinitionName Owner
 }
+```
+
+When you use the PowerShell script to assign the ownership role and it runs successfully, a success message isn’t returned. However, you can verify that the role was assigned with:
+
+```azurepowershell
+get-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" |?{$_.RoleDefinitionName -Like "Reservations*"}
 ```
 
 ### Parameters

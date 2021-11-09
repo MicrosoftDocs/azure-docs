@@ -8,7 +8,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 10/21/2021
 ---
 
 # Distributed GPU training guide

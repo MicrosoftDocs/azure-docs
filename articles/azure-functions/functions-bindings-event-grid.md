@@ -46,28 +46,21 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 #### Event Grid extension 3.x and higher
 
-A new version of the Event Grid bindings extension is available in preview. For .NET applications, it changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventGrid.Models` with newer types from [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid). [Cloud events](/dotnet/api/azure.messaging.cloudevent) are also supported in the new Event Grid extension.
+A new version of the Event Grid bindings extension is now available. For .NET applications, it changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventGrid.Models` with newer types from [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid). [Cloud events](/dotnet/api/azure.messaging.cloudevent) are also supported in the new Event Grid extension.
 
-This extension version is available as a [preview NuGet package] or can be added from the preview extension bundle v3 by adding the following in your `host.json` file:
+This extension version is available by installing the [NuGet package], version 3.x, or it can be added from the extension bundle v3 by adding the following in your `host.json` file:
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
   }
 }
 ```
 
 To learn more, see [Update your extensions].
-
-[preview NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.4
-[core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
-[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[Update your extensions]: ./functions-bindings-register.md
-[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### Functions 1.x
 
