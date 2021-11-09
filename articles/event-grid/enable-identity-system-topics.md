@@ -10,8 +10,8 @@ In this article, you learn how to assign a system-assigned or a user-assigned id
 
 Here are a few important points to note:
 
-- You can assign both system-assigned and user-assigned identities (at most two) to a system topic. 
-- You can enable an identity for system topics associated with global Azure resources such as Azure subscriptions, resource groups, or Azure Maps. System topics for these global sources are also not associated with a specific region.
+- You can assign a system-assigned identity and up to two user-assigned identities to a system topic. 
+- You can enable identities for system topics associated with global Azure resources such as Azure subscriptions, resource groups, or Azure Maps. System topics for these global sources are also not associated with a specific region.
 
 ## Enable managed identity for an existing system topic
 This section shows you how to enable a managed identity for an existing system topic. 
@@ -38,7 +38,7 @@ This section shows you how to enable a managed identity for an existing system t
 1. First, create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) article. 
 1. On the **Identity** page, switch to the **User assigned** tab in the right pane, and then select **+ Add** on the toolbar.
 
-    :::image type="content" source="./media/managed-service-identity/system-topic-user-identity-add-button.png" alt-text="Image showing the Add button seleted in the User assigned tab of the Identity page.":::
+    :::image type="content" source="./media/managed-service-identity/system-topic-user-identity-add-button.png" alt-text="Image showing the Add button selected in the User assigned tab of the Identity page.":::
 1. In the **Add user managed identity** window, follow these steps:
     1. Select the **Azure subscription** that has the user-assigned identity. 
     1. Select the **user-assigned identity**. 
