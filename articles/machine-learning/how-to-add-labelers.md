@@ -13,7 +13,7 @@ ms.date: 11/05/2021
 
 # Add users to your data labeling project
 
-This article shows how to add users to your data labeling project so that they can label data, but not see the rest of your workspace.  You can use these steps for anyone, whether or not they are from [data labeling vendor company](how-to-outsource-data-labeling.md).
+This article shows how to add users to your data labeling project so that they can label data, but not see the rest of your workspace.  You can use these steps to add anyone to your project, whether or not they are from [data labeling vendor company](how-to-outsource-data-labeling.md).
   
 ## Prerequisites
 
@@ -89,7 +89,7 @@ You may want to create a second role for a labeling team lead.  A labeling team 
 
 If your labelers are outside of your organization, you'll now add them so that they can access your workspace.  If labelers are already inside your organization, skip this step.  
 
-1. In the top-left corner, expand the menu and select **Azure Active Directory**.
+1. In [Azure portal](https::/portal.azure.com), in the top-left corner, expand the menu and select **Azure Active Directory**.
 
     :::image type="content" source="media/how-to-add-labeler/menu-active-directory.png" alt-text="Select Azure Active Directory from the menu.":::
 
@@ -110,7 +110,7 @@ Repeat for each of your labelers.  Or use the link at the bottom of the **Invite
 
 Now that you have your labelers added to the system, you're ready to add them to your workspace.  
 
-1. In the top search field, type **Machine Learning**.  
+1. In [Azure portal](https::/portal.azure.com), in the top search field, type **Machine Learning**.  
 1. Select **Machine Learning**.
 
    ![Search for Azure Machine Learning workspace](./media/how-to-manage-workspace/find-workspaces.png)
