@@ -49,7 +49,7 @@ Currently, replication task templates are available for [Azure Event Hubs](../ev
 | Resource type | Replication source and target |
 |---------------|-------------------------------|
 | Azure Event Hubs namespace | - Event Hubs instance to Event Hubs instance <br>- Event Hubs instance to Service Bus queue <br>- Event Hubs instance to Service Bus topic |
-| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Service Bus topic <br>- Service Bus queue to Event Hub instance <br>- Service Bus topic subscription to Service Bus queue <br>- Service Bus topic subscription to Event Hubs instance |
+| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic to Service Bus topic <br>- Service Bus queue to Event Hub instance <br>- Service Bus topic to Service Bus queue <br>- Service Bus topic to Event Hubs instance |
 |||
 
 ### Replication topology and workflow
@@ -255,9 +255,9 @@ This example shows how to create a replication task for Service Bus queues.
 
 1. On the **Add a task** pane, under **Select a template**, in the template for the replication task that you want to create, select **Select**. If the next page doesn't appear, select **Next: Authenticate**.
 
-   This example continues by selecting the **Replicate to Service Bus queue** task template, which replicates content between Service Bus queues.
+   This example continues by selecting the **Replicate from Service Bus queue to queue** task template, which replicates content between Service Bus queues.
 
-   ![Screenshot showing the "Add a task" pane with "Replicate to Service Bus" template selected.](./media/create-replication-tasks-azure-resources/select-replicate-service-bus-template.png)
+   ![Screenshot showing the "Add a task" pane with "Replicate from Service Bus queue to queue" template selected.](./media/create-replication-tasks-azure-resources/select-replicate-service-bus-template.png)
 
 1. On the **Authenticate** tab, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
 
