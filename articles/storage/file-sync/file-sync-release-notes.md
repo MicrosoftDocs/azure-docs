@@ -61,6 +61,7 @@ The following release notes are for version 14.0.0.0 of the Azure File Sync agen
 
 - Miscellaneous improvements
 	- Azure File Sync is now supported in West US 3 region.
+	- Fixed a bug that caused the FileSyncErrorsReport.ps1 script to not provide the list of all per-item errors.
 	- Reduced transactions when a file consistently fails to upload due to a per-item sync error.
 	- Reliability and telemetry improvements for cloud tiering and sync. 
 
