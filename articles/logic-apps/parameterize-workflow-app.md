@@ -172,6 +172,17 @@ The following example shows a parameterized **connections.json** file that uses 
 }
 ```
 
+> [!NOTE]
+> When you have an expression that's inline with plain text, make sure to use the interpolated 
+> format for that expression by enclosing that expression with curly braces ({}). This format helps 
+> avoid parsing problems.
+>
+> For example, if you have `"<text>/@<function-name>('<parameter-name>')/<text>"`, 
+> use the following version instead: `"<text>/@{<function-name>('<parameter-name>')}/<text>"`. 
+>
+> For more information, review [Considerations for using functions](workflow-definition-language-functions-reference.md#function-considerations).
+     
+
 ## Manage parameters files
 
 Typically, you need to manage multiple versions of parameters files. You might have targeted values for different deployment environments, such as development, testing, and production. Managing these parameters files often works like managing ARM template parameters files. When you deploy to a specific environment, you promote the corresponding parameters file, generally through a pipeline for DevOps.
