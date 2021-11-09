@@ -147,6 +147,4 @@ az deployment group create `
     vmName=$vmName
 
 ```
-Example:
 
-![Deploy CVM](media/quick-create-ARM-amd-cvm/Deploy-CVM.PNG)]
