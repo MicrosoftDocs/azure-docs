@@ -59,7 +59,7 @@ Other elements are collapsed for brevity, but the following links can provide th
 
 ## Field definitions
 
-A search document is defined by the `fields` collection. You will need fields for document identification (keys), storing searchable text, and fields for supporting filters, facets, and sorts. You might also need fields for data that a user never sees, for example you might want fields for profit margins or marketing promotions that you can use to modify search rank.
+A search document is defined by the `fields` collection. You will need fields for document identification (keys), storing searchable text, and fields for supporting filters, facets, and sorts. You might also need fields for data that a user never sees. For example, you might want fields for profit margins or marketing promotions that you can use to modify search rank.
 
 One field of type Edm.String must be designated as the document key. It's used to uniquely identify each search document and is case-sensitive. You can retrieve a document by its key to populate a details page.
 
