@@ -105,4 +105,3 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 ## See also
 
 - [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
-- [Mount Blob storage by using Secure File Transfer (SFTP) protocol](network-file-system-protocol-support-how-to.md)
