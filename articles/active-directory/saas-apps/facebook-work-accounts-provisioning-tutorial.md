@@ -81,7 +81,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, click on **Authorize**. You will be redirected to **Facebook Work Accounts**'s authorization page. Input your Facebook Work Accounts username and click on the **Continue** button. Click **Test Connection** to ensure Azure AD can connect to Facebook Work Accounts. If the connection fails, ensure your Facebook Work Accounts account has Admin permissions and try again.
 
-    ![OAuth Screen](media/facebook-work-accounts-provisioning-tutorial/AzureConnect.png)
+    :::image type="content" source="media/facebook-work-accounts-provisioning-tutorial/azure-connect.png" alt-text="OAuth Screen":::
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
