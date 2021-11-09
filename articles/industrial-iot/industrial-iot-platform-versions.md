@@ -1,11 +1,11 @@
 ---
 title: Azure Industrial IoT platform versions
 description: This article provides an overview of the existing version of the Industrial IoT platform and their support.
-author: jehona-m
-ms.author: jemorina
+author: monikavar
+ms.author: movarshn
 ms.service: industrial-iot
 ms.topic: overview
-ms.date: 11/03/2021
+ms.date: 11/09/2021
 ---
 # Azure Industrial IoT Platform Release 2.8.1
 We are pleased to announce the release of version 2.8.1 of our Industrial IoT Platform components as the first patch update of the 2.8 Long-Term Support (LTS) release. This release contains important security updates, bugfixes and performance optimizations.
