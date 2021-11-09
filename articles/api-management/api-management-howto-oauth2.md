@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/05/2021
+ms.date: 11/08/2021
 ms.author: danlep
 ---
 
@@ -29,16 +29,26 @@ If you have not yet created an API Management service instance, see [Create an A
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## Authorization flows
+## Authorization grant types
  
-OAuth 2.0 supports the following authorization flows. You may configure one or more authorization grant types, depending on your environment and developer needs. 
+Azure API Management supports the following OAuth 2.0 grant types and authorization code flows. A grant type refers to a way for your client application to obtain an access token to your backend API. You may configure one or more grant types, depending on your OAuth provider and scenarios. 
+
+For more information, see the [OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749) and [OAuth grant types](https://oauth.net/2/grant-types/),
 
 
+|Grant type  |Description  |Scenarios  |
+|---------|---------|---------|
+|Authorization code     | Exchanges authorization code for token         |  Server-side apps such as web apps      |
+|Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Public clients such as native apps and JavaScript apps<br/><br/>Not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it is received by client     |
+|Resource owner   | Requests user credentials (username and password), typically using an interactive form |    For use with highly trusted applications<br/><br/>Should only be used when other, more secure flows cannot be used        |
+|Client credentials     | Authenticates and authorizes an app rather than a user       |  Machine-to-machine (M2M) applications, such as CLIs, daemons, or services running on your backend       |
 
+> [!WARNING]
+> Consider the security risks of your grant type choices and scope permissions. If your grant type directly exposes an access token, it can be retrieved through the test console in the developer portal. It could be used by a malicious actor to access additional resources with the scopes granted by the user. 
 
 ## <a name="step1"> </a>Configure an OAuth 2.0 authorization server in API Management
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Manatement instance.
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 
 1. Under the Developer portal section in the side menu, select **OAuth 2.0 + OpenID Connect**.
 
@@ -59,7 +69,7 @@ OAuth 2.0 supports the following authorization flows. You may configure one or m
 
 1. The next section of the form contains the **Authorization grant types**, **Authorization endpoint URL**, and **Authorization request method** settings.
 
-    * Specify the **Authorization grant types** by checking the desired types. **Authorization code** is specified by default. [Learn more](#authorization-flows).
+    * Specify the **Authorization grant types** by checking the desired types. **Authorization code** is specified by default. [Learn more](#authorization-grant-types).
 
     * Enter the **Authorization endpoint URL**. For Azure Active Directory, this URL will be similar to the following URL, where `<tenant_id>` is replaced with the ID of your Azure AD tenant.
 
