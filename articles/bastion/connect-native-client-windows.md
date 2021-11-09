@@ -11,7 +11,7 @@ ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
 
-# Connect to a VM using Bastion and the native client on your Windows computer
+# Connect to a VM using Bastion and the native client on your Windows computer (Preview)
 
 Azure Bastion now offers support for connecting to target VMs in Azure using a native client on your Windows workstation. This feature lets you connect to your target VMs via Bastion using Azure CLI and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). This article helps you configure Bastion with the required settings, and then connect to a VM in the VNet. For more information, see the [What is Azure Bastion?](bastion-overview.md).
 
