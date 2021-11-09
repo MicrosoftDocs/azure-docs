@@ -1,6 +1,6 @@
 ---
 title: Pipeline Failure and Error Message
-description: Understand how pipeline failure status and error message is determined
+description: Understand how pipeline failure status and error message are determined
 ms.service: data-factory
 ms.subservice: orchestration
 author: chez-charlie
@@ -55,7 +55,7 @@ Approach | Defines | When activity <font style="color: green">succeeds</font>, o
 
 ### How pipeline failure are determined
 
-Different error handling mechanisms will lead to different status for the pipeline: while some pipelines fail, while others succeed. We determine pipeline success and failures as follows:
+Different error handling mechanisms will lead to different status for the pipeline: while some pipelines fail, others succeed. We determine pipeline success and failures as follows:
 
 * Evaluate outcome for all leaves activities. If a leaf activity was skipped, we evaluate its parent activity instead
 * Pipeline result is success if and only if all nodes evaluated succeed
