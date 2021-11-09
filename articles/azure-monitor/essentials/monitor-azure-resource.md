@@ -90,7 +90,7 @@ The **Insights** menu item opens the insight for the resource if the Azure servi
 
 See [Insights and Core solutions](../monitor-reference.md#insights-and-curated-visualizations) for a list of insights that are available and links to their documentation.
 
-:::image type="content" source="media/monitor-azure-resource/insights.png" lightbox="media/monitor-azure-resource/insights.png" alt-text="Insights":::
+:::image type="content" source="media/monitor-azure-resource/insights.png" lightbox="media/monitor-azure-resource/insights.png" alt-text="Insights screenshot":::
 
 ## Next steps
 Now that you have a basic understanding of Azure Monitor, get start analyzing some metrics for an Azure resource.
