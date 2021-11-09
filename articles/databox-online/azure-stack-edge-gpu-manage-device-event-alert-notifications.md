@@ -92,15 +92,15 @@ Take the following steps in the Azure portal to create an action rule for your A
 
 7. Give the new action rule a **Name** and **Description** (optional), and assign the rule to a resource group.
 
-9. The new rule is enabled by default. If you don't want to start using the rule immediately, select **No** for **Enable rule update creation**.
+8. The new rule is enabled by default. If you don't want to start using the rule immediately, select **No** for **Enable rule update creation**.
 
-10. When you finish your settings, select **Create**.
+9. When you finish your settings, select **Create**.
 
     ![Screenshot of the Create Action Rule screen showing a completed action rule that will send alert notifications for an Azure Stack Edge resource.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-completed-settings.png)
 
     The **Action rules (Preview)** screen opens, but you might not see your new action rule immediately. The focus is **All** resource groups.
 
-11. To see your new action rule, select the resource group for the rule.
+10. To see your new action rule, select the resource group for the rule.
 
     ![Screenshot showing action rules for an Azure Stack Edge resource on the Action Rules Preview screen. The new action rule is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-displayed.png)
 
