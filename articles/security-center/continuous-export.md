@@ -15,7 +15,7 @@ ms.author: memildin
 
 Microsoft Defender for Cloud generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You might also need to export some or all of this information for tracking with other monitoring tools in your environment. 
 
-**Continuous export** lets you fully customize *what* will be exported, and *where* it will go. For example, you can configure it so that:
+You fully customize *what* will be exported, and *where* it will go with **continuous export**. For example, you can configure it so that:
 
 - All high severity alerts are sent to an Azure Event Hub
 - All medium or higher severity findings from vulnerability assessment scans of your SQL servers are sent to a specific Log Analytics workspace
