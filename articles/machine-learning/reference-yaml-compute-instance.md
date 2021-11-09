@@ -44,11 +44,11 @@ The `az ml compute` command can be used for managing Azure Machine Learning comp
 
 ## YAML: minimal
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-minimal.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-minimal.yml":::
 
 ## YAML: basic
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-basic.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-basic.yml":::
 
 ## Next steps
 

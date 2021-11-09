@@ -46,19 +46,19 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: identity-based access
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-credless.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob-credless.yml":::
 
 ## YAML: account key
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob.yml":::
 
 ## YAML: wasbs protocol
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-protocol.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob-protocol.yml":::
 
 ## YAML: sas token
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/blob-sas.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob-sas.yml":::
 
 ## Next steps
 
