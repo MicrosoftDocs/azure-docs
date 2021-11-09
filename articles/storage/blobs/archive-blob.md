@@ -17,7 +17,7 @@ ms.subservice: blobs
 
 The Archive tier is an offline tier for storing blob data that is rarely accessed. The Archive tier offers the lowest storage costs, but higher data retrieval costs and latency compared to the online tiers (Hot and Cool). Data must remain in the Archive tier for at least 180 days or be subject to an early deletion charge. For more information about the Archive tier, see [Archive access tier](access-tiers-overview.md#archive-access-tier).
 
-While a blob is in the Archive tier, it can't be read or modified. To read or download a blob in the Archive tier, you must first rehydrate it to an online tier, either hot or cool. Data in the Archive tier can take up to 15 hours to rehydrate, depending on the priority you specify for the rehydration operation. For more information about blob rehydration, see [Overview of blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+While a blob is in the Archive tier, it can't be read or modified. To read or download a blob in the Archive tier, you must first rehydrate it to an online tier, either Hot or Cool. Data in the Archive tier can take up to 15 hours to rehydrate, depending on the priority you specify for the rehydration operation. For more information about blob rehydration, see [Overview of blob rehydration from the Archive tier](archive-rehydrate-overview.md).
 
 > [!CAUTION]
 > A blob in the Archive tier is offline &mdash; that is, it cannot be read or modified &mdash; until it is rehydrated. The rehydration process can take several hours and has associated costs. Before you move data to the Archive tier, consider whether taking blob data offline may affect your workflows.
@@ -38,7 +38,7 @@ To archive a blob or set of blobs on upload from the Azure portal, follow these 
 1. Expand the **Advanced** section, and set the **Access tier** to *Archive*.
 1. Select the **Upload** button.
 
-    :::image type="content" source="media/archive-blob/upload-blobs-archive-portal.png" alt-text="Screenshot showing how to upload blobs to the archive tier in the Azure portal":::
+    :::image type="content" source="media/archive-blob/upload-blobs-archive-portal.png" alt-text="Screenshot showing how to upload blobs to the Archive tier in the Azure portal":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -110,7 +110,7 @@ You can move an existing blob to the Archive tier in one of two ways:
 
 Use the **Set Blob Tier** operation to move a blob from the Hot or Cool tier to the Archive tier. The **Set Blob Tier** operation is best for scenarios where you will not need to access the archived data before the early deletion interval has elapsed.
 
-The **Set Blob Tier** operation changes the tier of a single blob. To move a set of blobs to the archive tier with optimum performance, Microsoft recommends performing a bulk archive operation. The bulk archive operation sends a batch of **Set Blob Tier** calls to the service in a single transaction. For more information, see [Bulk archive](#bulk-archive).  
+The **Set Blob Tier** operation changes the tier of a single blob. To move a set of blobs to the Archive tier with optimum performance, Microsoft recommends performing a bulk archive operation. The bulk archive operation sends a batch of **Set Blob Tier** calls to the service in a single transaction. For more information, see [Bulk archive](#bulk-archive).  
 
 #### [Portal](#tab/azure-portal)
 
@@ -226,6 +226,6 @@ For an in-depth sample application that shows how to change tiers with a batch o
 
 ## See also
 
-- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md)
+- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
 - [Blob rehydration from the Archive tier](archive-rehydrate-overview.md)
 - [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)

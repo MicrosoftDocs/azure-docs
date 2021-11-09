@@ -1,12 +1,11 @@
 ---
 title: Manage multiple tenants in Azure Sentinel as a Managed Security Service Provider | Microsoft Docs
-description:  How to onboard and manage multiple tenants in Azure Sentinel as a Managed Security Service Provider (MSSP) using Azure Lighthouse.
+description: How to onboard and manage multiple tenants in Azure Sentinel as a Managed Security Service Provider (MSSP) using Azure Lighthouse.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Manage multiple tenants in Azure Sentinel as an MSSP
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 If you're a managed security service provider (MSSP) and you're using [Azure Lighthouse](../lighthouse/overview.md) to offer security operations center (SOC) services to your customers, you can manage your customers' Azure Sentinel resources directly from your own Azure tenant, without having to connect to the customer's tenant. 
 
@@ -51,4 +53,3 @@ If you're a managed security service provider (MSSP) and you're using [Azure Lig
 In this document, you learned how to manage multiple Azure Sentinel tenants seamlessly. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
-

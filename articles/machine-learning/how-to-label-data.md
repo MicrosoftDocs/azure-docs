@@ -7,8 +7,8 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/24/2021
-ms.custom: data4ml
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Labeling images and text documents
@@ -47,15 +47,23 @@ In all data labeling tasks, you choose an appropriate tag or tags from a set tha
 
 Machine learning algorithms may be triggered during your labeling. If these algorithms are enabled in your project, you may see the following:
 
-* For images, after some amount of data have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  
+* Images
 
-* At a later point, you may see **Tasks prelabeled** next to the project name.  Items will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data might still be incorrectly prelabeled.  When you see labels, correct any wrong labels before submitting the page.  
+    * After some amount of data have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  
+    
+    * At a later point, you may see **Tasks prelabeled** next to the project name.  Items will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data might still be incorrectly prelabeled.  When you see labels, correct any wrong labels before submitting the page.  
+    
+    * For object identification models, you may see bounding boxes and labels already present.  Correct any that are incorrect before submitting the page.
+    
+    * For segmentation models, you may see polygons and labels already present.  Correct any that are incorrect before submitting the page. 
 
-* For object identification models, you may see bounding boxes and labels already present.  Correct any that are incorrect before submitting the page.
-
-* For segmentation models, you may see polygons and labels already present.  Correct any that are incorrect before submitting the page. 
+* Text
+    
+    * At some point, you may see **Tasks prelabeled** next to the project name.  Items will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data might still be incorrectly prelabeled.  When you see labels, correct any wrong labels before submitting the page.
 
 Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
+
+When there are no more prelabled tasks, you'll stop confirming or correcting labels and go back to manually tagging the items.
 
 ## <a name="image-tasks"></a> Image tasks
 
@@ -191,5 +199,3 @@ When you're done labeling, select your name in the upper-right corner of the lab
 ## Next steps
 
 * Learn to [train image classification models in Azure](./tutorial-train-models-with-aml.md)
-
-

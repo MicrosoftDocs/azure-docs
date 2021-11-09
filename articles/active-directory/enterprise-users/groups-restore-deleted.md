@@ -16,10 +16,10 @@ ms.collection: M365-identity-device-management
 ---
 # Restore a deleted Microsoft 365 group in Azure Active Directory
 
-When you delete an Microsoft 365 group in the Azure Active Directory (Azure AD), the deleted group is retained but not visible for 30 days from the deletion date. This behavior is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Microsoft 365 groups in Azure AD. It is not available for security groups and distribution groups. Please note that the 30-day group restoration period is not customizable.
+When you delete a Microsoft 365 group in the Azure Active Directory (Azure AD), the deleted group is retained but not visible for 30 days from the deletion date. This behavior is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Microsoft 365 groups in Azure AD. It is not available for security groups and distribution groups. Please note that the 30-day group restoration period is not customizable.
 
 > [!NOTE]
-> Don't use `Remove-MsolGroup` because it purges the group permanently. Always use `Remove-AzureADMSGroup` to delete an Microsoft 365 group.
+> Don't use `Remove-MsolGroup` because it purges the group permanently. Always use `Remove-AzureADMSGroup` to delete a Microsoft 365 group.
 
 The permissions required to restore a group can be any of the following:
 
@@ -79,7 +79,7 @@ Once you have verified that the group is still available to restore, restore the
 
 ## How do you know this worked?
 
-To verify that you’ve successfully restored an Microsoft 365 group, run the `Get-AzureADGroup –ObjectId <objectId>` cmdlet to display information about the group. After the restore request is completed:
+To verify that you’ve successfully restored a Microsoft 365 group, run the `Get-AzureADGroup –ObjectId <objectId>` cmdlet to display information about the group. After the restore request is completed:
 
 - The group appears in the Left navigation bar on Exchange
 - The plan for the group will appear in Planner
