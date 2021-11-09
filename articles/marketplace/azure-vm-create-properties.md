@@ -6,6 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
+msreviewer: amhindma
 ms.date: 11/10/2021
 ---
 
