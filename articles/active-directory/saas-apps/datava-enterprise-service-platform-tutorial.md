@@ -144,4 +144,4 @@ When you click the Datava Enterprise Service Platform tile in the Access Panel, 
 
 - [Try Datava Enterprise Service Platform with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)

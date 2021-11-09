@@ -147,6 +147,6 @@ When you click the Momenta tile in the Access Panel, you should be automatically
 
 - [Try Momenta with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Momenta with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
