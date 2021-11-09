@@ -88,7 +88,7 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/down
     > [!TIP]
     > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. If your configuration is correct, then this warning can be safely ignored as it should not impact the use of the console. 
 
-1. Next run `:remote console` to redirect all console commands to the remote server.
+1. Next run `:remote console` to redirect all consoles to the remote server.
 
    > [!NOTE]
    > If you don't run the `:remote console` command but would like to redirect all console commands to the remote server, you should prefix the command with `:>`, for example you should run the command as `:> g.V().count()`. This prefix is a part of the command and it is important when using the Gremlin console with Azure Cosmos DB. Omitting this prefix instructs the console to execute the command locally, often against an in-memory graph. Using this prefix `:>` tells the console to execute a remote command, in this case against Azure Cosmos DB (either the localhost emulator, or an Azure instance).
@@ -97,7 +97,7 @@ Great! Now that we finished the setup, let's start running some console commands
 
 Let's try a simple count() command. Type the following into the console at the prompt:
 
-```console command
+```console
 g.V().count()
 ```
 
@@ -107,7 +107,7 @@ Let's begin by adding five person vertices for *Thomas*, *Mary Kay*, *Robin*, *B
 
 Input (Thomas):
 
-```console command
+```console
 g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1).property('pk', 'pk')
 ```
 
@@ -119,7 +119,7 @@ Output:
 
 Input (Mary Kay):
 
-```console command
+```console 
 g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2).property('pk', 'pk')
 
 ```
@@ -133,7 +133,7 @@ Output:
 
 Input (Robin):
 
-```console command
+```console 
 g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3).property('pk', 'pk')
 ```
 
@@ -145,7 +145,7 @@ Output:
 
 Input (Ben):
 
-```console command
+```console 
 g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4).property('pk', 'pk')
 
 ```
@@ -158,7 +158,7 @@ Output:
 
 Input (Jack):
 
-```console command
+```console
 g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5).property('pk', 'pk')
 ```
 
@@ -173,7 +173,7 @@ Next, let's add edges for relationships between our people.
 
 Input (Thomas -> Mary Kay):
 
-```console command
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
@@ -185,7 +185,7 @@ Output:
 
 Input (Thomas -> Robin):
 
-```console command
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
@@ -197,7 +197,7 @@ Output:
 
 Input (Robin -> Ben):
 
-```console command
+```console
 g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
@@ -212,7 +212,7 @@ Output:
 Let's update the *Thomas* vertex with a new age of *45*.
 
 Input:
-```console command
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 Output:
@@ -229,7 +229,7 @@ First, let's try a query with a filter to return only people who are older than 
 
 Input (filter query):
 
-```console command
+```console
 g.V().hasLabel('person').has('age', gt(40))
 ```
 
@@ -243,7 +243,7 @@ Next, let's project the first name for the people who are older than 40 years ol
 
 Input (filter + projection query):
 
-```console command
+```console 
 g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
@@ -259,7 +259,7 @@ Let's traverse the graph to return all of Thomas's friends.
 
 Input (friends of Thomas):
 
-```console command
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
@@ -274,7 +274,7 @@ Next, let's get the next layer of vertices. Traverse the graph to return all the
 
 Input (friends of friends of Thomas):
 
-```console command
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 Output:
@@ -289,7 +289,7 @@ Let's now delete a vertex from the graph database.
 
 Input (drop Jack vertex):
 
-```console command
+```console 
 g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
@@ -299,7 +299,7 @@ Finally, let's clear the database of all vertices and edges.
 
 Input:
 
-```console command
+```console
 g.E().drop()
 g.V().drop()
 ```
