@@ -50,7 +50,7 @@ Select a **Subscription** and **Resource group** for the action group and give i
 
 :::image type="content" source="./media/azure-monitor-horizontal/alert-rule-action-group-basics.png" lightbox="./media/azure-monitor-horizontal/alert-rule-create-action-basics.png" alt-text="Action group basics":::
 
-Select **Notifications** and add one or mre methods to notify appropriate people when the alert is fired.
+Select **Notifications** and add one or more methods to notify appropriate people when the alert is fired.
 
 :::image type="content" source="./media/azure-monitor-horizontal/alert-rule-action-group-notifications.png" lightbox="./media/azure-monitor-horizontal/alert-rule-action-group-notifications.png" alt-text="Action group notifications":::
 

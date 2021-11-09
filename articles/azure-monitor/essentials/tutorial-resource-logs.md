@@ -57,9 +57,9 @@ Click **Save** to save the diagnostic settings.
     
  
  ## Use a log query to retrieve logs
-Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). A set of precreated queries are available for many Azure services so that you don't require knowledge of KQL to get started.
+Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). A set of precreated queries is available for many Azure services so that you don't require knowledge of KQL to get started.
 
-Select **Logs** from your resource's menu. Log Analytics opens with the **Queries** windowthat includes  prebuilt queries for your **Resource type**. 
+Select **Logs** from your resource's menu. Log Analytics opens with the **Queries** window that includes  prebuilt queries for your **Resource type**. 
 
 > [!NOTE]
 > If the **Queries** window doesn't open, click **Queries** in the top right. 
