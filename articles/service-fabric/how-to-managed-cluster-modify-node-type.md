@@ -260,35 +260,6 @@ Service Fabric managed cluster does not support in-place modification of the VM 
 * [Delete old node type](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal)
 
 
-## Enable encryption at host (preview)
-
-This encryption method improves on [Azure Disk encryption](how-to-managed-cluster-enable-disk-encryption.md) by supporting any OS types and images, including custom images, for your VMs by encrypting data in the Azure Storage service. This method does not use your VM's CPU nor does it impact your VM's performance enabling workloads to fully use all of the VM SKUs resources.
-
-> [!Note]
-> You can not enable on existing node types. You must provision a new node type and migrate your workload.
-
-To enable encryption at host on a managed cluster node type:
-1) Review the following [restrictions](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) to validate the meet your requirements
-
-2) Setup the required [prerequsites](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites)
-
-3) Set the following in the managed cluster template in each node type you want this enabled for
-
-   * The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
-
-   ```json
-        {
-               "apiVersion": "[variables('sfApiVersion')]",
-               "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-               "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-               "location": "[resourcegroup().location]",
-               "properties": {
-                   "enableEncryptionAtHost": true
-                   ...
-               }
-       }
-   ```
-
 
 ## Configure multiple managed disks (preview)
 Service Fabric managed clusters by default configure one managed disk. By configuring the following optional properties and values you can add additional managed disks to node types within a cluster. You are able to specify the drive letter, disk type, and size per disk.
@@ -297,7 +268,7 @@ Configure additional managed disks by declaring `additionalDataDisks` property a
 
 **Feature Requirements**
 * Lun must be unique per disk and can not use reserved lun 0
-* Disk letter can not use reserved letters C or D and can not be modified once created
+* Disk letter can not use reserved letters C or D and can not be modified once created. S will be used as default if not specified.
 * Must specify a [supported disk type](how-to-managed-cluster-managed-disk.md)
 * The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
 
@@ -311,8 +282,8 @@ Configure additional managed disks by declaring `additionalDataDisks` property a
                 "additionalDataDisks": {
                     "lun": "1",
                     "diskSizeGB": "50",
-                    "diskType": "LRS_Standard",
-                    "diskLetter": "E" 
+                    "diskType": "Standard_LRS",
+                    "diskLetter": "S" 
             }
         }
      }
@@ -325,7 +296,7 @@ See [full list of parameters available](../templates/microsoft.servicefabric/202
 Service Fabric managed clusters by default configure a Service Fabric data disk and automatically configure the drive letter on all nodes of a node type. By configuring these optional properties and values you can specify and retrieve the Service Fabric data disk letter if you have specific requirements for drive letter mapping.
 
 **Feature Requirements**
-* Disk letter can not use reserved letters C or D and can not be modified once created
+* Disk letter can not use reserved letters C or D and can not be modified once created. S will be used as default if not specified.
 * The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
 
 ```json
@@ -335,7 +306,7 @@ Service Fabric managed clusters by default configure a Service Fabric data disk 
             "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
             "location": "[resourcegroup().location]",
             "properties": {
-                "dataDiskLetter": "E"      
+                "dataDiskLetter": "S"      
             }
         }
      }
