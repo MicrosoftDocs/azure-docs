@@ -206,13 +206,13 @@ If you've already installed Visual Studio 2022:
     ### [.NET 6.0](#tab/net60)
     
     ```dotnetcli
-    dotnet new webapp -n MyFirstAzureWebApp -f net6.0
+    dotnet new webapp -f net6.0
     ```
     
     ### [.NET Framework 4.8](#tab/netframework48)
     
     ```dotnetcli
-    dotnet new webapp -n MyFirstAzureWebApp --target-framework-override net48
+    dotnet new webapp --target-framework-override net48
     ```
     
     > [!IMPORTANT]
