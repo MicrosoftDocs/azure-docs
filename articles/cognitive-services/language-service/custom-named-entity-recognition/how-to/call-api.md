@@ -95,7 +95,8 @@ You can find more details about the results in the next section.
 ### Submit custom NER task
 
 > [!NOTE]
-> The project name is-case sensitive.
+> * The project name is-case sensitive.
+> * You can also [use the SDK](#use-the-sdk) to submit custom NER tasks. 
 
 Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
 
