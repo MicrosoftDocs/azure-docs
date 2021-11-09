@@ -138,8 +138,8 @@ The tables below show the current billable status for each DPS service API opera
 | API | Operation | Billable? |
 | --------------- | -------  | -- |
 |  Device API | [Device Registration Status Lookup](/api/iot-dps/device/runtime-registration/device-registration-status-lookup) | Yes|
-|  Device API | [Operation Status Lookup](api/iot-dps/device/runtime-registration/operation-status-lookup)| No |
-|  Device API | [Register Device](api/iot-dps/device/runtime-registration/register-device) | No |
+|  Device API | [Operation Status Lookup](/api/iot-dps/device/runtime-registration/operation-status-lookup)| No |
+|  Device API | [Register Device](/api/iot-dps/device/runtime-registration/register-device) | No |
 | DPS Service API (registration state)  | [Delete](/api/iot-dps/service/device-registration-state/delete) | Yes|
 | DPS Service API (registration state)  | [Get](/api/iot-dps/service/device-registration-state/get) | Yes|
 | DPS Service API (registration state)  | [Query](/api/iot-dps/service/device-registration-state/query) | Yes|
@@ -161,7 +161,7 @@ The tables below show the current billable status for each DPS service API opera
 |  DPS Certificate API| [Get](/api/iot-dps/dps-certificate/get) | No |
 |  DPS Certificate API| [List](/api/iot-dps/dps-certificate/list) |No  |
 |  DPS Certificate API| [Verify Certificate](/api/iot-dps/dps-certificate/verify-certificate) | No |
-|  IoT DPS Resource API| [Check Provisioning Service Name Availability](/pi/iot-dps/iot-dps-resource/check-provisioning-service-name-availability)  | No |
+|  IoT DPS Resource API| [Check Provisioning Service Name Availability](/api/iot-dps/iot-dps-resource/check-provisioning-service-name-availability)  | No |
 |  IoT DPS Resource API| [Create or Update](/api/iot-dps/iot-dps-resource/create-or-update)  | No |
 |  IoT DPS Resource API| [Delete](/api/iot-dps/iot-dps-resource/delete) |  No|
 |  IoT DPS Resource API| [Get](/api/iot-dps/iot-dps-resource/get) | No |
