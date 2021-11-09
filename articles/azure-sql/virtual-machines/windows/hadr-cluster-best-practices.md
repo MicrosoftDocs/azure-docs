@@ -54,7 +54,7 @@ For your SQL Server availability group or failover cluster instance, consider th
    `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.   
    Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value.   
    - **Max failures in a specified period**: Set this value to 6. 
-* When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
+* When using the virtual network name (VNN) and an Azure Load Balancer to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
    - If the client does not support `MultiSubnetFailover = True` you may need to set `RegisterAllProvidersIP = 0` and `HostRecordTTL = 300` to cache client credentials for shorter durations. However, doing so may cause additional queries to the DNS server. 
 - To connect to your HADR solution using the distributed network name (DNN), consider the following:
    - You must use a client driver that supports `MultiSubnetFailover = True`, and this parameter must be in the connection string. 
@@ -111,11 +111,11 @@ When modifying the node vote settings, follow these guidelines:
 
 ## Connectivity
 
-To match the on-premises experience for connecting to your availability group listener or failover cluster instance, deploy your SQL Server VMs to multiple subnets within the same virtual network. Having multiple subnets negates the need for the extra dependency on an Azure Load Balancer, or a distributed network name to route your traffic to your listener. 
+To match the on-premises experience for connecting to your availability group listener or failover cluster instance, deploy your SQL Server VMs to multiple subnets within the same virtual network. Having multiple subnets negates the need for the extra dependency on an Azure Load Balancer, or a distributed network name to route your traffic to your listener.  
 
-To simplify your HADR solution, deploy your SQL Server VMs to multiple subnets whenever possible. 
+To simplify your HADR solution, deploy your SQL Server VMs to multiple subnets whenever possible.  To learn more, see [Multi-subnet AG](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md), and [Multi-subnet FCI](failover-cluster-instance-prepare-vm.md#subnets). 
 
-If your SQL Server VMs are in a single subnet, it's possible to configure either a virtual network name (VNN), or a distributed network name (DNN) for both failover cluster instances and availability group listeners. 
+If your SQL Server VMs are in a single subnet, it's possible to configure either a virtual network name (VNN) and an Azure Load Balancer, or a distributed network name (DNN) for both failover cluster instances and availability group listeners. 
 
 The distributed network name is the recommended connectivity option, when available: 
 - The end-to-end solution is more robust since you no longer have to maintain the load balancer resource. 
@@ -124,7 +124,7 @@ The distributed network name is the recommended connectivity option, when availa
 
 Consider the following limitations: 
 - The client driver must support the `MultiSubnetFailover=True` parameter. 
-- The DNN feature is available starting with [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) and later, [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) and later, or [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) and later on Windows Server 2016 and later.
+- The DNN feature is available starting with [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31), [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9), and [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) on Windows Server 2016 and later.
 
 To learn more, see the [Windows Server Failover Cluster overview](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn). 
 
@@ -135,7 +135,7 @@ To configure connectivity, see the following articles:
 Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) and [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 
 >[!TIP]
-> Set the MultiSubnetFailover parameter = true in the connection string even for HADR solutions that span a single subnet to support future spanning of subnets without the need to update connection strings.  
+> Set the MultiSubnetFailover parameter = true in the connection string even for HADR solutions that span a single subnet to support future spanning of subnets without needing to update connection strings.  
 
 ## Heartbeat and threshold 
 

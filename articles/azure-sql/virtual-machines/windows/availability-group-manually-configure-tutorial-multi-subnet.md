@@ -92,8 +92,9 @@ To create the cluster, follow these steps:
    | Access Point for Administering the Cluster |Type a cluster name, for example **SQLAGCluster1** in **Cluster Name**.|
    | Confirmation | Uncheck **Add all eligible storage to the cluster** and select **Next**. |
    | Summary | Select **Finish**. | 
+
    >[!WARNING]
-   >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they don't appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
+   >If you do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they don't appear in Disk Manager or Explorer until the storage is removed from the cluster and reattached using PowerShell. 
    > 
    
 
@@ -264,7 +265,7 @@ To create your availability group, follow these steps.
 
     :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/12-newagname.png" alt-text="New availability group Wizard, Specify availability group Name":::
 
-1. On the **Select Databases** page, select your database, and then select **Next**. If your database does not meet the prerequisites, [take a backup](#create-database): 
+1. On the **Select Databases** page, select your database, and then select **Next**. If your database does not meet the prerequisites, make sure it's in full recovery mode, and [take a backup](#create-database): 
 
    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/13-newagselectdatabase.png" alt-text="New availability group Wizard, Select Databases":::
 
@@ -324,7 +325,7 @@ To create your availability group, follow these steps.
     :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/22-validation.png" alt-text="New availability group Wizard, Validation":::
 
    
-1. On the **Summary** page, select **Finish** and wait for the wizard to configure your new availability group. Choose **More details** on the **Progress** page to view the detailed progress. When you see that the **wizard completed successfully** on the **Results** page, inspect the summary to verify the availability group and listener was created successfully. 
+1. On the **Summary** page, select **Finish** and wait for the wizard to configure your new availability group. Choose **More details** on the **Progress** page to view the detailed progress. When you see that the **wizard completed successfully** on the **Results** page, inspect the summary to verify the availability group and listener were created successfully. 
 
      :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/23-results.png" alt-text="New availability group Wizard, Results":::
 
@@ -340,7 +341,7 @@ To check the status of the availability group, follow these steps:
 
    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/24-showdashboard.png" alt-text="Show availability group Dashboard":::
 
-   The availability group dashboard shows the replica, the failvoer mode of each replica, and the synchronization state, such as the following example: 
+   The availability group dashboard shows the replica, the failover mode of each replica, and the synchronization state, such as the following example: 
 
    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/25-agdashboard.png" alt-text="availability group Dashboard":::
 

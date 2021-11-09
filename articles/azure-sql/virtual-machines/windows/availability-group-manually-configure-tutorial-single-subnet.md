@@ -117,8 +117,8 @@ Add the other SQL Server to the cluster.
    ![Add Node Confirmation](./media/availability-group-manually-configure-tutorial-single-subnet/46-addnodeconfirmation.png)
 
    >[!WARNING]
-   >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they don't appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
-   >
+   >If you do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they don't appear in Disk Manager or Explorer until the storage is removed from the cluster and reattached using PowerShell. 
+   > 
 
 1. Select **Next**.
 

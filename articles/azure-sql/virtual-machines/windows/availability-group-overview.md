@@ -50,7 +50,7 @@ While Availability Zones may provide better availability than Availability Sets 
 
 ## Connectivity
 
-To match the on-premises experience for connecting to your availability group listener, deploy your SQL Server VMs to multiple subnets within the same virtual network. Having multiple subnets negates the need for the extra dependency on an Azure Load Balancer, or a distributed network name to route your traffic to your listener. 
+To match the on-premises experience for connecting to your availability group listener, deploy your SQL Server VMs to [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same virtual network. Having multiple subnets negates the need for the extra dependency on an Azure Load Balancer, or a distributed network name (DNN) to route your traffic to your listener. 
 
 If you deploy your SQL Server VMs to a single subnet, you can configure a virtual network name (VNN) and an Azure Load Balancer, or a distributed network name (DNN) to route traffic to your availability group listener. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md) and then deploy either a [distributed network name (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name (VNN)](availability-group-vnn-azure-load-balancer-configure.md) for your availability group. 
 
@@ -69,7 +69,7 @@ You can still connect to each availability replica separately by connecting dire
 * There's one primary replica and one secondary replica.
 * The secondary replica is configured as non-readable (**Readable Secondary** option set to **No**).
 
-Here's an example client connection string that corresponds to this database mirroring-like configuration using ADO.NET or SQL Server Native Client:
+The following is an example client connection string that corresponds to this database mirroring-like configuration using ADO.NET or SQL Server Native Client:
 
 ```console
 Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
@@ -97,7 +97,6 @@ When configuring an AG in Azure VMs, there is often a need to configure these th
 ## Network configuration  
 
 Deploy your SQL Server VMs to multiple subnets whenever possible to avoid the dependency on an Azure Load Balancer or a distributed network name (DNN) to route traffic to your availability group listener. 
-
 
 On an Azure VM failover cluster, we recommend a single NIC per server (cluster node). Azure networking has physical redundancy, which makes additional NICs unnecessary on an Azure VM failover cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure VM failover clusters.
 

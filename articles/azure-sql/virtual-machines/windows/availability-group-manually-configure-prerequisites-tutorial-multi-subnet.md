@@ -24,7 +24,7 @@ ms.reviewer: mathoma
 > [!TIP]
 > Eliminate the need for an Azure Load Balancer or distributed network name (DNN) for your Always On availability group by creating your SQL Server VMs in multiple subnets within the same Azure virtual network.
 
-In this tutorial, complete the prerequisites for creating an [Always On availability group for SQL Server on AzureVirtual Machines (VMs) in multiple subnets](availability-group-manually-configure-tutorial-multi-subnet.md). At the end of this tutorial, you will have a domain controller on two Azure virtual machines, two SQL Server VMs in multiple subnets, and a storage account in a single resource group. 
+In this tutorial, complete the prerequisites for creating an [Always On availability group for SQL Server on Azure Virtual Machines (VMs) in multiple subnets](availability-group-manually-configure-tutorial-multi-subnet.md). At the end of this tutorial, you will have a domain controller on two Azure virtual machines, two SQL Server VMs in multiple subnets, and a storage account in a single resource group. 
 
 **Time estimate**: This tutorial creates several resources in Azure and may take up to 30 minutes to complete. 
 

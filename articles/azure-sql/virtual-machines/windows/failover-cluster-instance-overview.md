@@ -149,7 +149,7 @@ For shared storage and data replication solutions from Microsoft partners, conta
 
 ## Connectivity
 
-To match the on-premises experience for connecting to your failover cluster instance, deploy your SQL Server VMs to multiple subnets within the same virtual network. Having multiple subnets negates the need for the extra dependency on an Azure Load Balancer, or a distributed network name to route your traffic to your FCI. 
+To match the on-premises experience for connecting to your failover cluster instance, deploy your SQL Server VMs to [multiple subnets](failover-cluster-instance-prepare-vm.md#subnets) within the same virtual network. Having multiple subnets negates the need for the extra dependency on an Azure Load Balancer, or a distributed network name (DNN) to route your traffic to your FCI. 
 
 If you deploy your SQL Server VMs to a single subnet, you can configure a virtual network name (VNN) and an Azure Load Balancer, or a distributed network name (DNN) to route traffic to your failover cluster instance. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) and then deploy either a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) or a [virtual network name](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for your failover cluster instance.
 

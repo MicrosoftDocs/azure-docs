@@ -62,7 +62,6 @@ Carefully select the VM availability option that matches your intended cluster c
 > [!IMPORTANT]
 > You can't set or change the availability set after you've created a virtual machine.
 
-
 ## Subnets 
 
 For SQL Server on Azure VMs, you have the option to deploy your SQL Server VMs to a single subnet, or to multiple subnets. 
@@ -71,7 +70,7 @@ Deploying your VMs to multiple subnets leverages the cluster OR dependency for I
 
 Deploying your VMs to a single subnet requires an additional dependency on an Azure Load Balancer or distributed network name (DNN) to route traffic to your FCI. 
 
-If you deploy your SQL Server VMs to multiple subnets, follow the steps in this section to create your virtual networks with additional subnets, and then once the SQL Server VMs are created, assign secondary IP addresses within those subnets to the VMs. Deploying your SQL Server VMs to a single subnet does not require any additional network configuration. 
+If you deploy your SQL Server VMs to multiple subnets, follow the steps in this section to create your virtual networks with additional subnets, and then once the SQL Server VMs are created, [assign secondary IP addresses](#assign-secondary-ip-addresses) within those subnets to the VMs. Deploying your SQL Server VMs to a single subnet does not require any additional network configuration. 
 
 # [Single subnet](#tab/single-subnet)
 
