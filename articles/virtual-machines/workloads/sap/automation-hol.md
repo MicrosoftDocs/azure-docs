@@ -5,7 +5,7 @@ author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
 ms.date: 11/5/2021
-ms.topic: HOL
+ms.topic: tutorial
 ms.service: virtual-machines-sap
 ---
 
@@ -57,9 +57,9 @@ The dependency between the control plane and the application plane is illustrate
 
 ![dependency between application and control plane](media/automation-deployment-framework/control-plane-sap-infrastructure.png)
 
-The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. A logical segration of the control plane and workload zone are depicted below with an explanation of the configuration following the diagram
+The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. A logical separation of the control plane and workload zone are depicted below with an explanation of the configuration following the diagram
 
-![Environment Diagram](media/automation-deployment-framework/automation-framework-infrastructure.png)
+![Environment Diagram](media/automation-deployment-framework/automation_diagram_full.png)
 
 #### Management Zone
 
@@ -79,7 +79,7 @@ The configuration of the deployer and library is performed in a Terraform tfvars
 
 An SAP application typically has multiple deployment tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as workload zones.
 
-![Control Plane](media/automation-deployment-framework/workload-zone.png)
+![Workload Zone](media/automation-deployment-framework/workload-zone.png)
 
 **Landscape:**
 The Landscape contains the Networking for the SAP VMs, including Route Tables, NSGs, and Virtual Network. The Landscape provides the opportunity to divide deployments into different environments (Dev, Test, Prod)
@@ -796,4 +796,3 @@ Before you start executing remover script make sure, you have logged into your A
 
 ---
 
-# Thank you

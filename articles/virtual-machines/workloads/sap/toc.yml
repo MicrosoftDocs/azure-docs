@@ -282,13 +282,13 @@
         href: sap-high-availability-installation-wsfc-file-share.md              
       - name: Mlti-SID with WSFC and file share
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
-- name: Automation framework (Azure VMs)
+- name: Deployment Automation Framework (Azure VMs)
   items:
-  - name: About deployment automation framework
+  - name: About SAP deployment automation framework
     href: automation-deployment-framework.md
   - name: Supported platforms and features
     href: automation-supportability.md
-  - name: Get started with automation framework
+  - name: Get started with the SAP deployment automation framework
     href: automation-get-started.md
   - name: Plan deployment
     href: automation-plan-deployment.md
@@ -366,6 +366,8 @@
       href: automation-manual-deployment.md
     - name: Sample deployment configurations
       href: automation-new-vs-existing.md
+    - name: Hands-On Lab Instructions
+      href: automation-hol.md
     - name: Frequently Asked Questions
       href: automation-faq.md
   - name: SAP Software
