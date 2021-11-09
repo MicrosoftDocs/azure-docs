@@ -38,14 +38,14 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
     * **Metric** = IoT connector metrics you want to display. For this example, we'll choose **Number of Incoming Messages**.
     * **Aggregation** = How you would like to display the metrics. For this example, we'll choose **Count**. 
 
-    :::image type="content" source="media\iot-metrics\iot-select-metrics-to-display.png" alt-text="Select metrics to display." lightbox="media\iot-metrics\iot-metrics-selection-close-up.png"::: 
+    :::image type="content" source="media\iot-metrics\iot-select-metrics-to-display.png" alt-text="Select Metrics to display." lightbox="media\iot-metrics\iot-metrics-selection-close-up.png"::: 
 
 5. We can now see the IoT connector Metrics for **Number of Incoming Messages** displayed on the Azure portal.
 
     > [!TIP]
     > You can add additional Metrics by selecting the **Add metric** button and making your choices.
 
-    :::image type="content" source="media\iot-metrics\iot-metrics-add-button.png" alt-text="Select Add metric button to add more metrics." lightbox="media\iot-metrics\iot-add-metric-button.png":::
+    :::image type="content" source="media\iot-metrics\iot-metrics-add-button.png" alt-text="Select Add metric button to add more Metrics." lightbox="media\iot-metrics\iot-add-metric-button.png":::
 
     > [!IMPORTANT]
     > If you leave the Metrics page, the Metrics settings are lost and will have to be recreated. If you would like to save your IoT connector Metrics for future viewing, you can pin them to an Azure dashboard as a tile.
@@ -62,7 +62,7 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
 
 3. You'll receive a confirmation that the Metrics tile was successfully added to the dashboard.
 
-    :::image type="content" source="media\iot-metrics\iot-select-dashboard-pinned-successful.png" alt-text="Metric tile successfully pinned to dashboard." lightbox="media\iot-metrics\iot-select-dashboard-pinned-successful.png":::
+    :::image type="content" source="media\iot-metrics\iot-select-dashboard-pinned-successful.png" alt-text="Metrics tile successfully pinned to dashboard." lightbox="media\iot-metrics\iot-select-dashboard-pinned-successful.png":::
 
 4. Once you've received a successful confirmation, select **Dashboard**.
 
