@@ -124,15 +124,15 @@ All configurable properties used to set up Git repositories with pattern are lis
 | `repos."host-key-algorithm"`       | No             | The host key algorithm, should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. *Required* only if `host-key` exists. |
 | `repos."strict-host-key-checking"` | No             | Indicates whether the Config Server instance will fail to start when leveraging the private `host-key`. Should be *true* (default value) or *false*. |
 
-The following snapshot and table shows some examples for the **Additional repositories** section. For more information, see [Pattern Matching and Multiple Repositories](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) in the Spring documentation.
+The following table shows some examples for the **Additional repositories** section. For more information, see [Pattern Matching and Multiple Repositories](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) in the Spring documentation.
 
-![The Config Server Additional Repositories](media/spring-cloud-tutorial-config-server/additional-repositories.png)
+| Patterns                        | Description |
+| :------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| *test-config-server-app-0/\**   | The pattern and repository URI will match a Spring boot application named `test-config-server-app-0` with any profile.  |
+| *test-config-server-app-1/dev*  | The pattern and repository URI will match a Spring boot application named `test-config-server-app-1` with dev profile.  |
+| *test-config-server-app-2/prod* | The pattern and repository URI will match a Spring boot application named `test-config-server-app-2` with prod profile. |
 
-| Patterns                      | Description |
-| :---------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| test-config-server-app-0/*    | Spring boot application named test-config-server-app-0 with any profile will match the pattern and repository uri.  |
-| test-config-server-app-1/dev  | Spring boot application named test-config-server-app-1 with dev profile will match the pattern and repository uri.  |
-| test-config-server-app-2/prod | Spring boot application named test-config-server-app-2 with prod profile will match the pattern and repository uri. |
+:::image type="content" source="media/spring-cloud-tutorial-config-server/additional-repositories.png" lightbox="media/spring-cloud-tutorial-config-server/additional-repositories.png" alt-text="Azure portal screenshot showing the Config Server page with the Patterns column of the 'Additional repositories' table highlighted":::
 
 ## Attach your Config Server repository to Azure Spring Cloud
 
