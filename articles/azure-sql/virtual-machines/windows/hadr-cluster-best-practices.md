@@ -115,7 +115,7 @@ To match the on-premises experience for connecting to your availability group li
 
 To simplify your HADR solution, deploy your SQL Server VMs to multiple subnets whenever possible. 
 
-If your SQL Server VMs are in a single subnet, it's possible to configure either a virtual network name (VNN), or starting with SQL Server 2019, a distributed network name (DNN) for both failover cluster instances and availability group listeners. 
+If your SQL Server VMs are in a single subnet, it's possible to configure either a virtual network name (VNN), or a distributed network name (DNN) for both failover cluster instances and availability group listeners. 
 
 The distributed network name is the recommended connectivity option, when available: 
 - The end-to-end solution is more robust since you no longer have to maintain the load balancer resource. 

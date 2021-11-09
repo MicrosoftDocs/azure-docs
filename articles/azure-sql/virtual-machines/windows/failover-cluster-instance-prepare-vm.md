@@ -37,7 +37,6 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
    - An IP address for each FCI
 - DNS configured on the Azure network, pointing to the domain controllers.
 
-## Choose subnet deployment
 
 
 ## Choose an FCI storage option
@@ -55,7 +54,7 @@ Carefully select the VM availability option that matches your intended cluster c
    [Availability Zone](../../../availability-zones/az-overview.md#availability-zones) in different zones. [Premium SSD ZRS](../../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. VMs part of failover cluster can be placed in different availability zones, helping you achieve a zone-redundant SQL Server FCI that provides a VM availability SLA of 99.99%. Disk latency for ZRS is higher due to the cross-zonal copy of data.
    - **Premium SSD Locally Redundant Storage (LRS)**: 
    [Availability Set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) in different fault/update domains for [Premium SSD LRS](../../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks). You can also choose to place the VMs inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md) to locate them closer to each other. Combining availability set and proximity placement group provides the lowest latency for shared disks as data is replicated locally within one data center and provides VM availability SLA of 99.95%.
-   -**Ultra Disk Locally Redundant Storage (LRS)**: 
+   - **Ultra Disk Locally Redundant Storage (LRS)**: 
    [Availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) but the VMs must be placed in the same availability zone. [Ultra disks](../../../virtual-machines/disks-enable-ultra-ssd.md) offers lowest disk latency and is best for IO intensive workloads. Since all VMs part of the FCI have be in the same availability zone, the VM availability is only 99.9%. 
 - **Premium file shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [Availability Zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
 - **Storage Spaces Direct**: [Availability Set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
