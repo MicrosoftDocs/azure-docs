@@ -28,7 +28,7 @@ To successfully deploy a disk pool, you must have:
 - A set of managed disks you want to add to a disk pool.
 - A virtual network with a dedicated subnet deployed for your disk pool.
     - Outbound ports 53, 443, and 5671 must be open.
-    - Enable access to domains with outbound dependency requirements. These domains vary by region, use either the [Azure PowerShell module](/powershell/module/az.diskpool/get-azdiskpooloutboundnetworkdependencyendpoint?view=azps-6.6.0) or [Azure CLI](/cli/azure/disk-pool?view=azure-cli-latest#az_disk_pool_list_outbound_network_dependency_endpoint) to determine which to enable.
+    - Ensure that your network setting doesn't block required outbound dependencies of disk pool. You can use either the [Azure PowerShell module](/powershell/module/az.diskpool/get-azdiskpooloutboundnetworkdependencyendpoint?view=azps-6.6.0) or [Azure CLI](/cli/azure/disk-pool?view=azure-cli-latest#az_disk_pool_list_outbound_network_dependency_endpoint) to get the complete list of all outbound dependencies.
 
 If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
 
