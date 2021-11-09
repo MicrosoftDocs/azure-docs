@@ -37,7 +37,8 @@ Note that support for the V2 endpoint is no longer available for V1.x versions. 
 ## Frequently asked questions  
  
 **When will the new end point become the default for upgrades and new installations?**  
-The V2 endpoint is the default setting for AADConnect V2.0 and is not supported for AADConnect V1.x
+The V2 endpoint is the default setting for AADConnect V2.0 and is not supported for AADConnect V1.x.
+There is an issue where customers who have the V2 endpoint running with an older version and try to upgrade to a newer V1.6 release will see that the 50K limitation on group membership is reinstated. We will not fix this issue in V1.6 and require customers to upgrade to AADConnect V2.0 if this is an issue for them.
 
 ## Next steps
 
