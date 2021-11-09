@@ -362,7 +362,7 @@
       href: automation-deploy-workload-zone.md
     - name: Deploy the SAP system
       href: automation-deploy-system.md
-    - name: About manual deployment
+    - name: Manual infrastructure deployment
       href: automation-manual-deployment.md
     - name: Sample deployment configurations
       href: automation-new-vs-existing.md
