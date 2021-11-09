@@ -5,7 +5,7 @@ author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 08/24/2021
+ms.date: 11/01/2021
 ---
 
 # Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service

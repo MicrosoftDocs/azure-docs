@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Bicep file deployments
 description: Learn how to monitor and troubleshoot Bicep file deployments. Shows activity logs and deployment history.
-ms.date: 10/26/2021
+ms.date: 11/04/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ---
@@ -12,11 +12,11 @@ This quickstart describes how to troubleshoot Bicep file deployment errors. You'
 
 There are three types of errors that are related to a deployment:
 
-- **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. Your editor can catch these errors.
-- **Preflight errors** occur after you've started the deployment, but before any resources have been deployed. These errors are found without starting the deployment. For example, if a parameter value is incorrect, the error is found in preflight validation.
+- **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. Your editor can identify these errors.
+- **Preflight validation errors** occur when a deployment command is run but resources aren't deployed. These errors are found without starting the deployment. For example, if a parameter value is incorrect, the error is found in preflight validation.
 - **Deployment errors** occur during the deployment process and can only be found by assessing the deployment's progress.
 
-All types of errors return an error code that you use to troubleshoot the deployment. Validation and preflight errors don't appear in your deployment history.
+All types of errors return an error code that you use to troubleshoot the deployment. Validation and preflight errors are shown in the activity log but don't appear in your deployment history. A Bicep file with syntax errors doesn't compile into JSON and isn't shown in the activity log.
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-Azure Resource Manager determines that the name of the storage account contains characters that aren't allowed. It doesn't attempt the deployment. 
+Azure Resource Manager determines that the name of the storage account contains characters that aren't allowed. It doesn't attempt the deployment.
 
 You see an error message that indicates preflight validation failed. You also get a message that says the storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only. The prefix you provided didn't meet that requirement. For more information about this error code, see [Resolve errors for storage account names](error-storage-account-name.md).
 
@@ -143,14 +143,20 @@ You'll deploy the file again and provide an allowed value for the name prefix pa
 
 ```azurecli
 az group create --name troubleshootRG --location westus
-az deployment group create --resource-group troubleshootRG --template-file troubleshoot.bicep --parameters prefixName=stg
+az deployment group create \
+  --resource-group troubleshootRG \
+  --template-file troubleshoot.bicep \
+  --parameters prefixName=stg
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name troubleshootRG -Location westus
-New-AzResourceGroupDeployment -ResourceGroupName troubleshootRG -TemplateFile troubleshoot.bicep -prefixName stg
+New-AzResourceGroupDeployment `
+  -ResourceGroupName troubleshootRG `
+  -TemplateFile troubleshoot.bicep `
+  -prefixName stg
 ```
 
 ---

@@ -157,7 +157,7 @@ After a customer selects a free trial for a plan, they can't convert to a paid s
 > [!NOTE]
 > After a customer starts paying for a plan, they can’t get a free trial on the same offer again, even if they switch to another plan that supports free trials.
 
-To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#get-subscription).
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-subscription).
 
 ## Next steps
 

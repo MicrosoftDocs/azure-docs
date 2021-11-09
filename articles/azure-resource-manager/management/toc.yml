@@ -95,6 +95,8 @@
           href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Maintenance Control configuration
           href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Azure Cache for Redis
+          href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Networking
           items:
           - name: Virtual network

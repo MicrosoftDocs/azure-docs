@@ -3,13 +3,13 @@ title: "Prepare data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them."
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/08/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
@@ -187,7 +187,7 @@ Additionally, you'll want to account for the following restrictions:
 
 ## Structured text data for training (Public Preview)
 
-Often the expected utterances follow a certain pattern. One common pattern is that utterances only differ by words or phrases from a list. Examples of this could be “I have a question about `product`,” where `product` is a list of possible products. Or, “Make that `object` `color`,” where `object` is a list of geometric shapes and `color` is a list of colors. To simplify the creation of training data and to enable better modeling inside the Custom Language Model, you can use a structured text in markdown format to define lists of items and then reference these inside your training utterances. Additionally, the markdown format also supports specifying the phonetic pronunciation of words. The markdown format shares its format with the `.lu` markdown used to train Language Understanding models, in particular list entities and example utterances. For more information about the complete `.lu` markdown, see the <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> `.lu` file format</a>.
+Often the expected utterances follow a certain pattern. One common pattern is that utterances only differ by words or phrases from a list. Examples of this could be “I have a question about `product`,” where `product` is a list of possible products. Or, “Make that `object` `color`,” where `object` is a list of geometric shapes and `color` is a list of colors. To simplify the creation of training data and to enable better modeling inside the Custom Language Model, you can use a structured text in markdown format to define lists of items and then reference these inside your training utterances. Additionally, the markdown format also supports specifying the phonetic pronunciation of words. The markdown file should have a `.md` extension. The syntax of the markdown is the same as that from the Language Understanding models, in particular list entities and example utterances. For more information about the complete markdown syntax, see the <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> Language Understanding markdown</a>.
 
 Here is an example of the markdown format:
 

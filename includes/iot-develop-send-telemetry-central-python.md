@@ -27,7 +27,7 @@ Install the following prerequisites on your development machine:
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## Run a device
+## Run the device sample
 In this section, you configure your local environment, install the Azure IoT Python device SDK, and run a sample that creates a temperature controller.
 
 ### Configure your environment
