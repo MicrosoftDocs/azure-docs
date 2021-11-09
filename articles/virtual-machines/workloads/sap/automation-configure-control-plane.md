@@ -88,6 +88,7 @@ The table below contains the parameters related to the deployer virtual machine.
 > | `deployer_private_ip_address`   | Defines the Private IP address to use                                        | Optional   |
 > | `deployer_enable_public_ip`    | Defined if the deployer has a public IP                                       |            |
 
+
 The Virtual Machine image is defined using the following structure: 
 ```python 
 { 
@@ -112,6 +113,7 @@ The table below defines the parameters used for defining the Virtual Machine aut
 > | `deployer_authentication_password`               | Administrator password                              | Optional   |
 > | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication      | Optional   |
 > | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication     | Optional   |
+
 
 ### Key Vault Parameters
 
