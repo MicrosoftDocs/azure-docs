@@ -274,7 +274,7 @@ To enable encryption at host on a managed cluster node type:
 
 3) Set the following in the managed cluster template in each node type you want this enabled for
 
-   * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
+   * The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
 
    ```json
         {
@@ -290,11 +290,16 @@ To enable encryption at host on a managed cluster node type:
    ```
 
 
-
 ## Configure multiple managed disks (preview)
-Service Fabric managed clusters by default configure one managed disk. By configuring the following optional properties and values you can add additional managed disks to node types within a cluster. You are also able to specify per disk the drive letter, disk type, and size.
+Service Fabric managed clusters by default configure one managed disk. By configuring the following optional properties and values you can add additional managed disks to node types within a cluster. You are able to specify the drive letter, disk type, and size per disk.
 
-* The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+Configure additional managed disks by declaring `additionalDataDisks` property and required parameters in your Resource Manager template as follows:
+
+**Feature Requirements**
+* Lun must be unique per disk and can not use reserved lun 0
+* Disk letter can not use reserved letters C or D and can not be modified once created
+* Must specify a [supported disk type](how-to-managed-cluster-managed-disk.md)
+* The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
 
 ```json
      {
@@ -303,19 +308,25 @@ Service Fabric managed clusters by default configure one managed disk. By config
             "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
             "location": "[resourcegroup().location]",
             "properties": {
-                "placementProperties": {
-                    "PremiumSSD": "true",
-                    "NodeColor": "green",
-                    "SomeProperty": "5"
+                "additionalDataDisks": {
+                    "lun": "1",
+                    "diskSizeGB": "50",
+                    "diskType": "LRS_Standard",
+                    "diskLetter": "E" 
             }
         }
-}
+     }
 ```
 
-## Configure the primary data disk drive letter (preview)
-Service Fabric managed clusters by default configure a primary data disk and automatically configure the drive letter on all nodes of a node type. By configuring these optional properties and values you can specify and retrieve the Service Fabric primary data disk letter if you have specific requirements for drive letter mapping.
+See [full list of parameters available](../templates/microsoft.servicefabric/2021-11-01/managedclusters?tabs=json) 
 
-* The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+
+## Configure the Service Fabric data disk drive letter (preview)
+Service Fabric managed clusters by default configure a Service Fabric data disk and automatically configure the drive letter on all nodes of a node type. By configuring these optional properties and values you can specify and retrieve the Service Fabric data disk letter if you have specific requirements for drive letter mapping.
+
+**Feature Requirements**
+* Disk letter can not use reserved letters C or D and can not be modified once created
+* The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
 
 ```json
      {
@@ -324,13 +335,11 @@ Service Fabric managed clusters by default configure a primary data disk and aut
             "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
             "location": "[resourcegroup().location]",
             "properties": {
-                "placementProperties": {
-                    "PremiumSSD": "true",
-                    "NodeColor": "green",
-                    "SomeProperty": "5"
+                "dataDiskLetter": "E"      
             }
         }
-}
+     }
+```
 ```
 
 

@@ -541,9 +541,11 @@ To configure bring your own load balancer:
    
    To configure the node type to use the default load balancer set the following in your template: 
    
+   * The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+
    ```json
       {
-      "apiVersion": "2021-11-01-preview",
+      "apiVersion": "[variables('sfApiVersion')]",
       "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
       ...
       "properties": {
@@ -580,9 +582,11 @@ Accelerated networking enables single root I/O virtualization (SR-IOV) to a VMSS
 
 Enable accelerated networking by declaring `enableAcceleratedNetworking` property in your Resource Manager template as follows:
 
+* The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+
 ```json
    {
-   "apiVersion": "2021-11-01-preview",
+   "apiVersion": "[variables('sfApiVersion')]",
    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
    ...
    "properties": {
@@ -602,23 +606,28 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 <a id="auxsubnet"></a>
 ## Configure Auxillary Subnets (preview)
-Auxillary subnets provide the ability to create additional managed subnets without a node type for supporting scenarios such as Private Link Service and Bastion Hosts.
+Auxillary subnets provide the ability to create additional managed subnets without a node type for supporting scenarios such as [Private Link Service](../azure/private-link/private-link-service-overview.md) and [Bastion Hosts](..//azure/bastion/bastion-overview.md).
 
+Configure auxiliary subnets by declaring `auxiliarySubnets` property and required parameters in your Resource Manager template as follows:
 
-```json
-"auxiliarySubnets" : 
-[
-{
-"name" : "<string>",
-"enableIpv6" : "<null|true|false>", -> Null means use same settings as the cluster
-"privateEndpointNetworkPolicies": "<enabled|disabled>",
-"privateLinkServiceNetworkPolicies": "<enabled|disabled>",
-"NetworkSecurityGroupId" : "<string>"
-}
-] 
+* The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+
+```JSON
+    "resources": [
+        {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters",
+            ...
+            "properties": {
+                "auxiliarySubnets": [
+                  {
+                  "name" : "mysubnet",
+                  "enableIpv6" : "true"
+                  }
+                ]              
 ```
 
-
+See [full list of parameters available](../templates/microsoft.servicefabric/2021-11-01/managedclusters?tabs=json) 
 
 ## Next steps
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
