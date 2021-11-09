@@ -77,7 +77,9 @@ Either way, both examples assign the result to the `customerName` property.
   The following example shows the correct and incorrect syntax:
 
   **Correct**: `"<text>/@{<function-name>('<parameter-name>')}/<text>"`
+ 
   **Incorrect**: `"<text>/@<function-name>('<parameter-name>')/<text>"`
+ 
   **OK**: `"@<function-name>('<parameter-name>')"`
 
 The following sections organize functions based on their general purpose, or you can browse these functions in [alphabetical order](#alphabetical-list).
