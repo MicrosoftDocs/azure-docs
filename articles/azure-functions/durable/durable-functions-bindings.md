@@ -163,7 +163,7 @@ param($Context)
 
 $name = $Context.Input.Name
 
-$output = Invoke-ActivityFunction -FunctionName 'SayHello' -Input $name
+$output = Invoke-DurableActivity -FunctionName 'SayHello' -Input $name
 
 $output
 ```
@@ -434,7 +434,7 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
 ```powershell
 param($[string] $input, $TriggerMetadata)
 
-$InstanceId = Start-NewOrchestration -FunctionName $FunctionName -Input $input
+$InstanceId = Start-DurableOrchestration -FunctionName $FunctionName -Input $input
 ```
 
 ---
