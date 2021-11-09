@@ -69,6 +69,9 @@ However, if you'd like all the latest features and updates, the best way to see 
 - We fixed a bug where the Autoupgrade process attempted to upgrade AADConnect servers that are running older Windows OS version 2008 or 2008 R2 and failed. These versions of Windows Server are no longer supported. In this release we only attempt autoupgrade on machines that run Windows Server 2012 or newer.
 - We fixed an issue where, under certain conditions, miisserver would be crashing due to access violation exception.
 
+### Known Issues
+- There is an issue where customers who have the V2 endpoint running with an older version and try to upgrade to a newer V1.6 release will see that the 50K limitation on group membership is reinstated. We will not fix this issue in V1.6 and require customers to upgrade to AADConnect V2.0 if this is an issue for them.
+
 ## 2.0.28.0
 
 >[!NOTE] 
@@ -305,7 +308,7 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status, or set it a
 >[!NOTE]
 > - This release will be made available for download only.
 > - The upgrade to this release will require a full synchronization due to sync rule changes.
-> - This release defaults the AADConnect server to the new V2 end point. Note that this end point is not supported in the German national cloud and if you need to deploy this version in this environment you need to follow [these instructions](./how-to-connect-sync-endpoint-api-v2.md#rollback) to switch back to the V1 end point. Failure to do so will result in errors in synchronization.
+> - This release defaults the AADConnect server to the new V2 end point.
 
 ### Release status
 3/19/2021: Released for download, not available for auto upgrade

@@ -6,12 +6,15 @@ ms.service: marketplace
 ms.topic: article
 author: navits09
 ms.author: navits
-ms.date: 10/14/2021
+ms.date: 10/26/2021
 ---
 
 # Private plans in the Microsoft commercial marketplace
 
 Publishers use private plans so they are only visible to targeted customers. This article discusses the options and benefits of private plans.
+
+> [!TIP]
+> To see the customer's view of private plans in the commercial marketplace, see [Private plans in Azure Marketplace](/marketplace/private-plans) or [Private plans in Microsoft AppSource](/marketplace/appsource-private-plans).
 
 ## Unlock enterprise deals with private plans
 

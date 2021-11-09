@@ -23,8 +23,8 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Important Limitations
 1. The access policy feature is only available on new Azure Purview and Azure Storage accounts.
-2. Register all data sources for use governance and manage all associated access policies in a single Purview account.
-3. This feature can only be used in the regions listed below, where access policy functionality is deployed.
+2. Register all data sources for use governance and manage all associated access policies in a single Azure Purview account.
+3. This feature can only be used in the regions listed below, where access policy management and enforcement functionality is deployed.
 
 ### Supported regions
 
@@ -189,6 +189,6 @@ The steps to publish a policy are as follows
 
 ## Next steps
 
-Check these articles to understand concepts related to Azure Purview:
+Check this article to understand concepts related to Azure Purview:
 
 * [Azure Purview overview](overview.md)

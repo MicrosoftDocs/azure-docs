@@ -10,7 +10,7 @@
   items:
     - name: Launch your first app
       href: quickstart.md
-    - name: Build and run microservices
+    - name: Build and run apps
       expanded: true
       items:
       - name: Introduction to the sample app
@@ -96,6 +96,8 @@
           href: how-to-deploy-powershell.md
     - name: Manage
       items:
+        - name: Start or stop a service
+          href: how-to-start-stop-service.md
         - name: Start, stop, and delete an app
           href: how-to-start-stop-delete.md
         - name: Use built-in persistent storage
@@ -186,6 +188,10 @@
           href: how-to-self-diagnose-running-in-vnet.md
         - name: Troubleshooting guide
           href: troubleshoot.md
+        - name: Manually capture heap dump/thread dump/JFR
+          href: how-to-capture-dumps.md
+        - name: JVM option based troubleshooting
+          href: tutorial-dump-jvm-options.md
     - name: Migrate
       items:
         - name: Spring Cloud

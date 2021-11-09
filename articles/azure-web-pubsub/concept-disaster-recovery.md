@@ -4,7 +4,7 @@ description: An overview on how to set up multiple Azure Web PubSub service inst
 author: vicancy
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 11/08/2021
 ms.author: lianwei
 ---
 # Resiliency and disaster recovery in Azure Web PubSub Service

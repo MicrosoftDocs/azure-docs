@@ -114,7 +114,7 @@ This workbook gathers these findings and organizes them by severity, resource ty
 
 Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select the specific standards relevant to your organization using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
-This workbook lets you track your compliance status over time with the various standards you've added to your dashboard.
+This workbook tracks your compliance status over time with the various standards you've added to your dashboard.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-select-standards.png" alt-text="Select the standards for your compliance over time report.":::
 
