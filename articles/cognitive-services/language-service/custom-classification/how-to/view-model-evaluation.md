@@ -26,7 +26,7 @@ Before you train your model you need:
 * [Tagged data](tag-data.md)
 * A successfully [trained model](train-model.md)
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 ## Model evaluation
 
