@@ -146,6 +146,8 @@
           href: how-to-appdynamics-java-agent-monitor.md
         - name: Monitor app lifecycle events
           href: monitor-app-lifecycle-events.md
+        - name: Logback with custom persistent storage
+          href: how-to-write-log-to-custom-persistent-storage
     - name: Network
       items:
         - name: Deploy Azure Spring Cloud in a virtual network
