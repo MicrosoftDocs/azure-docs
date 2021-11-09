@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 11/03/2021
 ---
 
-# Auto-pause a job on a schedule with PowerShell and Azure Functions or Azure Automation
+# Auto-pause a job with PowerShell and Azure Functions or Azure Automation
 
 Some applications require a stream processing approach, made easy with [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) (ASA), but don't strictly need to run continuously. The reasons are various:
 
@@ -42,6 +42,8 @@ When running, the job should not be stopped until the entire input backlog is pr
 ![State diagram of the job](./media/automation/States.png)
 
 As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. Potential cost savings are up to 66%.
+
+To restart the job, we will use [the mode](/azure/stream-analytics/start-job#start-options) `When Last Stopped`. This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are 2 caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [Event Hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than that. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted. So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
 
 The last consideration is to make these actions idempotent. This way, they can be repeated at will with no side effects, for both ease of use and resiliency.
 
@@ -168,7 +170,8 @@ elseif ($currentJobState -eq "Stopped")
     if ($minutesSinceStopped -ge $restartThresholdMinute)
     {
         Write-Output "asaRobotPause - Job $($jobName) was paused $($minutesSinceStopped) minutes ago, set interval is $($restartThresholdMinute), it is now starting..."
-        Start-AzStreamAnalyticsJob -ResourceGroupName $resourceGroupName -Name $asaJobName
+        # LastOutputEventTime requires that the job has been started at least once before
+        Start-AzStreamAnalyticsJob -ResourceGroupName $resourceGroupName -Name $asaJobName -OutputStartMode LastOutputEventTime
     }
     else{
         Write-Output "asaRobotPause - Job $($jobName) was paused $($minutesSinceStopped) minutes ago, set interval is $($restartThresholdMinute), it will not be restarted yet."
