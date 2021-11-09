@@ -83,8 +83,6 @@ You need to [deploy your model](quickstart.md#deploy-your-model) before you can 
 
 After deploying your model, you [call the prediction API](how-to/call-api.md), using either the [REST API](how-to/call-api.md) or [client libraries](how-to/call-api.md#use-the-sdk).
 
-[!INCLUDE [SDK sample links](includes/sdk-links.md)]
-
 ## Data privacy and security
 
 Custom NER is a data processor for General Data Protection Regulation (GDPR) purposes. In compliance with GDPR policies, Custom NER users have full control to view, export, or delete any user content either through the [Language Studio](https://aka.ms/languageStudio) or programmatically by using [REST APIs](https://aka.ms/ct-authoring-swagger).

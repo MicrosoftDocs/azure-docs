@@ -107,7 +107,7 @@ To send a custom NER task, you can use either the REST API or client library for
 3. In the JSON body of your request, you will specify The documents you're inputting for analysis, and the parameters for the custom entity recognition task.
  
     > [!tip]
-    > See the [quickstart article](../quickstart.md?pivots=rest-api#submit-text-classification-task) and [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze) for more information about the JSON syntax.
+    > See the [quickstart article](../quickstart.md?pivots=rest-api#submit-custom-ner-task) and [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze) for more information about the JSON syntax.
 
     ```json
         {
