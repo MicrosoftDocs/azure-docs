@@ -21,7 +21,7 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
 
 1. Within your Azure Healthcare APIs Workspace, select **IoT connector**. 
 
-     :::image type="content" source="media\iot-metrics\iot_workspace_displayed_with_connectors_button.png" alt-text="Azure Healthcare APIs Workspace. Select the IoT connectors button." lightbox="media\iot-metrics\iot_connectors_button.png"::: 
+     :::image type="content" source="media\iot-metrics\iot_workspace_displayed_with_connectors_button.png" alt-text="Select the IoT connectors button." lightbox="media\iot-metrics\iot_connectors_button.png"::: 
 
 2. Select the IoT connector that you would like to display the Metrics for.
 
@@ -38,10 +38,7 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
     * **Metric** = IoT connector metrics you want to display. For this example, we'll choose **Number of Incoming Messages**.
     * **Aggregation** = How you would like to display the metrics. For this example, we'll choose **Count**. 
 
-    > [!TIP]
-    > You can add additional Metrics by selecting the **Add metric** button and making your choices.
-
-    :::image type="content" source="media\iot-metrics\iot_select_metrics_and_add_button.png" alt-text="Select Add metric button to add more metrics." lightbox="media\iot-metrics\iot_metrics_selection_close_up.png"::: 
+    :::image type="content" source="media\iot-metrics\iot-select-metrics-to-display.png" alt-text="Select metrics to display." lightbox="media\iot-metrics\iot_metrics_selection_close_up.png"::: 
 
 5. We can now see the IoT connector Metrics for **Number of Incoming Messages** displayed on the Azure portal.
 
