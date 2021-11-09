@@ -150,7 +150,7 @@ api-key: [admin key]
 
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > Only [`metadata_spo_site_library_item_id`](#metadata) may be used as the key field in an index populated by the SharePoint Online indexer. If a key field doesn't exist in the data source, `metadata_spo_site_library_item_id` is automatically mapped to the key field.
 
 For more information, see [Create Index (REST API)](/rest/api/searchservice/create-index).
