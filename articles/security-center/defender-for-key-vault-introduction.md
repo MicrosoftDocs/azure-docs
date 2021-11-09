@@ -30,9 +30,9 @@ Enable **Microsoft Defender for Key Vault** for Azure-native, advanced threat pr
 
 ## What are the benefits of Microsoft Defender for Key Vault?
 
-Microsoft Defender detects unusual and potentially harmful attempts to access or exploit Key Vault accounts. This layer of protection helps you address threats even if you're not a security expert, and without the need to manage third-party security monitoring systems.  
+Microsoft Defender for Key Vault detects unusual and potentially harmful attempts to access or exploit Key Vault accounts. This layer of protection helps you address threats even if you're not a security expert, and without the need to manage third-party security monitoring systems.
 
-When anomalous activities occur, Defender shows alerts and optionally sends them via email to relevant members of your organization. These alerts include the details of the suspicious activity and recommendations on how to investigate and remediate threats. 
+When anomalous activities occur, Defender for Key Vault shows alerts and optionally sends them via email to relevant members of your organization. These alerts include the details of the suspicious activity and recommendations on how to investigate and remediate threats. 
 
 ## Microsoft Defender for Key Vault alerts
 When you get an alert from Microsoft Defender for Key Vault, we recommend you investigate and respond to the alert as described in [Respond to Microsoft Defender for Key Vault](defender-for-key-vault-usage.md). Microsoft Defender for Key Vault protects applications and credentials, so even if you're familiar with the application or user that triggered the alert, it's important to check the situation surrounding every alert.
@@ -87,8 +87,7 @@ If you don't recognize the user or application, or if you think the access shoul
 ### Step 3. Measure the impact
 When the event has been mitigated, investigate the secrets in your key vault that were affected:
 1. Open the **Security** page on your Azure key vault and view the triggered alert.
-1. Select the specific alert that was triggered.
-    Review the list of the secrets that were accessed and the timestamp.
+1. Select the specific alert that was triggered and review the list of the secrets that were accessed and the timestamp.
 1. Optionally, if you have key vault diagnostic logs enabled, review the previous operations for the corresponding caller IP, user principal, or object ID.  
 
 ### Step 4. Take action 
