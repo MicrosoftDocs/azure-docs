@@ -61,6 +61,20 @@
       href: ../concept-end-to-end-tls.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Private Link
       href: concept-private-link.md
+    - name: Web Application Firewall
+      items:
+      - name: Tuning
+        href: ../../web-application-firewall/afds/waf-front-door-tuning.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      - name: Managed rules
+        href: ../../web-application-firewall/afds/waf-front-door-drs.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      - name: Custom rules
+        href: ../../web-application-firewall/afds/waf-front-door-custom-rules.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      - name: Exclusion lists
+        href: ../../web-application-firewall/afds/waf-front-door-exclusion.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      - name: Policy settings
+        href: ../../web-application-firewall/afds/waf-front-door-policy-settings.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      - name: Geo-filtering
+        href: ../front-door-geo-filtering.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Protocol
     items:
     - name: HTTP/2
