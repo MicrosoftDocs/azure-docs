@@ -16,7 +16,7 @@ ms.date: 11/08/2021
 
 ## Error Handling
 
-Azure Data Factory orchestration allows conditional logic and enables user to take different based upon outcomes of a previous activity. Using different paths allow users to build robust pipelines and incorporates error handling in ETL/ELT logic. In total, we allow four conditional paths,
+Azure Data Factory and Synapse Pipeline orchestration allows conditional logic and enables user to take different based upon outcomes of a previous activity. Using different paths allow users to build robust pipelines and incorporates error handling in ETL/ELT logic. In total, we allow four conditional paths,
 
 * Upon Success (default pass)
 * Upon Failure
@@ -53,9 +53,9 @@ Approach | Defines | When activity <span style="color: green">succeeds</span>, o
 [Do-If-Else](#do-if-else-block) | _Upon Failure_ path + _Upon Success_ paths | <span style="color: green">Success</span> |  <span style="color: red">Failure</span>
 [Do-If-Skip-Else](#do-if-skip-else-block) |  _Upon Failure_ path + _Upon Success_ path (with a _Dummy Upon Skip_ at the end) | <span style="color: green">Success</span> |  <span style="color: green">Success</span>
 
-### How pipeline failure are determined in Azure Data Factory
+### How pipeline failure are determined
 
-Different error handling mechanisms will lead to different status for the pipeline: while some pipelines fail, while others succeed. Azure Data Factory defines pipeline success and failures as follows:
+Different error handling mechanisms will lead to different status for the pipeline: while some pipelines fail, while others succeed. We determine pipeline success and failures as follows:
 
 * Evaluate outcome for all leaves activities. If a leaf activity was skipped, we evaluate its parent activity instead
 * Pipeline result is success if and only if all nodes evaluated succeed
