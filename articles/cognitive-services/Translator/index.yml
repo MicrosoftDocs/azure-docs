@@ -7,13 +7,13 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Translator is a cloud-based machine translation service you can use to translate text through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
   services: cognitive-services
-  author: erhopf
+  author: laujan
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
   ms.date: 10/14/2019
-  ms.author: erhopf
+  ms.author: lajanuar
   ms.custom: contperf-fy21q2
 
 
@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Translator?
-            url: translator-info-overview.md
+            url: translator-overview.md
           - text: Language support
             url:  language-support.md  
           - text: Document Translation

@@ -177,7 +177,7 @@ NAT gateways take precedence over outbound scenarios of the subnet. Basic load b
 #### Zone isolation with zonal stacks
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network NAT with zone isolation, creating multiple "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network NAT with zone isolation, creating multiple zonal stacks">
 </p>
 
 *Figure: Virtual Network NAT with zone isolation, creating multiple "zonal stacks"*
@@ -256,7 +256,7 @@ The destination will see the source of the flow as 65.52.0.1 (SNAT source tuple)
 
 #### source (SNAT) port reuse
 
-NAT gateways opportunistically reuse source (SNAT) ports.  The following illustrates this concept as an additional flow for the preceeding set of flows.  The VM in the example is a flow to 65.52.0.2.
+NAT gateways opportunistically reuse source (SNAT) ports.  The following illustrates this concept as an additional flow for the preceding set of flows.  The VM in the example is a flow to 65.52.0.2.
 
 | Flow | Source tuple | Destination tuple |
 |:---:|:---:|:---:|
@@ -338,10 +338,6 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
 - NAT can't span multiple virtual networks.
 - IP fragmentation is not supported.
-
-## Suggestions
-
-We want to know how we can improve the service. Are missing a capability? Make your case for what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 
 ## Next steps
 

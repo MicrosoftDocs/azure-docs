@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 07/06/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
 ---
 
 # Permissions and consent in the Microsoft identity platform
@@ -42,6 +42,8 @@ When a resource's functionality is chunked into small permission sets, third-par
 In OAuth 2.0, these types of permission sets are called *scopes*. They're also often referred to as *permissions*. In the Microsoft identity platform, a permission is represented as a string value. An app requests the permissions it needs by specifying the permission in the `scope` query parameter. Identity platform supports several well-defined [OpenID Connect scopes](#openid-connect-scopes) as well as resource-based permissions (each permission is indicated by appending the permission value to the resource's identifier or application ID URI). For example, the permission string `https://graph.microsoft.com/Calendars.Read` is used to request permission to read users calendars in Microsoft Graph.
 
 An app most commonly requests these permissions by specifying the scopes in requests to the Microsoft identity platform authorize endpoint. However, some high-privilege permissions can be granted only through administrator consent. They can be requested or granted by using the [administrator consent endpoint](#admin-restricted-permissions). Keep reading to learn more.
+
+In requests to the authorization, token or consent endpoints for the Microsoft Identity platform, if the resource identifier is omitted in the scope parameter, the resource is assumed to be Microsoft Graph. For example, `scope=User.Read` is equivalent to `https://graph.microsoft.com/User.Read`.
 
 ## Permission types
 
@@ -176,6 +178,9 @@ Some high-privilege permissions in Microsoft resources can be set to *admin-rest
 * Read all user's full profiles by using `User.Read.All`
 * Write data to an organization's directory by using `Directory.ReadWrite.All`
 * Read all groups in an organization's directory by using `Groups.Read.All`
+
+> [!NOTE]
+>In requests to the authorization, token or consent endpoints for the Microsoft Identity platform, if the resource identifier is omitted in the scope parameter, the resource is assumed to be Microsoft Graph. For example, `scope=User.Read` is equivalent to `https://graph.microsoft.com/User.Read`.
 
 Although a consumer user might grant an application access to this kind of data, organizational users can't grant access to the same set of sensitive company data. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they're not authorized to consent to your app's permissions.
 

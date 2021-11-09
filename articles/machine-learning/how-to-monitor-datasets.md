@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up data drift detection in Azure Learning. Create datasets monitors (preview), monitor for data drift, and set up alerts.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.reviewer: sgilley
 ms.author: wibuchan
 author: buchananwp
-ms.date: 06/25/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: data4ml, contperf-fy21q2
 #Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
@@ -173,7 +173,7 @@ from datetime import datetime
 ws = Workspace.from_config()
 
 # get the target dataset
-dset = Dataset.get_by_name(ws, 'target')
+target = Dataset.get_by_name(ws, 'target')
 
 # set the baseline dataset
 baseline = target.time_before(datetime(2019, 2, 1))

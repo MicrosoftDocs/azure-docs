@@ -4,14 +4,14 @@ description: This article shows the steps to connect Configuration Manager to wo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/30/2020
+ms.date: 08/02/2021
 ---
 
 # Connect Configuration Manager to Azure Monitor
 You can connect your Microsoft Endpoint Configuration Manager environment to Azure Monitor to sync device collection data and reference these collections in Azure Monitor and Azure Automation.  
 
 > [!IMPORTANT]
-> Starting in Configuration Manager version 2010, this feature is deprecated.<!-- 8269855 --> For more information, see [Removed and deprecated features for Configuration Manager](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).
+> Starting in Configuration Manager version 2010, this feature is deprecated.<!-- 8269855 --> Starting in version 2107, it's removed from Configuration Manager.<!-- 9649296 --> For more information, see [Removed and deprecated features for Configuration Manager](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).
 
 ## Prerequisites
 

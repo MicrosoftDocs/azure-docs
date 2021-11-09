@@ -4,7 +4,7 @@ description: Learn how to enable Synapse link for Azure Cosmos DB accounts, crea
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
 ---
@@ -263,7 +263,9 @@ Use the instructions in [Connect to Azure Synapse Link](../synapse-analytics/syn
 
 ## <a id="query-analytical-store-spark"></a> Query analytical store using Apache Spark for Azure Synapse Analytics
 
-Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article on how to query with Synapse Spark. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
+Use the instructions in the [Query Azure Cosmos DB analytical store using Spark 3](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md) article on how to query with Synapse Spark 3. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
+
+For Spark 2 integration use the instruction in the [Query Azure Cosmos DB analytical store using Spark 2](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article.
 
 ## <a id="query-analytical-store-sql-on-demand"></a> Query the analytical store using serverless SQL pool in Azure Synapse Analytics
 
@@ -273,6 +275,9 @@ Serverless SQL pool allows you to query and analyze data in your Azure Cosmos DB
 
 You can create a serverless SQL pool database and views over Synapse Link for Azure Cosmos DB. Later you can query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query. There is no performance or cost impact to your transactional workloads, and no complexity of managing ETL pipelines. You can use either [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. To learn more, see how to use [Serverless SQL pool to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
 
+## Configure custom partitioning
+
+Custom partitioning enables you to partition analytical store data on fields that are commonly used as filters in analytical queries resulting in improved query performance. To learn more, see the [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md) articles.
 
 ## Azure Resource Manager template
 

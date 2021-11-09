@@ -1,7 +1,7 @@
 ---
 title: Source control in Synapse Studio 
 description: Learn how to configure source control in Azure Synapse Studio
-author: liud
+author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
 ms.topic: conceptual 
@@ -19,6 +19,9 @@ This article will outline how to configure and work in a Synapse workspace with 
 > [!NOTE]
 > Synapse Studio git integration is not available in the Azure Government Cloud.
 
+## Prerequisites
+Users must have the Azure Contributor (Azure RBAC) or higher role on the Synapse workspace to configure, edit settings and disconnect a Git repository with Synapse. 
+
 ## Configure Git repository in Synapse Studio 
 
 After launching your Synapse Studio, you can configure a git repository in your workspace. A Synapse Studio workspace can be associated with only one git repository at a time. 
@@ -34,9 +37,6 @@ In the Synapse Studio global bar, select the **Synapse Live** drop-down menu, an
 Go to the Manage hub of Synapse Studio. Select **Git configuration** in the **Source control** section. If you have no repository connected, click **Configure**.
 
 ![Configure the code repository settings from management hub](media/configure-repo-2.png)
-
-> [!NOTE]
-> Users granted as workspace contributor, owner, or higher level roles can configure, edit Setting and disconnect git repository in Azure Synapse studio 
 
 You can connect either Azure DevOps or GitHub git repository in your workspace.
 
@@ -95,7 +95,10 @@ The GitHub integration with Synapse Studio supports both public GitHub (that is,
 
 ### GitHub settings
 
-When connecting to your git repository, first select your repository type as GitHub, and then provide your GitHub account or GitHub Enterprise Server URL if you use GitHub Enterprise Server, and click **Continue**.
+When connecting to your git repository, first select your repository type as GitHub, and then provide your GitHub account, your GitHub Enterprise Server URL if you use GitHub Enterprise Server, or your GitHub Enterprise organization name if you use GitHub Enterprise Cloud. Select **Continue**.
+
+> [!NOTE]
+> If you're using GitHub Enterprise Cloud, leave the **Use GitHub Enterprise Server** checkbox cleared. 
 
 ![GitHub repository settings](media/connect-with-github-repo-1.png)
 
@@ -123,7 +126,7 @@ If you're connecting to GitHub from Synapse Studio for the first time, follow th
 
 1. In the Git configuration pane, enter the organization name in the *GitHub Account* field. A prompt to login into GitHub will appear. 
 
-1. Login using your user credentials.
+1. Login using your user credentials. 
 
 1. You'll be asked to authorize Synapse as an application called *Azure Synapse*. On this screen, you will see an option to grant permission for Synapse to access the organization. If you don't see the option to grant permission, ask an admin to manually grant the permission through GitHub.
 
@@ -153,9 +156,13 @@ Version control systems (also known as _source control_) allows developers to co
 
 ### Creating feature branches
 
-Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main` or `master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
+Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main` or `master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. 
 
-![Create a new branch](media/create-new-branch.png)
+![Create new branch](media/create-new-branch.png)
+
+Once the new branch pane appears, enter the name of your feature branch and select a branch to base the work off of.
+
+![Create branch based on private branch ](media/create-branch-from-private-branch.png)
 
 When you are ready to merge the changes from your feature branch to your collaboration branch, click on the branch dropdown and select **Create pull request**. This action takes you to Git provider where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. You are only allowed to publish to the Synapse service from your collaboration branch. 
 
@@ -185,7 +192,7 @@ A side pane will open where you confirm that the publish branch and pending chan
 ![Confirm the correct publish branch](media/publish-change.png)
 
 > [!IMPORTANT]
-> The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually service.
+> The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually.
 
 ## Switch to a different Git repository
 
@@ -236,4 +243,4 @@ If the publish branch is out of sync with the collaboration branch and contains 
 
 ## Next steps
 
-* To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD)](continuous-integration-deployment.md).
+* To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD)](continuous-integration-delivery.md).

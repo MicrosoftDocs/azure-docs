@@ -1,193 +1,188 @@
 ---
-title: Register Oracle source and setup scans in Azure Purview
-description: This article outlines how to register Oracle source in Azure Purview and set up a scan.
-author: chandrakavya
-ms.author: kchandra
+title: Connect to and manage Oracle
+description: This guide describes how to connect to Oracle in Azure Purview, and use Purview's features to scan and manage your Oracle source.
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
-ms.subservice: purview-data-catalog
-ms.topic: overview
-ms.date: 2/25/2021
+ms.subservice: purview-data-map
+ms.topic: how-to
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
 ---
-# Register and Scan Oracle source
 
-This article outlines how to register an Oracle data base in Purview and set up a scan.
+# Connect to and manage Oracle in Azure Purview
+
+This article outlines how to register Oracle, and how to authenticate and interact with Oracle in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-The Oracle source supports **Full scan** to extract metadata from an Oracle database and fetches **Lineage** between data assets.
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes**](how-to-lineage-oracle.md)|
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+
+The supported Oracle server versions are 6i to 19c
+
+Proxy server is not supported when scanning Oracle source.
 
 ## Prerequisites
 
-1.  Set up the latest [self-hosted integration
-    runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see [Create and configure a self-hosted
-    integration
-    runtime](../data-factory/create-self-hosted-integration-runtime.md).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-2.  Make sure [JDK
-    11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
-    is installed on your virtual machine where self-hosted integration
-    runtime is installed.
+* An active [Purview resource](create-catalog-portal.md).
 
-3.  Make sure \"Visual C++ Redistributable 2012 Update 4\" is installed
-    on the self-hosted integration runtime machine. If you don\'t yet
-    have it installed, download it from
-    [here](https://www.microsoft.com/download/details.aspx?id=30679).
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-4.  You will have to manually download an Oracle JDBC driver from [here](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) on your virtual machine where self-hosted integration runtime is running.
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
 
-    > [!Note] 
+* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+
+* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+
+* Manually download an Oracle JDBC driver from [here](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) onto your virtual machine where self-hosted integration runtime is running.
+
+    > [!Note]
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
-5.  Supported Oracle database versions are 6i to 19c.
+## Register
 
-6.  User permission: A read-only access to system tables is required. 
+This section describes how to register Oracle in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+
+### Prerequisites for registration
+
+A read-only access to system tables is required.
+
 The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
-       > grant create session to \[user\];\
-        grant select on all\_users to \[user\];\
-        grant select on dba\_objects to \[user\];\
-        grant select on dba\_tab\_comments to \[user\];\
-        grant select on dba\_external\_locations to \[user\];\
-        grant select on dba\_directories to \[user\];\
-        grant select on dba\_mviews to \[user\];\
-        grant select on dba\_clu\_columns to \[user\];\
-        grant select on dba\_tab\_columns to \[user\];\
-        grant select on dba\_col\_comments to \[user\];\
-        grant select on dba\_constraints to \[user\];\
-        grant select on dba\_cons\_columns to \[user\];\
-        grant select on dba\_indexes to \[user\];\
-        grant select on dba\_ind\_columns to \[user\];\
-        grant select on dba\_procedures to \[user\];\
-        grant select on dba\_synonyms to \[user\];\
-        grant select on dba\_views to \[user\];\
-        grant select on dba\_source to \[user\];\
-        grant select on dba\_triggers to \[user\];\
-        grant select on dba\_arguments to \[user\];\
-        grant select on dba\_sequences to \[user\];\
-        grant select on dba\_dependencies to \[user\];\
-        grant select on dba\_type\_attrs to \[user\];\
-        grant select on V\_\$INSTANCE to \[user\];\
-        grant select on v\_\$database to \[user\];
-    
-## Setting up authentication for a scan
+
+```sql
+grant create session to [user];
+grant select on all_users to [user];
+grant select on dba_objects to [user];
+grant select on dba_tab_comments to [user];
+grant select on dba_external_locations to [user];
+grant select on dba_directories to [user];
+grant select on dba_mviews to [user];
+grant select on dba_clu_columns to [user];
+grant select on dba_tab_columns to [user];
+grant select on dba_col_comments to [user];
+grant select on dba_constraints to [user];
+grant select on dba_cons_columns to [user];
+grant select on dba_indexes to [user];
+grant select on dba_ind_columns to [user];
+grant select on dba_procedures to [user];
+grant select on dba_synonyms to [user];
+grant select on dba_views to [user];
+grant select on dba_source to [user];
+grant select on dba_triggers to [user];
+grant select on dba_arguments to [user];
+grant select on dba_sequences to [user];
+grant select on dba_dependencies to [user];
+grant select on dba_type_attrs to [user];
+grant select on V_$INSTANCE to [user];
+grant select on v_$database to [user];
+```
+
+### Authentication for registration
 
 The only supported authentication for an Oracle source is **Basic authentication**.
 
-## Register an Oracle source
+### Steps to register
 
 To register a new Oracle source in your data catalog, do the following:
 
-1.  Navigate to your Purview account.
-2.  Select **Data Map** on the left navigation.
-3.  Select **Register**
-4.  On Register sources, select **Oracle**. Select **Continue**.
+1. Navigate to your Purview account in the [Purview Studio](https://web.purview.azure.com/resource/).
+1. Select **Data Map** on the left navigation.
+1. Select **Register**
+1. On Register sources, select **Oracle**. Select **Continue**.
 
     :::image type="content" source="media/register-scan-oracle-source/register-sources.png" alt-text="register sources" border="true":::
 
 On the **Register sources (Oracle)** screen, do the following:
 
-1.  Enter a **Name** that the data source will be listed within the Catalog.
+1. Enter a **Name** that the data source will be listed within the Catalog.
 
-2.  Enter the **Host** name to connect to an Oracle source. This can
-    either be:
-    - A host name used by JDBC to connect to the database server. For
-        for example, MyDatabaseServer.com or
-    - IP address. For for example,192.169.1.2 or
-    - Its fully qualified JDBC connection string. For for example,\
-        jdbc:oracle:thin:@(DESCRIPTION=(LOAD\_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT\_DATA=(SERVICE\_NAME=orcl)))
+1. Enter the **Host** name to connect to an Oracle source. This can either be:
+    * A host name used by JDBC to connect to the database server. For example: `MyDatabaseServer.com`
+    * An IP address. For example: `192.169.1.2`
+    * Its fully qualified JDBC connection string. For example:
 
-3.  Enter the **Port number** used by JDBC to connect to the database
-    server (1521 by default for Oracle).
+         ```
+        jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))
+        ```
 
-4.  Enter the **Oracle service name** used by JDBC to connect to the
-    database server.
+1. Enter the **Port number** used by JDBC to connect to the database server (1521 by default for Oracle).
 
-5.  Select a collection or create a new one (Optional)
+1. Enter the **Oracle service name** used by JDBC to connect to the database server.
 
-6.  Finish to register the data source.
+1. Select a collection or create a new one (Optional)
+
+1. Finish to register the data source.
 
     :::image type="content" source="media/register-scan-oracle-source/register-sources-2.png" alt-text="register sources options" border="true":::
 
-## Creating and running a scan
+## Scan
+
+Follow the steps below to scan Oracle to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
+
+### Create and run scan
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
-2.  Navigate to **Sources**.
+1. Navigate to **Sources**.
 
-3.  Select the registered Oracle source.
+1. Select the registered Oracle source.
 
-4.  Select **+ New scan**.
+1. Select **+ New scan**.
 
-5.  Provide the below details:
+1. Provide the below details:
 
-    a.  **Name**: The name of the scan
+    1. **Name**: The name of the scan
 
-    b.  **Connect via integration runtime**: Select the configured
+    1. **Connect via integration runtime**: Select the configured
         self-hosted integration runtime
 
-    c.  **Credential**: Select the credential to connect to your data source. Make sure to:
-    - Select Basic Authentication while creating a credential.        
-    - Provide the user name used by JDBC to connect to the database server in the User name input field        
-    - Store the user password used by JDBC to connect to the database server in the secret key.
+    1. **Credential**: Select the credential to connect to your data source. Make sure to:
+        * Select Basic Authentication while creating a credential.
+        * Provide the user name used by JDBC to connect to the database server in the User name input field.
+        * Store the user password used by JDBC to connect to the database server in the secret key.
 
-    d.  **Schema**: List subset of schemas to import expressed as a
-        semicolon separated list. For example, schema1; schema2. All user
-        schemas are imported if that list is empty. All system schemas
-        (for example, SysAdmin) and objects are ignored by default. When
-        the list is empty, all available schemas are imported.
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %, for example. A%; %B; %C%; D
-       -   start with A or        
-       -   end with B or        
-       -   contain C or        
-       -   equal D
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
 
-    Usage of NOT and special characters are not acceptable.
+        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For Example: `A%; %B; %C%; D`
+        * Start with A or
+        * End with B or
+        * Contain C or
+        * Equal D
 
-6.  **Driver location**: Specify the path to the JDBC driver location in
-    your VM where self-host integration runtime is running. This should
-    be the path to valid JAR folder location.
-    > [!Note]
-    > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+        Usage of NOT and special characters are not acceptable.
 
-7.  **Maximum memory available**: Maximum memory (in GB) available on
-    customer's VM to be used by scanning processes. This is dependent on
-    the size of SAP S/4HANA source to be scanned.
+    1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
 
-    > [!Note] 
-    > As a thumb rule, please provide 1GB memory for every 1000 tables
+        > [!Note]
+        > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
-    :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
+    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Oracle source to be scanned.
 
-8.  Click on **Continue**.
+        > [!Note]
+        > As a thumb rule, please provide 1GB memory for every 1000 tables
 
-9.  Choose your **scan trigger**. You can set up a schedule or ran the
-    scan once.
+        :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 
-10.  Review your scan and click on **Save and Run**.
+1. Select **Continue**.
 
-## Viewing your scans and scan runs
+1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
 
-1. Navigate to the management center. Select **Data sources** under the **Sources and scanning** section.
+1. Review your scan and select **Save and Run**.
 
-2. Select the desired data source. You will see a list of existing scans on that data source.
-
-3. Select the scan whose results you are interested to view.
-
-4. This page will show you all of the previous scan runs along with metrics and status for each scan run. It will also display whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan, and the total scan duration.
-
-## Manage your scans
-
-To manage or delete a scan, do the following:
-
-1. Navigate to the management center. Select **Data sources** under the **Sources and scanning** section then select on the desired data source.
-
-2. Select the scan you would like to manage. You can edit the scan by selecting **Edit**.
-
-3. You can delete your scan by selecting **Delete**.
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 
-- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
+Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+
+- [Data insights in Azure Purview](concept-insights.md)
+- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Search Data Catalog](how-to-search-catalog.md)

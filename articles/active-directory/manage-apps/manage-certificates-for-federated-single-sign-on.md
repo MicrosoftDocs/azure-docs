@@ -1,6 +1,7 @@
 ---
-title: Manage federation certificates in Azure AD | Microsoft Docs
+title: Manage federation certificates
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -10,7 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: davidmu
-ms.reviewer: jeedes
+ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
 ---
 

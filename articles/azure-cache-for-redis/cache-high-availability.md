@@ -1,11 +1,11 @@
 ---
 title: High availability for Azure Cache for Redis
 description: Learn about Azure Cache for Redis high availability features and options
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.author: yegu
+ms.author: cauribeg
 
 ---
 # High availability for Azure Cache for Redis
@@ -33,7 +33,7 @@ An Azure Cache for Redis in the Standard or Premium tier runs on a pair of Redis
 
 If the primary node in a Redis cache is unavailable, the replica promotes itself to become the new primary automatically. This process is called a *failover*. The replica will wait for a sufficiently long time before taking over in case that the primary node recovers quickly. When a failover happens, Azure Cache for Redis provisions a new VM and joins it to the cache as the replica node. The replica does a full data synchronization with the primary so that it has another copy of the cache data.
 
-A primary node can go out of service as part of a planned maintenance activity, such as Redis software or operating system update. It also can stop working because of unplanned events such as failures in underlying hardware, software, or network. [Failover and patching for Azure Cache for Redis](cache-failover.md) provides a detailed explanation on types of Redis failovers. An Azure Cache for Redis goes through many failovers during its lifetime. The design of th high availability architecture makes these changes inside a cache as transparent to its clients as possible.
+A primary node can go out of service as part of a planned maintenance activity, such as Redis software or operating system update. It also can stop working because of unplanned events such as failures in underlying hardware, software, or network. [Failover and patching for Azure Cache for Redis](cache-failover.md) provides a detailed explanation on types of Redis failovers. An Azure Cache for Redis goes through many failovers during its lifetime. The design of the high availability architecture makes these changes inside a cache as transparent to its clients as possible.
 
 Also, Azure Cache for Redis provides more replica nodes in the Premium tier. A [multi-replica cache](cache-how-to-multi-replicas.md) can be configured with up to three replica nodes. Having more replicas generally improves resiliency because you have nodes backing up the primary. Even with more replicas, an Azure Cache for Redis instance still can be severely impacted by a datacenter- or AZ-level outage. You can increase cache availability by using multiple replicas with [zone redundancy](#zone-redundancy).
 

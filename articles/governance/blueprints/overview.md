@@ -42,7 +42,7 @@ each is assigned to a subscription in a single operation that can be audited and
 
 Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished
 with an ARM template. However, an ARM template is a document that doesn't exist natively in Azure -
-each is stored either locally or in source control. The template gets used for deployments of one or
+each is stored either locally or in source control or in [Templates (preview)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). The template gets used for deployments of one or
 more Azure resources, but once those resources deploy there's no active connection or relationship
 to the template.
 

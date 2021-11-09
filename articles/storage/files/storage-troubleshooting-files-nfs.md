@@ -10,9 +10,9 @@ ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Troubleshoot Azure NFS file shares
+# Troubleshoot Azure NFS file share problems
 
-This article lists some common problems related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered.
+This article lists some common problems related to Azure NFS file shares (preview). It provides potential causes and workarounds when these problems are encountered. This article also covers known issues in public preview.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -35,13 +35,13 @@ Check that idmapping is disabled and nothing is re-enabling it, then perform the
 - Unmount the share
 - Disable id-mapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
 - Mount the share back
-- If running rsync, run rsync with “—numeric-ids” argument from directory which do not have any bad dir/file name.
+- If running rsync, run rsync with the "—numeric-ids" argument from a directory that does not have a bad dir/file name.
 
 ## Unable to create an NFS share
 
 ### Cause 1: Subscription is not enabled
 
-Your subscription may not have been registered for the Azure Files NFS preview. You will need to run a few additional commandlets from either Cloud Shell or a local terminal to enable the feature.
+Your subscription may not have been registered for the Azure Files NFS preview. You will need to run a few more commandlets from either Cloud Shell or a local terminal to enable the feature.
 
 > [!NOTE]
 > You may have to wait up to 30 minutes for the registration to complete.
@@ -87,15 +87,15 @@ Once registration completes, follow the instructions in our article: [How to cre
 
 ### Cause 1: Request originates from a client in an untrusted network/untrusted IP
 
-Unlike SMB, NFS does not have user-based authentication. The authentication for a share is based on your network security rule configuration. Due to this, to ensure only secure connections are established to your NFS share, you must use either the service endpoint or private endpoints. To access shares from on-premises in addition to private endpoints, you must set up VPN or ExpressRoute. IPs added to the storage account's allow-list for the firewall are ignored. You must use one of the following methods to setup access to an NFS share:
+Unlike SMB, NFS does not have user-based authentication. The authentication for a share is based on your network security rule configuration. Due to this, to ensure only secure connections are established to your NFS share, you must use either the service endpoint or private endpoints. To access shares from on-premises in addition to private endpoints, you must set up VPN or ExpressRoute. IPs added to the storage account's allowlist for the firewall are ignored. You must use one of the following methods to set up access to an NFS share:
 
 
 - [Service endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access)
     - Accessed by the public endpoint
     - Only available in the same region.
     - VNet peering won't give access to your share.
-    - Each virtual network or subnet must be individually added to the allow-list.
-    - For on-premises access, service endpoints can be used with ExpressRoute, point-to-site and site-to-site VPNs but, we recommend using private endpoint since it is more secure.
+    - Each virtual network or subnet must be individually added to the allowlist.
+    - For on-premises access, service endpoints can be used with ExpressRoute, point-to-site, and site-to-site VPNs but, we recommend using private endpoint since it is more secure.
 
 The following diagram depicts connectivity using public endpoints.
 
@@ -105,7 +105,7 @@ The following diagram depicts connectivity using public endpoints.
     - Access is more secure than the service endpoint.
     - Access to NFS share via private link is available from within and outside the storage account's Azure region (cross-region, on-premise)
     - Virtual network peering with virtual networks hosted in the private endpoint give NFS share access to the clients in peered virtual networks.
-    - Private endpoints can be used with ExpressRoute, point-to-site and site-to-site VPNs.
+    - Private endpoints can be used with ExpressRoute, point-to-site, and site-to-site VPNs.
 
 :::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram of private endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
@@ -117,7 +117,7 @@ Double encryption is not supported for NFS shares yet. Azure provides a layer of
 
 Disable secure transfer required in your storage account's configuration blade.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
 
 ### Cause 3: nfs-common package is not installed
 Before running the mount command, install the package by running the distro-specific command from below.
@@ -152,20 +152,14 @@ The NFS protocol communicates to its server over port 2049, make sure that this 
 
 Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port is not open, open it.
 
-## ls (list files) shows incorrect/inconsistent results
+## ls hangs for large directory enumeration on some kernels
 
-### Cause: Inconsistency between cached values and server file metadata values when the file handle is open
-Sometimes the "list files" command displays a non zero size as expected and in the very next list files command instead shows size 0 or a very old time stamp. This is a known issue due to inconsistent caching of file metadata values while the file is open. You may use one of the following workarounds to resolve this:
+### Cause: A bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5.  
+Some kernel versions have a bug which causes directory listings to result in an endless READDIR sequence. Very small directories where all entries can be shipped in one call will not have the problem.
+The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anything in between has the bug. RHEL 8.4 is known to have this kernel version.
 
-#### Workaround 1: For fetching file size, use wc -c instead of ls -l
-Using wc -c will always fetch the latest value from the server and won't have any inconsistency.
-
-#### Workaround 2: Use "noac" mount flag
-Remount the file system using the "noac" flag with your mount command. This will always fetch all the metadata values from the server. There may be some minor perf overhead for all metadata operations if this workaround is used.
-
-
-## Unable to mount an NFS share that is restored back from soft-deleted state
-There is a known issue during preview where NFS shares gets soft deleted despite the platform not fully supporting it. These shares will routinely get deleted upon its expiration. You can also early-delete them by "undelete share + disable soft-delete + delete share" flow. However, if you try to recover and use the shares, you will get access denied or permission denied or NFS I/O error on the client.
+#### Workaround: Downgrading or upgrading the kernel
+Downgrading or upgrading the kernel to anything outside the affected kernel will resolve the issue
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

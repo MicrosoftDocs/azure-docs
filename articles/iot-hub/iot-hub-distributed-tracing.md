@@ -84,7 +84,7 @@ These instructions are for building the sample on Windows. For other environment
 
 ### Clone the source code and initialize
 
-1. Install ["Desktop development with C++" workload](/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) for Visual Studio 2019. Visual Studio 2017 and 2015 are also supported.
+1. Install ["Desktop development with C++" workload](/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) for Visual Studio 2019. Visual Studio 2017 is also supported.
 
 1. Install [CMake](https://cmake.org/). Make sure it is in your `PATH` by typing `cmake -version` from a command prompt.
 
@@ -135,7 +135,7 @@ These instructions are for building the sample on Windows. For other environment
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
 
-    Replace the value of the `connectionString` constant with the device connection string you made a note of in the [register a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#create-a-simulated-device) section of the [Send telemetry C Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c).
+    Replace the value of the `connectionString` constant with the device connection string you made a note of in the [register a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#register-a-device) section of the [Send telemetry C Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c).
 
 1. Change the `MESSAGE_COUNT` define to `5000`:
 

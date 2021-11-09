@@ -213,7 +213,7 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | enable&#8203;AjaxErrorStatusText | If true, include response error data text in dependency event on failed AJAX requests. | boolean<br/> false |
 | enable&#8203;AjaxPerfTracking |Flag to enable looking up and including additional browser window.performance timings in the reported `ajax` (XHR and fetch) reported metrics. | boolean<br/> false |
 | maxAjaxPerf&#8203;LookupAttempts | The maximum number of times to look for the window.performance timings (if available), this is required as not all browsers populate the window.performance before reporting the end of the XHR request and for fetch requests this is added after its complete.| numeric<br/> 3 |
-| ajaxPerfLookupDelay | The amount of time to wait before re-attempting to find the windows.performance timings for an `ajax` request, time is in milliseconds and is passed directly to setTimeout(). | numeric<br/> 25 ms |
+| ajaxPerfLookupDelay | The amount of time to wait before re-attempting to find the window.performance timings for an `ajax` request, time is in milliseconds and is passed directly to setTimeout(). | numeric<br/> 25 ms |
 | enableUnhandled&#8203;PromiseRejection&#8203;Tracking | If true, unhandled promise rejections will be autocollected and reported as a JavaScript error. When disableExceptionTracking is true (don't track exceptions), the config value will be ignored and unhandled promise rejections will not be reported. | boolean<br/> false |
 | disable&#8203;InstrumentationKey&#8203;Validation | If true, instrumentation key validation check is bypassed. | boolean<br/>false |
 | enablePerfMgr | When enabled (true) this will create local perfEvents for code that has been instrumented to emit perfEvents (via the doPerf() helper). This can be used to identify performance issues within the SDK based on your usage or optionally within your own instrumented code. [More details are available by the basic documentation](https://github.com/microsoft/ApplicationInsights-JS/blob/master/docs/PerformanceMonitoring.md). Since v2.5.7 | boolean<br/>false |
@@ -274,7 +274,7 @@ cfg: { // Application Insights Configuration
 
 ``` 
 
-If any of your third-party servers that the client communicates with cannot accept the `Request-Id` and `Request-Context` headers, and you cannot update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludeDomains` configuration property. This property supports wildcards.
+If any of your third-party servers that the client communicates with cannot accept the `Request-Id` and `Request-Context` headers, and you cannot update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludedDomains` configuration property. This property supports wildcards.
 
 The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it is often necessary to extend the server-side list by manually adding `Request-Id` and `Request-Context`.
 

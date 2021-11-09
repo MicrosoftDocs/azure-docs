@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -16,9 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Connect Azure Active Directory (Azure AD) data to Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > As indicated below, some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -58,7 +60,7 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 1. From the data connectors gallery, select **Azure Active Directory** and then select **Open connector page**.
 
-1. Mark the check boxes next to the log types you want to stream into Azure Sentinel (see above), and click **Connect**.
+1. Mark the check boxes next to the log types you want to stream into Azure Sentinel (see above), and select **Connect**.
 
 ## Find your data
 
@@ -75,5 +77,5 @@ To query the Azure AD logs, enter the relevant table name at the top of the quer
 
 ## Next steps
 In this document, you learned how to connect Azure Active Directory to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).

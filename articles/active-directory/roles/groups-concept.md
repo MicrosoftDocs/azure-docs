@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 07/30/2021
+ms.date: 09/28/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -37,7 +37,7 @@ Role-assignable groups have the following restrictions:
 - You can only set the `isAssignableToRole` property or the **Azure AD roles can be assigned to the group** option for new groups.
 - The `isAssignableToRole` property is **immutable**. Once a group is created with this property set, it can't be changed.
 - You can't make an existing group a role-assignable group.
-- A maximum of 300 role-assignable groups can be created in a single Azure AD organization (tenant).
+- A maximum of 400 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 ## How are role-assignable groups protected?
 
@@ -58,9 +58,6 @@ Role-assignable groups are designed to help prevent potential breaches by having
 
 If you do not want members of the group to have standing access to a role, you can use [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to make a group eligible for a role assignment. Each member of the group is then eligible to activate the role assignment for a fixed time duration.
 
-> [!Note]
-> You must be using an updated version of PIM to be able to assign a Azure AD role to a group. You could be using an older version of PIM because your Azure AD organization leverages the PIM API. Send email to pim_preview@microsoft.com to move your organization and update your API. For more information, see [Azure AD roles and features in PIM](../privileged-identity-management/pim-configure.md).
-
 ## Scenarios not supported
 
 The following scenarios are not supported:  
@@ -75,7 +72,6 @@ The following are known issues with role-assignable groups:
 - Use the new [Exchange admin center](https://admin.exchange.microsoft.com/) for role assignments via group membership. The old Exchange admin center doesn't support this feature yet. Exchange PowerShell cmdlets will work as expected.
 - Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. You can [migrate to the unified sensitivity labeling platform](/azure/information-protection/configure-policy-migrate-labels) and then use the Office 365 Security & Compliance center to use group assignments to manage roles.
 - [Apps admin center](https://config.office.com/) doesn't support this feature yet. Assign users directly to Office Apps Administrator role.
-- [Microsoft 365 Compliance Center](https://compliance.microsoft.com/) doesn't support this feature yet. Assign users directly to appropriate Azure AD roles to use this portal.
 
 ## License requirements
 

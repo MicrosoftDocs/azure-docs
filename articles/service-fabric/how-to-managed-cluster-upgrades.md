@@ -2,15 +2,15 @@
 title: Upgrading Azure Service Fabric managed clusters
 description: Learn about options for upgrading your Azure Service Fabric managed cluster
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 08/23/2021
 ---
 # Manage Service Fabric managed cluster upgrades
 
-An Azure Service Fabric cluster is a resource you own, but it's partly managed by Microsoft. Here's how to manage when and how Microsoft updates your Azure Service Fabric managed cluster.
+An Azure Service Fabric cluster is a resource you own, but it's partly managed by Microsoft. Here's how to manage when and how Microsoft updates your Azure Service Fabric managed cluster runtime.
 
 ## Set upgrade mode
 
-Azure Service Fabric managed clusters are set by default to receive automatic Service Fabric upgrades as they are released by Microsoft using a [wave deployment](#wave-deployment-for-automatic-upgrades) strategy. As an alternative, you can setup manual mode upgrades in which you choose from a list of currently supported versions. You can configure these settings either through the *Fabric upgrades* control in Azure portal or the `ClusterUpgradeMode` setting in your cluster deployment template.
+Azure Service Fabric managed clusters are set by default to receive automatic Service Fabric upgrades as they are released by Microsoft using a [wave deployment](#wave-deployment-for-automatic-upgrades) strategy. As an alternative, you can set up manual mode upgrades in which you choose from a list of currently supported versions. You can configure these settings either through the *Fabric upgrades* control in Azure portal or the `ClusterUpgradeMode` setting in your cluster deployment template.
 
 ## Wave deployment for automatic upgrades
 
@@ -22,8 +22,8 @@ With wave deployment, you can create a pipeline for upgrading your test, stage, 
 To select a wave deployment for automatic upgrade, first determine which wave to assign your cluster:
 
 * **Wave 0** (`Wave0`): Clusters are updated as soon as a new Service Fabric build is released.
-* **Wave 1** (`Wave1`): Clusters are updated after Wave 0 to allow for bake time. This occurs after a minimum of 7 days after Wave 0
-* **Wave 2** (`Wave2`): Clusters are updated last to allow for further bake time. This occurs after a minimum of 14 days after Wave 0
+* **Wave 1** (`Wave1`): Clusters are updated after Wave 0 to allow for bake time. Wave 1 occurs after a minimum of 7 days after Wave 0.
+* **Wave 2** (`Wave2`): Clusters are updated last to allow for further bake time. Wave 2 occurs after a minimum of 14 days after Wave 0.
 
 ## Set the Wave for your cluster
 
@@ -47,12 +47,12 @@ To change your cluster upgrade mode using a Resource Manager template, specify e
 
 ```json
 {
-"apiVersion": "2021-05-01",
-"type": "Microsoft.ServiceFabric/managedClusters",
-"properties": {
-        "ClusterUpgradeMode": "Manual",
-        "ClusterCodeVersion": "8.0.514.9590"
-        }
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedClusters",
+  "properties": {
+    "clusterUpgradeMode": "Manual",
+    "clusterCodeVersion": "8.0.514.9590"
+  }
 }
 ```
 
@@ -64,20 +64,20 @@ If a rollback occurs, you'll need to fix the issues that resulted in the rollbac
 
 #### Automatic upgrade with wave deployment
 
-To configure Automatic upgrades and the wave deployment, simply add/validate `ClusterUpgradeMode` is set to `Automatic` and the `upgradeWave` property is defined with one of the wave values listed above in your Resource Manager template.
+To configure Automatic upgrades and the wave deployment, simply add/validate `ClusterUpgradeMode` is set to `Automatic` and the `clusterUpgradeCadence` property is defined with one of the wave values listed above in your Resource Manager template.
 
 ```json
 {
-"apiVersion": "2021-05-01",
-"type": "Microsoft.ServiceFabric/managedClusters",
-"properties": {
-        "ClusterUpgradeMode": "Automatic",
-        "upgradeWave": "Wave1",
-        }  
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedClusters",
+  "properties": {
+    "clusterUpgradeMode": "Automatic",
+    "clusterUpgradeCadence": "Wave1"
+  }
 }
 ```
 
-Once you deploy the updated template, your cluster will be enrolled in the specified wave for the next upgrade period and after that.
+Once you deploy the updated template, your cluster will be enrolled in the specified wave for automatic upgrades.
 
 ## Query for supported cluster versions
 
@@ -90,7 +90,7 @@ GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.Serv
 
 "value": [
   {
-    "id": "subscriptions/eec8e14e-b47d-40d9-8bd9-23ff5c381b40/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
     "name": "7.2.477.9590",
     "type": "Microsoft.ServiceFabric/locations/environments/managedClusterVersions",
     "properties": {

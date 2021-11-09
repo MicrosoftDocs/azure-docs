@@ -13,6 +13,8 @@ ms.custom: mimckitt
 
 # Quickstart: Create a virtual machine scale set in the Azure portal
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 A virtual machine scale set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set in the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -55,6 +57,7 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and select *myVMSSResourceGroup* from resource group list. 
 1. Type *myScaleSet* as the name for your scale set.
 1. In **Region**, select a region that is close to your area.
+1. Under **Orchestration**, ensure the *Uniform* option is selected for **Orchestration mode**. 
 1. Select a marketplace image for **Image**. In this example, we have chosen *Ubuntu Server 18.04 LTS*.
 1. Enter your desired username, and select which authentication type you prefer.
    - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).

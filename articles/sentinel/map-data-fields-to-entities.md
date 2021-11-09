@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Map data fields to entities in Azure Sentinel 
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -29,7 +31,7 @@ ms.author: yelevin
 
 ## Introduction
 
-Entity mapping is an integral part of the configuration of [scheduled query analytics rules](tutorial-detect-threats-custom.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
+Entity mapping is an integral part of the configuration of [scheduled query analytics rules](detect-threats-custom.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
 
 The procedure detailed below is part of the analytics rule creation wizard. It's treated here independently to address the scenario of adding or changing entity mappings in an existing analytics rule.
 
@@ -77,5 +79,5 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 ## Next steps
 
 In this document, you learned how to map data fields to entities in Azure Sentinel analytics rules. To learn more about Azure Sentinel, see the following articles:
-- Get the complete picture on [scheduled query analytics rules](tutorial-detect-threats-custom.md).
+- Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Azure Sentinel](entities-in-azure-sentinel.md).

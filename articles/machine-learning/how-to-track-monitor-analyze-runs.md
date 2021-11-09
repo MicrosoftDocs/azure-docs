@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to start, monitor, and track your machine learning experiment runs with the Azure Machine Learning Python SDK. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
-ms.date: 04/19/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -20,6 +20,7 @@ The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)
 This article shows how to do the following tasks:
 
 * Monitor run performance.
+* Add run display name. 
 * Create a custom view. 
 * Add a run description. 
 * Tag and find runs.
@@ -31,7 +32,7 @@ This article shows how to do the following tasks:
 
 > [!TIP]
 > If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
-> If you're looking for information on monitoring models deployed as web services or IoT Edge modules, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
+> If you're looking for information on monitoring models deployed as web services, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
 
 ## Prerequisites
 
@@ -179,6 +180,17 @@ You'll need the following items:
     
     ---    
    
+## Run Display Name 
+The run display name is an optional and customizable name that you can provide for your run. To edit the run display name:
+
+1. Navigate to the runs list. 
+
+2. Select the run to edit the display name in the run details page.
+
+3. Select the **Edit** button to edit the run display name. 
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: edit the display name":::
+
 ## Custom View 
     
 To view your runs in the studio: 

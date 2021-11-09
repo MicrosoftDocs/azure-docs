@@ -1,7 +1,7 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample
 description: Overview of the CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 03/11/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample

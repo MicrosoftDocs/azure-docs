@@ -3,14 +3,14 @@ title: Using insights token - Bing Visual Search
 titleSuffix: Azure Cognitive Services
 description: Shows how to use an image's insight token with Bing Visual Search API to get insights about an image.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
-ms.author: scottwhi
+
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 

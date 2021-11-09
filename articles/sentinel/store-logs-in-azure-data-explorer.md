@@ -1,12 +1,11 @@
 ---
 title: Integrate Azure Data Explorer for long-term log retention | Microsoft Docs
-description:  Send Azure Sentinel logs to Azure Data Explorer for long-term retention to reduce data storage costs.
+description: Send Azure Sentinel logs to Azure Data Explorer for long-term retention to reduce data storage costs.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
+
 # Integrate Azure Data Explorer for long-term log retention
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 By default, logs ingested into Azure Sentinel are stored in Azure Monitor Log Analytics. This article explains how to reduce retention costs in Azure Sentinel by sending them to Azure Data Explorer for long-term retention.
 
@@ -27,7 +29,7 @@ Storing logs in Azure Data Explorer reduces costs while retains your ability to 
 
 Azure Data Explorer is a big data analytics platform that is highly optimized for log and data analytics. Since Azure Data Explorer uses Kusto Query Language (KQL) as its query language, it's a good alternative for Azure Sentinel data storage. Using Azure Data Explorer for your data storage enables you to run cross-platform queries and visualize data across both Azure Data Explorer and Azure Sentinel.
 
-For more information, see the Azure Data Explorer [documentation](/azure/data-explorer/) and [blog](https://azure.microsoft.com/en-us/blog/tag/azure-data-explorer/).
+For more information, see the Azure Data Explorer [documentation](/azure/data-explorer/) and [blog](https://azure.microsoft.com/blog/tag/azure-data-explorer/).
 
 ### When to integrate with Azure Data Explorer
 
@@ -235,5 +237,5 @@ Regardless of where you store your data, continue hunting and investigating usin
 
 For more information, see:
 
-- [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutorial: Investigate incidents with Azure Sentinel](investigate-cases.md)
 - [Hunt for threats with Azure Sentinel](hunting.md)
