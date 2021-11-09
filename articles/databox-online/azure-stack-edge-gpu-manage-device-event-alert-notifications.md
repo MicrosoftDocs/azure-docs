@@ -59,7 +59,7 @@ Take the following steps in the Azure portal to create an action rule for your A
 
       The **Create action rule** screen shows the selected scope.
 
-      ![Screenshot of the Create Action Rule screen for an Azure Stack Edge resource with a scope defined. The completed Scope settings are highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-04-new.png)<!--Same changes as filter-01, below. Edit text: Breadcrumbs: Sub "myasegpudev" for "myase2109". In Scope, sub "contoso-uswest-rg for current RGs. Sub "contoso-uswest-rg" also for "-archana1-test" at the end. Default resource group S/B "DefaultResourceGroup-WEU".-->
+      ![Screenshot of the Create Action Rule screen for an Azure Stack Edge resource with a scope defined. The completed Scope settings are highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-04-new.png)<!--Testing text edits to propagate to other screens.-->
 
 4. Use **Filter** options to narrow the application of the rule to subset of alerts within the selected scope.
 
