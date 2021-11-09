@@ -9,7 +9,7 @@ ms.author: drskwier
 
 # Azure SQL input binding for Azure Functions
 
-The Azure SQL input binding retrieves data from Azure SQL and passes it to the input parameter of the function.
+The Azure SQL input binding retrieves data from a database and passes it to the input parameter of the function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-azuresql.md).
 
