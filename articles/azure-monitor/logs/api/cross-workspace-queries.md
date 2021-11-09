@@ -1,0 +1,76 @@
+---
+title: Cross Workspace Queries
+description: The API supports the ability to query across multiple workspaces.
+author: bwren
+ms.author: bwren
+ms.date: 08/18/2021
+ms.topic: article
+---
+# Cross Workspace Queries
+
+The API supports the ability to query across multiple workspaces. There are currently two ways to execute these queries: implicit and explicit, differing in syntax and semantics of query execution. The implicit method performs an automatic union over data in the requested workspace, while the explicit method allows more precision and control over how to access data from each workspace.
+
+The maximum number of resources in any cross-resource query is limited to 10.
+
+## Identifiers
+
+For either implicit or explicit cross-workspace queries, you need to specify the resources you will be accessing. There are four types of identifier we accept.
+
+1.  Name - human-readable string \<workspaceName\> of the OMS workspace
+2.  Qualified Name - string with format \<subscriptionName\>/\<resourceGroup\>/\<workspaceName\>
+3.  Workspace ID - GUID string
+4.  Azure Resource ID - string with format /subscriptions/\<subscriptionId\>/resourceGroups/\<resourceGroup\>/providers/  microsoft.operationalinsights/workspaces/\<workspaceName\>
+
+## Implicit Cross Workspace Queries
+
+For the implicit syntax, you specify the workspaces that you would like for your queries to be scoped over and the API will perform a single query over each application provided in your list. The syntax for a cross-workspace POST is as follows:
+
+Example:
+
+```
+    POST https://api.loganalytics.io/v1/workspaces/00000000-0000-0000-0000-000000000000/query
+    
+    Authorization: Bearer <user token>
+    Content-Type: application/json
+    
+    {
+       "query": "union * | where TimeGenerated > ago(1d) | summarize count() by Type, TenantId",
+       "workspaces": ["AIFabrikamDemo1", "AIFabrikamDemo2"]
+    }
+```
+
+The same request as a GET (line breaks for readability of query parameters):
+
+```
+    GET https://api.loganalytics.io/v1/workspaces/00000000-0000-0000-0000-000000000000/query?query=union+*+%7C+where+TimeGenerated+%3E+ago(1d)+%7C+summarize+count()+by+Type%2C+TenantId&workspaces=AIFabrikamDemo1%2CAIFabrikamDemo2
+    
+    
+    Authorization: Bearer <user token>
+    Content-Type: application/json
+```
+
+This query would run over AIFabrikamDemo1, AIFabrikamDemo2, and the workspace represented by the GUID 00000000-0000-0000-0000-000000000000, returning the union of the results. In the GET version, the workspaces query parameters is a comma-separated list of resources to query.
+
+## Explicit Cross Workspace Queries
+
+In some cases you might want the query to operate over a more targeted subset of the data in the workspaces of interest, combining data from multiple workspaces. For these scenarios, it is possible to explicitly mention a workspace and table in the query, similar to how one makes cross-cluster or cross-database queries or joins between tables today.
+
+The syntax to reference another application is: workspace('identifier').table.
+
+Example:
+
+```
+    POST https://api.loganalytics.io/v1/workspaces/00000000-0000-0000-0000-000000000000/query
+    Content-Type: application/json
+    Authorization: Bearer <user token>
+    
+    {
+    "query": "union (AzureActivity | where timestamp > ago(1d), (workspaces('AIFabrikamDemo').AzureActivity | where timestamp> ago(1d))"
+    }
+```
+
+Similarly to implicit, you could URL encode this query and make it a GET request as well. Here, there would be no query parameter for additional workspaces since the workspaces will get referenced from inside the query itself.
+
+## Throttling
+
+For the purposes of rate limiting, 1 cross-resource query counts as 1 API query, regardless of the number of resources in the query.
