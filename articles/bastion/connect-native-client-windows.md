@@ -19,6 +19,10 @@ Azure Bastion now offers support for connecting to target VMs in Azure using a n
 > This configuration requires the Standard SKU for Azure Bastion.
 >
 
+> [!IMPORTANT]
+> This feature is still rolling out globally. If you cannot access it in the Azure portal, please wait for a few days and try again.
+
+
 Currently, this feature has the following limitations:
 
 * Signing in to your target VM using a custom port or protocol is not yet available with native client support. If you want to use a custom port or protocol to sign in to your target VM via Bastion, use the Azure portal experience.
