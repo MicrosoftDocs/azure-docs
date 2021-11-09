@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/13/2021
+ms.date: 11/09/2021
 ms.author: memildin
 
 ---
@@ -30,7 +30,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| November 2021|
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | November 2021| 
 | [Inventory display of on-premises machines will use different template for resource name](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | November 2021    |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                          | November 2021    |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                          | December 2021    |
 | [Changes to a security alert from Microsoft Defender for Storage](#changes-to-a-security-alert-from-microsoft-defender-for-storage)  | November 2021    |
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | Q1 2022    |
 |||
@@ -77,7 +77,6 @@ Learn more:
 - [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
 
 
-
 ### Inventory display of on-premises machines will use different template for resource name
 
 **Estimated date for change:** November 2021
@@ -90,9 +89,9 @@ To improve the presentation of resources in the [Asset inventory](asset-inventor
 
 ### Multiple changes to identity recommendations
 
-**Estimated date for change:** November 2021
+**Estimated date for change:** December 2021
 
-Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In November, we'll be making the changes outlined below.
+Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In December, we'll be making the changes outlined below.
 
 - **Improved freshness interval** - Currently, the identity recommendations have a freshness interval of 24 hours. This update will reduce that interval to 12 hours.
 

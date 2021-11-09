@@ -68,7 +68,7 @@ As soon as you've applied filters, the summary values are updated to relate to t
 > [!TIP]
 > The KQL documentation provides a database with some sample data together with some simple queries to get the "feel" for the language. [Learn more in this KQL tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
-**Asset management options** - Inventory lets you perform complex discovery queries. When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
+**Asset management options** - When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
 
 - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag.
 - Onboard new servers to Defender for Cloud - use the **Add non-Azure servers** toolbar button.
