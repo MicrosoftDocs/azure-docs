@@ -578,8 +578,7 @@ A sample extract of a BOM file is provided below:
     vi sap-parameters.yaml
   ```
 
-  - In the sapbits_location_base_path parameter, input the storage account name of the sapbits storage account
-  - In the kv_name parameter, enter the name of the Deployer resource group key vault
+  - In the kv_name parameter, enter the name of the deployer key vault
   - Your file should look similar to this:
     ![sap parameters yaml](media/automation-hol/image36.png)
 
@@ -596,8 +595,7 @@ A sample extract of a BOM file is provided below:
   
     ```shell
       1) BoM Downloader
-      2) BoM Uploader
-      3) Quit
+      2) Quit
       Please select playbook:
     ```
 
@@ -736,7 +734,7 @@ Follow the below steps in sequence to remove the entire SAP infrastructure you h
 2. Remove Workload Zone (a.k.a Landscape)
 3. Remove Control Plane
 
->Please also note that removal of of SAP infra-Resources and workload zone steps should be executed from the deployer VM and the removal of the control plane needs to be executed from the cloudshell
+>Please also note that removal of SAP infrastructure resources and workload zone steps should be executed from the deployer VM and the removal of the control plane needs to be executed from the Cloud Shell
 
 So, let’s start cleaning up Azure resources (for 1 and 2 as mentioned above) from your Deployer VM
 
@@ -794,7 +792,7 @@ Before you start executing remover script make sure, you have logged into your A
     --library_parameter_file LIBRARY/MGMT-NOEU-SAP_LIBRARY/MGMT-NOEU-SAP_LIBRARY.tfvars
   ```
 
-  **Congratulation!** You have cleaned up all resources.
+  **Congratulations!** You have cleaned up all resources.
 
 ---
 
