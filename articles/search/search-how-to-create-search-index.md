@@ -26,11 +26,11 @@ Index creation is largely a schema definition exercise. Before creating one, you
 
 + A clear idea of which fields you want to make searchable, retrievable, filterable, facetable, and sortable in your index.
 
-  The [field attribute assignments](search-what-is-an-index.md#index-attributes) will determine its physical storage structure on the search service. During design and development, start with sample data so that you can drop and rebuild the index easily as you finalize field attribution.
+  The [field attribute assignments](search-what-is-an-index.md#index-attributes) will determine both search behaviors, and the physical representation of your index on the search service. During design and development, start with sample data so that you can drop and rebuild the index easily as you finalize field attribution.
 
-+ A source field that uniquely identifies each row, record, or item in the source data. If you're indexing from Blob Storage, the storage path is often used as the document key. 
++ A source field that uniquely identifies each row, record, or item in the source data. For example, if you're indexing from Blob Storage, the storage path is often used as the document key. 
 
-  Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"), and this key is mapped to a source field containing a unique identifier. The ability to uniquely identify specific search documents is required for retrieving a specific document in the search index, and for selective data processing by pulling the right one from source data.
+  Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"), and this key is mapped to a source field containing a unique identifier. The ability to uniquely identify specific search documents is required for retrieving a specific document in the search index, and for selective data processing at the per-document level.
 
 + Index location. Moving an existing index to a different search service is not supported out-of-the-box. Revisit application requirements and make sure the existing search service, its capacity and location, are sufficient for your needs.
 
@@ -42,8 +42,8 @@ Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#
 
 To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
 
-| Element | Allowed update |
-|---------|----------------|
+| Element | Can be updated? |
+|---------|-----------------|
 | Name | No |
 | Key | No |
 | Field names and types | No |
@@ -66,9 +66,9 @@ Use this checklist to help drive the design decisions for your search index.
 
 1. Review [supported data types](/rest/api/searchservice/supported-data-types). The data type will impact how the field is used. For example, numeric content is filterable but not full text searchable.
 
-1. Identify one field in the data source that contains unique values, allowing it to function as the key field in your index.
+1. Identify one field in the source data that contains unique values, allowing it to function as the key field in your index.
 
-1. Identify the fields in your data source that can contribute searchable content in the index. Searchable content are short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
+1. Identify the fields in your data source that will contribute searchable content in the index. Searchable content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
 
 1. Identify which source fields can be used as filters. Numeric content and short text fields, particularly those with repeating values, are good choices. When working with filters, remember:
 
