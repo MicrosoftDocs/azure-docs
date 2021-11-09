@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot write back issues with HR provisioning
-description: Learn how to troubleshoot manager update issues with HR provisioning
+description: Learn how to troubleshoot write back issues with HR provisioning
 author: kenwith
 manager: karenh444
 ms.service: active-directory

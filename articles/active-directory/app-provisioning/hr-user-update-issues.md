@@ -57,7 +57,7 @@ ms.reviewer: chmutali
 | Troubleshooting | Details |
 |-- | -- |
 | **Issue** | Let's say you are using *extensionAttribute3* in Azure AD to store the employee ID and you have mapped it to Workday *WorkerID* or SuccessFactors *personIdExternal* attribute for user matching. With this configuration, the matching step in provisioning process fails. This issue impacts both user creation and updates. |
-| **Cause** | The Azure AD *OnPremisesExtensionAttributes* (`extensionAttributes1-15`) cannot be used as a matching attribute because the `$filter` parameter of **Azure AD Graph API** does not [support filtering by extensionAttributes](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#filter). |
+| **Cause** | The Azure AD *OnPremisesExtensionAttributes* (`extensionAttributes1-15`) cannot be used as a matching attribute because the `$filter` parameter of **Azure AD Graph API** does not [support filtering by extensionAttributes](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#filter). |
 | **Resolution** | Don't use Azure AD *OnPremisesExtensionAttributes* (`extensionAttributes1-15`) in the matching attribute pair. Use employeeID. |
 
 
