@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 11/09/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ Role settings are the default settings that are applied to group owner and group
 
 Follow these steps to open the settings for an Azure privileged access group role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Global Administrator](../roles/permissions-reference.md#global-administrator) role or who is assigned as the group owner.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a user in the [Global Administrator](../roles/permissions-reference.md#global-administrator) role, the Privileged Role Administrator role, or the group Owner role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
