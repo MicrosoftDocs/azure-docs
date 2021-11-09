@@ -2,7 +2,7 @@
 author: Juliako
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 05/07/2021
+ms.date: 11/04/2021
 ms.author: juliako
 ---
 
