@@ -24,11 +24,11 @@ Write permissions are required for creating and loading indexes, granted through
 
 Index creation is largely a schema definition exercise. Before creating one, you should have:
 
-+ A clear idea of which fields you want to make searchable, retrievable, filterable, facetable, and sortable in your index (discussed in [schema checklist](#schema-checklist)).
++ A clear idea of which fields you want to make searchable, retrievable, filterable, facetable, and sortable in your index (more about this is discussed in [schema checklist](#schema-checklist)).
 
-+ A single source field that uniquely identifies each row, record, or item in the source data, to be used as the document key (or ID) in the index. For example, if you're indexing from Blob Storage, the storage path is often used as the document key. 
++ A unique identifier in source data that can be used as the document key (or ID) in the index.
 
-+ Index location. Moving an existing index to a different search service is not supported out-of-the-box. Revisit application requirements and make sure the existing search service, its capacity and location, are sufficient for your needs.
++ A stable index location. Moving an existing index to a different search service is not supported out-of-the-box. Revisit application requirements and make sure the existing search service, its capacity and location, are sufficient for your needs.
 
 Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you are experimenting on the Free tier, you can only have 3 indexes at any given time. Within the index itself, there are limits on the number of complex fields and collections.
 
@@ -62,9 +62,9 @@ Use this checklist to help drive the design decisions for your search index.
 
 1. Review [supported data types](/rest/api/searchservice/supported-data-types). The data type will impact how the field is used. For example, numeric content is filterable but not full text searchable. The most common data type is `Edm.String` for searchable text, which is tokenized and queried using the full text search engine.
 
-1. Identify one field in the source data that contains unique values, allowing it to function as the key field in your index. 
+1. Identify one field in the source data that contains unique values, allowing it to function as the key field in your index. For example, if you're indexing from Blob Storage, the storage path is often used as the document key. 
 
-  Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"). The key should be mapped to the unique identifier in your source data. The ability to uniquely identify specific search documents is required for retrieving a specific document in the search index, and for selective data processing at the per-document level.
+   Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"). The key should be mapped to the unique identifier in your source data. The ability to uniquely identify specific search documents is required for retrieving a specific document in the search index, and for selective data processing at the per-document level.
 
 1. Identify the fields in your data source that will contribute searchable content in the index. Searchable content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
 
