@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to 
-ms.date: 08/26/2021
+ms.date: 11/08/2021
 ---
 
 #  Start a WebSocket connection to Azure Web PubSub
@@ -26,7 +26,7 @@ The portal also provides a tool to generate the client URL with the token dynami
 > Make sure to only include necessary roles when you're generating the token.
 >
 
-In the following sections, to simplify the sample workflow, we use this temporarily generated URL from the portal for the client to connect. We use `<Client_URL_From_Portal>` to represent the value. The token generated expires in 50 minutes by default, so don't forget to regenerate one when the token expires.
+In the following sections, to simplify the sample workflow, we use this temporarily generated URL from the portal for the client to connect. We use `<Client_URL_From_Portal>` to represent the value. The token generated expires in 60 minutes by default, so don't forget to regenerate one when the token expires.
 
 The service supports two types of WebSocket clients: one is the simple WebSocket client, and the other is the PubSub WebSocket client. Here we show how these two kinds of clients connect to the service. For more information about these clients, see [WebSocket client protocols for Azure Web PubSub](./concept-client-protocols.md).
 

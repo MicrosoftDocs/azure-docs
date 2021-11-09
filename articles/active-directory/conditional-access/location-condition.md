@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 10/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: calebb, olhuan
+manager: karenhoran
+ms.reviewer: calebb, mewal
 
 ms.collection: M365-identity-device-management
 
@@ -78,7 +78,7 @@ If you select **Determine location by IP address (IPv4 only)**, the system will 
 > [!NOTE]
 > Sign-ins from IPv6 addresses cannot be mapped to countries or regions, and are considered unknown areas. Only IPv4 addresses can be mapped to countries or regions.
 
-If you select **Determine location by GPS coordinates (Preview)**, the user will need to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system will contact the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
+If you select **Determine location by GPS coordinates**, the user will need to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system will contact the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
 
 The first time the user is required to share their location from the Microsoft Authenticator app, the user will receive a notification in the app. The user will need to open the app and grant location permissions. 
 

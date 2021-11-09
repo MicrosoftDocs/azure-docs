@@ -16,13 +16,15 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Use the rank transformation to generate an ordered ranking based upon sort conditions specified by the user. 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GGJo]
 
 ## Configuration
 
-![Rank settings](media/data-flow/rank-configuration.png "Rank settings")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="Rank settings":::
 
 **Case insensitive:** If a sort column is of type string, case will be factored into the ranking. 
 
@@ -52,7 +54,7 @@ The above configuration takes incoming basketball data and creates a rank column
 
 ### Example
 
-![Rank settings](media/data-flow/rank-configuration.png "Rank settings")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="Rank settings":::
 
 The data flow script for the above rank configuration is in the following code snippet.
 

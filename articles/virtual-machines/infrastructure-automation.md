@@ -113,7 +113,7 @@ Azure Automation also provides a Desired State Configuration (DSC) service that 
 
 Learn how to:
 
-- [Create a PowerShell runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
+- [Create a PowerShell runbook](../automation/learn/powershell-runbook-managed-identity.md).
 - [Use Hybrid Runbook Worker to manage on-premises resources](../automation/automation-hybrid-runbook-worker.md).
 - [Use Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 

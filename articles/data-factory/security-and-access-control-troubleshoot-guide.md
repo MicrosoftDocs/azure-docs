@@ -93,7 +93,7 @@ To resolve the issue, do the following:
   
      In the Azure VM, go to `C:\Windows\System32\drivers\etc`, and then open the *host* file in Notepad. Add the line that maps the private IP to the FQDN at the end of the file, and save the change.
      
-     ![Screenshot of mapping the private IP to the host.](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
+     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png" alt-text="Screenshot of mapping the private IP to the host.":::
 
   1. Rerun the same commands as in the preceding verification steps to check the response, which should contain the private IP.
 
@@ -161,15 +161,15 @@ Both Azure Resource Manager and the service are using the same private zone crea
 
 #### Solution
 1. Find Private DNS zones **privatelink.azure.com** in Azure portal.
-![Screenshot of finding Private DNS zones.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+:::image type="content" source="media/security-access-control-troubleshoot-guide/private-dns-zones.png" alt-text="Screenshot of finding Private DNS zones.":::
 2. Check if there is an A record **adf**.
-![Screenshot of A record.](media/security-access-control-troubleshoot-guide/a-record.png)
+:::image type="content" source="media/security-access-control-troubleshoot-guide/a-record.png" alt-text="Screenshot of A record.":::
 3.	Go to **Virtual network links**, delete all records.
-![Screenshot of virtual network link.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+:::image type="content" source="media/security-access-control-troubleshoot-guide/virtual-network-link.png" alt-text="Screenshot of virtual network link.":::
 4.	Navigate to your service in Azure portal and recreate the private endpoint for the portal.
-![Screenshot of recreating private endpoint.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+:::image type="content" source="media/security-access-control-troubleshoot-guide/create-private-endpoint.png" alt-text="Screenshot of recreating private endpoint.":::
 5.	Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
-![Screenshot of new DNS record.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
+:::image type="content" source="media/security-access-control-troubleshoot-guide/check-dns-record.png" alt-text="Screenshot of new DNS record.":::
 
 ### Connection error in public endpoint
 

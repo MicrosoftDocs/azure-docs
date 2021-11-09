@@ -82,15 +82,15 @@ In this section, you author a Databricks linked service. This linked service con
 
 1.  On the home page, switch to the **Manage** tab in the left panel.
 
-    ![Screenshot showing the Manage tab.](media/doc-common-process/get-started-page-manage-button.png)
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Screenshot showing the Manage tab.":::
 
 1.  Select **Linked services** under **Connections**, and then select **+ New**.
     
-    ![Screenshot showing how to create a new connection.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-6.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-6.png" alt-text="Screenshot showing how to create a new connection.":::
 
 1.  In the **New linked service** window, select **Compute** &gt; **Azure Databricks**, and then select **Continue**.
     
-    ![Screenshot showing how to specify a Databricks linked service.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-7.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-7.png" alt-text="Screenshot showing how to specify a Databricks linked service.":::
 
 1.  In the **New linked service** window, complete the following steps:
     
@@ -112,23 +112,23 @@ In this section, you author a Databricks linked service. This linked service con
     
     1.  Select **Create**.
 
-        ![Screenshot showing the configuration of the new Azure Databricks linked service.](media/transform-data-using-databricks-notebook/new-databricks-linked-service.png)
+        :::image type="content" source="media/transform-data-using-databricks-notebook/new-databricks-linked-service.png" alt-text="Screenshot showing the configuration of the new Azure Databricks linked service.":::
 
 ## Create a pipeline
 
 1.  Select the **+** (plus) button, and then select **Pipeline** on the menu.
 
-    ![Screenshot showing buttons for creating a new pipeline.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-9.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-9.png" alt-text="Screenshot showing buttons for creating a new pipeline.":::
 
 1.  Create a **parameter** to be used in the **Pipeline**. Later you pass this parameter to the Databricks Notebook Activity. In the empty pipeline, select the **Parameters** tab, then select **+ New** and name it as '**name**'.
 
-    ![Screenshot showing how to create a new parameter.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-10.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-10.png" alt-text="Screenshot showing how to create a new parameter.":::
 
-    ![Screenshot showing how to create the name parameter.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-11.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-11.png" alt-text="Screenshot showing how to create the name parameter.":::
 
 1.  In the **Activities** toolbox, expand **Databricks**. Drag the **Notebook** activity from the **Activities** toolbox to the pipeline designer surface.
 
-    ![Screenshot showing how to drag the notebook to the designer surface.](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/new-adf-pipeline.png" alt-text="Screenshot showing how to drag the notebook to the designer surface.":::
 
 1.  In the properties for the **Databricks** **Notebook** activity window at the bottom, complete the following steps:
 
@@ -171,27 +171,27 @@ In this section, you author a Databricks linked service. This linked service con
 
     a.  Add a **parameter** to the Notebook activity. You use the same parameter that you added earlier to the **Pipeline**.
 
-       ![Screenshot showing how to add a parameter.](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
+       :::image type="content" source="media/transform-data-using-databricks-notebook/new-adf-parameters.png" alt-text="Screenshot showing how to add a parameter.":::
 
     b.  Name the parameter as **input** and provide the value as expression **\@pipeline().parameters.name**.
 
 1.  To validate the pipeline, select the **Validate** button on the toolbar. To close the validation window, select the **Close** button.
 
-    ![Screenshot showing how to validate the pipeline.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-18.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-18.png" alt-text="Screenshot showing how to validate the pipeline.":::
 
 1.  Select **Publish all**. The Data Factory UI publishes entities (linked services and pipeline) to the Azure Data Factory service.
 
-    ![Screenshot showing how to publish the new data factory entities.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-19.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-19.png" alt-text="Screenshot showing how to publish the new data factory entities.":::
 
 ## Trigger a pipeline run
 
 Select **Add trigger** on the toolbar, and then select **Trigger now**.
 
-![Screenshot showing how to select the 'Trigger now' command.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-20.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-20.png" alt-text="Screenshot showing how to select the 'Trigger now' command.":::
 
 The **Pipeline run** dialog box asks for the **name** parameter. Use **/path/filename** as the parameter here. Select **OK**.
 
-![Screenshot showing how to provide a value for the name parameters.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-21.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-21.png" alt-text="Screenshot showing how to provide a value for the name parameters.":::
 
 ## Monitor the pipeline run
 

@@ -179,7 +179,7 @@ Follow these steps to add or remove permissions for your custom role.
 
     ![Add permissions list](./media/shared/add-permissions-list.png)
 
-1. If you are looking for permissions that apply to the data plane, click **Data Actions**. Otherwise, leave the actions toggle set to **Actions** to list permissions that apply to the management plane. For more information, about the differences between the management plane and data plane, see [Management and data operations](role-definitions.md#management-and-data-operations).
+1. If you are looking for permissions that apply to the data plane, click **Data Actions**. Otherwise, leave the actions toggle set to **Actions** to list permissions that apply to the control plane. For more information, about the differences between the control plane and data plane, see [Control and data actions](role-definitions.md#control-and-data-actions).
 
 1. If necessary, update the search string to further refine your search.
 

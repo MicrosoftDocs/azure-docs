@@ -1,3 +1,4 @@
+items:
 - name: Translator Service Documentation
   href: index.yml
 - name: Overview
@@ -100,7 +101,7 @@
       href: document-translation/get-started-with-document-translation.md
     - name: How-to guides
       items:
-      - name: Create SAS tokens for Document Translation
+      - name: Generate SAS tokens for Document Translation
         href: document-translation/create-sas-tokens.md
       - name: Create and use managed identity
         href: document-translation/managed-identity.md

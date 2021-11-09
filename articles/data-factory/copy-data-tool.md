@@ -50,16 +50,16 @@ This tool allows you to easily move data from a wide variety of sources to desti
 
    The tool is designed with big data in mind from the start, with support for diverse data and object types. You can use it to move hundreds of folders, files, or tables. The tool supports automatic data preview, schema capture and automatic mapping, and data filtering as well.
 
-![Copy Data tool](./media/copy-data-tool/copy-data-tool.png)
+:::image type="content" source="./media/copy-data-tool/copy-data-tool.png" alt-text="Copy Data tool":::
 
 ## Automatic data preview
 You can preview part of the data from the selected source data store, which allows you to validate the data that is being copied. In addition, if the source data is in a text file, the Copy Data tool parses the text file to automatically detect the row and column delimiters, and schema.
 
-![File settings](./media/copy-data-tool/file-format-settings.png)
+:::image type="content" source="./media/copy-data-tool/file-format-settings.png" alt-text="File settings":::
 
 After the detection, select **Preview data**:
 
-![Detected file settings and preview](./media/copy-data-tool/after-detection.png)
+:::image type="content" source="./media/copy-data-tool/after-detection.png" alt-text="Detected file settings and preview":::
 
 ## Schema capture and automatic mapping
 The schema of data source may not be same as the schema of data destination in many cases. In this scenario, you need to map columns from the source schema to columns from the destination schema.
@@ -75,7 +75,7 @@ You can filter source data to select only the data that needs to be copied to th
 ### Filter data in a database
 The following screenshot shows a SQL query to filter the data.
 
-![Filter data in a database](./media/copy-data-tool/filter-data-in-database.png)
+:::image type="content" source="./media/copy-data-tool/filter-data-in-database.png" alt-text="Filter data in a database":::
 
 ### Filter data in an Azure blob folder
 You can use variables in the folder path to copy data from a folder. The supported variables are: **{year}**, **{month}**, **{day}**, **{hour}**, and **{minute}**. For example: inputfolder/{year}/{month}/{day}. 
@@ -93,7 +93,7 @@ Click the **Browse** button for **File or folder**, browse to one of these folde
 
 Then, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, and **02** with **{hour}**, and press the **Tab** key. When you select **Incremental load: time-partitioned folder/file names** in the **File loading behavior** section and you select **Schedule** or **Tumbling window** on the **Properties** page, you should see drop-down lists to select the format for these four variables:
 
-![Filter file or folder](./media/copy-data-tool/filter-file-or-folder.png)
+:::image type="content" source="./media/copy-data-tool/filter-file-or-folder.png" alt-text="Filter file or folder":::
 
 The Copy Data tool generates parameters with expressions, functions, and system variables that can be used to represent {year}, {month}, {day}, {hour}, and {minute} when creating pipeline.
 
@@ -102,7 +102,7 @@ You can run the copy operation once or on a schedule (hourly, daily, and so on).
 
 A one-time copy operation enables data movement from a source to a destination only once. It applies to data of any size and any supported format. The scheduled copy allows you to copy data on a recurrence that you specify. You can use rich settings (like retry, timeout, and alerts) to configure the scheduled copy.
 
-![Scheduling options](./media/copy-data-tool/scheduling-options.png)
+:::image type="content" source="./media/copy-data-tool/scheduling-options.png" alt-text="Scheduling options":::
 
 
 ## Next steps

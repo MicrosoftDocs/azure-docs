@@ -30,7 +30,7 @@ Copy activity supports preserving the following attributes during data copy:
 
 When you copy files as-is from Amazon S3/Azure Data Lake Storage Gen2/Azure Blob storage/Azure Files to Azure Data Lake Storage Gen2/Azure Blob storage/Azure Files with binary format, you can find the **Preserve** option on the **Copy Activity** > **Settings** tab for activity authoring or the **Settings** page in Copy Data Tool.
 
-![Copy activity preserve metadata](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
+:::image type="content" source="./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png" alt-text="Copy activity preserve metadata":::
 
 Here's an example of copy activity JSON configuration (see `preserve`): 
 
@@ -93,7 +93,7 @@ If you specify to copy from a folder, the service replicates the ACLs for that g
 
 When you configure source as Data Lake Storage Gen1/Gen2 with binary format or the binary copy option, and sink as Data Lake Storage Gen2 with binary format or the binary copy option, you can find the **Preserve** option on the **Settings** page in Copy Data Tool or on the **Copy Activity** > **Settings** tab for activity authoring.
 
-![Data Lake Storage Gen1/Gen2 to Gen2 Preserve ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+:::image type="content" source="./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png" alt-text="Data Lake Storage Gen1/Gen2 to Gen2 Preserve ACL":::
 
 Here's an example of copy activity JSON configuration (see `preserve`): 
 

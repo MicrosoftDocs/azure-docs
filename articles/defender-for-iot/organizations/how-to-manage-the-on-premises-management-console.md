@@ -228,9 +228,9 @@ To define:
 1. Sign in to the CLI for the on-premises management with administrative credentials.
 1. Type ```nano /var/cyberx/properties/remote-interfaces.properties```.
 1. Select enter. The following prompts appear.
-```mail.smtp_server= ```
-```mail.port=25 ```
-```mail.sender=```
+   `mail.smtp_server=`
+   `mail.port=25`
+   `mail.sender=`
 1. Enter the SMTP server name  and sender and select enter.
 
 ## See also

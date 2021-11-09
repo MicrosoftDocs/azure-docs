@@ -30,7 +30,7 @@ sections:
           
           Azure Marketplace includes IT and developer solutions that are built on Azure or used within Azure subscriptions themselves.
           
-          To learn more, see the [Marketplace customer documentation](https://aka.ms/MarketplaceBuyerGuide).
+          To learn more, see the [Marketplace customer documentation](/marketplace/).
           
       - question: |
           Why should I make my software or services available in the Microsoft commercial marketplace?

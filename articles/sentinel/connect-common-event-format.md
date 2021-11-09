@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Get CEF-formatted logs from your device or appliance into Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -51,7 +53,7 @@ An Azure Sentinel workspace is required in order to ingest CEF data into Log Ana
 
 - You must have read and write permissions on this workspace.
 
-- You must have read permissions to the shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+- You must have read permissions to the shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md).
 
 ## Designate a log forwarder and install the Log Analytics agent
 
@@ -113,7 +115,7 @@ To find CEF events for these products, enter the name of the Kusto function as y
 
 You can find helpful sample queries, workbooks, and analytics rule templates made especially for your product on the **Next steps** tab of your product's data connector page in the Azure Sentinel portal.
 
-If you're not seeing any data, see the [CEF troubleshooting](connect-cef-verify.md) page for guidance.
+If you're not seeing any data, see the [CEF troubleshooting](./troubleshooting-cef-syslog.md) page for guidance.
 
 ### Changing the source of the TimeGenerated field
 

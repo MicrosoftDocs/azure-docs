@@ -1,18 +1,21 @@
 ---
-title: How to plan a SaaS offer for the Microsoft commercial marketplace - Azure Marketplace
-description: How to plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
+title: Plan a SaaS offer for the Microsoft commercial marketplace - Azure Marketplace
+description: Plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/31/2021
+ms.date: 10/26/2021
 ---
 
-# How to plan a SaaS offer for the commercial marketplace
+# Plan a SaaS offer for the commercial marketplace
 
 This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers to let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
+
+> [!TIP]
+> To see the customer's view of purchasing a SaaS offer in the Azure portal, see [Purchase a SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal) and [Purchase SaaS apps on Microsoft AppSource](/marketplace/purchase-software-appsource).
 
 ## Listing options
 
@@ -51,7 +54,7 @@ The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing opti
 
 These additional technical requirements apply to the _Sell through Microsoft_ (transactable) listing option only:
 
-- You must use the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) to integrate with Azure Marketplace and Microsoft AppSource. You must expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
+- You must use the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-apis.md) to integrate with Azure Marketplace and Microsoft AppSource. You must expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-apis.md).
 - You must create at least one plan for your offer. Your plan is priced based on the pricing model you select before publishing: _flat rate_ or _per-user_. More details about [plans](#plans) are provided later in this article.
 - The customer can cancel your offer at any time.
 
@@ -61,13 +64,13 @@ If you’re creating a transactable offer, you'll need to gather the following i
 
 - **Landing page URL**: The SaaS site URL (for example: `https://contoso.com/signup`) that users will be directed to after acquiring your offer from the commercial marketplace, triggering the configuration process from the newly created SaaS subscription. This URL will receive a token that can be used to call the fulfillment APIs to get provisioning details for your interactive registration page.
 
-  This URL will be called with the marketplace purchase identification token parameter that uniquely identifies the specific customer's SaaS purchase. You must exchange this token for the corresponding SaaS subscription details using the [resolve API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Those details and any others you wish to collect as part of a customer-interactive web page can be used to kick off the customer onboarding experience, which has to eventually conclude with an activate call on the API for starting the subscription period. On this page, the user should sign up through one-click authentication by using Azure Active Directory (Azure AD).
+  This URL will be called with the marketplace purchase identification token parameter that uniquely identifies the specific customer's SaaS purchase. You must exchange this token for the corresponding SaaS subscription details using the [resolve API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription). Those details and any others you wish to collect as part of a customer-interactive web page can be used to kick off the customer onboarding experience, which has to eventually conclude with an activate call on the API for starting the subscription period. On this page, the user should sign up through one-click authentication by using Azure Active Directory (Azure AD).
 
   This URL with marketplace purchase identification token parameter will also be called when the customer launches a managed SaaS experience from the Azure portal or Microsoft 365 Admin Center. You should handle both flows: when the token is provided for the first time after a new customer purchase, and when it's provided again for an existing customer managing their SaaS solution.
 
     The Landing page you configure should be up and running 24/7. This is the only way you’ll be notified about new purchases of your SaaS offers made in the commercial marketplace, or configuration requests for an active subscription of an offer.
 
-- **Connection webhook**: For all asynchronous events that Microsoft needs to send to you (for example, when a SaaS subscription has been canceled), we require you to provide a connection webhook URL. We will call this URL to notify you on the event.
+- **Connection webhook**: For all asynchronous events that Microsoft needs to send to you (for example, when a SaaS subscription has been canceled), we require you to [provide a connection webhook URL](./partner-center-portal/pc-saas-fulfillment-webhook.md). We will call this URL to notify you on the event.
 
   The webhook you provide should be up and running 24/7. This is the only way you’ll be notified about updates about your customers' SaaS subscriptions purchased via the commercial marketplace.
 
@@ -103,17 +106,17 @@ When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure M
 If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business solution (AppSource), select a category and a subcategory applicable to each online store. Offers published to both online stores should have a value proposition as an IT solution *and* a business solution.
 
 > [!IMPORTANT]
-> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal.
+> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal and AppSource.
 
 | Metered billing | Public plan | Private plan | Available in: |
 |---|---|---|---|
 | Yes             | Yes         | No           | Azure Marketplace and Azure portal |
 | Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
 | Yes             | No          | Yes          | Azure portal only |
-| No              | No          | Yes          | Azure portal only |
+| No              | No          | Yes          | Azure portal and AppSource |
 |||||
 
-&#42; The private plan of the offer will only be available via the Azure portal.
+&#42; The private plan of the offer will only be available via the Azure portal and AppSource.
 
 For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
 
@@ -128,7 +131,6 @@ If you choose to use the standard contract, you have the option to add universal
 > [!NOTE]
 > After you publish an offer using the standard contract for the commercial marketplace, you cannot use your own custom terms and conditions. It is an "or" scenario. You either offer your solution under the standard contract or your own terms and conditions. If you want to modify the terms of the standard contract you can do so through Standard Contract Amendments.
 
-
 ## Microsoft 365 integration
 
 Integration with Microsoft 365 allows your SaaS offer to provide connected experience across multiple Microsoft 365 App surfaces through related free add-ins like Teams apps, Office add-ins, and SharePoint Framework solutions. You can help your customers easily discover all facets of your E2E solution (web service + related add-ins) and deploy them within one process by providing the following information. 
@@ -136,7 +138,7 @@ Integration with Microsoft 365 allows your SaaS offer to provide connected exper
     
      If you choose to sell your offer through Microsoft, then this is the same AAD App ID that you have registered to use on your landing page to get basic user information needed to complete customer subscription activation. For detailed guidance, see [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md). 
 	
-   -	Provide a list of related add-ins that work with your SaaS offer you want to link. Customers will be able to discover your E2E solution on AppSource and administrators can deploy both the SaaS and all the related add-ins you have linked in the same process via Microsoft 365 admin center.
+   -	Provide a list of related add-ins that work with your SaaS offer you want to link. Customers will be able to discover your E2E solution on Microsoft AppSource and administrators can deploy both the SaaS and all the related add-ins you have linked in the same process via Microsoft 365 admin center.
     
         To link related add-ins, you need to provide the AppSource link of the add-in, this means the add-in must be first published to AppSource. Supported add-in types you can link are: Teams apps, Office add-ins, and SharePoint Framework (SPFx) solutions. Each linked add-in must be unique for a SaaS offer. 
 
@@ -211,9 +213,9 @@ To help create your offer more easily, prepare some of these items ahead of time
 
   These logos are used in different places in the online stores:
 
-  - The Small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
+  - The Small logo appears in Azure Marketplace search results and on the AppSource main page and search results page.
   - The Medium logo appears when you create a new resource in Microsoft Azure.
-  - The Large logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+  - The Large logo appears on your offer listing page in Azure Marketplace and AppSource.
 
 - **Media - Screenshots**: You must add at least one and up to five screenshots with the following requirements, that show how your offer works:
   - 1280 x 720 pixels
@@ -262,12 +264,8 @@ The following example shows a sample breakdown of costs and payouts to demonstra
 | Azure usage cost (D1/1-Core) | Billed directly to the publisher, not the customer |
 | Customer is billed by Microsoft | $100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee) |
 | **Microsoft bills** | **$100 per month** |
-| Microsoft pays you 80% of your license cost<br>`*` For qualified SaaS apps, Microsoft pays 90% of your license cost| $80.00 per month<br>``*`` $90.00 per month |
-|||
-
-**`*` Reduced Marketplace Service Fee** – For certain SaaS offers that you have published on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five (5) business days before the end of each calendar month to receive the Reduced Marketplace Service Fee. Once eligibility is met, the reduced service fee is awarded to all transactions effective the first day of the following month and will continue to be applied until Azure IP Co-sell incentivized status is lost. For details about IP co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). The Reduced Marketplace Service Fee also applies to Azure IP Co-sell incentivized VMs, Managed Apps, and any other qualified transactable IaaS offers made available through the commercial marketplace.
-
-## Preview audience
+| Microsoft charges a 3% Marketplace Service Fee and pays you 97% of your license cost | $97.00 per month |
+|
 
 A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live. 
 

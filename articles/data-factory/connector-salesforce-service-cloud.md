@@ -164,7 +164,7 @@ To copy data from and to Salesforce Service Cloud, the following properties are 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Salesforce connection API Name](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Salesforce connection API Name":::
 
 **Example:**
 
@@ -207,7 +207,7 @@ To copy data from Salesforce Service Cloud, the following properties are support
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Salesforce connection API Name list](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Salesforce connection API Name list":::
 
 **Example:**
 

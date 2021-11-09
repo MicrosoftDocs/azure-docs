@@ -16,6 +16,8 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 The Filter transforms allows row filtering based upon a condition. The output stream includes all rows that matching the filtering condition. The filter transformation is similar to a WHERE clause in SQL.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
@@ -24,7 +26,7 @@ The Filter transforms allows row filtering based upon a condition. The output st
 
 Use the data flow expression builder to enter an expression for the filter condition. To open the expression builder, click on the blue box. The filter condition must be of type boolean. For more information on how to create an expression, see the [expression builder](concepts-data-flow-expression-builder.md) documentation.
 
-![Filter transformation](media/data-flow/filter1.png "Filter transformation")
+:::image type="content" source="media/data-flow/filter1.png" alt-text="Filter transformation":::
 
 ## Data flow script
 
@@ -43,7 +45,7 @@ The below example is a filter transformation named `FilterBefore1960` that takes
 
 In the UI, this transformation looks like the below image:
 
-![Filter transformation](media/data-flow/filter1.png "Filter transformation")
+:::image type="content" source="media/data-flow/filter1.png" alt-text="Filter transformation":::
 
 The data flow script for this transformation is in the snippet below:
 

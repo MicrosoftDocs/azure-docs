@@ -98,6 +98,5 @@ Select the applicable products your app works with for the offer to show up unde
 
 ## Next steps
 
-- To create an offer, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) to create and configure your offer. If you haven't yet enrolled in Partner Center, [create an account](/azure/marketplace/create-account).
-- For step-by-step instructions on publishing an offer, see the commercial marketplace [publishing guide by offer type](/azure/marketplace/publisher-guide-by-offer-type).
-
+- To create an offer, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) to create and configure your offer. If you haven't yet enrolled in Partner Center, [create an account](./create-account.md).
+- For step-by-step instructions on publishing an offer, see the commercial marketplace [publishing guide by offer type](./publisher-guide-by-offer-type.md).

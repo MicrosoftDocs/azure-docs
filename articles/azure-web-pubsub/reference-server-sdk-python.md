@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
-ms.date: 08/26/2021
+ms.date: 11/08/2021
 ---
 
 # Python server SDK for Azure Web PubSub
@@ -26,7 +26,7 @@ You can use this library to:
 Install the package as follows:
 
 ```bash
-python -m pip install azure-messaging-webpubsubservice
+python -m pip install azure-messaging-webpubsubservice==1.0.0b1
 ```
 
 ### Prerequisites
@@ -87,7 +87,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 The HTTP request and response details are printed to `stdout` with this logging configuration.
 
-[webpubsubservice_docs]: https://aka.ms/awps/doc
+[webpubsubservice_docs]: ./index.yml
 [azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [webpubsubservice_client_class]: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/webpubsub/azure-messaging-webpubsubservice/azure/messaging/webpubsubservice/__init__.py

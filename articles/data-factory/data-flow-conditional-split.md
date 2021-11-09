@@ -16,6 +16,8 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 The conditional split transformation routes data rows to different streams based on matching conditions. The conditional split transformation is similar to a CASE decision structure in a programming language. The transformation evaluates expressions, and based on the results, directs the data row to the specified stream.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4wKCX]
@@ -26,7 +28,7 @@ The **Split on** setting determines whether the row of data flows to the first m
 
 Use the data flow expression builder to enter an expression for the split condition. To add a new condition, click on the plus icon in an existing row. A default stream can be added as well for rows that don't match any condition.
 
-![conditional split](media/data-flow/conditionalsplit1.png "conditional split options")
+:::image type="content" source="media/data-flow/conditionalsplit1.png" alt-text="conditional split":::
 
 ## Data flow script
 
@@ -48,7 +50,7 @@ The below example is a conditional split transformation named `SplitByYear` that
 
 In the service UI, this transformation looks like the below image:
 
-![conditional split](media/data-flow/conditionalsplit1.png "conditional split options")
+:::image type="content" source="media/data-flow/conditionalsplit1.png" alt-text="conditional split":::
 
 The data flow script for this transformation is in the snippet below:
 

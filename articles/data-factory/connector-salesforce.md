@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/03/2021
+ms.date: 09/29/2021
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
@@ -36,6 +36,9 @@ Specifically, this Salesforce connector supports:
 - Copying data from and to Salesforce production, sandbox, and custom domain.
 
 The Salesforce connector is built on top of the Salesforce REST/Bulk API. When copying data from Salesforce, the connector automatically chooses between REST and Bulk APIs based on the data size – when the result set is large, Bulk API is used for better performance; You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service.
+
+>[!NOTE]
+>The connector no longer sets default version for Salesforce API. For backward compatibility, if a default API version was set before, it keeps working. The default value is 45.0 for source, and 40.0 for sink.
 
 ## Prerequisites
 
@@ -168,7 +171,7 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Salesforce connection API Name](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Salesforce connection API Name":::
 
 **Example:**
 
@@ -214,7 +217,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Salesforce connection API Name list](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Salesforce connection API Name list":::
 
 **Example:**
 

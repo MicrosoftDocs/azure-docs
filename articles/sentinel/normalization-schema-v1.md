@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,17 +14,19 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/15/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Sentinel network normalization schema (Legacy version - Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The network normalization schema is used to describe reported network events, and is used by Azure Sentinel to enable source-agnostic analytics.
 
 For more information, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> This article relates to version 0.1 of the network normalization schema, which was released as a preview before ASIM was available. Version 0.2 of the network normalization schema aligns with ASIM and provides other enhancements.
+> This article relates to version 0.1 of the network normalization schema, which was released as a preview before ASIM was available. [Version 0.2](network-normalization-schema.md) of the network normalization schema aligns with ASIM and provides other enhancements.
 >
 > For more information, see [Differences between network normalization schema versions](#changes)
 >
@@ -367,4 +367,3 @@ For more information, see:
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
 - [Azure Sentinel process event normalization schema reference](process-events-normalization-schema.md)
 - [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
-

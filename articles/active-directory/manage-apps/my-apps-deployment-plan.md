@@ -1,6 +1,7 @@
 ---
-title: Plan Azure Active Directory My Apps configuration
+title: Plan My Apps configuration
 description: Planning guide to effectively use My Apps in your organization.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -18,7 +19,7 @@ ms.reviewer: lenalepa
 > [!NOTE]
 > This article is designed for IT professionals who need to plan the configuration of their organization’s My Apps portal.
 >
-> **For end user documentation, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md)**.
+> **For end user documentation, see [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)**.
 
 Azure Active Directory (Azure AD) My Apps is a web-based portal for launching and managing apps. The My Apps page gives users a single place to start their work and find all the applications to which they have access. Users access My Apps at [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
@@ -104,9 +105,9 @@ To sign in to password-based SSO applications, or to applications that are acces
 
 ![Screenshot of](./media/my-apps-deployment-plan/ap-dp-install-myapps.png)
 
-For detailed information on the extension, see [Installing My Apps browser extension](../user-help/my-apps-portal-end-user-access.md).
+For detailed information on the extension, see [Installing My Apps browser extension](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-If you must integrate these applications, you should define a mechanism to deploy the extension at scale with [supported browsers](../user-help/my-apps-portal-end-user-access.md). Options include:
+If you must integrate these applications, you should define a mechanism to deploy the extension at scale with [supported browsers](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). Options include:
 
 * [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](../user-help/my-apps-portal-end-user-access.md)
 * [Configuration Manager for Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)

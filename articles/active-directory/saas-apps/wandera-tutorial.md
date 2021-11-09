@@ -1,7 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Wandera RADAR Admin | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Wandera RADAR Admin'
 description: Learn how to configure single sign-on between Azure Active Directory and Wandera RADAR Admin.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -76,24 +75,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Reply URL** text box, type a URL using the following pattern:
     `https://radar.wandera.com/saml/acs/<TENANT_ID>`
 
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. Contact [Wandera RADAR Admin Client support team](https://www.wandera.com/about-wandera/contact/#supportsection) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. Carefully replace the <tenant id> part of the above URL with the Tenant ID shown in the **Settings** > **Administration** > **Single Sign-On** page within your Wandera account.
+    > [!NOTE]
+    > The value is not real. Update the value with the actual Reply URL. Contact [Wandera RADAR Admin Client support team](https://www.wandera.com/about-wandera/contact/#supportsection) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. Carefully replace the \<tenant id\> part of the above URL with the Tenant ID shown in the **Settings** > **Administration** > **Single Sign-On** page within your Wandera account.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **SAML Signing Certificate** to edit the settings.
 
-	![Signing Option](common/signing-option.png)
+    ![Signing Option](common/signing-option.png)
 
-	1. Select **Signing Option** as **Sign SAML response and assertion**.
+    1. Select **Signing Option** as **Sign SAML response and assertion**.
 
-	1. Select **Signing Algorithm** as **SHA-256**.
+    1. Select **Signing Algorithm** as **SHA-256**.
 
 1. On the **Set up Wandera RADAR Admin** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -123,11 +122,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. To automate the configuration within Wandera RADAR Admin, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
+    ![My apps extension](common/install-myappssecure-extension.png)
 
 2. After adding extension to the browser, click on **Setup Wandera RADAR Admin** will direct you to the Wandera RADAR Admin application. From there, provide the admin credentials to sign into Wandera RADAR Admin. The browser extension will automatically configure the application for you and automate steps 3-4.
 
-	![Setup configuration](common/setup-sso.png)
+    ![Setup configuration](common/setup-sso.png)
 
 3. If you want to setup Wandera RADAR Admin manually, open a new web browser window and sign into your Wandera RADAR Admin company site as an administrator and perform the following steps:
 
@@ -153,8 +152,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Wandera RADAR Admin for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Wandera RADAR Admin tile in the My Apps, you should be automatically signed in to the Wandera RADAR Admin for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Wandera RADAR Admin tile in the My Apps, you should be automatically signed in to the Wandera RADAR Admin for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Wandera RADAR Admin you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Wandera RADAR Admin you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

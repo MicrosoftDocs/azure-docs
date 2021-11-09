@@ -47,7 +47,7 @@ Custom policy definitions are written in JSON. To learn more about creating a cu
 > [!NOTE]
 > Azure Policy now utilizes a new property known as *templateInfo* that allows users to define the source type for the constraint template. By defining *templateInfo* in policy definitions, users don’t have to define *constraintTemplate* or *constraint* properties. Users still need to define *apiGroups* and *kinds*. For more information on this, see [Understanding Azure Policy effects][azure-policy-effects-audit].
 
-Once your custom policy definition has been created, see [Assign a policy definition][azure-policy-tutorial-assign] for a step-by-step walkthrough of assigning the policy to your Kubernetes cluster.
+Once your custom policy definition has been created, see [Assign a policy definition][custom-policy-tutorial-assign] for a step-by-step walkthrough of assigning the policy to your Kubernetes cluster.
 
 ## Validate a Azure Policy is running
 
@@ -192,6 +192,6 @@ For more information about how Azure Policy works:
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
 [azure-policy-effects-audit]: ../governance/policy/concepts/effects.md#audit-properties
 [custom-policy-tutorial-create]: ../governance/policy/tutorials/create-custom-policy-definition.md
-[custom-policy-tutorial-assign]: https://docs.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
+[custom-policy-tutorial-assign]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
 [azure-policy-samples]: ../governance/policy/samples/index.md
 [azure-policy-definition-structure]: ../governance/policy/concepts/definition-structure.md
