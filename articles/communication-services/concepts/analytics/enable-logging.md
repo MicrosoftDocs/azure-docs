@@ -30,7 +30,7 @@ These instructions apply to the following Communications Services logs:
 
 ## Access Diagnostic Settings
 
-To access Diagnostic Settings for your Communications Services, start by navigating to your Communications Services home page within Azure Portal:
+To access Diagnostic Settings for your Communications Services, start by navigating to your Communications Services home page within Azure portal:
 
 :::image type="content" source="media\enable-logging\portal-home-go-to-acs-resource.png" alt-text="Communications Services resource":::
 
@@ -46,7 +46,7 @@ Click on the "Add diagnostic setting" link (note the various logs and metrics so
 
 You'll then be prompted to choose a name for your Diagnostic Setting, which is useful if you have many Azure resources you are monitoring. You'll also be prompted to select the log and metric data sources you wish to monitor as either logs or metrics. See [Azure Monitor data platform](/azure/azure-monitor/data-platform) for more detail on the difference.
 
-:::image type="content" source="media\enable-logging\diagnostic-setting-catdetails-acs.png" alt-text="Adding a Diagnostic Setting":::
+:::image type="content" source="media\enable-logging\diagnostic-setting-categories-details-acs.png" alt-text="Adding a Diagnostic Setting":::
 
 ## Choose Destinations
 
@@ -55,7 +55,7 @@ You'll also be prompted to select a destination to store the logs. Platform logs
 | Destination | Description |
 |:------------|:------------|
 | [Log Analytics workspace](/azure/azure-monitor/logs/design-logs-deployment) | Sending logs and metrics to a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to use other Azure Monitor features such as alerts and visualizations. |
-| [Event hubs](/azure/event-hubs/) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
+| [Event Hubs](/azure/event-hubs/) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
 | [Azure storage account](/azure/storage/blobs/) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely. |
 
 The following settings are an example of what you would see within your Communications Services resource:

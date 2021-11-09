@@ -17,7 +17,7 @@ ms.subservice: data
 ## Overview
 Within your Communications Resource, we have provided an **Insights Preview** feature that displays a number of  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights is made possible via [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](enable-logging.md), and to enable Workbooks, you will need to send your logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
 
-:::image type="content" source="media\workbooks\insights-overview2.png" alt-text="Communication Services Insights":::
+:::image type="content" source="media\workbooks\insights-overview-2.png" alt-text="Communication Services Insights":::
 
 ## Accessing Azure Insights for Communication Services
 
@@ -41,7 +41,7 @@ The Communication Service Insights dashboards give users an intuitive and clear 
 
 Users can control the time range and time granularity to display with the parameters displayed at the top:
 
-:::image type="content" source="media\workbooks\timerange-param.png" alt-text="Time range parameter":::
+:::image type="content" source="media\workbooks\time-range-param.png" alt-text="Time range parameter":::
 
 These parameters are global, meaning that they will update the data displayed across the entire dashboard.
 
