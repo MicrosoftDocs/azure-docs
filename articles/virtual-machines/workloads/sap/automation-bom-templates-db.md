@@ -922,4 +922,4 @@ Then, upload the new BoM file to your SAP Library.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to generate SAP HANA BoM](automation-bom-templates-hana.md)
+> [Generate HANA templates for automation](automation-bom-templates-hana.md)
