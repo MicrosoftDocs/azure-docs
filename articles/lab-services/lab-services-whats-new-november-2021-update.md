@@ -29,7 +29,7 @@ We've made fundamental backend improvements for the service to boost performance
 
 [Updates to lab owner experience](#updates-to-lab-owner-experience). Now you can choose to skip the template creation process and automatically publish the lab if you already have an image ready to use. In addition, we’ve added the ability to add a non-admin user to lab VMs and made some scheduling improvements while we were at it. 
 
-[Updates to student experience](#updates-to-student-experience). Student can now redeploy their VM without losing data.  If the lab is setup to use AAD group sync, there is no longer a need to send an invitation email so students can register for a virtual machine—one is assigned to the student automatically. 
+[Updates to student experience](#updates-to-student-experience). Student can now redeploy their VM without losing data.  If the lab is setup to use AAD group sync, there is no longer a need to send an invitation email so students can register for a virtual machine—one is assigned to the student automatically.
 
 SDKs. The Azure Lab Services PowerShell will now be integrated with the Az PowerShell module and will release with the next monthly update of the Az module. Also, check out the C# SDK. 
 
@@ -41,7 +41,7 @@ In this release, there remain a few known issues:
 
 - C# SDK will be released on _______________
 
-- When using VNet Injection, deleting your virtual network will cause all the lab VMs to stop working. We plan to improve this experience, but for now make sure to delete labs before deleting networks.
+- When using VNet Injection, use caution in making changes to the virtual network and subnet because it can cause the lab VMs to stop working. For example, deleting your virtual network will cause all the lab VMs to stop working. We plan to improve this experience, but for now make sure to delete labs before deleting networks.
 
 ## Lab Plans replace Lab Accounts
 
@@ -63,17 +63,120 @@ By moving to a sibling relationship between the lab plan and lab instead of a pa
 |Labs Portal Experience|Labs are lab listed under lab accounts in https://labs.azure.com.|Labs are listed under resource group name in https://labs.azure.com.</br>If there are multiple lab plans in the same resource group, instructors will be able to choose which lab plan to use when creating the lab.|
 |Permissions needed to manage labs|To create a lab, administrator must assign:</br>- Lab Contributor role on the lab account</br>To modify an existing lab, administrator must assign:</br>- Reader role on the lab account</br>- Lab Creator or Contributor role on the lab.|To create a lab, administrator must assign:</br>- Owner or Contributor role on the resource group that contains the lab plan.</br>- Lab Creator role on the lab plan.</br>To modify an existing lab, administrator must assign:</br>- Contributor role on the lab.|
 
+TODO: Screenshot Azure portal
 
+### Creating a new lab plan  
 
+To use Azure Lab Services, open the Azure Portal to create a lab plan first:  
 
- 
+Inside the Azure Portal, create a new Lab plan resource.  
 
+1. Pick the Azure subscription to use for billing.
 
+1. Choose to create a new lab plan resource.
 
+1. Provide a new or existing resource group to create the lab plan in. All labs that are created from the lab plan will be created within the same resource group so that you can easily group and manage the resources.
+
+1. Set the name of the lab plan.
+
+1. Choose the Azure region to create the lab plan in.
+
+   image
+
+1. If you need to set up a VNet injection, check Enable advance networking the Vnet to use. Select the virtual networking and subnet. To see a virtual network, it must be in the same location as the lab plan. Only subnets delegated to Microsoft.LabServices/labs will appear in the subnet drop-down. Only one lab plan my be associated with one subnet.
+
+  image
+
+1. Click **Review + Create**.
+1. Click **Create** to create the lab plan.
+
+Once the lab plan is created, administrators can set up the following configurations: 
+- Restrictions that apply at lab creation:
+  - Which region(s) the labs can be created in.
+  - What marketplace images are allowed.
+  - What custom images from a connected Shared Image Gallery are allowed.
+  - Default auto-shutdown settings that labs will inherit.
+- Specify your organization’s Shared Image Gallery to export custom VM images to.
+- Provide internal support information for your organization when using Azure Lab Services.
+- Give access to educators to create and/or manage labs.
+
+Lab owners who were given access can create new labs, and these labs will inherit the configuration set in the lab plan.
+
+Here is an example of how admins can create multiple lab plans to manage different collections of configurations to apply to labs:
+
+image
+
+Changes made to the lab settings from the lab plan will apply only to new labs created after the settings change. 
+Now your lab plans are created, go to [https://labs.azure.com](https://labs.azure.com) to create your labs.
+
+### Moving from lab account to lab plan
+
+To use new features provided in the public preview, you will need to create new lab plans and labs. When you create a lab plan, you can reuse the same Shared Image Gallery and images that you previously used with your lab account.  Likewise, you can reuse the same licensing server. As you migrate, there likely will be a period when you are using both the public preview and the current version of Azure Lab Services at the same time. You may have both lab accounts and lab plans that co-exist in your subscription and that access the same Shared Image Gallery and licensing server.
+
+For each new lab plan, there are some settings that you will need to configure, such as:
+
+- Assign user permissions on the lab plan, the lab plan’s resource group, and the lab.
+- Enable the Marketplace and Shared Image Gallery images that lab creators can use.
+- Select regions that your labs will be deployed in.
+- Set auto-shutdown settings.
+
+With all the new enhancements in the public preview, this is a good time to revisit your overall lab structure. For example, you may decide to structure your lab plans differently than your lab accounts now that you can explicitly select the regions that labs are deployed in.
 
 ## Performance and capacity
 
+### Performance improvements
+
+In the public preview, we’ve made improvements to how we manage virtual machines in the backend to improve scalability and performance. You’ll notice drastic improvements in the lab creation and publish times. VM start time has been improved as well. Here’s an approximation of the differences.
+
+|Action|Before|With Public Preview|
+|-|-|-|
+|Lab creation|20+ min|5-15 min|
+|Lab publish|1+ hour|15-20 min|
+|Increase lab capacity (# of VMs)|1+ hour (dependent on the number of VMs)|15-20 min|
+|VM start|5-20 min|3-5 min|
+|Export to Shared Imaged Gallery|1 – 3 hours</br>Image replicated to all regions supported by geography.|10 min</br>Image saved to same region as lab.</br>Image not automatically replicated to other regions.|
+
+### Per-customer assigned capacity
+
+Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that aren’t visible to customers. Previously, VM capacity was available from a large pool shared across many customers. With this update, VM capacity is now dedicated to each customer.
+
+Before you set up a large number of VMs across your labs, we recommend that you open a support ticket to pre-request VM capacity. Requests should include VM size, number, and region. Pre-requesting capacity helps us to ensure that you create your labs in a region that has a sufficient number of VM cores for the VM size that you need for your labs.  We can now assign VM capacity on a per-customer basis when you submit a support ticket to request capacity.
+
+### Limits
+
+Here are the updated limits:
+- 500 labs or lab plans per region per subscription
+- 400 users per lab
+
 ## New SKUs
+
+### Sizes
+
+You’ve told us that you want more control over your virtual machines, and we’ve listened. We now show compute size name, number of cores, amount of memory, OS disk size and disk type. Sizes are no longer listed in families, so you know exactly what you are getting. All lab virtual machines will now use solid state disks (SSD) and you have a choice between Standard SSD and Premium SSD.
+Check out the new sizes!
+
+|Size name|Cores|Memory (GB)|OS disk size (GB)|SSD type|
+|-|-|-|-|-|
+|Standard_Fsv2|2|4|64, 128, 256|Standard|
+|Standard_Dsv4|2|8|128, 256|Standard|
+|Standard_Dsv4|4|16|128, 256, 512|Standard, Premium|
+|Standard_Dsv4|8|32|128, 256, 512|Standard, Premium|
+|Standard_NCv3T4*|8|56|256, 512|Standard, Premium|
+|Standard_NCv3T4*|16|110|256, 512|Standard, Premium|
+|Standard_NVv4*|8|28|256, 512|Standard, Premium|
+|Standard_NVv4*|16|56|256, 512|Standard, Premium|
+|Standard_Esv4|4|32|128, 256|Standard, Premium|
+|Standard_Esv4|8|64|256, 512|Standard, Premium|
+
+\* These sizes are not available in all Azure regions.
+
+>[IMPORTANT]
+> Available SKUs are subject to change in the future. See [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/) for latest SKU information.
+
+### Prices
+
+With Public Preview, we no longer have a ‘one size fits all’ approach. Both operating system and region are considered when determining the price. Linux will no longer be charged the same write as Windows and will be less per hour. Creating a lab in cheaper regions? You’ll see those savings in the price, too.
+See [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/) for latest SKU information.
 
 ## Canvas integration
 
