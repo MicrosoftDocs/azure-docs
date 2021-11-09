@@ -250,7 +250,7 @@ This section performs various tests to help diagnose join failures. The informat
 
 - **Client Time**: The system time, in UTC.
 - **AD Connectivity Test**: This test performs a connectivity test to the domain controller. An error in this test will likely result in join errors in the pre-check phase.
-- **AD Configuration Test**: This test reads and verifies whether the Special Containment Procedures (SCP) object is configured properly in the on-premises Active Directory forest. Errors in this test would likely result in join errors in the discover phase with the error code 0x801c001d.
+- **AD Configuration Test**: This test reads and verifies whether the Service Connection Point (SCP) object is configured properly in the on-premises Active Directory forest. Errors in this test would likely result in join errors in the discover phase with the error code 0x801c001d.
 - **DRS Discovery Test**: This test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in join errors in the discover phase.
 - **DRS Connectivity Test**: This test performs a basic connectivity test to the DRS endpoint.
 - **Token Acquisition Test**: This test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in join errors in the authentication phase. If authentication fails, sync-join will be attempted as fallback, unless fallback is explicitly disabled with the following registry key settings:
