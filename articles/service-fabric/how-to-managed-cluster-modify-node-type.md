@@ -289,7 +289,7 @@ Configure additional managed disks by declaring `additionalDataDisks` property a
      }
 ```
 
-See [full list of parameters available](../templates/microsoft.servicefabric/2021-11-01/managedclusters?tabs=json) 
+See [full list of parameters available](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2021-11-01/managedclusters?tabs=json)
 
 
 ## Configure the Service Fabric data disk drive letter (preview)
@@ -311,8 +311,6 @@ Service Fabric managed clusters by default configure a Service Fabric data disk 
         }
      }
 ```
-```
-
 
 ## Next steps
 

@@ -635,7 +635,7 @@ Configure auxiliary subnets by declaring `auxiliarySubnets` property and require
                 ]              
 ```
 
-See [full list of parameters available](../templates/microsoft.servicefabric/2021-11-01/managedclusters?tabs=json) 
+See [full list of parameters available](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2021-11-01/managedclusters?tabs=json) 
 
 ## Next steps
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)

@@ -65,7 +65,7 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 
 ## Feature support
 
-The capabilities of managed clusters will continue to expand. See [managed cluster configuration options documentation](how-to-managed-cluster-configuration.md) or managedClusters [Bicep & ARM templates](../templates/microsoft.servicefabric/allversions) for more information.
+The capabilities of managed clusters will continue to expand. See [managed cluster configuration options documentation](how-to-managed-cluster-configuration.md) or managedClusters [Bicep & ARM templates](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/allversions) for more information.
 
 
 ## Next steps
