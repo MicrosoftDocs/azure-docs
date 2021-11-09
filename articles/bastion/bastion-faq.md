@@ -66,7 +66,7 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
+* Reader Role on the Virtual Network of the target virtual machine (in the case that the Bastion is in a peered Virtual Network).
 
 ### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
 
