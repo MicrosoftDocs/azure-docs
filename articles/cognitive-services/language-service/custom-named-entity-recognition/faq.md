@@ -81,7 +81,7 @@ You need to [deploy your model](quickstart.md#deploy-your-model) before you can 
 
 ## How do I use my trained model for predictions?
 
-After deploying your model, you [call the prediction API](how-to/call-api.md), using either the [REST API](https://aka.ms/ct-runtime-swagger) or client library for one of the following languages.
+After deploying your model, you [call the prediction API](how-to/call-api.md), using either the [REST API](how-to/call-api.md) or [client libraries](how-to/call-api.md#use-the-sdk).
 
 [!INCLUDE [SDK sample links](includes/sdk-links.md)]
 
