@@ -45,6 +45,9 @@ conceptualContent:
         - url: how-to-parameterize-load-tests.md
           itemType: how-to-guide
           text: How to parameterize a load test
+        - url: how-to-update-rerun-test.md
+          itemType: how-to-guide
+          text: How to update and rerun your load tests
     
     # Card
     - title: Analyze test results
@@ -52,6 +55,12 @@ conceptualContent:
         - url: how-to-compare-multiple-test-runs.md
           itemType: how-to-guide
           text: Analyze performance by comparing load test runs
+        - url: how-to-find-download-logs.md
+          itemType: how-to-guide
+          text: Find and download your load testing logs
+        - url: how-to-get-insights-testing-appservice-workloads.md
+          itemType: how-to-guide
+          text: Get more insights from load testing AppService workloads
 
     # Card
     - title: Automate load tests
