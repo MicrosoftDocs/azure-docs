@@ -1,6 +1,6 @@
 ---
-title: Archive for What's new in Microsoft Sentinel
-description: A description of what's new and changed in Microsoft Sentinel from six months ago and earlier.
+title: Archive for What's new in Azure Sentinel
+description: A description of what's new and changed in Azure Sentinel from six months ago and earlier.
 services: sentinel
 author: batamig
 ms.author: bagol
@@ -11,11 +11,11 @@ ms.date: 09/02/2021
 ms.custom: ignite-fall-2021
 ---
 
-# Archive for What's new in Microsoft Sentinel
+# Archive for What's new in Azure Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The primary [What's new in Microsoft Sentinel](whats-new.md) release notes page contains updates for the last six months, while this page contains older items.
+The primary [What's new in Sentinel](whats-new.md) release notes page contains updates for the last six months, while this page contains older items.
 
 For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
@@ -23,9 +23,9 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 
 > [!TIP]
-> Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Microsoft Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
+> Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Azure Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
 >
-> You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
+> You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
 ## March 2021

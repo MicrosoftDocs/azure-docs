@@ -247,17 +247,18 @@ The new version of the Windows Security Events connector, based on the Azure Mon
 ### Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)
 
 In addition to those from Microsoft Defender for Endpoint, you can now ingest raw [advanced hunting events](/microsoft-365/security/defender/advanced-hunting-overview) from [Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/overview) through the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md). [Learn more](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
+
 ### Playbook templates and gallery now available (Public preview)
 
 A playbook template is a pre-built, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
 
-Playbook templates have been developed by the Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, and you can find them in the **Playbook templates** tab (under **Automation**), as part of a [Microsoft Sentinel solution](sentinel-solutions.md), or in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks).
+Playbook templates have been developed by the Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, and you can find them in the **Playbook templates** tab (under **Automation**), as part of an [Azure Sentinel solution](sentinel-solutions.md), or in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks).
 
 For more information, see [Create and customize playbooks from built-in templates](use-playbook-templates.md).
 
 ### Manage template versions for your scheduled analytics rules (Public preview)
 
-When you create analytics rules from [built-in Microsoft Sentinel rule templates](detect-threats-built-in.md), you effectively create a copy of the template. Past that point, the active rule is ***not*** dynamically updated to match any changes that get made to the originating template.
+When you create analytics rules from [built-in Azure Sentinel rule templates](detect-threats-built-in.md), you effectively create a copy of the template. Past that point, the active rule is ***not*** dynamically updated to match any changes that get made to the originating template.
 
 However, rules created from templates ***do*** remember which templates they came from, which allows you two advantages:
 
