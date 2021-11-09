@@ -130,7 +130,7 @@ If not configured correctly, the firewall can cause problems using your workspac
 The hosts in the following tables are owned by Microsoft, and provide services required for the proper functioning of your workspace. The tables list hosts for the Azure public, Azure Government, and Azure China 21Vianet regions.
 
 > [!IMPORTANT]
-> Azure Machine Learning uses multiple storage accounts. Each stores different data, and has a different purpose. Where applicable, the following terms are used to differentiate between them in this section:
+> Azure Machine Learning uses Azure Storage Accounts in your subscription and in Microsoft-managed subscriptions. Where applicable, the following terms are used to differentiate between them in this section:
 >
 > * __Your storage__: The Azure Storage Account(s) in your subscription, which is used to store your data and artifacts such as models, training data, training logs, and Python scripts.>
 > * __Microsoft storage__: The Azure Machine Learning compute instance and compute clusters rely on Azure Batch, and must access storage located in a Microsoft subscription. This storage is used only for the management of the compute instances. None of your data is stored here.
