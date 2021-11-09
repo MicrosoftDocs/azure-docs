@@ -7,7 +7,7 @@ ms.author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ---
 
@@ -88,10 +88,11 @@ A user that is responsible for building and modifying LUIS application, as a col
 :::row:::
     :::column span="":::
       * All functionalities under Cognitive Services LUIS Reader.
+      
       * Ability to add: 
-          * Utterances
-          * Intents
-          * Entities
+              * Utterances
+              * Intents
+              * Entities
     :::column-end:::
     :::column span="":::
       * All APIs under LUIS reader
