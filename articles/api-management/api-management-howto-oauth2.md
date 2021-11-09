@@ -31,7 +31,7 @@ If you have not yet created an API Management service instance, see [Create an A
 
 ## Authorization grant types
  
-Azure API Management supports the following OAuth 2.0 grant types and authorization code flows. A grant type refers to a way for your client application to obtain an access token to your backend API. You may configure one or more grant types, depending on your OAuth provider and scenarios. 
+Azure API Management supports the following OAuth 2.0 grant types (flows). A grant type refers to a way for your client application to obtain an access token to your backend API. You may configure one or more grant types, depending on your OAuth provider and scenarios. 
 
 For more information, see the [OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749) and [OAuth grant types](https://oauth.net/2/grant-types/),
 
@@ -40,11 +40,11 @@ For more information, see the [OAuth 2.0 Authorization Framework](https://datatr
 |---------|---------|---------|
 |Authorization code     | Exchanges authorization code for token         |  Server-side apps such as web apps      |
 |Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Public clients such as native apps and JavaScript apps<br/><br/>Not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it is received by client     |
-|Resource owner   | Requests user credentials (username and password), typically using an interactive form |    For use with highly trusted applications<br/><br/>Should only be used when other, more secure flows cannot be used        |
+|Resource owner password  | Requests user credentials (username and password), typically using an interactive form |    For use with highly trusted applications<br/><br/>Should only be used when other, more secure flows cannot be used        |
 |Client credentials     | Authenticates and authorizes an app rather than a user       |  Machine-to-machine (M2M) applications, such as CLIs, daemons, or services running on your backend       |
 
 > [!WARNING]
-> Consider the security risks of your grant type choices and scope permissions. If your grant type directly exposes an access token, it can be retrieved through the test console in the developer portal. It could be used by a malicious actor to access additional resources with the scopes granted by the user. 
+> Consider the security risks of your grant type choices and scope permissions. If your grant type directly exposes an access token, the token can be retrieved through the test console in the developer portal. It could be used by a malicious actor to access additional resources with the scopes granted by the user. 
 
 ## <a name="step1"> </a>Configure an OAuth 2.0 authorization server in API Management
 
@@ -113,6 +113,13 @@ After the server configuration is saved, you can configure APIs to use this conf
 1. Select the desired **Authorization server** from the drop-down list, and select **Save**.
 
     :::image type="content" source="./media/api-management-howto-oauth2/oauth-07.png" alt-text="Configure OAuth 2.0 authorization server":::
+
+
+## Developer portal - test the OAuth 2.0 user authorization
+
+After you've configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the Developer Portal and calling an API. Select **Developer portal** in the top menu from your Azure API Management instance **Overview** page.
+
+Click APIs in the top menu and select Echo API.
 
 ## <a name="step3"> </a>Legacy developer portal - test the OAuth 2.0 user authorization
 
