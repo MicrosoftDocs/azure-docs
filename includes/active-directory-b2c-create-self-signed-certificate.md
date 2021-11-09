@@ -34,7 +34,7 @@ On Windows, use the [New-SelfSignedCertificate](/powershell/module/pki/new-selfs
 1. Accept the defaults for **Export File Format**, and then select **Next**.
 1. Enable **Password** option, enter a password for the certificate, and then select **Next**.
 1. To specify a location to save your certificate, select **Browse** and navigate to a directory of your choice. 
-1. In the **Save As** window, enter a **File name**, and then select **Save**.
+1. On the **Save As** window, enter a **File name**, and then select **Save**.
 1. Select **Next**>**Finish**.
 
 For Azure AD B2C to accept the .pfx file password, the password must be encrypted with the TripleDES-SHA1 option in the Windows Certificate Store Export utility, as opposed to AES256-SHA256.
