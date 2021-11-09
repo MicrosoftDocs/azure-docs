@@ -22,7 +22,7 @@ There are two specific use-cases where it is useful to block connections to a DP
 * You need to reject traffic from IP addresses that have been identified as suspicious by the DPS administrator.
 
 >[!Note]
->If IP filtering is enabled, you'll no longer be able use the Azure portal to perform service operations (data plane). To perform service operations using the portal, you'll have to temporarily deactivate IP filtering, complete your work, and then re-enable the IP filtering feature. If you want to use your own clients and avoid the deactivation of the IP filter, you can choose to add your machine's IP address to the `allowlist` and connect to DPS through the CLI.
+>If IP filtering is enabled, you'll no longer be able use the Azure portal to perform service operations (i.e. managing enrollments). To perform service operations using the portal, you'll have to temporarily deactivate IP filtering, complete your work, and then re-enable the IP filtering feature. If you want to use your own clients and avoid the deactivation of the IP filter, you can choose to add your machine's IP address to the `ipFilterRules` and manage the enrollments in the DPS through CLI.
 
 ## How filter rules are applied
 
