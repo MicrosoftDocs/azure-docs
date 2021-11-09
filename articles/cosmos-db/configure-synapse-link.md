@@ -201,7 +201,7 @@ You can turn on analytical store on existing Azure Cosmos DB SQL API containers.
 
 * The throughput of your container, or database account, also influences the total initial sync time. Although RU/s are not used in this migration, the total RU/s available influences the performance of the process. You can temporarily increase your environment's throughput to speed up the process.
 
-* You won't be able to query analytical store of an existing container until the end of the initial sync process. Your OLTP workload isn't impacted and you can keep on reading data normally. Data ingested after the start of the initial sync will be merged into analytical store by the regular auto-sync process after completition of the initial process.
+* You won't be able to query analytical store of an existing container until the end of the initial sync process. Your OLTP workload isn't impacted and you can keep on reading data normally. Data ingested after the start of the initial sync will be merged into analytical store by the regular analytical store auto-sync process.
 
 * Currently existing MongoDB API collections are not supported. The alternative is to migrate the data into a new collection, created with analytical store turned on.
  
