@@ -26,13 +26,9 @@ To complete this tutorial:
 
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2022 already:
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. In *Visual Studio 2022 Community*, ensure **.NET Framework project and item templates** component is selected with **ASP.NET and web development workload**. If you've installed Visual Studio 2022 already:
     - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by selecting **Tools** > **Get Tools and Features**.
-- In Visual Studio 2022 Community, ensure **.NET Framework project and item templates** component is selected with **ASP.NET and web development workload**.
-<!-- 
-    :::image type="content" source="./media/quickstart-custom-container/vs-community-install.png?text=VS Community install" alt-text="Screenshot of VS Community installation":::
--->
 
 ## Create an ASP.NET web app
 
@@ -72,11 +68,11 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Target**, select **Docker Container Registry**, and then click **Next**.
 
-    :::image type="content" source="./media/quickstart-custom-container/select-docker-container-registry-vs2022.png?text=Select Docker Container Registry" alt-text="Select Docker Container Registry":::
+    :::image type="content" source="./media/quickstart-custom-container/select-docker-container-registry-visual-studio-2022.png?text=Select Docker Container Registry" alt-text="Select Docker Container Registry":::
 
 1. In **Specific Target**, select **Azure Container Registry**, and then click **Next**.
 
-    :::image type="content" source="./media/quickstart-custom-container/publish-to-azure-container-registry-vs2022.png?text=Publish to Azure Container Registry" alt-text="Publish from project overview page":::
+    :::image type="content" source="./media/quickstart-custom-container/publish-to-azure-container-registry-visual-studio-2022.png?text=Publish to Azure Container Registry" alt-text="Publish from project overview page":::
 
 1. In **Publish**, make sure the correct subscription is chosen. In **Container registries** select the **+** button to create a new Azure Container Registry.
 
@@ -92,7 +88,7 @@ Create an ASP.NET web app by following these steps:
 
    Wait for the deployment to complete. The **Publish** page now shows the repository name. Select the *copy button* to copy the **Repository** name for later.
 
-    :::image type="content" source="./media/quickstart-custom-container/published-docker-repository-vs2022.png?text=Screenshot that highlights the repository name." alt-text="Screenshot that highlights the repository name.":::
+    :::image type="content" source="./media/quickstart-custom-container/published-docker-repository-visual-studio-2022.png?text=Screenshot that highlights the repository name." alt-text="Screenshot that highlights the repository name.":::
 
 ## Create a Windows container app
 
