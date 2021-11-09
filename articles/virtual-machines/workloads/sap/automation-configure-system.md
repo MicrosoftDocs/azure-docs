@@ -180,6 +180,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | `scs_server_no_avset`	                 | Controls scs server availability set placement                       | Optional  |         |
 > | `scs_server_tags`	                     | Defines a list of tags to be applied to the scs servers              | Optional  |         |
 
+
 ### Web Dispatcher Parameters
 
 
@@ -245,10 +246,10 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                       | Description                           | Type        | 
 > | ---------------------------------------------- | ------------------------------------- | ----------- | 
-> | `resource_offset`                              | Provides and offset for resource naming. The offset number for resource naming when creating multiple resources. The default value is `0`, which creates a naming pattern of `disk0`, `disk1`, and so on. An offset of `1` creates a naming pattern of `disk1`, `disk2`, and so on. | Optional    |
+> | `resource_offset`                              | Provides and offset for resource naming. The offset number for resource naming when creating multiple resources. The default value is 0, which creates a naming pattern of disk0, disk1, and so on. An offset of 1 creates a naming pattern of disk1, disk2, and so on. | Optional    |
 > | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks using customer provided keys | Optional   |
-> | `use_loadbalancers_for_standalone_deployments' | Controls if load balancers are deployed for standalone installations | Optional    |
-> | `bom_name`                                     | Name of the SAP BoM to use                                           | Optional    |
+> | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations | Optional |
+> | `bom_name`                                     | Name of the SAP BoM to use                                           | Optional |
 
 
 ## Azure NetApp Support
