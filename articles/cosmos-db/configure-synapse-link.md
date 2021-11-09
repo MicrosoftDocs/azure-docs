@@ -18,7 +18,7 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API or for Azure Cosmos 
 
 * [Enable Azure Synapse Link for your Azure Cosmos DB accounts](#enable-synapse-link)
 * [Create an analytical store enabled container](#create-analytical-ttl)
-* [Enable analytical store for an existing container](#update-analytical-ttl)
+* [Enable analytical store on an existing container](#update-analytical-ttl)
 * [Optional - Update analytical store ttl for an container](#update-analytical-ttl)
 * [Connect your Azure Cosmos database to an Azure Synapse workspace](#connect-to-cosmos-database)
 * [Query the analytical store using Azure Synapse Spark Pool](#query-analytical-store-spark)
@@ -97,7 +97,7 @@ You can turn on analytical store when creating an Azure Cosmos DB container by u
 
 ### Azure Cosmos DB SDKs
 
-Set the `analytical TTL` property to the required value. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+Set the `analytical TTL` property to the required value to create an analytical store enabled container. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 #### .NET SDK
 
@@ -134,16 +134,10 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 The following code creates a container with analytical store by using the Python V4 SDK. Set the `analytical_storage_ttl` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
 
 ```python
-import azure.cosmos as cosmos
-
-print (cosmos.__version__)
-```
-The next step creates a container with analytical store by using the Azure Cosmos DB Python SDK:
-
-```python
 # Azure Cosmos DB Python SDK, for SQL API only.
 # Creating an analytical store enabled container.
 
+import azure.cosmos as cosmos
 import azure.cosmos.cosmos_client as cosmos_client
 import azure.cosmos.exceptions as exceptions
 from azure.cosmos.partition_key import PartitionKey
@@ -153,23 +147,17 @@ KEY = 'your-cosmos-db-account-key'
 DATABASE = 'your-cosmos-db-database-name'
 CONTAINER = 'your-cosmos-db-container-name'
 
+# Client
 client = cosmos_client.CosmosClient(HOST,  KEY )
-# setup database for this sample. 
-# If doesn't exist, creates a new one with the name informed above.
+
+# Database client
 try:
     db = client.create_database(DATABASE)
 
 except exceptions.CosmosResourceExistsError:
     db = client.get_database_client(DATABASE)
 
-# Creating the container with analytical store enabled, using the name informed above.
-# If a container with the same name exists, an error is returned.
-#
-# The 3 options for the analytical_storage_ttl parameter are:
-# 1) 0 or Null or not informed (Not enabled).
-# 2) -1 (The data will be stored in analytical store infinitely).
-# 3) Any other number is the actual ttl, in seconds.
-
+# Creating the container with analytical store enabled
 try:
     container = db.create_container(
         id=CONTAINER,
@@ -184,7 +172,7 @@ except exceptions.CosmosResourceExistsError:
 ```
 ### Command Line Tools
 
-Set the `analytical TTL` property to the required value. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+Set the `analytical TTL` property to the required value to create an analytical store enabled container. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 #### Azure CLI
 
@@ -201,22 +189,22 @@ The following options create a container with analytical store by using PowerShe
 * [Create an Azure Cosmos DB SQL API container](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer)
 
 
-## <a id="update-analytical-ttl"></a> Enable analytical store for an existing container
+## <a id="update-analytical-ttl"></a> Enable analytical store on an existing container
 
-You can turn on analytical store on an existing Azure Cosmos DB SQL API container by setting `analytical TTL` property. While Portal will implicitly set it to `-1`, that means infinite retention of the data, SDKs and command line tools allow you to also use positive integers, that represent the retention in seconds. For information on the various `analytical TTL` config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article. Please note that you can change `analytical TTL` to another value later.
+Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Instructions to check the reuqest status are provided below. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com). This step is required once per subscription, and all new database accounts will also have this capability enabled.
 
-Please note the following about the process:
+You can turn on analytical store on existing Azure Cosmos DB SQL API containers. This capability is general available and can be used for production workloads. Please note the following details about the initial sync process:
 
-* The initial sync with analytical store total time will vary depending on your data volume and on the complexity of the documents.
-* The throughput of your container or database account also influences the total sync time. Although RU/s are not used in this migration, the total RU/s available influences the performance of the sync process.
-* You won't be able to query analytical store of an existing container until the end of the initial sync process.
+* The same performance isolation of the analytical store auto-sync process applies to the initial sync and there is no performance impact on your OLTP workload.
+
+* A container's initial sync with analytical store total time will vary depending on the data volume and on the documents complexity. This process can take anywhere from a few seconds to multiple days. Please use the Azure portal to monitor the migration progress.
+
+* The throughput of your container, or database account, also influences the total initial sync time. Although RU/s are not used in this migration, the total RU/s available influences the performance of the process. You can temporarily increase your environment's throughput to speed up the process.
+
+* You won't be able to query analytical store of an existing container until the end of the initial sync process. Your OLTP workload isn't impacted and you can keep on reading data normally. Data ingested after the start of the initial sync will me merged into analytical store by the regular auto-sync process after completition of the initial process.
+
+* Currently existing MongoDB API collections are not supported. The alternative is to migrate the data into a new collection, created with analytical store turned on.
  
-> [!NOTE]
-> Currently exiosting MongoDB API collections are not supported. The alternative is to migrate the data into a new collection, created with analytical store turned on.
-
-> [!NOTE]
-> Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Please come back here to check the status. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com). This step is required once per subscription, and all new database accounts will also have this capability enabled.
-
 > [!NOTE]
 > Currently it is not possible to turn off analytical store from a container. Click [here](analytical-store-introduction.md#analytical-store-pricing) for more information about analytical store pricing.
 
@@ -224,19 +212,19 @@ Please note the following about the process:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 2. Navigate to your Azure Cosmos DB account and open the **Synapse Link"** tab in the **Integrations** section. In this tab you can:
-3. Click **Register** to request approval for your subscription. To see the status of request, please come back to this same portal pane. 
+3. Click **Register** to request approval for your subscription. To see the status of request, please come back to this same portal pane.
 4. When approved, you will see your account’s containers list and you will be able to select those that will have analytical store enabled.
-5. Optionally, you can go to the  **Power BI** tab to create Power BI dashboards on your Synapse Link enabled containers.
+5. Optionally, you can go to the  **Power BI** tab, in the **Integrations** section, to create Power BI dashboards on your Synapse Link enabled containers.
 
 
 ### Command Line Tools
 
-Analytical store is enabled by setting the `analytical TTL` property when you update your container. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+Set the `analytical TTL` property to the required value to create an analytical store enabled container. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 
 ### Azure CLI
 
-Use the options below using `--analytical-storage-ttl -1` to enable analytical store with infinite retention for SQL API containers.
+Use the following steps to enable analytical store on an existing container by using Azure CLI. Set the `--analytical-storage-ttl` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
 
 * [Register for approval](/cli/azure/feature/registration) by using `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`. 
 * [Check the request status](/cli/azure/feature/registration) by using `az feature registration show --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`.
@@ -245,7 +233,7 @@ Use the options below using `--analytical-storage-ttl -1` to enable analytical s
 
 ### PowerShell
 
-Use the options below using `-AnalyticalStorageTtl -1` to enable analytical store with infinite retention for both SQL API containers.
+Use the following steps to enable analytical store on an existing container by using PowerShell. Set the `-AnalyticalStorageTtl` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
 
 * [Register for approval](/powershell/module/az.resources/register-azproviderfeature) using `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"`.
 * [Check the request status](/powershell/module/az.resources/get-azproviderfeature).
