@@ -1,7 +1,7 @@
 ---
-title: Add labeler access to your data labeling project
+title: Add users to your data labeling project
 title.suffix: Azure Machine Learning
-description: Grant users access to your data labeling project so that they can label data, but not see the rest of your workspace.
+description: Add users to your data labeling project so that they can label data, but not see the rest of your workspace.
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: vkann
@@ -11,21 +11,26 @@ ms.topic: how-to
 ms.date: 11/05/2021
 ---
 
-# Add labeler access to your data labeling project
+# Add users to your data labeling project
 
-This article shows how to grant users access to your data labeling project so that they can label data, but not see the rest of your workspace.  You can use these steps for anyone, whether or not they are from [data labeling vendor company](how-to-outsource-data-labeling.md).  
+This article shows how to add users to your data labeling project so that they can label data, but not see the rest of your workspace.  You can use these steps for anyone, whether or not they are from [data labeling vendor company](how-to-outsource-data-labeling.md).
   
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription [create a free account](https://azure.microsoft.com/free) before you begin.
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
+You'll need certain permission levels to follow the steps in this article. If you don't have the appropriate access, contact your administrator.
+
+* To add a guest user, your organization's external collaboration settings must be configured to allow you to invite guests.
+* To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner).
+* To add users to your workspace, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your workspace, such as [Owner](../../articles/role-based-access-control/built-in-roles.md#owner).
+
+
 ## Add custom role
 
-To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner).
-
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com)
-1. Open the menu on the top right and select **View all properties in Azure Portal**. 
+1. Open the menu on the top right and select **View all properties in Azure Portal**.  You'll use Azure portal for all the rest of the steps in this article.
 1. Select the **Subscription** link in the middle of the page.
 1. On the left, select **Access control (IAM)**.
 1. At the top, select **+ Add > Add custom role**.
@@ -80,7 +85,7 @@ You may want to create a second role for a labeling team lead.  A labeling team 
                 ],
 ```
 
-## Add labelers into Azure
+## Add guest user
 
 If your labelers are outside of your organization, you'll now add them so that they can access your workspace.  If labelers are already inside your organization, skip this step.  
 
@@ -101,9 +106,9 @@ Repeat for each of your labelers.  Or use the link at the bottom of the **Invite
 > [!TIP]
 > Inform your labelers that they'll be receiving this email.  They need to accept the invitation in order to gain access to your project.
 
-## Add labelers to your workspace
+## Add users to your workspace
 
-Now that you have your labelers added to the system, you're ready to add them to your workspace.  You'll use the custom role here.
+Now that you have your labelers added to the system, you're ready to add them to your workspace.  
 
 1. In the top search field, type **Machine Learning**.  
 1. Select **Machine Learning**.
@@ -137,7 +142,7 @@ If you haven't created your labeling project yet, do so before you contact your 
 Send the following to your labelers, after filling in your workspace and project names:
 
 1. Accept the invite from **Microsoft Invitations (invites@microsoft.com)**.
-1. If you don't yet have a Microsoft account, you'll be prompted to create one.  If you do have one, sign in.
+1. Follow the steps on the web page after you accept.  Don't worry if at the end you're on a page that says you don't have any apps.
 1. Open [Azure Machine Learning studio](https://ml.azure.com).
 1. Use the dropdown to select the workspace **\<workspace-name\>**.  
 1. Select the project **\<project-name\>**.
