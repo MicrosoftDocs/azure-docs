@@ -154,5 +154,5 @@ When you select the **SiteIntel** tile in the Access Panel, you should be automa
 - [What are application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 - [Try SiteIntel with Azure AD](https://aad.portal.azure.com/)
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 - [How to protect SiteIntel with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
