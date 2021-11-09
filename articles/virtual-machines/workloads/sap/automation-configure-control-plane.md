@@ -78,6 +78,7 @@ The table below contains the networking parameters.
 
 The table below contains the parameters related to the deployer virtual machine. 
 
+
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                        | Description                                                                  | Type       | 
 > | ----------------------------- - | ---------------------------------------------------------------------------- | ---------- | 
@@ -104,6 +105,7 @@ version="latest"
 ### Authentication Parameters
 
 The table below defines the parameters used for defining the Virtual Machine authentication
+
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                         | Description                                         | Type      | 
