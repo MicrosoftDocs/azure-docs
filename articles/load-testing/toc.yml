@@ -36,6 +36,8 @@
       href: how-to-parameterize-load-tests.md
     - name: Define test criteria
       href: how-to-define-test-criteria.md
+    - name: Update and rerun your load tests
+      href: how-to-update-rerun-test.md
 - name: Resources
   items: 
     - name: Azure roadmap

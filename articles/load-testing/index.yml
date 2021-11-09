@@ -45,6 +45,9 @@ conceptualContent:
         - url: how-to-parameterize-load-tests.md
           itemType: how-to-guide
           text: How to parameterize a load test
+        - url: how-to-update-rerun-test.md
+          itemType: how-to-guide
+          text: How to update and rerun your load tests
     
     # Card
     - title: Analyze test results
