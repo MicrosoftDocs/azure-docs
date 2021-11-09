@@ -88,7 +88,7 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/down
     > [!TIP]
     > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. If your configuration is correct, then this warning can be safely ignored as it should not impact the use of the console. 
 
-1. Next run `:remote console` to redirect all consoles to the remote server.
+1. Next run `:remote console` to redirect all console commands to the remote server.
 
    > [!NOTE]
    > If you don't run the `:remote console` command but would like to redirect all console commands to the remote server, you should prefix the command with `:>`, for example you should run the command as `:> g.V().count()`. This prefix is a part of the command and it is important when using the Gremlin console with Azure Cosmos DB. Omitting this prefix instructs the console to execute the command locally, often against an in-memory graph. Using this prefix `:>` tells the console to execute a remote command, in this case against Azure Cosmos DB (either the localhost emulator, or an Azure instance).
