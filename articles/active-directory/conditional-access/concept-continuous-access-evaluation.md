@@ -169,6 +169,9 @@ More information about continuous access evaluation as a session control can be 
 
 With the latest CAE setting under Conditional Access, strict enforcement is a new feature that allows for enhanced security based on two factors: IP address variation and client capability. This functionality can be enabled while customizing CAE options for a given policy. By turning on strict enforcement, CAE will revoke access upon detecting any instances of either [IP address variation](#ip-address-variation) or a lack of CAE [client capability](#client-capabilities).
 
+> [!NOTE] 
+> You should only enable strict enforcement after you ensure that all the client applications support CAE and you have included all your IP addresses seen by Azure AD and the resource providers, like Exchange online and Azure Resource Mananger, in your location policy under Conditional Access. Otherwise, you could be blocked.
+
 ## Limitations
 
 ### Group membership and Policy update effective time

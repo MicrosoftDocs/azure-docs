@@ -12,7 +12,7 @@ ms.author: denisgun
 
 Azure Virtual Desktop provides the ability to host client sessions on the session hosts running on Azure. Microsoft manages portions of the services on the customer's behalf and provides secure endpoints for connecting clients and session hosts. The diagram below gives a high-level overview of the network connections used by Azure Virtual Desktop
 
-:::image type="content" source="media/windows-virtual-desktop-network-connections.svg" alt-text="Diagram of Azure Virtual Desktop Network Connections" lightbox="media/windows-virtual-desktop-network-connections.svg":::
+:::image type="content" source="media/azure-virtual-desktop-network-connections.svg" alt-text="Diagram of Azure Virtual Desktop Network Connections" lightbox="media/azure-virtual-desktop-network-connections.svg":::
 
 ## Session connectivity
 
