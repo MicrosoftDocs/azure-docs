@@ -10,7 +10,7 @@ ms.topic: troubleshooting
 author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
-ms.date: 1/14/2021
+ms.date: 11/04/2021
 ---
 
 # Detectable types of query performance bottlenecks in Azure SQL Database
@@ -192,7 +192,7 @@ Once you have eliminated a suboptimal plan and *Waiting-related* problems that a
   If the workload uses temporary tables or there are TempDB spills in the plans, the queries might have a problem with TempDB throughput. See using DMVs to [identity TempDB issues](database/monitoring-with-dmvs.md#identify-tempdb-performance-issues).
 - **Memory-related problems**
 
-  If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems. See using DMVs to [identify memory grant issues](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues).
+  If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems. See using DMVs to [identify memory grant issues](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues). For more information and sample queries, see [Troubleshoot out of memory errors with Azure SQL Database](database/troubleshoot-memory-errors-issues.md).
 
 ### Methods to show top wait categories
 

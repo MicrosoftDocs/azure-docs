@@ -4,8 +4,8 @@ description: Set global parameters for each of your Azure Data Factory environme
 ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
-author: jasonwhowell
-ms.author: jasonh
+author: joshuha-msft
+ms.author: joowen
 ms.date: 05/12/2021 
 ms.custom: devx-track-azurepowershell
 ---

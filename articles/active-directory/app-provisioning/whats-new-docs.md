@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application provisioning"
 description: "New and updated documentation for the Azure Active Directory application provisioning."
-ms.date: 10/05/2021
+ms.date: 11/04/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -14,6 +14,13 @@ manager: karenh444
 # Azure Active Directory application provisioning: What's new
 
 Welcome to what's new in Azure Active Directory application provisioning documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the provisioning service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## October 2021
+
+### New articles
+
+- [Configuring Azure AD to provision users into LDAP directories](on-premises-ldap-connector-configure.md)
+
 
 ## September 2021
 

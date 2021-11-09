@@ -17,7 +17,7 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Adding a GCP account to an Azure subscription allows Defender for Cloud to connect with GCP Security Command. Defender for Cloud can then protect your resources across both of these cloud environments and provide:
+Adding a GCP account to an Azure subscription connects Defender for Cloud with GCP Security Command. Defender for Cloud can then protect your resources across both of these cloud environments and provide:
 
 - Detection of security misconfigurations
 - A single view showing Defender for Cloud recommendations and GCP Security Command Center findings
