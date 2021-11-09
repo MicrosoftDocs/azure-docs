@@ -51,7 +51,7 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 
 | Changes | Details |
 | --- | --- |
-| **Security enhancements in the Azure portal** | Once you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md), you can view Security Center recommendations in the [SQL virtual machines resource in the Azure portal](manage-sql-vm-portal.md#security-center). | 
+| **Security enhancements in the Azure portal** | Once you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md), you can view Security Center recommendations in the [SQL virtual machines resource in the Azure portal](manage-sql-vm-portal.md#defender-for-cloud). | 
 
 ## May 2021
 

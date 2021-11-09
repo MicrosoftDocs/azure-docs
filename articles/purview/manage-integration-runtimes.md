@@ -167,7 +167,7 @@ Based on your sources, you may also need to allow the domains of other Azure or 
 | Various Domains | Dependant          | Domains for any other sources the SHIR will connect to. |
   
 > [!IMPORTANT]
-> In most environments, you will also need to confirm that your DNS is correctly configured. To confirm you can use **nslookup** from your SHIR machine to check connectivity to each of the above domains. Each nslookup should return the the IP of the resource. If you are using [Private Endpoints](catalog-private-link.md), the private IP should be returned and not the Public IP. If no IP is returned, or if when using Private Endpoints the public IP is returned, you will need to address your DNS/VNET association, or your Private Endpoint/VNET peering.
+> In most environments, you will also need to confirm that your DNS is correctly configured. To confirm you can use **nslookup** from your SHIR machine to check connectivity to each of the above domains. Each nslookup should return the IP of the resource. If you are using [Private Endpoints](catalog-private-link.md), the private IP should be returned and not the Public IP. If no IP is returned, or if when using Private Endpoints the public IP is returned, you will need to address your DNS/VNET association, or your Private Endpoint/VNET peering.
 
 ## Manage a self-hosted integration runtime
 

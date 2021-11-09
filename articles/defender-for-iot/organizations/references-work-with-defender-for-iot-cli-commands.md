@@ -96,7 +96,7 @@ The attribute that you can define within the command is the IP address of the NT
 
 ## Network configuration
 
-The following table describes the commands available to configure your network options for Azure Defender for IoT:
+The following table describes the commands available to configure your network options for Microsoft Defender for IoT:
 
 |Name|Command|Description|
 |-----------|-------|-----------|

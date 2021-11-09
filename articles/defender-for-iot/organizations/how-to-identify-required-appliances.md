@@ -266,7 +266,6 @@ After you purchase the appliance, go to **Defender for IoT** > **Network Sensors
 
 ## Next steps
 
-[About Azure Defender for IoT installation](how-to-install-software.md)
+[About Microsoft Defender for IoT installation](how-to-install-software.md)
 
-[About Azure Defender for IoT network setup](how-to-set-up-your-network.md)
-
+[About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)

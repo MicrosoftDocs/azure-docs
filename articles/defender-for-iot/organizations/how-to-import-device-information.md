@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Import device information to a sensor
 
-An Azure Defender for IoT sensor monitors and analyzes mirrored traffic. In some cases, because of organization-specific network configuration policies, some information might not be transmitted.
+A Microsoft Defender for IoT sensor monitors and analyzes mirrored traffic. In some cases, because of organization-specific network configuration policies, some information might not be transmitted.
 
 In these cases, you might want to import data to enrich information on devices that are already detected. Two options are available for importing information to sensors:
 

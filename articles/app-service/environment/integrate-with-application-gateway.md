@@ -9,7 +9,7 @@ ms.date: 10/12/2021
 ms.author: madsd
 ms.custom: seodec18
 ---
-# Integrate your ILB App Service Environment with the Azure Application Gateway #
+# Integrate your ILB App Service Environment with the Azure Application Gateway
 
 The [App Service Environment][AppServiceEnvironmentoverview] is a deployment of Azure App Service in the subnet of a customer's Azure virtual network. It can be deployed with an external or internal endpoint for app access. The deployment of the App Service environment with an internal endpoint is called an internal load balancer (ILB) App Service environment (ASE).
 

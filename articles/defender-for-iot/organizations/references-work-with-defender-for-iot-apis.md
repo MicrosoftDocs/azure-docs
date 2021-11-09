@@ -15,7 +15,7 @@ Connections are secured over SSL.
 
 ## Getting started
 
-In general, when you're using an external API on the Azure Defender for IoT sensor or on-premises management console, you need to generate an access token. Tokens are not required for authentication APIs that you use on the sensor and the on-premises management console.
+In general, when you're using an external API on the Microsoft Defender for IoT sensor or on-premises management console, you need to generate an access token. Tokens are not required for authentication APIs that you use on the sensor and the on-premises management console.
 
 To generate a token:
 

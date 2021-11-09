@@ -71,7 +71,7 @@ When upgrading an on-premises management console and managed sensors, first upda
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to Azure Defender for IoT.
+1. Navigate to Microsoft Defender for IoT.
 
 1. Go to the **Updates** page.
 
@@ -124,7 +124,7 @@ If you are unable to update the sensor, contact customer support for assistance.
 
 The data package for threat intelligence is provided with each new Defender for IoT version, or if needed between releases. The package contains signatures (including malware signatures), CVEs, and other security content. 
 
-You can manually upload this file from the Defender for IoT portal's **Updates** page and automatically update it to sensors. 
+You can manually upload this file in the Azure portal and automatically update it to sensors. 
 
 **To update the threat intelligence data:**
 

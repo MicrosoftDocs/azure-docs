@@ -43,7 +43,7 @@ Opening each aggregated alert displays the detailed alert description, remediati
 
 ## Next steps
 
-Advance to the next article to learn more about Defender alert types and possible customizations.
+Advance to the next article to learn more about security alerts types and possible customizations.
 
 > [!div class="nextstepaction"]
 > [Understanding IoT security alerts](concept-security-alerts.md)
