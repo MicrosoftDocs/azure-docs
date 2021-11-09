@@ -12,16 +12,6 @@
     href: whats-new.md
   - name: Migrate from Operations Manager
     href: azure-monitor-operations-manager.md
-  - name: Monitor applications
-    items:
-    - name: ASP.NET Core application
-      href: app/dotnet-quickstart.md
-    - name: Node.js application
-      href: app/nodejs-quick-start.md
-    - name: Mobile application
-      href: app/mobile-center-quickstart.md
-    - name: Web application
-      href: app/website-monitoring.md 
 - name: Tutorials
   items:
   - name: Monitor Azure resource
@@ -54,6 +44,8 @@
       href: app/tutorial-users.md
     - name: Dashboard with application data
       href: app/tutorial-app-dashboards.md
+    - name: Monitor mobile application
+      href: app/mobile-center-quickstart.md
 - name: Samples
   items:
   - name: Resource Manager templates
