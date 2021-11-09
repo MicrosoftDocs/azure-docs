@@ -60,7 +60,7 @@ Manage your credit subscriptions, enterprise dev/test subscriptions, and PAYG su
 
 If you need an organization Azure Dev/Test subscription, you have two offers to choose from.  
 
-- [Pay-As-You-Go (PAYG) Dev/Test (0023P)](https://azure.microsoft.com/en-in/offers/ms-azr-0023p/)  
+- [Pay-As-You-Go (PAYG) Dev/Test (0023P)](https://azure.microsoft.com/offers/ms-azr-0023p/)  
 - [Enterprise Dev/Test (0148P)](https://azure.microsoft.com/offers/ms-azr-0148p/)  
 
 Each comes with their own set of discounts and require a Visual Studio Subscription.  
