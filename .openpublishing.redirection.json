@@ -409,6 +409,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-health-probes.md",
+      "redirect_url": "/articles/frontdoor/front-door-health-probes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-ddos.md",
+      "redirect_url": "/articles/frontdoor/front-door-ddos",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
       "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
       "redirect_document_id": true
