@@ -21,7 +21,7 @@ This article takes you step by step through the process of deploying Azure Senti
 
 ## Overview
 
-[Azure Sentinel solutions](sentinel-solutions.md) include bundled security content, such as threat detections, workbooks, and watchlists. These solutions enable you to onboard Azure Sentinel security content for a specific data connector by using a single process.
+[Azure Sentinel solutions](sentinel-solutions.md) include bundled security content, such as threat detections, workbooks, and watchlists. With these solutions, you can onboard Azure Sentinel security content for a specific data connector by using a single process.
 
 By using the Azure Sentinel SAP data connector, you can monitor SAP systems for sophisticated threats within the business and application layers.
 
@@ -31,7 +31,7 @@ To ingest SAP logs into Azure Sentinel, you must have the Azure Sentinel SAP dat
 
 After the SAP data connector is deployed, deploy the  SAP solution security content to gain insight into your organization's SAP environment and improve any related security operation capabilities.
 
-In this article, you learn how to:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Prepare your SAP system for the SAP data connector deployment.
@@ -195,7 +195,7 @@ To create or dedicate an Azure key vault, do the following:
 
 ## Deploy your SAP data connector
 
-The deployment script of the Azure Sentinel SAP data connector installs the [required software](#automatically-installed-software) and then installs the connector on your [newly created VM](#deploy-a-linux-vm-for-your-sap-data-connector). It also stores credentials in your [dedicated key vault](#create-key-vault-for-your-sap-credentials).
+The deployment script of the Azure Sentinel SAP data connector installs the [required software](#automatically-installed-software) and then installs the connector on your [newly created VM](#deploy-a-linux-vm-for-your-sap-data-connector). It also stores credentials in your [dedicated key vault](#create-a-key-vault-for-your-sap-credentials).
 
 The deployment script of the SAP data connector is stored in [Azure Sentinel GitHub repository > DataConnectors > SAP](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh).
 
