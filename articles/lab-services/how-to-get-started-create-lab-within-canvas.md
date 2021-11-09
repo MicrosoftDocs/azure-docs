@@ -60,7 +60,7 @@ A Canvas URL
 
 We’ve added a Redeploy capability for lab VMs. If lab owners or students are facing difficulties troubleshooting Remote Desktop (RDP) connection or accessing a virtual machine, redeploying the VM may provide a quick resolution for the issue.
 
-When you [redeploy a VM](/azure/virtual-machines/redeploy-to-new-node-windows), Azure will shut down the VM, move it to a new Azure host, and restart, retaining any data you saved in the OS disk (usually C: drive) of the VM. You can think of it as a refresh of the underlying VM for the student’s machine, and students don’t need to re-register to the lab or perform any other action. Please note that anything saved on the temporary disk (usually D: drive) will be lost when performing Redeploy. Both lab owners and lab users can Redeploy a VM.
+When you [redeploy a VM](/azure/virtual-machines/redeploy-to-new-node-windows), Azure will shut down the VM, move it to a new Azure host, and restart, retaining any data you saved in the OS disk (usually C: drive) of the VM. You can think of it as a refresh of the underlying VM for the student’s machine, and students don’t need to re-register to the lab or perform any other action. Note that anything saved on the temporary disk (usually D: drive) will be lost when performing Redeploy. Both lab owners and lab users can Redeploy a VM.
 
 ## Troubleshooting
 
@@ -68,23 +68,23 @@ This section outlines common error messages that you may see, along with the ste
 
 * This lab isn’t available yet.
 
-  In Canvas, you will see the following message if you haven’t created the lab plan in the Azure Portal:
+  In Canvas, you will see the following message if you haven’t created the lab plan in the Azure portal:
 
   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
 
-  To fix this, follow the steps in bullet #1 at the beginning of this document which shows how to create a lab plan in Azure.
+  To fix this, follow the steps in bullet #1 at the beginning of this document, which shows how to create a lab plan in Azure.
 
 * Insufficient permissions to create lab.
 
   In Canvas, you will see a message indicating that you don’t have sufficient permission if you haven’t assigned the user the appropriate roles to allow them to create a lab.
 
-  To fix this, follow the steps in bullet #1 at the beginning of this document which shows which roles to assign the user.  Also, ensure that when you’ve updated the user’s roles, that they have signed out and back into Canvas.
+  To fix this, follow the steps in bullet #1 at the beginning of this document, which shows which roles to assign the user.  Also, ensure that when you’ve updated the user’s roles, that they have signed out and back into Canvas.
 
 * Your admin needs to request a limit increase.
 
   In Canvas, you will see a message saying that you need to request a limit increase for the VM cores if you haven’t requested the product team increase this for the private preview.
 
-  To fix this, follow the steps in bullet #1 at the beginning of this document which has you email the number of VMs you plan to use in private preview and your subscription id to the product team so that they can increase the limit.
+  To fix this, follow the steps in bullet #1 at the beginning of this document, which has you email the number of VMs you plan to use in private preview and your subscription ID to the product team so that they can increase the limit.
 
 * Subscription not enabled for private preview.
 
