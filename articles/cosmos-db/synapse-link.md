@@ -118,7 +118,7 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 * Synapse Link and periodic backup mode coexistence in the same database account is supported. although backup and restore of your data in analytical store isn't supported.
 
-* Synapse Link and periodic backup mode coexistence in the same database account isn't supported.
+* Synapse Link and continuous backup mode coexistence in the same database account isn't supported.
 
 * Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently isn't supported.
 
