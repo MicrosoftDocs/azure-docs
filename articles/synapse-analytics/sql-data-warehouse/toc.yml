@@ -1,3 +1,4 @@
+items:
 - name: Dedicated SQL pool (formerly SQL DW)
   href: sql-data-warehouse-overview-what-is.md
 - name: Switch to Azure Synapse > 
@@ -12,8 +13,6 @@
     href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Cheat sheet
     href: cheat-sheet.md
-  - name: Best practices
-    href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
   - name: Capacity limits
     href: sql-data-warehouse-service-capacity-limits.md
   - name: FAQ
@@ -145,7 +144,7 @@
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
     - name: Best practices
-      href: sql-data-warehouse-best-practices-development.md
+      href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: JSON
       items:
       - name: JSON
@@ -346,6 +345,8 @@
       href: sql-data-warehouse-how-to-configure-workload-importance.md 
     - name: Convert resource classes to workload groups
       href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
+    - name: Troubleshooting a missed classification
+      href: sql-data-warehouse-how-to-troubleshoot-missed-classification.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
   - name: Manage and monitor
     items:
     - name: Upgrade to Gen2
@@ -424,7 +425,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Feature requests
-    href: https://feedback.azure.com/forums/307516-sql-data-warehouse/
+    href: https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8?c=53209bfe-0933-ec11-b6e6-00224827b3e3
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=sql-data-warehouse
   - name: Stack Overflow

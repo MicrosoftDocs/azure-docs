@@ -41,7 +41,7 @@ Using `limit` and `take` in queries can increase latency and load of alerts as t
 
 Queries for log alert rules should always start with a table to define a clear scope, which improves both query performance and the relevance of the results. Queries in alert rules run frequently, so using `search` and `union` can result in excessive overhead adding latency to the alert, as it requires scanning across multiple tables. These operators also reduce the ability of the alerting service to optimize the query.
 
-We don't support creating or modifying log alert rules that use `search` or `union` operators, expect for cross-resource queries.
+We don't support creating or modifying log alert rules that use `search` or `union` operators, except for cross-resource queries.
 
 For example, the following alerting query is scoped to the _SecurityEvent_ table and searches for specific event ID. It's the only table that the query must process.
 

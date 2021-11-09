@@ -17,7 +17,7 @@ Azure Service Fabric manged clusters support the following managed disk types:
     * Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access. 
 * Standard SSD *Default*
     * Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test.
-* Premium SSD *Compatible with specific VM sizes* for more information see [Premium SSD](../virtual-machines/disks-types.md#premium-ssd)
+* Premium SSD *Compatible with specific VM sizes* for more information see [Premium SSD](../virtual-machines/disks-types.md#premium-ssds)
     * Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
 
 >[!NOTE]
@@ -38,10 +38,9 @@ Possible values are:
 
 ```json
 {
-    "apiVersion": "2021-05-01",
-    "type": "Microsoft.ServiceFabric/managedclusters",
-    "dataDiskType": "StandardSSD_LRS"
-    
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "dataDiskType": "StandardSSD_LRS"
 }
 ```
 

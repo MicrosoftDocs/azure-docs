@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/30/2021
 ---
 
 # Data types in Bicep
@@ -78,9 +78,7 @@ Floating point, decimal or binary formats aren't currently supported.
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object must be declared in multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type.
-
-In Bicep, the key isn't enclosed by quotes. Don't use commas to between properties.
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object must be declared in multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type. Don't use commas to between properties.
 
 ```bicep
 param exampleObject object = {
@@ -88,6 +86,23 @@ param exampleObject object = {
   id: '123-abc'
   isCurrent: true
   tier: 1
+}
+```
+
+In Bicep, quotes are optionally allowed on object property keys:
+
+```bicep
+var test = {
+  'my - special. key': 'value'
+}
+```
+
+In the preceding example, quotes are used when the object property keys contain special characters.  For example space, '-', or '.'. The following example shows how to use interpolation in object property keys.
+
+```bicep
+var stringVar = 'example value'
+var objectVar = {
+  '${stringVar}': 'this value'
 }
 ```
 
@@ -102,7 +117,7 @@ var a = {
   }
 }
 
-output result1 string = a.b // returns 'Dev' 
+output result1 string = a.b // returns 'Dev'
 output result2 int = a.c // returns 42
 output result3 bool = a.d.e // returns true
 ```
@@ -211,6 +226,27 @@ param password string
 @secure()
 param configValues object
 ```
+
+## Data type assignability
+
+In Bicep, a value of one type (source type) can be assigned to another type (target type). The following table shows which source type (listed horizontally) can or can't be assigned to which target type (listed vertically). In the table, `X` means assignable, empty space means not assignable, and `?` means only if they types are compatible.
+
+| Types | `any` | `error` | `string` | `number` | `int` | `bool` | `null` | `object` | `array` | named resource | named module | `scope` |
+|-|-|-|-|-|-|-|-|-|-|-|-|-|
+| `any`          |X| |X|X|X|X|X|X|X|X|X|X|
+| `error`        | | | | | | | | | | | | |
+| `string`       |X| |X| | | | | | | | | |
+| `number`       |X| | |X|X| | | | | | | |
+| `int`          |X| | | |X| | | | | | | |
+| `bool`         |X| | | | |X| | | | | | |
+| `null`         |X| | | | | |X| | | | | |
+| `object`       |X| | | | | | |X| | | | |
+| `array`        |X| | | | | | | |X| | | |
+| `resource`     |X| | | | | | | | |X| | |
+| `module`       |X| | | | | | | | | |X| |
+| `scope`        | | | | | | | | | | | |?|
+| **named resource** |X| | | | | | |?| |?| | |
+| **named module**   |X| | | | | | |?| | |?| |
 
 ## Next steps
 

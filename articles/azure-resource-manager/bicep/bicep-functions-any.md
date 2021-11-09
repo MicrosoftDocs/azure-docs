@@ -20,6 +20,8 @@ This function doesn't exist in the Azure Resource Manager template runtime. It's
 
 Returns a value that is compatible with any data type.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |

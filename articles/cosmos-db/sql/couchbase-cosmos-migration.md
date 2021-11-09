@@ -161,13 +161,13 @@ The following are the code snippets for CRUD operations:
 
 Where *_repo* is the object of repository and *doc* is the POJO class’s object. You can use `.save` to insert or upsert (if document with specified ID found). The following code snippet shows how to insert or update a doc object:
 
-```_repo.save(doc);```
+`_repo.save(doc);`
 
 ### Delete Operation
 
 Consider the following code snippet, where doc object will have ID and partition key mandatory to locate and delete the object:
 
-```_repo.delete(doc);```
+`_repo.delete(doc);`
 
 ### Read Operation
 

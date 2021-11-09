@@ -4,7 +4,7 @@ description: Describes how Azure Active Directory enables organizations to secur
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 
 ms.service: active-directory

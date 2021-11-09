@@ -64,7 +64,7 @@ sections:
           What are the data retention and limitations of Metrics Advisor?
         answer: |       
           1. Data retention.
-          Metrics Advisor will keep at most **10,000** time intervals (what is an interval?) forward counting from current timestamp, no matter there's data available or not. Data falls out of the window will be deleted.  Data retention mapping to count of days for different metric granularity.
+          Metrics Advisor will keep at most **10,000** time intervals [what is an interval?](tutorials/write-a-valid-query.md#what-is-an-interval) forward counting from current timestamp, no matter there's data available or not. Data falls out of the window will be deleted.  Data retention mapping to count of days for different metric granularity.
           
           | Granularity(min) |	Retention(day) |
           |------------------| ------------------|

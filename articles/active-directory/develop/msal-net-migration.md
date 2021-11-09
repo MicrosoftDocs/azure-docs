@@ -49,6 +49,7 @@ For details about the decision tree below, read [MSAL.NET or Microsoft.Identity.
  
 ## Next steps
 
+- Learn about [public client and confidential client applications](msal-client-applications.md).
 - Learn how to [migrate confidential client applications built on top of ASP.NET MVC or .NET classic from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md).
 - Learn how to [migrate public client applications built on top of .NET or .NET classic from ADAL.NET to MSAL.NET](msal-net-migration-public-client.md).
 - Learn more about the [Differences between ADAL.NET and MSAL.NET apps](msal-net-differences-adal-net.md).

@@ -5,6 +5,7 @@ description: Use Azure Communication Services SDKs to join a Teams meeting.
 author: probableprime
 ms.author: rifox
 ms.service: azure-communication-services
+ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 08/10/2021
 ms.custom: template-how-to
@@ -48,6 +49,14 @@ const locator = {
 }
 const call = callAgent.join(locator);
 ```
+
+Join by using meeting id (this is currently in limited preview):
+
+```js
+const locator = { meetingId: '<MEETING_ID>'}
+const call = callAgent.join(locator);
+```
+
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
 - [Learn how to manage video](./manage-video.md)

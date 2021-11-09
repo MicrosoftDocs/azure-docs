@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Taskize Connect | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Taskize Connect'
 description: Learn how to configure single sign-on between Azure Active Directory and Taskize Connect.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 09/23/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Taskize Connect
+# Tutorial: Azure AD SSO integration with Taskize Connect
 
 In this tutorial, you'll learn how to integrate Taskize Connect with Azure Active Directory (Azure AD). When you integrate Taskize Connect with Azure AD, you can:
 
@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Taskize Connect supports **SP and IDP** initiated SSO.
+* Taskize Connect supports [Automated user provisioning](taskize-connect-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -137,6 +138,8 @@ The objective of this section is to create a user called B.Simon in Taskize Conn
 
 >[!Note]
 >If you need to create a user manually, contact [Taskize Connect support team](mailto:support@taskize.com).
+
+Taskize Connect also supports automatic user provisioning, you can find more details [here](./taskize-connect-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

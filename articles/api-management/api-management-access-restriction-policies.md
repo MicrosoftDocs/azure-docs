@@ -3,12 +3,12 @@ title: Azure API Management access restriction policies | Microsoft Docs
 description: Learn about the access restriction policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: article
 ms.date: 08/20/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # API Management access restriction policies
@@ -93,7 +93,7 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number" renewal-period="seconds">
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
         retry-after-header-name="header name" 
         retry-after-variable-name="policy expression variable name"
@@ -388,6 +388,9 @@ In the following example, the quota is keyed by the caller IP address.
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
 | renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
 
+> [!NOTE]
+> The `counter-key` attribute value must be unique across all the APIs in the API Management if you don't want to share the total between the other APIs.
+
 ### Usage
 
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
@@ -646,21 +649,21 @@ The following example validates a client certificate to match the policy's defau
 ### Attributes
 
 | Name                            | Description      | Required |  Default    |
-| ------------------------------- |   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| ------------------------------- | -----------------| -------- | ----------- |
 | validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list.  | no   | True  |
 | validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. | no | True |
-| validate-not-before | Boolean. Validates value against current time. | no | True | 
-| validate-not-after  | Boolean. Validates value against current time. | no | True| 
-| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no. | False |  
-| identity | String. Combination of certificate claim values that make certificate valid. | yes | N/A | 
+| validate-not-before | Boolean. Validates value against current time. | no | True |
+| validate-not-after  | Boolean. Validates value against current time. | no | True|
+| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no | False |
+| identity | String. Combination of certificate claim values that make certificate valid. | yes | N/A |
 | thumbprint | Certificate thumbprint. | no | N/A |
 | serial-number | Certificate serial number. | no | N/A |
 | common-name | Certificate common name (part of Subject string). | no | N/A |
 | subject | Subject string. Must follow format of Distinguished Name. | no | N/A |
-| dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A | 
-| issuer-subject | Issuer’s subject. Must follow format of Distinguished Name. | no | N/A | 
-| issuer-thumbprint | Issuer thumbprint. | no | N/A | 
-| issuer-certificate-id | Identifier of existing certificate entity representing the issuer’s public key. Mutually exclusive with other issuer attributes.  | no | N/A | 
+| dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A |
+| issuer-subject | Issuer's subject. Must follow format of Distinguished Name. | no | N/A |
+| issuer-thumbprint | Issuer thumbprint. | no | N/A |
+| issuer-certificate-id | Identifier of existing certificate entity representing the issuer's public key. Mutually exclusive with other issuer attributes.  | no | N/A |
 
 ### Usage
 

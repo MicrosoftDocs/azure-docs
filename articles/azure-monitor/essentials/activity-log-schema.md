@@ -681,10 +681,7 @@ This category contains the record of any new recommendations that are generated 
 
 ## Policy category
 
-This category contains records of all effect action operations performed by [Azure
-Policy](../../governance/policy/overview.md). Examples of the types of events you would see in this
-category include _Audit_ and _Deny_. Every action taken by Policy is modeled as an operation on a
-resource.
+This category contains records of all effect action operations performed by [Azure Policy](../../governance/policy/overview.md). Examples of the types of events you would see in this category include _Audit_ and _Deny_. Every action taken by Policy is modeled as an operation on a resource.
 
 ### Sample Policy event
 

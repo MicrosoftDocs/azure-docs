@@ -1,12 +1,11 @@
 ---
 title: Remove Azure Sentinel | Microsoft Docs
-description:  How to delete your Azure Sentinel instance.
+description: How to delete your Azure Sentinel instance.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Remove Azure Sentinel from your workspace
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 If you no longer want to use Azure Sentinel, this article explains how to remove it from your workspace.
 

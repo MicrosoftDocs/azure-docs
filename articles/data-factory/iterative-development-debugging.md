@@ -98,4 +98,4 @@ Using the activity runtime will create a new cluster using the settings specifie
 
 ## Next steps
 
-After testing your changes, promote them to higher environments using [continuous integration and deployment](continuous-integration-deployment.md).
+After testing your changes, promote them to higher environments using [continuous integration and deployment](continuous-integration-delivery.md).

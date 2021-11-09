@@ -73,7 +73,7 @@ To learn more, see [Azure subscriptions](../../guides/developer/azure-developer-
 
 ## Location
 
-**Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create the application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. Once you choose a location, you can't later move your application to a different location.
+**Location** is where you'd like to create the application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Currently, you can create an IoT Central application in the **Australia East**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **Southeast Asia**, **UK South**, **West Europe** and **West US** regions. Once you choose a location, you can't later move your application to a different location.
 
 ## Application template
 

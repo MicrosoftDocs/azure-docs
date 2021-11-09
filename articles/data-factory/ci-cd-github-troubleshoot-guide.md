@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 10/25/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -21,7 +21,7 @@ In this article, let us explore common troubleshooting methods for Continuous In
 If you have questions or issues in using source control or DevOps techniques, here are a few articles you may find useful:
 
 - Refer to [Source Control](source-control.md) to learn how source control is practiced in the service. 
-- Refer to  [CI-CD](continuous-integration-deployment.md) to learn more about how DevOps CI-CD is practiced in the service.
+- Refer to  [CI-CD](continuous-integration-delivery.md) to learn more about how DevOps CI-CD is practiced in the service.
 
 ## Common errors and messages
 
@@ -79,7 +79,7 @@ This error is due to an integration runtime with the same name in the target ser
 
 #### Recommendation
 
-- Refer to the [Best Practices for CI/CD](continuous-integration-deployment.md#best-practices-for-cicd)
+- Refer to the [Best Practices for CI/CD](continuous-integration-delivery.md#best-practices-for-cicd)
 
 - Integration runtimes don't change often and are similar across all stages in your CI/CD, so the service expects you to have the same name and type of integration runtime across all stages of CI/CD. If the name and types & properties are different, make sure to match the source and target integration runtime configuration and then deploy the release pipeline.
 
@@ -154,7 +154,7 @@ Until recently, the it was only possible to publish a pipeline for deployments b
 
 #### Resolution
 
-CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and click a button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
+CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and click a button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-delivery-improvements.md) for details. 
 
 ###  Cannot publish because of 4 MB ARM template limit  
 
@@ -261,7 +261,7 @@ You want to perform CI/CD during progress and queuing stage of pipeline run.
 When pipeline is in progress/queued stage, you have to monitor the pipeline and  activities at first. Then, you can decide to wait until pipeline to finish or you can cancel the pipeline run. 
  
 #### Resolution
-You can monitor the pipeline using **SDK**, **Azure Monitor** or [Monitor](./monitor-visually.md). Then, you can follow [CI/CD Best Practices](./continuous-integration-deployment.md#best-practices-for-cicd) to guide you further. 
+You can monitor the pipeline using **SDK**, **Azure Monitor** or [Monitor](./monitor-visually.md). Then, you can follow [CI/CD Best Practices](./continuous-integration-delivery.md#best-practices-for-cicd) to guide you further. 
 
 ### Perform **UNIT TESTING** during development and deployment
 
@@ -294,6 +294,29 @@ There are several scenarios which can trigger this behavior, all of which involv
 #### Resolution
 
 New runs of the parent pipeline will automatically begin succeeding, so typically no action is needed. However, to prevent these errors, customers should consider dependencies while authoring and planning deployments to avoid breaking changes. 
+
+### Cannot parameterize integration run time in linked service
+
+#### Issue
+Need to parameterize linked service integration run time
+
+#### Cause
+This feature is not supported. 
+
+#### Resolution
+You have to select manually and set an integration runtime. You can use PowerShell API to change as well.  This change can have downstream implications. 
+
+### Update/change Integration runtime during CI/CD. 
+ 
+#### Issue
+Changing Integration runtime name during CI/CD deployment.  
+ 
+#### Cause
+Parameterizing an entity reference (Integration runtime in Linked service, Dataset in activity, Linked Service in dataset) is not supported.  Changing the runtime name during deployment will cause the depended resource (Resource referencing the Integration runtime) to become malformed with invalid reference.  
+ 
+#### Resolution
+Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. 
+
 
 ## Next steps
 

@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/28/2021
 ms.author: cherylmc
 
 ---
@@ -19,6 +19,10 @@ Sometimes the settings for your local network gateway AddressPrefix or GatewayIP
 > * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+>
+
+>[!NOTE]
+> Making changes to a local network gateway that has a connection may cause tunnel disconnects and downtime.
 >
 
 ## <a name="configure-lng"></a>Local network gateway configuration

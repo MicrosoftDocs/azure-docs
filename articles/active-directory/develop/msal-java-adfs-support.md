@@ -3,7 +3,7 @@ title: AD FS support (MSAL for Java)
 titleSuffix: Microsoft identity platform
 description: Learn about Active Directory Federation Services (AD FS) support in the Microsoft Authentication Library for Java (MSAL4j).
 services: active-directory
-author: sangonzal
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/21/2019
-ms.author: sagonzal
+ms.author: marsma
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-java
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL for Java so I can decide if this platform meets my application development needs and requirements.

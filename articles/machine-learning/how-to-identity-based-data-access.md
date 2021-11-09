@@ -4,21 +4,18 @@ titleSuffix: Machine Learning
 description: Learn how to use identity-based data access to connect to storage services on Azure with Azure Machine Learning datastores and the Machine Learning Python SDK.   
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 02/22/2021
+ms.date: 10/21/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure Storage available to my compute to train my machine learning models.
 ---
 
-# Connect to storage by using identity-based data access (preview)
-
->[!IMPORTANT]
-> The features presented in this article are in preview. They should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features that might change at any time.
+# Connect to storage by using identity-based data access
 
 In this article, you learn how to connect to storage services on Azure by using identity-based data access and Azure Machine Learning datastores via the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).  
 

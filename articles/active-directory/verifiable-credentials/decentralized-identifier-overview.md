@@ -3,7 +3,7 @@ title: Introduction to Azure Active Directory Verifiable Credentials (preview)
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
-manager: daveba
+manager: karenh444
 editor:
 ms.service: active-directory
 ms.subservice: verifiable-credentials
@@ -13,7 +13,7 @@ ms.author: barclayn
 ms.reviewer: 
 ---
 
-# Introduction to Azure Active Directory Verifiable Credentials (Preview)
+# Introduction to Azure Active Directory Verifiable Credentials (preview)
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
@@ -82,7 +82,7 @@ Enables real people to use decentralized identities and Verifiable Credentials. 
 An API that connects to our ION node to look up and resolve DIDs using the ```did:ion``` method and return the DID Document Object (DDO). The DDO includes DPKI metadata associated with the DID such as public keys and service endpoints. 
 
 **5. Azure Active Directory Verified Credentials Service**
-An issuance and verification API and open-source SDK for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the ```did:ion``` method. They enable identity owners to generate, present, and verify claims. This forms the basis of trust between users of the systems.
+An issuance and verification service in Azure and a REST API for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the ```did:ion``` method. They enable identity owners to generate, present, and verify claims. This forms the basis of trust between users of the systems.
 
 ## A sample scenario
 
@@ -122,6 +122,6 @@ The roles in this scenario are:
 
 Now that you know about DIDs and verifiable credentials try them yourself by following our get started article or one of our articles providing more detail on verifiable credential concepts.
 
-- [Get started with verifiable credentials](get-started-verifiable-credentials.md)
+- [Get started with verifiable credentials](verifiable-credentials-configure-tenant.md)
 - [How to customize your credentials](credential-design.md)
 - [Verifiable credentials FAQ](verifiable-credentials-faq.md)

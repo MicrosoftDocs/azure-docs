@@ -77,7 +77,7 @@ Or you can install packages directly in Jupyter Notebook or RStudio:
 ## Add new kernels
 
 > [!WARNING]
->  While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Aslo do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
+>  While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
 
 To add a new Jupyter kernel to the compute instance:
 

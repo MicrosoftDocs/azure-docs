@@ -161,4 +161,4 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain-uiex.md)
+> Map custom domain
