@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ---
 
-# Generate SAP DB templates for automation
+# Generate SAP Application templates for automation
 
 The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). Before you can deploy a system using a custom BoM, you need to also create a template for the database. This guide covers SAP Application templates. There's also a [guide for SAP HANA templates](automation-bom-templates-hana.md).
 
@@ -23,7 +23,7 @@ The [SAP deployment automation framework on Azure](automation-deployment-framewo
 
 ## Check media and tools
 
-Before you generate an SAP DB template, make sure you have all required installation media and tools.
+Before you generate an SAP Application template, make sure you have all required installation media and tools.
 
 1. Sign in to your target VM as the root user.
 
@@ -35,7 +35,7 @@ Before you generate an SAP DB template, make sure you have all required installa
     mkdir /tmp/workdir; cd $_
     ```
 
-1. Make sure there's a temporary directory for the SAP DB template.
+1. Make sure there's a temporary directory for the SAP Application template.
 
     ```bash
     mkdir /tmp/app_template/
