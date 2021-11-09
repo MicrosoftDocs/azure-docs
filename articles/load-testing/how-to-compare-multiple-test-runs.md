@@ -1,5 +1,5 @@
 ---
-title: Compare Azure Load Test runs to find regressions
+title: Compare load testing runs to find regressions
 titleSuffix: Azure Load Testing
 description: 'Azure Load Testing allows you to compare multiple test runs to better understand performance regressions.'
 services: load-testing
