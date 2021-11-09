@@ -19,7 +19,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Outbound | 80, 443 | AzureActiveDirectory | Authentication using Azure AD. |
 | Outbound | 443 | AzureMachineLearning | Using Azure Machine Learning services. |
 | Outbound | 443 | AzureResourceManager | Creation of Azure resources with Azure Machine Learning. |
-| Outbound | 443, 445 | Storage.region | Access data stored in the Azure Storage Account for the Azure Batch service. |
+| Outbound | 443 | Storage.region | Access data stored in the Azure Storage Account for the Azure Batch service. |
 | Outbound | 443 | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). | 
 | Outbound | 443 | ContainerRegistry.region | Access docker images provided by Microsoft. |
 | Outbound | 443 | MicrosoftContainerRegistry.region | Access docker images provided by Microsoft. Setup of the Azure Machine Learning router for Azure Kubernetes Service. |

@@ -42,7 +42,6 @@ The following are well-known ports used by services listed in this article. If a
 | 445 | SMB traffic used to access file shares in Azure File storage |
 | 8787 | Used when connecting to RStudio on a compute instance |
 
-
 ## Required public internet access
 
 [!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
@@ -73,7 +72,7 @@ These rule collections are described in more detail in [What are some Azure Fire
     | AzureActiveDirectory | TCP | 80, 443 |
     | AzureMachineLearning | TCP | 443 |
     | AzureResourceManager | TCP | 443 |
-    | Storage.region       | TCP | 443, 445 |
+    | Storage.region       | TCP | 443 |
     | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | TCP | 443 | 
     | ContainerRegistry.region  | TCP | 443 |
     | MicrosoftContainerRegistry.region | TCP | 443 |
@@ -129,6 +128,12 @@ If not configured correctly, the firewall can cause problems using your workspac
 ### Microsoft hosts
 
 The hosts in the following tables are owned by Microsoft, and provide services required for the proper functioning of your workspace. The tables list hosts for the Azure public, Azure Government, and Azure China 21Vianet regions.
+
+> [!IMPORTANT]
+> Azure Machine Learning uses multiple storage accounts. Each stores different data, and has a different purpose. Where applicable, the following terms are used to differentiate between them in this section:
+>
+> * __Your storage__: The Azure Storage Account(s) in your subscription, which is used to store your data and artifacts such as models, training data, training logs, and Python scripts.>
+> * __Microsoft storage__: The Azure Machine Learning compute instance and compute clusters rely on Azure Batch, and must access storage located in a Microsoft subscription. This storage is used only for the management of the compute instances. None of your data is stored here.
 
 **General Azure hosts**
 
@@ -209,6 +214,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 > [!TIP]
 > * The host for __Azure Key Vault__ is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
 > * Ports 8787 and 18881 for __compute instance__ are only needed when your Azure Machine workspace has a private endpoint.
+> * In the following table, replace `<storage>` with the name of the default storage account for your Azure Machine Learning workspace.
 
 # [Azure public](#tab/public)
 
@@ -217,9 +223,11 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Compute cluster/instance | graph.windows.net | TCP | 443 |
 | Compute instance | \*.instances.azureml.net | TCP | 443 |
 | Compute instance | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
-| Azure Storage Account | \*.blob.core.windows.net | TCP | 443 |
-| Azure Storage Account | \*.table.core.windows.net | TCP | 443 |
-| Azure Storage Account | \*.queue.core.windows.net | TCP | 443 |
+| Microsoft storage access | \*.blob.core.windows.net | TCP | 443 |
+| Microsoft storage access | \*.table.core.windows.net | TCP | 443 |
+| Microsoft storage access | \*.queue.core.windows.net | TCP | 443 |
+| Your storage account | \<storage\>.file.core.windows.net | TCP | 443, 445 |
+| Your storage account | \<storage\>.blob.core.windows.net | TCP | 443 |
 | Azure Key Vault | \*.vault.azure.net | TCP | 443 |
 
 # [Azure Government](#tab/gov)
@@ -229,9 +237,11 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Compute cluster/instance | graph.windows.net | TCP | 443 |
 | Compute instance | \*.instances.azureml.us | TCP | 443 |
 | Compute instance | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
-| Azure Storage Account | \*.blob.core.usgovcloudapi.net | TCP | 443 |
-| Azure Storage Account | \*.table.core.usgovcloudapi.net | TCP | 443 |
-| Azure Storage Account | \*.queue.core.usgovcloudapi.net | TCP | 443 |
+| Microsoft storage access | \*.blob.core.usgovcloudapi.net | TCP | 443 |
+| Microsoft storage access | \*.table.core.usgovcloudapi.net | TCP | 443 |
+| Microsoft storage access | \*.queue.core.usgovcloudapi.net | TCP | 443 |
+| Your storage account | \<storage\>.file.core.usgovcloudapi.net | TCP | 443, 445 |
+| Your storage account | \<storage\>.blob.core.usgovcloudapi.net | TCP | 443 |
 | Azure Key Vault | \*.vault.usgovcloudapi.net | TCP | 443 |
 
 # [Azure China 21Vianet](#tab/china)
@@ -241,9 +251,11 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Compute cluster/instance | graph.chinacloudapi.cn | TCP | 443 |
 | Compute instance |  \*.instances.azureml.cn | TCP | 443 |
 | Compute instance | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
-| Azure Storage Account | \*blob.core.chinacloudapi.cn | TCP | 443 |
-| Azure Storage Account | \*.table.core.chinacloudapi.cn | TCP | 443 |
-| Azure Storage Account | \*.queue.core.chinacloudapi.cn | TCP | 443 |
+| Microsoft storage access | \*blob.core.chinacloudapi.cn | TCP | 443 |
+| Microsoft storage access | \*.table.core.chinacloudapi.cn | TCP | 443 |
+| Microsoft storage access | \*.queue.core.chinacloudapi.cn | TCP | 443 |
+| Your storage account | \<storage\>.file.core.chinacloudapi.cn | TCP | 443, 445 |
+| Your storage account | \<storage\>.blob.core.chinacloudapi.cn | TCP | 443 |
 | Azure Key Vault | \*.vault.azure.cn | TCP | 443 |
 
 ---
