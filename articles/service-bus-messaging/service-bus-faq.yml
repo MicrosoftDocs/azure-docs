@@ -3,14 +3,12 @@ metadata:
   title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
   description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
   ms.topic: article
-  ms.service: service-bus
+  ms.service: service-bus-messaging
   ms.date: 01/20/2021
     
 title: Azure Service Bus - Frequently asked questions (FAQ)
 summary: |
   This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing and support information.
-  
-  
 
 sections:
   - name: General questions about Azure Service Bus
