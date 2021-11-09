@@ -21,7 +21,7 @@ In this article, you'll learn how to more insights when testing AppService workl
 - An Azure Load Testing Resource already created. If you need to create a Load Test Resource, see [How to create the Load Test Resource](/cli/azure/install-azure-cli).  
 - An app service workload you're running your load test against and that you've added to the resources to monitor for the test.  
 
-## Getting more insights when testing an App Service Workload  
+## Get more insights when testing an App Service Workload  
 
 1. Add the App Service resources in the list of resources to monitor.  
 2. Once the test executes successfully, you'll see a section with the text: "Get more detailed insights about your app service resource by clicking here."  
