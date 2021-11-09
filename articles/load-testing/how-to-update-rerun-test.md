@@ -36,8 +36,8 @@ In this article you'll learn how to:
 3. Select the test plan from the list that you wish to update.  
 4. On the test run page, you'll see the list of test runs for that test plan.  
 
-> [!NOTE]  
-> Changes made on this page are applied to the test plan. Subsequent runs of the plan will use these new settings for running the test in the future.  
+   > [!NOTE]  
+   > Changes made on this page are applied to the test plan. Subsequent runs of the plan will use these new settings for running the test in the future.  
 
 1. The **Test**, **App Components**, and **server side Metrics** can be updated on this page using the configure button on the command bar at the top.  
 :::image type="content" source="media/how-to-update-rerun-test/configure.png" alt-text="Configure button on command bar.":::  
