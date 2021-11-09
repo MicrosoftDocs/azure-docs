@@ -15,6 +15,8 @@ adobe-target: true
 
 This quickstart describes how to create an Azure Load Testing resource by using Azure portal. With this resource, you'll create a load test using an Apache JMeter script and run the test against an external website. 
 
+After completing this quickstart, you'll have a resource and load test you can use for other tutorials. 
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
