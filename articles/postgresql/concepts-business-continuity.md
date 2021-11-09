@@ -39,8 +39,7 @@ You can use the service’s backups to recover a server from various disruptive 
 
 You can perform a **point-in-time-restore** to create a copy of your server to a known good point in time. This point in time must be within the backup retention period you have configured for your server. After the data is restored to the new server, you can either replace the original server with the newly restored server or copy the needed data from the restored server into the original server.
 
-> [!IMPORTANT]
-> You can restore a deleted server up to only 5 days after the server is deleted. To learn how to restore a deleted server, see [Restore a dropped server](howto-restore-dropped-server.md).
+We recommend that you use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server. If you accidentally deleted your server, you might be able to restore it if the deletion happened within the last 5 days. For more information, see [Restore a dropped Azure Database for PostgreSQL server](howto-restore-dropped-server.md).
 
 ## Recover from an Azure data center outage
 
