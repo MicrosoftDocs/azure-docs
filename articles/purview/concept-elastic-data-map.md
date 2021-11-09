@@ -131,7 +131,7 @@ The metrics _data map capacity units_ and the _data map storage size_ can be mon
 
     :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-custom.png" alt-text="Menu showing the data map capacity units consumed over a custom time range":::
 
-    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-time-range.png" alt-text="Menu showing the data map capacity units consumed over a custom time range":::
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-time-range.png" alt-text="Menu showing the data map capacity units consumed over a three day time range":::
 
 - The graph type can be customized by clicking on the option as indicated below.
 
