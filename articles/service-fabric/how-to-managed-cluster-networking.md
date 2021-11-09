@@ -614,7 +614,7 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 <a id="auxsubnet"></a>
 ## Configure Auxillary Subnets (preview)
-Auxillary subnets provide the ability to create additional managed subnets without a node type for supporting scenarios such as [Private Link Service](../azure/private-link/private-link-service-overview.md) and [Bastion Hosts](..//azure/bastion/bastion-overview.md).
+Auxillary subnets provide the ability to create additional managed subnets without a node type for supporting scenarios such as [Private Link Service](../private-link/private-link-service-overview.md) and [Bastion Hosts](../bastion/bastion-overview.md).
 
 Configure auxiliary subnets by declaring `auxiliarySubnets` property and required parameters in your Resource Manager template as follows:
 
