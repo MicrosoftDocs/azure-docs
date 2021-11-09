@@ -21,13 +21,16 @@ The configuration of the SAP workload zone is done via a Terraform tfvars variab
 
 The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts.
 
+
 | Variable                | Type       | Description                           | 
 | ----------------------- | ---------- | ------------------------------------- | 
 | `tfstate_resource_id`   | Required * | Azure resource identifier for the Storage account in the SAP Library that will contain the Terraform state files  |
 | `deployer_tfstate_key`  | Required * | The name of the state file for the Deployer  |
+
 ## Generic Parameters
 
 The table below contains the parameters that define the resource group and the resource naming.
+
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                           | Type  |
@@ -36,6 +39,7 @@ The table below contains the parameters that define the resource group and the r
 > | `location`              | The Azure region in which to deploy.     | Required |
 > | `resource_group_name`   | Name of the resource group to be created | Optional |
 > | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional |
+
 
 ## Network Parameters
 
@@ -76,6 +80,7 @@ The table below contains the networking parameters.
 
 ## ISCSI Parameters
 
+
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                         | Description                                                          | Type      | Notes  |
 > | -------------------------------- | -------------------------------------------------------------------- | --------- | ------ |
@@ -91,6 +96,8 @@ The table below contains the networking parameters.
 > | `iscsi__authentication_username` | Administrator account name                                           | Optional  |         |
 > | `iscsi_nic_ips`                  | IP addresses for the iSCSI Virtual Machines                          | Optional  | ignored if `iscsi_use_DHCP` is defined |
  
+
+
 ```python 
 { 
 os_type=""
@@ -103,6 +110,7 @@ version="latest"
 ```
 
 ### Authentication Parameters
+
 
 The table below defines the credentials used for defining the Virtual Machine authentication
 
@@ -119,13 +127,16 @@ The table below defines the credentials used for defining the Virtual Machine au
 
 The table below defines the parameters used for defining the Key Vault information
 
+
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                               | Type          | 
 > | ---------------------------------- | ------------------------------------------------------------------------- | ------------- | 
 > | `user_keyvault_id`	               | Azure resource identifier for the system credentials key vault            | Optional	   | 
 > | `spn_keyvault_id`                  | Azure resource identifier for the deployment credentials (SPNs) key vault | Optional	   | 
 
+
 ## DNS
+
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                    | Type        | 
@@ -133,7 +144,9 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `dns_label`                        | If specified, is the DNS name of the private DNS zone          | Optional    | 
 > | `dns_resource_group_name`          | The name of the resource group containing the Private DNS zone | Optional    | 
 
+
 ## Azure NetApp Support
+
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                            | Type         | Notes  |
@@ -147,15 +160,17 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `anf_subnet_arm_id`                | The Azure resource identifier for the 'ANF' subnet                     | Required     | Brown field |
 > | `anf_subnet_address_prefix`        | The address range for the 'ANF' subnet                                 | Required     | Green field |
 
+
 ## Other Parameters
+
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                            | Type     | Notes                                 |
 > | ------------------------------------ | ---------------------------------------------------------------------- | --------- -------------------------------------- |
 > | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional | Use only for test deployments         |
 > | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used                 | Optional |                                       |
-> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | Brown field |
-> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | Brown field |
+> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | Brown field                           |
+> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | Brown field                           |
 
 
 ## Next Step
