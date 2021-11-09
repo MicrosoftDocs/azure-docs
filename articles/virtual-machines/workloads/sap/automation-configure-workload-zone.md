@@ -48,48 +48,48 @@ Ensure that the virtual network address space is large enough to host all the re
 The table below contains the networking parameters.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                         | Description                                                          | Type        | Notes  |
-> | -------------------------------- | -------------------------------------------------------------------- | ----------- | ------ |
-> | `network_name`                   | The logical name of the network                                      | Required    |        |       
-> | `network_arm_id`                 | The Azure resource identifier for the virtual network                | Optional *  | Mandatory for brown field deployments |
-> | `network_address_space`          | The address range for the virtual network                            | Mandatory * | Mandatory for green field.  |
-> | `admin_subnet_name`              | The name of the 'admin' subnet                                       | Optional    |         |
-> | `admin_subnet_address_prefix`    | The address range for the 'admin' subnet                             | Mandatory * | Mandatory for green field deployments |
-> | `admin_subnet_arm_id`	         | The Azure resource identifier for the 'admin' subnet                 | Mandatory * | Mandatory for brown field deployments |
-> | `admin_subnet_nsg_name`          | The name of the 'admin' Network Security Group name                  | Optional	   |         |
-> | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the 'admin' Network Security Group | Mandatory * | Mandatory for brown field deployments |
-> | `db_subnet_name`                 | The name of the 'db' subnet                                          | Optional    |         |
-> | `db_subnet_address_prefix`       | The address range for the 'db' subnet                                | Mandatory * | Mandatory for green field deployments |
-> | `db_subnet_arm_id`	             | The Azure resource identifier for the 'db' subnet                    | Mandatory * | Mandatory for brown field deployments |
-> | `db_subnet_nsg_name`             | The name of the 'db' Network Security Group name                     | Optional	   |          |
-> | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the 'db' Network Security Group    | Mandatory * | Mandatory for brown field deployments |
-> | `app_subnet_name`                | The name of the 'app' subnet                                         | Optional    |          |
-> | `app_subnet_address_prefix`      | The address range for the 'app' subnet                               | Mandatory * | Mandatory for green field deployments |
-> | `app_subnet_arm_id`	             | The Azure resource identifier for the 'app' subnet                   | Mandatory * | Mandatory for brown field deployments |
-> | `app_subnet_nsg_name`            | The name of the 'app' Network Security Group name                    | Optional	   |          |
-> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the 'app' Network Security Group   | Mandatory * | Mandatory for brown field deployments |
-> | `web_subnet_name`                | The name of the 'web' subnet                                         | Optional    |          |
-> | `web_subnet_address_prefix`      | The address range for the 'web' subnet                               | Mandatory * | Mandatory for green field deployments |
-> | `web_subnet_arm_id`	             | The Azure resource identifier for the 'web' subnet                   | Mandatory * | Mandatory for brown field deployments |
-> | `web_subnet_nsg_name`            | The name of the 'web' Network Security Group name                    | Optional	   |          |
-> | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the 'web' Network Security Group   | Mandatory * | Mandatory for brown field deployments |
+> | Variable                         | Description                                                          | Type      | Notes  |
+> | -------------------------------- | -------------------------------------------------------------------- | --------- | ------ |
+> | `network_name`                   | The logical name of the network                                      | Required  |        |       
+> | `network_arm_id`                 | The Azure resource identifier for the virtual network                | Optional  | Brown field |
+> | `network_address_space`          | The address range for the virtual network                            | Mandatory | Green field  |
+> | `admin_subnet_name`              | The name of the 'admin' subnet                                       | Optional  |         |
+> | `admin_subnet_address_prefix`    | The address range for the 'admin' subnet                             | Mandatory | Green field |
+> | `admin_subnet_arm_id`	         | The Azure resource identifier for the 'admin' subnet                 | Mandatory | Brown field |
+> | `admin_subnet_nsg_name`          | The name of the 'admin' Network Security Group name                  | Optional	|         |
+> | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the 'admin' Network Security Group | Mandatory | Brown field |
+> | `db_subnet_name`                 | The name of the 'db' subnet                                          | Optional  |         |
+> | `db_subnet_address_prefix`       | The address range for the 'db' subnet                                | Mandatory | Green field |
+> | `db_subnet_arm_id`	             | The Azure resource identifier for the 'db' subnet                    | Mandatory | Brown field |
+> | `db_subnet_nsg_name`             | The name of the 'db' Network Security Group name                     | Optional	|          |
+> | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the 'db' Network Security Group    | Mandatory | Brown field |
+> | `app_subnet_name`                | The name of the 'app' subnet                                         | Optional  |          |
+> | `app_subnet_address_prefix`      | The address range for the 'app' subnet                               | Mandatory | Green field |
+> | `app_subnet_arm_id`	             | The Azure resource identifier for the 'app' subnet                   | Mandatory | Brown field |
+> | `app_subnet_nsg_name`            | The name of the 'app' Network Security Group name                    | Optional	|          |
+> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the 'app' Network Security Group   | Mandatory | Brown field |
+> | `web_subnet_name`                | The name of the 'web' subnet                                         | Optional  |          |
+> | `web_subnet_address_prefix`      | The address range for the 'web' subnet                               | Mandatory | Green field |
+> | `web_subnet_arm_id`	             | The Azure resource identifier for the 'web' subnet                   | Mandatory | Brown field |
+> | `web_subnet_nsg_name`            | The name of the 'web' Network Security Group name                    | Optional	|          |
+> | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the 'web' Network Security Group   | Mandatory | Brown field |
 
 ## ISCSI Parameters
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                         | Description                                                          | Type        | Notes  |
-> | -------------------------------- | -------------------------------------------------------------------- | ----------- | ------ |
-> | `iscsi_subnet_name`              | The name of the 'iscsi' subnet                                       | Optional    |        |
-> | `iscsi_subnet_address_prefix`    | The address range for the 'iscsi' subnet                             | Mandatory * | Mandatory for green field deployments |
-> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the 'iscsi' subnet                 | Mandatory * | Mandatory for brown field deployments |
-> | `iscsi_subnet_nsg_name`          |  The name of the 'iscsi' Network Security Group name                 | Optional	  |         |
-> | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the 'iscsi' Network Security Group | Mandatory * | Mandatory for brown field deployments |
-> | `iscsi_count`                    | The number of iSCSI Virtual Machines                                 | Optional    |         |   
-> | `iscsi_use_DHCP`                 | Controls if Azure subnet provided IP addresses (dynamic) are used    | Optional    |         |
-> | `iscsi_image`	                 | Defines the Virtual machine image to use, see below                  | Optional	  |         |
-> | `iscsi_authentication_type`      | Defines the default authentication for the iSCSI Virtual Machines    | Optional	  |         |
-> | `iscsi__authentication_username` | Administrator account name                                           | Optional	  |         |
-> | `iscsi_nic_ips`                  | IP addresses for the iSCSI Virtual Machines                          | Optional    | ignored if `iscsi_use_DHCP` is defined |
+> | Variable                         | Description                                                          | Type      | Notes  |
+> | -------------------------------- | -------------------------------------------------------------------- | --------- | ------ |
+> | `iscsi_subnet_name`              | The name of the 'iscsi' subnet                                       | Optional  |        |
+> | `iscsi_subnet_address_prefix`    | The address range for the 'iscsi' subnet                             | Mandatory | Green field |
+> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the 'iscsi' subnet                 | Mandatory | Brown field |
+> | `iscsi_subnet_nsg_name`          |  The name of the 'iscsi' Network Security Group name                 | Optional  |         |
+> | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the 'iscsi' Network Security Group | Mandatory | Brown field |
+> | `iscsi_count`                    | The number of iSCSI Virtual Machines                                 | Optional  |         |   
+> | `iscsi_use_DHCP`                 | Controls if Azure subnet provided IP addresses (dynamic) are used    | Optional  |         |
+> | `iscsi_image`	                 | Defines the Virtual machine image to use, see below                  | Optional  |         |
+> | `iscsi_authentication_type`      | Defines the default authentication for the iSCSI Virtual Machines    | Optional  |         |
+> | `iscsi__authentication_username` | Administrator account name                                           | Optional  |         |
+> | `iscsi_nic_ips`                  | IP addresses for the iSCSI Virtual Machines                          | Optional  | ignored if `iscsi_use_DHCP` is defined |
  
 ```python 
 { 
@@ -109,7 +109,7 @@ The table below defines the credentials used for defining the Virtual Machine au
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                          | Type        | 
 > | ---------------------------------- | -------------------------------------| ----------- | 
-> | `automation_username`              | Administrator account name           | Optional	  |
+> | `automation_username`              | Administrator account name           | Optional	|
 > | `automation_password`              | Administrator password               | Optional    |
 > | `automation_path_to_public_key`    | Path to existing public key          | Optional    |
 > | `automation_path_to_private_key`   | Path to existing private key         | Optional    |
@@ -139,13 +139,13 @@ The table below defines the parameters used for defining the Key Vault informati
 > | Variable                           | Description                                                            | Type         | Notes  |
 > | ---------------------------------- | -----------------------------------------------------------------------| -----------  | ------ |
 > | `use_ANF`                          | If specified, deploys the Azure NetApp Files Account and Capacity Pool | Optional     | |
-> | `ANF_account_arm_id`               | Azure resource identifier for the Azure NetApp Files Account           | Optional     | Mandatory for brown field deployments |
+> | `ANF_account_arm_id`               | Azure resource identifier for the Azure NetApp Files Account           | Optional     | Brown field |
 > | `ANF_account_name`                 | Name for the Azure NetApp Files Account                                | Optional     | |
 > | `ANF_service_level`                | Service level for the Azure NetApp Files Capacity Pool                 | Optional     | |
 > | `ANF_pool_size`                    | The size (in GB) of the Azure NetApp Files Capacity Pool               | Optional     | |
 > | `anf_subnet_name`                  | The name of the ANF subnet                                             | Optional     | |
-> | `anf_subnet_arm_id`                | The Azure resource identifier for the 'ANF' subnet                     | Required     | Mandatory for brown field deployments |
-> | `anf_subnet_address_prefix`        | The address range for the 'ANF' subnet                                 | Required     | Mandatory for green field deployments |
+> | `anf_subnet_arm_id`                | The Azure resource identifier for the 'ANF' subnet                     | Required     | Brown field |
+> | `anf_subnet_address_prefix`        | The address range for the 'ANF' subnet                                 | Required     | Green field |
 
 ## Other Parameters
 
@@ -154,8 +154,8 @@ The table below defines the parameters used for defining the Key Vault informati
 > | ------------------------------------ | ---------------------------------------------------------------------- | --------- -------------------------------------- |
 > | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional | Use only for test deployments         |
 > | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used                 | Optional |                                       |
-> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | Mandatory for brown field deployments |
-> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | Mandatory for brown field deployments |
+> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | Brown field |
+> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | Brown field |
 
 
 ## Next Step
