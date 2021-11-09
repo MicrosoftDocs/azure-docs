@@ -38,6 +38,9 @@ The Azure Cognitive Search Azure Files indexer can extract text from the followi
 
 You need both Azure Cognitive Search and [Azure Files](https://azure.microsoft.com/services/storage/files/). Within Azure Files, you need a file share that provides source content.
 
+> [!NOTE]
+> To index a file share, it must support access through the [file data plane REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). [NFS shares](https://docs.microsoft.com/azure/storage/files/files-nfs-protocol#support-for-azure-storage-features) do not support the file data plane REST API and cannot be used with Azure Cognitive Search indexers.[SMB shares](https://docs.microsoft.com/azure/storage/files/files-smb-protocol) support the file data plane REST API and can be used with Azure Cognitive Search indexers.
+
 <a name="configure"></a>
 
 ## Configuring a file indexer
