@@ -25,7 +25,7 @@ This integration enables organizations to quickly detect multistage attacks that
 
 1. From the bottom of the right pane, select **Open connector page**.
 
-1. Select **Connect** next to each subscription whose alerts and device alerts you want to stream into Azure Sentinel.
+1. Select **Connect** next to each subscription whose alerts and device alerts you want to stream into Microsoft Sentinel.
 
     > [!NOTE]
     > You will receive an error message if Defender for IoT is not enabled on at least one IoT Hub instance within that subscription. Enable Defender for IoT within IoT Hub to remove the error.
@@ -55,4 +55,4 @@ After connecting a **Subscription**, the hub data is available in Microsoft Sent
 
 In this document, you learned how to connect Defender for IoT to Microsoft Sentinel. To learn more about threat detection and security data access, see the following articles:
 
-- Learn how to use Microsoft Sentinel in [Quickstart: Get started with Azure Sentinel](../../sentinel/get-visibility.md).
+- Learn how to use Microsoft Sentinel in [Quickstart: Get started with Microsoft Sentinel](../../sentinel/get-visibility.md).

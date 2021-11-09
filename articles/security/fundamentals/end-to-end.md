@@ -97,7 +97,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 | **Data & Application** |  |
 | [Microsoft Defender for container registries](../../security-center/defender-for-container-registries-introduction.md) | Includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images' vulnerabilities. |
 | [Microsoft Defender for Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) | Provides cluster-level threat protection by monitoring your AKS-managed services through the logs retrieved by Azure Kubernetes Service (AKS). |
-| [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) | A Cloud Access Security Broker (CASB) that operates on multiple clouds. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your cloud services. |
+| [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) | A cloud access security broker (CASB) that operates on multiple clouds. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your cloud services. |
 
 ## Investigate and respond
 

@@ -41,7 +41,7 @@ For more information, see:
 
 ## Display recommendations in Microsoft Defender for Cloud Apps</a>
 
-Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security) is a Cloud Access Security Broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
+Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security) is a cloud access security broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
 
 If you've enabled Microsoft Defender for Cloud Apps, and selected the integration from within Defender for Cloud's settings, your hardening recommendations from Defender for Cloud will appear in Defender for Cloud Apps with no additional configuration needed.
 

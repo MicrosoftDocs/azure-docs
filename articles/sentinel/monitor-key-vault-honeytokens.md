@@ -134,9 +134,9 @@ The following steps describe specific actions required for the **Microsoft Senti
 
     - A link to your **SOCHTManagement** workbook. You may have modified this name on the **Workbooks** tab earlier in this procedure.
 
-    - The URL for a custom ARM template. You can use this ARM template to deploy an Azure Policy initiative, connected to an Azure Security Center custom recommendation, which distributes the **SOCHTManagement** workbook to KeyVault owners in your organization.
+    - The URL for a custom ARM template. You can use this ARM template to deploy an Azure Policy initiative, connected to an Microsoft Defender for Cloud custom recommendation, which distributes the **SOCHTManagement** workbook to key vault owners in your organization.
 
-1. The **Post-deployment Steps** tab notes that you can use the information displayed in the deployment output to distribute the Azure Security Center custom recommendation to all key vault owners in your organization, recommending that they deploy honeytokens in their key vaults.
+1. The **Post-deployment Steps** tab notes that you can use the information displayed in the deployment output to distribute the Microsoft Defender for Cloud custom recommendation to all key vault owners in your organization, recommending that they deploy honeytokens in their key vaults.
 
     Use the custom [ARM template URL](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2faka.ms%2fsentinelhoneytokenspolicy) shown in the installation output to open the linked template's **Custom deployment** page.
 
@@ -269,7 +269,7 @@ We recommend that you deploy honeytokens in as many key vaults as possible to en
 
 However, many SOC teams don't have access to key vaults. To help cover this gap, distribute the **SOCHTManagement** workbook to all key vault owners in your tenant, so that your SOC teams can deploy their own honeytokens. You may have modified the name of this workbook when you [installed the solution](#install-the-solution).
 
-You can always share the direct link to the workbook. Alternately, this procedure describes how to use an ARM template to deploy an Azure Policy initiative, connected to an Azure Security Center custom recommendation, which distributes the **SOCHTManagement** workbook to KeyVault owners in your organization.
+You can always share the direct link to the workbook. Alternately, this procedure describes how to use an ARM template to deploy an Azure Policy initiative, connected to an Microsoft Defender for Cloud custom recommendation, which distributes the **SOCHTManagement** workbook to key vault owners in your organization.
 
 > [!NOTE]
 > Whenever you distribute the workbook, make sure to grant Read access only.
@@ -324,7 +324,7 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
 An audit recommendation, with a link to the **SOCHTManagement** workbook, is added to all key vaults in the selected scope. You may have modified the name of this workbook [when installing the solution](#install-the-solution).
 
-For more information, see the [Azure Security Center documentation](/azure/security-center/security-center-recommendations).
+For more information, see the [Microsoft Defender for Cloud documentation](/azure/security-center/security-center-recommendations).
 
 ## Next steps
 
