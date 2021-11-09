@@ -519,6 +519,8 @@
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
         href: coupa-risk-assess-tutorial.md
+      - name: Coverity Static Application Security Testing
+        href: coverity-static-application-security-testing-tutorial.md  
       - name: CPQSync by Cincom
         href: cpqsync-by-cincom-tutorial.md
       - name: Creatio
@@ -1986,6 +1988,8 @@
         href: sumtotalcentral-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
+      - name: SURFsecureID - Azure MFA
+        href: surfsecureid-azure-mfa-tutorial.md  
       - name: SurveyMonkey Enterprise
         href: surveymonkey-enterprise-tutorial.md
       - name: Symantec Web Security Service (WSS)
@@ -2493,6 +2497,8 @@
         href: elium-provisioning-tutorial.md
       - name: Exium
         href: exium-provisioning-tutorial.md
+      - name: Facebook Work Accounts
+        href: facebook-work-accounts-provisioning-tutorial.md  
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: Figma
