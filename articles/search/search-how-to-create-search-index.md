@@ -80,18 +80,18 @@ Use this checklist to help drive the design decisions for your search index.
 
 When you're ready to create the index, there are several ways to move forward. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
-During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary for many modifications. You might consider working with a subset of your data to make rebuilds go faster.
+During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and re-creating indexes](search-howto-reindex.md) is necessary for many modifications. You might consider working with a subset of your data to make rebuilds go faster.
 
 ### [**Azure portal**](#tab/indexer-portal)
 
 Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. In the portal, there are two options for creating a search index: 
 
-+ **Add Index** is an embedded editor for specifying an index schema
++ **Add index** is an embedded editor for specifying an index schema
 + [**Import data**](search-import-data-portal.md) is a wizard
 
-The wizard packs in additional operations by also creating an indexer, data source, and loading data. If this is more than what you want, you should just use **Add Index** or another approach.
+The wizard packs in additional operations by also creating an indexer, data source, and loading data. If this is more than what you want, you should just use **Add index** or another approach.
 
-The following screenshot shows where you can find **Add Index** and **Import data** on the command bar. After an index is created, you can find it again in the Indexes tab.
+The following screenshot shows where you can find **Add index** and **Import data** on the command bar. After an index is created, you can find it again in the **Indexes** tab.
 
   :::image type="content" source="media/search-what-is-an-index/add-index.png" alt-text="Add index command" border="true":::
 
