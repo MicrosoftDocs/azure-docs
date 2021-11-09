@@ -1,10 +1,10 @@
 ---
-title: Create, view, and manage log alerts Using Azure Monitor | Microsoft Docs
+title: Create, view, and manage log alert rules Using Azure Monitor | Microsoft Docs
 description: Use Azure Monitor to create, view, and manage log alert rules
 author: yanivlavi
-ms.author: yalavi
+ms.author: AbbyMSFT
 ms.topic: conceptual
-ms.date: 09/22/2020 
+ms.date: 11/09/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Create, view, and manage log alerts using Azure Monitor
@@ -25,30 +25,24 @@ You can also create log alert rules using Azure Resource Manager templates, whic
 1. In the [portal](https://portal.azure.com/), select the resource you would like to alert on.
 1. In the Resource menu, under **Monitoring**, select **Alerts**.
 1. From the top command bar, click **Create**, and then **Alert rule**.
-
     :::image type="content" source="../../azure-vmware/media/configure-alerts-for-azure-vmware-solution/create-new-alert-rule.png" alt-text="Create new alert rule.":::
-
-    The **Create alert rule** wizard opens to the **Select a signal** page of the **Condition** tab, with the scope already defined based on the resource you selected.
+1. The **Create alert rule** wizard opens to the **Select a signal** page of the **Condition** tab, with the scope already defined based on the resource you selected.
 1. Click on the **Custom log search** signal.
 1. Write a query to identify the conditions for triggering alerts. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. Click **Run** to confirm that the query correctly identifies the data you want to alert on.
-  
     :::image type="content" source="media/alerts-log/alerts-logs-query-results.png" alt-text="Query results.":::
-
 1. Once you have successfully finished writing your query, click **Continue Editing Alert**.
     The **Condition** tab opens, populated with your log query.
-    
     :::image type="content" source="media/alerts-log/alerts-logs-conditions_tab.png" alt-text="Conditions Tab.":::
-
 1. In the **Measurement** section, select appropriate values for the [**Measure**](./alerts-unified-log.md#measure), [**Aggregation type**](./alerts-unified-log.md#aggregation-type), and [**Aggregation granularity**](./alerts-unified-log.md#aggregation-granularity) fields.
-    1. By default, the rule counts the number of results in the last 5 minutes.
-    2. If we detect summarized query results, the rule will be updated automatically within a few seconds to capture that.
-1. In the **Split by dimensions** section, if needed, select [alert splitting by dimensions](./alerts-unified-log.md#split-by-alert-dimensions): 
+    - By default, the rule counts the number of results in the last 5 minutes.
+    - If we detect summarized query results, the rule is updated automatically within a few seconds to capture that.
+1. (Optional) In the **Split by dimensions** section, select [alert splitting by dimensions](./alerts-unified-log.md#split-by-alert-dimensions): 
     - The **Resource ID column** is selected automatically, if detected, and changes the context of the fired alert to the record's resource. 
     - The **Resource ID column** can be de-selected to fire alerts on subscription or resource groups. De-selecting is useful when query results are based on cross-resources. For example, a query that check if 80% of the resource group's virtual machines are experiencing high CPU usage.
     - Up to six more splittings can be also selected for any number or text columns types using the dimensions table.
     - Alerts are fired separately according to splitting based on unique combinations and alert payload includes this information.
-            ![Select aggregation parameters and splitting](media/alerts-log/select-aggregation-parameters-and-splitting.png)
+        ![Select aggregation parameters and splitting](media/alerts-log/select-aggregation-parameters-and-splitting.png)
 1. In the **Alert logic** section, set the **Alert logic**: [**Operator**, **Threshold Value**](./alerts-unified-log.md#threshold-and-operator), and [**Frequency**](./alerts-unified-log.md#frequency).
         ![Preview chart with threshold and alert logic](media/alerts-log/chart-and-alert-logic.png)
 1. In the **Advanced options** section, you can optionally set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).
