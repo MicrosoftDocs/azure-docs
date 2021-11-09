@@ -149,7 +149,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. Select **Security Center**.
 
-    ![Security Center](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![Repository](./media/netdocuments-tutorial/security-center.png "Defender for Cloud")
 
 4. Select **Advanced Authentication**.
 

@@ -190,4 +190,4 @@ When you click the Netvision Compas tile in the Access Panel, you should be auto
 
 - [Try Netvision Compas with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)

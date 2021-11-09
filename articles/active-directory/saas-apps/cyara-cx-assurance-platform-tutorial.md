@@ -148,6 +148,6 @@ When you click the Cyara CX Assurance Platform tile in the Access Panel, you sho
 
 - [Try Cyara CX Assurance Platform with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Cyara CX Assurance Platform with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

@@ -175,4 +175,4 @@ When you select the NS1 SSO for Azure tile in Access Panel, you should be automa
 
 - [Try NS1 SSO for Azure with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
