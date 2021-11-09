@@ -101,7 +101,6 @@ After that, you need to join an Active Directory connection.
 
 1. Select **Active Directory connections** in the menu on the left side of the page, then select the **Join** button to open the **Join Active Directory** page.
 
-   > [!div class="mx-imgBorder"]
    > ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu-2.png)
 
 2. Enter the following values in the **Join Active Directory** page to join a connection:
