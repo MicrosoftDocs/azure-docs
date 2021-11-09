@@ -21,11 +21,11 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
 
 1. Within your Azure Healthcare APIs Workspace, select **IoT connector**. 
 
-     :::image type="content" source="media\iot-metrics\iot_workspace_displayed_with_connectors_button.png" alt-text="Azure Healthcare APIs Workspace. Select the IoT connectors button" lightbox="media\iot-metrics\iot_connectors_button.png"::: 
+     :::image type="content" source="media\iot-metrics\iot_workspace_displayed_with_connectors_button.png" alt-text="Azure Healthcare APIs Workspace. Select the IoT connectors button." lightbox="media\iot-metrics\iot_connectors_button.png"::: 
 
 2. Select the IoT connector that you would like to display the Metrics for.
 
-    :::image type="content" source="media\iot-metrics\iot_connector_select.png" alt-text="Select IoT connector you would like to display Metrics for" lightbox="media\iot-metrics\iot_connector_select.png":::
+    :::image type="content" source="media\iot-metrics\iot_connector_select.png" alt-text="Select IoT connector you would like to display Metrics for." lightbox="media\iot-metrics\iot_connector_select.png":::
     
 3. Select **Metrics** within the IoT connector page.
 
@@ -57,7 +57,7 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
 
 1. To pin the Metrics tile to an Azure portal dashboard, select the **Pin to dashboard** button:
 
-    :::image type="content" source="media\iot-metrics\iot_metrics_select_add_pin_to_dashboard.png" alt-text="Select the Pin to dashboard button" lightbox="media\iot-metrics\iot-pin-to-dashboard-button.png":::
+    :::image type="content" source="media\iot-metrics\iot_metrics_select_add_pin_to_dashboard.png" alt-text="Select the Pin to dashboard button." lightbox="media\iot-metrics\iot-pin-to-dashboard-button.png":::
 
 2. Select the dashboard you would like to display IoT connector Metrics on. For this example, we'll use a private dashboard named `IoT connector Metrics`. Select **Pin** to add the Metrics tile to the dashboard.
 
