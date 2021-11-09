@@ -401,6 +401,8 @@
           href: configure-networking-how-to.md
         - name: Geo-disaster recovery
           href: functions-geo-disaster-recovery.md
+        - name: Move across regions
+          href: functions-move-across-regions.md          
     - name: Monitor
       items:
         - name: Configure monitoring
