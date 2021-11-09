@@ -31,7 +31,7 @@ sections:
       - question: |
          Which Device Provisioning Service API operations are billable and what are their prices?” 
         answer: |
-         To information on which operations are billable and their prices, see [Billable service operations and pricing for Microsoft Device Provisioning Service](concepts-prices.md)
+         For information on which operations are billable and their prices, see [Billable service operations and pricing for Microsoft Device Provisioning Service](about-iot-dps.md#billable-service-operations-and-pricing)
 
 additionalContent: |
 
