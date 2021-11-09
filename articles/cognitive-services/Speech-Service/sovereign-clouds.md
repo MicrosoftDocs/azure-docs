@@ -66,9 +66,30 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 For Speech SDK in sovereign clouds you need to use "from host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint" instantiation and `--endpoint` Speech CLI option).
 
 `SpeechConfig` class should be instantiated like this:
+
+# [C#](#tab/c-sharp)
 ```csharp
 var config = SpeechConfig.FromHost(usGovHost, subscriptionKey);
 ```
+# [C++](#tab/cpp)
+```cpp
+auto config = SpeechConfig::FromEndpoint(endPoint, subscriptionKey);
+```
+# [Java](#tab/java)
+```java
+SpeechConfig config = SpeechConfig.fromEndpoint(endPoint, subscriptionKey);
+```
+# [Python](#tab/python)
+```python
+import azure.cognitiveservices.speech as speechsdk
+speech_config = speechsdk.SpeechConfig(endpoint=endPoint, subscription=subscriptionKey)
+```
+# [Objective-C](#tab/objective-c)
+```objectivec
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithEndpoint:endPoint subscription:subscriptionKey];
+```
+***
+
 Speech CLI should be used like this (note the `--host` option):
 ```dos
 spx recognize --host "usGovHost" --file myaudio.wav
