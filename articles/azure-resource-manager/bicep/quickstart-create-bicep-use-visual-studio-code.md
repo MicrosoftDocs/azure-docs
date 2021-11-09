@@ -233,9 +233,9 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.
 ---
 
 > [!NOTE]
-> Replace **unique-name** with a unique storage account name.
+> Replace **uniquename** with a unique storage account name. If you get an error message indicating the storage account is already taken, the storage name you provided is in use. Provide a name that is more likely to be unique.
 
-When the deployment finishes, you should see a message indicating the deployment succeeded. If you get an error message indicating the storage account is already taken, the storage name you provided is in use. Provide a name that is more likely to be unique.
+When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Clean up resources
 
