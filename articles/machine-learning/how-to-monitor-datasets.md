@@ -8,7 +8,7 @@ ms.subservice: mldata
 ms.reviewer: sgilley
 ms.author: wibuchan
 author: buchananwp
-ms.date: 06/25/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: data4ml, contperf-fy21q2
 #Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
