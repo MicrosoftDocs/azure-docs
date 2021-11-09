@@ -34,6 +34,10 @@ Follow the steps in this tutorial to:
 
 ### Sign in users with redirects
 
+### Add log in button
+
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_add_login_button":::
+
 
 ## Display logged in content
 

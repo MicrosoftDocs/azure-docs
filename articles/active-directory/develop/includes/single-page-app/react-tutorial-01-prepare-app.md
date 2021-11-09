@@ -13,15 +13,21 @@ Follow the steps in this tutorial to:
 
 > [!div class="checklist"]
 > - Learn how the tutorial app works 
-> - Bootstrap app
 > - Create application project
 > - Install the auth library
 
 ## How the tutorial works
 
+
 ## (Optional) Create a new app project
 
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_import_modules":::
+
+
 ## Install the auth library
+
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_use_msal_context"::
+
 
 ## Next steps
 
