@@ -180,29 +180,6 @@ All Front Door profiles created after September 2019 use TLS 1.2 as the default 
 
 Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 isn't yet supported. Refer to [Azure Front Door end-to-end TLS](../concept-end-to-end-tls.md) for more details.
 
-### Can I configure TLS policy to control TLS Protocol versions?
-
-You can configure a minimum TLS version in Azure Front Door in the custom domain HTTPS settings using the Azure portal or the [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Currently, you can choose between 1.0 and 1.2.
-
-### Can I configure Front Door to only support specific cipher suites?
-
-No, configuring Front Door for specific cipher suites isn't supported. You can get your own custom TLS/SSL certificate from your Certificate Authority (say Verisign, Entrust, or Digicert). Then have specific cipher suites marked on the certificate when you generate it. 
-
-### Does Front Door support OCSP stapling?
-
-Yes, OCSP stapling is supported by default by Front Door and no configuration is required.
-
-### Does Azure Front Door also support re-encryption of traffic to the backend?
-
-Yes, Azure Front Door supports TLS/SSL offload and end to end TLS, which re-encrypts the traffic to the backend. Since the connections to the backend happen over the public IP, it's recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
-
-### Does Front Door support self-signed certificates on the backend for HTTPS connection?
-
-No, self-signed certificates aren't supported on Front Door and the restriction applies to both:
-
-* **Backends**: You can't use self-signed certificates when you're forwarding the traffic as HTTPS or HTTPS health probes or filling the cache for from origin for routing rules with caching enabled.
-* **Frontend**: You can't use self-signed certificates when using your own custom TLS/SSL certificate for enabling HTTPS on your custom domain.
-
 ### Why is HTTPS traffic to my backend failing?
 
 For having successful HTTPS connections to your backend whether for health probes or for forwarding requests, there could be two reasons why HTTPS traffic might fail:
