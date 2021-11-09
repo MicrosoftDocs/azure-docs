@@ -46,11 +46,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: identity-based access
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen1-credless.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen1-credless.yml":::
 
 ## YAML: tenant ID, client ID, client secret
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen1.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen1.yml":::
 
 ## Next steps
 
