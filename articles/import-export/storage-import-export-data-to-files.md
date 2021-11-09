@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/08/2021
+ms.date: 11/09/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -116,11 +116,13 @@ Do the following steps to prepare the drives.
     .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
     ```
 
+    > [!NOTE]
+    > If you don't have long paths enabled on the client, and any path and file name in your data copy exceeds 256 characters, the WAImportExport tool will report failures. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
+
 6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files aren't processed.
 
     > [!IMPORTANT]
-    > - If you don't have long paths enabled on the client, and any path and file name in your data copy exceeds 256 characters, the client tools will report failures. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
-    > - Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
+    > Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
 
 For additional samples, go to [Samples for journal files](#samples-for-journal-files).
 
@@ -379,8 +381,7 @@ Install-Module -Name Az.ImportExport
 Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Check your copy logs for failures. For more information, see [Review copy logs](storage-import-export-tool-reviewing-job-status-v1.md). Delete the on-premises data only after you verify that upload was successful.
 
 > [!NOTE]
-> * In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
->* If any path and file name exceeds 256 characters, and long paths aren't enabled on the client, the data upload will fail. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
+> In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
 
 
 ## Samples for journal files
