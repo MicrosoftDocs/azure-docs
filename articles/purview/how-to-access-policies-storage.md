@@ -13,23 +13,21 @@ ms.custom: references_regions, ignite-fall-2021
 # Dataset provisioning by data owner for Azure Storage
 
 ## Supported capabilities
-
-The Purview policy authoring supports following capabilities:
--   Data access policy for Azure Storage to control access to data stored in Blob or ADLS Gen2 files
+This how-to guide describes how to configure Azure Storage to enforce data access policies created and managed from Azure Purview. The Azure Purview policy authoring supports following capabilities:
+-   Data access policies to control access to data stored in Blob or ADLS Gen2
 
 > [!IMPORTANT]
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Important Limitations
+## Important limitations
 1. The access policy feature is only available on new Azure Purview and Azure Storage accounts.
 2. Register all data sources for use governance and manage all associated access policies in a single Azure Purview account.
 3. This feature can only be used in the regions listed below, where access policy management and enforcement functionality is deployed.
 
 ### Supported regions
 
-#### Azure Purview 
-
+#### Azure Purview (management side)
 -   North Europe
 -   West Europe
 -   UK South
@@ -42,38 +40,20 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 -   Canada Central
 -   France Central
 
-
-#### Azure Storage
-
+#### Azure Storage (enforcement side)
 -   France Central
 -   Canada Central
 
-
 ## Prerequisites
 
-### Opt-in to participate in Azure Purview data use policy  preview
-This functionality is currently in preview, so you will need to [opt-in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
-
-### Provision new accounts in an isolated test subscription
-Create or use an isolated test subscription and follow the steps below to create a new Azure Purview account and a new Azure Storage account in that subscription
-
-### Create Azure Purview account
-
-Create a new Azure Purview account in the regions where the new functionality is enabled, under the subscription that is isolated for the new functionality.
-
-To create a new Purview account, refer to  [Quickstart: Create an Azure Purview account in the Azure portal.](create-catalog-portal.md)
+### Select an isolated test subscription
+Create or use an isolated test subscription and follow the steps below to create a new Azure Storage account and a new Azure Purview account in that subscription.
 
 ### Create Azure Storage account
+Create a new Azure Storage account in the regions listed above under limitations. Refer to [Create a storage account - Azure Storage](../storage/common/storage-account-create.md)
 
-To create a new Azure Storage account, refer to [Create a storage account - Azure Storage](../storage/common/storage-account-create.md)
-
-### Configure Azure Purview and Storage for access policies
-
-This section outlines the steps to configure Azure Purview and Storage to enable access policies.
-
-#### Register the access policies functionality in Azure Storage
-
-To register and confirm that this functionality is enabled for your subscription, execute following commands in PowerShell
+### Configure Azure Storage to enforce access policies from Purview
+To register and confirm that the access policy functionality is enabled in your subscription, execute following commands in PowerShell
 
 ```powershell
 # Install the Az module
@@ -83,14 +63,24 @@ Connect-AzAccount -Subscription <SubscriptionID>
 # Register the feature
 Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderNamespace Microsoft.Storage
 ```
-
 If the output of the last command shows value of “RegistrationState” as “Registered”, then your subscription is enabled for this functionality.
+
+### Create Azure Purview account
+Create a new Azure Purview account in the regions where the new functionality is enabled, under the isolated test subscription. To create a new Purview account, refer to  [Quickstart: Create an Azure Purview account in the Azure portal.](create-catalog-portal.md)
+
+### Configure Azure Purview to manage access policies
+Complete all the following steps to enable Azure Purview to manage access policies 
+
+#### Opt-in to participate in Azure Purview data use policy  preview
+This functionality is currently in preview, so you will need to [opt-in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
+
+#### Register Purview as RP
 
 #### Register and scan data sources in Purview
 
 The data source needs to be registered and scanned with Purview in order to define access policies. Follow the Purview registration guides to register your storage account:
 
--   [How to scan Azure storage blob - Azure Purview](register-scan-azure-blob-storage-source.md)
+-   [Register and scan Azure Storage Blob - Azure Purview](register-scan-azure-blob-storage-source.md)
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
@@ -99,7 +89,7 @@ During registration, enable the data source for access policy through the **Data
 :::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy.png" alt-text="Image shows how to register a data source for policy.":::
 
 > [!NOTE]
-> The behavior of the toggle will enforce that all the data sources in a given subscription can only be registered for data use governance in a single Purview account. That Purview account itself could be in any subscription.
+> The behavior of the toggle will enforce that all the data sources in a given subscription can only be registered for data use governance in a single Purview account. That Purview account itself could be in any subscription in the tenant.
 
 #### Configure permissions for policy management actions
 
