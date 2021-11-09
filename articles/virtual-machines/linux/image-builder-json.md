@@ -87,7 +87,7 @@ Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant 
  
 ## vmProfile
 ## buildVM
-By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
+By default Image Builder will use a "Standard_D1_v2" build VM for Gen1 images and a "Standard_D2ds_v4" build VM for Gen2 images, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
 1. Performing customizations that require increased memory, CPU and handling large files (GBs).
 2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
 3. Require [VM isolation](../isolation.md).
