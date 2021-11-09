@@ -94,9 +94,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
 ## Create diagnostic setting via Azure CLI
 
-Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
-
-[Create diagnostic settings to send platform logs and metrics to different destinations](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest.md#az_monitor_diagnostic_settings_create)
+Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create).
 
 ```azurecli
 az monitor diagnostic-settings create 
