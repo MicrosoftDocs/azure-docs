@@ -489,7 +489,7 @@ This section shows you how to create a Python script that adds an enrollment gro
 
 :::zone pivot="programming-language-python"
 
-1. Open a command prompt in Administrator Mode, and run the following command to install the [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client).
+1. Open a command prompt in Administrator Mode, and run the following command to install the azure-iot-provisioning-device-client.
 
     ```cmd/sh
     pip install azure-iothub-provisioningserviceclient    
