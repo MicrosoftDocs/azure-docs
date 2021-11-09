@@ -24,7 +24,6 @@ Managed identities for Azure resources provide Azure services with an automatica
 
 The following Azure services support managed identities for Azure resources:
 
-
 ### Azure API Management
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -106,12 +105,12 @@ Refer to the following document to reconfigure a managed identity if you have mo
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | Preview | Preview | Not available | Preview |
-| User assigned | Preview | Preview | Not available | Preview |
+| System assigned | ![Available][Check]| ![Available][Check] | Not available | ![Available][Check] |
+| User assigned | ![Available][Check] | ![Available][Check] | Not available | ![Available][Check] |
 
 Refer to the following documents to use managed identity with [Azure Automation](../../automation/automation-intro.md):
 
-* [Automation account authentication overview - Managed identities](../../automation/automation-security-overview.md#managed-identities-preview)
+* [Automation account authentication overview - Managed identities](../../automation/automation-security-overview.md#managed-identities)
 * [Enable and use managed identity for Automation](../../automation/enable-managed-identity-for-automation.md)
 
 ### Azure Blueprints
@@ -125,7 +124,6 @@ Refer to the following list to use a managed identity with [Azure Blueprints](..
 
 - [Azure portal - blueprint assignment](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
 - [REST API - blueprint assignment](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
-
 
 ### Azure Cognitive Search
 
@@ -153,7 +151,6 @@ Refer to the following list to configure managed identity for Azure Container In
 - [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
 - [Azure Resource Manager template](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
-
 
 ### Azure Container Registry Tasks
 
@@ -248,7 +245,6 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
 | User assigned | Preview | ![Available][check] | Not available | Not available |
 
-
 For more information, see [Use managed identities in Azure Kubernetes Service](../../aks/use-managed-identity.md).
 
 ### Azure Log Analytics cluster
@@ -266,7 +262,6 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 | User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
-
 
 Refer to the following list to configure managed identity for Azure Logic Apps (in regions where available):
 
@@ -308,7 +303,6 @@ Refer to the following list to configure managed identity for Azure Policy (in r
 - [Azure Resource Manager templates](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/policy/policyassignments/create)
 
-
 ### Azure Service Fabric
 
 [Managed Identity for Service Fabric Applications](../../service-fabric/concepts-managed-identity.md) is available in all regions.
@@ -330,7 +324,7 @@ Refer to the following list to configure managed identity for Azure Service Fabr
 | User assigned | Not Available | Not Available | Not Available | Not Available |
 
 
-For more information, see [How to enable system-assigned managed identity for Azure Spring Cloud application](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md).
+For more information, see [How to enable system-assigned managed identity for applications in Azure Spring Cloud](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md).
 
 ### Azure Stack Edge
 
@@ -354,8 +348,6 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 - [Azure Resource Manager templates](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
-
-
 ### Azure Virtual Machines
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -371,7 +363,6 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 - [Azure Resource Manager templates](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 - [Azure SDKs](qs-configure-sdk-windows-vm.md)
-
 
 ### Azure VM Image Builder
 
@@ -486,7 +477,6 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |  `https://servicebus.azure.net`  | ![Available][check] |
 | Azure China 21Vianet | `https://servicebus.azure.net`  | ![Available][check] |
 
-
 ### Azure Storage blobs and queues
 
 | Cloud | Resource ID | Status |
@@ -514,6 +504,5 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 > [!NOTE]
 > You can use Managed Identities to authenticate an [Azure Stream analytics job to Power BI](../../stream-analytics/powerbi-output-managed-identity.md).
-
 
 [check]: media/services-support-managed-identities/check.png "Available"

@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/29/2021
+ms.date: 10/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
 ---
@@ -32,7 +32,7 @@ Secure Azure Machine Learning workspace resources and compute environments using
 
 This article assumes that you have familiarity with the following topics:
 + [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
-+ [IP networking](../virtual-network/public-ip-addresses.md)
++ [IP networking](../virtual-network/ip-services/public-ip-addresses.md)
 + [Azure Machine Learning workspace with private endpoint](how-to-configure-private-link.md)
 + [Network Security Groups (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Network firewalls](../firewall/overview.md)
@@ -84,6 +84,8 @@ If you want to access the workspace over the public internet while keeping all t
     | __Azure Storage Account__ | [Service and private endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
     | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
 
+1. In properties for the Azure Storage Account(s) for your workspace, add your client IP address to the allowed list in firewall settings. For more information, see [Configure firewalls and virtual networks](/azure/storage/common/storage-network-security#configuring-access-from-on-premises-networks).
+
 ## Secure the workspace and associated resources
 
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
@@ -106,7 +108,6 @@ For detailed instructions on how to complete these steps, see [Secure an Azure M
 ### Limitations
 
 Securing your workspace and associated resources within a virtual network have the following limitations:
-- Using an Azure Machine Learning workspace with private endpoint is not available in Azure China 21Vianet regions.
 - All resources must be behind the same VNet. However, subnets within the same VNet are allowed.
 
 ## Secure the training environment
@@ -168,7 +169,7 @@ You can secure the workspace behind a VNet using a private endpoint and still al
 After securing the workspace with a private endpoint, use the following steps to enable clients to develop remotely using either the SDK or Azure Machine Learning studio:
 
 1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace.
-1. [Configure the Azure Storage firewall](/azure/storage/common/storage-network-security?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
+1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
 
 ## Optional: enable studio functionality
 

@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Use Azure Monitor workbooks to visualize and monitor your data
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Once you have [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can visualize and monitor the data using the Azure Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
 

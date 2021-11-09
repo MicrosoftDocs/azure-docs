@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Sentinel File Event normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The File Event normalization schema is used to describe file activity such as creating, modifying, or deleting files or documents. Such events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
 
@@ -201,6 +201,6 @@ For more information, see:
 - [Normalization in Azure Sentinel](normalization.md)
 - [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Azure Sentinel network normalization schema reference](normalization-schema.md)
+- [Azure Sentinel network normalization schema reference](./network-normalization-schema.md)
 - [Azure Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)
 - [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
