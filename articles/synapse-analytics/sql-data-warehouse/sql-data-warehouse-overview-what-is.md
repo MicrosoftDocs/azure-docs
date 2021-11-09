@@ -27,7 +27,7 @@ Dedicated SQL pool (formerly SQL DW) represents a collection of analytic resourc
 Once your dedicated SQL pool is created, you can import big data with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL queries, and then use the power of the distributed query engine to run high-performance analytics. As you integrate and analyze the data, dedicated SQL pool (formerly SQL DW) will become the single version of truth your business can count on for faster and more robust insights.
 
 > [!NOTE]
-> Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. To enable workspace features from an existing dedicated SQL pool (formerly SQL DW) refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](workspace-connected-create.md). Explore the [Azure Synapse Analytics documentation](../overview-what-is.md) and [Get Started with Azure Synapse](../get-started.md).
+> Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. To enable workspace features for an existing dedicated SQL pool (formerly SQL DW) refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](workspace-connected-create.md). Explore the [Azure Synapse Analytics documentation](../overview-what-is.md) and [Get Started with Azure Synapse](../get-started.md).
 > 
 
 ## Key component of a big data solution

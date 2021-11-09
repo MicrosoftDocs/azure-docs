@@ -12,9 +12,11 @@ ms.author: anvang
 ms.reviewer: wiassaf
 ---
 
-# Enabling Synapse workspace features for a dedicated SQL pool (formerly SQL DW)
+# Enable Synapse workspace features for a dedicated SQL pool (formerly SQL DW)
 
-All SQL data warehouse users can now access and use an existing dedicated SQL pool (formerly SQL DW) instance via the Synapse Studio and Workspace. Users can use the Synapse Studio and Workspace without impacting automation, connections, or tooling. This article explains how an existing Azure Synapse Analytics user can enable the Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW). The user can expand their existing Analytics solution by taking advantage of the new feature-rich capabilities now available via the Synapse workspace and Studio.   
+All SQL data warehouse users can now access and use an existing dedicated SQL pool (formerly SQL DW) instance via the Synapse Studio and Workspace. Users can use the Synapse Studio and Workspace without impacting automation, connections, or tooling. This article explains how an existing Azure Synapse Analytics user can enable the Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW). The user can expand their existing Analytics solution by taking advantage of the new feature-rich capabilities now available via the Synapse workspace and Studio.
+
+Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. This article is a guide to enable workspace features for an existing dedicated SQL pool (formerly SQL DW).
 
 ## Prerequisites
 Before you enable the Synapse workspace features on your data warehouse, you must ensure that you've the following
@@ -27,7 +29,7 @@ Before you enable the Synapse workspace features on your data warehouse, you mus
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Enabling Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW)
+## Enable Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW)
 
 The Synapse workspace features can be enabled on any existing dedicated SQL pool (formerly SQL DW) in a supported region. This capability is only available via the Azure portal.
 
