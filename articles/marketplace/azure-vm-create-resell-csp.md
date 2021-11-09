@@ -12,7 +12,7 @@ ms.date: 11/09/2021
 
 # Resell your offer through CSP
 
-Enabling this option allows partners who are part of the Microsoft Cloud Solution Providers (CSP) program to resell your VM as part of a bundled offer. All Bring-your-own-license (BYOL) plans are automatically opted into the program. You can also choose to opt in your non-BYOL plans. For more inforamtion, see [Cloud Solution Provider program](cloud-solution-providers.md).
+Enabling this option allows partners who are part of the Microsoft Cloud Solution Providers (CSP) program to resell your VM as part of a bundled offer. All Bring-your-own-license (BYOL) plans are automatically opted into the program. You can also choose to opt in your non-BYOL plans. For more information, see [Cloud Solution Provider program](cloud-solution-providers.md).
 
 ## Resell through CSP
 
