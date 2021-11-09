@@ -121,7 +121,7 @@ After that, you need to join an Active Directory connection.
     - Click **Join**, the Active Directory connection you created appears.
 
    > [!div class="mx-imgBorder"] 
-   > ![A screenshot of the Join Active Directory connections menu for username and password.](media/active-directory-connections-show.png)
+   > ![A screenshot of Active Directory connection screen after joining.](media/active-directory-connections-show.png)
 
 ## Create a new volume
 
