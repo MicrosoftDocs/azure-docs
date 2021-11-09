@@ -20,11 +20,12 @@ The configuration of the SAP workload zone is done via a Terraform tfvars variab
 The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts.
 
 
->| Variable                  | Type       | Description                           | 
->| ------------------------- | ---------- | ------------------------------------- | 
->| `tfstate_resource_id`     | Required * | Azure resource identifier for the Storage account in the SAP Library that will contain the Terraform state files  |
->| `deployer_tfstate_key`    | Required * | The name of the state file for the Deployer  |
->| `landscaper_tfstate_key`  | Required * | The name of the state file for the workload zone  |
+> [!div class="mx-tdCol2BreakAll "]
+>| Variable                  | Description                                                                                                      | Type       |
+>| ------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
+>| `tfstate_resource_id`     | Azure resource identifier for the Storage account in the SAP Library that will contain the Terraform state files | Required * |
+>| `deployer_tfstate_key`    | The name of the state file for the Deployer                                                                      | Required * |
+>| `landscaper_tfstate_key`  | The name of the state file for the workload zone                                                                 | Required * |
 
 * = required for manual deployments
 ## Generic Parameters
@@ -32,6 +33,7 @@ The table below contains the Terraform parameters, these parameters need to be 
 The table below contains the parameters that define the resource group and the resource naming.
 
 
+> [!div class="mx-tdCol3BreakAll "]
 >| Variable                | Type       | Description                           | 
 >| ----------------------- | ---------- | ------------------------------------- | 
 >| `environment`           | Required   | A five-character identifier for the workload zone. For example, `PROD` for a production environment and `NP` for a non-production >environment. |
@@ -52,6 +54,7 @@ Ensure that the virtual network address space is large enough to host all the re
 The table below contains the networking parameters.
 
 
+> [!div class="mx-tdCol3BreakAll "]
 >| Variable                         | Type        | Description                           | Notes  |
 >| -------------------------------- | ----------- | ------------------------------------- | ------ |
 >| `network_logical_name`           | Required    | The logical name of the network (MGMT01 in DEV-WEEU-MGMT01-INFRASTRUCTURE) | |
@@ -133,10 +136,10 @@ The application tier defines the infrastructure for the application tier, which 
 | Variable                          | Type        | Description                             | Notes  |
 | --------------------------------  | ----------- | --------------------------------------- | ------ |
 | `enable_app_tier_deployment`	    | Optional	  | Defines if the application tier is deployed ||
-| `sid`	                            | Required	  |	Defines the SAP application SID ||
+| `sid`	                            | Required	  |	Defines the SAP application SID                                    |  |
 | `app_disk_sizes_filename`	        | Optional 	  | Defines the custom disk size file for the application tier servers | See [Custom Sizing](automation-configure-extra-disks.md) |
 | `app_tier_authentication_type`    | Optional	  | Defines the authentication type for the application tier virtual machine(s) (key/password) | | 
-| `app_tier_use_DHCP`	            | Optional	  | Controls if Azure subnet provided IP addresses should be used (dynamic) | |
+| `app_tier_use_DHCP`	              | Optional	  | Controls if Azure subnet provided IP addresses should be used (dynamic) | |
 | `app_tier_dual_nics`	            | Optional	  | Defines if the application tier server will have two network interfaces  | |
 | `app_tier_vm_sizing`	            | Optional	  | Lookup value defining the VM SKU and the disk layout for tha application tier servers  | |
 

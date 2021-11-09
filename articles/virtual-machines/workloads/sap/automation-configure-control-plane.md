@@ -166,56 +166,58 @@ The configuration of the SAP Library is performed in a Terraform tfvars variable
 
 The table below contains the Terraform parameters, these parameters need to be entered manually when not using the deployment scripts
 
-|
-| Variable                | Type       | Description                           | 
-| ----------------------- | ---------- | ------------------------------------- | 
-| `deployer_tfstate_key`  | Required   | The state file name for the deployer | 
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                | Description                           | Type       | 
+> | ----------------------- | ------------------------------------- | ---------- | 
+> | `deployer_tfstate_key`  | The state file name for the deployer  | Required   | 
 
 ### Generic Parameters
 
 The table below contains the parameters that define the resource group and the resource naming.
 
-|
-| Variable                | Type       | Description                           | 
-| ----------------------- | ---------- | ------------------------------------- | 
-| `environment`           | Required   | A five-character identifier for the workload zone. For example, `PROD` for a production environment and `NP` for a non-production environment. |
-| `location`              | Required   | The Azure region in which to deploy.     |
-| `resource_group_name`   | Optional   | Name of the resource group to be created |
-| `resource_group_arm_id` | Optional   | Azure resource identifier for an existing resource group |
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                | Description                           | Type       |
+> | ----------------------- | ------------------------------------- | ---------- |
+> | `environment`           | A five-character identifier for the workload zone. For example, `PROD` for a production environment and `NP` for a non-production environment. | Mandatory |
+> | `location`              | The Azure region in which to deploy.     | Required   | 
+> | `resource_group_name`   | Name of the resource group to be created | Optional   |
+> | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   | 
 
 ### Deployer Parameters
 
 The table below contains the parameters that define the resource group and the resource naming.
 
-|
-| Variable               | Type       | Description                           | 
-| ---------------------  | ---------- | ------------------------------------- | 
-| `deployer_environment` | Required   | A five-character identifier for the workload zone. For example, `PROD` for a production environment and `NP` for a non-production environment. |
-| `deployer_location`    | Required   | The Azure region in which to deploy.   |
-| `deployer_vnet`        | Required   | The logical name for the deployer_vnet |
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable               | Description                           | Type |
+> | ---------------------  | ------------------------------------- | ----- | 
+> | `deployer_environment` | A five-character identifier for the workload zone. For example, `PROD` for a production environment and `NP` for a non-production environment. | Mandatory |
+> | `deployer_location`    | The Azure region in which to deploy.   | Mandatory |
+> | `deployer_vnet`        | The logical name for the deployer_vnet | Mandatory |
 
 
 ### SAP Installation media storage account
 
-|
-| Variable                | Type       | Description                           | 
-| ---------------------   | ---------- | ------------------------------------- | 
-| `library_sapmedia_arm_id` | Optional   | Azure resource identifier for an existing resource group |
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                  | Description                 | Type       | 
+> | ------------------------- | --------------------------- | ---------- | 
+> | `library_sapmedia_arm_id` | Azure resource identifier   | Optional   |
 
 ### Terraform remote state storage account
 
-|
-| Variable                         | Type       | Description                           | 
-| -------------------------------- | ---------- | ------------------------------------- | 
-| `library_terraform_state_arm_id` | Optional   | Azure resource identifier for an existing resource group |
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                         | Description                | Type       | 
+> | -------------------------------- | -------------------------- | ---------- | 
+> | `library_terraform_state_arm_id` | Azure resource identifier  | Optional   |
 
 ### Extra parameters
 
-|
-| Variable                           | Type        | Description                           | 
-| ---------------------------------- | ----------- | ------------------------------------- | 
-| `dns_label`	                       | Optional    | If specified, is the DNS name of the private DNS zone | 
-| `use_private_endpoint`             | Optional    | Boolean flag controlling if private endpoints are used. | 
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                           | Description                      | Type     | 
+> | ---------------------------------- | -------------------------------- | -------- | 
+> | `dns_label`	                       | DNS name of the private DNS zone | Optional | 
+> | `use_private_endpoint`             | Use private endpoints            | Optional | 
 
 ### Example parameters file for sap library (required parameters only)
 
