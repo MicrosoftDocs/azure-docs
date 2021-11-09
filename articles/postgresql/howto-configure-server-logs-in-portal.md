@@ -48,7 +48,7 @@ After logging begins, you can view a list of available logs, and download indivi
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Screenshot of Server logs page, with list of logs highlighted":::
 
    > [!TIP]
-   > The naming convention of the log is **postgresql-yyyy-mm-dd_hh0000.log**. The date and time used in the file name is the time when the log was issued. The log files rotate every hour or 100 MB, whichever comes first.
+   > The naming convention of the log is **postgresql-yyyy-mm-dd_hhmmss.log**. The date and time used in the file name is the time when the log was issued. The log files rotate every hour or 100 MB, whichever comes first.
 
 4. If needed, use the search box to quickly narrow down to a specific log, based on date and time. The search is on the name of the log.
 
