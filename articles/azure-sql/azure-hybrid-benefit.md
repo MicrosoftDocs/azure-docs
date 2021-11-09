@@ -15,7 +15,9 @@ ms.date: 02/16/2021
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on Azure SQL Database and Azure SQL Managed Instance by using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent or even higher on SQL Database & SQL Managed Instance by using your SQL Server licenses with Software Assurance. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) page has a calculator to help determine savings.  Note that the Azure Hybrid Benefit does not apply to Azure SQL Database serverless.
+[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) allows you to exchange your existing licenses for discounted rates on Azure SQL Database and Azure SQL Managed Instance. You can save up to 30 percent or more on SQL Database and SQL Managed Instance by using your Software Assurance-enabled SQL Server licenses on Azure. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) page has a calculator to help determine savings.  
+
+For Azure SQL Database, Azure Hybrid Benefit is only available when using the provisioned compute tier of the [vCore-based purchasing model](database/service-tiers-vcore.md). Azure Hybrid Benefit doesn't apply to DTU-based purchasing models or the serverless compute tier.
 
 > [!NOTE]
 > Changing to Azure Hybrid Benefit does not require any downtime.
@@ -24,59 +26,92 @@ In the provisioned compute tier of the vCore-based purchasing model, you can exc
 
 ## Choose a license model
 
-With Azure Hybrid Benefit, you can choose to pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL Server database engine itself (Base Compute pricing), or you can pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
+With Azure Hybrid Benefit, you pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL Server database engine itself (Base Compute pricing). If you do not use Azure Hybrid Benefit, you pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
 
-You can choose or change your licensing model in the Azure portal: 
+## Enable Azure Hybrid Benefit for Azure SQL Database
+
+You can choose or change your licensing model for Azure SQL Database using the Azure portal or the API of your choice.
+
+You can only apply the Azure Hybrid licensing model when you choose a v-Core based purchasing model and the provisioned compute tier for your Azure SQL Database. Azure Hybrid Benefit isn't available for service tiers under the DTU-based purchasing model or for the serverless compute tier.
+
+# [Portal](#tab/azure-portal)
+
+To set or update the license type using the Azure portal:
+
 - For new databases, during creation, select **Configure database** on the **Basics** tab and select the option to **Save Money**.
 - For existing databases, select **Compute + Storage** in the **Settings** menu and select the option to **Save Money**.
 
-You can also configure a new or existing database by using one of the following APIs:
-
+If you don't see the **Save Money** option in the Azure portal, verify that you selected a service tier using the vCore-based purchasing model and the provisioned compute tier.
 # [PowerShell](#tab/azure-powershell)
 
-To set or update the license type by using PowerShell:
+To set or update the license type using PowerShell:
 
 - [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)
 - [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)
+
+# [Azure CLI](#tab/azure-cli)
+
+To set or update the license type using the Azure CLI:
+
+- [az sql db create](/cli/azure/sql/db#az_sql_db_create)
+
+# [REST API](#tab/rest)
+
+To set or update the license type using the REST API:
+
+- [Databases - Create Or Update](/rest/api/sql/databases/createorupdate)
+- [Databases - Update](/rest/api/sql/databases/update)
+
+---
+
+## Enable Azure Hybrid Benefit for Azure SQL Managed Instance
+
+You can choose or change your licensing model for Azure SQL Managed Instance using the Azure portal or the API of your choice.
+# [Portal](#tab/azure-portal)
+
+To set or update the license type using the Azure portal:
+
+- For new Managed Instances, during creation, select **Configure Managed Instance** on the **Basics** tab and select the option for **Azure Hybrid Benefit**.
+- For existing Managed Instances, select **Compute + Storage** in the **Settings** menu and select the option for **Azure Hybrid Benefit**.
+
+# [PowerShell](#tab/azure-powershell)
+
+To set or update the license type using PowerShell:
+
 - [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)
 - [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance)
 
 # [Azure CLI](#tab/azure-cli)
 
-To set or update the license type by using the Azure CLI:
+To set or update the license type using the Azure CLI:
 
-- [az sql db create](/cli/azure/sql/db#az_sql_db_create)
 - [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create)
 - [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update)
 
 # [REST API](#tab/rest)
 
-To set or update the license type by using the REST API:
+To set or update the license type using the REST API:
 
-- [Databases - Create Or Update](/rest/api/sql/databases/createorupdate)
-- [Databases - Update](/rest/api/sql/databases/update)
 - [Managed Instances - Create Or Update](/rest/api/sql/managedinstances/createorupdate)
 - [Managed Instances - Update](/rest/api/sql/managedinstances/update)
 
-* * *
+---
+## Frequently Asked Questions
 
+### Are there dual-use rights with Azure Hybrid Benefit for SQL Server?
 
-### Azure Hybrid Benefit questions
+You have 180 days of dual use rights of the license to ensure migrations are running seamlessly. After that 180-day period, you can only use the SQL Server license on Azure. You no longer have dual use rights on-premises and on Azure.
 
-#### Are there dual-use rights with Azure Hybrid Benefit for SQL Server?
+### How does Azure Hybrid Benefit for SQL Server differ from license mobility?
 
-You have 180 days of dual use rights of the license to ensure migrations are running seamlessly. After that 180-day period, you can only use the SQL Server license in the cloud in SQL Database. You no longer have dual use rights on-premises and in the cloud.
-
-#### How does Azure Hybrid Benefit for SQL Server differ from license mobility?
-
-We offer license mobility benefits to SQL Server customers with Software Assurance. This allows reassignment of their licenses to a partner's shared servers. You can use this benefit on Azure IaaS and AWS EC2.
+We offer license mobility benefits to SQL Server customers with Software Assurance. License mobility allows reassignment of their licenses to a partner's shared servers. You can use this benefit on Azure IaaS and AWS EC2.
 
 Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
 
 - It provides economic benefits for moving highly virtualized workloads to Azure. SQL Server Enterprise Edition customers can get four cores in Azure in the General Purpose SKU for every core they own on-premises for highly virtualized applications. License mobility doesn't allow any special cost benefits for moving virtualized workloads to the cloud.
 - It provides for a PaaS destination on Azure (SQL Managed Instance) that's highly compatible with SQL Server.
 
-#### What are the specific rights of the Azure Hybrid Benefit for SQL Server?
+### What are the specific rights of the Azure Hybrid Benefit for SQL Server?
 
 SQL Database and SQL Managed Instance customers have the following rights associated with Azure Hybrid Benefit for SQL Server:
 
