@@ -13,7 +13,7 @@ ms.custom: references_regions, ignite-fall-2021
 # Dataset provisioning by data owner for Azure Storage
 
 ## Supported capabilities
-This how-to guide describes how to configure Azure Storage to enforce data access policies created and managed from Azure Purview. The Azure Purview policy authoring supports following capabilities:
+This guide describes how to configure Azure Storage to enforce data access policies created and managed from Azure Purview. The Azure Purview policy authoring supports the following capabilities:
 -   Data access policies to control access to data stored in Blob or ADLS Gen2
 
 > [!IMPORTANT]
@@ -71,10 +71,12 @@ Create a new Azure Purview account in the regions where the new functionalit
 ### Configure Azure Purview to manage access policies
 Complete all the following steps to enable Azure Purview to manage access policies 
 
-#### Opt-in to participate in Azure Purview data use policy  preview
+#### Opt-in to participate in Azure Purview data use policy preview
 This functionality is currently in preview, so you will need to [opt-in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
 
-#### Register Purview as RP
+#### Register Purview as Resource Provider in additional subscriptions
+Execute this step only if you have data sources in the same tenant but outside the subscription used for the Azure Purview account, and you want to enable access to be managed from Purview. Register Azure Purview as a resource provider in those additional subscriptions by following the guide below, but do not this in the subscription used for the Azure Purview account. 
+[Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types)
 
 #### Register and scan data sources in Purview
 
