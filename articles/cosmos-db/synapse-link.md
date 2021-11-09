@@ -114,7 +114,11 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 * Synapse Link can be enabled on new containers for both SQL API and MongoDB API accounts, but existing containers are only supported for SQL API.
 
-* For the containers with analytical store turned on, automatic backup and restore of your data in the analytical store is not supported at this time. When Synapse Link is enabled on a database account, Azure Cosmos DB will continue to automatically [take backups](./online-backup-and-restore.md) of your data in the transactional store (only) of containers at scheduled backup interval, as always. It is important to note that when a container with analytical store turned on is restored to a new account, the container will be restored with only transactional store and no analytical store enabled.
+* Backup and restore of your data in analytical store isn't supported at this time. This limitation is applied to both periodic and continuous backup modes and doesn't impact your Cosmos DB transactional store data.
+
+* Synapse Link and periodic backup mode coexistence in the same database account is supported. although backup and restore of your data in analytical store isn't supported.
+
+* Synapse Link and periodic backup mode coexistence in the same database account isn't supported.
 
 * Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently isn't supported.
 
