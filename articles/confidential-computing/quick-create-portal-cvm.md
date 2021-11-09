@@ -6,16 +6,16 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 10/09/2021
+ms.date: 11/15/2021
 ms.author: RunCai
 ---
 
 
 # Quickstart: Deploy an Azure Confidential virtual machine in the Azure portal
 
-Get started with Azure confidential computing by using the Azure portal to create a confidential virtual machine (VM) backed by AMD SEV-SNP to achieve VM memory encryption and isolation.
+Get started with Azure confidential computing by using the Azure portal to create a confidential virtual machine (VM) backed by AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) to achieve VM memory encryption and isolation.
 
-This tutorial is recommended if you're interested in deploying a confidential virtual machine with custom configuration. Otherwise, we recommend following the [confidential Computing virtual machine deployment steps for the Microsoft commercial marketplace](quick-create-marketplace.md).
+This tutorial is recommended if you're interested in deploying a confidential virtual machine with custom configuration.
 
 
 ## Prerequisites
@@ -53,11 +53,13 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
     > [!NOTE]
      > Confidential virtual machines run on specialized hardware available in specific regions. For the latest available regions for confidential virtual machines, see [available regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
-1. Choose **Security Type** as confidential virtual machines.![Security Type](media/quick-create-portal-cvm/Security-Type.png)
+1. Choose **Security Type** as confidential virtual machines.![Security Type](media/quick-create-portal-cvm/Security-Type.PNG)
 1. Configure the OS image that you would like to use for your confidential virtual machine.
 
-    * **Image**: To follow this tutorial, select Ubuntu 20.04 LTS. You may also select Windows Server 2019 or Windows Server 2022.
+    * **Image**: To follow this tutorial, select Ubuntu 20.04 LTS. You may also select [small disk] Windows Server 2019 Data Center or Windows Server 2022 Data Center. 
     ![CVM images](media/quick-create-portal-cvm/CVM-Images.png)
+    You also can go to marketplace by selecting "See all images", and filter security type as "confidential". Then choose the image from the list. 
+    ![Marketplace](media/quick-create-portal-cvm/Marketplace.png)
 
     * **Toggle the image for Gen 2**: Confidential virtual machines only run on [Generation 2](../virtual-machines/generation-2.md) images. Click the **Configure VM generation** under the Image selection dropdown menu. If Gen1 VM is selected, an error message will pop out.
     
@@ -75,8 +77,8 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
    * **Authentication type**: Select **SSH public key** if you're creating a Linux VM. 
 
-        > [!NOTE]
-        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+    > [!NOTE]
+    > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
     * **Username**: Enter the Administrator name for the VM.
 
@@ -96,7 +98,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
     * Under OS disk, click **Confidential compute encryption** if you want to encrypt your confidential virtual machine OS disk as part of the VM provisioning. 
     * You can select two options from **Confidential compute encryption type**: *Confidential disk encryption with platform-managed key* or *Confidential disk encryption with customer-managed key*. 
      >[!Note]
-     > If Confidential disk encryption with customer-managed key is selected, Confidential Disk Encryption Set (DES) is required. Please see link here.
+     > If Confidential disk encryption with customer-managed key will be published soon.
 
     ![CVM-Confidential-computing-encryption](media/quick-create-portal-cvm/Confidential-computing-encryption.png) 
 
