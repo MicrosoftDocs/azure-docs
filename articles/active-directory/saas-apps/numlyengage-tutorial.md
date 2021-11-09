@@ -155,6 +155,6 @@ When you click the NumlyEngage™ tile in the Access Panel, you should be automa
 
 - [Try NumlyEngage™ with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect NumlyEngage™ with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

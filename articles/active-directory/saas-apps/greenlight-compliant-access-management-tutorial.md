@@ -149,6 +149,6 @@ When you click the Greenlight Compliant Access Management tile in the Access Pan
 
 - [Try Greenlight Compliant Access Management with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Greenlight Compliant Access Management with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

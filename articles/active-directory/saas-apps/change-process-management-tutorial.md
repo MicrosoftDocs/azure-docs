@@ -144,6 +144,6 @@ When you select the Change Process Management tile in Access Panel, you should b
 
 - [Try Change Process Management with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Change Process Management with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

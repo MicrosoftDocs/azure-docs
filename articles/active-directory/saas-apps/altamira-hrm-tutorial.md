@@ -151,4 +151,4 @@ When you click the Altamira HRM tile in the Access Panel, you should be automati
 
 - [Try Altamira HRM with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

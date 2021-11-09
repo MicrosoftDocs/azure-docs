@@ -140,6 +140,6 @@ When you click the Frontify tile in the Access Panel, you should be automaticall
 
 - [Try Frontify with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Frontify with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

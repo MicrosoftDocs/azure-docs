@@ -103,7 +103,7 @@ Check the following to ensure all traffic to Azure AD B2C is now going through t
 
 - Make sure all incoming requests to Azure AD B2C custom domain are routed via Akamai WAF and using valid TLS connection.
 - Ensure all cookies are set correctly by Azure AD B2C for the custom domain.
-- The Akamai WAF dashboard available under Security Center console display charts for all traffic passing through the WAF along with any attack traffic.
+- The Akamai WAF dashboard available under Defender for Cloud console display charts for all traffic passing through the WAF along with any attack traffic.
 
 ## Next steps
 

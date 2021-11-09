@@ -141,6 +141,6 @@ When you click the Anyone Home CRM tile in the Access Panel, you should be autom
 
 - [Try Anyone Home CRM with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Anyone Home CRM with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
