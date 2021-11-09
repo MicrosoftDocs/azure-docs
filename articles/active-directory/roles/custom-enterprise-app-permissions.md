@@ -225,5 +225,5 @@ To delegate create, read, update, and delete (CRUD) permissions for updating the
 
 ## Next steps
 
-- [Create custom roles using the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
+- [Create custom roles using the Azure portal, Azure AD PowerShell, and Microsoft Graph API](custom-create.md)
 - [List role assignments](view-assignments.md)
