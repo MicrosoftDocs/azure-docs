@@ -38,17 +38,16 @@ If you're using an Azure virtual machine:
  ## Select a log query and verify results
 Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). Insights and solutions in Azure Monitor will provide log queries to retrieve data for a particular service, but you can work directly with log queries and their results in the Azure portal with Log Analytics. 
 
-Under the **Monitoring** section of your resource's menu, select **Logs**. Log Analytics opens with an empty query window with the scope set to your resource. Any queries will include only records from that resource.
+Select **Logs** from your resource's menu. Log Analytics opens with the **Queries** window that includes  prebuilt queries for your **Resource type**. Select **Alerts** to view queries specifically designed for alert rules.
 
+> [!NOTE]
+> If the **Queries** window doesn't open, click **Queries** in the top right. 
 
-
-Click **Queries** to view prebuilt queries for the **Resource type** and then select **Alerts** to view queries specifically designed for alert rules.
-
-
+:::image type="content" source="media/tutorial-log-alerts/queries.png" lightbox="media/tutorial-log-alerts/queries.png"alt-text="Log Analytics with queries window":::
 
 Select a query and click **Run** to load it in the query editor and return results. You may want to modify the query and run it again. For example, the **Show the trend of a selected event** query for virtual machines returns events with a particular ID. You may want to modify that ID to alert on a different event.
 
-
+:::image type="content" source="media/tutorial-log-alerts/query-results.png" lightbox="media/tutorial-log-alerts/query-results.png"alt-text="Query results":::
 
 
 ## Create alert rule
@@ -60,9 +59,9 @@ Select **New alert rule** to create a new alert rule based on the current log qu
 
 On the **Condition** tab, the **Log query** will already be filled in.
 
-
 The **Measurement** section defines how the records from the log query will be measured. If the query doesn't perform a summary, then the only option will be to **Count** the number of **Table rows**. If the query includes one or more summarized columns, then you'll have the option to use number of **Table rows** or a calculation based on any of the summarized columns. **Aggregation granularity** defines the time interval over which the collected values are aggregated. 
 
+:::image type="content" source="media/tutorial-log-alerts/alert-rule-condition.png" lightbox="media/tutorial-log-alerts/alert-rule-condition.png"alt-text="Alert rule condition":::
 
 ### Configure dimensions
 **Split by dimensions** allows you to create separate alerts for different resources. This setting is useful when you're creating an alert rule that applies to multiple resources. With the scope set to a single resource, this setting typically isn't used.
@@ -72,6 +71,9 @@ The **Measurement** section defines how the records from the log query will be m
 Configure the **Operator** and **Threshold value** to compare to the value returned from the measurement.  An alert is created when this value is true.
 
 For example, if the measurement is **Table rows**, the alert logic may be **Great than 0** indicating that at least one record was returned. If the measurement is a columns value, then the logic may need to be greater than or less than a particular threshold value. In the example below, the log query is looking for anonymous requests to a storage account. If an anonymous request has been made, then we should trigger an alert. In this case, a single row returned would trigger the alert, so the alert logic should be **Greater than 0**.
+
+:::image type="content" source="media/tutorial-log-alerts/alert-rule-alert-logic.png" lightbox="media/tutorial-log-alerts/alert-rule-alert-logic.png"alt-text="Alert logic":::
+
 
 Select a value for **Frequency of evaluation** which defines how often the log query is run and evaluated. The cost for the alert rule increases with a lower frequency. When you select a frequency, the estimated monthly cost is displayed.
 
