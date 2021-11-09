@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 07/13/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -81,6 +81,15 @@ All Azure Arc-enabled servers have a system assigned identity. You cannot disabl
 
 - [Authenticate against Azure resources with Azure Arc-enabled servers](../../azure-arc/servers/managed-identity-authentication.md)
 - [Using a managed identity with Azure Arc-enabled servers](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-azure-arc-enabled-servers)
+
+### Azure Arc resource bridge
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not available | Not available | Not available |
+| User assigned | Not available | Not available | Not available | Not available |
+
+Azure Arc resource bridge currently [supports system assigned identity](../../azure-arc/resource-bridge/security-overview.md). The managed service identity is used by agents in the resource bridge for communication with Azure.
 
 ### Azure Automanage
 
