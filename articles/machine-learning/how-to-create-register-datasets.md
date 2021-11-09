@@ -97,8 +97,7 @@ If your workspace is in a virtual network, you must configure the dataset to ski
 For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure Machine Learning datastores](how-to-access-data.md) or web URLs. 
 
 > [!TIP] 
-> You can create datasets directly from storage urls with identity-based data access. Learn more at [Connect to storage with identity-based data access (preview)](how-to-identity-based-data-access.md)<br><br>
-This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time. 
+> You can create datasets directly from storage urls with identity-based data access. Learn more at [Connect to storage with identity-based data access](how-to-identity-based-data-access.md).
 
  
 To create datasets from a datastore with the Python SDK:
