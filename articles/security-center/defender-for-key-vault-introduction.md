@@ -98,10 +98,6 @@ When you've compiled your list of the secrets, keys, and certificates that were 
     1. Contact the administrator of the application and ask them to audit their environment for any uses of the compromised credentials since they were compromised.
     1. If the compromised credentials were used, the application owner should identify the information that was accessed and mitigate the impact.
 
-
-
-
-
 ## Next steps
 
 In this article, you learned about Microsoft Defender for Key Vault.

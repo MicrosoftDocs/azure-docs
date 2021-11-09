@@ -5,8 +5,6 @@ ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 05/25/2021
 ms.topic: overview
-author: mlearned
-ms.author: mlearned
 description: "This article provides an overview of Azure Arc-enabled Kubernetes."
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
