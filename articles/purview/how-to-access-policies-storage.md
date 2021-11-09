@@ -21,21 +21,12 @@ The Purview policy authoring supports following capabilities:
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-
-
-## Prerequisites
-
-### Opt-in to participate in Azure Purview data use policy  preview
-This functionality is currently in preview, so you will need to [opt-in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
-
-### Provision new accounts in an isolated test subscription
-Follow the steps below to create a new Azure Purview account and a new Azure Storage account in an isolated test subscription. Then enable the access policy functionality in these accounts.
+## Important Limitations
+1. The access policy feature is only available on new Azure Purview and Azure Storage accounts.
+2. Register all data sources for use governance and manage all associated access policies in a single Purview account.
+3. This feature can only be used in the regions listed below, where access policy functionality is deployed.
 
 ### Supported regions
-
-> [!IMPORTANT]
-> 1. The access policy feature is only available on new Azure Purview and Azure Storage accounts.
-> 2. This feature can only be used in the regions listed below, where access policy functionality is deployed.
 
 #### Azure Purview 
 
@@ -57,6 +48,14 @@ Follow the steps below to create a new Azure Purview account and a new Azure Sto
 -   France Central
 -   Canada Central
 
+
+## Prerequisites
+
+### Opt-in to participate in Azure Purview data use policy  preview
+This functionality is currently in preview, so you will need to [opt-in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
+
+### Provision new accounts in an isolated test subscription
+Create or use an isolated test subscription and follow the steps below to create a new Azure Purview account and a new Azure Storage account in that subscription
 
 ### Create Azure Purview account
 
@@ -89,16 +88,18 @@ If the output of the last command shows value of “RegistrationState” as “R
 
 #### Register and scan data sources in Purview
 
-The data source needs to be registered and scanned with Purview in order to define policies. Follow the Purview registration guides to
-register your storage account:
+The data source needs to be registered and scanned with Purview in order to define access policies. Follow the Purview registration guides to register your storage account:
 
 -   [How to scan Azure storage blob - Azure Purview](register-scan-azure-blob-storage-source.md)
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
-During registration, enable the data source for Data use governance, as shown in the picture
+During registration, enable the data source for access policy through the **Data use governance** toggle, as shown in the picture
 
 :::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy.png" alt-text="Image shows how to register a data source for policy.":::
+
+> [!NOTE]
+> The behavior of the toggle will enforce that all the data sources in a given subscription can only be registered for data use governance in a single Purview account. That Purview account itself could be in any subscription.
 
 #### Configure permissions for policy management actions
 
