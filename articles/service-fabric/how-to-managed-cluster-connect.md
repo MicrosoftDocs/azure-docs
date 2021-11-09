@@ -32,7 +32,7 @@ To navigate to SFX for your managed cluster
 
  3) Select your cluster
 
- 4) Locate the `SF Explorer` located in the upper right, example: https://mycluster.region.cloudapp.azure.com:19080/Explorer
+ 4) Locate the `SF Explorer` located in the upper right, example: `https://mycluster.region.cloudapp.azure.com:19080/Explorer`
 
 ## Use PowerShell Modules
 
@@ -82,6 +82,3 @@ Get-AzServiceFabricManagedCluster -ResourceGroupName $rgName -Name $clusterName
 
 * [Deploy an application to a managed cluster using Azure Resource Manager](how-to-managed-cluster-app-deployment-template.md)
 * [Configure managed cluster options](how-to-managed-cluster-configuration.md)
-
-
-
