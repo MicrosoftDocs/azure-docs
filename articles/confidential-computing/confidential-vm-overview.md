@@ -44,7 +44,8 @@ For further integrity and protection, confidential VMs offer [Secure Boot](https
 With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. All compatible confidential VM images support Secure Boot. 
 
 > [!NOTE]
-> In addition to the OS disk, CVMs utilize a small encrypted "VMGS" disk of several megabytes. This VMGS disk encapsulates the VM security state of components such the vTPM and UEFI bootloader. This small disk may result in an associated storage fee of a fraction of one US cent per VM per month.
+> Starting 2022, encrypted OS disks will be charged a higher fee since they occupy more space (compression is not possible). Please refer [here](https://azure.microsoft.com/en-us/pricing/details/managed-disks/) for more information.
+> In addition to the OS disk, confidential VMs utilize a small encrypted "VMGS" disk of several megabytes. This VMGS disk encapsulates the VM security state of components such the vTPM and UEFI bootloader. This small disk may result in an associated storage fee of a fraction of one US cent per VM per month.
 
 > Confidential virtual machines run on specialized hardware available in specific regions. For the latest available regions for confidential 
 > virtual machines, see [available regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
