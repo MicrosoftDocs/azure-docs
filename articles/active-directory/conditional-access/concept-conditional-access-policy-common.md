@@ -47,7 +47,7 @@ The 14 policy templates are split into policies that would be assigned to user i
    - [Require compliant or Hybrid Azure AD joined device for admins](howto-conditional-access-policy-compliant-device.md)
    - Block access for unknown or unsupported device platform
    - No persistent browser session
-   - Require approved client apps and app protection
+   - [Require approved client apps or app protection](howto-policy-approved-app-or-app-protection.md)
    - Require compliant or Hybrid Azure AD joined device or multi-factor authentication for all users
    - Use application enforced restrictions for unmanaged devices
 
