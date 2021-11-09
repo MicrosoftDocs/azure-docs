@@ -46,11 +46,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: account key
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/file.yml":::
 
 ## YAML: sas token
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/file-sas.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/file-sas.yml":::
 
 ## Next steps
 
