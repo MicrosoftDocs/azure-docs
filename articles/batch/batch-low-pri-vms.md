@@ -1,9 +1,9 @@
 ---
 title: Run workloads on cost-effective Spot or low-priority VMs
 description: Learn how to provision Spot or low-priority VMs to reduce the cost of Azure Batch workloads.
-author: mscurrell
+author: pesocha
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 11/09/2021
 ms.custom: seodec18
 
 ---
@@ -33,8 +33,8 @@ Azure Spot and Batch low-priority are similar but have a few differences in beha
 | -- | -- | -- |
 | **Supported Batch accounts** | User-subscription Batch accounts | Batch-managed Batch accounts |
 | **Supported Batch pool configurations** | Virtual Machine Configuration | Virtual Machine Configuration and Cloud Service Configuration (deprecated) |
-| **Available regions** | All regions except Microsoft Azure China 21Vianet | All regions except Microsoft Azure China 21Vianet |
-| **Customer eligibility** | Not available to some subscription offer types | Available for all Batch customers |
+| **Available regions** | All regions supporting [Spot VMs](../virtual-machines/spot-vms.md) | All regions except Microsoft Azure China 21Vianet |
+| **Customer eligibility** | Not available to some subscription offer types. See more about [Spot limitations](../virtual-machines/spot-vms.md#limitations) | Available for all Batch customers |
 | **Possible reasons for eviction** | Capacity | Capacity |
 | **Pricing Model** | Variable discounts relative to standard VM prices | Fixed discounts relative to standard VM prices |
 | **Quota model** | Subject to core quotas on your subscription | Subject to core quotas on your Batch account |
