@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/4/2021
+ms.date: 11/08/2021
 ms.author: b-juche
 ---
 # Cost model for Azure NetApp Files 
@@ -38,7 +38,7 @@ If your capacity pool size requirements fluctuate (for example, because of varia
 
 For example, you are using the Premium capacity 24 hours (1 day) at 10 TiB, 96 hours (4 days) at 24 TiB, four times at 6 hours (1 day) at 5 TiB, 480 hours (20 days) at 6 TiB, and the month’s remaining hours at 0 TiB. A dynamic cloud consumption deployment profile looks different from a traditional static on-premises consumption profile: 
 
-![Bar chart that shows dynamic versus static capacity pool provisioning.](../media/azure-netapp-files/cost-model-example-one-capacity.png)
+[ ![Bar chart that shows dynamic versus static capacity pool provisioning.](../media/azure-netapp-files/cost-model-example-one-capacity.png) ](../media/azure-netapp-files/cost-model-example-one-capacity.png#lightbox)
 
 When costs are billed at $0.000403 per GiB/hour ([pricing depending on the region](https://azure.microsoft.com/pricing/details/netapp/)), the monthly cost breakdown looks like this:
 
@@ -50,10 +50,10 @@ When costs are billed at $0.000403 per GiB/hour ([pricing depending on the regio
 
 * 10 TiB x 24 hours x $0.000403 per GiB/hour = 	$99.04
 * 24 TiB x 96 hours x $0.000403 per GiB/hour = 	$950.80
-* 6 TiB x 480 hours x $0.000403 per GiB/hour =	**$1,188.50**
-* Total = $2,238.33
+* 6 TiB x 480 hours x $0.000403 per GiB/hour =	$1,188.50
+* Total = **$2,238.33**
 
-![Bar chart that shows static versus dynamic service level cost model.](../media/azure-netapp-files/cost-model-example-one-pricing.png)
+[ ![Bar chart that shows static versus dynamic service level cost model.](../media/azure-netapp-files/cost-model-example-one-pricing.png) ](../media/azure-netapp-files/cost-model-example-one-pricing.png#lightbox)
 
 This scenario constitutes a monthly savings of $4,892.64 compared to static provisioning.
 
@@ -63,7 +63,7 @@ If your capacity pool size requirements remain the same but performance requirem
 
 Consider a scenario where the capacity requirement is a constant 24 TiB. But your performance needs fluctuate between 384 hours (16 days) of Standard service level, 120 hours (5 days) of Premium service level, 168 hours (7 days) of Ultra service level, and then back to 48 hours (2 days) of standard service level performance. In this scenario, a dynamic cloud consumption deployment profile looks different compared to a traditional static on-premises consumption profile: 
 
-![Bar chart that shows provisioning with and without dynamic service level change.](../media/azure-netapp-files/cost-model-example-two-capacity.png)
+[ ![Bar chart that shows provisioning with and without dynamic service level change.](../media/azure-netapp-files/cost-model-example-two-capacity.png) ](../media/azure-netapp-files/cost-model-example-two-capacity.png#lightbox)
 
 In this case, when costs are billed at $0.000202 per GiB/hour (Standard), $0.000403 per GiB/hour (Premium) and $0.000538 per GiB/hour (Ultra) respectively ([pricing depending on the region](https://azure.microsoft.com/pricing/details/netapp/)), the monthly cost breakdown looks like this: 
 
@@ -76,10 +76,10 @@ In this case, when costs are billed at $0.000202 per GiB/hour (Standard), $0.000
 * 24 TiB x 384 hours x $0.000202 per GiB/hour  = $1,901.31  
 * 24 TiB x 120 hours x $0.000403 per GiB/hour  = $1,188.50  
 * 24 TiB x 168 hours x $0.000538 per GiB/hour  = $2,221.28  
-* 24 TiB x 48 hours x $0.000202 per GiB/hour   = **$238.29** 
-* Total = $5,554.37 
+* 24 TiB x 48 hours x $0.000202 per GiB/hour   = $238.29 
+* Total = **$5,554.37** 
 
-![Bar chart that shows static versus dynamic service level change cost model.](../media/azure-netapp-files/cost-model-example-two-pricing.png)
+[ ![Bar chart that shows static versus dynamic service level change cost model.](../media/azure-netapp-files/cost-model-example-two-pricing.png) ](../media/azure-netapp-files/cost-model-example-two-pricing.png#lightbox)
 
 This scenario constitutes a monthly savings of $3,965.39 compared to static provisioning.
 
@@ -97,7 +97,7 @@ The following diagram illustrates the concepts.
     * Volume 3 is assigned a quota of 14 TiB but has 8.8 TiB (8 TiB active, 800-GiB snapshots) of consumption.   
 * The capacity pool is metered for 40 TiB of capacity (the provisioned amount). 22.25 TiB of capacity is consumed (13 TiB, 450 GiB, and 8.8 TiB of quota from Volumes 1, 2, and 3). The capacity pool has 17.75 TiB of capacity remaining.   
 
-![Diagram showing capacity pool with three volumes.](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
+[ ![Diagram showing capacity pool with three volumes.](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png) ](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png#lightbox)
 
 ## Next steps
 
