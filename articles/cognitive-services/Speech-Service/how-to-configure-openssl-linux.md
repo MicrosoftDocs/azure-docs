@@ -48,8 +48,7 @@ Set environment variable `SSL_CERT_FILE` to point at that file before running a 
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
-## Certificate Revocation Checks
-
+# Certificate Revocation Checks
 When connecting to the Speech Service, the Speech SDK will verify that the TLS certificate used by the Speech Service has not been revoked. To conduct this check, the Speech SDK will need access to the CRL distribution points for Certificate Authorities used by Azure. A list of possible CRL download locations can be found in [this document](../../security/fundamentals/tls-certificate-changes.md). If a certificate has been revoked or the CRL cannot be downloaded the Speech SDK will abort the connection and raise the Canceled event.
 
 In the event the network where the Speech SDK is being used from is configured in a manner that does not permit access to the CRL download locations, the CRL check can either be disabled or set to not fail if the CRL cannot be retrieved. This configuration is done through the configuration object used to create a Recognizer object.
