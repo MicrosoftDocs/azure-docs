@@ -64,7 +64,7 @@ After determining the delay, you can address the problem as follows:
 
     Since the event **TimeGenerated** value is found in both look-back periods, the event fires two alerts. You need to find a way to solve the duplication.
 
-**Associate the event to a specific look-back period**. In the first example, you missed events because your data wasn't ingested when the scheduled query ran. You extended the look-back to include the event, but this caused duplication. You have to associate the event to the window you extended to contain it.
+- **Associate the event to a specific look-back period**. In the first example, you missed events because your data wasn't ingested when the scheduled query ran. You extended the look-back to include the event, but this caused duplication. You have to associate the event to the window you extended to contain it.
 
     Do this by setting `ingestion_time() > ago(5m)`, instead of the original rule `look-back = 5m`. This setting associates the event to the first look-back window. For example:
 
