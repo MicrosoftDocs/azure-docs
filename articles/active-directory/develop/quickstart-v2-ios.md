@@ -87,8 +87,8 @@ The quickstart applies to both iOS and macOS apps. Some steps are needed only fo
 
 #### Step 3: Install dependencies
 
-> 1. Extract the zip file.
-> 2. In a terminal window, navigate to the folder with the downloaded code sample and run `pod install` to install the latest MSAL library.
+1. Extract the zip file.
+2. In a terminal window, navigate to the folder with the downloaded code sample and run `pod install` to install the latest MSAL library.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 4: Your app is configured and ready to run
