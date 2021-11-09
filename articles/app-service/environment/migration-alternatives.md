@@ -47,7 +47,7 @@ App Service Environment v3 uses Isolated v2 App Service plans that are priced an
 
 The [back up](../manage-backup.md) and [restore](../web-sites-restore.md) feature allows you to keep your app configuration, file content, and database connected to your app when migrating to your new environment. Make sure you review the [requirements and restrictions](../manage-backup.md#requirements-and-restrictions) of this feature.
 
-The step-by-step instructions in the current documentation for [back up](../manage-backup.md) and [restore](../web-sites-restore.md) should be sufficient to allow you to use this feature. When restoring, the **Storage** option lets you select any backup ZIP file from any existing Azure Storage account and container in your subscription. Also note that you can create the apps that you'll be restoring to before starting or during the back up and restore process. A sample of the restore configuration screen is given below.
+The step-by-step instructions in the current documentation for [back up](../manage-backup.md) and [restore](../web-sites-restore.md) should be sufficient to allow you to use this feature. When restoring, the **Storage** option lets you select any backup ZIP file from any existing Azure Storage account and container in your subscription. A sample of the restore configuration screen is given below.
 
 ![back up and restore sample](./media/migration/back-up-restore_sample.png)
 
@@ -58,6 +58,7 @@ The step-by-step instructions in the current documentation for [back up](../mana
 |In-app MySQL databases are automatically backed up without any configuration        |Backups can be up to 10 GB of app and database content, up to 4 GB of which can be the database backup. If the backup size exceeds this limit, you get an error.        |
 |Can restore the app to a snapshot of a previous state         |Using a [firewall enabled storage account](../../storage/common/storage-network-security.md) as the destination for your backups isn't supported   |
 |Can integrate with [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) and [Azure Application Gateway](../../application-gateway/overview.md) to distribute traffic across old and new apps          |Using a [private endpoint enabled storage account](../../storage/common/storage-private-endpoints.md) for backup and restore isn't supported  |
+|Can create empty web apps to restore to in your new environment before you start restoring to speed up the process   |        |
 
 
 ### Clone your app to an App Service Environment v3
@@ -90,7 +91,6 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 |        |Using a [firewall enabled storage account](../../storage/common/storage-network-security.md) as the destination for your backups isn't supported   |
 |        |Using a [private endpoint enabled storage account](../../storage/common/storage-private-endpoints.md) for backup and restore isn't supported  |
 
-
 ### Manually create your apps on an App Service Environment v3
 
 If the above features don't support your apps or you're looking to take a more manual route, you have the option of deploying your apps following the same process you used for your old App Service Environment. All deployment methods except FTP are supported on App Service Environment v3. You shouldn't need to make updates when deploying your apps to your new environment unless you want to make changes or take advantage of App Service Environment v3's dedicated features. 
@@ -121,7 +121,7 @@ The following initial changes to your Azure Resource Manager templates are requi
     ```
 - Update App Service plan (serverfarm) parameter the app is to be deployed into to the plan associated with the App Service Environment v3
 - Update hosting environment profile (hostingEnvironmentProfile) parameter to the new App Service Environment v3 resource ID
-- An Azure Resource Manager template export includes all properties exposed by the resource providers for the given resources. Remove all non-required properties such as those which point to the domain of the old app. For example, you `sites` resource could be simplified to the following:
+- An Azure Resource Manager template export includes all properties exposed by the resource providers for the given resources. Remove all non-required properties such as those which point to the domain of the old app. For example, you `sites` resource could be simplified to the below:
     ```json
     "type": "Microsoft.Web/sites",
     "apiVersion": "2021-02-01",
@@ -147,6 +147,8 @@ Azure Resource Manager templates can be [deployed](../deploy-complex-application
 
 ## Guidance for manual migration
 
-The [migration tool](migrate.md) automates the migration to App Service Environment v3 and at the same time transfers all of your apps to the new environment. There's about one hour of downtime during this migration. If you're in a position where you can't have any downtime, the recommendation is to use one of the manual options described above to recreate your apps in an App Service Environment v3. If you're using an Internal Load Balancer (ILB) App Service Environment, you can [create an Azure Application Gateway](integrate-with-application-gateway.md) with an extra backend pool to distribute traffic between your environments. You can also use services like [Azure Front Door](../../frontdoor/quickstart-create-front-door.md), [Azure Content Delivery Network (CDN)](../../cdn/cdn-add-to-web-app.md), and [Azure Traffic Manager](../../cdn/cdn-traffic-manager.md) to distribute traffic between environments. Using this process also allows for testing your new environment in a controlled manner and allows you to move to your new environment at your own pace.
+The [migration tool](migrate.md) automates the migration to App Service Environment v3 and at the same time transfers all of your apps to the new environment. There's about one hour of downtime during this migration. If you're in a position where you can't have any downtime, the recommendation is to use one of the manual options to recreate your apps in an App Service Environment v3. 
+
+You can then distribute traffic between your environments using an [Application Gateway](../networking/app-gateway-with-service-endpoints.md). If you're using an Internal Load Balancer (ILB) App Service Environment, see the [considerations](../networking/app-gateway-with-service-endpoints.md#considerations-for-ilb-ase) and [create an Azure Application Gateway](integrate-with-application-gateway.md) with an extra backend pool to distribute traffic between your environments. For internet facing App Service Environments, see these [considerations](../networking/app-gateway-with-service-endpoints.md#considerations-for-external-ase). You can also use services like [Azure Front Door](../../frontdoor/quickstart-create-front-door.md), [Azure Content Delivery Network (CDN)](../../cdn/cdn-add-to-web-app.md), and [Azure Traffic Manager](../../cdn/cdn-traffic-manager.md) to distribute traffic between environments. Using these services also allows for testing your new environment in a controlled manner and allows you to move to your new environment at your own pace.
 
 Once your migration and any testing with your new environment is complete, delete your old App Service Environment, the apps that are on it, and any supporting resources that you no longer need. You'll continue to be charged for any resources that haven't been deleted.
