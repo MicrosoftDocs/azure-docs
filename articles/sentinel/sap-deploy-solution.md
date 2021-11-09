@@ -49,7 +49,7 @@ To deploy the Azure Sentinel SAP data connector and security content as describe
 | --- | --- |
 |**Azure prerequisites** | **Access to Azure Sentinel**. Make a note of your Azure Sentinel workspace ID and key to use in this tutorial when you [deploy your SAP data connector](#deploy-your-sap-data-connector). <br><br>To view these details from Azure Sentinel, go to **Settings** > **Workspace settings** > **Agents management**. <br><br>**Ability to create Azure resources**. For more information, see the [Azure Resource Manager documentation](../azure-resource-manager/management/manage-resources-portal.md). <br><br>**Access to your Azure key vault**. This tutorial describes the recommended steps for using your Azure key vault to store your credentials. For more information, see the [Azure Key Vault documentation](../key-vault/index.yml). |
 |**System prerequisites** | **Software**. The SAP data connector deployment script automatically installs software prerequisites. For more information, see [Automatically installed software](#automatically-installed-software). <br><br> **System connectivity**. Ensure that the VM serving as your SAP data connector host has access to: <br>- Azure Sentinel <br>- Your Azure key vault <br>- The SAP environment host, via the following TCP ports: *32xx*, *5xx13*, and *33xx*, where *xx* is the SAP instance number. <br><br>Make sure that you also have an SAP user account in order to access the SAP software download page.<br><br>**System architecture**. The SAP solution is deployed on a VM as a Docker container, and each SAP client requires its own container instance. For sizing recommendations, see [Recommended virtual machine sizing](sap-solution-detailed-requirements.md#recommended-virtual-machine-sizing). <br>Your VM and the Azure Sentinel workspace can be in different Azure subscriptions, and even different Azure AD tenants.|
-|**SAP prerequisites** | **Supported SAP versions**. We recommend using [SAP_BASIS versions 750 SP13](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) or later. <br><br>Certain steps in this tutorial provide alternative instructions if you're working on older SAP version [SAP_BASIS 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows).<br><br> **SAP system details**. Make a note of the following SAP system details for use in this tutorial:<br>- SAP system IP address<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system. For example, `NPL`. <br>- SAP client ID, such as`001`.<br><br>**SAP NetWeaver instance access**. Access to your SAP instances must use one of the following options: <br>- [SAP ABAP user/password](#configure-your-sap-system). <br>- A user with an X509 certificate, using SAP CRYPTOLIB PSE. This option might require expert manual steps.<br><br>**Support from your SAP team**.  You'll need the support of your SAP team to help ensure that your SAP system is [configured correctly](#configure-your-sap-system) for the solution deployment. |
+|**SAP prerequisites** | **Supported SAP versions**. We recommend using [SAP_BASIS versions 750 SP13](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) or later. <br><br>Certain steps in this tutorial provide alternative instructions if you're working on older SAP version [SAP_BASIS 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows).<br><br> **SAP system details**. Make a note of the following SAP system details for use in this tutorial:<br>- SAP system IP address<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as`001`<br><br>**SAP NetWeaver instance access**. Access to your SAP instances must use one of the following options: <br>- [SAP ABAP user/password](#configure-your-sap-system). <br>- A user with an X509 certificate, using SAP CRYPTOLIB PSE. This option might require expert manual steps.<br><br>**Support from your SAP team**.  You'll need the support of your SAP team to help ensure that your SAP system is [configured correctly](#configure-your-sap-system) for the solution deployment. |
 | | |
 
 
@@ -103,7 +103,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
     For more information, see [authorizations for the ABAP user](sap-solution-detailed-requirements.md#required-abap-authorizations).
 
-1. Create a non-dialog, RFC/NetWeaver user for the SAP data connector, and attach the newly created */MSFTSEN/SENTINEL_CONNECTOR* role.
+1. Create a non-dialog RFC/NetWeaver user for the SAP data connector, and attach the newly created */MSFTSEN/SENTINEL_CONNECTOR* role.
 
     - After you attach the role, verify that the role permissions are distributed to the user.
     - This process requires that you use a username and password for the ABAP user. After the new user is created and has the required permissions, be sure to change the ABAP user password.
@@ -171,19 +171,18 @@ To create or dedicate an Azure key vault, do the following:
 
     - **The Azure portal**:
 
-        1. In your Azure key vault, select **Access Policies** > **Add Access Policy - Secret Permissions: Get, List, and Set** > **Select Principal**. 
-        
+        1. In your Azure key vault, select **Access Policies** > **Add Access Policy - Secret Permissions: Get, List, and Set** > **Select Principal**.  
         1. Enter your [VM name](#deploy-a-linux-vm-for-your-sap-data-connector), and then select **Add** > **Save**.
 
         For more information, see the [Key Vault documentation](../key-vault/general/assign-access-policy-portal.md).
 
     - **The Azure CLI**:
 
-        1. Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector). Be sure to enter the name of your Azure resource group.
+        1. Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector). Be sure to enter the name of your Azure resource group.  
 
             ```azurecli
             VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
-            ```
+            ```  
 
             Your principal ID is displayed for you to use in the next step.
 
@@ -215,7 +214,7 @@ To run the SAP solution deployment script, do the following:
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh
     ```
 
-1. Follow the on-screen instructions to enter your SAP and key vault details and complete the deployment. A confirmation message appears when the deployment is complete:
+1. Follow the on-screen instructions to enter your SAP and key vault details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
     ```azurecli
     The process has been successfully completed, thank you!
@@ -267,10 +266,9 @@ To deploy SAP solution security content, do the following:
     - **Threat Management** > **Workbooks** > **My workbooks**, to find the [built-in SAP workbooks](sap-solution-security-content.md#built-in-workbooks).
     - **Configuration** > **Analytics** to find a series of [SAP-related analytics rules](sap-solution-security-content.md#built-in-analytics-rules).
 
-1. Add SAP-related watchlists to use in your search, detection rules, threat hunting, and response playbooks. These watchlists provide the configuration for the Azure Sentinel SAP Continuous Threat Monitoring solution. Do the following
+1. Add SAP-related watchlists to use in your search, detection rules, threat hunting, and response playbooks. These watchlists provide the configuration for the Azure Sentinel SAP Continuous Threat Monitoring solution. Do the following:
 
     a. Download SAP watchlists from the Azure Sentinel GitHub repository at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists.  
-
     b. In the Azure Sentinel **Watchlists** area, add the watchlists to your Azure Sentinel workspace. Use the downloaded CSV files as the sources, and then customize them as needed for your environment.  
 
     [ ![SAP-related watchlists added to Azure Sentinel.](media/sap/sap-watchlists.png) ](media/sap/sap-watchlists.png#lightbox)
