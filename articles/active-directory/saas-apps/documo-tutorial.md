@@ -34,7 +34,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Documo supports **SP and IDP** initiated SSO.
-* Documo supports **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
