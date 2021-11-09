@@ -599,7 +599,7 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 ```
 
 ## EntryPoint Override
-With 8.2 version of ServiceFabric Runtime, entrypoint for **container** and **exe host** code package can be overridden. This can be  used in cases for ex: where all the manifest elements remains the same but the container image needs to be changed, then provisioning a different app type version is not required anymore, or different argumets needs to be passed based on test or prod scenario and the entry point remains the same.
+With 8.2 version of ServiceFabric Runtime, entrypoint for **container** and **exe host** code package can be overridden. This can be used in cases where all the manifest elements remains the same but the container image needs to be changed, then provisioning a different app type version is not required anymore, or different arguments needs to be passed based on test or prod scenario and the entry point remains the same.
 
 Following is an example on how to override container entry point:
 
