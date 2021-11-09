@@ -58,25 +58,29 @@ See [Tutorial: Analyze metrics for an Azure resource](../essentials/tutorial-met
 ### Activity log 
 The **Activity log** menu item lets you view entries in the [activity log](../essentials/activity-log.md) for the current resource. 
 
-
-![Activity Log](media/monitor-azure-resource/activity-log.png)
-
+:::image type="content" source="media/monitor-azure-resource/activity-log.png" lightbox="media/monitor-azure-resource/activity-log.png" alt-text="Activity log":::
 
 ## Alerts
 The **Alerts** page will show you any recent alerts that have been fired for the resource. Alerts proactively notify you when important conditions are found in your monitoring data and can use data from either Metrics or Logs.
 
 See [Tutorial: Create a metric alert for an Azure resource](../alerts/tutorial-metric-alert.md) or [Tutorial: Create a log query alert for an Azure resource](../alerts/tutorial-log-alert.md) for tutorials on create alert rules and viewing alerts.
 
+:::image type="content" source="media/monitor-azure-resource/alerts-view.png" lightbox="media/monitor-azure-resource/alerts-view.png" alt-text="Alerts view":::
+
 ## Metrics
 The **Metrics** menu item opens [metrics explorer](./metrics-getting-started.md) which allows you to work with individual metrics or combine  multiple to identify correlations and trends. This is the same metrics explorer that's opened when you click on one of the charts in the **Overview** page.
 
 See [Tutorial: Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md) for a tutorial on using metrics explorer.
+
+:::image type="content" source="media/monitor-azure-resource/metrics.png" lightbox="media/monitor-azure-resource/metrics.png" alt-text="Metrics explorer":::
 
 
 ## Diagnostic settings
 The **Diagnostic settings** page lets you create a [diagnostic setting](../essentials/diagnostic-settings.md) to collect the resource logs for your resource. You can send them to multiple locations, but the most common is to send to a Log Analytics workspace so you can analyze them with Log Analytics.
 
 See [Tutorial: Collect and analyze resource logs from an Azure resource](../essentials/tutorial-resource-logs.md) for a tutorial on creating a diagnostic setting.
+
+:::image type="content" source="media/monitor-azure-resource/diagnostic-settings.png" lightbox="media/monitor-azure-resource/diagnostic-settings.png" alt-text="Diagnostic settings":::
 
 
 
@@ -85,6 +89,8 @@ The **Insights** menu item opens the insight for the resource if the Azure servi
 
 
 See [Insights and Core solutions](../monitor-reference.md#insights-and-curated-visualizations) for a list of insights that are available and links to their documentation.
+
+:::image type="content" source="media/monitor-azure-resource/insights.png" lightbox="media/monitor-azure-resource/insights.png" alt-text="Insights":::
 
 ## Next steps
 Now that you have a basic understanding of Azure Monitor, get start analyzing some metrics for an Azure resource.
