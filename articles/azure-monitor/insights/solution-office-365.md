@@ -85,7 +85,7 @@ ms.date: 03/30/2020
 > Microsoft Sentinel and Azure AD provide built-in content that you can use when moving to the Azure AD reporting and monitoring solution. For more information, see the next question on out-of-the-box security-oriented content and [How to use Azure Monitor workbooks for Azure Active Directory reports](../../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md). 
 >
 > ### Q: How I can use the Microsoft Sentinel out-of-the-box security-oriented content?
-> Microsoft Sentinel provides out-of-the-box security-oriented dashboards, custom alert queries, hunting queries, investigation, and automated response capabilities based on the Office 365 and Azure AD logs. Explore the Microsoft Sentinel GitHub and tutorials to learn more:
+> Microsoft Sentinel provides out-of-the-box security-oriented dashboards, custom alert queries, hunting queries, investigation, and automated response capabilities based on the Office 365 and Azure AD logs. Explore the Microsoft Sentinel GitHub community and tutorials to learn more:
 >
 > - [Detect threats out-of-the-box](../../sentinel/detect-threats-built-in.md)
 > - [Create custom analytic rules to detect suspicious threats](../../sentinel/detect-threats-custom.md)

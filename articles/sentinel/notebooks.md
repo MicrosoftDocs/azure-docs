@@ -35,8 +35,7 @@ Several notebooks, developed by some of Microsoft's security analysts, are packa
 - Some of these notebooks are built for a specific scenario and can be used as-is.
 - Others are intended as samples to illustrate techniques and features that you can copy or adapt for use in your own notebooks.
 
-Still other notebooks may also be imported from the [Microsoft Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel-Notebooks/).
-
+Still other notebooks may also be imported from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks/).
 
 ## Notebook components
 
@@ -64,7 +63,7 @@ MSTICPy tools are designed specifically to help with creating notebooks for hunt
 - [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
 - [Advanced configurations for Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebooks-msticpy-advanced.md)
 
-The [Microsoft Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks/) is the location for any future Microsoft Sentinel notebooks built by Microsoft or contributed from the community.
+The [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks/) is the location for any future Microsoft Sentinel notebooks built by Microsoft or contributed from the community.
 
 ## Manage access to Microsoft Sentinel notebooks
 
@@ -335,7 +334,7 @@ Integrate your notebook experience with big data analytics in Azure Synapse. For
 
 Other notebooks shared in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) are intended as useful tools, illustrations, and code samples that you can use when developing your own notebooks.
 
-We welcome feedback, suggestions, requests for features, contributed notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Microsoft Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
+We welcome feedback, suggestions, requests for features, contributed notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Microsoft Sentinel  GitHub repository](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
 
 - **Learn more** about using notebooks in threat hunting and investigation by exploring some notebook templates, such as [**Credential Scan on Azure Log Analytics**](https://www.youtube.com/watch?v=OWjXee8o04M) and **Guided Investigation - Process Alerts**.
 
@@ -343,10 +342,9 @@ We welcome feedback, suggestions, requests for features, contributed notebooks, 
 
 - **Find more notebooks** in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks):
 
-    - The [**Sample-Notebooks**](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/Sample-Notebooks) directory includes sample notebooks that are saved with data that you can use to show intended output.
+  - The [`Sample-Notebooks`](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/Sample-Notebooks) directory includes sample notebooks that are saved with data that you can use to show intended output.
 
-    - The [**HowTos**](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/HowTos) directory includes notebooks that describe concepts such as setting your default Python version, creating Microsoft Sentinel bookmarks from a notebook, and more.
-
+  - The [`HowTos`](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/HowTos) directory includes notebooks that describe concepts such as setting your default Python version, creating Microsoft Sentinel bookmarks from a notebook, and more.
 
 For more information, see:
 

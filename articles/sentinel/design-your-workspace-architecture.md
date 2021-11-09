@@ -171,7 +171,7 @@ However, this recommendation for separate workspaces for non-SOC data comes from
 
   - If each data owner must have access to the Microsoft Sentinel portal, use a separate Microsoft Sentinel workspace for each owner.
 
-    <a name="note6"></a>[Decision tree note #6](#decision-tree): Access to the Microsoft Sentinel portal requires that each user have a role of at least an [Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md), with **Reader** permissions on all tables in the workspace. If a user does not have access to all tables in the workspace, they'll need to use Log Analytics to access the logs in search queries.
+    <a name="note6"></a>[Decision tree note #6](#decision-tree): Access to the Microsoft Sentinel portal requires that each user have a role of at least a [Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md), with **Reader** permissions on all tables in the workspace. If a user does not have access to all tables in the workspace, they'll need to use Log Analytics to access the logs in search queries.
 
   - If access to the logs via Log Analytics is sufficient for any owners without access to the Microsoft Sentinel portal, continue with [step 8](#step-8-controlling-data-access-by-data-source--table).
 

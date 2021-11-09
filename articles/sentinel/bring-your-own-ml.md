@@ -142,11 +142,11 @@ For custom data that is not supported by Log Analytics auto-export, you can use 
 
 ### Correlate with data outside of Microsoft Sentinel
 
-You can also bring data from outside of Microsoft Sentinel to the blob storage or Event Hub and correlate them with the Microsoft Sentinel data to build your ML models. 
- 
+You can also bring data from outside of Microsoft Sentinel to the blob storage or Event Hub and correlate them with the Microsoft Sentinel data to build your ML models.
+
 ### Copy and install the related packages
 
-Copy the BYO-ML package from the Microsoft Sentinel GitHub repository mentioned above to your Databricks environment. Then open the notebooks and follow the instructions within the notebook to install the required libraries on your clusters.
+Copy the BYO-ML package from the Microsoft Sentinel GitHub repository mentioned earlier to your Databricks environment. Then open the notebooks and follow the instructions within the notebook to install the required libraries on your clusters.
 
 ### Model training and scoring
 

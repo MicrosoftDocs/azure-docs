@@ -83,7 +83,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **CloudSimple Virtual Machines**.
 
-3. Select on which your Private Cloud was created.
+3. Select the virtual machine on which your Private Cloud was created.
 
     ![List of CloudSimple Virtual Machines](media/list-cloudsimple-virtual-machines.png)
 

@@ -95,6 +95,8 @@ Create a CNAME record in your DNS such as login.domain.com that points to the Ed
 
 Learn more about [how the control works and configuration options](https://control.akamai.com/dl/security/GUID-81C0214B-602A-4663-839D-68BCBFF41292.html).
 
+<!-- docutune:ignore "Security Center" -->
+
 ### Test the settings
 
 Check the following to ensure all traffic to Azure AD B2C is now going through the custom domain:

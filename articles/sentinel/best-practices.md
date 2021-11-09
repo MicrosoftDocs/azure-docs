@@ -73,12 +73,11 @@ Schedule the following Microsoft Sentinel activities regularly to ensure continu
 
 - **Playbook failures**. Verify playbook run statuses and troubleshoot any failures.   For more information, see [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
 
-
 ### Weekly tasks
 
 - **Workbook updates**. Verify whether any workbooks have updates that need to be installed. For more information, see [Commonly used Microsoft Sentinel workbooks](top-workbooks.md).
 
-- **Microsoft Sentinel GitHub repository review**. Review the [Microsoft Sentinel GitHub](https://github.com/Azure/Azure-Sentinel) repository to explore whether there are any new or updated resources of value for your environment, such as analytics rules, workbooks, hunting queries, or playbooks.
+- **Microsoft Sentinel GitHub repository review**. Review the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel) to explore whether there are any new or updated resources of value for your environment, such as analytics rules, workbooks, hunting queries, or playbooks.
 
 - **Microsoft Sentinel auditing**. Review Microsoft Sentinel activity to see who has updated or deleted resources, such as analytics rules, bookmarks, and so on. For more information, see [Audit Microsoft Sentinel queries and activities](audit-sentinel-data.md).
 

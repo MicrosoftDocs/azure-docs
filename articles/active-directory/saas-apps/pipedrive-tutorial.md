@@ -126,6 +126,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+<!-- docutune:ignore "Security Center" -->
+
 ## Configure Pipedrive SSO
 
 1. In a different browser window, sign into Pipedrive website as an administrator.
@@ -134,9 +136,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot that shows "Settings" selected from the "User Profile" menu.](./media/pipedrive-tutorial/configure-1.png)
 
-1. Scroll down to Defender for Cloud and select **Single sign-on**.
+1. Scroll down to **Security Center** and select **Single sign-on**.
 
-    ![Screenshot that shows "Single sign-on" selected in the "Defender for Cloud".](./media/pipedrive-tutorial/configure-2.png)
+    ![Screenshot that shows "Single sign-on" selected under "Security Center".](./media/pipedrive-tutorial/configure-2.png)
 
 1. On the **SAML configuration for pipedrive** section, perform the following steps:
 

@@ -41,10 +41,10 @@ The Microsoft Sentinel connector in Logic Apps, and its component triggers and a
 
 ### Permissions required
 
-| Roles \ Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |
+| Roles / Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |
 | ------------- | :-----------: | :------------: | :-----------: |
-| **[Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
-| **Microsoft Sentinel [Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
+| **[Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
+| **Microsoft Sentinel [Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)/[Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 | 
 
 [Learn more about permissions in Microsoft Sentinel](./roles.md).
@@ -58,31 +58,29 @@ This authentication method allows you to give permissions directly to the playbo
 
 To authenticate with managed identity:
 
-
 1. [Enable managed identity](../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal) on the Logic Apps workflow resource. To summarize:
 
     - On the logic app menu, under **Settings**, select **Identity**. Select **System assigned > On > Save**. When Azure prompts you to confirm, select **Yes**.
 
     - Your logic app can now use the system-assigned identity, which is registered with Azure AD and is represented by an object ID.
 
-1. [Give that identity access](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) to the Microsoft Sentinel workspace: 
+1. [Give that identity access](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) to the Microsoft Sentinel workspace:
     1. From the Microsoft Sentinel menu, select **Settings**.
     1. Select the **Workspace settings** tab. From the workspace menu, select **Access control (IAM)**.
-   1. From the button bar at the top, select **Add** and choose **Add role assignment**. If the **Add role assignment** option is disabled, you don't have permissions to assign roles.
+    1. From the button bar at the top, select **Add** and choose **Add role assignment**. If the **Add role assignment** option is disabled, you don't have permissions to assign roles.
     1. In the new panel that appears, assign the appropriate role:
-    
+
         | Role | Situation |
         | --- | --- |
-        | [**Microsoft Sentinel Responder**](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) | Playbook has steps which update incidents or watchlists |
-        | [**Microsoft Sentinel Reader**](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) | Playbook only receives incidents |
+        | [**Microsoft Sentinel Responder**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) | Playbook has steps which update incidents or watchlists |
+        | [**Microsoft Sentinel Reader**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) | Playbook only receives incidents |
         |
-        
+
         Learn more about the available [roles in Microsoft Sentinel](./roles.md).
     1. Under **Assign access to**, choose **Logic App**.
     1. Choose the subscription the playbook belongs to, and select the playbook name.
     1. Select **Save**.
-    
-    
+
 1. Enable the managed identity authentication method in the Microsoft Sentinel Logic Apps connector:
 
     1. In the Logic Apps designer, add a Microsoft Sentinel Logic Apps connector step. If the connector is already enabled for an existing connection, click the **Change connection** link.
@@ -158,4 +156,5 @@ In order to change the authorization of an existing connection, enter the connec
 ## Next steps
 
 In this article, you learned about the different methods of authenticating a Logic Apps-based playbook to Microsoft Sentinel.
+
 - Learn more about how to [use triggers and actions in playbooks](playbook-triggers-actions.md).

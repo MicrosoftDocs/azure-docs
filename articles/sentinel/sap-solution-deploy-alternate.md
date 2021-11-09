@@ -134,7 +134,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
 1. On your on-premises machine, create a new folder with a meaningful name, and copy the SDK zip file into your new folder.
 
-1. Clone the Microsoft Sentinel solution GitHub repo onto your on-premises machine, and copy Microsoft Sentinel SAP solution **systemconfig.ini** file into your new folder.
+1. Clone the Microsoft Sentinel solution GitHub repository onto your on-premises machine, and copy Microsoft Sentinel SAP solution **systemconfig.ini** file into your new folder.
 
     For example:
 

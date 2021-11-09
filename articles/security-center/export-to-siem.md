@@ -44,12 +44,12 @@ When you connect Defender for Cloud to Microsoft Sentinel, the status of Defende
 
 Enabling the preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of those Defender for Cloud alerts. So, for example, when a Microsoft Sentinel incident containing a Defender for Cloud alert is closed, Defender for Cloud will automatically close the corresponding original alert.
 
-Learn more in [Connect Defender for Cloud alerts from Microsoft Defender for Cloud](../sentinel/connect-azure-security-center.md).
+Learn more in [Connect alerts from Microsoft Defender for Cloud](../sentinel/connect-azure-security-center.md).
 
 > [!NOTE]
-> The bi-directional alert synchronization feature isn't available in the Azure Government cloud. 
+> The bi-directional alert synchronization feature isn't available in the Azure Government cloud.
 
-### Configure ingestion of all audit logs into Microsoft Sentinel 
+### Configure ingestion of all audit logs into Microsoft Sentinel
 
 Another alternative for investigating Defender for Cloud alerts in Microsoft Sentinel is to stream your audit logs into Microsoft Sentinel:
     - [Connect Windows security events](../sentinel/connect-windows-security-events.md)

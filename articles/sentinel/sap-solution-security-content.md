@@ -122,13 +122,11 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |**SAP - Medium - Sensitive Roles Changes**     |Identifies changes in sensitive roles. <br><br> Maintain sensitive roles in the [SAP - Sensitive Roles](#roles) watchlist.       |  Change a role using PFCG. <br><br>**Data sources**: SAPcon - Change Documents Log, SAPcon – Audit Log   |  Impact, Privilege Escalation, Persistence    |
 | | | | |
 
-
 ## Available watchlists
 
 The following table lists the [watchlists](sap-deploy-solution.md#deploy-sap-security-content) available for the Microsoft Sentinel SAP solution, and the fields in each watchlist.
 
-These watchlists provide the configuration for the Microsoft Sentinel SAP Continuous Threat Monitoring solution, and are accessible in the Microsoft Sentinel GitHub repository at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists.
-
+These watchlists provide the configuration for the Microsoft Sentinel SAP Continuous Threat Monitoring solution. The [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) are available in the Microsoft Sentinel GitHub repository.
 
 |Watchlist name  |Description and fields  |
 |---------|---------|
