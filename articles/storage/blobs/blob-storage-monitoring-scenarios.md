@@ -150,7 +150,7 @@ Shared Key and SAS authentication provide no means of auditing individual identi
 
 #### Identifying the SAS token used to authorize a request
 
-This query shows all read operations that were authorized by using a SAS token.
+You can query for operations that were authorized by using a SAS token. For example, this query returns all write operations that were authorized by using a SAS token.
 
 ```kusto
 StorageBlobLogs
@@ -162,7 +162,7 @@ StorageBlobLogs
 
 For security reasons, SAS tokens don't appear in logs. However, the SHA-256 hash of the SAS token will appear in the `AuthenticationHash` field that is returned by this query. 
 
-If you've distributed different SAS tokens, and you want to use logs to monitor traffic by each SAS token, you'll have to convert each of your SAS tokens to a SHA-256 hash, and then compare that hash to the hash value that appears in logs.
+If you've distributed several SAS tokens, and you want to know which SAS tokens are being used, you'll have to convert each of your SAS tokens to a SHA-256 hash, and then compare that hash to the hash value that appears in logs.
 
 First decode each SAS token string. The following example decodes a SAS token string by using PowerShell.
 
