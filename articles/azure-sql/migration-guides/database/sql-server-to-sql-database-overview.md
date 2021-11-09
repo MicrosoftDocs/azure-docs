@@ -16,9 +16,11 @@ ms.date: 11/06/2020
 
 Learn about the options and considerations for migrating your SQL Server databases to Azure SQL Database. 
 
-You can migrate SQL Server databases running on-premises or on: 
+You can migrate SQL Server databases running on-premises on: 
 
 - SQL Server on Azure Virtual Machines.  
+- Azure SQL Database (PaaS).
+- Azure SQL Managed Instance (PaaS).
 - Amazon Web Services (AWS) Elastic Compute Cloud (EC2).
 - AWS Relational Database Service (RDS).
 - Compute Engine in Google Cloud Platform (GCP).  
