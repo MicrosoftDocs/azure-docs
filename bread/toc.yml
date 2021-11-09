@@ -1055,10 +1055,6 @@
     - name: Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
-- name: Visual Studio subscriptions
-  tocHref: /visualstudio/subscriptions/
-  topicHref: /visualstudio/subscriptions/index
-  items:
-  - name: 'Benefit: Azure DevTest offer'
+  - name: 'Azure DevTest offer (Visual Studio subscriber benefit)'
     tocHref: /azure/devtest/offer/
     topicHref: /azure/devtest/offer/overview-what-is-devtest-offer-visual-studio
