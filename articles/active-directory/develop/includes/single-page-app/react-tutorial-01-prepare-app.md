@@ -6,11 +6,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ---
+
+In this tutorial, you build a single-page application (SPA) that signs in users and calls Microsoft Graph by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL).
+
+Follow the steps in this tutorial to:
+
+> [!div class="checklist"]
+> - Learn how the tutorial app works 
+> - Create application project
+> - Install the auth library
+
 ## How the tutorial works
+
 
 ## (Optional) Create a new app project
 
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_import_modules":::
+
+
 ## Install the auth library
+
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_use_msal_context":::
+
 
 ## Next steps
 

@@ -15,6 +15,17 @@ ms.author: dmwendia
 ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
+
+In this tutorial, you sign in users in a single-page application that uses the Microsoft Authentication Library (MSAL). 
+
+Follow the steps in this tutorial to:
+
+> [!div class="checklist"]
+> - Initialize the auth SDK
+> - Sign in users 
+> - Display logged-in content
+> - Display MSAL provider content
+
 ## Initialize the auth SDK
 
 ## Sign in users
@@ -23,9 +34,21 @@ ms.custom: include
 
 ### Sign in users with redirects
 
+### Add log in button
+
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_add_login_button":::
+
+
+## Display logged in content
+
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_check_logged_in_state":::
+
+
 ## Display MSAL provider content
 
 :::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_use_msal_provider":::
+
+
 
 ## Next steps
 
