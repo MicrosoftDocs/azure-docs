@@ -49,7 +49,7 @@ Follow the [Getting started](https://github.com/NetApp/SQL_Storage_Benchmark/blo
 
 ### FIO 
 
-Flexible I/O Tester (FIO) is a free and open source disk I/O tool used both for benchmark and stress/hardware verification. 
+Flexible I/O Tester (FIO) is a free and open-source disk I/O tool used both for benchmark and stress/hardware verification. 
 
 FIO is available in binary format for both Linux and Windows. 
 
