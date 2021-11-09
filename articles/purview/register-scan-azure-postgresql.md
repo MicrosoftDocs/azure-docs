@@ -1,6 +1,6 @@
 ---
 title: 'Connect to and manage an Azure database for PostgreSQL'
-description: This guide describes how to connect to an Azure database for PostgreSQL in Azure Purview, and use Purview's features to scan and manage your Azure database for PostgreSQL source.
+description: This guide describes how to connect to an Azure database for PostgreSQL single server in Azure Purview, and use Purview's features to scan and manage your Azure database for PostgreSQL source.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
@@ -12,9 +12,11 @@ ms.custom: template-how-to, ignite-fall-2021
 
 # Connect to and manage an Azure database for PostgreSQL in Azure Purview
 
-This article outlines how to register an Azure database for PostgreSQL, as well as how to authenticate and interact with an Azure database for PostgreSQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register an Azure database for PostgreSQL deployed with single server deployment option, as well as how to authenticate and interact with an Azure database for PostgreSQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
+
+Purview only supports single server deployment option for Azure database for PostgreSQL.
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
@@ -36,7 +38,7 @@ This section describes how to register an Azure database for PostgreSQL in Azure
 
 ### Authentication for registration
 
-Currently, to be able to manage and interact with an Azure database for PostgreSQL, only SQL Authentication is supported.
+Currently, to be able to manage and interact with an Azure database for PostgreSQL single server, only SQL Authentication is supported.
 
 #### SQL Authentication
 
