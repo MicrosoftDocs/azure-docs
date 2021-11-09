@@ -305,7 +305,7 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status, or set it a
 >[!NOTE]
 > - This release will be made available for download only.
 > - The upgrade to this release will require a full synchronization due to sync rule changes.
-> - This release defaults the AADConnect server to the new V2 end point. Note that this end point is not supported in the German national cloud and if you need to deploy this version in this environment you need to follow [these instructions](./how-to-connect-sync-endpoint-api-v2.md#rollback) to switch back to the V1 end point. Failure to do so will result in errors in synchronization.
+> - This release defaults the AADConnect server to the new V2 end point.
 
 ### Release status
 3/19/2021: Released for download, not available for auto upgrade
