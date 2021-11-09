@@ -4,7 +4,7 @@ description: Learn how managed identities work in Azure Web PubSub Service, and 
 author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: article
-ms.date: 10/22/2021
+ms.date: 11/08/2021
 ms.author: chenyl
 ---
 
