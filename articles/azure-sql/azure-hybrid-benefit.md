@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, moslake
-ms.date: 02/16/2021
+ms.date: 11/09/2021
 ---
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -28,34 +28,36 @@ For Azure SQL Database, Azure Hybrid Benefit is only available when using the pr
 
 With Azure Hybrid Benefit, you pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL Server database engine itself (Base Compute pricing). If you do not use Azure Hybrid Benefit, you pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
 
-## Enable Azure Hybrid Benefit for Azure SQL Database
+## Enable Azure Hybrid Benefit 
+
+### Azure SQL Database
 
 You can choose or change your licensing model for Azure SQL Database using the Azure portal or the API of your choice.
 
-You can only apply the Azure Hybrid licensing model when you choose a v-Core based purchasing model and the provisioned compute tier for your Azure SQL Database. Azure Hybrid Benefit isn't available for service tiers under the DTU-based purchasing model or for the serverless compute tier.
+You can only apply the Azure Hybrid licensing model when you choose a vCore based purchasing model and the provisioned compute tier for your Azure SQL Database. Azure Hybrid Benefit isn't available for service tiers under the DTU-based purchasing model or for the serverless compute tier.
 
-# [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 To set or update the license type using the Azure portal:
 
-- For new databases, during creation, select **Configure database** on the **Basics** tab and select the option to **Save Money**.
-- For existing databases, select **Compute + Storage** in the **Settings** menu and select the option to **Save Money**.
+- For new databases, during creation, select **Configure database** on the **Basics** tab and select the option to **Save money**.
+- For existing databases, select **Compute + storage** in the **Settings** menu and select the option to **Save money**.
 
-If you don't see the **Save Money** option in the Azure portal, verify that you selected a service tier using the vCore-based purchasing model and the provisioned compute tier.
-# [PowerShell](#tab/azure-powershell)
+If you don't see the **Save money** option in the Azure portal, verify that you selected a service tier using the vCore-based purchasing model and the provisioned compute tier.
+#### [PowerShell](#tab/azure-powershell)
 
 To set or update the license type using PowerShell:
 
 - [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)
 - [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 To set or update the license type using the Azure CLI:
 
 - [az sql db create](/cli/azure/sql/db#az_sql_db_create)
 
-# [REST API](#tab/rest)
+#### [REST API](#tab/rest)
 
 To set or update the license type using the REST API:
 
@@ -64,31 +66,31 @@ To set or update the license type using the REST API:
 
 ---
 
-## Enable Azure Hybrid Benefit for Azure SQL Managed Instance
+### Azure SQL Managed Instance
 
 You can choose or change your licensing model for Azure SQL Managed Instance using the Azure portal or the API of your choice.
-# [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 To set or update the license type using the Azure portal:
 
-- For new Managed Instances, during creation, select **Configure Managed Instance** on the **Basics** tab and select the option for **Azure Hybrid Benefit**.
-- For existing Managed Instances, select **Compute + Storage** in the **Settings** menu and select the option for **Azure Hybrid Benefit**.
+- For new managed instances, during creation, select **Configure Managed Instance** on the **Basics** tab and select the option for **Azure Hybrid Benefit**.
+- For existing managed instances, select **Compute + storage** in the **Settings** menu and select the option for **Azure Hybrid Benefit**.
 
-# [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 To set or update the license type using PowerShell:
 
 - [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)
 - [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance)
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 To set or update the license type using the Azure CLI:
 
 - [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create)
 - [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update)
 
-# [REST API](#tab/rest)
+#### [REST API](#tab/rest)
 
 To set or update the license type using the REST API:
 
@@ -117,10 +119,9 @@ SQL Database and SQL Managed Instance customers have the following rights associ
 
 |License footprint|What does Azure Hybrid Benefit for SQL Server get you?|
 |---|---|
-|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in Hyperscale SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
-|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>1 core on-premises = 1 core in Hyperscale SKU</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li><br><li>4 core on-premises = 1 core in Business Critical SKU</li>|
+|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>One core on-premises = Four vCores in Hyperscale SKU</li><br><li>One core on-premises = 4 vCores in General Purpose SKU</li><br><li>One core on-premises = One vCore in Business Critical SKU</li>|
+|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>One core on-premises = One vCore in Hyperscale SKU</li><br><li>One core on-premises = One vCore in General Purpose SKU</li><br><li>Four core on-premises = One vCore in Business Critical SKU</li>|
 |||
-
 
 ## Next steps
 
