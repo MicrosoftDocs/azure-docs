@@ -177,9 +177,9 @@ Azure Load Balancer logs are used to obtain useful information about the connect
 |Metrics and health diagnostics for Standard Load Balancer|[https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics](../load-balancer/load-balancer-standard-diagnostics.md)|
 |
 
-### Virtual Machines
+### Virtual machines
 
-Virtual Machines are end points that send and receive network communications, process data and provide services. As Virtual Machines can host data or crucial system services, ensuring that they're operating correctly and detecting cyber security incidents can be critical. Virtual Machines collect various event and audit logs that can track the operation of the system and the actions done on that system. Logs collected on Virtual Machines can be forwarded to a Log Analytics Workspace using the Microsoft Monitoring Agent where they can be analysed by Microsoft Defender for Cloud and applicable Log Analytics solutions. Virtual Machines can also integrate directly with Azure Event Hubs or to a SIEM, either directly or through a Log Collection Server.
+Virtual machines are endpoints that send and receive network communications, process data, and provide services. As Virtual machines can host data or crucial system services, ensuring that they're operating correctly and detecting cyber security incidents can be critical. Virtual machines collect various event and audit logs that can track the operation of the system and the actions done on that system. Logs collected on Virtual Machines can be forwarded to a Log Analytics workspace using the Log Analytics agent where they can be analyzed by Microsoft Defender for Cloud. Virtual machines can also integrate directly with Azure Event Hubs or with a SIEM solution, either directly or through a log collection server.
 
 |Resources|Link|
 |---|---|
@@ -318,9 +318,9 @@ Microsoft Defender for Cloud provides unified security management and advanced t
 
 |Resources|Link|
 |---|---|
-|Microsoft Defender for Cloud Documentation|[https://docs.microsoft.com/azure/security-center](../security-center/index.yml)|
-|Quickstart: Onboard your Azure subscription to Defender for Cloud Standard|[https://docs.microsoft.com/azure/security-center/security-center-get-started](../security-center/security-center-get-started.md)|
-|
+|Microsoft Defender for Cloud documentation|[https://docs.microsoft.com/azure/security-center](../security-center/index.yml)|
+|Quickstart: Enable Microsoft Defender for Cloud's enhanced security features|[https://docs.microsoft.com/azure/security-center/security-center-get-started](../security-center/enable-enhanced-security.md)|
+|||
 
 ### Traffic Analytics
 

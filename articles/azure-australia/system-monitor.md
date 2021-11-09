@@ -36,11 +36,11 @@ Microsoft Defender for Cloud provides Azure customers with the following feature
 
 The scope of resources monitored by Microsoft Defender for Cloud can be expanded to include supported on-premises resources in a hybrid-cloud environment. This includes on-premises resources currently being monitored by a supported version of System Center Operations Manager.
 
-The Defender for Cloud "Standard" tier also provides cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application filtering and restriction of administrative privilege via just-in-time access.
+Defender for Cloud's enhanced security features provide cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application filtering and restriction of administrative privilege via just-in-time access.
 
 ### Azure Monitor
 
-[Azure Monitor](../azure-monitor/overview.md) is the centralised logging solution for all Azure Resources, and includes Log Analytics and Application Insights. Two key data types are collected from Azure resources: logs and metrics. Once collected in Azure Monitor, logging information can be used by a wide range of tools and for a variety of purposes.
+[Azure Monitor](../azure-monitor/overview.md) is the centralized logging solution for all Azure Resources, and includes Log Analytics and Application Insights. Two key data types are collected from Azure resources: logs and metrics. Once collected in Azure Monitor, logging information can be used by a wide range of tools and for a variety of purposes.
 
 ![Azure Monitor Overview](media/overview.png)
 
@@ -140,9 +140,9 @@ All deployed Azure policies contribute to an organisation's Secure Score. In a h
 To start with Microsoft Defender for Cloud and make full use of Azure Monitor, Advisor and Policy, Microsoft recommends the following initial steps:
 
 * Enable Microsoft Defender for Cloud
-* Upgrade to the Standard Tier
-* Enable Automatic Provisioning of the Microsoft Monitoring Agent to supported Azure Virtual Machines
-* Review, prioritise, and mitigate the security recommendations and alerts on the Security Centre dashboard
+* Enable Microsoft Defender for Cloud's enhanced security features
+* Enable automatic provisioning of the Log Analytics agent to supported machines
+* Review, prioritize, and mitigate the security recommendations and alerts shown on the Defender for Cloud dashboards
 
 ## Next steps
 
