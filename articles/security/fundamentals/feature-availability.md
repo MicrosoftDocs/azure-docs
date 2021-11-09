@@ -247,9 +247,9 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](../../sentinel/connect-windows-security-events.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
-| - Azure Defender bi-directional synch | Public Preview | Not Available  |
-| - Near Real Time (NRT) detections | Public Preview | Not Available  |
-| - Automated analytics rule tuning | Public Preview | Not Available |
+| - Azure Defender bi-directional synch | Public Preview | Public Preview  |
+| - Near Real Time (NRT) detections | Public Preview | Public Preview  |
+| - Automated analytics rule tuning | Public Preview | Public Preview |
 | **Azure service connectors** |  |  |
 | - [Azure Activity Logs](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
