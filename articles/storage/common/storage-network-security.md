@@ -225,7 +225,10 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 
 ### Managing virtual network rules
 
-You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2.
+You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2. 
+
+> [!NOTE]
+> If you registered the `AllowGlobalTagsForStorageOnly` feature, and you want to enable access to your storage account from a virtual network/subnet in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
 
 #### [Portal](#tab/azure-portal)
 
@@ -241,6 +244,8 @@ You can manage virtual network rules for storage accounts through the Azure port
     > If a service endpoint for Azure Storage wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
     >
     > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use Powershell, CLI or REST APIs.
+    > 
+    > Even if you registered the `AllowGlobalTagsForStorageOnly` feature, subnets in regions other than the region of the storage account or its paired region aren't shown for selection. If you want to enable access to your storage account from a virtual network/subnet in a different region, use the instructions in the PowerShell or Azure CLI tabs.
 
 5. To remove a virtual network or subnet rule, select **...** to open the context menu for the virtual network or subnet, and select **Remove**.
 
