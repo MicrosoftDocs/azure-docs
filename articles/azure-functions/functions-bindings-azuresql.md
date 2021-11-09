@@ -13,8 +13,8 @@ This set of articles explains how to work with [Azure SQL](/azure/azure-sql/) bi
 
 | Action | Type |
 |---------|---------|
-| Read data from a SQL database | [Input binding](./functions-bindings-azuresql-input.md) |
-| Save data to a SQL database |[Output binding](./functions-bindings-azuresql-output.md) |
+| Read data from a database | [Input binding](./functions-bindings-azuresql-input.md) |
+| Save data to a database |[Output binding](./functions-bindings-azuresql-output.md) |
 
 > [!NOTE]
 > This reference is for [Azure Functions version 2.x and higher](functions-versions.md). 
@@ -45,5 +45,5 @@ The Azure SQL bindings for Azure Functions are open source and available on the 
 
 ## Next steps
 
-- [Read data from a SQL database (Input binding)](./functions-bindings-azuresql-input.md)
-- [Save data to a SQL database (Output binding)](./functions-bindings-azuresql-output.md)
+- [Read data from a database (Input binding)](./functions-bindings-azuresql-input.md)
+- [Save data to a database (Output binding)](./functions-bindings-azuresql-output.md)

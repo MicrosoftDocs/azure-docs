@@ -158,4 +158,4 @@ The Azure SQL binding for Azure Functions does not currently support Python.
 
 ## Next steps
 
-- [Save data to a SQL database (Output binding)](./functions-bindings-azuresql-output.md)
+- [Save data to a database (Output binding)](./functions-bindings-azuresql-output.md)
