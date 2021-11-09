@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Launch TensorBoard to visualize experiment run histories and identify potential areas for hyperparameter tuning and retraining.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: pipelines
+ms.subservice: mlops
 author: minxia
 ms.author: minxia
 ms.date: 10/21/2021
