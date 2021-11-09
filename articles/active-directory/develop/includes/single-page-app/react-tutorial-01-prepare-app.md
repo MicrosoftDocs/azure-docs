@@ -26,7 +26,7 @@ Follow the steps in this tutorial to:
 
 ## Install the auth library
 
-:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_use_msal_context"::
+:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_use_msal_context":::
 
 
 ## Next steps
