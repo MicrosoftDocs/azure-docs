@@ -77,7 +77,7 @@ Use `EnableAnalyticalStorage true` for both **create** or **update** operations.
 
 ## <a id="create-analytical-ttl"></a> Create an analytical store enabled container
 
-You can turn on analytical store when creating an Azure Cosmos DB container by setting `analytical TTL` property. While Portal will implicitly set it to `-1`, that means infinite retention of the data, SDKs and command line tools allow you to also use positive integers, that represent the retention in seconds. For information on the various `analytical TTL` config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article. Please note that you can change `analytical TTL` to another value later.
+You can turn on analytical store when creating an Azure Cosmos DB container by using one of the following options.
 
 ### Azure portal
 
@@ -85,7 +85,7 @@ You can turn on analytical store when creating an Azure Cosmos DB container by s
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
-1. Select **New Container** and enter a name for your database, container, partition key and throughput details. Turn on the **Analytical store** option. After you enable the analytical store, it creates a container with `AnalyicalTTL` property set to the default value of  -1 (infinite retention). This analytical store that retains all the historical versions of records.
+1. Select **New Container** and enter a name for your database, container, partition key and throughput details. Turn on the **Analytical store** option. After you enable the analytical store, it creates a container with `analytical TTL` property set to the default value of  -1 (infinite retention). This analytical store that retains all the historical versions of records and can be changed later.
 
    :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Turn on analytical store for Azure Cosmos DB container":::
 
@@ -95,9 +95,13 @@ You can turn on analytical store when creating an Azure Cosmos DB container by s
 
 1. After the container is created, verify that analytical store has been enabled by clicking **Settings**, right below Documents in Data Explorer, and check if the **Analytical Store Time to Live** option is turned on.
 
-### .NET SDK
+### Azure Cosmos DB SDKs
 
-The following code creates a container with analytical store by using the .NET SDK. Set the analytical TTL property to the required value. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article:
+Set the `analytical TTL` property to the required value. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+
+#### .NET SDK
+
+The following code creates a container with analytical store by using the .NET SDK. Set the `AnalyticalStoreTimeToLiveInSeconds` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
 
 ```csharp
 // Create a container with a partition key, and analytical TTL configured to -1 (infinite retention)
@@ -111,9 +115,10 @@ CosmosClient cosmosClient = new CosmosClient("myConnectionString");
 await cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(properties);
 ```
 
-### Java V4 SDK
+#### Java V4 SDK
 
-The following code creates a container with analytical store by using the Java V4 SDK. Set the `AnalyticalStoreTimeToLiveInSeconds` property to the required value:
+The following code creates a container with analytical store by using the Java V4 SDK. Set the `AnalyticalStoreTimeToLiveInSeconds` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
+
 
 ```java
 // Create a container with a partition key and  analytical TTL configured to  -1 (infinite retention) 
@@ -124,11 +129,9 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds(-1);
 container = database.createContainerIfNotExists(containerProperties, 400).block().getContainer();
 ```
 
-### Python V4 SDK
+#### Python V4 SDK
 
-Python 2.7 and Azure Cosmos DB SDK 4.1.0 are the minimum versions required, and the SDK is only compatible with the SQL API.
-
-The first step is to make sure that you are using at least version 4.1.0 of the [Azure Cosmos DB Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos):
+The following code creates a container with analytical store by using the Python V4 SDK. Set the `analytical_storage_ttl` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
 
 ```python
 import azure.cosmos as cosmos
@@ -181,18 +184,18 @@ except exceptions.CosmosResourceExistsError:
 ```
 ### Command Line Tools
 
-Analytical store is enabled by setting the `analytical TTL` property when you create the new container. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+Set the `analytical TTL` property to the required value. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 #### Azure CLI
 
-Use the options below using `--analytical-storage-ttl -1` to enable analytical store with infinite retention for both SQL API containers or MongoDB API collections.
+The following options create a container with analytical store by using Azure CLI. Set the `--analytical-storage-ttl` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
 
 * [Create an Azure Cosmos DB MongoDB collection](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_create-examples)
 * [Create an Azure Cosmos DB SQL API container](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create) 
 
 #### PowerShell
 
-Use the options below using `-AnalyticalStorageTtl -1` to enable analytical store with infinite retention for both SQL API containers or MongoDB API collections.
+The following options create a container with analytical store by using PowerShell. Set the `-AnalyticalStorageTtl` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
 
 * [Create an Azure Cosmos DB MongoDB collection](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
 * [Create an Azure Cosmos DB SQL API container](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer)
