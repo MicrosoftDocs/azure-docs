@@ -29,7 +29,7 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
     
 3. Select **Metrics** within the IoT connector page.
 
-   :::image type="content" source="media\iot-metrics\iot_select_metrics.png" alt-text="Select the Metrics button" lightbox="media\iot-metrics\iot-metrics-button.png"::: 
+   :::image type="content" source="media\iot-metrics\iot_select_metrics.png" alt-text="Select the Metrics button." lightbox="media\iot-metrics\iot-metrics-button.png"::: 
 
 4. From the Metrics page, you can create the Metrics that you want to display for your IoT connector. For this example, we'll be choosing the following selections:
 
@@ -41,14 +41,14 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
     > [!TIP]
     > You can add additional Metrics by selecting the **Add metric** button and making your choices.
 
-    :::image type="content" source="media\iot-metrics\iot_select_metrics_and_add_button.png" alt-text="Select Metrics to display" lightbox="media\iot-metrics\iot_metrics_selection_close_up.png"::: 
+    :::image type="content" source="media\iot-metrics\iot_select_metrics_and_add_button.png" alt-text="Select "Add metric" button to add more metrics." lightbox="media\iot-metrics\iot_metrics_selection_close_up.png"::: 
 
-5. We can now see the IoT connector Metrics for **Number of Incoming Messages** display on the Azure portal.
+5. We can now see the IoT connector Metrics for **Number of Incoming Messages** displayed on the Azure portal.
 
     > [!TIP]
     > You can add additional Metrics by selecting the **Add metric** button and making your choices.
 
-    :::image type="content" source="media\iot-metrics\iot_metrics_add_button.png" alt-text="Metrics page displayed with the **Add metrics** button highlighted" lightbox="media\iot-metrics\iot-add-metric-button.png":::
+    :::image type="content" source="media\iot-metrics\iot_metrics_add_button.png" alt-text="Select "Add metric" button to add more metrics." lightbox="media\iot-metrics\iot-add-metric-button.png":::
 
     > [!IMPORTANT]
     > If you leave the Metrics page, the Metrics settings are lost and will have to be recreated. If you would like to save your IoT connector Metrics for future viewing, you can pin them to an Azure dashboard.
@@ -57,23 +57,23 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
 
 1. To pin the Metrics tile to an Azure portal dashboard, select the **Pin to dashboard** button:
 
-    :::image type="content" source="media\iot-metrics\iot_metrics_select_add_pin_to_dashboard.png" alt-text="Select the **Pin to dashboard** button" lightbox="media\iot-metrics\iot-pin-to-dashboard-button.png":::
+    :::image type="content" source="media\iot-metrics\iot_metrics_select_add_pin_to_dashboard.png" alt-text="Select the "Pin to dashboard" button" lightbox="media\iot-metrics\iot-pin-to-dashboard-button.png":::
 
-2. Select the dashboard you would like to display IoT connector Metrics on. For this example, we'll use a private dashboard named IoT connector Metrics. Select **Pin** to add the Metrics tile to the dashboard.
+2. Select the dashboard you would like to display IoT connector Metrics on. For this example, we'll use a private dashboard named `IoT connector Metrics`. Select **Pin** to add the Metrics tile to the dashboard.
 
-    :::image type="content" source="media\iot-metrics\iot_select_pin_to_dashboard.png" alt-text="IoT connector1" lightbox="media\iot-metrics\iot_select_pin_to_dashboard.png":::
+    :::image type="content" source="media\iot-metrics\iot_select_pin_to_dashboard.png" alt-text="Select "Pin" button." lightbox="media\iot-metrics\iot_select_pin_to_dashboard.png":::
 
 3. You'll receive a confirmation that the Metrics tile was successfully added to the dashboard.
 
-    :::image type="content" source="media\iot-metrics\iot_select_dashboard_pinned_successful.png" alt-text="IoT connector1" lightbox="media\iot-metrics\iot_select_dashboard_pinned_successful.png":::
+    :::image type="content" source="media\iot-metrics\iot_select_dashboard_pinned_successful.png" alt-text="Metric tile successfully pinned to dashboard." lightbox="media\iot-metrics\iot_select_dashboard_pinned_successful.png":::
 
 4. Once you've received a successful confirmation, select **Dashboard**.
 
-    :::image type="content" source="media\iot-metrics\iot_select_dashboard_with_metrics_tile.png" alt-text="Select the **Dashboard** button" lightbox="media\iot-metrics\iot-dashboard-button.png":::
+    :::image type="content" source="media\iot-metrics\iot_select_dashboard_with_metrics_tile.png" alt-text="Select the "Dashboard" button." lightbox="media\iot-metrics\iot-dashboard-button.png":::
 
-5. Select the dashboard that you pinned the Metric tile to. For this example, the dashboard is **IoT connector Metrics**. The dashboard will display the IoT connector Metrics tile that you created in the previous steps.
+5. Select the dashboard that you pinned the Metric tile to. For this example, the dashboard is `IoT connector Metrics`. The dashboard will display the IoT connector Metrics tile that you created in the previous steps.
 
-    :::image type="content" source="media\iot-metrics\iot_dashboard_with_metrics_tile_displayed.png" alt-text="Displaying of Dashboard with pinned IoT connector Metrics tile" lightbox="media\iot-metrics\iot_dashboard_with_metrics_tile_displayed.png":::
+    :::image type="content" source="media\iot-metrics\iot_dashboard_with_metrics_tile_displayed.png" alt-text="Dashboard with pinned IoT connector Metrics tile." lightbox="media\iot-metrics\iot_dashboard_with_metrics_tile_displayed.png":::
 
 ## Conclusion 
 
