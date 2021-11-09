@@ -87,8 +87,6 @@ The script takes the following actions:
 
 - Configures any necessary IAM permissions policies and applies them to the IAM role created above.
 
-- ***IS THE ORDER OF THE ABOVE LOGICAL? DOES IT/SHOULD IT FOLLOW THE ORDER OF THE SCRIPT? -YL***
-
 ### Instructions
 
 To run the script to set up the connector, use the following steps:
@@ -141,43 +139,43 @@ The manual setup consists of the following steps:
 
 1. Under **Configuration**, copy the **Microsoft account ID** and the **External ID (Workspace ID)** and paste them aside.
  
-1. In your Amazon Web Services console, under **Security, Identity & Compliance**, select **IAM**.
+1. In your AWS management console, under **Security, Identity & Compliance**, select **IAM**.
 
-   :::image type="content" source="media/connect-aws-s3/aws-1.png" alt-text="Screenshot of Amazon Web Services console.":::
+   :::image type="content" source="media/connect-aws-s3/aws-select-iam.png" alt-text="Screenshot of Amazon Web Services console.":::
 
 1. Choose **Roles** and select **Create role**.
 
-   :::image type="content" source="media/connect-aws-s3/aws-2.png" alt-text="Screenshot of A W S roles creation screen.":::
+   :::image type="content" source="media/connect-aws-s3/aws-select-roles.png" alt-text="Screenshot of A W S roles creation screen.":::
 
 1. Choose **Another AWS account.** In the **Account ID** field, enter the **Microsoft Account ID** that you copied from the AWS connector page in the Microsoft Sentinel portal and pasted aside.
 
-   :::image type="content" source="media/connect-aws-s3/aws-3.png" alt-text="Screenshot of A W S role configuration screen.":::
+   :::image type="content" source="media/connect-aws-s3/aws-enter-account.png" alt-text="Screenshot of A W S role configuration screen.":::
 
 1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that you copied from the AWS connector page in the Microsoft Sentinel portal and pasted aside. Then select **Next: Permissions**.
 
-   :::image type="content" source="media/connect-aws-s3/aws-4.png" alt-text="Screenshot of continuation of A W S role configuration screen.":::
+   :::image type="content" source="media/connect-aws-s3/aws-enter-external-id.png" alt-text="Screenshot of continuation of A W S role configuration screen.":::
 
-1. Skip the next step, **Attach permissions policy**, for now. You'll come back to it later [when instructed](#apply-iam-permissions-policies). Select **Next: Tags**.
+1. Skip the next step, **Attach permissions policies**, for now. You'll come back to it later [when instructed](#apply-iam-permissions-policies). Select **Next: Tags**.
 
-   :::image type="content" source="media/connect-aws-s3/aws-5.png" alt-text="Screenshot of Next: Tags.":::
+   :::image type="content" source="media/connect-aws-s3/aws-skip-permissions.png" alt-text="Screenshot of Next: Tags.":::
 
 1. Enter a **Tag** (optional). Then select **Next: Review**.
 
-   :::image type="content" source="media/connect-aws-s3/aws-6.png" alt-text="Screenshot of tags screen.":::
+   :::image type="content" source="media/connect-aws-s3/aws-add-tags.png" alt-text="Screenshot of tags screen.":::
 
 1. Enter a **Role name** and select **Create role**.
 
-   :::image type="content" source="media/connect-aws-s3/aws-7.png" alt-text="Screenshot of role naming screen.":::
+   :::image type="content" source="media/connect-aws-s3/aws-create-role.png" alt-text="Screenshot of role naming screen.":::
 
 1. In the **Roles** list, select the new role you created.
 
-   :::image type="content" source="media/connect-aws-s3/aws-8.png" alt-text="Screenshot of roles list screen.":::
+   :::image type="content" source="media/connect-aws-s3/aws-select-role.png" alt-text="Screenshot of roles list screen.":::
 
-1. Copy the **Role ARN**.
+1. Copy the **Role ARN** and paste it aside.
 
-   :::image type="content" source="media/connect-aws-s3/aws-9.png" alt-text="Screenshot of copying role A R N.":::
+   :::image type="content" source="media/connect-aws-s3/aws-copy-role-arn.png" alt-text="Screenshot of copying role A R N.":::
 
-1. ***ADD STEP ABOUT ADDING THE SQS URL -YL***
+1. Go to the AWS SQS dashboard,
 
 1. In the AWS S3 connector page in the Microsoft Sentinel portal, paste the **Role ARN** into the **Role ARN** field under **3. Add connection**, and select **Add connection**.
 
