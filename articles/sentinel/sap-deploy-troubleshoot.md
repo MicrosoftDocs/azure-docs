@@ -191,7 +191,7 @@ If ABAP runtime errors appear on large systems, try setting a smaller chunk size
 
 ### Incorrect Azure Sentinel workspace ID or key
 
-If you realize that you've entered an incorrect workspace ID or key in your [deployment script](sap-deploy-solution.md#create-key-vault-for-your-sap-credentials), update the credentials stored in Azure KeyVault.
+If you realize that you've entered an incorrect workspace ID or key in your [deployment script](sap-deploy-solution.md#create-a-key-vault-for-your-sap-credentials), update the credentials stored in Azure KeyVault.
 
 After verifying your credentials in Azure KeyVault, restart the container:
 
