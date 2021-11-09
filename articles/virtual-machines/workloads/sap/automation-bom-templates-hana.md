@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Generate HANA templates for automation
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). Before you can deploy a system using a custom BoM, you need to also create a template for the database. This guide covers SAP HANA templates. There's also a [guide for SAP Application Database (SAP DB) templates](automation-bom-templates-db.md).
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). Before you can deploy a system using a custom BoM, you need to also create a template for the database. This guide covers SAP HANA templates. There's also a [guide for SAP Application templates](automation-bom-templates-db.md).
 
 
 ## Prerequisites
