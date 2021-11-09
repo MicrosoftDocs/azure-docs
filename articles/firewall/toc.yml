@@ -31,7 +31,7 @@
     href: sample-powershell.md
 - name: Concepts
   items:
-    - name: Azure Firewall features
+    - name: Azure Firewall Standard features
       href: features.md
     - name: Azure Firewall Premium features
       href: premium-features.md
