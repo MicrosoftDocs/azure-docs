@@ -494,10 +494,9 @@ productDirectory:
       url: /azure/quantum/
     # Card
     - title: Azure Spot Virtual Machines
-      summary: Using Azure Spot Virtual Machines allows you to take advantage of our unused capacity at a significant cost savings.
+      summary: Provision unused compute capacity at deep discounts to run interruptible workloads
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       azureCategories:
-        - featured
         - compute
       url: ./virtual-machines/spot-vms.md
     # Card
