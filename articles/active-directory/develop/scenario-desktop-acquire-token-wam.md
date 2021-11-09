@@ -82,7 +82,7 @@ Call `.WithBroker(true)`. If a broker is not present (e.g. Win8.1, Mac, or Linux
 
 ## Redirect URI
 
-WAM redirect URIs do not need to be configured in MSAL, but they must be configured in the app registration.
+WAM redirect URIs do not need to be configured in MSAL, but they must be configured in the [app registration](scenario-desktop-app-registration#redirect-uris).
 
 ### Win32 (.NET framework / .NET 5)
 
