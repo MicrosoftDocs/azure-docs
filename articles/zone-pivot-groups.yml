@@ -1357,7 +1357,7 @@ groups:
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
-- id: programming-languages-set-compress-audio-one
+- id: programming-languages-set-twenty-eight
   title: Programming languages
   prompt: Choose a programming language
   pivots:

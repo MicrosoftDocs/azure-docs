@@ -16,8 +16,7 @@ ROBOTS: NOINDEX
 
 # Configure OpenSSL for Linux
 
-In the Speech SDK version 1.19.0 and onwards, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version.
-In earlier versions (1.9.0 to 1.18.0) of the Speech SDK, OpenSSL is statically linked to the core library of the SDK.
+With the Speech SDK version 1.19.0 and higher, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version. In previous versions, OpenSSL is statically linked to the core library of the SDK.
 
 To ensure connectivity, verify that OpenSSL certificates have been installed in your system. Run a command:
 ```bash

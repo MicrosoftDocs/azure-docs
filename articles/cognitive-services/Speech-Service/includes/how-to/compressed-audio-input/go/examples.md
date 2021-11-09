@@ -6,13 +6,12 @@ ms.date: 09/17/2021
 ms.author: amishu
 ---
 
-To configure Speech SDK to accept compressed audio input, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
+To configure the Speech SDK to accept compressed audio input, create a `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
 
-Let's assume that your use case is to use `PushStream` for a compressed file. Your code may look like this:
+In the following example let's assume that your use case is to use `PushStream` for a compressed file. 
 
 ```go
 
-```suggestion
 package recognizer
 
 import (
