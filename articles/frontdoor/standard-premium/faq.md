@@ -178,50 +178,7 @@ Azure Front Door is a globally distributed multi-tenant platform with huge amoun
 
 All Front Door profiles created after September 2019 use TLS 1.2 as the default minimum.
 
-Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 isn't yet supported.
-
-### What certificates are supported on Azure Front Door?
-
-To enable the HTTPS protocol on a Front Door custom domain, you can choose a certificate that gets managed by Azure Front Door or use your own certificate.
-The Front Door managed option provisions a standard TLS/SSL certificate via Digicert and  stored in Front Door's Key Vault. If you choose to use your own certificate, then you can onboard a certificate from a supported CA and can be a standard TLS, extended validation certificate, or even a wildcard certificate. Self-signed certificates aren't supported.
-
-### Does Front Door support autorotation of certificates?
-
-For the Front Door managed certificate option, the certificates are autorotated by Front Door. If you're using a Front Door managed certificate and see that the certificate expiry date is less than 60 days away, file a support ticket.
-
-For your own custom TLS/SSL certificate, autorotation isn't supported. Similar to how you set up the first time for a given custom domain, you'll need to point Front Door to the right certificate version in your Key Vault. Ensure that the service principal for Front Door still has access to the Key Vault. This updated certificate rollout operation by Front Door doesn't cause any production down time provided the subject name or SAN for the certificate doesn't change.
-
-### What are the current cipher suites supported by Azure Front Door?
-
-For TLS1.2 the following cipher suites are supported: 
-
-- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-
-Using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
-
-- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
-- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
-- TLS_RSA_WITH_AES_256_GCM_SHA384
-- TLS_RSA_WITH_AES_128_GCM_SHA256
-- TLS_RSA_WITH_AES_256_CBC_SHA256
-- TLS_RSA_WITH_AES_128_CBC_SHA256
-- TLS_RSA_WITH_AES_256_CBC_SHA
-- TLS_RSA_WITH_AES_128_CBC_SHA
-- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 isn't yet supported. Refer to [Azure Front Door end-to-end TLS](../concept-end-to-end-tls.md) for more details.
 
 ### Can I configure TLS policy to control TLS Protocol versions?
 
