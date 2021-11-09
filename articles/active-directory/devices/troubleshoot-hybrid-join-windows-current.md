@@ -33,6 +33,10 @@ This article assumes that you have [configured hybrid Azure AD-joined devices](h
 - [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 
+> [!NOTE] 
+> To troubleshoot the common device registration issues, use [Device Registration Troubleshooter Tool](https://aka.ms/DSRegTool).
+
+
 ## Troubleshoot join failures
 
 ### Step 1: Retrieve the join status
