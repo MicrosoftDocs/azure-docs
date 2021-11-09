@@ -30,12 +30,12 @@ The table below contains the Terraform parameters, these parameters need to be 
 The table below contains the parameters that define the resource group and the resource naming.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                | Description                           | 
-> | ----------------------- | ------------------------------------- | 
-> | `environment`            | A five-character identifier for the workload zone. For example, `PROD` for a production environment and `NP` for a non-production environment.| 
-> | `location`              | The Azure region in which to deploy.     |
-> | `resource_group_name`   | Name of the resource group to be created |
-> | `resource_group_arm_id` | Azure resource identifier for an existing resource group |
+> | Variable                | Description                           | Type |
+> | ----------------------- | ------------------------------------- | ----- |
+> | `environment`            | A five-character identifier for the workload zone. For example, `PROD` for a production environment and `NP` for a non-production environment.| Required |
+> | `location`              | The Azure region in which to deploy.     | Required |
+> | `resource_group_name`   | Name of the resource group to be created | Optional |
+> | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional |
 
 ## Network Parameters
 
