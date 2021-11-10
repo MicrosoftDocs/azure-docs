@@ -53,7 +53,7 @@ For the latest information on Azure storage service limits and best practices fo
     - You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group. If VHDs have same names, then only one VHD is converted to managed disk with that name. The other VHDs are uploaded as page blobs into the staging storage account.
     - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs are uploaded to Azure Storage account as page blobs and not managed disks.
     - Only the fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs or VHDX files are not supported.
-    - Non VHD files copied to the precreated managed disk folders won't be converted to a managed disk.
+    - Non VHD files copied to the precreated managed disk folders will not be converted to a managed disk.
 
 ## Azure storage account size limits
 
@@ -88,7 +88,7 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 
 | Entity | Conventions                                             |
 |-------------------|-----------------------------------------------------------|
-| Managed disk names       |<li> The name must be 1 to 80 characters long. </li><li> The name must begin with a letter or number, end with a letter, number or underscore. </li><li> The name may contain only letters, numbers, underscores, periods, or hyphens. </li><li> The name should not have spaces or `/`. |
+| Managed disk names       |<li> The name must be 1 to 80 characters long. </li><li> The name must begin with a letter or number, end with a letter, number or underscore. </li><li>    The name may contain only letters, numbers, underscores, periods, or hyphens. </li><li> The name should not have spaces or `/`.                     |
 
 ## Next steps
 
