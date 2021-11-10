@@ -200,7 +200,7 @@
         href: work-with-anomaly-rules.md
       - name: Manage template versions for analytics rules
         href: manage-analytics-rule-templates.md
-      - name: Handle ingestion delay
+      - name: Handle ingestion delay in analytics rules
         href: ingestion-delay.md
       - name: Get fine-tuning recommendations
         href: detection-tuning.md
