@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 11/08/2021
+ms.date: 11/10/2021
 ms.topic: reference
 ---
 
@@ -78,10 +78,6 @@ This section describes the following sensor APIs:
 ### Version 2
 
 - [Retrieve alert PCAP - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
-
-### Version 3
-
-- [Service Now Integration API - “/external/v3/integration/](#service-now-integration-api---externalv3integration)
 
 ### Validate user credentials - /api/external/authentication/validation
 
@@ -1590,208 +1586,6 @@ Example:
 |-|-|-|
 |GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
 
-### Service Now Integration API - “/external/v3/integration/
-
-Use these API's with the ServiceNow integration.
-
-### Create and update devices
-
-#### Request
-
-- Path: “/devices/{timestamp}”
-- Method type: GET
-- Path parameters:
-    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
-
-- Query parameters:
-    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The Id should be taken from the results of the Sensors API.
-    - “**notificationType**” - should be a number, from the following mapping:
-        - 0 – both updated and new devices (default).
-        - 1 – only new devices.
-        - 2 – only updated devices.
-    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
-    - “**size**” - the page size (default value is 50)
-
-#### Response
-
-- Type: JSON
-- Structure:
-    - “**u_count**” - amount of object in the full result sets, including all pages.
-    - “**u_devices**” - array of device objects (as defined in the specific device API).
-
-### Connections
-
-#### Request
-
-- Path: “/connections/{timestamp}”
-- Method type: GET
-- Path parameters:
-    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
-- Query parameters:
-    - “**page**” - the page number, from the result set (default value is 1)
-    - “**size**” - the page size (default value is 50)
-
-#### Response
-
-- Type: JSON
-- Structure: 
-    - “**u_count**” - amount of object in the full result sets, including all pages.
-    - “**u_connections**” - array of
-        - “**u_src_device_id**” - the Id of the source device.
-        - “**u_dest_device_id**” - the Id of the destination device.
-        - “**u_connection_type**” - one of the following:
-            - “**One Way**”
-            - “**Two Way**”
-            - “**Multicast**”
-
-### Specific device
-
-#### Request
-
-- Path: “/device/{deviceId}”
-- Method type: GET
-- Path parameters:
-    - “**deviceId**” – the Id of the requested device.
-
-#### Response
-
-- Type: JSON
-- Structure:
-    - “**u_id**” - the internal id of the device.
-    - “**u_vendor**” - the name of the vendor.
-    - “**u_mac_address_objects**” - array of
-        - “**u_mac_address**” - mac address of the device.
-    - “**u_ip_address_objects**” - array of
-        - “**u_ip_address**” - IP address of the device.
-        - “**u_guessed_mac_addresses**” - array of
-            - “**u_mac_address**” - guessed mac address.
-    - “**u_name**” - the name of the device.
-    - “**u_last_activity**” - timestamp of the last time the device was active.
-    - “**u_first_discovered**” - timestamp of the discovery time of the device.
-    - “**u_last_update**” - timestamp of the last update time of the device.
-    - “**u_vlans**” - array of
-        - “**u_vlan**” - vlan in which the device is in.
-    - “**u_device_type**” -
-        - “**u_name**” - the device type
-        - “**u_purdue_layer**” - the default purdue layer for this device type.
-        - “**u_category**” - will be one of the following:
-            - “**IT**”
-            - “**ICS**”
-            - “**IoT**”
-            - “**Network**”
-    - “**u_operating_system**” - the device operating system.
-    - “**u_protocol_objects**” - array of
-        - “**u_protocol**” - protocol the device uses.
-    - “**u_purdue_layer**” - the purdue layer that was manually set by the user.
-    - “**u_sensor_ids**” - array of
-        - “**u_sensor_id**” - the id of the sensor that saw the device.
-    - “**u_device_urls**” - array of
-        - “**u_device_url**” the URL to view the device in the sensor.
-    - “**u_firmwares**” - array of
-        - “**u_address**”
-        - “**u_module_address**”
-        - “**u_serial**”
-        - “**u_model**”
-        - “**u_version**”
-        - “**u_additional_data**"
-
-### Deleted devices
-
-#### Request
-
-- Path: “/deleteddevices/{timestamp}”
-- Method type: GET
-- Path parameters:
-    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
-
-#### Response
-
-- Type: JSON
-- Structure:
-    - Array of
-        - “**u_id**” - the id of the deleted device.
-
-### Sensors
-
-#### Request
-
-- Path: “/sensors”
-- Method type: GET
-
-#### Response
-
-- Type: JSON
-- Structure:
-    - Array of
-        - “**u_id**” - internal sensor id, to be used in the devices API.
-        - “**u_name**” - the name of the appliance.
-        - “**u_connection_state**” - connectivity with the CM state. One of the following:
-            - “**SYNCED**” - Connection is successful.
-            - “**OUT_OF_SYNC**” - Management console cannot process data received from Sensor.
-            - “**TIME_DIFF_OFFSET**” - Time drift detected. management console has been disconnected from Sensor.
-            - “**DISCONNECTED**” - Sensor not communicating with management console. Check network connectivity.
-        - “**u_interface_address**” - the network address of the appliance.
-        - “**u_version**” - string representation of the sensor’s version.
-        - “**u_alert_count**” - number of alerts found by the sensor.
-        - “**u_device_count**” - number of devices discovered by the sensor.
-        - “**u_unhandled_alert_count**” - number of unhandled alerts in the sensor.
-        - “**u_is_activated**” - is the alert activated.
-        - “**u_data_intelligence_version**” - string representation of the data intelligence installed in the sensor.
-        - “**u_remote_upgrade_stage**” - the state of the remote upgrade. One of the following:
-            - "**UPLOADING**"
-            - "**PREPARE_TO_INSTALL**"
-            - "**STOPPING_PROCESSES**"
-            - "**BACKING_UP_DATA**"
-            - "**TAKING_SNAPSHOT**"
-            - "**UPDATING_CONFIGURATION**"
-            - "**UPDATING_DEPENDENCIES**"
-            - "**UPDATING_LIBRARIES**"
-            - "**PATCHING_DATABASES**"
-            - "**STARTING_PROCESSES**"
-            - "**VALIDATING_SYSTEM_SANITY**"
-            - "**VALIDATION_SUCCEEDED_REBOOTING**"
-            - "**SUCCESS**"
-            - "**FAILURE**"
-            - "**UPGRADE_STARTED**"
-            - "**STARTING_INSTALLATION**"
-            - "**INSTALLING_OPERATING_SYSTEM**"
-        - “**u_uid**” - globally unique identifier of the sensor
-
-### Device CVEs
-
-#### Request
-
-- Path: “/devicecves/{timestamp}”
-- Method type: GET
-- Path parameters:
-    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
-- Query parameters:
-    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The Id should be taken from the results of the Sensors API.
-    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
-    - “**size**” - the page size (default value is 50)
-
-#### Response
-
-- Type: JSON
-- Structure:
-    - “**u_count**” - amount of object in the full result sets, including all pages.
-    - “**u_devices**” - array of
-    - “**u_id**” - the same as in the specific device API.
-    - “**u_name**” - the same as in the specific device API.
-    - “**u_ip_address_objects**” - the same as in the specific device API.
-    - “**u_mac_address_objects**” - the same as in the specific device API.
-    - “**u_last_activity**” - the same as in the specific device API.
-    - “**u_last_update**” - the same as in the specific device API.
-    - “**u_cves**” - an array of CVEs:
-        - “**u_ip_address**” - the IP address of the specific interface with the specific firmware on which the CVE was detected.
-        - “**u_cve_id**”- the ID of the CVE
-        - “**u_score**”- the risk score of the CVE
-        - “**u_attack_vector**” - one of the following:
-            - "**ADJACENT_NETWORK**"
-            - "**LOCAL**"
-            - "**NETWORK**"
-        - “**u_description**” - description about the CVE.
-
 ## On-premises management console API specifications
 
 This section describes on-premises management console APIs for:
@@ -1821,6 +1615,10 @@ This section describes on-premises management console APIs for:
 ### Version 2
 
 - [Request alert PCAP - /external/v2/alerts/pcap](#request-alert-pcap---externalv2alertspcap)
+
+### Version 3
+
+- [Service Now Integration API - “/external/v3/integration/](#service-now-integration-api---externalv3integration)
 
 ### Alert Exclusions
 
@@ -2935,6 +2733,208 @@ Example:
 |Type|APIs|Example|
 |-|-|-|
 |GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'`
+
+### Service Now Integration API - “/external/v3/integration/
+
+The below API's can be used with the ServiceNow integration via the ServiceNow's Service Graph Connector for Defender for IoT.
+
+### Create and update devices
+
+#### Request
+
+- Path: “/devices/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+
+- Query parameters:
+    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The Id should be taken from the results of the Sensors API.
+    - “**notificationType**” - should be a number, from the following mapping:
+        - 0 – both updated and new devices (default).
+        - 1 – only new devices.
+        - 2 – only updated devices.
+    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
+    - “**size**” - the page size (default value is 50)
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - “**u_count**” - amount of object in the full result sets, including all pages.
+    - “**u_devices**” - array of device objects (as defined in the specific device API).
+
+### Connections
+
+#### Request
+
+- Path: “/connections/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+- Query parameters:
+    - “**page**” - the page number, from the result set (default value is 1)
+    - “**size**” - the page size (default value is 50)
+
+#### Response
+
+- Type: JSON
+- Structure: 
+    - “**u_count**” - amount of object in the full result sets, including all pages.
+    - “**u_connections**” - array of
+        - “**u_src_device_id**” - the Id of the source device.
+        - “**u_dest_device_id**” - the Id of the destination device.
+        - “**u_connection_type**” - one of the following:
+            - “**One Way**”
+            - “**Two Way**”
+            - “**Multicast**”
+
+### Specific device
+
+#### Request
+
+- Path: “/device/{deviceId}”
+- Method type: GET
+- Path parameters:
+    - “**deviceId**” – the Id of the requested device.
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - “**u_id**” - the internal id of the device.
+    - “**u_vendor**” - the name of the vendor.
+    - “**u_mac_address_objects**” - array of
+        - “**u_mac_address**” - mac address of the device.
+    - “**u_ip_address_objects**” - array of
+        - “**u_ip_address**” - IP address of the device.
+        - “**u_guessed_mac_addresses**” - array of
+            - “**u_mac_address**” - guessed mac address.
+    - “**u_name**” - the name of the device.
+    - “**u_last_activity**” - timestamp of the last time the device was active.
+    - “**u_first_discovered**” - timestamp of the discovery time of the device.
+    - “**u_last_update**” - timestamp of the last update time of the device.
+    - “**u_vlans**” - array of
+        - “**u_vlan**” - vlan in which the device is in.
+    - “**u_device_type**” -
+        - “**u_name**” - the device type
+        - “**u_purdue_layer**” - the default purdue layer for this device type.
+        - “**u_category**” - will be one of the following:
+            - “**IT**”
+            - “**ICS**”
+            - “**IoT**”
+            - “**Network**”
+    - “**u_operating_system**” - the device operating system.
+    - “**u_protocol_objects**” - array of
+        - “**u_protocol**” - protocol the device uses.
+    - “**u_purdue_layer**” - the purdue layer that was manually set by the user.
+    - “**u_sensor_ids**” - array of
+        - “**u_sensor_id**” - the id of the sensor that saw the device.
+    - “**u_device_urls**” - array of
+        - “**u_device_url**” the URL to view the device in the sensor.
+    - “**u_firmwares**” - array of
+        - “**u_address**”
+        - “**u_module_address**”
+        - “**u_serial**”
+        - “**u_model**”
+        - “**u_version**”
+        - “**u_additional_data**"
+
+### Deleted devices
+
+#### Request
+
+- Path: “/deleteddevices/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - Array of
+        - “**u_id**” - the id of the deleted device.
+
+### Sensors
+
+#### Request
+
+- Path: “/sensors”
+- Method type: GET
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - Array of
+        - “**u_id**” - internal sensor id, to be used in the devices API.
+        - “**u_name**” - the name of the appliance.
+        - “**u_connection_state**” - connectivity with the CM state. One of the following:
+            - “**SYNCED**” - Connection is successful.
+            - “**OUT_OF_SYNC**” - Management console cannot process data received from Sensor.
+            - “**TIME_DIFF_OFFSET**” - Time drift detected. management console has been disconnected from Sensor.
+            - “**DISCONNECTED**” - Sensor not communicating with management console. Check network connectivity.
+        - “**u_interface_address**” - the network address of the appliance.
+        - “**u_version**” - string representation of the sensor’s version.
+        - “**u_alert_count**” - number of alerts found by the sensor.
+        - “**u_device_count**” - number of devices discovered by the sensor.
+        - “**u_unhandled_alert_count**” - number of unhandled alerts in the sensor.
+        - “**u_is_activated**” - is the alert activated.
+        - “**u_data_intelligence_version**” - string representation of the data intelligence installed in the sensor.
+        - “**u_remote_upgrade_stage**” - the state of the remote upgrade. One of the following:
+            - "**UPLOADING**"
+            - "**PREPARE_TO_INSTALL**"
+            - "**STOPPING_PROCESSES**"
+            - "**BACKING_UP_DATA**"
+            - "**TAKING_SNAPSHOT**"
+            - "**UPDATING_CONFIGURATION**"
+            - "**UPDATING_DEPENDENCIES**"
+            - "**UPDATING_LIBRARIES**"
+            - "**PATCHING_DATABASES**"
+            - "**STARTING_PROCESSES**"
+            - "**VALIDATING_SYSTEM_SANITY**"
+            - "**VALIDATION_SUCCEEDED_REBOOTING**"
+            - "**SUCCESS**"
+            - "**FAILURE**"
+            - "**UPGRADE_STARTED**"
+            - "**STARTING_INSTALLATION**"
+            - "**INSTALLING_OPERATING_SYSTEM**"
+        - “**u_uid**” - globally unique identifier of the sensor
+
+### Device CVEs
+
+#### Request
+
+- Path: “/devicecves/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+- Query parameters:
+    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The Id should be taken from the results of the Sensors API.
+    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
+    - “**size**” - the page size (default value is 50)
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - “**u_count**” - amount of object in the full result sets, including all pages.
+    - “**u_devices**” - array of
+    - “**u_id**” - the same as in the specific device API.
+    - “**u_name**” - the same as in the specific device API.
+    - “**u_ip_address_objects**” - the same as in the specific device API.
+    - “**u_mac_address_objects**” - the same as in the specific device API.
+    - “**u_last_activity**” - the same as in the specific device API.
+    - “**u_last_update**” - the same as in the specific device API.
+    - “**u_cves**” - an array of CVEs:
+        - “**u_ip_address**” - the IP address of the specific interface with the specific firmware on which the CVE was detected.
+        - “**u_cve_id**”- the ID of the CVE
+        - “**u_score**”- the risk score of the CVE
+        - “**u_attack_vector**” - one of the following:
+            - "**ADJACENT_NETWORK**"
+            - "**LOCAL**"
+            - "**NETWORK**"
+        - “**u_description**” - description about the CVE.
 
 ## Next steps
 
