@@ -57,7 +57,7 @@ Make sure you take regular backups of your vault. Backups should be performed wh
 
 ## Turn on recovery options
 
-- Turn on [Soft Delete](soft-delete-overview.md).
+- Turn on [soft-delete](soft-delete-overview.md).
 - Turn on purge protection if you want to guard against force deletion of the secrets and key vault even after soft-delete is turned on.
 
 ## Learn more
