@@ -22,7 +22,7 @@ Arc-enabled VMware vSphere allows you to:
 
 ## How does it work?
 
-To deliver this experience, you need to deploy the [Azure Arc resource bridge](../resource-bridge/overview.md) (preview), which is a virtual appliance, in your vSphere environment. It connects your vCenter to Azure. Azure Arc resource bridge (preview) enables you to represent the VMware resources in Azure and do various operations on them.
+To deliver this experience, you need to deploy the [Azure Arc resource bridge](../resource-bridge/overview.md) (preview), which is a virtual appliance, in your vSphere environment. It connects your vCenter Server to Azure. Azure Arc resource bridge (preview) enables you to represent the VMware resources in Azure and do various operations on them.
 
 ## Supported VMware vSphere versions
 
