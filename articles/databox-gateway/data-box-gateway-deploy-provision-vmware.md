@@ -94,6 +94,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 4. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. 
 
     - The datastore must be type VMFS5. Databox Gateway has been tested with VMWare with the VMFS5 Datastore. Later Datastore versions, including VMFS6, are not currently supported.
+
     - The datastore must also have enough free space for the OS and data disks.
    
 5. Right-click and select **Browse Datastore**.
