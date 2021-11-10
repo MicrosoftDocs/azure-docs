@@ -26,6 +26,8 @@ To simplify the process for creating and managing pools, Azure Synapse takes car
 >  - GPU-accelerated pools can be created in workspaces located in East US, Australia East, and North Europe.
 >  - GPU-accelerated pools are only availble with the Apache Spark 3 runtime.
 >  - You might need to request a [limit increase](./apache-spark-rapids-gpu.md#quotas-and-resource-constraints-in-azure-synapse-gpu-enabled-pools) in order to create GPU-enabled clusters. 
+
+![Apache Spark pool create flow - basics tab.](../media/quickstart-create-apache-spark-pool/create-spark-gpu-pool-portal-01.png)
  
 ## GPU-accelerated Runtime
 
