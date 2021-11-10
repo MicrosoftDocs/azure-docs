@@ -48,25 +48,29 @@ You'll need to register an application that will act as your client app when cal
 
 1. Register an application.  You can follow the first few steps of this [quickstart](quickstart-register-app.md) if you don't know how to register an app.  You won't need to add a redirect URI or add credentials, so you can skip those sections.
 2. Enable your app for public client flows, since ROPC is a public client flow.  From your app registration in the Azure portal, go to Authentication > Advanced settings > Allow public client flows.  Set the toggle to 'Yes'.
-3. Consent to the permissions you want to use while testing.  Since ROPC is not an interactive flow, you won't be prompted with a consent screen to consent to these at runtime.  So, you'll need to pre-consent to them to avoid errors when acquiring tokens. First, add the permissions to your app. From your app registration in the Azure portal, go to the API Permissions page > Add a permission.  Add the permissions you need to call the APIs you'll be using. Once the permissions are added, you'll need to consent to them.  This can be done two different ways.
-        * If you plan on testing your app in the same tenant you registered it in, and you are an administrator in that tenant, you can consent to the permissions from the Azure portal. Simply click the 'Grant admin consent for <your_tenant_name>' button, next to the 'Add a permission' button on the API Permissions page.
-        * If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you can still pre-consent to some permissions.  
-        From your app registration in the Azure portal, go to Authentication > Add a platform > Web.  Add the redirect URI "https://localhost".
+3. Consent to the permissions you want to use while testing.  Since ROPC is not an interactive flow, you won't be prompted with a consent screen to consent to these at runtime.  So, you'll need to pre-consent to them to avoid errors when acquiring tokens. 
+
+       First, add the permissions to your app. From your app registration in the Azure portal, go to the API Permissions page > Add a permission.  Add the permissions you need to call the APIs you'll be using. Once the permissions are added, you'll need to consent to them.  This can be done two different ways.
+
+        If you plan on testing your app in the same tenant you registered it in, and you are an administrator in that tenant, you can consent to the permissions from the Azure portal. Simply click the 'Grant admin consent for <your_tenant_name>' button, next to the 'Add a permission' button on the API Permissions page.
+        
+        If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you can still pre-consent to some permissions.  
+        First, from your app registration in the Azure portal, go to Authentication > Add a platform > Web.  Add the redirect URI "https://localhost".
         Then, send the below request in a browser, and when you are prompted with the login screen, sign in with a **test account** you created in a previous step.  Next, consent to the permissions you are prompted with.  You may need to repeat this step for each API you want to call and test user you want to use.
 
-                ```HTTP
-                // Line breaks for legibility only
+         ```HTTP
+         // Line breaks for legibility only
 
-                https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
-                client_id={your_client_ID}
-                &response_type=code
-                &redirect_uri=https://localhost
-                &response_mode=query
-                &scope={resource_you_want_to_call}/.default
-                &state=12345
-                ```
+         https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+         client_id={your_client_ID}
+         &response_type=code
+         &redirect_uri=https://localhost
+         &response_mode=query
+         &scope={resource_you_want_to_call}/.default
+         &state=12345
+         ```
 
-Replace {tenant} with your tenant ID, {your_client_ID} with the client ID of your application, and {resource_you_want_to_call} with the identifier URI or app ID of the API you are trying to access.
+Replace {tenant} with your tenant ID, {your_client_ID} with the client ID of your application, and {resource_you_want_to_call} with the identifier URI (i.e. 'https://graph.microsoft.com') or app ID of the API you are trying to access.
 
 ### Configure your tenant
 Your tenant likely has some security settings that require multi-factor authentication for all users, as recommended by Microsoft.  Multifactor authentication won't work with ROPC, so you'll need to exempt your test application/test users from this requirement.
