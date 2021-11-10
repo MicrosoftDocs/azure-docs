@@ -20,11 +20,11 @@ This encryption method improves on [Azure Disk encryption](how-to-managed-cluste
 > [!Note]
 > Azure Security Center disk encryption status will show as Unhealthy at this time when using Encryption at Host
 
-Follow these steps and reference this [example template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-HostEncryption) to deploy a new Service Fabric managed cluster with host encryption enabled.
+Follow these steps and reference this [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-HostEncryption) to deploy a new Service Fabric managed cluster with host encryption enabled.
 
-1. Review the following [restrictions](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) to validate the meet your requirements
+1. Review the following [restrictions](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) to validate they meet your requirements
 
-2. Setup the required [prerequisites](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites)
+2. Setup the required [prerequisites](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites) before cluster deployment
 
 3. Set the following in the managed cluster template in each node type you want this enabled for. The sample is pre-configured.
 
@@ -57,19 +57,19 @@ Follow these steps and reference this [example template](https://github.com/Azur
    You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command. First you'll need to find the name of your managed cluster's supporting resource group (containing the underlying virtual network, load balancer, public IP, NSG, scale set(s) and storage accounts). Be sure to modify `VmssName` to whatever cluster node type name you wish to check (as specified in your deployment template).
 
    ```powershell
-   $VmssName = "NT2"
+   $NodeTypeName = "NT2"
    $clustername = <clustername>
+   $resourceGroupName = "<rg-name>"
    $supportResourceGroupName = "SFC_" + (Get-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroupName -Name $clustername).ClusterId
-   Get-AzVmssDiskEncryption -ResourceGroupName $supportResourceGroupName -VMScaleSetName $VmssName
+   $VMSS = Get-AzVmss -ResourceGroupName $supportResourceGroupName -Name $NodeTypeName
+   $VMSS.VirtualMachineProfile.SecurityProfile.EncryptionAtHost
    ```
 
-   The output should appear similar to this:
+   The return output should appear similar to this:
 
    ```console
-   ResourceGroupName            : SFC_########-####-####-####-############
-   VmScaleSetName               : NT2
-   EncryptionEnabled            : True
-   EncryptionExtensionInstalled : True
+   $VMSS.VirtualMachineProfile.SecurityProfile.EncryptionAtHost
+   True
    ```
 
 ## Enable Azure Disk Encryption
