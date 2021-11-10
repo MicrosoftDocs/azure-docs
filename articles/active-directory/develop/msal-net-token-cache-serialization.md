@@ -30,10 +30,10 @@ The recommendation is:
 - In the other cases of [web apps](scenario-web-app-call-api-overview.md), [web API](scenario-web-api-call-api-overview.md):
   -	If you request tokens for users in a production application, you'd want to use a [distributed token cache](msal-net-token-cache-serialization.md?tabs=aspnet#distributed-caches) (Redis, SQL, cosmos DB, distributed memory). Use token cache serializers available from [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache/)
   -	Otherwise, if you want to use an in-memory cache
-    -	If you are only using `AcquireTokenForClient`:
+    -	If you're only using `AcquireTokenForClient`:
       - Either reuse the confidential client application instance and don’t add a serializer,
-      - or new-up a new confidential client application and enable the [shared cache option](msal-net-token-cache-serialization.md#no-token-cache-serialization?tabs=aspnet) . The memory can grow a lot, though. If you need eviction see next bullet point.
-      -	If you  want to use an in=memory token cache and control its size and eviction policies, use the [Microsoft.Identity.Web in memory cache option](msal-net-token-cache-serialization.md?tabs=aspnet#in-memory-token-cache-1)
+      - Or new-up a new confidential client application and enable the [shared cache option](msal-net-token-cache-serialization.md?tabs=aspnet#no-token-cache-serialization) . The memory can grow a lot, though. If you need eviction, see next bullet point.
+      -	If you  want to use an in-memory token cache and control its size and eviction policies, use the [Microsoft.Identity.Web in memory cache option](msal-net-token-cache-serialization.md?tabs=aspnet#in-memory-token-cache-1)
 -	If you build an SDK and want to write your own token cache serializer for confidential client applications, inherit from [Microsoft.Identity.Web.MsalAsbtractTokenCacheProvider](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.TokenCache/MsalAbstractTokenCacheProvider.cs) and override the `WriteCacheBytesAsync` and `ReadCacheBytesAsync` methods.
 
 
@@ -43,7 +43,7 @@ The [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) 
 
 | Extension Method | Description  |
 | ---------------- | ------------ |
-| `AddInMemoryTokenCaches` | In memory token cache serialization. This implementation is great in samples and for daemon applications (app to app tokens / `AcquireTokenForClient`). It's also good in production applications provided you don't mind if the token cache is lost when the web app is restarted. Starting with Microsoft.Identity.Web 1.19.0, this configures MSAL to utilize a static (shared) cache across all app instances and it is significantly faster than other caching mechanisms.
+| `AddInMemoryTokenCaches` | In memory token cache serialization. This implementation is great in samples and for daemon applications (app to app tokens / `AcquireTokenForClient`). It's also good in production applications provided you don't mind if the token cache is lost when the web app is restarted. Starting with Microsoft.Identity.Web 1.19.0, MSAL.Net is configured to use a static (shared) cache across all app instances and it is faster than other caching mechanisms, but doesn't allow you to control the cache size,
 | `AddSessionTokenCaches` | The token cache is bound to the user session. This option isn't ideal if the ID token contains many claims as the cookie would become too large.
 | `AddDistributedTokenCaches` | The token cache is an adapter against the ASP.NET Core `IDistributedCache` implementation, therefore enabling you to choose between a distributed memory cache, a Redis cache, a distributed NCache, or a SQL Server cache. For details about the `IDistributedCache` implementations, see [Distributed memory cache](/aspnet/core/performance/caching/distributed).
 
@@ -162,8 +162,8 @@ services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
 });
 ```
 
-For more details, see:
-- [Difference between in memory anb distributed in memory caches](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#inmemory-vs-distributedmemory-cache-options)
+For more information, see:
+- [Difference between in memory and distributed in memory caches](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#inmemory-vs-distributedmemory-cache-options)
 - [Distributed cache advanced options](https://github.com/AzureAD/microsoft-identity-web/wiki/L1-Cache-in-Distributed-(L2)-Token-Cache),
 - [Handle L2 cache eviction](https://github.com/AzureAD/microsoft-identity-web/wiki/Handle-L2-cache-eviction),
 - [Set up a Redis cache in Docker](https://github.com/AzureAD/microsoft-identity-web/wiki/Set-up-a-Redis-cache-in-Docker).
@@ -176,7 +176,7 @@ Even when you use MSAL.NET, you can benefit from token cache serializers brought
 
 ### Referencing the NuGet package
 
-Add the [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package to your project in addition to MSAL.NET
+Add the [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package to your project instead of MSAL.NET
 
 ### Configuring the token cache
 
@@ -232,9 +232,9 @@ Instead of `app.AddInMemoryTokenCache();` you can use different caching serializ
 
 #### No token cache serialization
 
-You can specify that you don't want to do any token cache serialization (leveraging the MSAL.NET internal cache), if you:
-- use `.WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` when you build the application.
-- don't add any serializer.
+You can specify that you don't want to have any token cache serialization (using the MSAL.NET internal cache), if you:
+- Use `.WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` when you build the application.
+- Don't add any serializer.
 
 ```CSharp
     // Create the confidential client application
@@ -384,8 +384,8 @@ the redis cache timeout.
 
 ##### More about the distributed cache
 
-For more details about distributed caches, see:
-- [Difference between in memory anb distributed in memory caches](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#inmemory-vs-distributedmemory-cache-options)
+For more information about distributed caches, see:
+- [Difference between in memory and distributed in memory caches](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#inmemory-vs-distributedmemory-cache-options)
 - [Distributed cache advanced options](https://github.com/AzureAD/microsoft-identity-web/wiki/L1-Cache-in-Distributed-(L2)-Token-Cache)
 - [Handle L2 cache eviction](https://github.com/AzureAD/microsoft-identity-web/wiki/Handle-L2-cache-eviction)
 - [Set up a Redis cache in Docker](https://github.com/AzureAD/microsoft-identity-web/wiki/Set-up-a-Redis-cache-in-Docker)
@@ -463,7 +463,7 @@ cacheHelper.RegisterCache(pca.UserTokenCache);
 
 ##### Plain text fallback mode
 
-The cross platform token cache allows you to store unencrypted tokens in clear text. This is intended for use in development environments for debugging purposes only. 
+The cross platform token cache allows you to store unencrypted tokens in clear text. This feature is intended for use in development environments for debugging purposes only. 
 You can use the plain text fallback mode using the following code pattern.
 
 ```csharp
