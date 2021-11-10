@@ -67,17 +67,17 @@ In this article, you learn how to:
 
 ### Azure Storage Account
 
-There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This occurs when users bring an existing filestore to set as the default filestore during workspace creation.
+There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This problem occurs when users bring an existing file store to set as the default file store during workspace creation.
 
-To avoid this issue, you have two options: 1) Use the default filestore which is automatically created for you doing workspace creation. 2) To bring your own filestore, make sure the filestore is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
+To avoid this issue, you have two options: 1) Use the default file store, which is automatically created for you doing workspace creation. 2) To bring your own file store, make sure the file store is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
 
-To resolve this issue, remove the filestore account from the virtual network then add it back to the virtual network.
+To resolve this issue, remove the file store account from the virtual network then add it back to the virtual network.
 
 ### Designer sample pipeline
 
-There's a known issue where user cannot run sample pipeline in Designer homepage. This is the sample dataset used in the sample pipeline is Azure Gloabal dataset, and it cannot satisfy all virtual network environment.
+There's a known issue where user cannot run sample pipeline in Designer homepage. This is the sample dataset used in the sample pipeline is Azure Global dataset, and it cannot satisfy all virtual network environment.
 
-To resolve this issue, you can use a public workspace to run sample pipeline to get to know how to use the designer and then replace the sample dataset with your own dataset in the workspace whithin virtual network.
+To resolve this issue, you can use a public workspace to run sample pipeline to get to know how to use the designer and then replace the sample dataset with your own dataset in the workspace within virtual network.
 
 ## Datastore: Azure Storage Account
 
