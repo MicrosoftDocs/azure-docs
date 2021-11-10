@@ -1,12 +1,12 @@
 ---
 title: Outbound Firewall Rules (preview)
-description: Overview of Outbound Firewall Rules feature.
+description: Overview of the outbound firewall rules feature.
 author: rohitnayakmsft
 ms.author: rohitna
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
 ms.subservice: security
-ms.topic: overview
+ms.topic: conceptual
 ms.reviewer: vanto
 ms.date: 11/10/2021
 ---
