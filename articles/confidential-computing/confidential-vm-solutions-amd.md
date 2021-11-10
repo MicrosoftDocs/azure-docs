@@ -1,6 +1,6 @@
 ---
 title: Confidential virtual machine options on AMD processors (preview)
-description: Azure Confidential Computing offers multiple options for confidential virtual machines (confidential VMs) that run on AMD processors backed by SEV-SNP technology.
+description: Azure Confidential Computing offers multiple options for confidential virtual machines that run on AMD processors backed by SEV-SNP technology.
 author: edendcohen
 ms.service: virtual-machines
 ms.subservice: confidential-computing
@@ -34,7 +34,9 @@ You can create confidential VMs that run on AMD processors in the following size
 
 ## Azure CLI commands
 
-To get a list of confidential VM sizes with information about available regions and availability zones, run the following command in the [Azure Command-Line Interface (Azure CLI)](/cli/azure/install-azure-cli). Replace `<vm-series>` with the series you want to use. For example, `DCASv5`, `ECASv5`, `DCADSv5`, or `ECADSv5`.
+You can use the [Azure Command-Line Interface (Azure CLI)](/cli/azure/install-azure-cli) with your confidential VMs.
+
+To a list of confidential VM sizes, run the following command. Replace `<vm-series>` with the series you want to use. For example, `DCASv5`, `ECASv5`, `DCADSv5`, or `ECADSv5`. The output shows information about available regions and availability zones.
 
 ```azurecli-interactive
 az vm list-skus `
@@ -64,7 +66,7 @@ You might need to increase the cores quota in your Azure subscription from the d
 
 To request a quota increase, [open an online customer support request](../azure-portal/supportability/per-vm-quota-requests.md) at no charge. 
 
-If you have large-scale capacity needs, contact Azure Support. Azure quotas are credit limits, not capacity guarantees. Regardless of your quota, you only incur charges for cores that you use.
+If you have large-scale capacity needs, contact Azure Support. Azure quotas are credit limits, not capacity guarantees. You only incur charges for cores that you use.
 
 ### Pricing
 
@@ -76,13 +78,13 @@ For availability information, see which [VM products are available by Azure regi
 
 ### Resizing
 
-Since confidential VMs run on specialized hardware, you can only resize instances within the same size family. For example, if your VM is in the DCasv5-series family, you can only resize to another instance type in that family. 
+Confidential VMs run on specialized hardware, so you can only resize instances within the same family. For example, if you have a DCasv5-series VM, you can only resize to another DCasv5-series instance type.
 
-Resizing between a non-confidential VM size and a confidential VM size is not supported.  
+It's not possible to resize a non-confidential VM to a confidential VM.
 
 ### Disk encryption
 
-OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [full-disk encryption](confidential-vm-overview.md#full-disk-encryption), and isolation from underlying cloud infrastructure. These include:
+OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [full-disk encryption](confidential-vm-overview.md#full-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
 - Ubuntu 20.04 Gen 2
 - Windows Server 2019 Gen 2
@@ -96,17 +98,19 @@ You're responsible for creating high availability and disaster recovery solution
 
 ### Deployment with ARM templates
 
-Azure Resource Manager is the deployment and management service for Azure. The service provides management features, like access control, locks, and tags, to secure and organize your resources after deployment. You can create, update, and delete resources in your Azure subscription using the management layer.
+Azure Resource Manager is the deployment and management service for Azure. You can:
 
-You can use [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to deploy confidential VMs on AMD processors. There is an available [ARM template for confidential VMs](https://aka.ms/CVMTemplate). 
+- Secure and organize your resources after deployment with the management features, like access control, locks, and tags. 
+- Create, update, and delete resources in your Azure subscription using the management layer.
+- Use [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to deploy confidential VMs on AMD processors. There is an available [ARM template for confidential VMs](https://aka.ms/CVMTemplate). 
 
 Make sure to specify the following properties for your VM in the parameters section (`parameters`): 
 
 - VM size (`vmSize`). Choose from the different [confidential VM families and sizes](#sizes).
 - OS image name (`osImageName`). Choose from the [qualified OS images](#disk-encryption).
-- Disk encryption type (`securityType`). Choose from VMGS-only encryption (`VMGuestStateOnly`) or full OS disk pre-encryption (`DiskWithVMGuestState`), which might result in longer provisioning itmes.
+- Disk encryption type (`securityType`). Choose from VMGS-only encryption (`VMGuestStateOnly`) or full OS disk pre-encryption (`DiskWithVMGuestState`), which might result in longer provisioning times.
 
 ## Next steps 
 
 > [!div class="nextstepaction"]
-> [Deploy a confidential VM on AMD from the Azure portal](quick-create-portal-cvm.md)
+> [Deploy a confidential VM on AMD from the Azure portal](quick-create-confidential-vm-portal-amd.md)

@@ -15,9 +15,9 @@
   - name: Confidential VMs
     items:
       - name: Create confidential VM with Azure CLI
-        href: quick-create-arm-amd-cvm.md
+        href: quick-create-confidential-vm-arm-amd.md
       - name: Create confidential VM with Azure portal
-        href: quick-create-portal-cvm.md
+        href: quick-create-confidential-vm-portal-amd.md
   - name: Confidential VMs with enclaves
     items:
       - name: Deploy Intel SGX
@@ -42,21 +42,27 @@
     - name: About confidential VMs
       href: confidential-vm-overview.md
     - name: FAQ for AMD confidential VMs
-      href: virtual-machine-amd-faq.yml
-    - name: Secure key release policies for AMD confidential VMs
-      href: amd-secure-key-release.md
-    - name: Build with enclaves
+      href: confidential-vm-faq-amd.yml
+    - name: Secure key release policies
+      href: confidential-vm-secure-key-release.md
+    - name: AMD processor options for confidential VMs
+      href: confidential-vm-solutions-amd.md
+    - name: DCasv5 and DCadsv5-series
+      href: ../virtual-machines/dcasv5-dcadsv5-series.md
+    - name: ECasv5 and ECadsv5-series
+      href: ../virtual-machines/ecasv5-ecadsv5-series.md
+  - name: Build with enclaves
+    items:
+    - name: Enclaves overview
+      href: confidential-computing-enclaves.md
+    - name: Developing enclave applications 
       items:
-      - name: Enclaves overview
-        href: confidential-computing-enclaves.md
-      - name: Developing enclave applications 
-        items:
-        - name: Enclave development overview
-          href: application-development.md
-        - name: Open-source projects for development
-          href: enclave-development-oss.md
-        - name: Attesting application enclaves
-          href: attestation.md
+      - name: Enclave development overview
+        href: application-development.md
+      - name: Open-source projects for development
+        href: enclave-development-oss.md
+      - name: Attesting application enclaves
+        href: attestation.md
       - name: Deploying Intel SGX virtual machines
         href: virtual-machine-solutions-sgx.md
       - name: Deploying AMD virtual machines

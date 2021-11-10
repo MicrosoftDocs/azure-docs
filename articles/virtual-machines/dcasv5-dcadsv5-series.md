@@ -1,6 +1,6 @@
 ---
-title: 'DCasv5 and DCadsv5-series - Azure Confidential Virtual Machines'
-description: Specifications for the DCasv5 and DCadsv5-series VMs. 
+title: DCasv5 and DCadsv5-series confidential virtual machines (preview)
+description: Specifications for Azure Confidential Computing's DCasv5 and DCadsv5-series confidential virtual machines. 
 author: runcai 
 ms.author: runcai
 ms.reviewer: mimckitt
@@ -11,29 +11,43 @@ ms.date: 11/15/2021
 
 ---
 
-# DCasv5 and DCadsv5-series
+# DCasv5 and DCadsv5-series confidential VMs (preview)
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 
-The DCasv5-series and DCadsv5-series are confidential virtual machines, using AMD's third-Generation EPYC<sup>TM</sup> 7763v processor in a multi-threaded configuration with up to 256 MB L3 cache, which provide Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) to provide hardware-isolated virtual machines that protect data from other virtual machines, the hypervisor, and host management code. Confidential virtual machines offer hardware-based VM memory encryption, OS disk pre-encryption before VM provisioning with different key management solutions. 
+> [!IMPORTANT]
+> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+The DCasv5-series and DCadsv5-series are [confidential VMs](../confidential-computing/confidential-vm-overview.md) for use in Confidential Computing. 
+
+These confidential VMs use AMD's third-Generation EPYC<sup>TM</sup> 7763v processor in a multi-threaded configuration with up to 256 MB L3 cache. These processors can achieve a boosted maximum frequency of 3.5 GHz. Both series offer Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP). SEV-SNP provides hardware-isolated VMs that protect data from other VMs, the hypervisor, and host management code. Confidential VMs offer hardware-based VM memory encryption. These series also offer OS disk pre-encryption before VM provisioning with different key management solutions. 
 
 ## DCasv5-series
 
-DCasv5-series virtual machines use AMD's third-Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.5 GHz. DCasv5-series offer a combination of vCPU and memory for most production workloads. The new VMs with no local disk provide a better value proposition for workloads that local temp disk is not required.
+DCasv5-series VMs offer a combination of vCPU and memory for most production workloads. These VMs with no local disk provide a better value proposition for workloads where you don't need a local temporary disk. For more information, see the [FAQ for Azure VM sizes with no local temporary disk](azure-vms-no-temp-disk.yml). 
+
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+
 > [!NOTE]
-> For frequently asked questions, see [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml). DCasv5-series VM is under Public Preview.
+> There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
 
-DCasv5-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. Disk storage is billed separately from virtual machines. 
-> [!NOTE] 
-> Starting 2022, encrypted OS disks will be charged a higher fee since they occupy more space (compression is not possible). Please refer here for more information. In addition to the OS disk, confidential VMs utilize a small encrypted "VMGS" disk of several megabytes. This VMGS disk encapsulates the VM security state of components such the vTPM and UEFI bootloader. This small disk may result in an associated storage fee of a fraction of one US cent per VM per month. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
+### DCasv5-series feature support
 
-[Premium Storage](premium-storage-performance.md): Supported <br>
-[Premium Storage caching](premium-storage-performance.md): Supported <br>
-[Live Migration](maintenance-and-updates.md): Not Supported <br>
-[Memory Preserving Updates](maintenance-and-updates.md): Not Supported <br>
-[VM Generation Support](generation-2.md): Generation 2 <br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br><br>
+*Supported* features in DCasv5-series VMs:
+
+- [Premium Storage](premium-storage-performance.md)
+- [Premium Storage caching](premium-storage-performance.md)
+- [VM Generation 2](generation-2.md)
+
+*Unsupported* features in DCasv5-series VMs:
+
+- [Live Migration](maintenance-and-updates.md)
+- [Memory Preserving Updates](maintenance-and-updates.md)
+- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)
+- [Ephemeral OS Disks](ephemeral-os-disks.md)
+
+### DCasv5-series products
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|
@@ -46,25 +60,31 @@ DCasv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 | Standard_DC64as_v5 | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 8 |
 | Standard_DC96as_v5 | 96 | 384 | Remote Storage Only | 32 | 80000/1600 | 8 |
 
-
-
 ## DCadsv5-series
 
-DCadsv5-series virtual machines use AMD's third-Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.5 GHz. The DCadsv5-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
+DCadsv5-series offer a combination of vCPU, memory, and temporary storage for most production workloads.
 
-DCadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. Disk storage is billed separately from virtual machines.
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
-> [!NOTE] 
-> Starting 2022, encrypted OS disks will be charged a higher fee since they occupy more space (compression is not possible). Please refer here for more information. In addition to the OS disk, confidential VMs utilize a small encrypted "VMGS" disk of several megabytes. This VMGS disk encapsulates the VM security state of components such the vTPM and UEFI bootloader. This small disk may result in an associated storage fee of a fraction of one US cent per VM per month. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
+> [!NOTE]
+> There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
 
+### DCadsv5-series feature support
 
-[Premium Storage](premium-storage-performance.md): Supported <br>
-[Premium Storage caching](premium-storage-performance.md): Supported <br>
-[Live Migration](maintenance-and-updates.md): Not Supported <br>
-[Memory Preserving Updates](maintenance-and-updates.md): Not Supported <br>
-[VM Generation Support](generation-2.md): Generation 2 <br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br><br>
+*Supported* features in DCadsv5-series VMs:
+
+- [Premium Storage](premium-storage-performance.md)
+- [Premium Storage caching](premium-storage-performance.md)
+- [VM Generation 2](generation-2.md)
+
+*Unsupported* features in DCadsv5-series VMs:
+
+- [Live Migration](maintenance-and-updates.md)
+- [Memory Preserving Updates](maintenance-and-updates.md)
+- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)
+- [Ephemeral OS Disks](ephemeral-os-disks.md)
+
+### DCadsv5-series products
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|---|
@@ -77,25 +97,12 @@ DCadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium 
 | Standard_DC64ads_v5 | 64 | 256 | 2400 | 32 | 300000 / 4000 | 80000/1200 | 8 |
 | Standard_DC96ads_v5 | 96 | 384 | 3600 | 32 | 450000 / 4000 | 80000/1600 | 8 |
 
-* These IOPs values can be achieved by using Gen2 VMs.<br>
-
-
+> [!NOTE]
+> To achieve these IOPs, use [Gen2 VMs](generation-2.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## Other sizes and information
+## Next step
 
-- [General purpose](sizes-general.md)
-- [Memory optimized](sizes-memory.md)
-- [Storage optimized](sizes-storage.md)
-- [GPU optimized](sizes-gpu.md)
-- [High performance compute](sizes-hpc.md)
-- [Previous generations](sizes-previous-gen.md)
-
-Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-
-For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
-
-## Next steps
-
-Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+> [!div class="nextstepaction"]
+> [Confidential virtual machine options on AMD processors](../confidential-computing/confidential-vm-solutions-amd.md)
