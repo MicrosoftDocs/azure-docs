@@ -67,7 +67,7 @@ Configuration errors can cause DNS zones to become unhealthy. The following are 
 
     The below table provides scenarios and their corresponding zone health outcomes when a zone contains NS delegation record.
 
-    | Scenario | Zone contains</br>NS delegation record? | Zone contains</br>glue records? | Zone contains other</br>records below the</br>delegation? | Zone health |
+    | Scenario | Zone contains </br>NS delegation record? | Zone contains </br>glue records? | Zone contains other </br>records below the </br>delegation? | Zone health |
     |----------|-------------------------------------|-----------------------------|--------------------------------------------------|-------------|
     | 1        | No                                  | -                           | -                                                | Healthy     |
     | 2        | Yes                                 | Yes                         | No                                               | Healthy     |
@@ -97,7 +97,7 @@ When a resource is newly created, health signals for these new resources aren't 
 
 When resource health check hasn't received information about DNS zones for more than 6 hours, the zones are marked Unknown. Although this status isn't a definitive indication of the state of the resource, it's an important data point in the troubleshooting process. Once the signal is received and the resource is running as expected, the status of the resource will change to **Available** after a few minutes.
 
-The following is an example of the resource health check message.
+The following screenshot is an example of the resource health check message.
 
 :::image type="content" source="./media/dns-troubleshoot/unknown-status.png" alt-text="Screenshot of unknown status.":::
 
@@ -105,15 +105,15 @@ The following is an example of the resource health check message.
 
 An **Available** status indicates that the resource health check hasn't detected a delegation issue with your DNS zones. This means that NS delegation records are appropriately maintained in your primary zone and records meant for child zones are not present in your primary zone. 
 
-The following is an example of the resource health check message.
+The following screenshot is an example of the resource health check message.
 
 :::image type="content" source="./media/dns-troubleshoot/available-status.png" alt-text="Screenshot of available status.":::
 
 ### Degraded
 
-A **Degraded** status indicates that the resource health check has detected a Ddelegation issue with your DNS zones. Correct the delegation configuration and wait 24 hours for the status to change to **Available**.  
+A **Degraded** status indicates that the resource health check has detected a delegation issue with your DNS zones. Correct the delegation configuration and wait 24 hours for the status to change to **Available**.  
 
-The following is an example of the resource health check message.
+The following screenshot is an example of the resource health check message.
 
 :::image type="content" source="./media/dns-troubleshoot/degraded-status.png" alt-text="Screenshot of degraded status.":::
 
@@ -121,19 +121,19 @@ If 24 hours have elapsed after correcting the configuration and the DNS zones ar
 
 ### Configuration error scenario
 
-The following is a scenario where a configuration error has led to the unhealthy state of the DNS zones.
+The following scenario demonstrates where a configuration error has led to the unhealthy state of the DNS zones.
 
-* Unhealthy Delegation - A primary zone contains NS delegation records which help delegate traffic from the primary to the child zones. If any NS delegation record is present in the parent zone, the DNS server is supposed to mask all other records below the NS delegation record, except glue records, and direct traffic to the respective child zone based on the user query. If a parent zone contains other records meant for the child zones (delegated zones) below the NS delegation record, the zone will be marked unhealthy, and it's status is **Degraded**.
+* Unhealthy Delegation - A primary zone contains NS delegation records, which help delegate traffic from the primary to the child zones. If any NS delegation record is present in the parent zone, the DNS server is supposed to mask all other records below the NS delegation record, except glue records, and direct traffic to the respective child zone based on the user query. If a parent zone contains other records meant for the child zones (delegated zones) below the NS delegation record, the zone will be marked unhealthy, and its status is **Degraded**.
 
-* Glue record - These are records under the delegation record which help direct traffic to the delegated/child zones using their IP addresses and are configured as seen in the following.
+* Glue record - These are records under the delegation record, which help direct traffic to the delegated/child zones using their IP addresses and are configured as seen in the following.
 
 | Setting | Value |
 | ------- | ----- |
 | **Zone** | contoso.com |
-| **Delegation record** | child NS </br> ns1.child.contoso.com |
+| **Delegation record** | Child NS </br> ns1.child.contoso.com |
 | **Glue record** | ns1.child A 1.1.1.1 |
 
-#### Example of a unhealthy zone
+#### Example of an unhealthy zone
 
 The following is an example of a zone containing records below NS delegation.
 
@@ -161,13 +161,13 @@ In the preceding example, **child** is the NS delegation records. The records _*
 
 **How can you fix it?** - To resolve, locate and remove all records except glue records under NS delegation records in your parent zone.
 
-**How to locate unhealthy delegation records?** - A script has been created to find the unhealthy delegation records in your zone.  The script will report records which are unhealthy.
+**How to locate unhealthy delegation records?** - A script has been created to find the unhealthy delegation records in your zone.  The script will report records, which are unhealthy.
 
-1. Save the script located at: [Find unhealthy DNS records in Azure DNS - PowerShell script sample](find-unhealthy-dns-records.md)
+1. Save the script located at: [Find unhealthy DNS records in Azure DNS - PowerShell script sample](./scripts/find-unhealthy-dns-records.md)
 
 2. Execute the script as mentioned in the script editor.  Script can be edited to meet your requirements.
 
-**Historical information** - You can access up to 14 days of health history in the health history section of resource health. This section will also contain the reason for the downtime (when available) for the downtimes reported by resource health. Currently, Azure shows the downtime for your DNS zones resource at a 24 hour granularity.
+**Historical information** - You can access up to 14 days of health history in the health history section of resource health. This section will also contain the reason for the downtime (when available) for the downtimes reported by resource health. Currently, Azure shows the downtime for your DNS zones resource at a 24-hour granularity.
 
 ## How do I specify the ‘service’ and ‘protocol’ for an SRV record?
 
