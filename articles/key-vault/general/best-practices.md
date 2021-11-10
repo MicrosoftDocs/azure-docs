@@ -18,7 +18,7 @@ Azure Key Vault safeguards encryption keys and secrets like certificates, connec
 
 ## Use separate key vaults
 
-Our recommendation is to use a vault per application per environment (development, pre-production and production), per region. This helps you not share secrets across environments and regions and also reduces the threat in case of a breach.
+Our recommendation is to use a vault per application per environment (development, pre-production, and production), per region. This helps you not share secrets across environments and regions. It will also reduce the threat in case of a breach.
 
 ### Why we recommend separate key vaults
 
