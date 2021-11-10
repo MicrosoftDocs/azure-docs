@@ -93,7 +93,7 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 1. **Grant the workspace managed identity the 'Reader' role for storage private endpoints**. If your storage service uses a __private endpoint__, grant the workspace's managed identity **Reader** access to the private endpoint. The workspace's managed identity in Azure AD has the same name as your Azure Machine Learning workspace.
 
     > [!TIP]
-    > Your storage account may have multiple private endpoints. For example, one storage account may have separate private endpoint for blob and file storage. Add the managed identity to both endpoints.
+    > Your storage account may have multiple private endpoints. For example, one storage account may have separate private endpoint for blob, file, and dfs (Azure Data Lake Storage Gen2). Add the managed identity to all these endpoints.
 
     For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role.
 
