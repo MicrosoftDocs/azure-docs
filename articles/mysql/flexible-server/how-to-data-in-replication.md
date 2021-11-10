@@ -159,6 +159,8 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    Restore the dump file to the server created in the Azure Database for MySQL Flexible Server service. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL Flexible Server server from the virtual machine.
 
+>[!Note]
+>* If you want to avoid setting the database to read only when you dump and restore, you can use [mydumper/myloader](../concepts-migrate-mydumper-myloader.md).
 
 ## Link source and replica servers to start Data-in replication
 
@@ -184,7 +186,8 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
      It's recommended to pass this parameter in as a variable. For more information, see the following examples.
 
    > [!NOTE]
-   > If the source server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the source and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. For more information, see [Manage firewall rules using the portal](how-to-manage-firewall-portal.md) .
+   > * If the source server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the source and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. For more information, see [Manage firewall rules using the portal](how-to-manage-firewall-portal.md).
+   > * If you used mydumper/myloader to dump the database then you can get the master_log_file and master_log_pos from the */backup/metadata* file. 
 
    **Examples**
 

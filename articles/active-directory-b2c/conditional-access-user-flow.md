@@ -7,11 +7,12 @@ ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 09/15/2021
 ms.custom: project-no-code
-ms.author: mimart
-author: msmimart
-manager: celested
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
 ---
+
 # Add Conditional Access to user flows in Azure Active Directory B2C
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 Conditional Access can be added to your Azure Active Directory B2C (Azure AD B2C) user flows or custom policies to manage risky sign-ins to your applications. Azure Active Directory (Azure AD) Conditional Access is the tool used by Azure AD B2C to bring signals together, make decisions, and enforce organizational policies.
@@ -21,7 +22,7 @@ Automating risk assessment with policy conditions means risky sign-ins are ident
 Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. During this **Evaluation** phase, the Conditional Access service evaluates the signals collected by Identity Protection risk detections during sign-in events. The outcome of this evaluation process is a set of claims that indicates whether the sign-in should be granted or blocked. The Azure AD B2C policy uses these claims to act within the user flow. An example is blocking access or challenging the user with a specific remediation like multi-factor authentication (MFA). “Block access” overrides all other settings.
 ::: zone pivot="b2c-custom-policy"
 The following example shows a Conditional Access technical profile that is used to evaluate the sign-in threat.
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -40,7 +41,7 @@ The remediation may also happen through other channels. For example, when the ac
 > To remediate the risk successfully within the journey, make sure the *Remediation* technical profile is called after the *Evaluation* technical profile is executed. If  *Evaluation* is invoked without *Remediation*, the risk state will be *At risk*.
 When the *Evaluation* technical profile recommendation returns `Block`, the call to the *Evaluation* technical profile is not required. The risk state is set to *At risk*.
 The following example shows a Conditional Access technical profile used to remediate the identified threat:
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessRemediation">
   <DisplayName>Conditional Access Remediation</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
@@ -349,7 +350,7 @@ To enable Conditional Access for a user flow, make sure the version supports Con
 ### Configure claim other than phone number to be used for MFA
 In the Conditional Access policy above, the `DoesClaimExist` claim transformation method checks if a claim contains a value, for example if the `strongAuthenticationPhoneNumber` claim contains a phone number. 
 The claims transformation isn't limited to the `strongAuthenticationPhoneNumber` claim. Depending on the scenario, you can use any other claim. In the following XML snippet, the `strongAuthenticationEmailAddress` claim is checked instead. The claim you choose must have a valid value, otherwise the `IsMfaRegistered` claim will be set to `False`. When set to `False`, the Conditional Access policy evaluation returns a `Block` grant type, preventing the user from completing user flow.
-```XML
+```xml
  <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim" />

@@ -7,8 +7,7 @@ ms.author: cshoe
 ms.date: 05/07/2021
 ms.topic: quickstart
 ms.service: static-web-apps
-ms.custom:
-  - mode-portal
+ms.custom: mode-portal
 ---
 
 # Quickstart: Building your first static site in the Azure portal

@@ -416,7 +416,7 @@ Next, you'll add the code that actually uses the Computer Vision service to crea
 1. Then, go to the **Upload** method; this method converts and uploads images to blob storage. Add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Computer Vision to generate a description for that image. The Computer Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
 
     ```csharp
-    // Submit the image to Azure's Computer Vision API
+    // Submit the image to the Azure Computer Vision API
     ComputerVisionClient vision = new ComputerVisionClient(
         new ApiKeyServiceClientCredentials(ConfigurationManager.AppSettings["SubscriptionKey"]),
         new System.Net.Http.DelegatingHandler[] { });

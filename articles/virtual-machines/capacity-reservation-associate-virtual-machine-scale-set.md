@@ -24,9 +24,6 @@ To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
 
 ## Limitations of scale sets in Uniform Orchestration 
 
@@ -80,6 +77,21 @@ Add the `capacityReservationGroup` property in the `virtualMachineProfile` as sh
         } 
     } 
 ```
+
+### [CLI](#tab/cli1)
+
+Use `az vmss create` to create a new virtual machine scale set and add the `capacity-reservation-group` property to associate the scale set to an existing capacity reservation group. The example below creates a Uniform scale set for a Standard_Ds1_v2 VM in the East US location and associates the scale set to a capacity reservation group.
+
+```azurecli-interactive
+az vmss create 
+--resource-group myResourceGroup 
+--name myVMSS 
+--location eastus 
+--vm-sku Standard_Ds1_v2 
+--image UbuntuLTS 
+--capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName} 
+```
+
 
 ### [PowerShell](#tab/powershell1) 
 
@@ -148,6 +160,26 @@ For Public Preview, in order to associate an existing Uniform virtual machine sc
                 }
         }
     }
+    ```
+
+### [CLI](#tab/cli2)
+
+1. Deallocate the virtual machine scale set. 
+
+    ```azurecli-interactive
+    az vmss deallocate 
+    --location eastus
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    ```
+
+1. Associate the scale set to the capacity reservation group. 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    --capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
     ```
 
 ### [PowerShell](#tab/powershell2) 
@@ -235,6 +267,14 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     } 
 } 
 ```  
+
+### [CLI](#tab/cli3)
+
+```azurecli-interactive
+az capacity reservation group show 
+-g myResourceGroup
+-n myCapacityReservationGroup 
+``` 
 
 ### [PowerShell](#tab/powershell3) 
 

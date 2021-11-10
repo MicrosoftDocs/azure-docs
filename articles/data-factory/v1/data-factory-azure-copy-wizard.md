@@ -5,7 +5,7 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
 ---

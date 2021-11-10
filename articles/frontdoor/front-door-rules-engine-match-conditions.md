@@ -81,6 +81,7 @@ Not IP Match | IP address (space-separated)
 - The syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
   - **IPv4 example**: *5.5.5.64/26* matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
   - **IPv6 example**: *1:2:3:/48* matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3: ffff:ffff:ffff:ffff:ffff.
+- Remote Address represents the original client IP that is either from the network connection or typically the X-Forwarded-For request header if the user is behind a proxy.
 
 ## Request body
 

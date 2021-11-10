@@ -143,7 +143,7 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
     }
     ```
 
-    If you plan to use Power BI's REST API to add the Stream Analytics job to your Power BI workspace, make note of the returned "principalId".
+    If you plan to use the Power BI REST API to add the Stream Analytics job to your Power BI workspace, make note of the returned "principalId".
 
 3. Now that the job is created, continue to the [Give the Stream Analytics job access to your Power BI workspace](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) section of this article.
 

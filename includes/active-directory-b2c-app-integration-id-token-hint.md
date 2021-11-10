@@ -1,10 +1,10 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 06/11/2021
-ms.author: mimart
+ms.author: kengaderdus
 # Used by Azure AD B2C app integration articles under "App integration".
 ---
 ## Pass an ID token hint

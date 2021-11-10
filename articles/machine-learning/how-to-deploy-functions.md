@@ -1,14 +1,14 @@
 ---
-title: Deploy ml models to Azure Functions Apps (preview)
+title: Deploy ML models to Azure Functions Apps (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Machine Learning to package and deploy a model as a Web Service in an Azure Functions App.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: vaidyas
-author: vaidya-s
+ms.subservice: mlops
+ms.author: ssambare
+author: shivanissambare
 ms.reviewer: larryfr
-ms.date: 03/06/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: racking-python, devx-track-azurecli
 

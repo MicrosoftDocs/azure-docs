@@ -7,11 +7,11 @@ ms.date: 07/27/2021
 
 # App settings reference for Azure Functions
 
-App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-develop-local.md#local-settings-file). This article lists the app settings that are available in function apps.
+App settings in a function app contain configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-develop-local.md#local-settings-file). This article lists the app settings that are available in function apps.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
+There are other function app configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 Example connection string values are truncated for readability.
 
 > [!NOTE]
@@ -397,6 +397,6 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 [Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#settings)
 
-[See global settings in the host.json file](functions-host-json.md)
+[See configuration settings in the host.json file](functions-host-json.md)
 
 [See other app settings for App Service apps](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 10/14/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -52,7 +52,6 @@ These Blob REST APIs aren't supported:
 - [Get Page Ranges](/rest/api/storageservices/get-page-ranges)
 - [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 - [Put Page from URL](/rest/api/storageservices/put-page-from-url)
-- [Put Block List](/rest/api/storageservices/put-block-list)
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
@@ -64,7 +63,7 @@ The ability to apply ACL changes recursively from parent directory to child item
 
 ## Access control lists (ACL) and anonymous read access
 
-If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
+If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.  This only affects read requests.  Write requests will still honor the ACLs.
 
 <a id="known-issues-tools"></a>
 
@@ -94,15 +93,11 @@ Third party applications that use REST APIs to work will continue to work if you
 
 The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
-## Lifecycle management policies with premium tier for Azure Data Lake Storage
+## Windows Azure Storage Blob (WASB) driver
 
-You can't move data that's stored in the premium tier between hot, cool, and archive tiers. However, you can copy data from the premium tier to the hot access tier in a different account.
+Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues.
 
-## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
-
-Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace-enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues.
-
-For the time being (and most likely the foreseeable future), we won't support customers using the WASB driver as a client to a hierarchical namespace-enabled storage account. Instead, we recommend that you opt to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.
+Using the WASB driver as a client to a hierarchical namespace enabled storage account is not supported. Instead, we recommend that you use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.
 
 ## Soft delete for blobs capability (currently in preview)
 

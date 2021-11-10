@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/25/2021
 ms.author: tisande
 
 ---
@@ -89,12 +89,12 @@ The results are:
 ```json
     [
       {
-        "id": "WakefieldFamily",
-        "creationDate": 1431620462
-      },
-      {
         "id": "AndersenFamily",
         "creationDate": 1431620472
+      },
+      {
+        "id": "WakefieldFamily",
+        "creationDate": 1431620462
       }
     ]
 ```

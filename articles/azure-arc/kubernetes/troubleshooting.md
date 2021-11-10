@@ -5,8 +5,6 @@ ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 05/21/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
 description: "Troubleshooting common issues with Azure Arc-enabled Kubernetes clusters."
 keywords: "Kubernetes, Arc, Azure, containers"
 ---

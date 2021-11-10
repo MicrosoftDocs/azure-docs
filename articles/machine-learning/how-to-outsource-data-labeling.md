@@ -1,14 +1,14 @@
 ---
-title: Work with data labeling vendor companies to label your data
+title: Data labeling vendor companies 
 titleSuffix: Azure Machine Learning
 description: Use a data labeling vendor company to help label the data in your data labeling project
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.reviewer: sgilley
 author: kvijaykannan
 ms.author: vkann
-ms.date: 09/30/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 # As a project manager, I want to hire a company to label the data in my data labeling project
 # Keywords: data labeling companies, volume 170.  No other keywords found. 

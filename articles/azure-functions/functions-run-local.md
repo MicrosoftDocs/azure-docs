@@ -3,7 +3,7 @@ title: Work with Azure Functions Core Tools
 description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 10/05/2021
 ms.custom: "devx-track-csharp, 80e4ff38-5174-43"
 ---
 
@@ -35,13 +35,13 @@ There are four versions of Azure Functions Core Tools. The version you use depen
 
 Choose a version tab below to learn about each specific version and for detailed installation instructions:
 
+# [Version 4.x](#tab/v4)
+
+Supports [version 4.x](functions-versions.md) of the Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. This is the recommended version of the Functions runtime and Core Tools.
+
 # [Version 3.x](#tab/v3)
 
-Supports [version 3.x](functions-versions.md) of the Azure Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. This is the recommended version of the Functions runtime and Core Tools.
-
-# [Version 4.x (preview)](#tab/v4)
-
-Supports [version 4.x](functions-versions.md) of the Functions runtime, which is in preview. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. Unless you need to run you C# functions on .NET 6.0, consider using version 3.x of the Functions runtime and Core Tools.
+Supports [version 3.x](functions-versions.md) of the Azure Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. 
 
 # [Version 2.x](#tab/v2)
 
@@ -57,37 +57,27 @@ You can only install one version of Core Tools on a given computer.  Unless othe
 
 ## Install the Azure Functions Core Tools
 
-[Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
+[Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
-Starting with version 2.x, Core Tools is built on .NET Core. This means that version 2.x and higher versions run on all platforms .NET Core supports, including [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2).
-
-> [!IMPORTANT]
-> For non-.NET languages, you can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
+Starting with version 2.x, Core Tools runs on [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2).
 
 # [Windows](#tab/windows/v4)
 
-Installing version 4.x of the Core Tools currently requires npm. If you installed a previous version of the Core Tools using a different package manager, uninstall it before installing version 4.x.
+The following steps use a Windows installer (MSI) to install Core Tools v4.x. For more information about other package-based installers, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. If you haven't already done so, [install Node.js with npm](https://nodejs.org/en/download/). 
+Download and run the Core Tools installer, based on your version of Windows:
 
-1. Run the following npm command to install the Core Tools package:
-
-    ```
-    npm i -g azure-functions-core-tools@4 --unsafe-perm true
-    ```
-
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
+- [v4.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2174087) (Recommended. [Visual Studio Code debugging](functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
+- [v4.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2174159)
 
 # [Windows](#tab/windows/v3)
 
 The following steps use a Windows installer (MSI) to install Core Tools v3.x. For more information about other package-based installers, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Download and run the Core Tools installer, based on your version of Windows:
+Download and run the Core Tools installer, based on your version of Windows:
 
-    - [v3.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2135274) (Recommended. [Visual Studio Code debugging](functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
-    - [v3.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2135275)
-
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
+- [v3.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2135274) (Recommended. [Visual Studio Code debugging](functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
+- [v3.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 # [Windows](#tab/windows/v2)
 
@@ -100,8 +90,6 @@ Installing version 2.x of the Core Tools requires npm. You can also [use Chocola
     ```
     npm install -g azure-functions-core-tools@2 --unsafe-perm true
     ```
-
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
 
 # [Windows](#tab/windows/v1)
 
@@ -121,8 +109,6 @@ The following steps use Homebrew to install the Core Tools on macOS.
     # if upgrading on a machine that has 2.x or 3.x installed:
     brew link --overwrite azure-functions-core-tools@4
     ```
-    
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for macOS](https://dotnet.microsoft.com/download).
 
 # [macOS](#tab/macos/v3)
 
@@ -138,8 +124,6 @@ The following steps use Homebrew to install the Core Tools on macOS.
     # if upgrading on a machine that has 2.x installed:
     brew link --overwrite azure-functions-core-tools@3
     ```
-    
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for macOS](https://dotnet.microsoft.com/download).
 
 # [macOS](#tab/macos/v2)
 
@@ -153,8 +137,6 @@ The following steps use Homebrew to install the Core Tools on macOS.
     brew tap azure/functions
     brew install azure-functions-core-tools@2
     ```
-    
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for macOS](https://dotnet.microsoft.com/download).
 
 # [macOS](#tab/macos/v1)
 
@@ -171,9 +153,6 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
     sudo apt-get install azure-functions-core-tools-4
     ```
 
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install [.NET Core 3.x SDK for Linux](https://dotnet.microsoft.com/download).
-
-
 # [Linux](#tab/linux/v3)
 
 [!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
@@ -185,8 +164,6 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
     sudo apt-get install azure-functions-core-tools-3
     ```
 
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install [.NET Core 3.x SDK for Linux](https://dotnet.microsoft.com/download).
-
 # [Linux](#tab/linux/v2)
 
 [!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
@@ -197,9 +174,6 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
     sudo apt-get update
     sudo apt-get install azure-functions-core-tools-2
     ```
-
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install [.NET Core 3.x SDK for Linux](https://dotnet.microsoft.com/download).
-
 
 # [Linux](#tab/linux/v1)
 
@@ -280,9 +254,9 @@ There are no additional considerations for PowerShell.
 
 ## Register extensions
 
-Starting with runtime version 2.x, Functions bindings are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you are using. HTTP bindings and timer triggers don't require extensions. 
+Starting with runtime version 2.x, Functions triggers and bindings are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you are using. HTTP bindings and timer triggers don't require extensions. 
 
-To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET Core 2.x SDK and having to deal with the extensions.csproj file.
+To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET Core 3.1 SDK and having to deal with the extensions.csproj file.
 
 Extension bundles is the recommended approach for functions projects other than C# complied projects. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If this works for you, you can skip this entire section.  
 
