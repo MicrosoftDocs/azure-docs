@@ -461,7 +461,7 @@ This feature is in preview, starting from 3.2.3.
 
 Instrumentation key overrides allow you to override the [default instrumentation key](#connection-string), for example:
 * Set one instrumentation key for one http path prefix `/myapp1`.
-* Set another instrumentaiton key for another http path prefix `/myapp2/`.
+* Set another instrumentation key for another http path prefix `/myapp2/`.
 
 ```json
 {
