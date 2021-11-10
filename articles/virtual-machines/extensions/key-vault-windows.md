@@ -103,7 +103,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > It specifies identity to use for authentication to Key Vault.
 
 > [!IMPORTANT]
-> If you specify the 'msiClientId', then the 'msiEndpoint' property is **required**. Usually the value should be set to `http://169.254.169.254/metadata/identity`.
+> If you specify the 'msiClientId', then the 'msiEndpoint' property is **required**. Usually the value should be set to `http://169.254.169.254/metadata/identity/oauth2/token`.
 
 ### Property values
 
