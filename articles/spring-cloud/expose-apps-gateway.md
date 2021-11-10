@@ -68,7 +68,7 @@ For production deployments, You'll most likely use a publicly signed certificate
 
 ### [Using a Self-Signed Cert](#tab/self-signed-cert)
 
-When you need a self-signed certificate instead (for testing or development), you need to create it, and ensure that the list of "Subject Alternative Names" in the certificate contains the domain name on which the Spring Cloud application will be exposed. When creating a self-signed certificate through Azure Key Vault, you can do so through the Azure Portal. Alternatively, when using the Azure CLI, you'll need a policy JSON file.
+When you need a self-signed certificate instead (for testing or development), you need to create it, and ensure that the list of "Subject Alternative Names" in the certificate contains the domain name on which the Spring Cloud application will be exposed. When creating a self-signed certificate through Azure Key Vault, you can do so through the Azure portal. Alternatively, when using the Azure CLI, you'll need a policy JSON file.
 
 To request the default policy, use the following command:
 
@@ -96,7 +96,7 @@ Next, adapt the policy JSON as shown in the following example, indicating the `s
 }
 ```
 
-After you've finished updating the policy JSON (see [Update Certificate Policy](https://docs.microsoft.com/rest/api/keyvault/update-certificate-policy/update-certificate-policy)), you can create a self-signed certificate in Key Vault by using the following commands:
+After you've finished updating the policy JSON (see [Update Certificate Policy](/rest/api/keyvault/update-certificate-policy/update-certificate-policy)), you can create a self-signed certificate in Key Vault by using the following commands:
 
 ```azurecli
 KV_NAME='name-of-key-vault'
@@ -150,10 +150,10 @@ az spring-cloud app custom-domain bind \
 >
 > ```azurecli
 > az spring-cloud app custom-domain bind \
-> --resource-group $RESOURCE_GROUP \
-> --service $SPRING_CLOUD_NAME \
-> --domain-name $DOMAIN_NAME \
-> --app $APPNAME
+>     --resource-group $RESOURCE_GROUP \
+>     --service $SPRING_CLOUD_NAME \
+>     --domain-name $DOMAIN_NAME \
+>     --app $APPNAME
 > ```
 
 ## Create network resources
@@ -181,14 +181,16 @@ Application Gateway will need to be able to access Key Vault to read the certifi
 
 ```azurecli
 APPGW_IDENTITY_NAME='name-for-appgw-managed-identity'
-az identity create -g $RESOURCE_GROUP -n $APPGW_IDENTITY_NAME
+az identity create \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPGW_IDENTITY_NAME
 ```
 
 Then fetch the objectId for the Managed Identity as it will be used later on to give rights to access the certificate in Key Vault:
 
 ```azurecli
-APPGW_IDENTITY_CLIENTID=$(az identity show -g $RESOURCE_GROUP -n $APPGW_IDENTITY_NAME -o tsv --query clientId)
-APPGW_IDENTITY_OID=$(az ad sp show --id $APPGW_IDENTITY_CLIENTID --query objectId --out tsv)
+APPGW_IDENTITY_CLIENTID=$(az identity show --resource-group $RESOURCE_GROUP --name $APPGW_IDENTITY_NAME --query clientId --output tsv)
+APPGW_IDENTITY_OID=$(az ad sp show --id $APPGW_IDENTITY_CLIENTID --query objectId --output tsv)
 ```
 
 ## Set Policy on Key Vault
@@ -206,12 +208,12 @@ az keyvault set-policy \
 
 ## Create Application Gateway
 
-Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Make sure to use the user-assigned Managed Identity and to point to the certificate in Key Vault using the certificate's Secret Id. Then update the HTTP setting using `az network application-gateway http-settings update` to use the public host name.
+Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Make sure to use the user-assigned Managed Identity and to point to the certificate in Key Vault using the certificate's Secret ID. Then update the HTTP setting using `az network application-gateway http-settings update` to use the public host name.
 
 ```azurecli
 APPGW_NAME='name-for-application-gateway'
 
-KEYVAULT_SECRET_ID_FOR_CERT=$(az keyvault certificate show --name $CERT_NAME_IN_KV --vault-name $KV_NAME --query sid -o tsv)
+KEYVAULT_SECRET_ID_FOR_CERT=$(az keyvault certificate show --name $CERT_NAME_IN_KV --vault-name $KV_NAME --query sid --output tsv)
 
 az network application-gateway create \
     --name $APPGW_NAME \
@@ -243,10 +245,9 @@ It can take up to 30 minutes for Azure to create the application gateway.
 Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Cloud with.
 
 ```azurecli
-
 az network application-gateway http-settings update \
-    --gateway-name $APPGW_NAME \
     --resource-group $RESOURCE_GROUP \
+    --gateway-name $APPGW_NAME \
     --host-name-from-backend-pool false \
     --host-name $DOMAIN_NAME \
     --name appGatewayBackendHttpSettings
@@ -256,10 +257,14 @@ az network application-gateway http-settings update \
 
 Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Cloud with. Given that a self-signed certificate is used, it will need to be allow-listed on the HTTP Settings of Application Gateway.
 
-To allow-list the certificate, first fetch the public portion of it from Key Vault.
+To allowlist the certificate, first fetch the public portion of it from Key Vault by using the following command:
 
 ```azurecli
-az keyvault certificate download --vault-name $KV_NAME -n $CERT_NAME_IN_KV -f ./selfsignedcert.crt -e DER
+az keyvault certificate download \
+    --vault-name $KV_NAME \
+    --name $CERT_NAME_IN_KV \
+    --file ./selfsignedcert.crt \
+    --encoding DER
 ```
 
 Then upload it to Application Gateway:
@@ -274,7 +279,7 @@ az network application-gateway root-cert create \
 
 Now the HTTP Settings can be updated to trust this new (self-signed) root cert:
 
-```azure-cli
+```azurecli
 az network application-gateway http-settings update \
     --resource-group $RG \
     --gateway-name $APPGW_NAME \
