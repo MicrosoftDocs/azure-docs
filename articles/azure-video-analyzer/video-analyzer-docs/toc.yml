@@ -221,3 +221,7 @@
     href: quotas-limitations.md
   - name: Terraform resource
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer
+  - name: Video Analyzer edge
+    href: https://aka.ms/ava-marketplace
+  - name: Video Analyzer service
+    href: https://aka.ms/ava-service
