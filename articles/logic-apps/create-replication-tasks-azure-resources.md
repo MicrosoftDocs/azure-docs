@@ -229,7 +229,7 @@ The examples in this section use 800 as the default value for the prefetch count
 
 ## Naming conventions
 
-Give careful consideration to the naming strategy you use for your replication tasks or entities, if you haven't created them yet. Make sure that the names are easily identifiable and differentiated. For example, if you're working with Event Hubs namespace, the replication task replicates from every event hub in the source namespace. If you're working with Service Bus queues, the following table provides an example for naming the entities and replication task:
+Give careful consideration to the naming strategy you use for your replication tasks or entities, if you haven't created them yet. Make sure that the names are easily identifiable and differentiated. For example, if you're working with Event Hubs namespace, the replication task replicates from every Event Hub in the source namespace. If you're working with Service Bus queues, the following table provides an example for naming the entities and replication task:
 
 | Source name | Example | Replication app | Example | Target name | Example |
 |-------------|---------|-----------------|---------|-------------|---------|
@@ -373,7 +373,7 @@ This example shows how to view a task's history of workflow runs along with thei
 
    | Status | Description |
    |--------|-------------|
-   | **Cancelled** | The task was canceled while running. |
+   | **Canceled** | The task was canceled while running. |
    | **Failed** | The task has at least one failed action, but no subsequent actions existed to handle the failure. |
    | **Running** | The task is currently running. |
    | **Succeeded** | All actions succeeded. A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |
