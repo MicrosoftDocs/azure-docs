@@ -854,9 +854,9 @@
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false,
-        "articles/azure-video-analyzer/video-analyzer-docs/*.md": false,
-        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": false,
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": false
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": true,
+        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": true,
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": true
       },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
