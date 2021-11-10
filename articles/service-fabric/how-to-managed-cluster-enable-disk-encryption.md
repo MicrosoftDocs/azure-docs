@@ -24,7 +24,7 @@ Follow these steps and reference this [sample template](https://github.com/Azure
 
 1. Review the following [restrictions](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) to validate they meet your requirements.
 
-2. Set up the required [prerequisites](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites) before cluster deployment
+2. Set up the required [prerequisites](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites) before cluster deployment.
 
 3. Configure the `enableEncryptionAtHost` property in the managed cluster template for each node type disk encryption is required. The sample is pre-configured.
 
