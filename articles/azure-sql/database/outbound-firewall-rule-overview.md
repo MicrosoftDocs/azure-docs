@@ -1,5 +1,5 @@
 ---
-title: Outbound Firewall Rules (preview)
+title: Outbound firewall rules (preview)
 description: Overview of the outbound firewall rules feature.
 author: rohitnayakmsft
 ms.author: rohitna
