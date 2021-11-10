@@ -10,7 +10,7 @@ ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: spunukol
+ms.reviewer: ravenn
 
 ms.collection: M365-identity-device-management
 ---
@@ -64,7 +64,7 @@ The state is displayed only when the device is Azure AD-joined or hybrid Azure A
 - **TpmProtected**: The state is set to *YES* if the device private key is stored in a hardware Trusted Platform Module (TPM).
 - **DeviceAuthStatus**: Performs a check to determine the device's health in Azure AD. The health statuses are:  
   * *SUCCESS* if the device is present and enabled in Azure AD.  
-  * *FAILED. Device is either disabled or deleted* if the device is either disabled or deleted. For more information about this issue, see [Azure Active Directory device management FAQ](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
+  * *FAILED. Device is either disabled or deleted* if the device is either disabled or deleted. For more information about this issue, see [Azure Active Directory device management FAQ](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices). 
   * *FAILED. ERROR* if the test was unable to run. This test requires network connectivity to Azure AD.
     > [!NOTE]
     > The **DeviceAuthStatus** field was added in the Windows 10 May 2021 update (version 21H1).  
@@ -250,7 +250,7 @@ This section performs various tests to help diagnose join failures. The informat
 
 - **Client Time**: The system time, in UTC.
 - **AD Connectivity Test**: This test performs a connectivity test to the domain controller. An error in this test will likely result in join errors in the pre-check phase.
-- **AD Configuration Test**: This test reads and verifies whether the Special Containment Procedures (SCP) object is configured properly in the on-premises Active Directory forest. Errors in this test would likely result in join errors in the discover phase with the error code 0x801c001d.
+- **AD Configuration Test**: This test reads and verifies whether the Service Connection Point (SCP) object is configured properly in the on-premises Active Directory forest. Errors in this test would likely result in join errors in the discover phase with the error code 0x801c001d.
 - **DRS Discovery Test**: This test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in join errors in the discover phase.
 - **DRS Connectivity Test**: This test performs a basic connectivity test to the DRS endpoint.
 - **Token Acquisition Test**: This test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in join errors in the authentication phase. If authentication fails, sync-join will be attempted as fallback, unless fallback is explicitly disabled with the following registry key settings:

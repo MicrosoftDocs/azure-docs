@@ -13,10 +13,10 @@ ms.custom: ignite-fall-2021
 
 When you deploy an Azure Managed Instance for Apache Cassandra cluster, the service provisions a server that hosts [Prometheus](https://prometheus.io/) which can be consumed by various client tools. Prometheus is an open-source monitoring solution. The managed instance will emit metrics and retains 10 minutes or 10 GB of data (whichever threshold reaches first). This article describes how to configure Grafana to visualize metrics emitted from the managed instance cluster. The following tasks are required to visualize metrics:
 
-* Deploy a Ubuntu Virtual Machine inside the Azure Virtual Network where the managed instance is present.
+* Deploy an Ubuntu Virtual Machine inside the Azure Virtual Network where the managed instance is present.
 * Install the open-source [Grafana tool](https://grafana.com/grafana/) to build dashboards and visualize metrics emitted from Prometheus.
 
-## Deploy a Ubuntu server
+## Deploy an Ubuntu server
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

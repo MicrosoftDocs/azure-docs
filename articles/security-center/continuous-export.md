@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/09/2021
 ms.author: memildin
 
 ---
@@ -15,7 +15,7 @@ ms.author: memildin
 
 Microsoft Defender for Cloud generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You might also need to export some or all of this information for tracking with other monitoring tools in your environment. 
 
-**Continuous export** lets you fully customize *what* will be exported, and *where* it will go. For example, you can configure it so that:
+You fully customize *what* will be exported, and *where* it will go with **continuous export**. For example, you can configure it so that:
 
 - All high severity alerts are sent to an Azure Event Hub
 - All medium or higher severity findings from vulnerability assessment scans of your SQL servers are sent to a specific Log Analytics workspace
@@ -111,7 +111,7 @@ Continuous export can be configured and managed via the Microsoft Defender for C
 
 The API provides additional functionality not available from the Azure portal, for example:
 
-* **Greater volume** - The API allows you to create multiple export configurations on a single subscription. The **Continuous Export** page in Defender for Cloud's portal UI supports only one export configuration per subscription.
+* **Greater volume** - You can create multiple export configurations on a single subscription with the API. The **Continuous Export** page in Defender for Cloud's portal UI supports only one export configuration per subscription.
 
 * **Additional features** - The API offers additional parameters that aren't shown in the UI. For example, you can add tags to your automation resource as well as define your export based on a wider set of alert and recommendation properties than those offered in the **Continuous Export** page in Defender for Cloud's portal UI.
 

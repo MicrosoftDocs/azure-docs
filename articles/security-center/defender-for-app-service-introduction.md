@@ -3,7 +3,7 @@ title: Microsoft Defender for App Service - the benefits and features
 description: Learn about the capabilities of Microsoft Defender for App Service and how to enable it on your subscription
 author: memildin
 ms.author: memildin
-ms.date: 01/25/2021
+ms.date: 11/09/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -85,7 +85,7 @@ Learn more about dangling DNS and the threat of subdomain takeover, in [Prevent 
 For a full list of the App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
 
 > [!NOTE]
-> Defender might not trigger dangling DNS alerts if your custom domain doesn't point directly to an App Service resource, or if Defender hasn't monitored traffic to your website since the dangling DNS protection was enabled (because there won't be logs to help identify the custom domain).
+> Defender for Cloud might not trigger dangling DNS alerts if your custom domain doesn't point directly to an App Service resource, or if Defender for Cloud hasn't monitored traffic to your website since the dangling DNS protection was enabled (because there won't be logs to help identify the custom domain).
 
 ## Next steps
 

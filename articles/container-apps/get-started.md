@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Deploy your first container app'
 description: Deploy your first application to Azure Container Apps Preview.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic:  quickstart
 ms.date: 11/02/2021
 ms.author: cshoe
