@@ -107,7 +107,7 @@ To create the virtual network in the Azure portal, follow these steps:
       - Likewise, if your **default** IP range is *10.5.0.0/24*, then enter `10.5.1.0/24` for the new subnet. 
    1. Select **Add** to add your new subnet. 
 
-     :::image type="content" source="./media/failover-cluster-instance-prepare-vm/05-create-vnet-ipaddress-add-sql-subnet-1.png" alt-text="Name your first subnet, such as sql-subnet-1, and then iterate the third octet by 1, so that if your DC-subnet IP address is 10.5.0.0, your new subnet should be 10.5.1.0":::
+     :::image type="content" source="./media/failover-cluster-instance-prepare-vm/05-create-vnet-ip-address-add-sql-subnet-1.png" alt-text="Name your first subnet, such as sql-subnet-1, and then iterate the third octet by 1, so that if your DC-subnet IP address is 10.5.0.0, your new subnet should be 10.5.1.0":::
 
 1. Repeat the previous step to add an additional unique subnet range for your second SQL Server VM with a name such as **SQL-subnet-2**. You can iterate the third octet by one again. 
    - For example, if your **default** IP range is *10.38.0.0/24*, and your **SQL-subnet-1** is *10.38.1.0/24*, then enter `10.38.2.0/24` for the new subnet
