@@ -1,17 +1,17 @@
 ---
 title: 'Quickstart: Install Defender for IoT micro agent (Preview)'
-description: In this quickstart, learn how to install, and authenticate the Defender Micro Agent.
-ms.date: 08/26/2021
+description: In this quickstart, learn how to install, and authenticate the Defender for Cloud Micro Agent.
+ms.date: 11/09/2021
 ms.topic: quickstart
 ---
 
 # Quickstart: Install Defender for IoT micro agent (Preview)
 
-This article provides an explanation of how to install, and authenticate the Defender micro agent.
+This article provides an explanation of how to install, and authenticate the Defender for Cloud micro agent.
 
 ## Prerequisites
 
-Before you install the Defender for IoT module, you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create a Defender IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+Before you install the Defender for IoT module, you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create a Defender for Cloud IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
 
 ## Install the package
 
@@ -50,7 +50,7 @@ Before you install the Defender for IoT module, you must create a module identit
     sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
-To install the Defender micro agent package on Debian, and Ubuntu based Linux distributions, use the following command:
+To install the Defender for Cloud micro agent package on Debian, and Ubuntu based Linux distributions, use the following command:
 
 ```bash
 sudo apt-get install defender-iot-micro-agent 
@@ -94,7 +94,7 @@ To get the module identity connection string from the IoT Hub:
 
 To configure the agent to authenticate using a module identity connection string:
 
-1. Place a file named `connection_string.txt` containing the connection string encoded in utf-8 in the defender agent directory `/var/defender_iot_micro_agent` path by entering the following command:
+1. Place a file named `connection_string.txt` containing the connection string encoded in utf-8 in the Defender for Cloud agent directory `/var/defender_iot_micro_agent` path by entering the following command:
 
     ```bash
     sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
@@ -114,13 +114,13 @@ To authenticate using a certificate:
 
 1. Procure a certificate by following [these instructions](../../iot-hub/tutorial-x509-scripts.md).
 
-1. Place the PEM-encoded public part of the certificate, and the private key, in to the Defender Agent Directory in to the file called `certificate_public.pem`, and `certificate_private.pem`.
+1. Place the PEM-encoded public part of the certificate, and the private key, in to the Defender for Cloud Agent Directory in to the file called `certificate_public.pem`, and `certificate_private.pem`.
 
 1. Place the appropriate connection string in to the `connection_string.txt` file. the connection string should look like this:
 
     `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true`
 
-    This string alerts the defender agent, to expect a certificate be provided for authentication.
+    This string alerts the Defender for Cloud agent, to expect a certificate be provided for authentication.
 
 1. Restart the service using the following command:  
 
@@ -160,7 +160,7 @@ Allow up to one hour for the recommendation to appear in the hub.
 
 ## Micro agent versioning
 
-To install a specific version of the Defender IoT micro agent, run the following command:
+To install a specific version of the Defender for Cloud IoT micro agent, run the following command:
 
 ```bash
 sudo apt-get install defender-iot-micro-agent=<version>
@@ -169,4 +169,4 @@ sudo apt-get install defender-iot-micro-agent=<version>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Defender IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md)
+> [Quickstart: Create a Defender for Cloud IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md)

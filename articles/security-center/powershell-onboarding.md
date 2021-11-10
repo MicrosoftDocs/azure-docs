@@ -5,15 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 10/20/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Automate onboarding of Microsoft Defender for Cloud using PowerShell
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-You can secure your Azure workloads programmatically, using the Microsoft Defender for Cloud PowerShell module.
-Using PowerShell enables you to automate tasks and avoid the human error inherent in manual tasks. This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources – all of which must be secured from the beginning.
+You can secure your Azure workloads programmatically, using the Microsoft Defender for Cloud PowerShell module. Using PowerShell enables you to automate tasks and avoid the human error inherent in manual tasks. This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources, all of which must be secured from the beginning.
 
 Onboarding Microsoft Defender for Cloud using PowerShell enables you to programmatically automate onboarding and management of your Azure resources and add the necessary security controls.
 
@@ -21,7 +20,7 @@ This article provides a sample PowerShell script that can be modified and used i
 
 In this example, we will enable Defender for Cloud on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by enabling Microsoft Defender for Cloud's enhanced security features, which provides advanced threat protection and detection capabilities:
 
-1. Enable [the enhanced security in Microsoft Defender](enable-enhanced-security.md).
+1. Enable [the enhanced security in Microsoft Defender for Cloud](enable-enhanced-security.md).
  
 2. Set the Log Analytics workspace to which the Log Analytics agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
 
