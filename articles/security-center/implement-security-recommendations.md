@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Implement security recommendations in Microsoft Defender for Cloud
