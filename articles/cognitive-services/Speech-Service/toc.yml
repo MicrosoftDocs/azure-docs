@@ -376,8 +376,6 @@ items:
       href: keyword-recognition-guidelines.md
     - name: Region support
       href: keyword-recognition-region-support.md
-- name: Language identification
-  href: language-identification.md
 - name: Scenario deep-dives
   items:
     - name: Conversation scenarios
@@ -623,6 +621,8 @@ items:
           href: speech-sdk.md
         - name: Setup Speech SDK
           href: quickstarts/setup-platform.md
+        - name: Troubleshoot the Speech SDK
+          href: troubleshooting.md
         - name: Speech SDK Release notes
           href: releasenotes.md
         - name: Reference

@@ -6,7 +6,7 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/09/2021
 ---
 # Access and track your secure score
 

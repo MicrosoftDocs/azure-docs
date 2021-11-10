@@ -4,7 +4,7 @@ description: Learn how to deploy a C# ASP.NET app to Azure and to Azure SQL Data
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/05/2021
+ms.date: 11/08/2021
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
 ---
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
+Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload.
 
 If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 

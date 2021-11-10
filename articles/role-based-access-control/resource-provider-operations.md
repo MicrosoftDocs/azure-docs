@@ -7349,8 +7349,8 @@ Azure service: [IoT security](../iot-fundamentals/iot-security-architecture.md)
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.IoTSecurity/unregister/action | Unregisters the subscription for Azure Defender for IoT |
-> | Microsoft.IoTSecurity/register/action | Registers the subscription for Azure Defender for IoT |
+> | Microsoft.IoTSecurity/unregister/action | Unregisters the subscription for Microsoft Defender for IoT |
+> | Microsoft.IoTSecurity/register/action | Registers the subscription for Defender for IoT |
 > | Microsoft.IoTSecurity/defenderSettings/read | Gets IoT Defender Settings |
 > | Microsoft.IoTSecurity/defenderSettings/write | Creates or updates IoT Defender Settings |
 > | Microsoft.IoTSecurity/defenderSettings/delete | Deletes IoT Defender Settings |
@@ -8771,13 +8771,13 @@ Azure service: Microsoft Monitoring Insights
 
 ### Microsoft.SecurityInsights
 
-Azure service: [Azure Sentinel](../sentinel/index.yml)
+Azure service: [Microsoft Sentinel](../sentinel/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.SecurityInsights/register/action | Registers the subscription to Azure Sentinel |
-> | Microsoft.SecurityInsights/unregister/action | Unregisters the subscription from Azure Sentinel |
+> | Microsoft.SecurityInsights/register/action | Registers the subscription to Microsoft Sentinel |
+> | Microsoft.SecurityInsights/unregister/action | Unregisters the subscription from Microsoft Sentinel |
 > | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Check user authorization and license |
 > | Microsoft.SecurityInsights/Aggregations/read | Gets aggregated information |
 > | Microsoft.SecurityInsights/alertRules/read | Gets the alert rules |

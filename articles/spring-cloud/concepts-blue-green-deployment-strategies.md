@@ -1,8 +1,8 @@
 ---
 title:  "Blue-green deployment strategies in Azure Spring Cloud"
 description: This topic explains two approaches to blue-green deployments in Azure Spring Cloud.
-author: karlerickson
-ms.author: yebronsh
+author: barbkess
+ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/12/2021

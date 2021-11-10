@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Microsoft Defender for Cloud data security
