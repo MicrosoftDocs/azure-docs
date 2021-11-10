@@ -145,4 +145,4 @@ You can specify the policy file through the key management CLI or the Azure port
 ## Next step
 
 > [!div class="nextstepaction"]
-> [FAQ for confidential VMs on AMD](virtual-machine-amd-faq.md)
+> [FAQ for confidential VMs on AMD](confidential-vm-faq-amd.yml)

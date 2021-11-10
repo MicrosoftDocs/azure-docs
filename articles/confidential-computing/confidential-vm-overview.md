@@ -17,7 +17,7 @@ ms.author: edcohen
 > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Confidential Computing offers confidential VMs based on [AMD processors with Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) technology](virtual-machine-solutions-amd.md). Confidential VMs are for tenants with very high security and confidentiality requirements. You can use confidential VMs for migrations without making changes to your code. Confidential VMs provide a strong, hardware-enforced boundary to help meet your security needs. The platform prevents anyone other than you, including Microsoft, from reading or modifying a confidential VM's state.
+Azure Confidential Computing offers confidential VMs based on [AMD processors with Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) technology](confidential-vm-solutions-amd.md). Confidential VMs are for tenants with very high security and confidentiality requirements. You can use confidential VMs for migrations without making changes to your code. Confidential VMs provide a strong, hardware-enforced boundary to help meet your security needs. The platform prevents anyone other than you, including Microsoft, from reading or modifying a confidential VM's state.
 
 > [!IMPORTANT]
 > Protection levels differ based on your configuration and preferences. For example, Microsoft can own or manage encryption keys for increased convenience at no additional cost.
@@ -58,7 +58,7 @@ Starting in 2022, encrypted OS disks will begin to incur higher costs. This chan
 
 Confidential VMs boot only after successful attestation of the platform's critical components and security settings. Attestion includes a signed attestation report issued by AMD SEV-SNP, platform boot settings, and operating system measurements. 
 
-[Azure Attestation](/services/azure-attestation/) does the attestation according to your attestation policy, which you can customize. You can define compliance parameters for starting up and trusting your VM. For example, you can define a valid range of Security Version Numbers for the processor microcode, or whether Secure Boot must be enabled. For more options, see [how to create secure key release policies for confidential VMs](amd-secure-key-release.md).
+[Azure Attestation](/services/azure-attestation/) does the attestation according to your attestation policy, which you can customize. You can define compliance parameters for starting up and trusting your VM. For example, you can define a valid range of Security Version Numbers for the processor microcode, or whether Secure Boot must be enabled. For more options, see [how to create secure key release policies for confidential VMs](confidential-vm-secure-key-release.md).
 
 Trusted launch offers virtual TPM (vTPM) for Azure VMs. The vTPM is a virtualized version of a hardware TPM,and complies with the TPM2.0 spec. You can use a vTPM as a dedicated, secure vault for keys and measurements. Trusted launch provides your VM with its own dedicated TPM instance, which runs in a secure environment outside the reach of any VM. The [vTPM enables attestation](https://docs.microsoft.com/en-us/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) by measuring the entire boot chain of your VM, including the UEFI, OS, system, and drivers. 
 
@@ -66,7 +66,7 @@ Trusted launch does remote attestation in the cloud using the vTPM. Platform hea
 
 ## Limitations
 
-The following limitations exist for confidential VMs. For frequently asked questions, see [FAQ about confidential VMs with AMD processors](./virtual-machine-amd-faq.yml).
+The following limitations exist for confidential VMs. For frequently asked questions, see [FAQ about confidential VMs with AMD processors](./confidential-vm-faq-amd.yml).
 
 ### Size support
 
@@ -77,7 +77,7 @@ Confidential VMs support the following VM sizes:
 - ECasv5-series
 - ECadsv5-series
 
- For more information, see the [AMD deployment options](virtual-machine-solutions-amd.md).
+ For more information, see the [AMD deployment options](confidential-vm-solutions-amd.md).
 ### OS support
 
 Confidential VMs support the following OS options:
@@ -121,4 +121,4 @@ Confidential VMs also doesn't currently support the following Azure VMs features
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Deploy a confidential VM on AMD from the Azure portal](quick-create-portal-cvm.md)
+> [Deploy a confidential VM on AMD from the Azure portal](quick-create-confidential-vm-portal-amd.md)

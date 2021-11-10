@@ -45,7 +45,7 @@ sections:
           How can I deploy Azure confidential VMs?
         answer: |
           Here are some ways you can deploy a confidential VM on AMD processors:
-             - [Deploy from the Azure portal](quick-create-portal-cvm.md)
+             - [Deploy from the Azure portal](quick-create-confidential-vm-portal-amd.md)
              - [Deploy from the Azure Command-Line Interface (Azure CLI)](quick-create-cli-amd-cvm.md)
 
       - question: |

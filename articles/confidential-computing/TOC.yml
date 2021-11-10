@@ -15,9 +15,9 @@
   - name: Confidential VMs
     items:
       - name: Create confidential VM with Azure CLI
-        href: quick-create-arm-amd-cvm.md
+        href: quick-create-confidential-vm-arm-amd.md
       - name: Create confidential VM with Azure portal
-        href: quick-create-portal-cvm.md
+        href: quick-create-confidential-vm-portal-amd.md
   - name: Confidential VMs with enclaves
     items:
       - name: Deploy Intel SGX
@@ -42,9 +42,9 @@
     - name: About confidential VMs
       href: confidential-vm-overview.md
     - name: FAQ for AMD confidential VMs
-      href: virtual-machine-amd-faq.yml
+      href: confidential-vm-faq-amd.yml
     - name: Secure key release policies for AMD confidential VMs
-      href: amd-secure-key-release.md
+      href: confidential-vm-secure-key-release.md
     - name: Build with enclaves
       items:
       - name: Enclaves overview

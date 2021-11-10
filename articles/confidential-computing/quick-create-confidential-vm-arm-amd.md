@@ -203,4 +203,4 @@ Use this example to [create a custom parameter file](#use-custom-parameter-file)
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a confidential VM on AMD in the Azure portal](quick-create-portal-cvm.md)
+> [Quickstart: Create a confidential VM on AMD in the Azure portal](quick-create-confidential-vm-portal-amd.md)
