@@ -73,6 +73,8 @@
         href: manage-vm-extensions-powershell.md
       - name: Deploy extensions using ARM template
         href: manage-vm-extensions-template.md
+      - name: Automatic extension upgrade
+        href: manage-automatic-vm-extension-upgrade.md
     - name: Use managed identities on server
       href: managed-identity-authentication.md
     - name: Manage agent
@@ -83,9 +85,9 @@
     items:
     - name: Test Arc-enabled servers using an Azure VM
       href: plan-evaluate-on-azure-virtual-machine.md
-    - name: Onboard to Azure Sentinel
+    - name: Onboard to Microsoft Sentinel
       href: scenario-onboard-azure-sentinel.md
-    - name: Onboard to Azure Security Center
+    - name: Onboard to Microsoft Defender for Cloud
       href: ../../security-center/quickstart-onboard-machines.md
   - name: Troubleshooting
     items:

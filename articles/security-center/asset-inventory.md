@@ -5,16 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 10/18/2021
+ms.date: 11/09/2021
 ms.service: security-center
 ms.topic: how-to
 ---
-
 # Use asset inventory to manage your resources' security posture
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The asset inventory page of Microsoft Defender for Cloud provides a single page for viewing the security posture of the resources you've connected to Microsoft Defender for Cloud. 
+The asset inventory page of Microsoft Defender for Cloud provides a single page for viewing the security posture of the resources you've connected to Microsoft Defender for Cloud.
 
 Defender for Cloud periodically analyzes the security state of resources connected to your subscriptions to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
 
@@ -27,13 +26,13 @@ Use this view and its filters to address such questions as:
 - How many of my machines tagged with a specific tag have outstanding recommendations?
 - Which machines in a specific resource group have a known vulnerability (using a CVE number)?
 
-The asset management possibilities for this tool are substantial and continue to grow. 
+The asset management possibilities for this tool are substantial and continue to grow.
 
 > [!TIP]
 > The security recommendations on the asset inventory page are the same as those on the **Recommendations** page, but here they're shown according to the affected resource. For information about how to resolve recommendations, see [Implementing security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md).
 
-
 ## Availability
+
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
@@ -42,14 +41,14 @@ The asset management possibilities for this tool are substantial and continue to
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
-
 ## What are the key features of asset inventory?
+
 The inventory page provides the following tools:
 
 :::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Main features of the asset inventory page in Microsoft Defender for Cloud." lightbox="media/asset-inventory/highlights-of-inventory.png":::
 
-
 ### 1 - Summaries
+
 Before you define any filters, a prominent strip of values at the top of the inventory view shows:
 
 - **Total resources**: The total number of resources connected to Defender for Cloud.
@@ -58,9 +57,10 @@ Before you define any filters, a prominent strip of values at the top of the inv
 - **Unregistered subscriptions**: Any subscription in the selected scope that haven't yet been connected to Microsoft Defender for Cloud.
 
 ### 2 - Filters
+
 The multiple filters at the top of the page provide a way to quickly refine the list of resources according to the question you're trying to answer. For example, if you wanted to answer the question *Which of my machines with the tag 'Production' are missing the Log Analytics agent?* you could combine the **Agent monitoring** filter with the **Tags** filter.
 
-As soon as you've applied filters, the summary values are updated to relate to the query results. 
+As soon as you've applied filters, the summary values are updated to relate to the query results.
 
 ### 3 - Export and asset management tools
 
@@ -69,12 +69,11 @@ As soon as you've applied filters, the summary values are updated to relate to t
 > [!TIP]
 > The KQL documentation provides a database with some sample data together with some simple queries to get the "feel" for the language. [Learn more in this KQL tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
-**Asset management options** - Inventory lets you perform complex discovery queries. When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
+**Asset management options** - When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
 
 - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag.
 - Onboard new servers to Defender for Cloud - use the **Add non-Azure servers** toolbar button.
 - Automate workloads with Azure Logic Apps - use the **Trigger Logic App** button to run a logic app on one or more resources. Your logic apps have to be prepared in advance, and accept the relevant trigger type (HTTP request). [Learn more about logic apps](../logic-apps/logic-apps-overview.md).
-
 
 ## How does asset inventory work?
 
@@ -83,7 +82,6 @@ Asset inventory utilizes [Azure Resource Graph (ARG)](../governance/resource-gra
 ARG is designed to provide efficient resource exploration with the ability to query at scale.
 
 Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset inventory can quickly produce deep insights by cross-referencing Defender for Cloud data with other resource properties.
-
 
 ## How to use asset inventory
 
@@ -98,7 +96,7 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
     > [!IMPORTANT]
     > The options in each filter are specific to the resources in the currently selected subscriptions **and** your selections in the other filters.
     >
-    > For example, if you've selected only one subscription, and the subscription has no resources with outstanding security recommendations to remediate (0 unhealthy resources), the **Recommendations** filter will have no options. 
+    > For example, if you've selected only one subscription, and the subscription has no resources with outstanding security recommendations to remediate (0 unhealthy resources), the **Recommendations** filter will have no options.
 
     :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Using the filter options in Microsoft Defender for Cloud's asset inventory to filter resources to production resources that aren't monitored":::
 
@@ -113,7 +111,7 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 
     - **Off** - Resources that aren't protected by a Microsoft Defender plan. You can right-click on any of these and upgrade them:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Microsoft Defender from right click." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to be protected by the relevant Microsoft Defender plan via right-click." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **On** - Resources that are protected by a Microsoft Defender plan
     - **Partial** - This applies to **subscriptions** that have some but not all of the Microsoft Defender plans disabled. For example, the following subscription has seven Microsoft Defender plans disabled.
@@ -177,7 +175,7 @@ Examples of using Azure Resource Graph Explorer to access and explore software i
         | where count_ > 1
         ```
 
-    - Combination of a software product with another ASC recommendation:
+    - Combination of a software product with another security recommendation:
 
         (In this example – machines having MySQL installed and exposed management ports)
 
@@ -194,13 +192,11 @@ Examples of using Azure Resource Graph Explorer to access and explore software i
         ) on vmId
         ```
 
-
-
 ## FAQ - Inventory
 
 ### Why aren't all of my subscriptions, machines, storage accounts, etc. shown?
 
-The inventory view lists your Defender for Cloud connected resources from a Cloud Security Posture Management (CSPM) perspective. The filters don't return every resource in your environment; only the ones with outstanding (or 'active') recommendations. 
+The inventory view lists your Defender for Cloud connected resources from a Cloud Security Posture Management (CSPM) perspective. The filters don't return every resource in your environment; only the ones with outstanding (or 'active') recommendations.
 
 For example, the following screenshot shows a user with access to 8 subscriptions but only 7 currently have recommendations. So when they filter by **Resource type = Subscriptions**, only those 7 subscriptions with active recommendations appear in the inventory:
 
