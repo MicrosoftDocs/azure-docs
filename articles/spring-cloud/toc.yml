@@ -188,6 +188,10 @@
           href: how-to-self-diagnose-running-in-vnet.md
         - name: Troubleshooting guide
           href: troubleshoot.md
+        - name: Manually capture heap dump/thread dump/JFR
+          href: how-to-capture-dumps.md
+        - name: JVM option based troubleshooting
+          href: tutorial-dump-jvm-options.md
     - name: Migrate
       items:
         - name: Spring Cloud

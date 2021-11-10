@@ -48,8 +48,11 @@ Full-disk encryption is optional, because this process can lengthen the initial 
 For further integrity and protection, confidential VMs offer [Secure Boot](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot) by default. 
 With Secure Boot enabled, trusted publishers must sign all OS boot components (boot loader, kernel, kernel drivers). All compatible confidential VM images support Secure Boot. 
 
-> [!NOTE]
-> Confidential VMs use both the OS disk and a small encrypted virtual machine guest state (VMGS) disk of several megabytes. The VMGS disk contains the security state of the VM's components, including the vTPM and UEFI bootloader. The small VMGS disk might incur a monthly storage fee.
+### Encryption pricing differences
+
+Confidential VMs use both the OS disk and a small encrypted virtual machine guest state (VMGS) disk of several megabytes. The VMGS disk contains the security state of the VM's components, including the vTPM and UEFI bootloader. The small VMGS disk might incur a monthly storage cost.
+
+Starting in 2022, encrypted OS disks will begin to incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
 
 ## Customizable attestation policies
 
