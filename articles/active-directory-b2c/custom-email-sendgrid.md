@@ -555,7 +555,7 @@ The Localization element allows you to support multiple locales or languages in 
 
 ## Next steps
 
-- You can find an example of [Custom email verification - DisplayControls custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/SendGridl) on GitHub.
+- You can find an example of [Custom email verification - DisplayControls custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/SendGrid) on GitHub.
 - For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
 
 ::: zone-end
