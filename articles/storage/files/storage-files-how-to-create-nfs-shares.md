@@ -1,17 +1,17 @@
 ---
-title: Create an NFS share (preview) - Azure Files
+title: Create an NFS share - Azure Files
 description: Learn how to create an Azure file share that can be mounted using the Network File System protocol.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 11/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# How to create an NFS share (preview)
-Azure file shares are fully managed file shares that live in the cloud. This article covers creating a file share that uses the NFS protocol (preview).
+# How to create an NFS share
+Azure file shares are fully managed file shares that live in the cloud. This article covers creating a file share that uses the NFS protocol.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -54,7 +54,7 @@ Connect-AzAccount
 $subscriptionId = "<yourSubscriptionIDHere>"
 $context = Get-AzSubscription -SubscriptionId $subscriptionId
 Set-AzContext $context
-# Register the NFS 4.1 feature with Azure Files to enable the preview.
+# Register the NFS 4.1 feature with Azure Files to enable the feature.
 Register-AzProviderFeature `
     -ProviderNamespace Microsoft.Storage `
     -FeatureName AllowNfsFileShares 

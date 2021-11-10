@@ -12,7 +12,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 # Troubleshoot Azure NFS file share problems
 
-This article lists some common problems related to Azure NFS file shares (preview). It provides potential causes and workarounds when these problems are encountered. This article also covers known issues in public preview.
+This article lists some common problems and known issues related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -41,7 +41,7 @@ Check that idmapping is disabled and nothing is re-enabling it, then perform the
 
 ### Cause 1: Subscription is not enabled
 
-Your subscription may not have been registered for the Azure Files NFS preview. You will need to run a few more commandlets from either Cloud Shell or a local terminal to enable the feature.
+Your subscription may not have been registered for the Azure Files NFS. You will need to run a few more commandlets from either Cloud Shell or a local terminal to enable the feature.
 
 > [!NOTE]
 > You may have to wait up to 30 minutes for the registration to complete.
