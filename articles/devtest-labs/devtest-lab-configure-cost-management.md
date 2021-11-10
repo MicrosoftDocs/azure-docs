@@ -31,16 +31,16 @@ To view the Monthly Estimated Cost Trend chart, follow these steps:
 
      As it states above the chart, the costs you see by default in the chart are *estimated* costs using [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) offer rates. You can also set your own spending targets that are displayed in the charts by [managing the cost targets for your lab.](#managing-cost-targets-for-your-lab)
 
-     The following costs are *not* included in the cost calculation:
+     The following costs *aren't* included in the cost calculation:
 
-   * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the Azure billing APIs to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
-   * Your offer rates. Currently, you can't use the offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. Only Pay-As-You-Go rates are used.
+   * CSP and Dreamspark subscriptions currently aren't supported. Azure DevTest Labs uses the Azure billing APIs to calculate the lab cost, which doesn't support CSP or Dreamspark subscriptions.
+   * Your offer rates. Currently, you can't use the offer rates shown under your subscription that you've negotiated with Microsoft or Microsoft partners. Only Pay-As-You-Go rates are used.
    * Your taxes
    * Your discounts
    * Your billing currency. Currently, the lab cost is displayed only in USD currency.
 
 ### Managing cost targets for your lab
-DevTest Labs lets you better manage the costs in  your lab by setting a spending target that you can then view in the Monthly Estimated Cost Trend chart. DevTest Labs can also send you a notification when the specified target spending or threshold is reached. 
+DevTest Labs helps you manage your lab costs by setting a spending target that you can view in the Monthly Estimated Cost Trend chart. DevTest Labs can send you a notification when spending reaches the specified target threshold. 
 
 1. On the **Cost trend** page, select **Manage target**.
 
@@ -67,19 +67,19 @@ DevTest Labs lets you better manage the costs in  your lab by setting a spending
        For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-bindings-http-webhook.md). 
 
 ## View cost by resource 
-The monthly cost trend feature in labs allows you to see how much you have spent in the current calendar month. It also shows the projection of the spending until the end of the month, based on your spending in last seven days. To help you understand why the spending in the lab is meeting thresholds early on, you can use the **cost by resource** feature that shows you the month-to-date cost **per resource** in a table.
+The monthly cost trend feature in labs allows you to see how much you spent in the current calendar month. The feature also shows your spending projection until the end of the month, based on your spending in last seven days. To help you understand why the spending in the lab is meeting thresholds early on, you can use the **cost by resource** feature that shows you the month-to-date cost **per resource** in a table.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
-3. From the list of labs, select the desired lab.  
+3. From the list of labs, select the lab you want.  
 4. Select **Configuration and policies** on the left menu.
 5. Select **Cost by resource** in the **Cost tracking** section on the left menu. You see the costs associated with each resource associated with a lab. 
 
     ![Screenshot that shows Cost by resource.](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
 
-This feature helps you to easily identify the resources that cost the most so that you can take actions to reduce the lab spending. For example, the cost of a VM is based on the size of the VM. The larger the size of the VM, the more it costs. You can easily find the size of a VM and the owner. You can talk to the VM owner to understand why they need the VM size and whether they can lower the size.
+This feature helps you to easily identify the resources that cost the most so you can take actions to reduce the lab spending. For example, the cost of a VM is based on the size of the VM. The larger the size of the VM, the more it costs. You could find the size of a VM and the owner, and talk to the owner about why they need the VM size and whether they can lower the size.
 
-[Auto shutdown policy](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) helps you to reduce the cost by shutting down lab VMs at a particular time of the day. However, a lab user can opt out of the shutdown policy, which increases the cost of running the VM. You can select a VM in the table to see if it has been opted-out of the auto shutdown policy. If that's the case, you can talk to the VM owner to find why they opted out the VM from the policy.
+[Auto shutdown policy](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) helps you to reduce the cost by shutting down lab VMs at a particular time of the day. However, a lab user can opt out of the shutdown policy, which increases the cost of running the VM. Select a VM in the table to see if it's been opted-out of the auto shutdown policy. Talk to the VM owner to find out why they opted out, and see if they can opt back in.
  
 ## Next steps
 Here are some things to try next:
