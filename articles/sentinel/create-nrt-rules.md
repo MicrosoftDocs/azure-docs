@@ -1,6 +1,6 @@
 ---
-title: Work with near-real-time (NRT) detection analytics rules in Azure Sentinel | Microsoft Docs
-description: This article explains how to view and create near-real-time (NRT) detection analytics rules in Azure Sentinel.
+title: Work with near-real-time (NRT) detection analytics rules in Microsoft Sentinel | Microsoft Docs
+description: This article explains how to view and create near-real-time (NRT) detection analytics rules in Microsoft Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
-# Work with near-real-time (NRT) detection analytics rules in Azure Sentinel
+# Work with near-real-time (NRT) detection analytics rules in Microsoft Sentinel
 
 > [!IMPORTANT]
 >
 > - Near-real-time (NRT) rules are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Sentinel’s [near-real-time analytics rules](near-real-time-rules.md) provide up-to-the-minute threat detection out-of-the-box. This type of rule was designed to be highly responsive by running its query at intervals just one minute apart.
+Microsoft Sentinel’s [near-real-time analytics rules](near-real-time-rules.md) provide up-to-the-minute threat detection out-of-the-box. This type of rule was designed to be highly responsive by running its query at intervals just one minute apart.
 
 For the time being, these templates have limited application as outlined below, but the technology is rapidly evolving and growing.
 
 ## View near-real-time (NRT) rules
 
-1. From the Azure Sentinel navigation menu, select **Analytics**.
+1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
 1. In the **Active rules** tab of the **Analytics** blade, filter the list for **NRT** templates:
 
@@ -42,7 +42,7 @@ For the time being, these templates have limited application as outlined below, 
 
 You create NRT rules the same way you create regular [scheduled-query analytics rules](detect-threats-custom.md):
 
-1. From the Azure Sentinel navigation menu, select **Analytics**.
+1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
 1. Select **Create** from the button bar, then **NRT query rule** from the drop-down list.
 
@@ -76,7 +76,7 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
 ## Next steps
 
-In this document, you learned how to create near-real-time (NRT) analytics rules in Azure Sentinel.
+In this document, you learned how to create near-real-time (NRT) analytics rules in Microsoft Sentinel.
 
-- Learn more about about [near-real-time (NRT) analytics rules in Azure Sentinel](near-real-time-rules.md).
+- Learn more about about [near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
 - Explore other [analytics rule types](detect-threats-built-in.md).

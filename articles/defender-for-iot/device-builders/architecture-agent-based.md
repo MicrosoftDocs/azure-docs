@@ -1,13 +1,13 @@
 ---
 title: What is agent-based solution architecture 
-description: Learn about Azure Defender for IoT agent-based architecture and information flow.
+description: Learn about Microsoft Defender for IoT agent-based architecture and information flow.
 ms.topic: overview
-ms.date: 1/25/2021
+ms.date: 11/09/2021
 ---
 
 # What is agent-based solution for device builders
 
-This article describes the functional system architecture of the Defender for IoT agent-based solution. Azure Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders.
+This article describes the functional system architecture of the Defender for IoT agent-based solution. Microsoft Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders.
 
 ## IoT hub built-in security
 
@@ -31,4 +31,4 @@ Defender for IoT recommendations and alerts (analytics pipeline output) is writt
 
 ## Next steps
 
-Check out [Azure Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md).
+Check out [Microsoft Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md).

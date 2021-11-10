@@ -175,7 +175,7 @@ When you enable Application Insights for an application by installing an instrum
 |:---|:---|:---|
 | Azure Monitor Logs | Stores monitoring data for AKS including inventory, logs, and events. Metric data is also stored in Logs in order to leverage its analysis functionality in the portal. | [Understand AKS cluster performance with Container insights](../containers/container-insights-analyze.md) |
 | Azure Monitor Metrics | Metric data is stored in the metric database to drive visualization and alerts. | [View container metrics in metrics explorer](../containers/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Azure Kubernetes Service | Provides direct access to your Azure Kubernetes Service (AKS) container logs (stdout/stderror), events, and pod metrics in the portal. | [How to view Kubernetes logs, events, and pod metrics in real-time ](../containers/container-insights-livedata-overview.md) |
+| Azure Kubernetes Service | Provides direct access to your Azure Kubernetes Service (AKS) container logs (stdout/stderror), events, and pod metrics in the portal. | [How to view Kubernetes logs, events, and pod metrics in real-time](../containers/container-insights-livedata-overview.md) |
 
 ### VM insights
 [VM insights](../vm/vminsights-overview.md) provides a customized experience for monitoring virtual machines. A description of the data collected by VM insights is included in the [Operating System (guest)](#operating-system-guest) section above.
@@ -196,8 +196,8 @@ Other services in Azure write data to the Azure Monitor data platform. This allo
 
 | Service | Destination | Description | Reference |
 |:---|:---|:---|:---|
-| [Azure Security Center](../../security-center/index.yml) | Azure Monitor Logs | Azure Security Center stores the security data it collects in a Log Analytics workspace which allows it to be analyzed with other log data collected by Azure Monitor.  | [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
-| [Azure Sentinel](../../sentinel/index.yml) | Azure Monitor Logs | Azure Sentinel stores the data it collects from different data sources in a Log Analytics workspace which allows it to be analyzed with other log data collected by Azure Monitor.  | [Connect data sources](../../sentinel/quickstart-onboard.md) |
+| [Microsoft Defender for Cloud](../../security-center/index.yml) | Azure Monitor Logs | Microsoft Defender for Cloud stores the security data it collects in a Log Analytics workspace which allows it to be analyzed with other log data collected by Azure Monitor.  | [Data collection in Microsoft Defender for Cloud](../../security-center/security-center-enable-data-collection.md) |
+| [Microsoft Sentinel](../../sentinel/index.yml) | Azure Monitor Logs | Microsoft Sentinel stores the data it collects from different data sources in a Log Analytics workspace which allows it to be analyzed with other log data collected by Azure Monitor.  | [Connect data sources](../../sentinel/quickstart-onboard.md) |
 
 
 ## Next steps
