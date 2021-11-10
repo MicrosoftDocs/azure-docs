@@ -2497,6 +2497,8 @@
         href: elium-provisioning-tutorial.md
       - name: Exium
         href: exium-provisioning-tutorial.md
+      - name: Facebook Work Accounts
+        href: facebook-work-accounts-provisioning-tutorial.md  
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: Figma
