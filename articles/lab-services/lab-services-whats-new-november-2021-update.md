@@ -81,16 +81,16 @@ Inside the Azure Portal, create a new Lab plan resource.
 
 1. Choose the Azure region to create the lab plan in.
 
-   image
+   :::image type="content" source="./media/lab-services-whats-new-november-2021-update/lab-plan-basics-page.png" alt-text="Lab plan - basics page":::
 
 1. If you need to set up a VNet injection, check Enable advance networking the Vnet to use. Select the virtual networking and subnet. To see a virtual network, it must be in the same location as the lab plan. Only subnets delegated to Microsoft.LabServices/labs will appear in the subnet drop-down. Only one lab plan my be associated with one subnet.
 
-  image
+   :::image type="content" source="./media/lab-services-whats-new-november-2021-update/create-lab-plan-advanced-networking.png" alt-text="Create lab plan -> Networking":::
 
 1. Click **Review + Create**.
 1. Click **Create** to create the lab plan.
 
-Once the lab plan is created, administrators can set up the following configurations: 
+Once the lab plan is created, administrators can set up the following configurations:
 - Restrictions that apply at lab creation:
   - Which region(s) the labs can be created in.
   - What marketplace images are allowed.
@@ -104,9 +104,9 @@ Lab owners who were given access can create new labs, and these labs will inheri
 
 Here is an example of how admins can create multiple lab plans to manage different collections of configurations to apply to labs:
 
-image
+:::image type="content" source="./media/lab-services-whats-new-november-2021-update/multiple-lab-plans.png" alt-text="Multiple Lab Plans":::
 
-Changes made to the lab settings from the lab plan will apply only to new labs created after the settings change. 
+Changes made to the lab settings from the lab plan will apply only to new labs created after the settings change.
 Now your lab plans are created, go to [https://labs.azure.com](https://labs.azure.com) to create your labs.
 
 ### Moving from lab account to lab plan
@@ -204,7 +204,7 @@ We’ve made big improvements to the reliability and performance of the auto-shu
 
 Another key improvement is how Azure Lab Services detects that a VM is idle. Previously, idle detection was only supported for Windows machines and relied on the Windows’ OS to detect mouse\keyboard input. However, tracking only mouse and keyboard input to detect when a VM is idle isn’t well-suited for some scenarios. For example, in data science, users often need to perform long running queries or train deep learning models with large data sets. In these scenarios, the VM’s resources are actively being used, but there are extended periods of time where there isn’t any mouse or keyboard input from the user. Lab Services now provides flexibility to accommodate these scenarios by detecting both mouse/keyboard input and disk/CPU usage.
 
-image
+:::image type="content" source="./media/lab-services-whats-new-november-2021-update/auto-shutdown-settings.png" alt-text="Automatic shutdown and disconnect":::
 
 If Lab Services detects when the OS’s built-in shutdown command is used, so that the VM billing is stopped ½ hour after shutdown was detected.  For example, in Windows, when the user selects the shutdown command from under the **Start** menu, the VM is shut down as well billing being stopped so that further costs aren’t incurred.
 
@@ -214,7 +214,7 @@ If Lab Services detects when the OS’s built-in shutdown command is used, so th
 
 You now have the option to create labs without a template VM. Typically, you use a lab’s template VM to customize the base image that is used to create the users’ VMs within the lab. In cases where you don’t need to make further customizations to the base image, you can choose to create a lab without a template.
 
-image
+:::image type="content" source="./media/lab-services-whats-new-november-2021-update/create-lab-without-template-vm.png" alt-text="Create a lab without a template VM":::
 
 Labs without template VMs have several benefits:
 
@@ -223,7 +223,7 @@ Labs without template VMs have several benefits:
 - When you use a generalized image, each user’s VMs will have a unique machine security identifier (SID). Unique machine SIDs are often required to use endpoint management tools and similar software with your lab VMs. For example, Azure Marketplace images are generalized. If you create a lab from the Win 10 marketplace image without a template VM, each of the users’ VM within the lab will have a unique machine SID.
 Labs without a template VM will still show the Template page that includes information about the image and VM size, along with the ability to set the lab’s Title and Description. However, since there isn’t an underlying template VM, you won’t see options to start, stop, reset the password, or connect to the template VM. Likewise, you won’t see the option to Export to Shared Image Gallery.
 
-image
+:::image type="content" source="./media/lab-services-whats-new-november-2021-update/template-page-no-template-vm.png" alt-text="Template page with no template VM":::
 
 ### Updates to lab schedules
 
@@ -241,7 +241,7 @@ There are a few updates to the Schedule experience:
 
 By default, when you create a new lab, Azure Lab Services adds a local admin account to the lab’s image. This admin account is then used by the lab owner to connect to the lab’s template VM. Lab users also use this account to connect to their VMs as an admin.
 
-image
+:::image type="content" source="./media/lab-services-whats-new-november-2021-update/connect-to-vm.png" alt-text="Connect to VM":::
 
 There may be cases where you don’t want your lab’s users to have full admin access on their VM. For example, you may want to prevent them from installing or uninstalling software. When you create a Windows or Linux lab, there is now an option to add a non-admin account on the image. If you enable this option:
 
