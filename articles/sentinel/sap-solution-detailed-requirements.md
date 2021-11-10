@@ -132,6 +132,8 @@ Required authorizations are listed by log type. You only need the authorizations
 | **ABAP Workflow Log** | | |
 | S_RFC | FUGR | SWRR |
 | S_RFC | FUGR | /MSFTSEN/_WF |
+| **User Data** | | |
+| S_RFC | FUNC | RFC_READ_TABLE |
 | | |
 
 ## Next steps
