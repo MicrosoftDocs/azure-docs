@@ -53,13 +53,13 @@ All the operations that are supported that extend the REST API.
 
 | Search parameter type | Azure API for FHIR | FHIR service in Healthcare APIs| Comment |
 |------------------------|-----------|-----------|---------|
-| $export (whole system) | Yes       | Yes       |         |
-| Patient/$export        | Yes       | Yes       |         |
+| [$export](../../healthcare-apis/data-transformation/export-data.md) (whole system) | Yes       | Yes       | Supports system, group, and patient.   |
+| Patient/$export       | Yes       | Yes       |         |
 | Group/$export          | Yes       | Yes       |         |
-| $convert-data          | Yes       | Yes       |         |
-| $validate              | Yes       | Yes       |         |
-| $member-match          | Yes       | Yes       |         |
-| $patient-everything    | Yes       | Yes       |         |
+| [$convert-data](convert-data.md)          | Yes       | Yes       |         |
+| [$validate](validation-against-profiles.md)              | Yes       | Yes       |         |
+| [$member-match](tutorial-member-match.md)          | Yes       | Yes       |         |
+| [$patient-everything](patient-everything.md)    | Yes       | Yes       |         |
 | $purge-history         | Yes       | Yes       |         |
 
 ## Persistence
