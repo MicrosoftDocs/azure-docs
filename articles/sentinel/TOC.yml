@@ -212,8 +212,6 @@
       href: configure-fusion-rules.md
     - name: Handle false positives
       href: false-positives.md
-    - name: Handle ingestion delay
-      href: 
     - name: Create incidents from Microsoft Security alerts
       href: create-incidents-from-alerts.md
     - name: Use watchlists
