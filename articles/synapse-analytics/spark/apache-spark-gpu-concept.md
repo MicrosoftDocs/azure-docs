@@ -14,7 +14,7 @@ ms.author: midesa
 
 Azure Synapse Analytics now supports Apache Spark pools accelerated with graphics processing units (GPUs). 
 
-By leveraging NVIDIA GPUs, data scientists and engineers can reduce the time necessary to run data integration pipelines, score machine learning models, and more. This article describes how GPU-accelerated pools can be created and used with Azure Synapse Analytics. This article also details the GPU drivers and libraries that are pre-installed as part of the GPU-accelerated runtime.
+By using NVIDIA GPUs, data scientists and engineers can reduce the time necessary to run data integration pipelines, score machine learning models, and more. This article describes how GPU-accelerated pools can be created and used with Azure Synapse Analytics. This article also details the GPU drivers and libraries that are pre-installed as part of the GPU-accelerated runtime.
 
 > [!NOTE]
 > Azure Synapse GPU-enabled pools are currently in Public Preview.
@@ -26,11 +26,11 @@ To simplify the process for creating and managing pools, Azure Synapse takes car
 >  - GPU-accelerated pools can be created in workspaces located in East US, Australia East, and North Europe.
 >  - GPU-accelerated pools are only availble with the Apache Spark 3 runtime.
 >  - You might need to request a [limit increase](./apache-spark-rapids-gpu.md#quotas-and-resource-constraints-in-azure-synapse-gpu-enabled-pools) in order to create GPU-enabled clusters. 
-
+ 
 ## GPU-accelerated Runtime
 
 ### NVIDIA GPU driver, CUDA, and cuDNN
-Azure Synapse Analytics now offers GPU-accelerated Apache Spark pools pools, which include various NVIDIA libraries and configurations. By default, Azure Synapse Analytics installs the NVIDIA driver and libraries required to use GPUs on Spark driver and worker instances:
+Azure Synapse Analytics now offers GPU-accelerated Apache Spark pools, which include various NVIDIA libraries and configurations. By default, Azure Synapse Analytics installs the NVIDIA driver and libraries required to use GPUs on Spark driver and worker instances:
  - CUDA 11.2
  - libnccl2=2.8.4
  - libnccl-dev=2.8.4
@@ -50,4 +50,4 @@ When you select a GPU-accelerated Hardware option in Synapse Spark, you implicit
   - The CUDA, NCCL, and cuDNN libraries, and the [NVIDIA End User License Agreement (with NCCL Supplement)](https://docs.nvidia.com/deeplearning/nccl/sla/index.html#overview) for the NCCL library
 
 ## Next steps
-- [Azure Synapse Analytics](overview-what-is.md)
+- [Azure Synapse Analytics](../overview-what-is.md)
