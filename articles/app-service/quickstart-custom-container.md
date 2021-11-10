@@ -12,23 +12,17 @@ zone_pivot_groups: app-service-containers-windows-linux
 # Run a custom container in Azure
 
 ::: zone pivot="container-windows"
-[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows container environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on. For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead.
+[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the preconfigured application stacks [lock down the operating system and prevent low-level access](operating-system-functionality.md). Custom Windows containers do not have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
-This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Docker Hub](https://hub.docker.com/) from Visual Studio. You run the app in a custom container in Azure App Service.
-
-> [!NOTE]
-> Windows Containers is limited to Azure Files and does not currently support Azure Blob.
-
+This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Azure Container Registry](../container-registry/container-registry-intro.md) from Visual Studio. You run the app in a custom container in Azure App Service.
 
 ## Prerequisites
 
 To complete this tutorial:
 
-- <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
-
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. In *Visual Studio 2022 Community*, ensure **.NET Framework project and item templates** component is selected with **ASP.NET and web development workload**. If you've installed Visual Studio 2022 already:
     - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by selecting **Tools** > **Get Tools and Features**.
 
@@ -40,49 +34,61 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)** for C#, then select **Next**.
 
-1. In **Configure your new project**, name the application _myfirstazurewebapp_, and then select **Create**.
+   :::image type="content" source="./media/quickstart-custom-container/create-new-project.png?text=VS create a new project" alt-text="Create a new project":::
 
-   ![Configure your web app project](./media/quickstart-custom-container/configure-web-app-project-container.png)
+1. In **Configure your new project**, under **Project name**, name the application _myfirstazurewebapp_. Under **Framework**, select **.NET Framework 4.8** and then select **Create**.
+
+    :::image type="content" source="./media/quickstart-custom-container/configure-web-app-project-container.png?text=Configure your web app project" alt-text="Configure your web app project":::
 
 1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
 
-1. Select **Docker support**, and make sure authentication is set to **No Authentication**. Select **Create**.
+1. Under **Authentication**, select **None**. Under **Advanced**, select **Docker support** and uncheck **Configure for HTTPS**. Select **Create**.
 
-   ![Create ASP.NET Web Application](./media/quickstart-custom-container/select-mvc-template-for-container.png)
+     :::image type="content" source="./media/quickstart-custom-container/select-mvc-template-for-container.png?text=Create ASP.NET Web Application" alt-text="Create ASP.NET Web Application":::
 
 1. If the _Dockerfile_ file isn't opened automatically, open it from the **Solution Explorer**.
 
 1. You need a [supported parent image](configure-custom-container.md#supported-parent-images). Change the parent image by replacing the `FROM` line with the following code and save the file:
 
    ```dockerfile
-   FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
+   FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
    ```
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-   ![Run app locally](./media/quickstart-custom-container/local-web-app.png)
+    :::image type="content" source="./media/quickstart-custom-container/local-web-app.png?text=Run app locally" alt-text="Run app locally":::
 
-## Publish to Docker Hub
+## Publish to Azure Container Registry
 
 1. In **Solution Explorer**, right-click the **myfirstazurewebapp** project and select **Publish**.
 
-1. Choose **App Service** and then select **Publish**.
+1. In **Target**, select **Docker Container Registry**, and then click **Next**.
 
-1. In Pick a **publish target**, select **Container Registry** and **Docker Hub**, and then click **Publish**.
+    :::image type="content" source="./media/quickstart-custom-container/select-docker-container-registry-visual-studio-2022.png?text=Select Docker Container Registry" alt-text="Select Docker Container Registry":::
 
-   ![Publish from project overview page](./media/quickstart-custom-container/publish-to-docker-vs2019.png)
+1. In **Specific Target**, select **Azure Container Registry**, and then click **Next**.
 
-1. Supply your Docker Hub account credentials and select **Save**.
+    :::image type="content" source="./media/quickstart-custom-container/publish-to-azure-container-registry-visual-studio-2022.png?text=Publish to Azure Container Registry" alt-text="Publish from project overview page":::
 
-   Wait for the deployment to complete. The **Publish** page now shows the repository name to use later.
+1. In **Publish**, make sure the correct subscription is chosen. In **Container registries** select the **+** button to create a new Azure Container Registry.
 
-   ![Screenshot that highlights the repository name.](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
+    :::image type="content" source="./media/quickstart-custom-container/create-new-azure-container-registry.png?text=Create new Azure Container Registry" alt-text="Create new Azure Container Registry":::
 
-1. Copy this repository name for later.
+1. In **Create new**, make sure the correct subscription is chosen. Under **Resource group**, select **New** and type *myResourceGroup* for the name, and click **OK**. Under **SKU**, select **Basic**. Under **Registry location**, select a location of the registry then select **Create**.
+
+    :::image type="content" source="./media/quickstart-custom-container/new-azure-container-registry-details.png?text=Azure Container Registry details" alt-text="Azure Container Registry details":::
+
+1. In **Publish**, under **Container Registry**, select the registry you created, and then select **Finish**.
+
+    :::image type="content" source="./media/quickstart-custom-container/select-existing-azure-container-registry.png?text=Select existing Azure Container Registry" alt-text="Select existing Azure Container Registry":::
+
+   Wait for the deployment to complete. The **Publish** page now shows the repository name. Select the *copy button* to copy the **Repository** name for later.
+
+    :::image type="content" source="./media/quickstart-custom-container/published-docker-repository-visual-studio-2022.png?text=Screenshot that highlights the repository name." alt-text="Screenshot that highlights the repository name.":::
 
 ## Create a Windows container app
 
-1. Sign in to the [Azure portal]( https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Choose **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -94,7 +100,7 @@ Create an ASP.NET web app by following these steps:
 
    ![Create a Web App for Containers](media/quickstart-custom-container/create-web-app-container.png)
 
-1. For **Image Source**, choose **Docker Hub** and for **Image and tag**, enter the repository name you copied in [Publish to Docker Hub](#publish-to-docker-hub).
+1. For **Image Source**, choose **Docker Hub** and for **Image and tag**, enter the repository name you copied in [Publish to Azure Container Registry](#publish-to-azure-container-registry).
 
    ![Configure your a Web App for Containers](media/quickstart-custom-container/configure-web-app-container.png)
 
@@ -194,7 +200,7 @@ This quickstart uses Azure Container Registry as the registry of choice. You're 
 Create a container registry by following the instructions in [Quickstart: Create a private container registry using the Azure portal](../container-registry/container-registry-get-started-portal.md).
 
 > [!IMPORTANT]
-> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access.
+> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](tutorial-custom-container.md?pivots=container-linux#configure-app-service-to-deploy-the-image-from-the-registry).
 
 ## Sign in
 

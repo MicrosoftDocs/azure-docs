@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc-enabled servers
 description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 09/30/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
 ---
 
@@ -20,7 +20,7 @@ Azure Arc-enabled servers enables you to deploy, remove, and update Azure VM ext
 > Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
 
 > [!NOTE]
-> Currently you can only update extensions from the Azure portal. Performing this operation from the Azure CLI, Azure PowerShell, or using an Azure Resource Manager template is not supported at this time.
+> Currently you can only update extensions from the Azure portal or the Azure CLI. Performing this operation from Azure PowerShell, or using an Azure Resource Manager template is not supported at this time.
 
 ## Key benefits
 
@@ -54,6 +54,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Extension |Publisher |Type |Additional information |
 |----------|----------|-----|-----------------------|
 |Azure Defender integrated vulnerability scanner |Qualys |WindowsAgent.AzureSecurityCenter |[Azure Defender’s integrated vulnerability assessment solution for Azure and hybrid machines](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Microsoft Antimalware extension |Microsoft.Azure.Security |IaaSAntimalware |[Microsoft Antimalware extension for Windows](../../virtual-machines/extensions/iaas-antimalware-windows.md) |
 |Custom Script extension |Microsoft.Compute | CustomScriptExtension |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)|
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)|
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
@@ -86,7 +87,9 @@ Be sure to review the documentation for each VM extension referenced in the prev
 
 ### Log Analytics VM extension
 
-The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine.
+The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine. 
+
+Before you install the extension we suggest you review the [deployment options for the Log Analytics agent](concept-log-analytics-extension-deployment.md) to understand the different methods available and which meets your requirements.
 
 ### Azure Key Vault VM extension
 

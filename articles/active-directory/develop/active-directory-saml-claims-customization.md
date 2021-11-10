@@ -45,7 +45,7 @@ To edit the NameID (name identifier value):
 
 If the SAML request contains the element NameIDPolicy with a specific format, then the Microsoft identity platform will honor the format in the request.
 
-If the SAML request doesn't contain an element for NameIDPolicy, then the Microsoft identity platform will issue the NameID with the  format you specify. If no format is specified, the Microsoft identity platform will use the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD will send a persisistent pairwise identifier in the nameIdentifier. 
+If the SAML request doesn't contain an element for NameIDPolicy, then the Microsoft identity platform will issue the NameID with the  format you specify. If no format is specified, the Microsoft identity platform will use the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD will send a persistent pairwise identifier in the nameIdentifier. 
 
 From the **Choose name identifier format** dropdown, you can select one of the following options.
 
@@ -53,8 +53,9 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 |---------------|-------------|
 | **Default** | Microsoft identity platform will use the default source format. |
 | **Persistent** | Microsoft identity platform will use Persistent as the NameID format. |
-| **EmailAddress** | Microsoft identity platform will use EmailAddress as the NameID format. |
+| **Email address** | Microsoft identity platform will use EmailAddress as the NameID format. |
 | **Unspecified** | Microsoft identity platform will use Unspecified as the NameID format. |
+|**Windows domain qualified name**| Microsoft identity platform will use the WindowsDomainQualifiedName format.|
 
 Transient NameID is also supported, but is not available in the dropdown and cannot be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
@@ -135,7 +136,7 @@ You can use the following functions to transform claims.
 | **IfEmpty()** | Outputs an attribute or constant if the input is null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employee ID for a given user is empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1<br/>Parameter 3 (output if there's no match): user.employeeid |
 | **IfNotEmpty()** | Outputs an attribute or constant if the input is not null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employee ID for a given user is not empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
 
-If you need additional transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) under the *SaaS application* category.
+If you need additional transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) under the *SaaS application* category.
 
 ## Add the UPN claim to SAML tokens
 

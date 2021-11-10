@@ -2,8 +2,8 @@
 title: Configure a custom container
 description: Learn how to configure a custom container in Azure App Service. This article shows the most common configuration tasks. 
 
-ms.topic: article
-ms.date: 08/25/2021 
+ms.topic: how-to
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -35,18 +35,18 @@ For your custom Windows image, you must choose the right [parent image (base ima
 
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
-- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):2004
+- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):20H2
 - [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):ltsc2019
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-2004
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-20H2
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-ltsc2019
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-2004
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1909
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1903
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1809
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-2004
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1909
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1903
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1809
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-1809
 
 ::: zone-end
 
@@ -67,6 +67,68 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 ```
 
 For *\<username>* and *\<password>*, supply the login credentials for your private registry account.
+
+## Use managed identity to pull image from Azure Container Registry
+
+Use the following steps to configure your web app to pull from ACR using managed identity. The steps will use system-assigned managed identity, but you can use user-assigned managed identity as well.
+
+1. Enable [the system-assigned managed identity](./overview-managed-identity.md) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity#az_webapp_identity-assign) command:
+
+    ```azurecli-interactive
+    az webapp identity assign --resource-group <group-name> --name <app-name> --query principalId --output tsv
+    ```
+    Replace `<app-name>` with the name you used in the previous step. The output of the command (filtered by the --query and --output arguments) is the service principal ID of the assigned identity, which you use shortly.
+1. Get the resource ID of your Azure Container Registry:
+    ```azurecli-interactive
+    az acr show --resource-group <group-name> --name <registry-name> --query id --output tsv
+    ```
+    Replace `<registry-name>` with the name of your registry. The output of the command (filtered by the --query and --output arguments) is the resource ID of the Azure Container Registry.
+1. Grant the managed identity permission to access the container registry:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <principal-id> --scope <registry-resource-id> --role "AcrPull"
+    ```
+
+    Replace the following values:
+    - `<principal-id>` with the service principal ID from the `az webapp identity assign` command
+    - `<registry-resource-id>` with the ID of your container registry from the `az acr show` command
+
+    For more information about these permissions, see [What is Azure role-based access control](../role-based-access-control/overview.md).
+
+1. Configure your app to use the managed identity to pull from Azure Container Registry.
+
+    ```azurecli-interactive
+    az webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUseManagedIdentityCreds": true}'
+    ```
+
+    Replace the following values:
+    - `<app-name>` with the name of your web app.
+    >[!Tip]
+    > If you are using PowerShell console to run the commands, you will need to escape the strings in the `--generic-configurations` argument in this and the next step. For example: `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`
+1. (Optional) If your app uses a [user-assigned managed identity](overview-managed-identity.md#add-a-user-assigned-identity), make sure this is configured on the web app and then set an additional `acrUserManagedIdentityID` property to specify its client ID:
+    
+    ```azurecli-interactive
+    az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv
+    ```
+    Replace the `<identity-name>` of your user-assigned managed identity and use the output `<client-id>` to configure the user-assigned managed identity ID.
+
+    ```azurecli-interactive
+    az  webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUserManagedIdentityID": "<client-id>"}'
+    ```
+
+You are all set, and the web app will now use managed identity to pull from Azure Container Registry. 
+
+::: zone pivot="container-linux"
+
+## Use an image from a network protected registry
+
+To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the VNet integration feature. This is also need for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the VNet by setting the App Setting `WEBSITE_PULL_IMAGE_OVER_VNET=true`:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_PULL_IMAGE_OVER_VNET=true
+```
+
+::: zone-end
 
 ## I don't see the updated container
 
@@ -195,7 +257,7 @@ There are several ways to access Docker logs:
 - [In Azure portal](#in-azure-portal)
 - [From the Kudu console](#from-the-kudu-console)
 - [With the Kudu API](#with-the-kudu-api)
-- [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)
+- [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
 ### In Azure portal
 
@@ -319,6 +381,37 @@ SSH enables secure communication between a container and a client. In order for 
     > - `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
 
+- Add an ssh_setup script file to create the SSH keys [using ssh-keygen](https://man.openbsd.org/ssh-keygen.1) to your repository.
+
+    ```
+    #!/bin/sh
+
+    if [ ! -f "/etc/ssh/ssh_host_rsa_key" ]; then
+        # generate fresh rsa key
+        ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
+    fi
+
+    if [ ! -f "/etc/ssh/ssh_host_dsa_key" ]; then
+        # generate fresh dsa key
+        ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
+    fi
+
+    if [ ! -f "/etc/ssh/ssh_host_ecdsa_key" ]; then
+        # generate fresh ecdsa key
+        ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t dsa
+    fi
+
+    if [ ! -f "/etc/ssh/ssh_host_ed25519_key" ]; then
+        # generate fresh ecdsa key
+        ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N '' -t dsa
+    fi
+
+    #prepare run dir
+        if [ ! -d "/var/run/sshd" ]; then
+        mkdir -p /var/run/sshd
+    fi
+    ```
+
 - In your Dockerfile, add the following commands:
 
     ```Dockerfile
@@ -328,6 +421,12 @@ SSH enables secure communication between a container and a client. In order for 
 
     # Copy the sshd_config file to the /etc/ssh/ directory
     COPY sshd_config /etc/ssh/
+
+    # Copy and configure the ssh_setup file
+    RUN mkdir -p /tmp
+    COPY ssh_setup.sh /tmp
+    RUN chmod +x /tmp/ssh_setup.sh \
+        && (sleep 1;/tmp/ssh_setup.sh 2>&1 > /dev/null)
 
     # Open port 2222 for SSH access
     EXPOSE 80 2222

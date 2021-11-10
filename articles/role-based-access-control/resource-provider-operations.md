@@ -10142,7 +10142,7 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.OperationalInsights/register/action | Register a subscription to a resource provider. |
-> | microsoft.operationalinsights/register/action | Rergisters the subscription. |
+> | microsoft.operationalinsights/register/action | Registers the subscription. |
 > | microsoft.operationalinsights/unregister/action | Unregisters the subscription. |
 > | microsoft.operationalinsights/querypacks/action | Perform Query Packs Actions. |
 > | microsoft.operationalinsights/availableservicetiers/read | Get the available service tiers. |
@@ -11269,7 +11269,7 @@ Azure service: [Azure Arc](../azure-arc/index.yml)
 
 ### Microsoft.Kubernetes
 
-Azure service: [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md)
+Azure service: [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

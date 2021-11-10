@@ -100,6 +100,10 @@
       href: scripts/event-grid-powershell-resource-group.md
     - name: Subscribe and filter events for resource group
       href: scripts/event-grid-powershell-resource-group-filter.md
+    - name: Secure WebHook delivery with Azure AD App in Azure Event Grid
+      href: scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md
+    - name: Secure WebHook delivery with Azure AD User in Azure Event Grid
+      href: scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md
   - name: Resource Manager templates
     href: template-samples.md
   - name: Code samples
@@ -125,7 +129,17 @@
       - name: Azure Blob Storage
         href: event-schema-blob-storage.md
       - name: Azure Communication Services
-        href: event-schema-communication-services.md
+        items:
+        - name: Overview
+          href: event-schema-communication-services.md
+        - name: Chat Events
+          href: communication-services-chat-events.md
+        - name: Telephony and SMS Events
+          href: communication-services-telephony-sms-events.md
+        - name: Voice and video calling Events
+          href: communication-services-voice-video-events.md
+        - name: Presence Events
+          href: communication-services-presence-events.md
       - name: Azure Container Registry
         href: event-schema-container-registry.md
       - name: Azure Event Hubs
@@ -305,7 +319,7 @@
       href: consume-private-endpoints.md      
     - name: Configure IP firewall
       href: configure-firewall.md
-    - name: Secure Webhook with Azure Active Directory
+    - name: Deliver events to Azure Active Directory protected endpoints
       href: secure-webhook-delivery.md
   - name: Troubleshoot
     items: 

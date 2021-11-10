@@ -2,16 +2,17 @@
 title: Deploy SAP continuous threat monitoring | Microsoft Docs
 description: Learn how to deploy the Azure Sentinel solution for SAP environments.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-
 ---
 
 #  Deploy SAP continuous threat monitoring (public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article takes you step by step through the process of deploying Azure Sentinel continuous threat monitoring for SAP.
 
@@ -95,7 +96,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
     > In the SAP **Import Options** area, you may see the **Ignore Invalid Component Version** option displayed. If displayed, select this option before continuing.
     >
 
-1. Create a new SAP role named **/MSFTSEN/SENTINEL_CONNECTOR** by importing the SAP change request *14 (NPLK900140)*. Use the **STMS_IMPORT** SAP transaction code.
+1. Create a new SAP role named **/MSFTSEN/SENTINEL_CONNECTOR** by importing the SAP change request *14 (NPLK900163)*. Use the **STMS_IMPORT** SAP transaction code.
 
     Verify that the role is created with the required permissions, such as:
 

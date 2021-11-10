@@ -1,8 +1,8 @@
 ---
 title: What is Azure Cache for Redis?
 description: Learn about Azure Cache for Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
@@ -32,7 +32,7 @@ Azure Cache for Redis improves application performance by supporting common appl
 
 ## Redis versions
 
-Azure Cache for Redis supports OSS Redis version 4.x and, as a preview, 6.0. We've made the decision to skip Redis 5.0 to bring you the latest version. Previously, Azure Cache for Redis maintained a single Redis version. In the future, it will provide a newer major release upgrade and at least one older stable version. You can [choose which version](cache-how-to-version.md) works the best for your application.
+Azure Cache for Redis supports OSS Redis version 4.0.x and 6.0.x. We've made the decision to skip Redis 5.0 to bring you the latest version. Previously, Azure Cache for Redis maintained a single Redis version. In the future, it will provide a newer major release upgrade and at least one older stable version. You can [choose which version](cache-how-to-version.md) works the best for your application.
 
 
 ## Service tiers
@@ -61,7 +61,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|Preview|Preview|
 | [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
 | [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔|Preview|Preview|
-| [Redis Modules](#choosing-the-right-tier) |-|-|-|✔|✔|
+| [Redis Modules](#choosing-the-right-tier) |-|-|-|✔|-|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|-|
 | [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|
