@@ -54,7 +54,7 @@ Confidential VMs use both the OS disk and a small encrypted virtual machine gues
 
 Starting in 2022, encrypted OS disks will begin to incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
 
-## Customizable attestation policies
+## Attestation
 
 Confidential VMs boot only after successful attestation of the platform's critical components and security settings. Attestation includes:
 
@@ -62,7 +62,7 @@ Confidential VMs boot only after successful attestation of the platform's critic
 - Platform boot settings
 - OS measurements
 
-[Azure Attestation](/services/azure-attestation/) does the attestation according to your policy, which you can customize. You define the compliance parameters for starting up and trusting your VM. For example, you can define a valid range of Security Version Numbers for the processor microcode. Or, you can set whether to require Secure Boot. For more options, see [how to create secure key release policies for confidential VMs](confidential-vm-secure-key-release.md).
+[Azure Attestation](/services/azure-attestation/) does the attestation according to a policy, which will later be customizable. This will let you definecompliance parameters for starting up and trusting your VM. For example, you will be able to set whether to require Secure Boot.
 
 Trusted launch offers virtual TPM (vTPM) for Azure VMs. The vTPM is a virtualized version of a hardware TPM, and complies with the TPM2.0 spec. You can use a vTPM as a dedicated, secure vault for keys and measurements. Trusted launch provides your VM with its own dedicated TPM instance, which runs in a secure environment outside the reach of any VM. The [vTPM enables attestation](https://docs.microsoft.com/en-us/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) by measuring the entire boot chain of your VM, including the UEFI, OS, system, and drivers. 
 
@@ -115,6 +115,7 @@ Confidential VMs *don't support*:
 - Ephemeral OS disks
 - Shared disks
 - Ultra disks
+- Accelerated Networking
 - User-attestable platform reports
 - Live migration
 - Customer-managed keys for OS disk pre-encryption
