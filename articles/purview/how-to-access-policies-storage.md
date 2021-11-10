@@ -82,13 +82,12 @@ Complete all the following steps to enable Azure Purview to manage access polici
 This functionality is currently in preview, so you will need to [Opt in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
 
 #### Register Purview as a resource provider in other subscriptions
-Execute this step only if you have data sources in the same tenant but outside the subscription used for the Azure Purview account, and you want to enable access to be managed from Purview. Register Azure Purview as a resource provider in those additional subscriptions by following this guide, but do not this in the subscription used for the Azure Purview account:  
+Execute this step only if the Storage account you want to manage access to is in a different subscription than the Azure Purview account. Register Azure Purview as a resource provider in that subscriptions by following this guide:  
 [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
 
 #### Configure permissions for policy management actions
-- A user needs to be owner 
--   A user needs to be part of Purview data curator role to perform policy authoring/management actions.
--   A user needs to be part of Purview data source admin role to publish the policy.
+-   A user needs to be part of Purview Policy Author role at root collection level to perform policy authoring/management actions.
+-   A user needs to be part of Purview data source admin role at the root collection level to publish the policy.
 
 See the section on managing role assignments in this guide: [How to create and manage collections](how-to-create-and-manage-collections.md)
 
@@ -187,6 +186,7 @@ The steps to publish a policy are as follows
 
 ## Next steps
 
-Check this article to understand concepts related to Azure Purview:
+Check the blog and demo related to the capabilities mentioned in this how-to guide
 
-* [Azure Purview overview](overview.md)
+* [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
+* [Demo of access policy for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
