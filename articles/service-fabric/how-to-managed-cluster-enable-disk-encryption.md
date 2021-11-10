@@ -7,7 +7,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Enable disk encryption for Service Fabric managed cluster nodes
 
-Service Fabric managed clusters support two disk encryption options to help safeguard your data to meet your organizational security and compliance commitments. The recommended option is Encryption at host, but also supports Azure Disk Encryption. Please review the [disk encryption options](../virtual-machines/disk-encryption-overview.md) and make sure the selected option meets your needs.
+Service Fabric managed clusters support two disk encryption options to help safeguard your data to meet your organizational security and compliance commitments. The recommended option is Encryption at host, but also supports Azure Disk Encryption. Review the [disk encryption options](../virtual-machines/disk-encryption-overview.md) and make sure the selected option meets your needs.
 
 
 ## Enable Encryption at Host (preview)
@@ -20,7 +20,7 @@ This encryption method improves on [Azure Disk encryption](how-to-managed-cluste
 > [!Note]
 > Azure Security Center disk encryption status will show as Unhealthy at this time when using Encryption at Host
 
-The following will walk you through the required steps to deploy a new Service Fabric managed cluster with host encryption enabled. Reference this template: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-HostEncryption
+Follow these steps to deploy a new Service Fabric managed cluster with host encryption enabled. Reference this template: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-HostEncryption
 
 To enable encryption at host on a managed cluster node type:
 1. Review the following [restrictions](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) to validate the meet your requirements
@@ -50,15 +50,17 @@ To enable encryption at host on a managed cluster node type:
 
    ```powershell
    $clusterName = "<clustername>" 
+   $resourceGroupName = "<rg-name>"
 
-   New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName -TemplateFile .\template_diskEncryption.json -TemplateParameterFile \.parameters_diskEncryption.json -Debug -Verbose 
+   New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug -Verbose 
    ```
 
    You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command. First you'll need to find the name of your managed cluster's supporting resource group (containing the underlying virtual network, load balancer, public IP, NSG, scale set(s) and storage accounts). Be sure to modify `VmssName` to whatever cluster node type name you wish to check (as specified in your deployment template).
 
    ```powershell
-   $VmssName = "NT1"
-   $supportResourceGroupName = "SFC_" + (Get-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroupName).ClusterId
+   $VmssName = "NT2"
+   $clustername = <clustername>
+   $supportResourceGroupName = "SFC_" + (Get-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroupName -Name $clustername).ClusterId
    Get-AzVmssDiskEncryption -ResourceGroupName $supportResourceGroupName -VMScaleSetName $VmssName
    ```
 
@@ -146,11 +148,11 @@ The following step will walk you through the required template changes to enable
 1. Add the following parameters to the template, substituting your own subscription, resource group name, and vault name under `keyVaultResourceId`:
 
    ```json
-   "parameters": { 
-    …
-    "keyVaultResourceId": { 
-        "type": "string", 
-        "defaultValue": "/subscriptions/########-####-####-####-############/resourceGroups/$rg-name/providers/Microsoft.KeyVault/vaults/$kv-name", 
+   "parameters": {
+      ...
+    "keyVaultResourceId": { 
+        "type": "string", 
+        "defaultValue": "/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>", 
         "metadata": { 
             "description": "Full resource id of the Key Vault used for disk encryption." 
         } 
@@ -193,7 +195,7 @@ The following step will walk you through the required template changes to enable
 
    ```json
    "parameters": { 
-    … 
+    ...
     "keyVaultResourceId": { 
         "value": "/subscriptions/########-####-####-####-############/resourceGroups/$rg-name/providers/Microsoft.KeyVault/vaults/$kv-name" 
     },   
@@ -210,7 +212,7 @@ The following step will walk you through the required template changes to enable
    ```powershell
    $clusterName = "<clustername>" 
 
-   New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName -TemplateFile .\template_diskEncryption.json -TemplateParameterFile \.parameters_diskEncryption.json -Debug -Verbose 
+   New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug -Verbose 
    ```
 
    You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command. First you'll need to find the name of your managed cluster's supporting resource group (containing the underlying virtual network, load balancer, public IP, NSG, scale set(s) and storage accounts). Be sure to modify `VmssName` to whatever cluster node type name you wish to check (as specified in your deployment template).
