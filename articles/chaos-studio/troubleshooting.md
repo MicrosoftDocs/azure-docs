@@ -16,12 +16,12 @@ As you use Chaos Studio, you may occasionally encounter some problems. This arti
 ## General troubleshooting tips
 
 The following sources are useful when troubleshooting issues with Chaos Studio:
-1. **The Activity Log**: The [Azure Activity Log](../azure-monitor/essentials/activity-log.md) has a record of all create, update, and delete operations in a subscription. This includes Chaos Studio operations like enabling a target and/or capabilities, installing the agent, and creating or running an experiment. Failures in the Activity Log indicate that a user action essential to using Chaos Studio may have failed to complete. Most service-direct faults also inject faults by executing an Azure Resource Manager operation, so the Activity Log will also have the record of faults being injected during an experiment for some service-direct faults.
+1. **The Activity Log**: The [Azure Activity Log](../azure-monitor/essentials/activity-log.md) has a record of all create, update, and delete operations in a subscription, including Chaos Studio operations like enabling a target and/or capabilities, installing the agent, and creating or running an experiment. Failures in the Activity Log indicate that a user action essential to using Chaos Studio may have failed to complete. Most service-direct faults also inject faults by executing an Azure Resource Manager operation, so the Activity Log will also have the record of faults being injected during an experiment for some service-direct faults.
 2. **Experiment Details**: Experiment execution details show the status and errors of an individual experiment run. Opening a specific fault in experiment details will show the resources that failed and the error messages for a failure. [Learn more about how to access experiment details](chaos-studio-run-experiment.md#view-experiment-history-and-details).
 3. **Agent logs**: If using an agent-based fault, you may need to RDP or SSH in to the virtual machine to understand why the agent failed to run a fault. The instructions for accessing agent logs depend on the operating system:
   * **Chaos Windows agent**: Agent logs are located in the Windows Event Log in the Application category with the source AzureChaosAgent. The agent adds fault activity and regular health check (ability to authenticate to and communicate with the Chaos Studio agent service) events to this log.
-  * **Chaos Linux agent**: The Linux agent uses systemd to manage the agent process as a Linux service. To view the systemd journal for the agent (the events logged by teh agent service), run the command `journalctl -u azure-chaos-agent`.
-4. **VM extension status**: If using an agent-based fault, you may also need to verify that the VM extension is installed and healthy. In the Azure portal, navigate to your virtual machine and go to **Extensions** or **Extensions + applications**. Click on the ChaosAgent extension and look for the following:
+  * **Chaos Linux agent**: The Linux agent uses systemd to manage the agent process as a Linux service. To view the systemd journal for the agent (the events logged by the agent service), run the command `journalctl -u azure-chaos-agent`.
+4. **VM extension status**: If using an agent-based fault, you may also need to verify that the VM extension is installed and healthy. In the Azure portal, navigate to your virtual machine and go to **Extensions** or **Extensions + applications**. Click on the ChaosAgent extension and look for the following fields:
   * **Status** should show "Provisioning succeeded." Any other status indicates that the agent failed to install. Verify that all [system requirements](chaos-studio-limitations.md#limitations) are met and try re-installing the agent.
   * **Handler status** should show "Ready." Any other status indicates that the agent installed but cannot connect to the Chaos Studio service. Verify that all [network requirements](chaos-studio-limitations.md#limitations) are met and that the user-assigned managed identity has been added to the virtual machine and try rebooting.
 
@@ -31,16 +31,16 @@ The following sources are useful when troubleshooting issues with Chaos Studio:
 If you do not see the resources you would like to enable in the Chaos Studio targets list, it may be due to any of the following issues:
 * The resources are not in [a supported region for Chaos Studio](https://azure.microsoft.com/global-infrastructure/services/?products=chaos-studio).
 * The resources are not of [a supported resource type in Chaos Studio](chaos-studio-fault-providers.md).
-* The resources are in a subscripton or resource group that are filtered out in the filters for the target list. Change the subscription and resource group filters to see your resources.
+* The resources are in a subscription or resource group that are filtered out in the filters for the target list. Change the subscription and resource group filters to see your resources.
 
 ### Target and/or capability enablement fails or doesn't show correctly in the target list
-If you see an error when enabling targets and/or capabilities, try the following:
-* Verify that you have appropriate permissions to the resources you are onboarding. Enabling a target and/or capabilities requires Microsoft.Chaos/\* permission at the scope of the resource. Built-in roles such as Contributor have wildcard Read and Write permissions, which includes permission to all Microsoft.Chaos operations.
+If you see an error when enabling targets and/or capabilities, try the following steps:
+* Verify that you have appropriate permissions to the resources you are onboarding. Enabling a target and/or capabilities requires Microsoft.Chaos/\* permission at the scope of the resource. Built-in roles such as Contributor have wildcard Read and Write permission, which includes permission to all Microsoft.Chaos operations.
 * Wait a few minutes for the target and capability list to update. The Azure portal uses Azure Resource Graph to gather information on target and capability onboarding and it can take up to five minutes for the update to propagate.
-* If the resource still shows "Not enabled", try the following:
+* If the resource still shows "Not enabled", try the following steps:
   * Attempt to enable the resource again. If that fails,
   * Visit the Activity Log and find the failed target create operation to see detailed error information.
-* If the resource shows "Enabled" but onboarding capabilities failed, try the following:
+* If the resource shows "Enabled" but onboarding capabilities failed, try the following steps:
   * Click the **Manage actions** button on the resource in the targets list. Check any capabilities that were not checked, and click **Save**. If capability enablement still fails,
   * Visit the Activity Log and find the failed target create operation to see detailed error information.
 
