@@ -81,7 +81,7 @@ let ingestion_delay = 2min;
 let rule_look_back = 5min;
 CommonSecurityLog
 | where TimeGenerated >= ago(ingestion_delay + rule_look_back)
-| where ingestion_time() > (rule_look_back)
+| where ingestion_time() > ago(rule_look_back)
 ```
 
 
