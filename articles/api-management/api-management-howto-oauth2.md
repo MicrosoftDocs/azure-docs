@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/08/2021
+ms.date: 11/10/2021
 ms.author: danlep
 ---
 
@@ -117,9 +117,7 @@ After the server configuration is saved, you can configure APIs to use this conf
 
 ## Developer portal - test the OAuth 2.0 user authorization
 
-After you've configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the Developer Portal and calling an API. Select **Developer portal** in the top menu from your Azure API Management instance **Overview** page.
-
-Click APIs in the top menu and select Echo API.
+[!INCLUDE [api-management-test-oauth-authorization](../../includes/api-management-test-oauth-authorization.md)]
 
 ## <a name="step3"> </a>Legacy developer portal - test the OAuth 2.0 user authorization
 
