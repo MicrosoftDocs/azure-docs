@@ -10,9 +10,9 @@ ms.custom: devx-track-azurepowershell
 Service Fabric managed clusters support two disk encryption options to help safeguard your data to meet your organizational security and compliance commitments. The recommended option is Encryption at host, but also supports Azure Disk Encryption. Review the [disk encryption options](../virtual-machines/disk-encryption-overview.md) and make sure the selected option meets your needs.
 
 
-## Enable Encryption at Host (preview)
+## Enable encryption at host (preview)
 
-This encryption method improves on [Azure Disk encryption](how-to-managed-cluster-enable-disk-encryption.md) by supporting all OS types and images, including custom images, for your VMs by encrypting data in the Azure Storage service. This method does not use your VMs CPU nor does it impact your VMs performance enabling workloads to use all of the available VMs SKU resources.
+This encryption method improves on [Azure Disk Encryption](how-to-managed-cluster-enable-disk-encryption.md) by supporting all OS types and images, including custom images, for your VMs by encrypting data in the Azure Storage service. This method does not use your VMs CPU nor does it impact your VMs performance enabling workloads to use all of the available VMs SKU resources.
 
 > [!Note]
 > You can not enable on existing node types. You must provision a new node type and migrate your workload.
@@ -24,9 +24,9 @@ Follow these steps and reference this [sample template](https://github.com/Azure
 
 1. Review the following [restrictions](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) to validate they meet your requirements
 
-2. Setup the required [prerequisites](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites) before cluster deployment
+2. Set up the required [prerequisites](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites) before cluster deployment
 
-3. Set the following in the managed cluster template in each node type you want this enabled for. The sample is pre-configured.
+3. Configure the `enableEncryptionAtHost` property in the managed cluster template for each node type disk encryption is required. The sample is pre-configured.
 
    * The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
 
@@ -54,7 +54,7 @@ Follow these steps and reference this [sample template](https://github.com/Azure
    New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug -Verbose 
    ```
 
-   You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command. First you'll need to find the name of your managed cluster's supporting resource group (containing the underlying virtual network, load balancer, public IP, NSG, scale set(s) and storage accounts). Be sure to modify `VmssName` to whatever cluster node type name you wish to check (as specified in your deployment template).
+   You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command. First you'll need to find the name of your managed cluster's supporting resource group (containing the underlying virtual network, load balancer, public IP, NSG, scale set(s), and storage accounts). Be sure to modify `VmssName` to whatever cluster node type name you wish to check (as specified in your deployment template).
 
    ```powershell
    $NodeTypeName = "NT2"
@@ -73,7 +73,7 @@ Follow these steps and reference this [sample template](https://github.com/Azure
    ```
 
 ## Enable Azure Disk Encryption
-ADE provides volume encryption for the OS and data disks of Azure virtual machines (VMs) through the use of feature DM-Crypt of Linux or the BitLocker feature of Windows. ADE is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets.
+Azure Disk Encryption provides volume encryption for the OS and data disks of Azure virtual machines (VMs) by using the DM-Crypt feature in Linux or the BitLocker feature of Windows. ADE is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets.
 
 In this guide, you'll learn how to enable disk encryption on Service Fabric managed cluster nodes in Windows using the [Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md) capability for [virtual machine scale sets](../virtual-machine-scale-sets/disk-encryption-azure-resource-manager.md) through Azure Resource Manager (ARM) templates.
 
@@ -233,7 +233,7 @@ The following step will walk you through the required template changes to enable
 
 ## Next steps
 
-[Sample: Standard SKU Service Fabric managed cluster, 1 node type with disk encryption enabled](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DiskEncryption)
+[Sample: Standard SKU Service Fabric managed cluster, one node type with disk encryption enabled](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DiskEncryption)
 
 [Azure Disk Encryption for Windows VMs](../virtual-machines/windows/disk-encryption-overview.md)
 

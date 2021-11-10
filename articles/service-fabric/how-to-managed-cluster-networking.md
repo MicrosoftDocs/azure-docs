@@ -6,7 +6,7 @@ ms.date: 11/10/2021
 ---
 # Configure network settings for Service Fabric managed clusters
 
-Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated, and a NSG configured for essential cluster functionality. There are also optional NSG rules applied such as allowing all outbound traffic by default that are intended to make customer configuration easier. This document walks through how to modify the following networking configuration options and more:
+Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated, and a NSG configured for essential cluster functionality. There are also optional NSG rules applied such as allowing all outbound traffic by default that is intended to make customer configuration easier. This document walks through how to modify the following networking configuration options and more:
 
 - [Manage NSG Rules](#nsgrules)
 - [Manage RDP access](#rdp)
@@ -15,7 +15,7 @@ Service Fabric managed clusters are created with a default networking configurat
 - [Bring your own virtual network](#byovnet)
 - [Bring your own load balancer](#byolb)
 - [Enable accelerated networking](#accelnet)
-- [Configure Auxillary Subnets](#auxsubnet)
+- [Configure Auxiliary Subnets](#auxsubnet)
 
 
 <a id="nsgrules"></a>
@@ -436,7 +436,7 @@ This feature allows customers to use an existing virtual network by specifying a
 
 <a id="byolb"></a>
 ## Bring your own Azure Load Balancer (preview)
-Managed clusters create a Standard SKU public Azure Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. Bring your own load balancer allows you to use an existing Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
+Managed clusters create an Azure public Standard Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. Bring your own load balancer allows you to use an existing Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
 * Map a Load Balancer to a specific node type
@@ -460,10 +460,10 @@ Here are a couple example scenarios customers may use this for:
 In this example, a customer wants to route traffic through an existing Azure Load Balancer configured with an existing static ip address to two node types.
 ![Bring your own Load Balancer example 1][sfmc-byolb-example-1]
 
-In this example, a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind it's own managed NSG.
+In this example, a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind its own managed NSG.
 ![Bring your own Load Balancer example 2][sfmc-byolb-example-2]
 
-In this example, a customer wants to route traffic through existing internal Azure Load Balancers. This helps them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind it's own managed NSG and use the default load balancer for external traffic.
+In this example, a customer wants to route traffic through existing internal Azure Load Balancers. This helps them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind its own managed NSG and use the default load balancer for external traffic.
 ![Bring your own Load Balancer example 3][sfmc-byolb-example-3]
 
 To configure bring your own load balancer:
@@ -540,7 +540,7 @@ To configure bring your own load balancer:
    See this example template to [create a public load balancer and assign a role](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json).
 
 
-3. Configure required outbound connectivity for the node type. You must either configure a public load balancer to provide outbound connectivity or use the default public load balancer. 
+3. Configure required outbound connectivity for the node type. You must configure a public load balancer to provide outbound connectivity or use the default public load balancer. 
    
    Configure `outboundRules` to configure a public load balancer to provide outbound connectivity
    See the [create load balancer and assign role sample Azure Resource Manager (ARM) template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json)
@@ -584,7 +584,7 @@ To configure bring your own load balancer:
 
 <a id="accelnet"></a>
 ## Enable Accelerated Networking (preview)
-Accelerated networking enables single root I/O virtualization (SR-IOV) to a VMSS VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) for additional considerations. 
+Accelerated networking enables single root I/O virtualization (SR-IOV) to a virtual machine scale set VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) for additional considerations. 
 
 * Note that Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs.
 
@@ -613,8 +613,8 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 
 <a id="auxsubnet"></a>
-## Configure Auxillary Subnets (preview)
-Auxillary subnets provide the ability to create additional managed subnets without a node type for supporting scenarios such as [Private Link Service](../private-link/private-link-service-overview.md) and [Bastion Hosts](../bastion/bastion-overview.md).
+## Configure Auxiliary Subnets (preview)
+Auxiliary subnets provide the ability to create additional managed subnets without a node type for supporting scenarios such as [Private Link Service](../private-link/private-link-service-overview.md) and [Bastion Hosts](../bastion/bastion-overview.md).
 
 Configure auxiliary subnets by declaring `auxiliarySubnets` property and required parameters in your Resource Manager template as follows:
 

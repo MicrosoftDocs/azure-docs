@@ -36,6 +36,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/service-fabric/how-to-enable-managed-cluster-disk-encryption.md",
+      "redirect_url": "articles/service-fabric/how-to-managed-cluster-enable-disk-encryption.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/service-fabric-mesh/move-across-regions.md",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
       "redirect_document_id": false
