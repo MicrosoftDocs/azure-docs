@@ -44,7 +44,7 @@
     - name: Rules Engine architecture
       href: concept-rule-set.md
     - name: Rules match conditions
-      href: concept-rule-set-match-conditions.md
+      href: ../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Rules actions
       href: concept-rule-set-actions.md
   - name: URL redirect and URL rewrite
