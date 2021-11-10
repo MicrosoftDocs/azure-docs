@@ -73,7 +73,7 @@ This process enables the scenario where users lose access to organizational file
 
 | | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
+| **SharePoint Online** | Supported | Not Supported | Supported | Supported | Not Supported |
 
 | | Teams web | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
