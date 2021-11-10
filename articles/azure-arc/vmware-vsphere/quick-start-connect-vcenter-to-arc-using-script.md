@@ -73,20 +73,20 @@ A Windows or Linux machine that can access both your vCenter Server and internet
 
 2. Download the script by running the following command.
 
-   ```powershell-interactive
+   ```powershell
    Invoke-WebRequest https://arcvmwaredl.blob.core.windows.net/arc-appliance/arcvmware-setup.ps1 -OutFile arcvmware-setup.ps1
 
    ```
 
 3. Run the following command to allow the script to run as an unsigned script. If you close the session before completing all the steps, rerun this in a new session.
 
-    ```powershell-interactive
+    ```powershell
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
     ```
 
 4. Execute the script by providing the parameters `Subscription`, `ResourceGroup`, `AzLocation`, `ApplianceName`, `CustomLocationName`, and `VcenterName` (refer to the table [above](#run-the-script) to understand the parameters).
 
-     ```powershell-interactive
+     ```powershell
      ./arcvmware-setup.ps1 -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VcenterName <VcenterName>
      ```
 
@@ -134,7 +134,7 @@ Once the command execution completes, you can [try out the capabilities](browse-
 
 If the appliance creation fails and you need to retry it. Run the command with `-Force` to clean up the previous deployment and onboard again.
 
-```powershell-interactive
+```powershell
 ./arcvmware-setup.ps1 -Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VcenterName <VcenterName>
 ```
 
