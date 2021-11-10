@@ -17,11 +17,11 @@ This article lists Microsoft edge locations, sorted by location abbreviation, fo
 
 ## Edge locations
 
-[!INCLUDE [front-door-edge-locations-by-abbreviation](../../../includes/front-door-edge-locations-by-abbreviation.md)]
+[!INCLUDE [front-door-edge-locations-by-abbreviation](../../includes/front-door-edge-locations-by-abbreviation.md)]
 
 ## Next steps
 
-* View [Azure Front Door edge locations by metro](edge-locations.md).
+* View [Azure Front Door edge locations by metro](edge-locations-by-region.md).
 * To get the latest list of edge nodes for Azure Front Door, see [Edge Nodes List - REST API](/rest/api/cdn/edge-nodes/list).
 * Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md).
-* Learn how to [create an Azure Front Door Standard/Premium profile](create-front-door-portal.md).
+* Learn how to [create an Azure Front Door Standard/Premium profile](standard-premium/create-front-door-portal.md).
