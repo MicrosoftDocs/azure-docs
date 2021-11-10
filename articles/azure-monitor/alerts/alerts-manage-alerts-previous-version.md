@@ -20,8 +20,10 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 1. In the **Condition** section, select the condition.
 1. The **Configure signal logic** pane opens, with historical data for the query appearing as a graph. You can change the time period of the chart to display data from the last six hours to last week.
     If your query results contain summarized data or [project](/azure/kusto/query/projectoperator) specific columns without time column, the chart shows a single value.
-   :::image type="content" source="media/alerts-log/alerts-edit-alerts-rule.png" alt-text="Edit alerts rule.":::
-1. You can edit the alert rule conditions using these sections:
+   
+    :::image type="content" source="media/alerts-log/alerts-edit-alerts-rule.png" alt-text="Edit alerts rule.":::
+
+1. Edit the alert rule conditions using these sections:
     - **Search Query**. In this section, you can modify your query.
     - **Alert logic**. Log Alerts can be based on two types of [**Measures**](./alerts-unified-log.md#measure):
         1. **Number of results** - Count of records returned by the query.
@@ -45,7 +47,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
  
 1. When you are finished editing the conditions, select **Done**.
 1. Using the preview data, set the [**Operator**, **Threshold Value**](./alerts-unified-log.md#threshold-and-operator), and [**Frequency**](./alerts-unified-log.md#frequency).
-1. You can also set the [number of violations to trigger an alert](./alerts-unified-log.md#number-of-violations-to-trigger-alert) by using **Total or Consecutive Breaches**.
+1. Set the [number of violations to trigger an alert](./alerts-unified-log.md#number-of-violations-to-trigger-alert) by using **Total or Consecutive Breaches**.
 1. Select **Done**. 
 1. You can edit the rule **Description**, and **Severity**. These details are used in all alert actions. Additionally, you can choose to not activate the alert rule on creation by selecting **Enable rule upon creation**.
 1. Use the [**Suppress Alerts**](./alerts-unified-log.md#state-and-resolving-alerts) option if you want to suppress rule actions for a specified time after an alert is fired. The rule will still run and create alerts but actions won't be triggered to prevent noise. Mute actions value must be greater than the frequency of alert to be effective.
@@ -54,8 +56,15 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 1. Specify if the alert rule should trigger one or more [**Action Groups**](./action-groups.md#webhook) when alert condition is met.
     > [!NOTE]
     > Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on the actions that can be performed.  
-1. You can optionally customize actions in log alert rules:
+1. (Optional) Customize actions in log alert rules:
     - **Custom Email Subject**: Overrides the *e-mail subject* of email actions. You can't modify the body of the mail and this field **isn't for email addresses**.
     - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups assuming the action group contains a webhook action. Learn more about [webhook action for Log Alerts](./alerts-log-webhook.md).
     ![Action Overrides for Log Alerts](media/alerts-log/AlertsPreviewOverrideLog.png)
-1. When you have completed editing all of the alert rule options, select **Save**.   
+1. When you have finished editing all of the alert rule options, select **Save**.
+
+## Next steps
+
+* Learn about [log alerts](./alerts-unified-log.md).
+* Create log alerts using [Azure Resource Manager Templates](./alerts-log-create-templates.md).
+* Understand [webhook actions for log alerts](./alerts-log-webhook.md).
+* Learn more about [log queries](../logs/log-query-overview.md).
