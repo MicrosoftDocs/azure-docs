@@ -420,12 +420,12 @@
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-match-conditions.md",
-      "redirect_url": "/articles/frontdoor/rules-match-conditions",
+      "redirect_url": "/azure/frontdoor/rules-match-conditions",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/frontdoor/front-door-rules-engine-match-conditions.md",
-      "redirect_url": "/articles/frontdoor/rules-match-conditions",
+      "redirect_url": "/azure/frontdoor/rules-match-conditions",
       "redirect_document_id": false
     },
     { 
