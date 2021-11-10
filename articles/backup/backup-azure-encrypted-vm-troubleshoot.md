@@ -42,7 +42,7 @@ Permissions can be set through the [Azure portal](./backup-azure-vms-encryption.
 Error message: Unknown error encountered when retrieving secret from the Key Vault with URL
 
 Restore operation of encrypted VM failed because of the missing key-vault key or secret.
-To resolve this issue, [restore the Key-Vault key or secret](backup-azure-restore-key-secret.md) and [create encrypted VMs from restored key, and secret](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+To resolve this issue, [restore the Key-Vault key or secret](backup-azure-restore-key-secret.md) and [create encrypted VMs from restored disk, key, and secret](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## BCMProtGetSaSUriAsyncError
 
