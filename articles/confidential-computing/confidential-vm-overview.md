@@ -1,8 +1,8 @@
 ---
-title: Azure confidential virtual machines (CVM)
-description: Azure confidential virtual machines
+title: About confidential virtual machines (preview)
+description: Azure Confidential Computing offers confidential virtual machines (confidential VMs) for tenants with very high security and confidentiality requirements.
 services: virtual-machines
-author: edcohen
+author: edendcohen
 ms.service: container-service
 ms.subservice: confidential-computing
 ms.topic: overview
@@ -11,101 +11,111 @@ ms.author: edcohen
  
 ---
 
-# Azure confidential VMs based on AMD processors
+# About confidential virtual machines (preview)
 
-Azure is now offering confidential VMs (CVMs) based on AMD processors with SEV-SNP technology. These VMs are designed for tenants with especially high security and confidentiality requirements. Confidential VMs offer a lift-and-shift migration experience with no changes to code. This added flexibility provides customers with a powerful tool for meeting their desired security posture. The VM in its entirety benefits from a strong hardware-enforced boundary. The platform is designed, deployed, and operated to prevent anyone other than the customer -including Microsoft— from reading or modifying a confidential VM’s state. 
+> [!IMPORTANT]
+> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-> Note: Protection levels differ based on user configuration and preferences. For example, encryption keys can be owned and managed by Microsoft for increased convenience and at no additional cost.
+Azure Confidential Computing offers confidential VMs based on [AMD processors with Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) technology](virtual-machine-solutions-amd.md). Confidential VMs are for tenants with very high security and confidentiality requirements. You can use confidential VMs for migrations without making changes to your code. Confidential VMs provide a strong, hardware-enforced boundary to help meet your security needs. The platform prevents anyone other than you, including Microsoft, from reading or modifying a confidential VM's state.
 
-## Benefits 
+> [!IMPORTANT]
+> Protection levels differ based on your configuration and preferences. For example, Microsoft can own or manage encryption keys for increased convenience at no additional cost.
+
+## Benefits
+
+Some of the benefits of confidential VMs include:
 
 - Robust hardware-based isolation between virtual machines, hypervisor, and host management code.
-- Customizable attestation policy for ensuring the compliance of the host before deploying a confidential VM.
-- Cloud-based full-disk encryption prior to first boot.
-- VM encryption keys that are owned and managed by the platform or customer (optional). 
+- Customizable attestation policies to ensure the host's compliance before deployment.
+- Cloud-based full-disk encryption before the first boot.
+- (Optional) VM encryption keys that you or the platform own and manage.
 - Secure key release with cryptographic binding between the platform's successful attestation and the VM's encryption keys.
-- Dedicated virtual TPM instance for attestation and protection of keys and secrets in the virtual machine.
-- All the benefits of [Trusted Launch](https://docs.microsoft.com/en-us/azure/virtual-machines/trusted-launch)
+- Dedicated virtual [trusted platform module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) instance for attestation and protection of keys and secrets in the virtual machine.
+- All the benefits of [Trusted launch for Azure VMs](../virtual-machines/trusted-launch.md)
 
 ## Full-disk encryption
 
-Azure confidential VMs introduce a new and enhanced disk encryption scheme. In this optional mode, all critical partitions of the disk are protected, including root and boot. In addition, disk encryption keys are bound to the virtual machine's TPM and made accessible only to the AMD processor. This scheme allows encryption keys to securely bypass Azure components including the hypervisor and host operating system. To further minimize the attack potential, disk encryption is performed by a dedicated and separate cloud service as part of the VM initial creation process. 
+Azure confidential VMs introduces a new and enhanced disk encryption scheme. This optional scheme protects all critical partitions of the disk, including `root` and `boot`. In addition, this scheme binds disk encryption keys to the virtual machine's TPM and makes the keys accessible only to the AMD processor. These encryption keys can securely bypass Azure components, including the hypervisor and host operating system. To minimize the attack potential, a dedicated and separate cloud service also encrypts the disk during the initial creation of the VM.
 
-Once your VM disk is encrypted, if critical settings for your VM's isolation are missing (for example, SEV-SNP is not enabled), attestation would fail to release disk encryption keys. In other words, successfully “starting up” your confidential VM is strong proof that your operating system and data-at-rest are not tampered.
+If you're missing critical settings for your VM's isolation, attestation doesn't release the disk encryption keys. For example, this scenario happens if you don't have SEV-SNP enabled. When you start up a confidential VM successfully, your operating system and data-at-rest are protected from tampering. For more information, see the section about [customizable attestation policies](#customizable-attestation-policies).
 
-Because full-disk encryption can lengthen the initial VM creation time, we have made it optional. We offer two modes:
+Full-disk encryption is optional, because this process can lengthen the initial VM creation time. You can choose between:
 
- - CVM with full OS disk encryption before VM deployment using Platform-Managed Key (PMK)
- - CVM without OS disk encryption before VM deployment
-
-> Disk encryption using a Customer-Managed Key will be available soon.
+ - A confidential VM with full OS disk encryption before VM deployment that uses platform-managed keys (PMK).
+ - A confidential VM without OS disk encryption before VM deployment.
 
 For further integrity and protection, confidential VMs offer [Secure Boot](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot) by default. 
-With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. All compatible confidential VM images support Secure Boot. 
+With Secure Boot enabled, trusted publishers must sign all OS boot components (boot loader, kernel, kernel drivers). All compatible confidential VM images support Secure Boot. 
 
 > [!NOTE]
-> In addition to the OS disk, CVMs utilize a small encrypted "VMGS" disk of several megabytes. This VMGS disk encapsulates the VM security state of components such the vTPM and UEFI bootloader. This small disk may result in an associated storage fee of a fraction of one US cent per VM per month.
-
-> Confidential virtual machines run on specialized hardware available in specific regions. For the latest available regions for confidential 
-> virtual machines, see [available regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+> Confidential VMs use both the OS disk and a small encrypted virtual machine guest state (VMGS) disk of several megabytes. The VMGS disk contains the security state of the VM's components, including the vTPM and UEFI bootloader. The small VMGS disk might incur a monthly storage fee.
 
 ## Customizable attestation policies
 
-Azure confidential VMs are designed to boot only after successful attestation of the platform's critical components and security settings. This includes a signed attestation report issued by AMD [SEV-SNP](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf), platform boot settings, and operating system measurements. 
+Confidential VMs boot only after successful attestation of the platform's critical components and security settings. Attestion includes a signed attestation report issued by AMD SEV-SNP, platform boot settings, and operating system measurements. 
 
-Attestation is performed by [Microsoft Azure Attestation](https://azure.microsoft.com/en-us/services/azure-attestation/) according to an attestation policy. As a user of Azure confidential VMs, you can customize this policy. This lets you define compliance parameters necessary for starting up and trusting your VM. For example, you can define a valid range of Security Version Numbers for the processor microcode, or whether Secure Boot must be enabled. For more options, refer to the Resources section below.
+[Azure Attestation](/services/azure-attestation/) does the attestation according to your attestation policy, which you can customize. You can define compliance parameters for starting up and trusting your VM. For example, you can define a valid range of Security Version Numbers for the processor microcode, or whether Secure Boot must be enabled. For more options, see [how to create secure key release policies for confidential VMs](amd-secure-key-release.md).
 
-Trusted launch also introduces vTPM for Azure VMs. vTPM is a virtualized version of a hardware [Trusted Platform Module](https://docs.microsoft.com/en-us/windows/security/information-protection/tpm/trusted-platform-module-overview), compliant with the TPM2.0 spec. It serves as a dedicated secure vault for keys and measurements. Trusted launch provides your VM with its own dedicated TPM instance, running in a secure environment outside the reach of any VM. The vTPM enables [attestation](https://docs.microsoft.com/en-us/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) by measuring the entire boot chain of your VM (UEFI, OS, system, and drivers). 
+Trusted launch offers virtual TPM (vTPM) for Azure VMs. The vTPM is a virtualized version of a hardware TPM,and complies with the TPM2.0 spec. You can use a vTPM as a dedicated, secure vault for keys and measurements. Trusted launch provides your VM with its own dedicated TPM instance, which runs in a secure environment outside the reach of any VM. The [vTPM enables attestation](https://docs.microsoft.com/en-us/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) by measuring the entire boot chain of your VM, including the UEFI, OS, system, and drivers. 
 
-Trusted launch uses the vTPM to perform remote attestation by the cloud. This is used for platform health checks and for making trust-based decisions. As a health check, trusted launch can cryptographically certify that your VM booted correctly. If the process fails, possibly because your VM is running an unauthorized component, Azure Security Center will issue integrity alerts. The alerts include details on which components failed to pass integrity checks.
+Trusted launch does remote attestation in the cloud using the vTPM. Platform health checks and trust-based decisions use the vTPM. Trusted launch can cryptographically certify that your VM booted correctly as a health check. Azure Security Center issues integrity alerts if the process fails. The alerts include details on which components failed to pass integrity checks. For example, your VM running an unauthorized component can cause a failure. 
 
-## User attestable platform reports (coming soon)
+## Limitations
 
-In addition to boot-time attestation performed by Azure, users can independently attest their Azure confidential VMs. Tenants can add this as a runtime check to establish that a VM's state can be trusted to process confidential data. Attestation reports can then be validated directly with [Microsoft Azure Attestation](https://azure.microsoft.com/en-us/services/azure-attestation/), or any independent attestation service, either local or centralized.
+The following limitations exist for confidential VMs. For frequently asked questions, see [FAQ about confidential VMs with AMD processors](./virtual-machine-amd-faq.yml).
 
-More information will be provided when this feature is released.
+### Size support
 
-## Public preview limitations
+Confidential VMs support the following VM sizes:
 
-**Size support**:
-- DCasv5-series, DCadsv5-series 
-- ECasv5-series, ECadsv5-series
+- DCasv5-series
+- DCadsv5-series 
+- ECasv5-series
+- ECadsv5-series
 
-**OS support**:
+ For more information, see the [AMD deployment options](virtual-machine-solutions-amd.md).
+### OS support
+
+Confidential VMs support the following OS options:
+
 - Ubuntu 20.04 LTS
 - Windows Server 2019
 - Windows Server 2022
 
-**Regions**: 
+### Regions
+
+Confidential VMs run on specialized hardware available in specific [VM regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines):
+
 - West US
 - North Europe
 
-**Pricing**:
-Depending on your confidential VM size. Refer to the [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
+### Pricing
 
-**The following features are not currently supported in the preview**:
-- Virtual machine scale sets
+Pricing depends on on your confidential VM size. For more information, see the [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
+
+### Unsupported features
+
+Confidential VMs doesn't currently support the following Azure services:
+
+- Azure virtual machine scale sets (VMSS)
 - Azure Batch
-- Backup
+- Azure Backup
 - Azure Site Recovery
-- Capturing a VM
-- Shared Image Gallery
+- Azure Dedicated Host 
+
+Confidential VMs also doesn't currently support the following Azure VMs features:
+
+- Capturing an image of a VM
+- Azure Compute Gallery
 - Ephemeral OS disks
 - Shared disks
 - Ultra disks
-- Azure Dedicated Host 
-- User attestable platform reports
-- Live Migration
+- User-attestable platform reports
+- Live migration
 - Customer-managed keys for OS disk pre-encryption
 
-## Next Steps
+## Next step
 
-[Deploy a DCasv5-series virtual machine through Azure Portal](./quick-create-portal-cvm.md)
-
-## Resources
-
-[Frequently asked questions on Azure confidential VMs with AMD processors](./virtual-machine-amd-faq.yml)
-
-[Deployment options for Azure confidential VMs with AMD processors](./virutal-machine-solutions-amd.md)
-
-[Attestation policies for Azure confidential VMs with AMD processors](../amd-secure-key-release.md)
+> [!div class="nextstepaction"]
+> [Deploy a confidential VM on AMD from the Azure portal](quick-create-portal-cvm.md)

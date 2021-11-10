@@ -1,110 +1,117 @@
 ---
-title: Secure Key Release policies for Azure Confidential VMs with AMD SEV-SNP
-description: An explanation of how to author a Secure Key Release policy for Azure Confidential VMs.
+title: Create secure key release policies for confidential VMs (preview)
+description: How to create a secure key release policy for confidential virtual lmachines (confidential VMs) in Azure Confidential Computing.
 services: attestation, secure key release
-author: 
+author: edendcohen
 ms.service: attestation, secure key release
 ms.topic: overview
 ms.date: 11/15/2021
-ms.author: EdCohen
+ms.author: edcohen
 
 
 ---
-# How to author a Secure Key Release policy
+# Create secure key release policies for confidential VMs (preview)
 
-Azure Key Vault (AKV) and Azure Key Vault Managed HSM allow for a key to be released to a Trusted Execution Environment (TEE). The TEE must meet key policy requirements. This document details the schema available to use when configuring key release expressions for AMD SEV-SNP Confidential VMs.
+> [!IMPORTANT]
+> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Confidential VMs (CVM) require a managed key to be securely released to the Host Compatibility Layer (HCL). The HCL runs as part of the guest, but in a memory space that is protected from the guest operating system, so the guest OS does not have access to this key. This key is used to encrypt the Virtual Machine Guest State, a file which holds persistent Virtual Machine state, such as vTPM content. Microsoft Azure Attestation (MAA) will validate the AMD SEV-SNP attestation report signature and issue a token which has claims for various system and guest properties, such as firmware versioning information and guest launch measurements. This token is evaluated by AKV during the secure key release process, and the key is only released if the TEE properties meet policy requirements.
+Confidential VMs require the release of a managed key to their host compatibility layer. This layer runs as part of the guest VM, in a memory space that the guest OS can't access. The managed key encrypts the Virtual Machine Guest State (VMGS), which is a file that holds the persistent VM state. For example, the VMGS can hold virtual Trusted Platform Module (vTPM) content. [Azure Attestation](/services/azure-attestation/)  validates the AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) attestation report signature, and issues a token. The token has claims for system and guest properties, such as firmware versioning and guest launch measurements. [Azure Key Vault](../key-vault/general/overview.md) evaluates the token during the secure key release process. Key Vault and and [Key Vault Managed HSM](../key-vault/managed-hsm/overview.md) manage the release of keys to a Trusted Execution Environment (TEE). However, Key Vault only releases the key if the TEE properties meet your policy requirements.
 
-The HCL is delivered as part of the Azure Host Operating System and will change over time as fixes are made and new features are delivered. Each HCL version will have different launch measurements. As Host OS changes are deployed, and Azure updates system firmware, VMs will encounter different launch measurements, depending on which host they happen to launch on. Customers do not have visibility into the Azure Host OS update cadence, nor do they desire to maintain existing working scenarios. To solve this problem, customers can use “x-ms-compliance-status" to rely on MAA to ensure measurements and settings are correct. MAA will verify the launch measurements are valid, that AMD firmware versions are up to date, and that debug is disabled.
+## Claims
 
+You can use the following claims when you create secure key release policies for confidential VMs.
 
+> [!IMPORTANT]
+> The host compatibility layer is part of the Azure host OS. The related launch measurements and settings change over time with updates to the host OS and system firmware. Use the claim `x-ms-compliance-status` to have Azure Attestation check your settings. Azure Attestation verifies the launch measurements are valid, makes sure the AMD firmware versions are up to date, and checks that debug is disabled.
 
-|    <br>Claim                              |    <br>Description                                                                                                     |    <br>Type                                |
-|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
-|    <br>x-ms-attestation-type              |    <br>The type of attestation report.<br>   <br>For AMD SEV-SNP, this will be “sevsnpvm”.                             |    <br>String                              |
-|    <br>x-ms-compliance-status             |    <br>MAA will determine if this CVM meets Azure policy.<br>   <br>This allows for simple evaluation of attestation token, without requiring detailed knowledge of different measurements and AMD firmware revisions.  MAA ensures that the launch measurement is valid, debug is disabled, and AMD FW is up to date.<br>  <br>For compliant CVM, this will be “azure-compliant-cvm"<br>                                                                                       |    <br>String                              |
-|    <br>x-ms-policy-hash                   |    <br>The hash of the base64URL encoded MAA policy used to evaluate attestation request.<br>  <br>This can be ignored unless a custom policy is used.<br>                                                                                                                                           |            <br>String                              |
-|    <br>x-ms-sevsnpvm-authorkeydigest      |    <br>Hash of author signing key                                                                                      |    <br>String                              |
-|    <br>x-ms-sevsnpvm-bootloader-svn       |    <br>AMD Bootloader SVN                                                                                              |    <br>Integer                             |
-|    <br>x-ms-sevsnpvm-familyId             |    <br>HCL family identification string                                                                                |    <br>String                              |
-|    <br>x-ms-sevsnpvm-guestsvn             |    <br>HCL SVN                                                                                                         |    <br>Integer                             |
-|    <br>x-ms-sevsnpvm-hostdata             |    <br>Data passed by host at VM launch                                                                                |    <br>String                              |
-|    <br>x-ms-sevsnpvm-idkeydigest          |    <br>Hash of identification signing key                                                                              |    <br>String                              |
-|    <br>x-ms-sevsnpvm-imageId              |    <br>HCL image identification string                                                                                 |    <br>String                              |
-|    <br>x-ms-sevsnpvm-is-debuggable        |    <br>AMD SEV-SNP debug enablement                                                                                    |    <br>Boolean                             |
-|    <br>x-ms-sevsnpvm-launchmeasurement    |    <br>Measurement of launched guest image                                                                             |    <br>String                              |
-|    <br>x-ms-sevsnpvm-microcode-svn        |    <br>AMD Microcode SVN                                                                                               |    <br>Integer                             |
-|    <br>x-ms-sevsnpvm-migration-allowed    |    <br>AMD SEV-SNP migration support enabled                                                                           |    <br>Boolean                             |
-|    <br>x-ms-sevsnpvm-reportdata           |    <br>Data passed by HCL to include with report,   to verify that transfer key and VM configuration are correct       |    <br>String                              |
-|    <br>x-ms-sevsnpvm-reportid             |    <br>Report ID of this guest                                                                                         |    <br>String                              |
-|    <br>x-ms-sevsnpvm-smt-allowed          |    <br>Is SMT enabled on host                                                                                          |    <br>Boolean                             |
-|    <br>x-ms-sevsnpvm-snpfw-svn            |    <br>AMD Firmware SVN                                                                                                |    <br>Integer                             |
-|    <br>x-ms-sevsnpvm-tee-svn              |    <br>AMD Trusted Execution Environment SVN                                                                           |    <br>Integer                             |
-|    <br>x-ms-sevsnpvm-vmpl                 |    <br>VMPL that generated this report, 0 for HCL                                                                      |    <br>Integer                             |
-|    <br>x-ms-ver                           |    <br>MAA protocol version                                                                                            |    <br>String                              |
-|    <br>x-ms-runtime                       |    <br>Runtime claims created by HCL                                                                                   |    <br>Object                              |
-|    <br>keys                               |    <br>Ephemeral RSA key used for Secure Key   Release.  Used by M-HSM, can be ignored   in key release evaluation.    |    <br>JWK                                 |
-|    <br>vm-configuration                   |    <br>Current VM configuration, provided by host                                                                      |    <br>Object                              |
-|    <br>console-enabled                    |    <br>If console (com1, com2) is enabled                                                                              |    <br>Boolean                             |
-|    <br>current-time                       |    <br>Current Epoch time                                                                                              |    <br>Integer                             |
-|    <br>secure-boot                        |    <br>Is Secure Boot enabled                                                                                          |    <br>Boolean                             |
-|    <br>tpm-enabled                        |    <br>Is vTPM enabled                                                                                                 |    <br>Boolean                             |
-|    <br>vmUniqueId                         |    <br>The VM Unique ID                                                                                                |    <br>String                              |
+| Claim                    | Description                   | Type   |
+| ------------------------ | ----------------------------- | ------ |
+| `x-ms-attestation-type` | The type of attestation report. For AMD SEV-SNP, the value is `sevsnpvm`. | String |
+| `x-ms-compliance-status` | Azure Attestation determines if the confidential VM meets Azure policy. Allows simple evaluation of attestation token, without requiring detailed knowledge of different measurements and AMD firmware revisions. For compliant confidential VMs, the value is `azure-compliant-cvm`. | String |
+| `x-ms-policy-hash` | The hash of the Base64-encoded URL of the Azure Attestation policy used to evaluate attestation request. Only use if you have a custom policy. | String |
+| `x-ms-sevsnpvm-authorkeydigest` | Hash of author's signing key. | String |
+| `x-ms-sevsnpvm-bootloader-svn` | AMD Bootloader Subversion (SVN). | Integer |
+| `x-ms-sevsnpvm-familyId` | Host compatibility layer's family identification string. | String |
+| `x-ms-sevsnpvm-guestsvn` | Host compatibility layer's SVN. | Integer |
+| `x-ms-sevsnpvm-hostdata` | Data passed by host at VM launch. | String |
+| `x-ms-sevsnpvm-idkeydigest` | Hash of identification signing key. | String |
+| `x-ms-sevsnpvm-imageId` | Host compatibility layer's image identification string. | String |
+| `x-ms-sevsnpvm-is-debuggable` | Enable AMD SEV-SNP debug.  | Boolean |
+| `x-ms-sevsnpvm-launchmeasurement` | Measurement of launched guest image.  | String |
+| `x-ms-sevsnpvm-microcode-svn` | AMD Microcode SVN. | Integer |
+| `x-ms-sevsnpvm-migration-allowed` | Enable AMD SEV-SNP migration support. | Boolean |
+|` x-ms-sevsnpvm-reportdata` | Data passed by ost compatibility layer to include with report. Verifies that transfer key and VM configuration are correct. | String |
+| `x-ms-sevsnpvm-reportid `| Report identifier of the guest. | String |
+| `x-ms-sevsnpvm-smt-allowed` | Check if SMT is enabled on the host. | Boolean |
+| `x-ms-sevsnpvm-snpfw-svn` | AMD Firmware SVN. | Integer |
+| `x-ms-sevsnpvm-tee-svn` | AMD Trusted Execution Environment SVN. | Integer |
+| `x-ms-sevsnpvm-vmpl` | VMPL that generated the report. The value is `0` for the host compatibility layer. | Integer |
+| `x-ms-ver` | Azure Attestation protocol version. | String |
+| `x-ms-runtime` | Runtime claims created by the host compatibility layer. | Object |
+| `keys` | Ephemeral RSA key used for the secure key release.  Used by Key Vault Managed HSM. Optional in key release evaluation. | JSON Web Key (JWK) |
+| `vm-configuration` | Current VM configuration, provided by host. | Object |
+| `console-enabled` | Checks if console (`com1`, `com2`) is enabled. | Boolean |
+| `current-time` | Current epoch time. | Integer |
+| `secure-boot` | Checks if Secure Boot is enabled | Boolean |
+| `tpm-enabled` | Checks if vTPM is enabled. | Boolean |
+| `vmUniqueId` | The VM's unique identifier. | String |
 
    
-## Drafting the policy file
+## Policy file
 
-Release policy is an **anyOf** condition containing an array of key authorities and conditions.
+The key release policy is an `anyOf` condition that contains an array of key authorities and conditions. To draft a policy file:
 
-1. Create a new file
-2. Add **version** and **anyOf** to the file
-3. Add sections for **allOf** and **authority**
+1. Create a new file.
+1. Add `version` and `anyOf` to the file.
+1. Add sections for `allOf` and `authority`.
 
-  ```
+    ```json
+    {
+        "anyOf":
+        [
+            {
+                "authority": "attestation.com",
+                "allOf":
+                [
+                ]
+            }
+        ],
+        "version": "1.0.0"
+    }
+    ```
+  
+1. Add condition expressions to the authorization rules in **allOf**, to require a compliant SEV-SNP CVM with the expected configuration, such as Secure Boot enabled
 
-{
-    "anyOf":
+    ```json
+    "allOf":
     [
         {
-            "authority": "attestation.com",
-            "allOf":
-            [
-            ]
+            "claim": "x-ms-compliance-status",
+            "equals": "azure-compliant-cvm"
+        },
+        {
+            "claim": "x-ms-attestation-type",
+            "equals": "sevsnpvm"
+        },
+        { 
+            "claim": "x-ms-runtime.vm-configuration.secure-boot", 
+            "equals": true
         }
-    ],
-    "version": "1.0.0"
-}
-  ```
+    ]
+    ```
   
-4. Add condition expressions to the authorization rules in **allOf**, to require a compliant SEV-SNP CVM with the expected configuration, such as Secure Boot enabled
+1. Customize **authority** for the correct MAA endpoint
 
-  ```
-            "allOf":
-            [
-                {
-                    "claim": "x-ms-compliance-status",
-                    "equals": "azure-compliant-cvm"
-                },
-                {
-                    "claim": "x-ms-attestation-type",
-                    "equals": "sevsnpvm"
-                },
-                { 
-                    "claim": "x-ms-runtime.vm-configuration.secure-boot", 
-                    "equals": true
-                }
-            ]
-  ```
-  
-5. Customize **authority** for the correct MAA endpoint
+    ```json
+    "authority": "https://sharedeus.eus.attest.azure.net/"
+    ```
 
-  ```
-"authority": "https://sharedeus.eus.attest.azure.net/"
-  ```
+1. Save the file.
 
-6. Save the file
-  ```
+### Example policy file
+
+```json
 {
     "anyOf":
     [
@@ -129,9 +136,13 @@ Release policy is an **anyOf** condition containing an array of key authorities 
     ],
     "version": "1.0.0"
 }
-  ```
+```
 
+## Add policy to key
 
-## Adding policy to Key
+You can specify the policy file through the key management CLI or the Azure portal. You can also include the policy in key import operations. 
 
-The policy file can be specified via the key management CLI or UI. The policy can also be included on key Import operations.
+## Next step
+
+> [!div class="nextstepaction"]
+> [FAQ for confidential VMs on AMD](virtual-machine-amd-faq.md)

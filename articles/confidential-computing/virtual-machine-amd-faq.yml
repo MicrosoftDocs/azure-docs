@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure confidential VMs FAQ
-  description: Answers to frequently asked questions about Azure confidential VMs.
-  author: EdCohen
+  title: Confidential virtual machines FAQ (preview)
+  description: Answers to frequently asked questions (FAQs) about confidential virtual machines (confidential VMs) in Azure Confidential Computing.
+  author: edendcohen
   ms.topic: troubleshooting
   ms.workload: infrastructure
   ms.service: virtual-machines
@@ -10,105 +10,105 @@ metadata:
   ms.date: 11/15/2021
   ms.author: edcohen
     
-title: Frequently asked questions for Azure confidential VMs
+title: Confidential virtual machines FAQ (preview)
 summary: |
-  This article provides answers to some of the most common questions about running [confidential computing workloads on Azure confidential virtual machines](confidential-vm--overview.md).
-  
-  
+  > [!IMPORTANT]
+  > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
+  > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+  This article provides answers to some of the most common questions about running confidential computing workloads on [confidential VMs](confidential-vm-overview.md).
+
 sections:
-  - name: Ignored
+  - name: General
     questions:
-      - question: | 
-          What are Confidential VMs (CVMs)?
+      - question: |
+          What are confidential VMs?
         answer: |
-          CVMs are designed as IaaS virtual machines for tenants with especially high security and confidentiality requirements. Confidential VMs offer access to the following technologies and benefits: 
-            1.	Encryption for “data in use” such that no component outside the processor, and no process outside the VM, can access a Confidential VM’s state. 
-            2.	Host attestation to attest the full health and compliance of the server prior to initializing a Confidential VM.
-            3.	Encryption of “data at rest” so that keys are guarded by an HSM (Hardware Security Module) and are exclusively owned by the tenant. 
-            4.	New UEFI boot architecture supporting the Guest OS for enhanced security settings and capabilities.
-            5.	A dedicated virtual instance of a TPM (Confidential Platform Module) to attest the health of the VM and provide hardened key management functions (supporting use cases such as BitLocker)
+          Confidential VMs are IaaS VMs for tenants with especially high security and confidentiality requirements. Confidential VMs offer access to the following technologies and benefits: 
+            1.	Encryption for "data in use." No component outside the processor, and no process outside the VM, can access a confidential VM's state. 
+            2.	Host attestation to verify the full health and compliance of the server before initializing a confidential VM.
+            3.	Encryption of "data at rest." A Hardware Security Module (HSM) guards the keys, which the tenant exclusively owns.
+            4.	New UEFI boot architecture supporting the guest OS for enhanced security settings and capabilities.
+            5.	A dedicated virtual instance of a Trusted Platform Module (TPM). Attests the health of the VM and provides hardened key management functions. Supports use cases such as BitLocker.
           
       - question: |
-          Why should I consider CVMs?
+          Why should I use confidential VMs?
         answer: |
-          CVMs are Azure’s response to customers’ growing desire to do more on the cloud, and as a result, place greater trust in the cloud. If you ever felt uneasy about moving sensitive workloads off-premises to run on the cloud, CVMs are designed to address this.
-          As such, these VMs are architected, deployed, and operated so that underlying infrastructure and cloud operators are prevented from accessing customer data. Unlike other approaches and solutions, there is no expectation that you adapt your existing workloads to fit the platform’s technical needs.
+          The more you want to do in the cloud, the greater trust you must place in the cloud. Confidential VMs address customer concerns about moving sensitive workloads off-premises into the cloud. Underlying infrastructure and cloud operators can't access customer data in confidential VMs by design and implementation. Unlike other approaches and solutions, you don't have to adapt your existing workloads to fit the platform's technical needs.
 
       - question: |
           What are AMD SEV technologies and how do they relate to Azure confidential VMs?
         answer: |
-          AMD SEV technologies, and particularly SEV-SNP (Secure Encrypted Virtualization-Secure Nested Paging) offer memory encryption using unique CPU keys, encryption for the processor register state, strong integrity protection, firmware rollback prevention, side channel hardening, restrictions on interrupt and exceptions behavior, and more. 
-          Collectively, AMD SEV technologies harden guest protections to deny hypervisor and other host management code access to VM memory and state. Combined with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview), customer data is encrypted in use, 
-          in transit, and at rest using keys that can be end-to-end protected and exclusively controlled by the customer. By utilizing built-in [Attestation](https://azure.microsoft.com/en-us/services/azure-attestation/) capabilities, VM administrators can independently establish trust in the healthy posture and underlying infrastructure of these virtual machines.
-          During the preview phase not all of these capabilities may be available.
+          AMD SEV technologies, particularly Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP), offer multiple protections: memory encryption, unique CPU keys, encryption for the processor register state, strong integrity protection, firmware rollback prevention, side channel hardening, and restrictions on interrupt and exceptions behavior. 
+          Collectively, AMD SEV technologies harden guest protections to deny hypervisor and other host management code access to VM memory and state. Confidential VMs combine AMD SEV with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). You can encrypt data in use, in transit, and at rest with end-to-end protected keys that you control. With built-in [Azure Attestation](https://azure.microsoft.com/en-us/services/azure-attestation/) capabilities, you can independently establish trust in the security health and underlying infrastructure of your confidential VMs.
 
       - question: |
           How can I deploy Azure confidential VMs?
         answer: |
-          Here are some ways you can deploy a DCasv5/ECasv5 VM:
-             - From the [Azure portal](quick-create-portal-cvm.md)
-             - From the [Command-line interface](quick-create-cli-amd-cvm.md)
+          Here are some ways you can deploy a confidential VM on AMD processors:
+             - [Deploy from the Azure portal](quick-create-portal-cvm.md)
+             - [Deploy from the Azure Command-Line Interface (Azure CLI)](quick-create-cli-amd-cvm.md)
 
       - question: |
-          Will all OS images work with Azure confidential VMs?
+          Do all OS images work with confidential VMs?
         answer: |
-          To run on a CVM, OS images must meet certain security and compatibility requirements. These requirements ensure that VMs are securely mounted, attested, and isolated from the underlying cloud infrastructure. Microsoft is working to bring this compatibility to more OS versions across Linux and Windows. 
-
-          Using [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries) it is possible to modify one of these confidential VM images (for example, by installing certain applications) and using it as a baseline for deploying other confidential VMs.
-
-      - question: |
-          Do I have to use the new full-disk encryption scheme with CVMs? Can I use one of the standard schemes?
-        answer: |
-          The new optional full-disk encryption scheme is Azure's most secure. It is designed to meet [Confidential Computing principles](https://azure.microsoft.com/en-us/blog/azure-confidential-computing/). However, you can also use other [disk encryption schemes](https://docs.microsoft.com/en-us/azure/security/fundamentals/azure-disk-encryption-vms-vmss) (instead or in addition).
-          If you use multiple disk encryption schemes this may result in double encryption, and negatively impact performance.
+          To run on a CVM, OS images must meet certain security and compatibility requirements. These requirements ensure that VMs are securely mounted, attested, and isolated from the underlying cloud infrastructure. 
+          You can use [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) to modify a confidential VM image, such as by installing applications. Then, you can deploy confidential VMs based on your modified image.
 
       - question: |
-          Can I enable or disable the new full-disk encryption scheme after I've created my CVM?
+          Do I have to use the full-disk encryption scheme? Can I use a standard scheme instead?
         answer: |
-          No. After you've created a CVM (with or without OS full-disk encryption) you can't deactivate or reactivate it. 
+          The optional full-disk encryption scheme is Azure's most secure and meets the [Confidential Computing principles](https://azure.microsoft.com/en-us/blog/azure-confidential-computing/). 
+          However, you can also use other [disk encryption schemes](../security/fundamentals/azure-disk-encryption-vms-vmss.md) instead of or in addition to full-disk encryption.
+          If you use multiple disk encryption schemes, double encryption might negatively impact performance.
+
+      - question: |
+          Can I enable or disable the new full-disk encryption scheme after VM creation?
+        answer: |
+          No. After you've created a confidential VM, you can't deactive or reactivate full-disk encryption. You must create a new confidential VM instead.
 
       - question: |
           Can I convert a non-confidential VM into a confidential VM?
         answer: |
-          No. For security reasons, Confidential VMs need to be created as such from the start.
+          No. For security reasons, you must create a confidential VM as such from the start.
 
       - question: |
-          DCasv5/ECasv5 virtual machines don't show up when I try to search for them in the portal size selector
+          Why can't I find DCasv5 or ECasv5 VMs in the Azure portal size selector?
         answer: |
-          Make sure you've selected an [available region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Also make sure you select “clear all filters” in the size selector. 
+          Make sure you've selected an [available region for confidential VMs](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Also make sure to select **clear all filters** in the size selector. 
           
       - question: |
-          Can I enable Accelerated Networking with Azure confidential VMs?
-        answer:  No. Accelerated Networking isn't supported on DCasv5-Series or ECasv5-Series virtual machines. Accelerated Networking cannot be enabled for any confidential computing virtual machine deployment or Azure Kubernetes Service cluster deployment running on confidential computing.
+          Can I enable Azure Accelerated Networking on confidential VMs?
+        answer:  No. Confidential VMs don't support Accelerated Networking. You can't enable Accelerated Networking for any confidential VM deployment, or any Azure Kubernetes Service cluster deployment that runs on Confidential Computing.
 
       - question: |
-          I get an Azure Resource Manager template deployment failure error: "Operation could not be completed as it results in exceeding approved standard DCasV5/ECasv5 Family Cores Quota"
+          What does the error "Operation could not be completed as it results in exceeding approved standard DCasV5/ECasv5 Family Cores Quota" mean? 
         answer: |
-          [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for confidential computing VMs. 
+          This Azure Resource Manager template (ARM template) error means the deployment failed due to a lack of Azure compute cores. Azure free trial subscriptions don't have a large enough core quota for confidential VMs. [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md).  
           
       - question: |
-          What’s the difference between DCasv5-Series and ECasv5-series VMs?
+          What's the difference between DCasv5-Series and ECasv5-series VMs?
         answer: |
-          ECasv5-series are memory optimized VM sizes, which offer a higher memory-to-CPU ratio. These sizes are great for relational database servers, medium to large caches, and in-memory analytics. There are no material differences otherwise.
+          ECasv5-series are memory-optimized VM sizes, which offer a higher memory-to-CPU ratio. These sizes are great for relational database servers, medium to large caches, and in-memory analytics. There are no other material differences.
           
       - question: |
-          Are DCasv5/ECasv5 virtual machines available globally?
+          Are DCasv5/ECasv5 VMs available globally?
         answer: |
-          No. At this time, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions. 
+          No. At this time, these VMs are only available in select regions. For a current list of available regions, see [VM products by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). 
 
       - question: |
           What happens if I need Microsoft to help me service or access data on my confidential VM?
         answer: |
-          Microsoft Azure does not have operating procedures for granting CVM access to its employees, even if authorized by a customer. As a result, various recovery and support scenarios aren't available when using Azure confidential VMs.
+          Azure doesn't have operating procedures for granting confidential VM access to its employees, even if a customer authorizes the access. As a result, various recovery and support scenarios aren't available for confidential VMs.
 
       - question: |
-          Do confidential VMs support virtualization and solutions such as Azure VMware?
+          Do confidential VMs support virtualization, such as Azure VMware Solution?
         answer: |
-          No, CVMs don’t currently support nested virtualization (the ability to run a hypervisor inside a VM). 
+          No, confidential VMs don't currently support nested virtualization, such as the ability to run a hypervisor inside a VM. 
 
       - question: |
-          Is there an additional cost to using CVMs?
+          Is there an additional cost to using confidential VMs?
         answer: |
-          CVMs are billed based on virtual machine and storage usage according to the size and region. CVMs are offered through dedicated sizes, so prices may be different from general-purpose VMs. In addition, CVMs utilize an additional small encrypted "VMGS" disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This may result in a storage fee of a fraction of one US cent per VM per month.
-          Lastly, for some of the highest security and privacy settings you may choose to create additional linked resources, such as a [Managed HSM Pool](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Such resources would be billed separately.
+          Billing for confidential VMs depends on your usage and storage, and the size and region of the VM. Confidential VMs are available in dedicated sizes, so prices might differ from general-purpose VMs. 
+          Confidential VMs use an additional small encrypted virtual machine guest state (VMGS) disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This disk might result in a monthly storage fee.
+          For some high security and privacy settings,you might create linked resources, such as a [Managed HSM Pool](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Azure bills such resources separately from the confidential VM costs.
 
