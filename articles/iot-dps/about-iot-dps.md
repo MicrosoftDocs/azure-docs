@@ -133,13 +133,13 @@ For more details on quota limits, see [Azure Subscription Service Limits](../azu
 
 Each API call on DPS is billable as one *operation*. This includes all the service APIs and the device registration API.
 
-The tables below show the current billable status for each DPS service API operation. To learn more about pricing, see [Azure Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+The tables below show the current billable status for each DPS service API operation. To learn more about pricing, see [Azure Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/) in the IoT Hub Device Provisioning Service section.
 
 | API | Operation | Billable? |
 | --------------- | -------  | -- |
 |  Device API | [Device Registration Status Lookup](/api/iot-dps/device/runtime-registration/device-registration-status-lookup) | Yes|
 |  Device API | [Operation Status Lookup](/api/iot-dps/device/runtime-registration/operation-status-lookup)| No |
-|  Device API | [Register Device](/api/iot-dps/device/runtime-registration/register-device) | No |
+|  Device API | [Register Device](/api/iot-dps/device/runtime-registration/register-device) | Yes |
 | DPS Service API (registration state)  | [Delete](/api/iot-dps/service/device-registration-state/delete) | Yes|
 | DPS Service API (registration state)  | [Get](/api/iot-dps/service/device-registration-state/get) | Yes|
 | DPS Service API (registration state)  | [Query](/api/iot-dps/service/device-registration-state/query) | Yes|
