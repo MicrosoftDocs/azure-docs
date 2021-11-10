@@ -59,7 +59,7 @@ The Chaos Studio agent for Linux requires stress-ng, an open-source application 
 sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng
 ```
 
-or
+Or:
 
 ```bash
 sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng
@@ -69,7 +69,7 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
 
 Next, set up a Microsoft-Agent target on each virtual machine or virtual machine scale set that specifies the user-assigned managed identity that the agent will use to connect to Chaos Studio. In this example, we use one managed identity for all VMs. A target must be created via REST API. In this example we use the `az rest` CLI command to execute the REST API calls.
 
-1. Modify the following JSON by replacing `$USER_IDENTITY_CLIENT_ID` with the clientID of your managed identity, which you can find in the Azure portal overview of the user-assigned managed identity you created, and `$USER_IDENTITY_TENANT_ID` with your Azure tenant ID, which you can find in the Azure Portal under **Azure Active Directory** under  **Tenant information**. Save the JSON as a file in the same location where you are running the Azure CLI (in Cloud Shell you can drag-and-drop the JSON file to upload it).
+1. Modify the following JSON by replacing `$USER_IDENTITY_CLIENT_ID` with the clientID of your managed identity, which you can find in the Azure portal overview of the user-assigned managed identity you created, and `$USER_IDENTITY_TENANT_ID` with your Azure tenant ID, which you can find in the Azure portal under **Azure Active Directory** under  **Tenant information**. Save the JSON as a file in the same location where you are running the Azure CLI (in Cloud Shell you can drag-and-drop the JSON file to upload it).
 
     ```json
     {
@@ -93,7 +93,7 @@ Next, set up a Microsoft-Agent target on each virtual machine or virtual machine
 
 3. The command returns a GUID for the **agentProfileId**. Copy this down for use in a later step.
 
-4. Create the capabilities on the target by creating a capability.json file as shown below. Save the JSON file in the same location where you are running the Azure CLI.Replace `$RESOURCE_ID` with the resource ID of the target VM or VMSS and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
+4. Create the capabilities on the target by creating a capability.json file as shown below. Save the JSON file in the same location where you are running the Azure CLI. Replace `$RESOURCE_ID` with the resource ID of the target virtual machine or virtual machine scale set and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
     
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent/capabilities/$CAPABILITY?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
@@ -228,7 +228,7 @@ With your virtual machine now onboarded, you can create your experiment. A chaos
     Each experiment creates a corresponding system-assigned managed identity. Note of the `principalId` for this identity in the response for the next step.
 
 ## Give experiment permission to your virtual machine
-When you create a chaos experiment, Chaos Studio creates a system-assigned managed identity that executes faults against your target resources. This identity must be given [appropriate permissions](chaos-studio-fault-providers.md) to the target resource for the experiment to run successfully. The Reader role is required for agent-based faults. Other roles, that do not have */Read permission, such as Virtual Machine Contributor, will not grant appropriate permission for agent-based faults.
+When you create a chaos experiment, Chaos Studio creates a system-assigned managed identity that executes faults against your target resources. This identity must be given [appropriate permissions](chaos-studio-fault-providers.md) to the target resource for the experiment to run successfully. The Reader role is required for agent-based faults. Other roles that do not have */Read permission, such as Virtual Machine Contributor, will not grant appropriate permission for agent-based faults.
 
 Give the experiment access to your virtual machine or virtual machine scale set using the command below, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target virtual machine or virtual machine scale set (the resource ID of the VM, not the resource ID of the chaos agent used in the experiment definition). Run this command for each virtual machine or virtual machine scale set targeted in your experiment.
 
