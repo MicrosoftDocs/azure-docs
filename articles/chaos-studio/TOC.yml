@@ -33,7 +33,11 @@
   - name: Create and run experiment - Service-direct faults
     href: chaos-studio-tutorial-service-direct.md
   - name: Create and run experiment - Agent-based faults
-    href: chaos-studio-tutorial-agent-based.md
+    items:
+    - name: Portal
+      href: chaos-studio-tutorial-agent-based-cli.md
+    - name: CLI
+      href: chaos-studio-tutorial-agent-based-portal.md
   - name: Create and run experiment - Chaos Mesh faults on AKS
     href: chaos-studio-tutorial-aks.md
   - name: Troubleshoot common issues
