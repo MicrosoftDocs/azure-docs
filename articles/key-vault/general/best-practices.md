@@ -14,7 +14,7 @@ ms.author: mbaldwin
 ---
 # Best practices for using Azure Key Vault
 
-Azure Key Vault safeguards encryption keys and secrets like certificates, connection strings, and passwords. 
+Azure Key Vault safeguards encryption keys and secrets like certificates, connection strings, and passwords. This article helps you optimize your use of key vaults.
 
 ## Use separate key vaults
 
