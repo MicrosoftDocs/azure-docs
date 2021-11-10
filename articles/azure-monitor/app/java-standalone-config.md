@@ -36,14 +36,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.2.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.3.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.2.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.3.jar` is located.
 
 ## Connection string
 
@@ -62,6 +62,31 @@ You can also set the connection string using the environment variable `APPLICATI
 (which will then take precedence over connection string specified in the json configuration).
 
 Not setting the connection string will disable the Java agent.
+
+## Instrumentation keys overrides (preview)
+
+This feature is in preview, starting from 3.2.3.
+
+Instrumentation key overrides allow you to override the [default instrumentation key](#connection-string), for example:
+* Set one instrumentation key for one http path prefix `/myapp1`.
+* Set another instrumentaiton key for another http path prefix `/myapp2/`.
+
+```json
+{
+  "preview": {
+    "instrumentationKeyOverrides": [
+      {
+        "httpPathPrefix": "/myapp1",
+        "instrumentationKey": "12345678-0000-0000-0000-0FEEDDADBEEF"
+      },
+      {
+        "httpPathPrefix": "/myapp2",
+        "instrumentationKey": "87654321-0000-0000-0000-0FEEDDADBEEF"
+      }
+    ]
+  }
+}
+```
 
 ## Cloud role name
 
@@ -484,7 +509,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.2.2.jar` is located.
+`applicationinsights-agent-3.2.3.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 
