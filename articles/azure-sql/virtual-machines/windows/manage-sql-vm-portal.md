@@ -112,6 +112,7 @@ Use the **Security Configuration** page of the SQL virtual machines resource to 
 
 To learn more, see the [Security best practices](security-considerations-best-practices.md).
 
+<a name="security-center"></a>
 
 ## Defender for Cloud 
 

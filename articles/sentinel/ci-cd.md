@@ -99,9 +99,13 @@ Each connection can support multiple types of custom content, including analytic
 
     # [Azure DevOps](#tab/azure-devops)
 
-    You're automatically signed in to Azure DevOps using your current Azure credentials. If you're not currently signed in to Azure DevOps with the same credentials that you're using in Microsoft Sentinel, switch your account in Azure DevOps to match that of Microsoft Sentinel.
+    > [!NOTE]
+    > When creating Azure DevOps connections, [guest users](/azure/active-directory/external-identities/what-is-b2b) currently cannot connect to a workspace that is not in their own Azure Active Directory tenant. Such cross-tenant scenarios are not yet supported for Azure DevOps connections.
+    >
 
-    1. In Microsoft Sentinel, from the dropdown lists that appear, select your **Organization**, **Project**, **Repository**, **Branch**, and **Content Types**.
+    You are automatically authorized to Azure DevOps using your current Azure credentials. To ensure valid connectivity, [verify that you've authorized to the same Azure DevOps account](https://aex.dev.azure.com/) that you're connecting to from Microsoft Sentinel or use an InPrivate browser window to create your connection.
+    
+    1.  In Microsoft Sentinel, from the dropdown lists that appear, select your **Organization**, **Project**, **Repository**, **Branch**, and **Content Types**.
 
         - Both parsers and hunting queries use the **Saved Searches** API to deploy content to Microsoft Sentinel. If you select one of these content types, and also have content of the other type in your branch, both content types are deployed.
 
