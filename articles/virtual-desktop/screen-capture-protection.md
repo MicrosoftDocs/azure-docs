@@ -27,8 +27,8 @@ Suppose the user attempts to use an unsupported client to connect to the protect
 
 1. To configure screen capture protection, you need to install administrative templates that add rules and settings for Azure Virtual Desktop.
 2. Download the [Azure Virtual Desktop policy templates file](https://aka.ms/avdgpo) (AVDGPTemplate.cab) and extract the contents of the cab file and zip archive.
-3. Copy the *terminalserver-avd.admx* file to *%windir%\PolicyDefinitions* folder
-4. Copy the *en-us\terminalserver-avd.adml* file to *%windir%\PolicyDefinitions\en-us* folder
+3. Copy the **terminalserver-avd.admx** file to **%windir%\PolicyDefinitions** folder.
+4. Copy the **en-us\terminalserver-avd.adml** file to **%windir%\PolicyDefinitions\en-us** folder.
 5. To confirm the files copied correctly, open the Group Policy Editor and navigate to **Computer Configuration** -> **Administrative Templates** -> **Windows Components** -> **Remote Desktop Services** -> **Remote Desktop Session Host** -> **Azure Virtual Desktop**
 6. You should see one or more Azure Virtual Desktop policies, as shown below.
 
