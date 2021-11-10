@@ -14,7 +14,7 @@ ms.date: 11/10/2021
 # Outbound firewall rules for Azure SQL Database and Azure Synapse Analytics (preview)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)] 
 
-Outbound firewall rules limits network traffic from the Azure SQL logical server to a customer defined list of Azure Storage accounts and Azure SQL logical servers. Any attempt to access storage accounts or SQL Databases not in this list is denied. The following Azure SQL Database features support this feature:
+Outbound firewall rules limit network traffic from the Azure SQL logical server to a customer defined list of Azure Storage accounts and Azure SQL logical servers. Any attempt to access storage accounts or SQL Databases not in this list is denied. The following Azure SQL Database features support this feature:
 
 - [Auditing](auditing-overview.md)
 - [Vulnerability assessment](sql-vulnerability-assessment.md)
