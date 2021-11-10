@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: tutorial
-ms.date: 08/09/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Tutorial: Improve your regulatory compliance
@@ -166,14 +166,12 @@ To view compliance data, you need to have at least **Reader** access to the poli
 
 The minimum set of roles for accessing the dashboard and managing standards is **Resource Policy Contributor** and **Security Admin**.
 
-
 ### The regulatory compliance dashboard isn't loading for me
-To use the regulatory compliance dashboard, Microsoft Defender for Cloud must have Defender enabled at the subscription level. If the dashboard isn't loading correctly, try the following steps:
+To use the regulatory compliance dashboard, Defender for Cloud must be enabled at the subscription level. If the dashboard isn't loading correctly, try the following steps:
 
 1. Clear your browser's cache.
 1. Try a different browser.
 1. Try opening the dashboard from different network location.
-
 
 ### How can I view a report of passing and failing controls per standard in my dashboard?
 On the main dashboard, you can see a report of passing and failing controls for (1) the 'top 4' lowest compliance standards in the dashboard. To see all the passing/failing controls status, select (2) **Show all *x*** (where x is the number of standards you're tracking). A context plane displays the compliance status for every one of your tracked standards.

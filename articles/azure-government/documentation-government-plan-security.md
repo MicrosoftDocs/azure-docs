@@ -168,9 +168,9 @@ As a customer, you are [always in control of your customer data](https://www.mic
 
 Listed below are essential Azure services that you can use to gain in-depth insight into your provisioned Azure resources and get alerted about suspicious activity, including outside attacks aimed at your applications and data. For a complete list, see the Azure service directory sections for [Management + Governance](https://azure.microsoft.com/services/#management-tools), [Networking](https://azure.microsoft.com/services/#networking), and [Security](https://azure.microsoft.com/services/#security). Moreover, the [Azure Security Benchmark](../security/benchmarks/index.yml) provides security recommendations and implementation details to help you improve your security posture with respect to Azure resources.
 
-**[Azure Security Center](../security-center/index.yml)** provides unified security management and advanced threat protection across hybrid cloud workloads. It is an essential service for you to limit your exposure to threats, protect cloud resources, [respond to incidents](../security-center/security-center-alerts-overview.md), and improve your regulatory compliance posture.
+**[Microsoft Defender for Cloud](../security-center/index.yml)** provides unified security management and advanced threat protection across hybrid cloud workloads. It is an essential service for you to limit your exposure to threats, protect cloud resources, [respond to incidents](../security-center/security-center-alerts-overview.md), and improve your regulatory compliance posture.
 
-With Azure Security Center, you can:
+With Microsoft Defender for Cloud, you can:
 
 - Monitor security across on-premises and cloud workloads.
 - Apply advanced analytics and threat intelligence to detect attacks.
@@ -179,23 +179,23 @@ With Azure Security Center, you can:
 - Simplify investigation when responding to threats.
 - Apply policy to ensure compliance with security standards.
 
-To assist you with Azure Security Center usage, Microsoft has published extensive [online documentation](../security-center/index.yml) and numerous blog posts covering specific security topics:
+To assist you with Microsoft Defender for Cloud usage, Microsoft has published extensive [online documentation](../security-center/index.yml) and numerous blog posts covering specific security topics:
 
-- [How Azure Security Center detects a Bitcoin mining attack](https://azure.microsoft.com/blog/how-azure-security-center-detects-a-bitcoin-mining-attack/)
-- [How Azure Security Center detects DDoS attack using cyber threat intelligence](https://azure.microsoft.com/blog/how-azure-security-center-detects-ddos-attack-using-cyber-threat-intelligence/)
-- [How Azure Security Center aids in detecting good applications being used maliciously](https://azure.microsoft.com/blog/how-azure-security-center-aids-in-detecting-good-applications-being-used-maliciously/)
-- [How Azure Security Center unveils suspicious PowerShell attack](https://azure.microsoft.com/blog/how-azure-security-center-unveils-suspicious-powershell-attack/)
-- [How Azure Security Center helps reveal a cyber attack](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/)
-- [How Azure Security Center helps analyze attacks using Investigation and Log Search](https://azure.microsoft.com/blog/how-azure-security-center-helps-analyze-attacks-using-investigation-and-log-search/)
-- [Azure Security Center adds context alerts to aid threat investigation](https://azure.microsoft.com/blog/azure-security-center-adds-context-alerts-to-aid-threat-investigation/)
-- [How Azure Security Center automates the detection of cyber attack](https://azure.microsoft.com/blog/how-azure-security-center-automates-the-detection-of-cyber-attack/)
-- [Heuristic DNS detections in Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)
-- [Detect the latest ransomware threat (Bad Rabbit) with Azure Security Center](https://azure.microsoft.com/blog/detect-the-latest-ransomware-threat-aka-bad-rabbit-with-azure-security-center/)
-- [Petya ransomware prevention & detection in Azure Security Center](https://azure.microsoft.com/blog/petya-ransomware-prevention-detection-in-azure-security-center/)
-- [Detecting in-memory attacks with Sysmon and Azure Security Center](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center/)
-- [How Security Center and Log Analytics can be used for threat hunting](https://azure.microsoft.com/blog/ways-to-use-azure-security-center-log-analytics-for-threat-hunting/)
-- [How Azure Security Center helps detect attacks against your Linux machines](https://azure.microsoft.com/blog/how-azure-security-center-helps-detect-attacks-against-your-linux-machines/)
-- [Use Azure Security Center to detect when compromised Linux machines attack](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
+- [How Microsoft Defender for Cloud detects a Bitcoin mining attack](https://azure.microsoft.com/blog/how-azure-security-center-detects-a-bitcoin-mining-attack/)
+- [How Microsoft Defender for Cloud detects DDoS attack using cyber threat intelligence](https://azure.microsoft.com/blog/how-azure-security-center-detects-ddos-attack-using-cyber-threat-intelligence/)
+- [How Microsoft Defender for Cloud aids in detecting good applications being used maliciously](https://azure.microsoft.com/blog/how-azure-security-center-aids-in-detecting-good-applications-being-used-maliciously/)
+- [How Microsoft Defender for Cloud unveils suspicious PowerShell attack](https://azure.microsoft.com/blog/how-azure-security-center-unveils-suspicious-powershell-attack/)
+- [How Microsoft Defender for Cloud helps reveal a cyber attack](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/)
+- [How Microsoft Defender for Cloud helps analyze attacks using Investigation and Log Search](https://azure.microsoft.com/blog/how-azure-security-center-helps-analyze-attacks-using-investigation-and-log-search/)
+- [Microsoft Defender for Cloud adds context alerts to aid threat investigation](https://azure.microsoft.com/blog/azure-security-center-adds-context-alerts-to-aid-threat-investigation/)
+- [How Microsoft Defender for Cloud automates the detection of cyber attack](https://azure.microsoft.com/blog/how-azure-security-center-automates-the-detection-of-cyber-attack/)
+- [Heuristic DNS detections in Microsoft Defender for Cloud](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)
+- [Detect the latest ransomware threat (Bad Rabbit) with Microsoft Defender for Cloud](https://azure.microsoft.com/blog/detect-the-latest-ransomware-threat-aka-bad-rabbit-with-azure-security-center/)
+- [Petya ransomware prevention & detection in Microsoft Defender for Cloud](https://azure.microsoft.com/blog/petya-ransomware-prevention-detection-in-azure-security-center/)
+- [Detecting in-memory attacks with Sysmon and Microsoft Defender for Cloud](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center/)
+- [How Defender for Cloud and Log Analytics can be used for threat hunting](https://azure.microsoft.com/blog/ways-to-use-azure-security-center-log-analytics-for-threat-hunting/)
+- [How Microsoft Defender for Cloud helps detect attacks against your Linux machines](https://azure.microsoft.com/blog/how-azure-security-center-helps-detect-attacks-against-your-linux-machines/)
+- [Use Microsoft Defender for Cloud to detect when compromised Linux machines attack](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
 
 **[Azure Monitor](../azure-monitor/overview.md)** helps you maximize the availability and performance of applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from both cloud and on-premises environments. It helps you understand how your applications are performing, and proactively identifies issues affecting deployed applications and resources they depend on. Azure Monitor integrates the capabilities of [Log Analytics](../azure-monitor/logs/data-platform-logs.md) and [Application Insights](../azure-monitor/app/app-insights-overview.md) that were previously branded as standalone services.
 
@@ -217,7 +217,7 @@ With Azure Monitor, you can get a 360-degree view of your applications, infrastr
 
 **[Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md)** provides extensive Distributed Denial of Service (DDoS) mitigation capability to help you protect your Azure resources from attacks. Always-on traffic monitoring provides near real-time detection of a DDoS attack, with automatic mitigation of the attack as soon as it is detected. In combination with Web Application Firewall, DDoS Protection defends against a comprehensive set of network layer attacks, including SQL injection, cross-site scripting attacks, and session hijacks. Azure DDoS Protection is integrated with Azure Monitor for analytics and insight.
 
-**[Azure Sentinel](../sentinel/overview.md)** is a cloud-native SIEM platform that uses built-in AI to help you quickly analyze large volumes of data across an enterprise. Azure Sentinel aggregates data from various sources, including users, applications, servers, and devices running on-premises or in any cloud, letting you reason over millions of records in a few seconds. With Azure Sentinel, you can:
+**[Microsoft Sentinel](../sentinel/overview.md)** is a cloud-native SIEM platform that uses built-in AI to help you quickly analyze large volumes of data across an enterprise. Microsoft Sentinel aggregates data from various sources, including users, applications, servers, and devices running on-premises or in any cloud, letting you reason over millions of records in a few seconds. With Microsoft Sentinel, you can:
 
 - **Collect** data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 - **Detect** previously uncovered threats and minimize false positives using analytics and unparalleled threat intelligence from Microsoft.
