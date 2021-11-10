@@ -24,16 +24,17 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-| Planned change       | Estimated date for change |
-|----------------------|---------------------------|
-| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | November 2021|
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| November 2021|
-| [Inventory display of on-premises machines will use different template for resource name](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | November 2021    |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                          | December 2021    |
-| [Changes to a security alert from Microsoft Defender for Storage](#changes-to-a-security-alert-from-microsoft-defender-for-storage)  | November 2021    |
-| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | Q1 2022    |
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | February 2022| 
-|||
+| Planned change                                                                                                                                                                      | Estimated date for change |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | November 2021             |
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | November 2021             |
+| [Inventory display of on-premises machines will use different template for resource name](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name) | November 2021             |
+| [Changes to a security alert from Microsoft Defender for Storage](#changes-to-a-security-alert-from-microsoft-defender-for-storage)                                                 | November 2021             |
+| [Container security features to be grouped under Defender for Containers](#container-security-features-to-be-grouped-under-defender-for-containers)                                 | December 2021             |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | December 2021             |
+| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                           | Q1 2022                   |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | February 2022             |
+|                                                                                                                                                                                     |                           |
 
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
@@ -65,6 +66,24 @@ To improve the presentation of resources in the [Asset inventory](asset-inventor
 
 - **Current format:** ``machine-name_source-computer-id_VMUUID``
 - **From the update:** ``machine-name_VMUUID``
+
+### Changes to a security alert from Microsoft Defender for Storage
+
+**Estimated date for change:** November 2021
+
+One of the preview alerts provided by Microsoft Defender for Storage is being divided into two new recommendations to provide greater clarity about the suspicious events discovered. This alert is relevant to Azure Blob Storage only.
+
+**The alert type is changing too.**
+
+- Before the change, the alert was:<br>
+    "Preview - Anonymous scan of public storage containers"<br>(Storage.Blob_ContainerAnonymousScan)
+
+- From this change, there'll be two recommendations:
+
+    - "Open storage containers discovered by external scanning tool or script"<br>(Storage.Blob_OpenContainersScanning.FailedAttempt)
+    - "Successful discovery of open storage containers by external scanning script or tool"<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery)
+
+More details of these alerts will be published when the change is released.
 
 
 ### Multiple changes to identity recommendations
@@ -114,23 +133,22 @@ Defender for Cloud includes multiple recommendations for improving the managemen
     |||
  
 
-### Changes to a security alert from Microsoft Defender for Storage
+### Container security features to be grouped under Defender for Containers
 
-**Estimated date for change:** November 2021
+**Estimated date for change:** December 2021
 
-One of the preview alerts provided by Microsoft Defender for Storage is being divided into two new recommendations to provide greater clarity about the suspicious events discovered. This alert is relevant to Azure Blob Storage only.
+Microsoft Defender for Cloud's container security features are currently available through two Microsoft Defender plans:
 
-**The alert type is changing too.**
+- [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
 
-- Before the change, the alert was:<br>
-    "Preview - Anonymous scan of public storage containers"<br>(Storage.Blob_ContainerAnonymousScan)
+With this change, these two plans will be deprecated and the new, combined plan will include all their features as well as a more streamlined and feature-rich experience to help you protect your container solutions. 
 
-- From this change, there'll be two recommendations:
+There'll be no change to subscriptions that already have Defender for Kubernetes or Defender for container registries enabled. You'll have the option to upgrade your existing subscriptions to Microsoft Defender for Containers.
 
-    - "Open storage containers discovered by external scanning tool or script"<br>(Storage.Blob_OpenContainersScanning.FailedAttempt)
-    - "Successful discovery of open storage containers by external scanning script or tool"<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery)
+When we release Microsoft Defender for Containers for general availability, new subscriptions won't have the option to use the deprecated plans.
 
-More details of these alerts will be published when the change is released.
+Learn more about [Container security in Microsoft Defender for Cloud](container-security.md).
 
 
 ### Enhancements to recommendation to classify sensitive data in SQL databases
