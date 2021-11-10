@@ -13,7 +13,7 @@ We've made fundamental backend improvements for the service to boost performance
 
 [Improved performance](#performance-and-capacity). From lab and virtual machine creation to lab publish, you’ll notice drastic improvements.  
 
-[New SKUs](#new-skus). We’ve been working hard to add new VM sizes with options for larger OS disk sizes. All lab virtual machines use solid state disks (SSD) and you have a choice between Standard SSD and Premium SSD.  
+[New SKUs](#new-skus). We’ve been working hard to add new VM sizes with options for larger OS disk sizes. All lab virtual machines use solid-state disks (SSD) and you have a choice between Standard SSD and Premium SSD.  
 
 [Per Customer Assigned Capacity](#per-customer-assigned-capacity). No more sharing capacity with others. If your organization has requested more quota, we’ll save it just for you. 
 
@@ -25,11 +25,11 @@ We've made fundamental backend improvements for the service to boost performance
 
 [More built-in roles](#new-built-in-roles-for-azure-lab-services). In addition to Lab Creator, we’ve added Lab Operator and Lab Assistant roles. Lab Operators can manage existing labs, but not create new ones. Lab Assistant can only help students by starting, stopping, or redeploying virtual machines. They will not be able to adjust quota or set schedules. 
 
-[Improved cost tracking in Cost Management](#improved-cost-tracking). Lab virtual machines are now the cost unit tracked in Azure Cost Management. Tags for lab plan id and lab name are automatically added if you want to group lab VM cost entries together. Need to track cost by a department or cost center? Just add a tag to the lab resource in Azure. We added the ability to propagate tags from labs to Azure Cost Management entries.  
+[Improved cost tracking in Cost Management](#improved-cost-tracking). Lab virtual machines are now the cost unit tracked in Azure Cost Management. Tags for lab plan ID and lab name are automatically added if you want to group lab VM cost entries together. Need to track cost by a department or cost center? Just add a tag to the lab resource in Azure. We added the ability to propagate tags from labs to Azure Cost Management entries.  
 
 [Updates to lab owner experience](#updates-to-lab-owner-experience). Now you can choose to skip the template creation process and automatically publish the lab if you already have an image ready to use. In addition, we’ve added the ability to add a non-admin user to lab VMs and made some scheduling improvements while we were at it. 
 
-[Updates to student experience](#updates-to-student-experience). Student can now redeploy their VM without losing data.  If the lab is setup to use AAD group sync, there is no longer a need to send an invitation email so students can register for a virtual machine—one is assigned to the student automatically.
+[Updates to student experience](#updates-to-student-experience). Student can now redeploy their VM without losing data.  If the lab is set up to use AAD group sync, there is no longer a need to send an invitation email so students can register for a virtual machine—one is assigned to the student automatically.
 
 SDKs. The Azure Lab Services PowerShell will now be integrated with the Az PowerShell module and will release with the next monthly update of the Az module. Also, check out the C# SDK. 
 
@@ -49,15 +49,15 @@ For the new version of Lab Services, the lab account concept is being replaced w
 
 |Lab account (classic)|Lab plan|
 |-|-|
-|Lab account was the only resource that administrators could interact with inside the Azure Portal.</br>Lab account served as the parent and container for the labs.|In the Azure Portal, admins now manage two types of sibling resources, lab plan and lab. Grouping of labs is now done by resource group.</br>The lab plan serves as a collection of configurations and settings that apply when a lab is created. If you change a lab plan’s settings, these changes won’t impact any existing labs that were previously created from the lab plan. (The exception to this is the internal help information settings, which affects all labs.) |
+|Lab account was the only resource that administrators could interact with inside the Azure portal.</br>Lab account served as the parent and container for the labs.|In the Azure portal, admins now manage two types of sibling resources, lab plan and lab. Grouping of labs is now done by resource group.</br>The lab plan serves as a collection of configurations and settings that apply when a lab is created. If you change a lab plan’s settings, these changes won’t impact any existing labs that were previously created from the lab plan. (The exception to this is the internal help information settings, which affects all labs.) |
 
 By moving to a sibling relationship between the lab plan and lab instead of a parental relationship, lab plan provides an upgraded experience from the lab account experience. The following table compares the previous experience with a lab account and the new improved experience with a lab plan:
 
 |Feature/area|Lab account (classic)|Lab plan|
 |-|-|-|
-|Resource Management|Lab account was the only resource tracked in the Azure Portal. All other resources were child resources of the lab account and tracked in Lab Services directly.|Lab plans and labs are now sibling resources. Administrators can now use existing tools in the Azure Portal to manage labs.</br>Virtual machines will continue to be a child resource of labs.| 
-|Cost tracking|In Azure Cost Management, admins were able to track and analyze cost only at the service level and at the lab account level.|In Azure Cost Management, entries are for lab virtual machines. Automatic tags on each entry specify the lab plan id and the lab. Now you can analyze cost by lab plan, lab, or virtual machine from within the Azure Portal. Custom tags on the lab will also show in the cost data.|  
-|Selecting regions to create labs in|By default, labs were created in the same geography as the lab account.  A geography typically aligns with a country and contains one or more Azure regions. Lab owners were not able to manage exactly which Azure region the labs resided in, only the geography.|In the lab plan, administrator now can manage the exact Azure regions to allowed for lab creation. By default, labs will be created in the same Azure region as the lab plan they were created from.</br>Please note, when a lab plan is connected to your own virtual network, labs can only be created in the same Azure region as that virtual network.| 
+|Resource Management|Lab account was the only resource tracked in the Azure portal. All other resources were child resources of the lab account and tracked in Lab Services directly.|Lab plans and labs are now sibling resources. Administrators can now use existing tools in the Azure portal to manage labs.</br>Virtual machines will continue to be a child resource of labs.| 
+|Cost tracking|In Azure Cost Management, admins were able to track and analyze cost only at the service level and at the lab account level.|In Azure Cost Management, entries are for lab virtual machines. Automatic tags on each entry specify the lab plan id and the lab. Now you can analyze cost by lab plan, lab, or virtual machine from within the Azure portal. Custom tags on the lab will also show in the cost data.|  
+|Selecting regions to create labs in|By default, labs were created in the same geography as the lab account.  A geography typically aligns with a country and contains one or more Azure regions. Lab owners were not able to manage exactly which Azure region the labs resided in, only the geography.|In the lab plan, administrator now can manage the exact Azure regions to allowed for lab creation. By default, labs will be created in the same Azure region as the lab plan they were created from. </br>Note that when a lab plan is connected to your own virtual network, labs can only be created in the same Azure region as that virtual network.| 
 |Deletion experience|When a lab account is deleted, all labs within it are also deleted.|When deleting a lab plan, labs are not deleted. Labs that were created from a deleted lab plan will continue to retain references to:</br>- A virtual network, if advanced networking was configured on the lab plan.</br>- An image from Shared Image Gallery, if a custom image was used to create the lab.</br>However, the labs will no longer be able to export an image to Shared Image Gallery.|
 |Connecting to a Vnet|The lab account provided an option to peer to a Vnet. If you already had labs in the lab account before you peered to a Vnet, the Vnet connection did not apply to existing labs. This created a situation where admins could not tell which labs in the lab account were peered to the Vnet.|In a lab plan, admins will have the ability to set up the advanced networking only at the time of lab plan creation. Once a lab plan is created, you will see and read-only connection to the connected virtual network.</br>If you need to use another virtual network, create a new lab plan configured with the new virtual network.|
 |Labs Portal Experience|Labs are lab listed under lab accounts in https://labs.azure.com.|Labs are listed under resource group name in https://labs.azure.com.</br>If there are multiple lab plans in the same resource group, instructors will be able to choose which lab plan to use when creating the lab.|
@@ -67,9 +67,9 @@ TODO: Screenshot Azure portal
 
 ### Creating a new lab plan  
 
-To use Azure Lab Services, open the Azure Portal to create a lab plan first:  
+To use Azure Lab Services, open the Azure portal to create a lab plan first:  
 
-Inside the Azure Portal, create a new Lab plan resource.  
+Inside the Azure portal, create a new Lab plan resource.  
 
 1. Pick the Azure subscription to use for billing.
 
@@ -83,7 +83,7 @@ Inside the Azure Portal, create a new Lab plan resource.
 
    :::image type="content" source="./media/lab-services-whats-new-november-2021-update/lab-plan-basics-page.png" alt-text="Lab plan - basics page":::
 
-1. If you need to set up a VNet injection, check Enable advance networking the Vnet to use. Select the virtual networking and subnet. To see a virtual network, it must be in the same location as the lab plan. Only subnets delegated to Microsoft.LabServices/labs will appear in the subnet drop-down. Only one lab plan my be associated with one subnet.
+1. If you need to set up a VNet injection, check Enable advance networking the Vnet to use. Select the virtual networking and subnet. To see a virtual network, it must be in the same location as the lab plan. Only subnets delegated to Microsoft.LabServices/labs will appear in the subnet drop-down. Only one lab plan may be associated with one subnet.
 
    :::image type="content" source="./media/lab-services-whats-new-november-2021-update/create-lab-plan-advanced-networking.png" alt-text="Create lab plan -> Networking":::
 
@@ -111,7 +111,7 @@ Now your lab plans are created, go to [https://labs.azure.com](https://labs.azur
 
 ### Moving from lab account to lab plan
 
-To use new features provided in the public preview, you will need to create new lab plans and labs. When you create a lab plan, you can reuse the same Shared Image Gallery and images that you previously used with your lab account.  Likewise, you can reuse the same licensing server. As you migrate, there likely will be a period when you are using both the public preview and the current version of Azure Lab Services at the same time. You may have both lab accounts and lab plans that co-exist in your subscription and that access the same Shared Image Gallery and licensing server.
+To use new features provided in the public preview, you will need to create new lab plans and labs. When you create a lab plan, you can reuse the same Shared Image Gallery and images that you previously used with your lab account.  Likewise, you can reuse the same licensing server. As you migrate, there likely will be a period when you are using both the public preview and the current version of Azure Lab Services at the same time. You may have both lab accounts and lab plans that coexist in your subscription and that access the same Shared Image Gallery and licensing server.
 
 For each new lab plan, there are some settings that you will need to configure, such as:
 
@@ -153,7 +153,7 @@ Here are the updated limits:
 
 ### Sizes
 
-You’ve told us that you want more control over your virtual machines, and we’ve listened. We now show compute size name, number of cores, amount of memory, OS disk size and disk type. Sizes are no longer listed in families, so you know exactly what you are getting. All lab virtual machines will now use solid state disks (SSD) and you have a choice between Standard SSD and Premium SSD.
+You’ve told us that you want more control over your virtual machines, and we’ve listened. We now show compute size name, number of cores, amount of memory, OS disk size and disk type. Sizes are no longer listed in families, so you know exactly what you are getting. All lab virtual machines will now use solid-state disks (SSD) and you have a choice between Standard SSD and Premium SSD.
 Check out the new sizes!
 
 |Size name|Cores|Memory (GB)|OS disk size (GB)|SSD type|
@@ -181,7 +181,7 @@ See [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab
 
 ## Canvas integration
 
-status - ready for review
+Status - ready for review
 
 ## New built-in roles for Azure Lab Services
 
@@ -196,13 +196,13 @@ We’ve heard from customers that often multiple people manage a lab, and admins
 
 ## Improved auto-shutdown experience
 
-We’ve made big improvements to the reliability and performance of the auto-shutdown experience for lab VMs. Now auto-shutdown settings are OS version-agnostic. The following settings can now be applied to any version of Linux or Windows:
+We’ve made significant improvements to the reliability and performance of the auto-shutdown experience for lab VMs. Now auto-shutdown settings are OS version-agnostic. The following settings can now be applied to any version of Linux or Windows:
 
 - Disconnect users when virtual machines are idle
 - Shutdown virtual machines when users disconnect
 - Shutdown virtual machines when users do not connect
 
-Another key improvement is how Azure Lab Services detects that a VM is idle. Previously, idle detection was only supported for Windows machines and relied on the Windows’ OS to detect mouse\keyboard input. However, tracking only mouse and keyboard input to detect when a VM is idle isn’t well-suited for some scenarios. For example, in data science, users often need to perform long running queries or train deep learning models with large data sets. In these scenarios, the VM’s resources are actively being used, but there are extended periods of time where there isn’t any mouse or keyboard input from the user. Lab Services now provides flexibility to accommodate these scenarios by detecting both mouse/keyboard input and disk/CPU usage.
+Another key improvement is how Azure Lab Services detects that a VM is idle. Previously, idle detection was only supported for Windows machines and relied on the Windows’ OS to detect mouse\keyboard input. However, tracking only mouse and keyboard input to detect when a VM is idle isn’t well suited for some scenarios. For example, in data science, users often need to perform long running queries or train deep learning models with large data sets. In these scenarios, the VM’s resources are actively being used, but there are extended periods of time where there isn’t any mouse or keyboard input from the user. Lab Services now provides flexibility to accommodate these scenarios by detecting both mouse/keyboard input and disk/CPU usage.
 
 :::image type="content" source="./media/lab-services-whats-new-november-2021-update/auto-shutdown-settings.png" alt-text="Automatic shutdown and disconnect":::
 
@@ -251,16 +251,16 @@ There may be cases where you don’t want your lab’s users to have full admin 
 
 ## Updates to student experience
 
-status - ready for review
+Status - ready for review
 
 ## VNET injection
 
-status - in progress
+Status - in progress
 
 ## Improved cost tracking
 
-status - not started
+Status - not started
 
 ## Azure lab services automation
 
-status - blocked
+Status - blocked
