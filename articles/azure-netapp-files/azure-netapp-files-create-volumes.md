@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 10/04/2021
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -38,9 +38,6 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 * Local user/group and LDAP support for NFSv4.1  
   Currently, NFSv4.1 supports root access to volumes only. See [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
-  
-* Accessing NFS volumes from Windows clients   
-    When you use a Windows client to access NFS volumes, you might experience intermittent connectivity and performance issues. As such, you should consider using a dual-protocol volume when accessing the volume from both Windows and Linux clients.
 
 ## Best practice
 
