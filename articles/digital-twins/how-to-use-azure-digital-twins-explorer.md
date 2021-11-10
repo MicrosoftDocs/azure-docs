@@ -557,7 +557,7 @@ You can use the **Keyboard Shortcuts** icon in the top-right toolbar to view a l
 
 There are several advanced features that can be accessed under the Settings cog in the top-right toolbar:
 * **Eager Loading**: When a query returns twins that have relationships to other twins that **are not** included in the query results, this feature will load the "missing" twins before rendering the graph.
-* **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh.
+* **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh. This feature is off by default.
 * **Console**: This feature enables display of a console window, capable of using simple shell functions for working with the graph.
 * **Output**: This feature enables display of an output window, which shows a diagnostic trace of operations.
 * **High Contrast**: This feature changes the colors of the Azure Digital Twins Explorer so they appear with greater contrast.
