@@ -13,12 +13,8 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Identify bottlenecks
-      items: 
-      - name: Load test in Azure portal
-        href: tutorial-identify-bottlenecks-azure-portal.md
-      - name: Load test with Visual Studio Code
-        href: how-to-identify-bottlenecks-vs-code.md
+    - name: Load test in Azure portal
+      href: tutorial-identify-bottlenecks-azure-portal.md
     - name: Continuous regression testing
       items:
       - name: Automate with GitHub Actions
