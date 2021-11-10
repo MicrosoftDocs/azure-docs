@@ -12,10 +12,6 @@ ms.custom: references_regions
 ---
 
 # Azure Front Door edge locations by metro
-> [!div class="op_single_selector"]
-> * [Edge locations by region](edge-locations-by-region.md)
-> * [Edge locations by abbreviation](edge-locations-abbreviation.md)
-> 
 
 This article lists current metros containing edge locations, sorted by region, for Azure Front Door. Each metro may contain more than one edge locations. Currently, Azure Front Door has 118 edge locations across 100 metro cities.
 
