@@ -24,9 +24,9 @@ Linux  | C++, C#, Java, Python, Go | [Supported Linux distributions and target a
 Windows (excluding UWP) | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi) 
 Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/) 
 
-## Installing Gstreamer on Linux
+## Installing GStreamer on Linux
 
-For more information see [Linux installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c).  
+For more information, see [Linux installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c).  
 
 ```sh
 sudo apt install libgstreamer1.0-0 \
@@ -35,9 +35,9 @@ gstreamer1.0-plugins-good \
 gstreamer1.0-plugins-bad \
 gstreamer1.0-plugins-ugly
 ```
-## Installing Gstreamer on Windows
+## Installing GStreamer on Windows
 
-For more information see [Windows installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c). 
+For more information, see [Windows installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c). 
 
 * Create a folder c:\gstreamer
 * Download [installer](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi) 
@@ -54,15 +54,15 @@ msiexec /passive INSTALLLEVEL=1000 INSTALLDIR=C:\gstreamer /i gstreamer-1.0-msvc
 * Add another entry in the path variable as C:\gstreamer\1.0\msvc_x86_64\bin
 * Reboot the machine
 
-## Using Gstreamer in Android
+## Using GStreamer in Android
 Look at the Java tab above for the details about building libgstreamer_android.so 
 
 For more information see [Android installation instructions](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). 
 
 ## Speech SDK version required for compressed audio input
 * Speech SDK version 1.10.0 or later is required for RHEL 8 and CentOS 8
-* Speech SDK version 1.11.0 or later is required for for Windows.
-* Speech SDK version 1.16.0 or later for latest GStreamer on Windows and Android.
+* Speech SDK version 1.11.0 or later is required for Windows.
+* Speech SDK version 1.16.0 or later for the latest GStreamer on Windows and Android.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
