@@ -22,7 +22,7 @@ This section contains the following examples:
 * [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-c)
 * [HTTP trigger, get multiple docs from route data](#http-trigger-get-multiple-docs-from-route-data-c)
 
-The examples refer to a simple `ToDoItem` type:
+The examples refer to a `ToDoItem` type and a corresponding database table:
 
 ```cs
 namespace AzureSQLSamples
@@ -30,9 +30,18 @@ namespace AzureSQLSamples
     public class ToDoItem
     {
         public string Id { get; set; }
+        public int Priority { get; set; }
         public string Description { get; set; }
     }
 }
+```
+
+```sql
+CREATE TABLE dbo.ToDo (
+    [Id] int primary key,
+    [Priority] int null,
+    [Description] nvarchar(200) not null
+)
 ```
 
 <a id="http-trigger-look-up-id-from-query-string-c"></a>
@@ -47,6 +56,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```cs
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -64,17 +74,17 @@ namespace AzureSQLSamples
                 CommandType = System.Data.CommandType.Text,
                 Parameters = "@Id={Query.id}",
                 ConnectionStringSetting = "SqlConnectionString")]
-            IEnumerable<ToDoItem> todoitem)
+            IEnumerable<ToDoItem> toDoItem)
         {
-            return new OkObjectResult(todoitem);
+            return new OkObjectResult(toDoItem.FirstOrDefault());
         }
     }
 }
 ```
 
-<a id="http-trigger-get-multiple-docs-from-route-data-c"></a>
+<a id="http-trigger-get-multiple-items-from-route-data-c"></a>
 
-### HTTP trigger, get multiple docs from route data
+### HTTP trigger, get multiple items from route data
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves documents returned by the query. The function is triggered by an HTTP request that uses route data to specify the value of a query parameter. That parameter is used to filter the `ToDoItem` records in the specified query.
 
@@ -91,15 +101,15 @@ namespace AzureSQLSamples
     {
         [FunctionName("GetToDoItems")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitems/{id}")]
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitems/{priority}")]
             HttpRequest req,
-            [Sql("select * from dbo.ToDo where Id > @Id",
+            [Sql("select * from dbo.ToDo where [Priority] > @Priority",
                 CommandType = System.Data.CommandType.Text,
-                Parameters = "@Id={id}",
+                Parameters = "@Priority={priority}",
                 ConnectionStringSetting = "SqlConnectionString")]
-            IEnumerable<ToDoItem> todoitem)
+            IEnumerable<ToDoItem> toDoItems)
         {
-            return new OkObjectResult(todoitem);
+            return new OkObjectResult(toDoItems);
         }
     }
 }
@@ -126,15 +136,15 @@ The attribute's constructor takes the SQL command text, the command type, parame
 Here's a `Sql` attribute example in a method signature:
 
 ```csharp
-    [FunctionName("ReturnRecords")]
+    [FunctionName("GetToDoItems")]
     public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitems/{id}")]
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitems/{priority}")]
             HttpRequest req,
-            [Sql("select * from dbo.ToDo where Id > @Id",
+            [Sql("select * from dbo.ToDo where [Priority] > @Priority",
                 CommandType = System.Data.CommandType.Text,
-                Parameters = "@Id={id}",
+                Parameters = "@Priority={priority}",
                 ConnectionStringSetting = "SqlConnectionString")]
-            IEnumerable<ToDoItem> todoitem)
+            IEnumerable<ToDoItem> toDoItems)
     {
         ...
     }

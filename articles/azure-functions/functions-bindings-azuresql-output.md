@@ -23,7 +23,7 @@ This section contains the following examples:
 * [Http trigger, write one record](#http-trigger-write-one-record-c)
 * [Http trigger, write records using IAsyncCollector](#http-trigger-write-records-using-iasynccollector-c)
 
-The examples refer to a simple `ToDoItem` type:
+The examples refer to a `ToDoItem` type and a corresponding database table:
 
 ```cs
 namespace AzureSQLSamples
@@ -31,9 +31,18 @@ namespace AzureSQLSamples
     public class ToDoItem
     {
         public string Id { get; set; }
+        public int Priority { get; set; }
         public string Description { get; set; }
     }
 }
+```
+
+```sql
+CREATE TABLE dbo.ToDo (
+    [Id] int primary key,
+    [Priority] int null,
+    [Description] nvarchar(200) not null
+)
 ```
 
 <a id="http-trigger-write-one-record-c"></a>
@@ -56,16 +65,16 @@ namespace AzureSQLSamples
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "addtodo")] HttpRequest req,
             ILogger log,
-            [Sql("dbo.ToDo", ConnectionStringSetting = "SqlConnectionString")] out ToDoItem newitem)
+            [Sql("dbo.ToDo", ConnectionStringSetting = "SqlConnectionString")] out ToDoItem newItem)
         {
-            newitem = new ToDoItem
+            newItem = new ToDoItem
             {
                 Id = req.Query["id"],
                 Description =req.Query["desc"]
             };
 
             log.LogInformation($"C# HTTP trigger function inserted one row");
-            return new CreatedResult($"/api/addtodo", newitem);
+            return new CreatedResult($"/api/addtodo", newItem);
         }
     }
 }
@@ -94,16 +103,16 @@ namespace AzureSQLSamples
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "addtodo-asynccollector")]
             HttpRequest req,
-            [Sql("dbo.Products", ConnectionStringSetting = "SqlConnectionString")] IAsyncCollector<ToDoItem> newitems)
+            [Sql("dbo.Products", ConnectionStringSetting = "SqlConnectionString")] IAsyncCollector<ToDoItem> newItems)
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var incomingitems = JsonConvert.DeserializeObject<ToDoItem[]>(requestBody);
-            foreach (ToDoItem newitem in incomingitems)
+            var incomingItems = JsonConvert.DeserializeObject<ToDoItem[]>(requestBody);
+            foreach (ToDoItem newItem in incomingItems)
             {
-                await newitems.AddAsync(newitem);
+                await newItems.AddAsync(newItem);
             }
             // Rows are upserted here
-            await newitems.FlushAsync();
+            await newItems.FlushAsync();
 
             return new CreatedResult($"/api/addtodo-asynccollector", "done");
         }
@@ -135,7 +144,7 @@ Here's a `Sql` attribute example in a method signature:
     [FunctionName("HTTPtoSQL")]
     public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "addtodo")] HttpRequest req,
-            [Sql("dbo.ToDo", ConnectionStringSetting = "SqlConnectionString")] out ToDoItem newitem)
+            [Sql("dbo.ToDo", ConnectionStringSetting = "SqlConnectionString")] out ToDoItem newItem)
     {
         ...
     }
