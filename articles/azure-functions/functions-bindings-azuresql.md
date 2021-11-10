@@ -39,9 +39,16 @@ Working with the trigger and bindings requires that you reference the appropriat
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 
+## Known Issues
+
+- Output bindings against tables with columns of data types `NTEXT`, `TEXT`, or `IMAGE` are not supported and data upserts will fail. These types [will be removed](https://docs.microsoft.com/sql/t-sql/data-types/ntext-text-and-image-transact-sql) in a future version of SQL Server and are not compatible with the `OPENJSON` function used by this Azure Functions binding.
+- Case-sensitive [collations](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn) are not currently supported. [GitHub item #133](https://github.com/Azure/azure-functions-sql-extension/issues/133) tracks progress on this issue.
+
+
 ## Open Source
 
-The Azure SQL bindings for Azure Functions are open source and available on the repository at [https://github.com/Azure/azure-functions-sql-extension](https://github.com/Azure/azure-functions-sql-extension).  [Known issues](https://github.com/Azure/azure-functions-sql-extension#known-issues) are also tracked on the repository.
+The Azure SQL bindings for Azure Functions are open source and available on the repository at [https://github.com/Azure/azure-functions-sql-extension](https://github.com/Azure/azure-functions-sql-extension).
+
 
 ## Next steps
 
