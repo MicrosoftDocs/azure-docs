@@ -49,7 +49,7 @@ It's possible for multiple function apps to share the same storage account witho
 
 ### Lifecycle management policy considerations
 
-Functions uses Blob storage to persist important information, such as [function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). When you apply a [lifecycle management policy](../storage/blobs/lifecycle-management-overview.md) to your Blob Storage account, the policy may remove blobs needed by the Functions host. Because of this, you shouldn't apply such policies to the storage account used by Functions. If you do need to apply such a policy, remember to exclude containers used by Functions, such as `azure-webjobs-secrets`, `azure-webjobs-hosts`, and `scm-releases`.
+Functions uses Blob storage to persist important information, such as [function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). When you apply a [lifecycle management policy](../storage/blobs/lifecycle-management-overview.md) to your Blob Storage account, the policy may remove blobs needed by the Functions host. Because of this, you shouldn't apply such policies to the storage account used by Functions. If you do need to apply such a policy, remember to exclude containers used by Functions, which are usually prefixed with `azure-webjobs` or `scm`.
 
 ### Optimize storage performance
 
