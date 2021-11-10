@@ -1,6 +1,6 @@
 ---
 title: DCasv5 and DCadsv5-series confidential virtual machines (preview)
-description: Specifications for Azure Confidential Computing's DCasv5 and DCadsv5-series confidential virtual machines (confidential VMs). 
+description: Specifications for Azure Confidential Computing's DCasv5 and DCadsv5-series confidential virtual machines. 
 author: runcai 
 ms.author: runcai
 ms.reviewer: mimckitt
@@ -11,7 +11,7 @@ ms.date: 11/15/2021
 
 ---
 
-# DCasv5 and DCadsv5-series confidential VMs
+# DCasv5 and DCadsv5-series confidential VMs (preview)
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 

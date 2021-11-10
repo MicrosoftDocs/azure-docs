@@ -16,14 +16,14 @@ ms.author: RunCai
 > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly. The confidential VM you create runs on AMD processors backed by AMD SEV-SNP to achieve VM memory encryption and isolation. For more information, see [Confidential VM options on AMD](confidential-vm-solutions-amd.md).
+You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](confidential-vm-solutions-amd.md) with AMD SEV-SNP technology.
 
 This tutorial covers deployment of a confidential VM with a custom configuration. For standard configurations, see the [Confidential Computing VM deployment steps for the Microsoft commercial marketplace](quick-create-marketplace.md) instead.
 
 ## Prerequisites
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
-- If you're using a Linux-based confidential VM, make sure you have installed a BASH shell to use SSH. If you're working on a Windows computer, you can install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+- If you're using a Linux-based confidential VM, have a BASH shell to use for SSH. If you're working on a Windows computer, install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## Create confidential VM
 
@@ -48,7 +48,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
         > [!NOTE]
         > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
-    1. For **Security Type**, select **Confidential virtual machines**..
+    1. For **Security Type**, select **Confidential virtual machines**.
 
     1. For **Image**, select the OS image to use for your VM. For this tutorial, select **Ubuntu 20.04 LTS**, **Windows Server 2019 [Small disk] Data Center**, or **Windows Server 2022 [Small disk] Data Center**.
 

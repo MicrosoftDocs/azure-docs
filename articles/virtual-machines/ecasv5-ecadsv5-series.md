@@ -1,6 +1,6 @@
 ---
 title: ECasv5 and ECadsv5-series (preview)
-description: Specifications for Azure Confidential Computing's ECasv5 and ECadsv5-series  confidential virtual machines (confidential VMs). 
+description: Specifications for Azure Confidential Computing's ECasv5 and ECadsv5-series  confidential virtual machines. 
 author: runcai
 ms.author: runcai
 ms.reviewer: mimckitt
@@ -11,7 +11,7 @@ ms.date: 11/15/2021
 
 ---
 
-# ECasv5 and ECadsv5-series
+# ECasv5 and ECadsv5-series (preview)
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 

@@ -1,6 +1,6 @@
 ---
 title: Create secure key release policies for confidential VMs (preview)
-description: How to create a secure key release policy for confidential virtual lmachines (confidential VMs) in Azure Confidential Computing.
+description: How to create a secure key release policy for confidential virtual machines in Azure Confidential Computing.
 services: attestation, secure key release
 author: edendcohen
 ms.service: attestation, secure key release
@@ -16,7 +16,9 @@ ms.author: edcohen
 > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Confidential VMs require the release of a managed key to their host compatibility layer. This layer runs as part of the guest VM, in a memory space that the guest OS can't access. The managed key encrypts the Virtual Machine Guest State (VMGS), which is a file that holds the persistent VM state. For example, the VMGS can hold virtual Trusted Platform Module (vTPM) content. [Azure Attestation](/services/azure-attestation/)  validates the AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) attestation report signature, and issues a token. The token has claims for system and guest properties, such as firmware versioning and guest launch measurements. [Azure Key Vault](../key-vault/general/overview.md) evaluates the token during the secure key release process. Key Vault and and [Key Vault Managed HSM](../key-vault/managed-hsm/overview.md) manage the release of keys to a Trusted Execution Environment (TEE). However, Key Vault only releases the key if the TEE properties meet your policy requirements.
+Confidential VMs need a managed key released for their host compatibility layer. This layer runs as part of the guest VM, in a memory space that the guest OS can't access. The managed key encrypts the Virtual Machine Guest State (VMGS). The VMGS is a file that holds the persistent VM state. For example, the VMGS can hold virtual Trusted Platform Module (vTPM) content. 
+
+[Azure Attestation](/services/azure-attestation/) validates the AMD SEV-SNP attestation report signature. Then, Azure Attestation issues a token with claims for system and guest properties, such as firmware versioning and guest launch measurements. [Azure Key Vault](../key-vault/general/overview.md) and [Key Vault Managed HSM](../key-vault/managed-hsm/overview.md) manage the release of keys to a Trusted Execution Environment (TEE). During the secure key release process, Key Vault evaluates the token. Key Vault then releases the key only if the TEE properties meet your policy requirements.
 
 ## Claims
 

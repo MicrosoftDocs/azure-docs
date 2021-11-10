@@ -43,20 +43,26 @@
       href: confidential-vm-overview.md
     - name: FAQ for AMD confidential VMs
       href: confidential-vm-faq-amd.yml
-    - name: Secure key release policies for AMD confidential VMs
+    - name: Secure key release policies
       href: confidential-vm-secure-key-release.md
-    - name: Build with enclaves
+    - name: AMD processor options for confidential VMs
+      href: confidential-vm-solutions-amd.md
+    - name: DCasv5 and DCadsv5-series
+      href: ../virtual-machines/dcasv5-dcadsv5-series.md
+    - name: ECasv5 and ECadsv5-series
+      href: ../virtual-machines/ecasv5-ecadsv5-series.md
+  - name: Build with enclaves
+    items:
+    - name: Enclaves overview
+      href: confidential-computing-enclaves.md
+    - name: Developing enclave applications 
       items:
-      - name: Enclaves overview
-        href: confidential-computing-enclaves.md
-      - name: Developing enclave applications 
-        items:
-        - name: Enclave development overview
-          href: application-development.md
-        - name: Open-source projects for development
-          href: enclave-development-oss.md
-        - name: Attesting application enclaves
-          href: attestation.md
+      - name: Enclave development overview
+        href: application-development.md
+      - name: Open-source projects for development
+        href: enclave-development-oss.md
+      - name: Attesting application enclaves
+        href: attestation.md
       - name: Deploying Intel SGX virtual machines
         href: virtual-machine-solutions-sgx.md
       - name: Deploying AMD virtual machines

@@ -26,7 +26,7 @@ This tutorial covers deployment of a confidential VM with a custom configuration
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/). 
 - If you want to deploy from the Azure Command-Line Interface (Azure CLI), [install PowerShell](powershell/scripting/install/installing-powershell?view=powershell-7.2) and [install the Azure CLI](/cli/azure/install-azure-cli).
 
-## Deploy confidential VM template from Azure Portal
+## Deploy confidential VM template from Azure portal
 
 To create and deploy a confidential VM using an ARM template in the Azure portal:
 
@@ -67,7 +67,7 @@ To create and deploy a confidential VM using an ARM template in the Azure portal
 
 1. Wait for validation to complete. If necessary, fix any validation issues, then select **Review + create** again.
 
-1. In the **Review + create** pane, select **Create** to create and deploy the VM.
+1. In the **Review + create** pane, select **Create** to deploy the VM.
 
 ## Deploy confidential VM template with Azure CLI
 
@@ -85,7 +85,7 @@ To create and deploy a confidential VM using an ARM template through the Azure C
     az account set --subscription <subscription-id>
     ```
 
-1. Set the variables for your confidential VM. These include the deployment name (`$deployName`), the resource group (`$resourceGroup`), the VM name (`$vmName`), and the Azure region (`$region`). Replace the sample values with your own information.
+1. Set the variables for your confidential VM. Provide the deployment name (`$deployName`), the resource group (`$resourceGroup`), the VM name (`$vmName`), and the Azure region (`$region`). Replace the sample values with your own information.
 
     > [!NOTE]
     > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -129,7 +129,7 @@ To create and deploy a confidential VM using an ARM template through the Azure C
 
 ### Use custom parameter file
 
-When you [create your confidential VM using the Azure CLI](#deploy-with-azure-cli), you can either refer directly to the ARM template or provide the path to a custom JSON parameter file. To create a custom parameter file:
+When you [create your confidential VM using the Azure CLI](#deploy-with-azure-cli), you can use the ARM template directly or a custom parameter file. To create a custom JSON parameter file:
 
 1. Sign into your Azure account in the Azure CLI.
 
