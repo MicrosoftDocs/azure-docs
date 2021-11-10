@@ -164,7 +164,7 @@ Refer to the [user access token](../../../identity/quick-create-identity.md) doc
 
 ### Setup group call or Teams meeting options
 
-Depending on what type of Call/Meeting you would like to setup, use the appropriate options object (`displayName` is an optional field).
+Depending on what type of Call/Meeting you would like to setup, use the appropriate options object.
 
 #### Group call
 
