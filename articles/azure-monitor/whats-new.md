@@ -2,13 +2,101 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 09/07/2021
+ms.date: 11/10/2021
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.
 
+## October, 2021
+
+### General
+
+**New articles**
+
+- [Deploying Azure Monitor - Alerts and automated actions](best-practices-alerts.md)
+- [Azure Monitor best practices - Analyze and visualize data](best-practices-analysis.md)
+- [Azure Monitor best practices - Configure data collection](best-practices-data-collection.md)
+- [Azure Monitor best practices - Planning your monitoring strategy and configuration](best-practices-plan.md)
+- [Azure Monitor best practices](best-practices.md)
+
+**Updated articles**
+
+- [What is monitored by Azure Monitor?](monitor-reference.md)
+- [What's new in Azure Monitor documentation](whats-new.md)
+- [Visualize data from Azure Monitor](visualizations.md)
+### Agents
+
+**Updated articles**
+
+- [How to troubleshoot issues with the Log Analytics agent for Linux](/azure/azure-monitor/agents/agent-linux-troubleshoot.md)
+- [Overview of Azure Monitor agents](/azure/azure-monitor/agents/agents-overview.md)
+- [Install the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-install.md)
+
+### Alerts
+
+**Updated articles**
+
+- [Create, view, and manage activity log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-activity-log.md)
+- [Create a log alert with a Resource Manager template](/azure/azure-monitor/alerts/alerts-log-create-templates.md)
+- [Webhook actions for log alert rules](/azure/azure-monitor/alerts/alerts-log-webhook.md)
+- [Resource Manager template samples for log alert rules in Azure Monitor](/azure/azure-monitor/alerts/resource-manager-alerts-log.md)
+
+### Application Insights
+
+**New articles**
+
+- [Statsbeat in Azure Application Insights](/azure/azure-monitor/app/statsbeat.md)
+- [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (Preview)](/azure/azure-monitor/app/opentelemetry-enable.md)
+- [OpenTelemetry overview](/azure/azure-monitor/app/opentelemetry-overview.md)
+
+**Updated articles**
+
+- [Deploy Azure Monitor Application Insights Agent for on-premises servers](/azure/azure-monitor/app/status-monitor-v2-overview.md)
+- [Tips for updating your JVM args - Azure Monitor Application Insights for Java](/azure/azure-monitor/app/java-standalone-arguments.md)
+- [Set up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python.md)
+- [Java codeless application monitoring with Azure Monitor Application Insights](/azure/azure-monitor/app/java-in-process-agent.md)
+- [Configuration options - Azure Monitor Application Insights for Java](/azure/azure-monitor/app/java-standalone-config.md)
+
+### Containers
+
+**Updated articles**
+
+- [Troubleshooting Container insights](/azure/azure-monitor/containers/container-insights-troubleshoot.md)
+- [Recommended metric alerts (preview) from Container insights](/azure/azure-monitor/containers/container-insights-metric-alerts.md)
+
+### Essentials
+
+**Updated articles**
+
+- [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported.md)
+- [Supported categories for Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs-categories.md)
+- [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics.md)
+- [Custom metrics in Azure Monitor (preview)](/azure/azure-monitor/essentials/metrics-custom-overview.md)
+- [Common and service-specific schemas for Azure resource logs](/azure/azure-monitor/essentials/resource-logs-schema.md)
+- [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings.md)
+
+### Logs
+
+**Updated articles**
+
+- [Log Analytics workspace data export in Azure Monitor (preview)](/azure/azure-monitor/logs/logs-data-export.md)
+- [Azure Monitor customer-managed key](/azure/azure-monitor/logs/customer-managed-keys.md)
+- [Azure Monitor Logs Dedicated Clusters](/azure/azure-monitor/logs/logs-dedicated-clusters.md)
+- [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor/logs/manage-cost-storage.md)
+
+### Virtual Machines
+
+**Updated articles**
+
+- [Enable VM insights by using Azure Policy](/azure/azure-monitor/vm/vminsights-enable-policy.md)
+
+## Visualizations
+
+**Updated articles**
+
+- [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin.md)
 ## September, 2021
 ### General
 
