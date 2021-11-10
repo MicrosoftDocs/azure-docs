@@ -31,7 +31,7 @@ Encryption keys and secrets like certificates, connection strings, and passwords
 Suggestions for controlling access to your vault are as follows:
 - Lock down access to your subscription, resource group, and key vaults (role-based access control (RBAC)).
 - Create access policies for every vault
-- Use the least privilege access principle to grant access
+- Use the principle of least privilege access to grant access.
 - Turn on firewall and [VNET Service Endpoints](overview-vnet-service-endpoints.md).
 
 ## Backup
