@@ -87,7 +87,7 @@ At the root of trusted launch is Secure Boot for your VM. This mode, which is im
 
 Trusted launch also introduces vTPM for Azure VMs. This is a virtualized version of a hardware [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-overview), compliant with the TPM2.0 spec. It serves as a dedicated secure vault for keys and measurements. Trusted launch provides your VM with its own dedicated TPM instance, running in a secure environment outside the reach of any VM. The vTPM enables [attestation](/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) by measuring the entire boot chain of your VM (UEFI, OS, system, and drivers). 
 
-Trusted launch uses the vTPM to perform remote attestation by the cloud. This is used for platform health checks and for making trust-based decisions. As a health check, trusted launch can cryptographically certify that your VM booted correctly. If the process fails, possibly because your VM is running an unauthorized component, Azure Security Center will issue integrity alerts. The alerts include details on which components failed to pass integrity checks.
+Trusted launch uses the vTPM to perform remote attestation by the cloud. This is used for platform health checks and for making trust-based decisions. As a health check, trusted launch can cryptographically certify that your VM booted correctly. If the process fails, possibly because your VM is running an unauthorized component, Azure Defender for Cloud will issue integrity alerts. The alerts include details on which components failed to pass integrity checks.
 
 ## Virtualization-based security
 
@@ -98,14 +98,14 @@ HVCI is a powerful system mitigation that protects Windows kernel-mode processes
 With trusted launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 
-## Security Center integration
+## Azure Defender for Cloud integration
 
-Trusted launch is integrated with Azure Security Center to ensure your VMs are properly configured. Azure Security Center will continually assess compatible VMs and issue relevant recommendations.
+Trusted launch is integrated with Azure Defender for Cloud to ensure your VMs are properly configured. Azure Azure Defender for Cloud will continually assess compatible VMs and issue relevant recommendations.
 
-- **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Azure Security Center will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
-- **Recommendation to enable vTPM** - If your VM has vTPM enabled, Azure Security Center can use it to perform Guest Attestation and identify advanced threat patterns. If Azure Security Center identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it. 
-- **Recommendation to install guest attestation extension** - If your VM has secure boot and vTPM enabled but it doesn't have the guest attestation extension installed, Azure Security Center will issue a low severity recommendation to install the guest attestation extension on it. This extension allows Azure Security Center to proactively attest and monitor the boot integrity of your VMs. Boot integrity is attested via remote attestation.  
-- **Attestation health assessment** - If your VM has vTPM enabled and attestation extension installed, Azure Security Center can remotely validate that your VM booted in a healthy way. This is known as remote attestation. Azure Security Center issues an assessment, indicating the status of remote attestation.
+- **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Azure Azure Defender for Cloud will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
+- **Recommendation to enable vTPM** - If your VM has vTPM enabled, Azure Defender for Cloud can use it to perform Guest Attestation and identify advanced threat patterns. If Azure Defender for Cloud identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it. 
+- **Recommendation to install guest attestation extension** - If your VM has secure boot and vTPM enabled but it doesn't have the guest attestation extension installed, Azure Defender for Cloud will issue a low severity recommendation to install the guest attestation extension on it. This extension allows Azure Defender for Cloud to proactively attest and monitor the boot integrity of your VMs. Boot integrity is attested via remote attestation.  
+- **Attestation health assessment** - If your VM has vTPM enabled and attestation extension installed, Azure Defender for Cloud can remotely validate that your VM booted in a healthy way. This is known as remote attestation. Azure Defender for Cloud issues an assessment, indicating the status of remote attestation.
 
 ## Azure Defender integration
 
@@ -142,8 +142,8 @@ In secure boot chain, each step in the boot process checks a cryptographic signa
 
 ###	What happens when an integrity fault is detected?
 
-Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert will be triggered. Alerts are only available in the [Standard Tier](../security-center/security-center-pricing.md) of Azure Security Center.
-Azure Security Center periodically performs attestation. If the attestation fails, a medium severity alert will be triggered. Trusted launch attestation can fail for the following reasons: 
+Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert will be triggered. Alerts are only available in the [Standard Tier](../security-center/security-center-pricing.md) of Azure Defender for Cloud.
+Azure Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert will be triggered. Trusted launch attestation can fail for the following reasons: 
 - The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This can indicate that untrusted modules have been loaded and the OS may be compromised.
 - The attestation quote could not be verified to originate from the vTPM of the attested VM. This can indicate that malware is present and may be intercepting traffic to the TPM. 
 - The attestation extension on the VM is not responding. This can indicate a denial-of-service attack by malware, or an OS admin.
