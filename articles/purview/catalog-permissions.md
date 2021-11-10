@@ -17,7 +17,7 @@ Azure Purview uses **Collections** to organize and manage access across its sour
 A collection is a tool Azure Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All access to Purview's resources are managed from collections in the Purview account itself.
 
 > [!NOTE]
-> As of November 8th, 2021, ***Insights*** is accessible to Data Curators and higher roles. Data Readers do not have access to Insights.
+> As of November 8th, 2021, ***Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
 >
 >
 ## Roles
