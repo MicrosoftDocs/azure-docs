@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 11/09/2021
 ms.author: memildin
 
 ---
@@ -214,17 +214,7 @@ The just-in-time VM access feature can be used via the Microsoft Defender for Cl
 
 Learn more at [JIT network access policies](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
-
---- 
-
-
-
-
-
-
-
-
-
+---
 
 ## Request access to a JIT-enabled VM
 

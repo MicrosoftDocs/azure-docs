@@ -100,7 +100,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **LogicApps** | Logic Apps. | Both | No | No |
 | **LogicAppsManagement** | Management traffic for Logic Apps. | Inbound | No | No |
 | **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. | Outbound | No | No |
-| **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Outbound | No | No |
+| **MicrosoftCloudAppSecurity** | Microsoft Defender for Cloud Apps. | Outbound | No | No |
 | **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>**Note**: This tag has a dependency on the **AzureFrontDoor.FirstParty** tag. | Outbound | Yes | Yes |
 | **PowerBI** | Power BI. **Note**: This tag is not currently configurable via Azure portal. | Both | No | No|
 | **PowerPlatformInfra** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. **Note**: This tag is not currently configurable via Azure portal. | Outbound | No | No |
