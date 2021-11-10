@@ -419,6 +419,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
+      "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
       "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
       "redirect_document_id": true
@@ -31427,6 +31432,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-wan/virtual-wan-site-to-site-packet-capture.md",
+      "redirect_url": "/azure/virtual-wan/packet-capture-site-to-site-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-wan/logs-metrics.md",
       "redirect_url": "/azure/virtual-wan/monitor-virtual-wan",
       "redirect_document_id": false
@@ -45734,6 +45744,11 @@
     {
       "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/calling-client-samples.md",
       "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/call-logs-azure-monitor.md",
+      "redirect_url": "/azure/communication-services/concepts/analytics/call-logs-azure-monitor",
       "redirect_document_id": false
     },
     {

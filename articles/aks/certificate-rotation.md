@@ -75,7 +75,7 @@ Auto cert rotation won't be enabled on non-rbac cluster.
 ## Rotate your cluster certificates
 
 > [!WARNING]
-> Rotating your certificates using `az aks rotate-certs` will recreate all of your nodes and can cause up to 30 minutes of downtime for your AKS cluster.
+> Rotating your certificates using `az aks rotate-certs` will recreate all of your nodes and their OS Disks and can cause up to 30 minutes of downtime for your AKS cluster.
 
 Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS cluster. This command also downloads and configures the `kubectl` client certificate on your local machine.
 
