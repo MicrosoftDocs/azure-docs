@@ -1,7 +1,7 @@
 ---
-title: Query-text API - question answering
+title: Prebuilt API - question answering
 titleSuffix: Azure Cognitive Services
-description: Use the question answering query-text API to ask and receive answers to questions without having to create a project/knowledge base. 
+description: Use the question answering Prebuilt API to ask and receive answers to questions without having to create a project/knowledge base. 
 ms.service: cognitive-services
 ms.subservice: language-service
 author: mrbullwinkle
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 11/03/2021
 ---
 
-# Query-text API
+# Prebuilt API
 
-The question answering **query-text API** provides you the capability to answer questions based on a passage of text without having to create projects/knowledge bases, maintain question and answer pairs, or incurring costs for underutilized infrastructure. This functionality is provided as an API and can be used to meet question and answering needs without having to learn the details about question answering.
+The question answering **prebuilt API** provides you the capability to answer questions based on a passage of text without having to create projects/knowledge bases, maintain question and answer pairs, or incurring costs for underutilized infrastructure. This functionality is provided as an API and can be used to meet question and answering needs without having to learn the details about question answering.
 
 Given a user query and a block of text/passage the API will return an answer and precise answer (if available).
 
 ## Example API usage
 
-Imagine that you have one or more blocks of text from which you would like to get answers for a given question. Normally you would have had to create as many sources as the number of blocks of text. However, now with the query-text API you can query the blocks of text without having to define content sources in a project/knowledge base.
+Imagine that you have one or more blocks of text from which you would like to get answers for a given question. Normally you would have had to create as many sources as the number of blocks of text. However, now with the prebuilt API you can query the blocks of text without having to define content sources in a project/knowledge base.
 
 Some other scenarios where this API can be used are:
 
@@ -117,7 +117,7 @@ In the above request body, we query over a single block of text. A sample respon
 
 We see that multiple answers are received as part of the API response. Each answer has a specific confidence score that helps understand the overall relevance of the answer. Answer span represents whether a potential short answer was also detected. Users can make use of this confidence score to determine which answers to provide in response to the query.
 
-## Query-text API limits
+## Prebuilt API limits
 
 If you need to use larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. In this context, a document is a defined single string of text characters.
 
@@ -127,6 +127,6 @@ These numbers represent the **per individual API call limits**:
 * Maximum size of a single document: 5,120 characters.
 * Maximum three responses per document.
 
-## Query-text API reference
+## Prebuilt API reference
 
-Visit the [full query-text API samples](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/Language/stable/2021-10-01/examples/questionanswering/SuccessfulQueryText.json) documentation to understand the input and output parameters required for calling the API.
+Visit the [full prebuilt API samples](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/Language/stable/2021-10-01/examples/questionanswering/SuccessfulQueryText.json) documentation to understand the input and output parameters required for calling the API.
