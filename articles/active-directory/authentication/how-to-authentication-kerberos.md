@@ -24,6 +24,8 @@ Enterprises can move their traditional services that require Kerberos authentica
 
 Azure AD Kerberos authentication is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure Files, see [Create a profile container with Azure Files and Azure Active Directory](/azure/virtual-desktop/create-profile-container-azure-ad).
+
 ## How Azure AD Kerberos authentication works 
 <!---This list of scenarios will grow after they have SQL online, native Azure Files support, and then app proxy. Only Azure Files scenario requires AAD or hybrid domain join. SQL will require only domain join.--->
 
