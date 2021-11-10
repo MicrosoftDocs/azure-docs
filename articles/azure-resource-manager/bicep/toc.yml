@@ -99,6 +99,16 @@
         href: patterns-configuration-set.md
       - name: Shared variable file
         href: patterns-shared-variable-file.md
+    - name: Scenarios
+      items:
+      - name: Monitoring
+        href: scenarios-monitoring.md
+      - name: Policy
+        href: scenarios-policy.md
+      - name: Access control
+        href: scenarios-rbac.md
+      - name: Virtual networks
+        href: scenarios-virtual-networks.md
   - name: Deploy
     items:
     - name: Predeployment checks
