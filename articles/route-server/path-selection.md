@@ -32,6 +32,8 @@ When creating a new Public IP address, select **Internet** as the *Routing prefe
 
 :::image type="content" source="./media/path-selection/internet-ip.png" alt-text="Screenshot of the Internet routing preference for a public IP address.":::
 
+Microsoft recommends implementing a connectivity solution using both the Microsoft network and the Internet to provide your environment with an extra layer of resiliency.
+
 ## Next steps
 
 - Learn more about [Azure Route Server](route-server-faq.md).
