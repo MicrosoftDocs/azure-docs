@@ -8,9 +8,9 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/18/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1
+ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021
 ---
 # Set up compute targets for model training and deployment
 
@@ -341,7 +341,7 @@ Azure Container Instances (ACI) are created dynamically when you deploy a model.
 
 ## <a id="kubernetes"></a>Kubernetes (preview)
 
-Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training:
+Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training and inferencing:
 
 * [Azure Kubernetes Service](../aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
 * [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use Azure Arc-enabled Kubernetes clusters if your cluster is hosted outside of Azure.

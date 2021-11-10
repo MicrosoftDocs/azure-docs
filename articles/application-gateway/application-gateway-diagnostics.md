@@ -226,7 +226,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 ```json
 {
     "timeStamp": "2021-10-14T22:17:11+00:00",
-    "resourceId": "/SUBSCRIPTIONS/711D99A7-XXXX-XXXX-XXXX-EA1AFA18442E/RESOURCEGROUPS/APPGW-LAB/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/APPGW-LAB",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "listenerName": "HTTP-Listener",
     "ruleName": "Storage-Static-Rule",
     "backendPoolName": "StaticStorageAccount",
@@ -328,7 +328,7 @@ The firewall log is generated only if you have enabled it for each application g
 ```json
 {
     "timeStamp": "2021-10-14T22:17:11+00:00",
-    "resourceId": "/SUBSCRIPTIONS/711D99A7-XXXX-XXXX-XXXX-EA1AFA18442E/RESOURCEGROUPS/APPGW-LAB/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/APPGW-LAB",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "operationName": "ApplicationGatewayFirewall",
     "category": "ApplicationGatewayFirewallLog",
     "properties": {
