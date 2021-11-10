@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/03/2021
+ms.date: 11/10/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -86,7 +86,7 @@ Once you are connected to the Data Box shares, the next step is to copy data. Be
 * If you use both the SMB and NFS protocols for data copies, we recommend that you:
   * Use different storage accounts for SMB and NFS.
   * Don't copy the same data to the same end destination in Azure using both SMB and NFS. In these cases, the final outcome can't be determined.
-  * Don't do data copies via SMB and NFS at the same time. Wait until your SMB data copy is complete before you start an NFS data copy.
+  * Although copying via both SMB and NFS in parallel can work, we don't recommend doing that as it's prone to human error. Wait until your SMB data copy is complete before you start an NFS data copy.
 * **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
 * If ingesting case-sensitive directory and file names from an NFS share to NFS on Data Box:
   * The case is preserved in the name.

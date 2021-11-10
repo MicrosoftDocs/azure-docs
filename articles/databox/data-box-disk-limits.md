@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/28/2021
+ms.date: 11/10/2021
 ms.author: alkohli
 ---
 # Azure Data Box Disk limits
