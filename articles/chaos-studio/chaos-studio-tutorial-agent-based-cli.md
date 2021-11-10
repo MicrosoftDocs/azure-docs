@@ -232,9 +232,9 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 
 Give the experiment access to your virtual machine or virtual machine scale set using the command below, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target virtual machine or virtual machine scale set (the resource ID of the VM, not the resource ID of the chaos agent used in the experiment definition). Run this command for each virtual machine or virtual machine scale set targeted in your experiment.
 
-    ```azurecli-interactive
-    az role assignment create --role "Reader" --assignee-principal-type "ServicePrincipal" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID 
-    ```
+```azurecli-interactive
+az role assignment create --role "Reader" --assignee-principal-type "ServicePrincipal" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID 
+```
 
 
 ## Run your experiment
