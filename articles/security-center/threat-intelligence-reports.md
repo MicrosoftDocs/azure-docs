@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Microsoft Defender for Cloud threat intelligence report

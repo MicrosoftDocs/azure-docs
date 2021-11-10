@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
-ms.date: 08/20/2020
+ms.date: 11/09/2021
 ---
 # Quickstart: Create an automatic response to a specific security alert using an ARM template
 
