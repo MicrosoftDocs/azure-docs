@@ -8,10 +8,9 @@ ms.date: 11/02/2021
 # Assign a system-managed identity to an Event Grid system topic
 In this article, you learn how to assign a system-assigned or a user-assigned identity to an Event Grid system topic. To learn about managed identities in general, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).  
 
-Here are a few important points to note:
-
-- You can assign a system-assigned identity and up to two user-assigned identities to a system topic. 
-- You can enable identities for system topics associated with global Azure resources such as Azure subscriptions, resource groups, or Azure Maps. System topics for these global sources are also not associated with a specific region.
+> [!NOTE]
+> - You can assign one system-assigned identity and up to two user-assigned identities to a system topic. 
+> - You can enable identities for system topics associated with global Azure resources such as Azure subscriptions, resource groups, or Azure Maps. System topics for these global sources are also not associated with a specific region.
 
 ## Enable managed identity for an existing system topic
 This section shows you how to enable a managed identity for an existing system topic. 

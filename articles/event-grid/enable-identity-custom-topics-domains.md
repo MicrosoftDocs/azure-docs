@@ -6,19 +6,12 @@ ms.date: 11/09/2021
 ---
 
 # Assign a managed identity to an Event Grid custom topic or domain 
-This article shows you how to use the Azure portal and CLI to assign a system-assigned or a user-assigned identity to an Event Grid custom topic or a domain. 
-
-> [!NOTE]
-> To learn about managed identities, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
-
-In the **Azure portal**, when creating a topic or a domain, you can enable either a system-assigned identity or two user-assigned identities, but not both types of identities. Once the topic or domain is created, on the **Event Grid Topic** or **Event Grid Domain** page, you can assign both types of identities to a topic or a domain. 
-
-If you're using **Azure CLI**, you can assign only a system-assigned identity to a topic or a domain at this time.
+This article shows you how to use the Azure portal and CLI to assign a system-assigned or a user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to an Event Grid custom topic or a domain. 
 
 ## Enable identity when creating a topic or domain
 
 # [Azure portal](#tab/portal)
-You can assign either a system-assigned identity or up to two user-assigned identities, but not both types of identities, to a topic/domain when creating a topic/domain in the Azure portal.  
+In the **Azure portal**, when creating a topic or a domain, you can assign either a system-assigned identity or two user-assigned identities, but not both types of identities. Once the topic or domain is created, you can assign both types of identities by following steps in the [Enable identity for an existing topic or domain](#enable-identity-for-an-existing-custom-topic-or-domain) section.
 
 ### Enable system-assigned identity
 On the **Advanced** tab of the topic or domain creation wizard, select **Enable system assigned identity**. 
@@ -49,7 +42,7 @@ Similarly, you can use the `az eventgrid domain create` command to create a doma
 In this section, you learn how to enable a system-assigned identity or a user-assigned identity for an existing custom topic or domain. 
 
 # [Azure portal](#tab/portal)
-When you use Azure portal, you can assign a system assigned identity and up to two user assigned identities, both types of identities, to an existing topic or a domain.
+When you use Azure portal, you can assign one system assigned identity and up to two user assigned identities to an existing topic or a domain.
 
 The following procedures show you how to enable an identity for a custom topic. The steps for enabling an identity for a domain are similar. 
 
