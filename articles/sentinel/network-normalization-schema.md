@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/17/2021
 ms.author: ofshezaf
-
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Sentinel Network Session normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Network Session normalization schema is used to describe an IP network activity. This includes network connections and network sessions. Such events are reported, for example, by operating systems, routers, firewalls, intrusion prevention systems and web security gateways.
 
@@ -353,4 +353,3 @@ For more information, see:
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
 - [Azure Sentinel process event normalization schema reference](process-events-normalization-schema.md)
 - [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
-

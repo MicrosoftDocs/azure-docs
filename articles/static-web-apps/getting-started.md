@@ -74,9 +74,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     # [Angular](#tab/angular)
 
-    Although there is an Angular preset, select the **Custom** option so you can provide an appropriate output location for this application.
-
-    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: Angular":::
+    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Application presets: Angular":::
 
     Enter **/** as the location for the application files.
 

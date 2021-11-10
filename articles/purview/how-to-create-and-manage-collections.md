@@ -6,16 +6,11 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 11/04/2021
 ms.custom: template-how-to
 ---
 
 # Create and manage collections in Azure Purview
-
-> [!NOTE]
-> At this time, this guide only applies to Azure Purview instances created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instances created before August 18, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
->
-> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. For information about what will change when your account is upgraded, see our [upgraded accounts guide](concept-account-upgrade.md).
 
 Collections in Azure Purview can be used to organize assets and sources by your business's flow, but they are also the tool used to manage access across Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
 
@@ -90,13 +85,27 @@ You will need to be a collection admin in order to create a collection. If you a
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/filter-collections.png" alt-text="Screenshot of Purview studio collection window, with the filter above the collections highlighted." border="true":::
 
-1. Select **Refresh** in Root collection’s contextual menu to reload the collection list.
+1. Select **Refresh** in Root collection's contextual menu to reload the collection list.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/refresh-collections.png" alt-text="Screenshot of Purview studio collection window, with the button next to the Resource name selected, and the refresh button highlighted." border="true":::
 
 1. Select **Refresh** in collection detail page to reload the single collection.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/refresh-single-collection.png" alt-text="Screenshot of Purview studio collection window, with the refresh button under the collection window highlighted." border="true":::
+
+### Delete a collection
+
+You will need to be a collection admin in order to delete a collection. If you are not sure, follow the guide above to check permissions. Collection can be deleted only if no child collections, assets, data sources or scans are associated with it. 
+
+1. Select **Delete** from the collection detail page.
+   
+   :::image type="content" source="./media/how-to-create-and-manage-collections/delete-collections.png" alt-text="Screenshot of Purview studio window to delete a collection" border="true":::
+
+2. Select **Confirm** when prompted, **Are you sure you want to delete this collection?**
+
+   :::image type="content" source="./media/how-to-create-and-manage-collections/delete-collection-confirmation.png" alt-text="Screenshot of Purview studio window showing confirmation message to delete a collection" border="true":::
+
+3. Verify deletion of the collection from your Purview Data Map.
 
 ## Add roles and restrict access through collections
 
@@ -135,7 +144,7 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/remove-role-assignment.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the x button beside one of the names highlighted." border="true":::
 
-1. Select **Confirm** if you’re sure to remove the user.
+1. Select **Confirm** if you're sure to remove the user.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/confirm-remove.png" alt-text="Screenshot of a confirmation pop-up, with the confirm button highlighted." border="true":::
 
@@ -146,7 +155,7 @@ Collection permissions are inherited automatically from the parent collection. F
 Once you restrict inheritance, you will need to add users directly to the restricted collection to grant them access.
 
 1. Navigate to the collection where you want to restrict inheritance and select the **Role assignments** tab.
-1. Select **Restrict inherited permissions** and select **Restrict access** in the popup dialog to remove inherited permissions from this collection and any subcollections. Note that collection admin permissions won’t be affected.
+1. Select **Restrict inherited permissions** and select **Restrict access** in the popup dialog to remove inherited permissions from this collection and any subcollections. Note that collection admin permissions won't be affected.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/restrict-access-inheritance.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the restrict inherited permissions slide button highlighted." border="true":::
 
@@ -196,7 +205,7 @@ Assets and sources are also associated with collections. During a scan, if the s
 
         :::image type="content" source="./media/how-to-create-and-manage-collections/no-access.png" alt-text="Screenshot of Purview studio asset window where the user has no permissions, and has no access to information or options." border="true":::
 
-    1. If you have the read permission to one collection but don’t have the write permission, you can browse the asset details page, but the following operations are disabled:
+    1. If you have the read permission to one collection but don't have the write permission, you can browse the asset details page, but the following operations are disabled:
         * Edit the asset. The **Edit** button will be disabled.
         * Delete the asset. The **Delete** button will be disabled.
         * Move asset to another collection. The ellipsis button on the right-top corner of Collection path section will be hidden.
@@ -258,27 +267,6 @@ Assets and sources are also associated with collections. During a scan, if the s
 1. To view the details of an asset, select the asset name in the search result. Or you can check the assets and bulk edit them.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/view-asset-details.png" alt-text="Screenshot of the catalog Purview studio window with the by collection tab selected and asset check boxes highlighted."border="true":::
-
-## Legacy collection guide
-
-> [!NOTE]
-> This legacy collection guide is only for Purview instances created before August 18, 2021. Instances created after that time should follow the guide above.
-
-Legacy collections only organize sources in the data map, and do not manage permissions for these sources.
-
-### Create a legacy collection
-
-1. Select Data Map from the left pane to open the data map. Using the map view you can see your collections and the sources listed under them.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-view.png" alt-text="Screenshot of Purview studio window, opened to the Data Map." border="true":::
-
-1. Select **+ New collection**.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-create.png" alt-text="Screenshot of Purview studio window, opened to the Data Map with + New collection highlighted." border="true":::
-
-1. Name your collection and select a parent or 'None'. Select **Create**. The collection information will reflect on the data map.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-name.png" alt-text="Screenshot of Purview studio window, showing the new collection window." border="true":::
 
 ## Next steps
 

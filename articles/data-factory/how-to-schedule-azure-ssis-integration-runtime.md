@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ---

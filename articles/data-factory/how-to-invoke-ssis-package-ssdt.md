@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019
-ms.date: 09/06/2020
+ms.date: 10/22/2021
 ---
 
 # Execute SSIS packages in Azure from SSDT

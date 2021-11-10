@@ -14,7 +14,7 @@ ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "06/01/2021"
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.custom: "seo-lt-2019"
 ms.reviewer: mathoma
@@ -50,7 +50,9 @@ While Availability Zones may provide better availability than Availability Sets 
 
 ## Connectivity
 
-You can configure a virtual network name, or a distributed network name for an availability group. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md) and then deploy either a [distributed network name (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name (VNN)](availability-group-vnn-azure-load-balancer-configure.md) for your availability group. 
+To match the on-premises experience for connecting to your availability group listener, deploy your SQL Server VMs to [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same virtual network. Having multiple subnets negates the need for the extra dependency on an Azure Load Balancer, or a distributed network name (DNN) to route your traffic to your listener. 
+
+If you deploy your SQL Server VMs to a single subnet, you can configure a virtual network name (VNN) and an Azure Load Balancer, or a distributed network name (DNN) to route traffic to your availability group listener. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md) and then deploy either a [distributed network name (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name (VNN)](availability-group-vnn-azure-load-balancer-configure.md) for your availability group. 
 
 Most SQL Server features work transparently with availability groups when using the DNN, but there are certain features that may require special consideration. See [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 
@@ -67,7 +69,7 @@ You can still connect to each availability replica separately by connecting dire
 * There's one primary replica and one secondary replica.
 * The secondary replica is configured as non-readable (**Readable Secondary** option set to **No**).
 
-Here's an example client connection string that corresponds to this database mirroring-like configuration using ADO.NET or SQL Server Native Client:
+The following is an example client connection string that corresponds to this database mirroring-like configuration using ADO.NET or SQL Server Native Client:
 
 ```console
 Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
@@ -94,7 +96,9 @@ When configuring an AG in Azure VMs, there is often a need to configure these th
 
 ## Network configuration  
 
-On an Azure VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure VM failover cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure VM failover clusters. 
+Deploy your SQL Server VMs to multiple subnets whenever possible to avoid the dependency on an Azure Load Balancer or a distributed network name (DNN) to route traffic to your availability group listener. 
+
+On an Azure VM failover cluster, we recommend a single NIC per server (cluster node). Azure networking has physical redundancy, which makes additional NICs unnecessary on an Azure VM failover cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure VM failover clusters.
 
 ## Basic availability group
 
@@ -111,26 +115,27 @@ There are multiple options for deploying an availability group to SQL Server on 
 
 The following table provides a comparison of the options available:
 
-| | [Azure portal](availability-group-azure-portal-configure.md), | [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md) | [Quickstart Templates](availability-group-quickstart-template-configure.md) | [Manual](availability-group-manually-configure-prerequisites-tutorial.md) |
+| | [Azure portal](availability-group-azure-portal-configure.md), | [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md) | [Quickstart Templates](availability-group-quickstart-template-configure.md) | [Manual (single subnet)](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md) | [Manual (multi-subnet)](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md)
 |---------|---------|---------|---------|---------|
-|**SQL Server version** |2016 + |2016 +|2016 +|2012 +|
-|**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Windows Server version**| 2016 + | 2016 + | 2016 + | All|
-|**Creates the cluster for you**|Yes|Yes | Yes |No|
-|**Creates the availability group for you** |Yes |No|No|No|
-|**Creates listener and load balancer independently** |No|No|No|Yes|
-|**Possible to create DNN listener using this method?**|No|No|No|Yes|
-|**WSFC quorum configuration**|Cloud witness|Cloud witness|Cloud witness|All|
-|**DR with multiple regions** |No|No|No|Yes|
-|**Multisubnet support** |Yes|Yes|Yes|Yes|
-|**Support for an existing AD**|Yes|Yes|Yes|Yes|
-|**DR with multizone in the same region**|Yes|Yes|Yes|Yes|
-|**Distributed AG with no AD**|No|No|No|Yes|
-|**Distributed AG with no cluster** |No|No|No|Yes|
+|**SQL Server version** |2016 + |2016 +|2016 +|2012 +|2012 +| 
+|**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|Enterprise, Standard|
+|**Windows Server version**| 2016 + | 2016 + | 2016 + | All| All|
+|**Creates the cluster for you**|Yes|Yes | Yes |No| No| 
+|**Creates the availability group for you** |Yes |No|No|No| No| 
+|**Creates listener and load balancer independently** |No|No|No|Yes|N/A|
+|**Possible to create DNN listener using this method?**|No|No|No|Yes|N/A|
+|**WSFC quorum configuration**|Cloud witness|Cloud witness|Cloud witness|All|All|
+|**DR with multiple regions** |No|No|No|Yes|Yes|
+|**Multisubnet support** |No|No|No|N/A|Yes|
+|**Support for an existing AD**|Yes|Yes|Yes|Yes|Yes|
+|**DR with multizone in the same region**|Yes|Yes|Yes|Yes|Yes|
+|**Distributed AG with no AD**|No|No|No|Yes| Yes| 
+|**Distributed AG with no cluster** |No|No|No|Yes|Yes|
+|**Requires load balancer or DNN**| Yes | Yes | Yes | Yes | No|
 
 ## Next steps
 
-Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial.md).
+Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md).
 
 Alternatively, you can deploy a [clusterless availability group](availability-group-clusterless-workgroup-configure.md) or an availability group in [multiple regions](availability-group-manually-configure-multiple-regions.md).
 
