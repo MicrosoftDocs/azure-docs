@@ -58,12 +58,12 @@ The following code confirms that the domain is available by using the [Check Dom
 > The following code will *not* work in Azure Cloud Shell.
 
 ```azurepowershell
-$subId = "Your Azure subscription Id"
+$subscriptionId = "Your Azure subscription Id"
 $subdomainName = "custom domain name"
 
 # Select the Azure subscription that contains the Speech resource.
 # You can skip this step if your Azure account has only one active subscription.
-Set-AzContext -SubscriptionId $subId
+Set-AzContext -SubscriptionId $subscriptionId
 
 # Prepare the OAuth token to use in the request to the Cognitive Services REST API.
 $Context = Get-AzContext
@@ -71,7 +71,7 @@ $AccessToken = (Get-AzAccessToken -TenantId $Context.Tenant.Id).Token
 $token = ConvertTo-SecureString -String $AccessToken -AsPlainText -Force
 
 # Prepare and send the request to the Cognitive Services REST API.
-$uri = "https://management.azure.com/subscriptions/" + $subId + `
+$uri = "https://management.azure.com/subscriptions/" + $subscriptionId + `
     "/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18"
 $body = @{
 subdomainName = $subdomainName
@@ -109,8 +109,8 @@ $subdomainName = "custom domain name"
 
 # Select the Azure subscription that contains the Speech resource.
 # You can skip this step if your Azure account has only one active subscription.
-$subId = "Your Azure subscription Id"
-Set-AzContext -SubscriptionId $subId
+$subscriptionId = "Your Azure subscription Id"
+Set-AzContext -SubscriptionId $subscriptionId
 
 # Set the custom domain name to the selected resource.
 # WARNING: THIS CANNOT BE CHANGED OR UNDONE!
@@ -132,8 +132,8 @@ Copy the following code block, insert your preferred custom domain name, and sav
 
 ```json
 {
-	"subdomainName": "custom domain name",
-	"type": "Microsoft.CognitiveServices/accounts"
+    "subdomainName": "custom domain name",
+    "type": "Microsoft.CognitiveServices/accounts"
 }
 ```
 
@@ -143,7 +143,7 @@ Copy the file to your current folder or upload it to Azure Cloud Shell and run t
 az rest --method post --url "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18" --body @subdomain.json
 ```
 If the desired name is available, you'll see a response like this:
-```azurecli
+```json
 {
   "isSubdomainAvailable": true,
   "reason": null,
@@ -153,7 +153,7 @@ If the desired name is available, you'll see a response like this:
 ```
 
 If the name is already taken, then you'll see the following response:
-```azurecli
+```json
 {
   "isSubdomainAvailable": false,
   "reason": "Sub domain name 'my-custom-name' is already used. Please pick a different name.",
