@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/15/2021
+ms.date: 11/19/2021
 ms.author: b-juche
 ---
 # Add hosts to a multiple-host SAP HANA system using application volume group for SAP HANA

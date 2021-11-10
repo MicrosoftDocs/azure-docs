@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/14/2021
+ms.date: 11/19/2021
 ms.author: b-juche
 ---
 
@@ -21,7 +21,7 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-<!-- Pending month -->
+## November 2021
 
 * [Application volume group for SAP HANA](application-volume-group-introduction.md)
 

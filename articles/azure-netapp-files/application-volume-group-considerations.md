@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 11/19/2021
 ms.author: b-juche
 ---
 # Requirements and considerations for application volume group for SAP HANA 

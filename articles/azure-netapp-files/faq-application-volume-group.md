@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-juche
 ms.author: b-juche
-ms.date: 11/15/2021
+ms.date: 11/19/2021
 ---
 # Application volume group FAQs
 
