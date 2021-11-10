@@ -41,7 +41,7 @@ When you create the role assignment resource, you need to specify a fully qualif
 
 ::: code language="bicep" source="code/scenarios-rbac/built-in-role.bicep" highlight="3-7, 12" :::
 
-### Principal ID and principal type
+### Principal
 
 The `principalId` property must be set to a GUID that represents the Azure Active Directory (Azure AD) identifier for the principal.
 

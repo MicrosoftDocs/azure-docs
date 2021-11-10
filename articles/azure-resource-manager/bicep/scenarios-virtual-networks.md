@@ -23,9 +23,12 @@ Although both approaches enable you to define and create your subnets, there is 
 
 When you redeploy the same Bicep file, the same deployment sequence occurs. However, the virtual network is deployed without any subnets configured on it. Then, after the virtual network is reconfigured, the subnet resources are redeployed, which re-establishes each subnet. In some situations, this behavior causes the resources within your virtual network to lose connectivity for a short period of time during your deployment. In other situations, Azure prevents you from modifying the virtual network and your deployment fails.
 
+> [!WARNING]
+> Avoid defining subnets as child resources. This approach can result in downtime for your resources during subsequent deployments, or failed deployments.
+
 ## Network security groups
 
-TODO shared variable file
+Network security groups are frequently used to apply rules controlling the inbound and outbound flow of traffic from a subnet or network interface. It can become cumbersome to define large numbers of rules within a Bicep file, and to share rules across multiple Bicep files. Consider using the [Shared variable file pattern](patterns-shared-variable-file.md) when you work with complex or large network security groups.
 
 ## Private endpoints
 
