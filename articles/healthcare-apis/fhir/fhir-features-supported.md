@@ -25,7 +25,7 @@ Previous versions also currently supported include: `3.0.2`
 
 ## REST API
 
-Below is a summary of the supported RESTful capabilities. For more information on the implementation of these capabilities, see [FHIR REST API capabilities](fhir-rest-api-capabilities.md) 
+Below is a summary of the supported RESTful capabilities. For more information on the implementation of these capabilities, see [FHIR REST API capabilities](fhir-rest-api-capabilities.md). 
 
 | API    | Azure API for FHIR | FHIR service in Healthcare APIs | Comment |
 |--------|--------------------|---------------------------------|---------|
