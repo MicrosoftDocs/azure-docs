@@ -49,7 +49,7 @@
   - name: Azure PowerShell
     items:
     - name: Find unhealthy DNS records
-      href: find-unhealthy-dns-records.md
+      href: /scripts/find-unhealthy-dns-records.md
 - name: Concepts
   items:
   - name: Security
