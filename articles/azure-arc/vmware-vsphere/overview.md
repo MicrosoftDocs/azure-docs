@@ -2,7 +2,7 @@
 title: What is Azure Arc-enabled VMware vSphere?
 description: Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure and delivers a consistent management experience across both platforms. 
 ms.topic: overview
-ms.date: 11/08/2021
+ms.date: 11/10/2021
 ms.custom: references_regions
 ---
 
@@ -14,7 +14,7 @@ Arc-enabled VMware vSphere allows you to:
 
 - Conduct various VMware virtual machine (VM) lifecycle operations directly from Azure, such as create, start/stop, resize, and delete.
 
-- Empower developers and application teams to self-serve VM operations on-demand using Azure Role-Based Access Control (RBAC).
+- Empower developers and application teams to self-serve VM operations on-demand using [Azure role-based access control](../../role-based-access-control/overview.md) (RBAC).
 
 - Browse your VMware vSphere resources (VMs, templates, networks, and storage) in Azure, providing you a single pane view for your infrastructure across both environments. You can also discover and onboard existing VMware VMs to Azure.
 
@@ -40,11 +40,11 @@ The following scenarios are supported in Azure Arc-enabled VMware vSphere:
 
 - App teams can use Azure portal, CLI, or REST API to manage the lifecycle of on-premises VMs they use for deploying their applications (CRUD, Start/Stop/Restart).
 
-- App teams and administrators can install extensions (LogAnalytics agent, Custom Script extension, DependencyAgent) onto the virtual machines and do operations supported by the extensions.
+- App teams and administrators can install extensions, such as the Log Analytics agent, Custom Scrip Extension, and Dependency Agent, on  the virtual machines and do operations supported by the extensions.
 
 ## Supported regions
 
-Azure Arc enabled VMware vSphere is currently supported in these regions:
+Azure Arc-enabled VMware vSphere is currently supported in these regions:
 
 - East US
 
@@ -62,7 +62,7 @@ Azure Arc enabled VMware vSphere is currently supported in these regions:
 
 ### vSphere requirements
 
-A vSphere account that can read all inventory, deploy, and update VMs to all the resource pools (or clusters), networks, and virtual machine templates that you want to use with Azure Arc. The account is also used for ongoing operations of the Arc-enabled VMware vSphere, and deployment of the Arc resource bridge VM.
+A vSphere account that can read all inventory, deploy, and update VMs to all the resource pools (or clusters), networks, and virtual machine templates that you want to use with Azure Arc. The account is also used for ongoing operations of the Arc-enabled VMware vSphere, and deployment of the Azure Arc resource bridge (preview) VM.
 
 If you are using the [Azure VMware solution](../../azure-vmware/introduction.md), this account would be the **cloudadmin** account.
 
