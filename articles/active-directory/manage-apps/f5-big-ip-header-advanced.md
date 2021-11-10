@@ -412,13 +412,13 @@ The output of the injected headers displayed by our headers-based application is
 Failure to access the secure hybrid access protected application could be down to any number of potential factors, including a
 misconfiguration.
 
-BIG-IP logs are a great source of information for isolating all sorts of authentication & SSO issues. When troubleshooting you should increase the log verbosity level by heading to **Access Policy** > **Overview** > **Event Logs** > **Settings**. Select the row for your published application then **Edit* > **Access System Logs**. Select **Debug**
+- BIG-IP logs are a great source of information for isolating all sorts of authentication & SSO issues. When troubleshooting you should increase the log verbosity level by heading to **Access Policy** > **Overview** > **Event Logs** > **Settings**. Select the row for your published application then **Edit** > **Access System Logs**. Select **Debug**
 from the SSO list then **OK**. You can now reproduce your issue before looking at the logs but remember to switch this back when finished.
 
-If you see a BIG-IP branded error after being redirected following Azure AD pre-authentication, it's likely the issue relates to SSO from Azure AD to the BIG-IP. Navigate to **Access** > **Overview** > **Access reports** and run the report for the last hour to see logs provide any
+- If you see a BIG-IP branded error after being redirected following Azure AD pre-authentication, it's likely the issue relates to SSO from Azure AD to the BIG-IP. Navigate to **Access** > **Overview** > **Access reports** and run the report for the last hour to see logs provide any
 clues. The **View session variables** link for your session will also help understand if the APM is receiving the expected claims from Azure AD.
 
-If you don't see a BIG-IP error page, then the issue is probably more related to SSO from the BIG-IP to the backend application. In which case you should head to **Access Policy** > **Overview** > **Active Sessions** and select on the link for your active session.
+- If you don't see a BIG-IP error page, then the issue is probably more related to SSO from the BIG-IP to the backend application. In which case you should head to **Access Policy** > **Overview** > **Active Sessions** and select on the link for your active session.
 
 The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers.
 
