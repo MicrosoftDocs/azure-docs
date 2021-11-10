@@ -8,7 +8,7 @@
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Create and run a load test
+    - name: Create & run a load test
       href: quickstart-create-and-run-load-test.md
 - name: Tutorials
   expanded: true
@@ -28,20 +28,20 @@
 - name: How-tos
   expanded: true
   items: 
-    - name: Compare multiple test runs
-      href: how-to-compare-multiple-test-runs.md
-    - name: Configure Azure Load Testing for high scale load testing
-      href: how-to-configure-azure-load-testing-high-scale-load.md
     - name: Parameterize load tests
       href: how-to-parameterize-load-tests.md
     - name: Define test criteria
       href: how-to-define-test-criteria.md
-    - name: Find and download your load testing logs
-      href: how-to-find-download-logs.md
-    - name: Get more insights from testing AppService workloads
-      href: how-to-get-insights-testing-appservice-workloads.md
     - name: Update and rerun your load tests
       href: how-to-update-rerun-test.md
+    - name: Compare test runs
+      href: how-to-compare-multiple-test-runs.md
+    - name: Configure for high scale loads
+      href: how-to-configure-azure-load-testing-high-scale-load.md
+    - name: Find and download logs
+      href: how-to-find-download-logs.md
+    - name: Get insights from App Service workload tests
+      href: how-to-get-insights-testing-appservice-workloads.md
 - name: Resources
   items: 
     - name: Azure roadmap
