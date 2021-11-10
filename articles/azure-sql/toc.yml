@@ -503,6 +503,8 @@
             href: database/ledger-limits.md
         - name: Network access controls
           href: database/network-access-controls-overview.md
+        - name: Outbound firewall rules
+          href: database/outbound-firewall-rule-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
         - name: VNet endpoints
