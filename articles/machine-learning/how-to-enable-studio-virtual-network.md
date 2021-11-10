@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/13/2021
+ms.date: 11/10/2021
 ms.custom: contperf-fy20q4, tracking-python, security
 
 ---
@@ -126,7 +126,7 @@ When using Azure Data Lake Storage Gen1 as a datastore, you can only use POSIX-s
 
 When using Azure Data Lake Storage Gen2 as a datastore, you can use both Azure RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
 
-**To use Azure RBAC**, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Azure role-based access control](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+**To use Azure RBAC**, follow the steps in the [Datastore: Azure Storage Account](#datastore-azure-storage-account) section of this article. Data Lake Storage Gen2 is based on Azure Storage, so the same steps apply when using Azure RBAC.
 
 **To use ACLs**, the workspace-managed identity can be assigned access just like any other security principal. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
