@@ -378,8 +378,6 @@
       href: automation-bom-get-files.md
     - name: SAP DB template for BoM
       href: automation-bom-templates-db.md
-    - name: HANA template for BoM
-      href: automation-bom-templates-hana.md
 - name: Azure Monitor for SAP Solutions
   items:
   - name: Monitor SAP on Azure
