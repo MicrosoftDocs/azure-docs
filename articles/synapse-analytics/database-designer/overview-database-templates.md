@@ -25,7 +25,7 @@ For example, if you're building a product recommendation solution for your retai
  - CustomerLoyalty 
  - Store 
 
-You can set up this use case by selecting the six tables in the retail database template. 
+You can set this use case up by selecting the six tables in the retail database template. 
 
 ![Retail database template example](./media/overview-database-templates/retail-database-template-example.png)
 
