@@ -30,7 +30,7 @@ highlightedContent:
     # Card
     - title: 'Setup continuous regression testing'
       itemType: tutorial
-      url: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
+      url: tutorial-cicd-azure-pipelines.md
 
 conceptualContent:
 # Supports up to 3 sections
@@ -39,7 +39,7 @@ conceptualContent:
     # Card
     - title: Configure load tests
       links:
-        - url: how-to-configure-azure-load-testing-high-scale-load.md
+        - url: how-to-high-scale-load.md
           itemType: how-to-guide
           text: How to configure for high scale
         - url: how-to-parameterize-load-tests.md
@@ -58,16 +58,16 @@ conceptualContent:
         - url: how-to-find-download-logs.md
           itemType: how-to-guide
           text: Find and download your load testing logs
-        - url: how-to-get-insights-testing-appservice-workloads.md
+        - url: how-to-appservice-insights.md
           itemType: how-to-guide
           text: Get more insights from load testing AppService workloads
 
     # Card
     - title: Automate load tests
       links:
-        - url: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
+        - url: tutorial-cicd-azure-pipelines.md
           itemType: tutorial
           text: Set up a CI/CD workflow in Azure Pipelines
-        - url: tutorial-continuous-regression-testing-cicd-github-actions.md
+        - url: tutorial-cicd-github-actions.md
           itemType: tutorial
           text: Set up a CI/CD workflow in GitHub Actions

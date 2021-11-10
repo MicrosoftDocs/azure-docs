@@ -50,7 +50,7 @@ You'll require the following files in your repository for running the load test.
 
 1. Load test YAML file: The repository contains a SampleApp.yaml file. For a new test, you can author this file [using the syntax shown](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies#brief-overview-of-yaml-properties). If you've already run a load test, download this file from the input files section on the dashboard.  
 
-    :::image type="content" source="media/tutorial-continuous-regression-testing-cicd-azure-pipeline/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run":::
+    :::image type="content" source="media/tutorial-cicd-azure-pipelines/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run":::
 
 > [!IMPORTANT]
 > The path of the testPlan and configurationFiles should be relative to the Load test YAML file.  
@@ -236,4 +236,4 @@ You now have a CI/CD pipeline that builds, deploys, and triggers a load test on 
 Advance to the next article to learn how to set up a CI/CD workflow in GitHub to run load tests automatically.  
 
 > [!div class="nextstepaction"]
-> [Integrate Azure Load Testing with GitHub workflows](tutorial-continuous-regression-testing-cicd-github-actions.md)
+> [Integrate Azure Load Testing with GitHub workflows](./tutorial-cicd-github-actions.md)

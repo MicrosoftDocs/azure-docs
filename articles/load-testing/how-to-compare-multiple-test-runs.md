@@ -84,6 +84,6 @@ In this section, you'll select a test run, and then select other test runs to co
 
 ## Next steps
 
-- For information on high-scale load tests, see [Set up a high-scale load test](./how-to-configure-azure-load-testing-high-scale-load.md).
+- For information on high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
 
-- To learn how to configure automated regression testing, see [Configure automated load testing with Azure Pipelines](./tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md)
+- To learn how to configure automated regression testing, see [Configure automated load testing with Azure Pipelines](./tutorial-cicd-azure-pipelines.md)
