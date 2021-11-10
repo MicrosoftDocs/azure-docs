@@ -30,9 +30,19 @@ The IP filter rules are applied at the DPS instance level. Therefore the IP filt
 
 Any connection attempt from an IP address that matches a rejecting IP rule in your DPS instance receives an unauthorized 401 status code and description. The response message does not mention the IP rule.
 
-## Default setting
+## View the **IP Filter** grid
 
-By default, the **IP Filter** grid in the portal for DPS is empty. This default setting means that your DPS accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.
+To view the **IP Filter** grid:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. On the left-hand menu or on the portal page, select **All resources**.
+
+3. Select your Device Provisioning Service.
+
+4. Under the **Settings** menu on the left-hand side, select **Networking**.
+
+5. By default, *All Networks* is selected for the **Public network access** setting. To view the **IP Filter** grid, select **Selected IP range**. The grid should be empty, which means that your DPS accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.
 
 ![IoT DPS default IP filter settings](./media/iot-dps-ip-filtering/ip-filter-default.png)
 
