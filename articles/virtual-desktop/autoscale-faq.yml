@@ -20,7 +20,7 @@ sections:
          How do I configure autoscale so I run zero session hosts after working hours?
         answer: |
          Ramp-down mode always uses the lowest possible number of session hosts possible. However, if active sessions exist, the lowest number of usable session hosts won't be zero. Configure a time limit policy to sign out all disconnected users to avoid having usable session hosts after hours.
-          
+
       - question: |
          Does autoscale create or delete virtual machines (VMs) based on service load?
         answer: |
@@ -35,4 +35,38 @@ sections:
          Will I be charged extra for using the autoscale feature?
         answer: |
          No. For more information on rates, see [our pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-          
+      
+      - question: |
+         What happens if the host pool capacity equals the capacity threshold?
+        answer: |
+         Nothing. Autoscale reacts when the host pool capacity is greater than or less than the capacity threshold and does not take action when the host pool capacity equals the capacity threshold.
+
+      - question: |
+         If I set drain mode on session hosts, will Autoscale turn it on or off?
+        answer: |
+         Yes, Autoscale will still turn on/off VMs that are in drain mode, no matter who put it in drain mode. Autoscale overwrites drain mode on all VMs included in scaling, so if you would like to exclude a VM from scaling actions, the only way to do it is to use exclusion tags.
+      
+      - question: |
+         How often does Autoscale monitor the session hosts and perform scaling evaluations?
+        answer: |
+         Autoscale monitors for when there is a user session log in or log out in the host pool and categorizes these as session change events. When there are session change events, a scaling evaluation is triggered that will create logs. If there are no session change events or the events go down, Autoscale also check if there are any events that were missed. If there are several session change events that happen in a small time period, the scaling evaluations may be batched. Autoscale reacts relatively quickly to these session change events, but does not log on each one since that may cause overload.
+
+      - question: |
+         Can force logoff happen in any phase of the day?
+        answer: |
+         No, force logoff can only happen during the ramp down phase, if enabled. This means that there is a possibility that during ramp down, draining (force logoff) begins but doesn't finish before the phase changes to off peak. During off peak hours, user sessions are not force logged off and Autoscale waits until all users have logged off before deallocating the VM. For example, if the ramp down phase is 15 minutes long, and the wait time before logging out users and shutting down VMs is 20 minutes long, the VM will remain running and users that have not logged off on their own will not have been force logged off.
+      
+      - question: |
+         During ramp down, if the force logoff option is selected, will only idle, or disconnected sessions be logged off, or also active sessions?
+        answer: |
+         During ramp down, if the force logoff option is selected, idle, disconnected, and active sessions will be force logged off if they do not logoff themselves in the wait/buffer time.
+
+      - question: |
+         If an active session is force logged off and the user tries to reconnect, is there anything that prevents their new session from landing on a session host that will soon be shutdown again?
+        answer: |
+         When the available host pool capacity goes below the capacity threshold and a session host is selected to be shut down, it will be put in drain mode first. After the VM is deallocated, the AllowNewSessions is set to true to the VM/drain mode is turned off. So, a session host is put in drain mode before the force logoff process which helps protect against a user being reconnected back to a session host that is about to be shut down.
+
+      - question: |
+         Is Autoscale able to shut down 100% of all the VMs in a host pool, or is there a need to keep at least some up and running?
+        answer: |
+         It is possible for all the VMs in a host pool to be shut down if the minimum percentage of hosts is set to 0 and there are 0 user sessions on all the VMs in the host pool.

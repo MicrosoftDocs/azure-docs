@@ -206,9 +206,9 @@ To create or change a schedule:
         >[!NOTE]
         >The load balancing preference you select here will override the one you selected for your original host pool settings.
 
-    - For **Minimum percentage of session host VMs**, enter the amount of session host resources you want to use during ramp-up and peak hours. For example, if you choose **10%** and your host pool has 10 session hosts, autoscale will keep one session host available for user connections at all times during ramp-up and peak hours.
+    - For **Minimum percentage of session host VMs**, enter the amount of session hosts you want to always remain on in the specified phase. If the percent is not a whole number, it is rounded up to the nearest whole number. For example in a host pool of 7 session hosts, if the minimum percentage of hosts is **10%** for the peak hours, 1 VM will always remain on during peak hours and will not be turned off by Autoscale. 
     
-    - For **Capacity threshold**, enter the percentage of host pool usage that will trigger the start of the ramp-up and peak phases. For example, if you choose **60%** for a host pool that can handle 100 sessions, autoscale will only turn on additional hosts once the host pool goes over 60 sessions.
+    - For **Capacity threshold**, enter the percentage of available host pool capacity will trigger scaling action to take place. For example, if 2 session hosts in the host pool with a max session limit of 20 are turned on, the available host pool capacity is 40. With a capacity threshold of **75%**, if there are more than 30 user sessions (75% of 40) on these 2 session hosts, a 3rd session host will be turned on. This changes the available host pool capacity from 40 to 60.
 
 5. In the **Peak hours** tab, fill out the following fields:
 
@@ -226,6 +226,9 @@ To create or change a schedule:
       - Minimum percentage of hosts (%)
       - Capacity threshold (%)
       - Force logoff users
+
+    >[!IMPORTANT]
+    >During ramp down, if force logoff is enabled, Autoscale chooses the session host with the least number of user sessions, puts it in drain mode, active user sessions will receive the notification message, and after the specified wait time, the remaining user sessions on the session host are force logged off. Once all the user sessions have been logged off, the VM is deallocated. During ramp down, if force logoff is not enabled, sessions hosts that have 0 active or 0 active and disconnected sessions (depending on the schedule configuration) will be deallocated.
 
     - Likewise, **Off-peak hours** works the same way as **Peak hours**:
 
