@@ -174,6 +174,8 @@ Then, you can pass that string to the [Get-FileHash](/powershell/module/microsof
 
 Alternatively, you can pass the decoded string to the [hash_sha256()](/azure/data-explorer/kusto/query/sha256hashfunction) function as part of a query when you use Azure Data Explorer.
 
+SAS tokens do not contain identity information. One way to track the activities of users or organizations, is to keep a mapping of users or organizations to various SAS token hashes.
+
 ## Optimize cost for infrequent queries
 
 You can export logs to Log Analytics for rich native query capabilities. When you have massive transactions on your storage account, the cost of using logs with Log Analytics might be high. For more information, see [Azure Log Analytics Pricing](https://azure.microsoft.com/pricing/details/monitor/). If you only plan to query logs occasionally (for example, query logs for compliance auditing), you can consider reducing the total cost by exporting logs to storage account, and then using a serverless query solution on top of log data, for example, Azure Synapse.
