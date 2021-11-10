@@ -243,6 +243,10 @@ For more information, see [Configure your SAP system](sap-deploy-solution.md#con
 ### Network connectivity issues
 
 If you're having network connectivity issues to the SAP environment or to Azure Sentinel, check your network connectivity to make sure data is flowing as expected.
+Common issues:
+1. Firewalls between the docker container and SAP hosts are blocking traffic.
+Note that the SAP  host, recieves communication via the following TCP ports: 32xx, 5xx13, and 33xx, where xx is the SAP instance number.
+2. Outbound communication to  Microsoft Container Registry or Azure requires proxy configuration. This typically impacts the installation and requires to configure the HTTP_PROXY, HTTPS_PROXY environmental variables. It is possible to injest env vars into the docker container upon creating it by adding the -e flag to the docker create / run command.
 
 ### Other unexpected issues
 
