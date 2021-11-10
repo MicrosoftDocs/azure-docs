@@ -37,7 +37,7 @@
     },
     {
       "source_path": "articles/service-fabric/how-to-enable-managed-cluster-disk-encryption.md",
-      "redirect_url": "articles/service-fabric/how-to-managed-cluster-enable-disk-encryption",
+      "redirect_url": "azure/service-fabric/how-to-managed-cluster-enable-disk-encryption",
       "redirect_document_id": false
     },
     {
