@@ -3,13 +3,13 @@ title: Conversation Transcription (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Conversation Transcription is a solution for meetings, that combines recognition, speaker ID, and diarization to provide transcription of any conversation.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 

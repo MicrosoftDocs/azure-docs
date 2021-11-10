@@ -30,7 +30,7 @@ Enable **Microsoft Defender for Key Vault** for Azure-native, advanced threat pr
 
 ## What are the benefits of Microsoft Defender for Key Vault?
 
-Microsoft Defender detects unusual and potentially harmful attempts to access or exploit Key Vault accounts. This layer of protection allows you to address threats without being a security expert, and without the need to manage third-party security monitoring systems.  
+Microsoft Defender detects unusual and potentially harmful attempts to access or exploit Key Vault accounts. This layer of protection helps you address threats even if you're not a security expert, and without the need to manage third-party security monitoring systems.  
 
 When anomalous activities occur, Defender shows alerts and optionally sends them via email to relevant members of your organization. These alerts include the details of the suspicious activity and recommendations on how to investigate and remediate threats. 
 

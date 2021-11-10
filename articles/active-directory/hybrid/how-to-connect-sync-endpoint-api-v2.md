@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect sync V2 endpoint API 
-Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. By utilizing the new V2 endpoint, you will experience noticeable performance gains on export and import to Azure AD. This new endpoint supports the following:
+Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. By utilizing the new V2 endpoint, you will experience noticeable performance gains on export and import to Azure AD. This new endpoint supports:
     
  - syncing groups with up to 250k members
  - performance gains on export and import to Azure AD
@@ -32,12 +32,13 @@ Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves t
 
 ## Prerequisites  
 In order to use the new V2 endpoint, you will need to use Azure AD Connect v2.0. When you deploy AADConnect V2.0, the V2 endpoint will be automatically enabled.
-Note that support for the V2 endpoint is no longer available for V1.x versions. If you need to sync groups with more than 50K members you need to upgrade to Azure AD Connect V2.0.
+Support for the V2 endpoint is no longer available for V1.x versions. If you need to sync groups with more than 50K members, you need to upgrade to Azure AD Connect V2.0.
 
 ## Frequently asked questions  
  
 **When will the new end point become the default for upgrades and new installations?**  
-The V2 endpoint is the default setting for AADConnect V2.0 and is not supported for AADConnect V1.x
+The V2 endpoint is the default setting for AADConnect V2.0 and is not supported for AADConnect V1.x.
+There is an issue where customers who have the V2 endpoint running with an older version and try to upgrade to a newer V1.6 release will see that the 50K limitation on group membership is reinstated. We won't fix this issue in V1.6 and will require customers to upgrade to AADConnect V2.0 if this is an issue for them.
 
 ## Next steps
 
