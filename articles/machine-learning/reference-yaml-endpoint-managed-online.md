@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about the YAML files used to deploy models as online endpoints
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 
 author: rsethur

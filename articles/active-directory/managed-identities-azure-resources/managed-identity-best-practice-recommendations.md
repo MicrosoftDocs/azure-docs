@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 11/09/2021
 ms.author: barclayn
 ---
 
@@ -33,7 +33,6 @@ As system-assigned identities are created and deleted along with the resource, r
 If your infrastructure requires that multiple resources require access to the same resources, a single user-assigned identity can be assigned to them. Administration overhead will be reduced, as there are fewer distinct identities and role assignments to manage.
 
 If you require that each resource has its own identity, or have resources that require a unique set of permissions and want the identity to be deleted as the resource is deleted, then you should use a system-assigned identity.
-
 
 | Scenario| Recommendation|Notes|
 |---|---|---|
@@ -85,7 +84,7 @@ When granting any identity, including a managed identity, permissions to access 
 
 ### Consider the effect of assigning managed identities to Azure resources
 
-It is important to note that when an Azure resource, such as an Azure Logic App, an Azure function, or a Virtual Machine, etc. is assigned a managed identity, all the permissions granted to the managed identity are now available to the Azure resource. This is particularly important because if a user has access to install or execute code on this resource, then the user has access to all the identities assigned/associated to the Azure resource. The purpose of managed identity is to give code running on an Azure resource access to other resources, without developers needing to handle or put credentials directly into code to get that access.
+It is important to note that when an Azure resource, such as an Azure Logic App, an Azure function, or a Virtual Machine, etc. is assigned a managed identity, all the permissions granted to the managed identity are now available to the Azure resource. This is important because if a user has access to install or execute code on this resource, then the user has access to all the identities assigned/associated to the Azure resource. The purpose of managed identity is to give code running on an Azure resource access to other resources, without developers needing to handle or put credentials directly into code to get that access.
 
 For example, if a managed Identity (ClientId = 1234) has been granted read/write access to ***StorageAccount7755*** and has been assigned to ***LogicApp3388***, then Alice, who does not have any direct permissions over the managed identity or the storage account but has permission to execute code within ***LogicApp3388*** can also read/write data to/from ***StorageAccount7755*** by executing the code that uses the managed identity.
 
@@ -106,3 +105,11 @@ Role assignments that are associated with deleted managed identities
 will be displayed with “Identity not found” when viewed in the portal. [Read more](../../role-based-access-control/troubleshooting.md#role-assignments-with-identity-not-found).
 
 :::image type="content" source="media/managed-identity-best-practice-recommendations/identity-not-found.png" alt-text="Identity not found for role assignment.":::
+
+## Limitation of using Azure AD Groups with managed identities for authorization
+
+Using Azure AD Groups for granting access to services is a great way to simplify the authorization process. The idea is simple – grant permissions to a group and add identities to the group so that they inherit the same permissions. This is a well-established pattern from various on-premises systems and works well when the identities represent users. However, for non-human identities, such as Azure AD Applications and Managed identities, the exact mechanism is not well suited today. Today’s implementation with Azure AD and Azure Role Based Access Control (Azure RBAC), uses access tokens issued by Azure AD for authentication of each identity. However, if the identity is added to a group, its group membership is expressed as a claim in the access token issued by Azure AD. Azure RBAC uses this claim to further evaluate the authorization rules for allowing or denying access.  
+
+As the group membership is a claim in the access token, group membership changes do not take effect until the token is refreshed. A human user can acquire a new access token by logging out and in again. Managed identity tokens are cached by the underlying Azure infrastructure for performance and resiliency purposes. This means that it can take several hours for changes to a managed identity’s group membership to take effect. Today, it is not possible to force a managed identity’s token to be refreshed before its expiry. If you change a managed identity’s group membership to add or remove permissions, you may therefore need to wait several hours for the Azure resource using the identity to have the correct access, compared to just a few minutes if you were to add or remove permissions directly on the identity.
+
+To ensure that changes to permissions for managed identities take effect quickly, we recommend that you group Azure resources using a [user-assigned managed identity](how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli) with permissions applied directly to the identity, instead of adding to or removing managed identities from an Azure AD group that has permissions. A user-assigned managed identity can be used like a group because it can be assigned to one or more Azure resources to use it. The assignment operation can be controlled using the [Managed identity contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) and [Managed identity operator role](../../role-based-access-control/built-in-roles.md#managed-identity-operator).
