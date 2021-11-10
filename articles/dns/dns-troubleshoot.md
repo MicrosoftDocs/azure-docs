@@ -8,13 +8,11 @@ ms.topic: troubleshooting
 ms.date: 11/10/2021
 ms.author: rohink
 ---
-
 # Azure DNS troubleshooting guide
 
 This article provides troubleshooting information for common Azure DNS questions.
 
 If these steps don't resolve your issue, you can also search for or post your issue on our [Microsoft Q&A question page for community support](/answers/topics/azure-virtual-network.html). Or, you can open an Azure support request.
-
 
 ## I can't create a DNS zone
 
@@ -24,7 +22,6 @@ To resolve common issues, try one or more of the following steps:
 2.	Each DNS zone name must be unique within its resource group. That is, two DNS zones with the same name can't share a resource group. Try using a different zone name, or a different resource group.
 3.	You may see an error "You have reached or exceeded the maximum number of zones in subscription {subscription id}." Either use a different Azure subscription, delete some zones, or contact Azure Support to raise your subscription limit.
 4.	You may see an error "The zone '{zone name}' is not available." This error means that Azure DNS was unable to allocate name servers for this DNS zone. Try using a different zone name. Or, if you are the domain name owner you can contact Azure support to allocate name servers for you.
-
 
 ### Recommended articles
 
@@ -41,13 +38,10 @@ To resolve common issues, try one or more of the following steps:
 4.	Do you have a CNAME conflict?  The DNS standards don't allow a CNAME record with the same name as a record of any other type. If you have an existing CNAME, creating a record with the same name of a different type fails.  Likewise, creating a CNAME fails if the name matches an existing record of a different type. Remove the conflict by removing the other record or choosing a different record name.
 5.	Have you reached the limit on the number of record sets permitted in a DNS zone? The current number of record sets and the maximum number of record sets are shown in the Azure portal, under the 'Properties' for the zone. If you've reached this limit, then either delete some record sets or contact Azure Support to raise your record set limit for this zone, then try again. 
 
-
 ### Recommended articles
 
 * [DNS zones and records](dns-zones-records.md)
 * [Create a DNS zone](./dns-getstarted-portal.md)
-
-
 
 ## I can't resolve my DNS record
 
@@ -61,11 +55,9 @@ DNS name resolution is a multi-step process, which can fail for many reasons. Th
 3.	Confirm that the DNS domain name has been correctly [delegated to the Azure DNS name servers](dns-domain-delegation.md). There are a [many 3rd-party web sites that offer DNS delegation validation](https://www.bing.com/search?q=dns+check+tool). This test is a *zone* delegation test, so you should only enter the DNS zone name and not the fully qualified record name.
 4.	Having completed the above, your DNS record should now resolve correctly. To verify, you can again use [digwebinterface](https://digwebinterface.com), this time using the default name server settings.
 
-
 ### Recommended articles
 
 * [Delegate a domain to Azure DNS](dns-domain-delegation.md)
-
 
 ## Unhealthy DNS zones
 
@@ -164,14 +156,14 @@ In the preceding example, **child** is the NS delegation records. The records _*
 * Zone doesn't contain NS delegation records, glue records, and other records. - **Healthy**
 * Zone only contains NS delegation records. - **Healthy**
 * Zone only contains NS delegation records and glue records. - **Healthy**
-* Zone contains NS delegation decords and other records (except glue records) below delegation record, that should be present in the child zone. - **Unhealthy**
+* Zone contains NS delegation records and other records (except glue records) below delegation record, that should be present in the child zone. - **Unhealthy**
 * Zone contains NS delegation Records, glue Records, and other records (except glue records). - **Unhealthy**
 
 **How can you fix it?** - To resolve, locate and remove all records except glue records under NS delegation records in your parent zone.
 
 **How to locate unhealthy delegation records?** - A script has been created to find the unhealthy delegation records in your zone.  The script will report records which are unhealthy.
 
-1. Save the script located at. Enter the link here for the script page.
+1. Save the script located at: [Find unhealthy DNS records in Azure DNS - PowerShell script sample](find-unhealthy-dns-records.md)
 
 2. Execute the script as mentioned in the script editor.  Script can be edited to meet your requirements.
 
@@ -191,7 +183,6 @@ Example SRV record names (service name 'sip', protocol 'tcp'):
 * [DNS zones and records](dns-zones-records.md)
 * [Create DNS record sets and records by using the Azure portal](./dns-getstarted-portal.md)
 * [SRV record type (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
-
 
 ## Next steps
 
