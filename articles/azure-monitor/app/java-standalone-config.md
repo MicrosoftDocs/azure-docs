@@ -63,31 +63,6 @@ You can also set the connection string using the environment variable `APPLICATI
 
 Not setting the connection string will disable the Java agent.
 
-## Instrumentation keys overrides (preview)
-
-This feature is in preview, starting from 3.2.3.
-
-Instrumentation key overrides allow you to override the [default instrumentation key](#connection-string), for example:
-* Set one instrumentation key for one http path prefix `/myapp1`.
-* Set another instrumentaiton key for another http path prefix `/myapp2/`.
-
-```json
-{
-  "preview": {
-    "instrumentationKeyOverrides": [
-      {
-        "httpPathPrefix": "/myapp1",
-        "instrumentationKey": "12345678-0000-0000-0000-0FEEDDADBEEF"
-      },
-      {
-        "httpPathPrefix": "/myapp2",
-        "instrumentationKey": "87654321-0000-0000-0000-0FEEDDADBEEF"
-      }
-    ]
-  }
-}
-```
-
 ## Cloud role name
 
 Cloud role name is used to label the component on the application map.
@@ -223,7 +198,6 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
   ]
 }
 ```
-
 
 ## Telemetry processors (preview)
 
@@ -480,6 +454,31 @@ The setting applies to all of these metrics:
 
 It allows you to configure agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Azure Active Directory Authentication.
 For more information, check out the [Authentication](./azure-ad-authentication.md) documentation.
+
+## Instrumentation keys overrides (preview)
+
+This feature is in preview, starting from 3.2.3.
+
+Instrumentation key overrides allow you to override the [default instrumentation key](#connection-string), for example:
+* Set one instrumentation key for one http path prefix `/myapp1`.
+* Set another instrumentaiton key for another http path prefix `/myapp2/`.
+
+```json
+{
+  "preview": {
+    "instrumentationKeyOverrides": [
+      {
+        "httpPathPrefix": "/myapp1",
+        "instrumentationKey": "12345678-0000-0000-0000-0FEEDDADBEEF"
+      },
+      {
+        "httpPathPrefix": "/myapp2",
+        "instrumentationKey": "87654321-0000-0000-0000-0FEEDDADBEEF"
+      }
+    ]
+  }
+}
+```
 
 ## Self-diagnostics
 
