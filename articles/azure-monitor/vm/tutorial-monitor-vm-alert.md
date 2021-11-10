@@ -37,7 +37,7 @@ Click on **Heartbeat**. This opens Log Analytics, which is the primary tool to a
 
 For the alert, you want to return only heartbeat records in the last 5 minutes. If no records are returned, then you can assume the virtual machine is down.
 
-Add a line to the query to filter the results to only records created in the last 5 minutes. This uses the [ago function](/data-explorer/kusto/query/agofunction) that subtracts a particular time span from the current time.
+Add a line to the query to filter the results to only records created in the last 5 minutes. This uses the [ago function](/azure/data-explorer/kusto/query/agofunction) that subtracts a particular time span from the current time.
 
 ```
 Heartbeat
@@ -76,7 +76,7 @@ If you don't already have an action group in your subscription to select, then c
 
 :::image type="content" source="media/tutorial-monitor-vm/action-group-basics.png" lightbox="./media/tutorial-monitor-vm/action-group-basics.png" alt-text="Action group basics":::
 
-Select **Notifications** and add one or mre methods to notify appropriate people when the alert is fired.
+Select **Notifications** and add one or more methods to notify appropriate people when the alert is fired.
 
 :::image type="content" source="media/tutorial-monitor-vm/action-group-notifications.png" lightbox="./media/tutorial-monitor-vm/action-group-notifications.png" alt-text="Action group notifications":::
 
