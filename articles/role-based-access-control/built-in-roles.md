@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 09/28/2021
+ms.date: 10/23/2021
 ms.custom: generated
 ---
 
@@ -93,8 +93,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [SignalR REST API Reader](#signalr-rest-api-reader) | Read-only access to Azure SignalR Service REST APIs | ddde6b66-c0df-4114-a159-3618637b3035 |
 > | [SignalR Service Owner](#signalr-service-owner) | Full access to Azure SignalR Service REST APIs | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
 > | [SignalR/Web PubSub Contributor](#signalrweb-pubsub-contributor) | Create, Read, Update, and Delete SignalR service resources | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
-> | [Web Plan Contributor](#web-plan-contributor) | Lets you manage the web plans for websites, but not access to them. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
-> | [Website Contributor](#website-contributor) | Lets you manage websites (not web plans), but not access to them. | de139f84-1756-47ae-9be6-808fbbe84772 |
+> | [Web Plan Contributor](#web-plan-contributor) | Manage the web plans for websites. Does not allow you to assign roles in Azure RBAC. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+> | [Website Contributor](#website-contributor) | Manage websites, but not web plans. Does not allow you to assign roles in Azure RBAC. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **Containers** |  |  |
 > | [AcrDelete](#acrdelete) | Delete repositories, tags, or manifests from a container registry. | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | [AcrImageSigner](#acrimagesigner) | Push trusted images to or pull trusted images from a container registry enabled for content trust. | 6cef56e8-d556-48e5-a04f-b8e64114680f |
@@ -201,10 +201,10 @@ The following table provides a brief description of each built-in role. Click th
 > | **Security** |  |  |
 > | [Attestation Contributor](#attestation-contributor) | Can read write or delete the attestation provider instance | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
 > | [Attestation Reader](#attestation-reader) | Can read the attestation provider properties | fd1bd22b-8476-40bc-a0bc-69b95687b9f3 |
-> | [Azure Sentinel Automation Contributor](#azure-sentinel-automation-contributor) | Azure Sentinel Automation Contributor | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
-> | [Azure Sentinel Contributor](#azure-sentinel-contributor) | Azure Sentinel Contributor | ab8e14d6-4a74-4a29-9ba8-549422addade |
-> | [Azure Sentinel Reader](#azure-sentinel-reader) | Azure Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
-> | [Azure Sentinel Responder](#azure-sentinel-responder) | Azure Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | [Microsoft Sentinel Automation Contributor](#microsoft-sentinel-automation-contributor) | Microsoft Sentinel Automation Contributor | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
+> | [Microsoft Sentinel Contributor](#microsoft-sentinel-contributor) | Microsoft Sentinel Contributor | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | [Microsoft Sentinel Reader](#microsoft-sentinel-reader) | Microsoft Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | [Microsoft Sentinel Responder](#microsoft-sentinel-responder) | Microsoft Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Key Vault Administrator](#key-vault-administrator) | Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 > | [Key Vault Certificates Officer](#key-vault-certificates-officer) | Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Key Vault Contributor](#key-vault-contributor) | Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
@@ -231,10 +231,11 @@ The following table provides a brief description of each built-in role. Click th
 > | [Workbook Contributor](#workbook-contributor) | Can save shared workbooks. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
 > | [Workbook Reader](#workbook-reader) | Can read workbooks. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 > | **Management + governance** |  |  |
+> | [Automation Contributor](#automation-contributor) | Manage azure automation resources and other resources using azure automation. | f353d9bd-d4a6-484e-a77a-8050b599b867 |
 > | [Automation Job Operator](#automation-job-operator) | Create and Manage Jobs using Automation Runbooks. | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | [Automation Operator](#automation-operator) | Automation Operators are able to start, stop, suspend, and resume jobs | d3881f73-407a-4167-8283-e981cbba0404 |
 > | [Automation Runbook Operator](#automation-runbook-operator) | Read Runbook properties - to be able to create Jobs of the runbook. | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
-> | [Azure Arc-Enabled Kubernetes Cluster User Role](#azure-arc-enabled-kubernetes-cluster-user-role) | List cluster user credentials action. | 00493d72-78f6-4148-b6c5-d3ce8e4799dd |
+> | [Azure Arc Enabled Kubernetes Cluster User Role](#azure-arc-enabled-kubernetes-cluster-user-role) | List cluster user credentials action. | 00493d72-78f6-4148-b6c5-d3ce8e4799dd |
 > | [Azure Arc Kubernetes Admin](#azure-arc-kubernetes-admin) | Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces. | dffb1e0c-446f-4dde-a09f-99eb5cc68b96 |
 > | [Azure Arc Kubernetes Cluster Admin](#azure-arc-kubernetes-cluster-admin) | Lets you manage all resources in the cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
 > | [Azure Arc Kubernetes Viewer](#azure-arc-kubernetes-viewer) | Lets you view all resources in cluster/namespace, except secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
@@ -603,10 +604,10 @@ Create and manage virtual machines, manage disks and disk snapshots, install and
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | Create and manage compute availability sets |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/cloudServices/* | Create and manage Cloud Services (extended support) |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/locations/* | Create and manage compute locations |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Perform all virtual machine actions including create, update, delete, start, restart, and power off virtual machines. Execute scripts on virtual machines. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachineScaleSets/* | Create and manage virtual machine scale sets |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/cloudServices/* |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Get the properties of a Disk |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/delete | Deletes the Disk |
@@ -667,6 +668,7 @@ Create and manage virtual machines, manage disks and disk snapshots, install and
         "Microsoft.Compute/locations/*",
         "Microsoft.Compute/virtualMachines/*",
         "Microsoft.Compute/virtualMachineScaleSets/*",
+        "Microsoft.Compute/cloudServices/*",
         "Microsoft.Compute/disks/write",
         "Microsoft.Compute/disks/read",
         "Microsoft.Compute/disks/delete",
@@ -2925,6 +2927,7 @@ Grants access to read, write, and delete access to map related data from an Azur
 > | [Microsoft.Maps](resource-provider-operations.md#microsoftmaps)/accounts/*/read |  |
 > | [Microsoft.Maps](resource-provider-operations.md#microsoftmaps)/accounts/*/write |  |
 > | [Microsoft.Maps](resource-provider-operations.md#microsoftmaps)/accounts/*/delete |  |
+> | [Microsoft.Maps](resource-provider-operations.md#microsoftmaps)/accounts/*/action |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -2943,7 +2946,8 @@ Grants access to read, write, and delete access to map related data from an Azur
       "dataActions": [
         "Microsoft.Maps/accounts/*/read",
         "Microsoft.Maps/accounts/*/write",
-        "Microsoft.Maps/accounts/*/delete"
+        "Microsoft.Maps/accounts/*/delete",
+        "Microsoft.Maps/accounts/*/action"
       ],
       "notDataActions": []
     }
@@ -3950,7 +3954,7 @@ Create, Read, Update, and Delete SignalR service resources
 
 ### Web Plan Contributor
 
-Lets you manage the web plans for websites, but not access to them.
+Manage the web plans for websites. Does not allow you to assign roles in Azure RBAC.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4003,7 +4007,7 @@ Lets you manage the web plans for websites, but not access to them.
 
 ### Website Contributor
 
-Lets you manage websites (not web plans), but not access to them.
+Manage websites, but not web plans. Does not allow you to assign roles in Azure RBAC.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -9150,9 +9154,9 @@ Can read the attestation provider properties [Learn more](../attestation/trouble
 }
 ```
 
-### Azure Sentinel Automation Contributor
+### Microsoft Sentinel Automation Contributor
 
-Azure Sentinel Automation Contributor [Learn more](../sentinel/roles.md)
+Microsoft Sentinel Automation Contributor [Learn more](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -9173,7 +9177,7 @@ Azure Sentinel Automation Contributor [Learn more](../sentinel/roles.md)
   "assignableScopes": [
     "/"
   ],
-  "description": "Azure Sentinel Automation Contributor",
+  "description": "Microsoft Sentinel Automation Contributor",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f4c81013-99ee-4d62-a7ee-b3f1f648599a",
   "name": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
   "permissions": [
@@ -9189,15 +9193,15 @@ Azure Sentinel Automation Contributor [Learn more](../sentinel/roles.md)
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Sentinel Automation Contributor",
+  "roleName": "Microsoft Sentinel Automation Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Sentinel Contributor
+### Microsoft Sentinel Contributor
 
-Azure Sentinel Contributor [Learn more](../sentinel/roles.md)
+Microsoft Sentinel Contributor [Learn more](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -9230,7 +9234,7 @@ Azure Sentinel Contributor [Learn more](../sentinel/roles.md)
   "assignableScopes": [
     "/"
   ],
-  "description": "Azure Sentinel Contributor",
+  "description": "Microsoft Sentinel Contributor",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ab8e14d6-4a74-4a29-9ba8-549422addade",
   "name": "ab8e14d6-4a74-4a29-9ba8-549422addade",
   "permissions": [
@@ -9258,15 +9262,15 @@ Azure Sentinel Contributor [Learn more](../sentinel/roles.md)
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Sentinel Contributor",
+  "roleName": "Microsoft Sentinel Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Sentinel Reader
+### Microsoft Sentinel Reader
 
-Azure Sentinel Reader [Learn more](../sentinel/roles.md)
+Microsoft Sentinel Reader [Learn more](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -9303,7 +9307,7 @@ Azure Sentinel Reader [Learn more](../sentinel/roles.md)
   "assignableScopes": [
     "/"
   ],
-  "description": "Azure Sentinel Reader",
+  "description": "Microsoft Sentinel Reader",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8d289c81-5878-46d4-8554-54e1e3d8b5cb",
   "name": "8d289c81-5878-46d4-8554-54e1e3d8b5cb",
   "permissions": [
@@ -9335,15 +9339,15 @@ Azure Sentinel Reader [Learn more](../sentinel/roles.md)
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Sentinel Reader",
+  "roleName": "Microsoft Sentinel Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Sentinel Responder
+### Microsoft Sentinel Responder
 
-Azure Sentinel Responder [Learn more](../sentinel/roles.md)
+Microsoft Sentinel Responder [Learn more](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -9388,7 +9392,7 @@ Azure Sentinel Responder [Learn more](../sentinel/roles.md)
   "assignableScopes": [
     "/"
   ],
-  "description": "Azure Sentinel Responder",
+  "description": "Microsoft Sentinel Responder",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3e150937-b8fe-4cfb-8069-0eaf05ecd056",
   "name": "3e150937-b8fe-4cfb-8069-0eaf05ecd056",
   "permissions": [
@@ -9430,7 +9434,7 @@ Azure Sentinel Responder [Learn more](../sentinel/roles.md)
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Sentinel Responder",
+  "roleName": "Microsoft Sentinel Responder",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -10746,6 +10750,65 @@ Can read workbooks. [Learn more](../sentinel/tutorial-monitor-your-data.md)
 ## Management + governance
 
 
+### Automation Contributor
+
+Manage azure automation resources and other resources using azure automation. [Learn more](../automation/automation-role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/* |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/ActionGroups/* |  |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/ActivityLogAlerts/* |  |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/MetricAlerts/* |  |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/ScheduledQueryRules/* |  |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/sharedKeys/action | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Manage azure automation resources and other resources using azure automation.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f353d9bd-d4a6-484e-a77a-8050b599b867",
+  "name": "f353d9bd-d4a6-484e-a77a-8050b599b867",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Automation/automationAccounts/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/ActionGroups/*",
+        "Microsoft.Insights/ActivityLogAlerts/*",
+        "Microsoft.Insights/MetricAlerts/*",
+        "Microsoft.Insights/ScheduledQueryRules/*",
+        "Microsoft.Insights/diagnosticSettings/*",
+        "Microsoft.OperationalInsights/workspaces/sharedKeys/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Automation Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### Automation Job Operator
 
 Create and Manage Jobs using Automation Runbooks. [Learn more](../automation/automation-role-based-access-control.md)
@@ -10937,7 +11000,7 @@ Read Runbook properties - to be able to create Jobs of the runbook. [Learn more]
 }
 ```
 
-### Azure Arc-Enabled Kubernetes Cluster User Role
+### Azure Arc Enabled Kubernetes Cluster User Role
 
 List cluster user credentials action.
 

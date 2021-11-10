@@ -13,7 +13,7 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Quickstart: Get started with calling composite 
 
-Get started with Azure Communication Services by using the UI Library to quickly integrate communication experiences into your applications. In this quickstart, you'll learn how to integrate the Calling composite into your Android application.
+Get started with Azure Communication Services by using the UI Library to quickly integrate communication experiences into your applications. In this quickstart, you'll learn how to integrate the Calling composite into your Android or iOS application.
 
 The UI library will render a full communication experience right into your application. It takes care of connecting to the desired call and setting it up behind the scenes. As a developer you just need to worry about where in your experience you want the communication experience to launch. The composite takes the user through setting up their devices, joining the call and participating in it, and rendering other participants.
 

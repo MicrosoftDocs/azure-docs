@@ -8,9 +8,7 @@ ms.author: duau
 ms.date: 6/2/2021
 ms.topic: quickstart
 ms.service: dns
-ms.custom: devx-track-azurepowershell
-  - subject-armqs
-  - mode-arm
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure ARM template so I can use Azure DNS for my name resolution.
 ---
 
