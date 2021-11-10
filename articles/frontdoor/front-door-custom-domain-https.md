@@ -110,7 +110,9 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
 
 4. In **Certificate permissions**, select **Get** to allow Front Door to retrieve the certificate.
 
-5. Select **OK**. 
+5. Select **Add**. 
+
+6. On the **Access policies** page, select **Save**.
 
     Azure Front Door can now access this Key Vault and the certificates that are stored in this Key Vault.
  
