@@ -44,7 +44,7 @@ Make sure you take regular backups of your vault. Backups should be performed wh
 * [Backup key](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
 * [Backup secret](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
 
-### Azure CLI Backup commands
+### Azure CLI backup commands
 
 * [Backup certificate](/cli/azure/keyvault/certificate#az_keyvault_certificate_backup)
 * [Backup key](/cli/azure/keyvault/key#az_keyvault_key_backup)
