@@ -29,41 +29,40 @@ The following table describes the different device properties in the device inve
 
 | Parameter | Description | Default value |
 |--|--|--|
-| Application | The application the exists on the device. | - |
-| Class | The class of the device. | IoT |
-| Data source | The source of the data, such as Micro Agent, OtSensor, and Mde. | MicroAgent |
-| Description | The description of the device. | - |
-| Firmware vendor | The vendor of the device's firmware. | - |
-| Firmware version | The version of the firmware. | - |
-| First seen | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| Importance | The level of importance of the device. | - |
-| IPv4 Address | The IPv4 address of the device. | - |
-| IPv6 Address | The IPv6 address of the device. | - |
-| Last activity | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| Last update time | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| Location | The physical location of the device. | - |
-| MAC Address | The MAC address of the device. | - |
-| Model | The device's model. | - |
-| Name | The name of the device as the sensor discovered it, or as entered by the user. | - |
-| Name | The name of the device. | - |
-| OS architecture | The architecture of the operating system. | - |
-| OS distribution | The distribution of the operating system, such as Android, Linux, and Haiku. | - |
-| OS platform | The OS of the device, if detected. | - |
-| OS version | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. | - |
-| PLC mode |  | - |
-| PLC secured |  | - |
-| Programming time |  | - |
-| Protocols | The protocols that the device uses. | - |
-| Purdue level | The Purdue level in which the device exists. | - |
-| Scanner |  | - |
-| Sensor |  | - |
-| Site | The site that contains this device. | - |
-| Slots |  | - |
-| Subtype | The subtype of the device, such as speaker and smart tv. | Managed Device |
-| Type | The type of device, such as communication, and industrial. | Miscellaneous |
-| Vendor | The name of the device's vendor, as defined in the MAC address. | - |
-| VLAN | The VLAN of the device. | - |
-| Zone |  | - |
+| **Application** | The application the exists on the device. | - |
+| **Class** | The class of the device. | IoT |
+| **Data source** | The source of the data, such as Micro Agent, OtSensor, and Mde. | MicroAgent |
+| **Description** | The description of the device. | - |
+| **Firmware vendor** | The vendor of the device's firmware. | - |
+| **Firmware version** | The version of the firmware. | - |
+| **First seen** | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
+| **Importance** | The level of importance of the device. | - |
+| **IPv4 Address** | The IPv4 address of the device. | - |
+| **IPv6 Address** | The IPv6 address of the device. | - |
+| **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
+| **Last update time** | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
+| **Location** | The physical location of the device. | - |
+| **MAC Address** | The MAC address of the device. | - |
+| **Model** | The device's model. | - |
+| **Name** | The name of the device as the sensor discovered it, or as entered by the user. | - |
+| **OS architecture** | The architecture of the operating system. | - |
+| **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku. | - |
+| **OS platform** | The OS of the device, if detected. | - |
+| **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. | - |
+| **PLC mode** | The PLC operating mode which includes the Key state (physical), and the run state (logical). Possible Key states include, Run, Program, Remote, Stop, Invalid, Programming Disabled. The possible Run states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. | - |
+| **PLC secured** |  | - |
+| **Programming time** |  | - |
+| **Protocols** | The protocols that the device uses. | - |
+| **Purdue level** | The Purdue level in which the device exists. | - |
+| **Scanner** | Whether the device performs scanning-like activities in the network. | - |
+| **Sensor** |  | - |
+| **Site** | The site that contains this device. | - |
+| **Slots** |  | - |
+| **Subtype** | The subtype of the device, such as speaker and smart tv. | Managed Device |
+| **Type** | The type of device, such as communication, and industrial. | Miscellaneous |
+| **Vendor** | The name of the device's vendor, as defined in the MAC address. | - |
+| **VLAN** | The VLAN of the device. | - |
+| **Zone** | The zone that contains this device. | - |
 
 **To view the device inventory**:
 
