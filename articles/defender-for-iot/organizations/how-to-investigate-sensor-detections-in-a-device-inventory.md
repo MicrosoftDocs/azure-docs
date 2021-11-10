@@ -17,9 +17,9 @@ The device inventory displays an extensive range of device attributes that a sen
 
  - Create groups for display in the device map.
 
-## View device attributes in the device inventory
+## View device attributes in the Device inventory
 
-The following attributes appear in the device inventory table.
+The following attributes appear in the Device inventory table.
 
 | Parameter | Description |
 |--|--|
@@ -39,8 +39,9 @@ The following attributes appear in the device inventory table.
 | Groups | The groups that this device participates in. |
 | Last Activity | The last activity that the device performed. |
 | Discovered | When this device was first seen in the network. |
+| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
 
-To view the device inventory:
+**To view the device inventory:**
 
 1. In the left pane, select **Devices**. The **Devices** pane opens on the right.
 
@@ -72,7 +73,7 @@ You can save a filter or a combination of filters that you need and reapply them
 
 The filters that you save are also saved as device map groups. This feature provides an additional level of granularity in viewing network devices on the map.
 
-To create filters:
+**To create filters:**
 
 1. In the column that you want to filter, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-icon.png" border="false":::.
 
@@ -166,7 +167,7 @@ You can deploy the script once or schedule ongoing queries by using standard aut
 
 - If you run the script again in the same location, these files are overwritten.
 
-To run the script:  
+**To run the script:** 
 
 1. Copy the script to a local drive and unzip it. The following files appear:
 
@@ -194,7 +195,7 @@ Files generated from the queries can be placed in one folder that you can access
 
 Don't update file names.
 
-To import:
+**To import:**
 
 1. Select **Import Settings** from the **Import Windows Configuration** dialog box.
 
