@@ -145,6 +145,7 @@ Before you set up a large number of VMs across your labs, we recommend that you 
 ### Limits
 
 Here are the updated limits:
+
 - 500 labs or lab plans per region per subscription
 - 400 users per lab
 
@@ -180,23 +181,81 @@ See [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab
 
 ## Canvas integration
 
-status - in review
+status - ready for review
 
 ## New built-in roles for Azure Lab Services
 
-status - in progress
+We’ve heard from customers that often multiple people manage a lab, and admins need to be able to set more granular control over who has the ability to control different settings inside the lab. Based on this feedback, we added a few more roles. Let’s take a quick tour of all the roles you can use when managed Azure Lab Services.
 
-## VNET injection
-
-status - in progress
+- **Lab Creator**.  When set in the lab plan, this role enables the user account to create labs from the lab plan. The user account can also see existing labs that are in the same resource group as the lab plan. When applied to a resource group, this role enables the user to view existing lab and create new labs. They will have full control over any labs they create as they are assigned as Owner to those created labs. 
+- **Lab Contributor**. When applied to an existing lab, this role enables the user to fully manage the lab. When applied to a resource group enables the user account to fully manage existing labs and create new labs in that resource group.
+- **Lab Operator**. When applied to a resource group or a lab, this role enables the user to have limited ability to manage existing labs. This role won’t give the user the ability to create new labs. In an existing lab, the user can manage users, adjust individual users’ quota, manage schedules, and start/stop VMs. The user account will be able to publish a lab. The user will not have the ability to change lab capacity or change quota at the lab level. The user won’t be able to change the template title or description.
+- **Lab Assistant**. When applied to a resource group or a lab, enables the user to view an existing lab and can only perform actions on the lab VMs (reset, start, stop, connect) and send invites to the lab. The user will not have the ability to change create a lab, publish a lab, change lab capacity, or manage quota and schedules. This user can’t adjust individual quota. 
+- **Lab Services Contributor**. When applied to a resource group, enables the user to fully control all Lab Services scenarios in that resource group. 
+- **Lab Services Reader**. When applied to a resource group enables the user to view, but not change, all lab plans and lab resources. External resources like image galleries and virtual networks that may be connected to a lab plan are not included.
 
 ## Improved auto-shutdown experience
 
+We’ve made big improvements to the reliability and performance of the auto-shutdown experience for lab VMs. Now auto-shutdown settings are OS version-agnostic. The following settings can now be applied to any version of Linux or Windows:
+
+- Disconnect users when virtual machines are idle
+- Shutdown virtual machines when users disconnect
+- Shutdown virtual machines when users do not connect
+
+Another key improvement is how Azure Lab Services detects that a VM is idle. Previously, idle detection was only supported for Windows machines and relied on the Windows’ OS to detect mouse\keyboard input. However, tracking only mouse and keyboard input to detect when a VM is idle isn’t well-suited for some scenarios. For example, in data science, users often need to perform long running queries or train deep learning models with large data sets. In these scenarios, the VM’s resources are actively being used, but there are extended periods of time where there isn’t any mouse or keyboard input from the user. Lab Services now provides flexibility to accommodate these scenarios by detecting both mouse/keyboard input and disk/CPU usage.
+
+image
+
+If Lab Services detects when the OS’s built-in shutdown command is used, so that the VM billing is stopped ½ hour after shutdown was detected.  For example, in Windows, when the user selects the shutdown command from under the **Start** menu, the VM is shut down as well billing being stopped so that further costs aren’t incurred.
+
 ## Updates to lab owner experience
+
+### Labs without a template VM
+
+You now have the option to create labs without a template VM. Typically, you use a lab’s template VM to customize the base image that is used to create the users’ VMs within the lab. In cases where you don’t need to make further customizations to the base image, you can choose to create a lab without a template.
+
+image
+
+Labs without template VMs have several benefits:
+
+- Lab creation time is faster because it doesn’t include setting up the template VM.  Creation time will drop to about 3 minutes from the usual 10 minutes for labs with templates.
+- You can ensure that a lab’s image is not modified by lab owners since there is no way for them to change the lab’s image without the template VM.
+- When you use a generalized image, each user’s VMs will have a unique machine security identifier (SID). Unique machine SIDs are often required to use endpoint management tools and similar software with your lab VMs. For example, Azure Marketplace images are generalized. If you create a lab from the Win 10 marketplace image without a template VM, each of the users’ VM within the lab will have a unique machine SID.
+Labs without a template VM will still show the Template page that includes information about the image and VM size, along with the ability to set the lab’s Title and Description. However, since there isn’t an underlying template VM, you won’t see options to start, stop, reset the password, or connect to the template VM. Likewise, you won’t see the option to Export to Shared Image Gallery.
+
+image
+
+### Updates to lab schedules
+
+There are a few updates to the Schedule experience:
+
+- The Start only schedule type is no longer available. This feature allowed lab owners to start all VMs in the lab without setting a shutdown time. Many customers reported that the feature made it easy to leave VMs accidentally running, incurring cost. Our goal is to get rid of all cases where a VM may unexpectedly run and incur costs.
+- As part of improving reliability of schedules, we’ve clarified a few rules: 
+- There can be no overlapping events. For example, a 3-5 pm event and a 4-6 pm event on the same day can’t coexist.
+- There must be at least 30 minutes between scheduled events. If a schedule ends at 3 pm, the earliest another event can be scheduled is 3:30 pm.
+- Minimum duration of a scheduled event is 15 minutes.
+- An event must be within a calendar day. It’s not possible to set up an event that starts at 11:30 pm and ends at 1:30 am the next day.
+- Changes to a scheduled event, such as updating the stop time or changing recurrence while the scheduled event is running is not allowed.
+
+### Non-admin lab users
+
+By default, when you create a new lab, Azure Lab Services adds a local admin account to the lab’s image. This admin account is then used by the lab owner to connect to the lab’s template VM. Lab users also use this account to connect to their VMs as an admin.
+
+image
+
+There may be cases where you don’t want your lab’s users to have full admin access on their VM. For example, you may want to prevent them from installing or uninstalling software. When you create a Windows or Linux lab, there is now an option to add a non-admin account on the image. If you enable this option:
+
+- Two accounts will be added to the image – a non-admin account and an admin account.
+- When the lab owner connects to the lab’s template VM, by default, they are prompted to sign-in with the admin account.
+- When a lab user connects to their VM, by default, they are prompted to sign-in with the non-admin account.
 
 ## Updates to student experience
 
 status - ready for review
+
+## VNET injection
+
+status - in progress
 
 ## Improved cost tracking
 
