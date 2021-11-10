@@ -60,7 +60,7 @@ dsregcmd.exe /RefreshPrt
 <!---device CA and --->
 ## Azure AD set up 
 
-There is no Azure AD set up required for enabling native Azure AD Authentication for accessing Azure AD Kerberos resources. You need enable the following Group Policy setting for hybrid-joined devices:
+There is no Azure AD set up required to enable native Azure AD Authentication for access to Azure AD Kerberos resources. You need to enable the following Group Policy setting for hybrid-joined devices:
 
 **Administrative Templates\System\Kerberos\Allow retrieving the cloud kerberos ticket during the logon**
 
@@ -78,7 +78,7 @@ dsregcmd.exe /RefreshPrt
 
 ## Validation 
 
-Verify tickets are getting cached by running the following command to return a ticket from the on-premises realm.
+Verify tickets are getting cached by running the following command to return a ticket from the on-premises realm:
 
 ```cmd
 klist get krbtgt
