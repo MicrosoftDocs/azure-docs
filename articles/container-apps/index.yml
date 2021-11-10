@@ -10,7 +10,7 @@ metadata:
   ms.service: container-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 10/22/2021
+  ms.date: 11/08/2021
 
 landingContent:
   - title: About Azure Container Apps
@@ -27,6 +27,10 @@ landingContent:
         links:
           - text: Deploy your first container app
             url: ./get-started.md
+      - linkListType: quickstart
+        links: 
+          - text: Deploy a Continer App - Portal
+            url: ./quickstart-portal.md
       - linkListType: concept
         links:
           - text: Environments
