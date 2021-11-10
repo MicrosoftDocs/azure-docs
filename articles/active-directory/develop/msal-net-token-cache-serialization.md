@@ -32,7 +32,7 @@ The recommendation is:
   -	Otherwise, if you want to use an in-memory cache
     -	If you're only using `AcquireTokenForClient`:
       - Either reuse the confidential client application instance and don’t add a serializer,
-      - Or new-up a new confidential client application and enable the [shared cache option](msal-net-token-cache-serialization.md?tabs=aspnet#no-token-cache-serialization) . The memory can grow a lot, though. If you need eviction, see next bullet point.
+      - Or new-up a new confidential client application and enable the [shared cache option](msal-net-token-cache-serialization.md?tabs=aspnet#no-token-cache-serialization) . This cache is faster as it's not serialized, however, the memory will grow as tokens are cached. The number of tokens is equal to the number of tenants times the number of downstream APIs. An app token is about 2KB in size. It's great for development, or if you have few users. If you need eviction, see next bullet point.
       -	If you  want to use an in-memory token cache and control its size and eviction policies, use the [Microsoft.Identity.Web in memory cache option](msal-net-token-cache-serialization.md?tabs=aspnet#in-memory-token-cache-1)
 -	If you build an SDK and want to write your own token cache serializer for confidential client applications, inherit from [Microsoft.Identity.Web.MsalAsbtractTokenCacheProvider](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.TokenCache/MsalAbstractTokenCacheProvider.cs) and override the `WriteCacheBytesAsync` and `ReadCacheBytesAsync` methods.
 
