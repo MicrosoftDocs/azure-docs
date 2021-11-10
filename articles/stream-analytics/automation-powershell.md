@@ -26,7 +26,7 @@ This article will explain how to set up auto-pause for an Azure Stream Analytics
 We'll discuss the overall design first, then go through the required components, and finally discuss some implementation details.
 
 > [!NOTE]
-> There are downsides to auto-pausing a job. The main ones being the loss of the low latency / real time capabilities, and the potential risks from allowing the input event backlog to grow unsupervised while a job is paused. This should not be considered for most production scenarios running at scale.
+> There are downsides to auto-pausing a job. The main ones being the loss of the low latency / real time capabilities, and the potential risks from allowing the input event backlog to grow unsupervised while a job is paused. Auto-pausing should not be considered for most production scenarios running at scale.
 
 ## Design
 
@@ -34,7 +34,7 @@ For this example, we want our job to run for N minutes, before pausing it for M 
 
 ![Behavior of the auto-paused job over time](./media/automation/principle.png)
 
-When running, the job should not be stopped until the entire input backlog is processed. Instead of letting it run for N minutes, we'll instead set a cool down period of N minutes. During that period, the backlogged input events should stay at 0. This behavior translates to two actions:
+When running, the job shouldn't be stopped until the entire input backlog is processed. Instead of letting it run for N minutes, we'll instead set a cool down period of N minutes. During that period, the backlogged input events should stay at 0. This behavior translates to two actions:
 
 - A stopped job is restarted after M minutes
 - A running job is, that has no backlogged input events, is stopped after N minutes
@@ -43,7 +43,7 @@ When running, the job should not be stopped until the entire input backlog is pr
 
 As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. Potential cost savings are up to 66%.
 
-To restart the job, we will use [the mode](/azure/stream-analytics/start-job#start-options) `When Last Stopped`. This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are 2 caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [Event Hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than that. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted. So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
+To restart the job, we'll use the `When Last Stopped` [start option](/azure/stream-analytics/start-job#start-options). This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are 2 caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [Event Hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than 1 day. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted. So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
 
 The last consideration is to make these actions idempotent. This way, they can be repeated at will with no side effects, for both ease of use and resiliency.
 
@@ -83,7 +83,7 @@ To host our PowerShell task, we'll need a service that offers scheduled runs. Th
 - [Azure Functions](/azure/azure-functions/functions-overview), a serverless compute engine that can run almost any piece of code. Functions offer a [timer trigger](/azure/azure-functions/functions-bindings-timer?tabs=csharp) that can run up to every second
 - [Azure Automation](/azure/automation/overview), a managed service built for operating cloud workloads and resources. Which fits the bill, but whose minimal schedule interval is 1 hour (less with [workarounds](/azure/automation/shared-resources/schedules#schedule-runbooks-to-run-more-frequently)).
 
-Azure Automation is the easier way to deploy the task, if we don't mind the workaround. Here we'll be writing a local script first, then discuss how to deploy it both in Functions and in an Automation Account.
+If we don't mind the workaround, Azure Automation is the easier way to deploy the task. But to be able to compare, in this article we'll be writing a local script first. Once we have a functioning script, we'll deploy it both in Functions and in an Automation Account.
 
 ### Developer tools
 
@@ -358,7 +358,7 @@ For that, in the Portal for the **ASA job** (not the Automation page), in **Acce
 
 ![Adding the managed identity to the contributor role for the ASA job](./media/automation/function-asa-role.png)
 
-In the PowerShell script, we can add add a check that ensures the managed identity is set properly (the final script is available [here](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1))
+In the PowerShell script, we can add a check that ensures the managed identity is set properly (the final script is available [here](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1))
 
 ```PowerShell
 # Ensures you do not inherit an AzContext in your runbook
