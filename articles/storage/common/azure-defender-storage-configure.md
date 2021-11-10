@@ -52,7 +52,7 @@ Microsoft Defender for Storage is built into Microsoft Defender for Cloud. When 
 1. Launch **Microsoft Defender for Cloud** in the [Azure portal](https://portal.azure.com).
 1. From Defender for Cloud's main menu, select **Environment settings**.
 1. Select the subscription for which you want to enable or disable Microsoft Defender for Cloud.
-1. Select **Enable all Microsoft Defender for Cloud plans** to enable Microsoft Defender for the subscription.
+1. Select **Enable all Microsoft Defender plans** to enable Microsoft Defender for Cloud in the subscription.
 1. Under **Select Microsoft Defender plans by resource type**, locate the **Storage** row, and select **Enabled** in the **Plan** column.
 1. Save your changes.
 
