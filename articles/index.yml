@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/08/2021
+  ms.date: 11/07/2021
   featureFlags:
   - clicktale
 
@@ -600,6 +600,13 @@ productDirectory:
         - featured
         - compute
       url: ./virtual-machines/index.yml
+    # Card
+    - title: Azure Container Apps (Preview)
+      summary: Build and deploy modern apps and microservices using serverless containers
+      imageSrc: ./media/index/container-apps.svg
+      azureCategories:
+        - containers
+      url: container-apps/index.yml
     # Card
     - title: Azure Dev Spaces
       summary: Test and iteratively develop your microservices app in Azure AKS
