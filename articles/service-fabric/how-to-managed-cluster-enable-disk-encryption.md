@@ -147,10 +147,10 @@ The following step will walk you through the required template changes to enable
 
    ```json
    "parameters": { 
-   …
+    …
     "keyVaultResourceId": { 
         "type": "string", 
-        "defaultValue": "/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>", 
+        "defaultValue": "/subscriptions/########-####-####-####-############/resourceGroups/$rg-name/providers/Microsoft.KeyVault/vaults/$kv-name", 
         "metadata": { 
             "description": "Full resource id of the Key Vault used for disk encryption." 
         } 
@@ -195,7 +195,7 @@ The following step will walk you through the required template changes to enable
    "parameters": { 
     … 
     "keyVaultResourceId": { 
-        "value": "/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>" 
+        "value": "/subscriptions/########-####-####-####-############/resourceGroups/$rg-name/providers/Microsoft.KeyVault/vaults/$kv-name" 
     },   
     "volumeType": { 
         "value": "All" 

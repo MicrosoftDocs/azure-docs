@@ -289,8 +289,7 @@ Configure additional managed disks by declaring `additionalDataDisks` property a
      }
 ```
 
-See [full list of parameters available](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2021-11-01/managedclusters?tabs=json)
-
+See [full list of parameters available](/azure/templates/microsoft.servicefabric/2021-11-01/managedclusters)
 
 ## Configure the Service Fabric data disk drive letter (preview)
 Service Fabric managed clusters by default configure a Service Fabric data disk and automatically configure the drive letter on all nodes of a node type. By configuring these optional properties and values you can specify and retrieve the Service Fabric data disk letter if you have specific requirements for drive letter mapping.
