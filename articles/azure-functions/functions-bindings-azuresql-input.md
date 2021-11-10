@@ -20,7 +20,7 @@ For information on setup and configuration details, see the [overview](./functio
 This section contains the following examples:
 
 * [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-c)
-* [HTTP trigger, get multiple docs from route data](#http-trigger-get-multiple-docs-from-route-data-c)
+* [HTTP trigger, get multiple docs from route data](#http-trigger-get-multiple-items-from-route-data-c)
 
 The examples refer to a `ToDoItem` type and a corresponding database table:
 
