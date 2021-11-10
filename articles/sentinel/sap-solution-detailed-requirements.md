@@ -63,6 +63,8 @@ If you have an SAP Basis version of 7.50 or lower, install the following SAP not
 |     |         |
 
 Access the SAP notes from the [SAP support Launchpad site](https://support.sap.com/en/index.html).
+## Requires SAP ports access:
+The SAP environment host, via the following TCP ports: 32xx, 5xx13, and 33xx, where xx is the SAP instance number.
 
 ## Required ABAP authorizations
 
