@@ -853,7 +853,10 @@
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
       },
       "recommendations": {
-        "articles/cognitive-services/Translator/**/*.md": false
+        "articles/cognitive-services/Translator/**/*.md": false,
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": false,
+        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": false,
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": false
       },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
