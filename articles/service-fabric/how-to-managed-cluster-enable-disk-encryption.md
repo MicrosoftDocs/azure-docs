@@ -22,7 +22,7 @@ This encryption method improves on [Azure Disk Encryption](how-to-managed-cluste
 
 Follow these steps and reference this [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-HostEncryption) to deploy a new Service Fabric managed cluster with host encryption enabled.
 
-1. Review the following [restrictions](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) to validate they meet your requirements
+1. Review the following [restrictions](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) to validate they meet your requirements.
 
 2. Set up the required [prerequisites](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites) before cluster deployment
 
