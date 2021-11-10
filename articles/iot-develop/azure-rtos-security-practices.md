@@ -58,9 +58,9 @@ Many devices will use a hardware RTC backed by synchronization performed over a 
 
 **Hardware**: If you implement a hardware RTC and NTP or other network-based solutions are unavailable for synching, the RTC should:
 
-- be accurate enough for certificate expiration checks (hour resolution or better).
-- be either updateable or resistant to drift over the lifetime of the device.
-- maintain time across power failures or resets.
+- Be accurate enough for certificate expiration checks (hour resolution or better).
+- Be either updateable or resistant to drift over the lifetime of the device.
+- Maintain time across power failures or resets.
 
 An invalid time will disrupt all TLS communication, possibly rendering the device unreachable.
 
@@ -98,7 +98,7 @@ There are a wide variety of cryptographic routines available today. Research the
 Use of hardware cryptographic peripherals can speed up your application and provide additional security against timing attacks, which exploit the duration of a cryptographic operation to derive information about a secret key, by performing cryptographic operations in constant time regardless of the key or data properties. Every platform will likely be different as there is no accepted standard for cryptographic hardware (other than the accepted cryptographic algorithms like AES and RSA).
 
 > [!IMPORTANT]
-> Hardware cryptographic acceleration does not necessarily equate to enhanced security. For example:
+> Hardware cryptographic acceleration doesn't necessarily equate to enhanced security. For example:
 >
 > - Some cryptographic accelerators implement only the ECB mode of the cipher, and it's left to the software developer to implement more secure modes like GCM, CCM, or CBC. ECB is not semantically secure.
 >
@@ -111,7 +111,7 @@ Combining hardware cryptography acceleration that implements secure cipher modes
 
 **Azure RTOS**: Azure RTOS provides drivers for select cryptographic hardware platforms. Check your Azure RTOS Cryptography documentation for more information on hardware-based cryptography.
 
-**Application**: Applications that require cryptographic operations should utilize all hardware-based cryptography that is available.
+**Application**: Applications that require cryptographic operations should make use of all hardware-based cryptography that is available.
 
 **7 Properties**: Hardware-based Root of Trust, Defense in Depth, Compartmentalization, Small Trusted Computing Base
 
@@ -127,7 +127,7 @@ Content coming
 
 ### Certificate management
 
-If your device utilizes a certificate from a PKI (Public Key Infrastructure) your application will need to be able to update those certificates (both for the device and any trusted certificates used for verifying servers) periodically. The more frequent the update, the more secure your application will be.
+If your device utilizes a certificate from a PKI (Public Key Infrastructure), your application will need to be able to update those certificates periodically (both for the device and any trusted certificates used for verifying servers). The more frequent the update, the more secure your application will be.
 
 **Hardware**:  All certificate private keys should be tied to your device. Ideally, the key should be generated internally by the hardware and never exposed to your application. This would require the ability to generate X.509 certificate requests on the device.
 
@@ -139,35 +139,21 @@ If your device utilizes a certificate from a PKI (Public Key Infrastructure) you
 
 **SMM Practices**: Establishing and Maintaining Identities, Access Control
 
-0 – No certificate 
-
-1 – Use of certificate without protection (e.g.  private keys stored in normal program memory) 
-
-2 – Use of certificates with protection (e.g.  private keys stored in protected memory) 
-
-3 – Use of hardware-based certificates (e.g.  private keys generated in on-device HSM hardware) 
-
-4 – A system to update hardware-based certificates on a regular basis to reduce the threat of compromised private keys 
-
- 
-
-Content coming
-
 ### Attestation
 
 Content coming
 
 ## Embedded Security Components – Memory Protection
 
-Many successful hacking attacks utilize buffer overflow errors to gain access to privileged information or even to execute arbitrary code on a device. Numerous technologies and languages have been created to battle overflow problems, but the fact remains that system-level embedded development requires low-level programming. As a result, the majority of embedded development is done using C or assembly language, which lack modern memory protection schemes but allow for less restrictive memory manipulation. Given the lack of built-in protection, the Azure RTOS developer must be vigilant about memory corruption. The following recommendations leverage functionality provided by some MCU platforms and Azure RTOS itself to help mitigate the impact of overflow errors on security.
+Many successful hacking attacks utilize buffer overflow errors to gain access to privileged information or even to execute arbitrary code on a device. Numerous technologies and languages have been created to battle overflow problems, but the fact remains that system-level embedded development requires low-level programming. As a result, most embedded development is done using C or assembly language, which lack modern memory protection schemes but allow for less restrictive memory manipulation. Given the lack of built-in protection, the Azure RTOS developer must be vigilant about memory corruption. The following recommendations leverage functionality provided by some MCU platforms and Azure RTOS itself to help mitigate the impact of overflow errors on security.
 
 ### Protection against reading/writing memory
 
-An MCU may provide a latching mechanism to enable a tamper-resistant state, either by preventing reading of sensitive data or by locking areas of memory from being overwritten. This may be part of or in addition to an MPU or MMU.
+An MCU may provide a latching mechanism to enable a tamper-resistant state, either by preventing reading of sensitive data or by locking areas of memory from being overwritten. This may be part of, or in addition to, a Memory Protection Unit (MPU) or a Memory Management Unit (MMU).
 
 **Hardware**: The MCU must provide the appropriate hardware and interface to use memory protection.
 
-**Azure RTOS**: If the memory protection mechanism is not an MMU or MPU, Azure RTOS does not require any specific support. For more advanced memory protection, Azure RTOS ThreadX Modules may be used to provide detailed control over memory spaces for threads and other RTOS control structures.
+**Azure RTOS**: If the memory protection mechanism is not an MMU or MPU, Azure RTOS doesn't require any specific support. For more advanced memory protection, Azure RTOS ThreadX Modules may be used to provide detailed control over memory spaces for threads and other RTOS control structures.
 
 **Application**: The application developer may be required to enable memory protection when the device is first booted – refer to secure boot documentation. For simple mechanisms (not MMU or MPU), the application may place sensitive data (for example, certificates) into the protected memory region and access it using the hardware platform APIs.
 
@@ -177,11 +163,11 @@ An MCU may provide a latching mechanism to enable a tamper-resistant state, eith
 
 ### Application Memory Isolation
 
-If your hardware platform has an MMU (Memory Management Unit) or MPU (Memory Protection Unit), then those features can be utilized to isolate the memory spaces used by individual threads or processes. More sophisticated mechanisms also exist, such as TrustZone that provide additional protections above and beyond what a simple MPU can do. This isolation can thwart attackers from using a hijacked thread or process to corrupt or view memory in another thread/process.
+If your hardware platform has a Memory Management Unit (MMU) or Memory Protection Unit (MPU), then those features can be utilized to isolate the memory spaces used by individual threads or processes. More sophisticated mechanisms also exist, such as TrustZone that provide additional protections above and beyond what a simple MPU can do. This isolation can thwart attackers from using a hijacked thread or process to corrupt or view memory in another thread or process.
 
 **Hardware**: The MCU must provide the appropriate hardware and interface to use memory protection.
 
-**Azure RTOS**: Azure RTOS allows for ‘ThreadX Modules’ which are built independently/separately and provided with their own instruction and data area addresses at run-time. Memory protection can then be enabled such that a context switch to a thread in a Module will disallow code from accessing memory outside of the assigned area.
+**Azure RTOS**: Azure RTOS allows for ‘ThreadX Modules’ that are built independently/separately and provided with their own instruction and data area addresses at run-time. Memory protection can then be enabled such that a context switch to a thread in a module will disallow code from accessing memory outside of the assigned area.
 
 > [!NOTE]
 > TLS and MQTT aren’t yet supported from ThreadX Modules.
@@ -194,7 +180,7 @@ If your hardware platform has an MMU (Memory Management Unit) or MPU (Memory Pro
 
 ### Protection against execution from RAM
 
-Many MCU devices contain an internal “program flash” where the application firmware is stored. The application code is sometimes run directly from the flash hardware, utilizing the RAM only for data. If the MCU allows execution of code from RAM, look for a way to disable that feature as many attacks will try to modify the application code in some way, but if the attacker can't execute code from RAM it becomes more difficult to compromise the device. Placing your application in flash makes it more difficult to change due to the nature of flash technology (unlock/erase/write process), thus increasing the challenge for an attacker. It's not a perfect solution but in order to provide for renewable security the flash needs to be updatable. A completely read-only code section would be better at preventing attacks on executable code but would prevent updating.
+Many MCU devices contain an internal “program flash” where the application firmware is stored. The application code is sometimes run directly from the flash hardware, using the RAM only for data. If the MCU allows execution of code from RAM, look for a way to disable that feature. This is because many attacks will try to modify the application code in some way, but if the attacker can't execute code from RAM it becomes more difficult to compromise the device. Placing your application in flash makes it more difficult to change because of the nature of flash technology (unlock/erase/write process) and this increases the challenge for an attacker. It's not a perfect solution, but, to provide for renewable security, the flash needs to be updatable. A completely read-only code section would be better at preventing attacks on executable code but would prevent updating.
 
 **Hardware**: Presence of a program flash used for code storage and execution. If running in RAM is required, then consider leveraging an MMU or MPU (if available) to protect from writing to the executable memory space.
 
@@ -208,13 +194,13 @@ Many MCU devices contain an internal “program flash” where the application f
 
 ### Memory buffer checking
 
-A primary concern for connected devices is avoiding buffer overflow problems. This is particularly a concern with applications written in unmanaged languages like C. Safe coding practices can alleviate some of the problem but whenever possible try to incorporate buffer checking into your application. This may come in the form of built-in features of the selected hardware platform, third-party libraries, tools, and, in some cases, features in the hardware itself that provide a mechanism for detecting or preventing overflow conditions.
+Avoiding buffer overflow problems is a primary concern for code running on connected devices. This is particularly the case for applications written in unmanaged languages like C. Safe coding practices can alleviate some of the problem but whenever possible try to incorporate buffer checking into your application. You may be able to use built-in features of the selected hardware platform, third-party libraries, tools, and, in some cases, features in the hardware itself that provide a mechanism for detecting or preventing overflow conditions.
 
 **Hardware**: Some platforms may provide memory checking functionality. Consult with your MCU vendor for more information.
 
 **Azure RTOS**: No specific Azure RTOS functionality provided.
 
-**Application**: Follow good coding practice by requiring applications to always supply buffer size or the number of elements in an operation (and not relying on implicit terminators such as NULL). With a known buffer size the program will be able to check bounds during memory or array operations such as when calling APIs like `memcpy`. Try to use safe versions of APIs like `memcpy_s`.
+**Application**: Follow good coding practice by requiring applications to always supply buffer size or the number of elements in an operation. Avoid relying on implicit terminators such as NULL. With a known buffer size, the program will be able to check bounds during memory or array operations such as when calling APIs like `memcpy`. Try to use safe versions of APIs like `memcpy_s`.
 
 **7 Properties**: Defense in Depth
 
@@ -226,7 +212,7 @@ Preventing stack overflow is a primary security concern for any application. Azu
 
 **Hardware**: Some MCU platform vendors may provide hardware-based stack checking. Utilize any functionality that is available.
 
-**Azure RTOS**: Azure RTOS ThreadX provides some stack checking functionality that can be optionally enabled at compile time. Refer to the Azure RTOS User Guide for more information.
+**Azure RTOS**: Azure RTOS ThreadX provides some stack checking functionality that can be optionally enabled at compile time. For more information, see the the [Azure RTOS ThreadX documentation](/azure/rtos/threadx/).
 
 **Application**:  Certain compilers such as IAR also have “stack canary” support that helps to catch stack overflow conditions. Check your tools to see what options are available and enable them if possible.
 
@@ -236,11 +222,11 @@ Preventing stack overflow is a primary security concern for any application. Azu
 
 ## Embedded Security Components – Secure Boot and Firmware Update
 
- An IoT device, unlike a traditional embedded device, will often be connected over the Internet to a cloud service for monitoring and data gathering. As a result, it is nearly certain that the device will be probed in some way which could lead to an attack if a vulnerability is found. A successful attack may result in the discovery of an unknown vulnerability that further compromises the device (and, more importantly, other devices of the same kind), so it is critical that an IoT device can be updated quickly and easily. This means that the firmware image itself must be verified, because if an attacker can load a compromised image onto a device then that device is lost. The solution is to pair a secure boot mechanism with remote firmware update (also called Over the Air, or OTA, update) capability. Secure boot verifies that a firmware image is valid and trusted, while an OTA update mechanism allows updates to be quickly and securely deployed to the device.
+ An IoT device, unlike a traditional embedded device, will often be connected over the Internet to a cloud service for monitoring and data gathering. As a result, it is nearly certain that the device will be probed in some way, which could lead to an attack if a vulnerability is found. A successful attack may result in the discovery of an unknown vulnerability that further compromises the device and, more importantly, other devices of the same kind. For this reason, it is critical that an IoT device can be updated quickly and easily. This means that the firmware image itself must be verified, because if an attacker can load a compromised image onto a device then that device is lost. The solution is to pair a secure boot mechanism with remote firmware update (also called Over the Air, or OTA, update) capability. Secure boot verifies that a firmware image is valid and trusted, while an OTA update mechanism allows updates to be quickly and securely deployed to the device.
 
 ### Secure boot
 
-It is vital that a device can be proven to be running valid firmware upon reset. Secure boot prevents the device from running untrusted (or modified) firmware images. Secure boot mechanisms are tied to the hardware platform and validate the firmware image against internally protected measurements before loading the application. If validation fails, the device will refuse to boot the corrupted image.
+It is vital that a device can be proven to be running valid firmware upon reset. Secure boot prevents the device from running untrusted or modified firmware images. Secure boot mechanisms are tied to the hardware platform and validate the firmware image against internally protected measurements before loading the application. If validation fails, the device will refuse to boot the corrupted image.
 
 **Hardware**: MCU vendors may provide their own proprietary secure boot mechanisms as secure boot is tied to the hardware.
 
@@ -271,7 +257,7 @@ Over-the-Air (OTA) update, sometimes referred to as “firmware update”, invol
 
 ### Rollback or downgrade protection
 
-Secure boot and OTA update must work together to provide an effective firmware update mechanism. This means that secure boot must be able to ingest a new firmware image from the OTA mechanism and mark the new version as being trusted. However, the OTA/Secure boot mechanism must also protect against downgrade attacks – if an attacker can force a rollback to an earlier trusted version that has known vulnerabilities then the OTA/secure boot fails to provide proper security.
+Secure boot and OTA update must work together to provide an effective firmware update mechanism. Secure boot must be able to ingest a new firmware image from the OTA mechanism and mark the new version as being trusted. The OTA/Secure boot mechanism must also protect against downgrade attacks. If an attacker can force a rollback to an earlier trusted version that has known vulnerabilities then the OTA/secure boot fails to provide proper security.
 
 Downgrade protection also applies to revoked certificates or credentials.
 
@@ -287,7 +273,7 @@ Downgrade protection also applies to revoked certificates or credentials.
 
 ### Code signing
 
-Utilize any features for signing and verifying code or credential updates. Code signing involves generating a cryptographic hash of the firmware or application image. That hash is used to verify the integrity of the image received by the device, usually using a trusted root X.509 certificate to verify the hash signature. This process is usually tied into secure boot and OTA update mechanisms.
+Make use of any features for signing and verifying code or credential updates. Code signing involves generating a cryptographic hash of the firmware or application image. That hash is used to verify the integrity of the image received by the device, usually using a trusted root X.509 certificate to verify the hash signature. This process is usually tied into secure boot and OTA update mechanisms.
 
 **Hardware**: No specific hardware functionality required (except as part of OTA update or secure boot). Using hardware-based signature verification is recommended if available.
 
@@ -303,15 +289,14 @@ Utilize any features for signing and verifying code or credential updates. Code 
 
 ### Use the latest version of TLS possible for connectivity
 
-TLS 1.0 and TLS 1.1 are obsolete protocols and should not be used for new application development. The only exception would be for communication with legacy devices where there is no other option. TLS 1.0 and 1.1 are disabled by default in Azure RTOS.
 Support current TLS versions:
 
 - TLS 1.2 is currently (as of 2020) the most widely used TLS version.
 
-- TLS 1.3 is the latest TLS version. Finalized in 2018, it adds numerous security and performance enhancements, but is not yet widely deployed. However, if your application can support TLS 1.3 it is recommended for new applications.
+- TLS 1.3 is the latest TLS version. Finalized in 2018, it adds many security and performance enhancements, but is not yet widely deployed. However, if your application can support TLS 1.3 it's recommended for new applications.
 
 > [!NOTE]
-> TLS 1.0 and TLS 1.1 are obsolete protocols and should not be used for new application development. They are disabled by default in Azure RTOS.
+> TLS 1.0 and TLS 1.1 are obsolete protocols and shouldn't be used for new application development. They are disabled by default in Azure RTOS.
 
 **Hardware**: No specific hardware requirements.
 
@@ -325,7 +310,7 @@ Support current TLS versions:
 
 ### Use X.509 Certificates for TLS authentication
 
-X.509 certificates are used to authenticate a device to a server and a server to a device. A device certificate is used to prove the identity of a device by a server. Trusted root CA certificates are used by a device to authenticate a server or service to which it is connects. The ability to update these certificates is critical as certificates can be compromised and have limited lifespans.
+X.509 certificates are used to authenticate a device to a server and a server to a device. A device certificate is used to prove the identity of a device to a server. Trusted root CA certificates are used by a device to authenticate a server or service to which it connects. The ability to update these certificates is critical as certificates can be compromised and have limited lifespans.
 
 Using hardware-based X.509 certificates with TLS mutual authentication and a PKI with active monitoring of certificate status provides the highest level of security.
 
@@ -339,17 +324,17 @@ Using hardware-based X.509 certificates with TLS mutual authentication and a PKI
 
 **SMM Practices** : Access Control, The Implementation of Data Protection Controls
 
-### Use strongest cryptographic options/cyphersuites for TLS
+### Use strongest cryptographic options and cipher suites for TLS
 
-Use the strongest cryptography and cipher suites available for TLS. Having the ability to update TLS and cryptography is also important as, over time, certain cipher suites and TLS versions may become compromised or discontinued.
+Use the strongest cryptography and cipher suites available for TLS. Having the ability to update TLS and cryptography is also important because over time certain cipher suites and TLS versions may become compromised or discontinued.
 
 **Hardware**: If cryptographic acceleration is available, use it.
 
-**Azure RTOS**:  Azure RTOS TLS provides hardware drivers for select devices that support cryptography in hardware. For routines not supported in hardware, the Azure RTOS cryptography library is designed specifically for embedded systems. A FIPS 140-2 certified library that uses the same code base is also available.
+**Azure RTOS**:  Azure RTOS TLS provides hardware drivers for select devices that support cryptography in hardware. For routines not supported in hardware, the [Azure RTOS cryptography library](/azure/rtos/netx/netx-crypto/chapter1) is designed specifically for embedded systems. A FIPS 140-2 certified library that uses the same code base is also available.
 
 **Application**: Applications using TLS should choose cipher suites that utilize hardware-based cryptography (when available) and the strongest keys available.
 
-**Properties**: Hardware Based Root of Trust, Defense in Depth
+**Properties**: Hardware-based Root of Trust, Defense in Depth
 
 **SMM Practices**: The Implementation of Data Protection Controls
 
@@ -361,7 +346,7 @@ Using hardware-based X.509 certificates with TLS mutual authentication and a PKI
 
 **Hardware**: No specific hardware requirements.
 
-**Azure RTOS**: Azure RTOS TLS provides support for mutual certificate authentication in both TLS Server and Client applications. See the Azure RTOS TLS documentation for more information.
+**Azure RTOS**: Azure RTOS TLS provides support for mutual certificate authentication in both TLS Server and Client applications. For more information, see the [Azure RTOS NetX Secure TLS documentation](/netx-secure-tls/chapter1#netx-secure-unique-features).
 
 **Application**: Applications using TLS should always default to mutual certificate authentication whenever possible. Mutual authentication requires TLS clients to have a device certificate. Mutual authentication is an optional TLS feature but is highly recommended when possible.
 
@@ -387,13 +372,13 @@ If your device uses MQTT for cloud communication, only use MQTT over TLS.
 
 ### Disable debugging features
 
-For development, most MCU devices utilize a JTAG interface or a similar interface to provide information to debuggers or other applications. Leaving a debugging interface enabled on your device gives an attacker a very easy door into your application. Make sure to disable all debugging interfaces and remove associated debugging code from your application before deployment.
+For development, most MCU devices use a JTAG interface or similar interface to provide information to debuggers or other applications. Leaving a debugging interface enabled on your device gives an attacker an easy door into your application. Make sure to disable all debugging interfaces and remove associated debugging code from your application before deployment.
 
 **Hardware**: Some devices may have hardware support to disable debugging interfaces permanently, or the interface can be removed physically from the device (NOTE that this does NOT mean the interface is disabled). You may need to disable the interface on boot (for example, during a secure boot process), but it should always be disabled in production devices.
 
 **Azure RTOS**: Not applicable.
 
-**Application**: If the device does not have a feature to permanently disable debugging interfaces, the application may have to disable those interfaces on boot. This should be done as early as possible in the boot process, preferably during a secure boot before the application is running.
+**Application**: If the device doesn't have a feature to permanently disable debugging interfaces, the application may have to disable those interfaces on boot. This should be done as early as possible in the boot process, preferably during a secure boot before the application is running.
 
 **7 Properties**: Defense in Depth
 
@@ -401,7 +386,7 @@ For development, most MCU devices utilize a JTAG interface or a similar interfac
 
 ### Watchdog timers
 
-When available, an IoT device should use a watchdog timer to reset an unresponsive application. Having the watchdog timer reset the device when time runs out will limit the amount of time an attacker may have to execute an exploit. The watchdog can be re-initialized by the application and some basic integrity checking could also be done such as looking for code executing in RAM, checksums on data, identity checks, and so on. If an attacker did not account for the watchdog timer reset while trying to compromise the device, then the device would reboot into a (theoretically) clean state – note that this would require a secure boot mechanism to verify the identity of the application image.
+When available, an IoT device should use a watchdog timer to reset an unresponsive application. Having the watchdog timer reset the device when time runs out will limit the amount of time an attacker may have to execute an exploit. The watchdog can be re-initialized by the application and some basic integrity checks can also be done such as looking for code executing in RAM, checksums on data, identity checks, and so on. If an attacker doesn't account for the watchdog timer reset while trying to compromise the device, then the device would reboot into a (theoretically) clean state – note that this would require a secure boot mechanism to verify the identity of the application image.
 
 **Hardware**: Watchdog timer support in hardware, secure boot functionality.
 
@@ -459,7 +444,7 @@ If using other development tools, consult your documentation for appropriate opt
 
 - Enable all runtime checking that is available. Examples include stack checking, buffer overflow detection, Address Space Layout Randomization (ASLR), and integer overflow detection.
 
-- Some tools and devices may provide options to place code in protected or read-only areas of memory. Utilize any available protection mechanisms to prevent an attacker from being able to run arbitrary code on your device. Be aware that simply protecting code by making it read-only does not completely protect against arbitrary code execution, but it does help.
+- Some tools and devices may provide options to place code in protected or read-only areas of memory. Utilize any available protection mechanisms to prevent an attacker from being able to run arbitrary code on your device. Be aware that simply protecting code by making it read-only doesn't completely protect against arbitrary code execution, but it does help.
 
 **7 Properties**: Defense in Depth, Compartmentalization
 
@@ -539,7 +524,7 @@ The previous sections detailed specific design considerations with descriptions 
 
 ### Security DON'Ts
 
-- DO NOT use the standard C-library `rand()` function as it does not provide cryptographic randomness. Consult your hardware documentation for a proper source of cryptographic entropy.
+- DO NOT use the standard C-library `rand()` function as it doesn't provide cryptographic randomness. Consult your hardware documentation for a proper source of cryptographic entropy.
 
 - DO NOT hard-code private keys or credentials (certificates, passwords, usernames, etc.) in your application. Private keys should be updated regularly (the actual schedule depends on several factors) to provide a higher level of security. In addition, hard-coded values may be readable in memory or even in transit over a network if the firmware image is not encrypted. The actual mechanism for updating keys and certificates will depend heavily on your application and the PKI being used.
 
@@ -547,11 +532,11 @@ The previous sections detailed specific design considerations with descriptions 
 
 - DO NOT use any TLS extensions that are not needed. Azure RTOS TLS disables many features by default so only enable features you need.
 
-- DO NOT utilize “Security by obscurity”. It is NOT SECURE. The industry is littered with examples where a developer tried to be clever by obscuring or hiding code or algorithms. Obscuring your code or secret information like keys or passwords may prevent some intruders but it will not stop a dedicated attacker. Obscured code provides a false sense of security.
+- DO NOT utilize “Security by obscurity”. It is NOT SECURE. The industry is littered with examples where a developer tried to be clever by obscuring or hiding code or algorithms. Obscuring your code or secret information like keys or passwords may prevent some intruders but it won't stop a dedicated attacker. Obscured code provides a false sense of security.
 
 - DO NOT leave unnecessary functionality enabled or unused network or hardware ports open. If your application doesn’t need a feature, disable it. Don’t fall into the trap of leaving a TCP port open “just in case”. The more functionality that is enabled, the higher the risk that an exploit will go undetected and the interaction between different features can introduce new vulnerabilities.
 
-- DO NOT leave debugging enabled in production code. If an attacker can simply plug in a JTAG debugger and dump the contents of RAM on your device, there is very little that can be done to secure your application. Leaving a debugging port open is the equivalent of leaving your front door open with a your valuables lying in plain sight. Don’t do it.
+- DO NOT leave debugging enabled in production code. If an attacker can simply plug in a JTAG debugger and dump the contents of RAM on your device, there's very little that can be done to secure your application. Leaving a debugging port open is the equivalent of leaving your front door open with your valuables lying in plain sight. Don’t do it.
 
 - DO NOT allow buffer overflow in your application. Many remote attacks start with a buffer overflow that is used to probe the contents of memory or inject malicious code to be executed. The best defense is to write defensive code – double check any input that comes from or is derived from sources outside the device (network stack, display/GUI interface, external interrupts, etc.) and handle the error gracefully. Utilize compiler, linker, and runtime system tools to detect and mitigate overflow problems.
 
@@ -559,10 +544,16 @@ The previous sections detailed specific design considerations with descriptions 
 
 - DO NOT put buffers in program stacks – allocate them statically whenever possible.
 
-- DO NOT use dynamic memory and heap operations when possible. Heap overflows can be problematic since the layout of dynamically allocated memory for example, from functions like `malloc()`, is difficult to predict. Static buffers can be more easily managed and protected.
+- DO NOT use dynamic memory and heap operations when possible. Heap overflows can be problematic since the layout of dynamically allocated memory, for example, from functions like `malloc()`, is difficult to predict. Static buffers can be more easily managed and protected.
 
-- DO NOT embed function pointers in data packets were overflow can overwrite function pointers.
+- DO NOT embed function pointers in data packets where overflow can overwrite function pointers.
 
-- DO NOT try to implement your own cryptography. Accepted cryptographic routines like ECC and AES have been developed by experts in cryptography and have gone through rigorous analysis over many years (sometimes decades) to prove their security. It is highly unlikely that any algorithm you develop on your own will have the security required to protect sensitive communications and data.
+- DO NOT try to implement your own cryptography. Accepted cryptographic routines like ECC and AES have been developed by experts in cryptography and have gone through rigorous analysis over many years (sometimes decades) to prove their security. It's highly unlikely that any algorithm you develop on your own will have the security required to protect sensitive communications and data.
 
-- DO NOT implement roll-your-own cryptography schemes. Simply using AES does not mean your application is secure. Protocols like TLS utilize various methods to mitigate various issues such as known plaintext attacks (using known unencrypted data to derive information about encrypted data), padding oracles (using modified cryptographic padding to gain access to secret data), or predictable secrets which can be used to break encryption. Whenever possible, try to use accepted security protocols like TLS when securing your application.
+- DO NOT implement roll-your-own cryptography schemes. Simply using AES doesn't mean your application is secure. Protocols like TLS use various methods to mitigate well-known attacks. For example:
+
+  - known plaintext attacks, which use known, unencrypted data to derive information about encrypted data.
+  - padding oracles, which use modified cryptographic padding to gain access to secret data.
+  - predictable secrets, which can be used to break encryption.
+
+  Whenever possible, try to use accepted security protocols like TLS when securing your application.
