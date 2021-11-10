@@ -11,7 +11,7 @@ ms.author: yuajia
 
 # Azure Front Door rules match conditions
 
-In Azure Front Door [Rules Engine](front-door-rules-engine.md) and Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door Rule Set or Rules Engine.
+In Azure Front Door [Rules Engine](front-door-rules-engine.md) and Azure Front Door Standard/Premium [Rule Set](standard-premium/concept-rule-set.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door Rule Set or Rules Engine.
 
 The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are done. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values, OR logic is used.
 
