@@ -1,15 +1,13 @@
 ---
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data. 
-
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/09/2021
 ---
 
 # Storage considerations for Azure Functions
 
 Azure Functions requires an Azure Storage account when you create a function app instance. The following storage services may be used by your function app:
-
 
 |Storage service  | Functions usage  |
 |---------|---------|
