@@ -112,12 +112,13 @@ Use the **Security Configuration** page of the SQL virtual machines resource to 
 
 To learn more, see the [Security best practices](security-considerations-best-practices.md).
 
+<a name="security-center"></a>
 
-## Security Center 
+## Defender for Cloud 
 
-Use the **Security Center** page of the SQL virtual machines resource to view Security Center recommendations directly in the SQL virtual machine blade. Enable [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to leverage this feature. 
+Use the **Defender for SQL** page of the SQL virtual machine's resource to view Defender for Cloud recommendations directly in the SQL virtual machine blade. Enable [Microsoft Defender for SQL](../../../security-center/defender-for-sql-usage.md) to leverage this feature. 
 
-![Configure SQL Server Security Center settings in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-security-center.png)
+![Configure SQL Server Defender for Cloud settings in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-security-center.png)
 
 ## SQL Assessment (Preview)
 
