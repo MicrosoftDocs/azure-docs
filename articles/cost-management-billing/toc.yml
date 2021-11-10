@@ -130,17 +130,6 @@
       href: manage/ea-direct-portal-get-started.md
     - name: Request Withholding Tax credit - India
       href: manage/withholding-tax-credit-india.md
-  - name: Payments
-    items:
-    - name: Region 1
-      items:
-      - name: Region 1 - new article
-        href: understand/understand-usage.md
-    - name: Region 2
-      items:
-      - name: Region 2 - new article
-        href: understand/understand-usage.md
-
   - name: Security
     items:
     - name: Security baseline
@@ -187,18 +176,12 @@
         href: manage/azurestudents-subscription-disabled.md
       - name: Set up and configure AWS integration
         href: costs/aws-integration-set-up-configure.md
-      - name: Pay by check or wire transfer
-        href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
         href: manage/export-subscriptions.md
-      - name: Delete an Azure billing payment method
-        href: manage/delete-azure-payment-method.md
-      - name: Change credit card
-        href: manage/change-credit-card.md
       - name: Change administrator
         href: manage/add-change-subscription-administrator.md
       - name: Switch subscription offer
@@ -383,36 +366,22 @@
       items:
       - name: Renew a reservation
         href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
-  - name: Manage payment
+  - name: Manage payment methods
     items:
-    - name: MOSP - pay-as-you-go
-      items:
-      - name: Pay your bill - need article
-        href: manage/resolve-past-due-balance.md
-      - name: Resolve past due balance
-        href: manage/resolve-past-due-balance.md
-      - name: Set up pay by invoice
-        href: manage/pay-by-invoice.md
-    - name: MCA enterprise
-      items:
-      - name: Pay your bill - not enterprise specific
-        href: understand/pay-bill.md
-      - name: Set up pay by invoice
-        href: manage/pay-by-invoice.md
-    - name: MCA individual
-      items:
-      - name: Pay your bill - not enterprise specific
-        href: understand/pay-bill.md
-      - name: Set up pay by invoice
-        href: manage/pay-by-invoice.md
-    - name: Enterprise Agreement
-      items:
-      - name: Pay your bill - need new article
-        href: understand/pay-bill.md
-    - name: Microsoft Partner Agreement
-      items:
-      - name: Pay your bill - need new article
-        href: understand/pay-bill.md
+    - name: Pay your bill (MCA-specific)
+      href: understand/pay-bill.md
+    - name: Set up pay by check or wire transfer (MCA and MOSP)
+      href: manage/pay-by-invoice.md
+    - name: Resolve past due balance (MOSP-specific-not in your list)
+      href: manage/resolve-past-due-balance.md
+    - name: Update credit card (MCA and MOSP)
+      href: manage/change-credit-card.md
+    - name: Add payment method (this is part of Update credit card-need new article???)
+      href: manage/change-credit-card.md
+    - name: Delete Azure billing payment method (replace is not in this article - that's in Update credit card)
+      href: manage/delete-azure-payment-method.md
+    - name: Make an immediate payment (NEED ARTICLE - same as Pay your bill article???)
+      href: understand/pay-bill.md
   - name: Troubleshoot
     items:
     - name: Can't view or find invoices
