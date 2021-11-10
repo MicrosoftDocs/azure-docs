@@ -135,6 +135,16 @@ items:
         href: concepts/ui-library/ui-library-overview.md
       - name: UI Library use cases
         href: concepts/ui-library/ui-library-use-cases.md
+  - name: Monitoring and analytics
+    items:
+      - name: Enable logging in Diagnostic Settings
+        href: concepts/analytics/enable-logging.md
+      - name: Call Summary and Call Diagnostic logs
+        href: concepts/analytics/call-logs-azure-monitor.md
+      - name: Log Analytics
+        href: concepts/analytics/log-analytics.md
+      - name: Insights
+        href: concepts/analytics/insights.md
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md
   - name: Client and server architecture
@@ -143,6 +153,8 @@ items:
     href: concepts/identity-model.md
   - name: Authentication
     href: concepts/authentication.md
+  - name: Network Traversal
+    href: concepts/network-traversal.md    
   - name: Privacy
     href: concepts/privacy.md
   - name: Pricing

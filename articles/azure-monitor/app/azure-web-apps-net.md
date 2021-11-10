@@ -117,6 +117,9 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 
 ## Troubleshooting
 
+> [!NOTE]
+> When you create a web app with the `ASP.NET` runtimes in Azure App Services it deploys a single static HTML page as a starter website. It is **not** recommended to troubleshoot an issue with default template. Deploy an application before troubleshooting an issue.
+
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET based applications running on Azure App Services.
 
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
