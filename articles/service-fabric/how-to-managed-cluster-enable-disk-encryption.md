@@ -20,9 +20,8 @@ This encryption method improves on [Azure Disk encryption](how-to-managed-cluste
 > [!Note]
 > Azure Security Center disk encryption status will show as Unhealthy at this time when using Encryption at Host
 
-Follow these steps to deploy a new Service Fabric managed cluster with host encryption enabled. Reference this template: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-HostEncryption
+Follow these steps and reference this [example template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-HostEncryption) to deploy a new Service Fabric managed cluster with host encryption enabled.
 
-To enable encryption at host on a managed cluster node type:
 1. Review the following [restrictions](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) to validate the meet your requirements
 
 2. Setup the required [prerequisites](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites)
@@ -68,7 +67,7 @@ To enable encryption at host on a managed cluster node type:
 
    ```console
    ResourceGroupName            : SFC_########-####-####-####-############
-   VmScaleSetName               : NT1
+   VmScaleSetName               : NT2
    EncryptionEnabled            : True
    EncryptionExtensionInstalled : True
    ```
