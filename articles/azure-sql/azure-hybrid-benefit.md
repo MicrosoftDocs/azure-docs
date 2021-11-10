@@ -34,7 +34,7 @@ With Azure Hybrid Benefit, you pay only for the underlying Azure infrastructure 
 
 You can choose or change your licensing model for Azure SQL Database using the Azure portal or the API of your choice.
 
-You can only apply the Azure Hybrid licensing model when you choose a vCore based purchasing model and the provisioned compute tier for your Azure SQL Database. Azure Hybrid Benefit isn't available for service tiers under the DTU-based purchasing model or for the serverless compute tier.
+You can only apply the Azure Hybrid licensing model when you choose a vCore-based purchasing model and the provisioned compute tier for your Azure SQL Database. Azure Hybrid Benefit isn't available for service tiers under the DTU-based purchasing model or for the serverless compute tier.
 
 #### [Portal](#tab/azure-portal)
 
@@ -119,8 +119,8 @@ SQL Database and SQL Managed Instance customers have the following rights associ
 
 |License footprint|What does Azure Hybrid Benefit for SQL Server get you?|
 |---|---|
-|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>One core on-premises = Four vCores in Hyperscale SKU</li><br><li>One core on-premises = 4 vCores in General Purpose SKU</li><br><li>One core on-premises = One vCore in Business Critical SKU</li>|
-|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>One core on-premises = One vCore in Hyperscale SKU</li><br><li>One core on-premises = One vCore in General Purpose SKU</li><br><li>Four core on-premises = One vCore in Business Critical SKU</li>|
+|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>One core on-premises = Four vCores in Hyperscale SKU</li><br><li>One core on-premises = Four vCores in General Purpose SKU</li><br><li>One core on-premises = One vCore in Business Critical SKU</li>|
+|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>One core on-premises = One vCore in Hyperscale SKU</li><br><li>One core on-premises = One vCore in General Purpose SKU</li><br><li>Four cores on-premises = One vCore in Business Critical SKU</li>|
 |||
 
 ## Next steps
