@@ -66,7 +66,7 @@ There is no Azure AD set up required for enabling native Azure AD Authentication
 
 ![Screenshot of group policy setting Allow retrieving the cloud kerberos ticket during the logon.](media\how-to-kerberos-authentication-azure-files\gp.png)
 
-Set the following registry key for Intune-managed devices:
+Set the following registry key for devices managed by Intune:
 
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters!CloudKerberosTicketRetrievalEnabled dword=1
 
@@ -85,5 +85,7 @@ klist get krbtgt
 ```
 
 ## Next steps
+
+For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure Files, see [Create a profile container with Azure Files and Azure Active Directory](/azure/virtual-desktop/create-profile-container-azure-ad).
 
 For more information about moving file shares to Azure, see [Migrate to Azure file shares](/storage/files/storage-files-migration-overview.md).
