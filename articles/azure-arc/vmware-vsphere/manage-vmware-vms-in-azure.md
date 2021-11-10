@@ -2,7 +2,7 @@
 title: Manage VMware virtual machines Azure Arc
 description: Learn how to view the operations that you can do on VMware virtual machines and install the Log Analytics agent.
 ms.topic: how-to 
-ms.date: 09/28/2021
+ms.date: 11/10/2021
 
 ---
 
@@ -77,17 +77,17 @@ Before you can install an extension, you must enable guest management on the VMw
 
 1. Navigate to **Extensions** and select **Add**.
 
-1. Select the extension you want to install. Based on the extension, you'll need to provide the details, such as the workspace ID and key for LogAnalytics extension. Then select **Review + create**.
+1. Select the extension you want to install. Based on the extension, you'll need to provide configuration details, such as the workspace ID and primary key for Log Analytics extension. Then select **Review + create**.
 
 The deployment starts the installation of the extension on the selected VM.
 
-## Clean up
+## Delete a VM
 
 If you no longer need the VM, you can delete it.
 
 1. From your browser, go to the [Azure portal](https://aka.ms/AzureArcVM)
 
-2. Search for and select the VM you want to delete. 
+2. Search for and select the VM you want to delete.
 
 3. In the single VM view, select on **Delete**.
 
@@ -95,3 +95,5 @@ If you no longer need the VM, you can delete it.
 
 >[!NOTE]
 >This also deletes the VM in your VMware vCenter.
+
+## Next steps
