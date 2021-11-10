@@ -103,7 +103,7 @@ Consider these options for a successful deployment:
 
 + For [Premium plan hosting](functions-premium-plan.md), consider adding a warmup trigger to reduce latency when new instances are added. To learn more, see [Azure Functions warm-up trigger](functions-bindings-warmup.md). 
 
-+ Use Deployment Slots to follow safe deployment practices and ensure that the changes can be rolled back. To learn more, see [Azure Functions Deployment Slots](functions-deployment-slots.md)
++ To minimize deployment downtime and to be able to roll back deployments, consider using deployment slots. To learn more, see [Azure Functions Deployment Slots](functions-deployment-slots.md)
 
 ## Write robust functions
 
