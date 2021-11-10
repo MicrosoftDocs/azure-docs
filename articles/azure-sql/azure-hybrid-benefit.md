@@ -7,8 +7,8 @@ ms.service: sql-db-mi
 ms.subservice: service-overview
 ms.custom: sqldbrb=4
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: sashan, moslake
 ms.date: 11/09/2021
 ---
