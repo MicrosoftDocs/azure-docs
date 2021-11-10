@@ -50,7 +50,7 @@ Azure Machine Learning includes a cloud notebook server in your workspace for an
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-> [!NOTE
+> [!NOTE]
 > The video helps you understand the process, but shows opening a different file.  For this tutorial, once you've cloned the **tutorials** folder, open the **img-classification-part1-training.ipynb** file from your **tutorials/image-classification-mnist-data** folder.
 
 ### <a name="clone"></a> Clone a notebook folder
