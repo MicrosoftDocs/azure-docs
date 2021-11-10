@@ -147,7 +147,7 @@
         - name: Monitor app lifecycle events
           href: monitor-app-lifecycle-events.md
         - name: Logback with custom persistent storage
-          href: how-to-write-log-to-custom-persistent-storage
+          href: how-to-write-log-to-custom-persistent-storage.md
     - name: Network
       items:
         - name: Deploy Azure Spring Cloud in a virtual network

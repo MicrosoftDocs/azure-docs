@@ -9,7 +9,7 @@ ms.date: 11/09/2021
 ms.custom: devx-track-java
 ---
 
-# How to use Logback to write logs to your own persistent storage in Azure Spring Cloud
+# How to use Logback to write logs to your own persistent storage
 
 **This article applies to:** ✔️ Java
 
@@ -26,13 +26,13 @@ This article shows you how to load Logback and write logs to your own persistent
 You can set the path where logs will be written by using the following procedure.
 
 > [!NOTE]
-> When a file in the application's classpath has one of the following names, Spring Boot will automatically load it** over the default configuration for Logback:
+> When a file in the application's classpath has one of the following names, Spring Boot will automatically load it over the default configuration for Logback:
 > - *logback-spring.xml*
 > - *logback.xml*
 > - *logback-spring.groovy*
 > - *logback.groovy*
 
-Let's take the simple logback-spring.xml below as an example:
+Let's use this simple logback-spring.xml file as an example:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -51,7 +51,7 @@ Let's take the simple logback-spring.xml below as an example:
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 'LOGS' here is a value to be read from the application's environment variable -->
         <file>${LOGS}/spring-boot-logger.log</file>
-        <!-- please feel free to customize the log layout -->
+        <!-- please feel free to customize the log layout pattern -->
         <encoder
                 class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
@@ -69,13 +69,13 @@ Let's take the simple logback-spring.xml below as an example:
         </rollingPolicy>
     </appender>
 
-    <!-- LOG everything at INFO level -->
+    <!-- LOG everything at the INFO level -->
     <root level="info">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
     </root>
 
-    <!-- LOG "com.baeldung*" at TRACE level -->
+    <!-- LOG "com.baeldung*" at the TRACE level -->
     <logger name="com.baeldung" level="trace" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
@@ -84,19 +84,26 @@ Let's take the simple logback-spring.xml below as an example:
 </configuration>
 ```
 
-In *RollingFileAppender* and *TimeBasedRollingPolicy* sections, they both contains a placeholder *{LOGS}* in the path url for writing application's logs to. 
+In the *RollingFileAppender* and *TimeBasedRollingPolicy* sections, they both contain a placeholder *{LOGS}* in the path for writing the application's logs to. 
 
-We need to assign a value to the environment variable *LOGS* and attach the BYOS persistent storage to the same path in your Azur Spring Cloud application. Then the log will flow to both console and the custom persistent storage.
+To have the log flow to both the console and your custom persistent storage, a value needs to be assigned to the environment variable *LOGS*. Then you'll attach your custom persistent storage to the same path in your Azure Spring Cloud application.
 
-## Use the Azure CLI to load Logback and write logs to the custom persistent storage
+## Use the Azure CLI to use Logback to write logs to your custom persistent storage
 
-1. Use the following command to create an Azure Spring Cloud application with custom persistent storage enabled and environment variable set:
+This Logback configuration will write logs to both the application console and the custom persistent storage:
+
+1. Use the following command to create an Azure Spring Cloud application with custom persistent storage enabled and the environment variable set:
 
     ```azurecli
-    az spring-cloud app create -n <app-name> -g <resource-group-name> -s <spring-instance-name> --persistent-storage <path-to-JSON-file> --env LOGS=/byos/logs
+    az spring-cloud app create \
+       -n <app-name> \
+       -g <resource-group-name> \
+       -s <spring-instance-name> \
+       --persistent-storage <path-to-JSON-file> \
+       --env LOGS=/byos/logs
     ```
 
-    Here's a sample of the JSON file that is passed to the `--persistent-storage` parameter in the create command. Please make sure to pass the same value for environment variable in the cli command above and *mountPath* property below:
+    Here's a sample of the JSON file that is passed to the `--persistent-storage` parameter in the create command. Please make sure to pass the same value for the environment variable in the cli command above and in the *mountPath* property below:
 
     ```json
     {
@@ -113,19 +120,22 @@ We need to assign a value to the environment variable *LOGS* and attach the BYOS
         ]
     }
     ```
-
+  
 1. Use the following command to deploy your application:
     ```azurecli
-    az spring-cloud app deploy -n <app-name> -g <resource-group-name> -s <spring-instance-name> --jar-path <path-to-jar-file>
+    az spring-cloud app deploy \
+       -n <app-name> \
+       -g <resource-group-name> \
+       -s <spring-instance-name> \
+       --jar-path <path-to-jar-file>
     ```
 
-1. The Logback configuration above will write logs to both application console and the custom persistent storage. 
-Use the following command to check your application's console log:
+1. Use the following command to check your application's console log:
     ```azurecli
     az spring-cloud app logs -n <app-name> -g <resource-group-name> -s <spring-instance-name>
     ```
 
-    Go to the Azure Storage Account resource you binded and find the Azure File Share that was attached as a custom persistent storage. Logs will be written to "spring-boot-logger.log" file in your Azure File Share's home path. All the rotated logs files will be stored in /archived folder in your Azure File Share.
+    Go to the Azure Storage Account resource you bound and find the Azure File Share that was attached as custom persistent storage. In this example, the logs will be written to the "spring-boot-logger.log" file in your Azure File Share's home path. All of the rotated log files will be stored in the '/archived' folder in your Azure File Share.
 
 ## Next steps
 

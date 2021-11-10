@@ -131,5 +131,5 @@ The following are frequently asked questions (FAQ) about using your own persiste
 
 ## Next steps
 
-* Learn about [load Logback agent and write log to the custom persistent storage](./how-to-write-log-to-custom-persistent-storage.md).
+* Learn about [how to use Logback to write logs to your own persistent storage ](./how-to-write-log-to-custom-persistent-storage.md).
 * Learn how to [manually scale your application](./how-to-scale-manual.md).
