@@ -661,7 +661,7 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kill a virtual machinse scale set instance for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
 | Parameters (key, value) |  |
