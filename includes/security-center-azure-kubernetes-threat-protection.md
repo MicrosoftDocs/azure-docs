@@ -20,7 +20,7 @@ Defender for Cloud provides threat protection at different levels:
     For a list of the host level alerts, see the [Reference table of alerts](../articles/security-center/alerts-reference.md#alerts-containerhost).
 
 
-* **Cluster level (provided by Microsoft Defender for Kubernetes)** - At the cluster level, the threat protection is based on analyzing Kubernetes' audit logs. To enable this **agentless** monitoring, enable enhanced security features. If your cluster is on-premises or on another cloud provider, enable [Azure Arc-enabled Kubernetes and the Microsoft Defender extension](../articles/security-center/defender-for-kubernetes-azure-arc.md).
+* **Cluster level (provided by Microsoft Defender for Kubernetes)** - At the cluster level, the threat protection is based on analyzing the Kubernetes audit logs. To enable this **agentless** monitoring, enable enhanced security features. If your cluster is on-premises or on another cloud provider, enable [Azure Arc-enabled Kubernetes and the Defender extension](../articles/security-center/defender-for-kubernetes-azure-arc.md).
 
     To generate alerts at this level, Defender for Cloud monitors your clusters' logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts.
 

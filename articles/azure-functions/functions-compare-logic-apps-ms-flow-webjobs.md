@@ -1,5 +1,5 @@
 ---
-title: Integration and automation platform options in Azure 
+title: Integration and automation platform options in Azure
 description: "Compare Microsoft cloud services that are optimized for integration tasks: Power Automate, Logic Apps, Functions, and WebJobs."
 ms.topic: overview
 ms.date: 04/09/2018
@@ -36,7 +36,7 @@ The following table helps you determine whether Power Automate or Logic Apps is 
 | **Design tool** |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
 | **Application lifecycle management (ALM)** |Design and test in non-production environments, promote to production when ready |Azure DevOps: source control, testing, support, automation, and manageability in [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
 | **Admin experience** |Manage Power Automate environments and data loss prevention (DLP) policies, track licensing: [Admin center](https://admin.flow.microsoft.com) |Manage resource groups, connections, access management, and logging: [Azure portal](https://portal.azure.com) |
-| **Security** |Microsoft 365 security audit logs, DLP, [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data |Security assurance of Azure: [Azure security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
+| **Security** |Microsoft 365 security audit logs, DLP, [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data |Security assurance of Azure: [Azure security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## Compare Azure Functions and Azure Logic Apps
 

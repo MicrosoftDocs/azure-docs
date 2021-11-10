@@ -5,7 +5,7 @@ ms.prod: devops
 ms.technology: devops-cicd
 services: azure-devops-project
 documentationcenter: vs-devops-build
-author: mlearned
+author: georgewallace
 manager: gwallace
 editor: ''
 ms.assetid:
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/23/2021
-ms.author: mlearned
+ms.author: gwallace
 ms.custom: "devx-track-csharp, mvc"
 ---
 

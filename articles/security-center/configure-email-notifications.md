@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 10/20/2021
+ms.date: 11/09/2021
 ms.author: memildin
 
 ---
@@ -13,9 +13,9 @@ ms.author: memildin
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Security alerts need to reach the right people in your organization. By default, Defender for Cloud emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
+Security alerts need to reach the right people in your organization. By default, Microsoft Defender for Cloud emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
 
-To define your own preferences for notification emails, Microsoft Defender for Cloud's **Email notifications** settings page lets you choose:
+Use Defender for Cloud's **Email notifications** settings page to define preferences for notification emails including:
 
 - ***who* should be notified** - Emails can be sent to select individuals or to anyone with a specified Azure role for a subscription. 
 - ***what* they should be notified about** - Modify the severity levels for which Defender for Cloud should send out notifications.

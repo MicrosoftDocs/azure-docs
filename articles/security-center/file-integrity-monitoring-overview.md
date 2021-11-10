@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 11/09/2021
 ms.author: memildin
 
 ---
@@ -192,7 +192,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
       - File content
       - Windows services
 
-      Each tab lists the entities that you can edit in that category. For each entity listed, Defender for Cloud identifies whether FIM is enabled (true) or not enabled (false).  Editing the entity lets you enable or disable FIM.
+      Each tab lists the entities that you can edit in that category. For each entity listed, Defender for Cloud identifies whether FIM is enabled (true) or not enabled (false). Edit the entity to enable or disable FIM.
 
     :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-workspace-configuration.png" alt-text="Workspace configuration for file integrity monitoring in Microsoft Defender for Cloud.":::
 
