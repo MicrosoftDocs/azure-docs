@@ -17,7 +17,7 @@
         },
         {
             "source_path_from_root": "/articles/data-factory/continuous-integration-deployment-improvements.md",
-            "redirect_url": "/azure/data-factory/continuous-integration-delivery-improvements.md",
+            "redirect_url": "/azure/data-factory/continuous-integration-delivery-improvements",
             "redirect_document_id": false
         }
     ]
