@@ -38,7 +38,7 @@ Suggestions for controlling access to your vault are as follows:
 
 Make sure you take regular backups of your vault. Backups should be performed when you update, delete, or create objects in your vault. 
 
-### Azure PowerShell Backup commands
+### Azure PowerShell backup commands
 
 * [Backup certificate](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
 * [Backup key](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
