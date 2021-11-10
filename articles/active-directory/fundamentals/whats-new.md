@@ -33,25 +33,19 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 ## October 2021
  
-
-[1586136](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1586136&triage=true&fullScreen=false&_a=edit)
-
 ### Limits on the number of configured API permissions for an application registration will be enforced starting in October 2021
 
 **Type:** Plan for change  
 **Service category:** Other  
 **Product capability:** Developer Experience
  
-Sometimes, application developers configure their apps to require more permissions than it's possible to grant. To prevent this from happening, a limit on the total number of required permissions which can be configured for an app registration will be enforced.
+Sometimes, application developers configure their apps to require more permissions than it's possible to grant. To prevent this from happening, a limit on the total number of required permissions that can be configured for an app registration will be enforced.
 
-The total number of required permissions for any single application registration mustn't exceed 400 permissions, across all APIs. The change to enforce this limit will begin rolling out mid-October 2021. Applications exceeding the limit won't be able to increase the number of permissions they are configured for. The existing limit on the number of distinct APIs for which permissions are required remains unchanged and may not exceed 50 APIs.
+The total number of required permissions for any single application registration mustn't exceed 400 permissions, across all APIs. The change to enforce this limit will begin rolling out mid-October 2021. Applications exceeding the limit can't increase the number of permissions they are configured for. The existing limit on the number of distinct APIs for which permissions are required remains unchanged and may not exceed 50 APIs.
 
-In the Azure portal, the required permissions are listed under API permissions for the application you wish to configure. Using Microsoft Graph or Microsoft Graph PowerShell, the required permissions are listed in the requiredResourceAccess property of an [application](graph/api/resources/application?view=graph-rest-1.0) entity. [Learn more](../enterprise-users/directory-service-limits-restrictions.md)
+In the Azure portal, the required permissions are listed under API permissions for the application you wish to configure. Using Microsoft Graph or Microsoft Graph PowerShell, the required permissions are listed in the requiredResourceAccess property of an [application](graph/api/resources/application?view=graph-rest-1.0) entity. [Learn more](../enterprise-users/directory-service-limits-restrictions.md).
  
 ---
- 
-
-[1043099](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1043099&triage=true&fullScreen=false&_a=edit)
 
 ### Email one-time passcode on by default change beginning rollout in November 2021
 
@@ -59,29 +53,9 @@ In the Azure portal, the required permissions are listed under API permissions f
 **Service category:** B2B  
 **Product capability:** B2B/B2C
  
-
-Previously, we announced that starting October 31, 2021, Microsoft Azure Active Directory email one-time passcode authentication will become the default method for inviting accounts and tenants for B2B collaboration scenarios. However, due to deployment schedules, we will begin rolling out on November 1, 2021 and the majority of the tenants will see the change rolled out in January 2022 to minimize disruptions during the holidays and deployment lockdowns. After the change has been rolled out, Microsoft will no longer allow redemption of invitations using unmanaged Azure Active Directory accounts.
+Previously, we announced that starting October 31, 2021, Microsoft Azure Active Directory [email one-time passcode](../external-identities/one-time-passcode.md) authentication will become the default method for inviting accounts and tenants for B2B collaboration scenarios. However, because of deployment schedules, we'll begin rolling out on November 1, 2021. Most of the tenants will see the change rolled out in January 2022 to minimize disruptions during the holidays and deployment lock downs. After this change, Microsoft will no longer allow redemption of invitations using Azure Active Directory accounts that are unmanaged. [Learn more](../external-identities/one-time-passcode.md#frequently-asked-questions).
  
-
 ---
- 
-
-[1403177](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1403177&triage=true&fullScreen=false&_a=edit)
-
-### Generally Available - Privileged Role Administrators can now create Azure AD access reviews on role-assignable groups
-
-**Type:** Fixed  
-**Service category:** Access Reviews  
-**Product capability:** Identity Governance
- 
-
-Privileged Role Administrators can now create Azure AD access reviews on Azure AD role-assignable groups, in addition to Azure AD roles.
- 
-
----
- 
-
-[1413286](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1413286&triage=true&fullScreen=false&_a=edit)
 
 ### Conditional Access Guest Access Blocking Screen
 
@@ -89,47 +63,23 @@ Privileged Role Administrators can now create Azure AD access reviews on Azure A
 **Service category:** Conditional Access  
 **Product capability:** End User Experiences
  
-
-If there is no trust relation between a home and resource tenant, a guest user would have previously be asked to re-register their device, which will break the previous registration. However, the user would end up in a registration loop because only home tenant device registration is supported. In this specific scenario, instead of this loop, we have created a new conditional access blocking page that educates the end user that they cannot get access to conditional access protected resources as a guest user.
+If there's no trust relation between a home and resource tenant, a guest user would have previously been asked to re-register their device, which would break the previous registration. However, the user would end up in a registration loop because only home tenant device registration is supported. In this specific scenario, instead of this loop, we have created a new conditional access blocking page. The page tells the end user that they can't get access to conditional access protected resources as a guest user. [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal#prerequisites).
  
-
 ---
- 
 
-[1627216](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1627216&triage=true&fullScreen=false&_a=edit)
-
-### Bug fix: 50105 Errors will now result in a UX error message instead of an error response to the application
+### 50105 Errors will now result in a UX error message instead of an error response to the application
 
 **Type:** Fixed  
 **Service category:** Authentications (Logins)  
 **Product capability:** Developer Experience
  
+Azure AD has fixed a bug in an error response that occurs when a user isn't assigned to an app that requires a user assignment. Previously, Azure AD would return error 50105 with the OIDC error code "interaction_required" even during interactive authentication. This would cause well-coded applications to loop indefinitely, as they do interactive authentication and receive an error telling them to do interactive authentication, which they would then do.  
 
-Azure AD has fixed a bug in an error response that occurs when a user is not assigned to an app that requires user assignment.  Previously, Azure AD would return error 50105 with the OIDC error code "interaction_required" even during interactive authentication.  This would cause well-coded applications to loop indefinitely, as they'd perform interactive auth and receive an error telling them to perform interactive auth, which they would then do.  
+The bug has been fixed, so that during non-interactive auth an "interaction_required" error will still be returned. Also, during interactive authentication an error page will be directly displayed to the user.  
 
-The bug has been fixed, so that during non-interactive auth an "interaction_required" error will still be returned, while during interactive auth an error page will be directly displayed to the user.  
-
-For greater details, please see the change notices for Azure AD protocols. 
- 
+For greater details, see the change notices for [Azure AD protocols](../develop/reference-breaking-changes.md#error-50105-has-been-fixed-to-not-return-interaction_required-during-interactive-authentication). 
 
 ---
- 
-
-[331634](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=331634&triage=true&fullScreen=false&_a=edit)
-
-### General Availability - Azure AD single Sign on and device-based Conditional Access support in Firefox on Windows 10/11
-
-**Type:** New feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** SSO
- 
-
-We now support native single sign-on (SSO) support and device-based Conditional Access to Firefox browser on Windows 10 and Windows Server 2019 starting in Firefox version 91. 
- 
-
----
-
-[1395836](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1395836&triage=true&fullScreen=false&_a=edit)
 
 ### Public preview - New claims transformation capabilities
 
@@ -137,133 +87,92 @@ We now support native single sign-on (SSO) support and device-based Conditional 
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
  
-
-The following new capabilities have been added to the claims transformations available for manipulating claims in tokens issued from Azure AD.
+The following new capabilities have been added to the claims transformations available for manipulating claims in tokens issued from Azure AD:
  
-
-Join() on NameID. Used to be restricted to joining an email format address with a verified domain.  Now Join() can be used on the NameID claim in the same same way as any other claim, so NameID transforms can be used to create Windows account style NameIDs or any other string. Note:  For now if the result is an email address, the Azure AD will still validate that the domain is one that is verified in the tenant.
-
- 
-
-Substring()  - A new transformation in the claims configuration UI allows extraction of defined position substrings such as 5 characters starting at character 3 - substring(3,5)
-
- 
-
-Claims transformations can now be performed on Multi-valued attributes and can emit multi-valued claims.   Microsoft Graph can now be used to read/write multi-valued directory schema extension attributes.
-
- 
+- Join() on NameID. Used to be restricted to joining an email format address with a verified domain. Now Join() can be used on the NameID claim in the same way as any other claim, so NameID transforms can be used to create Windows account style NameIDs or any other string. For now if the result is an email address, the Azure AD will still validate that the domain is one that is verified in the tenant.
+- Substring(). A new transformation in the claims configuration UI allows extraction of defined position substrings such as five characters starting at character three - substring(3,5)
+- Claims transformations. These transformations can now be performed on Multi-valued attributes, and can emit multi-valued claims. Microsoft Graph can now be used to read/write multi-valued directory schema extension attributes. [Learn more](../develop/active-directory-saml-claims-customization.md).
 
 ---
 
- 
-
-[1131475](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1131475&triage=true&fullScreen=false&_a=edit)
-
-### Public preview - Flagged Sign-ins
+### Public preview - Flagged  
 
 **Type:** New feature  
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
  
-
-Flagged sign-ins is a feature which will increase the signal to noise ratio for user sign-ins where users need help. The functionality is intended to empower users to raise awareness about sign-in errors they want help with and, for admins and help desk workers, make finding the right events faster and more efficient.
- 
+Flagged sign-ins is a feature that will increase the signal to noise ratio for user sign-ins where users need help. The functionality is intended to empower users to raise awareness about sign-in errors they want help with. Also to help admins and help desk workers find the right sign-in events quickly and efficiently. [Learn more](../reports-monitoring/overview-flagged-sign-ins.md).
 
 ---
 
- 
-
-[1323973](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1323973&triage=true&fullScreen=false&_a=edit)
-
-### Public Preview
-
-**Type:** New feature  
-**Service category:** Azure AD Connect Cloud Sync  
-**Product capability:** Identity Lifecycle Management
- 
-
-TBD
- 
-
----
- 
-
-[1129551](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1129551&triage=true&fullScreen=false&_a=edit)
-
-### Public Preview of Device Overview
+### Public preview - Device overview
 
 **Type:** New feature  
 **Service category:** Device Registration and Management  
 **Product capability:** Device Lifecycle Management
  
-
-The new Device Overview provides actionable insights about devices in your tenant.
+The new Device Overview feature provides actionable insights about devices in your tenant. [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/devices/device-management-azure-portal).
  
-
 ---
- 
 
-[1395500](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1395500&triage=true&fullScreen=false&_a=edit)
-
-### Public Preview of Azure AD workload identity federation
+### Public preview - Azure Active Directory workload identity federation
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** Developer Experience
  
-
-Azure AD workload identity federation is a new capability that is in public preview. It frees developers from handling application secrets or certificates in scenarios such as using GitHub Actions and building applications on Kubernetes. Rather than creating an application secret and using that to get tokens for that application, developers can instead use tokens provided by the respective platforms such as GitHub and Kubernetes without having to manage any secrets manually.
-
- 
+Azure AD workload identity federation is a new capability that's in public preview. It frees developers from handling application secrets or certificates. This includes secrets in scenarios such as using GitHub Actions and building applications on Kubernetes. Rather than creating an application secret and using that to get tokens for that application, developers can instead use tokens provided by the respective platforms such as GitHub and Kubernetes without having to manage any secrets manually.[Learn more](../develop/workload-identity-federation.md).
 
 ---
 
-[1628789](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1628789&triage=true&fullScreen=false&_a=edit)
+### Public Preview - Updates to Sign-in Diagnostic
 
-### New Federated Apps available in Azure AD Application gallery - October 2021
+**Type:** Changed feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+With this update, the diagnostic covers more scenarios and is made more easily available to admins.
+
+New scenarios covered when using the Sign-in Diagnostic:
+- Pass Through Authentication sign-in failures
+- Seamless Single-Sign On sign-in failures
+ 
+Additional changes:
+- Flagged Sign-ins will automatically appear for investigation when using the Sign-in Diagnostic from Diagnose and Solve.
+- Sign-in Diagnostic is now available from the Enterprise Apps Diagnose and Solve blade.
+- The Sign-in Diagnostic is now available in the Basic Info tab of the Sign-in Log event view for all sign-in events. [Learn more](../reports-monitoring/concept-sign-in-diagnostics-scenarios.md#supported-scenarios).
+
+---
+
+### General Availability - Privileged Role Administrators can now create Azure AD access reviews on role-assignable groups
+
+**Type:** Fixed  
+**Service category:** Access Reviews  
+**Product capability:** Identity Governance
+ 
+Privileged Role Administrators can now create Azure AD access reviews on Azure AD role-assignable groups, in addition to Azure AD roles. [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/governance/deploy-access-reviews#who-will-create-and-manage-access-reviews).
+ 
+---
+
+### General Availability - Azure AD single Sign on and device-based Conditional Access support in Firefox on Windows 10/11
 
 **Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
+**Service category:** Authentications (Logins)  
+**Product capability:** SSO
  
-
-
-
-
-
-
-
-In October 2021 we have added following 10 new applications in our App gallery with Federation support
-
-Adaptive Shield, SocialChorus Search, Hiretual-SSO, TeamSticker by Communitio, embed signage, JoinedUp, VECOS Releezme Locker management system, Altoura, Dagster Cloud, Qualaroo
-
-You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
-
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
-
+We now support native single sign-on (SSO) support and device-based Conditional Access to Firefox browser on Windows 10 and Windows Server 2019 starting in Firefox version 91. [Learn more](../conditional-access/require-managed-devices.md#prerequisites).
  
-
 ---
 
- 
-
-[1231795](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1231795&triage=true&fullScreen=false&_a=edit)
-
-### General Availability: New app indicator in My Apps
+### General Availability - New app indicator in My Apps
 
 **Type:** New feature  
 **Service category:** My Apps  
 **Product capability:** End User Experiences
  
-
-Apps that have been recently assigned to the user show up with a "new" indicator. When the app is launched or the page is refreshed, this indicator disappears. For more information on My Apps, you can go here.
+Apps that have been recently assigned to the user show up with a "new" indicator. When the app is launched or the page is refreshed, this indicator disappears. [Learn more](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
  
-
 ---
-
- 
-
-[1372384](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1372384&triage=true&fullScreen=false&_a=edit)
 
 ### General availability - Custom domain support in Azure AD B2C
 
@@ -271,14 +180,9 @@ Apps that have been recently assigned to the user show up with a "new" indicator
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-
-Azure AD B2C customers can now enable custom domains so their end-users are redirected to a custom URL domain for authentication. This is done via integration with Azure Front Door's custom domains capability.
+Azure AD B2C customers can now enable custom domains so their end-users are redirected to a custom URL domain for authentication. This is done via integration with Azure Front Door's custom domains capability. [Learn more](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).
  
-
 ---
- 
-
-[1412520](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1412520&triage=true&fullScreen=false&_a=edit)
 
 ### General availability - Edge Administrator built-in role
 
@@ -287,13 +191,9 @@ Azure AD B2C customers can now enable custom domains so their end-users are redi
 **Product capability:** Access Control
  
 
-Users in this role can create and manage the enterprise site list required for Internet Explorer mode on Microsoft Edge. This role grants permissions to create, edit, and publish the site list and additionally allows access to manage support tickets. Learn more
+Users in this role can create and manage the enterprise site list required for Internet Explorer mode on Microsoft Edge. This role grants permissions to create, edit, and publish the site list and additionally allows access to manage support tickets. [Learn more](https://docs.microsoft.com/deployedge/edge-ie-mode-cloud-site-list-mgmt)
  
-
 ---
- 
-
-[1412525](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1412525&triage=true&fullScreen=false&_a=edit)
 
 ### General availability - Windows 365 Administrator built-in role
 
@@ -301,44 +201,45 @@ Users in this role can create and manage the enterprise site list required for I
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-
-Users with this role have global permissions on Windows 365 resources, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups.
+Users with this role have global permissions on Windows 365 resources, when the service is present. Additionally, this role contains the ability to manage users and devices to associate a policy, and create and manage groups. [Learn more](../roles/permissions-reference.md)
  
+---
+
+### New Federated Apps available in Azure AD Application gallery - October 2021
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In October 2021 we've added the following 10 new applications in our App gallery with Federation support:
+
+[Adaptive Shield](../saas-apps/adaptive-shield-tutorial.md), [SocialChorus Search](https://socialchorus.com/), [Hiretual-SSO](../saas-apps/hiretual-tutorial.md), [TeamSticker by Communitio](../saas-apps/teamsticker-by-communitio-tutorial.md), [embed signage](../saas-apps/embed-signage-tutorial.md), [JoinedUp](../saas-apps/joinedup-tutorial.md), [VECOS Releezme Locker management system](../saas-apps/vecos-releezme-locker-management-system-tutorial.md), [Altoura](../saas-apps/altoura-tutorial.md), [Dagster Cloud](../saas-apps/dagster-cloud-tutorial.md), [Qualaroo](../saas-apps/qualaroo-tutorial.md)
+
+You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the following article: https://aka.ms/AzureADAppRequest
 
 ---
- 
 
-[1214271](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1214271&triage=true&fullScreen=false&_a=edit)
-
-### General availability- CAE
+### Continuous Access Evaluation migration with Conditional Access
 
 **Type:** Changed feature  
 **Service category:** Conditional Access  
 **Product capability:** User Authentication
  
-
-A new UX is coming for our CAE tenants. Tenants will now access CAE as part of Conditional Access. Any tenants that were previously using CAE for some (but not all) user accounts under the old UX or had previously disabled the old CAE UX will now be required to undergo a one time migration experience.
+A new user experience is available for our CAE tenants. Tenants will now access CAE as part of Conditional Access. Any tenants that were previously using CAE for some (but not all) user accounts under the old UX or had previously disabled the old CAE UX will now be required to undergo a one time migration experience.[Learn more](../conditional-access/concept-continuous-access-evaluation.md#migration).
  
-
 ---
- 
 
-[1403962](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1403962&triage=true&fullScreen=false&_a=edit)
-
-### General availability of improved group list blade
+###  Improved group list blade
 
 **Type:** Changed feature  
 **Service category:** Group Management  
 **Product capability:** Directory
  
-
-The new group list blade offers more sort and filtering capabilities, infinite scrolling, and better performance!
+The new group list blade offers more sort and filtering capabilities, infinite scrolling, and better performance. [Learn more](../enterprise-users/groups-members-owners-search.md).
  
-
 ---
- 
-
-[1401171](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1401171&triage=true&fullScreen=false&_a=edit)
 
 ### General availability - Google deprecation of Gmail sign-in support on embedded webviews on September 30, 2021
 
@@ -346,97 +247,29 @@ The new group list blade offers more sort and filtering capabilities, infinite s
 **Service category:** B2B  
 **Product capability:** B2B/B2C
  
-
-Google has deprecated Gmail sign-ins on Microsoft Teams mobile as well as custom apps that run Gmail authentications on embedded webviews on Sept. 30th, 2021.
+Google has deprecated Gmail sign-ins on Microsoft Teams mobile and custom apps that run Gmail authentications on embedded webviews on Sept. 30th, 2021.
 
 If you would like to request an extension, impacted customers with affected OAuth client ID(s) should have received an email from Google Developers with the following information regarding a one-time policy enforcement extension, which must be completed by Jan 31, 2022.
 
-To continue allowing your Gmail users to sign in and redeem, we strongly recommend that you refer to Embedded vs System Web UI in the MSAL.NET documentation and modify your apps to use the system browser for sign-in. All MSAL SDKs use the system web-view by default. 
+To continue allowing your Gmail users to sign in and redeem, we strongly recommend that you refer to [Embedded vs System Web](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) UI in the MSAL.NET documentation and modify your apps to use the system browser for sign-in. All MSAL SDKs use the system web-view by default. 
 
-As a workaround, we are deploying the device login flow by October 8th. Between today and until then, it is likely that it may not be rolled out to all regions yet (in which case, end-users will be met with the error screen shown in the doc until it gets deployed to your region.) 
+As a workaround, we are deploying the device login flow by October 8th. Between today and until then, it is likely that it may not be rolled out to all regions yet (in which case, end-users will be met with an error screen until it gets deployed to your region.) 
 
-For more details on the device login flow and details on requesting extension to Google, please refer to our doc.
+For more details on the device login flow and details on requesting extension to Google, please see [Add Google as an identity provider for B2B guest users](../external-identities/google-federation.md#deprecation-of-web-view-sign-in-support).
  
-
 ---
- 
 
-[897320](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=897320&triage=true&fullScreen=false&_a=edit)
-
-### Option to hide custom request timeline in Entitlement Management Access Package requests.
-
-**Type:** Changed feature  
-**Service category:** User Access Management  
-**Product capability:** Entitlement Management
- 
-
-Owners of access packages in entitlement management can now choose to hide the custom request timeline options for end users requesting their access package.
- 
-
----
- 
-
-[1308362](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1308362&triage=true&fullScreen=false&_a=edit)
-
-### Public Preview - Updates to Sign-in Diagnostic
-
-**Type:** Changed feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
- 
-
-With this update the diagnostic covers additional scenarios, and is made more easily available to admins.
-
- 
-
-New scenarios covered when using the Sign-in Diagnostic:
-
-Pass Through Authentication sign-in failures
-Seamless Single-Sign On sign-in failures
- 
-
-Additional changes:
-
-Flagged Sign-ins will automatically appear for investigation when using the Sign-in Diagnostic from Diagnose and Solve.
-Sign-in Diagnostic is now available from the Enterprise Apps Diagnose and Solve blade.
-The Sign-in Diagnostic is now available in the Basic Info tab of the Signin Log event view for all signin events.
-
- 
-
----
- 
-
-[1410218](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1410218&triage=true&fullScreen=false&_a=edit)
-
-### Generally available - Identity Governance Administrator can create and manage Azure AD access reviews of groups and applications
+### Identity Governance Administrator can create and manage Azure AD access reviews of groups and applications
 
 **Type:** Changed feature  
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
-
-Generally available - Identity Governance Administrator can create and manage Azure AD access reviews of groups and applications
+Identity Governance Administrator can create and manage Azure AD access reviews of groups and applications. [Learn more](../governance/deploy-access-reviews.md#who-will-create-and-manage-access-reviews).
  
-
 ---
- 
 
-[1152614](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1152614&triage=true&fullScreen=false&_a=edit)
-
-### My Access Request Flow Enhancements
-
-**Type:** Changed feature  
-**Service category:** User Access Management  
-**Product capability:** End User Experiences
- 
-
-The new My Access request flow user interface helps end users request packages more efficiently. Improvements were launched to all customer. In the next 6 months, additional improvements such as improvements in the search experience and guiding message for requestors will be implemented.    
- 
-
----
- 
 ## September 2021
-
 
 ### Limits on the number of configured API permissions for an application registration will be enforced starting in October 2021
 
@@ -508,7 +341,7 @@ Admins can now see various new and improved device-related audit logs. The new a
 **Service category:** Microsoft Authenticator App  
 **Product capability:** Identity Security & Protection
  
-This feature allows Azure AD users to manage their work or school accounts within the Microsoft Authenticator app. The management features will allow users to view sign-in history and sign-in activity. They can report any suspicious or unfamiliar activity based on the sign-in history and activity if necessary. Users will also be able to change their Azure AD account passwords and update the account's security information. [Learn more](../user-help/my-account-portal-sign-ins-page.md).
+This feature allows Azure AD users to manage their work or school accounts within the Microsoft Authenticator app. The management features will allow users to view sign-in history and sign-in activity. They can report any suspicious or unfamiliar activity based on the sign-in history and activity if necessary. Users also can change their Azure AD account passwords and update the account's security information. [Learn more](../user-help/my-account-portal-sign-ins-page.md).
  
 ---
 
@@ -794,13 +627,13 @@ About two months ago we announced that the exception for Embedded WebViews for G
 
 Recently, Google has specified the date to be **September 30, 2021**. 
 
-Rolling out globally beginning September 30, 2021, Azure AD B2B guests signing in with their Gmail accounts will now be prompted to enter a code in a separate browser window to finish signing in on Microsoft Teams mobile and desktop clients. This applies to invited guests as well as guests who signed up using Self-Service Sign-Up. 
+Rolling out globally beginning September 30, 2021, Azure AD B2B guests signing in with their Gmail accounts will now be prompted to enter a code in a separate browser window to finish signing in on Microsoft Teams mobile and desktop clients. This applies to invited guests and guests who signed up using Self-Service Sign-Up. 
 
-Azure AD B2C customers who have set up embedded webview Gmail authentications in their custom/line of business apps or have existing Google integrations, will no longer be able to let their users sign in with Gmail accounts. To mitigate this, please make sure to modify your apps to use the system browser for sign-in. For more information, read the Embedded vs System Web UI section in the [Using web browsers (MSAL.NET)](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) documentation. All MSAL SDKs use the system web-view by default. 
+Azure AD B2C customers who have set up embedded webview Gmail authentications in their custom/line of business apps or have existing Google integrations, will no longer can let their users sign in with Gmail accounts. To mitigate this, please make sure to modify your apps to use the system browser for sign-in. For more information, read the Embedded vs System Web UI section in the [Using web browsers (MSAL.NET)](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) documentation. All MSAL SDKs use the system web-view by default. 
 
 As the device login flow will start rolling out on September 30, 2021, it is likely that it may not be rolled out to your region yet (in which case, your end-users will be met with the error screen shown in the documentation until it gets deployed to your region.) 
 
-For details on known impacted scenarios as well as what experience your users can expect, read [Add Google as an identity provider for B2B guest users](../external-identities/google-federation.md#deprecation-of-web-view-sign-in-support).
+For details on known impacted scenarios and what experience your users can expect, read [Add Google as an identity provider for B2B guest users](../external-identities/google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ---
 
@@ -1239,7 +1072,7 @@ The expression builder allows you to create and test expressions, without having
  
 An important aspect of managing Conditional Access is understanding changes to your policies over time. Policy changes may cause disruptions for your end users, so maintaining a log of changes and enabling admins to revert to previous policy versions is critical. 
 
-As well as showing who made a policy change and when, the audit logs will now also contain a modified properties value. This change gives admins greater visibility into what assignments, conditions, or controls changed. If you want to revert to a previous version of a policy, you can copy the JSON representation of the old version and use the Conditional Access APIs to change the policy to its previous state. [Learn more](../conditional-access/concept-conditional-access-policies.md).
+and showing who made a policy change and when, the audit logs will now also contain a modified properties value. This change gives admins greater visibility into what assignments, conditions, or controls changed. If you want to revert to a previous version of a policy, you can copy the JSON representation of the old version and use the Conditional Access APIs to change the policy to its previous state. [Learn more](../conditional-access/concept-conditional-access-policies.md).
 
 ---
 
