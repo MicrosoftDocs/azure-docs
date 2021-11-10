@@ -217,6 +217,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 - If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) instead.
 - Readiness or liveness probes are not set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
+- If init container crashs for role assignment issue, if it's system assigned identity, please try again later. If it's user assigned identity, please check if your role assignments are created correctly.
 
 ### ERROR: ResourceNotFound
 
