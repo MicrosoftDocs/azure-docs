@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 # Running automated integration tests
 
-As a developer, you'll likely want to run automated integration tests on the apps you develop.  This can be challenging if you want to run integration tests on your own API you've protected with Azure AD, or you want to call other Azure AD protected APIs (like Microsoft Graph) in your integration tests, because Azure AD often requires an interactive user sign in that is difficult to automate.  This article describes how you can use a non-interactive flow, called Resource Owner Password Credential Grant (ROPC) to automatically sign in users for testing.
+As a developer, you'll likely want to run automated integration tests on the apps you develop.  This can be challenging if you want to run integration tests on your own API you've protected with Azure AD, or you want to call other Azure AD protected APIs (like Microsoft Graph) in your integration tests, because Azure AD often requires an interactive user sign in that is difficult to automate.  This article describes how you can use a non-interactive flow, called Resource Owner Password Credential Grant (ROPC), to automatically sign in users for testing.
 
 > [!WARNING]
 > Microsoft recommends you do _not_ use the ROPC flow in production. In most production scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks which are not present in other flows. You should only use this flow for testing purposes, and only with test users.
