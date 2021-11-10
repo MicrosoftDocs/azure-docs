@@ -3,7 +3,7 @@ title: How caching works | Microsoft Docs
 description: Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
-ms.author: allensu
+ms.date: 10/19/2021
+ms.author: duau
 
 ---
 # How caching works
@@ -129,6 +129,10 @@ The following table describes the default caching behavior for the Azure CDN pro
 **Honor origin**: Specifies whether to honor the supported cache-directive headers if they exist in the HTTP response from the origin server.
 
 **CDN cache duration**: Specifies the amount of time for which a resource is cached on the Azure CDN. However, if **Honor origin** is Yes and the HTTP response from the origin server includes the cache-directive header `Expires` or `Cache-Control: max-age`, Azure CDN uses the duration value specified by the header instead. 
+
+> [!NOTE]
+> Azure CDN makes no guarantees about minimum amount of time that the object will be stored in the cache. Cached contents may be evicted from the CDN cache before they are expired if the contents are not requested as frequently to make room for more frequently requested contents.
+> 
 
 ## Next steps
 

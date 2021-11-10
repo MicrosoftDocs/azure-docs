@@ -54,7 +54,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
 * The SAP servers must be joined to an Active Directory Domain.
 * The Active Directory Domain containing the SAP servers must be replicated to Azure Active Directory using Azure AD connect.
 * It is highly recommended that there is at least one Active Directory Domain controller in the Azure landscape to avoid traversing the Express Route to contact Domain Controllers on-premises.
-* The Azure support team should review the Azure Files SMB with [Active Directory Integration](/azure/storage/files/storage-files-identity-auth-active-directory-enable#videos) documentation. *The video shows additional configuration options which were modified (DNS) and skipped (DFS-N) for simplification reasons.* Nevertheless these are valid configuration options. 
+* The Azure support team should review the Azure Files SMB with [Active Directory Integration](../../../storage/files/storage-files-identity-auth-active-directory-enable.md#videos) documentation. *The video shows additional configuration options which were modified (DNS) and skipped (DFS-N) for simplification reasons.* Nevertheless these are valid configuration options. 
 * The user executing the Azure Files PowerShell script must have permission to create objects in Active Directory.
 * **SWPM version 1.0 SP32 and SWPM 2.0 SP09 or higher are required. SAPInst patch must be 749.0.91 or higher.**
 * An up-to-date release of PowerShell should be installed on the Windows Server where the script is executed. 
@@ -82,7 +82,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
      1. Create the **sapmnt** File share with an appropriate size.  The suggested size is 256GB which delivers 650 IOPS, 75 MB/sec Egress and 50 MB/sec Ingress.
          ![create-storage-account-5](media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png)Azure portal screenshot for the SMB share definition. 
       
-     1. Download the [Azure Files GitHub](/azure/storage/files/storage-files-identity-ad-ds-enable#download-azfileshybrid-module) content and execute the [script](/azure/storage/files/storage-files-identity-ad-ds-enable#run-join-azstorageaccountforauth).   
+     1. Download the [Azure Files GitHub](../../../storage/files/storage-files-identity-ad-ds-enable.md#download-azfileshybrid-module) content and execute the [script](../../../storage/files/storage-files-identity-ad-ds-enable.md#run-join-azstorageaccountforauth).   
      This script will create either a Computer Account or Service Account in Active Directory.  The user running the script must have the following properties: 
          * The user running the script must have permission to create objects in the Active Directory Domain containing the SAP servers. Typically, a domain administrator account is used such as **SAPCONT_ADMIN@SAPCONTOSO.local** 
          * Before executing the script confirm that this Active Directory Domain user account is synchronized with Azure Active Directory (AAD).  An example of this would be to open the Azure portal and navigate to AAD users and check that the user **SAPCONT_ADMIN@SAPCONTOSO.local** exists and verify the AAD user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.

@@ -72,6 +72,8 @@ landingContent:
         links:  
         - text: Use dynamic config in ASP.NET Core
           url: enable-dynamic-configuration-aspnet-core.md
+        - text: Use dynamic config in ASP.NET (.NET Framework)
+          url: enable-dynamic-configuration-aspnet-netfx.md
         - text: Use dynamic config in .NET Core
           url: enable-dynamic-configuration-dotnet-core.md
         - text: Use dynamic config in .NET Framework

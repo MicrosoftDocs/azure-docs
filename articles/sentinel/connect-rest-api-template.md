@@ -1,12 +1,11 @@
 ---
-title: Connect your data source to Azure Sentinel's Data Collector API to ingest data | Microsoft Docs
-description: Learn how to connect external systems to Azure Sentinel's Data Collector API to ingest their log data to custom logs in your workspace.
+title: Connect your data source to the Azure Sentinel Data Collector API to ingest data | Microsoft Docs
+description: Learn how to connect external systems to the Azure Sentinel Data Collector API to ingest their log data to custom logs in your workspace.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
-# Connect your data source to Azure Sentinel's Data Collector API to ingest data
+
+# Connect your data source to the Azure Sentinel Data Collector API to ingest data
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -58,7 +60,7 @@ It may take up to 20 minutes before your logs start to appear in Log Analytics.
 
 ## Next steps
 
-In this document, you learned how to connect external data sources to Azure Sentinel's Data Collector API. To take full advantage of the capabilities built in to these data connectors, select the **Next steps** tab on the data connector page. There you'll find some ready-made sample queries, workbooks, and analytics rule templates so you can get started finding useful information.
+In this document, you learned how to connect external data sources to the Azure Sentinel Data Collector API. To take full advantage of the capabilities built in to these data connectors, select the **Next steps** tab on the data connector page. There you'll find some ready-made sample queries, workbooks, and analytics rule templates so you can get started finding useful information.
 
 To learn more about Azure Sentinel, see the following articles:
 

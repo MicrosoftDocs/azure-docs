@@ -3,7 +3,7 @@ title: Common cost analysis uses in Azure Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 10/13/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -62,6 +62,18 @@ To view Azure and AWS costs together, you use management group scopes in Azure.
 1. Assign the *same* management group to the linked account of the connector.
 1. Go to cost analysis and select **Accumulated costs**.
 1. Select **Group by** - **Provider**.
+
+## View New Commerce license and consumption costs
+
+You can view your New Commerce license and consumption products along with your Azure charges in Cost analysis. Select the filter list, then select **Provider**, and then choose from the list of options. For example, Microsoft 365 and Dynamics 365.
+
+:::image type="content" source="./media/cost-analysis-common-uses/filter-select-provider.png" alt-text="Screenshot showing Provider filter selection." lightbox="./media/cost-analysis-common-uses/filter-select-provider.png" :::
+
+You can narrow to specific seat-based or consumption charges by using the **Charge type** filter and selecting values of **Purchase** or **Usage**.
+
+:::image type="content" source="./media/cost-analysis-common-uses/filter-charge-type.png" alt-text="Screenshot showing Charge type filter selection." lightbox="./media/cost-analysis-common-uses/filter-charge-type.png" :::
+
+Currently, purchasing New Commerce products is only available for Partners.
 
 ## View cost breakdown by Azure service
 

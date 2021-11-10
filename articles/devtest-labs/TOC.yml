@@ -2,13 +2,17 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About DevTest Labs
+  - name: What is DevTest Labs?
     href: devtest-lab-overview.md
 - name: Quickstart
   items:
+  - name: Create a lab - Portal
+    href: devtest-lab-create-lab.md
   - name: Create a lab - Resource Manager template
     displayName: Resource Manager
     href: create-lab-windows-vm-template.md
+  - name: Create a lab - REST API
+    href: quickstarts/create-lab-rest.md
 - name: Tutorials
   items:
   - name: Set up a lab
@@ -71,8 +75,6 @@
   items:
   - name: Configure a lab
     items:
-    - name: Create a lab
-      href: devtest-lab-create-lab.md
     - name: Create a network isolated lab
       href: network-isolation.md
     - name: Create or modify labs using Resource Manager template
