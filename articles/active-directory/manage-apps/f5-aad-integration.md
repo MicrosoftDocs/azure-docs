@@ -144,6 +144,8 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [Integrate Azure Active Directory with F5 BIG-IP for forms-based authentication SSO](f5-big-ip-forms-advanced.md)
 
+- [Integrate Azure Active Directory SSO with F5 BIG-IP for header-based authentication](f5-big-ip-header-advanced.md)
+
 ## Additional resources
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
