@@ -3,7 +3,7 @@ title: Use the Video Analyzer player widget
 description: This article explains how to add a Video Analyzer player widget to your application.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 

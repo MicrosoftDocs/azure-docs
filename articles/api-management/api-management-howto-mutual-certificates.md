@@ -75,7 +75,11 @@ To add a key vault certificate to API Management:
     > The identity needs permissions to get and list certificate from the key vault. If you haven't already configured access to the key vault, API Management prompts you so it can automatically configure the identity with the necessary permissions.
 1. Select **Add**.
 
+
+
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Add key vault certificate":::
+    
+1. Select **Save**.
 
 ## Upload a certificate
 
@@ -91,6 +95,9 @@ To upload a client certificate to API Management:
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Upload client certificate":::
 
+
+1. Select **Save**.
+
 After the certificate is uploaded, it shows in the **Certificates** window. If you have many certificates, make a note of the thumbprint of the desired certificate in order to configure an API to use a client certificate for [gateway authentication](#configure-an-api-to-use-client-certificate-for-gateway-authentication).
 
 > [!NOTE]
@@ -101,8 +108,8 @@ After the certificate is uploaded, it shows in the **Certificates** window. If y
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **APIs**.
 1. Select an API from the list. 
-2. In the **Design** tab, select the editor icon in the **Backend** section.
-3. In **Gateway credentials**, select **Client cert** and select your certificate from the dropdown.
+1. In the **Design** tab, select the editor icon in the **Backend** section.
+1. In **Gateway credentials**, select **Client cert** and select your certificate from the dropdown.
 1. Select **Save**.
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png" alt-text="Use client certificate for gateway authentication":::

@@ -5,11 +5,10 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.service: security-center
 ms.topic: how-to
 ---
-
 # Use asset inventory to manage your resources' security posture
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
@@ -69,7 +68,7 @@ As soon as you've applied filters, the summary values are updated to relate to t
 > [!TIP]
 > The KQL documentation provides a database with some sample data together with some simple queries to get the "feel" for the language. [Learn more in this KQL tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
-**Asset management options** - Inventory lets you perform complex discovery queries. When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
+**Asset management options** - When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
 
 - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag.
 - Onboard new servers to Defender for Cloud - use the **Add non-Azure servers** toolbar button.
@@ -113,7 +112,7 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 
     - **Off** - Resources that aren't protected by a Microsoft Defender plan. You can right-click on any of these and upgrade them:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Microsoft Defender from right click." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to be protected by the relevant Microsoft Defender plan from right click." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **On** - Resources that are protected by a Microsoft Defender plan
     - **Partial** - This applies to **subscriptions** that have some but not all of the Microsoft Defender plans disabled. For example, the following subscription has seven Microsoft Defender plans disabled.
@@ -177,7 +176,7 @@ Examples of using Azure Resource Graph Explorer to access and explore software i
         | where count_ > 1
         ```
 
-    - Combination of a software product with another ASC recommendation:
+    - Combination of a software product with another security recommendation:
 
         (In this example – machines having MySQL installed and exposed management ports)
 
