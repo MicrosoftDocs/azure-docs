@@ -42,7 +42,7 @@ Azure Synapse Analytics now offers GPU-accelerated Apache Spark pools, which inc
 > This software contains source code provided by NVIDIA Corporation. Specifically, to support the GPU-accelerated pools, Azure Synapse Apache Spark pools include code from [CUDA Samples](https://docs.nvidia.com/cuda/eula/#nvidia-cuda-samples-preface).
 
 ### NVIDIA End User License Agreement (EULA)
-When you select a GPU-accelerated Hardware option in Synapse Spark, you implicitly agree to the terms and conditions outlined in the [NVIDIA EULA](https://docs.databricks.com/_static/documents/nvidia-cloud-end-user-license-agreement_clean.pdf) with respect to:
+When you select a GPU-accelerated Hardware option in Synapse Spark, you implicitly agree to the terms and conditions outlined in the NVIDIA EULA with respect to:
   - CUDA 11.2: [EULA :: CUDA Toolkit Documentation (nvidia.com)](https://docs.nvidia.com/cuda/eula/index.html)
   - libnccl2=2.8.4: [nccl/LICENSE.txt at master · NVIDIA/nccl (github.com)](https://github.com/NVIDIA/nccl/blob/master/LICENSE.txt)
   - libnccl-dev=2.8.4: [nccl/LICENSE.txt at master · NVIDIA/nccl (github.com)](https://github.com/NVIDIA/nccl/blob/master/LICENSE.txt)
