@@ -32,7 +32,7 @@ Suggestions for controlling access to your vault are as follows:
 - Lock down access to your subscription, resource group, and key vaults (Azure RBAC)
 - Create access policies for every vault
 - Use the least privilege access principle to grant access
-- Turn on Firewall and [VNET Service Endpoints](overview-vnet-service-endpoints.md)
+- Turn on firewall and [VNET Service Endpoints](overview-vnet-service-endpoints.md).
 
 ## Backup
 
