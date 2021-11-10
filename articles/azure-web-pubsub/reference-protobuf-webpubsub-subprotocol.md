@@ -5,7 +5,7 @@ author: chenyl
 ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
-ms.date: 08/31/2021
+ms.date: 11/08/2021
 ---
 
 #  The Azure Web PubSub-supported protobuf WebSocket subprotocol

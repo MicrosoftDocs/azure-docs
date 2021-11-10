@@ -1,9 +1,9 @@
 ---
 title: 'Comparing Container Apps with other Azure container options'
 description: Understand when to use Azure Container Apps and how it compares to d container options including Azure Container Instances, Azure App Service, Azure Functions, and Azure Kubernetes Service.
-services: app-service
+services: container-apps
 author: jeffhollan
-ms.service: app-service
+ms.service: container-apps
 ms.topic:  quickstart
 ms.date: 11/03/2021
 ms.author: jehollan
@@ -13,10 +13,10 @@ ms.custom: ignite-fall-2021
 # Comparing Container Apps with other Azure container options
 
 There are many options for teams to build and deploy cloud native and containerized applications on Azure. This article will help you understand which scenarios and use cases are best suited for Azure Container Apps and how it compares to other container options on Azure including:  
-- [Azure Container Instances](#azure-container-instances)
 - [Azure App Service](#azure-app-service)
-- [Azure Functions](#azure-functions)
+- [Azure Container Instances](#azure-container-instances)
 - [Azure Kubernetes Service](#azure-kubernetes-service)
+- [Azure Functions](#azure-functions)
 - [Azure Spring Cloud](#azure-spring-cloud)
 
 There's no perfect solution for every use case and every team. The following explanation provides general guidance and recommendations as a starting point to help find the best fit for your team and your requirements.
