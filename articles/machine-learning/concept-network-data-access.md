@@ -58,6 +58,13 @@ The following diagram shows the general flow of a data access call. In this exam
 
 ## Azure Storage Account
 
+When using an Azure Storage Account from Azure Machine Learning studio, you must add the managed identity of the workspace to the following Azure RBAC roles for the storage account:
+
+* [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
+* If the storage account uses a private endpoint to connect to the VNet, you must grant the managed identity the [Reader](../role-based-access-control/built-in-roles.md#reader) role for the storage account private endpoint.
+
+For more information, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
+
 See the following sections for information on limitations when using Azure Storage Account with your workspace in a VNet.
 ### Using an existing storage account
 
@@ -71,15 +78,15 @@ When an Azure Storage account is behind a virtual network, the storage firewall 
 
 ## Azure Data Lake Storage Gen1
 
-When using Azure Data Lake Storage Gen1 as a datastore, you can only use POSIX-style access control lists. You can assign the workspace-managed identity access to resources just like any other security principal. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+When using Azure Data Lake Storage Gen1 as a datastore, you can only use POSIX-style access control lists. You can assign the workspace's managed identity access to resources just like any other security principal. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 
 ## Azure Data Lake Storage Gen2
 
 When using Azure Data Lake Storage Gen2 as a datastore, you can use both Azure RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
 
-**To use Azure RBAC**, follow the steps in the [Datastore: Azure Storage Account](how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) section of the 'How to enable studio in a VNet' article. Data Lake Storage Gen2 is based on Azure Storage, so the same steps apply when using Azure RBAC.
+**To use Azure RBAC**, follow the steps in the [Datastore: Azure Storage Account](how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) section of the 'Use Azure Machine Learning studio in an Azure Virtual Network' article. Data Lake Storage Gen2 is based on Azure Storage, so the same steps apply when using Azure RBAC.
 
-**To use ACLs**, the workspace-managed identity can be assigned access just like any other security principal. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+**To use ACLs**, the managed identity of the workspace can be assigned access just like any other security principal. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
 ## Azure SQL Database
 

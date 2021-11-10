@@ -90,7 +90,7 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 
     For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
 
-1. **Grant the workspace managed identity the 'Reader' role for storage private endpoints**. If your storage service uses a __private endpoint__, grant the workspace-managed identity **Reader** access to the private endpoint. The workspace-managed identity in Azure AD has the same name as your Azure Machine Learning workspace.
+1. **Grant the workspace managed identity the 'Reader' role for storage private endpoints**. If your storage service uses a __private endpoint__, grant the workspace's managed identity **Reader** access to the private endpoint. The workspace's managed identity in Azure AD has the same name as your Azure Machine Learning workspace.
 
     > [!TIP]
     > Your storage account may have multiple private endpoints. For example, one storage account may have separate private endpoint for blob and file storage. Add the managed identity to both endpoints.
@@ -123,11 +123,11 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 
         ![Screenshot showing how to enable managed workspace identity](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
 
-    These steps add the workspace-managed identity as a __Reader__ to the new storage service using Azure RBAC. __Reader__ access allows the workspace to view the resource, but not make changes.
+    These steps add the workspace's managed identity as a __Reader__ to the new storage service using Azure RBAC. __Reader__ access allows the workspace to view the resource, but not make changes.
 
 ## Datastore: Azure Data Lake Storage Gen1
 
-When using Azure Data Lake Storage Gen1 as a datastore, you can only use POSIX-style access control lists. You can assign the workspace-managed identity access to resources just like any other security principal. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+When using Azure Data Lake Storage Gen1 as a datastore, you can only use POSIX-style access control lists. You can assign the workspace's managed identity access to resources just like any other security principal. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 
 ## Datastore: Azure Data Lake Storage Gen2
 
@@ -135,7 +135,7 @@ When using Azure Data Lake Storage Gen2 as a datastore, you can use both Azure R
 
 **To use Azure RBAC**, follow the steps in the [Datastore: Azure Storage Account](#datastore-azure-storage-account) section of this article. Data Lake Storage Gen2 is based on Azure Storage, so the same steps apply when using Azure RBAC.
 
-**To use ACLs**, the workspace-managed identity can be assigned access just like any other security principal. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+**To use ACLs**, the workspace's managed identity can be assigned access just like any other security principal. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
 ## Datastore: Azure SQL Database
 
