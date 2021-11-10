@@ -99,7 +99,7 @@ Provide logos, screenshots, and videos to use with your offer. These will appear
 Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later. These logos are used in different places in the listing:
 
 - **Large** (from 216 x 216 to 350 x 350 px, required) - Appears on your offer details page in Azure Marketplace
-- **Medium** (90 x 90 px, optional) - Appears when you create a new resource in the Azure Portal
+- **Medium** (90 x 90 px, optional) - Appears when you create a new resource in the Azure portal
 - **Small** (48 x 48 px, optional) - Appears in the search results of Azure Marketplace
 
 
