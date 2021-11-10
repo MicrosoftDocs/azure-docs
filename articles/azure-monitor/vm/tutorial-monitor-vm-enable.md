@@ -40,11 +40,7 @@ To complete this tutorial you need the following:
 Select **Insights** from your virtual machine's menu in the Azure portal. If VM insights hasn't yet been enabled for it, you should see a screen similar to the following allowing you to enable monitoring. Click **Enable**.
 
 > [!NOTE]
-> If you selected the option to **Enable detailed monitoring** when you created your virtual machine, VM insights may already be enabled.
-
-:::image type="content" source="media/tutorial-monitor-vm/enable-vminsights.png" lightbox="media/tutorial-monitor-vm/enable-vminsights.png" alt-text="Enable VM insights":::
-
-Select your workspace and click **Enable**. This is the workspace where data collected by VM insights will be sent.
+> If you selected the option to **Enable detailed monitoring** when you created your virtual machine, VM insights may already be enabled. Select your workspace and click **Enable** again. This is the workspace where data collected by VM insights will be sent.
 
 :::image type="content" source="media/tutorial-monitor-vm/enable-vminsights-02.png" lightbox="media/tutorial-monitor-vm/enable-vminsights-02.png" alt-text="Enable VM insights with workspace":::
 

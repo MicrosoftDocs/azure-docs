@@ -45,30 +45,29 @@ Select **Logs** from your resource's menu. Log Analytics opens with the **Querie
 
 :::image type="content" source="media/tutorial-log-alert/queries.png" lightbox="media/tutorial-log-alert/queries.png"alt-text="Log Analytics with queries window":::
 
-Select a query and click **Run** to load it in the query editor and return results. You may want to modify the query and run it again. For example, the **Show the trend of a selected event** query for virtual machines returns events with a particular ID. You may want to modify that ID to alert on a different event.
+Select a query and click **Run** to load it in the query editor and return results. You may want to modify the query and run it again. For example, the **Show anonymous requests** query for storage accounts is shown below. You may want to modify the **AuthenticationType** or filter on a different column.
 
 :::image type="content" source="media/tutorial-log-alert/query-results.png" lightbox="media/tutorial-log-alert/query-results.png"alt-text="Query results":::
 
 
 ## Create alert rule
-Once you verify your query, you can create the alert rule.
+Once you verify your query, you can create the alert rule. Select **New alert rule** to create a new alert rule based on the current log query. The **Scope** will already be set to the current resource. You don't need to change this value.
 
-Select **New alert rule** to create a new alert rule based on the current log query. The **Scope** will already be set to the current resource. You don't need to change this value.
-
+:::image type="content" source="media/tutorial-log-alert/create-alert-rule.png" lightbox="media/tutorial-log-alert/create-alert-rule.png"alt-text="Create alert rule":::
 ## Configure condition
 
-On the **Condition** tab, the **Log query** will already be filled in.
-
-The **Measurement** section defines how the records from the log query will be measured. If the query doesn't perform a summary, then the only option will be to **Count** the number of **Table rows**. If the query includes one or more summarized columns, then you'll have the option to use number of **Table rows** or a calculation based on any of the summarized columns. **Aggregation granularity** defines the time interval over which the collected values are aggregated. 
+On the **Condition** tab, the **Log query** will already be filled in. The **Measurement** section defines how the records from the log query will be measured. If the query doesn't perform a summary, then the only option will be to **Count** the number of **Table rows**. If the query includes one or more summarized columns, then you'll have the option to use number of **Table rows** or a calculation based on any of the summarized columns. **Aggregation granularity** defines the time interval over which the collected values are aggregated. 
 
 :::image type="content" source="media/tutorial-log-alert/alert-rule-condition.png" lightbox="media/tutorial-log-alert/alert-rule-condition.png"alt-text="Alert rule condition":::
 
 ### Configure dimensions
 **Split by dimensions** allows you to create separate alerts for different resources. This setting is useful when you're creating an alert rule that applies to multiple resources. With the scope set to a single resource, this setting typically isn't used.
 
+:::image type="content" source="media/tutorial-log-alert/alert-rule-dimensions.png" lightbox="media/tutorial-log-alert/alert-rule-dimensions.png"alt-text="Alert rule dimensions":::
+
 
 ## Configure alert logic
-Configure the **Operator** and **Threshold value** to compare to the value returned from the measurement.  An alert is created when this value is true.
+In the alert logic, configure the **Operator** and **Threshold value** to compare to the value returned from the measurement.  An alert is created when this value is true.
 
 For example, if the measurement is **Table rows**, the alert logic may be **Great than 0** indicating that at least one record was returned. If the measurement is a columns value, then the logic may need to be greater than or less than a particular threshold value. In the example below, the log query is looking for anonymous requests to a storage account. If an anonymous request has been made, then we should trigger an alert. In this case, a single row returned would trigger the alert, so the alert logic should be **Greater than 0**.
 
@@ -77,7 +76,7 @@ For example, if the measurement is **Table rows**, the alert logic may be **Grea
 
 Select a value for **Frequency of evaluation** which defines how often the log query is run and evaluated. The cost for the alert rule increases with a lower frequency. When you select a frequency, the estimated monthly cost is displayed.
 
-
+:::image type="content" source="media/tutorial-log-alert/alert-rule-details.png" lightbox="media/tutorial-log-alert/alert-rule-details.png"alt-text="Alert logic":::
 
 ## Configure actions
 [!INCLUDE [Action groups](../../../includes/azure-monitor-tutorial-action-group.md)]
@@ -86,6 +85,8 @@ Select a value for **Frequency of evaluation** which defines how often the log q
 [!INCLUDE [Alert details](../../../includes/azure-monitor-tutorial-alert-details.md)]
 
 Keep the box checked to **Enable alert upon creation**. Uncheck the box to **Automatically resolve alerts**. This will automatically resolve the alert when alerting condition is not met. This may be valuable if your measurement is using a numeric column from the query. When that column drops below a particular value, then you may be confident that the detected issue has been corrected. If your measurement is using table rows though, then the issue may still exist, but the rows were created outside of the time window of the alert rule.
+
+
 
 Click **Create alert rule** to create the alert rule.
 
