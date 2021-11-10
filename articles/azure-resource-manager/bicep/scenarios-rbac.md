@@ -28,7 +28,10 @@ If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. 
 
 ### Name
 
-A role assignment's resource name must be a globally unique identifier (GUID). The `guid()` function helps you to create a deterministic GUID. It's a good practice to create a GUID that uses the scope, principal ID, and role ID together, as in the example above. This helps you to ensure that each role assignment has a unique name.
+A role assignment's resource name must be a globally unique identifier (GUID). It's a good practice to create a GUID that uses the scope, principal ID, and role ID together, as in the example above. This helps you to ensure that each role assignment has a unique name.
+
+> [!TIP]
+> Use the `guid()` function to help you to create a deterministic GUID for your role assignment names.
 
 ### Role definition ID
 
@@ -42,7 +45,10 @@ When you create the role assignment resource, you need to specify a fully qualif
 
 The `principalId` property must be set to a GUID that represents the Azure Active Directory (Azure AD) identifier for the principal.
 
-The `principalType` property specifies whether the principal is a user, a group, or a service principal. Managed identities are a form of service principal. It's important to set the `principalType` property when you create a role assignment in Bicep. Otherwise, you might get intermittent deployment errors, especially when you work with service principals and managed identities.
+The `principalType` property specifies whether the principal is a user, a group, or a service principal. Managed identities are a form of service principal.
+
+> [!TIP]
+> It's important to set the `principalType` property when you create a role assignment in Bicep. Otherwise, you might get intermittent deployment errors, especially when you work with service principals and managed identities.
 
 The following example shows how to create a user-assigned managed identity and a role assignment:
 
