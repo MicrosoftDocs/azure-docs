@@ -500,7 +500,7 @@ Best practices on how to prevent client machines and applications with well-know
 
 **Best practices**:
 
-- Enforce a minimal TLS version at the [SQL Database server](connectivity-settings.md#minimal-tls-version) or [SQL Managed Instance](../managed-instance/minimal-tls-version-configure.md) level using the minimal TLS version setting. We recommend setting the minimal TLS version to 1.2, after testing to confirm your applications support it, because it includes fixes for vulnerabilities found in previous versions.
+- Enforce a minimal TLS version at the [SQL Database server](connectivity-settings.md#minimal-tls-version) or [SQL Managed Instance](../managed-instance/minimal-tls-version-configure.md) level using the minimal TLS version setting. We recommend setting the minimal TLS version to 1.2, after testing to confirm your applications supports it. TLS 1.2 includes fixes for vulnerabilities found in previous versions.
 
 - Configure all your apps and tools to connect to SQL Database with encryption enabled
   - Encrypt = On, TrustServerCertificate = Off (or equivalent with non-Microsoft drivers).
