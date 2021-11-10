@@ -12,11 +12,11 @@ Azure Arc-enabled VMware vSphere extends Azure's governance and management capab
 
 Arc-enabled VMware vSphere allows you to:
 
- - Conduct various VMware virtual machine (VM) lifecycle operations directly from Azure, such as create, start/stop, resize, and delete.
+- Conduct various VMware virtual machine (VM) lifecycle operations directly from Azure, such as create, start/stop, resize, and delete.
 
- - Empower developers and application teams to self-serve VM operations on-demand using Azure Role-Based Access Control (RBAC).
+- Empower developers and application teams to self-serve VM operations on-demand using Azure Role-Based Access Control (RBAC).
 
- - Browse your VMware vSphere resources (VMs, templates, networks, and storage) in Azure, providing you a single pane view for your infrastructure across both environments. You can also discover and onboard existing VMware VMs to Azure.
+- Browse your VMware vSphere resources (VMs, templates, networks, and storage) in Azure, providing you a single pane view for your infrastructure across both environments. You can also discover and onboard existing VMware VMs to Azure.
 
 - Conduct governance and monitoring operations across Azure and VMware VMs by enabling guest management (installing the [Azure Arc-enabled servers Connected Machine agent](../servers/agent-overview.md)).
 

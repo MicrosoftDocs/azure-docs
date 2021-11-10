@@ -61,6 +61,7 @@ Perform the following steps to configure your client machine with the Azure CLI 
    > [!NOTE]
    > It is important after installing Python to confirm that its path is added to the PATH environmental variable.
 
+1. Install the [pip](https://pypi.org/project/pip/) package installer for Python.
 1. Verify Python is installed correctly by running `py` in a Command Prompt.
 1. From an elevated PowerShell console, run `pip install azure-cli` to install the Azure CLI from PyPI.
 
@@ -68,11 +69,13 @@ After completing these steps, in a new Powershell console you can get started us
 
 ## Azure Arc resource bridge (preview) is unreachable
 
-Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. Intermittently, the resource bridge VM loses the reserved IP configuration. This is due to the behavior described in [loss of VIP's when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address is not assigned to the Azure Arc resource bridge VM, any call to the resource bridge API server will fail. As a result you are unable to create any new resource through the resource bridge, ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
+Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if not reserved. Rebooting the Azure Arc resource bridge (preview) or VM can trigger an IP address change, resulting in failing services.
+
+Intermittently, the resource bridge (preview) can lose the reserved IP configuration. This is due to the behavior described in [loss of VIP's when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address is not assigned to the Azure Arc resource bridge (preview) VM, any call to the resource bridge API server will fail. As a result you are unable to create any new resource through the resource bridge (preview), ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
 
 ### Resolution
 
-Reboot the resource bridge VM and it will recover its IP address.
+Reboot the resource bridge (preview) VM and it should recover its IP address. If the address is assigned from a DHCP server, reserve the IP address associated with the resource bridge (preview).
 
 ## Resource bridge cannot be updated
 
