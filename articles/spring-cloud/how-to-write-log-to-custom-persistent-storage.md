@@ -1,6 +1,6 @@
 ---
-title: How to use Logback to write logs to your own persistent storage | Microsoft Docs
-description: How to use Logback to write logs to your own persistent storage in Azure Spring Cloud.
+title: How to use Logback to write logs to custom persistent storage | Microsoft Docs
+description: How to use Logback to write logs to custom persistent storage in Azure Spring Cloud.
 author: karlerickson
 ms.author: xuycao
 ms.service: spring-cloud
@@ -9,11 +9,11 @@ ms.date: 11/09/2021
 ms.custom: devx-track-java
 ---
 
-# How to use Logback to write logs to your own persistent storage
+# How to use Logback to write logs to custom persistent storage
 
 **This article applies to:** ✔️ Java
 
-This article shows you how to load Logback and write logs to your own persistent storage in Azure Spring Cloud.
+This article shows you how to load Logback and write logs to custom persistent storage in Azure Spring Cloud.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ This article shows you how to load Logback and write logs to your own persistent
 
 ## Edit the Logback configuration to write logs into a specific path
 
-You can set the path where logs will be written by using the following procedure.
+You can set the path where logs will be written by using the following example.
 
 > [!NOTE]
 > When a file in the application's classpath has one of the following names, Spring Boot will automatically load it over the default configuration for Logback:
@@ -86,13 +86,13 @@ Let's use this simple logback-spring.xml file as an example:
 
 In the *RollingFileAppender* and *TimeBasedRollingPolicy* sections, they both contain a placeholder *{LOGS}* in the path for writing the application's logs to. 
 
-To have the log flow to both the console and your custom persistent storage, a value needs to be assigned to the environment variable *LOGS*. Then you'll attach your custom persistent storage to the same path in your Azure Spring Cloud application.
+To have the log flow to both the console and your persistent storage, a value needs to be assigned to the environment variable *LOGS*. Then you'll attach your persistent storage to the same path in your Azure Spring Cloud application.
 
-## Use the Azure CLI to use Logback to write logs to your custom persistent storage
+## Use the Azure CLI to use Logback to write logs to persistent storage
 
-This Logback configuration will write logs to both the application console and the custom persistent storage:
+This Logback configuration will write logs to both the application console and the persistent storage:
 
-1. Use the following command to create an Azure Spring Cloud application with custom persistent storage enabled and the environment variable set:
+1. Use the following command to create an Azure Spring Cloud application with persistent storage enabled and the environment variable set:
 
     ```azurecli
     az spring-cloud app create \
@@ -135,7 +135,7 @@ This Logback configuration will write logs to both the application console and t
     az spring-cloud app logs -n <app-name> -g <resource-group-name> -s <spring-instance-name>
     ```
 
-    Go to the Azure Storage Account resource you bound and find the Azure File Share that was attached as custom persistent storage. In this example, the logs will be written to the "spring-boot-logger.log" file in your Azure File Share's home path. All of the rotated log files will be stored in the '/archived' folder in your Azure File Share.
+    Go to the Azure Storage Account resource you bound and find the Azure File Share that was attached as persistent storage. In this example, the logs will be written to the "spring-boot-logger.log" file in your Azure File Share's home path. All of the rotated log files will be stored in the '/archived' folder in your Azure File Share.
 
 ## Next steps
 
