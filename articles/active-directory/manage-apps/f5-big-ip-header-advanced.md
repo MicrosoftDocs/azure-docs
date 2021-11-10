@@ -156,13 +156,13 @@ access](https://docs.microsoft.com/azure/active-directory/conditional-access/ove
 
 7. Select **+ Add a group claim** and select **Groups assigned to the application** > **Source Attribute** > **sAMAccountName**
 
-   ![Screenshot shows manage claims configuration](./media/f5-big-ip-header-advanced/group-claims.png)
+   ![Screenshot shows group claims configuration](./media/f5-big-ip-header-advanced/group-claims.png)
 
 8. **Save** the configuration and close the blade
 
    Observe the properties of the **User Attributes & Claims** section. Azure AD will issue users these properties for BIG-IP APM authentication and SSO to the backend application:
 
-   ![Screenshot shows manage claims configuration](./media/f5-big-ip-header-advanced/user-attributes-claims.png)
+   ![Screenshot shows user attributes and claims configuration](./media/f5-big-ip-header-advanced/user-attributes-claims.png)
 
    Feel free to add any other specific claims your BIG-IP published application might expect as headers. Any claims defined in addition to the default set will only be issued if they exist in Azure AD. In the same way, Directory [roles or group](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-group-claims)
    memberships also need defining against a user object in Azure AD before they can be issued as a claim.
@@ -170,7 +170,7 @@ access](https://docs.microsoft.com/azure/active-directory/conditional-access/ove
 9. In the **SAML Signing Certificate** section, select the
    **Download** button to save the **Federation Metadata XML** file to your computer.
 
-   ![Screenshot shows manage claims configuration](./media/f5-big-ip-header-advanced/saml-signing-certificate.png)
+   ![Screenshot shows saml signing certificate](./media/f5-big-ip-header-advanced/saml-signing-certificate.png)
 
 SAML signing certificates created by Azure AD have a lifespan of three years and should be managed using the published
 [guidance](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on).
@@ -220,7 +220,7 @@ The following steps create the BIG-IP SAML service provider and corresponding SA
 
 6. Select **Add New Row** to choose the new **SAML IdP Connector**, followed by **Update**
 
-   ![Screenshot shows new idp connector](./media/f5-big-ip-header-advanced/update-idp-connector.png)
+   ![Screenshot shows how to update idp connector](./media/f5-big-ip-header-advanced/update-idp-connector.png)
 
 7. Select **OK** to save the settings
 
@@ -259,7 +259,8 @@ Create an APM SSO object for doing headers SSO to the backend application.
    | Header Name | group\_authz |
    | Header Value | %{session.saml.last.attr.name.`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`} |
 
-   >[!Note] APM session variables defined within curly brackets are case sensitive. So, entering EmployeeID when the Azure AD attribute name is being sent as employeeid will cause an attribute mapping failure. Unless necessary, we recommend defining all attributes in lowercase.
+   >[!Note]
+   >APM session variables defined within curly brackets are case sensitive. So, entering EmployeeID when the Azure AD attribute name is being sent as employeeid will cause an    attribute mapping failure. Unless necessary, we recommend defining all attributes in lowercase.
 
    ![Screenshot shows Http header modify](./media/f5-big-ip-header-advanced/http-header-modify.png)
 
