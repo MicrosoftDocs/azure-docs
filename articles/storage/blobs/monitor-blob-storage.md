@@ -458,7 +458,7 @@ You can read account-level metric values of your storage account or the Blob sto
    Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
 ```
 
-## Reading metric values with dimensions
+#### Reading metric values with dimensions
 
 When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
 
@@ -489,7 +489,7 @@ You can read the metric values of your storage account or the Blob storage servi
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-## Reading metric values with dimensions
+#### Reading metric values with dimensions
 
 When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command.
 
