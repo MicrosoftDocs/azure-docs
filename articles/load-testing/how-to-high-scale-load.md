@@ -47,15 +47,15 @@ In this section, you'll configure the scaling settings of your load test.
 
 1. Navigate to your Load Testing resource, and select **Tests** from the left navigation to view the list of test plans. Next, select the test from the list by checking the box, and then select **Edit**.
 
-    :::image type="content" source="media/how-to-configure-azure-load-testing-high-scale-load/edit-test.png" alt-text="Screenshot that shows the list of tests.":::
+    :::image type="content" source="media/how-to-high-scale-load/edit-test.png" alt-text="Screenshot that shows the list of tests.":::
 
 1. You can also modify the test configuration from the test details page. Select **Configure**, and then **Test** to edit the test.
 
-    :::image type="content" source="media/how-to-configure-azure-load-testing-high-scale-load/configure-test.png" alt-text="Screenshot that shows how to configure a test from the test details page.":::
+    :::image type="content" source="media/how-to-high-scale-load/configure-test.png" alt-text="Screenshot that shows how to configure a test from the test details page.":::
 
 1. In the **Edit test** page, navigate to the **Load** tab and configure the **Engine instances** input field.
 
-    :::image type="content" source="media/how-to-configure-azure-load-testing-high-scale-load/edit-test-load.png" alt-text="Screenshot that shows the Load tab when editing a test.":::
+    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot that shows the Load tab when editing a test.":::
 
 1. Select **Apply** to modify the test and use the new configuration when you rerun the test.
 
@@ -63,4 +63,4 @@ In this section, you'll configure the scaling settings of your load test.
 
 - For information about how to compare test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
 
-- To learn how to configure automated regression testing, see [Configure automated load testing with Azure Pipelines](./tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md)
+- To learn how to configure automated regression testing, see [Configure automated load testing with Azure Pipelines](./tutorial-cicd-azure-pipelines.md)

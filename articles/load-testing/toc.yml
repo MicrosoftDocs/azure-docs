@@ -22,16 +22,16 @@
     - name: Continuous regression testing
       items:
       - name: Automate with GitHub Actions
-        href: tutorial-continuous-regression-testing-cicd-github-actions.md
+        href: tutorial-cicd-github-actions.md
       - name: Automate with Azure Pipelines
-        href: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
+        href: tutorial-cicd-azure-pipelines.md
 - name: How-tos
   expanded: true
   items: 
     - name: Compare multiple test runs
       href: how-to-compare-multiple-test-runs.md
     - name: Configure Azure Load Testing for high scale load testing
-      href: how-to-configure-azure-load-testing-high-scale-load.md
+      href: how-to-high-scale-load.md
     - name: Parameterize load tests
       href: how-to-parameterize-load-tests.md
     - name: Define test criteria
@@ -39,7 +39,7 @@
     - name: Find and download your load testing logs
       href: how-to-find-download-logs.md
     - name: Get more insights from testing AppService workloads
-      href: how-to-get-insights-testing-appservice-workloads.md
+      href: how-to-appservice-insights.md
     - name: Update and rerun your load tests
       href: how-to-update-rerun-test.md
 - name: Resources

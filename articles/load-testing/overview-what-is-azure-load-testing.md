@@ -61,4 +61,4 @@ You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workfl
 
 Start using Azure Load Testing:
 - [Tutorial: Use a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
-- [Tutorial: Set up automated load testing](./tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md)
+- [Tutorial: Set up automated load testing](./tutorial-cicd-azure-pipelines.md)
