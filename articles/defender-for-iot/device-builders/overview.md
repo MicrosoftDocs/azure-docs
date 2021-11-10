@@ -2,7 +2,7 @@
 title: Service overview for device builders
 description: Learn about the Defender for IoT features and services, and understand how Defender for IoT provides comprehensive IoT security.
 ms.topic: overview
-ms.date: 07/08/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
 ---
 

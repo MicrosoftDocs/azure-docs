@@ -6,7 +6,7 @@ author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
-ms.date: 08/23/2021
+ms.date: 11/09/2021
 ---
 
 # Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel

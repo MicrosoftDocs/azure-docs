@@ -1,7 +1,7 @@
 ---
 title: Defender for Cloud IoT micro agent troubleshooting (Preview)
 description: Learn how to handle unexpected or unexplained errors.
-ms.date: 4/5/2021
+ms.date: 11/09/2021
 ms.topic: reference
 ---
 

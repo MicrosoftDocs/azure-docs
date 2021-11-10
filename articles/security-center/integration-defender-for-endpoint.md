@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 
@@ -251,9 +251,7 @@ For endpoints running Linux:
 
 --- 
 
-
-
-## FAQ - Defender for Cloud's integration with Microsoft Defender for Endpoint
+## FAQ - Microsoft Defender for Cloud integration with Microsoft Defender for Endpoint
 
 - [What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?](#whats-this-mdewindows--mdelinux-extension-running-on-my-machine)
 - [What are the licensing requirements for Microsoft Defender for Endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)

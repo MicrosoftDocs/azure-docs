@@ -1,7 +1,7 @@
 ---
 title: Forward alert information
 description: You can send alert information to partner systems by working with forwarding rules.
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

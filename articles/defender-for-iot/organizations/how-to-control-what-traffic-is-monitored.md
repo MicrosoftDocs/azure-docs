@@ -1,7 +1,7 @@
 ---
 title: Control what traffic is monitored
 description: Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and network behavior. Several tools are available to control the type of traffic that each sensor detects. 
-ms.date: 12/07/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

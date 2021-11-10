@@ -1,7 +1,7 @@
 ---
 title: Agent portfolio overview and OS support (Preview)
 description: Microsoft Defender for IoT provides a large portfolio of agents based on the device type. 
-ms.date: 10/03/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ---
 

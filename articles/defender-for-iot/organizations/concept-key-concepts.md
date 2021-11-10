@@ -1,7 +1,7 @@
 ---
 title: Key advantages
 description: Learn about basic Defender for IoT concepts.
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 

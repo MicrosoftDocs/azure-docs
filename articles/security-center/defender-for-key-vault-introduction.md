@@ -3,7 +3,7 @@ title: Microsoft Defender for Key Vault - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Key Vault.
 author: memildin
 ms.author: memildin
-ms.date: 10/20/2021
+ms.date: 11/09/2021
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions

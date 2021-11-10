@@ -3,7 +3,7 @@ title: Microsoft Defender for Cloud's workload protection dashboard and its feat
 description: Learn about the features of Microsoft Defender for Cloud's workload protection dashboard
 author: memildin
 ms.author: memildin
-ms.date: 11/02/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin

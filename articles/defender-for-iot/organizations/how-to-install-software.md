@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Microsoft Defender for IoT.
-ms.date: 10/21/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

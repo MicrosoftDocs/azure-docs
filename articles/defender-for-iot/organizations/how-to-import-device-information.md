@@ -1,7 +1,7 @@
 ---
 title: Import device information
 description: Defender for IoT sensors monitor and analyze mirrored traffic. In these cases, you might want to import data to enrich information on devices already detected.
-ms.date: 12/06/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

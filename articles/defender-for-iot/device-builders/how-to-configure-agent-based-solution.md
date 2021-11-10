@@ -1,7 +1,7 @@
 ---
 title: Configure Microsoft Defender for IoT agent-based solution
 description: Learn how to configure data collection in Microsoft Defender for IoT agent-based solution
-ms.date: 05/26/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

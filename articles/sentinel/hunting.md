@@ -8,7 +8,7 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/02/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ---
 

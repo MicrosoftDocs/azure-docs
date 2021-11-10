@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Microsoft Defender for Cloud Troubleshooting Guide

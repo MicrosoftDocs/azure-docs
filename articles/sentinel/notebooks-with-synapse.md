@@ -9,7 +9,7 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 10/06/2021
+ms.date: 11/09/2021
 ---
 
 # Large-scale security analytics using Microsoft Sentinel notebooks and Azure Synapse integration (Public preview)

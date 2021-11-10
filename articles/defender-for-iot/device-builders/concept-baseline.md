@@ -2,7 +2,7 @@
 title: Baseline and custom checks
 description: Learn about the concept of Microsoft Defender for IoT baseline.
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/09/2021
 ---
 
 # Microsoft Defender for IoT baseline and custom checks

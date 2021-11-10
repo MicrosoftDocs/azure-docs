@@ -2,7 +2,7 @@
 title: Configure Microsoft Sentinel with Defender for IoT for device builders
 description: This article explains how to configure Microsoft Sentinel to receive data from your Defender for IoT for device builders solution.
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 11/09/2021
 ---
 
 # Connect your data from Defender for IoT for device builders to Microsoft Sentinel (Public preview)

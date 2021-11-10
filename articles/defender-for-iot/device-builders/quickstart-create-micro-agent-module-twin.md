@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a Defender for Cloud IoT micro agent module twin (Preview)'
 description: In this quickstart, learn how to create individual DefenderIotMicroAgent module twins for new devices.
-ms.date: 05/10/2021
+ms.date: 11/09/2021
 ms.topic: quickstart
 ---
 

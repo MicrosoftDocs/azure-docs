@@ -4,7 +4,7 @@ description: In this tutorial, learn how to integrate Splunk with Microsoft Defe
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/12/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
 ---
 

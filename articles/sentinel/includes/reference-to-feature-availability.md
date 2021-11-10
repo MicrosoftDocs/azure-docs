@@ -4,12 +4,9 @@ description: References the feature availability table for Azure Government.
 ms.service: sentinel
 author: batamig
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: include file
-
-
-
 ---
 
 >[!NOTE]

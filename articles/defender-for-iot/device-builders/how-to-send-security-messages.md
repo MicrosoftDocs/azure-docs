@@ -2,7 +2,7 @@
 title: Send Defender for IoT device security messages
 description: Learn how to send your security messages using Defender for IoT.
 ms.topic: how-to
-ms.date: 2/8/2021
+ms.date: 11/09/2021
 ms.custom: devx-track-js
 ---
 

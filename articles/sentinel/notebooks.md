@@ -9,7 +9,7 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.date: 06/24/2021
+ms.date: 11/09/2021
 ---
 
 # Use Jupyter notebooks to hunt for security threats

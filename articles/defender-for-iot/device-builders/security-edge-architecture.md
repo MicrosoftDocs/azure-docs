@@ -2,7 +2,7 @@
 title: Defender for IoT azureiotsecurity for IoT Edge
 description: Understand the architecture and capabilities of Microsoft Defender for IoT azureiotsecurity for IoT Edge.
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 11/09/2021
 ---
 
 # Microsoft Defender for IoT Edge azureiotsecurity

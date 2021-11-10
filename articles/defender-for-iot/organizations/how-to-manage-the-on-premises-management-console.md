@@ -1,7 +1,7 @@
 ---
 title: Manage the on-premises management console 
 description: Learn about on-premises management console options like backup and restore, defining the host name, and setting up a proxy to sensors.
-ms.date: 1/12/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 

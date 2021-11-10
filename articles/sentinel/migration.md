@@ -6,7 +6,7 @@ documentationcenter: na
 author: batamig
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/04/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---

@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 07/06/2021
+ms.date: 11/09/2021
 ms.subservice: azure-sentinel
 ---
 

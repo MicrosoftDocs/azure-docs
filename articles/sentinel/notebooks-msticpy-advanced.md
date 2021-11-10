@@ -6,7 +6,7 @@ author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
-ms.date: 09/12/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
 ---
 

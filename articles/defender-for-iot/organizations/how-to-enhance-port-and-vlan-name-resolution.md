@@ -1,7 +1,7 @@
 ---
 title: Enhance port and VLAN name resolution
 description: Customize port and VLAN names on your sensors to enrich device resolution.
-ms.date: 12/13/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT glossary for organizations
 description: This glossary provides a brief description of important Defender for IoT platform terms and concepts.
-ms.date: 05/27/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 

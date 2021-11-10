@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: System prerequisites'
 description: In this quickstart, get the system prerequisites needed to run Microsoft Defender for IoT.
-ms.date: 11/30/2020
+ms.date: 11/09/2021
 ms.topic: quickstart
 ---
 

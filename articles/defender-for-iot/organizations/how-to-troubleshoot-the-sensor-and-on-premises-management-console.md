@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 10/17/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console

@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 07/26/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
 ---
 
