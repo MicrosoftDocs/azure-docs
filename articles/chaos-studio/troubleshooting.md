@@ -9,7 +9,7 @@ ms.date: 11/01/2021
 ms.custom: template-troubleshooting, ignite-fall-2021
 ---
 
-# Azure Chaos Studio troubleshooting
+# Troubleshoot issues with Azure Chaos Studio
 
 As you use Chaos Studio, you may occasionally encounter some problems. This article details common problems and troubleshooting steps.
 
