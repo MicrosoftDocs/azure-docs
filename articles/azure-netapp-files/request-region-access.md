@@ -24,7 +24,7 @@ This article describes how to request access to a region.
 
 1. Go to **New Support Request** under **Support + troubleshooting**.   
 
-2. Under the **Problem description** tab, provide the requested information.
+2. Under the **Problem description** tab, provide the required information:
     1. For **Issue Type**, select **Service and Subscription Limits (Quotas)**.
     2. For **Subscription**, select your subscription. 
     3. For **Quota Type**, select **Storage: Azure NetApp Files limits**.
@@ -41,7 +41,7 @@ This article describes how to request access to a region.
 
     ![Screenshot that shows the Quota Details window for requesting region access.](../media/azure-netapp-files/quota-details-region-access.png)
 
-5 . Click **Next** and **Review + create** to create the request.
+5. Click **Save and continue**. Click **Review + create** to create the request.
 
 ## Next steps  
 

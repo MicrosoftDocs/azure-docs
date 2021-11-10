@@ -99,10 +99,10 @@ You can create an Azure support request to increase the adjustable limits from t
 
 1. Go to **New Support Request** under **Support + troubleshooting**.   
 
-2. Under the **Problem description** tab, provide the requested information.
+2. Under the **Problem description** tab, provide the required information:
     1. For **Issue Type**, select **Service and Subscription Limits (Quotas)**.
     2. For **Subscription**, select your subscription. 
-    3. For **Quota Type**, select **Storage: Azure NetApp Files limits**.
+    3. For **Quota Type**, select **Storage: Azure NetApp Files limits**.  
 
     ![Screenshot that shows the Problem Description tab.](../media/azure-netapp-files/support-problem-descriptions.png)
 
@@ -124,7 +124,7 @@ You can create an Azure support request to increase the adjustable limits from t
     
     ![Screenshot that shows how to display and request increase for regional quota.](../media/azure-netapp-files/quota-details-regional-request.png)
 
-5 . Click **Next** and **Review + create** to create the request.
+5. Click **Save and continue**. Click **Review + create** to create the request.
 
 ## Next steps  
 
