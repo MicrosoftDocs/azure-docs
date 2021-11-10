@@ -43,6 +43,12 @@ From the Experiments page, click on the experiment name to navigate to the Exper
 
 ![Experiment history](images/run-experiment-history.png)
 
+### My agent-based fault failed with error: Verify that the target is correctly onboarded and proper read permissions are provided to the experiment msi.
+
+This may happen if you onboarded the agent using the Azure portal, which has a known issue: Enabling an agent-based target does not assign the user-assigned managed identity to the virtual machine or virtual machine scale set.
+
+To resolve this, navigate to the virtual machine or virtual machine scale set in the Azure portal, go to **Identity**, open the **User assigned** tab, and **Add** your user-assigned identity to the virtual machine. Once complete, you may need to reboot the virtual machine for the agent to connect.
+
 ### How do I collect agent logs on a Linux virtual machine?
 
 Run this command on the VM: `journalctl -u azure-chaos-agent`
