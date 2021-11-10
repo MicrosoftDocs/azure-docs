@@ -150,6 +150,8 @@
           href: f5-aad-password-less-vpn.md
         - name: F5 BIG-IP with Azure AD for forms-based authentication SSO
           href: f5-big-ip-forms-advanced.md
+        - name: F5 BIG-IP with Azure AD SSO for header based authentication
+          href: f5-big-ip-header-advanced.md
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
