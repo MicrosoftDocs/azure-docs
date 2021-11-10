@@ -17,7 +17,7 @@ ms.author: edcohen
 > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Confidential Computing offers confidential VMs based on [AMD processors with SEV-SNP technology](confidential-vm-solutions-amd.md). Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code.  The platform prevents anyone other than you, including Microsoft, from reading or modifying a confidential VM's state.
+Azure Confidential Computing offers confidential VMs based on [AMD processors with SEV-SNP technology](confidential-vm-solutions-amd.md). Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code.  The platform protects your VM's state from being read or modified, including by Microsoft.
 
 > [!IMPORTANT]
 > Protection levels differ based on your configuration and preferences. For example, Microsoft can own or manage encryption keys for increased convenience at no additional cost.
@@ -38,7 +38,7 @@ Some of the benefits of confidential VMs include:
 
 Confidential VMs offer a new and enhanced disk encryption scheme. This optional scheme protects all critical partitions of the disk, including `root` and `boot`. The scheme binds disk encryption keys to the virtual machine's TPM and makes the keys accessible only to the AMD processor. These encryption keys can securely bypass Azure components, including the hypervisor and host operating system. To minimize the attack potential, a dedicated and separate cloud service also encrypts the disk during the initial creation of the VM.
 
-If you're missing critical settings for your VM's isolation, Azure Attestation doesn't release the disk encryption keys. For example, this scenario happens if you haven't enabled SEV-SNP. Protect your confidential VM's operating system and data-at-rest from tampering by using [customizable attestation policies](#customizable-attestation-policies).
+If you're missing critical settings for your VM's isolation, Azure Attestation will prevent the release of disk encryption keys. For example, this scenario happens if you haven't enabled SEV-SNP. For more information, see the section about [customizable attestation policies](#customizable-attestation-policies).
 
 Full-disk encryption is optional, because this process can lengthen the initial VM creation time. You can choose between:
 
