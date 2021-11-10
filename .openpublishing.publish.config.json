@@ -430,12 +430,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-cli-preview",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "cli-preview",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "terraform",
       "url": "https://github.com/Azure/terraform",
       "branch": "master",
