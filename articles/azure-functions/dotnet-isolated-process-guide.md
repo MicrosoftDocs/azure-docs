@@ -177,7 +177,7 @@ This section describes the current state of the functional and behavioral differ
 
 | Feature/behavior |  In-process | Out-of-process  |
 | ---- | ---- | ---- |
-| .NET versions | .NET Core 3.1/.NET 6.0 | .NET 5.0/.NET 6.0 |
+| .NET versions | .NET Core 3.1<br/>.NET 6.0 | .NET 5.0<br/>.NET 6.0 |
 | Core packages | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Binding extension packages | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | Under [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Logging | [ILogger] passed to the function | [ILogger] obtained from [FunctionContext] |
