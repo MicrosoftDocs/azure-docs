@@ -40,7 +40,7 @@ In this example, we override the cache expiration to 6 hours, for matched reques
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
+:::image type="content" source="./media/rules-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
 
 # [JSON](#tab/json)
 
@@ -89,7 +89,7 @@ In this example, we modify the cache key to include a query string parameter nam
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/cache-key-query-string.png" alt-text="Portal screenshot showing cache key query string action.":::
+:::image type="content" source="./media/rules-actions/cache-key-query-string.png" alt-text="Portal screenshot showing cache key query string action.":::
 
 # [JSON](#tab/json)
 
@@ -137,7 +137,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request header action.":::
+:::image type="content" source="./media/rules-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request header action.":::
 
 # [JSON](#tab/json)
 
@@ -187,7 +187,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/modify-response-header.png" alt-text="Portal screenshot showing modify response header action.":::
+:::image type="content" source="./media/rules-actions/modify-response-header.png" alt-text="Portal screenshot showing modify response header action.":::
 
 # [JSON](#tab/json)
 
@@ -238,7 +238,7 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/url-redirect.png" alt-text="Portal screenshot showing URL redirect action.":::
+:::image type="content" source="./media/rules-actions/url-redirect.png" alt-text="Portal screenshot showing URL redirect action.":::
 
 # [JSON](#tab/json)
 
@@ -292,7 +292,7 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/url-rewrite.png" alt-text="Portal screenshot showing URL rewrite action.":::
+:::image type="content" source="./media/rules-actions/url-rewrite.png" alt-text="Portal screenshot showing URL rewrite action.":::
 
 # [JSON](#tab/json)
 
@@ -340,7 +340,7 @@ In this example, we route all matched requests to an origin group named `SecondO
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
+:::image type="content" source="./media/rules-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
 
 # [JSON](#tab/json)
 
