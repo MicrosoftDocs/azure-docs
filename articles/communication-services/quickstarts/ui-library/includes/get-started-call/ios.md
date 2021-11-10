@@ -40,7 +40,7 @@ platform :ios, '13.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'AzureCommunicationUI', '1.0.0-alpha.1'
+    pod 'AzureCommunicationUI', '1.0.0-alpha.2'
 end
 ```
 
@@ -106,8 +106,8 @@ class ViewController: UIViewController {
         let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 
         let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                                       displayName: "<DISPLAY_NAME>",
-                                       groupId: UUID(uuidString: "<GROUP_CALL_ID>")!)
+                                       groupId: UUID(uuidString: "<GROUP_CALL_ID>")!,
+                                       displayName: "<DISPLAY_NAME>")
         callComposite?.launch(with: options)
     }
 }
@@ -164,7 +164,7 @@ Refer to the [user access token](../../../identity/quick-create-identity.md) doc
 
 ### Setup group call or Teams meeting options
 
-Depending on what type of Call/Meeting you would like to setup, use the appropriate options object.
+Depending on what type of Call/Meeting you would like to setup, use the appropriate options object (`displayName` is an optional field).
 
 #### Group call
 
@@ -174,8 +174,8 @@ Initialize a `GroupCallOptions` instance inside the `startCallComposite` functio
 // let uuid = UUID() to create a new call
 let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
 let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                               displayName: "<DISPLAY_NAME>",
-                               groupId: uuid)
+                               groupId: uuid,
+                               displayName: "<DISPLAY_NAME>")
 ```
 
 #### Teams meeting
@@ -184,8 +184,8 @@ Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` func
 
 ```swift
 let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
-                                  displayName: "<DISPLAY_NAME>",
-                                  meetingLink: "<TEAMS_MEETING_LINK>")
+                                  meetingLink: "<TEAMS_MEETING_LINK>",
+                                  displayName: "<DISPLAY_NAME>")
 ```
 
 #### Get a Microsoft Teams meeting link
