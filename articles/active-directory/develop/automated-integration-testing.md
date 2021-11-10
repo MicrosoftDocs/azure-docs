@@ -39,7 +39,9 @@ You can read more about how the ROPC flow works in our [protocol documentation](
 To prepare for your automated integration tests, you'll need to create some test users, acquire and configure an app registration, and potentially make some configuration changes to your tenant.  Some of these steps will require admin privileges, and you'll likely want to create a separate test tenant that you are an administrator of so you can safely and effectively perform these tasks.
 
 ### Create some test users
-Lorem ipsum
+1. From the [Azure portal](https://portal.azure.com), click on **Azure Active Directory**.
+2. Go to **Users**.
+3. Click **New user** and create some new test users in your directory.
 
 ### Create and configure an app registration
 You'll need to register an application that will act as your client app when calling APIs.  This should **not** be the same application you may already have in production.  You should have a separate app to use only for testing purposes.
@@ -50,7 +52,7 @@ You'll need to register an application that will act as your client app when cal
         * If you plan on testing your app in the same tenant you registered it in, and you are an administrator in that tenant, you can consent to the permissions from the Azure portal. Simply click the 'Grant admin consent for <your_tenant_name>' button, next to the 'Add a permission' button on the API Permissions page.
         * If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you can still pre-consent to some permissions.  
         From your app registration in the Azure portal, go to Authentication > Add a platform > Web.  Add the redirect URI "https://localhost".
-        Then, send the below request in a browser, and consent to the permissions you are prompted with.  You may need to repeat this step for each API you want to call.
+        Then, send the below request in a browser, and when you are prompted with the login screen, sign in with a **test account** you created in a previous step.  Next, consent to the permissions you are prompted with.  You may need to repeat this step for each API you want to call and test user you want to use.
 
                 ```HTTP
                 // Line breaks for legibility only
