@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create an Azure Confidential virtual machine in the Azure portal
-description: Get started with your deployments by learning how to quickly create a confidential virtual machine in the Azure portal.
+title: Create a confidential VM on AMD in the Azure portal (preview)
+description: Learn how to quickly create a confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
 ms.service: virtual-machines
 ms.subservice: workloads
@@ -10,148 +10,150 @@ ms.date: 11/15/2021
 ms.author: RunCai
 ---
 
+# Quickstart: Create confidential VM on AMD in the Azure portal (preview)
 
-# Quickstart: Deploy an Azure Confidential virtual machine in the Azure portal
+> [!IMPORTANT]
+> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Get started with Azure confidential computing by using the Azure portal to create a confidential virtual machine (VM) backed by AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) to achieve VM memory encryption and isolation.
+You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly. The confidential VM you create runs on AMD processors backed by AMD SEV-SNP to achieve VM memory encryption and isolation. For more information, see [Confidential VM options on AMD](virtual-machine-solutions-amd.md).
 
-This tutorial is recommended if you're interested in deploying a confidential virtual machine with custom configuration.
-
+This tutorial covers deployment of a confidential VM with a custom configuration. For standard configurations, see the [Confidential Computing VM deployment steps for the Microsoft commercial marketplace](quick-create-marketplace.md) instead.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
+- An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
+- If you're using a Linux-based confidential VM, make sure you have installed a BASH shell to use SSH. If you're working on a Windows computer, you can install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-> [!NOTE]
-> Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
+## Create confidential VM
 
-
-## Sign in to Azure
+To create a confidential VM in the Azure portal using an Azure Marketplace image:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. At the top, select **Create a resource**.
+1. Select or search for **Virtual machines**.
 
-1. In the **Marketplace** pane, select **Compute** on the left.
+1. On the **Virtual machines** page menu, select **Create** &gt; **Virtual machine**.
 
-1. Find and select **Virtual machine**.
+1. On the tab **Basics**, configure the following settings:
 
-    ![Deploy a VM](media/quick-create-portal/compute-virtual-machine.png)
-
-1. On the Virtual machine landing page, select **Create**.
-
-
-## Configure a Confidential virtual machine
-
-1. In the **Basics** tab, select your **Subscription** and **Resource Group**.
-
-1. For **Virtual machine name**, enter a name for your new VM.
-
-1. Type or select the following values:
-
-   * **Region**: Select the Azure region that's right for you.
-
-    > [!NOTE]
-     > Confidential virtual machines run on specialized hardware available in specific regions. For the latest available regions for confidential virtual machines, see [available regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
-1. Choose **Security Type** as confidential virtual machines.![Security Type](media/quick-create-portal-cvm/Security-Type.PNG)
-1. Configure the OS image that you would like to use for your confidential virtual machine.
-
-    * **Image**: To follow this tutorial, select Ubuntu 20.04 LTS. You may also select [small disk] Windows Server 2019 Data Center or Windows Server 2022 Data Center. 
-    ![CVM images](media/quick-create-portal-cvm/CVM-Images.png)
-    You also can go to marketplace by selecting "See all images", and filter security type as "confidential". Then choose the image from the list. 
-    ![Marketplace](media/quick-create-portal-cvm/Marketplace.png)
-
-    * **Toggle the image for Gen 2**: Confidential virtual machines only run on [Generation 2](../virtual-machines/generation-2.md) images. Click the **Configure VM generation** under the Image selection dropdown menu. If Gen1 VM is selected, an error message will pop out.
+    1. Under **Project details**, for **Subscription**, select an Azure subscription that meets the [prerequisites](#prerequisites).
     
+    1. For **Resource Group**, select **Create new** to create a new resource group. Enter a name, and select **OK**.
 
-        ![Confidential VM Config](media/quick-create-portal-cvm/CVM-VM-Config.PNG)
+    1. Under **Instance details**, for **Virtual machine name**, enter a name for your new VM.
 
+    1. For **Region**, select the Azure region in which to deploy your VM. 
 
-1. Select a confidential virtual machine size by clicking **size**.
+        > [!NOTE]
+        > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
-    > [!TIP]
-    > Confidential virtual machines support **DCasv5**, **DCadsv5**, **ECasv5**, and **ECadsv5** VM families. You can find detailed VM specifications [here](virtual-machine-solutions-amd.md).
+    1. For **Security Type**, select **Confidential virtual machines**..
 
+    1. For **Image**, select the OS image to use for your VM. For this tutorial, select **Ubuntu 20.04 LTS**, **Windows Server 2019 [Small disk] Data Center**, or **Windows Server 2022 [Small disk] Data Center**.
 
-1. Fill in the following:
+        > [!TIP]
+        > Optionally, select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
 
-   * **Authentication type**: Select **SSH public key** if you're creating a Linux VM. 
+    1. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. Under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 
-    > [!NOTE]
-    > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
-
-    * **Username**: Enter the Administrator name for the VM.
-
-    * **SSH public key**: If applicable, enter your RSA public key.
-    
-    * **Password**: If applicable, enter your password for authentication.
-
-    * **Public inbound ports**: Choose **Allow selected ports** and select **SSH (22)** and **HTTP (80)** in the **Select public inbound ports** list. If you're deploying a Windows VM, select **HTTP (80)** and **RDP (3389)**.  
-
-    >[!Note]
-    > Allowing RDP/SSH ports is not recommended for production deployments.  
-
-     ![Inbound ports](media/quick-create-portal/inbound-port-virtual-machine.png)
+    1. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-solutions-amd.md#sizes).
 
 
-1. Go to Disk tab. 
-    * Under OS disk, click **Confidential compute encryption** if you want to encrypt your confidential virtual machine OS disk as part of the VM provisioning. 
-    * You can select two options from **Confidential compute encryption type**: *Confidential disk encryption with platform-managed key* or *Confidential disk encryption with customer-managed key*. 
-     >[!Note]
-     > If Confidential disk encryption with customer-managed key will be published soon.
+    1. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-    ![CVM-Confidential-computing-encryption](media/quick-create-portal-cvm/Confidential-computing-encryption.png) 
+    1. Under **Administrator account**, for **Username**, enter an administrator name for your VM.
 
-1. Make any changes that you need in the following tabs or keep the default settings.
+    1. For **SSH public key**, if applicable, enter your RSA public key.
 
-    * **Networking**
-    * **Management**
-    * **Guest config**
-    * **Tags**
+    1. For **Password** and **Confirm password**, if applicable, enter an administrator password.
 
-1. Select **Review + create**.
+    1. Under **Inbound port rules**, for **Public inbound ports**, select **Allow selected ports**.
+
+    1. For **Select inbound ports**, select your inbound ports from the drop-down menu. For Windows VMs, select **HTTP (80)** and **RDP (3389)**. For Linux VMs, select **SSH (22)** and **HTTP (80)**.
+
+        > [!NOTE]
+        > It's not recommended to allow RDP/SSH ports for production deployments.
+
+1. On the tab **Disks**, configure the following settings:
+
+    1. Under **Disk options**, enable **Confidential compute encryption** if you want to encrypt your VM's OS disk during creation.
+
+    1. For **Confidential compute encryption type**, select the type of encryption to use. 
+
+1. As needed, make changes to settings under the tabs **Networking**, **Management**, **Guest Config**, and **Tags**.
+
+1. Select **Review + create** to validate your configuration.
+
+1.  Wait for validation to complete. If necessary, fix any validation issues, then select **Review + create** again.
 
 1. In the **Review + create** pane, select **Create**.
 
-> [!NOTE]
-> Proceed to the next section and continue with this tutorial if you deployed a Linux VM. If you deployed a Windows VM, [follow these steps to connect to your Windows VM](../virtual-machines/windows/connect-logon.md).
+## Connect to confidential VM
 
+There are different methods to connect to [Windows confidential VMs](#connect-to-windows-vms) and [Linux confidential VMs](#connect-to-linux-vms).
 
-## Connect to the Linux VM
+### Connect to Windows VMs
 
-If you're already using a BASH shell, connect to the Azure VM using the **ssh** command. In the following command, replace the VM user name and IP address to connect to your Linux VM.
+To connect to a confidential VM with a Windows OS, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
+
+## Connect to Linux VMs
+
+To connect to a confidential VM with a Linux OS, see the instructions for your computer's OS.
+
+Before you begin, make sure you have your VM's public IP address. To find the IP address:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Select or search for **Virtual machines**.
+
+1. On the **Virtual machines** page, select your confidential VM.
+
+1. On your confidential VM's overview page, copy the **Public IP address**.
+
+For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+
+# [Windows](#tab/windows)
+
+1. Open your SSH client, such as PuTTY.
+
+1. Enter your confidential VM's public IP address.
+
+1. Connect to the VM. In PuTTY, select **Open**.
+
+1. Enter your VM administrator username and password.
+
+    > [!NOTE]
+    > If you're using PuTTY, you might receive a security alert that the server's host key isn't cached in the registry. If you trust the host, select **Yes** to add the key to PuTTY's cache and continue connecting. To connect just once, without adding the key, select **No**. If you don't trust the host, select **Cancel** to abandon your connection.
+
+# [Linux](#tab/linux)
+
+If you're on Linux, connect to the Linux confidential VM using SSH. Replace the sample VM username (`<vm-username>`) and VM IP address (`<vm-ip-address>`) with your own information.
 
 ```bash
-ssh azureadmin@"VM IP address"
+ssh <vm-username>@"<vm-ip-address>"
 ```
 
-You can find the public IP address of your VM in the Azure portal, under the Overview section of your virtual machine.
-
-
-If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
-
-1. [Download and install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
-1. Run PuTTY.
-
-1. On the PuTTY configuration screen, enter your VM's public IP address.
-
-1. Select **Open** and enter your username and password at the prompts.
-
-For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](../virtual-machines/linux/quick-create-portal.md).
-
-> [!NOTE]
-> If you see a PuTTY security alert about the server's host key not being cached in the registry, choose from the following options. If you trust this host, select **Yes** to add the key to PuTTy's cache and continue connecting. If you want to carry on connecting just once, without adding the key to the cache, select **No**. If you don't trust this host, select **Cancel** to abandon the connection.
-
+---
 
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. 
+After you're done with the quickstart, you can clean up the confidential VM, the resource group, and other related resources.
 
-Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Select or search for **Resource groups**.
+
+1. On the **Resource groups** page, select the resource group you created for this quickstart.
+
+1. On the resource group's menu, select **Delete resource group**.
+
+1. In the warning pane, enter the resource group's name to confirm the deletion.
+
+1. Select **Delete**.
 
 ## Next steps
 
-In this quickstart, you deployed a confidential virtual machine. For more information about confidential computing virtual machines on Azure, see [Solutions on Azure Virtual Machines](virtual-machine-solutions-amd.md). 
-
+> [!div class="nextstepaction"]
+> [Create a confidential VM on AMD with an ARM template](quick-create-arm-amd-cvm.md)

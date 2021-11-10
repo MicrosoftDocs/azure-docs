@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create an Azure confidential virtual machine with Azure CLI
-description: Get started with your deployments by learning how to quickly create a confidential virtual machine using Azure CLI.
+title: Create a confidential VM on AMD with an ARM template (preview)
+description: Learn how to quickly create a confidential virtual machine (confidential VM) using an ARM template. Deploy the confidential VM from the Azure portal or the Azure CLI.
 author: RunCai
 ms.service: virtual-machines
 ms.subservice: workloads
@@ -11,49 +11,168 @@ ms.author: RunCai
 ---
 
 
-# Quickstart: Deploy an Azure confidential virtual machine with Azure Resource Manager template
+# Quickstart: Deploy confidential VM on AMD with ARM template (preview)
 
-Get started with Azure confidential computing by using Azure CLI to create a confidential virtual machine (VM) backed by AMD SEV-SNP to achieve VM memory encryption and isolation. 
+> [!IMPORTANT]
+> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This tutorial is recommended if you're interested in deploying a confidential virtual machine with custom configuration. Otherwise, we recommend following the [confidential Computing virtual machine deployment steps for the Microsoft commercial marketplace](quick-create-marketplace.md).
+You can use an Azure Resource Manager template (ARM template) to create a [confidential VM](confidential-vm-overview.md) quickly. The confidential VM you create runs on AMD processors backed by AMD SEV-SNP to achieve VM memory encryption and isolation. For more information, see [Confidential VM options on AMD](virtual-machine-solutions-amd.md).
 
+This tutorial covers deployment of a confidential VM with a custom configuration. For standard configurations, see the [Confidential Computing VM deployment steps for the Microsoft commercial marketplace](quick-create-marketplace.md) instead.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
+- An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/). 
+- If you want to deploy from the Azure Command-Line Interface (Azure CLI), [install PowerShell](powershell/scripting/install/installing-powershell?view=powershell-7.2) and [install the Azure CLI](/cli/azure/install-azure-cli).
 
-> [!NOTE]
-> Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
+## Deploy confidential VM template from Azure Portal
 
-## Deploy the template through Azure portal
+To create and deploy a confidential VM using an ARM template in the Azure portal:
 
-* Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    [![Deploy to Azure](/media/quick-create-ARM-amd-cvm/ARM-deploy.png)](https://aka.ms/deploycvmazure)
+1. [Open the confidential VM ARM template](https://aka.ms/deploycvmazure). This template creates a key vault and a secret.
 
-    - **Subscription**: select an Azure subscription.
-    - **Resource group**: select an existing resource group from the drop-down, or select **Create new**, enter a unique name for the resource group, and then select **OK**.
-    - **Region**: select a location.  For example, **West US**.
-    - **VM name**: type in your confidential virtual machine name.
-    - **VM location**: select a confidential virtual machine location. Currently supported locations include **West US** and **North Europe**.
-    - **VM size**: select the size of your VM.
-    - **OS Image name**: select the OS image for your VM.
-    - **OS disk Type**: select OS disk type.
-    - **Admin username**: provide a username, such as *azureuser*.
-    - **Admin password**: provide a password to use for the admin account. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
-    - **Boot Diagnostics**: select whether you want the boot diagnostics capability for your VM. False is the default setting.
-    - **Security Type**: select whether you want full OS disk encryption before VM deployment. **VMGuestStateOnly** does not offer OS disk encryption. **DiskWithVMGuestState** enable full OS disk encryption using platform-managed keys.
-    - **Secure Boot Enabled**: select true to ensure that only properly signed boot components can load.
-* Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
+    1. For **Subscription**, select an Azure subscription that meets the [prerequisites](#prerequisites).
+    
+    1. For **Resource group**, select an existing resource group from the drop-down menu. Or, select **Create new**, enter a unique name, then select **OK**.
+    
+    1. For **Region**, select the Azure region in which to deploy the VM.
+    
+    1. For **Vm Name**, enter a name for your VM.
+    
+    1. For **Vm Location**, select a location for your VM. 
+    
+        > [!NOTE]
+        > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+    
+    1. For **Vm Size**, select the VM size to use.
+    
+    1. For **Os Image Name**, select the OS image to use for your VM.
+    
+    1. For **Os Disk Type**, select the OS disk type to use.
+    
+    1. For **Admin Username**, enter an administrator username for your VM.
+    
+    1. For **Admin Password Or Key**, enter a password for the administrator account. Make sure your password meets the complexity requirements for [Linux VMs](../virtual-machines/linux/faq.yml#what-are-the-password-requirements-when-creating-a-vm-) or [Windows VMs](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+    
+    1. For **Boot Diagnostics**, select whether you want to use boot diagnostics for your VM. The default setting is **false**.
+    
+    1. For **Security Type**, select whether you want to use full OS disk encryption before VM deployment. The option **VMGuestStateOnly** doesn't offer OS disk encryption. The option **DiskWithVMGuestState** enables full OS disk encryption using platform-managed keys.
+    
+    1. For **Secure Boot Enabled**, select **true**. This setting makes sure only properly signed boot components can load.
 
-## Deploy the template through Azure Command-Line Interface
+1. Select **Review + create** to validate your configuration.
 
-### Prepare Azure Resource Manager Template 
-* To create confidential virtual machine, you can add the following JSON (https://aka.ms/CVMTemplate) to your template or directly refer this link in command line during step 4.
-* Create a parameter JSON file (for example, named as Azuredeploy.parameters.json) by copying/pasting the following file examples for either Linux or Windows. Edit the parameter JSON file as needed (for example, osImageName, adminUsername, and so on). Reference previous Parameter list for descriptions and allowed values.
-* Linux parameter file example:
+1. Wait for validation to complete. If necessary, fix any validation issues, then select **Review + create** again.
 
-```bash
+1. In the **Review + create** pane, select **Create** to create and deploy the VM.
+
+## Deploy confidential VM template with Azure CLI
+
+To create and deploy a confidential VM using an ARM template through the Azure CLI:
+
+1. Sign in to your Azure account in the Azure CLI.
+
+    ```powershell-interactive
+    az login
+    ```
+
+1. Set your Azure subscription. Replace `<subscription-id>` with your subscription identifier. Make sure to use a subscription that meets the [prerequisites](#prerequisites).
+
+    ```powershell-interactive
+    az account set --subscription <subscription-id>
+    ```
+
+1. Set the variables for your confidential VM. These include the deployment name (`$deployName`), the resource group (`$resourceGroup`), the VM name (`$vmName`), and the Azure region (`$region`). Replace the sample values with your own information.
+
+    > [!NOTE]
+    > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+    ```powershell-interactive
+    $deployName="<deployment-name>"
+    $resourceGroup="<resource-group-name>"
+    $vmName= "<confidential-vm-name>"
+    $region="<region-name>"
+    ```
+
+    If the resource group you specified doesn't exist, create a resource group with that name.
+    
+    ```powershell-interactive
+    az group create -n $resourceGroup -l $region
+    ```
+
+1. Deploy your VM to Azure with your preferred method.
+
+    To deploy using the ARM template:
+    
+    ```powershell-interactive
+    az deployment group create `
+     -g $resourceGroup `
+     -n $deployName `
+     -u "https://aka.ms/CVMTemplate" `
+     -p vmLocation=$region `
+        vmName=$vmName
+    ```
+
+    To [deploy using a custom JSON parameter file](#use-custom-parameter-file):
+
+    ```powershell-interactive
+    az deployment group create `
+     -g $resourceGroup `
+     -n $deployName `
+     -p "<json-parameter-file-path>" `
+     -p vmLocation=$region `
+        vmName=$vmName
+    ```
+
+### Use custom parameter file
+
+When you [create your confidential VM using the Azure CLI](#deploy-with-azure-cli), you can either refer directly to the ARM template or provide the path to a custom JSON parameter file. To create a custom parameter file:
+
+1. Sign into your Azure account in the Azure CLI.
+
+1. Create a JSON parameter file. For example, `azuredeploy.parameters.json`.
+
+1. Depending on the OS image you're using, copy in the [example Windows parameter file](#example-windows-parameter-file) or the [example Linux parameter file](#example-linux-parameter-file).
+
+1. Edit the JSON code in the parameter file as needed. For example, you might want to update the OS image name (`osImageName`), the administrator username (`adminUsername`), and more.
+
+#### Example Windows parameter file
+
+Use this example to [create a custom parameter file](#use-custom-parameter-file) to create a Windows-based confidential VM.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+
+    "vmSize": {
+      "value": "Standard_DC2as_v5"
+    },
+    "osImageName": {
+      "value": "Windows Server 2022 Gen 2"
+    },
+    "securityType": {
+      "value": "DiskWithVMGuestState"
+    },
+    "adminUsername": {
+      "value": "testuser"
+    },
+    "adminPasswordOrKey": {
+      "value": "Password123@@"
+    }
+  }
+}
+```
+
+#### Example Linux parameter file
+
+Use this example to [create a custom parameter file](#use-custom-parameter-file) to create a Linux-based confidential VM.
+
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
@@ -79,72 +198,9 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
     }
   }
 }
-
 ```
 
-* Windows parameter file example: 
+## Next step
 
-```bash
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-
-    "vmSize": {
-      "value": "Standard_DC2as_v5"
-    },
-    "osImageName": {
-      "value": "Windows Server 2022 Gen 2"
-    },
-    "securityType": {
-      "value": "DiskWithVMGuestState"
-    },
-    "adminUsername": {
-      "value": "testuser"
-    },
-    "adminPasswordOrKey": {
-      "value": "Password123@@"
-    }
-  }
-}
-
-```
-
-### Deploy confidential virtual machine using Azure Command Line
-
-Step 1: Open PowerShell, install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-Step 2: Sign in to Azure and set your subscription
-
-```bash
-az login
-az account set --subscription <subscription id>
-```
-
-Step 3: Set variables. Specify a virtual machine name and the Azure resource group where you want the virtual machine to be deployed in. If the resource group does not exist, it will need to be created. 
-
-```bash
-$deployName="<name of deployment>"
-$resourceGroup="<name of resource group>"
-$vmName= "<name of vm>"
-$region="West US"
-```
-
-Example:
-
-![Set Variables](media/quick-create-ARM-amd-cvm/Set-variables.png)]
-
-Step 4: Deploy confidential virtual machine. Use the following commands in PowerShell to deploy your CVM to Azure. in this case 
-
-```bash
-az group create -n $resourceGroup -l $region
-
-az deployment group create `
- -g $resourceGroup `
- -n $deployName `
- -u "https://aka.ms/CVMTemplate" `
- -p "<path to parameter JSON file>" `
- -p vmLocation=$region `
-    vmName=$vmName
-
-```
-
+> [!div class="nextstepaction"]
+> [Quickstart: Create a confidential VM on AMD in the Azure portal](quick-create-portal-cvm.md)
