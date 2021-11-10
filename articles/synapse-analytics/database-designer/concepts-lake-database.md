@@ -20,7 +20,8 @@ The lake database in Azure Synapse Analytics enables customers to bring together
 
 ## Database designer
 
-The new database designer gives you the possibility to create a data model for your lake database and add additional information to it. Every Entity and Attribute can be described to provide more information along the model, which not only contains entities but relationships as well. Modeling data on the lake has been been a challenge for years. This challenge is now addressed with an integrated designer that provides capabilities known to be avaialble in databases but not on the lake. The possiblity to add descriptions and demo values to the model allows users interacting with the data to have additional information attached to the data. This helps to get a better understanding about the data. 
+The new database designer gives you the possibility to create a data model for your lake database and add additional information to it. Every Entity and Attribute can be described to provide more information along the model, which not only contains Entities but relationships as well. The lack of relationship information has traditionally been a challenge for working with data lakes. This challenge is now addressed with an integrated designer that provides possibilities that have been available in databases but not on the lake, such as relationships. Also the capability to add descriptions and possible demo values to the model allows people who are interacting with it in the future to have information where they need it to get a better understanding about the data. 
+
 
 ## Data storage 
 
