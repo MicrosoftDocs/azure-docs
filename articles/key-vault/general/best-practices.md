@@ -10,7 +10,7 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-# Customer intent: As a developer using Key Vault, I want to know the best practices so I can implement them.
+# Customer intent: As a developer who's using Key Vault, I want to know the best practices so I can implement them.
 ---
 # Best practices for using Azure Key Vault
 
