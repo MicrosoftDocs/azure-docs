@@ -4,7 +4,7 @@ description: Understand the available actions you can use with Chaos Studio incl
 services: chaos-studio
 author: johnkemnetz
 ms.topic: article
-ms.date: 11/01/2021
+ms.date: 11/10/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
@@ -53,7 +53,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
 | Parameters (key, value)  |
 | pressureLevel | An integer between 1 and 99 that indicates how much CPU pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 ```json
@@ -98,7 +98,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:physicalMemoryPressure/1.0 |
 | Parameters (key, value) |  |
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -138,7 +138,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:virtualMemoryPressure/1.0 |
 | Parameters (key, value) |  |
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -178,7 +178,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:diskIOPressure/1.0 |
 | Parameters (key, value) |  |
 | pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the PressureModes in the table below. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Pressure modes
 
@@ -230,7 +230,7 @@ Known issues on Linux:
 | workerCount | Number of worker processes to run. Setting this to 0 will generate as many worker processes as there are number of processors. |
 | fileSizePerWorker | Size of the temporary file a worker will perform I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4m for 4 megabytes, 256g for 256 gigabytes) |
 | blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes (b), kilobytes (k), or megabytes (m) (for example, 512k for 512 kilobytes) |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -317,7 +317,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:stopService/1.0 |
 | Parameters (key, value) |  |
 | serviceName | The name of the Windows service you want to stop. You can run `sc.exe query` in command prompt to explore service names, Windows service friendly names are not supported. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -357,7 +357,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:timeChange/1.0 |
 | Parameters (key, value) |  |
 | dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If YYYY-MM-DD values are missing, they are defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (YY), it is converted to a 4-digit year (YYYY) based on the current century. If \<Z\> is missing, it is defaulted to the offset of the local timezone. \<Z\> must always include a sign symbol (negative or positive). |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -398,7 +398,7 @@ Known issues on Linux:
 | Parameters (key, value) |  |
 | processName | Name of a process running on a VM (without the .exe) |
 | killIntervalInMilliseconds | Amount of time the fault will wait in between successive kill attempts in milliseconds. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -443,7 +443,7 @@ Known issues on Linux:
 | Parameters (key, value) |  |
 | hosts | Delimited JSON array of host names to fail DNS lookup request for. |
 | dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more details on DNS return codes, visit [the IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6) |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -497,7 +497,7 @@ Known issues on Linux:
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -545,7 +545,7 @@ Known issues on Linux:
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -592,7 +592,7 @@ Known issues on Linux:
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
