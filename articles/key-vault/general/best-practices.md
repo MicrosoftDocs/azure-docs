@@ -36,7 +36,7 @@ Suggestions for controlling access to your vault are as follows:
 
 ## Backup
 
-Make sure you take regular back ups of your vault on update/delete/create of objects within a Vault.
+Make sure you take regular backups of your vault. Backups should be performed when you update, delete, or create objects in your vault. 
 
 ### Azure PowerShell Backup commands
 
