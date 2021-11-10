@@ -124,7 +124,7 @@ The allowed values are:
 * **managementGroup** - used for [management group deployments](deploy-to-management-group.md).
 * **tenant** - used for [tenant deployments](deploy-to-tenant.md).
 
-In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#configure-module-scopes)
+In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
 
 ## Parameters
 
@@ -235,7 +235,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 }
 ```
 
-To [deploy more than one instance](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md) of a resource type, add a `for` expression. The expression can iterate over members of an array.
+To [deploy more than one instance](loops.md) of a resource type, add a `for` expression. The expression can iterate over members of an array.
 
 ```bicep
 resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {
@@ -290,7 +290,7 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 
 The `batchSize` decorator is in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate this decorator from another item with the same name, preface the decorator with **sys**: `@sys.batchSize(2)`
 
-For more information, see [Deploy in batches](loop-resources.md#deploy-in-batches).
+For more information, see [Deploy in batches](loops.md#deploy-in-batches).
 
 ## Outputs
 

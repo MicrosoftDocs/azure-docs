@@ -120,7 +120,7 @@ Once the app consent policy has been created, you can [allow user consent](confi
    ```
 
 > [!WARNING]
-> Deleted app consent policies cannot be restored. If you accidentally delete an custom app consent policy, you will need to re-create the policy.
+> Deleted app consent policies cannot be restored. If you accidentally delete a custom app consent policy, you will need to re-create the policy.
 
 ---
 

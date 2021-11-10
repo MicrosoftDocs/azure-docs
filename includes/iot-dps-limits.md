@@ -9,7 +9,7 @@ ms.author: v-stharr
 > [!NOTE]
 > Some areas of this service have adjustable limits. This is represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
 >
->The actual value to which a limit can be adjusted may vary based on each customer’s deployment.
+>The actual value to which a limit can be adjusted may vary based on each customer’s deployment. Multiple instances of DPS may be required for very large deployments.
 >
 > If your business requires raising an adjustable limit or quota above the default limit, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

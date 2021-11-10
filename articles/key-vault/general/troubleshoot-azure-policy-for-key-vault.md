@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting issues with implementing Azure policy on Key Vault
+title: Troubleshoot issues with implementing Azure policy on Key Vault
 description: Troubleshooting issues with implementing Azure policy on Key Vault
 author: sebansal
 ms.author: sebansal
@@ -9,7 +9,7 @@ ms.subservice: general
 ms.topic: how-to
 
 ---
-# Troubleshooting issues with implementing Azure policy on Key Vault
+# Troubleshoot issues with implementing Azure policy on Key Vault
 
 This article guides you how to troubleshoot general errors that might occur when you set up the [Azure Policy for Key Vault](./azure-policy.md), and suggests ways to resolve them.
 
@@ -24,12 +24,12 @@ In order to monitor how policy evaluations are conducted, you can review the Key
 When you enable logging, a new container called **AzurePolicyEvaluationDetails** will be automatically created to collect policy related logging information in your specified storage account. 
 
 > [!NOTE]
-> You should strictly regulate access to monitoring data, particularly log files, as they can contain sensitive information. Learn about applying [built-in monitoring Azure role](https://docs.microsoft.com/azure/azure-monitor/roles-permissions-security) and limiting access.
+> You should strictly regulate access to monitoring data, particularly log files, as they can contain sensitive information. Learn about applying [built-in monitoring Azure role](../../azure-monitor/roles-permissions-security.md) and limiting access.
 > 
 > 
 
 Individual blobs are stored as text, formatted as a JSON blob. 
-Let's look at an example log entry for a Key policy : [Keys should have expiration date set](https://docs.microsoft.com/azure/key-vault/general/azure-policy?tabs=keys#secrets-should-have-expiration-date-set-preview). This policy evaluates all keys in your key vaults and flags keys that do not have an expiration date set as non-compliant.
+Let's look at an example log entry for a Key policy : [Keys should have expiration date set](azure-policy.md?tabs=keys#secrets-should-have-expiration-date-set). This policy evaluates all keys in your key vaults and flags keys that do not have an expiration date set as non-compliant.
 
 ```json
 {
@@ -73,8 +73,14 @@ The following table lists the field names and descriptions:
 | **ObjectName** |Name of the object |
 | **ObjectType** |Type of key vault object, ie. certificate, secret or key |
 | **IsComplianceCheck** |True if evaluation occurred during nightly audit, false if evaluation occurred during resource creation or update |
-| **Outcome** | Returns the policy evaluation |
-| **ExpressionEvaluationDetails** | Details about what evaluation field, expression value |
+| **AssignmentId** | The ID of the policy assignment |
+| **AssignmentDisplayName** | Friendly name of the policy assignment |
+| **DefinitionId** | ID of the policy definition for the assignment |
+| **DefinitionDisplayName** | Friendly name of the policy definition for the assignment |
+| **Outcome** | Outcome of the policy evaluation |
+| **ExpressionEvaluationDetails** | Details about the evaluations performed during policy evaluation |
+| **ExpressionValue** | Actual value of the specified field during policy evaluation |
+| **TargetValue** | Expected value of the specified field |
 
 
 ### Frequently asked questions
@@ -133,10 +139,10 @@ Mitigation: update the policy assignment's effect to 'Disabled'.
 
 #### Secret creation via ARM template missing out policy evaluation
 
-Data plane policies that evaluate secret creation would not be applicable on [secrets created via ARM template](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template?tabs=CLI) at the time of secret creation. After 24 hours, when the automated compliance check would occur, and the compliance results can be reviewed.
+Data plane policies that evaluate secret creation would not be applicable on [secrets created via ARM template](../secrets/quick-create-template.md?tabs=CLI) at the time of secret creation. After 24 hours, when the automated compliance check would occur, and the compliance results can be reviewed.
 
 
 ## Next steps
 
-* Learn how to [Troubleshoot errors with using Azure Policy](https://docs.microsoft.com/azure/governance/policy/troubleshoot/general)
+* Learn how to [Troubleshoot errors with using Azure Policy](../../governance/policy/troubleshoot/general.md)
 * Learn about [Azure Policy known issues](https://github.com/azure/azure-policy#known-issues)

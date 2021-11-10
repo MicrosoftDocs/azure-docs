@@ -19,19 +19,17 @@ You can connect to Blob Storage from both **Logic App (Consumption)** and **Logi
 > A logic app workflow can't directly access a storage account behind a firewall if they're both in the same region. 
 > As a workaround, your logic app and storage account can be in different regions. For more information about enabling access from Azure Logic Apps to storage accounts behind firewalls, review the [Access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls) section later in this topic.
 
-For more technical details about this connector, such as triggers, actions, and limits, review the [connector's reference page](/connectors/azureblobconnector/). If you don't want to use the Blob Storage connector, you can the [use HTTP trigger or action along with a a managed identity for blob operations instead](#access-blob-storage-with-managed-identities).
-
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - An [Azure storage account and storage container](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-- A logic app workflow from which you want to access your Blob Storage account. If you want to start your workflow with a Blob Storage trigger, you need a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+- A logic app workflow from which you want to access your Blob Storage account. If you want to start your workflow with a Blob Storage trigger, you need a [blank logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Limits
 
-- For logic app workflows running in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), > this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
+- For logic app workflows running in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 - By default, Blob Storage actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB but up to 1024 MB, Blob Storage actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The [**Get blob content** action](/connectors/azureblobconnector/#get-blob-content) implicitly uses chunking.
 
@@ -40,6 +38,10 @@ For more technical details about this connector, such as triggers, actions, and 
   - Use a Blob Storage trigger that returns file properties, such as [**When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)).
 
   - Follow the trigger with the Blob Storage [**Get blob content** action](/connectors/azureblobconnector/#get-blob-content), which reads the complete file and implicitly uses chunking.
+
+## Connector reference
+
+For more technical details about this connector, such as triggers, actions, and limits, review the [connector's reference page](/connectors/azureblobconnector/). If you don't want to use the Blob Storage connector, you can the [use HTTP trigger or action along with a a managed identity for blob operations instead](#access-blob-storage-with-managed-identities).
 
 ## Add Blob Storage trigger
 
@@ -338,7 +340,7 @@ The following steps are the same for Consumption logic apps in multi-tenant envi
 
 1. On the logic app resource navigation menu, under **Settings**, select **Identity.**
 
-1. On the **System assigned** pane, set **Status** to **On**, which might already be enabled. Under **Permissions**, select **Azure role assignments**.
+1. On the **System assigned** pane, set **Status** to **On**, if not already enabled, select **Save**, and confirm your changes. Under **Permissions**, select **Azure role assignments**.
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-1.png" alt-text="Screenshot showing the Azure portal and logic app resource menu with the 'Identity' settings pane and 'Azure role assignment permissions' button.":::
 
@@ -346,21 +348,19 @@ The following steps are the same for Consumption logic apps in multi-tenant envi
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-2.png" alt-text="Screenshot showing the logic app role assignments pane with the selected subscription and button to add a new role assignment.":::
 
-1. On the **Add role assignments** pane, set up the new role assignment by using the following steps:
+1. On the **Add role assignments** pane, set up the new role assignment with the following values:
 
-   1. For **Scope**, select **Storage**.
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **Scope** | <*resource-scope*> | The resource set where you want to apply the role assignment. For this example, select **Storage**. |
+   | **Subscription** | <*Azure-subscription*> | The Azure subscription for your storage account. |
+   | **Resource** | <*storage-account-name*> | The name for the storage account that you want to access from your logic app workflow. |
+   | **Role** | <*role-to-assign*> | The role that your scenario requires for your workflow to work with the resource. This example requires **Storage Blob Data Contributor**, which allows read, write, and delete access to blob containers and date. For permissions details, move your mouse over the information icon next to a role in the drop-down menu. |
+   ||||
 
-   1. For **Subscription**, select the subscription for your storage account.
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-configure.png" alt-text="Screenshot of role assignment configuration pane, showing settings for scope, subscription, resource, and role.":::
 
-   1. For **Resource**, select the storage account that you want to access from your logic app workflow.
-
-   1. For **Role**, select the appropriate permissions for your scenario.
-
-      This example uses **Storage Blob Data Contributor**, which allows read, write, and delete access to blob containers and date. For permissions details, move your mouse over the information icon next to a role in the drop-down menu.
-
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-configure.png" alt-text="Screenshot of role assignment configuration pane, showing settings for scope, subscription, resource, and role.":::
-
-   1. Select **Save** to finish creating the role assignment.
+1. When you're done, select **Save** to finish creating the role assignment.
 
 <a name="enable-managed-identity-support"></a>
 

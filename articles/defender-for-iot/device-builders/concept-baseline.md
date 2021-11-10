@@ -1,11 +1,11 @@
 ---
 title: Baseline and custom checks
-description: Learn about the concept of Azure Defender for IoT baseline.
+description: Learn about the concept of Microsoft Defender for IoT baseline.
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/09/2021
 ---
 
-# Azure Defender for IoT baseline and custom checks
+# Microsoft Defender for IoT baseline and custom checks
 
 This article explains Defender for IoT baseline, and summarizes all associated properties of baseline custom checks.
 

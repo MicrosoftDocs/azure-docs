@@ -43,7 +43,7 @@
 - name: Samples
   expanded: true
   items:
-  - name: Sample Node App
+  - name: Sample Applications
     href: https://github.com/Azure-Samples/active-directory-verifiable-credentials
   - name: Sample Issuer
     href: https://didvc-issuer-sample.azurewebsites.net/

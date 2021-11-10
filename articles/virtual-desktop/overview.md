@@ -61,7 +61,7 @@ We support the following operating systems, so make sure you have the [appropria
 |---|---|
 |Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
+|Windows Server 2012 R2, 2016, 2019, 2022|RDS Client Access License (CAL) with Software Assurance|
 
 Your infrastructure needs the following things to support Azure Virtual Desktop:
 
@@ -93,7 +93,7 @@ For optimal performance, make sure your network meets the following requirements
 
 * Round-trip (RTT) latency from the client's network to the Azure region where host pools have been deployed should be less than 150 ms. Use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment) to view your connection health and recommended Azure region.
 * Network traffic may flow outside country/region borders when VMs that host desktops and apps connect to the management service.
-* To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
+* To optimize for network performance, we recommend that the session host's VMs are located in the Azure region that is closest to the user.
 
 You can see a typical architectural setup of Azure Virtual Desktop for the enterprise in our [architecture documentation](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
@@ -122,6 +122,7 @@ Azure Virtual Desktop follows the [Microsoft Lifecycle Policy](/lifecycle/) and 
 * Windows 10 Enterprise multi-session
 * Windows 10 Enterprise
 * Windows 7 Enterprise
+* Windows Server 2022
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
@@ -137,6 +138,7 @@ Available automation and deployment options depend on which OS and version you c
 |Windows 10 Enterprise multi-session, version 1909 and later|Yes|Yes|Yes|Yes|
 |Windows 10 Enterprise, version 1909 and later|Yes|Yes|Yes|Yes|
 |Windows 7 Enterprise|Yes|Yes|No|No|
+|Windows Server 2022|Yes|Yes|No|No|
 |Windows Server 2019|Yes|Yes|No|No|
 |Windows Server 2016|Yes|Yes|Yes|Yes|
 |Windows Server 2012 R2|Yes|Yes|No|No|

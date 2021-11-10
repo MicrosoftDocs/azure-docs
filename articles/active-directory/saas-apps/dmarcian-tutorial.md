@@ -63,47 +63,47 @@ To configure and test Azure AD SSO with dmarcian, perform the following steps:
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **dmarcian** application integration page, find the **Manage** section and select **Single sign-on**.
+
 1. On the **Select a Single sign-on method** page, select **SAML**.
+
 1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+1. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    1. In the **Identifier** text box, type a URL using the following pattern:
 
-    | **Identifier** |
-    |-----|
-    | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    
+       | **Identifier** |
+       |-----|
+       | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+       | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+       | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+    1. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | **Reply URL** |
-    |----|
-    | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
-   
+       | **Reply URL** |
+       |----|
+       | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
+       | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
+       | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-	
+
     | **Sign-on URL** |
     |-----|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
     | `https://dmarcian-eu.com/login/<ACCOUNT_ID>` |
     | `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
-	 
-	> [!NOTE] 
-	> These values are not real. You will update these values with the actual Identifier, Reply URL and Sign-On URL which is explained later in the tutorial.
 
-4. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+    > [!NOTE] 
+    > These values are not real. You will update these values with the actual Identifier, Reply URL and Sign-On URL which is explained later in the tutorial.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
@@ -133,40 +133,42 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. To automate the configuration within dmarcian, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
+    ![My apps extension](common/install-myappssecure-extension.png)
 
 2. After adding extension to the browser, click on **Setup dmarcian** will direct you to the dmarcian application. From there, provide the admin credentials to sign into dmarcian. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
+    ![Setup configuration](common/setup-sso.png)
 
 3. If you want to setup dmarcian manually, open a new web browser window and sign into your dmarcian company site as an administrator and perform the following steps:
 
 4. Click on **Profile** on the top-right corner and navigate to **Preferences**.
 
-	![The Preferences](./media/dmarcian-tutorial/profile.png)
+    ![The Preferences](./media/dmarcian-tutorial/profile.png)
 
 5. Scroll down and click on **Single Sign-On** section, then click on **Configure**.
 
-	![The single](./media/dmarcian-tutorial/configure.png)
+    ![The single](./media/dmarcian-tutorial/configure.png)
 
 6. On the **SAML Single Sign-On** page set the **Status** as **Enabled** and perform the following steps:
 
-	![The authentication](./media/dmarcian-tutorial/status.png)
+    ![The authentication](./media/dmarcian-tutorial/status.png)
 
-	a. Under **Add dmarcian to your Identity Provider** section, click **COPY** to copy the **Assertion Consumer Service URL** for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration section** on Azure portal.
+    1. Under **Add dmarcian to your Identity Provider** section, click **COPY** to copy the **Assertion Consumer Service URL** for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration section** on Azure portal.
 
-	b. Under **Add dmarcian to your Identity Provider** section, click **COPY** to copy the **Entity ID** for your instance and paste it in **Identifier** textbox in **Basic SAML Configuration section** on Azure portal.
+    1. Under **Add dmarcian to your Identity Provider** section, click **COPY** to copy the **Entity ID** for your instance and paste it in **Identifier** textbox in **Basic SAML Configuration section** on Azure portal.
 
-	c. Under **Set up Authentication** section, in the **Identity Provider Metadata** textbox paste the **App Federation Metadata Url**, which you have copied from Azure portal.
+    1. Under **Set up Authentication** section, in the **Identity Provider Metadata** textbox, paste the **App Federation Metadata Url**, which you have copied from Azure portal.
 
-	d. Under **Set up Authentication** section, in the **Attribute Statements** textbox paste the url `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    1. Under **Set up Authentication** section, in the **Attribute Statements** textbox, paste this URL:
+    
+       `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-	e. Under **Set up Login URL** section, copy the **Login URL** for your instance and paste it in **Sign-on URL** textbox in **Basic SAML Configuration section** on Azure portal.
+    1. Under **Set up Login URL** section, copy the **Login URL** for your instance and paste it in **Sign-on URL** textbox in **Basic SAML Configuration section** on Azure portal.
 
-	> [!Note]
-	> You can modify the **Login URL** according to your organization.
+       > [!NOTE]
+       > You can modify the **Login URL** according to your organization.
 
-	f. Click **Save**.
+    1. Click **Save**.
 
 ### Create dmarcian test user
 
@@ -178,21 +180,21 @@ To enable Azure AD users to sign in to dmarcian, they must be provisioned into d
 
 2. Click on **Profile** on the top right-corner and navigate to **Manage Users**.
 
-	![The user](./media/dmarcian-tutorial/user.png)
+    ![The user](./media/dmarcian-tutorial/user.png)
 
 3. On the right side of **SSO Users** section, click on **Add New User**.
 
-	![The add user](./media/dmarcian-tutorial/new-user.png)
+    ![The add user](./media/dmarcian-tutorial/new-user.png)
 
-4. On the **Add New User** popup, perform the following steps:
+4. In the **Add New User** pop-up, perform the following steps:
 
-	![The new user](./media/dmarcian-tutorial/save-user.png)
+    ![The new user](./media/dmarcian-tutorial/save-user.png)
 
-	a. In the **New User Email** textbox, enter the email of user like **brittasimon\@contoso.com**.
+    1. In the **New User Email** textbox, enter the email of the user, such as `brittasimon@contoso.com`.
 
-	b. If you want to give admin rights to the user, select **Make User an Admin**.
+    1. If you want to give admin rights to the user, select **Make User an Admin**.
 
-	c. Click **Add User**.
+    1. Click **Add User**.
 
 ## Test SSO 
 
@@ -212,4 +214,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure dmarcian you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure dmarcian you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

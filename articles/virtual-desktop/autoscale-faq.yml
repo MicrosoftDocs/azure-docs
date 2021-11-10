@@ -1,0 +1,38 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Virtual Desktop autoscale FAQ preview - Azure
+  description: Frequently asked questions and best practices for Azure Virtual Desktop.
+  author: Heidilohr
+  ms.topic: conceptual
+  ms.date: 10/19/2021
+  ms.author: helohr 
+  ms.custom: devx-track-azurepowershell
+  manager: femila
+    
+title: Azure Virtual Desktop autoscale (preview) FAQ
+summary: This article answers frequently asked questions about how to use the autoscale feature (preview) for Azure Virtual Desktop.
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+         How do I configure autoscale so I run zero session hosts after working hours?
+        answer: |
+         Ramp-down mode always uses the lowest possible number of session hosts possible. However, if active sessions exist, the lowest number of usable session hosts won't be zero. Configure a time limit policy to sign out all disconnected users to avoid having usable session hosts after hours.
+          
+      - question: |
+         Does autoscale create or delete virtual machines (VMs) based on service load?
+        answer: |
+         No.
+
+      - question: |
+         Can I configure scaling for specific dates like holidays?
+        answer: |
+         No. Autoscale doesn’t currently support ramping down on specific dates.
+
+      - question: |
+         Will I be charged extra for using the autoscale feature?
+        answer: |
+         No. For more information on rates, see [our pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+          
