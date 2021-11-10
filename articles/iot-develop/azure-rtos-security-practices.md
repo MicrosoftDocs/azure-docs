@@ -127,7 +127,7 @@ Content coming
 
 ### Certificate management
 
-If your device utilizes a certificate from a PKI (Public Key Infrastructure), your application will need to be able to update those certificates periodically (both for the device and any trusted certificates used for verifying servers). The more frequent the update, the more secure your application will be.
+If your device utilizes a certificate from a Public Key Infrastructure (PKI), your application will need to be able to update those certificates periodically (both for the device and any trusted certificates used for verifying servers). The more frequent the update, the more secure your application will be.
 
 **Hardware**:  All certificate private keys should be tied to your device. Ideally, the key should be generated internally by the hardware and never exposed to your application. This would require the ability to generate X.509 certificate requests on the device.
 
