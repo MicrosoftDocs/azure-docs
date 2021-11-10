@@ -1,20 +1,17 @@
 ---
-title: Configure Azure Front Door Standard/Premium rule set match conditions
-description: This article provides a list of the various match conditions available with Azure Front Door Standard/Premium rule set. 
+title: Configure Azure Front Door rules match conditions
+description: This article provides a list of the various match conditions available with Azure Front Door rules. 
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 11/09/2021
 ms.author: yuajia
 ---
 
-# Azure Front Door Standard/Premium (Preview) Rule Set match conditions
+# Azure Front Door rules match conditions
 
-> [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
-
-In Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md), a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in Azure Front Door Standard/Premium Rule Set.
+In Azure Front Door [Rules Engine](front-door-rules-engine.md) and Azure Front Door Standard/Premium [Rule Set](standard-premium/concept-rule-set.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door Rule Set or Rules Engine.
 
 The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are done. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values, OR logic is used.
 
@@ -31,7 +28,7 @@ You can use a match condition to:
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="IsDevice"></a> Device type
+## Device type
 
 Use the **device type** match condition to identify requests that have been made from a mobile device or desktop device.  
 
@@ -48,7 +45,7 @@ In this example, we match all requests that have been detected as coming from a 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/device-type.png" alt-text="Portal screenshot showing device type match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/device-type.png" alt-text="Portal screenshot showing device type match condition.":::
 
 # [JSON](#tab/json)
 
@@ -84,7 +81,7 @@ In this example, we match all requests that have been detected as coming from a 
 
 ---
 
-## <a name="PostArgs"></a> Post args
+## Post args
 
 Use the **post args** match condition to identify requests based on the arguments provided within a POST request's body. A single match condition matches a single argument from the POST request's body. You can specify multiple values to match, which will be combined using OR logic.
 
@@ -106,7 +103,7 @@ In this example, we match all POST requests where a `customerName` argument is p
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/post-args.png" alt-text="Portal screenshot showing post args match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/post-args.png" alt-text="Portal screenshot showing post args match condition.":::
 
 # [JSON](#tab/json)
 
@@ -151,7 +148,7 @@ In this example, we match all POST requests where a `customerName` argument is p
 
 ---
 
-## <a name="QueryString"></a> Query string
+## Query string
 
 Use the **query string** match condition to identify requests that contain a specific query string. You can specify multiple values to match, which will be combined using OR logic.
 
@@ -172,7 +169,7 @@ In this example, we match all requests where the query string contains the strin
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/query-string.png" alt-text="Portal screenshot showing query string match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/query-string.png" alt-text="Portal screenshot showing query string match condition.":::
 
 # [JSON](#tab/json)
 
@@ -208,7 +205,7 @@ In this example, we match all requests where the query string contains the strin
 
 ---
 
-## <a name="RemoteAddress"></a> Remote address
+## Remote address
 
 The **remote address** match condition identifies requests based on the requester's location or IP address. You can specify multiple values to match, which will be combined using OR logic.
 
@@ -233,7 +230,7 @@ In this example, we match all requests where the request has not originated from
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/remote-address.png" alt-text="Portal screenshot showing remote address match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/remote-address.png" alt-text="Portal screenshot showing remote address match condition.":::
 
 # [JSON](#tab/json)
 
@@ -269,7 +266,7 @@ In this example, we match all requests where the request has not originated from
 
 ---
 
-## <a name="RequestBody"></a> Request body
+## Request body
 
 The **request body** match condition identifies requests based on specific text that appears in the body of the request. You can specify multiple values to match, which will be combined using OR logic.
 
@@ -290,7 +287,7 @@ In this example, we match all requests where the request body contains the strin
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/request-body.png" alt-text="Portal screenshot showing request body match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-body.png" alt-text="Portal screenshot showing request body match condition.":::
 
 # [JSON](#tab/json)
 
@@ -332,7 +329,7 @@ In this example, we match all requests where the request body contains the strin
 
 ---
 
-## <a name="UrlFileName"></a> Request file name
+## Request file name
 
 The **request file name** match condition identifies requests that include the specified file name in the request URL. You can specify multiple values to match, which will be combined using OR logic.
 
@@ -350,7 +347,7 @@ In this example, we match all requests where the request file name is `media.mp4
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/request-file-name.png" alt-text="Portal screenshot showing request file name match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-file-name.png" alt-text="Portal screenshot showing request file name match condition.":::
 
 # [JSON](#tab/json)
 
@@ -392,7 +389,7 @@ In this example, we match all requests where the request file name is `media.mp4
 
 ---
 
-## <a name="UrlFileExtension"></a> Request file extension
+## Request file extension
 
 The **request file extension** match condition identifies requests that include the specified file extension in the file name in the request URL. You can specify multiple values to match, which will be combined using OR logic.
 
@@ -413,7 +410,7 @@ In this example, we match all requests where the request file extension is `pdf`
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/request-file-extension.png" alt-text="Portal screenshot showing request file extension match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-file-extension.png" alt-text="Portal screenshot showing request file extension match condition.":::
 
 # [JSON](#tab/json)
 
@@ -456,7 +453,7 @@ In this example, we match all requests where the request file extension is `pdf`
 
 ---
 
-## <a name="RequestHeader"></a> Request header
+## Request header
 
 The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists whatever its value, or to check if the header matches a specified value. You can specify multiple values to match, which will be combined using OR logic.
 
@@ -475,7 +472,7 @@ In this example, we match all requests where the request contains a header named
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/request-header.png" alt-text="Portal screenshot showing request header match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-header.png" alt-text="Portal screenshot showing request header match condition.":::
 
 # [JSON](#tab/json)
 
@@ -507,7 +504,7 @@ In this example, we match all requests where the request contains a header named
 
 ---
 
-## <a name="RequestMethod"></a> Request method
+## Request method
 
 The **request method** match condition identifies requests that use the specified HTTP request method. You can specify multiple values to match, which will be combined using OR logic.
 
@@ -524,7 +521,7 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/request-method.png" alt-text="Portal screenshot showing request method match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-method.png" alt-text="Portal screenshot showing request method match condition.":::
 
 # [JSON](#tab/json)
 
@@ -560,7 +557,7 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 ---
 
-## <a name="UrlPath"></a> Request path
+## Request path
 
 The **request path** match condition identifies requests that include the specified path in the request URL. You can specify multiple values to match, which will be combined using OR logic.
 
@@ -581,7 +578,7 @@ In this example, we match all requests where the request file path begins with `
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/request-path.png" alt-text="Portal screenshot showing request path match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-path.png" alt-text="Portal screenshot showing request path match condition.":::
 
 # [JSON](#tab/json)
 
@@ -623,7 +620,7 @@ In this example, we match all requests where the request file path begins with `
 
 ---
 
-## <a name="RequestScheme"></a> Request protocol
+## Request protocol
 
 The **request protocol** match condition identifies requests that use the specified protocol (HTTP or HTTPS).
 
@@ -643,7 +640,7 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/request-protocol.png" alt-text="Portal screenshot showing request protocol match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-protocol.png" alt-text="Portal screenshot showing request protocol match condition.":::
 
 # [JSON](#tab/json)
 
@@ -679,7 +676,7 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 
 ---
 
-## <a name="RequestUrl"></a> Request URL
+## Request URL
 
 Identifies requests that match the specified URL. The entire URL is evaluated, including the protocol and query string, but not the fragment. You can specify multiple values to match, which will be combined using OR logic.
 
@@ -700,7 +697,7 @@ In this example, we match all requests where the request URL begins with `https:
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/request-url.png" alt-text="Portal screenshot showing request URL match condition.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-url.png" alt-text="Portal screenshot showing request URL match condition.":::
 
 # [JSON](#tab/json)
 
@@ -742,7 +739,7 @@ In this example, we match all requests where the request URL begins with `https:
 
 ---
 
-## <a name = "operator-list"></a> Operator list
+## Operator list
 
 For rules that accept values from the standard operator list, the following operators are valid:
 
@@ -772,7 +769,7 @@ For rules that accept values from the standard operator list, the following oper
 > [!TIP]
 > For numeric operators like *Less than* and *Greater than or equals*, the comparison used is based on length. The value in the match condition should be an integer that specifies the length you want to compare.
 
-### <a name="regular-expressions"></a> Regular expressions
+### Regular expressions
 
 Regular expressions don't support the following operations:
 
@@ -789,6 +786,14 @@ Regular expressions don't support the following operations:
 
 ## Next steps
 
-* Learn more about [Rule Set](concept-rule-set.md).
-* Learn how to [configure your first Rule Set](how-to-configure-rule-set.md).
-* Learn more about [Rule Set actions](concept-rule-set-actions.md).
+Azure Front Door:
+
+* Learn more about Azure Front Door [Rules Engine](front-door-rules-engine.md)
+* Learn how to [configure your first Rules Engine](front-door-tutorial-rules-engine.md). 
+* Learn more about [Rules Engine actions](front-door-rules-engine-actions.md)
+
+Azure Front Door Standard/Premium:
+
+* Learn more about Azure Front Door Standard/Premium [Rule Set](standard-premium/concept-rule-set.md).
+* Learn how to [configure your first Rule Set](standard-premium/how-to-configure-rule-set.md).
+* Learn more about [Rule Set actions](standard-premium/concept-rule-set-actions.md).
