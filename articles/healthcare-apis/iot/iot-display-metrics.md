@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
 ---
 
@@ -19,7 +19,7 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
 
 ## Display Metrics
 
-1. Within your Azure Healthcare APIs Workspace, select **IoT connector**. 
+1. Within your Azure Healthcare APIs Workspace, select **IoT connectors**. 
 
      :::image type="content" source="media\iot-metrics\iot-workspace-displayed-with-connectors-button.png" alt-text="Select the IoT connectors button." lightbox="media\iot-metrics\iot-connectors-button.png"::: 
 
@@ -68,7 +68,7 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
 
     :::image type="content" source="media\iot-metrics\iot-select-dashboard-with-metrics-tile.png" alt-text="Select the Dashboard button." lightbox="media\iot-metrics\iot-dashboard-button.png":::
 
-5. Select the dashboard that you pinned the Metric tile to. For this example, the dashboard is `IoT connector Metrics`. The dashboard will display the IoT connector Metrics tile that you created in the previous steps.
+5. Select the dashboard that you pinned the Metrics tile to. For this example, the dashboard is `IoT connector Metrics`. The dashboard will display the IoT connector Metrics tile that you created in the previous steps.
 
     :::image type="content" source="media\iot-metrics\iot-dashboard-with-metrics-tile-displayed.png" alt-text="Dashboard with pinned IoT connector Metrics tile." lightbox="media\iot-metrics\iot-dashboard-with-metrics-tile-displayed.png":::
 
