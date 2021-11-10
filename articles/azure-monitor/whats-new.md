@@ -24,7 +24,6 @@ This article lists significant changes to Azure Monitor documentation.
 **Updated articles**
 
 - [What is monitored by Azure Monitor?](monitor-reference.md)
-- [What's new in Azure Monitor documentation](whats-new.md)
 - [Visualize data from Azure Monitor](visualizations.md)
 ### Agents
 
