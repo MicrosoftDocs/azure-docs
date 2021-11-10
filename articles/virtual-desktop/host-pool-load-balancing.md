@@ -21,7 +21,7 @@ The following load-balancing algorithms are available in Azure Virtual Desktop:
 
 Each host pool can only configure one type of load-balancing specific to it. However, both load-balancing algorithms share the following behaviors no matter which host pool they're in:
 
-- If a user already has an active or disconnected session in the host pool and logs in again, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if that session host's AllowNewConnections property is set to False (drain mode is enabled).
+- If a user already has an active or disconnected session in the host pool and signs in again, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if that session host's AllowNewConnections property is set to False (drain mode is enabled).
 - If a user doesn't already have a session in the host pool, then the load balancer won't consider session hosts whose AllowNewConnections property is set to False during load balancing.
 
 ## Breadth-first load-balancing algorithm
