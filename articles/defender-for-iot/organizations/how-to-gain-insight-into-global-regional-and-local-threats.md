@@ -1,7 +1,7 @@
 ---
 title: Gain insight into global, regional, and local threats
 description: Gain insight into global, regional, and local threats by using the site map in the on-premises management console.
-ms.date: 12/07/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

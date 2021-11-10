@@ -1,7 +1,7 @@
 ---
 title: Create and manage users
 description: Create and manage users of sensors and the on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
-ms.date: 05/20/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 

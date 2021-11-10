@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to onboard to Microsoft Defend
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 10/07/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
 ---
 

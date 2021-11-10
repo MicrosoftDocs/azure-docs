@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 11/08/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud

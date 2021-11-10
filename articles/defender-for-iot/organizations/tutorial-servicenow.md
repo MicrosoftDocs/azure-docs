@@ -4,7 +4,7 @@ description: In this tutorial, learn how to integrate ServiceNow with Microsoft 
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
 ---
 

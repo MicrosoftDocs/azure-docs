@@ -1,7 +1,7 @@
 ---
 title: Identify required appliances 
 description: Learn about hardware and virtual appliances for certified Defender for IoT sensors and the on-premises management console. 
-ms.date: 06/21/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

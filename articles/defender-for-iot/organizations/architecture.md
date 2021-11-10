@@ -2,7 +2,7 @@
 title: What is agentless solution architecture
 description: Learn about Microsoft Defender for IoT agentless architecture and information flow.
 ms.topic: overview
-ms.date: 07/19/2021
+ms.date: 11/09/2021
 ---
 
 # Microsoft Defender for IoT architecture

@@ -1,7 +1,7 @@
 ---
 title: Protocols supported by Microsoft Defender for IoT
 description: Learn about protocols that are supported by Microsoft Defender for IoT.
-ms.date: 09/20/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 

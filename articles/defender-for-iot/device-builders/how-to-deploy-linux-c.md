@@ -2,7 +2,7 @@
 title: Install & deploy Linux C agent
 description: Learn how to install and deploy the Defender for IoT C-based security agent on Linux
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 11/09/2021
 ---
 
 # Deploy Defender for IoT C based security agent for Linux

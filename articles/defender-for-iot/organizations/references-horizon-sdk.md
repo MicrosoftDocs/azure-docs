@@ -1,7 +1,7 @@
 ---
 title: Horizon SDK 
 description: The Horizon SDK lets Microsoft Defender for IoT developers design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.
-ms.date: 1/13/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 

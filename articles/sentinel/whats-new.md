@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
 ---
 

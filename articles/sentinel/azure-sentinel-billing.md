@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.custom: subject-cost-optimization, ignite-fall-2021
 ms.topic: how-to
-ms.date: 10/17/2021
+ms.date: 11/09/2021
 ---
 
 # Plan and manage costs for Microsoft Sentinel

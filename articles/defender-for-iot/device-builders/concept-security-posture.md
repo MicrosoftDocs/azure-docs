@@ -1,7 +1,7 @@
 ---
 title: Security posture - CIS benchmark
 description: Improve your security compliance and posture by using Defender for IoT micro agent.
-ms.date: 1/20/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ---
 

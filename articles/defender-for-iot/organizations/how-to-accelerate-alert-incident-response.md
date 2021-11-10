@@ -1,7 +1,7 @@
 ---
 title: Accelerate alert workflows
 description: Improve alert and incident workflows.
-ms.date: 12/02/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

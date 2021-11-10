@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/04/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # What is Microsoft Defender for Cloud?

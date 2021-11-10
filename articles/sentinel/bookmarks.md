@@ -9,7 +9,7 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/01/2021
+ms.date: 11/09/2021
 ---
 
 # Keep track of data during hunting with Microsoft Sentinel

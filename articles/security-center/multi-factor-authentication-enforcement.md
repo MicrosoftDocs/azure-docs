@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Manage multi-factor authentication (MFA) enforcement on your subscriptions

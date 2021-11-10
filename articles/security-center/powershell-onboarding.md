@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 10/20/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Automate onboarding of Microsoft Defender for Cloud using PowerShell

@@ -2,7 +2,7 @@
 title: Deploy IoT Edge security module
 description: Learn about how to deploy a Defender for IoT security agent on IoT Edge.
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 11/09/2021
 ---
 
 # Deploy a security module on your IoT Edge device

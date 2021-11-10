@@ -1,7 +1,7 @@
 ---
 title: Security agent authentication (Preview)
 description: Perform micro agent authentication with two possible methods.
-ms.date: 1/20/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ---
 

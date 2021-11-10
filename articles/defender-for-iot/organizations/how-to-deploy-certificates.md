@@ -1,7 +1,7 @@
 ---
 title: Deploy certificates
 description: Learn how to set up and deploy certificates for Defender for IoT.
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

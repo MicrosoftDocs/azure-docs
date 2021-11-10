@@ -2,7 +2,7 @@
 title: Security agents
 description: Get started with understanding, configuring, deploying, and using Microsoft Defender for IoT security service agents on your IoT devices.
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 11/09/2021
 ---
 
 # Get started with Microsoft Defender for IoT device micro agents

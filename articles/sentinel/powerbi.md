@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
 ---
 

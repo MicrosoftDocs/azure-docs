@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 08/18/2021
+ms.date: 11/09/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -67,7 +67,6 @@ The two **tabs** below show the features of Microsoft Defender for Cloud that ar
 ||||||
 
 --- 
-
 
 > [!TIP]
 >To experiment with features that are only available with enhanced security features enabled, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).

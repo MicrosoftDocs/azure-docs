@@ -1,7 +1,7 @@
 ---
 title: Configure Windows endpoint monitoring
 description: Enrich data resolved on devices by working with Windows endpoint monitoring (WMI).
-ms.date: 05/03/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

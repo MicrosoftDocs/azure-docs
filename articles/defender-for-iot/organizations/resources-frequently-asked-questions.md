@@ -2,7 +2,7 @@
 title: Defender for IoT frequently asked questions
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT features and service.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 11/09/2021
 ---
 
 # Microsoft Defender for IoT frequently asked questions

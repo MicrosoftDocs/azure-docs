@@ -1,7 +1,7 @@
 ---
 title: Set up SNMP MIB monitoring
 description: You can perform sensor health monitoring by using SNMP. The sensor responds to SNMP queries sent from an authorized monitoring server.
-ms.date: 12/14/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

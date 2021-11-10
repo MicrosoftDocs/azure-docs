@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Install Defender for IoT micro agent (Preview)'
 description: In this quickstart, learn how to install, and authenticate the Defender for Cloud Micro Agent.
-ms.date: 08/26/2021
+ms.date: 11/09/2021
 ms.topic: quickstart
 ---
 

@@ -2,7 +2,7 @@
 title: What is agent-based solution architecture 
 description: Learn about Microsoft Defender for IoT agent-based architecture and information flow.
 ms.topic: overview
-ms.date: 1/25/2021
+ms.date: 11/09/2021
 ---
 
 # What is agent-based solution for device builders
