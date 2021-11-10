@@ -26,9 +26,9 @@ After it [acquires a token](msal-acquire-cache-tokens.md), Microsoft Authenticat
 The recommendation is:
 - When writing a desktop application, use the cross-platform token cache as explained in [Desktop app](msal-net-token-cache-serialization.md?tabs=desktop#cross-platform-token-cache-msal-only).
 - Do nothing for [Mobile and UWP apps](msal-net-token-cache-serialization.md?tabs=mobile). A cache is provided by MSAL.NET.
-- In ASP.NET Core [web apps](scenario-web-app-call-api-overview.md) and [web API](scenario-web-api-call-api-overview.md), use [Microsoft.Identity.Web](microsoft-identity-web.md) as a higher-level API in ASP.NET Core. You’ll get token caches and much more. See[ASP.NET Core web apps and web APIs](msal-net-token-cache-serialization.md?tabs=aspnetcore).
+- In ASP.NET Core [web apps](scenario-web-app-call-api-overview.md) and [web API](scenario-web-api-call-api-overview.md), use [Microsoft.Identity.Web](microsoft-identity-web.md) as a higher-level API in ASP.NET Core. You’ll get token caches and much more. See [ASP.NET Core web apps and web APIs](msal-net-token-cache-serialization.md?tabs=aspnetcore).
 - In the other cases of [web apps](scenario-web-app-call-api-overview.md), [web API](scenario-web-api-call-api-overview.md):
-  -	If you request tokens for users in a production application, you'd want to use a [distributed token cache](msal-net-token-cache-serialization.md?tabs=aspnet#distributed-caches) (Redis, SQL, cosmos DB, distributed memory). Use token cache serializers available from [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache/)
+  -	If you request tokens for users in a production application, use a [distributed token cache](msal-net-token-cache-serialization.md?tabs=aspnet#distributed-caches) (Redis, SQL, Cosmos DB, distributed memory). Use token cache serializers available from [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache/)
   -	Otherwise, if you want to use an in-memory cache
     -	If you're only using `AcquireTokenForClient`:
       - Either reuse the confidential client application instance and don’t add a serializer,
@@ -93,12 +93,13 @@ Here are examples of possible distributed caches:
 
 // Distributed token caches have a L1/L2 mechanism.
 // L1 is in memory, and L2 is the distributed cache
-// implentation that you will choose below.
+// implementation that you will choose below.
 // You can configure them to limit the memory of the 
 // L1 cache, encrypt, and set eviction policies.
 services.Configure<MsalDistributedTokenCacheAdapterOptions>(options => 
   {
-    // You can disable the L1 cache if you wish
+    // You can disable the L1 cache if you wish. For instance in some cases where you share the L2 cache
+    // between instances of your apps.
     options.DisableL1Cache = false;
     
     // Or limit the memory (by default this is 500 Mb)
@@ -111,7 +112,6 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
     // cache.
     options.SlidingExpiration = TimeSpan.FromHours(1);
   }
-
 
 // Then, choose your implementation of distributed cache
 // -----------------------------------------------------
@@ -128,7 +128,7 @@ services.AddStackExchangeRedisCache(options =>
 });
 
 // You can even decide if you want to repair the connection
-// with REDIS and retry on Redis failures. 
+// with Redis and retry on Redis failures. 
 services.Configure<MsalDistributedTokenCacheAdapterOptions>(options => 
 {
   options.OnL2CacheFailure = (ex) =>
@@ -228,7 +228,7 @@ public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X5
 
 ### Available caching technologies
 
-Instead of `app.AddInMemoryTokenCache();` you can use different caching serialization technologies, including no serialization, in memory, and distributed token caches storage provided by .NET.
+Instead of `app.AddInMemoryTokenCache();` you can use different caching serialization technologies, including no serialization, in memory, and distributed token cache storage provided by .NET.
 
 #### No token cache serialization
 
