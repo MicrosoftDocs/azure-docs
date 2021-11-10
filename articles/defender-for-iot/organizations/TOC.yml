@@ -122,7 +122,7 @@
     - name: OT Networks
       items:
       - name: Manage cloud device inventory
-        href: how-to-manage-device-inventory-on-the-cloud.md
+        href: how-to-manage-device-inventory-for-organizations.md
         displayNAme: device inventory, device, inventory, EIoT, eiot
       - name: Manage sensor device inventory
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
@@ -133,7 +133,7 @@
     - name: Enterprise IoT
       items: 
       - name: Manage cloud device inventory
-        href: how-to-manage-device-inventory-on-the-cloud.md
+        href: how-to-manage-device-inventory-for-organizations.md
         displayNAme: device inventory, device, inventory, EIoT, eiot
   - name: Work with the sensor device map
     href: how-to-work-with-the-sensor-device-map.md

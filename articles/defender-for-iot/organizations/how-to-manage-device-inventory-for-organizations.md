@@ -1,7 +1,7 @@
 ---
 title: Manage your IoT devices with the cloud device inventory
 description: Learn how to manage your IoT devices with the device inventory.
-ms.date: 11/01/2021
+ms.date: 11/10/2021
 ms.topic: how-to
 ---
 
@@ -30,14 +30,15 @@ The following table describes the different device properties in the device inve
 | Parameter | Description | Default value |
 |--|--|--|
 | **Data source** | The source of the data, such as Micro Agent,  OtSensor, and Mde. | MicroAgent |
-| **Device class** | The class of the device. | IoT |
-| **Device model** | The device's model. | - |
-| **Device name** | The name of the device as the sensor discovered it, or as entered by the user. | - |
-| **Device subtype** | The subtype of the device, such as speaker and smart tv. | Managed Device |
-| **Device Type** | The type of device, such as communication, and industrial. | Miscellaneous |
+| **Class** | The class of the device. | IoT |
+| **Model** | The device's model. | - |
+| **Name** | The name of the device as the sensor discovered it, or as entered by the user. | - |
+| **Subtype** | The subtype of the device, such as speaker and smart tv. | Managed Device |
+| **Type** | The type of device, such as communication, and industrial. | Miscellaneous |
 | **First seen** | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| **IP Address** | The IP address of the device. | - |
-| **Last Activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
+| **IPv4 Address** | The IPv4 address of the device. | - |
+| **IPv6 Address** | The IPv6 address of the device. | - |
+| **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
 | **Last update time** | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
 | **MAC Address** | The MAC address of the device. | - |
 | **OS architecture** | The architecture of the operating system. | - |
@@ -46,6 +47,23 @@ The following table describes the different device properties in the device inve
 | **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. | - |
 | **Site** | The site that contains this device. | - |
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. | - |
+| **Application** | The application the exists on the device. |  |
+| **Description** | The description of the device. |  |
+| **Firmware vendor** | The vendor of the device's firmware. |  |
+| **Firmware version** | The version of the firmware. |  |
+| **Importance** | The level of importance of the device.  | High, Medium, Low. |
+| **Location** | The physical location of the device. |  |
+| **Name** | The name of the device. |  |
+| **PLC mode** |  |  |
+| **PLC secured** |  |  |
+| **Programming time** |  |  |
+| **Protocols** |  |  |
+| **Purdue level** |  |  |
+| **Scanner** |  |  |
+| **Sensor** |  |  |
+| **Slots** |  |  |
+| **VLAN** |  |  |
+| **Zone** |  |  |
 
 **To view the device inventory**:
 
