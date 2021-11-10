@@ -128,7 +128,9 @@ The most common reason for the ObjectTypeMismatch error is two objects of differ
 #### Description
 Azure Active Directory schema does not allow two or more objects to have the same value of the following attributes. That is each object in Azure AD is forced to have a unique value of these attributes at a given instance.
 
+* Mail
 * ProxyAddresses
+* SignInName
 * UserPrincipalName
 
 If Azure AD Connect attempts to add a new object or update an existing object with a value for the above attributes that is already assigned to another object in Azure Active Directory, the operation results in the "AttributeValueMustBeUnique" sync error.
