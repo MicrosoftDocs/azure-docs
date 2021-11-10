@@ -73,6 +73,10 @@ Azure Arc resource bridge currently supports the following Azure regions:
 
 - West Europe
 
+### Regional resiliency
+
+While Azure has a number of redundancy features at every level of failure, if a service impacting event occurs, this preview release of Azure Arc resource bridge does not support cross-region failover or other resiliency capabilities. In the event of the service becoming unavailable, the on-premises VMs continue to operate unaffected. Management from Azure is unavailable during that service outage.
+
 ### Private cloud environments
 
 The following private cloud environments and their versions are officially supported for the Azure Arc resource bridge:
@@ -106,3 +110,5 @@ URLS:
 |`.blob.core.windows.net`<br> `*.dl.delivery.mp.microsoft.com`<br> `*.do.dsp.mp.microsoft.com` |Resource bridge image download |
 
 ## Next steps
+
+- To learn more about how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure, see the following [Overview](./vmware-vsphere/overview.md) article.
