@@ -83,10 +83,10 @@ az network vnet subnet create \
 
 To allow an AKS cluster to interact with other Azure resources, a cluster identity is used. This cluster identity can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions. By default, this cluster identity is a managed identity. For more information, see [Use managed identities](use-managed-identity.md). You can also use a service principal as your cluster identity. The following steps show you how to manually create and assign the service principal to your cluster.
 
-Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command. The `--skip-assignment` parameter limits any additional permissions from being assigned.
+Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac
 ```
 
 The output is similar to the following example:
