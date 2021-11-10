@@ -41,6 +41,19 @@ The following attributes appear in the Device inventory table.
 | Discovered | When this device was first seen in the network. |
 | **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
 
+## What is an Inventory device?
+
+The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
+
+Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
+
+1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
+1. Devices composed of multiple backplane components (including all racks/slots/modules)
+1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+
+Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
+Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
+
 **To view the device inventory:**
 
 1. In the left pane, select **Devices**. The **Devices** pane opens on the right.

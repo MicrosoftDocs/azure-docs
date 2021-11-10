@@ -177,6 +177,15 @@ groups:
     title: Java
   - id: rest-api
     title: REST API
+- id: usage-custom-language-features
+# Owner aahill
+  title: Usage methods
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: language-studio
+    title: Language Studio
+  - id: rest-api
+    title: REST API
 - id: programming-languages-set-ten
 # Owner: aahill
   title: Programming languages
@@ -857,16 +866,28 @@ groups:
   - id: programming-language-python
     title: Python
 # Owner: msangapu
-- id: app-service-ide
+- id: app-service-vscode-cli-portal
   title: Development environment
   prompt: Choose a development environment
+  pivots:
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Command-line interface
+  - id: development-environment-azure-portal
+    title: Azure portal
+- id: app-service-ide
+  title: Development environment
+  prompt: Choose a deployment environment
   pivots:
   - id: development-environment-vs
     title: Visual Studio
   - id: development-environment-vscode
     title: Visual Studio Code
   - id: development-environment-cli
-    title: Command-line interface
+    title: Azure CLI
+  - id: development-environment-ps
+    title: Azure PowerShell
 - id: app-service-ide-oss
   title: Development environment
   prompt: Choose a development environment
@@ -1154,15 +1175,23 @@ groups:
   - id: azure-arc
     title: Azure Arc
   - id: azure-portal
-    title: Security Center's portal pages
+    title: Defender for Cloud's portal pages
 - id: manage-asc-initiatives
-  title: Manage Security Center initiatives
-  prompt: How will you manage your Security Center initiatives?
+  title: Manage Defender for Cloud initiatives
+  prompt: How will you manage your Defender for Cloud initiatives?
   pivots:
   - id: azure-portal
     title: In the Azure portal
   - id: rest-api
     title: With the REST APIs
+- id: connect-aws-accounts
+  title: Connect AWS account to Azure subscription
+  prompt: How will you connect your AWS account?
+  pivots:
+  - id: env-settings
+    title: Environment settings page
+  - id: classic-connector
+    title: Classic cloud connector
 # Owner: mikeray
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Operating system / Console
@@ -1247,6 +1276,19 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
+    # Owner: mbullwin
+- id: custom-qna-quickstart
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: studio
+    title: Language Studio
+  - id: rest
+    title: REST
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 - id: azure-maps-android
 # Owner: richbrun
   title: Programming languages
@@ -1357,6 +1399,20 @@ groups:
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
+- id: programming-languages-set-twenty-eight
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-go
+    title: Go
 # Owner: lizross
 - id: iot-dps-set1
   title: Choose a programming language
@@ -1405,3 +1461,14 @@ groups:
     title: IAR EWARM
   - id: iot-toolset-mplab
     title: MPLAB
+# Owner: v-amallick
+- id: backup-client-powershelltier-clitier-portaltier
+  title: Clients
+  prompt: Choose a client
+  pivots:
+  - id: client-powershelltier
+    title: PowerShell
+  - id: client-clitier
+    title: CLI
+  - id: client-portaltier
+    title: Azure portal

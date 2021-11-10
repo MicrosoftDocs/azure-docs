@@ -23,6 +23,31 @@ This article provides information about limitations and known issues related to 
 
 This section provides information about known issues associated with the Azure Communication Services JavaScript voice and video calling SDKs.
 
+#### iOS 15.1 regression - iOS/Safari will crash and refresh the page if ACS user tries to send video in a call
+
+---
+**Important**
+
+iOS 15.1 introduced a bug that will impact majority of ACS calls with video that are placed in iOS/Safari.
+
+---
+
+**Issue Description**
+When joining an ACS calls or a joining a Teams meeting using ACS on iOS 15.1 on any browser with video turn on – this will cause Safari browser to crash.
+
+**Details**
+This is a [known bug on iOS 15.1 Safari](https://bugs.webkit.org/show_bug.cgi?id=231505) that was introduced with the release of iOS 15.1. We expect this issue to be fixed with the release if iOS 15.2. Currently the only known work around is to not turn off video when using ACS on iOS 15.1 Safari.
+
+**Versions**
+iOS 15.1 and any ACS Web SDK version
+
+**Mitigations**
+Prevent users using (turning on) any video on when using iOS 15.1 Safari for ACS video calls and Microsoft Teams to ACS video call meetings.
+We're evaluating workarounds and working with Apple on the next steps
+
+Next release - iOS 15.2 fixed this issue
+
+
 #### Refreshing a page doesn't immediately remove the user from their call
 
 If a user is in a call and decides to refresh the page, the Communication Services media service won't remove this user immediately from the call. It will wait for the user to rejoin. The user will be removed from the call after the media service times out.
@@ -45,15 +70,20 @@ Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safa
 
 If you're using Safari on macOS, your app won't be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on macOS, the app can enumerate/select devices through the Communication Services Device Manager.
 
-#### Audio connectivity is lost when receiving SMS messages or calls during an ongoing VoIP call
-This problem may occur due to multiple reasons:
+#### Device will get muted and incoming video will stop rendering when an interruption occurs that takes over device access.
+This problem may occur primarily from another application or OS taking over the control of microphone or camera, some examples can be seen bellow:
 
-- Some mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by an event that pushes your application into the background. 
-- Sometimes, an SMS or PSTN call captures the audio sound, and doesn't release audio back to the VoIP call. Apple fixed this issue in iOS versions 14.4.1+. 
+- User while is in the call, an incoming PSTN call arrives and captures the microphone device access.
+- User while is in the call, will navigate to another native application that will capture access to the microphone or camera, for example play a YouTube video or start a FaceTime call.
+- User while is in the call, will enable Siri which will capture access to the microphone again.
+
+To recover from all these cases user will have to go back to the application to unmute and start video in order to have the audio and video start flowing after the interruption.
+
+In some occasions the devices (Microphone or camera) won't be released on time and that can cause issues with the original call, for example if user tries to unmute while watching a YouTube video or a PSTN call is active simultaneously. 
 
 <br/>Client library: Calling (JavaScript)
-<br/>Browsers: Safari, Chrome
-<br/>Operating System: iOS, Android
+<br/>Browsers: Safari
+<br/>Operating System: iOS
 
 #### Repeatedly switching video devices may cause video streaming to temporarily stop
 
@@ -100,8 +130,8 @@ If users decide to quickly turn video on/off while call is in `Connecting` state
 ##### Possible causes
 Under investigation.
 
-#### Enumerating/accessing devices for Safari on MacOS and iOS 
-If access to devices are granted, after some time, device permissions are reset. Safari on MacOS and on iOS does not keep permissions for very long time unless there is a stream acquired. The simplest way to work around this is to call DeviceManager.askDevicePermission() API before calling the device manager's device enumeration APIs (DeviceManager.getCameras(), DeviceManager.getSpeakers(), and DeviceManager.getMicrophones()). If the permissions are there, then user will not see anything, if not, it will re-prompt.
+#### Enumerating/accessing devices for Safari on macOS and iOS 
+If access to devices are granted, after some time, device permissions are reset. Safari on macOS and on iOS does not keep permissions for very long time unless there is a stream acquired. The simplest way to work around this is to call DeviceManager.askDevicePermission() API before calling the device manager's device enumeration APIs (DeviceManager.getCameras(), DeviceManager.getSpeakers(), and DeviceManager.getMicrophones()). If the permissions are there, then user will not see anything, if not, it will re-prompt.
 
 <br/>Devices affected: iPhone
 <br/>Client library: Calling (JavaScript)
@@ -114,8 +144,8 @@ During an ongoing group call, _User A_ sends video and then _User B_ joins the c
 #### Using 3rd party libraries to access GUM during the call may result in audio loss
 Using getUserMedia separately inside the application will result in losing audio stream since a third party library takes over device access from ACS library.
 Developers are encouraged to do the following:
-1. Don't use 3rd party libraries that are using internally GetUserMedia API during the call.
-2. If you still need to use 3rd party library, only way to recover is to either change the selected device (if the user has more than one) or restart the call.
+- Don't use 3rd party libraries that are using internally GetUserMedia API during the call.
+- If you still need to use 3rd party library, only way to recover is to either change the selected device (if the user has more than one) or restart the call.
 
 <br/>Browsers: Safari
 <br/>Operating System: iOS
@@ -124,7 +154,7 @@ Developers are encouraged to do the following:
 In some browsers (Safari for example), acquiring your own stream from the same device will have a side-effect of running into race conditions. Acquiring streams from other devices may lead the user into insufficient USB/IO bandwidth, and sourceUnavailableError rate will skyrocket.  
 
 #### Support for Simulcast
-Simulcast is a technique by which a client encodes the same video stream twice in different resolutions and bitrates and letting the ACS intrastrucutre decide which stream a client should receive. The ACS calling library SDK for Windows, Android, or iOS support sending simulcast streams. The ACS Web SDK does not currently support sending simulcast streams out.
+Simulcast is a technique by which a client encodes the same video stream twice in different resolutions and bitrates and letting the ACS infrastructure decide which stream a client should receive. The ACS calling library SDK for Windows, Android, or iOS support sending simulcast streams. The ACS Web SDK does not currently support sending simulcast streams out.
 
 ## Azure Communication Services Call Automation APIs
 

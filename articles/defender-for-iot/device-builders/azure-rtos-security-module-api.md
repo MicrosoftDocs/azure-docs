@@ -9,7 +9,9 @@ ms.author: mlottner
 
 # Defender-IoT-micro-agent for Azure RTOS API (preview)
 
-This API is intended for use with the Defender-IoT-micro-agent for Azure RTOS only. For additional resources, see the [Defender-IoT-micro-agent for Azure RTOS GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases). 
+Defender for IoT APIs are governed by [Microsoft API License and Terms of use](/legal/microsoft-apis/terms-of-use).
+
+This API is intended for use with the Defender-IoT-micro-agent for Azure RTOS only. For additional resources, see the [Defender-IoT-micro-agent for Azure RTOS GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases).
 
 ## Enable Defender-IoT-micro-agent for Azure RTOS
 
@@ -47,7 +49,6 @@ Threads
 
 **nx_azure_iot_security_module_disable**
 
-
 ### Prototype
 
 ```c
@@ -75,7 +76,6 @@ This routine disables the Azure IoT Defender-IoT-micro-agent subsystem.
 ### Allowed from
 
 Threads
-
 
 ## Next steps
 
