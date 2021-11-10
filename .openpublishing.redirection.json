@@ -26848,7 +26848,12 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-persistent-storage.md",
-      "redirect_url": "/azure/spring-cloud/how-to-persistent-storage",
+      "redirect_url": "/azure/spring-cloud/how-to-built-in-persistent-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/how-to-persistent-storage.md",
+      "redirect_url": "/azure/spring-cloud/how-to-built-in-persistent-storage",
       "redirect_document_id": false
     },
     {
