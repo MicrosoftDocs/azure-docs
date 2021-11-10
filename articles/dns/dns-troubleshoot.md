@@ -20,7 +20,7 @@ To resolve common issues, try one or more of the following steps:
 
 1.	Review the Azure DNS audit logs to determine the failure reason.
 2.	Each DNS zone name must be unique within its resource group. That is, two DNS zones with the same name can't share a resource group. Try using a different zone name, or a different resource group.
-3.	You may see an error "You have reached or exceeded the maximum number of zones in subscription {subscription id}." Either use a different Azure subscription, delete some zones, or contact Azure Support to raise your subscription limit.
+3.	You may see an error "You have reached or exceeded the maximum number of zones in subscription {subscription ID}." Either use a different Azure subscription, delete some zones, or contact Azure Support to raise your subscription limit.
 4.	You may see an error "The zone '{zone name}' is not available." This error means that Azure DNS was unable to allocate name servers for this DNS zone. Try using a different zone name. Or, if you are the domain name owner you can contact Azure support to allocate name servers for you.
 
 ### Recommended articles
@@ -103,7 +103,7 @@ The following screenshot is an example of the resource health check message.
 
 ### Available
 
-An **Available** status indicates that the resource health check hasn't detected a delegation issue with your DNS zones. This means that NS delegation records are appropriately maintained in your primary zone and records meant for child zones are not present in your primary zone. 
+An **Available** status indicates that the resource health check hasn't detected a delegation issue with your DNS zones. This status means that NS delegation records are appropriately maintained in your primary zone and records meant for child zones aren't present in your primary zone. 
 
 The following screenshot is an example of the resource health check message.
 
