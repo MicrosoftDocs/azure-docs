@@ -1,6 +1,6 @@
 ---
-title: How to deploy Azure AD Kerberos authentication  (Preview)
-description: Learn how to deploy Azure AD Kerberos authentication  
+title: Azure AD Kerberos authentication  (Preview)
+description: Learn about Azure AD Kerberos authentication  
 
 services: active-directory
 ms.service: active-directory
