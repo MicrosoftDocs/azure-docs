@@ -16,6 +16,30 @@ The Azure Arc-enabled servers Connected Machine agent receives improvements on a
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
+## November 2021
+
+Version 1.13
+
+### Fixed
+
+- Improved reliability when installing or upgrading the agent.
+
+### New features
+
+- Local configuration of agent settings now available using the `azcmagent config` command.
+- Proxy server settings can be configured using agent-specific settings instead of environment variables.
+- Extension operations will execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](agent-overview.md#networking-configuration)). The extension manager will fall back to the existing behavior of checking every 5 minutes when the notification service cannot be reached.
+
+## October 2021
+
+Version 1.12
+
+### Fixed
+
+- Improved reliability when validating signatures of extension packages.
+- `azcmagent_proxy remove` command on Linux now correctly removes environment variables on Red Hat Enterprise Linux and related distributions.
+- `azcmagent logs` now includes the computer name and timestamp to help disambiguate log files.
+
 ## September 2021
 
 Version 1.11
@@ -61,33 +85,3 @@ Version 1.8
 ### Fixed
 
 - The agent will continue running if it is unable to write service start/stop events to the Windows application event log
-
-## June 2021
-
-Version 1.7
-
-### New features
-
-- Improved reliability during onboarding:
-  - Improved retry logic when HIMDS is unavailable
-  - Onboarding will now continue instead of aborting if OS information cannot be obtained
-- Improved reliability when installing the OMS agent extension on Red Hat and CentOS systems
-
-## May 2021
-
-Version 1.6
-
-### New features
-
-- Added support for SUSE Enterprise Linux 12
-- Updated Guest Configuration agent to version 1.26.12.0 to include:
-
-   - Policies are executed in a separate process.
-   - Added V2 signature support for extension validation.
-   - Minor update to data logging.
-
-## Next steps
-
-- Before evaluating or enabling Azure Arc-enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
-
-- Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
