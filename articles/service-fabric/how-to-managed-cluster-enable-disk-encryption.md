@@ -149,21 +149,20 @@ The following step will walk you through the required template changes to enable
 
    ```json
    "parameters": {
-      ...
     "keyVaultResourceId": { 
-        "type": "string", 
-        "defaultValue": "/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>", 
-        "metadata": { 
-            "description": "Full resource id of the Key Vault used for disk encryption." 
-        } 
-    },
-    "volumeType": { 
-        "type": "string", 
-        "defaultValue": "All", 
-        "metadata": { 
-            "description": "Type of the volume OS or Data to perform encryption operation" 
-        }
-    }
+      "type": "string", 
+      "defaultValue": "/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>", 
+      "metadata": { 
+      "description": "Full resource id of the Key Vault used for disk encryption." 
+   } 
+    },
+    "volumeType": { 
+     "type": "string", 
+     "defaultValue": "All", 
+     "metadata": { 
+      "description": "Type of the volume OS or Data to perform encryption operation" 
+   }
+   }
    }, 
    ```
 
@@ -171,23 +170,23 @@ The following step will walk you through the required template changes to enable
 
    ```json
    "properties": { 
-    "vmExtensions": [ 
-        { 
-            "name": "AzureDiskEncryption", 
-            "properties": { 
-                "publisher": "Microsoft.Azure.Security", 
-                "type": "AzureDiskEncryption", 
-                "typeHandlerVersion": "2.2", 
-                "autoUpgradeMinorVersion": true, 
-                "settings": {                     
-                    "EncryptionOperation": "EnableEncryption", 
-                    "KeyVaultURL": "[reference(parameters('keyVaultResourceId'),'2016-10-01').vaultUri]", 
-                    "KeyVaultResourceId": "[parameters('keyVaultResourceID')]",
-                    "VolumeType": "[parameters('volumeType')]" 
-                } 
-            } 
-        } 
-    ] 
+   "vmExtensions": [ 
+   { 
+   "name": "AzureDiskEncryption", 
+   "properties": { 
+     "publisher": "Microsoft.Azure.Security", 
+     "type": "AzureDiskEncryption", 
+     "typeHandlerVersion": "2.2", 
+     "autoUpgradeMinorVersion": true, 
+     "settings": {      
+           "EncryptionOperation": "EnableEncryption", 
+           "KeyVaultURL": "[reference(parameters('keyVaultResourceId'),'2016-10-01').vaultUri]", 
+        "KeyVaultResourceId": "[parameters('keyVaultResourceID')]",
+        "VolumeType": "[parameters('volumeType')]" 
+        } 
+      } 
+   } 
+   ] 
    } 
    ```
 
@@ -195,13 +194,13 @@ The following step will walk you through the required template changes to enable
 
    ```json
    "parameters": { 
-    ...
-    "keyVaultResourceId": { 
-        "value": "/subscriptions/########-####-####-####-############/resourceGroups/$rg-name/providers/Microsoft.KeyVault/vaults/$kv-name" 
-    },   
-    "volumeType": { 
-        "value": "All" 
-    }    
+   ...
+    "keyVaultResourceId": { 
+     "value": "/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>" 
+    },   
+    "volumeType": { 
+     "value": "All" 
+    }    
    } 
    ```
 
@@ -219,7 +218,8 @@ The following step will walk you through the required template changes to enable
 
    ```powershell
    $VmssName = "NT1"
-   $supportResourceGroupName = "SFC_" + (Get-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroupName).ClusterId
+   $clustername = <clustername>
+   $supportResourceGroupName = "SFC_" + (Get-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroupName -Name $clustername).ClusterId
    Get-AzVmssDiskEncryption -ResourceGroupName $supportResourceGroupName -VMScaleSetName $VmssName
    ```
 
