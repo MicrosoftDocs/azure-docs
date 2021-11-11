@@ -75,7 +75,7 @@ This graphic and the following text shows how the parts of this connector soluti
 
 ## Automatic setup
 
-To simplify the onboarding process, Microsoft Sentinel has provided a [PowerShell script to automate the setup](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/AWS-S3/ConfigAwsConnector.ps1) of the AWS side of the connector - the required AWS resources, credentials, and permissions.
+To simplify the onboarding process, Microsoft Sentinel has provided a [PowerShell script to automate the setup](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/AWS-S3) of the AWS side of the connector - the required AWS resources, credentials, and permissions.
 
 The script takes the following actions:
 
@@ -97,15 +97,17 @@ To run the script to set up the connector, use the following steps:
 
 1. In the **Configuration** section, under **1. Set up your AWS environment**, expand **Setup with PowerShell script**.
 
-1. Follow the on-screen instructions to download and extract the [AWS S3 Setup Script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/AWS-S3) from the connector page.
+1. Follow the on-screen instructions to download and extract the [AWS S3 Setup Script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScripts.zip?raw=true) (link downloads a zip file containing the main setup script and helper scripts) from the connector page.
 
 1. Before running the script, run the `aws configure` command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) for details.
+
+1. Now run the script. Copy the command from the connector page (under "Run script to set up the environment") and paste it in your command line.
 
 1. Under **3. Add connection**, copy the **Role ARN** and the **SQS URL** from the output of the script (see example in first screenshot below) and paste them in their respective fields in the connector page (see second screenshot below).
 
     :::image type="content" source="media/connect-aws-s3/aws-script-output.png" alt-text="Screenshot of output of A W S connector setup script.":::
 
-   :::image type="content" source="media/connect-aws-s3/aws-add-connection.png" alt-text="Screenshot of pasting the A W S role information from the script, to the S3 connector.":::
+   :::image type="content" source="media/connect-aws-s3/aws-add-connection-auto.png" alt-text="Screenshot of pasting the A W S role information from the script, to the S3 connector.":::
 
 1. Select a data type from the **Destination table** drop-down list. This tells the connector which AWS service's logs this connection is being established to collect, and into which Log Analytics table it will store the ingested data. Then select **Add connection**.
 
@@ -175,9 +177,14 @@ The manual setup consists of the following steps:
 
    :::image type="content" source="media/connect-aws-s3/aws-copy-role-arn.png" alt-text="Screenshot of copying role A R N.":::
 
-1. Go to the AWS SQS dashboard,
+1. In the AWS SQS dashboard, select the SQS queue you created, and copy the URL of the queue.
 
-1. In the AWS S3 connector page in the Microsoft Sentinel portal, paste the **Role ARN** into the **Role ARN** field under **3. Add connection**, and select **Add connection**.
+    :::image type="content" source="media/connect-aws-s3/aws-copy-queue-url.png" alt-text="Screenshot of copying S Q S queue U R L.":::
+
+1. In the AWS S3 connector page in the Microsoft Sentinel portal, under **3. Add connection**:
+    1. Paste the IAM role ARN you copied two steps ago into the **Role ARN** field.
+    1. Paste the URL of the SQS queue you copied in the last step into the **SQS URL** field.
+    1. Select **Add connection**.
 
    :::image type="content" source="media/connect-aws-s3/aws-add-connection.png" alt-text="Screenshot of adding an A W S role connection to the S3 connector.":::
 
@@ -194,6 +201,8 @@ The manual setup consists of the following steps:
     > The *TimeGenerated* field is populated with the finding's *Update at* value.
 
 - AWS CloudTrail trails are stored in S3 buckets by default.
+    - [Create a trail for a single account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html).
+    - [Create a trail spanning multiple accounts across an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html).
 
 #### Create a Simple Queue Service (SQS) in AWS
 
@@ -211,9 +220,32 @@ The following permissions policies must be applied to the [Microsoft Sentinel ro
 - AWSLambdaSQSQueueExecutionRole
 - AmazonS3ReadOnlyAccess
 - KMS access
-- ***ANY OTHERS? ANY SERVICE-DEPENDENT? -YL***
+
+   For information on these and additional policies that should be applied for ingesting the different types of AWS service logs, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in our GitHub repo.
 
 ## Known issues and troubleshooting
+
+### Known issues
+
+- Different types of logs can be stored in the same S3 bucket, but should not be stored in the same path.
+
+- Each SQS queue should point to one type of message, so if you want to ingest GuardDuty findings *and* VPC flow logs, you should set up separate queues for each type.
+
+- Similarly, a single SQS queue can serve only one path in an S3 bucket, so if for any reason you are storing logs in multiple paths, each path requires its own dedicated SQS queue.
+
+### Troubleshooting steps
+
+1. **Verify that log data exists in your S3 bucket.**
+
+   View the S3 bucket dashboard and verify that data is flowing to it. If not, check that you have set up the AWS service correctly.
+
+1. **Verify that messages are arriving in the SQS queue.**
+
+   View the AWS SQS queue dashboard - under the Monitoring tab, you should see traffic in the "Number Of Messages Sent" graph widget.  ***(SHOULDN'T THIS BE THE "NUMBER OF MESSAGES RECEIVED" WIDGET? -YL)***  If you see no traffic, check that S3 PUT object notification is configured correctly. 
+
+1. **Verify that messages are being read from the SQS queue.**
+
+   Check the "Number of Messages Received" ***(NOT "SENT"?)*** and "Number of Messages Deleted" widgets in the queue dashboard. If there are no notifications under messages deleted," then check health messages. It's possible that some permissions are missing.
 
 ## Next steps
 
