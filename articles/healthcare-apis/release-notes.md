@@ -93,7 +93,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 |Bug fixes | Description |
 |:------------------- | -----------:|
-|Fixed an issue where [Conditional Delete](./././../azure-api-for-fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
+|Fixed an issue where [Conditional Delete](././../healthcare-apis/fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
 |Resolved malformed transaction body in a bundle POST  |Added a check that the URL is populated in transaction bundle requests [#2255](https://github.com/microsoft/fhir-server/pull/2255) |
 
 ### **DICOM service**
@@ -106,7 +106,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 |Bug fixes | Description |
 |:------------------- | -----------:|
 |Implemented complete support for |DA, DT, and TM VR types |
-|Implemented fix to |Enable DICOM service to work with workspaces that have names started with a letter. |
+|Implemented fix to |Enable DICOM service to work with workspaces that have names beginning with a letter. |
 
 ## Next steps
 
