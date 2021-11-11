@@ -24,7 +24,7 @@ A credential is authentication information that Azure Purview can use to authent
 
 In Azure Purview, there are few options to use as authentication method to scan data sources such as the following options:
 
-- [Azure Purview managed identity](#use-purview-managed-identity-to-set-up-scans)
+- [Azure Purview system-assigned managed identity](#use-purview-system-assigned-managed-identity-to-set-up-scans)
 - [User-assigned managed identity](#use-purview-managed-identity-to-set-up-scans) (preview)
 - Account Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
 - SQL Authentication (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
@@ -35,9 +35,9 @@ Before creating any credentials, consider your data source types and networking 
 
    :::image type="content" source="media/manage-credentials/manage-credentials-decision-tree-small.png" alt-text="Manage credentials decision tree" lightbox="media/manage-credentials/manage-credentials-decision-tree.png":::
 
-## Use Purview managed identity to set up scans
+## Use Purview system-assigned managed identity to set up scans
 
-If you are using the Purview managed identity to set up scans, you will not have to explicitly create a credential and link your key vault to Purview to store them. For detailed instructions on adding the Purview managed identity to have access to scan your data sources, refer to the data source-specific authentication sections below:
+If you are using the Purview system-assigned managed identity (SAMI) to set up scans, you will not have to explicitly create a credential and link your key vault to Purview to store them. For detailed instructions on adding the Purview SAMI to have access to scan your data sources, refer to the data source-specific authentication sections below:
 
 - [Azure Blob Storage](register-scan-azure-blob-storage-source.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#authentication-for-a-scan)
@@ -64,14 +64,14 @@ Before you can create a Credential, first associate one or more of your existing
 
    :::image type="content" source="media/manage-credentials/view-kv-connections.png" alt-text="View Azure Key Vault connections to confirm.":::
 
-## Grant the Purview managed identity access to your Azure Key Vault
+## Grant Azure Purview access to your Azure Key Vault
 
 Currently Azure Key Vault supports two permission models:
 
 - Option 1 - Access Policies 
 - Option 2 - Role-based Access Control 
 
-Before assigning access to Purview managed identity, first identify your Azure Key Vault permission model from Key Vault resource **Access Policies** in the menu. Follow steps below based on relevant the permission model.  
+Before assigning access to the Purview system-assigned managed identity (SAMI), first identify your Azure Key Vault permission model from Key Vault resource **Access Policies** in the menu. Follow steps below based on relevant the permission model.  
 
 :::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Azure Key Vault Permission Model"::: 
 
@@ -89,7 +89,7 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
 4. In the **Secrets permissions** dropdown, select **Get** and **List** permissions.
 
-5. For **Select principal**, choose the Purview system or user assigned managed identity. You can search for the Purview SAMI or UAMI using either the Purview instance name **or** the managed identity application ID. We do not currently support compound identities (managed identity name + application ID).
+5. For **Select principal**, choose the Purview system managed identity. You can search for the Purview SAMI or UAMI using either the Purview instance name **or** the managed identity application ID. We do not currently support compound identities (managed identity name + application ID).
 
    :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Add access policy":::
 
@@ -124,7 +124,7 @@ These credential types are supported in Purview:
 - Account Key: You add the **account key** as a secret in key vault.
 - Role ARN: For an Amazon S3 data source, add your **role ARN** in AWS.
 - Consumer Key: For Salesforce data sources, you can add the **password** and the **consumer secret** in key vault.
-- Use-assigned managed identity (preview): You can add user-assigned managed identity credentials. For more information, see the [create a user-assigned managed identity section](#create-a-user-assigned-managed-identity) below.
+- User-assigned managed identity (preview): You can add user-assigned managed identity credentials. For more information, see the [create a user-assigned managed identity section](#create-a-user-assigned-managed-identity) below.
 
 For more information, see [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) and [Create a new AWS role for Purview](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview).
 
