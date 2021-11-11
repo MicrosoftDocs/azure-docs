@@ -111,7 +111,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
     > [!Note]
     >
-    > If you don't see the Add button in the Billing profile page, the feature is not available for your account. Currently, it is only available for accounts that have been set up while working with a Microsoft representative.
+    > If you don't see the Add button in the Billing profile page, the feature is not available for your account. Currently, it is only available for EA customers that have been set up while working with a Microsoft representative.
 
 4. Fill the form and click **Create**.
 
