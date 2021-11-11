@@ -3,7 +3,7 @@ title: Visual Studio Code extension for Azure Video Analyzer
 description: This reference article explains how to use the various pieces of functionality in the Visual Studio Code extension for Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -31,7 +31,7 @@ If you want to view the underlying JSON behind an existing topology, on the left
 
 ## Live pipelines
 
-To create a live pipeline, along the left under Pipeline topologies right-click on the name of the topology and select `Create live pipeline`.  You will then need to fill in an live pipeline name, and any required parameters before continuing.  In the top right you can then either click `Save` which will save it in an inactive state, or `Save and activate` which will start the live pipeline immediately. 
+To create a live pipeline, along the left under Pipeline topologies right-click on the name of the topology and select `Create live pipeline`.  You will then need to fill in a live pipeline name, and any required parameters before continuing.  In the top right you can then either click `Save` which will save it in an inactive state, or `Save and activate` which will start the live pipeline immediately. 
 
 To activate an existing live pipeline, along the left under Pipeline topologies right-click on the name of the live pipeline and select `Activate live pipeline`.
 

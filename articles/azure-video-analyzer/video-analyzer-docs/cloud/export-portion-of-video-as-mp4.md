@@ -1,8 +1,8 @@
 ---
 title: Export a portion of an Azure Video Analyzer recorded video to an MP4 file
-description: In this tutorial, you'll learn how to export a portion of an Video Analyzer recorded video as an MP4 which is stored as a Video Analyzer video which can be downloaded and consumed outside of the Video Analyzer account ecosystem.
+description: In this tutorial, you'll learn how to export a portion of a Video Analyzer recorded video as an MP4 which is stored as a Video Analyzer video which can be downloaded and consumed outside of the Video Analyzer account ecosystem.
 ms.topic: tutorial
-ms.date: 10/18/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Tutorial: Export portion of recorded video as an MP4 file

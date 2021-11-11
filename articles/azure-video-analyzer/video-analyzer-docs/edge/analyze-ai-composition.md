@@ -3,7 +3,7 @@ title: Analyze live video streams with multiple AI models using AI composition
 description: This article provides guidance on how to analyze live video streams with multiple AI models using AI composition feature of Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 

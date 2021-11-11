@@ -167,7 +167,7 @@ One or many failover groups can be created between two servers in different regi
   
 ### <a name="using-read-write-listener-for-oltp-workload"></a> Use the read-write listener to connect to primary
 
-For read-write workloads, use `<fog-name>.database.windows.net` as the server name in the connection string. Connections will be automatically directed to the primary. This name does not change after failover. Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed.
+For read-write workloads, use `<fog-name>.database.windows.net` as the server name in the connection string. Connections will be automatically directed to the primary. This name does not change after failover. Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed. The time to live (TTL) of the primary and secondary listener DNS record is 30 seconds.
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a> Use the read-only listener to connect to geo-secondary
 
