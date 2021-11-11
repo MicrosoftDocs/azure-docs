@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 
@@ -25,7 +25,7 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 > [!TIP]
 > Originally launched as **Windows Defender ATP**, this Endpoint Detection and Response (EDR) product was renamed in 2019 as **Microsoft Defender ATP**.
 >
-> At Ignite 2020, we launched the [Microsoft Defender XDR suite](https://www.microsoft.com/security/business/threat-protection) and this EDR component was renamed **Microsoft Defender for Endpoint**.
+> At Ignite 2020, we launched the [Microsoft Defender for Cloud XDR suite](https://www.microsoft.com/security/business/threat-protection) and this EDR component was renamed **Microsoft Defender for Endpoint**.
 
 
 ## Availability
@@ -43,7 +43,7 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 
 Microsoft Defender for Endpoint provides:
 
-- **Advanced post-breach detection sensors**. Defenders for Endpoint's sensors collect a vast array of behavioral signals from your machines.
+- **Advanced post-breach detection sensors**. Defender for Endpoint's sensors collect a vast array of behavioral signals from your machines.
 
 - **Vulnerability assessment from the Microsoft threat and vulnerability management solution**. With Microsoft Defender for Endpoint enabled, Defender for Cloud can show vulnerabilities discovered by the threat and vulnerability management module and also offer this module as a supported vulnerability assessment solution. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
 
@@ -224,7 +224,7 @@ For endpoints running Windows:
     ```
     :::image type="content" source="./media/integration-defender-for-endpoint/generate-edr-alert.png" alt-text="A command prompt window with the command to generate a test alert.":::
 
-    If the command is successful, you'll see a new alert on the Microsoft Defender for Cloud dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
+    If the command is successful, you'll see a new alert on the workload protection dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
 1. To review the alert in Defender for Cloud, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
 1. From the investigation window, select the link to go to the Microsoft Defender for Endpoint portal.
 
@@ -241,7 +241,7 @@ For endpoints running Linux:
 
     `./mde_linux_edr_diy`
 
-    If the command is successful, you'll see a new alert on the Microsoft Defender for Cloud dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
+    If the command is successful, you'll see a new alert on the workload protection dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
 
 1. To review the alert in Defender for Cloud, go to **Security alerts** > **Enumeration of files with sensitive data**.
 1. From the investigation window, select the link to go to the Microsoft Defender for Endpoint portal.
@@ -251,9 +251,7 @@ For endpoints running Linux:
 
 --- 
 
-
-
-## FAQ - Defender for Cloud's integration with Microsoft Defender for Endpoint
+## FAQ - Microsoft Defender for Cloud integration with Microsoft Defender for Endpoint
 
 - [What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?](#whats-this-mdewindows--mdelinux-extension-running-on-my-machine)
 - [What are the licensing requirements for Microsoft Defender for Endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)

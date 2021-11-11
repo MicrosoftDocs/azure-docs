@@ -15,7 +15,7 @@ ms.custom: language-service-clu, ignite-fall-2021
 
 # How to tag utterances
 
-Once you have [built a schema](build-schema.md) for your project, you should add training utterances to your project. The utterances should be similar to what your users will use when interacting with the project. When you add an utterance you have to assign which intent it belongs to. After the utterance is added, label the words within your utterance with the entities in your project. Your labels for entities should be consistent across the different utterances. 
+Once you have [built a schema](build-schema.md) for your project, you should add training utterances to your project. The utterances should be similar to what your users will use when interacting with the project. When you add an utterance you have to assign which intent it belongs to. After the utterance is added, label the words within your utterance with the entities in your project. Your labels for entities should be consistent across the different utterances.
 
 Tagging is the process of assigning your utterances to intents, and labeling them with entities. You will want to spend time tagging your utterances - introducing and refining the data that will train the underlying machine learning models for your project. The machine learning models generalize based on the examples you provide it. The more examples you provide, the more data points the model has to make better generalizations.
 

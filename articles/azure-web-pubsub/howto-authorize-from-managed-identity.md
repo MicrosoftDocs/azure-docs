@@ -4,7 +4,7 @@ description: This article provides information about authorizing request to Web 
 author: terencefan
 
 ms.author: tefa
-ms.date: 09/06/2021
+ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---

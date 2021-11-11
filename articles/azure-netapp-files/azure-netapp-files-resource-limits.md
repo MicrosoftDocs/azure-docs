@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 11/09/2021
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -97,30 +97,38 @@ You can increase the maxfiles limit to 500 million if your volume quota is at le
 
 You can create an Azure support request to increase the adjustable limits from the [Resource Limits](#resource-limits) table. 
 
-1. Go to **New Support Request** under **Support + troubleshooting**.
-1. Under the **Problem description** tab, provide the requested information.
-1. Under the **Additional details** tab, click **Enter details** in the Request Details field.  
+1. Go to **New Support Request** under **Support + troubleshooting**.   
+
+2. Under the **Problem description** tab, provide the required information:
+    1. For **Issue Type**, select **Service and Subscription Limits (Quotas)**.
+    2. For **Subscription**, select your subscription. 
+    3. For **Quota Type**, select **Storage: Azure NetApp Files limits**.  
+
+    ![Screenshot that shows the Problem Description tab.](../media/azure-netapp-files/support-problem-descriptions.png)
+
+3. Under the **Additional details** tab, click **Enter details** in the Request Details field.  
 
     ![Screenshot that shows the Details tab and the Enter Details field.](../media/azure-netapp-files/quota-additional-details.png)
 
-1. In the Quota Details window that appears:  
-
-    1. In Quota Type, select the type of resource you want to increase.  
-        For example:  
+4. To request limit increase, provide the following information in the Quota Details window that appears:
+    1. In **Quota Type**, select the type of resource you want to increase.  
+        For example:   
         * *Regional Capacity Quota per Subscription (TiB)*
         * *Number of NetApp accounts per Azure region per subscription*
         * *Number of volumes per subscription*
 
-    1. In Region Requested, select your region.   
+    2. In **Region Requested**, select your region.   
         The current and default sizes are displayed under Quota State.
-    1. Enter a value to request an increase for the quota type you specified.
+    
+    3. Enter a value to request an increase for the quota type you specified.
     
     ![Screenshot that shows how to display and request increase for regional quota.](../media/azure-netapp-files/quota-details-regional-request.png)
 
-1. Click **Next** and **Review + create** to create the request.
+5. Click **Save and continue**. Click **Review + create** to create the request.
 
 ## Next steps  
 
 - [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 - [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
 - [Regional capacity quota for Azure NetApp Files](regional-capacity-quota.md)
+- [Request region access for Azure NetApp Files](request-region-access.md)
