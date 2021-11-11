@@ -16,9 +16,7 @@ On the **Preview audience** page (select from the left-nav menu in Partner Cente
 
 Preview links are not available for hidden plans. For hidden plans, the preview audience can test the offer via the command prompt.
 
-## How to identify your preview audience
-
-Your preview audience is identified by **Azure subscription IDs**, along with an optional **Description** for each. Neither of these fields can be seen by customers. You can find your Azure subscription ID on the [Subscriptions](https://go.microsoft.com/fwlink/?LinkId=2122490) page in the Azure portal.
+Your preview audience is identified by **Azure subscription IDs**, along with an optional **Description** for each. Neither of these fields can be seen by customers. You can find your Azure subscription ID on the **[Subscriptions](https://go.microsoft.com/fwlink/?LinkId=2122490)** page in the Azure portal.
 
 Add at least one Azure subscription ID, either individually or by uploading a CSV file. If your offer is already live, you can still modify the preview audience for testing changes or updates to your offer.
 
