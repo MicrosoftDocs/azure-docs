@@ -15,13 +15,13 @@
 - name: Azure Arc resource bridge
   items:
   - name: About Azure Arc resource bridge
-    href: overview.md
+    href: ./resource-bridge/overview.md
   - name: Security overview
-    href: security-overview.md
+    href: ./resource-bridge/security-overview.md
   - name: How-to guides
     items:
     - name: Troubleshoot
-      href: troubleshoot-resource-bridge.md 
+      href: ./resource-bridge/troubleshoot-resource-bridge.md 
 - name: Azure Arc-enabled servers >
   href: ./servers/overview.md
 - name: Azure Arc-enabled Kubernetes >
