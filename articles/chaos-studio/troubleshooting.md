@@ -19,11 +19,11 @@ The following sources are useful when troubleshooting issues with Chaos Studio:
 1. **The Activity Log**: The [Azure Activity Log](../azure-monitor/essentials/activity-log.md) has a record of all create, update, and delete operations in a subscription, including Chaos Studio operations like enabling a target and/or capabilities, installing the agent, and creating or running an experiment. Failures in the Activity Log indicate that a user action essential to using Chaos Studio may have failed to complete. Most service-direct faults also inject faults by executing an Azure Resource Manager operation, so the Activity Log will also have the record of faults being injected during an experiment for some service-direct faults.
 2. **Experiment Details**: Experiment execution details show the status and errors of an individual experiment run. Opening a specific fault in experiment details will show the resources that failed and the error messages for a failure. [Learn more about how to access experiment details](chaos-studio-run-experiment.md#view-experiment-history-and-details).
 3. **Agent logs**: If using an agent-based fault, you may need to RDP or SSH in to the virtual machine to understand why the agent failed to run a fault. The instructions for accessing agent logs depend on the operating system:
-  * **Chaos Windows agent**: Agent logs are located in the Windows Event Log in the Application category with the source AzureChaosAgent. The agent adds fault activity and regular health check (ability to authenticate to and communicate with the Chaos Studio agent service) events to this log.
-  * **Chaos Linux agent**: The Linux agent uses systemd to manage the agent process as a Linux service. To view the systemd journal for the agent (the events logged by the agent service), run the command `journalctl -u azure-chaos-agent`.
+    * **Chaos Windows agent**: Agent logs are located in the Windows Event Log in the Application category with the source AzureChaosAgent. The agent adds fault activity and regular health check (ability to authenticate to and communicate with the Chaos Studio agent service) events to this log.
+    * **Chaos Linux agent**: The Linux agent uses systemd to manage the agent process as a Linux service. To view the systemd journal for the agent (the events logged by the agent service), run the command `journalctl -u azure-chaos-agent`.
 4. **VM extension status**: If using an agent-based fault, you may also need to verify that the VM extension is installed and healthy. In the Azure portal, navigate to your virtual machine and go to **Extensions** or **Extensions + applications**. Click on the ChaosAgent extension and look for the following fields:
-  * **Status** should show "Provisioning succeeded." Any other status indicates that the agent failed to install. Verify that all [system requirements](chaos-studio-limitations.md#limitations) are met and try re-installing the agent.
-  * **Handler status** should show "Ready." Any other status indicates that the agent installed but cannot connect to the Chaos Studio service. Verify that all [network requirements](chaos-studio-limitations.md#limitations) are met and that the user-assigned managed identity has been added to the virtual machine and try rebooting.
+    * **Status** should show "Provisioning succeeded." Any other status indicates that the agent failed to install. Verify that all [system requirements](chaos-studio-limitations.md#limitations) are met and try re-installing the agent.
+    * **Handler status** should show "Ready." Any other status indicates that the agent installed but cannot connect to the Chaos Studio service. Verify that all [network requirements](chaos-studio-limitations.md#limitations) are met and that the user-assigned managed identity has been added to the virtual machine and try rebooting.
 
 ## Issues onboarding a resource
 
@@ -35,14 +35,14 @@ If you do not see the resources you would like to enable in the Chaos Studio tar
 
 ### Target and/or capability enablement fails or doesn't show correctly in the target list
 If you see an error when enabling targets and/or capabilities, try the following steps:
-* Verify that you have appropriate permissions to the resources you are onboarding. Enabling a target and/or capabilities requires Microsoft.Chaos/\* permission at the scope of the resource. Built-in roles such as Contributor have wildcard Read and Write permission, which includes permission to all Microsoft.Chaos operations.
-* Wait a few minutes for the target and capability list to update. The Azure portal uses Azure Resource Graph to gather information on target and capability onboarding and it can take up to five minutes for the update to propagate.
-* If the resource still shows "Not enabled", try the following steps:
-  * Attempt to enable the resource again. If that fails,
-  * Visit the Activity Log and find the failed target create operation to see detailed error information.
-* If the resource shows "Enabled" but onboarding capabilities failed, try the following steps:
-  * Click the **Manage actions** button on the resource in the targets list. Check any capabilities that were not checked, and click **Save**. If capability enablement still fails,
-  * Visit the Activity Log and find the failed target create operation to see detailed error information.
+1. Verify that you have appropriate permissions to the resources you are onboarding. Enabling a target and/or capabilities requires Microsoft.Chaos/\* permission at the scope of the resource. Built-in roles such as Contributor have wildcard Read and Write permission, which includes permission to all Microsoft.Chaos operations.
+2. Wait a few minutes for the target and capability list to update. The Azure portal uses Azure Resource Graph to gather information on target and capability onboarding and it can take up to five minutes for the update to propagate.
+3. If the resource still shows "Not enabled", try the following steps:
+    a. Attempt to enable the resource again.
+    b. If resource enablement still fails, visit the Activity Log and find the failed target create operation to see detailed error information.
+4. If the resource shows "Enabled" but onboarding capabilities failed, try the following steps:
+    a. Click the **Manage actions** button on the resource in the targets list. Check any capabilities that were not checked, and click **Save**.
+    b. If capability enablement still fails, visit the Activity Log and find the failed target create operation to see detailed error information.
 
 ## Prerequisite issues
 
@@ -52,7 +52,7 @@ Some issues are caused by missing prerequisites.
 Agent-based faults may fail for a variety of reasons related to missing prerequisites:
 * On Linux VMs, the [CPU Pressure](chaos-studio-fault-library.md#cpu-pressure), [Physical Memory Pressure](chaos-studio-fault-library.md#physical-memory-pressure), [Disk I/O pressure](chaos-studio-fault-library.md#disk-io-pressure-linux), and [Arbitrary Stress-ng Stress](chaos-studio-fault-library.md#arbitrary-stress-ng-stress) faults all require the [stress-ng utility](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) to be installed on your virtual machine. For more information on how to install stress-ng, see the fault prerequisite sections.
 * On either Linux or Windows VMs, the user-assigned managed identity provided during agent-based target enablement must also be added to the virtual machine.
-* On either Linux or Windows VMs, the system-assigned managed identity for the experiment must be granted Reader role on the VM (note: seemingly elevated roles like Virtual Machine Contributor do not include the \*/Read operation that is necessary for the Chaos Studio agent service to read the microsoft-agent target proxy resource on the virtual machine).
+* On either Linux or Windows VMs, the system-assigned managed identity for the experiment must be granted Reader role on the VM (seemingly elevated roles like Virtual Machine Contributor do not include the \*/Read operation that is necessary for the Chaos Studio agent service to read the microsoft-agent target proxy resource on the virtual machine).
 
 ### AKS Chaos Mesh faults fail
 AKS Chaos Mesh faults may fail for a variety of reasons related to missing prerequisites:
