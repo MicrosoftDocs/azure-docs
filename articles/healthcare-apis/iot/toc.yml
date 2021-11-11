@@ -40,7 +40,7 @@ items:
       href: iot-connector-custom-functions.md  
     - name: Use FHIR destination mappings
       href: how-to-use-fhir-mapping-iot.md
-    - name: Export IoT connector Metrics through Diagnostic settings
+    - name: Display Metrics
       href: iot-metrics-diagnostics-export.md
 
 - name: Resources

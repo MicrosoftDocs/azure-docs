@@ -345,9 +345,9 @@
       items:
       - name: Azure Monitor
         href: azure-monitor.md
-      - name: Azure Sentinel
+      - name: Microsoft Sentinel
         href: azure-sentinel.md
-        displayName: log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration
+        displayName: log, logs, logging, events, Azure Monitor, Microsoft Sentinel, SIEM, threat hunting, Security, Security Orchestration
     - name: Web Application Firewall partners
       items:
       - name: Akamai

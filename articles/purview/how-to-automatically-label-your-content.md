@@ -48,7 +48,7 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
 **To create new sensitivity labels or modify existing labels**:
 
-1. Open the [Microsoft 365 security and compliance center](https://compliance.microsoft.com/).
+1. Open the [Microsoft 365 compliance center](https://compliance.microsoft.com/).
 
 1. Under **Solutions**, select **Information protection**, then select **Create a label**.
 
