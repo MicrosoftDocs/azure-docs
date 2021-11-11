@@ -1,5 +1,5 @@
 ---
-title: Create an Azure file share with Azure Active Directory - Azure
+title: Create an Azure file share with Azure Active Directory
 description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Azure Active Directory domain.
 services: virtual-desktop
 author: Heidilohr
@@ -17,20 +17,25 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you'll learn how to create an Azure file share to store FSLogix profiles that can be accessed by hybrid user identities authenticated via Azure AD. An Azure AD user can now access a file share that requires Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
+In this article, you'll learn how to create an Azure file share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (AD). An Azure AD user can now access a file share that requires Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
 
-This article describes how to configure Azure Files user profiles for authentication using Azure AD. You can also configure Azure Files for authentication with [Azure Active Directory Domain Services (AD DS)](create-profile-container-adds.md) or with [Active Directory Domain Services](create-file-share.md).
+This article describes how to configure Azure Files stored FSLogix user profiles for authentication using Azure AD.
 
 ## Prerequisites
 
-- The session host VMs must be using one of the following:
-    - Windows 11 ENT single or multi session.
-    - Windows 10 ENT single or multi session, version 2004 or later with the latest cumulative update installed including [KB5006670 - 2021-10 Cumulative Update for Windows 10 version 2004](https://support.microsoft.com/topic/october-12-2021-kb5006670-os-builds-19041-1288-19042-1288-and-19043-1288-8902fc49-af79-4b1a-99c4-f74ca886cd95).
-    - Windows Serer 2022 with the latest cumulative update installed including [KB5006699 - 2021-10 Cumulative Update for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/october-12-2021-kb5006699-os-build-20348-288-e0583b84-7957-4d8e-aba0-15131d1ef8a4).
-- The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect.
+The session host VMs must be using one of the following:
+
+  - Windows 11 ENT single or multi session.
+  - Windows 10 ENT single or multi session, version 2004 or later with the latest cumulative update installed including [KB5006670 - 2021-10 Cumulative Update for Windows 10 version 2004](https://support.microsoft.com/topic/october-12-2021-kb5006670-os-builds-19041-1288-19042-1288-and-19043-1288-8902fc49-af79-4b1a-99c4-f74ca886cd95).
+  - Windows Serer 2022 with the latest cumulative update installed including [KB5006699 - 2021-10 Cumulative Update for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/october-12-2021-kb5006699-os-build-20348-288-e0583b84-7957-4d8e-aba0-15131d1ef8a4).
+
+The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect. These accounts must be created in Active Directory and synced to Azure AD.
+
+To assign RBAC permissions for the Azure file share to a user group, the group must also be created in Active Directory and synced to Azure AD.
+
 
 > [!IMPORTANT]
-> - This feature is currently only supported in the Azure Public cloud.
+> This feature is currently only supported in the Azure Public cloud.
 
 ## Set up Azure Files
 
@@ -274,3 +279,5 @@ Finally, let's test the profile to make sure that it works:
 ## Next steps
 
 To troubleshoot FSLogix, see [this troubleshooting guide](/fslogix/fslogix-trouble-shooting-ht).
+To configure FSLogix profiles on Azure Files with Azure Active Directory Domain Services, see [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
+To configure FSLogix profiles on Azure Files with Active Directory Domain Services, see [Create a profile container with Azure Files and AD DS](create-file-share.md).
