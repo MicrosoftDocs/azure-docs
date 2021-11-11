@@ -35,7 +35,7 @@ To restore a deleted Azure Database for MySQL Flexible server, you need the foll
  
  4. Go to [Create Server REST API Page](/rest/api/mysql/flexibleserver/servers/create) and click on "Try It" tab highlighted in green and login in with your Azure account.
  
- 5. Provide the resourceGroupName, serverName (deleted server name), subscriptionId, derived from resourceId attribute captured in Step 3, while api-version is pre-populated as shown in image.
+ 5. Provide the resourceGroupName, serverName (deleted server name), subscriptionId, derived from "resourceId" attribute captured in Step 3, while api-version is pre-populated as shown in image.
  
      [![Create server using REST API](./media/how-to-restore-server-portal/server-create-rest-api.png)](./media/how-to-restore-server-portal/server-create-rest-api.png#lightbox)
   
@@ -59,7 +59,7 @@ To restore a deleted Azure Database for MySQL Flexible server, you need the foll
    
 8. If you see Response Code 201 or 202, the restore request is successfully submitted. 
 
-9. The server creation can take time depending on the database size and compute resources provisioned on the original server. The restore status can be monitored from Activity log by filtering for 
+9. The server creation can take time depending on the database size and compute resources provisioned on the original server. The restore status can be monitored from Activity log by filtering for : 
    - **Subscription** = Your Subscription
    - **Resource Type** = Azure Database for MySQL flexible servers (Microsoft.DBforMySQL/flexibleServers) 
    - **Operation** =  Update MySQL Server Create
