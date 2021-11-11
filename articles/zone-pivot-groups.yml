@@ -37,7 +37,7 @@ groups:
   - id: postgres-single-server
     title: Single Server
   - id: postgres-flexible-server
-    title: Flexible Server (Preview)    
+    title: Flexible Server 
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages
