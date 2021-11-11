@@ -166,7 +166,7 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
 
 Azure SQL auditing can write SQL audit logs to your own storage account. If this storage account uses the virtual network service endpoints feature, see how to [write audit to a storage account behind VNet and firewall](./audit-write-storage-account-behind-vnet-firewall.md).
 
-## Add a virtual network firewall rule to your server
+## Add a virtual network firewall rule to your Azure SQL server
 
 Long ago, before this feature was enhanced, you were required to turn on virtual network service endpoints before you could implement a live virtual network rule in the firewall. The endpoints related a given virtual network subnet to a database in SQL Database. As of January 2018, you can circumvent this requirement by setting the **IgnoreMissingVNetServiceEndpoint** flag. Now, you can add a virtual network firewall rule to your server without turning on virtual network service endpoints.
 
@@ -176,7 +176,10 @@ You can set the **IgnoreMissingVNetServiceEndpoint** flag by using PowerShell. F
 
 <a name="anchor-how-to-by-using-firewall-portal-59j"></a>
 
-## Use the portal to create a virtual network rule
+> [!NOTE]
+> For similar instructions in Azure Synapse Analytics, see [Azure Synapse Analytics IP firewall rules](../../synapse-analytics/security/synapse-workspace-ip-firewall.md)
+
+## Use Azure portal to create a virtual network rule
 
 This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your database in SQL Database. The rule tells your database to accept communication from a particular subnet that's been tagged as being a *virtual network service endpoint*.
 
@@ -194,7 +197,7 @@ You must already have a subnet that's tagged with the particular virtual network
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
 
-## Azure portal steps
+### Azure portal steps
 
 1. Sign in to the [Azure portal][http-azure-portal-link-ref-477t].
 
