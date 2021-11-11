@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 06/18/2021
+ms.date: 11/11/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
 
@@ -52,9 +52,9 @@ ms.custom: devx-track-dotnet
 > [!NOTE]
 > If you are using .NET Framework, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard.
 
-The following sub versions of .NET SDKs are available under the 2.x.x version:
+## Release history
 
-[!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
+Release history is maintained in the Azure Cosmos DB .NET SDK source repo. Different sub versions of .NET SDKs are available under the 2.x.x version. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)
 
 ## FAQ
 
