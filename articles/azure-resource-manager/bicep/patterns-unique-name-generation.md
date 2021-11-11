@@ -12,12 +12,15 @@ Within your Bicep files, create resource names that are unique, deterministic, m
 
 ## Context and problem
 
-Resource names need to be:
+In Azure, the name you give a resource is important. Names help you and your team to identify the resource. For many services, the resource name forms part of the DNS name you use to access the resource.
 
-- Unique
-- Deterministic
-- Meaningful
-- Different for different environments
+When planning a resource's name, you need to ensure it is:
+
+- **Unique:** TODO
+- **Deterministic:** TODO
+- **Meaningful:** TODO
+- **Distinct for each environment:** TODO
+- **Following the rules for the specific resource:** TODO [see here](../management/resource-name-rules.md)
 
 ## Solution
 
