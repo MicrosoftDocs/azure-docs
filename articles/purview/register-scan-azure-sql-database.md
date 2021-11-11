@@ -132,7 +132,7 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
 #### Using a system or user assigned managed identity for scanning
 
-It is important to give your Purview account's system managed identiy or [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) the permission to scan the Azure SQL DB. You can add the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
+It is important to give your Purview account's system managed identity or [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) the permission to scan the Azure SQL DB. You can add the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
 > [!Note] 
 > You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
