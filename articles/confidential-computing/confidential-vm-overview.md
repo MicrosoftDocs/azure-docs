@@ -32,7 +32,7 @@ Some of the benefits of confidential VMs include:
 - (Optional) VM encryption keys that you or the platform own and manage.
 - Secure key release with cryptographic binding between the platform's successful attestation and the VM's encryption keys.
 - Dedicated virtual [Trusted Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) instance for attestation and protection of keys and secrets in the virtual machine.
-- Secure boot and vTPM capabilities of [Trusted launch for Azure VMs](../virtual-machines/trusted-launch.md)
+- Secure boot capability similar to [Trusted launch for Azure VMs](../virtual-machines/trusted-launch.md)
 
 ## Full-disk encryption
 
