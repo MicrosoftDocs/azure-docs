@@ -72,53 +72,52 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using one of the following patterns:
-	
+    1. In the **Sign on URL** text box, type a URL using one of the following patterns:
+
     | Sign-on URL|
-	|------------|
+    |------------|
     | `https://app.joinblink.com` |
     | `https://<SUBDOMAIN>.joinblink.com` |
-	|
-    
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    2. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+
     `https://api.joinblink.com/saml/o-<TENANTID>`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Blink Client support team](https://help.joinblink.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Blink Client support team](https://help.joinblink.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Blink Meetings application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![image](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. In addition to above, Blink Meetings application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
-	| Name | Source Attribute|
-	| ---------------|  --------- |
-	|   first_name    | user.givenname |
-	|   second_name    | user.surname |
-	|   email       | user.mail |
+    | Name | Source Attribute|
+    | ---------------|  --------- |
+    |   first_name    | user.givenname |
+    |   second_name    | user.surname |
+    |   email       | user.mail |
     | | |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+    1. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    1. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. Leave the **Namespace** blank.
+    1. Leave the **Namespace** blank.
 
-	d. Select Source as **Attribute**.
+    1. Select Source as **Attribute**.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+    1. From the **Source attribute** list, type the attribute value shown for that row.
 
-	f. Click **Save**.
+    1. Click **Save**.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up Blink** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -166,4 +165,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Blink you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Blink you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -73,7 +73,7 @@ This process enables the scenario where users lose access to organizational file
 
 | | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
+| **SharePoint Online** | Supported | Not Supported | Supported | Supported | Not Supported |
 
 | | Teams web | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -132,33 +132,11 @@ In the following example, a Conditional Access administrator has configured a lo
 
 ## Enable or disable CAE (Preview)
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator
-1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**.
-1. Choose **Enable preview**.
-1. Select **Save**.
-
-From this page, you can optionally limit the users and groups that will be subject to the preview.
-
-> [!NOTE]
-> You can query the Microsoft Graph via [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&preserve-view=true&tabs=http#request-body) to verify the configuration of CAE in your tenant. An HTTP 200 response and associated response body indicate whether CAE is enabled or disabled in your tenant. CAE is not configured if Microsoft Graph returns an HTTP 404 response.
-
-![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
-
-### Available options
-
-Organizations have options when it comes to enabling CAE.
-
-1. Leaving the default selected **Auto Enable after general availability** enables the functionality when CAE is generally available.
-1. Customers who select **Enable preview** immediately benefit from the new functionality and won't have to make any changes at general availability. 
-1. Customers who select **Disable preview** have time to adopt CAE at their organization's own pace. This setting will persist as **Disabled** at general availability.
-
-### Strict enforcement 
-
-Strict enforcement is a feature that allows for enhanced security based on two factors: IP address variation and client capability. This functionality can be enabled while customizing CAE options for a given policy. By turning on strict enforcement, CAE will revoke access upon detecting any instances of either [IP address variation](#ip-address-variation) or a lack of CAE [client capability](#client-capabilities).
+CAE setting has been moved to under the Conditional Access blade. New CAE customers will be able to access and toggle CAE directly when creating Conditional Access policies. However, some existing customers will need to go through migration before they can begin to access CAE through Conditional Access.
 
 #### Migration
 
-Customers who only enabled select users or disabled the continuous access evaluation preview may choose to migrate these decisions to a Conditional Access policy for ease of management and troubleshooting. Use the steps that follow to migrate your settings to a Conditional Access policy.
+Customers who have configured CAE settings under Security before have to migrate these setting to a new Conditional Access policy. Use the steps that follow to migrate your CAE settings to a Conditional Access policy.
 
 :::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Portal view showing the option to migrate continuous access evaluation to a Conditional Access policy." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
 
@@ -168,6 +146,13 @@ Customers who only enabled select users or disabled the continuous access evalua
 1. Browse to **Conditional Access** and you will find a new policy named **CA policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
 
 More information about continuous access evaluation as a session control can be found in the section, [Customize continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation).
+
+### Strict enforcement 
+
+With the latest CAE setting under Conditional Access, strict enforcement is a new feature that allows for enhanced security based on two factors: IP address variation and client capability. This functionality can be enabled while customizing CAE options for a given policy. By turning on strict enforcement, CAE will revoke access upon detecting any instances of either [IP address variation](#ip-address-variation) or a lack of CAE [client capability](#client-capabilities).
+
+> [!NOTE] 
+> You should only enable strict enforcement after you ensure that all the client applications support CAE and you have included all your IP addresses seen by Azure AD and the resource providers, like Exchange online and Azure Resource Mananger, in your location policy under Conditional Access. Otherwise, you could be blocked.
 
 ## Limitations
 

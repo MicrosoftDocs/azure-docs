@@ -5,7 +5,7 @@ description: Provides a general overview of Azure Active Directory monitoring.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526

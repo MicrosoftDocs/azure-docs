@@ -401,6 +401,8 @@
           href: configure-networking-how-to.md
         - name: Geo-disaster recovery
           href: functions-geo-disaster-recovery.md
+        - name: Move across regions
+          href: functions-move-across-regions.md          
     - name: Monitor
       items:
         - name: Configure monitoring
@@ -523,6 +525,8 @@
           href: /azure/templates/microsoft.web/2018-11-01/sites/functions
         - name: Azure CLI
           href: /cli/azure/functionapp
+        - name: Azure Functions Core Tools 
+          href: functions-core-tools-reference.md
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
@@ -531,8 +535,6 @@
           href: /python/api/azure-functions/azure.functions
     - name: App settings reference
       href: functions-app-settings.md
-    - name: Azure Functions Core Tools 
-      href: functions-core-tools-reference.md
     - name: Triggers and bindings
       items:
         - name: Blob storage
@@ -569,6 +571,17 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Azure SQL
+          items:
+            - name: Overview
+              href: functions-bindings-azure-sql.md
+              displayName: Azure SQL
+            - name: Input
+              href: functions-bindings-azure-sql-input.md
+              displayName: Azure SQL
+            - name: Output
+              href: functions-bindings-azure-sql-output.md
+              displayName: Azure SQL
         - name: Dapr
           href: https://github.com/dapr/azure-functions-extension
         - name: Event Grid
@@ -697,6 +710,8 @@
           items:
           - name: AZF0001
             href: errors-diagnostics/sdk-rules/azf0001.md
+          - name: AZF0002
+            href: errors-diagnostics/sdk-rules/azf0002.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
@@ -730,7 +745,7 @@
     - name: Twitter
       href: https://twitter.com/azurefunctions
     - name: Provide product feedback
-      href: https://feedback.azure.com/forums/355860-azure-functions
+      href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
     - name: Azure Functions GitHub repository
       href: https://github.com/Azure/Azure-Functions/
     - name: Azure updates
