@@ -21,7 +21,7 @@ The Azure App Service Environment is an Azure App Service feature that provides 
 - Functions
 - Logic Apps (Standard)
 
-App Service environments (ASEs) are appropriate for application workloads that require:
+App Service Environments (ASEs) are appropriate for application workloads that require:
 
 - High scale.
 - Isolation and secure network access.
@@ -40,7 +40,7 @@ The App Service Environment has many use cases including:
 - Network isolated application hosting
 - Multi-tier applications
 
-There are many networking features that enable apps in the multi-tenant App Service to reach network isolated resources or become network isolated themselves. These features are enabled at the application level. With an ASE, there's no added configuration required for the apps to be in the VNet. The apps are deployed into a network isolated environment that is already in a VNet. On top of the ASE hosting network isolated apps, it's also a single-tenant system. There are no other customers using the ASE. If you really need a complete isolation story, you can also get your ASE deployed onto dedicated hardware.
+There are many networking features that enable apps in the multi-tenant App Service to reach network isolated resources or become network isolated themselves. These features are enabled at the application level. With an ASE, there's no added configuration required for the apps to be in the virtual network. The apps are deployed into a network isolated environment that is already in a virtual network. On top of the ASE hosting network isolated apps, it's also a single-tenant system. There are no other customers using the ASE. If you really need a complete isolation story, you can also get your ASE deployed onto dedicated hardware.
 
 ## Dedicated environment
 
@@ -54,7 +54,7 @@ The ASE feature is a deployment of the Azure App Service into a single subnet in
 
 The number of addresses used by an ASEv3 in its subnet will vary based on how many instances you have along with how much traffic. There are infrastructure roles that are automatically scaled depending on the number of App Service plans and the load. The recommended size for your ASEv3 subnet is a `/24` CIDR block with 256 addresses in it as that can host an ASEv3 scaled out to its limit.
 
-The apps in an ASE do not need any features enabled to access resources in the same virtual network that the ASE is in. If the ASE VNet is connected to another network, then the apps in the ASE can access resources in those extended networks. Traffic can be blocked by user configuration on the network.
+The apps in an ASE do not need any features enabled to access resources in the same virtual network that the ASE is in. If the ASE virtual network is connected to another network, then the apps in the ASE can access resources in those extended networks. Traffic can be blocked by user configuration on the network.
 
 The multi-tenant version of Azure App Service contains numerous features to enable your apps to connect to your various networks. Those networking features enable your apps to act as if they were deployed in a virtual network. The apps in an ASEv3 do not need any configuration to be in the virtual network. A benefit of using an ASE over the multi-tenant service is that any network access controls to the ASE hosted apps is external to the application configuration. With the apps in the multi-tenant service, you must enable the features on an app by app basis and use RBAC or policy to prevent any configuration changes.
 
@@ -62,7 +62,7 @@ The multi-tenant version of Azure App Service contains numerous features to enab
 
 Compared to earlier versions of the ASE, there are some differences with ASEv3. With ASEv3:
 
-- There are no networking dependencies in the customer VNet. You can secure all inbound and outbound as desired. Outbound traffic can be routed also as desired. 
+- There are no networking dependencies in the customer virtual network. You can secure all inbound and outbound as desired. Outbound traffic can be routed also as desired. 
 - You can deploy it enabled for zone redundancy. Zone redundancy can only be set during ASEv3 creation and only in regions where all ASEv3 dependencies are zone redundant. 
 - You can deploy it on a dedicated host group. Host group deployments are not zone redundant. 
 - Scaling is much faster than with ASEv2. While scaling still is not immediate as in the multi-tenant service, it is a lot faster.
