@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Enrich your project with active learning

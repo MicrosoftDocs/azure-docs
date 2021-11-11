@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/14/2021
+ms.custom: ignite-fall-2021
 ---
 # Manage QnA Maker resources
 

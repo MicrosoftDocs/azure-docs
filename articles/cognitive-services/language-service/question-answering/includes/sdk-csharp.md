@@ -57,7 +57,7 @@ Build succeeded.
 Within the application directory, install the custom question answering client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.Language.QuestionAnswering --prerelease
+dotnet add package Azure.AI.Language.QuestionAnswering
 ```
 
 ## Query a knowledge base
@@ -165,7 +165,7 @@ A:No good match found in KB
 
 ## Query text without a knowledge base
 
-You can also use question answering without a knowledge base with [query_text](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b2/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.query_text). In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
+You can also use question answering without a knowledge base with `GetAnswersFromText`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
 For this example, you only need to modify the variables for `endpoint` and `credential`.
 
@@ -224,4 +224,4 @@ namespace questionansweringcsharp
 
 To run the code above, replace the `Program.cs` with the contents of the script block above and modify the `endpoint` and `credential` variables to correspond to the language resource you created as part of the prerequisites.
 
-In this case, we iterate through all responses and only return the response with the highest confidence score that is greater than 0.9. To understand more about the options available with [query_text](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b2/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.query_text), review the [QueryTextOptions parameters](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b2/azure.ai.language.questionanswering.models.html#azure.ai.language.questionanswering.models.QueryTextOptions).
+In this case, we iterate through all responses and only return the response with the highest confidence score that is greater than 0.9. To understand more about the options available with `GetAnswersFromText`.

@@ -4,14 +4,13 @@ titleSuffix: Azure Cognitive Services
 description: Learn about the entities the PII feature can recognize from unstructured text.
 services: cognitive-services
 author: aahill
-
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: article
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-pii
+ms.custom: language-service-pii, ignite-fall-2021
 ---
 
 # Supported Personally Identifiable Information (PII) entity categories
@@ -27,7 +26,7 @@ The PII feature includes the ability to detect personal (`PII`) and health (`PHI
 >
 > For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?domain=phi&model-version=2021-01-15`
  
-The following entity categories are returned when you're sending requests to the `/v3.1/entities/recognition/pii` endpoint.
+The following entity categories are returned when you're sending API requests PII feature.
 
 ## Category: Person
 

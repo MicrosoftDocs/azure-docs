@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-classification
+ms.author: aahi
+ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # How to train a text classification model
@@ -26,7 +26,7 @@ Before you train your model you need:
 * Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md)
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 ## Data splits
 

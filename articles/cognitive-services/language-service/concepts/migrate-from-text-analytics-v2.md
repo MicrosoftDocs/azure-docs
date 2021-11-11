@@ -10,6 +10,7 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/06/2021
 ms.author: aahi
+ms.custom: ignite-fall-2021
 ---
 
 # Migrate from version 2 of the Text Analytics API

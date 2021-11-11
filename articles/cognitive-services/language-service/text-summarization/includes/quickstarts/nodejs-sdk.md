@@ -6,7 +6,7 @@ ms.subservice: language-service
 ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: devx-track-js
+ms.custom: devx-track-js, ignite-fall-2021
 ---
 
 [Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.2.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples)
@@ -46,10 +46,7 @@ Install the NPM packages:
 npm install --save @azure/ai-text-analytics@5.2.0-beta.1
 ```
 
-## Code example
-
-> [!TIP]
-> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/TextAnalytics/text-analytics-v3-client-library.js), which contains the code examples in this quickstart. 
+## Code example 
 
 Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
 

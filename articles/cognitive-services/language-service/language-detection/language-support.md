@@ -1,5 +1,5 @@
 ---
-title: Language Detection language support 
+title: Language Detection language support
 titleSuffix: Azure Cognitive Services
 description: This article explains which natural languages are supported by the Language Detection API.
 services: cognitive-services
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-language-detection
+ms.custom: language-service-language-detection, ignite-fall-2021
 ---
 
 # Language support for Language Detection

@@ -1,5 +1,5 @@
 ---
-title: How to perform language detection 
+title: How to perform language detection
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to detect the language of written text using language detection.
 services: cognitive-services
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: sample
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-language-detection
+ms.custom: language-service-language-detection, ignite-fall-2021
 ---
 
 # How to use language detection
@@ -28,7 +28,7 @@ The Language Detection feature can detect a wide range of languages, variants, d
 
 ### Specify the language detection model
 
-By default, language detection will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform language detection operations.
+By default, language detection will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform language detection operations.
 
 | Supported Versions | latest version |
 |--|--|

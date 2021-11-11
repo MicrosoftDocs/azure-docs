@@ -5,8 +5,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-classification
+ms.author: aahi
+ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 ## Prerequisites
@@ -78,6 +78,16 @@ Use the following URL to create a project and import your tags file. Replace the
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+
+### Parameters
+
+Pass the following parameter with your request. 
+
+|Key|Explanation|Value|
+|--|--|--|
+|`api-version`| The API version used.| `2021-11-01-preview` |
+
+To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -151,6 +161,16 @@ Use the following URL when creating your API request. Replace the placeholder va
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 
+### Parameters
+
+Pass the following parameter with your request. 
+
+|Key|Explanation|Value|
+|--|--|--|
+|`api-version`| The API version used.| `2021-11-01-preview` |
+
+To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
+
 ### Headers
 
 Use the following header to authenticate your request. 
@@ -178,7 +198,7 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the training status. 
@@ -198,6 +218,16 @@ Use the following **GET** request to query the status of your model's training p
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
+### Parameters
+
+Pass the following parameter with your request. 
+
+|Key|Explanation|Value|
+|--|--|--|
+|`api-version`| The API version used.| `2021-11-01-preview` |
+
+To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
+
 ### Headers
 
 Use the following header to authenticate your request. 
@@ -205,7 +235,6 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
 
 ### Response Body
 
@@ -257,6 +286,16 @@ Create a **PUT** request using the following URL, headers, and JSON body to star
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
 
+### Parameters
+
+Pass the following parameter with your request. 
+
+|Key|Explanation|Value|
+|--|--|--|
+|`api-version`| The API version used.| `2021-11-01-preview` |
+
+To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
+
 ### Headers
 
 Use the following header to authenticate your request. 
@@ -279,7 +318,7 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the publishing status.
@@ -299,6 +338,16 @@ Use the following **GET** request to query the status of your model's publishing
 |`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
+### Parameters
+
+Pass the following parameter with your request. 
+
+|Key|Explanation|Value|
+|--|--|--|
+|`api-version`| The API version used.| `2021-11-01-preview` |
+
+To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
+
 ### Headers
 
 Use the following header to authenticate your request. 
@@ -306,7 +355,6 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
 
 ### Submit text classification task
 

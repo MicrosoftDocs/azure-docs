@@ -1,7 +1,7 @@
 ---
 title: How to call Text Analytics for health
 titleSuffix: Azure Cognitive Services
-description: Learn how to extract and label medical information from unstructured clinical text with Text Analytics for health. 
+description: Learn how to extract and label medical information from unstructured clinical text with Text Analytics for health.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-health
+ms.custom: language-service-health, ignite-fall-2021
 ---
 
 # How to use Text Analytics for health
@@ -36,7 +36,7 @@ See the [entity categories](../concepts/health-entity-categories.md) returned by
 
 ### Specify the Text Analytics for health model
 
-By default, Text Analytics for health will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform operations provided by the Text Analytics for health.
+By default, Text Analytics for health will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform operations provided by the Text Analytics for health.
 
 | Supported Versions | latest version |
 |--|--|

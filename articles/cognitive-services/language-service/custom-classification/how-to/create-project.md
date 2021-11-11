@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: "language-service-custom-classification, references_regions"
+ms.author: aahi
+ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
 ---
 
 # How to create custom text classification projects
@@ -99,9 +99,9 @@ To use custom classification, you'll need to [create an Azure storage account](/
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
-## Roles for your Azure resource
+## Roles for your Azure Language resource
 
-You should have the owner or contributor role assigned on your Azure resource.
+You should have the **owner** or **contributor** role assigned on your Azure Language resource.
 
 ## Enable identity management for your resource
 

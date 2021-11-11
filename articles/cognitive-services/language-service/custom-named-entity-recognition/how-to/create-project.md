@@ -1,5 +1,5 @@
 ---
-title: Using Azure resources in custom NER 
+title: Using Azure resources in custom NER
 titleSuffix: Azure Cognitive Services
 description: Learn about the steps for using Azure resources with custom NER.
 services: cognitive-services
@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: "language-service-custom-ner, references_regions"
+ms.author: aahi
+ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021
 ---
 
 # How to create custom NER projects
@@ -98,9 +98,9 @@ To use custom NER, you'll need to [create an Azure storage account](/azure/stora
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
-## Roles for your Azure resource
+## Roles for your Azure Language resource
 
-You should have the owner or contributor role assigned on your Azure resource.
+You should have the **owner** or **contributor** role assigned on your Azure Language resource.
 
 ## Enable identity management for your resource
 

@@ -1,5 +1,5 @@
 ---
-title: Extract information in Excel using Power Automate 
+title: Extract information in Excel using Power Automate
 titleSuffix: Azure Cognitive Services
 description: Learn how to Extract Excel text without having to write code, using Named Entity Recognition and Power Automate.
 services: cognitive-services
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: article
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-ner
+ms.custom: language-service-ner, ignite-fall-2021
 ---
 
 # Extract information in Excel using Named Entity Recognition(NER) and Power Automate 
@@ -145,7 +145,7 @@ Within the newly created **Apply to each 3** action, click **Add an action**, an
 
 In the Condition window, click on the first text box. In the Dynamic content window, search for **Category** and select it.
 
-:::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Add a the category to the control condition" lightbox="../media/tutorials/excel/choose-entities-value.png":::
+:::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Add the category to the control condition" lightbox="../media/tutorials/excel/choose-entities-value.png":::
 
 
 Make sure the second box is set to **is equal to**. Then select the third box, and search for `var_person` in the Dynamic content window. 

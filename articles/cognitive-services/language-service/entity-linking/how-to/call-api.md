@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: article
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-entity-linking
+ms.author: aahi
+ms.custom: language-service-entity-linking, ignite-fall-2021
 ---
 
 # How to use entity linking
@@ -24,7 +24,7 @@ The entity linking feature can be used to identify and disambiguate the identity
 
 ### Specify the entity linking model
 
-By default, entity linking will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform entity linking operations.
+By default, entity linking will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform entity linking operations.
 
 | Supported Versions | latest version |
 |--|--|
