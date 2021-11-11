@@ -245,10 +245,6 @@ To change a configuration property, run the following command:
 
 `azcmagent config set <propertyName> <propertyValue>`
 
-You can also define your settings in a JSON file and import all of them at once. Any settings in the JSON file will replace the current configuration of the agent. Settings configured in the agent but *not* found in the JSON file will remain untouched. To import settings from a file, run the following command:
-
-`azcmagent config set --input-file /path/to/file.json`
-
 To clear a configuration property's value, run the following command:
 
 `azcmagent config clear <propertyName>`
