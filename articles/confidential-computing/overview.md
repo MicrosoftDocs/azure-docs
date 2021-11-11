@@ -2,12 +2,12 @@
 title: Azure Confidential Computing Overview
 description: Overview of Azure Confidential (ACC) Computing
 services: virtual-machines
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 11/01/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: ignite-fall-2021
 ---
 
