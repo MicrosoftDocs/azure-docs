@@ -132,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 1. Complete the following steps in General Settings page:
 
-    ![Screenshot that shows the Inegrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings.png)
+    ![Screenshot that shows the Integrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings.png)
 
     a. In the **SSO URL(Location)** box, paste the login URL value that you copied from the Azure portal.
 
