@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/01/2021
+ms.date: 11/11/2021
 ms.author: cavoeg
 ---
 
@@ -80,6 +80,17 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 |Bug fixes | Description |
 |:------------------- | -----------:|
 | IoT connector normalized improvements with calculations to support and enhance health data standardization. | See: [Use device mappings](./../healthcare-apis/iot/how-to-use-device-mapping-iot.md) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md)  |
+
+
+## October 2021
+
+### FHIR service
+
+#### **Feature enhancements**
+
+|Enhancements | Description |
+|:------------------- | -----------:|
+|Added support for [_sort](././../healthcare-apis/fhir/overview-of-search.md#search-result-parameters) on strings and dateTime |[#2169](https://github.com/microsoft/fhir-server/pull/2169)  |
 
 ## Next steps
 
