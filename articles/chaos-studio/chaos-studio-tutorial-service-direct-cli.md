@@ -51,7 +51,7 @@ Chaos Studio cannot inject faults against a resource unless that resource has be
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/$TARGET_TYPE/capabilities/$CAPABILITY?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
-    For example, if enabling the Virtual Machine shutdown capability:
+    For example, if enabling the Virtual Machine shut down capability:
 
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/microsoft-virtualMachine/capabilities/shutdown-1.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
@@ -124,9 +124,9 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 
 Give the experiment access to your resource(s) using the command below, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target resource (in this case, the Cosmos DB instance resource ID). Change the role to the appropriate [built-in role for that resource type](chaos-studio-fault-providers.md). Run this command for each resource targeted in your experiment. 
 
-    ```bash
-    az role assignment create --role "Cosmos DB Operator" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
-    ```
+```azurecli-interactive
+az role assignment create --role "Cosmos DB Operator" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
+```
 
 ## Run your experiment
 You are now ready to run your experiment. To see the impact, we recommend opening your Azure Cosmos DB account overview and going to **Replicate data globally** in a separate browser tab. Refreshing periodically during the experiment will show the region swap.
@@ -137,9 +137,9 @@ You are now ready to run your experiment. To see the impact, we recommend openin
     az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2021-09-15-preview
     ```
 
-2. The response includes a status URL which you can use to query experiment status as the experiment runs.
+2. The response includes a status URL that you can use to query experiment status as the experiment runs.
 
 ## Next steps
-Now that you have run a Azure Cosmos DB service-direct experiment, you are ready to:
+Now that you have run an Azure Cosmos DB service-direct experiment, you are ready to:
 - [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md)
 - [Manage your experiment](chaos-studio-run-experiment.md)
