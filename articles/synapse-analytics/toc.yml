@@ -217,7 +217,7 @@ items:
     - name: Database templates overview
       href: database-designer/overview-database-templates.md
       displayName: overview
-    - name: Map data
+    - name: Map data overview
       href: database-designer/overview-map-data.md
       displayName: map data
   - name: Quickstarts
