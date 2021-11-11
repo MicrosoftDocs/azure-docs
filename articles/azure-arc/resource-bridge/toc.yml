@@ -6,5 +6,7 @@
     href: overview.md
   - name: Security overview
     href: security-overview.md
-  - name: Troubleshooting
+- name: How-to guides
+  items:
+  - name: Troubleshoot
     href: troubleshoot-resource-bridge.md
