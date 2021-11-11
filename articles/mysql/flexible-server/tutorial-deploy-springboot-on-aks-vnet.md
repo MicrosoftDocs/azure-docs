@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to deploy a [Spring Boot](https://spring.io/p
 ## Create an Azure Database for MySQL - Flexible Server 
 
 ### Create a resource group
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group *rg-mysqlaksdemo* using the [az group create](cli/azure/group#az_group_create) command  in the *eastus* location.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group *rg-mysqlaksdemo* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location.
 
 1. Open command prompt. 
 1. Sign in to your Azure account.
@@ -318,7 +318,7 @@ We'll now create an AKS cluster in the virtual network *vnet-mysqlaksdemo*.
 
 1. Create a service principal and assign permissions
 
-    To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. The service principal needs to have permissions to manage the virtual network and subnet that the AKS nodes use. To create a service principal, use the [az ad sp create-for-rbac](cli/azure/ad/sp#az_ad_sp_create_for_rbac) command:
+    To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. The service principal needs to have permissions to manage the virtual network and subnet that the AKS nodes use. To create a service principal, use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command:
     
     ```azurecli-interactive
     az ad sp create-for-rbac --skip-assignment
@@ -333,7 +333,7 @@ We'll now create an AKS cluster in the virtual network *vnet-mysqlaksdemo*.
     SUBNET_ID=$(az network vnet subnet show --resource-group rg-mysqlaksdemo --vnet-name vnet-mysqlaksdemo --name subnet-aks --query id -o tsv)
     ```
 
-1. Assign the service principal for your AKS cluster *Network Contributor* permissions on the virtual network using the [az role assignment create](cli/azure/role/assignment#az_role_assignment_create) command. Provide your own service principal *\<appId>* as obtained in the output from the previous command to create the service principal.
+1. Assign the service principal for your AKS cluster *Network Contributor* permissions on the virtual network using the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command. Provide your own service principal *\<appId>* as obtained in the output from the previous command to create the service principal.
 
     ```azurecli-interactive
     az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
