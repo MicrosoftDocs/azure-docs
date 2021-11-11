@@ -40,7 +40,7 @@ Google Fit on FHIR
 
 Health Data Sync
 
-* [microsoft/health-data-sync](https://github.com/microsoft/health-data-sync): A Swift library that simplifies and automates the export of HealthKit data to an external store.
+* [microsoft/health-data-sync](https://github.com/microsoft/health-data-sync): A Swift&#174; library that simplifies and automates the export of HealthKit data to an external store.
 
 ## Next steps
 Learn how to deploy IoT connector in the Azure portal
