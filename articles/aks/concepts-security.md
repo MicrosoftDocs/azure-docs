@@ -130,7 +130,7 @@ To limit network traffic between pods in your cluster, AKS offers support for [K
 
 ## Application Security
 
-To protect pods running on AKS leverage [Azure Defender for Kubernetes](https://docs.microsoft.com/en-us/azure/defender-for-cloud/container-security) to detect and restrict cyber attacks against your applications running in your pods.  Run continual scanning to detect drift in the vulnerability state of your application and implement a "blue/green/canary" process to patch and replace the vulnerable images. 
+To protect pods running on AKS leverage [Azure Defender for Kubernetes](https://docs.microsoft.com/azure/defender-for-cloud/container-security) to detect and restrict cyber attacks against your applications running in your pods.  Run continual scanning to detect drift in the vulnerability state of your application and implement a "blue/green/canary" process to patch and replace the vulnerable images. 
 
 
 ## Kubernetes Secrets
