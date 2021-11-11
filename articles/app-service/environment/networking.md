@@ -2,11 +2,9 @@
 title: App Service Environment Networking
 description: App Service Environment networking details
 author: madsd
-ms.assetid: 6f262f63-aef5-4598-88d2-2f2c2f2bfc24
-ms.topic: article
-ms.date: 06/30/2021
+ms.topic: overview
+ms.date: 11/15/2021
 ms.author: madsd
-ms.custom: seodec18
 ---
 
 # App Service Environment networking
@@ -14,7 +12,6 @@ ms.custom: seodec18
 > [!NOTE]
 > This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
 > 
-
 
 The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that hosts web apps, api apps, and function apps. When you install an ASE, you pick the Azure Virtual Network that you want it to be deployed in. All of the inbound and outbound traffic application will be inside the virtual network you specify. The ASE is deployed into a single subnet in your virtual network. Nothing else can be deployed into that same subnet.
 
@@ -30,7 +27,7 @@ Any given subnet has five addresses reserved for management purposes. On top of 
 
 The effect of running out of addresses is, that you can be restricted from scaling out your App Service Plans in the ASE or you can experience increased latency during intensive traffic load if we are not able scale the supporting infrastructure.
 
-## Addresses 
+## Addresses
 
 The ASE has the following network information at creation:
 
@@ -54,11 +51,13 @@ As you scale your App Service plans in your ASE, you'll use more addresses out o
 For your app to receive traffic, you need to ensure that inbound Network Security Groups (NSGs) rules allow the ASE subnet to receive traffic from the needed ports. In addition to the rules needed by your app, port 80 must be allowed from the AzureLoadBalancer to the ASE subnet for internal keep alive traffic between the load balancer and the ASE infrastructure. You can still control port 80 traffic from the virtual network to you ASE subnet.
 
 The general recommendation is to configure the following inbound NSG rule:
+
 |Port|Source|Destination|
 |-|-|-|
 |80,443|VirtualNetwork|ASE subnet range|
 
 The minimal requirement for ASE to be operational is:
+
 |Port|Source|Destination|
 |-|-|-|
 |80|AzureLoadBalancer|ASE subnet range|

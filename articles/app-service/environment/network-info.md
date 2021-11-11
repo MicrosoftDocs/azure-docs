@@ -3,7 +3,7 @@ title: Networking considerations
 description: Learn about the ASE network traffic and how to set network security groups and user defined routes with your ASE.
 author: madsd
 ms.topic: article
-ms.date: 15/11/2021
+ms.date: 11/15/2021
 ms.author: madsd
 ---
 # Networking considerations for an App Service Environment v2

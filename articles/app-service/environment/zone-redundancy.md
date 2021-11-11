@@ -3,7 +3,7 @@ title: Availability Zone support for App Service Environment v2
 description: Learn how to deploy your App Service Environments so that your apps are zone redundant.
 author: madsd
 ms.topic: article
-ms.date: 15/11/2021
+ms.date: 11/15/2021
 ms.author: madsd
 ---
 # Availability Zone support for App Service Environment v2
