@@ -20,7 +20,7 @@ An Azure Private Endpoint is a network interface that connects you privately and
 For more information, see [What is Azure Private Link?](../../private-link/private-link-overview.md)
 
 > [!NOTE]
-> Managed HSM does not currently support IP rules or [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview) 
+> Managed HSM does not currently support IP rules or [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) 
 > 
 ## Prerequisites
 
