@@ -102,9 +102,11 @@ Although you can add new fields at any time, existing field definitions are lock
 
 ## Physical representation
 
-In Azure Cognitive Search, the physical implementation of an index is largely an internal implementation. You can access its definition, query its content, monitor size, and manage capacity, but the clusters themselves (indices, shards, and other files and folders) are managed internally by Microsoft on your behalf.
+In Azure Cognitive Search, the physical structure of an index is largely an internal implementation. You can access its schema, query its content, monitor its size, and manage capacity, but the clusters themselves (indices, shards, and other files and folders) are off limits and managed internally by Microsoft on your behalf.
 
-The size of an index is determined by the quantity and composition of your documents, index configuration (such as whether you include suggesters), and the attributes on individual fields.
+The size of an index is determined by the quantity and composition of your documents, index configuration (such as whether you include suggesters), and the attributes on individual fields. You can monitor index size in the Indexes tab in the Azure portal, or by issuing a GET INDEX request against your search service.
+
+### Factors influencing index size
 
 Document composition and quantity will be determined by what you choose to import. Remember that a search index should only contain searchable content. If source documents include binary fields, you would generally omit those fields from the index schema (unless you are using AI enrichment to crack and analyze the content to create text searchable information.)
 
@@ -124,9 +126,13 @@ Also not reflected in the above table is the impact of [analyzers](search-analyz
 
 ## Basic operations
 
-Now that you have a better idea of what an index is, this section introduces index operations: creating, loading, updating, connecting to, and securing a single index.
+Now that you have a better idea of what an index is, this section introduces index run time operations, including connecting to and securing a single index.
+
+### Self-contained indexes 
   
 In Cognitive Search, each index is standalone. There is no concept of related indexes or the joining of independent indexes for either indexing or querying. There is no portal or API support for moving or copying an index. Instead, customers typically point their application deployment solution at a different search service (if using the same index name), or revise the name to create a copy on the current search service, and then build it.
+
+### Continuously available
 
 An index is continuously available, with no ability to pause or take it offline. Because it's designed for continuous operation, any updates to its content, or additions to the index itself, happen in real time. As a result, queries might temporarily return incomplete results if a request coincides with a document update.
 
@@ -134,14 +140,14 @@ Notice that query continuity exists for document operations (refreshing or delet
 
 To avoid rebuilding, some customers who are making small changes choose to "version" a field by creating a new one that coexists alongside a previous version. Over time, this leads to orphaned content in the form of obsolete fields or obsolete custom analyzer definitions, especially in a production index that is expensive to replicate. You can address these issues on planned updates to the index as part of index lifecycle management.
 
-### Endpoints
+### Endpoint connection and security
 
 All indexing and query requests target an index. Endpoints are usually one of the following:
 
 | Endpoint | Connection and access control |
 |----------|-------------------------------|
-| <your-service>.search.windows.net/indexes | Targets the indexes collection. Used when creating, listing, or deleting an index. Admin rights are required for these operations, available through admin API keys or a Search Contributor role. |
-| <your-service>.search.windows.net/indexes/<your-index>/docs | Targets the documents collection of a single index. Used when querying an index. Read rights are sufficient, and available through query API keys or a data reader role. |
+| '<your-service>.search.windows.net/indexes' | Targets the indexes collection. Used when creating, listing, or deleting an index. Admin rights are required for these operations, available through admin API keys or a Search Contributor role. |
+| '<your-service>.search.windows.net/indexes/<your-index>/docs' | Targets the documents collection of a single index. Used when querying an index. Read rights are sufficient, and available through query API keys or a data reader role. |
 
 ## Next steps
 
