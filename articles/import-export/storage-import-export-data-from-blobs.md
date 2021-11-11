@@ -37,13 +37,6 @@ You must:
 
 - [!INCLUDE [storage-import-export-shipping-prerequisites.md](../../includes/storage-import-export-shipping-prerequisites.md)]
 
-<!-- Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
-  - The account must be valid, should have balance, and must have return shipping capabilities.
-  - Generate a tracking number for the export job.
-  - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
-  - If you do not have a carrier account, go to:
-    - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
-    - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).-->
 
 ## Step 1: Create an export job
 
@@ -95,8 +88,6 @@ Perform the following steps to create an export job in the Azure portal.
         |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
         |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
 
-        <!--![Screenshot of "Job details" tab for export order in Azure Import/Export jobs. "Selected containers and blobs" is selected. ](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)-->
-
         :::image type="complex" source="./media/storage-import-export-data-from-blobs/export-from-blob-5.png" alt-text="Screenshot showing selected containers and blobs for a new Azure Import/Export export order.":::
         <Blob selections include a container, a blob, and blob prefixes that work like wildcards. The Add Prefixes pane on the right is used to add prefixes that select blobs based on common text in the blob path or name.>
 :::image-end:::
@@ -115,18 +106,7 @@ Perform the following steps to create an export job in the Azure portal.
 
    Select **Next: Shipping >** to proceed.
 
-6. [!INCLUDE [storage-import-export-shipping-step.md](../../includes/storage-import-export-shipping-step.md)]
-
-<!--6. In **Shipping**:
-
-    - Select the carrier that you will use from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com` with the information regarding the carrier you plan to use.
-    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
-    - Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
-
-        > [!TIP]
-        > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
-
-    Select **Review + create** to proceed.-->
+6. [!INCLUDE [storage-import-export-shipping-step.md](../../includes/storage-import-export-shipping-step.md)]<!--Text is identical. Verify that the same screen can be used also.-->
 
 7. In **Review + create**:
 
@@ -138,9 +118,9 @@ Perform the following steps to create an export job in the Azure portal.
 
    1. Review the **Terms** for your order for privacy and source data deletion. If you agree to the terms, select the check box beneath the terms. Validation of the order begins.
 
-   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export order. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
+   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export order. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)<!--Renumber PNG if we use the Include file for Step 6.-->
 
- 1. After validation passes, select **Create**.
+ 8. After validation passes, select **Create**.
 
 ### [Azure CLI](#tab/azure-cli)
 

@@ -40,12 +40,7 @@ You must:
 * Download the current release of the Azure Import/Export version 1 tool, for blobs, on the Windows system:
   1. [Download WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659). The current version is 1.5.0.300.
   1. Unzip to the default folder `WaImportExportV1`. For example, `C:\WaImportExportV1`.
-* [!INCLUDE [storage-import-export-shipping-prerequisites.md](../../includes/storage-import-export-shipping-prerequisites.md)]
-<!--* Create a carrier account, and generate a tracking number for the order:
-  * Have a carrier account with one of the carriers listed in the **Carriers** drop-down list for your order. All storage media will be shipped back by Microsoft using the same carrier.
-    * The carrier account must be valid, should have a balance, and must have return shipping capabilities.
-    * If you don't have a carrier account, contact the carrier of choice to create one.
-  * In the carrier account, generate a tracking number for the export job. Every job should have a separate tracking number. Multiple jobs with the same tracking number aren't supported.-->
+- [!INCLUDE [storage-import-export-shipping-prerequisites.md](../../includes/storage-import-export-shipping-prerequisites.md)]
  
 ## Step 1: Prepare the drives
 
@@ -151,26 +146,13 @@ Perform the following steps to create an import job in the Azure portal.
 
 6. [!INCLUDE [storage-import-export-shipping-step.md](../../includes/storage-import-export-shipping-step.md)]
 
-<!--1. In **Shipping**:
-
-   1. **Carrier name**: Select the carrier from the dropdown list. Microsoft will use the same carrier to ship back all storage media.
-   1. **Carrier account number**: Enter a valid account number for an acount that you've created with the carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. <!--If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](https://www.dhl.com/) carrier account. - Best to leave this out, with carriers proliferating?
-   1.  **Return address**: Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
-
-       > [!TIP]
-       > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
-
-   ![Screenshot of the Shipping tab, with field entries, for an import order in Azure Import Export Jobs. The Review Plus Create button is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
-
-   Select **Review + create** to proceed.-->
-
 7. In the order summary:
 
    1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
    1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
    1. Select **Create**.
 
-     ![Screenshot showing the Review Plus Create tab for an Azure Import/Export order. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
+     ![Screenshot showing the Review Plus Create tab for an Azure Import/Export order. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
 ### [Azure CLI](#tab/azure-cli)
 

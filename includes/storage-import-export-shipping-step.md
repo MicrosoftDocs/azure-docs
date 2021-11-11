@@ -14,9 +14,9 @@ ms.custom: include file
 
 In **Shipping**:
 
-- Select the carrier that you want to use from the dropdown list for **Carrier name**. Microsoft will use the selected carrier to ship back all storage media.
-- Enter the **Carrier account number** for a valid account that you've created with the carrier. For carrier account requirements, see "Prerequisites," above.
-- Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
+1. Select the carrier that you want to use from the dropdown list for **Carrier name**. Microsoft will use the selected carrier to ship back all storage media.<!--If "back" is removed, this can be shared with exports as well - that is, if the screen also is identical.-->
+1. Enter the **Carrier account number** for a valid account that you've created with the carrier. For carrier account requirements, see "Prerequisites," above.
+1. Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
 
   > [!TIP]
   > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
