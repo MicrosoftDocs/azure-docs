@@ -144,7 +144,7 @@ imDns (domain_has_any = torProxies)
 
 ## Normalized content
 
-For a full list of analytics rules that use normalized DNS events, see the [DNS query security content](normalization-content.md#dns) section.
+For a full list of analytics rules that use normalized DNS events, see the [DNS query security content](normalization-content.md#dns-query-security-content) section.
 
 ## Schema details
 
