@@ -40,7 +40,7 @@ You have a few options when deciding on which sources to gather.
 
 ### Metrics
 
-**AllMetrics** routes a resource's platform metrics to other destinations in addition to the Azure Monitor metrics time-series database. 
+**AllMetrics** routes a resource's platform metrics to other destinations in addition to the Azure Monitor metrics time-series database. This option may not always be present for all resource providers. 
 
 ### Logs
 
@@ -63,14 +63,10 @@ Platform logs and metrics can be sent to the destinations in the following table
 
 | Destination | Description |
 |:---|:---|
-| [Log Analytics workspace](../logs/design-logs-deployment.md) | Metrics are converted to log form. Sending resource logs and metrics to a Log Analytics workspace allows you to analyze them in conjunction with other monitoring data already stored there. Log Analytics provides powerful log queries, alerts and visualizations.
-
-Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries which search across other logs. This option may not be available for all resource types. The [Azure Monitor supported metrics](./metrics-supported.md) lists what metrics are collected for what resource types and which are exportable to Azure Monitor Logs.
-
+| [Log Analytics workspace](../logs/design-logs-deployment.md) | Metrics are converted to log form. This option may not be available for all resource types. The [Azure Monitor supported metrics](./metrics-supported.md) lists what metrics are collected for what resource types and which are exportable to Azure Monitor Logs. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries, alerts and visualizations in conjunction with existing log data.  
 | [Azure storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  | 
 | [Event hubs](../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs  and other Log Analytics solutions.  |
 | [Azure Monitor partner integrations](/azure/partner-solutions/overview/)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms.  |
-
 
 ### Destination requirements
 
@@ -118,11 +114,9 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
 3. Give your setting a name if it doesn't already have one.
 
-    ![Add diagnostic setting](media/diagnostic-settings/setting-new-blank.png)
+      :::image type="Add diagnostic setting" source="media/diagnostic-settings/setting-new-blank.png" alt-text="Add a new diagnostic setting":::
 
-4. **Category details (what to route)** - Check the box for each category of data you want to send to destinations specified later. The list of categories varies for each Azure service.
-
-
+4. **Logs and metrics to route** - For logs, either choose a category group or check the individual boxes for each category of data you want to send to the destinations specified later. The list of categories varies for each Azure service. Choose *allMetrics* if you want to store metrics into Azure Monitor Logs as well. 
 
 5. **Destination details** - Check the box for each destination. When you check each box, options appear to allow you to add additional information.
 
