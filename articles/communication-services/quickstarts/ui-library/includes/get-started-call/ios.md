@@ -76,7 +76,7 @@ Go to 'ViewController'. Here we'll drop the following code to initialize our Com
 ```swift
 import UIKit
 import AzureCommunicationCalling
-import CallingComposite
+import CallComposite
 
 class ViewController: UIViewController {
 
