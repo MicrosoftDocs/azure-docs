@@ -2,20 +2,14 @@
 
 title: What are flagged sign-ins in Azure Active Directory?
 description: Provides a general overview of flagged sign-ins in Azure Active Directory.
-services: active-directory
-documentationcenter: ''
 author: MarkusVi
 manager: karenhoran
-editor: ''
-
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/28/2021
+ms.date: 10/27/2021
 ms.author: markvi
 ms.reviewer: tspring  
 
@@ -76,16 +70,16 @@ You can find flagged sign-ins with a filtered query using the sign-ins reporting
  
 `https://graph.microsoft.com/beta/auditlogs/signins?&$filter=(flaggedForReview eq true)`
 
-For more information on using the sign-ins Graph API, see [signIn resource type](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true).
+For more information on using the sign-ins Graph API, see [signIn resource type](/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true).
 
 
 
  
-## Who can create flagged sign-ins?
+## Who can create it?
 
 Any user signing into Azure AD via web page can use flag sign-ins for review. Member and guest users alike can flag sign-in errors for review. 
 
-## Who can review flagged sign-ins?
+## Who can review it?
 
 Reviewing flagged sign-in events requires permissions to read the Sign-in Report events in the Azure AD portal. For more information, see [who can access it?](concept-sign-ins.md#who-can-access-it)
 

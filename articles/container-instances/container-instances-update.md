@@ -68,6 +68,7 @@ Changes to these properties require container group deletion prior to redeployme
 * CPU, memory, or GPU resources
 * Restart policy
 * Network profile
+* Availability zone
 
 [!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
