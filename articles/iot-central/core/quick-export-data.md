@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Quickstart: Export data from an IoT Central application
 
-This quickstart shows you how to continuously export data from your Azure IoT Central application to another cloud service. To get you set up quickly, this quickstart uses [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), a fully managed data analytics service for real-time analysis. Azure Data Explorer lets you store, query, and process the telemetry from the **IoT Plug and Play** smartphone app.
+This quickstart shows you how to continuously export data from your Azure IoT Central application to another cloud service. To get you set up quickly, this quickstart uses [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), a fully managed data analytics service for real-time analysis. Azure Data Explorer lets you store, query, and process the telemetry from devices such as the **IoT Plug and Play** smartphone app.
 
 In this quickstart, you:
 
@@ -150,8 +150,7 @@ To configure the data export:
         EnqueuedTime: .enqueuedTime,
         X: .telemetry | iotc::find(.name == "accelerometer").value.x,
         Y: .telemetry | iotc::find(.name == "accelerometer").value.y,
-        Z: .telemetry | iotc::find(.name == "accelerometer").value.z,
-        t: .telemetry
+        Z: .telemetry | iotc::find(.name == "accelerometer").value.z
     }
     ```
 
@@ -165,7 +164,7 @@ Wait until the export status shows **Healthy**:
 
 ## Query exported data
 
-In Azure Data Explorer, open a new tab and paste in the following Kusto query and the select **Run** to plot the accelerometer telemetry:
+In Azure Data Explorer, open a new tab and paste in the following Kusto query and then select **Run** to plot the accelerometer telemetry:
 
 ```kusto
 ['acceleration'] 
