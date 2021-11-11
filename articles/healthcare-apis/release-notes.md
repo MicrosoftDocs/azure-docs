@@ -80,9 +80,8 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 ## October 2021
 
-### Azure Healthcare APIs Platform
+### Azure Healthcare APIs Feature Enhancements
 
-#### **Feature enhancements**
 
 |Enhancements | Description |
 |:------------------- | -----------:|
