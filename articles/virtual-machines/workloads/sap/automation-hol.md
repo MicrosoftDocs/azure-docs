@@ -239,6 +239,7 @@ read-only* and work in a copy of the **WORKSPACES** folder where you will make y
 
   Expand each of these folders to find regional deployment
   configuration files similar to the below screenshot:
+  
   ![workspace directory](media/automation-hol/image9.png)
 
 - We have mapped different Azure region with 4-character code (Upper Case) and subsequent folders inside WORKSPACES folder has been created to represent deployment in those respective regions. Find the below table for reference
@@ -256,6 +257,7 @@ read-only* and work in a copy of the **WORKSPACES** folder where you will make y
     | West US 2          | WES2        |
 
 - If you drill down into each regional sub folder, you will see the Terraform variable files that are used for configuration. Snippet of the **DEPLOYER** Terraform variable file below.
+  
   ![deployer terraform](media/automation-hol/image10.png)
 
 - There are no edits necessary for the Terraform variable files this is informational only so that you can view them and know where to make edits for future deployments.
@@ -314,15 +316,18 @@ control plane for a chosen "Automation Region".
     ![Library resources](media/automation-hol/image17.png)
 
     You will find that the terraform state has been migrated to the storage account whose name contains 'tfstate'. With the storage account, we have a container also named 'tfstate'. You should see the Deployer and Library state files in there:
+    
     ![tfstate files](media/automation-hol/image18.png)
 
 #### Common issues and solutions
 
 If you get the following error for the Deployer module deployment, ensure that you have navigated to the WORKSPACES directory:
-![incorrect parameter file](media/automation-hol/image12.png)
+  
+  ![incorrect parameter file](media/automation-hol/image12.png)
 
 If you get the following error for the Deployer deployment, this is transient, and you can simply rerun the exact same command, prepare_region.sh
-![file provisioning failed](media/automation-hol/image15.png)
+  
+  ![file provisioning failed](media/automation-hol/image15.png)
 
 If you run into authentication issues directly after running the prepare_region script, please execute:
 
@@ -334,9 +339,115 @@ az login
 
 If you execute az logout, then you must export your session variables again
 
-### Task 5: Collect information required for Workload Zone deployment
+### Task 5: Connecting to the Deployer VM
 
-One the prepare_region script finishes, you would see that the terraform state file has been moved to a remote backend (azurerm). All the secrets needed to connect to deployer VM are available in a Keyvault provisioned in the Deployer resource group.
+Ensure that you can connect to your deployer machine as we will be deploying the rest of the infrastructure from that machine
+
+- In your Azure subscription, look for the key vault, which starts with "**MGMT[Region]DEP00user**". This will be found in the Deployer resource group.
+
+- Once in the key vault, click on the secrets section
+  
+  ![keyvault secrets section](media/automation-hol/image23.png)
+
+- We should have a secret for the SSH key with the following pattern: "**MGMT-[Region]-DEP00-sshkey**"
+
+- Click on the SSH Key secret and on the next screen Click on the current version to access the secret key
+
+- Copy the private ssh key
+  
+  ![copy ssh key](media/automation-hol/image24.png)
+
+- Open Notepad and paste the secret value. Copy the file to,    "C:\\Users\\\[your alias\]\\.ssh". Save the file without any extension. As an example, you can save the file as "deployer_ssh":
+    
+    ![deployer_ssh](media/automation-hol/image25.png)
+
+- You can now connect to the deployer VM via any SSH client using the public IP address from earlier section and the SSH key we downloaded now.
+  >If using Putty, the SSH key file needs to be converted via PuttyGen
+  >
+  >The default username is *azureadm*
+
+- Once connected to the deployer VM, you can now provision the workload zone
+
+---
+> [!IMPORTANT] > The rest of the tasks need to be executed on the Deployer
+---
+
+### Task 6: SAP software acquisition and BOM
+
+> **Note** This step requires a valid SAP user account (SAP-User or S-User account) with software download privileges.
+
+The Automation Framework gives you tools to download the SAP Bill Of Materials (BOM). The downloaded files will be stored in the sapbits storage account in the SAP Library. The idea is that the sap library will act as the archive for all sap media requirements for a project.
+
+The BOM itself mimics the SAP maintenance planner in that we have the relevant product ids and the package download URLs. Once the BOM is processed, during SAP system configuration the Deployer reads the BOM and downloads files from the storage account to the SCS Server for Installation.
+
+A sample extract of a BOM file is provided below:
+
+![s4hana 1909 sps03](media/automation-hol/image35.png)
+
+- Starting the activity would need us to configure your deployer key vault secrets. For this example configuration, the resource group is MGMT-NOEU-DEP00-INFRASTRUCTURE and the deployer key vault name would contain *MGMTNOEUDEP00user* in the name.
+
+- Add a secret with the username for your SAP user account. Replace [keyvault-name] with the name of your deployer key vault. Also replace [sap-username] with your SAP username.
+
+  ```shell
+    az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
+  ```
+
+- Add a secret with the password for your SAP user account. Replace [keyvault-name] with the name of your deployer key vault. Also replace [sap-password] with your SAP password.
+
+  ```shell
+    az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
+  ```
+
+- Next, configure your SAP parameters file for the download process. Then, download the SAP software using Ansible playbooks. Execute the following commands:
+
+  ```shell
+    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/BOMS
+
+    vi sap-parameters.yaml
+  ```
+
+  - In the sapbits_location_base_path parameter, input the storage account name of the sapbits storage account
+  - In the kv_name parameter, enter the name of the Deployer resource group key vault
+  - Your file should look similar to this:
+    
+    ![sap parameters yaml](media/automation-hol/image36.png)
+
+- Then, execute the Ansible playbooks. One way you can execute the playbooks is to use the validator test menu:
+  - Run the validator test menu script.
+  
+    ```shell
+        ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/validator_test_menu.sh
+    ```
+
+    ![validator script](media/automation-hol/image37.png)
+  
+  - Select which playbooks you would like to execute.
+  
+    ```shell
+      1) BoM Downloader
+      2) BoM Uploader
+      3) Quit
+      Please select playbook:
+    ```
+
+    ![validator menu](media/automation-hol/image38.png)
+
+  - Selecting playbook#1 will download the relevant files to the
+    deployer VM
+    
+    ![BOM Download](media/automation-hol/image39.png)
+
+  - Once step #1 completes successfully, then running step #2 uploads the files to the sapbits container in the saplibrary storage account:
+    
+    ![BOM Upload](media/automation-hol/image40.png)
+
+  - Once the upload the is complete, the sapbits container in the saplibrary storage account should look like the below sample screenshots and should have the media for proceeding with installation:
+    
+    ![sapbits container](media/automation-hol/image42.png)
+
+### Task 7: Collect information required for Workload Zone deployment
+
+Once the prepare_region script finishes, you would see that the terraform state file has been moved to a remote backend (azurerm). All the secrets needed to connect to deployer VM are available in a Keyvault provisioned in the Deployer resource group.
 
 - In order to complete the next steps, we would need to collect the following information in a text editor:
 
@@ -353,35 +464,9 @@ One the prepare_region script finishes, you would see that the terraform state f
     - The name of the Key Vault in the Deployer resource group will contain: *MGMTNOEUDEP00user*
 
 - The Public IP address of the Deployer VM
-  - Deployer resource group -> Deployer VM -> copy Public IP Address
-
-### Task 6: Connecting to the Deployer - The rest of the lab will be completed on the Deployer VM
-
-Ensure that you can connect to your deployer machine as we will be deploying the rest of the infrastructure from that machine
-
-- In your Azure subscription, look for the key vault, which starts with "**MGMT[Region]DEP00user**". This will be found in the Deployer resource group.
-
-- Once in the key vault, click on the secrets section
-  ![keyvault secrets section](media/automation-hol/image23.png)
-
-- We should have a secret for the SSH key with the following pattern: "**MGMT-[Region]-DEP00-sshkey**"
-
-- Click on the SSH Key secret and on the next screen Click on the current version to access the secret key
-
-- Copy the private ssh key
-  ![copy ssh key](media/automation-hol/image24.png)
-
-- Open Notepad and paste the secret value. Copy the file to,    "C:\\Users\\\[your alias\]\\.ssh". Save the file without any extension. As an example, you can save the file as "deployer_ssh":
-    ![deployer_ssh](media/automation-hol/image25.png)
-
-- You can now connect to the deployer VM via any SSH client using the public IP address from earlier section and the SSH key we downloaded now.
-  >If using Putty, the SSH key file needs to be converted via PuttyGen
-  >
-  >The default username is *azureadm*
-
-- Once connected to the deployer VM, you can now provision the workload zone
-
-### Task 7: Deploy the Workload Zone Prep
+  > Deployer resource group -> Deployer VM -> copy Public IP Address
+  
+### Task 8: Deploy the Workload Zone Prep
 
 Connect to your Deployer VM for the following steps.
 
@@ -415,7 +500,7 @@ Connect to your Deployer VM for the following steps.
 
     ![copy samples](media/automation-hol/image45.png)
 
-### Task 8: Deploy the Workload Zone
+### Task 9: Deploy the Workload Zone
 
 An SAP application typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as workload zones.
 
@@ -487,7 +572,7 @@ Supports the Private DNS from the Control Plane.
   
   ![workload zone resource group](media/automation-hol/image49.png)
 
-### Task 9: Deploy the SAP system infrastructure
+### Task 10: Deploy the SAP system infrastructure
 
 Once the Landscape is complete, you can deploy the SAP system infrastructure resources. The SAP system creates your virtual machines (VMs), and supporting components for your SAP application.
 
@@ -520,9 +605,10 @@ The SAP system deploys:
   ```
 
 - You should the system Resource Group (Abridged) in the portal:
+    
     ![sap system resource group](media/automation-hol/image50.png)
 
-### Task 10: Customizing Naming Conventions
+### Task 11: Customizing Naming Conventions
 
 The SAP deployment automation framework on Azure uses standard naming conventions. Consistent naming helps the automation framework run correctly with Terraform. Review the standard terms, area paths, variable names before you begin your deployment.
 
@@ -544,72 +630,6 @@ There are multiple files within the module for:
 - Resource groups (resourcegroup.tf)
 - Key vaults (keyvault.tf)
 - Resource suffixes (variables_local.tf)
-
-### Task 11: SAP software acquisition and BOM
-
-> **Note** This step requires a valid SAP user account (SAP-User or S-User account) with software download privileges.
-
-The Automation Framework gives you tools to download the SAP Bill Of Materials (BOM). The downloaded files will be stored in the sapbits storage account in the SAP Library. The idea is that the sap library will act as the archive for all sap media requirements for a project.
-
-The BOM itself mimics the SAP maintenance planner in that we have the relevant product IDs and the package download URLs. Once the BOM is processed, during SAP system configuration the Deployer reads the BOM and downloads files from the storage account to the SCS Server for Installation.
-
-A sample extract of a BOM file is provided below:
-![s4hana 1909 sps03](media/automation-hol/image35.png)
-
-- Starting the activity would need us to configure your deployer key vault secrets. For this example configuration, the resource group is MGMT-NOEU-DEP00-INFRASTRUCTURE and the deployer key vault name would contain *MGMTNOEUDEP00user* in the name.
-
-- Add a secret with the username for your SAP user account. Replace [keyvault-name] with the name of your deployer key vault. Also replace [sap-username] with your SAP username.
-
-  ```shell
-    az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
-  ```
-
-- Add a secret with the password for your SAP user account. Replace [keyvault-name] with the name of your deployer key vault. Also replace [sap-password] with your SAP password.
-
-  ```shell
-    az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
-  ```
-
-- Next, configure your SAP parameters file for the download process. Then, download the SAP software using Ansible playbooks. Execute the following commands:
-
-  ```shell
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/BOMS
-
-    vi sap-parameters.yaml
-  ```
-
-  - In the kv_name parameter, enter the name of the deployer key vault
-  - Your file should look similar to this:
-    ![sap parameters yaml](media/automation-hol/image36.png)
-
-- Then, execute the Ansible playbooks. One way you can execute the playbooks is to use the validator test menu:
-  - Run the validator test menu script.
-  
-    ```shell
-        ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/validator_test_menu.sh
-    ```
-
-    ![validator script](media/automation-hol/image37.png)
-  
-  - Select which playbooks you would like to execute.
-  
-    ```shell
-      1) BoM Downloader
-      2) Quit
-      Please select playbook:
-    ```
-
-    ![validator menu](media/automation-hol/image38.png)
-
-  - Selecting playbook#1 will download the relevant files to the
-    deployer VM
-    ![BOM Download](media/automation-hol/image39.png)
-
-  - Once step #1 completes successfully, then running step #2 uploads the files to the sapbits container in the saplibrary storage account:
-    ![BOM Upload](media/automation-hol/image40.png)
-
-  - Once the upload the is complete, the sapbits container in the saplibrary storage account should look like the below sample screenshots and should have the media for proceeding with installation:
-    ![sapbits container](media/automation-hol/image42.png)
 
 ### Task 12: SAP Installation
 
@@ -644,7 +664,9 @@ We can trigger the execution of the playbooks by running the following command:
 #### 12-1: OS Config
 
 Selecting this playbook does the generic OS configuration setup on all the machines
+    
     ![menu seletion 1](media/automation-hol/image51.png)
+    
     ![pb1 exec](media/automation-hol/image52.png)
 
 At the end, you will see the screen like below
@@ -654,13 +676,17 @@ At the end, you will see the screen like below
 
 Selecting this playbook does the SAP-specific OS configuration setup on all the
 machines
+    
     ![menu selection 2](media/automation-hol/image54.png)
+    
     ![pb2 exec-time](media/automation-hol/image55.png)
 
 #### 12-3: BoM Processing
 
 Selecting this playbook, downloads the SAP software to the scs node.
+    
     ![menu selection 3](media/automation-hol/image56.png)
+    
     ![pb3 exec](media/automation-hol/image57.png)
 
 #### 12-4: HANA DB Install
@@ -687,12 +713,15 @@ Triggering the playbook will initiate HANA install on the DB node
 #### 12-5: SCS Install
   
 This triggers the central services installation
+  
   ![menu selection 5](media/automation-hol/image63.png)
+  
   ![pb5 exec-time](media/automation-hol/image64.png)
 
 #### 12-6: DB Load
 
 Triggers DB load for the previously installed HANA database from PAS server.
+  
   ![menu selection 6](media/automation-hol/image65.png)
 
   ![pb6 exec](media/automation-hol/image66.png)
@@ -702,6 +731,7 @@ Triggers DB load for the previously installed HANA database from PAS server.
 #### 12-7: PAS Install
 
 Triggers PAS installation
+  
   ![menu selection 7](media/automation-hol/image68.png)
 
   ![pb7 exec](media/automation-hol/image69.png)
@@ -711,6 +741,7 @@ Triggers PAS installation
 #### 12-8: APP Install
 
 Triggers app server installation.
+  
   ![menu selection 8](media/automation-hol/image71.png)
 
   ![pb8 exec](media/automation-hol/image72.png)
@@ -724,6 +755,7 @@ Triggers app server installation.
 ---
 
 ---
+
 ### SAP Installation clean-up
 
 You may perform this task outside of the lab but please be sure to do so as the *infrastructure can be expensive - do not delay!*
