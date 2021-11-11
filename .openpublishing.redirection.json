@@ -448,6 +448,21 @@
       "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
       "redirect_document_id": false
     },
+    { 
+      "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations.md",
+      "redirect_url": "/azure/frontdoor/edge-locations-by-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations-by-abbreviation.md",
+      "redirect_url": "/azure/frontdoor/edge-locations-by-abbreviation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/edge-locations-abbreviation.md",
+      "redirect_url": "/azure/frontdoor/edge-locations-by-abbreviation",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
       "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
