@@ -39,17 +39,17 @@ The following table describes user access permissions to Azure Defender for IoT 
 
 | Permission | Security reader | Security admin | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
-| View details and access software, activation files and threat intelligence packages | ✓ | ✓ | ✓ | ✓ |
+| View details and access software, activation files, and threat intelligence packages | ✓ | ✓ | ✓ | ✓ |
 | Onboard a sensor |  | ✓ | ✓ | ✓ |
 | Update pricing |  |  | ✓ | ✓ |
 
 ## Onboard an Enterprise IoT sensor
 
-A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will leverage the Enterprise IoT network and endpoint sensors to gain comprehensive visibility.
+A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will use the Enterprise IoT network, and endpoint sensors to gain comprehensive visibility.
 
 **To onboard an Enterprise IoT sensor**:
 
-1. Navigate to the the [Azure portal](https://portal.azure.com#home).
+1. Navigate to the [Azure portal](https://portal.azure.com#home).
 
 1. Select **Setup EIoT sensor**.
 
@@ -59,7 +59,7 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
     :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
 
-1. Select a subscription from the drop down menu.
+1. Select a subscription from the drop-down menu.
 
     :::image type="content" source="media/tutorial-get-started-eiot/onboard-subscription.png" alt-text="Screenshot of the onboard subscription button."::: **FIX THIS IMAGE**
 
@@ -142,7 +142,7 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 
 ## Install the sensor
 
-You need to run the command that you saved from the Register an EIoT sensor.
+Run the command that you received, and saved when you registered the Enterprise IoT sensor.
 
 **To install the sensor**:
 
@@ -172,7 +172,7 @@ You need to run the command that you saved from the Register an EIoT sensor.
 
     1. Enter the proxy server port, and select **Ok**.
 
-    1. Enter the proxy sever username, and select **Ok**.
+    1. Enter the proxy server username, and select **Ok**.
 
     1. Enter the server password, and select **Ok**.
 
@@ -198,6 +198,8 @@ The installation will now finish.
 
     - compose_properties_1
 
+    :::image type="content" source="media/tutorial-get-started-eiot/up-healthy.png" alt-text="Screenshot showing the containers are up and healthy.":::
+
 1. Monitor port validation with the following command to see which interface is defined to handle port mirroring:
 
     ```bash
@@ -212,11 +214,11 @@ The installation will now finish.
     sudo docker logs -f compose_attributes-collector_1
     ```
 
-    Ensure that packets are being sent to the eventHub.
+    Ensure that packets are being sent to the Event Hub.
 
 ## View your enterprise IoT devices in the EIoT device inventory
 
-Once you have validated your your setup the device inventory will start to populate with all of your devices after 15 minutes.
+Once you have validated your setup, the device inventory will start to populate with all of your devices after 15 minutes.
 
 **To view your populated device inventory**:
 
@@ -224,7 +226,7 @@ Once you have validated your your setup the device inventory will start to popul
 
 1. Search for, and select **Defender for IoT**.
 
-1. From the left side toolbar select **Device inventory**.
+1. From the left side toolbar, select **Device inventory**.
 
 The device inventory is where you will be able to view all of your device systems, and network information. To learn more about the device inventory see **INSERT LINK HERE!!!**
 
