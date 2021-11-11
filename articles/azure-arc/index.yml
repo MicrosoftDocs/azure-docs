@@ -10,9 +10,9 @@ metadata:
   description: Learn how to deploy resources to complex and distributed environments across on-premises, edge and multicloud. Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
   ms.service: azure-arc
   ms.topic: hub-page
-  author: MGoedtel
+  author: mgoedtel
   ms.author: magoedte
-  ms.date: 06/28/2021
+  ms.date: 10/25/2021
   ms.custom: e2e-hybrid
 
 # highlightedContent section (optional)
@@ -133,3 +133,12 @@ conceptualContent:
         - url: /sql/sql-server/azure-arc/configure-advanced-data-security
           itemType: how-to-guide
           text: Configure advanced data security
+    # Card
+    - title: Azure Arc-enabled private clouds
+      links:
+        - url: /resource-bridge/overview
+          itemType: overview
+          text: Azure Arc resource bridge overview
+        - url: /vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script
+          itemType: quickstart
+          text: Connect your VMware vCenter to Azure Arc

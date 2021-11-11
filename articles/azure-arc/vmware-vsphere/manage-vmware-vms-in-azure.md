@@ -2,13 +2,13 @@
 title: Manage VMware virtual machines Azure Arc
 description: Learn how to view the operations that you can do on VMware virtual machines and install the Log Analytics agent.
 ms.topic: how-to 
-ms.date: 09/28/2021
+ms.date: 11/10/2021
 
 ---
 
-# Manage VMware VMs in Azure through Arc enabled VMware vSphere
+# Manage VMware VMs in Azure through Arc-enabled VMware vSphere
 
-In this article, you'll install extensions supported in Arc enabled VMware virtual machines (VMs). The extensions can use various Azure management services like Azure Policy, Azure Security Center, and Azure Monitor. 
+In this article, you'll install extensions supported in Azure Arc-enabled servers. The extensions can use various Azure management services like Azure Policy, Azure Security Center, and Azure Monitor.
 
 You can do various operations on the VMware VMs that are enabled by Azure Arc, such as:
 
@@ -22,15 +22,13 @@ You can do various operations on the VMware VMs that are enabled by Azure Arc, s
 
 - Enable guest management
 
-- Install extensions (guest management enabled is required)
-
+- Install extensions (enabling guest management is required)
 
 :::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/manage-virtual-machines.png":::
 
 For more information, such as benefits and capabilities, see [VM extension management with Azure Arc-enabled servers](../servers/manage-vm-extensions.md).
 
 ## Supported extensions and management services
-
 
 ### Windows extensions
 
@@ -39,16 +37,12 @@ For more information, such as benefits and capabilities, see [VM extension manag
 |Custom Script extension |Microsoft.Compute | CustomScriptExtension |
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |
 
-
 ### Linux extensions
-
 
 |Extension |Publisher |Type |
 |----------|----------|-----|
 |Custom Script extension |Microsoft.Azure.Extensions |CustomScript |
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |
-
-
 
 ## Enable guest management
 
@@ -58,25 +52,22 @@ Before you can install an extension, you must enable guest management on the VMw
 
    - Running a [supported operating system](../servers/agent-overview.md#supported-operating-systems).
 
-   - Able to connect through the firewall to communicate over the internet and these [URLs](../servers/agent-overview.md#networking-configuration) aren't blocked.    
-   
-   - Not behind a proxy (it's not supported).
+   - Able to connect through the firewall to communicate over the internet and these [URLs](../servers/agent-overview.md#networking-configuration) aren't blocked.
+
+   - Communicating through a proxy server to the internet is not supported.
 
    >[!NOTE]
-   >If you're using a Linux VM, the account must not prompt for login on sudo commands.  To override the prompt, from a terminal, run `sudo visudo` and add `<username> ALL=(ALL) NOPASSWD:ALL` to the end of the file.  Make sure to replace `<username>`.
+   >If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo` and add `<username> ALL=(ALL) NOPASSWD:ALL` to the end of the file.  Make sure to replace `<username>`.
    >
-   >If your VM template has these changes incorporated, you won't need to do thiss for the VM created from that template. 
+   >If your VM template has these changes incorporated, you won't need to do this for the VM created from that template.
 
 1. From your browser, go to the [Azure portal](https://aka.ms/AzureArcVM).
 
 2. Search for and select the VMware VM and select **Configuration**.
 
-4. Select **Enable guest management** and provide the administrator username and password to enable guest management.  Then select **Apply**.
+3. Select **Enable guest management** and provide the administrator username and password to enable guest management.  Then select **Apply**.
 
    For Linux, use the root account, and for Windows, use an account that is a member of the Local Administrators group. 
-
-
-
 
 ## Install the LogAnalytics extension
 
@@ -86,18 +77,17 @@ Before you can install an extension, you must enable guest management on the VMw
 
 1. Navigate to **Extensions** and select **Add**.
 
-1. Select the extension you want to install. Based on the extension, you'll need to provide the details, such as the workspace ID and key for LogAnalytics extension. Then select **Review + create**.
+1. Select the extension you want to install. Based on the extension, you'll need to provide configuration details, such as the workspace ID and primary key for Log Analytics extension. Then select **Review + create**.
 
 The deployment starts the installation of the extension on the selected VM.
 
-
-## Clean up
+## Delete a VM
 
 If you no longer need the VM, you can delete it.
 
 1. From your browser, go to the [Azure portal](https://aka.ms/AzureArcVM)
 
-2. Search for and select the VM you want to delete. 
+2. Search for and select the VM you want to delete.
 
 3. In the single VM view, select on **Delete**.
 
@@ -105,3 +95,7 @@ If you no longer need the VM, you can delete it.
 
 >[!NOTE]
 >This also deletes the VM in your VMware vCenter.
+
+## Next steps
+
+[Create a VM using Azure Arc-enabled vSphere](quick-start-create-a-vm.md)

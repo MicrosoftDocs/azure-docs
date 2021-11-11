@@ -4,10 +4,22 @@
   items:
   - name: About Azure Arc
     href: overview.md
+- name: Concepts
+  items:
+  - name: Custom Locations
+    href: ./platform/conceptual-custom-locations.md
 - name: Samples
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
+- name: Azure Arc resource bridge
+  items:
+    - name: Overview
+      href: ./resource-bridge/overview.md
+    - name: Security overview
+      href: ./resource-bridge/security-overview.md
+    - name: Troubleshooting
+      href: ./resource-bridge/troubleshoot-resource-bridge.md
 - name: Azure Arc-enabled servers >
   href: ./servers/overview.md
 - name: Azure Arc-enabled Kubernetes >
@@ -26,3 +38,9 @@
      href: kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
    - name: Validated data services partners
      href: data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
+- name: Reference
+  items:
+   - name: Azure CLI
+     items:
+      - name: Azure Arc resource bridge
+        href: /cli/azure/arcappliance

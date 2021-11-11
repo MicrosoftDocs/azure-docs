@@ -6,7 +6,7 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Connect vCenter to Arc
+  - name: Connect vCenter to Azure Arc
     href: quick-start-connect-vcenter-to-arc-using-script.md
 - name: How-to guides
   items:
