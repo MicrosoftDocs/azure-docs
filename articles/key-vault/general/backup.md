@@ -13,7 +13,7 @@ ms.author: sudbalas
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
-# Azure Key Vault backup
+# Azure Key Vault backup and restore
 
 This document shows you how to back up secrets, keys, and certificates stored in your key vault. A backup is intended to provide you with an offline copy of all your secrets in the unlikely event that you lose access to your key vault.
 
