@@ -273,7 +273,7 @@ These are the changes in version 0.1.3 of the schema:
 - Added additional `Dvc*` fields to match the latest common fields definition. 
 - Added `Src` and `Dst` as aliases to a leading identifier for the source and destination systems.
 - Added optional `DnsNetworkDuration` and `Duration`, an alias to it.
-- Added optional Geo Locatoin and Risk Level fields.
+- Added optional Geo Location and Risk Level fields.
 
 ## Handling DNS response
 

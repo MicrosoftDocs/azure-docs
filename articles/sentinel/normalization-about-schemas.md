@@ -147,7 +147,7 @@ To enable entity functionality, entity representation has the following guidelin
 |**Attributes**     |   Entities often have other attributes that do not serve as an identifier, and can also be qualified with a descriptor. For example, if the source user has domain information, the normalized field is `SrcUserDomain`.      |
 | | |
 
-Each schema explicitly defines the central entities and entity fields. The following guidelines enable you to understand the centra schema fields, as well as how to extend schemas in a normalized manner using other entities or entity fields that are not explicitly defined in the schema.
+Each schema explicitly defines the central entities and entity fields. The following guidelines enable you to understand the central schema fields, as well as how to extend schemas in a normalized manner using other entities or entity fields that are not explicitly defined in the schema.
 
 ### The User entity
 
