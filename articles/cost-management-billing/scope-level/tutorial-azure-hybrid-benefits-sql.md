@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 Before you begin, ensure that you:
 
-Have read and understand the [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md) article. TThe article explains the types of SQL Server licenses that quality for Azure Hybrid Benefit. It also explains how to enable the benefit for the subscription or billing account scopes you select.
+Have read and understand the [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md) article. The article explains the types of SQL Server licenses that quality for Azure Hybrid Benefit. It also explains how to enable the benefit for the subscription or billing account scopes you select.
 
 > [!NOTE]
 > Managing Azure Hybrid Benefit centrally at a scope-level is currently in public preview and limited to enterprise customers and customers buying directly from Azure.com with a Microsoft Customer Agreement.
