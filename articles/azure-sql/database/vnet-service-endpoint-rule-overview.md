@@ -125,10 +125,8 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
   
 1. Create a **general-purpose v2 Storage Account** by following the steps in [Create a storage account](../../storage/common/storage-account-create.md).
 
-   > [!NOTE]
-   >
-   > - If you have a general-purpose v1 or Blob Storage account, you must *first upgrade to v2* by following the steps in [Upgrade to a general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md).
-   > - For known issues with Azure Data Lake Storage Gen2, see [Known issues with Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-known-issues.md).
+    - If you have a general-purpose v1 or Blob Storage account, you must *first upgrade to v2* by following the steps in [Upgrade to a general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md).
+    - For known issues with Azure Data Lake Storage Gen2, see [Known issues with Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-known-issues.md).
 
 1. Under your storage account, go to **Access Control (IAM)**, and select **Add role assignment**. Assign the **Storage Blob Data Contributor** Azure role to the server or workspace hosting your dedicated SQL pool, which you've registered with Azure AD.
 
@@ -149,10 +147,8 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
        ```
 
-       > [!NOTE]
-       >
-       > - There's no need to specify SECRET with an Azure Storage access key because this mechanism uses [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) under the covers.
-       > - The IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with an Azure Storage account secured to a virtual network.
+       - There's no need to specify SECRET with an Azure Storage access key because this mechanism uses [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) under the covers. The Synapse System identity always has the Synapse Administrator role.
+       - The IDENTITY name must be **'Managed Service Identity'** for PolyBase connectivity to work with an Azure Storage account secured to a virtual network.
 
    1. Create an external data source with the `abfss://` scheme for connecting to your general-purpose v2 storage account using PolyBase.
 
@@ -160,11 +156,9 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
-       > [!NOTE]
-       >
-       > - If you already have external tables associated with a general-purpose v1 or Blob Storage account, you should first drop those external tables. Then drop the corresponding external data source. Next, create an external data source with the `abfss://` scheme that connects to a general-purpose v2 storage account, as previously shown. Then re-create all the external tables by using this new external data source. You could use the [Generate and Publish Scripts Wizard](/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
-       > - For more information on the `abfss://` scheme, see [Use the Azure Data Lake Storage Gen2 URI](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
-       > - For more information on the T-SQL commands, see [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql).
+       - If you already have external tables associated with a general-purpose v1 or Blob Storage account, you should first drop those external tables. Then drop the corresponding external data source. Next, create an external data source with the `abfss://` scheme that connects to a general-purpose v2 storage account, as previously shown. Then re-create all the external tables by using this new external data source. You could use the [Generate and Publish Scripts Wizard](/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
+       - For more information on the `abfss://` scheme, see [Use the Azure Data Lake Storage Gen2 URI](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+       - For more information on the T-SQL commands, see [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql).
 
    1. Query as normal by using [external tables](/sql/t-sql/statements/create-external-table-transact-sql).
 
@@ -213,7 +207,7 @@ You must already have a subnet that's tagged with the particular virtual network
     > [!IMPORTANT]
     > If you leave the control set to **ON**, your server accepts communication from any subnet inside the Azure boundary. That is communication that originates from one of the IP addresses that's recognized as those within ranges defined for Azure datacenters. Leaving the control set to **ON** might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature in coordination with the virtual network rules feature of SQL Database together can reduce your security surface area.
 
-1. Select **+ Add existing** in the **Virtual networks** section.
+1. Select **+ Add existing virtual network** in the **Virtual networks** section.
 
     :::image type="content" source="../../sql-database/media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-add-existing-10.png" alt-text="Screenshot that shows selecting + Add existing (subnet endpoint, as a SQL rule)." lightbox="../../sql-database/media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-add-existing-10.png":::
 
