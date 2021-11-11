@@ -123,7 +123,29 @@ In IoT systems, the notion that each endpoint represents a unique physical devic
 
 ### Unique verifiable device identifier
 
-Content coming
+A unique device identifier (device ID) allows a cloud service to verify the identity of a specific physical device and to verify that the device belongs to a particular group. It's the digital equivalent of a physical serial number, but it must be globally unique and protected. If the device ID is compromised, there is no way to distinguish between the physical device it represents and a fraudulent client.
+
+In most modern connected devices, the device ID will be tied to cryptography. For example:
+
+- It may be a private-public key pair, where the private key is globally-unique and associated only with the device.
+- It may be a private-public key pair, where the private key is associated with a set of devices and is used in combination with another identifier that is unique to the device.
+- It may be cryptographic material that is used to derive private keys unique to the device.
+
+Regardless of implementation, the device ID and any associated cryptographic material must be hardware-protected, for example by using an HSM.
+
+While the device ID can be used for client authentication with a cloud service or server, it is highly advisable to split the device ID from operational certificates typically used for such purposes. To lessen the attack surface, operational certificates should be relatively short-lived, and the public portion of the device ID shouldn't be widely distributed. Instead, the device ID can be used to sign and/or derive private keys associated with operational certificates.
+
+Note: this recommendation is very closely related to the “Attestation” recommendation below. with slightly different semantics.
+
+**Hardware**: A device ID must be tied to the hardware and must not be easily replicated. This requires hardware-based cryptographic features such as those found in an HSM. Some MCU devices may provide similar functionality.
+
+**Azure RTOS**: No specific Azure RTOS features use device IDs, but communication to cloud services via TLS may require an X.509 certificate that is tied to the device ID.
+
+**Application**:  No specific features required for user applications, but a unique device ID may be required for certain applications.
+
+**7 Properties**: Hardware-based Root of Trust, Certificate-based Authentication
+
+**SMM Practices**: Establishing and Maintaining Identities
 
 ### Certificate management
 
