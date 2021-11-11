@@ -25,7 +25,9 @@ Blob storage now supports the Secure File Transfer Protocol (SFTP). This support
 
 Azure allows secure data transfer to Blob Storage accounts using Azure Blob service REST API, Azure SDKs, and tools such as AzCopy. However, legacy workloads often use traditional file transfer protocols such as SFTP. You could update custom applications to use the REST API and Azure SDKs, but only by making significant code changes.
 
-Prior to the release of this feature, if you wanted to use SFTP to transfer data to Azure Blob Storage you would have to either purchase a third party product or orchestrate your own solution. You would have to create a virtual machine (VM) in Azure to host an SFTP server, and then figure out a way to move data into the storage account.. Now, with SFTP support for Azure Blob Storage, you can enable an SFTP endpoint for Blob Storage accounts with a single setting. Then you can set up local user identities for authentication to transfer data securely without the need to do any additional work. 
+Prior to the release of this feature, if you wanted to use SFTP to transfer data to Azure Blob Storage you would have to either purchase a third party product or orchestrate your own solution. You would have to create a virtual machine (VM) in Azure to host an SFTP server, and then figure out a way to move data into the storage account. 
+
+Now, with SFTP support for Azure Blob Storage, you can enable an SFTP endpoint for Blob Storage accounts with a single setting. Then you can set up local user identities for authentication to transfer data securely without the need to do any additional work. 
 
 This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Connect to Azure Blob Storage by using the Secure File Transfer (SFTP) protocol (preview)](secure-file-transfer-protocol-support-how-to.md).
 
@@ -79,9 +81,7 @@ In the current release, you can specify only container-level permissions. Direct
 
 ## Home directory
 
-As you configure permissions, you have the option of setting a home directory for the local user. If no other container is specified in an SFTP connection request, this the directory that the user connects to by default.
-
-If no other container is specified in the SFTP connection request, then this is the directory that is used by default. For example, consider the following example request made by using [Open SSH](/windows-server/administration/openssh/openssh_overview). This request doesn't specify a container or directory name as part of the `sftp` command.
+As you configure permissions, you have the option of setting a home directory for the local user. If no other container is specified in an SFTP connection request, this the directory that the user connects to by default. For example, consider the following request made by using [Open SSH](/windows-server/administration/openssh/openssh_overview). This request doesn't specify a container or directory name as part of the `sftp` command.
 
 ```powershell
 sftp myaccount.myusername@myaccount.blob.core.windows.net
@@ -104,16 +104,17 @@ See the [Known issues](secure-file-transfer-protocol-known-issues.md) article fo
 
 SFTP support is available in the following regions: 
 
-- North US
-- Central US
-- East US
-- Canada
+- North Central US
+- East US 2
+- Canada East
+- Canada Central
 - West Europe
 - North Europe
-- Australia
-- Switzerland
+- Australia East
+- Switzerland North
 - Germany West Central
 - East Asia
+- France Central
 
 ## Pricing and billing
 

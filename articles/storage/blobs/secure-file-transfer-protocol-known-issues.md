@@ -24,39 +24,38 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## Data redundancy options
 
-- Geo-redundant storage (GRS), and Geo-zone-redundant storage (GZRS) are not yet supported in accounts that have SFTP enabled?
+- Geo-redundant storage (GRS), and Geo-zone-redundant storage (GZRS) are not supported in accounts that have SFTP enabled.
 
 ## Authorization
 
-- Local users are the only form of identity management that is currently supported.
+- Local users are the only form of identity management that is currently supported for the SFTP endpoint.
 
-- Azure Active Directory (Azure AD), shared access signature (SAS) and account key authorization are not yet supported.
+- Azure Active Directory (Azure AD), shared access signature (SAS) and account key authorization are not supported for the SFTP endpoint.
 
-- POSIX-like access control lists (ACLs) are not yet supported.
+- POSIX-like access control lists (ACLs) are not supported for the SFTP endpoint.
 
-- Root/account level operations such as listing, putting/getting, creating/deleting root directories are not supported.
+  > [!NOTE]
+  > After your data is ingested into Azure Storage, you can use the full breadth of Azure storage security settings. While authorization mechanisms such as role-based access control (RBAC) and access control lists aren't supported as a means to authorize a connecting SFTP client, they can be used to authorize access via Azure tools (such Azure portal, Azure CLI, Azure PowerShell commands, and AzCopy) as well as Azure SDKS, and Azure REST APIs. 
+
+- Root/account level operations such as listing, putting/getting, creating/deleting containers are not supported.
  
 ## Networking
 
 - Partitioned DNS endpoints are not supported.
 
-- Private endpoints are supported.
-
 - To access the storage account using SFTP, your network must allow traffic on port 22.
 
 - When a firewall is configured, connections from non-whitelisted IPs are not rejected as expected. However, if there is a successful connection for an authenticated user then all data plane operations will be rejected.
 
-## Supported encryption algorithms
+## Supported algorithms
 
-- Host key: rsa-sha2-256,rsa-sha2-512,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384
-
-- Key exchange: ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512
-
-- Ciphers/encryption: aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc
-
-- Integrity/MAC: hmac-sha2-256,hmac-sha2-512
-
-- Public key: ssh-rsa,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384
+| Host key | Key exchange | Ciphers/encryption | Integrity/MAC | Public key |
+|----------|--------------|--------------------|---------------|------------|
+| rsa-sha2-256 | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa |
+| rsa-sha2-512 | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
+| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| | ecdsa-sha2-nistp384 |
+| ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
+||| aes192-cbc ||
 
 ## Security
 
@@ -74,7 +73,7 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## Integrations
 
-- Change feed is not yet supported. Once it is supported, it will allow you to monitor connection activity.
+- Change feed is not supported. Once it is supported, it will allow you to monitor connection activity.
 
 - Account metrics such as transactions and capacity are available. Filter logs by operations to see SFTP activity.
 
@@ -96,11 +95,11 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## Other
 
-- Cross-container rename (move) is not yet supported.
+- Cross-container rename (move) is not supported.
 
 - Symbolic links are not supported.
 
-- PowerShell and Azure CLI and not yet supported. You can leverage Portal and ARM templates for Public Preview.
+- PowerShell and Azure CLI and not supported. You can leverage Portal and ARM templates for Public Preview.
 
 ## See also
 

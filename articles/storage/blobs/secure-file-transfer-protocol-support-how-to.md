@@ -76,7 +76,7 @@ Verify that the feature is registered before continuing with the other steps in 
 
 ## Configure permissions
 
-Azure Storage does not yet support shared access signature (SAS), or Azure Active directory (Azure AD) authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*. 
+Azure Storage does not support shared access signature (SAS), or Azure Active directory (Azure AD) authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*. 
 
 In this section, you'll learn how to create a local user, choose an authentication method, and then assign permissions for that local user. 
 
@@ -123,7 +123,10 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
 
 7. Select the **Add button** to add the local user.
 
-   If you enabled password authentication, then the Azure generated password appears in a dialog box after the local user has been added. You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it.
+   If you enabled password authentication, then the Azure generated password appears in a dialog box after the local user has been added. 
+
+   > [!IMPORTANT]
+   > You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it.
 
    If you chose to generate a new key pair, then you'll be prompted to download the private key of that key pair after the local user has been added.
 
@@ -134,7 +137,7 @@ You can use any SFTP client to securely connect and then transfer files. The fol
 > [!div class="mx-imgBorder"]
 > ![Connect with Open SSH](./media/secure-file-transfer-protocol-support-how-to/ssh-connect-and-transfer.png)
 
-> [NOTE]
+> [!NOTE]
 > You might be prompted to trust a host key. During the public preview, valid host keys are published [here](https://microsoft.sharepoint.com/:x:/t/StorageABACPrivatePreview/EYTTmCjT63dCunstkPh66bIBQpYF9DR-X0jqee202VaaEA?e=MSO9CU).  
 
 After the transfer is complete, you can view and manage the file in the Azure portal. 
@@ -142,8 +145,8 @@ After the transfer is complete, you can view and manage the file in the Azure po
 > [!div class="mx-imgBorder"]
 > ![Uploaded file appears in storage account](./media/secure-file-transfer-protocol-support-how-to/uploaded-file-in-storage-account.png)
 
-> [NOTE]
-> The Azure portal uses the Blob REST API. Being able to interact with an uploaded file in the Azure portal demonstrates the interoperability between SFTP and REST.
+> [!NOTE]
+> The Azure portal uses the Blob REST API and Data Lake Storage Gen2 REST API. Being able to interact with an uploaded file in the Azure portal demonstrates the interoperability between SFTP and REST.
 
 See the documentation of your SFTP client for guidance about how to connect and transfer files.
 
