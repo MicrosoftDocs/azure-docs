@@ -58,6 +58,7 @@ Specify the redirect URI for your app by [configuring the platform settings](qui
     1. In **Advanced settings** > **Allow public client flows** > **Enable the following mobile and desktop flows:**, select **Yes**.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Enable public client setting on Authentication pane in Azure portal":::
+- For apps that use [Web Authentication Manager (WAM)](scenario-desktop-acquire-token-wam.md), redirect URIs need not be configured in MSAL, but they must be configured in the [app registration](scenario-desktop-acquire-token-wam.md#redirect-uri).
 
 ## API permissions
 
