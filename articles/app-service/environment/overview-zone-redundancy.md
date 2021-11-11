@@ -3,7 +3,7 @@ title: Zone-redundancy in App Service Environment
 description: Overview of zone redundancy in an App Service Environment.
 author: madsd
 ms.topic: overview
-ms.date: 11/15/2021
+ms.date: 15/11/2021
 ms.author: madsd
 ---
 
