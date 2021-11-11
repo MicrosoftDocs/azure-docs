@@ -66,6 +66,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 | North America |East US 2 |Central US |
 | North America |North Central US |South Central US |
 | North America |West US 2 |West Central US |
+| North America |West US 3 |East US |
 | Norway | Norway East | Norway West\* |
 | South Africa | South Africa North |South Africa West\* |
 | Switzerland | Switzerland North |Switzerland West\* |
