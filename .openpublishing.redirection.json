@@ -450,7 +450,7 @@
     },
     { 
       "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations.md",
-      "redirect_url": "/articles/frontdoor/edge-locations-by-regions",
+      "redirect_url": "/azure/frontdoor/edge-locations-by-regions",
       "redirect_document_id": false
     },
     {
