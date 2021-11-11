@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/08/2021
+ms.date: 11/11/2021
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.  
@@ -329,6 +329,9 @@ Each of these configurations is described in the following sections. For more in
 
 Use this configuration when high speed switches aren't available for storage and clustering traffic.
 
+
+![Back plane of clustered device cabled for networking without switches](./media/azure-stack-edge-gpu-deploy-install/backplane-clustered-device-networking-switchless.png)
+
 1. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
 1. Connect PORT 2 to the internet using a 1-GbE RJ-45 network cable.
 1. Connect PORT 3 and PORT 4 on both the devices via SFP+ copper cables or fiber. If using fiber, use an optical to SFP adapter.
@@ -339,6 +342,8 @@ Use this configuration when high speed switches aren't available for storage and
 
 Use this configuration when you need port level redundancy through teaming.
 
+![Back plane of clustered device cabled for networking with switches and NIC teaming](./media/azure-stack-edge-gpu-deploy-install/backplane-clustered-device-networking-switches-with-nic-teaming.png)
+
 1. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
 1. Connect PORT 2 to the internet using a 1-GbE RJ-45 network cable.
 1. Connect PORT 3 and PORT 4 on both the devices via SFP+ copper cables or fiber and using a 10/25 GbE switch. If using fiber, use an optical to SFP adapter.
@@ -347,6 +352,8 @@ Use this configuration when you need port level redundancy through teaming.
 #### Use switches without NIC teaming
 
 Use this configuration if you need an extra port for workload traffic and port level redundancy is not required.
+
+![Back plane of clustered device cabled for networking with switches and without NIC teaming](./media/azure-stack-edge-gpu-deploy-install/backplane-clustered-device-networking-switches-without-nic-teaming.png)
 
 1. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 serves as the management interface. If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter. 
 1. Connect PORT 2 to the internet using a 1-GbE RJ-45 network cable.
