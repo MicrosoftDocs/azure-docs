@@ -49,7 +49,7 @@ The following table describes the different device properties in the device inve
 | **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku. | - |
 | **OS platform** | The OS of the device, if detected. | - |
 | **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. | - |
-| **PLC mode** | The PLC operating mode which includes the Key state (physical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. | - |
+| **PLC mode** | The PLC operating mode which includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. | - |
 | **PLC secured** | Determines if the PLC mode is in a secure state. A possible secure state is `Run`. A possible unsecured state cab be either `Program`, or `Remote`. | - |
 | **Programming time** | The last time the device was programmed.  | - |
 | **Protocols** | The protocols that the device uses. | - |
