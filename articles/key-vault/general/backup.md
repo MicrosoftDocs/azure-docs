@@ -147,4 +147,6 @@ Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
 
 ## Next steps
 
-Turn on [logging and monitoring](./logging.md) for Key Vault.
+
+- [Move an Azure key vault across regions](move-region.md)
+- [Enable Key Vault logging](howto-logging.md) for Key Vault
