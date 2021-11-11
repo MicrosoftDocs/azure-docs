@@ -33,7 +33,7 @@ landingContent:
       - linkListType: tutorial
         links:
         - text: Create a chaos experiment that uses a service-direct fault to fail over an Azure Cosmos DB instance
-          url: chaos-studio-tutorial-service-direct.md
+          url: chaos-studio-tutorial-service-direct-portal.md
         - text: Create an experiment that uses an agent-based fault with Azure Chaos Studio
           url: chaos-studio-tutorial-agent-based-portal.md
         - text: Create an experiment that uses an AKS Chaos Mesh fault with Azure Chaos Studio
