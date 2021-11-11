@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to securely connect to your data storage on Azure with Azure Machine Learning datastores and datasets.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 08/31/2020
+ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
@@ -64,7 +64,7 @@ Supported cloud-based storage services in Azure that can be registered as datast
 + Azure Database for MySQL
 
 >[!TIP]
-> The generally available functionality for creating datastores requires credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access to storage services (preview)](how-to-identity-based-data-access.md). This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+> The generally available functionality for creating datastores requires credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access to storage services](how-to-identity-based-data-access.md).
 
 <a name="datasets"></a>
 ## Reference data in storage with datasets
@@ -113,7 +113,7 @@ Labeling large amounts of data has often been a headache in machine learning pro
 
 Azure Machine Learning gives you a central location to create, manage, and monitor labeling projects. Labeling projects help coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling tasks. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes.
 
-Create a [data labeling project](how-to-create-labeling-projects.md), and output a dataset for use in machine learning experiments.
+Create an [image labeling project](how-to-create-image-labeling-projects.md) or [text labeling project](how-to-create-text-labeling-projects.md), and output a dataset for use in machine learning experiments.
 
 <a name="drift"></a>
 

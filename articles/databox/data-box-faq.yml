@@ -57,7 +57,7 @@ sections:
       - question: |
           Which regions can I store data in with Data Box?
         answer: |
-          Data Box is supported for all regions within the US, Canada, the EU, the UK, Australia, Singapore, Hong Kong, Japan, Korea, India, Brazil, South Africa, and the UAE. For more information, go to [Region availability](data-box-overview.md#region-availability).
+          Data Box is supported for all regions within the US, Canada, the EU, the UK, Switzerland, Australia, Singapore, Hong Kong, Japan, Korea, India, Brazil, South Africa, and the UAE. For more information, go to [Region availability](data-box-overview.md#region-availability).
           
       - question: |
           How can I import source data at my location in a particular country to an Azure region in a different country/region or export data from an Azure region in one country to a different country/region?

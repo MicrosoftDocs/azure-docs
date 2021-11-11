@@ -1,7 +1,7 @@
 ---
-title: Acquire a token to call a web API using integrated windows auth (desktop app) | Azure
+title: Acquire a token to call a web API using integrated Windows authentication (desktop app) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using integrated windows auth
+description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using integrated Windows authentication
 services: active-directory
 author: maliksahil
 manager: CelesteDG
@@ -16,13 +16,13 @@ ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
-# Desktop app that calls web APIs: Acquire a token using Integrated Windows Authentication
+# Desktop app that calls web APIs: Acquire a token using integrated Windows authentication
 
-To sign in a domain user on a domain or Azure AD joined machine, use Integrated Windows Authentication (IWA).
+To sign in a domain user on a domain or Azure AD joined machine, use integrated Windows authentication (IWA).
 
 ## Constraints
 
-- Integrated Windows Authentication is usable for *federated+* users only, that is, users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing, known as *managed* users, can't use this authentication flow. This limitation doesn't affect the username and password flow.
+- Integrated Windows authentication is available for *federated+* users only, that is, users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing, known as *managed* users, can't use this authentication flow. This limitation doesn't affect the username and password flow.
 - IWA doesn't bypass [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md). If MFA is configured, IWA might fail if an MFA challenge is required, because MFA requires user interaction.
 
     IWA is non-interactive, but MFA requires user interactivity. You don't control when the identity provider requests MFA to be performed, the tenant admin does. From our observations, MFA is required when you sign in from a different country/region, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don't expect a deterministic set of rules. Azure AD uses AI to continuously learn if MFA is required. Fall back to a user prompt like interactive authentication or device code flow if IWA fails.
@@ -32,7 +32,7 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
   - For any work and school accounts: `https://login.microsoftonline.com/organizations/`.
   - Microsoft personal accounts aren't supported. You can't use /common or /consumers tenants.
 
-- Because Integrated Windows Authentication is a silent flow:
+- Because integrated Windows authentication is a silent flow:
   - The user of your application must have previously consented to use the application.
   - Or, the tenant admin must have previously consented to all users in the tenant to use the application.
   - In other words:
@@ -124,7 +124,7 @@ static async Task GetATokenForGraph()
       // AcquireTokenByIntegratedWindowsAuth form that takes in the username
 
       // Error Code: integrated_windows_auth_not_supported_managed_user
-      // Explanation: This method relies on an a protocol exposed by Active Directory (AD). If a user was created in Azure
+      // Explanation: This method relies on a protocol exposed by Active Directory (AD). If a user was created in Azure
       // Active Directory without AD backing ("managed" user), this method will fail. Users created in AD and backed by
       // AAD ("federated" users) can benefit from this non-interactive method of authentication.
       // Mitigation: Use interactive authentication

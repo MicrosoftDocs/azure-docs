@@ -4,7 +4,11 @@ description: Go-To-Market Services - Microsoft resources that publishers can use
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+<<<<<<< HEAD
 ms.date: 11/05/2021
+=======
+ms.date: 09/23/2021
+>>>>>>> 24e43a2bf93a1064dde45d5722aee84d25277d43
 author: keferna
 ms.author: keferna
 ---

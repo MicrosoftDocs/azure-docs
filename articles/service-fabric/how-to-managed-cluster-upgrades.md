@@ -47,12 +47,12 @@ To change your cluster upgrade mode using a Resource Manager template, specify e
 
 ```json
 {
-"apiVersion": "2021-05-01",
-"type": "Microsoft.ServiceFabric/managedClusters",
-"properties": {
-        "ClusterUpgradeMode": "Manual",
-        "ClusterCodeVersion": "8.0.514.9590"
-        }
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedClusters",
+  "properties": {
+    "clusterUpgradeMode": "Manual",
+    "clusterCodeVersion": "8.0.514.9590"
+  }
 }
 ```
 
@@ -68,12 +68,12 @@ To configure Automatic upgrades and the wave deployment, simply add/validate `Cl
 
 ```json
 {
-"apiVersion": "2021-05-01",
-"type": "Microsoft.ServiceFabric/managedClusters",
-"properties": {
-        "ClusterUpgradeMode": "Automatic",
-        "clusterUpgradeCadence": "Wave1",
-        }  
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedClusters",
+  "properties": {
+    "clusterUpgradeMode": "Automatic",
+    "clusterUpgradeCadence": "Wave1"
+  }
 }
 ```
 
@@ -90,7 +90,7 @@ GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.Serv
 
 "value": [
   {
-    "id": "subscriptions/eec8e14e-b47d-40d9-8bd9-23ff5c381b40/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
     "name": "7.2.477.9590",
     "type": "Microsoft.ServiceFabric/locations/environments/managedClusterVersions",
     "properties": {

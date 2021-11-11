@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 10/14/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
@@ -21,6 +21,9 @@ keywords: on-premises, OCR, Docker, container
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Computer Vision containers.
 
 The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md).
+
+## What's new
+For existing users of the Read containers, a new `3.2-model-2021-09-30-preview` version of the Read container is available with support for 122 languages and general performance and AI enhancements. Please follow the [download instructions](#docker-pull-for-the-read-ocr-container) to get started.
 
 ## Read 3.2 container
 
@@ -83,12 +86,19 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
+| Read 3.2 model-2021-09-30-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview` |
 | Read 3.2 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2` |
+| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 ### Docker pull for the Read OCR container
+
+For the latest preview:
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
+```
 
 # [Version 3.2](#tab/version-3-2)
 
@@ -118,6 +128,12 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
+
+For the latest preview, replace 3.2 path with:
+
+```
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
+```
 
 # [Version 3.2](#tab/version-3-2)
 
@@ -194,11 +210,15 @@ To find your connection string:
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
+
+For the latest preview:
+
+Use the same Swagger path as 3.2 but a different port  if you have already deployed 3.2 at the 5000 port.
 
 # [Version 3.2](#tab/version-3-2)
 
@@ -210,8 +230,9 @@ Use the host, `http://localhost:5000`, for container APIs. You can view the Swag
 
 ---
 
-### Asynchronous read
+### Asynchronous Read
 
+For the latest preview, everything is the same as 3.2 except for the additional `"modelVersion": "2021-09-30-preview"`.
 
 # [Version 3.2](#tab/version-3-2)
 
@@ -440,6 +461,8 @@ For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" targ
 If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## Billing
 

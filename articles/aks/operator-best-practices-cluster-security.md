@@ -22,7 +22,7 @@ This article focuses on how to secure your AKS cluster. You learn how to:
 
 You can also read the best practices for [container image management][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
 
-You can also use [Azure Kubernetes Services integration with Security Center][security-center-aks] to help detect threats and view recommendations for securing your AKS clusters.
+You can also use [Azure Kubernetes Services integration with Defender for Cloud][security-center-aks] to help detect threats and view recommendations for securing your AKS clusters.
 
 ## Secure access to the API server and cluster nodes
 

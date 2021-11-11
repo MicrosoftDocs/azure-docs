@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: rarayudu, azla
 ms.topic: how-to
 ms.date: 09/13/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -896,7 +897,7 @@ Here is information about TLS/SSL self-signed certificates:
 
 * For logic apps in the global, multi-tenant Azure Logic Apps environment, HTTP operations don't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
 
-* For logic apps in the single-tenant Azure Logic Apps environment, HTTP operations support self-signed TLS/SSL certificates. However, you have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [TSL/SSL certificate authentication for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#tsl-ssl-certificate-authentication).
+* For logic apps in the single-tenant Azure Logic Apps environment, HTTP operations support self-signed TLS/SSL certificates. However, you have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [TSL/SSL certificate authentication for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#tlsssl-certificate-authentication).
 
   If you want to use client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type instead, you still have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#client-certificate-authentication).
 
@@ -976,7 +977,7 @@ This table identifies the authentication types that are available on the trigger
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Managed identity](#managed-identity-authentication) | **Built-in triggers and actions** <p><p>Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>**Managed connectors** <p><p>Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP with Azure AD <p><p>**Note**: Support for managed connectors is currently in preview. |
+| [Managed identity](#managed-identity-authentication) | **Logic App (Consumption)**: <p><p>- **Built-in**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>- **Managed connector** (preview): <p><p>--- **Single-authentication**: Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, Microsoft Sentinel, HTTP with Azure AD <p><p>--- **Multi-authentication**: Azure Blob Storage, SQL Server <p><p>___________________________________________________________________________________________<p><p>**Logic App (Standard)**: <p><p>- **Built-in**: HTTP, HTTP Webhook <p><p>- **Managed connector** (preview): <p>--- **Single-authentication**: Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, Microsoft Sentinel, HTTP with Azure AD <p><p>--- **Multi-authentication**: Azure Blob Storage, SQL Server |
 |||
 
 <a name="basic-authentication"></a>

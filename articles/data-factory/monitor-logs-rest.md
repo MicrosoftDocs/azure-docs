@@ -1,8 +1,8 @@
 ---
-title: Setup diagnostic logs via the Azure Monitor REST API 
-description: Learn how to setup diagnostic logs for Azure Data Factory using the Azure Monitor REST API.
-author: minhe-msft
-ms.author: hemin
+title: Set up diagnostic logs via the Azure Monitor REST API 
+description: Learn how to set up diagnostic logs for Azure Data Factory by using the Azure Monitor REST API.
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
@@ -10,22 +10,24 @@ ms.topic: conceptual
 ms.date: 09/02/2021
 ---
 
-# Setup diagnostic logs via the Azure Monitor REST API
+# Set up diagnostic logs via the Azure Monitor REST API
 
-This article describes how to setup diagnostic logs for Azure Data Factory using the Azure Monitor REST API.
+This article describes how to set up diagnostic logs for Azure Data Factory by using the Azure Monitor REST API.
 
 ## Diagnostic settings
 
-Use diagnostic settings to configure diagnostic logs for non-compute resources. The settings for a resource control have the following features:
+Use diagnostic settings to configure diagnostic logs for noncompute resources. The settings for a resource control have the following features:
 
 * They specify where diagnostic logs are sent. Examples include an Azure storage account, an Azure event hub, or Monitor logs.
 * They specify which log categories are sent.
 * They specify how long each log category should be kept in a storage account.
 * A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days from 1 through 2,147,483,647.
-* If retention policies are set but storing logs in a storage account is disabled, the retention policies have no effect. For example, this condition can happen when only Event Hubs or Monitor logs options are selected.
+* If retention policies are set but storing logs in a storage account is disabled, the retention policies have no effect. For example, this condition can happen when only event hubs or Monitor logs options are selected.
 * Retention policies are applied per day. The boundary between days occurs at midnight Coordinated Universal Time (UTC). At the end of a day, logs from days that are beyond the retention policy are deleted. For example, if you have a retention policy of one day, at the beginning of today the logs from before yesterday are deleted.
 
-## Enable diagnostic logs via the Azure Monitor REST API
+## Enable diagnostic logs via the Monitor REST API
+
+Use the Monitor REST API to enable diagnostic logs.
 
 ### Create or update a diagnostics setting in the Monitor REST API
 
@@ -39,7 +41,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 #### Headers
 
 * Replace `{api-version}` with `2016-09-01`.
-* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
+* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
 * Set the authorization header to the JSON web token that you got from Azure Active Directory (Azure AD). For more information, see [Authenticating requests](../active-directory/develop/authentication-vs-authorization.md).
 
@@ -87,10 +89,10 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | Property | Type | Description |
 | --- | --- | --- |
 | **storageAccountId** |String | The resource ID of the storage account to which you want to send diagnostic logs. |
-| **serviceBusRuleId** |String | The service-bus rule ID of the service-bus namespace in which you want to have Event Hubs created for streaming diagnostic logs. The rule ID has the format `{service bus resource ID}/authorizationrules/{key name}`.|
+| **serviceBusRuleId** |String | The service-bus rule ID of the service-bus namespace in which you want to have event hubs created for streaming diagnostic logs. The rule ID has the format `{service bus resource ID}/authorizationrules/{key name}`.|
 | **workspaceId** | String | The workspace ID of the workspace where the logs will be saved. |
 |**metrics**| Parameter values of the pipeline run to be passed to the invoked pipeline| A JSON object that maps parameter names to argument values. |
-| **logs**| Complex Type| The name of a diagnostic-log category for a resource type. To get the list of diagnostic-log categories for a resource, perform a GET diagnostic-settings operation. |
+| **logs**| Complex Type| The name of a diagnostic log category for a resource type. To get the list of diagnostic log categories for a resource, perform a GET diagnostic settings operation. |
 | **category**| String| An array of log categories and their retention policies. |
 | **timeGrain** | String | The granularity of metrics, which are captured in ISO 8601 duration format. The property value must be `PT1M`, which specifies one minute. |
 | **enabled**| Boolean | Specifies whether collection of the metric or log category is enabled for this resource. |
@@ -159,7 +161,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 #### Headers
 
 * Replace `{api-version}` with `2016-09-01`.
-* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
+* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
 * Set the authorization header to a JSON web token that you got from Azure AD. For more information, see [Authenticating requests](../active-directory/develop/authentication-vs-authorization.md).
 
@@ -212,8 +214,8 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-For more information, see [Diagnostic Settings](/rest/api/monitor/diagnosticsettings).
+For more information, see [Diagnostic settings](/rest/api/monitor/diagnosticsettings).
 
-## Next Steps
+## Next steps
 
 [Monitor SSIS operations with Azure Monitor](monitor-ssis.md)

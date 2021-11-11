@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	   | Environment | URL |
       |:--- |:--- |
       | PC |`https://ap.sansan.com/v/saml2/<COMPANY_NAME>/acs` |
-      | Smartphone App |`https://internal.api.sansan.com/<COMPANY_NAME>/acs` |
+      | Smartphone App |`https://internal.api.sansan.com/saml2/<COMPANY_NAME>/acs` |
       | Smartphone Web |`https://ap.sansan.com/s/saml2/<COMPANY_NAME>/acs` |
 
    1. In the **Sign-on URL** text box, type the URL: 
@@ -147,4 +147,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Sansan you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Sansan you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

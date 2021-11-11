@@ -72,7 +72,7 @@ In this article, you'll learn how to:
     * Enter a **Description**.
     * Select any option for **Expires**.
     * Choose **Add**. 
-1. Copy the client **Secret ID** before leaving the page. You will need it later. 
+1. Copy the client **Secret value** before leaving the page. You will need it later. 
 1. Under **Manage** in the side menu, select **Authentication**.
 1. Under the **Implicit grant and hybrid flows** sections, select the **ID tokens** checkbox.
 1. Switch to the browser tab with your API Management instance. 
@@ -86,7 +86,7 @@ In this article, you'll learn how to:
 
     > [!NOTE]
     > You can specify multiple domains in the **Allowed Tenants** section. A global administration must grant the application access to directory data before users can sign in from a different domain than the original app registration domain. To grant permission, the global administrator should:
-    > 1. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, https://contoso.portal.azure-api.net/aadadminconsent).
+    > 1. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, `https://contoso.portal.azure-api.net/aadadminconsent`).
     > 1. Enter the domain name of the Azure AD tenant to which they want to grant access.
     > 1. Select **Submit**. 
 
@@ -100,40 +100,39 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 * Add Azure AD groups into API Management. 
 * Control product visibility using Azure AD groups.
 
-By default, the application you registered in the [previous section](#authorize-developer-accounts-by-using-azure-ad) has access to the Microsoft Graph API, with the required `User.Read` delegated permission. Grant the application access to the Microsoft Graph API and Azure AD Graph API with the `Directory.Read.All` application permission by following these steps: 
+Follow these steps to grant:
+* `Directory.Read.All` application permission for Microsoft Graph API and Azure Active Directory Graph API.
+* `User.Read` delegated permission for Microsoft Graph API. 
 
-1. Navigate to the app registration you created in the previous section.
-2. Under **Manage** in the side menu, select **API Permissions**.
-1. Select **Add a permission**. 
-1. In the **Request API Permissions** pane:
-    1. Select the **Microsoft APIs** tab.
-    1. Select the **Microsoft Graph** tile. 
-    1. Select **Application permissions** and search for **Directory**. 
-    1. Select the **Directory.Read.All** permission. 
-    1. Select **Add permissions** at the bottom of the pane.
-1. Select **Add a permission** to add another permission. 
-1. In the **Request API Permissions** pane:
-    1. Select the **Microsoft APIs** tab.
-    1. Scroll down to the **Supported legacy APIs** section.
-    1. Select the **Azure Active Directory Graph** tile. 
-    1. Select **Application permissions** and search for **Directory**. 
-    1. Select the **Directory.Read.All** permission.
-    1. Select **Add permissions**. 
-1. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
+1. Update the first 3 lines of the following PowerShell script to match your environment and run it. 
+   ```powershell
+   $subId = "Your Azure subscription ID" #e.g. "1fb8fadf-03a3-4253-8993-65391f432d3a"
+   $tenantId = "Your Azure AD Tenant or Organization ID" #e.g. 0e054eb4-e5d0-43b8-ba1e-d7b5156f6da8"
+   $appObjectID = "Application Object ID that has been registered in AAD" #e.g. "2215b54a-df84-453f-b4db-ae079c0d2619"
+   #Login and Set the Subscription
+   az login
+   az account set --subscription $subId
+   #Assign the following permissions: Microsoft Graph Delegated Permission: User.Read, Microsoft Graph Application Permission: Directory.ReadAll,  Azure Active Directory Graph Application Permission: Directory.ReadAll (legacy)
+   az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/applications/$($appObjectID)" --body "{'requiredResourceAccess':[{'resourceAccess': [{'id': 'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type': 'Scope'},{'id': '7ab1d382-f21e-4acd-a863-ba3e13f7da61','type': 'Role'}],'resourceAppId': '00000003-0000-0000-c000-000000000000'},{'resourceAccess': [{'id': '5778995a-e1bf-45b8-affa-663a9f3f4d04','type': 'Role'}], 'resourceAppId': '00000002-0000-0000-c000-000000000000'}]}"
+   ```
+2. Log out and log back in to the Azure portal.
+3. Navigate to the App Registration page for the application you registered in [the previous section](#authorize-developer-accounts-by-using-azure-ad). 
+4. Click **API Permissions**. You should see the permissions granted by the PowerShell script in step 1. 
+5. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
 
 1. Under **Developer portal** in the side menu, select **Groups**.
-1. Select the **Add Azure AD group** button.
+2. Select the **Add Azure AD group** button.
 
    !["Add A A D group" button](./media/api-management-howto-aad/api-management-with-aad008.png)
 1. Select the **Tenant** from the drop-down. 
-1. Search for and select the group that you want to add.
-1. Press the **Select** button.
+2. Search for and select the group that you want to add.
+3. Press the **Select** button.
 
 Once you add an external Azure AD group, you can review and configure its properties: 
 1. Select the name of the group from the **Groups** tab. 
-1. Edit **Name** and **Description** information for the group.
+2. Edit **Name** and **Description** information for the group.
  
 Users from the configured Azure AD instance can now:
 * Sign into the developer portal. 
@@ -158,17 +157,17 @@ Although a new account will automatically be created when a new user signs in wi
 To sign into the developer portal by using an Azure AD account that you configured in the previous sections:
 
 1. Open a new browser window using the sign-in URL from the Active Directory application configuration. 
-1. Select **Azure Active Directory**.
+2. Select **Azure Active Directory**.
 
    ![Sign-in page][api-management-dev-portal-signin]
 
 1. Enter the credentials of one of the users in Azure AD.
-1. Select **Sign in**.
+2. Select **Sign in**.
 
    ![Signing in with username and password][api-management-aad-signin]
 
 1. If prompted with a registration form, complete with any additional information required. 
-1. Select **Sign up**.
+2. Select **Sign up**.
 
    !["Sign up" button on registration form][api-management-complete-registration]
 

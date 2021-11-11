@@ -10,12 +10,10 @@ ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: helohr
 ---
+
 # Deploy Azure AD-joined virtual machines in Azure Virtual Desktop
 
-This article will walk you through the process of deploying and accessing Azure Active Directory joined virtual machines in Azure Virtual Desktop. Azure AD-joined VMs remove the need to have line-of-sight from the VM to an on-premise or virtualized Active Directory Domain Controller (DC) or to deploy Azure AD Domain services (Azure AD DS). In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
-
-> [!NOTE]
-> Azure AD-joined VMs are currently only supported in the Azure Commercial cloud.
+This article will walk you through the process of deploying and accessing Azure Active Directory joined virtual machines in Azure Virtual Desktop. Azure AD-joined VMs remove the need to have line-of-sight from the VM to an on-premises or virtualized Active Directory Domain Controller (DC) or to deploy Azure AD Domain services (Azure AD DS). In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
 
 ## Supported configurations
 
@@ -31,7 +29,7 @@ User accounts can be cloud-only or hybrid users from the same Azure AD tenant.
 
 The following known limitations may impact access to your on-premises or Active Directory domain-joined resources and should be considered when deciding whether Azure AD-joined VMs are right for your environment. We currently recommend Azure AD-joined VMs for scenarios where users only need access to cloud-based resources or Azure AD-based authentication.
 
-- Azure Virtual Desktop (classic) doesn't support Azure AD-joined VMs. 
+- Azure Virtual Desktop (classic) doesn't support Azure AD-joined VMs.
 - Azure AD-joined VMs don't currently support external users.
 - Azure AD-joined VMs only supports local user profiles at this time.
 - Azure AD-joined VMs can't access Azure Files file shares for FSLogix or MSIX app attach. You'll need Kerberos authentication to access either of these features.
@@ -45,10 +43,11 @@ You can deploy Azure AD-joined VMs directly from the Azure portal when [creating
 > [!NOTE]
 > - Host pools should only contain VMs of the same domain join type. For example, AD-joined VMs should only be with other AD VMs, and vice-versa.
 > - The host pool VMs must be Windows 10 single-session or multi-session, version 2004 or later.
+> - Managing Azure Virtual Desktop session hosts using Microsoft Endpoint Manager (Intune) is currently only supported in the Azure Public cloud.
 
 ### Assign user access to host pools
 
-After you've created your host pool, you must assign users access to let them access to their resources. To grant access to resources, add each user to the app group. Follow the instructions in [Manage app groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
+After you've created your host pool, you must assign users access to let them access their resources. To grant access to resources, add each user to the app group. Follow the instructions in [Manage app groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
 
 For Azure AD-joined VMs, you'll need to do two extra things on top of the requirements for Active Directory or Azure Active Directory Domain Services-based deployments:  
 

@@ -24,7 +24,7 @@ With workspace-based Application Insights resources data is stored in a Log Anal
 | pageViews | AppPageViews| Data about each website view with browser information. |
 | performanceCounters | AppPerformanceCounters | Performance measurements from the compute resources supporting the application, for example, Windows performance counters. |
 | requests | AppRequests | Requests received by your application. For example, a separate request record is logged for each HTTP request that your web app receives.  |
-| exceptions | AppSystemEvents | Exceptions thrown by the application runtime, captures both server side and client-side (browsers) exceptions. |
+| exceptions | AppExceptions | Exceptions thrown by the application runtime, captures both server side and client-side (browsers) exceptions. |
 | traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via TrackTrace(). |
 
 ## Table schemas

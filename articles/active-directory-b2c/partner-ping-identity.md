@@ -177,12 +177,12 @@ Follow these steps to create identity mapping:
 5. In the **Attribute-Mapping** table, specify the required mappings. For example,
 
    Attribute name | Header name |
-   |-------|--------|
-   |upn | x-userprinciplename |
-   |email   |    x-email  |
-   |oid   | x-oid  |
-   |scp   |     x-scope |
-   |amr    |    x-amr    |
+   |---|---|
+   | 'upn' | x-userprincipalname |
+   | 'email' | x-email |
+   | 'oid' | x-oid |
+   | 'scp' | x-scope |
+   | 'amr' | x-amr |
 
 6. Select **Save**
 

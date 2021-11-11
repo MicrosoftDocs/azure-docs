@@ -93,7 +93,7 @@ The main project folder (<project_root>) can contain the following files:
 
 * *local.settings.json*: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
 * *requirements.txt*: Contains the list of Python packages the system installs when publishing to Azure.
-* *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
+* *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.vscode/*: (Optional) Contains store VSCode configuration. To learn more, see [VSCode setting](https://code.visualstudio.com/docs/getstarted/settings).
 * *.venv/*: (Optional) Contains a Python virtual environment used by local development.
 * *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
@@ -302,6 +302,8 @@ def main(req, context):
         'ctx_invocation_id': context.invocation_id,
         'ctx_trace_context_Traceparent': context.trace_context.Traceparent,
         'ctx_trace_context_Tracestate': context.trace_context.Tracestate,
+        'ctx_retry_context_RetryCount': context.retry_context.retry_count,
+        'ctx_retry_context_MaxRetryCount': context.retry_context.max_retry_count,
     })
 ```
 
@@ -370,6 +372,12 @@ Name of the function.
 `invocation_id`
 ID of the current function invocation.
 
+`trace_context`
+Context for distributed tracing. Please refer to  [`Trace Context`](https://www.w3.org/TR/trace-context/) for more information..
+
+`retry_context`
+Context for retries to the function. Please refer to [`retry-policies`](./functions-bindings-errors.md#retry-policies-preview) for more information.
+
 ## Global variables
 
 It is not guaranteed that the state of your app will be preserved for future executions. However, the Azure Functions runtime often reuses the same process for multiple executions of the same app. In order to cache the results of an expensive computation, declare it as a global variable.
@@ -419,7 +427,8 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python<sup>*</sup> versions |
 | ----- | ----- |
-| 3.x | 3.9 (Preview) <br/> 3.8<br/>3.7<br/>3.6 |
+| 4.x | 3.9<br/> 3.8<br/>3.7 |
+| 3.x | 3.9<br/> 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
 <sup>*</sup>Official CPython distributions

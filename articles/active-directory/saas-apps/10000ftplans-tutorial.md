@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with 10,000ft Plans | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with 10,000ft Plans'
 description: Learn how to configure single sign-on between Azure Active Directory and 10,000ft Plans.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 09/29/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with 10,000ft Plans
+# Tutorial: Azure AD SSO integration with 10,000ft Plans
 
 In this tutorial, you'll learn how to integrate 10,000ft Plans with Azure Active Directory (Azure AD). When you integrate 10,000ft Plans with Azure AD, you can:
 
@@ -70,22 +70,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign-on URL** text box, type the URL:
-    `https://app.10000ft.com`
+	a. In the **Identifier (Entity ID)** text box, type the URL:
+    `https://rm.smartsheet.com/saml/metadata`
 
-    b. In the **Identifier (Entity ID)** text box, type the URL:
-    `https://app.10000ft.com/saml/metadata`
+    b. In the **Reply URL** text box, type the URL:
+    `https://rm.smartsheet.com/saml/acs`
+    
+    c. In the **Sign-on URL** text box, type the URL:
+    ` https://rm.smartsheet.com`
 
 	> [!NOTE]
 	> The value for **Identifier** is different if you have a custom domain. Contact [10,000ft Plans Client support team](https://www.10000ft.com/plans/support) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, select the copy icon to copy **App Federation Metadata Url**. Save it on your computer.
 
-	![The Certificate download link](common/certificateraw.png)
-
-6. On the **Set up 10,000ft Plans** section, copy the appropriate URL(s) as per your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot of SAML Signing Certificate, with copy icon highlighted](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
@@ -113,7 +112,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure 10000ft Plans SSO
 
-To configure single sign-on on **10,000ft Plans** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [10,000ft Plans support team](https://www.10000ft.com/plans/support). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Sign in to your 10000ft Plans website as an administrator.
+
+1. Click **Settings** and select **Account Settings** from the dropdown.
+
+    ![Screenshot for Settings icon.](./media/10000ftplans-tutorial/settings.png)
+
+1. Click **SSO** at the left menu and perform the following steps:
+
+    ![Screenshot for Settings SSO page.](./media/10000ftplans-tutorial/setup-sso.png)
+
+    a. Select **Automatic Configuration** in the Setup SSO section.
+
+    b. In the **IdP Metadata URL** text box, enter the **App Federation Metadata Url** value which you have copied from the Azure portal.
+
+    c. Enable the **Auto-provision authenticated users not in account** checkbox.
+
+    d. Click **Save**.
 
 ### Create 10000ft Plans test user
 
@@ -134,4 +149,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure 10,000ft Plans you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure 10,000ft Plans you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

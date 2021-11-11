@@ -9,7 +9,7 @@ items:
   items:
     - name: About Healthcare APIs
       href: healthcare-apis-overview.md
-    - name: About workspace
+    - name: About Workspace
       href: workspace-overview.md
     - name: FHIR service
       href: ./fhir/index.yml
@@ -42,16 +42,19 @@ items:
     - name: Logging
       href: logging.md
 
+- name: Concepts
+  items:
+    - name: Security controls by Azure Policy
+      href: security-controls-policy.md
+
 - name: Resources
   expanded: true
   items:
+    - name: Release notes
+      href: release-notes.md 
     - name: FAQs
       href: healthcare-apis-faqs.md
     - name: GitHub projects
       href: github-projects.md
-
-
-
-
-
-
+    
+     

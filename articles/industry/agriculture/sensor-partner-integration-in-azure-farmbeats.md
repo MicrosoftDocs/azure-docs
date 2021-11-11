@@ -90,13 +90,13 @@ Here are the most common request headers that need to be specified when you make
 
 **Header** | **Description and example**
 --- | ---
-Content-Type | The request format (Content-Type: application/<format>). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
-Authorization | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
+Content-Type | The request format (Content-Type: `application/<format>`). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
+Authorization | Specifies the access token required to make an API call. Authorization: Bearer \<Access-Token\>
 Accept | The response format. For FarmBeats Datahub APIs, the format is JSON. Accept: application/json
 
 **API requests**
 
-To make a REST API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the  Uniform Resource Identifier (URI) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API endpoint you provide. Here's a sample: https://\<yourdatahub-website-name>.azurewebsites.net
+To make a REST API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the  Uniform Resource Identifier (URI) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API endpoint you provide. Here's a sample: `https://\<yourdatahub-website-name>.azurewebsites.net`
 
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 09/28/2021
 ms.author: jeedes
 ---
 
@@ -32,7 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-- Meraki Dashboard supports **IDP** initiated SSO
+- Meraki Dashboard supports **IDP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -58,7 +58,7 @@ To configure and test Azure AD SSO with Meraki Dashboard, perform the following 
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Meraki Dashboard SSO](#configure-meraki-dashboard-sso)** - to configure the single sign-on settings on application side.
-   1. **[Create Meraki Dashboard test user](#create-meraki-dashboard-test-user)** - to have a counterpart of B.Simon in Meraki Dashboard that is linked to the Azure AD representation of user.
+   1. **[Create Meraki Dashboard Admin Roles](#create-meraki-dashboard-admin-roles)** - to have a counterpart of B.Simon in Meraki Dashboard that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -165,7 +165,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/configure-4.png)
 
-### Create Meraki Dashboard test user
+### Create Meraki Dashboard Admin Roles
 
 1. In a different web browser window, sign into meraki dashboard as an administrator.
 
@@ -181,6 +181,26 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![Meraki Dashboard create user](./media/meraki-dashboard-tutorial/user-3.png)
 
+1. Follow the below steps to map the Meraki Dashboard roles to Azure AD SAML roles:
+
+   ![Screenshot for App roles.](./media/meraki-dashboard-tutorial/app-role.png)
+
+   a. In the Azure portal, click on **App Registrations**.
+
+   b. Select All Applications and click **Meraki Dashboard**.
+
+   c. Click **App Roles** and click **Create App role**.
+
+   d. Enter the Display name as `Meraki Full Admin`.
+   
+   e. Select Allowed Members as `Users/Groups`.
+
+   f. Enter the Value as `meraki_full_admin`.
+
+   g. Enter the Description as `Meraki Full Admin`.
+
+   h. Click **Save**. 
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options.
@@ -191,4 +211,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Meraki Dashboard you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Meraki Dashboard you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -160,7 +160,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![Screenshot shows S S O / S L O Settings where you can select EDIT SETTINGS.](./media/netskope-cloud-security-tutorial/settings.png)
 
-1. On the **Settings** popup window, perform the following steps;
+1. On the **Settings** pop-up window, perform the following steps;
 
    ![Screenshot shows the Settings dialog box where you can enter the values described.](./media/netskope-cloud-security-tutorial/configuration.png)
 
@@ -220,4 +220,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Netskope Administrator Console you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Netskope Administrator Console you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

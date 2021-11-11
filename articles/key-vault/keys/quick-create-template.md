@@ -20,15 +20,13 @@ ms.author: sebansal
 
 [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a key vault and a key.
 
-> [!NOTE]
-> This feature is not available for Azure Government.
 
 ## Prerequisites
 
 To complete this article:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- User would need to have an Azure built-in role assigned eg. contributor. [Learn more here](../../role-based-access-control/role-assignments-portal.md)
+- User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](../../role-based-access-control/role-assignments-portal.md)
 - Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
 
     1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**.

@@ -16,7 +16,7 @@ Azure Purview Data Map provides the foundation for data discovery and data gover
 
 ## Elastic data map
 
-All Azure Purview accounts have a Data Map that can elastically grow starting at one capacity unit. They scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). If you're working with very large datasets or a massive environment and need higher capacity, you can request a larger capacity of elasticity window by completing the [survey here](https://aka.ms/PurviewProdSurvey).
+All Azure Purview accounts have a Data Map that can elastically grow starting at one capacity unit. They scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). These limits should cover most data landscapes. However, if you need a higher capacity, [you can create a support ticket](#request-capacity).
 
 ## Data map capacity unit
 
@@ -102,6 +102,16 @@ Based on the Data Map operations/second and metadata storage consumption in this
 
 >[!Important]
 >Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). To get the next level of the elasticity window, a support ticket needs to be created.
+
+## Request capacity
+
+If you're working with very large datasets or a massive environment and need higher capacity for your elastic data map, you can request a larger capacity of elasticity window by [creating a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+Select **Service and subscription limits (quota)** and complete the on screen instructions by choosing the Purview account that you'd like to request larger capacity for.
+
+:::image type="content" source="./media/concept-elastic-data-map/increase-limit.png" alt-text="Screen showing the support case creation, with limit increase options selected.":::
+
+In the description, provide as much relevant information as you can about your environment and the additional capacity you would like to request.
 
 ## Summary
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
@@ -19,8 +19,6 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 
 > [!WARNING]
 > On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States. When you create a new Face resource, you must acknowledge and agree in Azure Portal that you will not use the service by or for a police department in the United States and that you have reviewed the [Responsible AI (RAI) documentation](../cognitive-services-apis-create-account-cli.md#prerequisites) and will use this service in accordance with it.
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
 
@@ -54,7 +52,7 @@ Modern enterprises and apps can use the the Face identification and Face verific
 
 ### Identification
 
-Face identification can address "one-to-many" matching of one face in an image to a set of faces in a secure repository. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building access to a certain group of people or verifying the user of a device.
+Face identification can address "one-to-many" matching of one face in an image to a set of faces in a secure repository. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building or airport access to a certain group of people or verifying the user of a device.
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
@@ -66,9 +64,7 @@ After you create and train a group, you can do identification against the group 
 
 The verification operation answers the question, "Do these two faces belong to the same person?". 
 
-Verification is also "one-to-one" matching of one face in an image to one face in a secure repository or photo
-
-Verification can be used in identity verification or access control scenarios to verify a picture matches a previously captured image (such as from a photo from a government issued ID card).
+Verification is also a "one-to-one" matching of a face in an image to a single face from a secure repository or photo to verify they are the same individual. Verification can be used for Identity Verification, such as a banking app that enables users to open a credit account remotely by taking a selfie and taking a picture of a photo ID to verify their identity. 
 
 For more information about identity verification, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
 
@@ -85,9 +81,9 @@ The following example shows the target face:
 
 And these images are the candidate faces:
 
-![Five images of people smiling. Images a and b show the same person.](./Images/FaceFindSimilar.Candidates.jpg)
+![Five images of people smiling. Images A and B show the same person.](./Images/FaceFindSimilar.Candidates.jpg)
 
-To find four similar faces, the **matchPerson** mode returns a and b, which show the same person as the target face. The **matchFace** mode returns a, b, c, and d&mdash;exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
+To find four similar faces, the **matchPerson** mode returns A and B, which show the same person as the target face. The **matchFace** mode returns A, B, C, and D, which is exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
 
 ## Group faces
 

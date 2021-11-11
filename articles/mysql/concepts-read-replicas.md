@@ -20,7 +20,7 @@ Replicas are new servers that you manage similar to regular Azure Database for M
 To learn more about MySQL replication features and issues, see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 ## When to use a read replica
@@ -39,7 +39,7 @@ You can create a read replica in a different region from your source server. Cro
 
 You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its paired region or the universal replica regions. The following picture shows which replica regions are available depending on your source region.
 
-[ :::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Read replica regions":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Read replica regions":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
 

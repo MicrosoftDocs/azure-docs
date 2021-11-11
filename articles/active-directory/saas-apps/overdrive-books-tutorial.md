@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to integrate Overdrive with Azure Active Dire
 To get started, you need the following items:
  
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* A Overdrive single sign-on (SSO)-enabled subscription.
+* An Overdrive single sign-on (SSO)-enabled subscription.
 
 ## Scenario description
 
@@ -140,4 +140,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Overdrive you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Overdrive you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

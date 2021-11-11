@@ -5,17 +5,19 @@ description: Learn how to create and configure a Linux VM to sign in using Azure
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/11/2021
+ms.date: 10/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
+
+ROBOTS: NOINDEX
 ---
 # Deprecated: Login to a Linux virtual machine in Azure with Azure Active Directory using device code flow authentication
 
 > [!CAUTION]
-> **The public preview feature described in this article is being deprecated August 15th, 2021.**
+> **The public preview feature described in this article was deprecated August 15, 2021.**
 > 
 > This feature is being replaced with the ability to use Azure AD and SSH via certificate-based authentication. For more information see the article, [Preview: Login to a Linux virtual machine in Azure with Azure Active Directory using SSH certificate-based authentication](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md). To migrate from the old version to this version, see [Migration from previous preview](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md#migration-from-previous-preview)
 
@@ -205,7 +207,7 @@ Users that inherit access rights through nested groups or role assignments aren'
 
 ## Preview feedback
 
-Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
 ## Next steps
 
