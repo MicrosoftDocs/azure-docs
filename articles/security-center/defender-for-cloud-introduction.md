@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/04/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # What is Microsoft Defender for Cloud?
@@ -21,7 +21,6 @@ Defender for Cloud provides the tools needed to harden your resources, track you
 Defender for Cloud fills three vital needs as you manage the security of your resources and workloads in the cloud and on-premises:
 
 :::image type="content" source="media/defender-for-cloud-introduction/defender-for-cloud-synopsis.png" alt-text="Understanding the core functionality of Microsoft Defender for Cloud.":::
-
 
 |Security requirement  | Defender for Cloud solution|
 |---------|---------|
@@ -40,7 +39,7 @@ In Defender for Cloud, the posture management features provide:
 - **Visibility** - to help you understand your current security situation
 - **Hardening guidance** - to help you efficiently and effectively improve your security
 
-The central feature in Defender for Cloud that enables you to achieve those goals is **secure score**. Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. 
+The central feature in Defender for Cloud that enables you to achieve those goals is **secure score**. Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
 When you open Defender for Cloud for the first time, it will meet the visibility and strengthening goals as follows:
 
@@ -52,15 +51,13 @@ When you open Defender for Cloud for the first time, it will meet the visibility
 
 ### Cloud workload protection (CWP)
 
-Defender for Cloud offers security alerts that are powered by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). It also includes a range of advanced, intelligent, protections for your workloads. The workload protections are provided through Microsoft Defender plans specific to the types of resources in your subscriptions. For example, you can enable **Microsoft Defender for Storage** to get alerted about suspicious activities related to your Azure Storage accounts. 
-
+Defender for Cloud offers security alerts that are powered by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). It also includes a range of advanced, intelligent, protections for your workloads. The workload protections are provided through Microsoft Defender plans specific to the types of resources in your subscriptions. For example, you can enable **Microsoft Defender for Storage** to get alerted about suspicious activities related to your Azure Storage accounts.
 
 ## Azure, hybrid, and multi-cloud protections
 
 Because Defender for Cloud is an Azure-native service, many Azure services are monitored and protected without needing any deployment.
 
 When necessary, Defender for Cloud can automatically deploy a Log Analytics agent to gather security-related data. For Azure machines, deployment is handled directly. For hybrid and multi-cloud environments, Microsoft Defender plans are extended to non Azure machines with the help of [Azure Arc](https://azure.microsoft.com/services/azure-arc/). CSPM features are extended to multi-cloud machines without the need for any agents (see [Defend resources running on other clouds](#defend-resources-running-on-other-clouds)).
-
 
 ### Azure-native protections
 
@@ -70,17 +67,17 @@ Defender for Cloud helps you detect threats across:
 
 - **Azure data services** - Defender for Cloud includes capabilities that help you automatically classify your data in Azure SQL. You can also get assessments for potential vulnerabilities across Azure SQL and Storage services, and recommendations for how to mitigate them.
 
-- **Networks** - Defender for Cloud helps you limit exposure to brute force attacks. By reducing access to virtual machine ports, using the just-in-time VM access, you can harden your network by preventing unnecessary access. You can set secure access policies on selected ports, for only authorized users, allowed source IP address ranges or IP addresses, and for a limited amount of time. 
-
+- **Networks** - Defender for Cloud helps you limit exposure to brute force attacks. By reducing access to virtual machine ports, using the just-in-time VM access, you can harden your network by preventing unnecessary access. You can set secure access policies on selected ports, for only authorized users, allowed source IP address ranges or IP addresses, and for a limited amount of time.
 
 ### Defend your hybrid resources
+
 In addition to defending your Azure environment, you can add Defender for Cloud capabilities to your hybrid cloud environment to protect your non-Azure servers. To help you focus on what matters the most​, you'll get customized threat intelligence and prioritized alerts according to your specific environment.
 
 To extend protection to on-premises machines, deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Defender for Cloud's enhanced security features. Learn more in [Add non-Azure machines with Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
-### Defend resources running on other clouds 
+### Defend resources running on other clouds
 
-Defender for Cloud can protect resources in other clouds (such as AWS and GCP). 
+Defender for Cloud can protect resources in other clouds (such as AWS and GCP).
 
 For example, if you've [connected an Amazon Web Services (AWS) account](quickstart-onboard-aws.md) to an Azure subscription, you can enable any of these protections:
 
@@ -104,7 +101,6 @@ Learn more on the following pages:
 
 - [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
 - [Identify vulnerabilities in images in Azure container registries](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
-
 
 ## Optimize and improve security by configuring recommended controls
 
@@ -147,11 +143,10 @@ The **Defender plans** page of Microsoft Defender for Cloud offers the following
 - [Microsoft Defender for DNS](defender-for-dns-introduction.md)
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 
-Use the advanced protection tiles in the [workload protections dashboard](workload-protections-dashboard.md) to monitor and configure each of these protections. 
+Use the advanced protection tiles in the [workload protections dashboard](workload-protections-dashboard.md) to monitor and configure each of these protections.
 
 > [!TIP]
-> Microsoft Defender for IoT (preview) is a separate product. You'll find all the details in [Introducing Microsoft Defender for IoT (Preview)](../defender-for-iot/overview.md). 
-
+> Microsoft Defender for IoT (preview) is a separate product. You'll find all the details in [Introducing Microsoft Defender for IoT (Preview)](../defender-for-iot/overview.md).
 
 ## Next steps
 

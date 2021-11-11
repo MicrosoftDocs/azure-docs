@@ -3,7 +3,7 @@ title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 author: memildin
 ms.author: memildin
-ms.date: 11/07/2021
+ms.date: 11/09/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin

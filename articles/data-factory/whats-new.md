@@ -21,6 +21,34 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 
 This page is updated monthly, so revisit it regularly. 
 
+## October 2021
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+  
+<tr><td rowspan=3><b>Data Flow</b></td><td>Azure Data Explorer and Amazon Web Services S3 connectors</td><td>The Microsoft Data Integration team has just released two new connectors for mapping data flows. If you are using Azure Synapse, you can now connect directly to your AWS S3 buckets for data transformations. In both Azure Data Factory and Azure Synapse, you can now natively connect to your Azure Data Explorer clusters in mapping data flows.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/mapping-data-flow-gets-new-native-connectors/ba-p/2866754">Learn more</a></td></tr>
+<tr><td>Power Query activity leaves preview for General Availability (GA)</td><td>Microsoft has released the Azure Data Factory Power Query pipeline activity as Generally Available. This new feature provides scaled-out data prep and data wrangling for citizen integrators inside the ADF browser UI for an integrated experience for data engineers. The Power Query data wrangling feature in ADF provides a powerful easy-to-use pipeline capability to solve your most complex data integration and ETL patterns in a single service.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/data-wrangling-at-scale-with-adf-s-power-query-activity-now/ba-p/2824207">Learn more</a></td></tr>
+<tr><td>New Stringify data transformation in mapping data flows</td><td>Mapping data flows adds a new data transformation called Stringify to make it easy to convert complex data types like structs and arrays into string form that can be sent to structured output destinations.<br><a href="data-flow-stringify.md">Learn more</a></td></tr>
+  
+<tr>
+  <td rowspan=2><b>Integration Runtime</b></td>
+  <td>Azure Data Factory Managed vNet goes GA</td>
+  <td>You can now provision the Azure Integration Runtime as part of a managed Virtual Network and leverage Private Endpoints to securely connect to supported data stores. Data traffic goes through Azure Private Links which provide secured connectivity to the data source. In addition, it prevents data exfiltration to the public internet.<br><a href="managed-virtual-network-private-endpoint.md">Learn more</a></td>
+ </tr>
+ <tr>
+   <td>Express VNet injection for SSIS integration runtime (Public Preview)</td>
+   <td>The SSIS integration runtime now supports express VNet injection.<br>
+     Learn more:<br>
+     <a href="join-azure-ssis-integration-runtime-virtual-network.md">Overview of VNet injection for SSIS integration runtime</a><br>
+     <a href="azure-ssis-integration-runtime-virtual-network-configuration.md">Standard vs. express VNet injection for SSIS integration runtime</a><br>
+     <a href="azure-ssis-integration-runtime-express-virtual-network-injection.md">Express VNet injection for SSIS integration runtime</a>
+   </td>
+ </tr>
+
+<tr><td rowspan=2><b>Security</b></td><td>Azure Key Vault integration improvement</td><td>We have improved Azure Key Vault integration by adding user selectable drop-downs to select the secret values in the linked service, increasing productivity and not requiring users to type in the secrets, which could result in human error.</td></tr>
+<tr><td>Support for user-assigned managed identity in Azure Data Factory</td><td>Credential safety is crucial for any enterprise. With that in mind, the Azure Data Factory (ADF) team is committed to making the data engineering process secure yet simple for data engineers. We are excited to announce the support for user-assigned managed identity (Preview) in all connectors/ linked services that support Azure Active Directory (Azure AD) based authentication.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/support-for-user-assigned-managed-identity-in-azure-data-factory/ba-p/2841013">Learn more</a></td></tr>
+</table>
+
 ## September 2021
 <br>
 <table>

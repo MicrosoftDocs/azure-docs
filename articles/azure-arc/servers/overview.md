@@ -13,7 +13,7 @@ To deliver this experience with your hybrid machines, you need to install the Az
 
 * You want to proactively monitor the OS and workloads running on the machine,
 * Manage it using Automation runbooks or solutions like Update Management, or
-* Use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
+* Use other Azure services like [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md).
 
 ## Supported cloud operations 
 
@@ -24,8 +24,8 @@ When you connect your machine to Azure Arc-enabled servers, it enables the abili
 |**Govern** ||
 | Azure Policy |Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) to audit settings inside the machine. To understand the cost of using Azure Policy Guest Configuration policies with Arc-enabled servers, see Azure Policy [pricing guide](https://azure.microsoft.com/pricing/details/azure-policy/)|
 |**Protect** ||
-| Azure Security Center | Protect non-Azure servers with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint), included through [Azure Defender](../../security-center/defender-for-servers-introduction.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats. Azure Security Center presents the alerts and remediation suggestions from the threats detected. |
-| Azure Sentinel | Machines connected to Arc-enabled servers can be [configured with Azure Sentinel](scenario-onboard-azure-sentinel.md) to collect security-related events and correlate them with other data sources. |
+| Microsoft Defender for Cloud | Protect non-Azure servers with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint), included through [Microsoft Defender for Cloud](../../security-center/defender-for-servers-introduction.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats. Microsoft Defender for Cloud presents the alerts and remediation suggestions from the threats detected. |
+| Microsoft Sentinel | Machines connected to Arc-enabled servers can be [configured with Microsoft Sentinel](scenario-onboard-azure-sentinel.md) to collect security-related events and correlate them with other data sources. |
 |**Configure** ||
 | Azure Automation |Automate frequent and time-consuming management tasks using PowerShell and Python [runbooks](../../automation/automation-runbook-execution.md).<br> Assess configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons using [Change Tracking and Inventory](../../automation/change-tracking/overview.md).<br> Use [Update Management](../../automation/update-management/overview.md) to manage operating system updates for your Windows and Linux servers. |
 | Azure Automanage (preview) | Automate onboarding and configuration of a set of Azure services when you use [Automanage Machine for Arc-enabled servers](../../automanage/automanage-arc.md). |

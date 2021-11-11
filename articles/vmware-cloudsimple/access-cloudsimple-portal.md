@@ -1,4 +1,4 @@
---- 
+---
 title: Access Azure VMware Solution by CloudSimple - Portal 
 description: Describes how to access VMware Solution by CloudSimple portal from Azure portal
 author: suzizuber 
