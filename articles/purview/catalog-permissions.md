@@ -38,7 +38,7 @@ Azure Purview uses a set of predefined roles to control who can access what with
 |I need to edit the glossary or set up new classification definitions|Data Curator|
 |I need to view Insights to understand the governance posture of my data estate|Data Curator|
 |My application's Service Principal needs to push data to Azure Purview|Data Curator|
-|I need to set up scans via the Purview Studio|Data Source Admin, plus at least Data Reader **or** Data Curator on the collection where the source is registered.|
+|I need to set up scans via the Purview Studio|Data Curator on the collection **or** Data Curator **And** Data Source Administrator where the source is registered|
 |I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data Source Admin|
 |I need to put users into roles in Azure Purview | Collection Admin |
 
