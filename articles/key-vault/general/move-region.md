@@ -59,4 +59,4 @@ Before deleting your old key vault, verify that the new vault contains all of th
 
 - [Azure Key Vault backup and restore](backup.md)
 - [Moving an Azure Key Vault across resource groups](move-resourcegroup.md)
-- [Moving an Azure Key Vault to another subscription](move-subscription)
+- [Moving an Azure Key Vault to another subscription](move-subscription.md)
