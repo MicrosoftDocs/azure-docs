@@ -5,6 +5,6 @@
   - name: About Azure Arc resource bridge
     href: overview.md
   - name: Security overview
-    href: ./resource-bridge/security-overview.md
+    href: security-overview.md
   - name: Troubleshooting
-    href: ./resource-bridge/troubleshoot-resource-bridge.md
+    href: troubleshoot-resource-bridge.md
