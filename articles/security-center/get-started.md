@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 10/21/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 

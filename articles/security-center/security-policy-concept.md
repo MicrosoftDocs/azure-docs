@@ -6,7 +6,7 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 11/09/2021
 ---
 
 # What are security policies, initiatives, and recommendations?

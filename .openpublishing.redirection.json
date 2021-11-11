@@ -36,6 +36,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/service-fabric/how-to-enable-managed-cluster-disk-encryption.md",
+      "redirect_url": "/azure/service-fabric/how-to-managed-cluster-enable-disk-encryption",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric-mesh/move-across-regions.md",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
       "redirect_document_id": false
@@ -426,6 +431,16 @@
     {
       "source_path_from_root": "/articles/frontdoor/front-door-rules-engine-match-conditions.md",
       "redirect_url": "/azure/frontdoor/rules-match-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-actions.md",
+      "redirect_url": "/azure/frontdoor/rules-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-rules-engine-actions.md",
+      "redirect_url": "/azure/frontdoor/rules-actions",
       "redirect_document_id": false
     },
     { 
@@ -26848,7 +26863,12 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-persistent-storage.md",
-      "redirect_url": "/azure/spring-cloud/how-to-persistent-storage",
+      "redirect_url": "/azure/spring-cloud/how-to-built-in-persistent-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/how-to-persistent-storage.md",
+      "redirect_url": "/azure/spring-cloud/how-to-built-in-persistent-storage",
       "redirect_document_id": false
     },
     {
@@ -44679,6 +44699,41 @@
     {
       "source_path_from_root": "/articles/azure-monitor/logs/examples.md",
       "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/quick-monitor-azure-resource.md",
+      "redirect_url": "/azure/azure-monitor/essentials/monitor-azure-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/quick-collect-activity-log-portal.md",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/quick-collect-activity-log-arm.md",
+      "redirect_url": "/azure/azure-monitor/essentials/resource-manager-diagnostic-settings#diagnostic-setting-for-activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/dotnet-quickstart.md",
+      "redirect_url": "/azure/azure-monitor/app/asp-net-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/nodejs-quick-start.md",
+      "redirect_url": "/azure/azure-monitor/app/asp-net-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/website-monitoring.md",
+      "redirect_url": "/azure/azure-monitor/app/javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/tutorial-metrics-explorer.md",
+      "redirect_url": "/azure/azure-monitor/essentials/tutorial-metrics",
       "redirect_document_id": false
     },
     {
