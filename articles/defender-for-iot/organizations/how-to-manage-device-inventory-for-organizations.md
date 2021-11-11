@@ -1,7 +1,7 @@
 ---
 title: Manage your IoT devices with the device inventory for organizations
 description: Learn how to manage your IoT devices with the device inventory for organizations.
-ms.date: 11/10/2021
+ms.date: 11/11/2021
 ms.topic: how-to
 ---
 
@@ -51,13 +51,13 @@ The following table describes the different device properties in the device inve
 | **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. | - |
 | **PLC mode** | The PLC operating mode which includes the Key state (physical), and the run state (logical). Possible Key states include, Run, Program, Remote, Stop, Invalid, Programming Disabled. The possible Run states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. | - |
 | **PLC secured** |  | - |
-| **Programming time** |  | - |
+| **Programming time** | The last time the device was programmed.  | - |
 | **Protocols** | The protocols that the device uses. | - |
 | **Purdue level** | The Purdue level in which the device exists. | - |
 | **Scanner** | Whether the device performs scanning-like activities in the network. | - |
-| **Sensor** |  | - |
+| **Sensor** | The sensor the device is connected to.  | - |
 | **Site** | The site that contains this device. | - |
-| **Slots** |  | - |
+| **Slots** | The number of slots the device has.  | - |
 | **Subtype** | The subtype of the device, such as speaker and smart tv. | Managed Device |
 | **Type** | The type of device, such as communication, and industrial. | Miscellaneous |
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. | - |
