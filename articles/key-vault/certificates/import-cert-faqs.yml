@@ -98,6 +98,12 @@ sections:
           Why can't I see the App Service certificate that I imported to Key Vault? 
         answer: |
           If you've imported the certificate successfully, you should be able to confirm it by going to the **Secrets** pane.
+          
+      - question: |
+          How do I combine certificates in a single .PEM or .PFX file to have the whole certificate bundle imported to Key Vault? 
+        answer: |
+          Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. While importing certificate in Key Vault, it will allow you to import one certificate or the whole chain, it's up to you.
+
 
 
 additionalContent: |

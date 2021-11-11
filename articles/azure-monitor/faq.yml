@@ -67,7 +67,7 @@ sections:
       - question: |
           Where does Azure Monitor get its data?
         answer: |
-          Azure Monitor collects data from a variety of sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Azure Security Center and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
+          Azure Monitor collects data from a variety of sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
           
       - question: |
           What data is collected by Azure Monitor?
@@ -85,7 +85,7 @@ sections:
           Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitor](logs/log-query-overview.md) and [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md).
           
       - question: |
-           What am I seeing duplicate records in Azure Monitor Logs?
+           Why am I seeing duplicate records in Azure Monitor Logs?
         answer: |
            You may on occasion notice duplicate records in Azure Monitor Logs. This will typically be from one of the following two conditions.
            
@@ -284,7 +284,7 @@ sections:
           
           
       - question: |
-          Will the new Azure Monitor agent support data collection for the various Log Analytics solutions and Azure services like Security Center, Sentinel, etc.?
+          Will the new Azure Monitor agent support data collection for the various Log Analytics solutions and Azure services such as Microsoft Defender for Cloud and Microsoft Sentinel?
         answer: |
           Review the list of [AMA extensions currently available in preview](./agents/azure-monitor-agent-overview.md#supported-services-and-features). These are the same solutions and services now available using the new Azure Monitor agent instead. 
           You may see additional extensions getting installed for the solution/service, this is to collect additional data or perform transformation/processing as required for the solution/service, and then use AMA to route the final data to Azure Monitor. 
@@ -348,7 +348,7 @@ sections:
           
           
       - question: |
-          Does the new Azure Monitor agent support sending data to EventHubs and Azure Storage Accounts?
+          Does the new Azure Monitor agent support sending data to Event Hubs and Azure Storage Accounts?
         answer: |
           Not yet, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in the future. Watch out for announcements in Azure Updates or join the [Teams channel](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) for frequent updates, support, news and more!
           
@@ -1125,4 +1125,4 @@ additionalContent: |
   - [Log Analytics](/answers/topics/azure-monitor.html)
   - [Application Insights](/answers/topics/azure-monitor.html)
 
-  For general feedback on Azure Monitor please visit the [feedback forum](https://feedback.azure.com/forums/34192--general-feedback).
+  For general feedback on Azure Monitor please visit the [feedback forum](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).

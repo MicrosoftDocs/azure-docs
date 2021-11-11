@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Search for nearby locations on a map | Microsoft Azure Maps'
 description: Tutorial on how to search for points of interest on a map. See how to use the Azure Maps Web SDK to add search capabilities and interactive pop-up boxes to a map.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 1/15/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: eriklind
 ms.custom: mvc, devx-track-js
 ---
 
@@ -16,6 +16,7 @@ ms.custom: mvc, devx-track-js
 This tutorial shows how to set up an account with Azure Maps, then use the Maps APIs to search for a point of interest. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create an Azure Maps account
 > * Retrieve the primary key for your Maps account
 > * Create a new web page using the map control API
@@ -187,7 +188,7 @@ This section shows how to use the Maps [Search API](/rest/api/maps/search) to fi
 4. You can see the raw data that the map is rendering by entering the following HTTPRequest in your browser. Replace \<Your Azure Maps Key\> with your primary key.
 
    ```http
-   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
+   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
 At this point, the MapSearch page can display the locations of points of interest that are returned from a fuzzy search query. Let's add some interactive capabilities and more information about the locations.

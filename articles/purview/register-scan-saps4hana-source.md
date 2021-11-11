@@ -1,8 +1,8 @@
 ---
 title: Connect to and manage an SAP S/4HANA source
 description: This guide describes how to connect to SAP S/4HANA in Azure Purview, and use Purview's features to scan and manage your SAP S/4HANA source.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
@@ -18,7 +18,9 @@ This article outlines how to register SAP S/4HANA, and how to authenticate and i
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-sapecc.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes**](how-to-lineage-sapecc.md)|
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 ## Prerequisites
 

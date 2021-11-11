@@ -55,7 +55,7 @@ To configure and test Azure AD SSO with Datadog, perform the following steps:
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Datadog SSO](#configure-datadog-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Datadog test user](#create-datadog-test-user)** - to have a counterpart of B.Simon in Datadog that is linked to the Azure AD representation of user.
+    1. Create Datadog test user - to have a counterpart of B.Simon in Datadog that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -151,4 +151,4 @@ In this section, you enable everyone within your tenant to access Datadog if one
 
 ## Next steps
 
-Once you configure Datadog you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Datadog you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

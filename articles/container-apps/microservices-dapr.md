@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Deploy a Dapr application to Azure Container Apps using the Azure CLI'
 description: Deploy a Dapr application to Azure Container Apps using the Azure CLI.
-services: app-service
+services: container-apps
 author: asw101
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 11/02/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
 ---
@@ -126,6 +126,22 @@ az extension add \
 ```azurecli
 az extension add `
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+```
+
+---
+
+Now that the extension is installed, register the `Microsoft.Web` namespace.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.Web
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az provider register --namespace Microsoft.Web
 ```
 
 ---
@@ -274,7 +290,9 @@ Get the storage account key with the following command.
 
 ```bash
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
+```
 
+```bash
 echo $STORAGE_ACCOUNT_KEY
 ```
 
@@ -282,7 +300,9 @@ echo $STORAGE_ACCOUNT_KEY
 
 ```powershell
 $STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
+```
 
+```powershell
 echo $STORAGE_ACCOUNT_KEY
 ```
 
@@ -416,11 +436,11 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 1. Click the **Edit** tab.
 
-1. Click the **Refresh** button to observe updates.
+1. Click the **Refresh** button to observe how the data automatically updates.
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. You may need to wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
 
 Use the following CLI command to view logs on the command line.
 

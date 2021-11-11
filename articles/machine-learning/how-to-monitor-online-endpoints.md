@@ -5,7 +5,7 @@ description: Monitor managed online endpoints and create alerts with Application
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 05/03/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: how-to, devplatv2
 ---

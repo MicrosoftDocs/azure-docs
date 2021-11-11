@@ -18,7 +18,9 @@ This article outlines how to register Azure Files, and how to authenticate and i
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | No |
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | Limited** |
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 Azure Files supports full and incremental scans to capture the metadata and classifications, based on system default and custom classification rules.
 

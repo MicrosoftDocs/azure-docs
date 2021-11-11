@@ -145,5 +145,5 @@ You are now ready to run your experiment. To see the impact, we recommend openin
 
 ## Next steps
 Now that you have run an AKS Chaos Mesh service-direct experiment, you are ready to:
-- [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based.md)
+- [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md)
 - [Manage your experiment](chaos-studio-run-experiment.md)

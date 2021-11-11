@@ -7,6 +7,7 @@
     href: overview.md
   - name: Technical and feature overview
     href: technical-overview.md
+    displayName: Azure AD B2C architecture, SLA, Azure AD B2C high availability, Azure AD B2C SLA, HA
   - name: Supported Azure AD features
     href: supported-azure-ad-features.md
   - name: What's new in docs?
@@ -48,7 +49,7 @@
       href: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Tokens
       href: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-    - name: Protocols
+    - name: Application authentication request
       href: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Authentication library
       href: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
@@ -81,7 +82,7 @@
       href: custom-policy-overview.md
   - name: API Connectors
     href: api-connectors-overview.md
-    displayName: REST API, web API, API connectors
+    displayName: REST API, web API, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
   - name: User accounts
     href: user-overview.md
   - name: User profile attributes
@@ -222,7 +223,7 @@
       displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
-    - name: Apple (Preview)
+    - name: Apple
       href: identity-provider-apple-id.md 
     - name: Azure AD (single tenant)
       href: identity-provider-azure-ad-single-tenant.md
@@ -344,9 +345,9 @@
       items:
       - name: Azure Monitor
         href: azure-monitor.md
-      - name: Azure Sentinel
+      - name: Microsoft Sentinel
         href: azure-sentinel.md
-        displayName: log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration
+        displayName: log, logs, logging, events, Azure Monitor, Microsoft Sentinel, SIEM, threat hunting, Security, Security Orchestration
     - name: Web Application Firewall partners
       items:
       - name: Akamai
@@ -396,12 +397,13 @@
     items:
     - name: Modify sign-up experiences 
       href: add-api-connector.md
-      displayName: rest claims validation, validate
+      displayName: rest claims validation, validate, third-party integration, outbound webhook, third-party integration
     - name: Enrich tokens with external claims
       href: add-api-connector-token-enrichment.md
-      displayName: rest claims exchange
+      displayName: rest claims exchange, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
     - name: Secure an API connector
       href: secure-rest-api.md
+      displayName: API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
   - name: Troubleshooting
     items:
     - name: Collect logs using Application Insights
@@ -607,6 +609,7 @@
     displayName: Page version
   - name: Region availability & data residency
     href: data-residency.md
+    displayName: SLA, Azure AD B2C high availability, Azure AD B2C SLA, high availability, HA
   - name: Build for resilience
     items:
     - name: Azure AD B2C introduction to resilience
@@ -630,6 +633,7 @@
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Frequently asked questions
     href: ./faq.yml
+    displayName: FAQ
   - name: Getting help
     href: ../active-directory/develop/developer-support-help-options.md
   - name: Pricing

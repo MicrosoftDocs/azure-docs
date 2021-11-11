@@ -62,7 +62,7 @@ To select a proximity placement group in the DR region while enabling replicatio
 You can easily update your selection of a proximity placement group in the DR region after replication has been enabled for the VM:
 
 1. Go to the virtual machine. On the left pane, under **Operations**, select **Disaster Recovery**.
-2. Go to the **Compute and Network** pane and select **Edit**.
+2. Go to the **Compute** pane and select **Edit**.
 3. You can see the options to edit multiple target settings, including the target proximity placement group. Choose the proximity placement group that you want the VM to fail over into, and then select **Save**.
 
 ### VMware to Azure
