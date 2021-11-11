@@ -73,8 +73,13 @@ The following table lists the ABAP authorizations required for the backend SAP u
 Required authorizations are listed by log type. You only need the authorizations listed for the types of logs you plan to ingest into Microsoft Sentinel.
 
 > [!TIP]
+> To create the role with all required authorizations, deploy the SAP change request NPLK900163 on your SAP system. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role, and you, typically a SAP Basis or role owner, must assign the role to the ABAP user connecting to Azure Sentinel.
+>
+
+| Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |
 | **All RFC logs** | | |
+| S_RFC | FUGR | /OSP/SYSTEM_TIMEZONE |
 | S_RFC | FUGR | ARFC |
 | S_RFC | FUGR | STFC |
 | S_RFC | FUGR | RFC1 |
