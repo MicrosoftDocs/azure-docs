@@ -50,6 +50,7 @@ Once a service connection is created. Developers can validate and check connecti
 
 * Azure Database for PostgreSQL
 * Azure Database for MySQL
+* Azure Cosmos DB
 * Azure Storage (Blob, Queue, File and Table storage)
 * Azure Key Vault
 * Azure SignalR Service
