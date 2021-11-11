@@ -4,7 +4,7 @@ description: This quickstart shows how to get started with the question answerin
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 11/02/2021
+ms.date: 11/11/2021
 ---
 
 Use this quickstart for the question answering client library for Python to:
@@ -43,7 +43,7 @@ pip install azure-ai-language-questionanswering
 
 ### Generate an answer from a knowledge base
 
-The example below will allow you to query a knowledge base using [get_answers](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.get_answers) and get an answer to your question. You can copy this code into a dedicated .py file or into a cell in [Jupyter Notebook/Lab](https://jupyter.org/).
+The example below will allow you to query a knowledge base using [get_answers](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.get_answers) to get an answer to your question. You can copy this code into a dedicated .py file or into a cell in [Jupyter Notebook/Lab](https://jupyter.org/).
 
 You will need to update the code below and provide your own values for the following variables.
 

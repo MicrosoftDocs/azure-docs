@@ -4,7 +4,7 @@ description: This quickstart shows how to get started with the question answerin
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 11/11/2021
 ---
 
 Use this quickstart for the question answering client library for .NET to:
@@ -64,7 +64,7 @@ dotnet add package Azure.AI.Language.QuestionAnswering --prerelease
 
 #### Generate an answer from a knowledge base
 
-The example below will allow you to query a knowledge base using [QueryKnowledgeBase](https://docs.microsoft.com/dotnet/api/azure.ai.language.questionanswering.questionansweringclient.queryknowledgebase?view=azure-dotnet-preview) and get an answer to your question.
+The example below will allow you to query a knowledge base using `GetAnswers` to get an answer to your question.
 
 You will need to update the code below and provide your own values for the following variables.
 
@@ -80,11 +80,9 @@ From the project directory, open the *program.cs* file and replace with the foll
 ```csharp
 using Azure;
 using Azure.AI.Language.QuestionAnswering;
-using Azure.AI.Language.QuestionAnswering.Models;
 using System;
 
-
-namespace question_answering_quickstart
+namespace question_answering
 {
     class Program
     {
@@ -96,21 +94,21 @@ namespace question_answering_quickstart
             string projectName = "{YOUR-PROJECT-NAME}";
             string deploymentName = "production";
 
-            QuestionAnsweringClient client = new QuestionAnsweringClient(endpoint, credential);
+            string question = "How long should my Surface battery last?";
 
-            QueryKnowledgeBaseOptions options = new QueryKnowledgeBaseOptions(projectName, deploymentName, "How long should my Surface battery last?");
-            Response<KnowledgeBaseAnswers> response = client.QueryKnowledgeBase(options);
+            QuestionAnsweringClient client = new QuestionAnsweringClient(endpoint, credential);
+            QuestionAnsweringProject project = new QuestionAnsweringProject(projectName, deploymentName);
+
+            Response<AnswersResult> response = client.GetAnswers(question, project);
 
             foreach (KnowledgeBaseAnswer answer in response.Value.Answers)
             {
-                Console.WriteLine($"Q:{options.Question}");
+                Console.WriteLine($"Q:{question}");
                 Console.WriteLine($"A:{answer.Answer}");
-                Console.WriteLine();
             }
         }
     }
 }
-
 ```
 
 While we are hard coding the variables for our example. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md) provides secure key storage.
@@ -131,9 +129,9 @@ A: If you want to see how much battery you have left, go to **Start  **> **Setti
 For information on how confident question answering is that this is the correct response add an additional print statement underneath the existing print statements:
 
 ```csharp
-Console.WriteLine($"Q:{options.Question}");
+Console.WriteLine($"Q:{question}");
 Console.WriteLine($"A:{answer.Answer}");
-Console.WriteLine($"({answer.ConfidenceScore})"); // add this line
+Console.WriteLine($"({answer.Confidence})"); // add this line
 ```
 
 If you execute `dotnet run` again, you will now receive a result with a confidence score:
@@ -146,12 +144,15 @@ A:If you want to see how much battery you have left, go to **Start  **> **Settin
 
 The confidence score returns a value between 0 and 1. You can think of this like a percentage and multiply by 100 so a confidence score of 0.9185 means question answering is 91.85% confident this is the correct answer to the question based on the knowledge base.
 
-If you want to exclude answers where the confidence score falls below a certain threshold, you use  [QueryKnowledgeBaseOptions](https://docs.microsoft.com/dotnet/api/azure.ai.language.questionanswering.queryknowledgebaseoptions?view=azure-dotnet-preview) to add the `ConfidenceScoreThreshold` property.
+If you want to exclude answers where the confidence score falls below a certain threshold, you use  `AnswerOptions` to add the `ConfidenceScoreThreshold` property.
 
 ```csharp
-QueryKnowledgeBaseOptions options = new QueryKnowledgeBaseOptions(projectName, deploymentName, "How much battery life do I have left?");
-options.ConfidenceScoreThreshold = .95; // add this line
-Response<KnowledgeBaseAnswers> response = client.QueryKnowledgeBase(options);
+QuestionAnsweringClient client = new QuestionAnsweringClient(endpoint, credential);
+QuestionAnsweringProject project = new QuestionAnsweringProject(projectName, deploymentName);
+AnswersOptions options = new AnswersOptions(); //Add this line
+options.ConfidenceThreshold = 0.95; //Add this line
+
+Response<AnswersResult> response = client.GetAnswers(question, project, options); //Add the additional options parameter
 ```
 
 Since we know from our previous execution of the code that our confidence score is: `.9185` setting the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
@@ -171,7 +172,6 @@ For this example, you only need to modify the variables for `endpoint` and `cred
 ```csharp
 using Azure;
 using Azure.AI.Language.QuestionAnswering;
-using Azure.AI.Language.QuestionAnswering.Models;
 using System;
 using System.Collections.Generic;
 
@@ -187,26 +187,26 @@ namespace questionansweringcsharp
             AzureKeyCredential credential = new AzureKeyCredential("YOUR-LANGUAGE-RESOURCE-KEY");
             QuestionAnsweringClient client = new QuestionAnsweringClient(endpoint, credential);
 
-            IEnumerable<TextRecord> records = new[]
+            IEnumerable<TextDocument> records = new[]
             {
-                new TextRecord("doc1", "Power and charging.It takes two to four hours to charge the Surface Pro 4 battery fully from an empty state. " +
+                new TextDocument("doc1", "Power and charging.It takes two to four hours to charge the Surface Pro 4 battery fully from an empty state. " +
                          "It can take longer if you're using your Surface for power-intensive activities like gaming or video streaming while you're charging it"),
-                new TextRecord("doc2", "You can use the USB port on your Surface Pro 4 power supply to charge other devices, like a phone, while your Surface charges. " +
+                new TextDocument("doc2", "You can use the USB port on your Surface Pro 4 power supply to charge other devices, like a phone, while your Surface charges. " +
                          "The USB port on the power supply is only for charging, not for data transfer. If you want to use a USB device, plug it into the USB port on your Surface."),
             };
 
-            QueryTextOptions options = new QueryTextOptions("How long does it takes to charge a surface?", records);
-            Response<TextAnswers> response = client.QueryText(options);
+            AnswersFromTextOptions options = new AnswersFromTextOptions("How long does it takes to charge a surface?", records);
+            Response<AnswersFromTextResult> response = client.GetAnswersFromText(options);
 
            foreach (TextAnswer answer in response.Value.Answers)
             {
-                if (answer.ConfidenceScore > .9)
+                if (answer.Confidence > .9)
                 {
                     string BestAnswer = response.Value.Answers[0].Answer;
 
                     Console.WriteLine($"Q:{options.Question}");
                     Console.WriteLine($"A:{BestAnswer}");
-                    Console.WriteLine($"Confidence Score: ({response.Value.Answers[0].ConfidenceScore:P2})"); //:P2 converts the result to a percentage with 2 decimals of accuracy. 
+                    Console.WriteLine($"Confidence Score: ({response.Value.Answers[0].Confidence:P2})"); //:P2 converts the result to a percentage with 2 decimals of accuracy. 
                     break;
                 }
                 else
@@ -220,7 +220,6 @@ namespace questionansweringcsharp
         }
     }
 }
-
 ```
 
 To run the code above, replace the `Program.cs` with the contents of the script block above and modify the `endpoint` and `credential` variables to correspond to the language resource you created as part of the prerequisites.
