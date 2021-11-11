@@ -1,12 +1,10 @@
 ---
 title: Use an App Service Environment
 description: Learn how to use your App Service Environment to host isolated applications.
-author: ccompy
-ms.assetid: 377fce0b-7dea-474a-b64b-7fbe78380554
+author: madsd
 ms.topic: article
 ms.date: 07/06/2021
-ms.author: ccompy
-ms.custom: seodec18
+ms.author: madsd
 ---
 # Using an App Service Environment
 
@@ -179,16 +177,6 @@ To delete an ASE:
 ![ASE deletion][3]
 1. Select **OK**.
 
-## Pricing 
-
-With ASEv3, there is a different pricing model depending on the type of ASE deployment you have. The three pricing models are: 
-
-- **ASEv3**: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is empty.
-- **Availability Zone ASEv3**: There is a minimum nine Windows I1v2 instance charge. There is no added charge for availability zone support if you have nine or more App Service plan instances. All App Service plans in an AZ ASEv3 also have a minimum instance count of 3 to ensure there is an instance in each availability zone. As the plans are scaled out, they are spread across the availability zones. 
-- **Dedicated host ASEv3**: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
-
-Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service][reservedinstances]. The pricing, along with reserved instance pricing, is available at [App Service pricing][pricing] under **Isolated v2 plan**. 
-
 <!--Image references-->
 
 [1]: ./media/using/using-appcreate.png
@@ -215,5 +203,3 @@ Reserved Instance pricing for Isolated v2 is available and is described in [How 
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md
-[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances
-[pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

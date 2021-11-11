@@ -24,10 +24,12 @@
   items:
   - name: Networking architecture
     href: networking.md
+  - name: Zone redundancy
+    href: overview-zone-redundancy.md
   - name: Geo-distributed scale
     href: app-service-app-service-environment-geo-distributed-scale.md
   - name: Diagnostics
-    href: ../overview-diagnostics.md
+    href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
   - name: Certificates
     href: overview-certificates.md
 - name: How-To guides
@@ -36,8 +38,6 @@
     href: using.md
   - name: Create ASE from a template
     href: create-from-template.md
-  - name: Zone redundancy
-    href: zone-redundancy.md
 - name: Reference
   items:
   - name: Management addresses
@@ -50,7 +50,7 @@
       href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
     - name: Configure ASEv1
       href: app-service-web-configure-an-app-service-environment.md
-    - name: Configure AutoScale in ASEv1
+    - name: Configure Auto Scale in ASEv1
       href: app-service-environment-auto-scale.md
     - name: Scale out app in ASEv1
       href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
@@ -76,6 +76,8 @@
       href: using-an-ase.md
     - name: Network architecture
       href: network-info.md
+    - name: Zone redundancy
+      href: zone-redundancy.md
     - name: Certificates
       href: certificates.md
     - name: Forced tunnel configuration
@@ -100,12 +102,6 @@
     items:
     - name: Azure videos
       href: https://azure.microsoft.com/resources/videos/index/?services=app-service
-    - name: Master Modern PaaS for the Enterprise with Azure App Service
-      href: https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player
-    - name: Deploying Highly Scalable and Secure Apps
-      href: https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player
-    - name: Running Enterprise Web and Mobile Apps on Azure App Service
-      href: https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player
   - name: Cookbooks
     items:
     - name: Deployment Scripts
@@ -126,7 +122,7 @@
         href: ../faq-availability-performance-application-issues.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Deployment FAQ
         href: ../faq-deployment.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-      - name: Open source technologies FAQ
+      - name: Open-source technologies FAQ
         href: ../faq-open-source-technologies.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Configuration and management FAQ
         href: ../faq-configuration-and-management.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
