@@ -10,12 +10,13 @@ ms.author: jordanselig
 
 > [!IMPORTANT]
 > This article describes a feature that is currently in preview. You should use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
-> 
+>
 
 App Service can now migrate your App Service Environment v2 to an [App Service Environment v3](overview.md). App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue.
 
 > [!IMPORTANT]
 > App Service Environment v3 doesn't currently support the following features that you may be using with your current App Service Environment. If you require any of these features, don't migrate until they are supported. Expectations for support dates are given.
+>
 > - Sending SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25. (MONTH, YEAR)
 > - Deploying your apps with FTP (MONTH, YEAR)
 > - Using remote debug with your apps (MONTH, YEAR)
@@ -28,12 +29,12 @@ App Service can now migrate your App Service Environment v2 to an [App Service E
 At this time, App Service Environment migrations to v3 support the following scenarios:
 
 - App Service Environment v2 (not [zone redundant](zone-redundancy.md))
-    - You can find the version of your App Service Environment by navigating to your App Service Environment in the [Azure portal](https://portal.azure.com) and selecting **Configuration** under **Settings** on the left-hand side. You can also use [Azure Resource Explorer](https://resources.azure.com/) and review the value of the `kind` property for your App Service Environment.
-    - Both [Internal Load Balancer (ILB)](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) configurations are supported
+  - You can find the version of your App Service Environment by navigating to your App Service Environment in the [Azure portal](https://portal.azure.com) and selecting **Configuration** under **Settings** on the left-hand side. You can also use [Azure Resource Explorer](https://resources.azure.com/) and review the value of the `kind` property for your App Service Environment.
+  - Both [Internal Load Balancer (ILB)](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) configurations are supported
 - Existing App Service Environment v2 must be in one of the following regions:
-    - region1
-    - region2
-    - region3
+  - region1
+  - region2
+  - region3
 <!-- - App Service Environment v3 must be available in the region you're using. Review this [list](overview.md#regions) to confirm availability. -->
 
 ### Preview limitations
@@ -60,13 +61,13 @@ The migration consists of two steps. For this version of the preview, your new A
 
 ### Step 1 of migration
 
-During this step, the platform creates the [new inbound IP (if you're migrating an internet facing App Service Environment) and the new outbound IP](networking.md#addresses). This step doesn't interrupt activity with your existing App Service Environment and will take about 15 minutes to complete. During this time, you won't be able to scale or make changes to the existing App Service Environment. 
+During this step, the platform creates the [new inbound IP (if you're migrating an internet facing App Service Environment) and the new outbound IP](networking.md#addresses). This step doesn't interrupt activity with your existing App Service Environment and will take about 15 minutes to complete. During this time, you won't be able to scale or make changes to the existing App Service Environment.
 
 When complete, you'll have the new default outbound to the internet public addresses so you can adjust any external firewalls, DNS routing, network security groups, and so on, in preparation for the migration. For public internet facing App Service Environments, you'll also have the new inbound IP address that you can use to set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md) for example. Scaling or modifying you existing App Service Environment will also be available again if needed.
 
 ### Step 2 of migration
 
-After Step 1 completes, you should continue with Step 2 as soon as possible. It's recommended that you move on within one week. Step 2 shuts down the existing App Service Environment and replaces it with the new App Service Environment v3. All App Service plans in the App Service Environment are converted from Isolated to Isolated v2. 
+After Step 1 completes, you should continue with Step 2 as soon as possible. It's recommended that you move on within one week. Step 2 shuts down the existing App Service Environment and replaces it with the new App Service Environment v3. All App Service plans in the App Service Environment are converted from Isolated to Isolated v2.
 
 During this step, **the old App Service Environment is removed and all of the apps that are on it are temporarily down**. You should expect about one hour of downtime. If you can't support downtime, see [migration-alternatives](migration-alternatives.md#guidance-for-manual-migration). Also, during this step, the public addresses that are used by the App Service Environment will change to the IPs identified during Step 1. As in Step 1, during this process, you won't be able to scale or modify you App Service Environment or deploy apps to it. When the migration is complete, the apps that were on the old App Service Environment will be running on the new environment.
 
@@ -115,3 +116,9 @@ The following scenarios aren't planned for support using the migration tool. If 
 
 > [!div class="nextstepaction"]
 > [Migration Alternatives](migration-alternatives.md)
+
+> [!div class="nextstepaction"]
+> [App Service Environment v3 Networking](networking.md)
+
+> [!div class="nextstepaction"]
+> [Using an App Service Environment v3](using.md)
