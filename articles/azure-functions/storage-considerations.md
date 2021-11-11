@@ -1,15 +1,13 @@
 ---
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data. 
-
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/09/2021
 ---
 
 # Storage considerations for Azure Functions
 
 Azure Functions requires an Azure Storage account when you create a function app instance. The following storage services may be used by your function app:
-
 
 |Storage service  | Functions usage  |
 |---------|---------|
@@ -48,6 +46,10 @@ The storage account connection string must be updated when you regenerate storag
 ### Shared storage accounts
 
 It's possible for multiple function apps to share the same storage account without any issues. For example, in Visual Studio you can develop multiple apps using the Azure Storage Emulator. In this case, the emulator acts like a single storage account. The same storage account used by your function app can also be used to store your application data. However, this approach isn't always a good idea in a production environment.
+
+### Lifecycle management policy considerations
+
+Functions uses Blob storage to persist important information, such as [function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). When you apply a [lifecycle management policy](../storage/blobs/lifecycle-management-overview.md) to your Blob Storage account, the policy may remove blobs needed by the Functions host. Because of this, you shouldn't apply such policies to the storage account used by Functions. If you do need to apply such a policy, remember to exclude containers used by Functions, which are usually prefixed with `azure-webjobs` or `scm`.
 
 ### Optimize storage performance
 

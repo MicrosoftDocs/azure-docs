@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 11/08/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
@@ -77,7 +77,7 @@ To enable auto provisioning of the Log Analytics agent:
         - Workspace: DefaultWorkspace-[subscription-ID]-[geo] 
         - Resource Group: DefaultResourceGroup-[geo] 
 
-        Defender for Cloud automatically enables a Defender for Cloud solution on the workspace per the pricing tier set for the subscription. 
+        A Defender for Cloud solution is automatically enabled on the workspace per the pricing tier set for the subscription.
 
         > [!TIP]
         > For questions regarding default workspaces, see:
@@ -94,7 +94,7 @@ To enable auto provisioning of the Log Analytics agent:
 
         1. From Defender for Cloud's menu, open **Environment settings**.
         1. Select the workspace to which you'll be connecting the agents.
-        1. Select **Enhanced security off** or **Enable all Microsoft Defender for Cloud plans**.
+        1. Select **Enhanced security off** or **Enable all Microsoft Defender plans**.
 
 1. From the **Windows security events** configuration, select the amount of raw event data to store:
     - **None** – Disable security event storage. This is the default setting.
@@ -202,13 +202,13 @@ To manually install the Log Analytics agent:
 
 1. Optionally, create a workspace.
 
-1. Enable Microsoft Defender on the workspace on which you're installing the Log Analytics agent:
+1. Enable Microsoft Defender for Cloud on the workspace on which you're installing the Log Analytics agent:
 
     1. From Defender for Cloud's menu, open **Environment settings**.
 
     1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Defender for Cloud and that you have read/write permissions for the workspace.
 
-    1. Select **Microsoft Defender on**, and **Save**.
+    1. Select **Microsoft Defender for Cloud on**, and **Save**.
 
        >[!NOTE]
        >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
@@ -226,20 +226,19 @@ To manually install the Log Analytics agent:
     - [For Linux machines](../virtual-machines/extensions/oms-linux.md?toc=%2fazure%2fazure-monitor%2ftoc.json#azure-cli-deployment)
 
 > [!TIP]
-> For instructions on how to onboard Defender for Cloud using PowerShell, see [Automate onboarding of Microsoft Defender for Cloud using PowerShell](powershell-onboarding.md).
+> For more information about onboarding, see [Automate onboarding of Microsoft Defender for Cloud using PowerShell](powershell-onboarding.md).
 
+## Automatic provisioning in cases of a pre-existing agent installation <a name="preexisting"></a>
 
-## Automatic provisioning in cases of a pre-existing agent installation <a name="preexisting"></a> 
+The following use cases specify how automatic provision works in cases when there is already an agent or extension installed.
 
-The following use cases specify how automatic provision works in cases when there is already an agent or extension installed. 
+- **Log Analytics agent is installed on the machine, but not as an extension (Direct agent)** - If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Defender for Cloud will install the Log Analytics agent extension, and might upgrade the Log Analytics agent to the latest version. The agent installed will continue to report to its already configured workspace(s), and additionally will report to the workspace configured in Defender for Cloud (Multi-homing is supported on Windows machines).
 
-- **Log Analytics agent is installed on the machine, but not as an extension (Direct agent)** - If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Defender for Cloud will install the Log Analytics agent extension, and might upgrade the Log Analytics agent to the latest version.
-The agent installed will continue to report to its already configured workspace(s), and additionally will report to the workspace configured in Defender for Cloud (Multi-homing is supported on Windows machines).
-If the configured workspace is a user workspace (not Defender for Cloud's default workspace), then you will need to install the "Security" or "SecurityCenterFree" solution on it for Defender for Cloud to start processing events from VMs and computers reporting to that workspace.
+  If the configured workspace is a user workspace (not Defender for Cloud's default workspace), then you will need to install the "Security" or "SecurityCenterFree" solution on it for Defender for Cloud to start processing events from VMs and computers reporting to that workspace.
 
-    For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
+  For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
 
-    For existing machines on subscriptions onboarded to Defender for Cloud before 17 March 2019, when an existing agent will be detected, the Log Analytics agent extension will not be installed and the machine will not be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
+  For existing machines on subscriptions onboarded to Defender for Cloud before 17 March 2019, when an existing agent will be detected, the Log Analytics agent extension will not be installed and the machine will not be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
   
 - **System Center Operations Manager agent is installed on the machine** - Defender for Cloud will install the Log Analytics agent extension side by side to the existing Operations Manager. The existing Operations Manager agent will continue to report to the Operations Manager server normally. The Operations Manager agent and Log Analytics agent share common run-time libraries, which will be updated to the latest version during this process. If Operations Manager agent version 2012 is installed, **do not** enable automatic provisioning.
 

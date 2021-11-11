@@ -104,7 +104,7 @@ The following table provides a high-level features and capabilities comparisons 
 | **Other features** | | |
 | Customer managed key (BYOK) | Yes | No |
 | Alerts | Yes | Yes |
-| Azure defender | Yes | No |
+| Microsoft Defender for Cloud | Yes | No |
 | Resource health | Yes | No |
 | Service health | Yes | Yes |
 | Performance insights (iPerf) | Yes | Yes |
