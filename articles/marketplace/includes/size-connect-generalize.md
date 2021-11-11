@@ -83,4 +83,4 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
 > [!NOTE]
-> You don’t need to generate SAS URIs as you can now publish a Azure Compute Gallery Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](../azure-vm-get-sas-uri.md).
+> You don’t need to generate SAS URIs as you can now publish an Azure Compute Gallery Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](../azure-vm-get-sas-uri.md).
