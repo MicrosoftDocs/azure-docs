@@ -3,13 +3,13 @@ title: How to use language identification
 titleSuffix: Azure Cognitive Services
 description: Language identification can be used with speech recognition to determine the language being spoken in speech audio being recognized.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.author: pafarley
+ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 

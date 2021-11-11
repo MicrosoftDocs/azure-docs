@@ -8,7 +8,6 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Quickstart: Create a JavaScript function in Azure from the command line
 
-
 [!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
 In this article, you use command-line tools to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
@@ -23,7 +22,7 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x.
++ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
 
 + One of the following tools for creating Azure resources:
 
@@ -31,7 +30,7 @@ Before you begin, you must have the following:
 
     + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 
-+ [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
++ [Node.js](https://nodejs.org/) version 14. 
 
 ### Prerequisite check
 
@@ -39,7 +38,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure CLI](#tab/azure-cli)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
 + Run `az --version` to check that the Azure CLI version is 2.4 or later.
 
@@ -47,7 +46,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
 

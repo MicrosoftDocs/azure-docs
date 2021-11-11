@@ -181,13 +181,13 @@ sections:
       - question: |
           Switch hardware generation 
         answer: |
-          ### Can I switch my managed instance hardware generation between Gen 4 and Gen 5 online?
+          ### Can I switch my managed instance hardware generation between Gen4 and Gen5 online?
           
           Automated online switching from Gen4 to Gen5 is possible if Gen5 hardware is available in the region where your managed instance is provisioned. In this case, you can check [vCore model overview page](../database/service-tiers-vcore.md) explaining how to switch between hardware generations.
           
           This is a long-running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process.
           
-          Note: Gen4 hardware is being phased out and is no longer available for new deployments. All new databases must be deployed on Gen5 hardware. Switching from Gen5 to Gen4 is also not available.
+          Note: Gen4 hardware is being phased out and is no longer available for new deployments. All new databases must be deployed on later hardware generations. Switching from Gen5 to Gen4 is also not available.
           
       - question: |
           Performance 
@@ -413,7 +413,7 @@ sections:
           - Access the instance with a low-privileged DBA account.
           - Configure JIT jumpbox access for the sysadmin account.
           - Turn on [SQL auditing](/sql/relational-databases/security/auditing/sql-server-audit-database-engine), and integrate it with alerting mechanisms.
-          - Turn on [Threat Detection](../database/threat-detection-configure.md) from the [Azure Defender for SQL](../database/azure-defender-for-sql.md) suite.
+          - Turn on [Threat Detection](../database/threat-detection-configure.md) from the [Microsoft Defender for SQL](../database/azure-defender-for-sql.md) suite.
           
       - question: |
           DNS
@@ -588,7 +588,7 @@ sections:
         answer: |
           ### Where can I leave my ideas for SQL Managed Instance improvements?
           
-          You can vote for a new Managed Instance feature or put a new improvement idea on voting on [SQL Managed Instance Feedback Forum](https://feedback.azure.com/forums/915676-sql-managed-instance). This way you can contribute to the product development and help us prioritize our potential improvements.
+          You can vote for a new Managed Instance feature or put a new improvement idea on voting on [SQL Managed Instance Feedback Forum](https://feedback.azure.com/d365community/forum/a99f7006-3425-ec11-b6e6-000d3a4f0f84). This way you can contribute to the product development and help us prioritize our potential improvements.
           
           ### How can I create Azure support request?
           

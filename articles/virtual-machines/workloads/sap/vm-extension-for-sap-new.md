@@ -86,6 +86,8 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 1. Run the following PowerShell cmdlet.
     For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure China 21Vianet, select **AzureChinaCloud**.
 
+    The VM Extension for SAP supports configuring a proxy that the extension should use to connect to external resources, for example the Azure Resource Manager API. Please use parameter -ProxyURI to set the proxy.
+
     ```powershell
     $env = Get-AzEnvironment -Name <name of the environment>
     Connect-AzAccount -Environment $env
@@ -118,6 +120,8 @@ The new VM Extension for SAP uses a managed identity that is assigned to the VM 
   
 1. Enable the new extension:
   
+   The VM Extension for SAP supports configuring a proxy that the extension should use to connect to external resources, for example the Azure Resource Manager API. Please use parameter --proxy-uri to set the proxy.
+
    ```azurecli
    az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
    ```
