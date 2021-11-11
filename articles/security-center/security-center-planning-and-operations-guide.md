@@ -7,7 +7,7 @@ manager: rkarlin
 
 ms.service: security-center
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 11/09/2021
 ms.author: memildin
 
 ---

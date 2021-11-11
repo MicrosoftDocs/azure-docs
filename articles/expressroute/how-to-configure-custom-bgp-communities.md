@@ -80,13 +80,13 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
         Name = 'myVirtualNetwork'
         ResourceGroupName = 'myERRG'
     } 
-    $vnet = Get-AzVirtualNewtork @virtualnetwork
+    $vnet = Get-AzVirtualNetwork @virtualnetwork
     ```
 
 1. Update the `VirtualNetworkCommunity` value for your virtual network.
 
     ```azurepowershell-interactive
-    $vnet.BgpCommunities.VirtualNetworkCommunity = '12076:20002'
+    $vnet.BgpCommunities = @{VirtualNetworkCommunity = '12076:20002'}
     $vnet | Set-AzVirtualNetwork
     ```
 
