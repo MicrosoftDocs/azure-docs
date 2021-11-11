@@ -84,18 +84,11 @@ For more information on login options via the CLI take a look at [sign in with A
 
 To generate and transfer your key to a Managed HSM:
 
-- [Import HSM-protected keys to Managed HSM (BYOK)](#import-hsm-protected-keys-to-managed-hsm-byok)
-  - [Overview](#overview)
-  - [Prerequisites](#prerequisites)
-  - [Supported HSMs](#supported-hsms)
-  - [Supported key types](#supported-key-types)
-  - [Generate and transfer your key to the Managed HSM](#generate-and-transfer-your-key-to-the-managed-hsm)
-    - [Step 1: Generate a KEK](#step-1-generate-a-kek)
-    - [Step 2: Download the KEK public key](#step-2-download-the-kek-public-key)
-    - [Step 3: Generate and prepare your key for transfer](#step-3-generate-and-prepare-your-key-for-transfer)
-    - [Step 4: Transfer your key to Managed HSM](#step-4-transfer-your-key-to-managed-hsm)
-  - [Next steps](#next-steps)
-
+  - [Step 1: Generate a KEK](#step-1-generate-a-kek)
+  - [Step 2: Download the KEK public key](#step-2-download-the-kek-public-key)
+  - [Step 3: Generate and prepare your key for transfer](#step-3-generate-and-prepare-your-key-for-transfer)
+  - [Step 4: Transfer your key to Managed HSM](#step-4-transfer-your-key-to-managed-hsm) 
+   
 ### Step 1: Generate a KEK
 
 A KEK is an RSA key that's generated in a Managed HSM. The KEK is used to encrypt the key you want to import (the *target* key).
