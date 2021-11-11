@@ -47460,6 +47460,11 @@
       "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-service-direct.md",
       "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-service-direct-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
+      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
+      "redirect_document_id": false
     }
   ]
 }
