@@ -6,7 +6,7 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/30/2021
 ---
 
 # What is Azure Database for PostgreSQL?

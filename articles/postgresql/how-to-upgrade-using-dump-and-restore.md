@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 11/30/2021
 ---
 
 # Upgrade your PostgreSQL database using dump and restore
