@@ -119,13 +119,13 @@ Defender for Cloud's recommendations are based on the [Azure Security Benchmark]
 
 Defender for Cloud's integrated cloud workload protection platform (CWPP), **Microsoft Defender for Cloud**, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Enabling Microsoft Defender for Cloud brings a range of additional security features (see [Introduction to Microsoft Defender for Cloud](../../security-center/azure-defender.md)). The workload protection dashboard in Defender for Cloud provides visibility and control of the CWP features for your environment:
 
-:::image type="content" source="../../security-center/media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the workload protection dashboard" lightbox="../../security-center/media/azure-defender/sample-defender-dashboard.png":::
+:::image type="content" source="../../defender-for-cloud/media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the workload protection dashboard" lightbox="../../security-center/media/azure-defender/sample-defender-dashboard.png":::
 
 Microsoft security researchers are constantly on the lookout for threats. They have access to an expansive set of telemetry gained from Microsoft’s global presence in the cloud and on-premises. This wide-reaching and diverse collection of datasets enables Microsoft to discover new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services.
 
 Thus, Defender for Cloud can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast-moving threat environment.
 
-:::image type="content" source="../../security-center/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
+:::image type="content" source="../../defender-for-cloud/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
 
 Microsoft Defender for Cloud automatically collects security information from your resources, the network, and connected partner solutions. It analyzes this information, correlating information from multiple sources, to identify threats.
 

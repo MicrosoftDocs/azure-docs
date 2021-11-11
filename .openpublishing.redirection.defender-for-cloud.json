@@ -3,7 +3,12 @@
         {
             "source_path_from_root": "/articles/security-center/azure-defender.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
-            "redirect_document_id": true
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/azure-defender.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-introduction.md",
@@ -12,6 +17,11 @@
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-os-coverage.md",
+            "redirect_url": "/azure/defender-for-cloud/os-coverage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/security-center-os-coverage.md",
             "redirect_url": "/azure/defender-for-cloud/os-coverage",
             "redirect_document_id": false
         },
@@ -71,7 +81,17 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-dns-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-dns-introduction#respond-to-microsoft-defender-for-dns-alerts",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/defender-for-key-vault-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-key-vault-introduction#respond-to-microsoft-defender-for-key-vault-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-key-vault-usage.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-key-vault-introduction#respond-to-microsoft-defender-for-key-vault-alerts",
             "redirect_document_id": false
         },
