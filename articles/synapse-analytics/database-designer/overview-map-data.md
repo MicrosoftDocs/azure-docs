@@ -15,22 +15,22 @@ ms.date: 11/11/2021
 
 The Map Data tool is a guided process to help users create ETL mappings and mapping data flows from their source data to Synapse lake database tables without writing code. This process starts with the user choosing the destination tables in Synapse lake databases and then mapping their source data into these tables. 
 
-For more information see on Synapse lake databases see [Overview of Azure Synapse database templates - Azure Synapse Analytics | Microsoft Docs](https://docs.microsoft.com/en-us/azure/synapse-analytics/database-designer/overview-database-templates)
+For more information on Synapse lake databases see [Overview of Azure Synapse database templates - Azure Synapse Analytics | Microsoft Docs](../azure/synapse-analytics/database-designer/overview-database-templates)
 
 Map Data provides for a guided experience where the user can generate a mapping data flow without having to start with a blank canvas and quickly generate a scalable mapping data flow runnable in Synapse pipelines.
 
 [!NOTE] The Map Data feature in Synapse Analytics pipelines is currently in public preview
 
 ## Getting Started
-The Map Data tool is started from within the Synapse lake database experience. From here you can select the Map Data tool to begin the process. 
+The Map Data tool is started from within the Synapse lake database experience. From here, you can select the Map Data tool to begin the process. 
 
 ![Screenshot showing how to open an Map data](./media/overview-map-data/open-map-data.png)
 
 
-Map Data needs compute available to assist users with previewing data and reading schema of their source files. Upon using Map Data for the first time in a session users will need to warm up a cluster.
+Map Data needs compute available to assist users with previewing data and reading schema of their source files. Upon using Map Data for the first time in a session you will need to warm up a cluster.
 ![Screenshot showing debug clusters](./media/overview-map-data/debug-map-data.png)
 
-To begin choose your data source that you want to map to your lake database tables. Currently suported data sources are Azure Data Lake Storage Gen 2 and Synapse lake databases.
+To begin, choose your data source that you want to map to your lake database tables. Currently supported data sources are Azure Data Lake Storage Gen 2 and Synapse lake databases.
 ![Screenshot showing sources](./media/overview-map-data/sources-map-data.png)
 
 ### File type options
@@ -45,26 +45,26 @@ Name your data mapping and select the Synapse lake database destination.
 ![Screenshot showing naming and destination](./media/overview-map-data/destination-map-data.png)
 
 ## Source to Target Mapping
-Choose a Primary source table to map to the Synapse lake database destionation table.
+Choose a Primary source table to map to the Synapse lake database destination table.
 ![Screenshot showing Map data rules](./media/overview-map-data/rules-map-data.png)
 
 ### New Mapping
 Use the New Mapping button to add a mapping method to create a mapping or transformation.
 
-### Addtional Source
-Use the Addtional source button to join to and add another source to your mapping.
+### Additional Source
+Use the Additional source button to join to and add another source to your mapping.
 
 ### Preview Data
-The **Data Preview** tab gives you an interactive snapshot of the data of each transform. For more information, see [Data preview in debug mode](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-debug-mode#data-preview).
+The **Data Preview** tab gives you an interactive snapshot of the data of each transform. For more information, see [Data preview in debug mode](../azure/data-factory/concepts-data-flow-debug-mode#data-preview).
 
 ### Mapping Methods
 The following mapping methods are supported:
 
-* [Direct](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-select)
-* [Surrogate Key](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-surrogate-key)
-* [Lookup](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-lookup)
-* [Unpivot](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-unpivot)
-* [Aggregate](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-aggregate)
+* [Direct](../azure/data-factory/data-flow-select)
+* [Surrogate Key](../azure/data-factory/data-flow-surrogate-key)
+* [Lookup](../azure/data-factory/data-flow-lookup)
+* [Unpivot](../azure/data-factory/data-flow-unpivot)
+* [Aggregate](../azure/data-factory/data-flow-aggregate)
 	* Sum
 	* Minimum
 	* Maximum
@@ -73,7 +73,7 @@ The following mapping methods are supported:
 	* Standard Deviation
 	* Average
 	* Mean
-* [Derived Column](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-derived-column)
+* [Derived Column](../azure/data-factory/data-flow-derived-column)
 	* Trim
 	* Upper
 	* Lower
