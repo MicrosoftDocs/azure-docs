@@ -8,7 +8,7 @@ ms.custom: ignite-fall-2021
 # Monitor and log
 
 ![cloud icon](media/env-icon/cloud.png)  
-Alternatively, check out [Monitor and log the edge](../edge/monitor-log-edge.md).
+Alternatively, check out [Monitor and log on the edge](../edge/monitor-log-edge.md).
 
 ---
 
