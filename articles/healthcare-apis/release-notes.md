@@ -34,21 +34,21 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 |Allow JSON patch in bundles | [JSON patch in bundles](./././azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-in-bundles)|
 |:------------------- | -----------:|
 |Allows for search history bundles with Patch requests. |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
-|Enables JSON patch in bundles using Binary resources |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
-|Added new audit event [OperationName sub-types](./././azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
+|Enabled JSON patch in bundles using Binary resources. |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
+|Added new audit event [OperationName sub-types](./././azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details). | [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
 |Running a reindex job | [Reindex improvements](./././fhir/how-to-run-a-reindex.md)|
 |:------------------- | -----------:|
-|Added [boundaries for reindex](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters.|[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
+|Added [boundaries for reindex](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
 |Updated error message for reindex parameter boundaries.|[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
-|Adds final reindex count check |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
+|Adds final reindex count check. |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
 
 #### **Bug fixes**
 
 |Resolved patch bugs | Description |
 |:------------------- | -----------:|
 |Wider catch for exceptions when applying patch. | [#2192](https://github.com/microsoft/fhir-server/pull/2192)|
-|Fixed history with PATCH in STU3. |[#2177](https://github.com/microsoft/fhir-server/pull/2177) |
+|Fixes history with PATCH in STU3. |[#2177](https://github.com/microsoft/fhir-server/pull/2177) |
 
 |Custom search bugs |Description |
 |:------------------- | -----------:|
@@ -104,8 +104,8 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 |Bug fixes | Description |
 |:------------------- | -----------:|
-|Implemented complete support for |DA, DT, and TM VR types |
-|Implemented fix to |Enable DICOM service to work with workspaces that have names beginning with a letter. |
+|Implemented complete support for: |DA, DT, and TM VR types |
+|Implemented fix to: |Enable DICOM service to work with workspaces that have names beginning with a letter. |
 
 ## Next steps
 
