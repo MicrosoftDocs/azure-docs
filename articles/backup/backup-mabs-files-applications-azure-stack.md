@@ -133,7 +133,7 @@ For information on using Azure Backup Server to protect other workloads, see one
 
 * [About Azure Backup service](./backup-overview.md)
 * [About Azure AD](../active-directory/fundamentals/active-directory-whatis.md)
-* [About Azure Recovery Services Vault](./backup-azure-recovery-services-vault-overview.md)
+* [About Azure Recovery Services vault](./backup-azure-recovery-services-vault-overview.md)
 * [About Azure Storage](,./storage/common/storage-introduction.md)
 * [About Azure Stack Hub](/azure-stack/operator/azure-stack-overview)
 * [Back up SharePoint farm](./backup-mabs-sharepoint-azure-stack.md)
