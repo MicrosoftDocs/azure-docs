@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 11/11/2021
 ms.author: danlep
 ---
 
@@ -26,7 +26,7 @@ The following table lists the options you have for adding domain certificates in
 
 |Option|Description|
 |-|-|
-| Enable a free [managed certificate](#managed-certificate) (preview) | A private certificate that's free of charge and easy to use if you just need to secure your domain in API Management service. |
+| Enable a free [managed TLS certificate](#managed-tls-certificate) (preview) | A certificate that's free of charge and easy to use if you just need to secure your domain in your API Management service. |
 | Import a certificate from Key Vault | Useful if you use [Azure Key Vault](../key-vault/index.yml) to manage your PKCS12 certificates. See [Private certificate requirements](#private-certificate-requirements). |
 | Upload a private certificate | If you already have a private certificate from a third-party provider, you can upload it. See [Private certificate requirements](#private-certificate-requirements). |
 
@@ -42,7 +42,7 @@ The following table lists the options you have for adding domain certificates in
 
     See [Private certificate requirements](#private-certificate-requirements).
 
-- DNS records hosted on a DNS server to map the custom domain name or names to the default domain name of your API Management instance. This topic does not provide instructions on how to host the DNS records. For more information about required records, see [DNS configuration](#dns-configuration), later in this article. 
+- DNS records hosted on a DNS server to map the custom domain name to the default domain name of your API Management instance. This topic does not provide instructions on how to host the DNS records. For more information about required records, see [Configure DNS records](#configure-dns-records), later in this article. 
  
 ## Private certificate requirements
 
@@ -54,20 +54,57 @@ If you choose to upload or import a private certificate to API Management, your 
 * Contains private key at least 2048 bits long
 * Contains all intermediate certificates and the root certificate in the certificate chain.
 
-## Managed certificate (preview)
+## Managed TLS certificate
 
 API Management offers a free, managed TLS certificate for your domain, if you don't wish to purchase and manage your own certificate. The certificate is autorenewed...[details? App Service says "continuously and automatically in six-month increments, 45 days before expiration.
 
-Use of the managed certificate requires [DNS configuration steps](#dns-configuration-for-managed-certificate).
+> [!NOTE]
+> The free, managed TLS certificate is available for all API Management service tiers. It is currently in preview.
 
-#### Limitations
+### Limitations
 
 * Currently can be used only with the Gateway endpoint of your API Management service
 * Not supported in the following Azure regions: France South and South Africa West
 * Currently available only in the Azure cloud
 * Does not support root domain names (for example, `contoso.com`). Requires a fully qualified name such as `api.contoso.com`.
 
-## Use the Azure portal to set a custom domain name
+## Configure DNS records
+* [DNS configuration for private certificate](#dns-configuration-for-private-certificate)
+* [DNS configuration for managed certificate](#dns-configuration-for-managed-certificates)
+
+### DNS configuration for private certificate
+
+When using a private certificate for your custom domain name, you can either:
+
+-   Configure a CNAME-record that points to the endpoint of your configured custom domain name, or
+-   Configure an A-record that points to your API Management gateway IP address.
+
+While CNAME-records (or alias records) and A-records both allow you to associate a domain name with a specific server or service, they work differently. 
+
+#### CNAME or Alias record
+A CNAME-record maps a *specific* domain (such as `contoso.com` or www\.contoso.com) to a canonical domain name. Once created, the CNAME creates an alias for the domain. The CNAME entry will resolve to the IP address of your custom domain service automatically, so if the IP address changes, you do not have to take any action.
+
+> [!NOTE]
+> Some domain registrars only allow you to map subdomains when using a CNAME-record, such as `www.contoso.com`, and not root names, such as `contoso.com`. For more information on CNAME-records, see the documentation provided by your registrar, [the Wikipedia entry on CNAME-record](https://en.wikipedia.org/wiki/CNAME_record), or the [IETF Domain Names - Implementation and Specification](https://tools.ietf.org/html/rfc1035) document.
+
+#### A-record
+An A-record maps a domain, such as `contoso.com` or `www.contoso.com`, *or a wildcard domain*, such as `*.contoso.com`, to an IP address. Since an A-record is mapped to a static IP address, it cannot automatically resolve changes to the IP address. We recommend using the more stable CNAME-record instead of an A-record.
+
+> [!NOTE]
+> Although the API Management instance IP address is static, it may change in a few scenarios. When choosing the DNS configuration method, we recommend using a CNAME-record when configuring custom domain, as it is more stable than an A-record in case the IP changes. Read more in [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) and the [API Management FAQ](./api-management-faq.yml#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services-).
+
+### DNS configuration for managed certificate 
+
+When using the free, managed certificate for API Management, configure the following required DNS records in your DNS zone. In the following example, the custom domain name is `api.contoso.com`. 
+
+1. Create a TXT record
+    1. Get a record identifier by calling the [Get Domain Ownership Identifier](/rest/api/apimanagement/2021-01-01-preview/api-management-service/get-domain-ownership-identifier) REST API. The identifier
+    1. Create a TXT record with the name of your custom domain prefixed by `apimuid`. Example name: `apimuid.api.contoso.com`.
+    1. Assign the value as the domain ownership identifier returned in a previous step.
+1. Create a CNAME record 
+    * Point from your custom domain name (`api.contoso.com`) to your API Management service hostname (for example, `apim-service-name.azure-api.net`).
+
+## Set a custom domain name - portal
 
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
 1. Select **Custom domains**.
@@ -111,7 +148,7 @@ Use of the managed certificate requires [DNS configuration steps](#dns-configura
     > Wildcard domain names, like `*.contoso.com`, are supported in all tiers except the Consumption tier.
 
     > [!TIP]
-    > We recommend using [Azure Key Vault for managing certificates](../key-vault/certificates/about-certificates.md) and setting them to `autorenew`.
+    > When using [Azure Key Vault for managing certificates](../key-vault/certificates/about-certificates.md), set them to `autorenew`.
     >
     > If you use Azure Key Vault to manage the custom domain TLS/SSL certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/createcertificate/createcertificate), not a _secret_.
     >
@@ -120,7 +157,7 @@ Use of the managed certificate requires [DNS configuration steps](#dns-configura
     >* When using Azure portal, all the necessary configuration steps will be completed automatically. 
     >* When using command line tools or management API, these permissions must be granted manually, in two steps:
     >    * Using the **Managed identities** page on your API Management instance, ensure that Managed Identity is enabled and note the principal id on that page. 
-    >    * Give the permission list and get secrets permissions to this principal id on the Azure Key Vault containing the certificate.
+    >    * Give the list and get secrets permissions to this principal id on the Azure Key Vault containing the certificate.
     >
     > If the certificate is set to `autorenew` and your API Management tier has SLA (i.e., in all tiers except the Developer tier), API Management will pick up the latest version automatically, without any downtime to the service.
 
@@ -131,39 +168,7 @@ Use of the managed certificate requires [DNS configuration steps](#dns-configura
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## DNS configuration
 
-### DNS configuration for private certificates
-
-When configuring DNS for your custom domain name, you can either:
-
--   Configure a CNAME-record that points to the endpoint of your configured custom domain name, or
--   Configure an A-record that points to your API Management gateway IP address.
-
-While CNAME-records (or alias records) and A-records both allow you to associate a domain name with a specific server or service, they work differently. 
-
-#### CNAME or Alias record
-A CNAME-record maps a *specific* domain (such as `contoso.com` or www\.contoso.com) to a canonical domain name. Once created, the CNAME creates an alias for the domain. The CNAME entry will resolve to the IP address of your custom domain service automatically, so if the IP address changes, you do not have to take any action.
-
-> [!NOTE]
-> Some domain registrars only allow you to map subdomains when using a CNAME-record, such as www\.contoso.com, and not root names, such as contoso.com. For more information on CNAME-records, see the documentation provided by your registrar, [the Wikipedia entry on CNAME-record](https://en.wikipedia.org/wiki/CNAME_record), or the [IETF Domain Names - Implementation and Specification](https://tools.ietf.org/html/rfc1035) document.
-
-#### A-record
-An A-record maps a domain, such as `contoso.com` or **www\.contoso.com**, *or a wildcard domain*, such as **\*.contoso.com**, to an IP address. Since an A-record is mapped to a static IP address, it cannot automatically resolve changes to the IP address. We recommend using the more stable CNAME-record instead of an A-record.
-
-> [!NOTE]
-> Although the API Management instance IP address is static, it may change in a few scenarios. When choosing the DNS configuration method, we recommend using a CNAME-record when configuring custom domain, as it is more stable than an A-record in case the IP changes. Read more in [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) and the [API Management FAQ](./api-management-faq.yml#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services-).
-
-### DNS configuration for managed certificate 
-
-When using the free, managed certificate for API Management, configure the following required DNS records in your DNS zone. For example purposes, the custom domain name is `api.contoso.com`. 
-
-1. Create a TXT record
-    1. Get a record identifier by calling the [Get Domain Ownership Identifier](/rest/api/apimanagement/2021-01-01-preview/api-management-service/get-domain-ownership-identifier) REST API. The identifier
-    1. Create a TXT record with the name of your custom domain prefixed by `apimuid`. Example name: `apimuid.api.contoso.com`.
-    1. Assign the value as the identifier returned in a previous step.
-1. Create a CNAME record 
-    * Point from your custom domain name (`api.contoso.com`) to your API Management service hostname (for example, `apim-service-name.azure-api.net`).
 
 ## Next steps
 
