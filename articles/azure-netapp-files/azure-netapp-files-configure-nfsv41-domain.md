@@ -1,6 +1,6 @@
 ---
-title: Configure NFSv4.1 default domain for Azure NetApp Files | Microsoft Docs
-description: Describes how to configure the NFS client for using NFSv4.1 with Azure NetApp Files.
+title: Configure NFSv4.1 domain for Azure NetApp Files | Microsoft Docs
+description: Describes how to configure NFSv4.1 domain for using NFSv4.1 with Azure NetApp Files.
 documentationcenter: ''
 author: b-juche
 manager: ''
@@ -12,10 +12,10 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/11/2021
 ms.author: b-juche
 ---
-# Configure NFSv4.1 default domain for Azure NetApp Files
+# Configure NFSv4.1 domain for Azure NetApp Files
 
 NFSv4 introduces the concept of an authentication domain. Azure NetApp Files currently supports root-only user mapping from the service to the NFS client. To use the NFSv4.1 functionality with Azure NetApp Files, you need to update the NFS client.
 
@@ -27,7 +27,7 @@ Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `l
 
 As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default.  This article shows you how to set the `file1` user to `root` by changing the `idmap Domain` setting to `defaultv4iddomain.com`.  
 
-## Steps 
+## Configure NFSv4.1 domain  
 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` to `defaultv4iddomain.com`. 
