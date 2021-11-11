@@ -23,7 +23,7 @@ The [CPU Pressure](chaos-studio-fault-library.md#cpu-pressure), [Physical Memory
 
 ### My AKS Chaos Mesh faults are failing
 
-Before using Chaos Mesh faults against AKS, you must first install Chaos Mesh. Instructions can be found in the [Chaos Mesh faults on AKS tutorial](chaos-studio-tutorial-aks.md#set-up-chaos-mesh-on-your-aks-cluster).
+Before using Chaos Mesh faults against AKS, you must first install Chaos Mesh. Instructions can be found in the [Chaos Mesh faults on AKS tutorial](chaos-studio-tutorial-aks-portal.md#set-up-chaos-mesh-on-your-aks-cluster).
 
 ## Experiment design and creation
 
