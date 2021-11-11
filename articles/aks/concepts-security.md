@@ -25,7 +25,7 @@ This article introduces the core concepts that secure your applications in AKS:
 
 - [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
   - [Build security](#build-security)
-  - [Registry security](#registry-security]
+  - [Registry security](#registry-security)
   - [Cluster security](#cluster-security)
   - [Node security](#node-security)
     - [Compute isolation](#compute-isolation)
@@ -130,7 +130,7 @@ To limit network traffic between pods in your cluster, AKS offers support for [K
 
 ## Application Security
 
-To protect pods running on AKS leverage [Azure Defender for Kubernetes](https://docs.microsoft.com/azure/defender-for-cloud/container-security) to detect and restrict cyber attacks against your applications running in your pods.  Run continual scanning to detect drift in the vulnerability state of your application and implement a "blue/green/canary" process to patch and replace the vulnerable images. 
+To protect pods running on AKS leverage Azure Defender for Kubernetes to detect and restrict cyber attacks against your applications running in your pods.  Run continual scanning to detect drift in the vulnerability state of your application and implement a "blue/green/canary" process to patch and replace the vulnerable images. 
 
 
 ## Kubernetes Secrets
@@ -171,6 +171,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
+[Azure Defender for Kubernetes](https://docs.microsoft.com/azure/defender-for-cloud/container-security)
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md
