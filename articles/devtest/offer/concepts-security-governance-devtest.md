@@ -11,7 +11,7 @@ ms.custom: devtestoffer
 
 # Security within Azure Dev/Test Subscription
 
-Keeping your resources safe is a joint effort between your cloud provider, Azure, and you. Azure Dev/Test Subscriptions and the [Azure Security Center](../../security-center/security-center-introduction.md) provide you with the tools needed to harden your network, secure your services, and make sure you're on top of your security posture.  
+Keeping your resources safe is a joint effort between your cloud provider, Azure, and you. Azure Dev/Test Subscriptions and the [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) provide you with the tools needed to harden your network, secure your services, and make sure you're on top of your security posture.  
 
 Important tools within Azure Dev/Test Subscriptions help you create secure access to your resources:  
 

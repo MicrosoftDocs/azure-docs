@@ -28,7 +28,7 @@ sections:
       - question: |
           Is there security vulnerability scanning for images in ACR?
         answer: |
-          Yes. See the documentation from [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+          Yes. See the documentation from [Microsoft Defender for Cloud](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
           
       - question: |
           How do I configure Kubernetes with Azure Container Registry?

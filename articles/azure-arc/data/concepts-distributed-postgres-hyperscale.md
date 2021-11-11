@@ -1,4 +1,4 @@
---- 
+---
 title: Concepts for distributing data and scaling out with Azure Arc-enabled PostgreSQL Hyperscale server group
 titleSuffix: Azure Arc-enabled data services
 description: Concepts for distributing data with Azure Arc-enabled PostgreSQL Hyperscale server group
@@ -12,7 +12,6 @@ ms.date: 06/02/2021
 ms.topic: how-to
 ---
 
- 
 # Concepts for distributing data with Azure Arc-enabled PostgreSQL Hyperscale server group
 
 This article explains key concepts that are important to benefit the most from Azure Arc-enabled PostgreSQL Hyperscale.
@@ -21,7 +20,7 @@ The articles linked below point to the concepts explained for Azure Database for
 **What is the difference between them?**
 - _Azure Database for PostgreSQL Hyperscale (Citus)_
 
-This is the hyperscale form factor of the Postgres database engine available as database as a service in Azure (PaaS). It is powered by the the Citus extension that enables the Hyperscale experience. In this form factor the service runs in the Microsoft datacenters and is operated by Microsoft.
+This is the hyperscale form factor of the Postgres database engine available as database as a service in Azure (PaaS). It is powered by the Citus extension that enables the Hyperscale experience. In this form factor the service runs in the Microsoft datacenters and is operated by Microsoft.
 
 - _Azure Azure Arc-enabled PostgreSQL Hyperscale_
 
