@@ -15,7 +15,7 @@ Azure Maps now offers two pricing tiers: Gen 1 and Gen 2. The new Gen 2 pricing 
 
 ## Pricing tier targeted customers
 
-See the **pricing tier targeted customers** table below for a better understanding of Gen 1 and Gen 2 pricing tiers.  For more information, see [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/). If you're a current Azure Maps customer, you can learn how to change from Gen 1 to Gen 2 pricing in the [Manage pricing tier](how-to-manage-pricing-tier.md) article.
+See the **pricing tier targeted customers** table below for a better understanding of Gen 1 and Gen 2 pricing tiers.  For more information, see [Azure Maps pricing](aka.ms/CreatorPricing). If you're a current Azure Maps customer, you can learn how to change from Gen 1 to Gen 2 pricing in the [Manage pricing tier](how-to-manage-pricing-tier.md) article.
 
 | Pricing tier  | SKU | Targeted Customers|
 |---------------|:---:| ------------------|
@@ -26,7 +26,7 @@ See the **pricing tier targeted customers** table below for a better understandi
 
 For more information on QPS limits, please refer to [Azure Maps QPS rate limits](azure-maps-qps-rate-limits.md).
 
-For additional pricing information on [Creator for indoor maps](creator-indoor-maps.md), see the *Creator* section in [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/).
+For additional pricing information on [Creator for indoor maps](creator-indoor-maps.md), see the *Creator* section in [Azure Maps pricing](aka.ms/CreatorPricing).
 
 ## Next steps
 

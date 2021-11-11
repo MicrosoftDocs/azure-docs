@@ -29,7 +29,7 @@ The following diagram illustrates the entire workflow.
 To use Creator services, Azure Maps Creator must be created in an Azure Maps account with the Gen 2 pricing tier. For information about how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
 
 > [!TIP]
-> For pricing information see the *Creator* section in [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/).
+> For pricing information see the *Creator* section in [Azure Maps pricing](aka.ms/CreatorPricing).
 
 ## Creator authentication
 
