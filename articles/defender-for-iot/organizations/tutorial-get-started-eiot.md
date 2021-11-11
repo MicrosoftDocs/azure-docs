@@ -17,9 +17,9 @@ Defender for IoT has extended the agentless capabilities to go beyond operationa
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Onboard an Enterprise IoT sensor
 > * Set up a server or Virtual Machine (VM)
 > * Prepare your environment
-> * Setup an Enterprise IoT sensor
 > * Install the sensor
 > * Run the Enterprise IoT sensor installation
 > * Validate your setup
@@ -31,21 +31,49 @@ An Azure subscription is required for this tutorial.
 
 If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you will need to create a new subscription.
+If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you will need to create a new subscription. TO learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
 
-There is a minimum security level needed to access different parts of Azure Defender for Iot. You must have a level of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface.
+There is a minimum security level needed to access different parts of Azure Defender for Iot. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
 
 The following table describes user access permissions to Azure Defender for IoT portal tools:
 
-| Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
+| Permission | Security reader | Security admin | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
 | View details and access software, activation files and threat intelligence packages | ✓ | ✓ | ✓ | ✓ |
 | Onboard a sensor |  | ✓ | ✓ | ✓ |
-| Update pricing |  | ✓ | ✓ | ✓ |
-| Recover password | ✓ | ✓ | ✓ | ✓ |
+| Update pricing |  |  | ✓ | ✓ |
 
-> [!Note]
-> Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
+## Onboard an Enterprise IoT sensor
+
+A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will leverage the Enterprise IoT network and endpoint sensors to gain comprehensive visibility.
+
+**To onboard an Enterprise IoT sensor**:
+
+1. Navigate to the the [Azure portal](https://portal.azure.com#home).
+
+1. Select **Setup EIoT sensor**.
+
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
+
+1. Enter a name for the sensor.
+
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
+
+1. Select a subscription from the drop down menu.
+
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-subscription.png" alt-text="Screenshot of the onboard subscription button."::: **FIX THIS IMAGE**
+
+1. Enter a meaningful site name that will assist you in locating where the sensor is located.
+
+1. Enter a display name.
+
+1. Enter a zone name, if no name is entered the name `default` will be applied.
+
+1. Select **Setup**.
+
+1. Save the command provided to you.
+
+    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an EIoT sensor.":::
 
 ## Set up a server or Virtual Machine (VM)
 
@@ -71,7 +99,7 @@ Before you are able to deploy your Enterprise IoT sensor, you will need to confi
 
     - **VM** - Connect a vNIC to a vSwitch in promiscuous mode.
 
-1. Run the following command to enable the network adapter in promiscuous mode. 
+1. Run the following command to enable the network adapter in promiscuous mode.
 
     ```bash
     ifconfig <monitoring port> up promisc
@@ -87,7 +115,7 @@ Before you are able to deploy your Enterprise IoT sensor, you will need to confi
 
 ## Prepare your environment
 
-Once your environment has been configured, the environment will now have to be prepared.
+The environment will now have to be prepared.
 
 **To prepare the environment**:
 
@@ -112,91 +140,47 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 > [!Note]
 > The Azure public IP range are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
-## Setup an Enterprise IoT sensor
-
-A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will leverage the Enterprise IoT network and endpoint sensors to gain comprehensive visibility.
-
-**To setup an Enterprise IoT sensor**:
-
-1. Navigate to the the [Azure portal](https://portal.azure.com#home).
-
-1. Select **Setup EIoT sensor**.
-
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
-
-1. Enter a name for the sensor.
-
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
-
-1. Select a subscription from the drop down menu.
-
-    If you do not have a subscription you can onboard a subscription by selecting the **Onboard subscription** button.
-
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-subscription.png" alt-text="Screenshot of the onboard subscription button.":::
-
-    To learn more about onboarding a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
-
-1. Enter a site name.
-
-1. Enter a display name.
-
-1. Select **Setup**.
-
-1. Copy the command provided to you.
-
-    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an EIoT sensor.":::
-
-1. Navigate to ????????????, and run the command provided to you.
-
-    **AND THEN WHAT????????????????????????**
-
 ## Install the sensor
 
-You will need to download a package, and move it, and your activation file to the home directory.
+You need to run the command that you saved from the Register an EIoT sensor.
 
 **To install the sensor**:
 
-1. Run the following command to download the installation package to your sensor.
+1. Sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm.
 
-    ```bash
-    wget -O eiot.deb "https://aka.ms/iot-security-enterprise-package-latest"
-    ```
+    :::image type="content" source="media/tutorial-get-started-eiot/terminal.png" alt-text="Screenshot of the MobaXterm terminal screen.":::
 
-1. Update APT using the following command:
+1. Run the command that you saved from the Register an EIoT sensor.
 
-    ```bash
-    sudo apt update
-    ```
+1. When the command is complete, the installation wizard will appear.
 
-1. Install docker.io with the following command:
+1. `What is the name of the monitored interface?` Use the Spacebar to select **ens161**, **ens192**, **ens224**, and **ens225**
 
-    ```bash
-    sudo apt install docker.io 
-    ```
+    :::image type="content" source="media/tutorial-get-started-eiot/monitored-interface.png" alt-text="Screenshot of the select monitor interface selection scree.":::
 
-1. Ensure that traffic monitoring NICs are working.
+1. Select **Ok**.
 
-## Run the Enterprise IoT sensor installation
+1. `Setup proxy server`.
 
-**To run the Enterprise IoT sensor installation**:
+    - If no, select **No**.
 
-1. Navigate to the home directory on the machine.
+    - If yes, select **Yes**.
 
-1. Run the following command:
+1. (Optional) If you are setting up a proxy server.
 
-    ```bash
-    sudo LICENSE_PATH=/home/<user>/<license.zip> apt install -y ./eiot.deb
-    ```
+    1. Enter the proxy server host, and select **Ok**.
 
-1. On the Interface Selection popup screen, set all of the interfaces to **monitor**.
+    1. Enter the proxy server port, and select **Ok**.
 
-1. (Optional) If you are using a proxy, select **Yes**, and enter a server, port, username, and password for the proxy.
+    1. Enter the proxy sever username, and select **Ok**.
 
-1. If you are not using a proxy, select **No**,  and wait for the installation to complete.
+    1. Enter the server password, and select **Ok**.
+
+The installation will now finish.
 
 ## Validate your setup
 
-1. Run the following command to process the sanity of your system.
+1. Wait 1 minute after the installation is completed, and run the following command to process the sanity of your system.
 
     ```bash
     sudo docker ps
@@ -214,7 +198,7 @@ You will need to download a package, and move it, and your activation file to th
 
     - compose_properties_1
 
-1. Monitor port validation with the following command to see which interface is defined to handle port mirroring.
+1. Monitor port validation with the following command to see which interface is defined to handle port mirroring:
 
     ```bash
     sudo docker logs compose_horizon_1
@@ -222,7 +206,7 @@ You will need to download a package, and move it, and your activation file to th
 
     :::image type="content" source="media/tutorial-get-started-eiot/defined-interface.png" alt-text="Run the command to see which interface is defined to handle port monitoring.":::
 
-1. Run the following command to check the traffic D2C sanity
+1. Wait 5 minutes, and run the following command to check the traffic D2C sanity:
 
     ```bash
     sudo docker logs -f compose_attributes-collector_1
@@ -232,13 +216,13 @@ You will need to download a package, and move it, and your activation file to th
 
 ## View your enterprise IoT devices in the EIoT device inventory
 
-Once you have validated your your setup the device inventory will start to populate with all of your devices.
+Once you have validated your your setup the device inventory will start to populate with all of your devices after 15 minutes.
 
 **To view your populated device inventory**:
 
 1. Navigate to the [Azure portal](https://portal.azure.com/#home).
 
-1. Search for and select **Defender for IoT**.
+1. Search for, and select **Defender for IoT**.
 
 1. From the left side toolbar select **Device inventory**.
 
