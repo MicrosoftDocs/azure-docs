@@ -44,13 +44,13 @@ This section describes how to register an Azure SQL Database Managed Instance in
 
 If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](../azure-sql/database/logins-create-manage.md). There are three authentication methods that Purview supports today:
 
-- [System or User-assigned Managed Identity](#managed-identity-to-register)
+- [System or User-assigned managed identity](#system-or-user-assigned-managed-identity-to-register)
 - [Service Principal](#service-principal-to-register)
 - [SQL authentication](#sql-authentication-to-register)
 
-#### Managed Identity to register
+#### System or user-assigned managed identity to register
 
-You can use either your Purview managed identity, or a [User-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) to authenticate. Both options allow you to assign authentication directly to Purview, like you would for any other user, group, or service principal. The Purview Managed identity is created automatically when the account is created. A user-assigned managed identity is a resource that can be created independently, and to create one you can follow our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+You can use either your Purview system managed identity, or a [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) to authenticate. Both options allow you to assign authentication directly to Purview, like you would for any other user, group, or service principal. The Purview system managed identity is created automatically when the account is created. A user-assigned managed identity is a resource that can be created independently, and to create one you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 You can find your managed identity Object ID in the Azure portal by following these steps:
 
