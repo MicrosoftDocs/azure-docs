@@ -11,7 +11,7 @@ ms.author: drskwier
 
 The Azure SQL input binding retrieves data from a database and passes it to the input parameter of the function.
 
-For information on setup and configuration details, see the [overview](./functions-bindings-azuresql.md).
+For information on setup and configuration details, see the [overview](./functions-bindings-azure-sql.md).
 
 <a id="example" name="example"></a>
 
@@ -168,4 +168,4 @@ The Azure SQL binding for Azure Functions does not currently support Python.
 
 ## Next steps
 
-- [Save data to a database (Output binding)](./functions-bindings-azuresql-output.md)
+- [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)

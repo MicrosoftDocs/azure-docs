@@ -11,7 +11,7 @@ ms.author: drskwier
 
 The Azure SQL output binding lets you write to a database.
 
-For information on setup and configuration details, see the [overview](./functions-bindings-azuresql.md).
+For information on setup and configuration details, see the [overview](./functions-bindings-azure-sql.md).
 
 
 <a id="example" name="example"></a>
@@ -167,4 +167,4 @@ The Azure SQL binding for Azure Functions does not currently support Python.
 
 ## Next steps
 
-- [Read data from a database (Input binding)](./functions-bindings-azuresql-input.md)
+- [Read data from a database (Input binding)](./functions-bindings-azure-sql-input.md)
