@@ -35,6 +35,10 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
   The Backup and Restore blade will also include section dedicated to listing your most frequently asked questions, together with answers. This should provide you with answers to most questions about backup directly within the Azure portal. In addition, selecting the question mark icon for FAQs on the top menu provides access to even more related detail.
 
+- **Known issues**
+
+On servers where we have HA and  Geo-redundant backup option enabled, we found an rare issue encountered by a race condition which blocks the restart of the standby server to finish. As a result of this issue, when you failover the  HA enabled Azure database for MySQL - Flexible server MySQL Instance may get stuck in restarting state for a long time. The fix will be deployed to the production in the next deployment cycle.
+
 ## October 2021
 
 - **Thread pools are now available for Azure Database for MySQL – Flexible Server**

@@ -92,7 +92,7 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 5. Click **Review + assign** then **Review + assign**.
 
 ## Run your experiment
-You are now ready to run your experiment. To see the impact, we recommend opening [an Azure Monitor metrics chart](../azure-monitor/essentials/tutorial-metrics-explorer.md) with your virtual machine's CPU pressure in a separate browser tab.
+You are now ready to run your experiment. To see the impact, we recommend opening [an Azure Monitor metrics chart](../azure-monitor/essentials/tutorial-metrics.md) with your virtual machine's CPU pressure in a separate browser tab.
 
 1. In the **Experiments** view, click on your experiment, and click **Start**, then click **OK**.
 ![Starting experiment](images/tutorial-agent-based-start.png)
