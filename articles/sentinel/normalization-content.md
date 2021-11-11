@@ -47,7 +47,7 @@ The following built-in authentication content is supported for ASIM normalizatio
  - [Sign-ins from IPs that attempt sign-ins to disabled accounts (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imSigninAttemptsByIPviaDisabledAccounts.yaml)
 
 
-## <a name="dns"></a>DNS query security content
+## DNS query security content
 
 The following built-in DNS query content is supported for ASIM normalization.
 
