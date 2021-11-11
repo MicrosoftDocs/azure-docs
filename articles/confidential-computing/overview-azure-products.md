@@ -1,13 +1,13 @@
 ---
 title: Azure confidential computing products
 description: Learn about all the confidential computing services that Azure provides
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: overview
 ms.date: 11/04/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: ignite-fall-2021
 ---
 
