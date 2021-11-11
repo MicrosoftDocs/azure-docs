@@ -38,6 +38,9 @@ The following steps provide an overview of managing your API Management service 
 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
+> [!IMPORTANT]
+> This feature is designed to work with API Management services that have a small/medium configuration. Services with large number of configuration elements (APIs, Operations, Schemas etc.) may experience unexpected failures when processing Git commands. If you encounter such failures, please reduce the size of your service configuration and try again. Contact support if you need assistance. 
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Access Git configuration in your service
