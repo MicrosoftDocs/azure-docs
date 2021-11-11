@@ -441,7 +441,7 @@ Utilize cloud resources to record and analyze device failures remotely. Aggregat
 
 **Azure RTOS**: No specific Azure RTOS requirements but consider logging Azure RTOS API return codes to look for specific problems with lower-level protocols (for example,  TLS alert causes, TCP failures) that may indicate problems.
 
-**Application**: Utilize logging libraries and your cloud services client SDK to push error logs to the cloud where they can be stored and analyzed safely without using valuable device storage space. Integration with Azure Security Center would provide this functionality and more.
+**Application**: Utilize logging libraries and your cloud service's client SDK to push error logs to the cloud where they can be stored and analyzed safely without using valuable device storage space. Integration with [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) would provide this functionality and more. Microsoft Defender for IoT provides agent-less monitoring of devices in an IoT solution. Monitoring can be enhanced by including the Microsoft Defender for IoT micro-agent on your device. For more information about integrating with Microsoft Defender for IoT, see the [Runtime security monitoring and threat detection](#runtime-security-monitoring-and-threat-detection) recommendation.
 
 **7 Properties**: Failure Reporting
 
@@ -505,9 +505,9 @@ Connected IoT devices may not have the necessary resources to implement all secu
 
 **Hardware**: No specific hardware features required (other than a network interface).
 
-**Azure RTOS**: Azure RTOS supports Azure Security Center for IoT
+**Azure RTOS**: Azure RTOS supports [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/)
 
-**Application**: The Azure Security Center for IoT module provides a comprehensive security solution for Azure RTOS devices. The module provides security services via a small software agent that is built into your device’s firmware and comes as part of Azure RTOS. The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations that will help to improve the security hygiene of your devices. Whether you are using Azure RTOS in combination with Azure Sphere or not, Azure Security Center for IoT provides an additional layer of security that is built right into the RTOS by default.
+**Application**: The [Microsoft Defender for IOT micro-agent for Azure RTOS](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) provides a comprehensive security solution for Azure RTOS devices. The module provides security services via a small software agent that is built into your device’s firmware and comes as part of Azure RTOS. The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations that will help to improve the security hygiene of your devices. Whether you are using Azure RTOS in combination with Azure Sphere or not, Microsoft Defender for IoT micro-agent provides an additional layer of security that is built right into the RTOS by default.
 
 **7 Properties**: Defense in Depth, Failure Reporting
 
