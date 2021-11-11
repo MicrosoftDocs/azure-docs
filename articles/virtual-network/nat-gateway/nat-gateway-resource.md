@@ -73,7 +73,7 @@ The total number of IP addresses provided by all IP address and prefix resources
 
 When the NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. Specify which subnets use this NAT gateway resource. A NAT gateway isn't able to span more than one virtual network. It isn't required to assign the same NAT gateway to all subnets of a virtual network. Individual subnets can be configured with different NAT gateway resources.
 
-Scenarios that don't use availability zones will be regional (no zone specified). If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy isn't supported. Review NAT [availability zones](#availability-zones).
+Scenarios that don't use availability zones will be regional (no zone specified). If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy isn't supported. 
 
 NAT gateways are defined with a property on a subnet within a virtual network. Flows created by virtual machines on subnet **subnetname** of virtual network **vnetname** will use the NAT gateway. All outbound connectivity will use the IP addresses associated with **natgatewayname** as the source IP address.
 
@@ -85,11 +85,6 @@ For more information on the Azure Resource Manager template used in this example
 ## Design Guidance
 
 Review this section to familiarize yourself with considerations for designing virtual networks with NAT.  
-
-1. [Cost optimization](#cost-optimization)
-1. [Coexistence of inbound and outbound](#coexistence-of-inbound-and-outbound)
-2. [Managing Basic resources](#managing-basic-resources)
-3. [Availability Zones](#availability-zones)
 
 ### Cost optimization
 
@@ -105,9 +100,9 @@ Evaluate if either or both of these approaches are a good fit for your scenario 
 
 NAT gateway is compatible with:
 
- - Standard load balancer
- - Standard public IP
- - Standard public IP prefix
+ - Standard Load balancer
+ - Standard Public IP
+ - Standard Public IP prefix
 
 When developing a new deployment, start with standard SKUs.
 
