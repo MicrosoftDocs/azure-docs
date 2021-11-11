@@ -77,9 +77,9 @@ In order to have access to scan the data source, an authentication method in the
 The following options are supported:
 
 > [!Note]
-> If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
+> If you have firewall enabled for the storage account, you must use managed identity authentication method when setting up a scan.
 
-* **Managed Identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+* **System managed identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
 
 * **User-assigned managed identity** (preview) - Similar to a system-managed identity, a user-assigned managed identity is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
@@ -87,9 +87,9 @@ The following options are supported:
 
 ### Authentication for a scan
 
-#### Using Managed Identity for scanning
+#### Using system or user-Assigned managed identity for scanning
 
-It is important to give your Purview account the permission to scan the ADLS Gen1 data source. You can add the Catalog's Managed identity, or User-assigned managed identity at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
+It is important to give your Purview account the permission to scan the ADLS Gen1 data source. You can add the system managed identity, or user-assigned managed identity at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
 > [!Note]
 > You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
@@ -103,7 +103,7 @@ It is important to give your Purview account the permission to scan the ADLS Gen
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-storage-access.png" alt-text="Screenshot that shows the Data explorer for the storage account":::
 
-1. Choose **Select** and add the _Purview Catalog_ or _[User-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_(preview), that has already been registered in Purview, in the **Select user or group** menu.
+1. Choose **Select** and add the _Azure Purview Name_ (which is the system managed identity) or the _[user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_(preview), that has already been registered in Purview, in the **Select user or group** menu.
 1. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry** in the Add options as shown in the below screenshot. Select **OK**
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Purview account":::
@@ -159,9 +159,9 @@ It is important to give your service principal the permission to scan the ADLS G
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-new-scan.png" alt-text="Screenshot that shows the data source with the new scan icon":::
 
-#### If using Managed Identity
+#### If using system or user-assigned managed identity
 
-Provide a **Name** for the scan, select the **Purview MSI** under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**.
+Provide a **Name** for the scan, select the system or user-assigned managed identity under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**.
 
 :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
