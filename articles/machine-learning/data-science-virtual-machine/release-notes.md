@@ -16,7 +16,7 @@ In this article, learn about Azure Data Science Virtual Machine releases. For a 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
-## 2021-11-04
+## November 4, 2021
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -53,7 +53,7 @@ Main changes:
     * Changed tensorflow-gpu to version 2.6.2
 
 
-## 2021-10-07
+## October 7, 2021
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -71,7 +71,7 @@ Main changes:
  - Improvement of stability and minor bug fixes 
 
 
-## 2021-08-11
+## August 11, 2021
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
@@ -87,7 +87,7 @@ Main changes:
 
 
 
-## 2021-07-12
+## July 12, 2021
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -100,7 +100,7 @@ Main changes:
 - Improvement of stability and minor bug fixes 
 
 
-## 2021-06-22
+## June 22, 2021
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
@@ -112,7 +112,7 @@ Main changes:
 - Fixed a bug where git was not available
 
 
-## 2021-06-01
+## June 1, 2021
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -130,7 +130,7 @@ Main changes are:
 <br/>
 Removed several icons from desktop.
 
-## 2021-05-22
+## May 22, 2021
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
@@ -164,7 +164,7 @@ Removed Firefox, Apache Drill and Microsoft Integration Runtime.
 <br/>
 Dark mode, changed icons on desktop, wallpaper background change.
 
-## 2021-05-12
+## May 12, 2021
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -206,11 +206,11 @@ sudo systemctl start docker
 >
 
 
-## 2020-02-24
+## February 24, 2020
 
 Data Science Virtual Machine images for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview) and [Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) images are now available.
 
-## 2019-10-08
+## October 8, 2019
 
 ### Updates to software on the Windows DSVM
 
@@ -222,4 +222,4 @@ Data Science Virtual Machine images for [Ubuntu 18.04](https://azuremarketplace.
 
 ### Default Browser for Windows updated
 
-Earlier, the default browser was set to Internet Explorer. Users are now prompted to choose a default browser when they first log in.
+Earlier, the default browser was set to Internet Explorer. Users are now prompted to choose a default browser when they first sign in.
