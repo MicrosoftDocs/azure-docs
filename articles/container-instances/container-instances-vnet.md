@@ -119,26 +119,14 @@ For example, when using a YAML file, you can deploy to a virtual network with a 
 * `ipAddress`: The private IP address settings for the container group.
   * `ports`: The ports to open, if any.
   * `protocol`: The protocol (TCP or UDP) for the opened port.
-* `networkProfile`: Network settings for the virtual network and subnet.
-  * `id`: The full Resource Manager resource ID of the `networkProfile`.
+* `subnetIds`: The resource IDs of the subnets to be deployed to
+  * `id`: The resource ID of the subnet
+  * `name`: The name of the subnet
 
-To get the ID of the network profile, run the [az network profile list][az-network-profile-list] command, specifying the name of the resource group that contains your virtual network and delegated subnet.
-
-``` azurecli
-az network profile list --resource-group myResourceGroup \
-  --query [0].id --output tsv
-```
-
-Sample output:
-
-```console
-/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
-```
-
-Once you have the network profile ID, copy the following YAML into a new file named *vnet-deploy-aci.yaml*. Under `networkProfile`, replace the `id` value with ID you just retrieved, then save the file. This YAML creates a container group named *appcontaineryaml* in your virtual network.
+This YAML creates a container group named *appcontaineryaml* in your virtual network.
 
 ```YAML
-apiVersion: '2019-12-01'
+apiVersion: '2021-07-01'
 location: westus
 name: appcontaineryaml
 properties:
@@ -158,10 +146,11 @@ properties:
     ports:
     - protocol: tcp
       port: '80'
-  networkProfile:
-    id: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
   osType: Linux
   restartPolicy: Always
+  subnetIds:
+    - id: <subnet-id>
+      name: default
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
