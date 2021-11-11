@@ -48,7 +48,7 @@ To see the current attributes of a tag, run the following [az acr repository sho
 
 ```azurecli
 az acr repository show \
-    --name myregistry --image image:tag \
+    --name myregistry --image myimage:tag \
     --output jsonc
 ```
 
@@ -58,7 +58,7 @@ To lock the *myrepo/myimage:tag* image in *myregistry*, run the following [az ac
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --write-enabled false
 ```
 
@@ -68,7 +68,7 @@ To lock a *myrepo/myimage* image identified by manifest digest (SHA-256 hash, re
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage@sha256:123456abcdefg \
+    --name myregistry --image myimage@sha256:123456abcdefg \
     --write-enabled false
 ```
 
@@ -78,7 +78,7 @@ To lock the *myrepo/myimage* repository and all images in it, run the following 
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --write-enabled false
 ```
 
@@ -90,7 +90,7 @@ To allow the *myrepo/myimage:tag* image to be updated but not deleted, run the f
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --delete-enabled false --write-enabled true
 ```
 
@@ -100,7 +100,7 @@ The following command sets the *myrepo/myimage* repository so it can't be delete
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --delete-enabled false --write-enabled true
 ```
 
@@ -110,7 +110,7 @@ To prevent read (pull) operations on the *myrepo/myimage:tag* image, run the fol
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --read-enabled false
 ```
 
@@ -118,7 +118,7 @@ To prevent read operations on all images in the *myrepo/myimage* repository, run
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --read-enabled false
 ```
 
@@ -128,7 +128,7 @@ To restore the default behavior of the *myrepo/myimage:tag* image so that it can
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --delete-enabled true --write-enabled true
 ```
 
@@ -136,7 +136,7 @@ To restore the default behavior of the *myrepo/myimage* repository and all image
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --delete-enabled true --write-enabled true
 ```
 
