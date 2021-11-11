@@ -13,7 +13,7 @@ Azure Service Bus is a fully managed enterprise message broker with message queu
 - Coordinating transactional work that requires a high-degree of reliability 
 
 > [!NOTE]
-> For a comparison of Azure messaging services, see [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](compare-messaging-services.md). 
+> For a comparison of Azure messaging services, see [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json). 
 
 ## Overview
 Data is transferred between different applications and services using **messages**. A message is a container decorated with metadata, and contains data. The data can be any kind of information, including structured data encoded with the common formats such as the following ones: JSON, XML, Apache Avro, Plain Text.
