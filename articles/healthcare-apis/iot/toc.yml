@@ -41,7 +41,7 @@ items:
     - name: Use FHIR destination mappings
       href: how-to-use-fhir-mapping-iot.md
     - name: Display Metrics
-      href: iot-metrics-diagnostics-export.md
+      href: iot-display-metrics.md
 
 - name: Resources
   expanded: true

@@ -1,6 +1,6 @@
 ---
-title: Create an experiment that uses an agent-based fault with Azure Chaos Studio
-description: Create an experiment that uses an agent-based fault and configure the chaos agent
+title: Create an experiment that uses an agent-based fault with Azure Chaos Studio with the portal
+description: Create an experiment that uses an agent-based fault and configure the chaos agent with the portal
 author: johnkemnetz
 ms.topic: how-to
 ms.date: 11/01/2021
@@ -9,7 +9,7 @@ ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Create a chaos experiment that uses an agent-based fault to add CPU pressure to a Linux VM
+# Create a chaos experiment that uses an agent-based fault to add CPU pressure to a Linux VM with the Azure portal
 
 You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this guide, you will cause a high CPU event on a Linux virtual machine using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against an application becoming resource-starved.
 
