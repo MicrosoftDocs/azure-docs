@@ -5,7 +5,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 11/20/2021
 ---
 
 # Troubleshoot data loss in Azure Cache for Redis
