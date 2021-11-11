@@ -49,7 +49,7 @@ This article describes how to deploy a highly available SAP HANA system in a sca
 
 In the example configurations and installation commands, the HANA instance is `03` and the HANA system ID is `HN1`. The examples are based on HANA 2.0 SP4 and Red Hat Enterprise Linux (RHEL) for SAP 7.6. 
 
-Some readers will benefit from consulting a variety of SAP notes and resources before proceeding further with the topics in this article. You can find these resources collected in the section, "Additional resources," near the end of this article.
+Some readers will benefit from consulting a variety of SAP notes and resources before proceeding further with the topics in this article. You can find these resources collected in the "Additional resources" section near the end of this article.
 
 ## Overview
 
@@ -105,9 +105,9 @@ In the instructions that follow, we assume that you've already created the resou
 
     1. Go to the virtual machine in the [Azure portal](https://portal.azure.com/#home).  
 
-    1. In the left pane, select **Virtual Machines**. Filter on the virtual machine name (for example, **hana-s1-db1**), and then select the virtual machine.  
+    1. On the left pane, select **Virtual Machines**. Filter on the virtual machine name (for example, **hana-s1-db1**), and then select the virtual machine.  
 
-    1. In the **Overview** pane, select **Stop** to deallocate the virtual machine.  
+    1. On the **Overview** pane, select **Stop** to deallocate the virtual machine.  
 
     1. Select **Networking**, and then attach the network interface. In the **Attach network interface** dropdown list, select the already created network interfaces for the `inter` and `hsr` subnets.  
     
@@ -1013,7 +1013,7 @@ Before proceeding further, make sure you have fully configured a Red Hat high av
 
 To proceed with provisioning your second virtual IP, make sure you have configured Azure Load Balancer as described in [Deploy Azure Load Balancer](#deploy-azure-load-balancer).
 
-For **standard** load balancer, follow these additional steps on the same load balancer that you created in the earlier section.
+For the *standard* load balancer, follow these additional steps on the same load balancer that you created in the earlier section.
 
 1. Create a second front-end IP pool: 
 
@@ -1322,4 +1322,4 @@ For the benefit of readers who might require additional background on the materi
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha].
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure VMs][sap-hana-ha].
