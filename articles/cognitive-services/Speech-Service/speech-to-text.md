@@ -32,8 +32,6 @@ This documentation contains the following article types:
 > Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs, we've created guides to help you migrate to the Speech service.
 > - [Migrate from Bing Speech to the Speech service](how-to-migrate-from-bing-speech.md)
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
-
 ## Get started
 
 See the [quickstart](get-started-speech-to-text.md) to get started with speech-to-text. The service is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text.md#pronunciation-assessment-parameters), and the [Speech CLI](spx-overview.md).

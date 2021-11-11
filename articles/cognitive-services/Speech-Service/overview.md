@@ -36,8 +36,6 @@ The following features are part of the Speech service. Use the links in this tab
 | [Speaker Recognition](speaker-recognition-overview.md) | Speaker verification & identification | The Speaker Recognition service provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker Recognition is used to answer the question “who is speaking?”. | Yes | [Yes](/rest/api/speakerrecognition/) |
 
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
-
 ## Try the Speech service for free
 
 For the following steps, you need both a Microsoft account and an Azure account. If you do not have a Microsoft account, you can sign up for one free of charge at the [Microsoft account portal](https://account.microsoft.com/account). Select **Sign in with Microsoft** and then, when asked to sign in, select **Create a Microsoft account**. Follow the steps to create and verify your new Microsoft account.
