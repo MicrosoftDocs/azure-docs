@@ -115,49 +115,49 @@
     href: production-checklist.md
 - name: How-to guides
   items:
-  - name: Create an IoT Edge device
+  - name: Install and provision IoT Edge
     items:
     - name: Create an IoT Edge device
       href: how-to-create-iot-edge-device.md
-    - name: Linux
+    - name: Linux containers on Linux hosts
       items:
       - name: Provision a single device
         items:
-        - name: Symmetric key attestation
-          href: how-to-provision-single-device-linux-symmetric.md
         - name: X.509 certificate attestation
           href: how-to-provision-single-device-linux-x509.md
+        - name: Symmetric key attestation
+          href: how-to-provision-single-device-linux-symmetric.md
       - name: Provision devices at scale
         items:
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-linux-symmetric.md
         - name: X.509 certificate attestation
           href: how-to-provision-devices-at-scale-linux-x509.md
         - name: TPM attestation
           href: how-to-provision-devices-at-scale-linux-tpm.md    
-    - name: Windows with Linux containers
+        - name: Symmetric key attestation
+          href: how-to-provision-devices-at-scale-linux-symmetric.md
+    - name: Linux containers on Windows hosts
       items:
       - name: Provision a single device
         items:
-        - name: Symmetric key attestation
-          href: how-to-provision-single-device-linux-on-windows-symmetric.md
         - name: X.509 certificate attestation
           href: how-to-provision-single-device-linux-on-windows-x509.md
+        - name: Symmetric key attestation
+          href: how-to-provision-single-device-linux-on-windows-symmetric.md
       - name: Provision devices at scale
         items:
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
         - name: X.509 certificate attestation
           href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
         - name: TPM attestation
           href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
+        - name: Symmetric key attestation
+          href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
       - name: Configure nested virtualization for Windows VMs
         href: nested-virtualization.md
       - name: Create virtual switch
         href: how-to-create-virtual-switch.md
       - name: Configure GPU acceleration
         href: gpu-acceleration.md
-    - name: Windows with Windows containers
+    - name: Windows containers on Windows hosts
       items:
       - name: Provision a single device
         items:
