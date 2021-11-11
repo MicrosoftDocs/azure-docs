@@ -33,7 +33,7 @@ By default, this schedule applies to all VMs in the lab. To remove this setting 
 
 ## Configure lab auto shutdown policy
 
-As a lab owner, you can control cost and minimize waste in your labs by managing auto shutdown policy settings for your lab. To see how to set all lab policies, see [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md). 
+As a lab owner, you can control cost and minimize waste in your labs by managing auto shutdown policy settings for your lab. To see how to set all lab policies, see [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).
 
 > [!IMPORTANT]
 > Auto shutdown policy changes apply only to new VMs created in the lab, not to the already existing VMs.
@@ -212,15 +212,15 @@ Now, integrate with your email client.
 
    ![Screenshot that shows the Send an email V2 option.](media/devtest-lab-auto-shutdown/select-send-email.png)
 
-1. In the **Send an email (V2)** form, fill in the **To**, **Subject**, and **Body** fields. 
+1. In the **Send an email (V2)** form, fill in the **To**, **Subject**, and **Body** fields.
 
-   Select **Add dynamic content** to automatically populate the notification with values that the app and connectors use. For example, for **To**, select **owner**. Populate **Subject** with **vmName** and **labName**. Add content like **skipUrl** and **delayUrl**s to the message body.
+   Select **Add dynamic content** to automatically populate the notification with values that the app and connectors use. For example, for **To**, select **owner**. Populate **Subject** with **vmName** and **labName**. Add content like **skipUrl** and **delayUrl** values to the message body.
 
    ![Screenshot that shows an example notification email.](media/devtest-lab-auto-shutdown/email-options.png)
 
 1. Select **Save** on the toolbar.
 
-Now you can copy the webhook URL. Select the **When a HTTP request is received** step, and then select the copy button to copy the HTTP POST URL to the clipboard. Paste this webhook URL into the auto shutdown notification settings.
+Now you can copy the webhook URL. Select the **When an HTTP request is received** step, and then select the copy button to copy the HTTP POST URL to the clipboard. Paste this webhook URL into the auto shutdown notification settings.
 
 ![Screenshot that shows copying the webhook URL.](media/devtest-lab-auto-shutdown/webhook-url.png)
 

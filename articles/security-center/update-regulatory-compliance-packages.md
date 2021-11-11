@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 11/09/2021
 ms.author: memildin
 
 ---
@@ -96,7 +96,7 @@ To add standards to your dashboard:
 
 ## Remove a standard from your dashboard
 
-If any of the supplied regulatory standards isn't relevant to your organization, it's a simple process to remove them from the UI. This lets you further customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you.
+You can continue to customize the regulatory compliance dashboard, to focus only on the standards that are applicable to you, by removing any of the supplied regulatory standards that aren't relevant to your organization.
 
 To remove a standard:
 
