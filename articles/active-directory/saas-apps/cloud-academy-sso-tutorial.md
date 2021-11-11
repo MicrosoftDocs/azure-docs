@@ -142,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 1. Perform the following steps in the below page:
 
-    ![Screenshot that shows the Inegrations in additional settings.](./media/cloud-academy-sso-tutorial/additional-settings.png)
+    ![Screenshot that shows the Integrations in additional settings.](./media/cloud-academy-sso-tutorial/additional-settings.png)
 
     a. In the **SAML Attributes Mapping** section, fill the required fields with the source attribute values.
 
