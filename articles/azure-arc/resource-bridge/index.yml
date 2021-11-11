@@ -18,7 +18,6 @@ landingContent:
         links:
           - text: What is Azure Arc resource bridge (preview)?
             url: overview.md
-
   - title: Manage Azure Arc resource bridge (preview)
     linkLists:
       - linkListType: how-to-guide
