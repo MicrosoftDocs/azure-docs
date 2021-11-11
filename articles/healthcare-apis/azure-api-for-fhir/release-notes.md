@@ -35,7 +35,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 | :----------------------------------- | ------: |
 |Added new audit [OperationName subtypes](././../azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details).| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
-|[Reindex improvements](how-to-run-a-reindex.md): | Description|
+|[Reindex improvements](how-to-run-a-reindex.md) | Description|
 | :----------------------------------- | ------: |
 |Added [boundaries for reindex](how-to-run-a-reindex.md) parameters. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
 |Update error message for reindex parameter boundaries. |[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
@@ -70,7 +70,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 |Bug fixes| Description|
 | :-----------------------------------| ------: |
-|Fixed link to the IoT connector Azure documentation|Broken  link in the Azure API for FHIR portal. |
+|Fixed broken link.| Updated link to the IoT connector Azure documentation in the Azure API for FHIR portal. |
 
 
 ## October 2021
