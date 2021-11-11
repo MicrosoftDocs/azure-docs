@@ -1,6 +1,6 @@
 ---
-title: Use an Azure Sentinel watchlist and playbook to inform owners of alerts
-description: Learn how to create an Azure Sentinel watchlist and playbook based on an Azure Defender incident creation rule to inform resource owners of security alerts.
+title: Use a Microsoft Sentinel watchlist and playbook to inform owners of alerts
+description: Learn how to create a Microsoft Sentinel watchlist and playbook based on a Microsoft Defender for Cloud incident creation rule to inform resource owners of security alerts.
 author: batamig
 ms.author: bagol
 manager: rkarlin
@@ -10,29 +10,31 @@ ms.topic: how-to
 ms.date: 09/20/2021
 ---
 
-# Use an Azure Sentinel watchlist and playbook to inform owners of alerts
+# Use a Microsoft Sentinel watchlist and playbook to inform owners of alerts
 
-Azure Security Center alerts inform the Security Operations Center (SOC) about possible security attacks on Azure resources. If the SOC doesn't have access permissions to a potentially compromised resource, they need to contact the resource owner during alert investigation to:
+[Microsoft Defender for Cloud alerts](/azure/defender-for-cloud/defender-for-cloud-introduction) inform the Security Operations Center (SOC) about possible security attacks on Azure resources.
 
-- Find out whether they're familiar with the detected activity in their resource.
-- Ask them to take mitigation steps on their resource.
- 
-Rather than manually find the relevant contact and reach them every time a new alert occurs, you can easily automate this process by using the Azure Sentinel watchlists feature with a playbook. For simplicity, this article uses the subscription owner level, but you can implement this solution for any specified resource owner.
+If the SOC doesn't have access permissions to a potentially compromised resource, they need to contact the resource owner during alert investigation to find out whether they're familiar with the detected activity in their resource and ask them to take mitigation steps on their resource.
+
+Rather than manually finding the relevant contact and reaching out to them each time a new alert occurs, this article describe show to use Microsoft Sentinel watchlists and a playbook to make that contact automatically. For the sake of simplicity, this article uses the subscription owner level, but you can implement this solution for any specified resource owner.
 
 > [!NOTE]
-> This playbook uses the Azure Sentinel incident trigger. You can implement a similar solution by creating scheduled alerts with Azure Security Center, and then using the alert trigger.
+> The playbook described in this article uses the Microsoft Sentinel incident trigger. You can implement a similar solution by creating scheduled alerts with Microsoft Defender for Cloud, and then using the alert trigger.
+>
 
-## Solution summary
+## Process summary
 
-1. An Azure Sentinel watchlist maps each subscription in the organization to the owner and their contact email address.
-1. A [Watchlists-InformSubowner-IncidentTrigger](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Watchlist-InformSubowner-IncidentTrigger) playbook is attached to a Security Center Defender incident creation rule. Every new instance of the Defender alert that flows to Azure Sentinel creates an Azure Sentinel incident.
+The process described in this article includes the following steps:
+
+1. A Microsoft Sentinel watchlist maps each subscription in the organization to its owner and their contact email address.
+1. A [Watchlists-InformSubowner-IncidentTrigger](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Watchlist-InformSubowner-IncidentTrigger) playbook is attached to a Security Center Defender incident creation rule. Every new instance of the Defender alert that flows to Microsoft Sentinel creates a Microsoft Sentinel incident.
 1. The playbook then triggers, receiving the incident with the contained alert as input.
 1. The playbook queries the watchlist and finds the relevant resource's subscription owner details.
 1. The playbook sends the subscription owner a Teams message and email with details about the potential resource compromise.
 
 ## Prerequisites
 
-- A user or registered application with Azure Sentinel Contributor role to use with the Azure Sentinel connector to Azure Logic Apps
+- A user or registered application with Microsoft Sentinel Contributor role to use with the Microsoft Sentinel connector to Azure Logic Apps
 - The Security Center Defender data connector and incident creation rule enabled
 - A user to authenticate to Microsoft Teams, and a user to authenticate to Office 365 Outlook
 
@@ -44,15 +46,15 @@ The following image shows the [Watchlists-InformSubowner-IncidentTrigger](https:
 
 The playbook runs the following steps:
 
-1. **When Azure Sentinel incident creation rule was triggered**, the playbook receives the created incident as input.
+1. **When Microsoft Sentinel incident creation rule was triggered**, the playbook receives the created incident as input.
 
 1. **For each Alert** in the incident, probably one alert, the playbook does the following steps:
 
-   1. **Filter array to get AzureResource identifier**. An Azure Defender alert might have two kinds of identifiers: `AzureResource` or resource ID shown in Log Analytics, and Log Analytics information about the workspace that stores the alerts. This action returns an array of just the AzureResource identifiers for later use.
+   1. **Filter array to get AzureResource identifier**. A Microsoft Defender for Cloud alert might have two kinds of identifiers: `AzureResource` or resource ID shown in Log Analytics, and Log Analytics information about the workspace that stores the alerts. This action returns an array of just the AzureResource identifiers for later use.
    
    1. **Parse Json to get subscriptionId**. This step gets the Subscription ID from the Additional Data of the Security Center alert.
    
-   1. **Run query and list results - Get Watchlist**. The Azure Monitor Log Analytics connector gets the watchlist items. **Subscription**, **Resource Group**, and **Resource Name** are the Azure Sentinel workspace details where the watchlist is located. Use the `project` argument to specify which fields are relevant for your use.
+   1. **Run query and list results - Get Watchlist**. The Azure Monitor Log Analytics connector gets the watchlist items. **Subscription**, **Resource Group**, and **Resource Name** are the Microsoft Sentinel workspace details where the watchlist is located. Use the `project` argument to specify which fields are relevant for your use.
       
       ![Image of the Run query and list results playbook task.](media/inform-owner-playbook/run-query.png)
    
@@ -86,13 +88,13 @@ To create and upload the watchlist:
    
 1. Upload the table.
 
-   1. In Azure Sentinel, go to **Watchlist** and select **Add new**.
+   1. In Microsoft Sentinel, go to **Watchlist** and select **Add new**.
       
-      ![Image that shows adding a watchlist in Azure Sentinel.](media/inform-owner-playbook/watchlist.png)
+      ![Image that shows adding a watchlist in Microsoft Sentinel.](media/inform-owner-playbook/watchlist.png)
    
    1. Fill in the required details. The **Watchlist Alias** is used to query this watchlist in the playbook query step.
       
-      ![Image that shows the Watchlist Wizard in Azure Sentinel.](media/inform-owner-playbook/watchlist-wizard.png)
+      ![Image that shows the Watchlist Wizard in Microsoft Sentinel.](media/inform-owner-playbook/watchlist-wizard.png)
       
    1. Upload the CSV file.
       
@@ -104,7 +106,7 @@ To create and upload the watchlist:
 
 To deploy the playbook:
 
-1. Open the [Watchlists-InformSubowner-IncidentTrigger playbook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Watchlist-InformSubowner-IncidentTrigger) in the Azure Sentinel Playbooks repository.
+1. Open the [Watchlists-InformSubowner-IncidentTrigger playbook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Watchlist-InformSubowner-IncidentTrigger) in the Microsoft Sentinel Playbooks repository.
    
 1. Scroll down and select the **Deploy to Azure** or **Deploy to Azure Gov** button, depending on your needs.
 
@@ -125,9 +127,9 @@ To deploy the playbook:
 
 ## Next steps
 
-- [Azure Sentinel Logic Apps connector](/connectors/azuresentinel)
+- [Microsoft Sentinel Logic Apps connector](/connectors/azuresentinel)
 - [Microsoft Teams Logic Apps connector](/connectors/teams/)
 - [Office 365 Outlook Logic Apps connector](/connectors/office365)
-- [Create incidents from alerts in Azure Sentinel](create-incidents-from-alerts.md)
-- [Watchlists-InformSubowner-IncidentTrigger playbook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Watchlist-InformSubowner-IncidentTrigger) in the Azure Sentinel Playbooks repository
+- [Create incidents from alerts in Microsoft Sentinel](create-incidents-from-alerts.md)
+- [Watchlists-InformSubowner-IncidentTrigger playbook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Watchlist-InformSubowner-IncidentTrigger) in the Microsoft Sentinel Playbooks repository
 
