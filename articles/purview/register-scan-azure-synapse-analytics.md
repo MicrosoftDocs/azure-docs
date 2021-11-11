@@ -45,7 +45,7 @@ This section describes how to register dedicated SQL pools in Azure Purview usin
 
 There are three ways to set up authentication:
 
-- [System or User-assigned managed identity](#system-or-user-assgined-managed-identity-to-register) (Recommended)
+- [System or User-assigned managed identity](#system-or-user-assigned-managed-identity-to-register) (Recommended)
 - [Service Principal](#service-principal-to-register)
 - [SQL authentication](#sql-authentication-to-register)
 
