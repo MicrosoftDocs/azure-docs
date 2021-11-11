@@ -23,34 +23,34 @@ New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/
 Version: 21.11.04
 
 Main changes:
-* changed .Net Framework to version 3.1.414
-* changed Azcopy to version 10.13.0
-* changed Azure Cli to version 2.30.0
-* changed CUDA to version 11.5
-* changed Docker to version 20.10.10
-* changed Intellijidea to version 2021.2.3
-* changed NVIDIA Drivers to version 495.29.05
-* changed NVIDIA SMI to version 495.29.05
-* changed Nodejs to version v16.13.0
-* changed Pycharm to version 2021.2.3
-* changed VS Code to version 1.61.2
-* conda
+* Changed .NET Framework to version 3.1.414
+* Changed Azcopy to version 10.13.0
+* Changed Azure CLI to version 2.30.0
+* Changed CUDA to version 11.5
+* Changed Docker to version 20.10.10
+* Changed Intellijidea to version 2021.2.3
+* Changed NVIDIA Drivers to version 495.29.05
+* Changed NVIDIA SMI to version 495.29.05
+* Changed Nodejs to version v16.13.0
+* Changed Pycharm to version 2021.2.3
+* Changed VS Code to version 1.61.2
+* Conda
   * *azureml_py36_automl*
-    * changed azureml-core to version 1.35.0
+    * Changed azureml-core to version 1.35.0
   * *py38_default*
-    * changed Jupyter Lab / jupyterlab to version 3.2.1
-    * changed Jupyter Notebook / notebook to version 6.4.5
-    * changed Jupyter Server / jupyter_server to version 1.11.2
-    * changed PyTorch Profiler TensorBoard Plugin / torch-tb-profiler to version 0.3.1
-    * changed azure-core to version 1.19.1
-    * changed matplotlib to version 3.4.3
-    * changed mkl to version 2021.4.0
-    * changed onnx to version 1.10.2
-    * changed opencv-python to version 4.5.4.58
-    * changed pandas to version 1.3.4
-    * changed pytorch to version 1.10.0
-    * changed scikit-learn to version 1.0.1
-    * changed tensorflow-gpu to version 2.6.2
+    * Changed Jupyter Lab / jupyterlab to version 3.2.1
+    * Changed Jupyter Notebook / notebook to version 6.4.5
+    * Changed Jupyter Server / jupyter_server to version 1.11.2
+    * Changed PyTorch Profiler TensorBoard Plugin / torch-tb-profiler to version 0.3.1
+    * Changed azure-core to version 1.19.1
+    * Changed matplotlib to version 3.4.3
+    * Changed mkl to version 2021.4.0
+    * Changed onnx to version 1.10.2
+    * Changed opencv-python to version 4.5.4.58
+    * Changed pandas to version 1.3.4
+    * Changed pytorch to version 1.10.0
+    * Changed scikit-learn to version 1.0.1
+    * Changed tensorflow-gpu to version 2.6.2
 
 
 ## 2021-10-07
@@ -60,14 +60,14 @@ New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/
 Version: 21.10.07
 
 Main changes:
- - changed pytorch to version 1.9.1
- - changed Docker to version 20.10.9
- - changed Intellijidea to version 2021.2.2
- - changed Nodejs to version v14.18.0
- - changed Pycharm to version 2021.2.2
- - changed VS Code to version 1.60.2
- - fixed AutoML environment (azureml_py36_automl)
- - fixed Azure Storage Explorer stability
+ - Changed pytorch to version 1.9.1
+ - Changed Docker to version 20.10.9
+ - Changed Intellijidea to version 2021.2.2
+ - Changed Nodejs to version v14.18.0
+ - Changed Pycharm to version 2021.2.2
+ - Changed VS Code to version 1.60.2
+ - Fixed AutoML environment (azureml_py36_automl)
+ - Fixed Azure Storage Explorer stability
  - Improvement of stability and minor bug fixes 
 
 
