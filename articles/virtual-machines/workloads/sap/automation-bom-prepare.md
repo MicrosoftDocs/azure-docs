@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 
 The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). The BoM helps configure your SAP systems. 
 
-The SAP Deployment Automation GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/sap-hana/tree/alfa/deploy/ansible/BOM-catalog) that you can use to get started. It is also possible to create BoMs for other SAP Applications and databases. 
+The SAP Deployment Automation GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/sap-hana/tree/main/deploy/ansible/BOM-catalog) that you can use to get started. It is also possible to create BoMs for other SAP Applications and databases. 
 
 If you want to generate a BoM that includes permalinks, [follow the steps for creating this type of BoM](#permalinks).
  
@@ -36,6 +36,63 @@ If you want to generate a BoM that includes permalinks, [follow the steps for cr
 - An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An SAP account with permissions to work with the database you want to use.
 - A system that runs Linux-type commands for [validating the BoM](#validate-bom). Install the commands `yamllint` and `ansible-lint` on the system.
+
+## Scripted creation process
+
+This process automates the same steps as the [manual BoM creation process](#manual-creation-process). Review the [script limitations](#script-limitations) before using this process.
+
+1. Navigate to your stack files folder.
+
+    ```bash
+    cd stackfiles
+    ```
+
+1. Run the BoM generation script. Replace the example path with the correct path to your utilities folder. For example:
+
+    ```bash
+    cd ~/Azure_SAP_Automated_Deployment/deploy/scripts/generate_bom.sh >../bom.yml
+    ```
+
+1. For the product parameter (`product`), enter the SAP product name. For example, `SAP_S4HANA_1809_SP4`. If you don't enter a value, the script attempts to determine the name from the stack XML file.
+
+1. Open the generated `bom.yml` file for review.
+
+1. Review the templates section (`templates`). Make sure the `file` and `override_target_location` values are correct. If necessary, edit and comment out those lines. For example:
+
+    ```yml
+    templates:
+      # - name:     "S4HANA_2020_ISS_v001 ini file"
+      #   file:     S4HANA_2020_ISS_v001.inifile.params
+      #   override_target_location: "{{ target_media_location }}/config"
+    ```
+
+1. Review the stack files section (`stackfiles`). Make sure the item names and files are correct. If necessary, edit those lines.
+
+## Script limitations
+
+The [scripted BoM creation process](#scripted-creation-process) has the following limitations.
+
+The scripting has a hard-coded dependency on HANA2. Edit your BoM file manually to match the required dependency name. For example:
+
+```yml
+dependencies:
+  - name: "HANA2"
+```
+
+There are no defaults for the media parameters `override_target_filename:`, `override_target_location`, and `version:`. Edit your BoM file manually to change these parameters. For example:
+
+```yml
+   - name:     SAPCAR
+     archive:  SAPCAR_1320-80000935.EXE
+     override_target_filename: SAPCAR.EXE
+
+   - name: "SWPM20SP07"
+     archive: "SWPM20SP07_2-80003424.SAR"
+     override_target_filename: SWPM.SAR
+     sapurl: "https://softwaredownloads.sap.com/file/0020000001812632020"
+```
+
+The script only generates entries for media files that the SAP Maintenance Planner identifies. This limitation occurs because it processes the stack `.xsl` file. If you add any files to your download basket separately, such as through SAP Launchpad, you must [add those files to the BoM manually](#manual-creation-process).
 
 ## Manual creation process
 
@@ -159,65 +216,6 @@ To generate a BoM with permalinks:
       archive: "igshelper_17-10010245.sar"
       sapurl: "https://softwaredownloads.sap.com/file/0020000000703122018"
     ```
-## Scripted creation process
-
-This process automates the same steps as the [manual BoM creation process](#manual-creation-process). Review the [script limitations](#script-limitations) before using this process.
-
-1. Navigate to your stack files folder.
-
-    ```bash
-    cd stackfiles
-    ```
-
-1. Run the BoM generation script. Replace the example path with the correct path to your utilities folder. For example:
-
-    ```bash
-    /path/to/util/generate_bom.sh >../bom.yml
-    ```
-
-1. For the storage account path parameter (`archive_location`), enter the path to your Azure storage account. For example, `https://<your-storage-account>.file.core.windows.net/sapbits/archives`.
-
-1. For the product parameter (`product`), enter the SAP product name. For example, `SAP_S4HANA_1809_SP4`. If you don't enter a value, the script attempts to determine the name from the stack XML file.
-
-1. Open the generated `bom.yml` file for review.
-
-1. Review the templates section (`templates`). Make sure the `file` and `override_target_location` values are correct. If necessary, edit and comment out those lines. For example:
-
-    ```yml
-    templates:
-      # - name:     "S4HANA_2020_ISS_v001 ini file"
-      #   file:     S4HANA_2020_ISS_v001.inifile.params
-      #   override_target_location: "{{ target_media_location }}/config"
-    ```
-
-1. Review the stack files section (`stackfiles`). Make sure the item names and files are correct. If necessary, edit those lines.
-
-## Script limitations
-
-The [scripted BoM creation process](#scripted-creation-process) has the following limitations.
-
-The scripting has a hard-coded dependency on HANA2. Edit your BoM file manually to match the required dependency name. For example:
-
-```yml
-dependencies:
-  - name: "HANA2"
-```
-
-There are no defaults for the media parameters `override_target_filename:`, `override_target_location`, and `version:`. Edit your BoM file manually to change these parameters. For example:
-
-```yml
-   - name:     SAPCAR
-     archive:  SAPCAR_1320-80000935.EXE
-     override_target_filename: SAPCAR.EXE
-
-   - name: "SWPM20SP07"
-     archive: "SWPM20SP07_2-80003424.SAR"
-     override_target_filename: SWPM.SAR
-     sapurl: "https://softwaredownloads.sap.com/file/0020000001812632020"
-```
-
-The script only generates entries for media files that the SAP Maintenance Planner identifies. This limitation occurs because it processes the stack `.xsl` file. If you add any files to your download basket separately, such as through SAP Launchpad, you must [add those files to the BoM manually](#manual-creation-process).
-
 ## Example BoM file
 
 The following sample is a small part of an example BoM file for S/4HANA 1909 SP2. 
@@ -297,12 +295,11 @@ stackfiles:
 
 You can validate your BoM structure from any OS that runs Linux-type commands. For Windows, use Windows Subsystem for Linux (WSL). Another option is to run the validation from your deployer if there's a copy of the BoM file there.
 
-1. On your OS, go to the directory `util`.
 
-1. Run the validation script `check_bom.sh` with your BoM file's full location path. For example:
+1. Run the validation script `check_bom.sh` from the directory containing your BoM. For example:
 
     ```bash
-    /check_bom.sh ../documentation/ansible/system-design-deployment/examples/S4HANA_2020_ISS_v001/bom.yml
+    cd ~/Azure_SAP_Automated_Deployment/deploy/scripts/check_bom.sh bom.yml
     ```
 
 1. Review the output. 
@@ -335,7 +332,7 @@ An unsuccessful validation contains error information. For example:
 ... bom structure [errors]
 ```
 
-## Use BoM
+## Upload your BoM
 
 To use the BoM with permalinks:
 

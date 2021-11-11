@@ -1,6 +1,6 @@
 ---
 title: Generate Application Database templates for automation
-description: How to generate SAP Application Database (SAP DB) templates for use with the deployment automation framework.
+description: How to generate SAP Application templates for use with the deployment automation framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Generate SAP Application templates for automation
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). Before you can deploy a system using a custom BoM, you need to also create a template for the database. This guide covers SAP Application templates. There's also a [guide for SAP HANA templates](automation-bom-templates-hana.md).
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM) to define the SAP Application. Before you can deploy a system using a custom BoM, you need to also create the templates for the ini-files used in the unattended SAP installation. This guide covers how to create the application templates for an SAP/S4 deployment. The process is the same for the other SAP applications.
 
 ## Prerequisites
 
@@ -76,15 +76,7 @@ To generate your unattended installation parameter file for ASCS:
 1. Sign in to your ASCS VM as the root user through your command-line interface (CLI).
 
 1. Run the command `hostname` to get the host name of the VM from which you're running the installation. Note both the unique hostname (where `<example-vm-hostname>` is in the example output), and the full URL for the GUI.
-    
-    ```output
-    Connecting to the ASCS VM to launch
-    ********************************************************************************
-    Open your browser and paste the following URL address to access the GUI
-    https://<example-VM-hostname>.internal.cloudapp.net:4237/sapinst/docs/index.html
-    Logon users: [root]
-    ********************************************************************************
-    ```
+   
 
 1. [Check that you have all necessary media and tools installed on your ASCS VM](#check-media-and-tools).
 
@@ -95,11 +87,23 @@ To generate your unattended installation parameter file for ASCS:
     1. Replace `<XML-stack-file-path>` with the XML stack file path that you created. For example, `/usr/sap/install/config/MP_STACK_S4_2020_v001.xml`.
 
     ```bash
-    /usr/sap/install/SWPM/sapinst                                         \
-    SAPINST_XML_FILE=<XML-stack-file-path>.xml    \
+    /usr/sap/install/SWPM/sapinst                      \
+    SAPINST_XML_FILE=<XML-stack-file-path>.xml         \
     SAPINST_USE_HOSTNAME=<target-VM-hostname>
+    SAPINST_START_GUISERVER=true \
+    SAPINST_STOP_AFTER_DIALOG_PHASE=true 
     
     ```
+
+    ```output
+    Connecting to the ASCS VM to launch
+    ********************************************************************************
+    Open your browser and paste the following URL address to access the GUI
+    https://<example-VM-hostname>.internal.cloudapp.net:4237/sapinst/docs/index.html
+    Logon users: [root]
+    ********************************************************************************
+    ```
+
 
 1. Open your browser and visit the URL for the GUI that you previously obtained.
 
@@ -919,7 +923,3 @@ Then, upload the new BoM file to your SAP Library.
 
 1. Select **Upload**.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Generate HANA templates for automation](automation-bom-templates-hana.md)

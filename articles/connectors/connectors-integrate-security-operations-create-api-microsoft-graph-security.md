@@ -13,7 +13,7 @@ tags: connectors
 
 # Improve threat protection by integrating security operations with Microsoft Graph Security & Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Graph Security](/graph/security-concept-overview) connector, you can improve how your app detects, protects, and responds to threats by creating automated workflows for integrating Microsoft security products, services, and partners. For example, you can create [Azure Security Center playbooks](../security-center/workflow-automation.md) that monitor and manage Microsoft Graph Security entities, such as alerts. Here are some scenarios that are supported by the Microsoft Graph Security connector:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Graph Security](/graph/security-concept-overview) connector, you can improve how your app detects, protects, and responds to threats by creating automated workflows for integrating Microsoft security products, services, and partners. For example, you can create [Microsoft Defender for Cloud playbooks](../security-center/workflow-automation.md) that monitor and manage Microsoft Graph Security entities, such as alerts. Here are some scenarios that are supported by the Microsoft Graph Security connector:
 
 * Get alerts based on queries or by alert ID. For example, you can get a list that includes high severity alerts.
 
@@ -115,8 +115,8 @@ For more information about the queries you can use with this connector, see the 
 
 | Action | Description |
 |--------|-------------|
-| **Get alerts** | Get alerts filtered based on one or more [alert properties](/graph/api/resources/alert), for example, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. | 
-| **Get alert by ID** | Get a specific alert based on the alert ID. | 
+| **Get alerts** | Get alerts filtered based on one or more [alert properties](/graph/api/resources/alert), for example, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. |
+| **Get alert by ID** | Get a specific alert based on the alert ID. |
 | **Update alert** | Update a specific alert based on the alert ID. To make sure you pass the required and editable properties in your request, see the [editable properties for alerts](/graph/api/alert-update). For example, to assign an alert to a security analyst so they can investigate, you can update the alert's **Assigned to** property. |
 |||
 
