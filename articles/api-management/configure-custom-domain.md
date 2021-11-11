@@ -48,7 +48,7 @@ The following table lists the options you have for adding domain certificates in
 
 [Copied from App Service docs. Do any/all apply for APIM?]
 
-If you choose to upload or import a private certificate to API Management, your certificate must meet the following requirements. If you use a free certificate managed by API Management, it alredy meets these requirements.
+If you choose to upload or import a private certificate to API Management, your certificate must meet the following requirements. If you use a free certificate managed by API Management, it already meets these requirements.
 
 * Exported as a password-protected PFX file, encrypted using triple DES.
 * Contains private key at least 2048 bits long
@@ -72,7 +72,7 @@ Use of the managed certificate requires [DNS configuration steps](#dns-configura
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
 1. Select **Custom domains**.
 
-    There are a number of endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
+    There are many endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
 
     | Endpoint | Default |
     | -------- | ----------- |
