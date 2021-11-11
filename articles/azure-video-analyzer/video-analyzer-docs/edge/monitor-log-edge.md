@@ -8,7 +8,7 @@ ms.custom: ignite-fall-2021
 # Monitor and log on IoT Edge
 
 ![edge icon](media/env-icon/edge.png)  
-Alternatively, check out [Monitor and log in the service](../cloud/monitor-log-cloud.md).
+Alternatively, check out [monitor and log in the service](../cloud/monitor-log-cloud.md).
 
 ---
 
