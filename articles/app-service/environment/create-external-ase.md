@@ -1,16 +1,13 @@
 ---
 title: Create an external ASE
 description: Learn how to create an App Service environment with an app in it, or create a standalone (empty) ASE.
-author: ccompy
-
-ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
+author: madsd
 ms.topic: article
 ms.date: 06/13/2017
-ms.author: ccompy
-ms.custom: seodec18
+ms.author: madsd
 ---
 
-# Create an External App Service environment
+# Create an External App Service Environment
 
 > [!NOTE]
 > This article is about the App Service Environment v2 which is used with Isolated App Service plans

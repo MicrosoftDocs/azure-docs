@@ -10,7 +10,7 @@
     href: creation.md
 - name: Tutorials
   items:
-  - name: Integrate with a WAF
+  - name: Integrate with Application Gateway
     href: integrate-with-application-gateway.md
   - name: ASE custom settings
     href: app-service-app-service-environment-custom-settings.md
@@ -36,12 +36,6 @@
     href: using.md
   - name: Create ASE from a template
     href: create-from-template.md
-  - name: Integrate with Application Gateway
-    href: integrate-with-application-gateway.md
-  - name: Forced tunnel configuration
-    href: forced-tunnel-support.md
-  - name: Firewall integration
-    href: firewall-integration.md
   - name: Zone redundancy
     href: zone-redundancy.md
 - name: Reference
@@ -84,6 +78,10 @@
       href: network-info.md
     - name: Certificates
       href: certificates.md
+    - name: Forced tunnel configuration
+      href: forced-tunnel-support.md
+    - name: Firewall integration
+      href: firewall-integration.md
 - name: Resources
   items:
   - name: Azure Roadmap

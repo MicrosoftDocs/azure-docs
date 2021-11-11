@@ -7,7 +7,8 @@ ms.date: 11/15/2021
 ms.author: madsd
 ms.custom: references_regions
 ---
-# App Service Environment overview 
+# App Service Environment overview
+
 > [!NOTE]
 > This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
 > 
@@ -67,7 +68,7 @@ Compared to earlier versions of the ASE, there are some differences with ASEv3. 
 - Scaling is much faster than with ASEv2. While scaling still is not immediate as in the multi-tenant service, it is a lot faster.
 - Front end scaling adjustments are no longer required. The ASEv3 front ends automatically scale to meet needs and are deployed on better hosts. 
 - Scaling no longer blocks other scale operations within the ASEv3 instance. Only one scale operation can be in effect for a combination of OS and size. For example, while your Windows small App Service plan was scaling, you could kick off a scale operation to run at the same time on a Windows medium or anything else other than Windows small. 
-- Apps in an internal VIP ASEv3 can be reached across global peering. Access across global peering was not possible with ASEv2.
+- Apps in an internal VIP ASEv3 can be reached across global peering. Access across global peering was not possible with previous versions.
 
 There are a few features that are not available in ASEv3 that were available in earlier versions of the ASE. In ASEv3, you can't:
 
@@ -79,7 +80,7 @@ There are a few features that are not available in ASEv3 that were available in 
 - configure a IP-based TLS/SSL binding with your apps
 - configure custom domain suffix
 
-## Pricing 
+## Pricing
 
 With ASEv3, there is a different pricing model depending on the type of ASE deployment you have. The three pricing models are:
 
@@ -87,7 +88,7 @@ With ASEv3, there is a different pricing model depending on the type of ASE depl
 - **Zone redundant ASEv3**: There is a minimum charge of nine instances. There is no added charge for availability zone support if you have nine or more App Service plan instances. If you have less than nine instances (of any size) across App Service plans in the zone redundant ASE, the difference between nine and the running instance count is charged as additional Windows I1v2 instances.
 - **Dedicated host ASEv3**: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
 
-Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service][reservedinstances]. The pricing, along with reserved instance pricing, is available at [App Service pricing][pricing] under **Isolated v2 plan**.
+Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service](../../cost-management-billing/reservations/reservation-discount-app-service.md). The pricing, along with reserved instance pricing, is available at [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) under **Isolated v2 plan**.
 
 ## Regions
 
@@ -123,19 +124,10 @@ The ASEv3 is available in the following regions.
 |West US| |
 |West US 2| |
 |West US 3| |
-|US Gov Arizona| |
 |US Gov Texas| |
 |US Gov Arizona| |
 |US Gov Virginia| |
 
 ## App Service Environment v2
 
-App Service Environment has three versions: ASEv1, ASEv2, and ASEv3. The preceding information was based on ASEv3. This section shows you the differences between ASEv2 and ASEv3.
-
-In ASEv1, you need to manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based TLS/SSL bindings. Before you can scale out your App Service plan, you need to first scale out the worker pool where you want to host it.
-
-ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU allocated. That includes vCPUs used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
-
-<!--Links-->
-[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md
-[pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
+App Service Environment has three versions: ASEv1, ASEv2, and ASEv3. The preceding information was based on ASEv3. To learn more about ASEv2, see [App Service Environment v2 introduction](./intro.md).

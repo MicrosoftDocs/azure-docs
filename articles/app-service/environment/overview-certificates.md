@@ -31,6 +31,9 @@ You can [configure the TLS setting](../configure-ssl-bindings.md#enforce-tls-ver
 
 A common use case is to configure your app as a client in a client-server model. If you secure your server with a private CA certificate, you will need to upload the client certificate to your app. The following instructions will load certificates to the truststore of the workers that your app is running on. If you load the certificate to one app, you can use it with your other apps in the same App Service plan without uploading the certificate again.
 
+>[!NOTE]
+> Private client certificates are not supported outside the app. This limits usage in scenarios such as pulling the app container image from a registry using a private certificate and TLS validating through the front-end servers using a private certificate.
+
 To upload the certificate to your app in your ASE:
 
 1. Generate a *.cer* file for your certificate. 
