@@ -106,7 +106,7 @@ Perform the following steps to create an export job in the Azure portal.
 
    Select **Next: Shipping >** to proceed.
 
-6. [!INCLUDE [storage-import-export-shipping-step.md](../../includes/storage-import-export-shipping-step.md)]<!--Text is identical. Verify that the same screen can be used also.-->
+6. [!INCLUDE [storage-import-export-shipping-step.md](../../includes/storage-import-export-shipping-step.md)]
 
 7. In **Review + create**:
 
