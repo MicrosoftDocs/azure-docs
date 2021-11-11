@@ -97,7 +97,7 @@ There are different methods to connect to [Windows confidential VMs](#connect-to
 
 To connect to a confidential VM with a Windows OS, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
 
-## Connect to Linux VMs
+### Connect to Linux VMs
 
 To connect to a confidential VM with a Linux OS, see the instructions for your computer's OS.
 
@@ -113,8 +113,6 @@ Before you begin, make sure you have your VM's public IP address. To find the IP
 
 For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
 
-# [Windows](#tab/windows)
-
 1. Open your SSH client, such as PuTTY.
 
 1. Enter your confidential VM's public IP address.
@@ -125,17 +123,6 @@ For more information about connecting to Linux VMs, see [Quickstart: Create a Li
 
     > [!NOTE]
     > If you're using PuTTY, you might receive a security alert that the server's host key isn't cached in the registry. If you trust the host, select **Yes** to add the key to PuTTY's cache and continue connecting. To connect just once, without adding the key, select **No**. If you don't trust the host, select **Cancel** to abandon your connection.
-
-# [Linux](#tab/linux)
-
-If you're on Linux, connect to the Linux confidential VM using SSH. Replace the sample VM username (`<vm-username>`) and VM IP address (`<vm-ip-address>`) with your own information.
-
-```bash
-ssh <vm-username>@"<vm-ip-address>"
-```
-
----
-
 
 ## Clean up resources
 
