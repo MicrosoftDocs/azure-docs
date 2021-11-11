@@ -142,7 +142,7 @@
         href: datawiza-with-azure-ad.md 
       - name: F5
         items:
-        - name: F5 and Azure AD integration
+        - name: F5 BIG-IP and Azure AD integration
           href: f5-aad-integration.md
         - name: F5 BIG-IP VE deployment in Azure IaaS
           href: f5-bigip-deployment-guide.md

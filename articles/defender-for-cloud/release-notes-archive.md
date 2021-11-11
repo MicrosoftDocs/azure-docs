@@ -253,23 +253,23 @@ Learn more about this scanner in [Use Azure Defender for container registries to
 
 ### Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)
 
-Azure Defender for Kubernetes is expanding its threat protection capabilities to defend your clusters wherever they're deployed. This has been enabled by integrating with [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) and its new [extensions capabilities](../azure-arc/kubernetes/extensions.md). 
+Azure Defender for Kubernetes is expanding its threat protection capabilities to defend your clusters wherever they're deployed. This has been enabled by integrating with [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and its new [extensions capabilities](../azure-arc/kubernetes/extensions.md). 
 
 When you've enabled Azure Arc on your non-Azure Kubernetes clusters, a new recommendation from Azure Security Center offers to deploy the Azure Defender extension to them with only a few clicks.
 
-Use the recommendation (**Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed**) and the extension to protect Kubernetes clusters deployed in other cloud providers, although not on their managed Kubernetes services.
+Use the recommendation (**Azure Arc-enabled Kubernetes clusters should have Azure Defender's extension installed**) and the extension to protect Kubernetes clusters deployed in other cloud providers, although not on their managed Kubernetes services.
 
-This integration between Azure Security Center, Azure Defender, and Azure Arc enabled Kubernetes brings:
+This integration between Azure Security Center, Azure Defender, and Azure Arc-enabled Kubernetes brings:
 
-- Easy provisioning of the Azure Defender extension to unprotected Azure Arc enabled Kubernetes clusters (manually and at-scale)
+- Easy provisioning of the Azure Defender extension to unprotected Azure Arc-enabled Kubernetes clusters (manually and at-scale)
 - Monitoring of the Azure Defender extension and its provisioning state from the Azure Arc Portal
 - Security recommendations from Security Center are reported in the new Security page of the Azure Arc Portal
 - Identified security threats from Azure Defender are reported in the new Security page of the Azure Arc Portal
-- Azure Arc enabled Kubernetes clusters are integrated into the Azure Security Center platform and experience
+- Azure Arc-enabled Kubernetes clusters are integrated into the Azure Security Center platform and experience
 
 Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters](defender-for-kubernetes-azure-arc.md).
 
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 
 ### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for general availability (GA)
@@ -316,7 +316,7 @@ Learn more in:
 
 ### Four new recommendations related to guest configuration (in preview)
 
-Azure's [Guest Configuration extension](../governance/policy/concepts/guest-configuration.md) reports to Security Center to help ensure your virtual machines' in-guest settings are hardened. The extension isn't required for Arc enabled servers because it's included in the Arc Connected Machine agent. The extension requires a system-managed identity on the machine.
+Azure's [Guest Configuration extension](../governance/policy/concepts/guest-configuration.md) reports to Security Center to help ensure your virtual machines' in-guest settings are hardened. The extension isn't required for Arc-enabled servers because it's included in the Arc Connected Machine agent. The extension requires a system-managed identity on the machine.
 
 We've added four new recommendations to Security Center to make the most of this extension.
 
@@ -668,7 +668,7 @@ In recent months, Security Center's list of built-in security recommendations ha
 
 From this release, the benchmark is the foundation for Security Center’s recommendations and fully integrated as the default policy initiative. 
 
-All Azure services have a security baseline page in their documentation. For example, [this is Security Center's baseline](security-baseline.md). These baselines are built on Azure Security Benchmark.
+All Azure services have a security baseline page in their documentation. These baselines are built on Azure Security Benchmark.
 
 If you're using Security Center's regulatory compliance dashboard, you'll see two instances of the benchmark during a transition period:
 
