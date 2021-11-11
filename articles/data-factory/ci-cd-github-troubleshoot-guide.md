@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 10/25/2021
+ms.date: 11/09/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -317,6 +317,16 @@ Parameterizing an entity reference (Integration runtime in Linked service, Datas
 #### Resolution
 Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. 
 
+### ARM template deployment failing with error DataFactoryPropertyUpdateNotSupported
+
+##### Issue
+ARM template deployment fails with an error such as DataFactoryPropertyUpdateNotSupported: Updating property type is not supported. 
+
+##### Cause
+The ARM template deployment is attempting to change the type of an existing integration runtime. This is not allowed and will cause a deployment failure because data factory requires the same name and type of integration runtime across all stages of CI/CD.
+
+##### Resolution
+If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type. For more information, refer to [Continuous integration and delivery - Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-delivery#best-practices-for-cicd)
 
 ## Next steps
 

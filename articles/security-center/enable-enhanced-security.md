@@ -6,7 +6,7 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 06/07/2021
+ms.date: 11/09/2021
 ---
 
 # Quickstart: Enable enhanced security features
@@ -37,7 +37,7 @@ To enable all Defender for Cloud features including threat protection capabiliti
 
     1. From Defender for Cloud's main menu, select **Environment settings**.
     1. Select the subscription or workspace that you want to protect.
-    1. Select **Enable all Microsoft Defender for Cloud plans** to upgrade.
+    1. Select **Enable all Microsoft Defender plans** to upgrade.
     1. Select **Save**.
 
     > [!TIP]
