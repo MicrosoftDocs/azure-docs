@@ -433,8 +433,8 @@ The following table explains the binding configuration properties that you set i
 `WebPubSubContext` provides below properties.
 
 | Binding Name | Binding Type | Description | Properties |
-| ---------|---------|---------|---------|
-| request | `WebPubSubEventRequest` | Request from client, see below table for details. | `WebPubSubConnectionContext` from request header | and other properties deserialized from request body describe the request, for example, `Reason` for `DisconnectedEventRequest`. |
+|---------|---------|---------|---------|
+| request | `WebPubSubEventRequest` | Request from client, see below table for details. | `WebPubSubConnectionContext` from request header and other properties deserialized from request body describe the request, for example, `Reason` for `DisconnectedEventRequest`. |
 | response | `HttpResponseMessage` | Extension builds response mainly for `AbuseProtection` and errors cases. | - |
 | errorMessage | string | Describe the error details when processing the upstream request. | - |
 | hasError | bool | Flag to indicate whether it's a valid Web PubSub upstream request. | - |
