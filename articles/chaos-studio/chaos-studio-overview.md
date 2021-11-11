@@ -48,5 +48,5 @@ A chaos experiment is an Azure resource that lives in a subscription and resourc
 
 ## Next steps
 Get started creating and running chaos experiments to improve application resilience with Chaos Studio using the links below.
-- [Create and run your first experiment](chaos-studio-tutorial-service-direct.md)
+- [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)
 - [Learn more about chaos engineering](chaos-studio-chaos-engineering-overview.md)
