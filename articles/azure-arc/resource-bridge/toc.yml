@@ -1,0 +1,12 @@
+- name: Azure Arc resource bridge
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Arc resource bridge
+    href: overview.md
+  - name: Security overview
+    href: security-overview.md
+- name: How-to guides
+  items:
+  - name: Troubleshoot
+    href: troubleshoot-resource-bridge.md

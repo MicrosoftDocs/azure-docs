@@ -1,0 +1,28 @@
+### YamlMime:Landing
+title: Azure Arc resource bridge (preview)
+summary: Learn how the resource bridge supports VM self-servicing and management from Azure hosted in an on-premises cloud environment.
+
+metadata:
+  title: Azure Arc resource bridge (preview)
+  description: Learn about how to manage on-premises machines in Azure
+  author: mgoedtel
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 11/11/2021
+  ms.author: magoedte
+
+landingContent:
+  - title: About Azure Arc resource bridge (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc resource bridge (preview)?
+            url: overview.md
+  - title: Manage Azure Arc resource bridge (preview)
+    linkLists:
+      - linkListType: how-to-guide
+        links:  
+        - text: Security overview
+          url: security-overview.md
+        - text: Troubleshoot
+          url: troubleshoot-resource-bridge.md
