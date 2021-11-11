@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: IEvangelist
   ms.author: dapine
-  ms.date: 01/23/2020
+  ms.date: 11/11/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -69,13 +69,14 @@ landingContent:
             url: how-to-configure-translation.md
           - text: Store user preferences
             url: how-to-store-user-preferences.md
+          - text: Security Advisory: Update Role Assignment for Azure Active Directory authentication
+            url: security-how-to-update-role-assignment.md
       - linkListType: reference
         links:
           - text: JavaScript SDK
             url: reference.md
           - text: Release notes
             url: release-notes.md
-
   - title: Help and feedback
     linkLists:
     - linkListType: reference
