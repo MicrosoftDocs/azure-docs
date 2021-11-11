@@ -76,9 +76,9 @@ For more information on login options via the CLI take a look at [sign in with A
 |---|---|---|---|---|
 |Key Exchange Key (KEK)|RSA-HSM| 2,048-bit<br />3,072-bit<br />4,096-bit|Managed HSM|An HSM-backed RSA key pair generated in Managed HSM|
 |Target key|
-||RSA|2,048-bit<br />3,072-bit<br />4,096-bit|Vendor HSM|The key to be transferred to the Managed HSM|
-||EC|P-256<br />P-384<br />P-521|Vendor HSM|The key to be transferred to the Managed HSM|
-||Symmetric key|128-bit<br />192-bit<br />256-bit|Vendor HSM|The key to be transferred to the Managed HSM|
+||RSA-HSM|2,048-bit<br />3,072-bit<br />4,096-bit|Vendor HSM|The key to be transferred to the Managed HSM|
+||EC-HSM|P-256<br />P-384<br />P-521|Vendor HSM|The key to be transferred to the Managed HSM|
+||Symmetric key (oct-hsm)|128-bit<br />192-bit<br />256-bit|Vendor HSM|The key to be transferred to the Managed HSM|
 ||||
 ## Generate and transfer your key to the Managed HSM
 
