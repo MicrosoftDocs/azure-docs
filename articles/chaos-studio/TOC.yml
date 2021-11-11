@@ -31,7 +31,11 @@
 - name: How-to guides
   items:
   - name: Create and run experiment - Service-direct faults
-    href: chaos-studio-tutorial-service-direct.md
+    items:
+    - name: Portal
+      href: chaos-studio-tutorial-service-direct-portal.md
+    - name: CLI
+      href: chaos-studio-tutorial-service-direct-cli.md
   - name: Create and run experiment - Agent-based faults
     items:
     - name: Portal
