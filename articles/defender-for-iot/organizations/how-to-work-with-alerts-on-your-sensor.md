@@ -1,7 +1,7 @@
 ---
 title: Understand sensor alerts
 description: Work with alerts to help you enhance the security and operation of your network.
-ms.date: 3/29/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

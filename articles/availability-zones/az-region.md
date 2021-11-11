@@ -5,7 +5,7 @@ author: prsandhu
 ms.service: azure
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: prsandhu
+ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
 ---
@@ -28,8 +28,8 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
-| South Central US | West Europe | | East Asia* |
-| US Gov Virginia | Sweden* | | |
+| South Central US | West Europe | | East Asia |
+| US Gov Virginia | Sweden | | |
 | West US 2 | | | |
 | West US 3 | | | |
 
@@ -174,7 +174,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Azure Blueprints  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Bot Services  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
-| Azure Defender for IoT  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Microsoft Defender for IoT  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Information Protection  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Lighthouse  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
@@ -183,7 +183,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Azure Performance Diagnostics  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Policy  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Resource Graph  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
-| Azure Sentinel  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Microsoft Sentinel  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Stack  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Stack Edge  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Cloud Shell  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
@@ -193,9 +193,9 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Microsoft Intune  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Peering Service  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure portal  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
-| Microsoft Cloud App Security  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Microsoft Defender for Cloud Apps  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Microsoft Graph  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
-| Azure Security Center  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Microsoft Defender for Cloud  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Traffic Manager  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 
 For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).

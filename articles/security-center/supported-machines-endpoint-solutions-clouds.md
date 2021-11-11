@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 08/18/2021
+ms.date: 11/09/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -68,7 +68,6 @@ The two **tabs** below show the features of Microsoft Defender for Cloud that ar
 
 --- 
 
-
 > [!TIP]
 >To experiment with features that are only available with enhanced security features enabled, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -91,7 +90,7 @@ For information about when recommendations are generated for each of these solut
 | Sophos V9+                                                          | Linux (preview)              | No                              |
 |                                                                     |                              |                                 |
 
-<sup><a name="footnote1" /></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
+<sup><a name="footnote1"></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
 
 
 
@@ -139,23 +138,23 @@ For information about when recommendations are generated for each of these solut
 | - [Connect GCP account](./quickstart-onboard-gcp.md)                                                                                                      | GA             | Not Available                  | Not Available |
 |                                                                                                                                                           |                |                                |               |
 
-<sup><a name="footnote1" /></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
+<sup><a name="footnote1"></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
-<sup><a name="footnote2" /></a>2</sup> Vulnerability scans of container registries on the Azure Government cloud can only be performed with the scan on push feature.
+<sup><a name="footnote2"></a>2</sup> Vulnerability scans of container registries on the Azure Government cloud can only be performed with the scan on push feature.
 
-<sup><a name="footnote3" /></a>3</sup> Requires Microsoft Defender for container registries.
+<sup><a name="footnote3"></a>3</sup> Requires Microsoft Defender for container registries.
 
-<sup><a name="footnote4" /></a>4</sup> Partially GA: Support for Azure Arc-enabled clusters is in public preview and not available on Azure Government.
+<sup><a name="footnote4"></a>4</sup> Partially GA: Support for Azure Arc-enabled clusters is in public preview and not available on Azure Government.
 
-<sup><a name="footnote5" /></a>5</sup> Requires Microsoft Defender for Kubernetes.
+<sup><a name="footnote5"></a>5</sup> Requires Microsoft Defender for Kubernetes.
 
-<sup><a name="footnote6" /></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview.
+<sup><a name="footnote6"></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview.
 
-<sup><a name="footnote7" /></a>7</sup> These features all require [Microsoft Defender for servers](./defender-for-servers-introduction.md).
+<sup><a name="footnote7"></a>7</sup> These features all require [Microsoft Defender for servers](./defender-for-servers-introduction.md).
 
-<sup><a name="footnote8" /></a>8</sup> There may be differences in the standards offered per cloud type.
+<sup><a name="footnote8"></a>8</sup> There may be differences in the standards offered per cloud type.
  
-<sup><a name="footnote9" /></a>9</sup> Partially GA: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.
+<sup><a name="footnote9"></a>9</sup> Partially GA: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.
 
 ## Next steps
 

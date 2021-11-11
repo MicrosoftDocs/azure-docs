@@ -173,7 +173,7 @@
         - name: Scan container images
           expanded: false
           items:
-          - name: Scan with Azure Defender
+          - name: Scan with Microsoft Defender for Cloud
             href: scan-images-defender.md
           - name: Scan with GitHub actions
             href: github-action-scan.md
