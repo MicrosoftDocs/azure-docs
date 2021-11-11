@@ -8,7 +8,7 @@ metadata:
   ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
   ms.service: security-center
   ms.topic: conceptual
-  ms.date: 11/04/2021
+  ms.date: 11/09/2021
   ms.author: memildin
   
     
@@ -26,7 +26,7 @@ sections:
         answer: |
           No. Workspaces created by Defender for Cloud, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Defender for Cloud billing is always based on your Defender for Cloud security policy and the solutions installed on a workspace:
           
-          - **Azure Defender off** – Defender for Cloud enables the "SecurityCenterFree" solution on the default workspace. You won't be billed if Azure Defender is off.
+          - **Azure Defender off** – Defender for Cloud enables the "SecurityCenterFree" solution on the default workspace. You won't be billed if Microsoft Defender for Cloud is off.
           
           - **Azure Defender on** – Defender for Cloud enables the "Security" solution on the default workspace.
           
@@ -36,8 +36,7 @@ sections:
           > The log analytics pricing tier of workspaces created by Defender for Cloud does not affect Defender for Cloud billing.
           
           [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-          
-          
+
       - question: |
           What is the Log Analytics agent?
         answer: |

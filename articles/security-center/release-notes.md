@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 11/07/2021
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # What's new in Microsoft Defender for Cloud?
@@ -105,7 +105,6 @@ When you connect Microsoft Defender for Cloud to Microsoft Sentinel, the status 
 When you enable **bi-directional alert synchronization** you'll automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of those Defender for Cloud alerts. So, for example, when a Microsoft Sentinel incident containing a Defender for Cloud alert is closed, Defender for Cloud will automatically close the corresponding original alert.
 
 Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md) and [Stream alerts to Azure Sentinel](export-to-siem.md#stream-alerts-to-microsoft-sentinel).
-
 
 ### New recommendation to push Azure Kubernetes Service (AKS) logs to Sentinel
 
