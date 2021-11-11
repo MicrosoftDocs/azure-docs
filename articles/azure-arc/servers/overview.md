@@ -72,7 +72,7 @@ The Connected Machine agent sends a regular heartbeat message to the service eve
 
 ## Service limits
 
-Azure Arc-enabled servers has a limit for the number of instances that can be created in each resource group. It does not have any limits at the subscription level. To learn about what resource type limits exist, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
+Azure Arc-enabled servers has a limit for the number of instances that can be created in each resource group. It does not have any limits at the subscription or service level. To learn about what resource type limits exist, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
 
 ## Next steps
 
