@@ -79,8 +79,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 |Bug fixes | Description |
 |:------------------- | -----------:|
-| IoT connector normalized improvements with calculations to support and enhance health data standardization. | See: [Use device mappings](./../healthcare-apis/iot/how-to-use-device-mapping-iot.md) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md)  |
-
+|IoT connector normalized improvements with calculations to support and enhance health data standardization. | See: [Use device mappings](./../healthcare-apis/iot/how-to-use-device-mapping-iot.md) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md) |
 
 ## October 2021
 
@@ -91,6 +90,23 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 |Enhancements | Description |
 |:------------------- | -----------:|
 |Added support for [_sort](././../healthcare-apis/fhir/overview-of-search.md#search-result-parameters) on strings and dateTime |[#2169](https://github.com/microsoft/fhir-server/pull/2169)  |
+
+|Bug fixes | Description |
+|:------------------- | -----------:|
+|Fixed an issue where [Conditional Delete](./././../azure-api-for-fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
+|Resolved malformed transaction body in a bundle POST  |Added a check that the URL is populated in transaction bundle requests [#2255](https://github.com/microsoft/fhir-server/pull/2255) |
+
+### **DICOM service**
+
+|Enhancements | Description |
+|:------------------- | -----------:|
+|Added supported regions |South Brazil and Central Canada |
+|Added support for |DT and TM VR types for Extended Query tags |
+
+|Bug fixes | Description |
+|:------------------- | -----------:|
+|Implemented complete support for |DA, DT, and TM VR types |
+|Implemented fix to |Enable DICOM service to work with workspaces that have names started with a letter. |
 
 ## Next steps
 
