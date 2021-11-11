@@ -84,20 +84,20 @@ The following options are supported:
 > [!Note]
 > If you have firewall enabled for the storage account, you must use managed identity authentication method when setting up a scan.
 
-- **System managed identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+- **System-assigned managed identity (Recommended)** - As soon as the Azure Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview SAMI to perform the scans.
 
-- **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+- **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 - **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password, or a password.
 
    > [!Note]
-   > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Azure Purview account’s_ MSI with required access permission to secrets inside _Azure key vault_.
+   > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Azure Purview account’s_ SAMI with required access permission to secrets inside _Azure key vault_.
 
 - **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
-#### Using a system or user-assigned managed identity for scanning
+#### Using a system or user assigned managed identity for scanning
 
-It is important to give your Purview account the permission to scan the Azure Blob data source. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
+It is important to give your Purview account the permission to scan the Azure Blob data source. You can add access for the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what level scan permission is needed.
 
 > [!NOTE]
 > If you have firewall enabled for the storage account, you must use **managed identity** authentication method when setting up a scan.
@@ -173,7 +173,7 @@ If you need to [Create a new service principal](./create-service-principal-azure
 
 ##### Granting the Service Principal access to your Azure Blob account
 
-It is important to give your service principal the permission to scan the Azure Blob data source. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
+It is important to give your service principal the permission to scan the Azure Blob data source. You can add access for the service principal at the Subscription, Resource Group, or Resource level, depending on what level scan access is needed.
 
 > [!Note]
 > You need to be an owner of the subscription to be able to add a service principal on an Azure resource.
@@ -198,9 +198,9 @@ It is important to give your service principal the permission to scan the Azure 
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
 
-#### If using a system or user-assigned managed identity
+#### If using a system or user assigned managed identity
 
-Provide a **Name** for the scan, select the **Purview MSI** under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**
+Provide a **Name** for the scan, select the Purview accounts SAMI or UAMI under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
