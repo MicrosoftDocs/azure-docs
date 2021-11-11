@@ -347,7 +347,7 @@ For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tena
 ```
 
 > [!NOTE]
-> If you use the `grant_type` or `scope` claims in other Technical Profiles, it is recommend that they also specify a `DefaultValue` and use `AlwaysUseDefaultValue="true"` to avoid potential conflicts in binding against the incorrect value.
+> If you use the `grant_type` or `scope` claims in other technical profiles, we recommend that they also specify `DefaultValue` and use `AlwaysUseDefaultValue="true"` to avoid potential conflicts in binding against the incorrect value.
 
 ### Change the REST technical profile to use bearer token authentication
 
