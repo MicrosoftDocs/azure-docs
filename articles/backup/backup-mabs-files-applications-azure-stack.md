@@ -132,9 +132,9 @@ To view Azure Backup Server entities in the Azure portal, you can follow the fol
 For information on using Azure Backup Server to protect other workloads, see one of the following articles:
 
 * [About Azure Backup service](./backup-overview.md)
-* [About Azure AD](./active-directory/fundamentals/active-directory-whatis.md)
+* [About Azure AD](../active-directory/fundamentals/active-directory-whatis.md)
 * [About Azure Recovery Services Vault](./backup-azure-recovery-services-vault-overview.md)
-* [About Azure Storage](./storage/common/storage-introduction.md)
+* [About Azure Storage](,./storage/common/storage-introduction.md)
 * [About Azure Stack Hub](/azure-stack/operator/azure-stack-overview)
 * [Back up SharePoint farm](./backup-mabs-sharepoint-azure-stack.md)
 * [Back up SQL server](./backup-mabs-sql-azure-stack.md)
