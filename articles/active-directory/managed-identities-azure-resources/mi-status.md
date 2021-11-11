@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 10/25/2021
+ms.date: 11/11/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -24,7 +24,7 @@ The following Azure services support managed identities for Azure resources:
 
 | Service Name                    | Resource Provider namespace       | Documentation                                                                                                                                                                                |
 |---------------------------------|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [API Management                  | microsoft.apimanagement           | [Use managed identities in Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)                                                                                            |
+| API Management                  | microsoft.apimanagement           | [Use managed identities in Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)                                                                                            |
 | Azure App Configuration         | microsoft.appconfiguration        | [How to use managed identities for Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/overview-managed-identity)                                                                                                           |
 | Azure Spring Cloud              | microsoft.appplatform             | [How to enable system-assigned managed identity for Azure Spring Cloud application](https://docs.microsoft.com/azure/spring-cloud/how-to-enable-system-assigned-managed-identity) |
 | Azure Policy                    | microsoft.authorization           | [Remediate non-compliant resources with Azure Policy](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources)      |
