@@ -191,7 +191,7 @@ additional questions or comments.
 
 <!-- LINKS -->
 [webpubsubservice_docs]: https://aka.ms/awps/doc
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [package]: https://pypi.org/project/azure-messaging-webpubsubservice/
 [default_cred_ref]: https://aka.ms/azsdk-python-identity-default-cred-ref
@@ -199,15 +199,14 @@ additional questions or comments.
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
-[authenticate_with_token]: https://docs.microsoft.com/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-an-authentication-token
 [azure_identity_credentials]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#credentials
 [azure_identity_pip]: https://pypi.org/project/azure-identity/
 [default_azure_credential]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential
 [pip]: https://pypi.org/project/pip/
-[enable_aad]: https://docs.microsoft.com/azure/azure-web-pubsub/howto-develop-create-instance
-[api_key]: https://docs.microsoft.com/azure/azure-web-pubsub/howto-websocket-connect?tabs=browser#authorization
-[connection_string]: https://docs.microsoft.com/azure/azure-web-pubsub/howto-websocket-connect?tabs=browser#authorization
-[azure_portal]: https://docs.microsoft.com/azure/azure-web-pubsub/howto-develop-create-instance
+[enable_aad]: howto-develop-create-instance.md
+[api_key]: howto-websocket-connect.md#authorization
+[connection_string]: howto-websocket-connect.md#authorization
+[azure_portal]: howto-develop-create-instance.md
 [azure-key-credential]: https://aka.ms/azsdk-python-core-azurekeycredential
-[aad_doc]: https://aka.ms/awps/aad
+[aad_doc]: howto-authorize-from-application.md
 [samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub/azure-messaging-webpubsubservice/samples
