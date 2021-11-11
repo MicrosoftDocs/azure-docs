@@ -61,6 +61,7 @@ To configure and test Azure AD SSO with cloudtamer.io, perform the following ste
 1. **[Configure cloudtamer.io SSO](#configure-cloudtamerio-sso)** - to configure the single sign-on settings on application side.
     1. **[Create cloudtamer.io test user](#create-cloudtamerio-test-user)** - to have a counterpart of B.Simon in cloudtamer.io that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Group assertions](#group-assertions)** - to set group assertions for Azure AD and cloudtamer.io.
 
 ### Begin cloudtamer.io SSO Configuration
 
@@ -173,11 +174,43 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the cloudtamer.io for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the cloudtamer.io tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the cloudtamer.io for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the cloudtamer.io tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the cloudtamer.io for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
+## Group assertions
+
+To easily manage cloudtamer.io user permissions by using existing Azure Active Directory groups, complete these steps:
+
+### Azure AD configuration
+
+1. In the Azure portal, go to **Azure Active Directory** > **Enterprise Applications**.
+1. In the list, select the enterprise application for cloudtamer.io.
+1. On **Overview**, in the left menu, select **Single sign-on**.
+1. On **Single Sign-On**, under **User Attributes & Claims**, select **Edit**.
+1. Select **Add a group claim**. 
+   > [!NOTE]
+   > You can have only one group claim. If this option is disabled, you might already have a group claim defined.
+1. On **Group Claims**, select the groups that should be returned in the claim:
+   - If you will always have every group you intend to use in cloudtamer.io assigned to this enterprise application, select **Groups assigned to the application**.
+   - If you want all groups to appear (this selection can cause a large number of group assertions and might be subject to limits), select **Groups assigned to the application**.
+1. For **Source attribute**, leave the default **Group ID**.
+1. Select the **Customize the name of the group claim** checkbox.
+1. For **Name**, enter **memberOf**.
+1. Select **Save** to complete the configuration with Azure AD.
+
+### cloudtamer.io configuration
+
+1. In cloudtamer.io, go to **Users** > **Identity Management Systems**.
+1. Select the IDMS that you've created for Azure AD.
+1. On the overview page, select the **User Group Associations** tab.
+1. For each user group mapping that you want, complete these steps:
+   1. Select **Add** > **Add New**.
+   1. In the dialog that appears:
+      1. For **Name**, enter **memberOf**.
+      1. For **Regex**, enter the object ID (from Azure AD) of the group you want to match.
+      1. For **User Group**, select the cloudtamer.io internal group you want to map to the group in **Regex**.
+      1. Select the **Update on Login** checkbox.
+   1. Select **Add** to add the group association.
 
 ## Next steps
 
-Once you configure cloudtamer.io you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure cloudtamer.io you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

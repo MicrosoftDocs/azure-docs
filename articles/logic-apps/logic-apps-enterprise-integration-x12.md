@@ -345,7 +345,7 @@ To specify these document version numbers and message types, follow these steps:
 
    To update your schema, follow these steps:
 
-   1. In the Azure portal, go to your integration account. Find and download your schema. Replace the message type and rename the schema file, and upload your revised schema to your integration account. For more information, see [Edit schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas).
+   1. In the Azure portal, go to your integration account. Find and download your schema. Replace the message type and rename the schema file, and upload your revised schema to your integration account. For more information, see [Edit a schema](logic-apps-enterprise-integration-schemas.md#edit-schema).
 
    1. In your agreement's message settings, select the revised schema.
 

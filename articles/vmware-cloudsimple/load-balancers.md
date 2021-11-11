@@ -1,8 +1,8 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Choose a load balancing solution for CloudSimple Private Clouds
 description: Describes the load balancing options deploying an application in a Private Cloud
-author: shortpatti 
-ms.author: v-patsho
+author: suzizuber 
+ms.author: v-szuber
 ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

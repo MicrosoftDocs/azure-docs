@@ -5,7 +5,7 @@ services: iot-edge
 author: kgremban
 manager: lizross
 ms.author: kgremban
-ms.date: 07/19/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ---
@@ -97,7 +97,7 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 
 1. On the **Create a new project** page, search for **Azure IoT Edge**. Select the project that matches the platform and architecture for your IoT Edge device, and click **Next**.
 
-   ![Create New Project](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-project.png" alt-text="Create New Project":::
 
 1. On the **Configure your new project** page, enter a name for your project and specify the location, then select **Create**.
 
@@ -116,6 +116,18 @@ The module folder contains a file for your module code, named either `program.cs
 The project folder contains a list of all the modules included in that project. Right now it should show only one module, but you can add more. For more information about adding modules to a project, see the [Build and debug multiple modules](#build-and-debug-multiple-modules) section later in this article.
 
 The project folder also contains a file named `deployment.template.json`. This file is a template of an IoT Edge deployment manifest, which defines all the modules that will run on a device along with how they will communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary. To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+
+### Set IoT Edge runtime version
+
+The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.2. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio to match.
+
+1. In the Solution Explorer, right-click the name of your project and select **Set IoT Edge runtime version**.
+
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Right-click your project name and select set IoT Edge runtime version.":::
+
+1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running, then select **OK** to save your changes.
+
+1. Re-generate your deployment manifest with the new runtime version. Right-click the name of your project and select **Generate deployment for IoT Edge**.
 
 ## Develop your module
 
@@ -145,6 +157,9 @@ To initialize the tool, provide an IoT Edge device connection string from IoT Hu
 ## Build and debug a single module
 
 Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules.
+
+>[!TIP]
+>Make sure you have switched over to the correct Docker container mode, either Linux container mode or Windows container mode, depending on the type of IoT Edge module you are developing. From the Docker Desktop menu, you can toggle between the two types of modes. Select **Switch to Windows containers** to use Windows containers, or select **Switch to Linux containers** to use Linux containers. 
 
 1. In **Solution Explorer**, right-click the module folder and select **Set as StartUp Project** from the menu.
 

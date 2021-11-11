@@ -21,6 +21,8 @@
 
 - name: Concepts
   items:
+  - name: Migration using Azure Data Studio
+    href: migration-using-azure-data-studio.md  
   - name: Prerequisites
     href: pre-reqs.md  
   - name: Database migration scenario status
@@ -42,6 +44,14 @@
     items: 
     - name: to Azure SQL Database
       href: tutorial-sql-server-to-azure-sql.md
+    - name: to Azure SQL Managed Instance (online) using Azure Data Studio
+      href: tutorial-sql-server-managed-instance-online-ads.md
+    - name: to Azure SQL Managed Instance (offline) using Azure Data Studio
+      href: tutorial-sql-server-managed-instance-offline-ads.md
+    - name: to Azure SQL VM (online) using Azure Data Studio
+      href: tutorial-sql-server-to-virtual-machine-online-ads.md
+    - name: to Azure SQL VM (offline) using Azure Data Studio
+      href: tutorial-sql-server-to-virtual-machine-offline-ads.md
     - name: to Azure SQL Managed Instance (offline)
       href: tutorial-sql-server-to-managed-instance.md
     - name: to Azure SQL Managed Instance (online)
@@ -108,7 +118,7 @@
   - name: Frequently asked questions
     href: faq.yml
   - name: Feedback
-    href: https://feedback.azure.com/forums/906100-azure-database-migration-service
+    href: https://feedback.azure.com/d365community/forum/2dd7eb75-ef24-ec11-b6e6-000d3a4f0da0
   - name: Pricing
     href: https://aka.ms/dms-pricing
   - name: Service updates

@@ -162,7 +162,7 @@ az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --outpu
  ```
 
 #### Method 2: Set the DNS label using helm chart settings
-You can pass an annotation setting to your helm chard configuration by using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter.  This can be set either when the ingress controller is first deployed, or it can be configured later.
+You can pass an annotation setting to your helm chart configuration by using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter.  This can be set either when the ingress controller is first deployed, or it can be configured later.
 The following example shows how to update this setting after the controller has been deployed.
 
 ```
@@ -513,10 +513,10 @@ You can also:
 [helm]: https://helm.sh/
 [helm-cli]: ./kubernetes-helm.md
 [cert-manager]: https://github.com/jetstack/cert-manager
-[cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
+[cert-manager-certificates]: https://cert-manager.io/docs/concepts/certificate/
 [ingress-shim]: https://docs.cert-manager.io/en/latest/tasks/issuing-certificates/ingress-shim.html
-[cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html
-[cert-manager-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/issuers.html
+[cert-manager-cluster-issuer]: https://cert-manager.io/docs/concepts/issuer/
+[cert-manager-issuer]: https://cert-manager.io/docs/concepts/issuer/
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm

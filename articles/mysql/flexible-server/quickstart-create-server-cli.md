@@ -12,13 +12,13 @@ ms.custom: mvc, devx-track-azurecli
 
 # Quickstart: Create an Azure Database for MySQL Flexible Server using Azure CLI
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
-This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for MySQL Flexible Server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for MySQL Flexible Server in five minutes. 
 
-> [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
+
 
 ## Launch Azure Cloud Shell
 
@@ -50,26 +50,25 @@ Create an [Azure resource group](../../azure-resource-manager/management/overvie
 az group create --name myresourcegroup --location eastus2
 ```
 
-Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](/cli/azure/local-context): 
+Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](/cli/azure/local-context):
 
 ```azurecli-interactive
 az mysql flexible-server create
 ```
 
-The server created has the below attributes: 
-- Auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group 
+The server created has the below attributes:
+- Auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group
 - Service defaults for remaining server configurations: compute tier (Burstable), compute size/SKU (B1MS), backup retention period (7 days), and MySQL version (5.7)
 - The default connectivity method is Private access (VNet Integration) with an auto-generated virtual network and subnet
 
-> [!NOTE] 
+> [!NOTE]
 > The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
 
-If you'd like to change any defaults, please refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters. 
+If you'd like to change any defaults, please refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters.
 
-Below is some sample output: 
+Below is some sample output:
 
 ```json
-Command group 'mysql flexible-server' is in preview. It may be changed/removed in a future release.
 Creating Resource Group 'groupXXXXXXXXXX'...
 Creating new vnet "serverXXXXXXXXXVNET" in resource group "groupXXXXXXXXXX"...
 Creating new subnet "serverXXXXXXXXXSubnet" in resource group "groupXXXXXXXXXX" and delegating it to "Microsoft.DBforMySQL/flexibleServers"...
@@ -92,7 +91,7 @@ Make a note of your password. If you forget, you would have to reset your passwo
 }
 ```
 
-If you'd like to change any defaults, please refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters. 
+If you'd like to change any defaults, please refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters.
 
 ## Create a database
 Run the following command to create a database, **newdatabase** if you have not already created one.
@@ -112,7 +111,7 @@ To connect to your server, you need to provide host information and access crede
 az mysql flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-The result is in JSON format. Make a note of the **fullyQualifiedDomainName** and **administratorLogin**. Below is a sample of the JSON output: 
+The result is in JSON format. Make a note of the **fullyQualifiedDomainName** and **administratorLogin**. Below is a sample of the JSON output:
 
 ```json
 {
@@ -161,7 +160,6 @@ az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -
 You should see the following output for successful connection:
 
 ```output
-Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Connecting to newdatabase database.
 Successfully connected to mysqldemoserver1.
 ```
@@ -204,12 +202,12 @@ If you have provisioned your flexible server using **public access**, you can al
 In order to use Azure Cloud Shell to connect to your flexible server, you will need to allow networking access from Azure Cloud Shell to your flexible server. To achieve this, you can go to **Networking** blade on Azure portal for your MySQL flexible server and check the box under **Firewall** section which says, "Allow public access from any Azure service within Azure to this server" as shown in the screenshot below and click Save to persist the setting.
 
  > :::image type="content" source="./media/quickstart-create-server-portal/allow-access-to-any-azure-service.png" alt-text="Screenshot that shows how to allow Azure Cloud Shell access to MySQL flexible server for public access network configuration.":::
- 
- 
+
+
 > [!NOTE]
 > Checking the **Allow public access from any Azure service within Azure to this server** should be used for development or testing only. It configures the firewall to allow connections from IP addresses allocated to any Azure service or asset, including connections from the subscriptions of other customers.
 
-Click on **Try it** to launch the Azure Cloud Shell and using the following commands to connect to your flexible server. Use your server name, user name, and password in the command. 
+Click on **Try it** to launch the Azure Cloud Shell and using the following commands to connect to your flexible server. Use your server name, user name, and password in the command.
 
 ```azurecli-interactive
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
@@ -221,7 +219,7 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl
 
 If you see the following error message while connecting to your flexible server following the command earlier, you missed setting the firewall rule using the "Allow public access from any Azure service within Azure to this server" mentioned earlier or the option isn't saved. Please retry setting firewall and try again.
 
-ERROR 2002 (HY000): Can't connect to MySQL server on <servername> (115)
+ERROR 2002 (HY000): Can't connect to MySQL server on \<servername\> (115)
 
 ## Clean up resources
 

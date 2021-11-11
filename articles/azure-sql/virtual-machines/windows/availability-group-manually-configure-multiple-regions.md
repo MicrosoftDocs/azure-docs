@@ -3,7 +3,7 @@ title: Configure a SQL Server Always On availability group across different regi
 description: This article explains how to configure a SQL Server Always On availability group on Azure virtual machines with a replica in a different region.
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 
@@ -15,9 +15,9 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "05/02/2017"
-ms.author: mathoma
+ms.author: rsetlem
 ms.custom: "seo-lt-2019"
-
+ms.reviewer: mathoma
 ---
 
 # Configure a SQL Server Always On availability group across different Azure regions
@@ -30,13 +30,13 @@ This article applies to Azure Virtual Machines in Resource Manager mode.
 
 The following image shows a common deployment of an availability group on Azure virtual machines:
 
-   ![Diagram that shows the Azure load balancer and the Availability set with a "Windows Server Failover Cluster" and "Always On Availability Group".](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+:::image type="content" source="./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png" alt-text="Diagram that shows the Azure load balancer and the Availability set with a Windows Server Failover Cluster and Always On Availability Group":::
 
 In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. To build this architecture, see [Availability Group template or tutorial](availability-group-overview.md).
 
 This architecture is vulnerable to downtime if the Azure region becomes inaccessible. To overcome this vulnerability, add a replica in a different Azure region. The following diagram shows how the new architecture would look:
 
-   ![Availability Group DR](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic-dr.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic-dr.png" alt-text="Availability Group DR":::
 
 The preceding diagram shows a new virtual machine called SQL-3. SQL-3 is in a different Azure region. SQL-3 is added to the Windows Server Failover Cluster. SQL-3 can host an availability group replica. Finally, notice that the Azure region for SQL-3 has a new Azure load balancer.
 
@@ -52,7 +52,7 @@ When availability group replicas are on Azure virtual machines in different Azur
 
 The following diagram shows how the networks communicate between data centers.
 
-   ![Diagram that shows the two Virtual Networks in different Azure Regions communicating using V P N Gateways.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png" alt-text="Diagram that shows the two Virtual Networks in different Azure Regions communicating using V P N Gateways.":::
 
 >[!IMPORTANT]
 >This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -74,7 +74,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Create a SQL Server virtual machine in the new region](create-sql-vm-portal.md).
 
-1. [Create an Azure load balancer in the network on the new region](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer).
+1. [Create an Azure load balancer in the network on the new region](availability-group-manually-configure-tutorial-single-subnet.md#configure-internal-load-balancer).
 
    This load balancer must:
 
@@ -86,36 +86,36 @@ To create a replica in a remote data center, do the following steps:
    - Be a Standard Load Balancer if the virtual machines in the backend pool are not part of either a single availability set or virtual machine scale set. For additional information review [Azure Load Balancer Standard overview](../../../load-balancer/load-balancer-overview.md).
    - Be a Standard Load Balancer if the two virtual networks in two different regions are peered over global VNet peering. For more information, see [Azure Virtual Network frequently asked questions (FAQ)](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
-1. [Add Failover Clustering feature to the new SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Add Failover Clustering feature to the new SQL Server](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#add-failover-clustering-features-to-both-sql-server-vms).
 
-1. [Join the new SQL Server to the domain](availability-group-manually-configure-prerequisites-tutorial.md#joinDomain).
+1. [Join the new SQL Server to the domain](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#joinDomain).
 
-1. [Set the new SQL Server service account to use a domain account](availability-group-manually-configure-prerequisites-tutorial.md#setServiceAccount).
+1. [Set the new SQL Server service account to use a domain account](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#setServiceAccount).
 
-1. [Add the new SQL Server to the Windows Server Failover Cluster](availability-group-manually-configure-tutorial.md#addNode).
+1. [Add the new SQL Server to the Windows Server Failover Cluster](availability-group-manually-configure-tutorial-single-subnet.md#addNode).
 
 1. Add an IP address resource to the cluster.
 
    You can create the IP address resource in Failover Cluster Manager. Select the name of the cluster, then right-click the cluster name under **Cluster Core Resources** and select **Properties**: 
 
-   ![Screenshot that shows the "Failover Cluster Manager" with a cluster name, "Server Name", and "Properties" selected.](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png" alt-text="Screenshot that shows the Failover Cluster Manager with a cluster name Server Name and Properties selected.":::
 
    On the **Properties** dialog box, select **Add** under **IP Address**, and then add the IP address of the cluster name from the remote network region. Select **OK** on the **IP Address** dialog box, and then select **OK** again on the **Cluster Properties** dialog box to save the new IP address. 
 
-   ![Add cluster IP](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png" alt-text="Add cluster IP":::
 
 
 1. Add the IP address as a dependency for the core cluster name.
 
    Open the cluster properties once more and select the **Dependencies** tab. Configure an OR dependency for the two IP addresses: 
 
-   ![Cluster properties](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png" alt-text="Cluster properties":::
 
 1. Add an IP address resource to the availability group role in the cluster. 
 
    Right-click the availability group role in Failover Cluster Manager, choose **Add Resource**, **More Resources**, and select **IP Address**.
 
-   ![Create IP Address](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png" alt-text="Create IP Address":::
 
    Configure this IP address as follows:
 
@@ -126,12 +126,12 @@ To create a replica in a remote data center, do the following steps:
 
    The following screenshot shows a properly configured IP address cluster resource:
 
-   ![Availability Group](./media/availability-group-manually-configure-multiple-regions/50-configure-dependency-multiple-ip.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/50-configure-dependency-multiple-ip.png" alt-text="Availability Group":::
 
    >[!IMPORTANT]
    >The cluster resource group includes both IP addresses. Both IP addresses are dependencies for the listener client access point. Use the **OR** operator in the cluster dependency configuration.
 
-1. [Set the cluster parameters in PowerShell](availability-group-manually-configure-tutorial.md#setparam).
+1. [Set the cluster parameters in PowerShell](availability-group-manually-configure-tutorial-single-subnet.md#setparam).
 
    Run the PowerShell script with the cluster network name, IP address, and probe port that you configured on the load balancer in the new region.
 
@@ -148,20 +148,16 @@ To create a replica in a remote data center, do the following steps:
 
 1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
-1. [Open firewall ports on the new SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
+1. [Open firewall ports on the new SQL Server](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#endpoint-firewall). The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
+1. On the new SQL Server in SQL Server Management Studio, [configure system account permissions](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#configure-system-account-permissions).
 
-   The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
-
-
-1. [Add a replica to the availability group on the new SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
-
-   For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
+1. [Add a replica to the availability group on the new SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio). For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
 
 ## Set connection for multiple subnets
 
 The replica in the remote data center is part of the availability group but it is in a different subnet. If this replica becomes the primary replica, application connection time-outs may occur. This behavior is the same as an on-premises availability group in a multi-subnet deployment. To allow connections from client applications, either update the client connection or configure name resolution caching on the cluster network name resource.
 
-Preferably, update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
+Preferably, update the cluster configuration to set `RegisterAllProvidersIP=1` and the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
 
 If you cannot modify the connection strings, you can configure name resolution caching. See [Time-out error and you cannot connect to a SQL Server 2012 AlwaysOn availability group listener in a multi-subnet environment](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 

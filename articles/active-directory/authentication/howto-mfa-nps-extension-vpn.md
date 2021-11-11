@@ -298,7 +298,7 @@ To troubleshoot these issues, an ideal place to start is to examine the Security
 
 ## Configure Multi-Factor Authentication
 
-For assistance configuring users for Multi-Factor Authentication see the articles [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](howto-mfa-getstarted.md#plan-conditional-access-policies) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
+For assistance configuring users for Multi-Factor Authentication see the articles [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](howto-mfa-getstarted.md#plan-conditional-access-policies) and [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
 
 ## Install and configure the NPS extension
 

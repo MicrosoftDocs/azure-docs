@@ -13,7 +13,7 @@ ms.author: allensu
 
 # Using Source Network Address Translation (SNAT) for outbound connections
 
-Certain scenarios require virtual machines or compute instances to have outbound connectivity to the internet. The frontend IPs of an Azure public load balancer can be used to provide outbound connectivity to the internet for backend instances. This configuration uses **source network address translation (SNAT)** as the **source** or virtual machine's private IP is translated to a public IP address. SNAT maps the IP address of the backend to the public IP address of your load balancer. SNAT prevents outside sources from having a direct address to the backend instances.  
+Certain scenarios require virtual machines or compute instances to have outbound connectivity to the internet. The frontend IPs of an Azure public load balancer can be used to provide outbound connectivity to the internet for backend instances. This configuration uses **source network address translation (SNAT)** to translate virtual machine's private IP into Load Balancer's public IP address. SNAT maps the IP address of the backend to the public IP address of your load balancer. SNAT prevents outside sources from having a direct address to the backend instances.  
 
 ## <a name="scenarios"></a>Azure's outbound connectivity methods
 
@@ -25,7 +25,7 @@ Outbound connectivity to the internet can be enabled in the following ways:
 | 2 | Associating a NAT gateway to the subnet | Static, explicit | Yes | Best | 
 | 3 | Assigning a Public IP to the Virtual Machine | Static, explicit | Yes | OK | 
 | 4 | Using the frontend IP address(es) of a Load Balancer for outbound (and inbound) | Implicit | No | Second worst |
-| 5 | Using default outbound access | Implicit | No | Worst |
+| 5 | Using [default outbound access](../virtual-network/ip-services/default-outbound-access.md) | Implicit | No | Worst |
 
 ## <a name="outboundrules"></a>Using the frontend IP address of a load balancer for outbound via outbound rules
 
@@ -36,7 +36,7 @@ This configuration allows you to use the public IP or IPs of your load balancer 
 This configuration enables:
 
 - IP masquerading
-- Simplifying your allowlists.
+- Simplifying your allowlists
 - Reduces the number of public IP resources for deployment
 
 With outbound rules, you have full declarative control over outbound internet connectivity. Outbound rules allow you to scale and tune this ability to your specific needs.
@@ -67,35 +67,34 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
  A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
 
 ## <a name="snat"></a> Using the frontend IP address of a load balancer for outbound (and inbound)
+
 >[!NOTE]
 > This method is **NOT recommended** for production workloads as it adds risk of exhausting ports. Please refrain from using this method for production workloads to avoid potential connection failures due to SNAT port exhaustion. 
 
-A resource in the backend of a load balancer without:
+A resource in the backend of a load balancer without the following configured creates outbound connections via the frontend IP of the load balancer. The resource uses default SNAT (also known as Default Outbound Access).
 
 * Outbound rules
 * Instance level public IP address
-* NAT gateway configured
-
-creates outbound connections via the frontend IP of the load balancer and leverages default SNAT (also known as Default Outbound Access).
+* NAT gateway is configured
 
 ## Default outbound access
 
-A resource without:
+A resource without the following configured creates outbound connections via default SNAT. 
 
 * Outbound rules
 * Instance level public IP address
-* NAT gateway configured
-* a load balancer
+* NAT gateway is configured
+* Load balancer
 
-creates outbound connections via default SNAT. This is known as Default Outbound Access. Another example of a scenario using default SNAT is that a virtual machine in Azure (without associatedions mentioned above). In this case outbound connectivity is provided by the Default Outbound Access IP. This is a dynamic IP assigned by Azure that you cannot control. Default SNAT is not recommended for production workloads
+This access is known as Default Outbound Access. Another example of a scenario using default SNAT is a virtual machine in Azure (without the associations mentioned above). In this case outbound connectivity is provided by the Default Outbound Access IP. This IP is a dynamic IP assigned by Azure that you can't control. Default SNAT isn't recommended for production workloads.
 
 ### What are SNAT ports?
 
 Ports are used to generate unique identifiers used to maintain distinct flows. The internet uses a five-tuple to provide this distinction.
 
-If a port is used for inbound connections, it has a **listener** for inbound connection requests on that port. That port can't be used for outbound connections. To establish an outbound connection, an **ephemeral port** is used to provide the destination with a port on which to communicate and maintain a distinct traffic flow. When these ephemeral ports are used for SNAT, they're called **SNAT ports** 
+If a port is used for inbound connections, it has a **listener** for inbound connection requests on that port. That port can't be used for outbound connections. To establish an outbound connection, an **ephemeral port** is used to provide the destination with a port on which to communicate and maintain a distinct traffic flow. When these ephemeral ports are used for SNAT, they're called **SNAT ports**.
 
-By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). When a public IP address is added as a frontend IP to a load balancer, 64,000 ports are eligible for SNAT.
+By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). When a public IP address is added as a frontend IP to a load balancer, 64,000 ports are eligible for SNAT. While all public IPs that are added as frontend IPs can be allocated, frontend IPs are consumed one at a time. For example, if two backend instances are allocated 64,000 ports each, with access to 2 frontend IPs, both backend instances will consume ports from the first frontend IP until all 64,000 ports have been exhausted.  
 
 A port used for a load balancing or inbound NAT rule consumes eight ports from the 64,000 ports. This usage reduces the number of ports eligible for SNAT. If a load-balancing or inbound NAT rule is in the same range of eight as another, it doesn't use extra ports. 
 
@@ -114,6 +113,7 @@ To achieve outbound connectivity to the internet when using a standard internal 
 - Add backend instances to a standard public load balancer with an outbound rule configured.  
 
 ### What is the IP for default SNAT?
+
 When the VM creates an outbound flow, Azure translates the source IP address to a dynamically given public source IP address. This public IP address **isn't configurable** and can't be reserved. This address doesn't count against the subscription's public IP resource limit. 
 
 The public IP address will be released and a new public IP requested if you redeploy the: 
@@ -144,7 +144,7 @@ Imagine having multiple browsers going to https://www.microsoft.com, which is:
 
 Without different destination ports for the return traffic (the SNAT port used to establish the connection), the client will have no way to separate one query result from another.
 
-Outbound connections can burst. A backend instance can be allocated insufficient ports. Without **connection reuse** enabled, the risk of SNAT **port exhaustion** is increased.
+Outbound connections can burst. A backend instance can be allocated insufficient ports. Use **connection reuse** functionality within your application. Without **connection reuse**, the risk of SNAT **port exhaustion** is increased. For more information about connection pooling with Azure App Service, see [Troubleshooting intermittent outbound connection errors in Azure App Service](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#avoiding-the-problem)
 
 New outbound connections to a destination IP will fail when port exhaustion occurs. Connections will succeed when a port becomes available. This exhaustion occurs when the 64,000 ports from an IP address are spread thin across many backend instances. For guidance on mitigation of SNAT port exhaustion, see the [troubleshooting guide](./troubleshoot-outbound-connection.md).  
 
@@ -171,6 +171,18 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
 | 401-800 | 64 |
 | 801-1,000 | 32 | 
 
+## <a name="preallocatedports"></a> Manual port allocation
+
+Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion. 
+
+You can manually allocate SNAT ports either by "ports per instance" or "maximum number of backend instances". If you have Virtual Machines in the backend, it's recommended that you allocate ports by "ports per instance" to get maximum SNAT port usage. 
+
+Ports per instance should be calculated as below: 
+
+**Number of frontend IPs * 64K / Number of backend instances** 
+
+If you have Virtual Machine Scale Sets in the backend, it's recommended to allocate ports by "maximum number of backend instances". If more VMs are added to the backend than remaining SNAT ports allowed, it's possible that virtual machine scale set scaling up could be blocked or that the new VMs will not receive sufficient SNAT ports. 
+
 ## Constraints
 
 *	When a connection is idle with no new packets being sent, the ports will be released after 4 – 120 minutes.
@@ -181,6 +193,7 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
   *	A TCP SNAT port can be used for multiple connections to the same destination IP provided the destination ports are different.
 *	SNAT exhaustion occurs when a backend instance runs out of given SNAT Ports. A load balancer can still have unused SNAT ports. If a backend instance’s used SNAT ports exceed its given SNAT ports, it will be unable to establish new outbound connections.
 *	Fragmented packets will be dropped unless outbound is through an instance level public IP on the VM's NIC.
+*	Secondary IP configurations of a network interface do not outbound communication (unless a Public IP is associated to it) via Load Balancer.
 
 ## Next steps
 

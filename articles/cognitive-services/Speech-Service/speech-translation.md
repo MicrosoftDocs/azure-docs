@@ -3,20 +3,18 @@ title: Speech translation overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: Speech translation allows you to add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation. This article is an overview of the benefits and capabilities of the speech translation service.
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: lajanuar
+ms.author: eur
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: speech translation
 ---
 
 # What is speech translation?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 In this overview, you learn about the benefits and capabilities of the speech translation service, which enables real-time, [multi-language speech-to-speech](language-support.md#speech-translation) and speech-to-text translation of audio streams. With the Speech SDK, your applications, tools, and devices have access to source transcriptions and translation outputs for provided audio. Interim transcription and translation results are returned as speech is detected, and final results can be converted into synthesized speech.
 

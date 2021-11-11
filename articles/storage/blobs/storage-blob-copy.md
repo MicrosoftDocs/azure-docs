@@ -179,10 +179,10 @@ The [abort_copy](/azure/developer/python/sdk/storage/azure-storage-blob/azure.st
 
 Get more information about Azure SDKs:
 
- - [Azure SDK for .NET](https://github.com/azure/azure-sdk-for-net)
- - [Azure SDK for Java](https://github.com/azure/azure-sdk-for-java)
- - [Azure SDK for Python](https://github.com/azure/azure-sdk-for-python)
- - [Azure SDK for JavaScript](https://github.com/azure/azure-sdk-for-js)
+- [Azure SDK for .NET](https://github.com/azure/azure-sdk-for-net)
+- [Azure SDK for Java](https://github.com/azure/azure-sdk-for-java)
+- [Azure SDK for Python](https://github.com/azure/azure-sdk-for-python)
+- [Azure SDK for JavaScript](https://github.com/azure/azure-sdk-for-js)
 
 ## Next steps
 

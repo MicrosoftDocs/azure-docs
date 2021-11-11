@@ -2,7 +2,7 @@
 title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 01/13/2021 
+ms.date: 10/01/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -20,8 +20,8 @@ For templates, use the following schema:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  ...
 }
 ```
 
@@ -29,8 +29,8 @@ For parameter files, use:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  ...
 }
 ```
 
@@ -59,7 +59,7 @@ New-AzResourceGroupDeployment `
   -Name demoRGDeployment `
   -ResourceGroupName ExampleGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
-  -storageAccountType Standard_GRS `
+  -storageAccountType Standard_GRS
 ```
 
 ---
@@ -247,70 +247,70 @@ From a resource group deployment, you can switch to the level of a subscription 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-            "type": "string",
-            "maxLength": 11
-        },
-        "newResourceGroupName": {
-            "type": "string"
-        },
-        "nestedSubscriptionID": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "type": "string",
+      "maxLength": 11
     },
-    "variables": {
-        "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+    "newResourceGroupName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "name": "[variables('storageName')]",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {
+    "nestedSubscriptionID": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-04-01",
+      "name": "[variables('storageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2021-04-01",
+      "name": "demoSubDeployment",
+      "location": "westus",
+      "subscriptionId": "[parameters('nestedSubscriptionID')]",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {},
+          "resources": [
+            {
+              "type": "Microsoft.Resources/resourceGroups",
+              "apiVersion": "2021-04-01",
+              "name": "[parameters('newResourceGroupName')]",
+              "location": "[parameters('location')]",
+              "properties": {}
             }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "demoSubDeployment",
-            "location": "westus",
-            "subscriptionId": "[parameters('nestedSubscriptionID')]",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-10-01",
-                            "name": "[parameters('newResourceGroupName')]",
-                            "location": "[parameters('location')]",
-                            "properties": {}
-                        }
-                    ],
-                    "outputs": {}
-                }
-            }
+          ],
+          "outputs": {}
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
 ## Next steps
 
-* For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* For an example of deploying workspace settings for Microsoft Defender for Cloud, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).

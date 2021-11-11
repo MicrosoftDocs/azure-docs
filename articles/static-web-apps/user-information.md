@@ -148,6 +148,8 @@ public static class StaticWebAppsAuth
 
 ---
 
+When a user is logged in, the `x-ms-client-principal` header is added to the requests for user information via the Static Web Apps edge nodes.
+
 <sup>1</sup> The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator aren't supported in Internet Explorer.
 
 ## Next steps

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 10/18/2021
 ms.author: jianleishen
 ---
 
@@ -16,7 +16,7 @@ ms.author: jianleishen
 
 Follow this article when you want to **parse the Excel files**. The service supports both ".xls" and ".xlsx".
 
-Excel format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md). It is supported as source but not sink. 
+Excel format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md). It is supported as source but not sink. 
 
 >[!NOTE]
 >".xls" format is not supported while using [HTTP](connector-http.md).
@@ -99,7 +99,7 @@ The following properties are supported in the copy activity ***\*source\**** sec
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), and [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
 
 ### Source properties
 
@@ -119,7 +119,7 @@ The below table lists the properties supported by an Excel source. You can edit 
 
 The below image is an example of an Excel source configuration in mapping data flows using dataset mode.
 
-![Excel source](media/data-flow/excel-source.png)
+:::image type="content" source="media/data-flow/excel-source.png" alt-text="Excel source":::
 
 The associated data flow script is:
 
@@ -131,7 +131,7 @@ source(allowSchemaDrift: true,
 
 If you use inline dataset, you see the following source options in mapping data flow.
 
-![Excel source inline dataset](media/data-flow/excel-source-inline-dataset.png)
+:::image type="content" source="media/data-flow/excel-source-inline-dataset.png" alt-text="Excel source inline dataset":::
 
 The associated data flow script is:
 

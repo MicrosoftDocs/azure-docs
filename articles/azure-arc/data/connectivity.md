@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
 ---
 
@@ -29,7 +29,7 @@ Importantly, if the Azure Arc-enabled data services are directly connected to Az
 
 Additionally, Azure Active Directory and Azure Role-Based Access Control can be used in the directly connected mode only because there is a dependency on a continuous and direct connection to Azure to provide this functionality.
 
-Some Azure-attached services are only available when they can be directly reached such as the Azure Defender security services, Container Insights, and Azure Backup to blob storage.
+Some Azure-attached services are only available when they can be directly reached such as the Microsoft Defender for Cloud security services, Container Insights, and Azure Backup to blob storage.
 
 ||**Indirectly connected**|**Directly connected**|**Never connected**|
 |---|---|---|---|
@@ -43,16 +43,16 @@ Some Azure-attached services are only available when they can be directly reache
 |**Feature**|**Indirectly connected**|**Directly connected**|
 |---|---|---|
 |**Automatic high availability**|Supported|Supported|
-|**Self-service provisioning**|Supported<br/>Creation can be done through Azure Data Studio, the appropriate CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc-enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the indirectly connected mode creation options, you can also create through the Azure portal, Azure Resource Manager APIs, the Azure CLI, or ARM templates. **Pending availability of directly connected mode**
-|**Elastic scalability**|Supported|Supported<br/>**Pending availability of directly connected mode**|
-|**Billing**|Supported<br/>Billing data is periodically exported out and sent to Azure.|Supported<br/>Billing data is automatically and continuously sent to Azure and reflected in near real time. **Pending availability of directly connected mode**|
+|**Self-service provisioning**|Supported<br/>Creation can be done through Azure Data Studio, the appropriate CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc-enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the indirectly connected mode creation options, you can also create through the Azure portal, Azure Resource Manager APIs, the Azure CLI, or ARM templates. 
+|**Elastic scalability**|Supported|Supported<br/>|
+|**Billing**|Supported<br/>Billing data is periodically exported out and sent to Azure.|Supported<br/>Billing data is automatically and continuously sent to Azure and reflected in near real time. |
 |**Inventory management**|Supported<br/>Inventory data is periodically exported out and sent to Azure.<br/><br/>Use client tools like Azure Data Studio, Azure Data CLI, or `kubectl` to view and manage inventory locally.|Supported<br/>Inventory data is automatically and continuously sent to Azure and reflected in near real time. As such, you can manage inventory directly from the Azure portal.|
-|**Automatic upgrades and patching**|Supported<br/>The data controller must either have direct access to the Microsoft Container Registry (MCR) or the container images need to be pulled from MCR and pushed to a local, private container registry that the data controller has access to.|Supported<br/>**Pending availability of directly connected mode**|
-|**Automatic backup and restore**|Supported<br/>Automatic local backup and restore.|Supported<br/>In addition to automated local backup and restore, you can _optionally_ send backups to Azure Backup for long-term, off-site retention. **Pending availability in directly connected mode**|
-|**Monitoring**|Supported<br/>Local monitoring using Grafana and Kibana dashboards.|Supported<br/>In addition to local monitoring dashboards, you can _optionally_ send monitoring data and logs to Azure Monitor for at-scale monitoring of multiple sites in one place. **Pending availability of directly connected mode**|
+|**Automatic upgrades and patching**|Supported<br/>The data controller must either have direct access to the Microsoft Container Registry (MCR) or the container images need to be pulled from MCR and pushed to a local, private container registry that the data controller has access to.|Supported<br/>**Pending availability in directly connected.**|
+|**Automatic backup and restore**|Supported<br/>Automatic local backup and restore.|Supported<br/>In addition to automated local backup and restore, you can _optionally_ send backups to Azure Backup for long-term, off-site retention. **Pending availability in directly connected mode.**|
+|**Monitoring**|Supported<br/>Local monitoring using Grafana and Kibana dashboards.|Supported<br/>In addition to local monitoring dashboards, you can _optionally_ send monitoring data and logs to Azure Monitor for at-scale monitoring of multiple sites in one place. |
 |**Authentication**|Use local username/password for data controller and dashboard authentication. Use SQL and Postgres logins or Active Directory (AD is not currently supported, will be in preview soon) for connectivity to database instances.  Use K8s authentication providers for authentication to the Kubernetes API.|In addition to or instead of the authentication methods for the indirectly connected mode, you can _optionally_ use Azure Active Directory. **Pending availability in directly connected mode**|
-|**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Azure Active Directory and Azure RBAC.|
-|**Azure Defender**|Not supported|Planned for future|
+|**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Azure Active Directory and Azure RBAC. **Pending availability in directly connected mode**|
+|**Microsoft Defender for Cloud**|Not supported|Planned for future|
 
 ## Connectivity requirements
 
@@ -67,16 +67,16 @@ Some Azure-attached services are only available when they can be directly reache
 |**Billing telemetry data**|Customer environment -> Azure|Required|No|Indirect or direct|Utilization of database instances must be sent to Azure for billing purposes. |
 |**Monitoring data and logs**|Customer environment -> Azure|Optional|Maybe depending on data volume (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/))|Indirect or direct|You may want to send the locally collected monitoring data and logs to Azure Monitor for aggregating data across multiple environments into one place and also to use Azure Monitor services like alerts, using the data in Azure Machine Learning, etc.|
 |**Azure Role-based Access Control (Azure RBAC)**|Customer environment -> Azure -> Customer Environment|Optional|No|Direct only|If you want to use Azure RBAC, then connectivity must be established with Azure at all times.  If you don’t want to use Azure RBAC then local Kubernetes RBAC can be used.|
-|**Azure Active Directory (AAD) (Future)**|Customer environment -> Azure -> Customer environment|Optional|Maybe, but you may already be paying for Azure AD|Direct only|If you want to use Azure AD for authentication, then connectivity must be established with Azure at all times. If you don’t want to use Azure AD for authentication, you can us Active Directory Federation Services (ADFS) over Active Directory. **Pending availability in directly connected mode**|
+|**Azure Active Directory (AAD) (Future)**|Customer environment -> Azure -> Customer environment|Optional|Maybe, but you may already be paying for Azure AD|Direct only|If you want to use Azure AD for authentication, then connectivity must be established with Azure at all times. If you don’t want to use Azure AD for authentication, you can use Active Directory Federation Services (ADFS) over Active Directory. **Pending availability in directly connected mode**|
 |**Backup and restore**|Customer environment -> Customer environment|Required|No|Direct or indirect|The backup and restore service can be configured to point to local storage classes. **Pending availability in directly connected mode**|
 |**Azure backup - long term retention (Future)**| Customer environment -> Azure | Optional| Yes for Azure storage | Direct only |You may want to send backups that are taken locally to Azure Backup for long-term, off-site retention of backups and bring them back to the local environment for restore. **Pending availability in directly connected mode**|
-|**Azure Defender security services (Future)**|Customer environment -> Azure -> Customer environment|Optional|Yes|Direct only|**Pending availability in directly connected mode**|
+|**Microsoft Defender for Cloud security services (future)**|Customer environment -> Azure -> Customer environment|Optional|Yes|Direct only|**Pending availability in directly connected mode**|
 |**Provisioning and configuration changes from Azure portal**|Customer environment -> Azure -> Customer environment|Optional|No|Direct only|Provisioning and configuration changes can be done locally using Azure Data Studio or the appropriate CLI.  In directly connected mode, you will also be able to provision and make configuration changes from the Azure portal.|
 
 
 ## Details on internet addresses, ports, encryption, and proxy server support
 
-Currently, only the indirectly connected mode is generally available. In this mode, there are only three connections required to services available on the Internet. These connections include:
+There are three connections required to services available on the Internet. These connections include:
 
 - [Microsoft Container Registry (MCR)](#microsoft-container-registry-mcr)
 - [Azure Resource Manager APIs](#azure-resource-manager-apis)
@@ -97,6 +97,34 @@ The Kubernetes kubelet on each of the Kubernetes nodes pulling the container ima
 #### Connection target
 
 `mcr.microsoft.com`
+
+#### Protocol
+
+HTTPS
+
+#### Port
+
+443
+
+#### Can use proxy
+
+Yes
+
+#### Authentication
+
+None
+
+### Helm chart used to create data controller in direct connected mode
+
+The helm chart used to provision the Azure Arc data controller bootstrapper and cluster level objects, such as custom resource definitions, cluster roles, and cluster role bindings, is pulled from an Azure Container Registry.
+
+#### Connection source
+
+The Kubernetes kubelet on each of the Kubernetes nodes pulling the container images.
+
+#### Connection target
+
+`arcdataservicesrow1.azurecr.io`
 
 #### Protocol
 
@@ -190,4 +218,3 @@ Azure Active Directory
 > For now, all browser HTTPS/443 connections to the data controller for running the command `az arcdata dc export` and Grafana and Kibana dashboards are SSL encrypted using self-signed certificates.  A feature will be available in the future that will allow you to provide your own certificates for encryption of these SSL connections.
 
 Connectivity from Azure Data Studio to the Kubernetes API server uses the Kubernetes authentication and encryption that you have established.  Each user that is using Azure Data Studio or CLI must have an authenticated connection to the Kubernetes API to perform many of the actions related to Azure Arc-enabled data services.
-

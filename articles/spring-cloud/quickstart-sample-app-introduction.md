@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -72,18 +72,18 @@ PetClinic is decomposed into 4 core microservices. All of them are independently
 * **Customers service**: Contains general user input logic and validation including pets and owners information (Name, Address, City, Telephone).
 * **Visits service**: Stores and shows visits information for each pets' comments.
 * **Vets service**: Stores and shows Veterinarians' information, including names and specialties.
-* **API Gateway**: The API Gateway is a single entry point into the system, used to handle requests and route them to an appropriate service or to invoke multiple services, and aggregate the results.  The three core services expose an external API to client. In real-world systems, the number of functions can grow very quickly with system complexity. Hundreds of services might be involved in rendering of one complex webpage.
+* **API Gateway**: The API Gateway is a single entry point into the system, used to handle requests and route them to an appropriate service or to invoke multiple services, and aggregate the results.  The three core services expose an external API to client. In real-world systems, the number of functions can grow very quickly with system complexity. Hundreds of services might be involved in rendering one complex webpage.
 
 ## Infrastructure services hosted by Azure Spring Cloud
 
-There are several common patterns in distributed systems that support core services. Azure Spring cloud provides tools that enhance Spring Boot applications to implement the following patterns:
+There are several common patterns in distributed systems that support core services. Azure Spring Cloud provides tools that enhance Spring Boot applications to implement the following patterns:
 
 * **Config service**: Azure Spring Cloud Config is a horizontally scalable centralized configuration service for distributed systems. It uses a pluggable repository that currently supports local storage, Git, and Subversion.
 * **Service discovery**: It allows automatic detection of network locations for service instances, which could have dynamically assigned addresses because of autoscaling, failures, and upgrades.
 
 ## Database configuration
 
-In its default configuration, **Pet Clinic** uses an in-memory database (HSQLDB) which is populated at startup with data. A similar setup is provided for MySql if a persistent database configuration is needed. Dependency for Connector/J, the MySQL JDBC driver, is already included in the pom.xml files.
+In its default configuration, **Pet Clinic** uses an in-memory database (HSQLDB) which is populated at startup with data. A similar setup is provided for MySql if a persistent database configuration is needed. A dependency for Connector/J, the MySQL JDBC driver, is already included in the pom.xml files.
 
 ## Sample usage of PetClinic
 

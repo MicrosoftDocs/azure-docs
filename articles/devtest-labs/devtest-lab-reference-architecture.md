@@ -1,7 +1,7 @@
 ---
-title: Enterprise reference architecture for Azure DevTest Labs
+title: Enterprise reference architecture
 description: This article provides reference architecture guidance for Azure DevTest Labs in an enterprise. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ---
@@ -52,7 +52,7 @@ DevTest Labs has a great administrative user interface for working with a single
 - **Restrict changes to a lab setting**: Often, a particular setting must be restricted (such as allowing use of marketplace images). You can use Azure Policy to prevent changes to a resource type. Or you can create a custom role, and grant users that role instead of the *owner* role for the lab. You can do this for most settings in the lab (internal support, lab announcement, allowed VM sizes, and so on).
 - **Require VMs to follow a naming convention**: Managers commonly want to easily identify VMs that are part of a cloud-based development and testing environment. You can do this by using [Azure Policy](https://github.com/Azure/azure-policy/tree/master/samples/TextPatterns/allow-multiple-name-patterns).
 
-It’s important to note that DevTest Labs uses underlying Azure resources that are managed the same way: networking, disks, compute, and so on. For example, Azure Policy applies to virtual machines that are created in a lab. Azure Security Center can report on VM compliance. And the Azure Backup service can provide regular backups for the VMs in the lab.
+It’s important to note that DevTest Labs uses underlying Azure resources that are managed the same way: networking, disks, compute, and so on. For example, Azure Policy applies to virtual machines that are created in a lab. Microsoft Defender for Cloud can report on VM compliance. And the Azure Backup service can provide regular backups for the VMs in the lab.
 
 ## Security considerations
 Azure DevTest Labs uses existing resources in Azure (compute, networking, and so on). So it automatically benefits from the security features that are built into the platform. For example, to require incoming remote desktop connections to originate only from the corporate network, simply add a network security group to the virtual network on the remote desktop gateway. The only additional security consideration is the level of permissions that you grant to team members who use the labs on a day-to-day basis. The most common permissions are [*owner* and *user*](devtest-lab-add-devtest-user.md). For more information about these roles, see [Add owners and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md).

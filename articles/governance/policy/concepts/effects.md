@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -142,19 +142,65 @@ For a Resource Manager mode, the audit effect doesn't have any additional proper
 **then** condition of the policy definition.
 
 For a Resource Provider mode of `Microsoft.Kubernetes.Data`, the audit effect has the following
-additional subproperties of **details**.
+additional subproperties of **details**. Use of `templateInfo` is required for new or updated policy
+definitions as `constraintTemplate` is deprecated.
 
-- **constraintTemplate** (required)
-  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
-    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
-    passed via **values** from Azure Policy.
-- **constraint** (required)
+- **templateInfo** (required)
+  - Can't be used with `constraintTemplate`.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint template. Allowed values: _PublicURL_ or
+      _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the constraint template. The
+      location must be publicly accessible.
+
+      > [!WARNING]
+      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
+
+    - If _Base64Encoded_, paired with property `content` to provide the base 64 encoded constraint
+      template. See
+      [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to
+      create a custom definition from an existing
+      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+      [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
+- **constraint** (optional)
+  - Can't be used with `templateInfo`.
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
     `{{ .Values.<valuename> }}`. In example 2 below, these values are
     `{{ .Values.excludedNamespaces }}` and `{{ .Values.allowedContainerImagesRegex }}`.
+- **namespaces** (optional)
+  - An _array_ of
+    [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+    to limit policy evaluation to.
+  - An empty or missing value causes policy evaluation to include all namespaces, except those
+    defined in _excludedNamespaces_.
+- **excludedNamespaces** (required)
+  - An _array_ of
+    [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+    to exclude from policy evaluation.
+- **labelSelector** (required)
+  - An _object_ that includes _matchLabels_ (object) and _matchExpression_ (array) properties to
+    allow specifying which Kubernetes resources to include for policy evaluation that matched the
+    provided
+    [labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
+  - An empty or missing value causes policy evaluation to include all labels and selectors, except
+    namespaces defined in _excludedNamespaces_.
+- **apiGroups** (required when using _templateInfo_)
+  - An _array_ that includes the
+    [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
+    array (`[""]`) is the core API group while `["*"]` matches all API groups.
+- **kinds** (required when using _templateInfo_)
+  - An _array_ that includes the
+    [kind](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields)
+    of Kubernetes object to limit evaluation to.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
+- **constraintTemplate** (deprecated)
+  - Can't be used with `templateInfo`.
+  - Must be replaced with `templateInfo` when creating or updating a policy definition.
+  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
+    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
+    passed via **values** from Azure Policy.
 
 ### Audit example
 
@@ -167,19 +213,22 @@ Example 1: Using the audit effect for Resource Manager modes.
 ```
 
 Example 2: Using the audit effect for a Resource Provider mode of `Microsoft.Kubernetes.Data`. The
-additional information in **details** defines the Constraint template and CRD to use in Kubernetes
-to limit the allowed container images.
+additional information in **details.templateInfo** declares use of _PublicURL_ and sets `url` to the
+location of the Constraint template to use in Kubernetes to limit the allowed container images.
 
 ```json
 "then": {
     "effect": "audit",
     "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "templateInfo": {
+            "sourceType": "PublicURL",
+            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+        },
         "values": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
-            "excludedNamespaces": "[parameters('excludedNamespaces')]"
-        }
+            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+        },
+        "apiGroups": [""],
+        "kinds": ["Pod"]
     }
 }
 ```
@@ -224,13 +273,13 @@ related resources to match.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource.
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation. 
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only
     used for evaluations that are a result of a create or update resource request.
   - Allowed values are `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure`,
-    or an ISO 8601 duration between 10 and 360 minutes.
+    or an ISO 8601 duration between 0 and 360 minutes.
   - The _AfterProvisioning_ values inspect the provisioning result of the resource that was
     evaluated in the policy rule's IF condition. `AfterProvisioning` runs after provisioning is
     complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
@@ -303,19 +352,66 @@ For a Resource Manager mode, the deny effect doesn't have any additional propert
 **then** condition of the policy definition.
 
 For a Resource Provider mode of `Microsoft.Kubernetes.Data`, the deny effect has the following
-additional subproperties of **details**.
+additional subproperties of **details**. Use of `templateInfo` is required for new or updated policy
+definitions as `constraintTemplate` is deprecated.
 
-- **constraintTemplate** (required)
-  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
-    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
-    passed via **values** from Azure Policy.
-- **constraint** (required)
+- **templateInfo** (required)
+  - Can't be used with `constraintTemplate`.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint template. Allowed values: _PublicURL_ or
+      _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the constraint template. The
+      location must be publicly accessible.
+
+      > [!WARNING]
+      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
+
+    - If _Base64Encoded_, paired with property `content` to provide the base 64 encoded constraint
+      template. See
+      [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to
+      create a custom definition from an existing
+      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+      [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
+- **constraint** (optional)
+  - Can't be used with `templateInfo`.
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
     `{{ .Values.<valuename> }}`. In example 2 below, these values are
     `{{ .Values.excludedNamespaces }}` and `{{ .Values.allowedContainerImagesRegex }}`.
+- **namespaces** (optional)
+  - An _array_ of
+    [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+    to limit policy evaluation to.
+  - An empty or missing value causes policy evaluation to include all namespaces, except those
+    defined in _excludedNamespaces_.
+- **excludedNamespaces** (required)
+  - An _array_ of
+    [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+    to exclude from policy evaluation.
+- **labelSelector** (required)
+  - An _object_ that includes _matchLabels_ (object) and _matchExpression_ (array) properties to
+    allow specifying which Kubernetes resources to include for policy evaluation that matched the
+    provided
+    [labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
+  - An empty or missing value causes policy evaluation to include all labels and selectors, except
+    namespaces defined in _excludedNamespaces_.
+- **apiGroups** (required when using _templateInfo_)
+  - An _array_ that includes the
+    [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
+    array (`[""]`) is the core API group while `["*"]` matches all API groups.
+- **kinds** (required when using _templateInfo_)
+  - An _array_ that includes the
+    [kind](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields)
+    of Kubernetes object to limit evaluation to.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
+- **constraintTemplate** (deprecated)
+  - Can't be used with `templateInfo`.
+  - Must be replaced with `templateInfo` when creating or updating a policy definition.
+  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
+    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
+    passed via **values** from Azure Policy. It's recommended to use the newer `templateInfo` to
+    replace `constraintTemplate`.
 
 ### Deny example
 
@@ -328,19 +424,22 @@ Example 1: Using the deny effect for Resource Manager modes.
 ```
 
 Example 2: Using the deny effect for a Resource Provider mode of `Microsoft.Kubernetes.Data`. The
-additional information in **details** defines the Constraint template and CRD to use in Kubernetes
-to limit the allowed container images.
+additional information in **details.templateInfo** declares use of _PublicURL_ and sets `url` to the
+location of the Constraint template to use in Kubernetes to limit the allowed container images.
 
 ```json
 "then": {
     "effect": "deny",
     "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "templateInfo": {
+            "sourceType": "PublicURL",
+            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+        },
         "values": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
-            "excludedNamespaces": "[parameters('excludedNamespaces')]"
-        }
+            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+        },
+        "apiGroups": [""],
+        "kinds": ["Pod"]
     }
 }
 ```
@@ -393,7 +492,7 @@ related resources to match and the template deployment to execute.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource.
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation. 
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only

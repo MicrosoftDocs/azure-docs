@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 08/09/2021
+  ms.date: 11/07/2021
   featureFlags:
   - clicktale
 
@@ -171,7 +171,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/form-recognizer/index.yml
+      url: ./applied-ai-services/form-recognizer/index.yml
     # Card
     - title: Immersive Reader
       summary: Empower users of all ages and abilities to read and comprehend text
@@ -272,6 +272,14 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/translator/index.yml
+    # Card
+    - title: Azure Video Analyzer (preview)
+      summary: Build intelligent video-based applications using the AI of your choice
+      imageSrc: ./media/index/video-analyzer.svg
+      azureCategories:
+        - ai-machine-learning
+        - media
+      url: azure-video-analyzer/video-analyzer-docs/overview.md
     # Card
     - title: Azure Video Analyzer for Media
       summary: Unlock video insights
@@ -391,13 +399,6 @@ productDirectory:
         - analytics
       url: hdinsight/r-server/r-server-overview.md
     # Card
-    - title: Azure Blockchain Service (Preview)
-      summary: Build, govern, and expand consortium blockchain networks
-      imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-service.svg
-      azureCategories:
-        - blockchain
-      url: blockchain/service/index.yml
-    # Card
     - title: Azure Blockchain Workbench (Preview)
       summary: Easily prototype blockchain apps in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
@@ -491,6 +492,13 @@ productDirectory:
         - compute
         - featured
       url: /azure/quantum/
+    # Card
+    - title: Azure Spot Virtual Machines
+      summary: Provision unused compute capacity at deep discounts to run interruptible workloads
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
+      azureCategories:
+        - compute
+      url: ./virtual-machines/spot-vms.md
     # Card
     - title: Azure Spring Cloud
       summary: A fully managed Spring Cloud service, built and operated with Pivotal
@@ -592,6 +600,13 @@ productDirectory:
         - featured
         - compute
       url: ./virtual-machines/index.yml
+    # Card
+    - title: Azure Container Apps (Preview)
+      summary: Build and deploy modern apps and microservices using serverless containers
+      imageSrc: ./media/index/container-apps.svg
+      azureCategories:
+        - containers
+      url: container-apps/index.yml
     # Card
     - title: Azure Dev Spaces
       summary: Test and iteratively develop your microservices app in Azure AKS
@@ -842,7 +857,7 @@ productDirectory:
         - networking
       url: expressroute/index.yml
     # Card
-    - title: Azure Sentinel
+    - title: Microsoft Sentinel
       summary: Put cloud-native SIEM and intelligent security analytics to work to help protect your enterprise
       imageSrc: https://static.docs.com/ui/media/product/azure/sentinel.svg
       azureCategories:
@@ -877,14 +892,6 @@ productDirectory:
       azureCategories:
         - hybrid
       url: ./databox-online/index.yml
-    # Card
-    - title: Security Center
-      summary: Unify security management and enable advanced threat protection across hybrid cloud workloads
-      imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
-      azureCategories:
-        - hybrid
-        - security
-      url: security-center/index.yml
     # Card
     - title: Azure IoT Edge
       summary: Extend cloud intelligence and analytics to edge devices
@@ -963,13 +970,6 @@ productDirectory:
       azureCategories:
         - iot
       url: iot-hub/index.yml
-    # Card
-    - title: Azure IoT solution accelerators
-      summary: Create fully customizable solutions with templates for common IoT scenarios
-      imageSrc: ./media/index/iot-solution-accelerators.svg
-      azureCategories:
-        - iot
-      url: iot-accelerators/index.yml
     # Card
     - title: Azure Maps
       summary: Simple and secure location APIs provide geospatial context to data
@@ -1075,7 +1075,7 @@ productDirectory:
         - management-and-governance
       url: azure-resource-manager/index.yml
     # Card
-    - title: Azure Resource Mover 
+    - title: Azure Resource Mover
       summary: Simplify how you move multiple resources between Azure regions
       imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
       azureCategories:
@@ -1179,13 +1179,6 @@ productDirectory:
         - media
       url: media-services/latest/stream-live-tutorial-with-api.md
     # Card
-    - title: Azure Video Analyzer (preview)
-      summary: Build intelligent video-based applications using the AI of your choice
-      imageSrc: ./media/index/video-analyzer.svg
-      azureCategories:
-        - media
-      url: azure-video-analyzer/video-analyzer-docs/overview.md
-    # Card
     - title: Media Services
       summary: Encode, store, and stream video and audio at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
@@ -1252,14 +1245,14 @@ productDirectory:
         - networking
       url: bastion/index.yml
     # Card
-    - title: Azure Defender
-      summary: Protect hybrid cloud workloads
+    - title: Microsoft Defender for Cloud
+      summary: Security posture management and advanced threat protection across Azure, hybrid, and multi-cloud workloads
       imageSrc: ./media/index/defender.svg
       azureCategories:
         - security
-      url: security-center/azure-defender.md
+      url: defender-for-cloud/index.yml
     # Card
-    - title: Azure Defender for IoT
+    - title: Microsoft Defender for IoT
       summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
       imageSrc: ./media/index/defender-iot.svg
       azureCategories:
@@ -1325,7 +1318,7 @@ productDirectory:
         - networking
       url: load-balancer/index.yml
     # Card
-    - title: Azure Route Server (Preview)
+    - title: Azure Route Server
       summary: Simplify operations management of your network appliances
       imageSrc: ./media/index/azure-route-server.svg
       azureCategories:
@@ -1338,6 +1331,13 @@ productDirectory:
       azureCategories:
         - networking
       url: virtual-network/index.yml
+    # Card
+    - title: Azure Virtual Network Manager (Preview)
+      summary: Centralized management of virtual network connectivity and enforce security rules across subscriptions.
+      imageSrc: ./media/index/azure-virtual-network-manager.svg
+      azureCategories:
+        - networking
+      url: virtual-network-manager/index.yml
     # Card
     - title: Virtual WAN
       summary: Microsoft-managed hub and spoke service for connectivity and security
@@ -1381,7 +1381,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-explorer.svg
       azureCategories:
         - storage
-      url: storage/blobs/storage-blob-storage-tiers.md
+      url: storage/blobs/access-tiers-overview.md
     # Card
     - title: Avere vFXT for Azure
       summary: Run high-performance, file-based workloads in the cloud
@@ -1426,7 +1426,7 @@ productDirectory:
       url: virtual-machines/managed-disks-overview.md
     # Card
     - title: Azure Files
-      summary: File shares that use the standard SMB 3.0 protocol
+      summary: Simple, secure and serverless enterprise-grade cloud file shares
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-azure-files.svg
       azureCategories:
         - storage

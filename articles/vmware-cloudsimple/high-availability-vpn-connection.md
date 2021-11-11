@@ -1,8 +1,8 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Configure high availability from on-premises to CloudSimple VPN gateway
 description: Describes how to configure a high availability connection from your on-premises environment to a CloudSimple VPN gateway enabled for high availability
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -35,7 +35,7 @@ For the Site-to-Site VPN to work, you must allow UDP 500/4500 and ESP (IP protoc
 
 To enable phase 1 (IKEv1) on the outside interface, enter the following CLI command in the Cisco ASA firewall.
 
-```crypto ikev1 enable outside```
+`crypto ikev1 enable outside`
 
 ### 2. Create an IKEv1 policy
 
@@ -116,13 +116,13 @@ crypto map mymap 1 set ikev1 transform-set devtest39
 
 Apply the crypto map on the outside interface:
 
-```crypto map mymap interface outside```
+`crypto map mymap interface outside`
 
 ### 8. Confirm applicable NAT rules
 
 The following is the NAT rule that is used. Ensure that the VPN traffic is not subjected to any other NAT rule.
 
-```nat (inside,outside) source static AZ_inside AZ_inside destination static CS_inside CS_inside```
+`nat (inside,outside) source static AZ_inside AZ_inside destination static CS_inside CS_inside`
 
 ### Sample IPsec Site-to-Site VPN established output from Cisco ASA
 

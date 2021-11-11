@@ -6,8 +6,7 @@ ms.author: cauribeg
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-ms.custom:
-  - mode-portal
+ms.custom: mode-portal
 ---
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal
@@ -22,7 +21,7 @@ When you're finished, you'll see that the event data has been sent to the web ap
 
 ## Create an Azure Cache for Redis cache instance
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
 ## Create a message endpoint
 

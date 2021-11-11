@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Welcome to the commercial marketplace
-summary: Learn about the commercial marketplace, an online marketplace for applications and services that let businesses of all sizes offer solutions to customers around the world.
+summary: Learn about the commercial marketplace, an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world.
 metadata:
   title: Welcome to the commercial marketplace
   description: Learn about the commercial marketplace, an online marketplace for applications and services that let businesses of all sizes offer solutions to customers around the world.
@@ -117,7 +117,7 @@ landingContent:
       - text: API prerequisites
         url: cloud-partner-portal-api-prerequisites.md
       - text: SaaS fulfillment APIs
-        url: partner-center-portal/pc-saas-fulfillment-api-v2.md
+        url: partner-center-portal/pc-saas-fulfillment-apis.md
       - text: Marketplace metering service APIs
         url: marketplace-metering-service-apis-faq.yml
       - text: Reporting API (PDF)

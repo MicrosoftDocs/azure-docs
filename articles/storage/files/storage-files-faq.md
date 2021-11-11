@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: roygara
 ms.service: storage
-ms.date: 02/23/2020
+ms.date: 11/5/2021
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
@@ -16,7 +16,7 @@ This article answers common questions about Azure Files features and functionali
 
 1. The comments section of this article.
 2. [Microsoft Q&A question page for Azure Storage](/answers/topics/azure-file-storage.html).
-3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
+3. [Azure Community Feedback](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84). 
 4. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
 ## General
@@ -79,7 +79,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="give-us-feedback"></a>
   **I really want to see a specific feature added to Azure Files. Can you add it?**  
-    The Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! We're looking forward to delighting you with many new features.
+    The Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests at [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84)! We're looking forward to delighting you with many new features.
 
 ## Azure File Sync
 
@@ -100,6 +100,26 @@ This article answers common questions about Azure Files features and functionali
   **How long does it take for Azure File Sync to upload 1TiB of data?**
   
     Performance will vary based on your environmental settings, configuration, and whether this is an initial sync or an ongoing sync. For more information, see [Azure File Sync performance metrics](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
+
+* <a id="afs-initial-upload"></a>
+  **What is Initial upload of data for Azure File Sync?**
+  
+    **Initial sync of data from Windows Server to Azure File share:**
+    Many Azure File Sync deployments start with an empty Azure file share because all the data is on the Windows Server. In these cases, the initial cloud change enumeration is fast and the majority of time will be spent syncing changes from the Windows Server into the Azure file share(s).
+
+While sync uploads data to the Azure file share, there is no downtime on the local file server, and administrators can setup network limits to restrict the amount of bandwidth used for background data upload.
+
+Initial sync is typically limited by the initial upload rate of 20 files per second per sync group. Customers can estimate the time to upload all their data to Azure using the following formulae to get time in days:
+
+**Time (in days) for uploading files to a sync group = (Number of objects in server endpoint)/(20 * 60 * 60 * 24)**
+
+* <a id="afs-initial-upload-server-restart"></a>
+  **What is the impact if the server is stopped and restarted during initial upload**
+  There is no impact. Azure File Sync will resume from sync once the server is restarted from the point it left off
+
+* <a id="afs-initial-upload-server-changes"></a>
+  **What is the impact if changes are made to the data on the server endpoint during initial upload**
+  There is no impact. Azure File Sync will reconcile the changes made on the server endpoint to ensure the cloud endpoint and server endpoint are in sync
 
 * <a id="afs-conflict-resolution"></a>**If the same file is changed on two servers at approximately the same time, what happens?**  
     Azure File Sync uses a simple conflict-resolution strategy: we keep both changes to files that are changed in two endpoints at the same time. The most recently written change keeps the original file name. The older file (determined by LastWriteTime) has the endpoint name and the conflict number appended to the filename. For server endpoints, the endpoint name is the name of the server. For cloud endpoints, the endpoint name is **Cloud**. The name follows this taxonomy: 
@@ -143,7 +163,7 @@ This article answers common questions about Azure Files features and functionali
   **Why are my tiered files not showing thumbnails or previews in Windows Explorer?**  
     For tiered files, thumbnails and previews won't be visible at your server endpoint. This behavior is expected since the thumbnail cache feature in Windows intentionally skips reading files with the offline attribute. With Cloud Tiering enabled, reading through tiered files would cause them to be downloaded (recalled).
 
-    This behavior is not specific to Azure File Sync, Windows Explorer displays a "grey X" for any files that have the offline attribute set. You will see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+    This behavior is not specific to Azure File Sync, Windows Explorer displays a "grey X" for any files that have the offline attribute set. You will see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [Why don’t I get thumbnails for files that are marked offline?](https://devblogs.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
     For questions on how to manage tiered files, please see [How to manage tiered files](../file-sync/file-sync-how-to-manage-tiered-files.md).
 
@@ -153,7 +173,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-os-support"></a>
   **Can I use Azure File Sync with either Windows Server 2008 R2, Linux, or my network-attached storage (NAS) device?**  
-    Currently, Azure File Sync supports only Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2. At this time, we don't have any other plans we can share, but we're open to supporting additional platforms based on customer demand. Let us know at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) what platforms you would like us to support.
+    Currently, Azure File Sync supports only Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2. At this time, we don't have any other plans we can share, but we're open to supporting additional platforms based on customer demand. Let us know at [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84) what platforms you would like us to support.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Why do tiered files exist outside of the server endpoint namespace?**  
@@ -221,6 +241,10 @@ This article answers common questions about Azure Files features and functionali
 **What data compliance policies does Azure Files support?**  
 
    Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can refer to [Azure Storage compliance offerings](../common/storage-compliance-offerings.md), and go to the [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="afs-power-outage"></a>
+  **What is the impact to Azure File Sync if there is a power outage which shuts down the server endpoint**
+  There is no impact. Azure File Sync will reconcile the changes made on the server endpoint to ensure the cloud endpoint and server endpoint are in sync once the server endpoint is back online
 
 * <a id="file-auditing"></a>
 **How can I audit file access and changes in Azure Files?**
@@ -320,7 +344,7 @@ This article answers common questions about Azure Files features and functionali
     
        net use <drive-letter/share-path> /delete
 
-## Network File System
+## Network File System (NFS v4.1)
 
 * <a id="when-to-use-nfs"></a>
 **When should I use Azure Files NFS?**
@@ -391,7 +415,7 @@ This article answers common questions about Azure Files features and functionali
 **Can I create share snapshot of individual files?**  
     Share snapshots are created at the file share level. You can restore individual files from the file share snapshot, but you cannot create file-level share snapshots. However, if you have taken a share-level share snapshot and you want to list share snapshots where a specific file has changed, you can do this under **Previous Versions** on a Windows-mounted share. 
     
-    If you need a file snapshot feature, let us know at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+    If you need a file snapshot feature, let us know at [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84).
 
 * <a id="encrypted-snapshots"></a>
 **Can I create share snapshots of an encrypted file share?**  

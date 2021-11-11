@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 11/08/2021
 ms.author: tisande
 ---
 
@@ -95,8 +95,30 @@ The dedicated gateway has the following limitations during the public preview:
 
 - Dedicated gateways are only supported on SQL API accounts.
 - You can't provision a dedicated gateway in Azure Cosmos DB accounts with [IP firewalls](how-to-configure-firewall.md) or [Private Link](how-to-configure-private-endpoints.md) configured.
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support) enabled.
+- You can't provision a dedicated gateway in an Azure Cosmos DB account in a [Virtual Network (Vnet)](how-to-configure-vnet-service-endpoint.md)
+- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support).
 - You can't use [role-based access control (RBAC)](how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
+
+## Supported regions
+
+The dedicated gateway is in public preview and isn't supported in every Azure region yet. Throughout the public preview, we'll be adding new capacity. We won't have region restrictions when the dedicated gateway is generally available.
+
+Current list of supported Azure regions:
+
+| **Americas** | **Europe and Africa**  | **Asia Pacific**  |
+| ------------ | -------- | ----------- | 
+| Brazil South      | France Central    | Australia Central |
+| Canada Central  | France South    | Australia Central 2 |
+| Canada East     | Germany North   | Australia Southeast |
+| Central US     | Germany West Central   | Central India |
+| East US     | North Europe   | East Asia |
+| East US 2     | Switzerland North   | Japan West |
+| North Central US     | UK South   | Korea Central |
+| South Central US     | UK West   | Korea South |
+| West Central US     | West Europe   | Southeast Asia |
+| West US     |   | UAE Central |
+| West US 2     |    | West India |
+
 
 ## Next steps
 
@@ -105,3 +127,6 @@ Read more about dedicated gateway usage in the following articles:
 - [Integrated cache](integrated-cache.md)
 - [Configure the integrated cache](how-to-configure-integrated-cache.md)
 - [Integrated cache FAQ](integrated-cache-faq.md)
+- Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

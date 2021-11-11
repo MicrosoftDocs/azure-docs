@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: lajanuar
 keywords: on-premises, Docker, container, identify
+ms.custom: ignite-fall-2021
 ---
 
 # Install and run Form Recognizer v2.1-preview containers
@@ -385,32 +386,38 @@ http {
         listen 5000;
 
         location = / {
-            proxy_pass         http://docker-api/;
+            proxy_set_header Host $host:$server_port;
+            proxy_set_header Referer $scheme://$host:$server_port;
+            proxy_pass http://docker-api/;
 
         }
 
         location /status {
-            proxy_pass         http://docker-api/status;
+            proxy_pass http://docker-api/status;
 
         }
 
         location /ready {
-            proxy_pass         http://docker-api/ready;
+            proxy_pass http://docker-api/ready;
 
         }
 
         location /swagger {
-            proxy_pass         http://docker-api/swagger;
+            proxy_pass http://docker-api/swagger;
 
         }
 
         location /formrecognizer/v2.1/custom/ {
-            proxy_pass         http://docker-api/formrecognizer/v2.1/custom/;
+            proxy_set_header Host $host:$server_port;
+            proxy_set_header Referer $scheme://$host:$server_port;
+            proxy_pass http://docker-api/formrecognizer/v2.1/custom/;
 
         }
 
         location /formrecognizer/v2.1/layout/ {
-            proxy_pass         http://docker-layout/formrecognizer/v2.1/layout/;
+            proxy_set_header Host $host:$server_port;
+            proxy_set_header Referer $scheme://$host:$server_port;
+            proxy_pass http://docker-layout/formrecognizer/v2.1/layout/;
 
         }
     }
@@ -419,11 +426,11 @@ http {
 
 * Gather a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*). Download the training files to the **shared** folder you created above.
 
-* If you want to label your data, download the [Form Recognizer sample labeling tool for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
+* If you want to label your data, download the [Form Recognizer Sample Labeling tool for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
 
-#### Create a new sample labeling tool project
+#### Create a new Sample Labeling tool project
 
-* Open the labeling tool by double-clicking on the sample labeling tool .exe file.
+* Open the labeling tool by double-clicking on the Sample Labeling tool .exe file.
 * On the left pane of the tool, select the connections tab.
 * Select to create a new project and give it a name and description.
 * For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
@@ -620,5 +627,3 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 ## Next steps
 
 * [Form Recognizer container configuration settings](form-recognizer-container-configuration.md) 
-* [Form Recognizer container image tags](../../../cognitive-services/containers/container-image-tags.md?tabs=current#form-recognizer)
-* [Cognitive Services container support page and release notes](../../../cognitive-services/containers/container-image-tags.md?tabs=current#form-recognizer)

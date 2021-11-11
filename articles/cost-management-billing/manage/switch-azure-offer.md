@@ -7,7 +7,7 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 08/27/2021
 ms.author: banders
 ---
 
@@ -30,7 +30,7 @@ You can switch from a pay-as-you-go subscription to:
 - [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
 - [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/)
 
-You can also switch from an expired [Visual Studio Enterprise subscription](https://azure.microsoft.com/offers/ms-azr-0063p/)  to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/). 
+You can also switch from an expired [Visual Studio Enterprise subscription](https://azure.microsoft.com/offers/ms-azr-0063p/) to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/). 
 
 > [!NOTE]
 > For other offer changes, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -64,7 +64,7 @@ To convert your subscription:
     :::image type="content" source="./media/switch-azure-offer/select-offer-pay-as-you-go.png" alt-text="Screenshot showing the Switch Offer option." lightbox="./media/switch-azure-offer/select-offer-pay-as-you-go.png" :::
 1. On the Select payment method tab, select **Select a payment method**, enter your payment method information, and then select **Next**.  
 1. On the Review + convert page, you can optionally change the subscription name. Review the agreement information, select the **I agree** option, and then at the bottom of the page, select **Switch Offer**.  
-    :::image type="content" source="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" alt-text="Screenshot showing the Review + convert tab with subscription name and agreement acknowledgement." lightbox="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" :::
+    :::image type="content" source="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" alt-text="Screenshot showing the Review + convert tab with subscription name and agreement acceptance." lightbox="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" :::
 
 View your new converted subscription by navigating to **Subscriptions**.
 
@@ -103,7 +103,7 @@ There's no service downtime for any users associated with the subscription. Howe
 
 #### Quota increases are reset
 
-When you switch offers, any [limit or quota increases above the default limit](../../azure-portal/supportability/resource-manager-core-quotas-request.md) are reset. There's no service downtime, even if you have more resources beyond the default limit. For example, you're using 200 cores on your subscription, then switching offers resets your cores quota back to the default of 20 cores. The VMs that use the 200 cores are unaffected and would continue to run. If you don't make another quota increase request, however, you can't provision any more cores.
+When you switch offers, any [limit or quota increases above the default limit](../../azure-portal/supportability/regional-quota-requests.md) are reset. There's no service downtime, even if you have more resources beyond the default limit. For example, you're using 200 cores on your subscription, then switching offers resets your cores quota back to the default of 20 cores. The VMs that use the 200 cores are unaffected and would continue to run. If you don't make another quota increase request, however, you can't provision any more cores.
 
 #### Billing
 
@@ -112,7 +112,7 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 ### Can I migrate from a subscription with pay-as-you-go rates to Cloud Solution Provider (CSP) or Enterprise Agreement (EA)?
 
 * To migrate to CSP, see [Transfer Azure subscriptions between subscribers and CSPs](transfer-subscriptions-subscribers-csp.md).
-* To migrate to EA, have your Enrollment Admin add your account into the EA. Follow instructions in the invitation email to have your subscriptions moved under the EA enrollment.
+* If you have a pay-as-you-go subscription (Azure offer ID MS-AZR-0003P) or an Azure plan with pay-as-you-go rates (Azure offer ID MS-AZR-0017G) and you want to migrate to an EA enrollment, have your Enrollment Admin add your account into the EA. Follow instructions in the invitation email to have your subscriptions moved under the EA enrollment. For more information, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 ### Can I migrate data and services to a new subscription?
 

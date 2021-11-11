@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how Azure Machine Learning computes and data stores provides data encryption at rest and in transit.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/02/2021
+ms.date: 10/21/2021
 ---
 
 # Data encryption with Azure Machine Learning
@@ -31,6 +31,8 @@ The `hbi_workspace` flag controls the amount of [data Microsoft collects for dia
 * Starts encrypting the local scratch disk in your Azure Machine Learning compute cluster provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters 
 * Cleans up your local scratch disk between runs
 * Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault
+
+When this flag is set to True, one possible impact is increased difficulty troubleshooting issues. This could happen because some telemetry isn't sent to Microsoft and there is less visibility into success rates or problem types, and therefore may not be able to react as proactively when this flag is True.
 
 > [!TIP]
 > The `hbi_workspace` flag does not impact encryption in transit, only encryption at rest.
@@ -59,10 +61,13 @@ To enable provisioning a Cosmos DB instance in your subscription with customer-m
 
 * Use the following parameters when creating the Azure Machine Learning workspace. Both parameters are mandatory and supported in SDK, Azure CLI, REST APIs, and Resource Manager templates.
 
+    * `cmk_keyvault`: This parameter is the resource ID of the key vault in your subscription. This key vault needs to be in the same region and subscription that you will use for the Azure Machine Learning workspace. 
+
     * `resource_cmk_uri`: This parameter is the full resource URI of the customer managed key in your key vault, including the [version information for the key](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
-    * `cmk_keyvault`: This parameter is the resource ID of the key vault in your subscription. This key vault needs to be in the same region and subscription that you will use for the Azure Machine Learning workspace. 
-    
+        > [!NOTE]
+        > Enabling soft delete and purge protection on the CMK key vault instance is required before creating an encrypted machine learning workspace to protect against accidental data loss in case of vault deletion.
+        
         > [!NOTE]
         > This key vault instance can be different than the key vault that is created by Azure Machine Learning when you provision the workspace. If you want to use the same key vault instance for the workspace, pass the same key vault while provisioning the workspace by using the [key_vault parameter](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 

@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * gr8 People supports **SP and IDP** initiated SSO
-* Once you configure gr8 People you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure gr8 People you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding gr8 People from the gallery
 
@@ -137,7 +137,7 @@ In this section, you create a user called Britta Simon in gr8 People. Work with�
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the gr8 People tile in the Access Panel, you should be automatically signed in to the gr8 People for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the gr8 People tile in the Access Panel, you should be automatically signed in to the gr8 People for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
@@ -149,6 +149,6 @@ When you click the gr8 People tile in the Access Panel, you should be automatica
 
 - [Try gr8 People with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect gr8 People with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

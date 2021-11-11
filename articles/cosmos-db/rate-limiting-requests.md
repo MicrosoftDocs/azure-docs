@@ -4,11 +4,12 @@ description: This article provides developers with a methodology to rate limit r
 author: plasne
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 08/26/2021
 ms.author: pelasne
 ---
 
 # Optimize your Azure Cosmos DB application using rate limiting
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article provides developers with a methodology to rate limit requests to Azure Cosmos DB. Implementing this pattern can reduce errors and improve overall performance for workloads that exceed the provisioned throughput of the target database or container.
 
@@ -160,3 +161,6 @@ For more information, see [Materialized View pattern](/azure/architecture/patter
 * Learn more about [Partitioning and horizontal scaling](partitioning-overview.md) in Azure Cosmos DB.
 * Learn about [Indexing policies](index-policy.md) in Azure Cosmos DB.
 * Learn about [Autoscaling](provision-throughput-autoscale.md) in Azure Cosmos DB.
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

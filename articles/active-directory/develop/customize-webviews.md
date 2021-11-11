@@ -16,7 +16,7 @@ ms.reviewer: oldalton
 ms.custom: aaddev, has-adal-ref
 ---
 
-# How to: Customize browsers and WebViews for iOS/macOS
+# Customize browsers and WebViews for iOS/macOS
 
 A web browser is required for interactive authentication. On iOS and macOS 10.15+, the Microsoft Authentication Library (MSAL) uses the system web browser by default (which might appear on top of your app) to do interactive authentication to sign in users. Using the system browser has the advantage of sharing the Single Sign On (SSO) state with other applications and with web applications.
 

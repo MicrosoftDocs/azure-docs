@@ -1,9 +1,9 @@
 ---
-title: Opt out of the Azure Active Directory Verifiable Credentials (Preview)
+title: Opt out of the Azure Active Directory Verifiable Credentials (preview)
 description: Learn how to Opt Out of the Verifiable Credentials Preview
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: As an administrator I am looking for information to help me disable 
 ---
 
-# Opt out of the verifiable credentials (Preview)
+# Opt out of the verifiable credentials (preview)
 
 In this article:
 

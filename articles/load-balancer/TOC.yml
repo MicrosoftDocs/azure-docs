@@ -33,6 +33,8 @@
     href: tutorial-multi-availability-sets-portal.md
   - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
+  - name: Load balance multiple IP configurations
+    href: load-balancer-multiple-ip.md
   - name: Cross-region load balancer
     items:
     - name: Create cross-region load balancer - Portal
@@ -41,6 +43,14 @@
       href: tutorial-cross-region-powershell.md
     - name: Create cross-region load balancer - Azure CLI
       href: tutorial-cross-region-cli.md
+  - name: Gateway load balancer
+    items:
+    - name: Create gateway load balancer - Portal
+      href: tutorial-gateway-portal.md
+    - name: Create gateway load balancer - PowerShell
+      href: tutorial-gateway-powershell.md
+    - name: Create gateway load balancer - Azure CLI
+      href: tutorial-gateway-cli.md
   - name: NAT gateway
     items:
     - name: Integrate NAT gateway public load balancer
@@ -65,6 +75,8 @@
     href: manage.md
   - name: Cross-region load balancer
     href: cross-region-overview.md
+  - name: Gateway load balancer
+    href: gateway-overview.md
   - name: What's new?
     href: whats-new.md
   - name: Components
@@ -138,11 +150,11 @@
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI
-      href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+      href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
     - name: Azure Resource Manager template
-      href: ../virtual-network/ipv6-configure-standard-load-balancer-template-json.md
+      href: ./ipv6-configure-standard-load-balancer-template-json.md
       displayName: ARM
   - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md
@@ -150,8 +162,6 @@
     href: load-balancer-distribution-mode.md
   - name: Using multiple IP configurations
     items:
-    - name: Portal
-      href: load-balancer-multiple-ip.md
     - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md
     - name: Azure PowerShell
@@ -170,6 +180,32 @@
     href: howto-load-balancer-imds.md
   - name: Outbound only load balancer configuration
     href: egress-only.md
+  - name: IPv6
+    items:
+    - name: Standard public
+      items: 
+      - name: Standard Public Load Balancer with IPv6 - PowerShell
+        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      - name: Standard Public Load Balancer with IPv6 - Azure CLI
+        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+      - name: Standard Public Load Balancer with IPv6 - ARM template
+        href: ipv6-configure-standard-load-balancer-template-json.md
+    - name: Standard internal
+      items:
+      - name: Standard Internal Load Balancer with IPv6 - PowerShell
+        href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+    - name: Basic public
+      items:
+      - name: Deploy an IPv6 dual stack application using Basic Load Balancer - PowerShell
+        href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+      - name: Deploy an IPv6 dual stack application using Basic Load Balancer - Azure CLI
+        href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+      - name: Deploy an IPv6 dual stack application using Basic Load Balancer - ARM template
+        href: ipv6-configure-template-json.md
+    - name: Add IPv6 to an IPv4 application- PowerShell
+      href: ipv6-add-to-existing-vnet-powershell.md
+    - name: Add IPv6 to an IPv4 application - Azure CLI
+      href: ipv6-add-to-existing-vnet-cli.md 
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
@@ -216,7 +252,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Azure Load Balancer feedback
-    href: https://feedback.azure.com/forums/217313-networking/category/77467-load-balancing
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=e8894060-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/load-balancer/
   - name: Pricing calculator

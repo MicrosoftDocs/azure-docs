@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-python, devx-track-azurepowershell, synapse
 ---
 
@@ -22,7 +22,7 @@ When creating a schedule trigger, you specify a schedule (start date, recurrence
 
 The following sections provide steps to create a schedule trigger in different ways. 
 
-## UI Experience
+## Azure Data Factory and Synapse portal experience
 
 You can create a **schedule trigger** to schedule a pipeline to run periodically (hourly, daily, etc.). 
 
@@ -32,20 +32,20 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 1. Switch to the **Edit** tab in Data Factory or the Integrate tab in Azure Synapse. 
 
     # [Azure Data Factory](#tab/data-factory)
-    ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab.png" alt-text="Switch to Edit tab":::
 
     # [Azure Synapse](#tab/synapse-analytics)
-    ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png" alt-text="Switch to Edit tab":::
 
 ---
     
 2. Select **Trigger** on the menu, then select **New/Edit**. 
 
-    ![New trigger menu](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-menu.png" alt-text="New trigger menu":::
 
 1. On the **Add Triggers** page, select **Choose trigger...**, then select **+New**. 
 
-    ![Add triggers - new trigger](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/add-trigger-new-button.png" alt-text="Add triggers - new trigger":::
 
 1. On the **New Trigger** page, do the following steps: 
 
@@ -61,30 +61,30 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
     :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Advanced recurrence options of Day(s), Week(s) or Month(s)":::
     1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution, not when you save the trigger in the UI.
 
-        ![Trigger settings](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
+        :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-01.png" alt-text="Trigger settings":::
 
-        ![Trigger settings for End Date](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
+        :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-02.png" alt-text="Trigger settings for End Date":::
 
 1. In the **New Trigger** window, select **Yes** in the **Activated** option, then select **OK**. You can use this checkbox to deactivate the trigger later. 
 
-    ![Trigger settings - Next button](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-next.png" alt-text="Trigger settings - Next button":::
 
 1. In the **New Trigger** window, review the warning message, then select **OK**.
 
-    ![Trigger settings - Finish button](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-finish.png" alt-text="Trigger settings - Finish button":::
 
 1. Select **Publish all** to publish the changes. Until you publish the changes, the trigger doesn't start triggering the pipeline runs. 
 
-    ![Publish button](./media/how-to-create-schedule-trigger/publish-2.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/publish-2.png" alt-text="Publish button":::
 
 1. Switch to the **Pipeline runs** tab on the left, then select **Refresh** to refresh the list. You will see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use the **Trigger Now** option, you will see the manual trigger run in the list. 
 
     # [Azure Data Factory](#tab/data-factory)
 
-    ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs.png" alt-text="Monitor triggered runs":::
 
     # [Azure Synapse](#tab/synapse-analytics)
-    ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png" alt-text="Monitor triggered runs":::
     
 ---
 
@@ -92,10 +92,10 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     # [Azure Data Factory](#tab/data-factory)
 
-    ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs.png" alt-text="Monitor trigger runs":::
 
     # [Azure Synapse](#tab/synapse-analytics)
-    ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png" alt-text="Monitor trigger runs":::
     
 ---
 
@@ -104,6 +104,14 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 This section shows you how to use Azure PowerShell to create, start, and monitor a schedule trigger. To see this sample working, first go through the [Quickstart: Create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md). Then, add the following code to the main method, which creates and starts a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline named **Adfv2QuickStartPipeline** that you create as part of the Quickstart.
+
+### Prerequisites
+
+- **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
+
+- **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps). 
+
+### Sample Code
 
 1. Create a JSON file named **MyTrigger.json** in the C:\ADFv2QuickStartPSH\ folder with the following content:
 
@@ -153,31 +161,31 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more **pipelineReference** sections.
     - The pipeline in the Quickstart takes two **parameters** values: **inputPath** and **outputPath**. And you pass values for these parameters from the trigger.
 
-1. Create a trigger by using the **Set-AzDataFactoryV2Trigger** cmdlet:
+1. Create a trigger by using the [Set-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/set-azdatafactoryv2trigger) cmdlet:
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-1. Confirm that the status of the trigger is **Stopped** by using the **Get-AzDataFactoryV2Trigger** cmdlet:
+1. Confirm that the status of the trigger is **Stopped** by using the [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger) cmdlet:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. Start the trigger by using the **Start-AzDataFactoryV2Trigger** cmdlet:
+1. Start the trigger by using the [Start-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/start-azdatafactoryv2trigger) cmdlet:
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. Confirm that the status of the trigger is **Started** by using the **Get-AzDataFactoryV2Trigger** cmdlet:
+1. Confirm that the status of the trigger is **Started** by using the [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger) cmdlet:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1.  Get the trigger runs in Azure PowerShell by using the **Get-AzDataFactoryV2TriggerRun** cmdlet. To get the information about the trigger runs, execute the following command periodically. Update the **TriggerRunStartedAfter** and **TriggerRunStartedBefore** values to match the values in your trigger definition:
+1.  Get the trigger runs in Azure PowerShell by using the [Get-AzDataFactoryV2TriggerRun](/powershell/module/az.datafactory/get-azdatafactoryv2triggerrun) cmdlet. To get the information about the trigger runs, execute the following command periodically. Update the **TriggerRunStartedAfter** and **TriggerRunStartedBefore** values to match the values in your trigger definition:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -185,6 +193,97 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     
     > [!NOTE]
     > Trigger time of Schedule triggers are specified in UTC timestamp. _TriggerRunStartedAfter_ and _TriggerRunStartedBefore_ also expects UTC timestamp
+
+    To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
+## Azure CLI
+
+This section shows you how to use Azure CLI to create, start, and monitor a schedule trigger. To see this sample working, first go through the [Quickstart: Create an Azure Data Factory using Azure CLI](./quickstart-create-data-factory-azure-cli.md). Then, follow the steps below to create and start a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline named **Adfv2QuickStartPipeline** that you create as part of the Quickstart.
+
+### Prerequisites
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+### Sample Code
+
+1. In your working direactory, create a JSON file named **MyTrigger.json** with the trigger's properties. For this example use the following content:
+
+    > [!IMPORTANT]
+    > Before you save the JSON file, set the value of the **startTime** element to the current UTC time. Set the value of the **endTime** element to one hour past the current UTC time.
+
+    ```json
+    {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Minute",
+                "interval": 15,
+                "startTime": "2017-12-08T00:00:00Z",
+                "endTime": "2017-12-08T01:00:00Z",
+                "timeZone": "UTC"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "Adfv2QuickStartPipeline"
+                },
+                "parameters": {
+                    "inputPath": "adftutorial/input",
+                    "outputPath": "adftutorial/output"
+                }
+            }
+        ]
+    }
+    ```
+
+    In the JSON snippet:
+    - The **type** element of the trigger is set to "ScheduleTrigger".
+    - The **frequency** element is set to "Minute" and the **interval** element is set to 15. As such, the trigger runs the pipeline every 15 minutes between the start and end times.
+    - The **timeZone** element specifies the time zone that the trigger is created in. This setting affects both **startTime** and **endTime**.
+    - The **endTime** element is one hour after the value of the **startTime** element. As such, the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the start time. Don't forget to update the start time to the current UTC time, and the end time to one hour past the start time. 
+
+        > [!IMPORTANT]
+        > For UTC timezone, the startTime and endTime need to follow format 'yyyy-MM-ddTHH:mm:ss**Z**', while for other timezones, startTime and endTime follow 'yyyy-MM-ddTHH:mm:ss'. 
+        > 
+        > Per ISO 8601 standard, the _Z_ suffix to timestamp mark the datetime to UTC timezone, and render timeZone field useless. While missing _Z_ suffix for UTC time zone will result in an error upon trigger _activation_.
+
+    - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more **pipelineReference** sections.
+    - The pipeline in the Quickstart takes two **parameters** values: **inputPath** and **outputPath**. And you pass values for these parameters from the trigger.
+
+1. Create a trigger by using the [az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create) command:
+
+    ```azurecli
+    az datafactory trigger create --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory"  --name "MyTrigger" --properties @MyTrigger.json  
+    ```
+
+1. Confirm that the status of the trigger is **Stopped** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) command:
+
+    ```azurecli
+    az datafactory trigger show --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
+    ```
+
+1. Start the trigger by using the [az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start) command:
+
+    ```azurecli
+    az datafactory trigger start --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
+    ```
+
+1. Confirm that the status of the trigger is **Started** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) command:
+
+    ```azurecli
+    az datafactory trigger show --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
+    ```
+
+1. Get the trigger runs in Azure CLI by using the [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory) command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and  **last-updated-before** values to match the values in your trigger definition:
+
+    ```azurecli
+    az datafactory trigger-run query-by-factory --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00" --last-updated-before "2017-12-08T01:00:00"
+    ```
+
+    > [!NOTE]
+    > Trigger time of Schedule triggers are specified in UTC timestamp. _last-updated-after_ and _last-updated-before_ also expects UTC timestamp
 
     To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
@@ -404,13 +503,13 @@ Here are some of time zones supported for Schedule triggers:
 | Coordinated Universal Time | 0 | `UTC` | No | `'yyyy-MM-ddTHH:mm:ssZ'`|
 | Pacific Time (PT) | -8 | `Pacific Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
 | Central Time (CT) | -6 | `Central Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
-| Eastern Time (ET) | -5 | `Eastern Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Eastern Time (ET) | -5 | `Eastern Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
 | Greenwich Mean Time (GMT) | 0 | `GMT Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
 | Central European Standard Time | +1 | `W. Europe Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
 | India Standard Time (IST) | +5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 | China Standard Time | +8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 
-This list is incomplete. For complete list of time zone options, explore in the portal [Trigger creation page](#ui-experience)
+This list is incomplete. For complete list of time zone options, explore in the portal [Trigger creation page](#azure-data-factory-and-synapse-portal-experience)
 
 ### startTime property
 The following table shows you how the **startTime** property controls a trigger run:

@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-nov-2020"
 ms.topic: tutorial
-ms.date: 05/19/2021
+ms.date: 09/21/2021
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS
@@ -60,6 +60,10 @@ To complete this tutorial, you need to:
 
 * [Complete the pre-migration](../cosmos-db/mongodb-pre-migration.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
 * [Create an Azure Cosmos DB's API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB) and ensure [SSR (server side retry)](../cosmos-db/mongodb/prevent-rate-limiting-errors.md) is enabled.
+
+  > [!NOTE]
+  > DMS is currently not supported if you are migrating to API for MongoDB account that is provisioned with serverless mode.
+
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
     > [!NOTE]
@@ -260,6 +264,9 @@ After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API
 ## Additional resources
 
 * [Cosmos DB service information](https://azure.microsoft.com/services/cosmos-db/)
+* Trying to do capacity planning for a migration to Azure Cosmos DB?
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../cosmos-db/convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](../cosmos-db/mongodb/estimate-ru-capacity-planner.md)
 
 ## Next steps
 

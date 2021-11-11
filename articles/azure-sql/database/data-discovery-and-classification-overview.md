@@ -1,5 +1,5 @@
 ---
-title: Data Discovery & Classification 
+title: Data Discovery & Classification
 description: Data Discovery & Classification for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
@@ -56,11 +56,11 @@ The classification includes two metadata attributes:
 
 Data Discovery & Classification comes with a built-in set of sensitivity labels and a built-in set of information types and discovery logic. You can customize this taxonomy and define a set and ranking of classification constructs specifically for your environment.
 
-You define and customize of your classification taxonomy in one central place for your entire Azure organization. That location is in [Azure Security Center](../../security-center/security-center-introduction.md), as part of your security policy. Only someone with administrative rights on the organization's root management group can do this task.
+You define and customize of your classification taxonomy in one central place for your entire Azure organization. That location is in [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md), as part of your security policy. Only someone with administrative rights on the organization's root management group can do this task.
 
 As part of policy management, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns. The patterns are added to the discovery logic for identifying this type of data in your databases.
 
-For more information, see [Customize the SQL information protection policy in Azure Security Center (Preview)](../../security-center/security-center-info-protection-policy.md).
+For more information, see [Customize the SQL information protection policy in Microsoft Defender for Cloud (Preview)](../../security-center/security-center-info-protection-policy.md).
 
 After the organization-wide policy has been defined, you can continue classifying individual databases by using your customized policy.
 
@@ -108,7 +108,7 @@ After the organization-wide policy has been defined, you can continue classifyin
 
 An important aspect of the classification is the ability to monitor access to sensitive data. [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
 
-[ ![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
+[![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
 
 These are the activites that are actually auditable with sensitivity information:
 - ALTER TABLE ... DROP COLUMN
@@ -128,7 +128,7 @@ These are the activites that are actually auditable with sensitivity information
 - DBCC SHOW_STATISTICS
 - sys.dm_db_stats_histogram
 
-Use [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) to returns information from an audit file stored in an Azure Storage account.
+Use [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) to returns information from an audit file stored in an Azure Storage account.
 
 ## <a id="permissions"></a>Permissions
 
@@ -212,10 +212,10 @@ You can use the REST API to programmatically manage classifications and recommen
 
 You can use the following SQL drivers to retrieve classification metadata:
 
-- [ODBC Driver](https://docs.microsoft.com/sql/connect/odbc/data-classification)
-- [OLE DB Driver](https://docs.microsoft.com/sql/connect/oledb/features/using-data-classification)
-- [JDBC Driver](https://docs.microsoft.com/sql/connect/jdbc/data-discovery-classification-sample)
-- [Microsoft Drivers for PHP for SQL Server](https://docs.microsoft.com/sql/connect/php/release-notes-php-sql-driver)
+- [ODBC Driver](/sql/connect/odbc/data-classification)
+- [OLE DB Driver](/sql/connect/oledb/features/using-data-classification)
+- [JDBC Driver](/sql/connect/jdbc/data-discovery-classification-sample)
+- [Microsoft Drivers for PHP for SQL Server](/sql/connect/php/release-notes-php-sql-driver)
 
 ## FAQ - Advanced classification capabilities
 

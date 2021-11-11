@@ -17,11 +17,13 @@
       href: search-get-started-portal.md
     - name: Create a demo app
       href: search-create-app-portal.md
-    - name: Create a skillset
-      href: cognitive-search-quickstart-blob.md
     - name: Create a knowledge store
       href: knowledge-store-create-portal.md
-    - name: Query with Search explorer
+    - name: Translate text and recognize entities
+      href: cognitive-search-quickstart-blob.md
+    - name: Apply OCR and image analysis
+      href: cognitive-search-quickstart-ocr.md
+    - name: Query with Search Explorer
       href: search-explorer.md
   - name: Visual Studio Code 
     href: search-get-started-vs-code.md
@@ -124,8 +126,12 @@
     href: samples-rest.md
 - name: Concepts
   items:
+  - name: Search indexes
+    href: search-what-is-an-index.md
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Analyzers
+    href: search-analyzers.md
   - name: Semantic search
     href: semantic-search-overview.md
   - name: Relevance scoring
@@ -182,8 +188,6 @@
       href: search-manage-azure-cli.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
-    - name: Troubleshoot issues with creating Shared Private Link Resource
-      href: troubleshoot-shared-private-link-resources.md
   - name: Security
     items:
     - name: Data encryption
@@ -196,12 +200,16 @@
       items:
       - name: Key-based authentication
         href: search-security-api-keys.md
+      - name: Azure AD authentication
+        href: search-howto-aad.md
       - name: Role-based authorization
         href: search-security-rbac.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
       - name: Create a private endpoint
         href: service-create-private-endpoint.md
+      - name: Troubleshoot private connections
+        href: troubleshoot-shared-private-link-resources.md
     - name: Outbound security (indexers)  
       items:
       - name: Data access over an IP range
@@ -251,7 +259,7 @@
   - name: Indexes
     items:
     - name: Create an index
-      href: search-what-is-an-index.md
+      href: search-how-to-create-search-index.md
     - name: Create a multi-language index
       href: search-language-support.md
     - name: Synonyms
@@ -266,8 +274,6 @@
       href: index-sql-relational-data.md
   - name: Analyzers
     items:
-    - name: Adding analyzers
-      href: search-analyzers.md
     - name: Add a language analyzer
       href: index-add-language-analyzers.md
     - name: Add a custom analyzer
@@ -336,6 +342,8 @@
           href: search-howto-index-encrypted-blobs.md
       - name: Azure Tables
         href: search-howto-indexing-azure-tables.md
+      - name: Azure Files
+        href: search-file-storage-integration.md
       - name: Azure Cosmos DB
         items:
         - name: SQL and MongoDB APIs
@@ -398,7 +406,9 @@
         href: knowledge-store-projection-shape.md
       - name: Define projections
         href: knowledge-store-projections-examples.md 
-      - name: View with Storage Explorer
+      - name: Projection example
+        href: knowledge-store-projection-example-long.md
+      - name: View with Storage Browser
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
         href: knowledge-store-connect-power-bi.md 
@@ -442,8 +452,6 @@
     items:
     - name: Filter overview
       href: search-filters.md
-    - name: Facet filters
-      href: search-filters-facets.md
     - name: Add faceted navigation
       href: search-faceted-navigation.md
     - name: Troubleshoot collection filters
@@ -608,8 +616,6 @@
     href: search-data-sources-terms-of-use.md
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
-  - name: Feedback Forum (UserVoice)
-    href:  https://feedback.azure.com/forums/263029-azure-search 
   - name: Compliance and certifications
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Documentation links (AI enrichment)

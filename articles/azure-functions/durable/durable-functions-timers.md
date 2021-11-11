@@ -187,7 +187,7 @@ $timerTask = Start-DurableTimer -Duration $expiryTime -NoWait
 $winner = Wait-DurableTask -Task @($activityTask, $timerTask) -Any
 
 if ($winner -eq $activityTask) {
-    Stop-DurableTaskTimer -Task $timerTask
+    Stop-DurableTimerTask -Task $timerTask
     return $True
 }
 else {

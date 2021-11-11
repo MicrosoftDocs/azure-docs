@@ -3,14 +3,14 @@ title: "Speaker Recognition quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Speaker Recognition from the Speech SDK to answer the question, "who is speaking". In this quickstart, you learn about common design patterns for working with both speaker verification and identification, which both use voice biometry to identify unique voices.
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/02/2020
-ms.author: lajanuar
-ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+ms.author: eur
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021
 zone_pivot_groups: programming-languages-set-twenty-five
 keywords: speaker recognition, voice biometry
 ---
@@ -30,7 +30,7 @@ keywords: speaker recognition, voice biometry
 ::: zone-end
 
 ::: zone pivot="programming-language-curl"
-[!INCLUDE [JavaScript Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-curl.md)]
+[!INCLUDE [Curl Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-curl.md)]
 ::: zone-end
 
 ## Next steps

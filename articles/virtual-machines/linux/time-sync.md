@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/30/2021
+ms.date: 09/03/2021
 ms.author: cynthn
 ---
 
@@ -113,17 +113,12 @@ symlink /dev/ptp_hyperv to whichever /dev/ptp entry corresponds to the Azure hos
 On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following statement:
 
 ```bash
-refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
+refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0 stratum 2
 ```
-Per above, if the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.
 
-For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
+If the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.
 
-For more information about Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
-
-For more information about chrony, see [Using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
-
-If both chrony and VMICTimeSync sources are enabled simultaneously, you can mark one as **prefer**, which sets the other source as a backup. Because NTP services do not update the clock for large skews except after a long period, the VMICTimeSync will recover the clock from paused VM events far more quickly than NTP-based tools alone.
+Stratum information isn't automatically conveyed from the Azure host to the Linux guest. The preceding configuration line specifies that the Azure host time source is to be treated as Stratum 2, which in turn causes the Linux guest to report itself as Stratum 3. You can change the stratum setting in the configuration line if you want the Linux guest to report itself differently.
 
 By default, chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too big, chrony fails to fix the drift. To overcome this, the `makestep` parameter in **/etc/chrony.conf** can be changed to force a time sync if the drift exceeds the threshold specified.
 
@@ -136,6 +131,12 @@ Here, chrony will force a time update if the drift is greater than 1 second. To 
 ```bash
 systemctl restart chronyd
 ```
+
+For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
+
+For more information about Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
+
+For more information about chrony, see [Using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
 
 ### systemd 
 

@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 11/03/2021
 
 ---
 # Options to migrate your on-premises or cloud data to Azure Cosmos DB
@@ -70,7 +70,7 @@ A summary of migration pathways from your current solution to Azure Cosmos DB AP
 |Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|Azure Cosmos DB API for MongoDB |&bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets and takes care of replicating live changes. <br/>&bull; Works only with other MongoDB sources.|
 |Offline|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB| Azure Cosmos DB API for MongoDB| &bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets and takes care of replicating live changes. <br/>&bull; Works only with other MongoDB sources.|
 |Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db-mongodb-api.md)| &bull;JSON/CSV Files<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB API for MongoDB <br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure Blob Storage <br/><br/> See the [Azure Data Factory](../data-factory/connector-overview.md) article for other supported sources. | &bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB API for MongoDB <br/>&bull; JSON files <br/><br/> See the [Azure Data Factory](../data-factory/connector-overview.md) article for other supported targets.| &bull; Easy to set up and supports multiple sources. <br/>&bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets. <br/>&bull; Lack of checkpointing means that any issue during the course of migration would require a restart of the whole migration process.<br/>&bull; Lack of a dead letter queue would mean that a few erroneous files could stop the entire migration process. <br/>&bull; Needs custom code to increase read throughput for certain data sources.|
-|Offline|[Existing Mongo Tools (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|MongoDB | Azure Cosmos DB API for MongoDB| &bull; Easy to set up and integration. <br/>&bull; Needs custom handling for throttles.|
+|Offline|Existing Mongo Tools ([mongodump](mongodb/tutorial-mongotools-cosmos-db.md#mongodumpmongorestore), [mongorestore](mongodb/tutorial-mongotools-cosmos-db.md#mongodumpmongorestore), [Studio3T](mongodb/connect-using-mongochef.md))|MongoDB | Azure Cosmos DB API for MongoDB| &bull; Easy to set up and integration. <br/>&bull; Needs custom handling for throttles.|
 
 ## Azure Cosmos DB Cassandra API
 
@@ -99,6 +99,9 @@ For APIs other than the SQL API, Mongo API and the Cassandra API, there are vari
 
 ## Next steps
 
+* Trying to do capacity planning for a migration to Azure Cosmos DB?
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 * Learn more by trying out the sample applications consuming the bulk executor library in [.NET](bulk-executor-dot-net.md) and [Java](bulk-executor-java.md). 
 * The bulk executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](./create-sql-api-spark.md) article.  
 * Contact the Azure Cosmos DB product team by opening  a support ticket under the "General Advisory" problem type and "Large (TB+) migrations" problem subtype for additional help with large scale migrations.

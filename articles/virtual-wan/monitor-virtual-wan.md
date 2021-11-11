@@ -13,15 +13,22 @@ ms.author: cherylmc
 
 # Monitoring Virtual WAN
 
-You can monitor Azure Virtual WAN using Azure Monitor. Virtual WAN is a networking service that brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor.
+You can monitor Azure Virtual WAN using Azure Monitor. Virtual WAN is a networking service that brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor. 
 
 This article discusses metrics and diagnostics that are available through the portal. Metrics are lightweight and can support near real-time scenarios, making them useful for alerting and fast issue detection.
 
 ### Monitoring Secured Hub (Azure Firewall) 
 
-You can monitor the Secured Hub using Azure Firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
-
 If you have chosen to secure your Virtual Hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
+You can monitor the Secured Hub using Azure Firewall logs and metrics. You can also use activity logs to audit operations on Azure Firewall resources.
+For every Azure Virtual WAN you secure and convert to a Secured Hub, an explicit firewall resource object is created in the resource group where the hub is located. 
+
+:::image type="content" source="./media/monitor-virtual-wan/firewall-resources-portal.png" alt-text="Screenshot shows a Firewall resource in the vWAN hub resource group.":::
+
+Diagnostics and logging configuration must be done from there accessing the **Diagnostic Setting** tab:
+
+:::image type="content" source="./media/monitor-virtual-wan/firewall-diagnostic-settings.png" alt-text="Screenshot shows Firewall diagnostic settings.":::
+
 
 ## Metrics
 
@@ -50,11 +57,11 @@ The following metrics are available for Azure site-to-site VPN gateways:
 | Metric | Description|
 | --- | --- |
 | **BGP Peer Status** | BGP connectivity status per peer and per instance.|
-| **BGP Routes Advertised** | Number of routes advertised per peer and per intance.|
-| **BGP Routes Learned** | Number of routes learned per peer and per intance.|
+| **BGP Routes Advertised** | Number of routes advertised per peer and per instance.|
+| **BGP Routes Learned** | Number of routes learned per peer and per instance.|
 | **VNET Address Prefix Count** | Number of VNET address prefixes that are used/advertised by the gateway.|
 
-You can review per peer and instance metrics by slecting **Apply splitting** and choosing the preferred value. 
+You can review per peer and instance metrics by selecting **Apply splitting** and choosing the preferred value. 
 
 #### Traffic Flow Metrics
 | Metric | Description|
@@ -75,7 +82,7 @@ The following metrics are available for Azure point-to-site VPN gateways:
 | Metric | Description|
 | --- | --- |
 | **Gateway P2S Bandwidth** | Average point-to-site aggregate bandwidth of a gateway in bytes per second. |
-| **P2S Connection Count** |Point-to-site connection count of a gateway. Point-to-site connection count of a gateway. To ensure you are viewing accurate Metrics in Azure Monitor, please select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You may also select **Max** if you also Split By **Instance**. |
+| **P2S Connection Count** |Point-to-site connection count of a gateway. Point-to-site connection count of a gateway. To ensure you are viewing accurate Metrics in Azure Monitor, select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You may also select **Max** if you also Split By **Instance**. |
 | **User VPN Routes Count** | Number of User VPN Routes configured on the VPN Gateway. This metric can be broken down into **Static** and **Dynamic** Routes.
 
 ### Azure ExpressRoute gateways
@@ -86,6 +93,12 @@ The following metrics are available for Azure ExpressRoute gateways:
 | --- | --- |
 | **BitsInPerSecond** | Bits ingressing Azure per second.|
 | **BitsOutPerSecond** | Bits egressing Azure per second. |
+| **CPU Utilization** | CPU Utilization of the ExpressRoute Gateway.|
+| **Packets per second** | Packet count of ExpressRoute Gateway.|
+| **Count of routes advertised to peer**| Count of Routes Advertised to Peer by ExpressRoute Gateway. | 
+| **Count of routes learned from peer**| Count of Routes Learned from Peer by ExpressRoute Gateway.|
+| **Frequency of routes changed** | Frequency of Route changes in ExpressRoute Gateway.|
+| **Number of VMs in Virtual Network**| Number of VM's that use this ExpressRoute Gateway.|
 
 ### <a name="metrics-steps"></a>View gateway metrics
 
@@ -93,11 +106,11 @@ The following steps help you locate and view metrics:
 
 1. In the portal, navigate to the virtual hub that has the gateway.
 
-2. Select **VPN (Site to site)** to locate a site-to-site gateway, **ExpressRoute** to locate an ExpressRoute gateway, or **User VPN (Point to site)** to locate a point-to-site gateway. On the page, you can see the gateway information. Copy this information. You will use it later to view diagnostics using Azure Monitor.
+2. Select **VPN (Site to site)** to locate a site-to-site gateway, **ExpressRoute** to locate an ExpressRoute gateway, or **User VPN (Point to site)** to locate a point-to-site gateway.
 
 3. Select **Metrics**.
 
-   :::image type="content" source="./media/monitor-virtual-wan/metrics.png" alt-text="Screenshot shows a site to site V P N pane with View in Azure Monitor selected.":::
+   :::image type="content" source="./media/monitor-virtual-wan/view-metrics.png" alt-text="Screenshot shows a site to site VPN pane with View in Azure Monitor selected.":::
 
 4. On the **Metrics** page, you can view the metrics that you are interested in.
 
@@ -111,9 +124,9 @@ The following diagnostics are available for Azure site-to-site VPN gateways:
 
 | Metric | Description|
 | --- | --- |
-| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, as well as additional diagnostics.|
-| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, as well as additional diagnostics.|
-| **Route Diagnostic Logs** | These are logs related to events for static routes, BGP, route updates, as well as additional diagnostics. |
+| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and additional diagnostics.|
+| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and additional diagnostics.|
+| **Route Diagnostic Logs** | These are logs related to events for static routes, BGP, route updates, and additional diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections. |
 
 ### Point-to-site VPN gateways
@@ -122,39 +135,56 @@ The following diagnostics are available for Azure point-to-site VPN gateways:
 
 | Metric | Description|
 | --- | --- |
-| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, as well as other diagnostics. |
+| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and other diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections.|
-| **P2S Diagnostic Logs** | These are User VPN (Point-to-site) P2S configuration and client events. They include client connect/disconnect, VPN client address allocation, as well as other diagnostics.|
+| **P2S Diagnostic Logs** | These are User VPN (Point-to-site) P2S configuration and client events. They include client connect/disconnect, VPN client address allocation, and other diagnostics.|
 
-### <a name="diagnostic-steps"></a>View diagnostic logs
+### Express Route gateways
 
-The following steps help you locate and view diagnostics:
+Diagnostic logs for Express Route gateways in Azure Virtual WAN are not supported.
 
-1. In the portal, navigate to your Virtual WAN resource. In the **Overview** section of the Virtual WAN page in the portal, select **Essentials** to expand the view and obtain resource group information. Copy the resource group information.
+### <a name="diagnostic-steps"></a>View diagnostic logs configuration
 
-   :::image type="content" source="./media/monitor-virtual-wan/3.png" alt-text="Screenshot that shows the 'Overview' section with an arrow pointing to the 'Copy' button.":::
+The following steps help you create, edit, and view diagnostic settings:
 
-2. Navigate to **Monitor** from the search bar and in the Settings section, select **Diagnostic settings**, then input the resource group, resource type and resource information. This is the resource group information that you copied in Step 2 from the [View gateway metrics](#metrics-steps) section, earlier in this article.
+1. In the portal, navigate to your Virtual WAN resource, then select **Hubs** in the **Connectivity** group. 
 
-   :::image type="content" source="./media/monitor-virtual-wan/4.png" alt-text="Screenshot that shows the 'Monitoring' section with an arrow pointing to the 'Resource' drop-down.":::
+   :::image type="content" source="./media/monitor-virtual-wan/select-hub.png" alt-text="Screenshot that shows the Hub selection in the vWAN Portal.":::
 
-3. On the results page, select **+Add diagnostic setting**, then select an option. You can choose to send to Log Analytics, stream to an event hub, or to simply archive to a storage account.
+2. Under the **Connectivity** group on the left select the gateway you want to examine the diagnostics:
 
-   :::image type="content" source="./media/monitor-virtual-wan/5.png" alt-text="metrics page":::
+   :::image type="content" source="./media/monitor-virtual-wan/select-hub-gateway.png" alt-text="Screenshot that shows the Connectivity section for the hub.":::
+
+3. On the right part of the page, click on **View in Azure Monitor** link right to **Logs**  then select an option. You can choose to send to Log Analytics, stream to an event hub, or to simply archive to a storage account.
+
+   :::image type="content" source="./media/monitor-virtual-wan/view-hub-gateway-logs.png" alt-text="Screenshot for Select View in Azure Monitor for Logs.":::
+
+4. In this page, you can create new diagnostic setting (**+Add diagnostic setting**) or edit existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the example below), stream to an event hub, send to a 3rd-party solution, or to archive to a storage account.
+
+    :::image type="content" source="./media/monitor-virtual-wan/select-gateway-settings.png" alt-text="Screenshot for Select Diagnostic Log settings.":::
 
 ### <a name="sample-query"></a>Log Analytics sample query
 
-Logs are located in **Azure Log Analytics Workspace**. You can set up a query in Log Analytics. The following example contains a query to obtain site-to-site route diagnostics.
+If you selected to send diagnostic data to a Log Analytics Workspace, then you can use SQL-like queries such as the example below to examine the data. For more information, see [Log Analytics Query Language](/services-hub/health/log_analytics_query_language).
 
-```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
+The following example contains a query to obtain site-to-site route diagnostics.
 
-Replace the values below, after the **= =**, as needed.
+`AzureDiagnostics | where Category == "RouteDiagnosticLog"`
+
+Replace the values below, after the **= =**, as needed based on the tables reported in the previous section of this article.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"
 * "P2SDiagnosticLog”
 * "TunnelDiagnosticLog"
 * "RouteDiagnosticLog"
+
+In order to execute the query, you have to open the Log Analytics resource you configured to receive the diagnostic logs, and then select **Logs** under the **General** tab on the left side of the pane:
+
+:::image type="content" source="./media/monitor-virtual-wan/log-analytics-query-samples.png" alt-text="Log Analytics Query Samples.":::
+
+For additional Log Analytics query samples for Azure VPN Gateway, both Site-to-Site and Point-to-Site, you can visit the page [Troubleshoot Azure VPN Gateway using diagnostic logs](../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md). 
+For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, it will be possible to investigate into the diagnostic data without manually writing any Log Analytics query. 
 
 ## <a name="activity-logs"></a>Activity logs
 

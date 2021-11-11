@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Trelica supports IDP-initiated SSO.
 * Trelica supports just-in-time user provisioning.
-* After you configure Trelica, you can enforce session control. This control protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* After you configure Trelica, you can enforce session control. This control protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Trelica from the gallery
 
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-    ![The SAML Signing Certificate section, with the copy button highlighted next to App Federation Metadata Url](common/copy-metadataurl.png)
+    ![The SAML Signing Certificate section, with the copy button highlighted next to App Federation Metadata URL](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
@@ -134,7 +134,7 @@ Trelica supports just-in-time user provisioning, which is enabled by default. Th
 
 In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-When you select the Trelica tile in the My Apps portal, you're automatically signed in to the Trelica for which you set up SSO. For more information about the My Apps portal, see [Introduction to the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+When you select the Trelica tile in the My Apps portal, you're automatically signed in to the Trelica for which you set up SSO. For more information about the My Apps portal, see [Introduction to the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
@@ -146,6 +146,6 @@ When you select the Trelica tile in the My Apps portal, you're automatically sig
 
 - [Try Trelica with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Trelica with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

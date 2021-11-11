@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -34,6 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Robin supports **SP and IDP** initiated SSO.
 * Robin supports **Just In Time** user provisioning.
+* Robin supports  [Automated user provisioning](robin-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -131,6 +132,8 @@ To configure single sign-on on **Robin** side, you need to send the downloaded *
 
 In this section, a user called Britta Simon is created in Robin. Robin supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Robin, a new one is created after authentication.
 
+Robin also supports automatic user provisioning, you can find more details [here](./robin-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -145,8 +148,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Robin for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Robin tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Robin for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Robin tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Robin for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Robin you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Robin you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -8,8 +8,9 @@ services: azure-communication-services
 
 ms.author: tchladek
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: teams-interop
 ---
 # Build a custom Teams endpoint
 
@@ -18,13 +19,13 @@ ms.service: azure-communication-services
 
 You can use Azure Communication Services to build custom Teams endpoints to communicate with the Microsoft Teams client or other custom Teams endpoints. With a custom Teams endpoint, you can customize a voice, video, chat, and screen-sharing experience for Teams users.
 
-You can use the Azure Communication Services Identity SDK to exchange Azure Active Directory (Azure AD) user tokens for Teams access tokens. The diagrams in the next sections demonstrate multitenant use cases, where fictional company Fabrikam is the customer of fictional company Contoso.
+You can use the Azure Communication Services Identity SDK to exchange Azure Active Directory (Azure AD) access tokens of Teams users for Communication Identity access tokens. The diagrams in the next sections demonstrate multitenant use cases, where fictional company Fabrikam is the customer of fictional company Contoso.
 
 ## Calling 
 
 Voice, video, and screen-sharing capabilities are provided via Azure Communication Services Calling SDKs. The following diagram shows an overview of the process you'll follow as you integrate your calling experiences with custom Teams endpoints.
 
-![Diagram of the process of enabling the calling feature for a custom Teams endpoint experience.](./media/teams-identities/teams-identity-calling-overview.png)
+![Diagram of the process of enabling the calling feature for a custom Teams endpoint experience.](./media/teams-identities/teams-identity-calling-overview.svg)
 
 ## Chat
 

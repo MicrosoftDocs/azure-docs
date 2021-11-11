@@ -8,9 +8,10 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
+ms.subservice: pstn
 ---
 # Phone number types in Azure Communication Services
 
@@ -80,7 +81,7 @@ The following table shows you where you can acquire different types of phone num
 ### Quickstarts
 
 - [Get a phone Number](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Place a call](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- [Place a call](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - [Send an SMS](../../quickstarts/telephony-sms/send.md)
 
 ### Conceptual documentation

@@ -357,11 +357,11 @@ You can also verify the SAML response to see the roles being passed as claims.
 
 ![Screenshot of the SAML response.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-For more information about My Apps, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+For more information about My Apps, see [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-After you configure AWS you can enforce session control, which protects the exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+After you configure AWS you can enforce session control, which protects the exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
 
 <!--Image references-->
 

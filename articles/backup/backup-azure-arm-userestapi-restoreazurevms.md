@@ -598,7 +598,7 @@ The following is a sample request body to restore the disks of a VM to the secon
 }
 ```
 
-Similar to the primary region restore operation, this is an asynchronous operation and needs to be [tracked separately](/azure/backup/backup-azure-arm-userestapi-restoreazurevms#restore-response).
+Similar to the primary region restore operation, this is an asynchronous operation and needs to be [tracked separately](#restore-response).
 
 
 

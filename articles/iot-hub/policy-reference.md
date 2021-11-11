@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure IoT Hub
 description: Lists Azure Policy built-in policy definitions for Azure IoT Hub. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 08/20/2021
+ms.date: 10/11/2021
 ms.topic: reference
 author: robinsh
 ms.author: robinsh

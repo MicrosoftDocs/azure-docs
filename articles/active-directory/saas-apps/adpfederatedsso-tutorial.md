@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ADP | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with ADP'
 description: Learn how to configure single sign-on between Azure Active Directory and ADP.
 services: active-directory
 author: jeevansd
@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 09/30/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with ADP
+# Tutorial: Azure AD SSO integration with ADP
 
 In this tutorial, you'll learn how to integrate ADP with Azure Active Directory (Azure AD). When you integrate ADP with Azure AD, you can:
 
 * Control in Azure AD who has access to ADP.
 * Enable your users to be automatically signed-in to ADP with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
 
 ## Prerequisites
 
@@ -29,16 +28,19 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * ADP single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* ADP supports **IDP** initiated SSO
+* ADP supports **IDP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding ADP from the gallery
+## Add ADP from the gallery
 
 To configure the integration of ADP into Azure AD, you need to add ADP from the gallery to your list of managed SaaS apps.
 
@@ -68,7 +70,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **ADP** application integration page, click on **Properties tab** and perform the following steps: 
 
-    ![Single sign-on properties](./media/adpfederatedsso-tutorial/tutorial_adp_prop.png)
+    ![Single sign-on properties](./media/adpfederatedsso-tutorial/properties.png)
 
     a. Set the **Enabled for users to sign-in** field value to **Yes**.
 
@@ -86,14 +88,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    In the **Identifier (Entity ID)** text box, type a URL:
+    In the **Identifier (Entity ID)** text box, type the URL:
     `https://fed.adp.com`
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
     ![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up ADP** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up ADP** section, copy the appropriate URL(s) based on your requirement.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -142,7 +144,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 1. Select **ADP** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 1. In the Azure portal, on your **ADP** application integration page, click on **Properties tab** and perform the following steps:  
 
-    ![Single sign-on linked properties](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![Single sign-on linked properties tab](./media/adpfederatedsso-tutorial/application.png)
 
     1. Set the **Enabled for users to sign-in** field value to **Yes**.
 
@@ -154,11 +156,11 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 1. On the **Select a Single sign-on method** dialog, select **Mode** as **Linked**. to link your application to **ADP**.
 
-    ![Single sign-on linked](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
+    ![Single sign-on linked](./media/adpfederatedsso-tutorial/linked.png)
 
 1. Navigate to the **Configure Sign-on URL** section, perform the following steps:
 
-    ![Single sign-on prop](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
+    ![Configure Single sign-on](./media/adpfederatedsso-tutorial/users.png)
 
     1. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP app).
 
@@ -202,11 +204,10 @@ The objective of this section is to create a user called B.Simon in ADP. Work wi
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the ADP for which you set up the SSO
+* Click on Test this application in Azure portal and you should be automatically signed in to the ADP for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the ADP tile in the My Apps, you should be automatically signed in to the ADP for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+* You can use Microsoft My Apps. When you click the ADP tile in the My Apps, you should be automatically signed in to the ADP for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure ADP you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure ADP you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

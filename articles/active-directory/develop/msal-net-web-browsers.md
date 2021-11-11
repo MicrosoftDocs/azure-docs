@@ -62,7 +62,7 @@ Using the system browser has the significant advantage of sharing the SSO state 
 
 ## System browser experience on .NET 
 
-On .NET Core, MSAL.NET will start the system browser as a separate process. MSAL.NET doesn't have control over this browser, but once the user finishes authentication, the web page is redirected in such a way that MSAL.NET can intercept the Uri.
+On .NET Core, MSAL.NET will start the system browser as a separate process. MSAL.NET doesn't have control over this browser, but once the user finishes authentication, the web page is redirected in such a way that MSAL.NET can intercept the URI.
 
 You can also configure apps written for .NET Classic or .NET 5 to use this browser by specifying:
 
@@ -79,8 +79,8 @@ MSAL.NET needs to listen on `http://localhost:port` and intercept the code that 
 
 To enable the system browser:
 
-1. During app registration, configure `http://localhost` as a redirect uri (not currently supported by B2C)
-2. When you construct your PublicClientApplication, specify this redirect uri:
+1. During app registration, configure `http://localhost` as a redirect URI (not currently supported by B2C)
+2. When you construct your PublicClientApplication, specify this redirect URI:
 
 ```csharp
 IPublicClientApplication pca = PublicClientApplicationBuilder
@@ -102,7 +102,7 @@ On Linux, MSAL.NET will open the default OS browser using the xdg-open tool. To 
 > [!NOTE]
 > Customization is available in MSAL.NET 4.1.0 or later.
 
-MSAL.NET is able to respond with an HTTP message when a token is received or in case of error. You can display an HTML message or redirect to an url of your choice:
+MSAL.NET is able to respond with an HTTP message when a token is received or in case of error. You can display an HTML message or redirect to an URL of your choice:
 
 ```csharp
 var options = new SystemWebViewOptions() 
@@ -224,4 +224,4 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 #### .NET Core doesn't support interactive authentication with an embedded browser
 
 For .NET Core, acquisition of tokens interactively is only available through the system web browser, not with embedded web views. Indeed, .NET Core doesn't provide UI yet.
-If you want to customize the browsing experience with the system web browser, you can implement the [IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui) interface and even provide your own browser.
+If you want to customize the browsing experience with the system web browser, you can implement the [IWithCustomUI](scenario-desktop-acquire-token-interactive.md#withcustomwebui) interface and even provide your own browser.

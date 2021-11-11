@@ -3,13 +3,13 @@ title: "Record custom voice samples - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Make a production-quality custom voice by preparing a robust script, hiring good voice talent, and recording professionally.
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: lajanuar
+ms.author: eur
 ---
 
 # Record voice samples to create a custom voice
@@ -102,8 +102,9 @@ Below are some general guidelines that you can follow to create a good corpus (r
    Below are some best practices for example:
     - For lines with abbreviations, instead of "BTW", you have "by the way".
     - For lines with digits, instead of "911", you have "nine one one".
-    - For lines with acronyms, instead of "ABC",  you have "A B C"
-      With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
+    - For lines with acronyms, instead of "ABC",  you have "A B C".
+   
+   With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
 
    > [!NOTE]
    > The scripts prepared for your voice talent need to follow the native reading conventions, such as 50% and $45, while the scripts used for training need to be normalized to make sure that the scripts match the audio content, such as *fifty percent* and *forty-five dollars*. Check the scripts used for training against the recordings of your voice talent, to make sure they match.

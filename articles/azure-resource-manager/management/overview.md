@@ -2,7 +2,7 @@
 title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 03/25/2021
+ms.date: 08/27/2021
 ms.custom: contperf-fy21q1,contperf-fy21q3-portal
 ---
 # What is Azure Resource Manager?
@@ -57,6 +57,8 @@ Azure provides four levels of scope: [management groups](../../governance/manage
 
 You apply management settings at any of these levels of scope. The level you select determines how widely the setting is applied. Lower levels inherit settings from higher levels. For example, when you apply a [policy](../../governance/policy/overview.md) to the subscription, the policy is applied to all resource groups and resources in your subscription. When you apply a policy on the resource group, that policy is applied to the resource group and all its resources. However, another resource group doesn't have that policy assignment.
 
+For information about managing identities and access, see [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).
+
 You can deploy templates to tenants, management groups, subscriptions, or resource groups.
 
 ## Resource groups
@@ -73,9 +75,15 @@ There are some important factors to consider when defining your resource group:
 
 * The resources in a resource group can be located in different regions than the resource group.
 
-* When creating a resource group, you need to provide a location for that resource group. You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?" The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
+* When you create a resource group, you need to provide a location for that resource group. 
 
-   If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
+  You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?" 
+
+  The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region. 
+  
+  Except in global resources like Azure Content Delivery Network, Azure Traffic Manager, and Azure Front Door, if a resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. 
+   
+  For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
 * A resource group can be used to scope access control for administrative actions. To manage a resource group, you can assign [Azure Policies](../../governance/policy/overview.md), [Azure roles](../../role-based-access-control/role-assignments-portal.md), or [resource locks](lock-resources.md).
 

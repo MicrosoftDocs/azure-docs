@@ -203,7 +203,7 @@ High Scale VMs are available in different sizes with a different number of CPU c
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Local SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB per second |4,000 IOPS and 33 MB per second |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2,000 MB per second |5,000 IOPS and 50 MB per second |
 
-To view a complete list of all available Azure VM sizes, refer to [Sizes for virtual machines in Azure](sizes.md) or . Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
+To view a complete list of all available Azure VM sizes, refer to [Sizes for virtual machines in Azure](sizes.md). Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
 
 *Scale Limits*  
 The maximum IOPS limits per VM and per disk are different and independent of each other. Make sure that the application is driving IOPS within the limits of the VM as well as the premium disks attached to it. Otherwise, application performance will experience throttling.
@@ -306,7 +306,7 @@ For all premium SSDs or ultra disks, you may be able to disable “barriers” f
 
 * For **reiserFS**, use the barrier=none mount option to disable barriers.  To explicitly enable barriers, use barrier=flush.
 * For **ext3/ext4**, use the barrier=0 mount option to disable barriers.  To explicitly enable barriers, use barrier=1.
-* For **XFS**, use the nobarrier mount option to disable barriers.  To explicitly enable barriers, use barrier.  Note that in later Linux kernel versions, the design of XFS file system always ensures durability, and disabling barriers has no effect.  
+* For **XFS**, use the nobarrier mount option to disable barriers.  To explicitly enable barriers, use barrier. As of version 4.10 of the mainline Linux kernel, the design of XFS file system always ensures durability. Disabling barriers has no effect and the “nobarrier” option is deprecated. However, some Linux distributions may have backported the changes to a distribution release with an earlier kernel version, check with your distribution vendor for the status in the distribution and version you are running.
 
 ## Disk striping
 

@@ -73,8 +73,6 @@
         href: how-to-set-up-instance-cli.md
       - name: PowerShell
         href: how-to-set-up-instance-powershell.md
-      - name: Setup script sample
-        href: how-to-set-up-instance-scripted.md
     - name: Enable private access with Private Link
       href: how-to-enable-private-link.md
     - name: Write app authentication code
@@ -135,25 +133,25 @@
       href: how-to-integrate-time-series-insights.md
   - name: Monitor and troubleshoot
     items:
-    - name: View metrics in Azure Monitor
+    - name: Metrics
       href: troubleshoot-metrics.md
-    - name: Enable and query diagnostics logs
+    - name: Diagnostics logs
       href: troubleshoot-diagnostics.md
-    - name: Enable alerts
+    - name: Alerts
       href: troubleshoot-alerts.md
-    - name: Troubleshoot performance
+    - name: Performance
       href: troubleshoot-performance.md
-    - name: Understand your resource health
+    - name: Resource health
       href: troubleshoot-resource-health.md
     - name: Known issues
       href: troubleshoot-known-issues.md
     - name: Problem resolution
       items:
-      - name: 403 (Forbidden)
+      - name: Error 403 (Forbidden)
         href: troubleshoot-error-403.md
-      - name: 404 Sub-Domain not found
+      - name: Error 404 (Sub-Domain not found)
         href: troubleshoot-error-404.md
-      - name: Azure Digital Twins Explorer authentication
+      - name: Azure Digital Twins Explorer authentication error
         href: troubleshoot-error-azure-digital-twins-explorer-authentication.md  
 - name: Reference
   items:
@@ -189,6 +187,8 @@
           href: reference-query-clause-select.md
         - name: FROM
           href: reference-query-clause-from.md
+        - name: MATCH
+          href: reference-query-clause-match.md
         - name: JOIN
           href: reference-query-clause-join.md
         - name: WHERE
@@ -197,6 +197,8 @@
         href: reference-query-functions.md
       - name: Operators
         href: reference-query-operators.md
+      - name: Reserved keywords
+        href: reference-query-reserved.md
 - name: Resources
   items:
   - name: Digital Twins service limits
@@ -319,8 +321,6 @@
       href: https://github.com/Azure/digital-twin-model-identifier
   - name: 'Learn: Develop with Azure Digital Twins'
     href: /learn/paths/develop-azure-digital-twins/
-  - name: Channel 9 videos
-    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools

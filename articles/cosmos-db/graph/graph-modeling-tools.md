@@ -54,4 +54,4 @@ The following image demonstrates reverse engineering from RDBMS & Hackolade in a
 -  [Documentation of Hackolade](https://hackolade.com/help/CosmosDBGremlin.html)
 
 ## Next steps
-- [Visualizing the data](/azure/cosmos-db/graph/graph-visualization-partners)
+- [Visualizing the data](./graph-visualization-partners.md)

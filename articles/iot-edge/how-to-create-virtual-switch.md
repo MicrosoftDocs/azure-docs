@@ -22,7 +22,7 @@ This article shows you how to create a virtual switch on a Windows device to ins
 
 ## Prerequisites
 - A Windows device. For supported Windows versions, see [Operating Systems](support.md#operating-systems).
-- Hyper-V role installed on the Windows device. For more information on how to enable Hyper-V, see [Install and provision Azure IoT Edge for Linux on a Windows device](./how-to-install-iot-edge-on-windows.md?tabs=powershell#prerequisites).
+- Hyper-V role installed on the Windows device. For more information on how to enable Hyper-V, see [Install and provision Azure IoT Edge for Linux on a Windows device](./how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=powershell#prerequisites).
 
 ## Create virtual switch 
 The following steps in this section are a generic guide for a virtual switch creation. Ensure that the virtual switch configuration aligns with your networking environment.
@@ -95,4 +95,4 @@ The following steps in this section are a generic guide for a virtual switch cre
    ```
 
 ## Next steps
-Follow the steps in [Install and provision Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md) to set up a device with IoT Edge for Linux on Windows.
+Follow the steps in [Install and provision Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md) to set up a device with IoT Edge for Linux on Windows.

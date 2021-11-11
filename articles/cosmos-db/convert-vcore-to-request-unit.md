@@ -6,7 +6,7 @@ ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 08/20/2021
+ms.date: 08/26/2021
 ---
 # Convert the number of vCores or vCPUs in your nonrelational database to Azure Cosmos DB RU/s
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -33,7 +33,7 @@ Azure Cosmos DB interop APIs run on top of the SQL API and implement their own u
 
 ## Worked example: estimate RU/s for single replica set migration
 
-![Migrate a replica set with 3 replicas of a four-core SKU to Azure Cosmos DB](media/tutorial-vcore-pricing/one-replica-set.png)
+![Migrate a replica set with 3 replicas of a four-core SKU to Azure Cosmos DB](media/convert-vcore-to-request-unit/one-replica-set.png)
 
 Consider a single replica set with a replication factor of *R=3* based on a four-core server SKU. Then
 * *T* = 12 vCores
@@ -53,7 +53,7 @@ Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (12 vCores) / (3) = 4,0
 
 ## Worked example: estimate RU/s when migrating a cluster of homogeneous replica sets
 
-![Migrate a homogeneous sharded replica set with 3 shards, each with three replicas of a four-core SKU, to Azure Cosmos DB](media/tutorial-vcore-pricing/homogeneous-sharded-replica-sets.png)
+![Migrate a homogeneous sharded replica set with 3 shards, each with three replicas of a four-core SKU, to Azure Cosmos DB](media/convert-vcore-to-request-unit/homogeneous-sharded-replica-sets.png)
 
 Consider a sharded and replicated cluster comprising three replica sets each with a replication factor three, where each server is a four-core SKU. Then
 * *T* = 36 vCores
@@ -73,7 +73,7 @@ Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (36 vCores) / (3) = 12,
 
 ## Worked example: estimate RU/s when migrating a cluster of heterogeneous replica sets
 
-![Migrate a heterogeneous sharded replica set with 3 shards, each with different numbers of replicas of a four-core SKU, to Azure Cosmos DB](media/tutorial-vcore-pricing/heterogeneous-sharded-replica-sets.png)
+![Migrate a heterogeneous sharded replica set with 3 shards, each with different numbers of replicas of a four-core SKU, to Azure Cosmos DB](media/convert-vcore-to-request-unit/heterogeneous-sharded-replica-sets.png)
 
 Consider a sharded and replicated cluster comprising three replica sets, in which each server is based on a four-core SKU. The replica sets are "heterogeneous" in the sense that each has a different replication factor: 3x, 1x, and 5x, respectively. The recommended approach is to use the average replication factor when calculating request units. Then
 * *T* = 36 vCores

@@ -1,5 +1,5 @@
 ---
-title: Azure Lab Services - How to bring a Windows custom image from an Azure virtual machine
+title: How to bring a Windows custom image from an Azure virtual machine
 description: Describes how to bring a Windows custom image from an Azure virtual machine.
 ms.date: 07/27/2021
 ms.topic: how-to
@@ -27,7 +27,7 @@ You'll need permission to create an Azure VM in your school's Azure subscription
 
 ## Import the custom image into a shared image gallery
 
-1. In a shared image gallery, [create an image definition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition) or choose an existing image definition.
+1. In a shared image gallery, [create an image definition](../virtual-machines/image-version.md) or choose an existing image definition.
      - Choose **Gen 1** for the **VM generation**.
      - Choose whether you're creating a **specialized** or **generalized** image for the **Operating system state**.
 
@@ -35,7 +35,7 @@ You'll need permission to create an Azure VM in your school's Azure subscription
     
     You can also choose to use an existing image definition and create a new version for your custom image.
     
-1. [Create an image version](../virtual-machines/windows/shared-images-portal.md#create-an-image-version).
+1. [Create an image version](../virtual-machines/image-version.md).
     - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*.   
     - For the **Source**, select **Disks and/or snapshots** from the dropdown list.
     - For the **OS disk** property, choose your Azure VM's disk that you created in previous steps.

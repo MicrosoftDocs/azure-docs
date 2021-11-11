@@ -1,8 +1,8 @@
-﻿--- 
+---
 title: Azure VMware Solution by CloudSimple - Configure DNS for CloudSimple Private Cloud
 description: Describes how to set up DNS name resolution for access to vCenter server on a CloudSimple Private Cloud from on-premises workstations
-author: shortpatti 
-ms.author: v-patsho
+author: suzizuber 
+ms.author: v-szuber
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -36,14 +36,13 @@ Cloud for name resolution. This section provides information on using a BIND DNS
 
 ### Create a zone on a BIND DNS server
 
-The specific file and parameters to configure can vary based on your individual
-DNS setup.
+The specific file and parameters to configure can vary based on your individual DNS setup.
 
-For example, for the default BIND server configuration, edit
-/etc/named.conf file on your DNS server and add the following zone information.
+For example, for the default BIND server configuration, edit the
+`/etc/named.conf` file on your DNS server and add the following zone information.
 
 > [!NOTE]
->This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+>This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ```
 zone "az.cloudsimple.io"
