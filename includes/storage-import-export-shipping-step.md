@@ -12,11 +12,11 @@ ms.custom: include file
 
 ---
 
-In **Shipping**, make these entries:
+In **Shipping**:
 
-1. **Carrier name**: Select the carrier that you want to use from the dropdown list. Microsoft will use the same carrier to ship back all storage media.
-1. **Carrier account number**: Enter the account number for a valid account that you've created with the carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. For carrier account requirements, see "Prerequisites," above.
-1.  **Return address**: Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
+1. Select the carrier that you want to use from the dropdown list for **Carrier name**. Microsoft will use the selected carrier to ship back all storage media.
+1. Enter the **Carrier account number** for a valid account that you've created with the carrier. For carrier account requirements, see "Prerequisites," above.
+1. Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
 
 > [!TIP]
 > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
