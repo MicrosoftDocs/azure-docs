@@ -71,8 +71,8 @@ The following table lists the ABAP authorizations required for the backend SAP u
 Required authorizations are listed by log type. You only need the authorizations listed for the types of logs you plan to ingest into Azure Sentinel.
 
 > [!TIP]
-> To create the role with all required authorizations, deploy the SAP change request NPLK900163 on your SAP system. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role, and you (typically SAP Basis/role owner) need to assigs the role to the ABAP user connecting to Azure Sentinel.
->
+> To create the role with all required authorizations, deploy the SAP change request NPLK900163 on your SAP system. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role, and you, typically a SAP Basis or role owner, must assign the role to the ABAP user connecting to Azure Sentinel.
+
 
 | Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |
