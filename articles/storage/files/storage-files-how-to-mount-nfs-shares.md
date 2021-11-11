@@ -25,10 +25,10 @@ ms.custom: references_regions
 ## Prerequisites
 
 - [Create an NFS share](storage-files-how-to-create-nfs-shares.md).
+- Open port 2049 on any client you want to mount your NFS share to.
 
     > [!IMPORTANT]
     > NFS shares can only be accessed from trusted networks. Connections to your NFS share must originate from one of the following sources:
-- Open port 2049 on any client you want to mount your NFS share to.
 - Use one of the following networking solutions:
     - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
     - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md).
