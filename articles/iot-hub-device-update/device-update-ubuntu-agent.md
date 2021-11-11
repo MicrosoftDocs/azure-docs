@@ -12,7 +12,7 @@ ms.service: iot-hub-device-update
 
 Device Update for IoT Hub supports two forms of updates – image-based and package-based.
 
-Package-based updates are targeted updates that alter only a specific component or application on the device. Package-based updates lead to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images.
+Package-based updates are targeted updates that alter only a specific component or application on the device. They lead to lower consumption of bandwidth and helps reduce the time to download and install the update. Package-based updates also typically allow for less downtime of devices when applying an update and avoid the overhead of creating images. They use an [APT manifest](device-update-apt-manifest.md) which provides the Device Update Agent with the information it needs to download and install the packages specified in the APT Manifest file (as well as their dependencies) from a designated repository.
 
 This end-to-end tutorial walks you through updating Azure IoT Edge on Ubuntu Server 18.04 x64 by using the Device Update package agent. Although the tutorial demonstrates updating IoT Edge, using similar steps you could update other packages such as the container engine it uses.
 
@@ -124,7 +124,7 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 3. Download the `Edge.package.update.samples.zip` by clicking on it.
 
-5. Extract the contents of the folder to discover an update sample and its corresponding import manifests. 
+5. Extract the contents of the folder to discover a sample [APT manifest](device-update-apt-manifest.md) and its corresponding [import manifest](import-concepts.md). 
 
 2. In Azure portal, select the Device Updates option under Automatic Device Management from the left-hand navigation bar in your IoT Hub.
 
