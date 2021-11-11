@@ -37,9 +37,8 @@ For more information, see:
 - [Advanced threat protection for Azure Cosmos DB (Preview)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 - [The list of threat protection alerts for Azure Cosmos DB (Preview)](alerts-reference.md#alerts-azurecosmos)
 
-<a name="azure-mcas">
 
-## Display recommendations in Microsoft Defender for Cloud Apps
+## Display recommendations in Microsoft Defender for Cloud Apps <a name="azure-mcas"></a>
 
 Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security) is a cloud access security broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
 
