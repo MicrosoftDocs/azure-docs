@@ -28,7 +28,7 @@ If you receive error messages with error codes like 400, 409, and 403, see [Trou
 
 ## Distributed tracing 
 
-To enable end-to-end tracing for [Azure Event Hubs](handler-event-hubs.md) or [Azure Service Bus](handler-service-bus.md) Event Grid subscription, configure [Custom Delivery Properties](https://docs.microsoft.com/azure/event-grid/delivery-properties) to forward `traceparent` CloudEvent extension attribute to `Diagnostic-Id` AMQP application property. Example of a subscription with tracing delivery properties configuration for Event Hubs:
+To enable end-to-end tracing for [Azure Event Hubs](handler-event-hubs.md) or [Azure Service Bus](handler-service-bus.md) Event Grid subscription, configure [Custom Delivery Properties](delivery-properties.md) to forward `traceparent` CloudEvent extension attribute to `Diagnostic-Id` AMQP application property. Example of a subscription with tracing delivery properties configuration for Event Hubs:
 
 ```azurecli
 az eventgrid event-subscription create --name <event-grid-subscription-name> \
