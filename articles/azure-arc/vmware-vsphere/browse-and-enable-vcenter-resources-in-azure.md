@@ -28,7 +28,7 @@ In this section, you'll enable resource pools, networks, and VM templates in Azu
 
 1. Select your Azure Subscription and Resource Group and then select **Enable**.
 
-   This starts a deployment and creates a resource in Azure, creating representations for your VMware vSphere resources. It allows you to manage who can access those resources through Azure role-based acccess control (RBAC) granularly.
+   This starts a deployment and creates a resource in Azure, creating representations for your VMware vSphere resources. It allows you to manage who can access those resources through Azure role-based access control (RBAC) granularly.
 
 1. Repeat these steps for one or more network, resource pool, and VM template resources.
 
@@ -52,4 +52,4 @@ For information on the capabilities enabled by a guest agent, see [Manage access
 
 ## Next steps
 
-- [Manage access to VMware resources through Azure RBAC](manage-access-to-arc-vmware-resources.md)
+[Manage access to VMware resources through Azure RBAC](manage-access-to-arc-vmware-resources.md).

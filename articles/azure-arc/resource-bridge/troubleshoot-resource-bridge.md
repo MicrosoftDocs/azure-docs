@@ -65,7 +65,7 @@ Perform the following steps to configure your client machine with the Azure CLI 
 1. Verify Python is installed correctly by running `py` in a Command Prompt.
 1. From an elevated PowerShell console, run `pip install azure-cli` to install the Azure CLI from PyPI.
 
-After completing these steps, in a new Powershell console you can get started using the Azure Arc appliance CLI extension.
+After completing these steps, in a new PowerShell console you can get started using the Azure Arc appliance CLI extension.
 
 ## Azure Arc resource bridge (preview) is unreachable
 

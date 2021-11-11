@@ -40,7 +40,7 @@ The following scenarios are supported in Azure Arc-enabled VMware vSphere:
 
 - App teams can use Azure portal, CLI, or REST API to manage the lifecycle of on-premises VMs they use for deploying their applications (CRUD, Start/Stop/Restart).
 
-- App teams and administrators can install extensions, such as the Log Analytics agent, Custom Scrip Extension, and Dependency Agent, on  the virtual machines and do operations supported by the extensions.
+- App teams and administrators can install extensions, such as the Log Analytics agent, Custom Script Extension, and Dependency Agent, on  the virtual machines and do operations supported by the extensions.
 
 ## Supported regions
 

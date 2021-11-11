@@ -54,10 +54,10 @@ Before you can install an extension, you must enable guest management on the VMw
 
    - Able to connect through the firewall to communicate over the internet and these [URLs](../servers/agent-overview.md#networking-configuration) aren't blocked.
 
-   - Communicating through a prox server to the internet is not supported.
+   - Communicating through a proxy server to the internet is not supported.
 
    >[!NOTE]
-   >If you're using a Linux VM, the account must not prompt for login on sudo commands.  To override the prompt, from a terminal, run `sudo visudo` and add `<username> ALL=(ALL) NOPASSWD:ALL` to the end of the file.  Make sure to replace `<username>`.
+   >If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo` and add `<username> ALL=(ALL) NOPASSWD:ALL` to the end of the file.  Make sure to replace `<username>`.
    >
    >If your VM template has these changes incorporated, you won't need to do this for the VM created from that template.
 
@@ -97,3 +97,5 @@ If you no longer need the VM, you can delete it.
 >This also deletes the VM in your VMware vCenter.
 
 ## Next steps
+
+[Create a VM using Azure Arc-enabled vSphere](quick-start-create-a-vm.md)

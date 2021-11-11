@@ -179,4 +179,4 @@ In this step, you'll add the custom roles to users or groups in the subscription
 
 ## Next steps
 
-- [Create a VM using Azure Arc](quick-start-create-a-vm.md)
+[Create a VM using Azure Arc-enabled vSphere](quick-start-create-a-vm.md)
