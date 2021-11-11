@@ -9,7 +9,7 @@ ms.custom: ignite-fall-2021
 # Troubleshoot Azure Video Analyzer
 
 ![edge icon](media/env-icon/edge.png)  
-Alternatively, check out [Troubleshoot in the service](../cloud/troubleshoot.md).
+Alternatively, check out [troubleshoot in the service](../cloud/troubleshoot.md).
 
 ---
 
