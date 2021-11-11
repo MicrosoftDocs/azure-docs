@@ -5,16 +5,12 @@ author: v-jbrannian
 ms.author: v-jbrannian
 ms.service: iot-develop
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 11/11/2021
 ---
 
 # Guidelines to develop secure embedded applications with Azure RTOS
 
-Intro text
-
-## How to read this guide
-
-Text about flags when it's decided
+INTRO TEXT HERE
 
 Throughout this guide we’ll reference security categories from the following two documents:
 
@@ -163,7 +159,24 @@ If your device utilizes a certificate from a Public Key Infrastructure (PKI), yo
 
 ### Attestation
 
-Content coming
+Some devices provide a secret key or value that is uniquely loaded (usually using permanent fuses) into each specific device for the purposes of checking ownership or status of the device. Whenever possible, this hardware-based value should be utilized, though not necessarily directly, as part of any process where the device needs to identify itself to a remote host.
+
+This should be coupled with a secure boot mechanism to prevent fraudulent use of the secret ID. Depending on the cloud services being used and their PKI, the device ID may be tied to an X.509 certificate, but whenever possible the attestation device ID should be separate from "operational" certificates used to authenticate a device.
+
+Device status in attestation scenarios can include information like firmware version, life-cycle state (for example, running vs. debug), component health, or any number of other factors that will help a service determine the device's state. For example, device attestation is often involved in OTA firmware update protocols to ensure that the correct updates are delivered to the intended device.  
+
+> [!NOTE]
+> “Attestation” is distinct from “authentication”. Attestation uses an external authority to determine whether a device belongs to a particular group using cryptography. “Authentication” uses cryptography to verify that a host (device) owns a private key in a challenge-response process, such as the TLS handshake.
+
+**Hardware**: The selected hardware must provide functionality to provide a secret unique identifier. This is usually tied into cryptographic hardware like a TPM or HSM and requires a specific API for attestation services.
+
+**Azure RTOS**: No specific Azure RTOS functionality is required.
+
+**Application**: The user application may be required to implement logic to tie the hardware features to whatever attestation the chosen cloud service(s) requires.
+
+**7 Properties**: Hardware-based Root of Trust, Certificate Based authentication
+
+**SMM practices**: Establishing and Maintaining Identities, Access Control, Security Model and Policy for Data
 
 ## Embedded Security Components – Memory Protection
 
