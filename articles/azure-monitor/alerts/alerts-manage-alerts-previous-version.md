@@ -27,7 +27,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
     - **Search Query**. In this section, you can modify your query.
     - **Alert logic**. Log Alerts can be based on two types of [**Measures**](./alerts-unified-log.md#measure):
         1. **Number of results** - Count of records returned by the query.
-        1. **Metric measurement** - *Aggregate value* calculated using summarize grouped by expressions chosen and [bin()](../azure/kusto/query/binfunction) selection. For example:
+        1. **Metric measurement** - *Aggregate value* calculated using summarize grouped by expressions chosen and [bin()](/azure/kusto/query/binfunction) selection. For example:
             ```Kusto
             // Reported errors
             union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
@@ -37,7 +37,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
             ```
         For metric measurements alert logic, you can specify how to [split the alerts by dimensions](./alerts-unified-log.md#split-by-alert-dimensions) using the **Aggregate on** option. The row grouping expression must be unique and sorted.
         > [!NOTE]
-        > As [bin()](/azure/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert the [bin()](../azure/kusto/query/binfunction) function to a [bin_at()](/azure/kusto/query/binatfunction) function with appropriate time at runtime, to ensure results with a fixed point.
+        > As [bin()](/azure/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert the [bin()](/azure/kusto/query/binfunction) function to a [bin_at()](/azure/kusto/query/binatfunction) function with appropriate time at runtime, to ensure results with a fixed point.
         > [!NOTE]
         > Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-08-01` and above.
 
