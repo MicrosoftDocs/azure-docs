@@ -181,7 +181,7 @@ URLs:
 
 | Agent resource | Description |
 |---------|---------|
-|`azgn*.servicebus.windows.net`|Azure Arc Connectivity Platform|
+|`azgn*.servicebus.windows.net`|Notification service for extensions|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|

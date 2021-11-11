@@ -26,8 +26,8 @@ Version 1.13
 
 ### New features
 
-- Local configuration of agent settings now available using the `azcmagent config` command.
-- Proxy server settings can be configured using agent-specific settings instead of environment variables.
+- Local configuration of agent settings now available using the [azcmagent config command](manage-agent.md#config).
+- Proxy server settings can be [configured using agent-specific settings](manage-agent.md#update-or-remove-proxy-settings) instead of environment variables.
 - Extension operations will execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](agent-overview.md#networking-configuration)). The extension manager will fall back to the existing behavior of checking every 5 minutes when the notification service cannot be reached.
 
 ## October 2021
