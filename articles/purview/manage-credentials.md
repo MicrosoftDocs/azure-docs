@@ -189,7 +189,11 @@ The following steps will show you how to create a UAMI for Purview to use.
     
     :::image type="content" source="media/manage-credentials/create-new-managed-identity.png" alt-text="Screenshot showing managed identity screen in the Azure portal with user-assigned and add highlighted.":::
 
-1. After finishing the setup, go back to Purview portal. After refreshing the page, user assigned managed identities should be available in the dropdown.  
+1. After finishing the setup, go back to your Azure Purview account in the Azure Portal. If the managed identity is successfully deployed, you'll see the status as **Succeeded**.
+
+   :::image type="content" source="media/manage-credentials/status-successful.png" alt-text="Screenshot the Azure Purview account in the Azure Portal with Status highlighted under the overview tab and essentials menu.":::
+
+1. Once the managed identity is deployed, go back to the Purview Studio credentials section, to add a user-assigned managed identity. After refreshing the page, user assigned managed identities should be available in the dropdown.  
 
     >[!NOTE]
     > You'll need to refresh the Purview web portal to load the settings finished in the Azure portal.
