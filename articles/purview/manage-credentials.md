@@ -89,7 +89,7 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
 4. In the **Secrets permissions** dropdown, select **Get** and **List** permissions.
 
-5. For **Select principal**, choose the Purview system managed identity. You can search for the Purview SAMI or UAMI using either the Purview instance name **or** the managed identity application ID. We do not currently support compound identities (managed identity name + application ID).
+5. For **Select principal**, choose the Purview system managed identity. You can search for the Purview SAMI using either the Purview instance name **or** the managed identity application ID. We do not currently support compound identities (managed identity name + application ID).
 
    :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Add access policy":::
 
