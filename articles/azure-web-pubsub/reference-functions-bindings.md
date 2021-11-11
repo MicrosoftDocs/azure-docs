@@ -17,8 +17,8 @@ Web PubSub is an Azure-managed service that helps developers easily build web ap
 | Action | Type |
 |---------|---------|
 | Run a function when messages come from service | [Trigger binding](#trigger-binding) |
-| Bind request to target object under Http Trigger, i.e. service endpoint URL with access token or service upstream request | [Input binding](#input-binding)
-| Send Web PubSub messages |[Output binding](#output-binding) |
+| Bind request to target object under Http trigger for negotiation and upstream requests | [Input binding](#input-binding)
+| Invoke service do actions | [Output binding](#output-binding) |
 
 [Source code](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/webpubsub/) |
 [Package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub) |
@@ -424,6 +424,8 @@ baseUrl | Web PubSub client connection uri.
 url | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request.
 accessToken | Generated `AccessToken` based on request UserId and service information.
 
+---
+
 #### WebPubSubContext
 
 `WebPubSubContext` provides below properties.
@@ -569,7 +571,9 @@ ActionName|Properties
 > [!IMPORTANT]
 > The message data property in the send message related actions must be `string` if data type is set to `json` or `text` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need. This is applied to any place using message property, for example, `UserEventResponse.Data` working with `WebPubSubTrigger`. 
 > 
-> When data type is set to `binary`, it's allowed to leverage binding naturally supported `dataType` as `binary` configured in the `function.json`, see [Trigger and binding definitions](../azure/azure-functions/functions-triggers-bindings?tabs=csharp#trigger-and-binding-definitions) for details.
+> When data type is set to `binary`, it's allowed to leverage binding naturally supported `dataType` as `binary` configured in the `function.json`, see [Trigger and binding definitions](/azure/azure-functions/functions-triggers-bindings?tabs=csharp#trigger-and-binding-definitions) for details.
+
+---
 
 ### Configuration
 
