@@ -204,7 +204,7 @@ For information on workarounds to know issues running .NET isolated process func
 
 ## Remote Debugging using Visual Studio
 
-Because .NET isolated runs your dotnet process outside Azure Functions runtime, you need to attach the remote debugger to a seperate dotnet process. 
+Because .NET isolated runs your dotnet process outside Azure Functions runtime, you need to attach the remote debugger to a separate dotnet process. 
 
 Here are the steps to attach remote debugger to Azure Functions app from Visual Studio:
 * for your existing dotnet isolated app, download the publish profile from the Azure Portal
@@ -220,7 +220,7 @@ Here are the steps to attach remote debugger to Azure Functions app from Visual 
 * Once the function app is published, **Select Debug > Attach to Process** or press **Ctrl+Alt+p** in Visual Studio, and use the Attach to Process dialog to attach the debugger to the process.
 * Set the **Connection Target** to **< name-of-your-function-app >.scm.azurewebsites.net:4024** and press **Enter**
 ![Visual Studio attach to process dialog](./media/dotnet-isolated-process-developer-howtos/attach-to-process-dialog.png)
-* Use the values of **userName** and **userPWD** from the published proflie to sign in
+* Use the values of **userName** and **userPWD** from the published profile to sign in
 ![Visual Studio enter credential](./media/dotnet-isolated-process-developer-howtos/creds-dialog.png)
 
 * Once secure connection is established, the available processes will be shown. Double click on **dotnet.exe**
