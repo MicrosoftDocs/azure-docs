@@ -53,14 +53,14 @@ IDPS allows you to detect attacks in all ports and protocols for non-encrypted t
 
 The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.
 
-IDPS Signatures rules(preview) allow you to:
+IDPS Signature rules(preview) allow you to:
 
 - Customize one or more signatures and change their mode to *Disabled*, *Alert* or *Alert and Deny*. 
 
    For example, if you receive a false positive where a legitimate request is blocked by Azure Firewall due to a faulty signature, you can use the signature ID from the application rules logs, and set its IDPS mode to off. This causes the "faulty" signature to be ignored and resolves the false positive issue.
 - You can apply the same fine-tuning procedure for signatures that are creating too many low-priority alerts, and therefore interfering with visibility for high-priority alerts.
 - Get a holistic view of the entire 55,000 signatures
-- Lookup for a specific signature to reveal its entire set of attributes.
+- Lookup for a specific signature to reveal its entire set of attributes. To learn more about IDPS Signature rule categories, see [Azure Firewall IDPS signature rule categories](idps-signature-catgories.md).
 - Smart search
 
    Allows you to search through the entire signatures database by any type of attribute. For example, you can search for specific CVE-ID to discovered what signatures are taking care of this CVE by simply typing the ID in the search bar.
