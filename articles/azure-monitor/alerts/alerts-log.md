@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Create, view, and manage log alerts using Azure Monitor
 
-## ==Overview==
+## Overview
 
 Log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
 This article shows you how to create and manage log alerts using Azure Monitor. Alert rules are defined by three components:
@@ -30,7 +30,7 @@ You can also create log alert rules using Azure Resource Manager templates, whic
 1. In the [portal](https://portal.azure.com/), select the resource you would like to alert on.
 1. In the Resource menu, under **Monitoring**, select **Alerts**.
 1. From the top command bar, click **Create**, and then **Alert rule**.
-    :::image type="content" source="../../azure-vmware/media/configure-alerts-for-azure-vmware-solution/create-new-alert-rule.png" alt-text="Create new alert rule.":::
+    :::image type="content" source="../../azure-vmware/media/configure-alerts-for-azure-vmware-solution/alerts-create-new-alert-rule.png" alt-text="Create new alert rule.":::
 1. The **Create alert rule** wizard opens to the **Select a signal** page of the **Condition** tab, with the scope already defined based on the resource you selected.
 1. Click on the **Custom log search** signal.
 1. Write a query to identify the conditions for triggering alerts. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
@@ -66,7 +66,7 @@ You can also create log alert rules using Azure Resource Manager templates, whic
 
 1. In the **Details** tab, define the **Alert rule details**, and **Project details**. You can optionally set whether to not **Start running now**, or [**Mute Actions**](./alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
     > [!NOTE]
-    > Log alert rules are currently stateless and fires an action every time an alert is created unless muting is defined.
+    > Log alert rules are currently stateless and fire an action every time an alert is created unless muting is defined.
   
     :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
