@@ -14,7 +14,7 @@ ms.date: 11/12/2021
 
 # Indexes in Azure Cognitive Search
 
-In Azure Cognitive Search, a *search index* is your searchable content, available to the search engine for indexing, full text search, and filtered queries. This content exists in the cloud, apart from your primary data stores. Except for specific indexing scenarios, the search service will not directly connect to or query your local data. An index is defined by a schema and saved to the search service, with data import following as a second step.
+In Azure Cognitive Search, a *search index* is your searchable content, available to the search engine for indexing, full text search, and filtered queries. An index is defined by a schema and saved to the search service, with data import following as a second step. This content exists within your search service, apart from your primary data stores, which is necessary for the millisecond response times expected in search operations. Except for specific indexing scenarios, the search service will never connect to or query your local data.
 
 If you're creating and managing a search index, this article will help you understand the following:
 
@@ -146,8 +146,8 @@ All indexing and query requests target an index. Endpoints are usually one of th
 
 | Endpoint | Connection and access control |
 |----------|-------------------------------|
-| '<your-service>.search.windows.net/indexes' | Targets the indexes collection. Used when creating, listing, or deleting an index. Admin rights are required for these operations, available through admin API keys or a Search Contributor role. |
-| '<your-service>.search.windows.net/indexes/<your-index>/docs' | Targets the documents collection of a single index. Used when querying an index. Read rights are sufficient, and available through query API keys or a data reader role. |
+| `<your-service>.search.windows.net/indexes` | Targets the indexes collection. Used when creating, listing, or deleting an index. Admin rights are required for these operations, available through admin API keys or a Search Contributor role. |
+| `<your-service>.search.windows.net/indexes/<your-index>/docs` | Targets the documents collection of a single index. Used when querying an index. Read rights are sufficient, and available through query API keys or a data reader role. |
 
 ## Next steps
 
