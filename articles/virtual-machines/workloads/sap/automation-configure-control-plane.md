@@ -78,17 +78,15 @@ The table below contains the networking parameters.
 
 The table below contains the parameters related to the deployer virtual machine. 
 
-
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                        | Description                                                                  | Type       | 
 > | ----------------------------- - | ---------------------------------------------------------------------------- | ---------- | 
-> | `deployer_size`                 | Defines the Virtual machine SKU to use, for example	Standard_D4s_v3        | Optional   |
-> | `deployer_image`	           | Defines the Virtual machine image to use, see below                           | Optional	|
+> | `deployer_size`                 | Defines the Virtual machine SKU to use, for example	Standard_D4s_v3          | Optional   |
+> | `deployer_image`	               | Defines the Virtual machine image to use, see below                          | Optional	  |
 > | `deployer_disk_type`            | Defines the disk type, for example Premium_LRS                               | Optional   |
 > | `deployer_use_DHCP`             | Controls if Azure subnet provided IP addresses should be used (dynamic) true | Optional   |
 > | `deployer_private_ip_address`   | Defines the Private IP address to use                                        | Optional   |
-> | `deployer_enable_public_ip`    | Defined if the deployer has a public IP                                       |            |
-
+> | `deployer_enable_public_ip`     | Defined if the deployer has a public IP                                      |            |
 
 The Virtual Machine image is defined using the following structure: 
 ```python 
@@ -111,10 +109,10 @@ The table below defines the parameters used for defining the Virtual Machine aut
 > | Variable                                         | Description                                         | Type      | 
 > | --------------------------------------------- -- | --------------------------------------------------- | ----------| 
 > | `deployer_vm_authentication_type`                | Defines the default authentication for the Deployer | Optional  |
-> | `deployer_authentication_username`               | Administrator account name                          | Optional	|
-> | `deployer_authentication_password`               | Administrator password                              | Optional   |
-> | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication      | Optional   |
-> | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication     | Optional   |
+> | `deployer_authentication_username`               | Administrator account name                          | Optional	 |
+> | `deployer_authentication_password`               | Administrator password                              | Optional  |
+> | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication      | Optional  |
+> | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication     | Optional  |
 
 
 ### Key Vault Parameters
