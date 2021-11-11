@@ -3,16 +3,15 @@ title: Manage Microsoft Azure Maps Creator
 description: In this article, you'll learn how to manage Microsoft Azure Maps Creator.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/08/2021
+ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-
 ---
 
 # Manage Azure Maps Creator
 
-You can use Azure Maps Creator to create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. For pricing information, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
+You can use Azure Maps Creator to create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. For pricing information see the *Creator* section in [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/).
 
 This article takes you through the steps to create and delete a Creator resource in an Azure Maps account.
 
@@ -20,7 +19,7 @@ This article takes you through the steps to create and delete a Creator resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
-2. Navigate to the Azure portal menu. Select **All resources**, and then select your Azure Maps account.
+2. Navigate to the Azure portal menu. Select **All resources**, and then select an Azure Maps account using the Gen 2 pricing tier.
 
       :::image type="content" border="true" source="./media/how-to-manage-creator/select-all-resources.png" alt-text="Select Azure Maps account":::
 
@@ -55,7 +54,7 @@ To delete the Creator resource:
 2. Select **Delete**.
 
     >[!WARNING]
-    >When you delete the Creator resource of your Azure Maps account, you also delete the conversions, datasets, tilesets, and feature statesets that were created using Creator services.
+    >When you delete the Creator resource of your Azure Maps account, you also delete the conversions, datasets, tilesets, and feature statesets that were created using Creator services. Once a Creator resource is deleted, it cannot be undone.
 
      :::image type="content" source="./media/how-to-manage-creator/creator-delete.png" alt-text="Creator page with delete button":::
 
