@@ -5,7 +5,6 @@ metadata:
   services: security-center
   author: memildin
   manager: rkarlin
-  ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
   ms.service: security-center
   ms.topic: conceptual
   ms.date: 11/09/2021
@@ -26,9 +25,9 @@ sections:
         answer: |
           No. Workspaces created by Defender for Cloud, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Defender for Cloud billing is always based on your Defender for Cloud security policy and the solutions installed on a workspace:
           
-          - **Azure Defender off** – Defender for Cloud enables the "SecurityCenterFree" solution on the default workspace. You won't be billed if Microsoft Defender for Cloud is off.
+          - **Enhanced security off** – Defender for Cloud enables the "SecurityCenterFree" solution on the default workspace. You won't be billed if Microsoft Defender for Cloud is off.
           
-          - **Azure Defender on** – Defender for Cloud enables the "Security" solution on the default workspace.
+          - **All Microsoft Defender for Cloud plans enabled** – Defender for Cloud enables the "Security" solution on the default workspace.
           
           For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
           
@@ -180,10 +179,7 @@ sections:
           
           1. From Defender for Cloud's menu, open **Environment settings**.
           1. Select the relevant subscription.
-          1. If your subscription has [enhanced security features enabled](enable-enhanced-security.md), open **Defender plans** and select **Enhanced security off**.
-          
-              :::image type="content" source="./media/platform-migration-faq/pricing-tier.png" alt-text="Enable or disable enhanced security features":::
-          
+          1. If your subscription has [enhanced security features enabled](enable-enhanced-security.md), open **Defender plans** and select **Enhanced security off**.          
           1. From the **Auto provisioning** page, Select pen  and the turn off auto provisioning in the  **Security policy – Data collection** page.
           
               :::image type="content" source="./media/enable-data-collection/agent-toggles.png" alt-text="Enable auto deploy for the Log Analytics agent":::
@@ -219,28 +215,26 @@ sections:
         answer: |
           Manually install the Log Analytics agent extension so Defender for Cloud can collect security data from your VMs and provide recommendations and alerts. See [agent installation for Windows VM](../virtual-machines/extensions/oms-windows.md) or [agent installation for Linux VM](../virtual-machines/extensions/oms-linux.md) for guidance on installation.
           
-          You can connect the agent to any existing custom workspace or Defender for Cloud created workspace. If a custom workspace does not have the "Security" or "SecurityCenterFree" solutions enabled, then you will need to apply a solution. To apply, select the custom workspace and apply a pricing tier via the **Security policy – Pricing tier** page.
-          
-          :::image type="content" source="./media/platform-migration-faq/pricing-tier.png" alt-text="Enable or disable Azure Defender":::
-          
-          Defender for Cloud will enable the correct solution on the workspace based on the selected pricing tier.
+          You can connect the agent to any existing custom workspace or Defender for Cloud created workspace. If a custom workspace does not have the "Security" or "SecurityCenterFree" solutions enabled, then you will need to apply a solution. To apply, select the custom workspace and apply a pricing tier via the **Environment settings** > **Defender plans** page.
+                    
+          Defender for Cloud will enable the correct solution on the workspace based on the selected options.
           
           
       - question: |
           How do I remove OMS extensions installed by Defender for Cloud?
         answer: |
-          You can manually remove the Log Analytics agent. This is not recommended as it limits Defender for Cloud recommendations and alerts.
+          You can manually remove the Log Analytics agent. This is not recommended as it limits Defender for Cloud's recommendations and alerts.
           
           > [!NOTE]
-          > If data collection is enabled, Defender for Cloud will reinstall the agent after you remove it.  You need to disable data collection before manually removing the agent. See How do I stop the automatic agent installation and workspace creation? for instructions on disabling data collection.
+          > If data collection is enabled, Defender for Cloud will reinstall the agent after you remove it. You must disable data collection before manually removing the agent. See How do I stop the automatic agent installation and workspace creation? for instructions on disabling data collection.
           
           To manually remove the agent:
           
-          1.    In the portal, open **Log Analytics**.
+          1. In the portal, open **Log Analytics**.
           
-          1.    On the Log Analytics page, select a workspace:
+          1. On the Log Analytics page, select a workspace:
           
-          1.    Select the VMs that you don't want to monitor and select **Disconnect**.
+          1. Select the VMs that you don't want to monitor and select **Disconnect**.
           
              ![Remove the agent](./media/platform-migration-faq/remove-the-agent.png)
           
@@ -255,11 +249,11 @@ sections:
           
           If you've enabled it but now want to disable it:
           
-          1. From [the Azure portal](https://portal.azure.com), open **Defender for Cloud** and select **Pricing and settings**.
+          1. From [the Azure portal](https://portal.azure.com), open **Defender for Cloud** and select **Environment settings**.
           
           1. Select the subscription on which you want to disable automatic provisioning.
           
-          1. Under **Auto provisioning**, turn off the toggle for the Log Analytics agent.
+          1. Open **Auto provisioning**, and set the status of the provisioning of the Log Analytics agent to **Off**.
           
           
       - question: |
@@ -288,12 +282,10 @@ sections:
           
           
       - question: |
-          Does the Monitoring Agent impact the performance of my servers?
+          Does the Log Analytics agent impact the performance of my servers?
         answer: |
           The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
-          
-          
-          
+
           
           <!--Image references-->
           [2]: ./media/platform-migration-faq/data-collection.png
