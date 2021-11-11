@@ -20,9 +20,9 @@ ms.author: sajagtap
 
 ## Migrating from the sample labeling tool
 
-If you are a previous user of the sample labeling tool, [**sign into the Studio preview**](try-v3-form-recognizer-studio#sign-into-the-form-recognizer-studio-preview) to use your existing Azure account and Form Recognizer or Cognitive Services resources with the Studio. 
+If you are a previous user of the [sample labeling tool](try-sample-label-tool.md), skip the prerequisites to [**sign into the Studio preview**](try-v3-form-recognizer-studio.md#sign-into-the-form-recognizer-studio-preview) to use your existing Azure account and Form Recognizer or Cognitive Services resources with the Studio. 
 
-To migrate your existing custom projects to the Studio, jump ahead to the [**Custom model getting started**](try-v3-form-recognizer-studio#custom-model-basics) section to create a new project and point it to the same Azure Blob storage location assuming you have access to it in Azure. Once you configure a new project, the Studio will load all documents and interim files for labeling and training.
+To migrate your existing custom projects to the Studio, jump ahead to the [**Custom model getting started**](try-v3-form-recognizer-studio.md#custom-model-basics) section to create a new project and point it to the same Azure Blob storage location assuming you have access to it in Azure. Once you configure a new project, the Studio will load all documents and interim files for labeling and training.
 
 ## Minimum prerequisites for new users
 
