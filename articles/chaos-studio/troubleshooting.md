@@ -73,7 +73,7 @@ When adding a fault, if you do not see the resource you want to target with a fa
 
 ### When creating an experiment, I get the error `The microsoft:agent provider requires a managed identity`
 
-This error happens when the agent has not been deployed to your virtual machine. For installation instructions, see [Create and run an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based.md).
+This error happens when the agent has not been deployed to your virtual machine. For installation instructions, see [Create and run an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md).
 
 ### When creating an experiment, I get the error `The content media type '<null>' is not supported. Only 'application/json' is supported.`
 

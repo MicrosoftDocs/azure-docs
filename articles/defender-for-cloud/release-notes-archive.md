@@ -668,7 +668,7 @@ In recent months, Security Center's list of built-in security recommendations ha
 
 From this release, the benchmark is the foundation for Security Center’s recommendations and fully integrated as the default policy initiative. 
 
-All Azure services have a security baseline page in their documentation. For example, [this is Security Center's baseline](security-baseline.md). These baselines are built on Azure Security Benchmark.
+All Azure services have a security baseline page in their documentation. These baselines are built on Azure Security Benchmark.
 
 If you're using Security Center's regulatory compliance dashboard, you'll see two instances of the benchmark during a transition period:
 
