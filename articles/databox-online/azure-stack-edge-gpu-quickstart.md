@@ -32,7 +32,7 @@ Before you deploy, make sure that following prerequisites are in place:
 
 ## Deployment steps
 
-1. **Install**: Connect PORT 1 to a client computer via a crossover cable or USB Ethernet adapter. Connect at least one other device port for data, preferably 25 GbE, (from PORT 3 to PORT 6) to Internet via SFP+ copper cables or use PORT 2 with RJ45 patch cable. Connect the provided power cords to the Power Supply Units and to separate power distribution outlets. Press the power button on the front panel to turn on the device.  
+1. **Install**: Connect PORT 1 to a client computer via an Ethernet crossover cable or USB Ethernet adapter. Connect at least one other device port for data, preferably 25 GbE, (from PORT 3 to PORT 6) to Internet via SFP+ copper cables or use PORT 2 with RJ45 patch cable. Connect the provided power cords to the Power Supply Units and to separate power distribution outlets. Press the power button on the front panel to turn on the device.  
 
     See [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) and [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) to get compatible network cables and switches.
 

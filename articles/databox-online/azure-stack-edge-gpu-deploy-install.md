@@ -263,7 +263,7 @@ Take the following steps to cable your device for power and network.
 
 1. Identify the various ports on the back plane of your device. You may have received one of the following devices from the factory depending on the number of GPUs in your device.
 
-    
+   
 
     - Device with two Peripheral Component Interconnect (PCI) slots and one GPU
 
@@ -287,7 +287,7 @@ Take the following steps to cable your device for power and network.
 6. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 serves as the management interface.
     
     > [!NOTE]
-    > If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
+    > If connecting the computer directly to your device (without going through a switch), use an Ethernet crossover cable or a USB Ethernet adapter.
 
 7. Connect one or more of PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 to the datacenter network/Internet.
 
@@ -320,8 +320,8 @@ Take the following steps to cable your device for power and network.
 The two-node device can be configured in the following different ways: 
 
 - Without switches.
-- With switches and NIC teaming.
-- With switches and without NIC teaming. 
+- Connect Port 3 and Port 4 via switches.
+- Connect Port 3 via a switch. 
 
 Each of these configurations is described in the following sections. For more information on when to use these configurations, see [Supported network topologies](azure-stack-edge-gpu-clustering-overview.md)
 
@@ -332,34 +332,35 @@ Use this configuration when high speed switches aren't available for storage and
 
 ![Back plane of clustered device cabled for networking without switches](./media/azure-stack-edge-gpu-deploy-install/backplane-clustered-device-networking-switchless.png)
 
-1. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
+1. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use an Ethernet crossover cable or a USB Ethernet adapter.
 1. Connect PORT 2 to the internet using a 1-GbE RJ-45 network cable.
 1. Connect PORT 3 and PORT 4 on both the devices via SFP+ copper cables or fiber. If using fiber, use an optical to SFP adapter.
-1. Connect PORT 5 and PORT 6 if using [Network Function Manager deployments](../network-function-manager/deploy-functions.md).
  
 
-#### Use switches and NIC teaming 
+#### Connect Port 3 and Port 4 via switches  
 
 Use this configuration when you need port level redundancy through teaming.
 
 ![Back plane of clustered device cabled for networking with switches and NIC teaming](./media/azure-stack-edge-gpu-deploy-install/backplane-clustered-device-networking-switches-with-nic-teaming.png)
 
-1. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
+1. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use an Ethernet crossover cable or a USB Ethernet adapter.
 1. Connect PORT 2 to the internet using a 1-GbE RJ-45 network cable.
 1. Connect PORT 3 and PORT 4 on both the devices via SFP+ copper cables or fiber and using a 10/25 GbE switch. If using fiber, use an optical to SFP adapter.
-1. Connect PORT 5 and PORT 6 if using [Network Function Manager deployments](../network-function-manager/deploy-functions.md).
 
-#### Use switches without NIC teaming
+
+#### Connect Port 3 via switch
 
 Use this configuration if you need an extra port for workload traffic and port level redundancy is not required.
 
 ![Back plane of clustered device cabled for networking with switches and without NIC teaming](./media/azure-stack-edge-gpu-deploy-install/backplane-clustered-device-networking-switches-without-nic-teaming.png)
 
-1. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 serves as the management interface. If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter. 
+1. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use an Ethernet crossover cable or a USB Ethernet adapter. 
 1. Connect PORT 2 to the internet using a 1-GbE RJ-45 network cable.
 1. Connect PORT 3 on both the devices via SFP+ copper cables or fiber and using a 10/25 GbE switch. If using fiber, use an optical to SFP adapter.
-1. Connect PORT 5 and PORT 6 if using [Network Function Manager deployments](../network-function-manager/deploy-functions.md).
-    
+
+>[!NOTE]
+> For Network Function Manager deployments, make sure that PORT 5 and PORT 6 are connected. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).   
+ 
 ::: zone-end
 
 ## Next steps
