@@ -21,6 +21,6 @@ In **Shipping**:
    > [!TIP]
    > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
-![Screenshot of the Shipping tab, with field entries, for an import order in Azure Import Export Jobs. The Review Plus Create button is highlighted.](./media/storage-import-export-shipping-step/storage-import-export-shipping-tab.png)
+![Screenshot of the Shipping tab, with field entries, for an import job in Azure Import Export Jobs. The Review Plus Create button is highlighted.](./media/storage-import-export-shipping-step/storage-import-export-shipping-tab.png)
 
 Select **Review + create** to proceed.

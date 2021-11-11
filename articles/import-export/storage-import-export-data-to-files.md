@@ -153,7 +153,7 @@ Do the following steps to create an import job in the Azure portal.
 
    1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
 
-   ![Screenshot of the Job Details tab for an import order in Azure Import Export Jobs. A journal file, destination region, and storage account are selected.](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+   ![Screenshot of the Job Details tab for an import job in Azure Import Export Jobs. A journal file, destination region, and storage account are selected.](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
    Select **Next: Shipping >** to proceed.
 
@@ -165,7 +165,7 @@ Do the following steps to create an import job in the Azure portal.
    1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
    1. Select **Create**.
 
-   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export order. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
 ### [Azure CLI](#tab/azure-cli)
 

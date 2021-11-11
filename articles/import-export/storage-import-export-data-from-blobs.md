@@ -78,7 +78,7 @@ Perform the following steps to create an export job in the Azure portal.
 
       - Choose to **Export all** blob data in the storage account.
 
-        ![Screenshot of the Job Details tab for a new export order in Azure Import Export Jobs. Export All is highlighted beside Blobs To Export.](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
+        ![Screenshot of the Job Details tab for a new export job in Azure Import Export Jobs. Export All is highlighted beside Blobs To Export.](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
       - Choose **Selected containers and blobs**, and specify containers and blobs to export. You can use more than one of the selection methods. Selecting an **Add** option opens a panel on the right where you can add your selection strings.
 
@@ -88,7 +88,7 @@ Perform the following steps to create an export job in the Azure portal.
         |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
         |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
 
-        :::image type="complex" source="./media/storage-import-export-data-from-blobs/export-from-blob-5.png" alt-text="Screenshot showing selected containers and blobs for a new Azure Import/Export export order.":::
+        :::image type="complex" source="./media/storage-import-export-data-from-blobs/export-from-blob-5.png" alt-text="Screenshot showing selected containers and blobs for a new Azure Import/Export export job.":::
         <Blob selections include a container, a blob, and blob prefixes that work like wildcards. The Add Prefixes pane on the right is used to add prefixes that select blobs based on common text in the blob path or name.>
 :::image-end:::
 
@@ -99,7 +99,7 @@ Perform the following steps to create an export job in the Azure portal.
 
       To see how to add an XML file to a container, see [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-      ![Screenshot of Job Details for Azure Import/Export order that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
+      ![Screenshot of Job Details for Azure Import/Export job that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
    > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
@@ -118,7 +118,7 @@ Perform the following steps to create an export job in the Azure portal.
 
    1. Review the **Terms** for your order for privacy and source data deletion. If you agree to the terms, select the check box beneath the terms. Validation of the order begins.
 
-   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export order. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)<!--Renumber PNG if we use the Include file for Step 6.-->
+   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)<!--Renumber PNG if we use the Include file for Step 6.-->
 
  8. After validation passes, select **Create**.
 
