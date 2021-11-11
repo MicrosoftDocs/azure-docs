@@ -206,13 +206,13 @@ To create or change a schedule:
         >[!NOTE]
         >The load balancing preference you select here will override the one you selected for your original host pool settings.
 
-    - For **Minimum percentage of session host VMs**, enter the amount of session hosts you want to always remain on in the specified phase. If the percent is not a whole number, it is rounded up to the nearest whole number. For example in a host pool of 7 session hosts, if the minimum percentage of hosts is **10%** for the peak hours, 1 VM will always remain on during peak hours and will not be turned off by Autoscale. 
+    - For **Minimum percentage of hosts**, enter the percentage of session hosts you want to always remain on in this phase. If the percentage you enter isn't a whole number, it's rounded up to the nearest whole number. For example, in a host pool of 7 session hosts, if the minimum percentage of hosts is **10%** for the ramp-up hours, one VM will always stay on during ramp-up hours and the autoscale feature won't turn off this VM. 
     
-    - For **Capacity threshold**, enter the percentage of available host pool capacity will trigger scaling action to take place. For example, if 2 session hosts in the host pool with a max session limit of 20 are turned on, the available host pool capacity is 40. With a capacity threshold of **75%**, if there are more than 30 user sessions (75% of 40) on these 2 session hosts, a 3rd session host will be turned on. This changes the available host pool capacity from 40 to 60.
+    - For **Capacity threshold**, enter the percentage of available host pool capacity that will trigger a scaling action to take place. For example, if 2 session hosts in the host pool with a max session limit of 20 are turned on, the available host pool capacity is 40. If you set the capacity threshold to **75%** and the session hosts have more than 30 user sessions, the autoscale feature will turn on a third session host. This will then change the available host pool capacity from 40 to 60.
 
 5. In the **Peak hours** tab, fill out the following fields:
 
-    - For **Start time**, enter a start time for when your usage rate is highest during the day. Make sure the time is in the same time zone you specified for your scaling plan. This time is also the end time for your ramp-up phase.
+    - For **Start time**, enter a start time for when your usage rate is highest during the day. Make sure the time is in the same time zone you specified for your scaling plan. This time is also the end time for the ramp-up phase.
 
     - For **Load balancing**, you can select either breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available sessions in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. For more information about load-balancing types, see [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md).
 
@@ -228,7 +228,7 @@ To create or change a schedule:
       - Force logoff users
 
     >[!IMPORTANT]
-    >During ramp down, if force logoff is enabled, Autoscale chooses the session host with the least number of user sessions, puts it in drain mode, active user sessions will receive the notification message, and after the specified wait time, the remaining user sessions on the session host are force logged off. Once all the user sessions have been logged off, the VM is deallocated. During ramp down, if force logoff is not enabled, sessions hosts that have 0 active or 0 active and disconnected sessions (depending on the schedule configuration) will be deallocated.
+    >If you've enabled the autoscale feature to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions to shut down. The autoscale feature will put the session host in drain mode, send all active user sessions a notification telling them they'll be signed out, and then sign out all users after the specified wait time is over. After the autoscale feature signs off all user sessions, it then deallocates the VM. If you haven't enabled forced sign out during ramp-down, session hosts with no active or disconnected sessions will be deallocated.
 
     - Likewise, **Off-peak hours** works the same way as **Peak hours**:
 
