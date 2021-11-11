@@ -12,14 +12,8 @@
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
-- name: Azure Arc resource bridge
-  items:
-    - name: Overview
-      href: ./resource-bridge/overview.md
-    - name: Security overview
-      href: ./resource-bridge/security-overview.md
-    - name: Troubleshooting
-      href: ./resource-bridge/troubleshoot-resource-bridge.md
+- name: Azure Arc resource bridge >
+  href: ./resource-bridge/overview.md 
 - name: Azure Arc-enabled servers >
   href: ./servers/overview.md
 - name: Azure Arc-enabled Kubernetes >
