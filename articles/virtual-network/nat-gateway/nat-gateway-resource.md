@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/28/2021
+ms.date: 11/11/2021
 ms.author: allensu
 ---
 
@@ -74,8 +74,6 @@ The total number of IP addresses provided by all IP address and prefix resources
 When the NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. Specify which subnets use this NAT gateway resource. A NAT gateway isn't able to span more than one virtual network. It isn't required to assign the same NAT gateway to all subnets of a virtual network. Individual subnets can be configured with different NAT gateway resources.
 
 Scenarios that don't use availability zones will be regional (no zone specified). If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy isn't supported. Review NAT [availability zones](#availability-zones).
-
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
 
 NAT gateways are defined with a property on a subnet within a virtual network. Flows created by virtual machines on subnet **subnetname** of virtual network **vnetname** will use the NAT gateway. All outbound connectivity will use the IP addresses associated with **natgatewayname** as the source IP address.
 
@@ -165,64 +163,6 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 | Outbound | NAT gateway |
 
 Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway.  The VM will also use NAT gateway for outbound.  Inbound originated isn't affected.
-
-### Managing Basic resources
-
-Standard load balancer, public IP, and public IP prefix are compatible with NAT gateway. NAT gateways operate in the scope of a subnet. The basic SKU of these services must be deployed on a subnet without a NAT gateway. This separation allows both SKU variants to coexist in the same virtual network.
-
-NAT gateways take precedence over outbound scenarios of the subnet. Basic load balancer or public IP (and any managed service built with them) is unable to be adjusted with the correct translations. NAT gateway takes control over outbound to Internet traffic on a subnet. Inbound traffic to basic load balancer and public ip is unavailable. Inbound traffic to a basic load balancer and, or a public ip configured on a VM won't be available.
-
-### Availability Zones
-
-#### Zone isolation with zonal stacks
-
-<p align="center">
-  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network NAT with zone isolation, creating multiple zonal stacks">
-</p>
-
-*Figure: Virtual Network NAT with zone isolation, creating multiple "zonal stacks"*
-
-Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures.  Availability zones build on this resiliency with zone isolation scenarios for NAT.
-
-Virtual networks and their subnets are regional constructs.  Subnets aren't restricted to a zone.
-
-A zonal promise for zone isolation exists when a virtual machine instance using a NAT gateway resource is in the same zone as the NAT gateway resource and its public IP addresses. The pattern you want to use for zone isolation is creating a "zonal stack" per availability zone.  This "zonal stack" consists of virtual machine instances, NAT gateway resources, public IP address and/or prefix resources on a subnet that is assumed to be serving only the same zone.   The control plane operations and data plane are then aligned with and constrained to the specified zone. 
-
-Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Outbound traffic from virtual machines in the same zone will fail because of zone isolation.  
-
-#### Integrating inbound endpoints
-
-If your scenario requires inbound endpoints, you have two options:
-
-| Option | Pattern | Example | Pro | Con |
-|---|---|---|---|---|
-| (1) | **Align** the inbound endpoints with the respective **zonal stacks** you're creating for outbound. | Create a standard load balancer with zonal frontend. | Same health model and failure mode for inbound and outbound. Simpler to operate. | Individual IP addresses per zone may need to be masked by a common DNS name. |
-| (2) | **Overlay** the zonal stacks with a **cross-zone** inbound endpoint. | Create a standard load balancer with zone-redundant frontend. | Single IP address for inbound endpoint. | Varying health model and failure modes for inbound and outbound.  More complex to operate. |
-
->[!NOTE]
-> A zone-isolated NAT gateway requires IP addresses to match the zone of the NAT gateway. NAT gateway resources with IP addresses from a different zone or without a zone aren't allowed.
-
-#### Cross-zone outbound scenarios not supported
-
-<p align="center">
-  <img src="media/nat-overview/az-directions2.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet, with the connections between to of the gateways and their subnets broken." width="425" title="Virtual Network NAT not compatible with zone-spanning subnet">
-</p>
-
-*Figure: Virtual Network NAT not compatible with zone-spanning subnet*
-
-You can't achieve a zonal promise with NAT gateway resources when virtual machine instances are deployed in multiple zones within the same subnet.   And even if there were multiple zonal NAT gateways attached to a subnet, the virtual machine instance wouldn't know which NAT gateway resource to select.
-
-A zonal promise doesn't exist when 
-a) the zone of a virtual machine instance and the zone of a zonal NAT gateway are not aligned, or
-b) a regional NAT gateway resource is used with zonal virtual machine instances.
-
-While the scenario will appear to work, its health model and failure mode is undefined from an availability zone point of view. Consider going with zonal stacks or all regional instead.
-
->[!NOTE]
->The zones property of a NAT gateway resource isn't mutable.  Redeploy NAT gateway resource with the intended regional or zone preference.
-
->[!NOTE] 
->IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../../load-balancer/load-balancer-standard-availability-zones.md) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
 
 ## Performance
 
@@ -334,10 +274,8 @@ A SNAT port is available for reuse to the same destination IP address and destin
 
 ## Limitations
 
-- NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
-- IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
-- NAT can't span multiple virtual networks.
-- IP fragmentation is not supported.
+- Basic Load Balancer and Basic Public IP addresses are incompatible with NAT. Use Standard SKU Load Balancers and Public IPs instead.
+- IP fragmentation is not supported via NAT gateway.
 
 ## Next steps
 
