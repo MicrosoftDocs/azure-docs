@@ -145,7 +145,7 @@ deviceClient.sendEvent(message, (err, res) => {
 
 ### Query expressions
 
-A query on message body needs to be prefixed with the `$body`. You can use a body reference, body array reference, or multiple body references in the query expression. Your query expression can also combine a body reference with message system properties, and message application properties reference. For example, the following are all valid query expressions: 
+A query on a message body needs to be prefixed with the `$body`. You can use a body reference, body array reference, or multiple body references in the query expression. Your query expression can also combine a body reference with message system properties, and message application properties reference. For example, the following are all valid query expressions:
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -163,9 +163,16 @@ length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
-> [!NOTE] 
+> [!NOTE]
+> To filter a twin notification payload, run your query on the message body:
+>
+> ```sql
+> $body.properties.desired.telemetryConfig.sendFrequency
+> ```
+
+> [!NOTE]
 > You can run queries and functions only on properties in the body reference. You can't run queries or functions on the entire body reference. For example, the following query is *not* supported and will return `undefined`:
-> 
+>
 > ```sql
 > $body[0] = 'Feb'
 > ```
