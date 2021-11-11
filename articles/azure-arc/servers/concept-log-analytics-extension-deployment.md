@@ -2,7 +2,7 @@
 title: Deploy Log Analytics agent on Arc-enabled servers
 description: This article reviews the different methods to deploy the Log Analytics agent on Windows and Linux-based machines registered with Azure Arc-enabled servers in your local datacenter or other cloud environment.
 ms.date: 10/22/2021
-ms.topic: conceptual 
+ms.topic: conceptual
 ---
 
 # Understand deployment options for the Log Analytics agent on Azure Arc-enabled servers
@@ -12,7 +12,7 @@ Azure Monitor supports multiple methods to install the Log Analytics agent and c
 The Log Analytics agent is required if you want to:
 
 * Monitor the operating system, any workloads running on the machine or server using [VM insights](../../azure-monitor/vm/vminsights-overview.md). Further analyze and alert using other features of [Azure Monitor](../../azure-monitor/overview.md).
-* Perform security monitoring in Azure by using [Azure Security Center](../../security-center/security-center-introduction.md) or [Azure Sentinel](../../sentinel/overview.md).
+* Perform security monitoring in Azure by using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) or [Microsoft Sentinel](../../sentinel/overview.md).
 * Manage operating system updates by using [Azure Automation Update Management](../../automation/update-management/overview.md).
 * Collect inventory and track changes by using [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md).
 * Run Automation runbooks directly on the machine and against resources in the environment by using an [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
@@ -80,6 +80,6 @@ The process automation operating environment in Azure Automation and its support
 
 * You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on servers or machines registered with Arc-enabled servers. See the [Deploy Hybrid Runbook Worker VM extension](../../automation/extension-based-hybrid-runbook-worker-install.md) article.
 
-* To start collecting security-related events with Azure Sentinel, see [onboard to Azure Sentinel](scenario-onboard-azure-sentinel.md), or to collect with Azure Security Center, see [onboard to Azure Security Center](../../security-center/quickstart-onboard-machines.md).
+* To start collecting security-related events with Microsoft Sentinel, see [onboard to Microsoft Sentinel](scenario-onboard-azure-sentinel.md), or to collect with Microsoft Defender for Cloud, see [onboard to Microsoft Defender for Cloud](../../security-center/quickstart-onboard-machines.md).
 
 * See the VM insights [Monitor performance](../../azure-monitor/vm/vminsights-performance.md) and [Map dependencies](../../azure-monitor/vm/vminsights-maps.md) articles to see how well your machine is performing and view discovered application components.

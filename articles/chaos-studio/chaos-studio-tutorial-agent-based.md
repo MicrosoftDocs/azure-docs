@@ -21,7 +21,7 @@ These same steps can be used to set up and run an experiment for any agent-based
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - A Linux virtual machine. If you do not have a virtual machine, you can [follow these steps to create one](../virtual-machines/linux/quick-create-portal.md).
 - A network setup that permits you to [SSH into your virtual machine](../virtual-machines/ssh-keys-portal.md)
-- A user-assigned managed identity. If you do not have a user-assigned managed identity, you can [follow these steps to create one](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
+- A user-assigned managed identity **that has been assigned to the target virtual machine or virtual machine scale set**. If you do not have a user-assigned managed identity, you can [follow these steps to create one](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
 
 
 ## Enable Chaos Studio on your virtual machine
@@ -43,6 +43,9 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
 ```
 
 ### Enable chaos target, capabilities, and agent
+
+> [!IMPORTANT]
+> Prior to completing the steps below, you must [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) and assign it to the target virtual machine or virtual machine scale set.
 
 1. Open the [Azure portal](https://portal.azure.com).
 2. Search for **Chaos Studio (preview)** in the search bar.
@@ -89,7 +92,7 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 5. Click **Review + assign** then **Review + assign**.
 
 ## Run your experiment
-You are now ready to run your experiment. To see the impact, we recommend opening [an Azure Monitor metrics chart](../azure-monitor/essentials/tutorial-metrics-explorer.md) with your virtual machine's CPU pressure in a separate browser tab.
+You are now ready to run your experiment. To see the impact, we recommend opening [an Azure Monitor metrics chart](../azure-monitor/essentials/tutorial-metrics.md) with your virtual machine's CPU pressure in a separate browser tab.
 
 1. In the **Experiments** view, click on your experiment, and click **Start**, then click **OK**.
 ![Starting experiment](images/tutorial-agent-based-start.png)

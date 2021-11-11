@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2021
+ms.date: 11/09/2021
 ms.author: memildin
 
 ---
@@ -91,7 +91,6 @@ Use Defender for Cloud's recommendation, "Sensitive data in your SQL databases s
     :::image type="content" source="./media/sql-information-protection-policy/access-policy-from-azure-sql.png" alt-text="Opening the SQL information protection policy from Azure SQL.":::
 
 --- 
-
 
 ## Customize your information types
 
