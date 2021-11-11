@@ -76,8 +76,6 @@ items:
       href: concept-asset-normalization.md
   - name: Data insights
     href: concept-insights.md
-  - name: Upgraded Azure Purview accounts
-    href: concept-account-upgrade.md
 - name: How-to guides
   items:
   - name: Manage collections
