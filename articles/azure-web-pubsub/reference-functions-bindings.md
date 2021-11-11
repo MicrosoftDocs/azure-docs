@@ -142,7 +142,7 @@ module.exports = function (context, data) {
 }
 ```
 
-`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event, when server can check and deny the client request, or send message to the request client directly. In JavaScript weaklyy typed language, it will be deserialized regarding the object keys. And `EventErrorResponse` will have the highest priority compare to rest objects, that if `code` is in the return, then it will be parsed to `EventErrorResponse` and client connection will be dropped.
+`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event, when server can check and deny the client request, or send message to the request client directly. In JavaScript weakly typed language, it will be deserialized regarding the object keys. And `EventErrorResponse` will have the highest priority compare to rest objects, that if `code` is in the return, then it will be parsed to `EventErrorResponse` and client connection will be dropped.
 
 ```js
 module.exports = async function (context) {
