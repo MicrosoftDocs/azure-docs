@@ -108,6 +108,15 @@ Now that you're set up, you can write your automated tests!  The following examp
 ### Set up your client for use across all your test classes.  
 
 ```csharp
+using Xunit;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Identity.Client;
+using System.Net.Http.Headers;
+using System.Security;
+using System.Net;
+using Microsoft.Extensions.Configuration;
+
 public class ClientFixture : IAsyncLifetime
 {
  public HttpClient httpClient;
