@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 1. Click on **Start Configuring** to set up SSO.
 
-    ![Screenshot that shows the Inegrations > SSO page.](./media/cloud-academy-sso-tutorial/start-configuring.png)
+    ![Screenshot that shows the Integrations > SSO page.](./media/cloud-academy-sso-tutorial/start-configuring.png)
 
 1. Complete the following steps in General Settings page:
 
