@@ -24,8 +24,8 @@ A credential is authentication information that Azure Purview can use to authent
 
 In Azure Purview, there are few options to use as authentication method to scan data sources such as the following options:
 
-- [Azure Purview Managed Identity](#use-purview-managed-identity-to-set-up-scans)
-- [User-assigned Managed Identity](#use-purview-managed-identity-to-set-up-scans) (preview)
+- [Azure Purview managed identity](#use-purview-managed-identity-to-set-up-scans)
+- [User-assigned managed identity](#use-purview-managed-identity-to-set-up-scans) (preview)
 - Account Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
 - SQL Authentication (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
 - Service Principal (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
