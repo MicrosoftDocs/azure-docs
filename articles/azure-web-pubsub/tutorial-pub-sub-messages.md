@@ -103,8 +103,8 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
                 var hub = args[1];
 
                 // Either generate the URL or fetch it from server or fetch a temp one from the portal
-                var serviceClient = new WebPubSubServiceClient(connectionString, hub);
-                var url = serviceClient.GenerateClientAccessUri();
+                var service = new WebPubSubServiceClient(connectionString, hub);
+                var url = service.GenerateClientAccessUri();
 
                 using (var client = new WebsocketClient(url))
                 {
@@ -152,8 +152,8 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
     async function main() {
       const hub = "pubsub";
-      let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
-      let token = await serviceClient.getClientAccessToken();
+      let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
+      let token = await service.getClientAccessToken();
       let ws = new WebSocket(token.url);
       ws.on('open', () => console.log('connected'));
       ws.on('message', data => console.log('Message received: %s', data));
@@ -217,8 +217,8 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
         connection_string = sys.argv[1]
         hub_name = sys.argv[2]
     
-        client = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
-        token = client.get_client_access_token()
+        service = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
+        token = service.get_client_access_token()
     
         try:
             asyncio.get_event_loop().run_until_complete(connect(token['url']))
@@ -229,7 +229,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
     The code above creates a WebSocket connection to connect to a hub in Azure Web PubSub. Hub is a logical unit in Azure Web PubSub where you can publish messages to a group of clients. [Key concepts](./key-concepts.md) contains the detailed explanation about the terms used in Azure Web PubSub.
     
-    Azure Web PubSub service uses [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication, so in the code sample we use `client.get_client_access_token()` provided by the SDK to generate a url to the service that contains the full URL with a valid access token.
+    Azure Web PubSub service uses [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication, so in the code sample we use `service.get_client_access_token()` provided by the SDK to generate a url to the service that contains the full URL with a valid access token.
     
     After connection is established, you'll receive messages through the WebSocket connection. So we use `await ws.recv()` to listen to incoming messages.
 
@@ -302,12 +302,12 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
                 return;
             }
 
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();
 
-            WebPubSubAuthenticationToken token = client.getAuthenticationToken(new GetAuthenticationTokenOptions());
+            WebPubSubAuthenticationToken token = service.getAuthenticationToken(new GetAuthenticationTokenOptions());
 
             WebSocketClient webSocketClient = new WebSocketClient(new URI(token.getUrl())) {
                 @Override
@@ -389,11 +389,11 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
                 var hub = args[1];
                 var message = args[2];
 
-                var serviceClient = new WebPubSubServiceClient(connectionString, hub);
+                var service = new WebPubSubServiceClient(connectionString, hub);
                 
                 // Send messages to all the connected clients
                 // You can also try SendToConnectionAsync to send messages to the specific connection
-                await serviceClient.SendToAllAsync(message);
+                await service.SendToAllAsync(message);
             }
         }
     }
@@ -430,13 +430,13 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
     const hub = "pubsub";
-    let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
+    let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
 
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
-    serviceClient.sendToAll(process.argv[2], { contentType: "text/plain" });
+    service.sendToAll(process.argv[2], { contentType: "text/plain" });
     ```
 
-    The `sendToAll()` call simply sends a message to all connected clients in a hub.
+    The `service.sendToAll()` call simply sends a message to all connected clients in a hub.
 
 3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
 
@@ -481,8 +481,8 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
         hub_name = sys.argv[2]
         message = sys.argv[3]
     
-        client = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
-        res = client.send_to_all(message, content_type='text/plain')
+        service = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
+        res = service.send_to_all(message, content_type='text/plain')
         print(res)
     ```
 
@@ -539,11 +539,11 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
                 return;
             }
 
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();
-            client.sendToAll(args[2], WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(args[2], WebPubSubContentType.TEXT_PLAIN);
         }
     }
 

@@ -158,10 +158,10 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
                 {
                     endpoints.MapGet("/negotiate", async context =>
                     {
-                        var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
+                        var service = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
                         var response = new
                         {
-                            url = serviceClient.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
+                            url = service.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
                         };
                         await context.Response.WriteAsJsonAsync(response);
                     });
@@ -180,11 +180,11 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     const express = require('express');
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-    let endpoint = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, 'stream');
+    let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, 'stream');
     const app = express();
 
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getClientAccessToken({
+      let token = await service.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       res.send({
@@ -208,7 +208,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     
     from azure.messaging.webpubsubservice import WebPubSubServiceClient
     
-    client = WebPubSubServiceClient.from_connection_string(sys.argv[1], hub='stream')
+    service = WebPubSubServiceClient.from_connection_string(sys.argv[1], hub='stream')
     
     class Resquest(SimpleHTTPRequestHandler):
         def do_GET(self):
@@ -218,7 +218,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
             elif self.path == '/negotiate':
                 roles = ['webpubsub.sendToGroup.stream',
                          'webpubsub.joinLeaveGroup.stream']
-                token = client.get_client_access_token(roles=roles)
+                token = service.get_client_access_token(roles=roles)
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')
                 self.end_headers()
@@ -519,7 +519,7 @@ This will be useful if you want to stream a large amount of data to other client
     # [C#](#tab/csharp)
     Set the `roles` when `GenerateClientAccessUri` in `Startup.cs` like below:
     ```csharp
-    serviceClient.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" })
+    service.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" })
     ```
 
     # [JavaScript](#tab/javascript)
@@ -528,7 +528,7 @@ This will be useful if you want to stream a large amount of data to other client
 
     ```javascript
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getClientAccessToken({
+      let token = await service.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       ...
@@ -543,7 +543,7 @@ This will be useful if you want to stream a large amount of data to other client
     ```python
     roles = ['webpubsub.sendToGroup.stream',
               'webpubsub.joinLeaveGroup.stream']
-    token = client.get_client_access_token(roles=roles)
+    token = service.get_client_access_token(roles=roles)
     ```
     ---
     
