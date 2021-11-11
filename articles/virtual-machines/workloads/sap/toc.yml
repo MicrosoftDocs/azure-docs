@@ -282,7 +282,7 @@
         href: sap-high-availability-installation-wsfc-file-share.md              
       - name: Mlti-SID with WSFC and file share
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
-- name: Automation framework (Azure VMs)
+- name: SAP Deployment Automation Framework (Azure VMs)
   items:
   - name: About deployment automation framework
     href: automation-deployment-framework.md
@@ -374,9 +374,9 @@
       href: automation-software.md
     - name: Prepare BoM
       href: automation-bom-prepare.md
-    - name: Get files for BoM
+    - name: Get SAP media for BoM
       href: automation-bom-get-files.md
-    - name: SAP DB template for BoM
+    - name: Create automation template files
       href: automation-bom-templates-db.md
 - name: Azure Monitor for SAP Solutions
   items:
