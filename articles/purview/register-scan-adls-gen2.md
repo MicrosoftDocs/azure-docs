@@ -74,11 +74,11 @@ In order to have access to scan the data source, an authentication method in the
 The following options are supported:
 
 > [!Note]
-> If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
+> If you have firewall enabled for the storage account, you must use managed identity authentication method when setting up a scan.
 
-* **Managed Identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+* **System managed identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
 
-* **User-assigned managed identity** (preview) - Similar to a system-managed identity, a user-assigned managed identity is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+* **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 * **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password, or a password.
 
@@ -89,7 +89,7 @@ The following options are supported:
 
 ### Authentication for a scan
 
-#### Using Managed Identity for scanning
+#### Using a system or user-assigned managed identity for scanning
 
 It is important to give your Purview account the permission to scan the ADLS Gen2 data source. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
@@ -104,7 +104,7 @@ It is important to give your Purview account the permission to scan the ADLS Gen
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
 
-1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ or _[User-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_ under the **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
+1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ or _[user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_ under the **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Purview account":::
 
@@ -112,7 +112,7 @@ It is important to give your Purview account the permission to scan the ADLS Gen
 > For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
 
 > [!NOTE]
-> If you have firewall enabled for the storage account, you must use **Managed Identity** authentication method when setting up a scan.
+> If you have firewall enabled for the storage account, you must use **managed identity** authentication method when setting up a scan.
 
 1. Go into your ADLS Gen2 storage account in [Azure portal](https://portal.azure.com)
 1. Navigate to **Security + networking > Networking**
@@ -197,11 +197,11 @@ It is important to give your service principal the permission to scan the ADLS G
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
 
-#### If using Managed Identity
+#### If using a system or user-assigned managed identity
 
-1. Provide a **Name** for the scan, select the **Purview MSI** under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**
+1. Provide a **Name** for the scan, select the system or user-assigned managed identity under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-managed-identity.png" alt-text="Screenshot that shows the Managed Identity option to run the scan":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
 #### If using Account Key
 
