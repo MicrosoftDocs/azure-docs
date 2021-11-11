@@ -17,4 +17,5 @@ Follow the steps in this tutorial to:
 > - Create application project
 > - Install the auth library
 
-> [!div class="nextstepaction"] > [Tutorial: $TITLE](../../web-app-asp-net-tutorial-03-sign-in-users.md)
+> [!div class="nextstepaction"] 
+> [Tutorial: $TITLE](../../web-app-asp-net-tutorial-03-sign-in-users.md)
