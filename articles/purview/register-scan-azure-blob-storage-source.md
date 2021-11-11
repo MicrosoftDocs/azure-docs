@@ -82,9 +82,11 @@ In order to have access to scan the data source, an authentication method in the
 The following options are supported:
 
 > [!Note]
-> If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
+> If you have firewall enabled for the storage account, you must use managed identity authentication method when setting up a scan.
 
-- **Managed Identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+- **System managed identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+
+- **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 - **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password, or a password.
 
@@ -93,12 +95,12 @@ The following options are supported:
 
 - **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
-#### Using Managed Identity for scanning
+#### Using a system or user-assigned managed identity for scanning
 
 It is important to give your Purview account the permission to scan the Azure Blob data source. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
 > [!NOTE]
-> If you have firewall enabled for the storage account, you must use **Managed Identity** authentication method when setting up a scan.
+> If you have firewall enabled for the storage account, you must use **managed identity** authentication method when setting up a scan.
 
 > [!Note]
 > You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
@@ -111,7 +113,7 @@ It is important to give your Purview account the permission to scan the Azure Bl
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
 
-1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ or _[User-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
+1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ or _[user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Purview account":::
 
@@ -196,11 +198,11 @@ It is important to give your service principal the permission to scan the Azure 
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
 
-#### If using Managed Identity
+#### If using a system or user-assigned managed identity
 
 Provide a **Name** for the scan, select the **Purview MSI** under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-managed-identity.png" alt-text="Screenshot that shows the Managed Identity option to run the scan":::
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
 #### If using Account Key
 
