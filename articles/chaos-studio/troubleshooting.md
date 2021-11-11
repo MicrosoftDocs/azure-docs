@@ -5,7 +5,7 @@ author: c-ashton
 ms.service: chaos-studio
 ms.author: cashton
 ms.topic: troubleshooting
-ms.date: 11/01/2021
+ms.date: 11/10/2021
 ms.custom: template-troubleshooting, ignite-fall-2021
 ---
 
@@ -38,11 +38,11 @@ If you see an error when enabling targets and/or capabilities, try the following
 1. Verify that you have appropriate permissions to the resources you are onboarding. Enabling a target and/or capabilities requires Microsoft.Chaos/\* permission at the scope of the resource. Built-in roles such as Contributor have wildcard Read and Write permission, which includes permission to all Microsoft.Chaos operations.
 2. Wait a few minutes for the target and capability list to update. The Azure portal uses Azure Resource Graph to gather information on target and capability onboarding and it can take up to five minutes for the update to propagate.
 3. If the resource still shows "Not enabled", try the following steps:
-    a. Attempt to enable the resource again.
-    b. If resource enablement still fails, visit the Activity Log and find the failed target create operation to see detailed error information.
+    1. Attempt to enable the resource again.
+    2. If resource enablement still fails, visit the Activity Log and find the failed target create operation to see detailed error information.
 4. If the resource shows "Enabled" but onboarding capabilities failed, try the following steps:
-    a. Click the **Manage actions** button on the resource in the targets list. Check any capabilities that were not checked, and click **Save**.
-    b. If capability enablement still fails, visit the Activity Log and find the failed target create operation to see detailed error information.
+    1. Click the **Manage actions** button on the resource in the targets list. Check any capabilities that were not checked, and click **Save**.
+    2. If capability enablement still fails, visit the Activity Log and find the failed target create operation to see detailed error information.
 
 ## Prerequisite issues
 
