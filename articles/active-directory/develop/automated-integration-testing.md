@@ -87,8 +87,20 @@ Now that you're set up, you can write your automated tests!  The following examp
 {
   "Authentication": {
     "AzureCloudInstance": "AzurePublic", //Will be different for different Azure clouds, like US Gov
-    "AadAuthorityAudience": "AzureAdMultipleOrgs", //Possible values include "AzureAdMyOrg" and "AzureAdMultipleOrgs"
+    "AadAuthorityAudience": "AzureAdMultipleOrgs", 
     "ClientId": <your_client_ID>
+  },
+
+  "WebAPI": {
+    "Scopes": [
+      "https://graph.microsoft.com/User.Read",  //For this Microsoft Graph example.  Your value(s) will be different depending on the API you're calling
+      "https://graph.microsoft.com/User.ReadBasic.All"  //For this Microsoft Graph example.  Your value(s) will be different depending on the API you're calling
+    ]
+  },
+
+  "UserInfo": {
+    "Username": <test_user_username>,
+    "Password": <test_user_password>
   }
 }
 ```
@@ -98,36 +110,39 @@ Now that you're set up, you can write your automated tests!  The following examp
 ```csharp
 public class ClientFixture : IAsyncLifetime
 {
-public HttpClient httpClient;
+ public HttpClient httpClient;
 
-public async Task InitializeAsync()
-{
-    // These need to be put in config file eventually
-    string[] scopes = new string[] { "User.Read", "User.ReadBasic.All" };
-    string username = <test_user_username>;
-    string password = <test_user_password>;
-    SecureString securePassword = new NetworkCredential("", password).SecurePassword;
+ public async Task InitializeAsync()
+ {
+     var builder = new ConfigurationBuilder().AddJsonFile(<path_to_appsettings.json_file>);
 
- SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
-    var appConfig = config.PublicClientApplicationOptions;
-    var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(appConfig)
-                                            .Build();
+     IConfigurationRoot Configuration = builder.Build();
 
-    AuthenticationResult result = null;
-    httpClient = new HttpClient();
+     var PublicClientApplicationOptions = new PublicClientApplicationOptions();
+     Configuration.Bind("Authentication", PublicClientApplicationOptions);
+     var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
+         .Build();
 
-    try
-    {
-        result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
-            .ExecuteAsync();
-    }
-    catch (MsalException) { }
+     string[] scopes = Configuration.GetValue<string[]>("WebAPI:Scopes");
+     string username = Configuration.GetValue<string>("UserInfo:Username");
+     string password = Configuration.GetValue<string>("UserInfo:Password");
+     SecureString securePassword = new NetworkCredential("", password).SecurePassword;
 
-    string accessToken = result.AccessToken;
-    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
-}
+     AuthenticationResult result = null;
+     httpClient = new HttpClient();
 
-public Task DisposeAsync() => Task.CompletedTask;
+     try
+     {
+         result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
+             .ExecuteAsync();
+     }
+     catch (MsalException) { }
+
+     string accessToken = result.AccessToken;
+     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
+ }
+
+ public Task DisposeAsync() => Task.CompletedTask;
 }
 ```
 
