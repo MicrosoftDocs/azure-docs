@@ -34,7 +34,7 @@ sections:
       - question: |
           Why should I use confidential VMs?
         answer: |
-          The more you want to do in the cloud, the greater trust you must place in the cloud. Confidential VMs address customer concerns about moving sensitive workloads off-premises into the cloud. Underlying infrastructure and cloud operators can't access customer data in confidential VMs by design and implementation. Unlike other approaches and solutions, you don't have to adapt your existing workloads to fit the platform's technical needs.
+          The more you want to do in the cloud, the greater trust you must place in the cloud. Confidential VMs address customer concerns about moving sensitive workloads off-premises into the cloud. Customer data in confidential VMs is protected from the underlying infrastructure and cloud operators. Unlike other approaches and solutions, you don't have to adapt your existing workloads to fit the platform's technical needs.
 
       - question: |
           What are AMD SEV technologies and how do they relate to Azure confidential VMs?
@@ -111,6 +111,8 @@ sections:
           Is there an extra cost for using confidential VMs?
         answer: |
           Billing for confidential VMs depends on your usage and storage, and the size and region of the VM. Confidential VMs are available in dedicated sizes, so prices might differ from general-purpose VMs. 
-          Confidential VMs use another small encrypted virtual machine guest state (VMGS) disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This disk might result in a monthly storage fee.
-          For some high security and privacy settings, you might create linked resources, such as a [Managed HSM Pool](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Azure bills such resources separately from the confidential VM costs.
+          Confidential VMs use a small encrypted virtual machine guest state (VMGS) disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This disk might result in a monthly storage fee.
+          If you choose to enable the optional full-disk encryption, starting in 2022, encrypted OS disks will incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible. 
+          For more information on storage fees, see the [pricing guide for managed disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+          Lastly, for some high security and privacy settings, you might create linked resources, such as a [Managed HSM Pool](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Azure bills such resources separately from the confidential VM costs.
 
