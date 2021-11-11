@@ -7,9 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -17,40 +18,62 @@ recommendations: false
 
 The receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns a structured JSON data representation.
 
-##### Sample receipt processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
+***Sample receipt processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
-:::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
+:::image type="content" source="media/studio/overview-receipt.png" alt-text="sample receipt" lightbox="media/overview-receipt.jpg":::
 
-## Try Form Recognizer Studio (Preview)
+## Development options
 
-* Form Recognizer studio is available with the preview (v3.0) API.
+The following resources are supported by Form Recognizer v2.1:
 
-* Extract time and date of transactions, merchant information, amount totals, and more with our Form Recognizer Studio Receipt feature:
+| Feature | Resources |
+|----------|-------------------------|
+|**Receipt model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-receipts)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-> [!div class="nextstepaction"]
-> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
+The following resources are supported by Form Recognizer v3.0:
 
-## Try it: Sample labeling tool
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Receipt model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|**prebuilt-receipt**|
 
-You can see how receipt data is extracted by trying our Sample labeling tool. You'll need the following:
+### Try Form Recognizer
+
+See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* A receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
+#### Form Recognizer Studio (preview)
 
-> [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+> [!NOTE]
+> Form Recognizer studio is available with the preview (v3.0) API.
 
-In the Form Recognizer UI:
+1. On the Form Recognizer Studio home page, select **Receipts**
 
-  1. Select **Use prebuilt model to get data**.
-  1. Select **Receipt** from the **Form Type** dropdown menu:
+1. You can analyze the sample receipt or select the **+ Add** button to upload your own sample.
 
-  :::image type="content" source="media/try-receipt.png" alt-text="Screenshot: sample labeling tool dropdown prebuilt model selection menu.":::
+1. Select the **Analyze** button:
+
+    :::image type="content" source="media/studio/receipt-analyze.png" alt-text="Screenshot: analyze receipt menu.":::
+
+    > [!div class="nextstepaction"]
+    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
+
+#### Sample Labeling tool
+
+You will need a receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
+
+1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
+
+1. Select **Receipt** from the **Form Type** dropdown menu:
+
+      :::image type="content" source="media/try-receipt.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
+
+      > [!div class="nextstepaction"]
+      > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 ## Input requirements
 
@@ -63,8 +86,8 @@ In the Form Recognizer UI:
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 ## Supported languages and locales v2.1
 
@@ -75,60 +98,60 @@ In the Form Recognizer UI:
 |--------|:----------------------|:---------|
 |Receipt| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
 
-## Key-value pair extraction
+## Field extraction
 
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:----|
-| ReceiptType | string | Type of sales receipt |  Itemized |
-| MerchantName | string | Name of the merchant issuing the receipt |  |
+| ReceiptType | String | Type of sales receipt |  Itemized |
+| MerchantName | String | Name of the merchant issuing the receipt |  |
 | MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx |
-| MerchantAddress | string | Listed address of merchant |   |
-| TransactionDate | date | Date the receipt was issued | yyyy-mm-dd |
-| TransactionTime | time | Time the receipt was issued | hh-mm-ss (24-hour)  |
-| Total | number (USD)| Full transaction total of receipt | Two-decimal float|
-| Subtotal | number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
-| Tax | number (USD) | Tax on receipt (often sales tax or equivalent) | Two-decimal float |
-| Tip | number (USD) | Tip included by buyer | Two-decimal float|
-| Items | array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
-| Name | string | Item name | |
-| Quantity | number | Quantity of each item | integer |
-| Price | number | Individual price of each item unit| Two-decimal float |
-| Total Price | number | Total price of line item | Two-decimal float |
+| MerchantAddress | String | Listed address of merchant |   |
+| TransactionDate | Date | Date the receipt was issued | yyyy-mm-dd |
+| TransactionTime | Time | Time the receipt was issued | hh-mm-ss (24-hour)  |
+| Total | Number (USD)| Full transaction total of receipt | Two-decimal float|
+| Subtotal | Number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
+| Tax | Number (USD) | Tax on receipt (often sales tax or equivalent) | Two-decimal float |
+| Tip | Number (USD) | Tip included by buyer | Two-decimal float|
+| Items | Array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
+| Name | String | Item name | |
+| Quantity | Number | Quantity of each item | Integer |
+| Price | Number | Individual price of each item unit| Two-decimal float |
+| Total Price | Number | Total price of line item | Two-decimal float |
 
 ## Form Recognizer preview v3.0
 
- The Form Recognizer preview introduces several new features and capabilities:
+ The Form Recognizer preview introduces several new features and capabilities. The **Receipt** model supports single-page hotel receipt processing.
 
-* **Receipt** model supports single-page hotel receipt processing.
+### Hotel receipt field extraction
 
-    ### Hotel receipt key-value pair extraction
+|Name| Type | Description | Standardized output |
+|:-----|:----|:----|:----|
+| ArrivalDate | Date | Date of arrival | yyyy-mm-dd |
+| Currency | Currency | Currency unit of receipt amounts. For example USD, EUR, or MIXED if multiple values are found ||
+| DepartureDate | Date | Date of departure | yyyy-mm-dd |
+| Items | Array | | |
+| Items.*.Category | String | Item category, for example, Room, Tax, etc. |  |
+| Items.*.Date | Date | Item date | yyyy-mm-dd |
+| Items.*.Description | String | Item description | |
+| Items.*.TotalPrice |  Number | Item total price | Integer |
+| Locale | String | Locale of the receipt, for example, en-US. | ISO language-county code   |
+| MerchantAddress | String | Listed address of merchant | |
+| MerchantAliases | Array| | |
+| MerchantAliases.* | String | Alternative name of merchant |  |
+| MerchantName | String | Name of the merchant issuing the receipt | |
+| MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx|
+| ReceiptType | String | Type of receipt, for example, Hotel, Itemized | |
+| Total | Number | Full transaction total of receipt | Two-decimal float |
 
-    |Name| Type | Description | Standardized output |
-    |:-----|:----|:----|:----|
-    | ArrivalDate | date | Date of arrival | yyyy-mm-dd |
-    | Currency | currency | Currency unit of receipt amounts. For example USD, EUR, or MIXED if multiple values are found ||
-    | DepartureDate | date | Date of departure | yyyy-mm-dd |
-    | Items | array | | |
-    | Items.*.Category | string | Item category, e.g. Room, Tax, etc. |  |
-    | Items.*.Date | date | Item date | yyyy-mm-dd |
-    | Items.*.Description | string | Item description | |
-    | Items.*.TotalPrice |  number | Item total price | integer |
-    | Locale | string | Locale of the receipt, for example, en-US. | ISO language-county code   |
-    | MerchantAddress | string | Listed address of merchant | |
-    | MerchantAliases | array| | |
-    | MerchantAliases.* | string | Alternative name of merchant |  |
-    | MerchantName | string | Name of the merchant issuing the receipt | |
-    | MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx|
-    | ReceiptType | string | Type of receipt, e.g. Hotel, Itemized | |
-    | Total | number | Full transaction total of receipt | Two-decimal float |
+### Hotel receipt supported languages and locales
 
-    ### Hotel receipt supported languages and locales
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|Receipt (hotel) | <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
 
-    | Model | Language—Locale code | Default |
-    |--------|:----------------------|:---------|
-    |Receipt (hotel) | <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
+### Migration guide and REST API v3.0
 
-* Following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 

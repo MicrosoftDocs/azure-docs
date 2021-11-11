@@ -2,13 +2,10 @@
 title: Azure Monitor workbook honey comb visualizations
 description: Learn about Azure Monitor workbook honey comb visualizations.
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.author: lagayhar
 ---
 
 # Honey comb visualizations
@@ -91,4 +88,4 @@ Honey comb authors can specify what content goes to the different parts of a nod
 ## Next steps
 
 - Learn how to create a [Composite bar renderer in workbooks](workbooks-composite-bar.md).
-- Learn how to [import Azure Monitor log data into Power BI](./powerbi.md).
+- Learn how to [import Azure Monitor log data into Power BI](../logs/log-powerbi.md).

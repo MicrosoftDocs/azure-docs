@@ -396,5 +396,5 @@ When a blob is moved from one access tier to another, its last modification time
 ## Next steps
 
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
-- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md)
+- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
 - [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)

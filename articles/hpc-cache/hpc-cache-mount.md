@@ -1,11 +1,11 @@
 ---
 title: Mount an Azure HPC Cache
 description: How to connect clients to an Azure HPC Cache service
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Mount the Azure HPC Cache
