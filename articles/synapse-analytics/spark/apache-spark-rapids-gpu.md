@@ -172,4 +172,4 @@ Most Spark jobs can see improved performance through tuning configuration settin
 
 ### Workspace level
 
-Every Azure Synapse workspace comes with a default quota of 0 GPU vCores. In order to increase your quota of GPU cores, please send an email to AzureSynapseGPU@microsoft.com with your workspace name, the region and the total GPU quota required for your workload.
+Every Azure Synapse workspace comes with a default quota of 50 GPU vCores. In order to increase your quota of GPU cores, please send an email to AzureSynapseGPU@microsoft.com with your workspace name, the region and the total GPU quota required for your workload.
