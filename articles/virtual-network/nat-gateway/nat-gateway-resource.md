@@ -33,7 +33,7 @@ NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and pro
 Configuring and using NAT gateway is intentionally made simple:  
 
 NAT gateway resource:
-- Create regional or zonal (zone-isolated) NAT gateway resource,
+- Create regional or zonal NAT gateway resource,
 - Assign IP addresses,
 - If necessary, modify TCP idle timeout (optional).  Review [timers](#timers) <ins>before</ins> you change the default.
 
@@ -42,77 +42,20 @@ Virtual network:
 
 User-defined routes aren't necessary.
 
-## Resource
-
-The resource is designed to be simple as you can see from the following Azure Resource Manager example in a template-like format.  This template-like format is shown here to illustrate the concepts and structure.  Modify the example for your needs.  This document isn't intended as a tutorial.
-
-The following diagram shows the writeable references between the different Azure Resource Manager resources.  The arrow indicates the direction of the reference, originating from where it's writeable. Review 
-
-<p align="center">
-  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Virtual Network NAT object model">
-</p>
-
-*Figure: Virtual Network NAT object model*
-
-NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound connectivity](../../load-balancer/load-balancer-outbound-connections.md).  
-
-You can migrate from standard load balancer scenarios, including [outbound rules](../../load-balancer/load-balancer-outbound-connections.md#outboundrules), to NAT gateway. To migrate, move the public ip and public ip prefix resources from load balancer frontends to NAT gateway. New IP addresses for NAT gateway aren't required. Standard public IP address resources and public IP prefix resource can be reused as long as the total doesn't exceed 16 IP addresses. Plan for migration with service interruption in mind during the transition.  You can minimize the interruption by automating the process. Test the migration in a staging environment first.  During the transition, inbound originated flows aren't affected.
-
-
-The following example is a snippet from an Azure Resource Manager template.  This template deploys several resources, including a NAT gateway.  The template has the following parameters in this example:
-
-- **natgatewayname** -  Name of the NAT gateway.
-- **location** - Azure region where resource is located.
-- **publicipname** - Name of the outbound public IP associated with the NAT gateway.
-- **vnetname** - Name of the virtual network.
-- **subnetname** - Name of the subnet associated with the NAT gateway.
-
-The total number of IP addresses provided by all IP address and prefix resources can't exceed 16 IP addresses total. Any number of IP addresses between 1 and 16 is allowed.
-
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-vnet/azuredeploy.json" range="81-96":::
-
-When the NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. Specify which subnets use this NAT gateway resource. A NAT gateway isn't able to span more than one virtual network. It isn't required to assign the same NAT gateway to all subnets of a virtual network. Individual subnets can be configured with different NAT gateway resources.
-
-Scenarios that don't use availability zones will be regional (no zone specified). If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy isn't supported. 
-
-NAT gateways are defined with a property on a subnet within a virtual network. Flows created by virtual machines on subnet **subnetname** of virtual network **vnetname** will use the NAT gateway. All outbound connectivity will use the IP addresses associated with **natgatewayname** as the source IP address.
-
-For more information on the Azure Resource Manager template used in this example, see:
-
-- [Quickstart: Create a NAT gateway - Resource Manager template](quickstart-create-nat-gateway-template.md)
-- [Virtual Network NAT](https://azure.microsoft.com/resources/templates/nat-gateway-1-vm/)
 
 ## Design Guidance
 
 Review this section to familiarize yourself with considerations for designing virtual networks with NAT.  
 
-### Cost optimization
+### Connecting to Azure services
 
-[Service endpoints](../virtual-network-service-endpoints-overview.md) and [private link](../../private-link/private-link-overview.md) are options to consider for optimizing cost. NAT isn't needed for these services. Traffic directed to service endpoints or private link is not processed by the virtual network's NAT.  
+When connecting to Azure services, the recommended approach is to leverage [Private Link](../../private-link/private-link-overview.md). 
 
-Service endpoints tie Azure service resources to your virtual network and control access to your Azure service resources. For example, when you access Azure storage, use a service endpoint for storage to avoid data processed NAT charges. Service endpoints are free.
+Private Link ties Azure resources to your virtual network and control access to your Azure service resources. For example, when you access Azure storage, use a private endpoint for storage to ensure your connection is fully private.
 
-Private link exposes Azure PaaS service (or other services hosted with private link) as a private endpoint inside a virtual network.  Private link is billed based on duration and data processed.
+### Connecting to the Internet
 
-Evaluate if either or both of these approaches are a good fit for your scenario and use as needed.
-
-### Coexistence of inbound and outbound
-
-NAT gateway is compatible with:
-
- - Standard Load balancer
- - Standard Public IP
- - Standard Public IP prefix
-
-When developing a new deployment, start with standard SKUs.
-
-<p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="Virtual Network NAT for outbound to Internet">
-</p>
-
-*Figure: Virtual Network NAT for outbound to Internet*
-
-The Internet outbound only scenario provided by NAT gateway can be expanded with inbound from Internet functionality. Each resource is aware of the direction in which a flow is originated. On a subnet with a NAT gateway, all outbound to Internet scenarios are superseded by the NAT gateway. Inbound from Internet scenarios are provided by the respective resource.
+NAT is recommended for outbound scenarios for all production workloads where you need to connect to a public endpoint. The following scenarios are examples of how to ensure co-existence of inbound with NAT gateway for outbound.
 
 #### NAT and VM with instance-level Public IP
 
@@ -129,7 +72,7 @@ The Internet outbound only scenario provided by NAT gateway can be expanded with
 
 VM will use NAT gateway for outbound.  Inbound originated isn't affected.
 
-#### NAT and VM with public Load Balancer
+#### NAT and VM with Standard Public Load Balancer
 
 <p align="center">
   <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="Virtual Network NAT and VM with public Load Balancer">
@@ -144,7 +87,7 @@ VM will use NAT gateway for outbound.  Inbound originated isn't affected.
 
 Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway.  Inbound originated isn't affected.
 
-#### NAT and VM with instance-level public IP and public Load Balancer
+#### NAT and VM with instance-level Public IP and Standard Public Load Balancer
 
 <p align="center">
   <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
