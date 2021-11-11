@@ -10,7 +10,7 @@ ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 11/10/2021
+ms.date: 11/11/2021
 ---
 # Use virtual network service endpoints and rules for servers in Azure SQL Database
 
@@ -244,9 +244,10 @@ A script can also create virtual network rules by using the PowerShell cmdlet `N
 
 Internally, the PowerShell cmdlets for SQL virtual network actions call REST APIs. You can call the REST APIs directly. For more information, see [Virtual network rules: Operations][rest-api-virtual-network-rules-operations-862r].
 
-## Troubleshoot errors 40914 and 40615
+## <a name="errors-40914-and-40615"></a> Troubleshoot errors 40914 and 40615
 
-Connection error 40914 relates to *virtual network rules*, as specified on the **Firewall** pane in the Azure portal. Error 40615 is similar, except it relates to *IP address rules* on the firewall.
+Connection error 40914 relates to *virtual network rules*, as specified on the **Firewall** pane in the Azure portal. 
+Error 40615 is similar, except it relates to *IP address rules* on the firewall.
 
 ### Error 40914
 
