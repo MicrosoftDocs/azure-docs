@@ -42,12 +42,12 @@ The code following snippet provides code for **non-interactive** authentication,
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-storage-file-datalake</artifactId>
-      <version>12.6.0</version>
+      <version>12.7.2</version>
     </dependency>
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-identity</artifactId>
-      <version>1.3.3</version>
+      <version>1.4.1</version>
     </dependency>
 </dependencies>
 ```
@@ -73,21 +73,25 @@ import com.azure.storage.file.datalake.DataLakeServiceClientBuilder;
 import com.azure.storage.file.datalake.models.PathAccessControl;
 import com.azure.storage.file.datalake.models.PathPermissions;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Collections;
 import java.util.UUID;
 
 public class Main {
-    private static String _adlsAccountName;
-    private static String _adlaAccountName;
-    private static String _resourceGroupName;
-    private static String _location;
+    private static String adlsAccountName;
+    private static String adlaAccountName;
+    private static String resourceGroupName;
+    private static String location;
 
-    private static String _tenantId;
-    private static String _subscriptionId;
-    private static String _clientId;
-    private static String _clientSecret;
-    private static String _fileSystemName;
+    private static String tenantId;
+    private static String subscriptionId;
+    private static String clientId;
+    private static String clientSecret;
+    private static String fileSystemName;
+    private static String localFolderPath;
 
     private static DataLakeAnalyticsManager analyticsManager;
     private static DataLakeStoreManager storeManager;
@@ -98,77 +102,77 @@ public class Main {
     private static DataLakeFileClient fileClient;
 
     public static void main(String[] args) throws Exception {
-        _adlsAccountName = "<DATA-LAKE-STORE-NAME>";
-        _adlaAccountName = "<DATA-LAKE-ANALYTICS-NAME>";
-        _resourceGroupName = "<RESOURCE-GROUP-NAME>";
-        _location = "East US 2";
+        adlsAccountName = "<DATA-LAKE-STORE-NAME>";
+        adlaAccountName = "<DATA-LAKE-ANALYTICS-NAME>";
+        resourceGroupName = "<RESOURCE-GROUP-NAME>";
+        location = "East US 2";
 
-        _tenantId = "<TENANT-ID>";
-        _subscriptionId = "<SUBSCRIPTION-ID>";
-        _clientId = "<CLIENT-ID>";
-        _clientSecret = "<CLIENT-SECRET>";
-        _fileSystemName = "<DATALAKE-FILE-SYSTEM-NAME>";
+        tenantId = "<TENANT-ID>";
+        subscriptionId = "<SUBSCRIPTION-ID>";
+        clientId = "<CLIENT-ID>";
+        clientSecret = "<CLIENT-SECRET>";
+        fileSystemName = "<DATALAKE-FILE-SYSTEM-NAME>";
 
-        String localFolderPath = "C:\\local_path\\";
+        localFolderPath = "C:\\local_path\\";
 
         // ----------------------------------------
         // Authenticate
         // ----------------------------------------
         AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
         ClientSecretCredential creds = new ClientSecretCredentialBuilder()
-                .clientId(_clientId).tenantId(_tenantId).clientSecret(_clientSecret)
-                .authorityHost("https://login.microsoftonline.com/" + _tenantId + "/oauth2/token")
+                .clientId(clientId).tenantId(tenantId).clientSecret(clientSecret)
+                .authorityHost("https://login.microsoftonline.com/" + tenantId + "/oauth2/token")
                 .build();
-        SetupClients(creds, profile);
+        setupClients(creds, profile);
 
         // ----------------------------------------
         // List Data Lake Store and Analytics accounts that this app can access
         // ----------------------------------------
-        System.out.println(String.format("All ADL Store accounts that this app can access in subscription %s:", _subscriptionId));
+        System.out.println(String.format("All ADL Store accounts that this app can access in subscription %s:", subscriptionId));
         storeManager.accounts().list().forEach(acct -> System.out.println(acct.name()));
 
-        System.out.println(String.format("All ADL Analytics accounts that this app can access in subscription %s:", _subscriptionId));
+        System.out.println(String.format("All ADL Analytics accounts that this app can access in subscription %s:", subscriptionId));
         analyticsManager.accounts().list().forEach(acct -> System.out.println(acct.name()));
-        WaitForNewline("Accounts displayed.", "Creating files.");
+        waitForNewline("Accounts displayed.", "Creating files.");
 
         // ----------------------------------------
         // Create a file in Data Lake Store: input1.csv
         // ----------------------------------------
-        CreateFile("input1.csv", "123,abc", true);
-        WaitForNewline("File created.", "Submitting a job.");
+        createFile("input1.csv", "123,abc", true);
+        waitForNewline("File created.", "Submitting a job.");
 
         // ----------------------------------------
         // Submit a job to Data Lake Analytics
         // ----------------------------------------
         String script = "@input = EXTRACT Row1 string, Row2 string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input TO @\"/output1.csv\" USING Outputters.Csv();";
-        UUID jobId = SubmitJobByScript(script, "testJob", creds);
-        WaitForNewline("Job submitted.", "Getting job status.");
+        UUID jobId = submitJobByScript(script, "testJob", creds);
+        waitForNewline("Job submitted.", "Getting job status.");
 
         // ----------------------------------------
         // Download job output from Data Lake Store
         // ----------------------------------------
-        DownloadFile("output1.csv", localFolderPath + "output1.csv");
-        WaitForNewline("Job output downloaded.", "Deleting file.");
+        downloadFile("output1.csv", localFolderPath + "output1.csv");
+        waitForNewline("Job output downloaded.", "Deleting file.");
 
-        DeleteFile("output1.csv");
-        WaitForNewline("File deleted.", "Done.");
+        deleteFile("output1.csv");
+        waitForNewline("File deleted.", "Done.");
     }
 
-    public static void SetupClients(TokenCredential creds, AzureProfile profile) {
+    public static void setupClients(TokenCredential creds, AzureProfile profile) {
 
         analyticsManager = DataLakeAnalyticsManager.authenticate(creds, profile);
 
         storeManager = DataLakeStoreManager.authenticate(creds, profile);
 
-        CreateAccounts();
+        createAccounts();
 
         serviceClient = new DataLakeServiceClientBuilder().endpoint(storeAccount.endpoint()).credential(creds).buildClient();
 
-        fileSystemClient = serviceClient.createFileSystem(_fileSystemName);
+        fileSystemClient = serviceClient.createFileSystem(fileSystemName);
 
     }
 
-    public static void WaitForNewline(String reason, String nextAction) {
+    public static void waitForNewline(String reason, String nextAction) {
         if (nextAction == null)
             nextAction = "";
 
@@ -184,22 +188,22 @@ public class Main {
     }
 
     // Create accounts
-    public static void CreateAccounts() {
+    public static void createAccounts() {
         // Create ADLS account
-        storeAccount = storeManager.accounts().define(_adlsAccountName)
-                .withRegion(_location)
-                .withExistingResourceGroup(_resourceGroupName)
+        storeAccount = storeManager.accounts().define(adlsAccountName)
+                .withRegion(location)
+                .withExistingResourceGroup(resourceGroupName)
                 .create();
 
-        analyticsAccount = analyticsManager.accounts().define(_adlaAccountName)
-                .withRegion(_location).withExistingResourceGroup(_resourceGroupName)
-                .withDefaultDataLakeStoreAccount(_adlsAccountName)
+        analyticsAccount = analyticsManager.accounts().define(adlaAccountName)
+                .withRegion(location).withExistingResourceGroup(resourceGroupName)
+                .withDefaultDataLakeStoreAccount(adlsAccountName)
                 .withDataLakeStoreAccounts(Collections.EMPTY_LIST)
                 .create();
     }
 
     // Create a file
-    public static void CreateFile(String path, String contents, boolean force) {
+    public static void createFile(String path, String contents, boolean force) {
         byte[] bytesContents = contents.getBytes();
 
         DataLakeFileClient fileClient = fileSystemClient.createFile(path,force);
@@ -209,31 +213,33 @@ public class Main {
     }
 
     // Delete a file
-    public static void DeleteFile(String filePath) {
+    public static void deleteFile(String filePath) {
         fileSystemClient.getFileClient(filePath).delete();
     }
 
     // Download a file
-    private static void DownloadFile(String srcPath, String destPath) throws IOException {
+    private static void downloadFile(String srcPath, String destPath) throws IOException {
 
         fileClient = fileSystemClient.getFileClient(srcPath);
-        OutputStream outputStream = new FileOutputStream(destPath)
+        OutputStream outputStream = new FileOutputStream(destPath);
         fileClient.read(outputStream);
         outputStream.close();
     }
-    
+
 }
 ```
 
 Provide the values for parameters called out in the code snippet:
+* `adlsAccountName`
+* `adlaAccountName`
+* `resourceGroupName`
+* `location`
+* `tenantId`
+* `subscriptionId`
+* `clientId`
+* `clientSecret`
+* `fileSystemName`
 * `localFolderPath`
-* `_adlaAccountName`
-* `_adlsAccountName`
-* `_resourceGroupName`
-* `_tenantId`
-* `_subId`
-* `_clientId`
-* `_clientSecret`
 
 ## Next steps
 
