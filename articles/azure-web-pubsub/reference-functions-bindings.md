@@ -406,23 +406,25 @@ The following table explains the binding configuration properties that you set i
 
 #### WebPubSubConnection
 
-`WebPubSubConnection` provides below properties.
-
 # [C#](#tab/csharp)
 
-Binding Name | Binding Type | Description
----------|---------|---------
-BaseUri | Uri | Web PubSub client connection uri.
-Uri | Uri | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request.
-AccessToken | string | Generated `AccessToken` based on request UserId and service information.
+`WebPubSubConnection` provides below properties.
+
+| Binding Name | Binding Type | Description |
+|---------|---------|---------|
+| BaseUri | Uri | Web PubSub client connection uri. |
+| Uri | Uri | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request. |
+| AccessToken | string | Generated `AccessToken` based on request UserId and service information. |
 
 # [JavaScript](#tab/javascript)
 
-Binding Name | Description
----------|---------|---------
-baseUrl | Web PubSub client connection uri.
-url | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request.
-accessToken | Generated `AccessToken` based on request UserId and service information.
+`WebPubSubConnection` provides below properties.
+
+| Binding Name | Description |
+|---------|---------|
+| baseUrl | Web PubSub client connection uri. |
+| url | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request. |
+| accessToken | Generated `AccessToken` based on request UserId and service information. |
 
 ---
 
@@ -430,23 +432,23 @@ accessToken | Generated `AccessToken` based on request UserId and service inform
 
 `WebPubSubContext` provides below properties.
 
-Binding Name | Binding Type | Description | Properties
----------|---------|---------|---------
-request | `WebPubSubEventRequest` | Request from client, see below table for details. | `WebPubSubConnectionContext` from request header and other properties deserialized from request body describe the request, for example, `Reason` for `DisconnectedEventRequest`.
-response | `HttpResponseMessage` | Extension builds response mainly for `AbuseProtection` and errors cases. | -
-errorMessage | string | Describe the error details when processing the upstream request. | -
-hasError | bool | Flag to indicate whether it's a valid Web PubSub upstream request. | -
-isPreflight | bool | Flag to indicate whether it's a preflight request of `AbuseProtection`. | -
+| Binding Name | Binding Type | Description | Properties |
+| ---------|---------|---------|---------|
+| request | `WebPubSubEventRequest` | Request from client, see below table for details. | `WebPubSubConnectionContext` from request header | and other properties deserialized from request body describe the request, for example, `Reason` for `DisconnectedEventRequest`. |
+| response | `HttpResponseMessage` | Extension builds response mainly for `AbuseProtection` and errors cases. | - |
+| errorMessage | string | Describe the error details when processing the upstream request. | - |
+| hasError | bool | Flag to indicate whether it's a valid Web PubSub upstream request. | - |
+| isPreflight | bool | Flag to indicate whether it's a preflight request of `AbuseProtection`. | - |
 
 For `WebPubSubEventRequest`, it's deserialized to different classes that provide different information about the request scenario. For `PreflightRequest` or not valid cases, user can check the flags `IsPreflight` and `HasError` to know. It's suggested to return system build response `WebPubSubContext.Response` directly, or customer can log errors on demand. In different scenarios, customer can read the request properties as below.
 
-Derived Class | Description | Properties
---|--|--
-`PreflightRequest` | Used in `AbuseProtection` when `IsPreflight` is **true** | -
-`ConnectEventRequest` | Used in system `Connect` event type | Claims, Query, Subprotocols, ClientCertificates
-`ConnectedEventRequest` | Used in system `Connected` event type | -
-`UserEventRequest` | Used in user event type | Data, DataType
-`DisconnectedEventRequest` | Used in system `Disconnected` event type | Reason
+| Derived Class | Description | Properties |
+| -- | -- | -- |
+| `PreflightRequest` | Used in `AbuseProtection` when `IsPreflight` is **true** | - |
+| `ConnectEventRequest` | Used in system `Connect` event type | Claims, Query, Subprotocols, ClientCertificates |
+| `ConnectedEventRequest` | Used in system `Connected` event type | - |
+| `UserEventRequest` | Used in user event type | Data, DataType |
+| `DisconnectedEventRequest` | Used in system `Disconnected` event type | Reason |
 
 > [!NOTE]
 > Though the `WebPubSubContext` is a input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge is not supported. The return response will still be respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.
@@ -530,43 +532,43 @@ module.exports = async function (context) {
 
 In C# language, we provide a few static methods under `WebPubSubAction` to help discover available actions. For example, user can create the `SendToAllAction` by call `WebPubSubAction.CreateSendToAllAction()`.
 
-Derived Class|Properties
---|--
-`SendToAllAction`|Data, DataType, Excluded
-`SendToGroupAction`|Group, Data, DataType, Excluded
-`SendToUserAction`|UserId, Data, DataType
-`SendToConnectionAction`|ConnectionId, Data, DataType
-`AddUserToGroupAction`|UserId, Group
-`RemoveUserFromGroupAction`|UserId, Group
-`RemoveUserFromAllGroupsAction`|UserId
-`AddConnectionToGroupAction`|ConnectionId, Group
-`RemoveConnectionFromGroupAction`|ConnectionId, Group
-`CloseAllConnectionsAction`|Excluded, Reason
-`CloseClientConnectionAction`|ConnectionId, Reason
-`CloseGroupConnectionsAction`|Group, Excluded, Reason
-`GrantPermissionAction`|ConnectionId, Permission, TargetName
-`RevokePermissionAction`|ConnectionId, Permission, TargetName
+| Derived Class | Properties |
+| -- | -- |
+| `SendToAllAction`|Data, DataType, Excluded |
+| `SendToGroupAction`|Group, Data, DataType, Excluded |
+| `SendToUserAction`|UserId, Data, DataType |
+| `SendToConnectionAction`|ConnectionId, Data, DataType |
+| `AddUserToGroupAction`|UserId, Group |
+| `RemoveUserFromGroupAction`|UserId, Group |
+| `RemoveUserFromAllGroupsAction`|UserId |
+| `AddConnectionToGroupAction`|ConnectionId, Group |
+| `RemoveConnectionFromGroupAction`|ConnectionId, Group |
+| `CloseAllConnectionsAction`|Excluded, Reason |
+| `CloseClientConnectionAction`|ConnectionId, Reason |
+| `CloseGroupConnectionsAction`|Group, Excluded, Reason |
+| `GrantPermissionAction`|ConnectionId, Permission, TargetName |
+| `RevokePermissionAction`|ConnectionId, Permission, TargetName |
 
 # [JavaScript](#tab/javascript)
 
 In weakly typed language like `javascript`, **`actionName`** is the key parameter to resolve the type, available actions are listed as below.
 
-ActionName|Properties
---|--
-`SendToAll`|Data, DataType, Excluded
-`SendToGroup`|Group, Data, DataType, Excluded
-`SendToUser`|UserId, Data, DataType
-`SendToConnection`|ConnectionId, Data, DataType
-`AddUserToGroup`|UserId, Group
-`RemoveUserFromGroup`|UserId, Group
-`RemoveUserFromAllGroups`|UserId
-`AddConnectionToGroup`|ConnectionId, Group
-`RemoveConnectionFromGroup`|ConnectionId, Group
-`CloseAllConnections`|Excluded, Reason
-`CloseClientConnection`|ConnectionId, Reason
-`CloseGroupConnections`|Group, Excluded, Reason
-`GrantPermission`|ConnectionId, Permission, TargetName
-`RevokePermission`|ConnectionId, Permission, TargetName
+| ActionName | Properties |
+| -- | -- |
+| `SendToAll`|Data, DataType, Excluded |
+| `SendToGroup`|Group, Data, DataType, Excluded |
+| `SendToUser`|UserId, Data, DataType |
+| `SendToConnection`|ConnectionId, Data, DataType |
+| `AddUserToGroup`|UserId, Group |
+| `RemoveUserFromGroup`|UserId, Group |
+| `RemoveUserFromAllGroups`|UserId |
+| `AddConnectionToGroup`|ConnectionId, Group |
+| `RemoveConnectionFromGroup`|ConnectionId, Group |
+| `CloseAllConnections`|Excluded, Reason |
+| `CloseClientConnection`|ConnectionId, Reason |
+| `CloseGroupConnections`|Group, Excluded, Reason |
+| `GrantPermission`|ConnectionId, Permission, TargetName |
+| `RevokePermission`|ConnectionId, Permission, TargetName |
 
 > [!IMPORTANT]
 > The message data property in the send message related actions must be `string` if data type is set to `json` or `text` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need. This is applied to any place using message property, for example, `UserEventResponse.Data` working with `WebPubSubTrigger`. 
