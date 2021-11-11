@@ -71,7 +71,7 @@ For your own custom TLS/SSL certificate:
 
     You'll need to ensure that the service principal for Front Door has access to the key vault. Refer to how to grant access to your key vault. The updated certificate rollout operation by Azure Front Door won't cause any production down time provided the subject name or subject alternate name (SAN) for the certificate didn't changed.
 
-### Supported cipher suites
+## Supported cipher suites
 
 For TLS1.2 the following cipher suites are supported:
 
