@@ -511,12 +511,37 @@ module.exports = async function (context) {
 
 ### WebPubSubAction 
 
-`WebPubSubAction` is the base abstract type of output bindings. The derived types represent the operation server want service to invoke. In type-less language like `javascript`, `actionName` is the key parameter to resolve the type. In C# language, we provided a few static methods under `WebPubSubAction` to help discover available actions. For example, user can create the `SendToAllAction` by call `WebPubSubAction.CreateSendToAllAction()`.
+`WebPubSubAction` is the base abstract type of output bindings. The derived types represent the operation server want service to invoke. 
 
-> [!IMPORTANT]
-> The message data property in the send message related operations must be `string` when in type-less language like `javascript` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need. This is applied to any place using message property, like `UserEventResponse.Data` working with `WebPubSubTrigger`.
+# [C#](#tab/csharp)
+
+In C# language, we provide a few static methods under `WebPubSubAction` to help discover available actions. For example, user can create the `SendToAllAction` by call `WebPubSubAction.CreateSendToAllAction()`.
 
 Derived Class|Properties
+--|--
+`SendToAllAction`|Data, DataType, Excluded
+`SendToGroupAction`|Group, Data, DataType, Excluded
+`SendToUserAction`|UserId, Data, DataType
+`SendToConnectionAction`|ConnectionId, Data, DataType
+`AddUserToGroupAction`|UserId, Group
+`RemoveUserFromGroupAction`|UserId, Group
+`RemoveUserFromAllGroupsAction`|UserId
+`AddConnectionToGroupAction`|ConnectionId, Group
+`RemoveConnectionFromGroupAction`|ConnectionId, Group
+`CloseAllConnectionsAction`|Excluded, Reason
+`CloseClientConnectionAction`|ConnectionId, Reason
+`CloseGroupConnectionsAction`|Group, Excluded, Reason
+`GrantPermissionAction`|ConnectionId, Permission, TargetName
+`RevokePermissionAction`|ConnectionId, Permission, TargetName
+
+# [JavaScript](#tab/javascript)
+
+In type-less language like `javascript`, `actionName` is the key parameter to resolve the type, available actions are listed as below.
+
+> [!IMPORTANT]
+> The message data property in the send message related actions must be `string` if data type is set to `json` or `text` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need. This is applied to any place using message property, like `UserEventResponse.Data` working with `WebPubSubTrigger`. When data type is set to `binary`, it's allowed to leverage binding naturally supported `dataType` as `binary` configured in the `function.json`, see [Trigger and binding definitions](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings?tabs=csharp#trigger-and-binding-definitions) for details.
+
+ActionName|Properties
 --|--
 `SendToAll`|Data, DataType, Excluded
 `SendToGroup`|Group, Data, DataType, Excluded
