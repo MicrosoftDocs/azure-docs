@@ -10,7 +10,7 @@ ms.custom: ignite-fall-2021
 # Quickstart: Get started with Video Analyzer live pipelines in the Azure portal
 
 ![cloud icon](media/env-icon/cloud.png)  
-Alternatively, check out [Get started with Video Analyzer in the portal](../edge/get-started-detect-motion-emit-events-portal.md).
+Alternatively, check out [get started with Video Analyzer on the edge using portal](../edge/get-started-detect-motion-emit-events-portal.md).
 
 ---
 
