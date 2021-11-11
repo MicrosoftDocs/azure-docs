@@ -16,7 +16,7 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: aaddev, devx-track-js
 ---
 
-# Tutorial: Prepare Azure AD by registering your app
+# Tutorial: Prepare Azure AD by registering your web app
 
 <!-- ::: zone pivot="devlang-angular"
 [!INCLUDE [angular](./includes/single-page-app/angular-tutorial-02-prepare-azure-ad.md)]
