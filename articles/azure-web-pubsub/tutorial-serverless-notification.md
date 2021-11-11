@@ -251,7 +251,7 @@ In this tutorial, you learn how to:
         public static async Task Run([TimerTrigger("*/10 * * * * *")]TimerInfo myTimer, ILogger log,
             [WebPubSub(Hub = "notification")] IAsyncCollector<WebPubSubAction> actions)
         {
-            await actions.AddAsync(new SendToAll
+            await actions.AddAsync(new SendToAllAction
             {
                 Data = BinaryData.FromString($"[DateTime: {DateTime.Now}] Temperature: {GetValue(23, 1)}{'\xB0'}C, Humidity: {GetValue(40, 2)}%"),
                 DataType = WebPubSubDataType.Text
