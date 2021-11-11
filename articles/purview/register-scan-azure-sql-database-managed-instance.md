@@ -48,7 +48,7 @@ If you need to create new authentication, you need to [authorize database access
 - [Service Principal](#service-principal-to-register)
 - [SQL authentication](#sql-authentication-to-register)
 
-#### System or user- ssigned managed identity to register
+#### System or user assigned managed identity to register
 
 You can use either your Purview system-assigned managed identity (SAMI), or a [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) (UAMI) to authenticate. Both options allow you to assign authentication directly to Purview, like you would for any other user, group, or service principal. The Purview system-assigned managed identity is created automatically when the account is created and has the same name as your Azure Purview account. A user-assigned managed identity is a resource that can be created independently, and to create one you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
