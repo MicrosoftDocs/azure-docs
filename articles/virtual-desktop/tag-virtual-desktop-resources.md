@@ -4,7 +4,7 @@ description: What tagging is, and how you can use it to manage Azure service cos
 author: heidilohr
 
 ms.topic: conceptual
-ms.date: 11/04/2021
+ms.date: 11/12/2021
 ms.author: helohr
 manager: femila
 ---

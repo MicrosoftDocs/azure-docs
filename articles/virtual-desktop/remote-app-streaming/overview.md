@@ -3,7 +3,7 @@ title: What is Azure Virtual Desktop remote app streaming? - Azure
 description: An overview of Azure Virtual Desktop remote app streaming.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 11/12/2021
 ms.author: helohr
 manager: femila
 ---
