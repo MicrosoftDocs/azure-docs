@@ -79,15 +79,15 @@ The following options are supported:
 > [!Note]
 > If you have firewall enabled for the storage account, you must use managed identity authentication method when setting up a scan.
 
-* **System managed identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+* **System-assigned managed identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview SAMI to perform the scans.
 
-* **User-assigned managed identity** (preview) - Similar to a system-managed identity, a user-assigned managed identity is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+* **User-assigned managed identity** (preview) - Similar to a system-managed identity, a user-assigned managed identity is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 * **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
 ### Authentication for a scan
 
-#### Using system or user-Assigned managed identity for scanning
+#### Using system or user-assigned managed identity for scanning
 
 It is important to give your Purview account the permission to scan the ADLS Gen1 data source. You can add the system managed identity, or user-assigned managed identity at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
@@ -127,7 +127,7 @@ If you need to [Create a new service principal](./create-service-principal-azure
 
 ##### Granting the Service Principal access to your ADLS Gen1 account
 
-It is important to give your service principal the permission to scan the ADLS Gen2 data source. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
+It is important to give your service principal the permission to scan the ADLS Gen2 data source. You can add access for the service principal at the Subscription, Resource Group, or Resource level, depending on what permissions it needs.
 
 > [!Note]
 > You need to be an owner of the subscription to be able to add a service principal on an Azure resource.
