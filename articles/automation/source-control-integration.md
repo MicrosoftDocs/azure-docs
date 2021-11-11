@@ -20,7 +20,8 @@ Azure Automation supports three types of source control:
 
 * GitHub
 * Azure Repos (Git)
-* Azure Devops
+* Azure Repos (TFVC)
+
 ## Prerequisites
 
 * A source control repository (GitHub or Azure Repos)
