@@ -53,7 +53,7 @@ Text normalization is the transformation of words into a consistent format used 
 
 Here are a few examples of normalization that you should perform on the transcription:
 
-| Original text               | Text after normalization              |
+| Original text               | Text after normalization (human)      |
 | --------------------------- | ------------------------------------- |
 | Dr. Bruce Banner            | Doctor Bruce Banner                   |
 | James Bond, 007             | James Bond, double oh seven           |
@@ -64,6 +64,7 @@ Here are a few examples of normalization that you should perform on the transcri
 | Water is H20                | Water is H 2 O                        |
 | Play OU812 by Van Halen     | Play O U 8 1 2 by Van Halen           |
 | UTF-8 with BOM              | U T F 8 with BOM                      |
+| It costs \$3.14             | It costs three fourteen               |
 
 The following normalization rules are automatically applied to transcriptions:
 
@@ -73,7 +74,7 @@ The following normalization rules are automatically applied to transcriptions:
 
 Here are a few examples of normalization automatically performed on the transcription:
 
-| Original text                          | Text after normalization          |
+| Original text                          | Text after normalization (automatic) |
 | -------------------------------------- | --------------------------------- |
 | "Holy cow!" said Batman.               | holy cow said batman              |
 | "What?" said Batman's sidekick, Robin. | what said batman's sidekick robin |
@@ -82,7 +83,6 @@ Here are a few examples of normalization automatically performed on the transcri
 | 104 Elm Street                         | one oh four Elm street            |
 | Tune to 102.7                          | tune to one oh two point seven    |
 | Pi is about 3.14                       | pi is about three point one four  |
-| It costs \$3.14                        | it costs three fourteen           |
 
 ## Mandarin Chinese (zh-CN)
 
