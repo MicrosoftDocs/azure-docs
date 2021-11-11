@@ -86,7 +86,7 @@ When you're done, select **Open notebook**. This generates a notebook for you wi
 
 ## Run the notebook
 
-The notebook that you just opened uses the [MMLSpark library](https://github.com/microsoft/SynapseML) to connect to Cognitive Services. The Azure Cognitive Services linked service that you provided allow you to securely reference your cognitive service from this experience without revealing any secrets.
+The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Cognitive Services. The Azure Cognitive Services linked service that you provided allow you to securely reference your cognitive service from this experience without revealing any secrets.
 
  You can now run all cells to enrich your data with sentiments. Select **Run all**. 
 

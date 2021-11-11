@@ -211,6 +211,8 @@
           href: flexible-server/how-to-restore-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restore-server-cli.md
+      - name: Restore a deleted server
+        href: flexible-server/how-to-restore-dropped-server.md 
     - name: Troubleshooting
       items:
       - name: Troubleshoot Connection errors
