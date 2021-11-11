@@ -60,13 +60,12 @@ Confidential VMs boot only after successful attestation of the platform's critic
 
 - A signed attestation report issued by AMD SEV-SNP
 - Platform boot settings
+- Platform firmware measurements
 - OS measurements
 
-[Azure Attestation](/services/azure-attestation/) does the attestation according to a policy, which will later be customizable. This will let you definecompliance parameters for starting up and trusting your VM. For example, you will be able to set whether to require Secure Boot.
+[Azure Attestation](/services/azure-attestation/) does the attestation according to a policy, which will later be customizable. This will let you define compliance parameters for starting up and trusting your VM. For example, you will be able to set whether to require Secure Boot.
 
-Trusted launch offers virtual TPM (vTPM) for Azure VMs. The vTPM is a virtualized version of a hardware TPM, and complies with the TPM2.0 spec. You can use a vTPM as a dedicated, secure vault for keys and measurements. Trusted launch provides your VM with its own dedicated TPM instance, which runs in a secure environment outside the reach of any VM. The [vTPM enables attestation](https://docs.microsoft.com/en-us/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) by measuring the entire boot chain of your VM, including the UEFI, OS, system, and drivers. 
-
-Trusted launch does remote attestation in the cloud using the vTPM. Platform health checks and trust-based decisions use the vTPM. Trusted launch can cryptographically certify that your VM booted correctly as a health check. Azure Security Center issues integrity alerts if the process fails. The alerts include details on which components failed to pass integrity checks. For example, your VM running an unauthorized component can cause a failure. 
+Confidential VMs feature a virtual TPM (vTPM) for Azure VMs. The vTPM is a virtualized version of a hardware TPM, and complies with the TPM2.0 spec. You can use a vTPM as a dedicated, secure vault for keys and measurements. Confidential VMs have their own dedicated vTPM instance, which runs in a secure environment outside the reach of any VM. The [vTPM enables attestation](https://docs.microsoft.com/en-us/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) by measuring the entire boot chain of your VM, including the UEFI, OS, system, and drivers. 
 
 ## Limitations
 
