@@ -38,7 +38,7 @@ az arcappliance logs <provider> --out-dir <path to specified output directory> -
 
 ## Az Arcappliance prepare fails when deploying to VMware
 
-The **arcappliance** extension for Azure CLI enables a prepare command, which enables you to download an OVA template to your vSphere environment. This OVA file is used to deploy the Azure Arc resource bridge. The prepare command leverages the vSphere SDK and can result in the following error:
+The **arcappliance** extension for Azure CLI enables a prepare command, which enables you to download an OVA template to your vSphere environment. This OVA file is used to deploy the Azure Arc resource bridge. The `az arcappliance prepare` command uses the vSphere SDK and can result in the following error:
 
 ```azurecli
 $ az arcappliance prepare vmware --config-file <path to config> 
@@ -71,7 +71,7 @@ After completing these steps, in a new PowerShell console you can get started us
 
 Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if not reserved. Rebooting the Azure Arc resource bridge (preview) or VM can trigger an IP address change, resulting in failing services.
 
-Intermittently, the resource bridge (preview) can lose the reserved IP configuration. This is due to the behavior described in [loss of VIP's when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address is not assigned to the Azure Arc resource bridge (preview) VM, any call to the resource bridge API server will fail. As a result you are unable to create any new resource through the resource bridge (preview), ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
+Intermittently, the resource bridge (preview) can lose the reserved IP configuration. This is due to the behavior described in [loss of VIPs when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address is not assigned to the Azure Arc resource bridge (preview) VM, any call to the resource bridge API server will fail. As a result you are unable to create any new resource through the resource bridge (preview), ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
 
 ### Resolution
 
@@ -89,7 +89,7 @@ Delete the appliance, update the appliance YAML file, then redeploy and create t
 
 ## Token refresh error
 
-When you run the Azure CLI commands the following error may be returned, *The refresh token has expired or is invalid due to sign-in frequency checks by conditional access.* This happens because when you sign into Azure, the token has a maximum lifetime. When that lifetime is exceeded, you need to sign in to Azure again for security.
+When you run the Azure CLI commands the following error may be returned, *The refresh token has expired or is invalid due to sign-in frequency checks by conditional access.* The error occurs because when you sign into Azure, the token has a maximum lifetime. When that lifetime is exceeded, you need to sign in to Azure again.
 
 ### Resolution
 
