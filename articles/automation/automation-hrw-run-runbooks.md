@@ -226,7 +226,7 @@ To finish preparing the Run As account:
 1. Examine the job stream to see that it reports the attempt to import the certificate into the local machine store, followed by multiple lines. This behavior depends on how many Automation accounts you define in your subscription and the degree of success of the authentication.
 
 >[!NOTE]
->  In case of unrestricted access, a user with VM Contributor rights or having permissions to run commands against the hybrid worker machine can use the Automation Account **Run As** certificate from the hybrid worker machine, using other sources like Azure cmdlets which could potentially allow a malicious user access as a subscription contributor. This could jeopardize the security of your Azure environment. </br> </br>
+>  In case of unrestricted access, a user with VM Contributor rights or having permissions to run commands against the hybrid worker machine can use the Automation Account Run As certificate from the hybrid worker machine, using other sources like Azure cmdlets which could potentially allow a malicious user access as a subscription contributor. This could jeopardize the security of your Azure environment. </br> </br>
 >  We recommend that you divide the tasks within the team and grant the required permissions/access to users as per their job. Do not provide unrestricted permissions to the machine hosting the hybrid runbook worker role.
 
 
