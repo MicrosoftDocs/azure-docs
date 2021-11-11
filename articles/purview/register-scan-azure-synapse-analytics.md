@@ -45,16 +45,16 @@ This section describes how to register dedicated SQL pools in Azure Purview usin
 
 There are three ways to set up authentication:
 
-- [System or User-assigned Managed Identity](#managed-identity-to-register) (Recommended)
+- [System or User-assigned managed identity](#system-or-user-assgined-managed-identity-to-register) (Recommended)
 - [Service Principal](#service-principal-to-register)
 - [SQL authentication](#sql-authentication-to-register)
 
     > [!Note]
     > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about 15 minutes after granting permission, the Purview account should have the appropriate permissions to be able to scan the resource(s).
 
-#### Managed Identity to register
+#### System or user-assigned managed identity to register
 
-You can use either your Azure Purview managed identity, or a [User-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) to authenticate. Both options allow you to assign authentication directly to Azure Purview, like you would for any other user, group, or service principal. The Azure Purview Managed identity is created automatically when the account is created. A user-assigned managed identity is a resource that can be created independently, and to create one you can follow our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity). Create an Azure AD user in the dedicated SQL pool using your managed identity object name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
+You can use either your Azure Purview managed identity, or a [User-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) to authenticate. Both options allow you to assign authentication directly to Azure Purview, like you would for any other user, group, or service principal. The Azure Purview managed identity is created automatically when the account is created. A user-assigned managed identity is a resource that can be created independently, and to create one you can follow our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity). Create an Azure AD user in the dedicated SQL pool using your managed identity object name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
 
 Example SQL syntax to create user and grant permission:
 
