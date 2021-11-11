@@ -29,6 +29,9 @@
   items:
   - name: Microsoft Defender for IoT trial setup
     href: tutorial-onboarding.md
+  - name: Get started with Enterprise IoT
+    displayNAme: EIoT, Enterprise, IoT
+    href: tutorial-get-started-eiot.md
   - name: Integrate ClearPass
     href: tutorial-clearpass.md
   - name: Integrate CyberArk

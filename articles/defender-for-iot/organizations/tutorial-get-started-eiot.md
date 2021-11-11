@@ -1,16 +1,16 @@
 ---
-title: Get started with EIoT
-description: 
+title: Get started with Enterprise IoT
+description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with an EIoT deployment
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 11/08/2021
+ms.date: 11/11/2021
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Get started with EIoT
+# Tutorial: Get started with Enterprise IoT
 
-This tutorial will help you learn how to get started with your EIoT deployment.
+This tutorial will help you learn how to get started with your Enterprise IoT (EIoT) deployment.
 
 Defender for IoT has extended the agentless capabilities to go beyond operational environments, and advance into the realm of enterprise environments. Coverage is now available to the entire breadth of IoT devices in your environment, including everything from corporate printers, cameras, to purpose-built devices, proprietary, and unique devices.
 
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up a server or Virtual Machine (VM)
 > * Prepare your environment
-> * Setup an EIoT sensor
+> * Setup an Enterprise IoT sensor
 > * Install the sensor
 > * Run the Enterprise IoT sensor installation
 > * Validate your setup
@@ -49,7 +49,7 @@ The following table describes user access permissions to Azure Defender for IoT 
 
 ## Set up a server or Virtual Machine (VM)
 
-Before you are able to deploy your EIoT sensor, you will need to configure your server, or VM, and connect a Network Interface Cared (NIC) to a switch monitoring (SPAN) port.
+Before you are able to deploy your Enterprise IoT sensor, you will need to configure your server, or VM, and connect a Network Interface Cared (NIC) to a switch monitoring (SPAN) port.
 
 **To set up a server, or VM**:
 
@@ -112,11 +112,11 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 > [!Note]
 > The Azure public IP range are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
-## Setup an EIoT sensor
+## Setup an Enterprise IoT sensor
 
-A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will leverage the EIoT network and endpoint sensors to gain comprehensive visibility.
+A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will leverage the Enterprise IoT network and endpoint sensors to gain comprehensive visibility.
 
-**To setup an EIoT sensor**:
+**To setup an Enterprise IoT sensor**:
 
 1. Navigate to the the [Azure portal](https://portal.azure.com#home).
 
@@ -134,7 +134,7 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
     :::image type="content" source="media/tutorial-get-started-eiot/onboard-subscription.png" alt-text="Screenshot of the onboard subscription button.":::
 
-    To learn more about onboarding a subscription, see [Onboard a subscription](organizations/how-to-manage-subscriptions.md#onboard-a-subscription).
+    To learn more about onboarding a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
 
 1. Enter a site name.
 

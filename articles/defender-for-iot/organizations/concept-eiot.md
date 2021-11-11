@@ -1,14 +1,14 @@
 ---
-title: Microsoft Defender for IoT EIoT architecture
+title: Microsoft Defender for IoT Enterprise IoT architecture
 description: 
 author: Elazark
 ms.author: V-ekrieg
 ms.service: defender-for-iot
 ms.topic: article
-ms.date: 11/02/2021
+ms.date: 11/11/2021
 ---
 
-# Deploy EIoT
+# Deploy Enterprise IoT (EIoT)
 
 ## Unified IoT Security - Solution Architecture
 
@@ -20,7 +20,7 @@ We are now extending agentless capabilities to go beyond operational environment
 
 The expansion into the enterprise network, creates a unique opportunity to leverage Microsoft 365 Defender’s asset discovery capabilities.  
 
-The Private Preview of the new Defender for EIoT solution (covering Enterprise, OT, and M365D) includes:  
+The Private Preview of the new Defender for Enterprise IoT solution (covering Enterprise, OT, and M365D) includes:  
 
 ### Automatic 3T discovery for IT, IoT, and OT
 
@@ -40,4 +40,4 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
 
 ## Next steps
 
-Learn how to Get started with EIoT
+Learn how to Get started with Enterprise IoT
