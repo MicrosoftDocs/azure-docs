@@ -1,15 +1,15 @@
 ---
 title: Create, view, and manage log alert rules Using Azure Monitor | Microsoft Docs
 description: Use Azure Monitor to create, view, and manage log alert rules
-author: yanivlavi
-ms.author: AbbyMSFT
+author: AbbyMSFT
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 11/09/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Create, view, and manage log alerts using Azure Monitor
 
-## Overview
+## ==Overview==
 
 Log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
 This article shows you how to create and manage log alerts using Azure Monitor. Alert rules are defined by three components:
@@ -20,7 +20,12 @@ You can also create log alert rules using Azure Resource Manager templates, whic
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../logs/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](./alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](./alerts-metric-logs.md).
 
-## Create a Log alert rule using the wizard in the Azure portal
+## Create a Log alert rule in the Azure portal
+> [!NOTE]
+> This article describes creating alert rules using the new alert rule wizard. Please note these changes in the new alert rule experience:
+> - Search results are not included with the triggered alert and its associated notifications. The alert contains a link to the search results in Logs.
+> - The new alert rule wizard does not include the option to customize the triggered alert's email or to include a custom JSON payload.
+> - The new alert rule wizard doe not currently support a frequency of 1 minute. 1 minute alert frequency will be supported soon.
 
 1. In the [portal](https://portal.azure.com/), select the resource you would like to alert on.
 1. In the Resource menu, under **Monitoring**, select **Alerts**.

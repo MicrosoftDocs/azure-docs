@@ -1,7 +1,7 @@
 ---
 title: View and manage log alert rules created in previous versions| Microsoft Docs
 description: Use the Azure Monitor portal to manage log alert rules created in earlier versions
-ms.author: AbbyMSFT
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 11/08/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Manage alert rules created in previous versions
 
 > [!NOTE]
-> This article describes the process of managing alert rules created in the previous UI or using API version `2018-04-16` or earlier. Alert rules created in the latest UI are viewed and managed in the new UI, as described in [**alert logs**](./alerts/alerts-log.md).
+> This article describes the process of managing alert rules created in the previous UI or using API version `2018-04-16` or earlier. Alert rules created in the latest UI are viewed and managed in the new UI, as described in [Create, view, and manage log alerts using Azure Monitor](alerts-log.md).
 
 1. In the [portal](https://portal.azure.com/), select the relevant resource.
 1. Under **Monitoring**, select **Alerts**.
@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 1. Select the alert rule that you want to edit.
 1. In the **Condition** section, select the condition.
 1. The **Configure signal logic** pane opens, with historical data for the query appearing as a graph. You can change the time period of the chart to display data from the last six hours to last week.
-    If your query results contain summarized data or [project](/azure/kusto/query/projectoperator) specific columns without time column, the chart shows a single value.
+    If your query results contain summarized data or  specific columns without time column, the chart shows a single value.
    
     :::image type="content" source="media/alerts-log/alerts-edit-alerts-rule.png" alt-text="Edit alerts rule.":::
 
@@ -27,7 +27,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
     - **Search Query**. In this section, you can modify your query.
     - **Alert logic**. Log Alerts can be based on two types of [**Measures**](./alerts-unified-log.md#measure):
         1. **Number of results** - Count of records returned by the query.
-        1. **Metric measurement** - *Aggregate value* calculated using summarize grouped by expressions chosen and [bin()](/azure/kusto/query/binfunction) selection. For example:
+        1. **Metric measurement** - *Aggregate value* calculated using summarize grouped by expressions chosen and [bin()](../azure/kusto/query/binfunction) selection. For example:
             ```Kusto
             // Reported errors
             union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
@@ -37,7 +37,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
             ```
         For metric measurements alert logic, you can specify how to [split the alerts by dimensions](./alerts-unified-log.md#split-by-alert-dimensions) using the **Aggregate on** option. The row grouping expression must be unique and sorted.
         > [!NOTE]
-        > As [bin()](/azure/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert the [bin()](/azure/kusto/query/binfunction) function to a [bin_at()](/azure/kusto/query/binatfunction) function with appropriate time at runtime, to ensure results with a fixed point.
+        > As [bin()](/azure/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert the [bin()](../azure/kusto/query/binfunction) function to a [bin_at()](/azure/kusto/query/binatfunction) function with appropriate time at runtime, to ensure results with a fixed point.
         > [!NOTE]
         > Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-08-01` and above.
 
