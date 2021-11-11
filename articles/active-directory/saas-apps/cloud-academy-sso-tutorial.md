@@ -120,7 +120,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 1. In a different browser window, sign in to your Cloud Academy - SSO company site as administrator.
 
-1. In the home page, click the **Azure Integration Team** icon and then select **Settings** in the left menu.
+1. On the home page, click the **Azure Integration Team** icon and then select **Settings** in the left menu.
 
 1. On the **INTEGRATIONS** tab, select the **SSO** card.
 
