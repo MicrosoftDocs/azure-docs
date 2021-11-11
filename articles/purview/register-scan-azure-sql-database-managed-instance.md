@@ -44,28 +44,28 @@ This section describes how to register an Azure SQL Database Managed Instance in
 
 If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](../azure-sql/database/logins-create-manage.md). There are three authentication methods that Purview supports today:
 
-- [System or User-assigned managed identity](#system-or-user-assigned-managed-identity-to-register)
+- [System or user assigned managed identity](#system-or-user-assigned-managed-identity-to-register)
 - [Service Principal](#service-principal-to-register)
 - [SQL authentication](#sql-authentication-to-register)
 
-#### System or user-assigned managed identity to register
+#### System or user- ssigned managed identity to register
 
-You can use either your Purview system managed identity, or a [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) to authenticate. Both options allow you to assign authentication directly to Purview, like you would for any other user, group, or service principal. The Purview system managed identity is created automatically when the account is created. A user-assigned managed identity is a resource that can be created independently, and to create one you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+You can use either your Purview system-assigned managed identity (SAMI), or a [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) (UAMI) to authenticate. Both options allow you to assign authentication directly to Purview, like you would for any other user, group, or service principal. The Purview system-assigned managed identity is created automatically when the account is created and has the same name as your Azure Purview account. A user-assigned managed identity is a resource that can be created independently, and to create one you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 You can find your managed identity Object ID in the Azure portal by following these steps:
 
-For Purview account’s managed identity: 
+For Purview account’s system-assigned managed identity: 
 1. Open the Azure portal, and navigate to your Purview account.
 1. Select the **Properties** tab on the left side menu.
 1. Select the **Managed identity object ID** value and copy it.
 
-For User-assigned managed identity (preview): 
+For user-assigned managed identity (preview): 
 1. Open the Azure portal, and navigate to your Purview account. 
 1. Select the Managed identities tab on the left side menu 
 1. Select the user assigned managed identities, select the intended identity to view the details. 
 1. The object (principal) ID is displayed in the overview essential section.
 
-The managed identity will need permission to get metadata for the database, schemas and tables, and to query the tables for classification.
+Either managed identity will need permission to get metadata for the database, schemas and tables, and to query the tables for classification.
 - Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_datareader` permission to the identity.
 
