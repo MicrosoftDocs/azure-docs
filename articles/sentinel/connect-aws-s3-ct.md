@@ -1,5 +1,5 @@
 ---
-title: Connect Microsoft Sentinel to S3 Buckets to get Amazon Web Services (AWS) data
+title: Connect Microsoft Sentinel to Amazon Web Services (AWS) to ingest service log data
 description: Use the AWS connector to delegate Microsoft Sentinel access to AWS resource logs, creating a trust relationship between Amazon Web Services and Microsoft Sentinel.
 services: sentinel
 documentationcenter: na
@@ -19,13 +19,17 @@ ms.author: yelevin
 
 # Connect Microsoft Sentinel to S3 Buckets to get Amazon Web Services (AWS) data
 
-Use the Amazon Web Services (AWS) S3 connector to pull AWS service logs into Microsoft Sentinel. This connector works by granting Microsoft Sentinel access to your AWS resource logs. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. This is accomplished on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The AWS services and data types that are currently supported by this connector are:
+Use the Amazon Web Services (AWS) connectors to pull AWS service logs into Microsoft Sentinel. These connectors work by granting Microsoft Sentinel access to your AWS resource logs. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. This is accomplished on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
+
+This connector is available in two versions: the legacy connector for CloudTrail management and data logs, and the new version that can ingest logs from the following AWS services by pulling them from an S3 bucket:
 
 - [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) - [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
 - [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html) - [Findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html)
 - [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) - [Management](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [data](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) events
+
+# [S3 connector (new)](#tab/s3)
 
 This document explains how to configure the new AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side.
 
@@ -248,6 +252,68 @@ The following permissions policies must be applied to the [Microsoft Sentinel ro
 1. **Verify that messages are being read from the SQS queue.**
 
    Check the "Number of Messages Received" ***(NOT "SENT"?)*** and "Number of Messages Deleted" widgets in the queue dashboard. If there are no notifications under messages deleted," then check health messages. It's possible that some permissions are missing.
+
+# [CloudTrail connector (legacy)](#tab/ct)
+
+> [!NOTE]
+> AWS CloudTrail has [built-in limitations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in its LookupEvents API. It allows no more than two transactions per second (TPS) per account, and each query can return a maximum of 50 records. Consequently, if a single tenant constantly generates more than 100 records per second in one region, backlogs and delays in data ingestion will result.
+> Currently, you can only connect your AWS Commercial CloudTrail to Microsoft Sentinel and not AWS GovCloud CloudTrail.
+
+## Prerequisites
+
+You must have write permission on the Microsoft Sentinel workspace.
+
+> [!NOTE]
+> Microsoft Sentinel collects CloudTrail management events from all regions. It is recommended that you do not stream events from one region to another.
+
+## Connect AWS 
+
+1. In Microsoft Sentinel, select **Data connectors** and then select the **Amazon Web Services** line in the table and in the AWS pane to the right,  select **Open connector page**.
+
+1. Follow the instructions under **Configuration** using the following steps.
+ 
+1.  In your Amazon Web Services console, under **Security, Identity & Compliance**, select **IAM**.
+
+    ![AWS1](./media/connect-aws/aws-1.png)
+
+1.  Choose **Roles** and select **Create role**.
+
+    ![AWS2](./media/connect-aws/aws-2.png)
+
+1.  Choose **Another AWS account.** In the **Account ID** field, enter the **Microsoft Account ID** (**123412341234**) that can be found in the AWS connector page in the Microsoft Sentinel portal.
+
+    ![AWS3](./media/connect-aws/aws-3.png)
+
+1.  Make sure **Require External ID** is selected and then and enter the External ID (Workspace ID) that can be found in the AWS connector page in the Microsoft Sentinel portal.
+
+    ![AWS4](./media/connect-aws/aws-4.png)
+
+1.  Under **Attach permissions policy** select **AWSCloudTrailReadOnlyAccess**.
+
+    ![AWS5](./media/connect-aws/aws-5.png)
+
+1.  Enter a Tag (Optional).
+
+    ![AWS6](./media/connect-aws/aws-6.png)
+
+1.  Then, enter a **Role name** and select the **Create role** button.
+
+    ![AWS7](./media/connect-aws/aws-7.png)
+
+1.  In the Roles list, choose the role you created.
+
+    ![AWS8](./media/connect-aws/aws-8.png)
+
+1.  Copy the **Role ARN**. In the Microsoft Sentinel portal, in the Amazon Web Services connector screen, paste it into the **Role to add** field and select **Add**.
+
+    ![AWS9](./media/connect-aws/aws-9.png)
+
+1. To use the relevant schema in Log Analytics for AWS events, search for **AWSCloudTrail**.
+
+    > [!IMPORTANT]
+    > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
+
+---
 
 ## Next steps
 
