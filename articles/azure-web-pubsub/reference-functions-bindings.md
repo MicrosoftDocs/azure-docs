@@ -83,12 +83,12 @@ public static void Run(
     [WebPubSubTrigger("<hub>", "message", EventType.User)]
     UserEventRequest request,
     WebPubSubConnectionContext context,
-    string message,
-    MessageDataType dataType)
+    string data,
+    WebPubSubDataType dataType)
 {
     Console.WriteLine($"Request from: {context.userId}");
-    Console.WriteLine($"Request message: {message}");
-    Console.WriteLine($"Request message DataType: {dataType}");
+    Console.WriteLine($"Request message data: {data}");
+    Console.WriteLine($"Request message dataType: {dataType}");
 }
 ```
 
@@ -100,13 +100,13 @@ public static MessageResponse Run(
     [WebPubSubTrigger("<hub>", "message", EventType.User)]
     UserEventRequest request,
     ConnectionContext context,
-    string message,
-    MessageDataType dataType)
+    string data,
+    WebPubSubDataType dataType)
 {
     return new UserEventResponse
     {
-        Message = BinaryData.FromString("ack"),
-        DataType = MessageDataType.Text
+        Data = BinaryData.FromString("ack"),
+        DataType = WebPubSubDataType.Text
     };
 }
 ```
@@ -122,7 +122,7 @@ Define trigger binding in `function.json`.
     {
       "type": "webPubSubTrigger",
       "direction": "in",
-      "name": "message",
+      "name": "data",
       "hub": "<hub>",
       "eventName": "message",
       "eventType": "user"
@@ -134,19 +134,19 @@ Define trigger binding in `function.json`.
 Define function in `index.js`.
 
 ```js
-module.exports = function (context, message) {
+module.exports = function (context, data) {
   console.log('Request from: ', context.bindingData.request.connectionContext.userId);
-  console.log('Request message: ', message);
+  console.log('Request message data: ', data);
   console.log('Request message dataType: ', context.bindingData.request.dataType);
 }
 ```
 
-`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event `Message`, when server can check and deny the client request, or send message to the request client directly. In JavaScript type-less language, it will be deserialized regarding the object keys. And `EventErrorResponse` will have the highest priority compare to rest objects, that if `code` is in the return, then it will be parsed to `EventErrorResponse` and client connection will be dropped.
+`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event, when server can check and deny the client request, or send message to the request client directly. In JavaScript type-less language, it will be deserialized regarding the object keys. And `EventErrorResponse` will have the highest priority compare to rest objects, that if `code` is in the return, then it will be parsed to `EventErrorResponse` and client connection will be dropped.
 
 ```js
 module.exports = async function (context) {
   return { 
-    "message": "ack",
+    "data": "ack",
     "dataType" : "text"
   };
 }
@@ -190,18 +190,18 @@ The following table explains the binding configuration properties that you set i
 
 In C#, `WebPubSubEventRequest` is type recognized binding parameter, rest parameters are bound by parameter name. Check table below of available parameters and types.
 
-In type-less language like JavaScript, `name` in `function.json` will be used to bind the trigger object regarding below mapping table. And will respect `dataType` in `function.json` to convert message accordingly when `name` is set to `message` as the binding object for trigger input. All the parameters can be read from `context.bindingData.<BindingName>` and will be `JObject` converted. 
+In type-less language like JavaScript, `name` in `function.json` will be used to bind the trigger object regarding below mapping table. And will respect `dataType` in `function.json` to convert message accordingly when `name` is set to `data` as the binding object for trigger input. All the parameters can be read from `context.bindingData.<BindingName>` and will be `JObject` converted. 
 
 | Binding Name | Binding Type | Description | Properties |
 |---------|---------|---------|---------|
 |request|`WebPubSubEventRequest`|Describes the upstream request|Property differs by different event types, including derived classes `ConnectEventRequest`, `ConnectedEventRequest`, `UserEventRequest` and `DisconnectedEventRequest` |
 |connectionContext|`WebPubSubConnectionContext`|Common request information| EventType, EventName, Hub, ConnectionId, UserId, Headers, Origin, Signature, States |
-|message|`BinaryData`,`string`,`Stream`,`byte[]`| Request message from client in user `message` event | -|
-|dataType|`MessageDataType`| Request message dataType, supports `binary`, `text`, `json` | -|
+|data|`BinaryData`,`string`,`Stream`,`byte[]`| Request message data from client in user `message` event | -|
+|dataType|`WebPubSubDataType`| Request message dataType, supports `binary`, `text`, `json` | -|
 |claims|`IDictionary<string, string[]>`|User Claims in system `connect` request | -|
 |query|`IDictionary<string, string[]>`|User query in system `connect` request | -|
-|subprotocols|`string[]`|Available subprotocols in system `connect` request | -|
-|clientCertificates|`ClientCertificate[]`|A list of certificate thumbprint from clients in system `connect` request|-|
+|subprotocols|`IList<string>`|Available subprotocols in system `connect` request | -|
+|clientCertificates|`IList<ClientCertificate>`|A list of certificate thumbprint from clients in system `connect` request|-|
 |reason|`string`|Reason in system `disconnected` request|-|
 
 ### Return response
@@ -211,7 +211,7 @@ In type-less language like JavaScript, `name` in `function.json` will be used to
 | Return Type | Description | Properties |
 |---------|---------|---------|
 |`ConnectEventResponse`| Response for `connect` event | Groups, Roles, UserId, Subprotocol |
-|`UserEventResponse`| Response for user event | DataType, Message |
+|`UserEventResponse`| Response for user event | DataType, Data |
 |`EventErrorResponse`| Error response for the sync event | Code, ErrorMessage |
 |`WebPubSubEventResponse`| Base response type of the supported ones used for uncertain return cases | - |
 
@@ -409,8 +409,8 @@ The following table explains the binding configuration properties that you set i
 
 Binding Name | Binding Type | Description
 ---------|---------|---------
-BaseUrl | string | Web PubSub client connection url.
-Url | string | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request.
+BaseUri | string | Web PubSub client connection uri.
+Uri | string | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request.
 AccessToken | string | Generated `AccessToken` based on request UserId and service information.
 
 #### WebPubSubContext
@@ -432,7 +432,7 @@ Derived Class | Description | Properties
 `PreflightRequest` | Used in `AbuseProtection` when `IsPreflight` is **true** | -
 `ConnectEventRequest` | Used in system `Connect` event type | Claims, Query, Subprotocols, ClientCertificates
 `ConnectedEventRequest` | Use in system `Connected` event type | -
-`MessageEventRequest` | Use in user event type | Message, DataType
+`UserEventRequest` | Use in user event type | Data, DataType
 `DisconnectedEventRequest` | Use in system `Disconnected` event type | Reason
 
 > [!NOTE]
@@ -470,13 +470,9 @@ For information on setup and configuration details, see the overview.
 [FunctionName("WebPubSubOutputBinding")]
 public static async Task RunAsync(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req,
-    [WebPubSub(Hub = "<hub>")] IAsyncCollector<WebPubSubOperation> operations)
+    [WebPubSub(Hub = "<hub>")] IAsyncCollector<WebPubSubAction> actions)
 {
-    await operations.AddAsync(new SendToAll
-    {
-        Message = BinaryData.FromString("Hello Web PubSub"),
-        DataType = MessageDataType.Text
-    });
+    await actions.AddAsync(WebPubSubAction.CreateSendToAllAction("Hello Web PubSub!", WebPubSubDataType.Text));
 }
 ```
 
@@ -490,7 +486,7 @@ Define bindings in `functions.json`.
   "bindings": [
     {
       "type": "webPubSub",
-      "name": "operations",
+      "name": "actions",
       "hub": "<hub>",
       "direction": "out"
     }
@@ -502,9 +498,9 @@ Define function in `index.js`.
 
 ```js
 module.exports = async function (context) {
-  context.bindings.operations = {
-    "operationKind": "sendToAll",
-    "message": "hello",
+  context.bindings.actions = {
+    "actionName": "sendToAll",
+    "data": "hello",
     "dataType": "text"
   };
   context.done();
@@ -513,19 +509,19 @@ module.exports = async function (context) {
 
 ---
 
-### WebPubSubOperation 
+### WebPubSubAction 
 
-`WebPubSubOperation` is the base abstract type of output bindings. The derived types represent the operation server want services to invoke. In type-less language like `javascript`, `OperationKind` is the key parameter to resolve the type. And under strong type language like `csharp`, user could create the target operation type directly.
+`WebPubSubAction` is the base abstract type of output bindings. The derived types represent the operation server want service to invoke. In type-less language like `javascript`, `actionName` is the key parameter to resolve the type. In C# language, we provided a few static methods under `WebPubSubAction` to help discover available actions. For example, user can create the `SendToAllAction` by call `WebPubSubAction.CreateSendToAllAction()`.
 
 > [!IMPORTANT]
-> The message property in the send message related operations must be `string` when in type-less language like `javascript` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need.
+> The message data property in the send message related operations must be `string` when in type-less language like `javascript` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need. This is applied to any place using message property, like `UserEventResponse.Data` working with `WebPubSubTrigger`.
 
 Derived Class|Properties
 --|--
-`SendToAll`|Message, DataType, Excluded
-`SendToGroup`|Group, Message, DataType, Excluded
-`SendToUser`|UserId, Message, DataType
-`SendToConnection`|ConnectionId, Message, DataType
+`SendToAll`|Data, DataType, Excluded
+`SendToGroup`|Group, Data, DataType, Excluded
+`SendToUser`|UserId, Data, DataType
+`SendToConnection`|ConnectionId, Data, DataType
 `AddUserToGroup`|UserId, Group
 `RemoveUserFromGroup`|UserId, Group
 `RemoveUserFromAllGroups`|UserId

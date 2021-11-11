@@ -69,7 +69,7 @@ In this tutorial, you learn how to:
 2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
 
     > [!NOTE]
-    > Azure Web PubSub Function bundle support is rolling out in a new release progress, and probably with a few days delay. When this is ready, no need to [Explicitly install extensions] anymore. But suggest to add it if extension bundle is not including Web PubSub at this moment. See steps below.
+    > Azure Web PubSub Function bundle support is rolling out in a new release progress, and probably with a few days delay. When this is ready, no need to [Explicitly install extensions] anymore. Suggest to add it explicitly at this moment. See steps below.
 
    a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
     ```json
@@ -228,14 +228,14 @@ In this tutorial, you learn how to:
                 {
                     "type": "webPubSubTrigger",
                     "direction": "in",
-                    "name": "message",
+                    "name": "data",
                     "hub": "simplechat",
                     "eventName": "message",
                     "eventType": "user"
                 },
                 {
                     "type": "webPubSub",
-                    "name": "webPubSubOperation",
+                    "name": "actions",
                     "hub": "simplechat",
                     "direction": "out"
                 }
@@ -244,15 +244,15 @@ In this tutorial, you learn how to:
         ```
    - Update `message/index.js` and copy following codes.
         ```js
-        module.exports = async function (context, message) {
-            context.bindings.webPubSubOperation = {
-                "operationKind": "sendToAll",
-                "message": `[${context.bindingData.request.connectionContext.userId}] ${message}`,
+        module.exports = async function (context, data) {
+            context.bindings.actions = {
+                "actionName": "sendToAll",
+                "data": `[${context.bindingData.request.connectionContext.userId}] ${data}`,
                 "dataType": context.bindingData.dataType
             };
-            // MessageResponse directly return to caller
+            // UserEventResponse directly return to caller
             var response = { 
-                "message": '[SYSTEM] ack.',
+                "data": '[SYSTEM] ack.',
                 "dataType" : "text"
             };
             return response;
@@ -265,19 +265,18 @@ In this tutorial, you learn how to:
         [FunctionName("message")]
         public static async Task<UserEventResponse> Run(
             [WebPubSubTrigger(WebPubSubEventType.User, "message")] UserEventRequest request,
-            BinaryData message,
-            MessageDataType dataType,
-            [WebPubSub(Hub = "simplechat")] IAsyncCollector<WebPubSubOperation> operations)
+            BinaryData data,
+            WebPubSubDataType dataType,
+            [WebPubSub(Hub = "simplechat")] IAsyncCollector<WebPubSubAction> actions)
         {
-            await operations.AddAsync(new SendToAll
-            {
-                Message = BinaryData.FromString($"[{request.ConnectionContext.UserId}] {message.ToString()}"),
-                DataType = dataType
-            });
+            await actions.AddAsync(WebPubSubAction.CreateSendToAllAction(
+                BinaryData.FromString($"[{request.ConnectionContext.UserId}] {message.ToString()}"),
+                dataType
+            );
             return new UserEventResponse
             {
-                Message = BinaryData.FromString("[SYSTEM] ack"),
-                DataType = MessageDataType.Text
+                Data = BinaryData.FromString("[SYSTEM] ack"),
+                DataType = WebPubSubDataType.Text
             };
         }
         ```
@@ -396,7 +395,7 @@ Use the following commands to create these items.
 
 ## Configure the Web PubSub service `Event Handler`
 
-In this sample, we're using `WebPubSubTrigger` to listen to service upstream message requests. So Web PubSub need to know the function's endpoint information in order to send target client requests. And Azure Function App requires a system key for security regarding extension-specific webhook methods. In the previous step after we deployed the Function App with `message` functions, we're able to get the system key.
+In this sample, we're using `WebPubSubTrigger` to listen to service upstream requests. So Web PubSub need to know the function's endpoint information in order to send target client requests. And Azure Function App requires a system key for security regarding extension-specific webhook methods. In the previous step after we deployed the Function App with `message` functions, we're able to get the system key.
 
 Go to **Azure portal** -> Find your Function App resource -> **App keys** -> **System keys** -> **`webpubsub_extension`**. Copy out the value as `<APP_KEY>`.
 
