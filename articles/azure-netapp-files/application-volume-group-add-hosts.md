@@ -48,7 +48,7 @@ Building a multiple-host SAP HANA database always starts with creating a volume 
 
     Click **Next: Volume Group**.
 
-    [ ![Screenshot that shows the SAP HANA section for adding hosts.](../media/azure-netapp-files/application-multiple-hosts-sap-hana.png) ](../media/azure-netapp-files/application-multiple-hosts-sap-hana.png#lightbox)
+    [ ![Screenshot that shows the HANA section for adding hosts.](../media/azure-netapp-files/application-multiple-hosts-sap-hana.png) ](../media/azure-netapp-files/application-multiple-hosts-sap-hana.png#lightbox)
 
 3. In the **Volume group** tab, provide identical input as you did when you created the first HANA host.  
 

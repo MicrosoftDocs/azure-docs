@@ -97,6 +97,14 @@ Application volume group requires the placeholder `{Hostid}` to be part of the n
 
 You can see the final names for each of the volumes after selecting **Review + Create**.
 
+## How long does it take to create a volume group?
+
+Creating a volume group involves many different steps, and not all of them can be done in parallel. Especially when you create the first volume group for a given location (PPG), it might take up to 9-12 minutes for completion. Subsequent volume groups will be created faster.
+
+## Why can’t I edit the volume group description?
+
+In the current implementation, the application volume group has a focus on the initial creation and deletion of a volume group only. 
+
 ## Next steps  
 
 * [Understand Azure NetApp Files application volume group for SAP HANA](application-volume-group-introduction.md)

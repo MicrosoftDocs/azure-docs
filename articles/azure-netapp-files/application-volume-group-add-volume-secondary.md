@@ -68,7 +68,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
     Click **Next: Volume Group** to continue.
 
-    [ ![Screenshot that shows the SAP HANA section in HSR configuration.](../media/azure-netapp-files/application-secondary-sap-hana.png) ](../media/azure-netapp-files/application-secondary-sap-hana.png#lightbox)
+    [ ![Screenshot that shows the HANA section in HSR configuration.](../media/azure-netapp-files/application-secondary-sap-hana.png) ](../media/azure-netapp-files/application-secondary-sap-hana.png#lightbox)
 
 3.	In the **Volume group** tab, provide information for creating the volume group:  
 

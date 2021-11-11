@@ -24,7 +24,7 @@ You can manage a volume from its volume group. You can resize, delete, or change
 
 1. From your NetApp account, select **Application volume groups**. Click a volume group to display the volumes in the group. Select the volume you want to resize, delete, or change throughput. The volume overview will be displayed. 
 
-    ![Screenshot that shows Application Volume Groups overview page.](../media/azure-netapp-files/application-volume-group-overview.png) 
+    [ ![Screenshot that shows Application Volume Groups overview page.](../media/azure-netapp-files/application-volume-group-overview.png) ] (../media/azure-netapp-files/application-volume-group-overview.png#lightbox)  
 
     1. To resize the volume, click **Resize** and specify the quota in GiB.
     
