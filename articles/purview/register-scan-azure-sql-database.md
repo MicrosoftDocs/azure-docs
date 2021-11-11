@@ -77,9 +77,9 @@ The following options are supported:
 
 * **SQL Authentication**
 
-* **System managed identity** - As soon as the Azure Purview account is created, a system **managed identity** is created automatically in Azure AD tenant that has the same name as your Azure Purview account. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+* **System-assigned managed identity** - As soon as the Azure Purview account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant, and has the same name as your Azure Purview account. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview SAMI to perform the scans.
 
-* **User-assigned managed identity** (preview) - Similar to a managed identity, a user-assigned managed identity is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. Depending on the type of resource, specific RBAC role assignments are required when using a UAMI credential to perform scans.
+* **User-assigned managed identity** (preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. Depending on the type of resource, specific RBAC role assignments are required when using a UAMI credential to perform scans.
 
 * **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
@@ -130,9 +130,9 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault-options.png" alt-text="Screenshot that shows the key vault option to create a secret":::
 
-#### Using a system or user-assigned managed identity for scanning
+#### Using a system or user assigned managed identity for scanning
 
-It is important to give your Purview account's system managed identiy or [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) the permission to scan the Azure SQL DB. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
+It is important to give your Purview account's system managed identiy or [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) the permission to scan the Azure SQL DB. You can add the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
 > [!Note] 
 > You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
@@ -222,9 +222,9 @@ A self-hosted integration runtime (SHIR) can be installed on a machine to connec
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sql-auth.png" alt-text="Screenshot that shows the SQL Authentication option for scanning":::
 
-#### If using a system or user-assgiend managed identity
+#### If using a system or user assigned managed identity
 
-1. Provide a **Name** for the scan, select the **Purview MSI** under **Credential**, choose the appropriate collection for the scan
+1. Provide a **Name** for the scan, select the SAMI or UAMI under **Credential**, choose the appropriate collection for the scan
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-managed-id.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
@@ -234,11 +234,11 @@ A self-hosted integration runtime (SHIR) can be installed on a machine to connec
 
 #### If using Service Principal
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select the **Credential** dropdown to select the credential created earlier
+1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select the **Credential** dropdown to select the credential created earlier.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp.png" alt-text="Screenshot that shows the option for service principal to enable scanning":::
 
-1. Select **Test connection**. On a successful connection, select **Continue**
+1. Select **Test connection**. On a successful connection, select **Continue**.
 
 ### Scoping and running the scan
 
