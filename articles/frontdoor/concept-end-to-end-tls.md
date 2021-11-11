@@ -61,7 +61,7 @@ To enable the HTTPS protocol for secure delivery of contents on an Azure Front D
 
 ### Certificate autorotation
 
-For the Azure Front Door managed certificate option, the certificates are managed and auto-rotates within 45 days of expiry time by Azure Front Door. If you're using an Azure Front Door managed certificate and see that the certificate expiry date is less than 30 days away, file a support ticket. 
+For the Azure Front Door managed certificate option, the certificates are managed and auto-rotates within 90 days of expiry time by Azure Front Door. For the Azure Front Door Standard/Premium managed certificate option, the certificates are managed and auto-rotates within 45 days of expiry time by Azure Front Door. If you're using an Azure Front Door managed certificate and see that the certificate expiry date is less than 60 days away or 30 days for the Standard/Premium SKU, file a support ticket. 
 
 For your own custom TLS/SSL certificate:
 
