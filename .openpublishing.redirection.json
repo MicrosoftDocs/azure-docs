@@ -47435,6 +47435,11 @@
     "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-agent-based.md",
+      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-agent-based-portal",
+      "redirect_document_id": false
     }
   ]
 }
