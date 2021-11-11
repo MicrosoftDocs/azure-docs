@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 11/11/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -40,14 +40,13 @@ You must:
 * Download the current release of the Azure Import/Export version 1 tool, for blobs, on the Windows system:
   1. [Download WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659). The current version is 1.5.0.300.
   1. Unzip to the default folder `WaImportExportV1`. For example, `C:\WaImportExportV1`.
-* Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
-  * The account must be valid, should have balance, and must have return shipping capabilities.
-  * Generate a tracking number for the export job.
-  * Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
-  * If you do not have a carrier account, go to:
-    * [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
-    * [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
-
+* [!INCLUDE [storage-import-export-shipping-prerequisites.md](../../includes/storage-import-export-shipping-prerequisites.md)]
+<!--* Create a carrier account, and generate a tracking number for the order:
+  * Have a carrier account with one of the carriers listed in the **Carriers** drop-down list for your order. All storage media will be shipped back by Microsoft using the same carrier.
+    * The carrier account must be valid, should have a balance, and must have return shipping capabilities.
+    * If you don't have a carrier account, contact the carrier of choice to create one.
+  * In the carrier account, generate a tracking number for the export job. Every job should have a separate tracking number. Multiple jobs with the same tracking number aren't supported.-->
+ 
 ## Step 1: Prepare the drives
 
 This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
@@ -150,18 +149,20 @@ Perform the following steps to create an import job in the Azure portal.
 
    Select **Next: Shipping >** to proceed.
 
-6. In **Shipping**:
+6. [!INCLUDE [storage-import-export-shipping-step.md](../../includes/storage-import-export-shipping-step.md)]
 
-   1. Select the carrier from the dropdown list.<!--If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown.--> Contact Azure Data Box Operations team at `adbops@microsoft.com` with the information regarding the carrier you plan to use.
-   1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. <!--If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](https://www.dhl.com/) carrier account. - Best to leave this out, with carriers proliferating?-->
-   1.  Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
+<!--1. In **Shipping**:
+
+   1. **Carrier name**: Select the carrier from the dropdown list. Microsoft will use the same carrier to ship back all storage media.
+   1. **Carrier account number**: Enter a valid account number for an acount that you've created with the carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. <!--If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](https://www.dhl.com/) carrier account. - Best to leave this out, with carriers proliferating?
+   1.  **Return address**: Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
 
        > [!TIP]
        > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
    ![Screenshot of the Shipping tab, with field entries, for an import order in Azure Import Export Jobs. The Review Plus Create button is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
-   Select **Review + create** to proceed.
+   Select **Review + create** to proceed.-->
 
 7. In the order summary:
 

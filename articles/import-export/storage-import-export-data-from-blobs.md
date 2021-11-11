@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 11/11/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -30,15 +30,20 @@ Before you create an export job to transfer data out of Azure Blob Storage, care
 You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
+
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
+
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). You can use the Azure Import/Export tool to determine how many disks to provide. For steps, see [Determine drives to use](storage-import-export-determine-drives-for-export.md#determine-how-many-drives-you-need).
-- Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
+
+- [!INCLUDE [storage-import-export-shipping-prerequisites.md](../../includes/storage-import-export-shipping-prerequisites.md)]
+
+<!-- Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
   - The account must be valid, should have balance, and must have return shipping capabilities.
   - Generate a tracking number for the export job.
   - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
   - If you do not have a carrier account, go to:
     - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
-    - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+    - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).-->
 
 ## Step 1: Create an export job
 
@@ -110,16 +115,18 @@ Perform the following steps to create an export job in the Azure portal.
 
    Select **Next: Shipping >** to proceed.
 
-6. In **Shipping**:
+6. [!INCLUDE [storage-import-export-shipping-step.md](../../includes/storage-import-export-shipping-step.md)]
 
-    - Select the carrier that you will use from the dropdown list. <!--If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown.--> Contact Azure Data Box Operations team at `adbops@microsoft.com` with the information regarding the carrier you plan to use.
+<!--6. In **Shipping**:
+
+    - Select the carrier that you will use from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com` with the information regarding the carrier you plan to use.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
     - Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
 
         > [!TIP]
         > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
-    Select **Review + create** to proceed.
+    Select **Review + create** to proceed.-->
 
 7. In **Review + create**:
 
