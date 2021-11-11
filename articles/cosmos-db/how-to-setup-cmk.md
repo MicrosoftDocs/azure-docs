@@ -416,7 +416,8 @@ The following conditions are necessary to successfully perform a point-in-time r
   - If you used a system-assigned managed identity on the source account, the same identity can't be assigned to the target account. You should enable a system-assigned or user-assigned managed identity on the destination account, set this identity as the destination account's default identity, and declare this identity in the Azure Key Vault access policy.
   - If you used a user-assigned managed identity on the source account, assign the same identity to the destination account and set this identity as the destination account's default identity.
 
-
+> [!IMPORTANT]
+> If you revoke the encryption key before deleting your account, your account's backup may miss the data written after the revocation has been made.
 
 ### How do I revoke an encryption key?
 
