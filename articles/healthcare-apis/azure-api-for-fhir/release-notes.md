@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/10/2021
+ms.date: 11/11/2021
 ms.author: cavoeg
 ---
 
@@ -77,17 +77,9 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ### **Bug fixes**
 
-|Resolved infinite loop in Conditional Delete| Description|
+|Infinite loop bug| Description|
 | :----------------------------------- | ------: |
 |Fixed an issue where [Conditional Delete](./././../azure-api-for-fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
-|Resolved malformed transaction body in a bundle POST  |Added a check that the URL is populated in transaction bundle requests [#2255](https://github.com/microsoft/fhir-server/pull/2255) |
- 
-|GitHub issues closed| Description|
-| :----------------------------------- | ------: |
-|Sorting excludes resources where sort value is missing | [#1404](https://github.com/microsoft/fhir-server/issues/1404) |
-|Sorting DocumentReference by date is no longer supported |[#1973](https://github.com/microsoft/fhir-server/issues/1973) |
-|No support for sorting resources by date |[#2252](https://github.com/microsoft/fhir-server/issues/2252) |
-
 
 ## Next steps
 
