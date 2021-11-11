@@ -44,9 +44,9 @@ helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --versio
 
 2. Verify that the Chaos Mesh pods are installed by running the following command:
 
-```azurecli-interactive
-kubectl get po -n chaos-testing
-```
+   ```azurecli-interactive
+   kubectl get po -n chaos-testing
+   ```
 
 You should see output similar to the following (a chaos-controller-manager and one or more chaos-daemons):
 
