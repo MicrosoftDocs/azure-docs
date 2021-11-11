@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 04/03/2018
+ms.date: 11/09/2021
 ms.author: memildin
 ---
 # Defender for Cloud readiness roadmap
@@ -38,7 +38,7 @@ Use the following resources to assist you during the planning and operations pro
 
 
 ### Onboarding computers to Defender for Cloud
-Defender for Cloud automatically detects any Azure subscriptions or workspaces not protected by Azure Defender. This includes Azure subscriptions using Defender for Cloud Free and workspaces that do not have the security solution enabled.
+Defender for Cloud automatically detects any Azure subscriptions or workspaces not protected by Microsoft Defender for Cloud. This includes Azure subscriptions using Defender for Cloud Free and workspaces that do not have the security solution enabled.
 
 Use the following resources to assist you during the onboarding processes.
 

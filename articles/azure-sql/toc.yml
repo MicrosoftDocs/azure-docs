@@ -69,7 +69,7 @@
         href: /security/benchmark/azure/baselines/sql-database-security-baseline?toc=/azure/azure-sql/toc.json
       - name: Always Encrypted
         href: database/always-encrypted-landing.yml
-      - name: Azure Defender for SQL
+      - name: Microsoft Defender for SQL
         href: database/azure-defender-for-sql.md
       - name: Advanced Threat Protection
         href: database/threat-detection-overview.md
