@@ -566,13 +566,13 @@
         - name: Azure SQL
           items:
             - name: Overview
-              href: functions-bindings-azuresql.md
+              href: functions-bindings-azure-sql.md
               displayName: Azure SQL
             - name: Input
-              href: functions-bindings-azuresql-input.md
+              href: functions-bindings-azure-sql-input.md
               displayName: Azure SQL
             - name: Output
-              href: functions-bindings-azuresql-output.md
+              href: functions-bindings-azure-sql-output.md
               displayName: Azure SQL
         - name: Dapr
           href: https://github.com/dapr/azure-functions-extension
