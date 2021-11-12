@@ -22,34 +22,34 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 ### Azure Healthcare APIs Feature Enhancements
 
 
-|Enhancements | Description |
-|:------------------- | -----------:|
+|Enhancements |Related information |
+|:------------------- | ---------------:|
 |Test Data Generator tool |We've updated the Healthcare APIs  GitHub samples repo to include a [Test Data Generator tool](https://github.com/microsoft/healthcare-apis-samples/blob/main/docs/HowToRunPerformanceTest.md) using Synthea data. This tool is an improvement to the open source [public test projects](https://github.com/ShadowPic/PublicTestProjects), based on Apache JMeter, that can be deployed to Azure AKS for performance tests. |
 
 ### FHIR service
 
 #### **Feature enhancements**
 
-|Enhancements | Description |
-|:------------------- | -----------:|
+|Enhancements |Related information |
+|:------------------- | ---------------: |
 |Added support for [_sort](././../healthcare-apis/fhir/overview-of-search.md#search-result-parameters) on strings and dateTime. |[#2169](https://github.com/microsoft/fhir-server/pull/2169)  |
 
 #### **Bug fixes**
 
-|Bug fixes | Description |
-|:------------------- | -----------:|
+|Bug fixes |Related information |
+|:------------------- | ---------------: |
 |Fixed issue where [Conditional Delete](././../healthcare-apis/fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop. | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
 |Resolved 500 error possibly caused by a malformed transaction body in a bundle POST. We've added a check that the URL is populated in the [transaction bundle](././..//healthcare-apis/fhir/fhir-features-supported.md#rest-api) requests. | [#2255](https://github.com/microsoft/fhir-server/pull/2255) |
 
 ### **DICOM service**
 
-|Added support | Description |
-|:------------------- | -----------:|
+|Added support |Related information |
+|:------------------- | ---------------: |
 |Regions |South Brazil and Central Canada |
 |Extended Query tags |DT and TM VR types |
 
-|Bug fixes | Description |
-|:------------------- | -----------:|
+|Bug fixes |Related information |
+|:------------------- | ---------------: |
 |Implemented complete support for: |DA, DT, and TM VR types |
 |Implemented fix to: |Enable DICOM service to work with workspaces that have names beginning with a letter. |
 
@@ -59,8 +59,8 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 #### **Feature enhancements**
 
-|Enhancements | Description |
-|:------------------- | -----------:|
+|Enhancements |Related information |
+|:------------------- | ---------------: |
 
 |Added support for conditional patch | [Conditional patch](./././azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)|
 |:------------------- | -----------:|
@@ -81,37 +81,37 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 #### **Bug fixes**
 
-|Resolved patch bugs | Description |
-|:------------------- | -----------:|
+|Resolved patch bugs |Related information |
+|:------------------- | ----------------: |
 |Wider catch for exceptions when applying patch. | [#2192](https://github.com/microsoft/fhir-server/pull/2192)|
 |Fixes history with PATCH in STU3. |[#2177](https://github.com/microsoft/fhir-server/pull/2177) |
 
-|Custom search bugs |Description |
-|:------------------- | -----------:|
+|Custom search bugs |Related information |
+|:------------------- | ----------------: |
 |Addresses the delete failure with Custom Search parameters. |[#2133](https://github.com/microsoft/fhir-server/pull/2133) |
 |Added retry logic while Deleting Search parameter. | [#2121](https://github.com/microsoft/fhir-server/pull/2121)|
 |Set max item count in search options in SearchParameterDefinitionManager. |[#2141](https://github.com/microsoft/fhir-server/pull/2141) |
 |Provides better exception if there's a bad expression in a search parameter. |[#2157](https://github.com/microsoft/fhir-server/pull/2157) |
 
-|Resolved SQL batch reindex if one resource fails. |Description |
-|:------------------- | -----------:|
+|Resolved SQL batch reindex if one resource fails. |Related information |
+|:------------------- | ---------------: |
 |Updates SQL batch reindex retry logic. |[#2118](https://github.com/microsoft/fhir-server/pull/2118) |
 
-|GitHub issues closed |Description |
-|:------------------- | -----------:|
+|GitHub issues closed |Related information |
+|:------------------- | ---------------: |
 |Unclear error message for conditional create with no ID. |[#2168](https://github.com/microsoft/fhir-server/issues/2168) |
 
 ### **DICOM service**
 
-|Bug fixes | Description |
-|:------------------- | -----------:|
+|Bug fixes |Related information |
+|:------------------- | ---------------: |
 |Implemented fix to resolve QIDO paging ordering issues. |  [#989](https://github.com/microsoft/dicom-server/pull/989) |
 
 
 ### **IoT connector**
 
-|Bug fixes | Description |
-|:------------------- | -----------:|
+|Bug fixes |Related information |
+|:------------------- | ---------------: |
 |IoT connector normalized improvements with calculations to support and enhance health data standardization. | See: [Use device mappings](./../healthcare-apis/iot/how-to-use-device-mapping-iot.md) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md) |
 
 ## Next steps
