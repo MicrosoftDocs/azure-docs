@@ -11,7 +11,7 @@ The next step is to download the Azure Spatial Anchors packages for Unity.
 > [!IMPORTANT]
 > ASA SDK 2.7.0 is the minimum supported version. If using Unity 2020, ASA SDK 2.9.0 is the minimum supported version. If using the Mixed Reality OpenXR plugin, ASA SDK 2.10.0 is the minimum supported version.
 
-To use Azure Spatial Anchors in Unity, you will need to download the core package as well as a platform-specific package for each platform (Android/iOS/HoloLens) that you plan to support. This means that you will download at least two of the following packages:
+To use Azure Spatial Anchors in Unity, you'll need to download the core package and a platform-specific package for each platform (Android/iOS/HoloLens) that you plan to support. This means you will download at least two of the following packages:
 
 | Platform | Package name                                    |
 |----------|-------------------------------------------------|
