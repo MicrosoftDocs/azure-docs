@@ -7,7 +7,7 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.reviewer: amhindma
-ms.date: 11/10/2021
+ms.date: 11/11/2021
 ---
 
 # Configure virtual machine offer listing details
@@ -101,10 +101,6 @@ Provide a PNG file for the **Large** size logo. Partner Center will use this to 
 - **Large** (from 216 x 216 to 350 x 350 px, required) - Appears on your offer details page in Azure Marketplace
 - **Medium** (90 x 90 px, optional) - Appears when you create a new resource in the Azure portal
 - **Small** (48 x 48 px, optional) - Appears in the search results of Azure Marketplace
-
-
-
-[!INCLUDE [logos-azure-marketplace-only](includes/logos-azure-marketplace-only.md)]
 
 [!INCLUDE [Logo tips](includes/graphics-suggestions.md)]
 
