@@ -40,7 +40,7 @@ Use this article to learn about the data and rate limits when using custom text 
 * The maximum size of files per request is 125,000 characters. You can send up to 25 files, as long as the collective size of them does not exceed 125,000 characters.
 
 > [!NOTE]
-> If you need to send larger files than the limit allows, you can break the text into smaller chunks of text before sending them to the API. You use can the [chunk command from CLUtils](https://github.com/microsoft/CogSLanguageUtilities/tree/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ChunkCommand) for this process.
+> If you need to send larger files than the limit allows, you can break the text into smaller chunks of text before sending them to the API. You use can the [chunk command from CLUtils](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ChunkCommand/README.md) for this process.
 
 ## Azure resource limits
 
