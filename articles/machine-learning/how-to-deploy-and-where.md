@@ -18,8 +18,7 @@ adobe-target: true
 
 Learn how to deploy your machine learning or deep learning model as a web service in the Azure cloud.
 
-> [!TIP]
-> Managed online endpoints (preview) provide a way to deploy your trained model without having to create and manage the underlying infrastructure. For more information, see [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Workflow for deploying a model
 
@@ -35,8 +34,6 @@ The workflow is similar no matter where you deploy your model:
 
 For more information on the concepts involved in the machine learning deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
 
-[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
-
 ## Prerequisites
 
 # [Azure CLI](#tab/azcli)
@@ -44,13 +41,13 @@ For more information on the concepts involved in the machine learning deployment
 [!INCLUDE [cli10-only](../../includes/machine-learning-cli-version-1-only.md)]
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-- A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
+- A model. The examples in this article use a pre-trained model.
 - A machine that can run Docker, such as a [compute instance](how-to-create-manage-compute-instance.md).
 
 # [Python](#tab/python)
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-- A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
+- A model. The examples in this article use a pre-trained model.
 - The [Azure Machine Learning software development kit (SDK) for Python](/python/api/overview/azure/ml/intro).
 - A machine that can run Docker, such as a [compute instance](how-to-create-manage-compute-instance.md).
 ---
