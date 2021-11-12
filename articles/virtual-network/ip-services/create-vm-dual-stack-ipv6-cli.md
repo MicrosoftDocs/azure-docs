@@ -85,7 +85,7 @@ Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to cre
 
 ### Create network security group rules
 
-You'll create a rule to allow connections to the virtual machine on port 22 for SSH. An additional rule is created to allow all ports for outbound connections.
+You'll create a rule to allow connections to the virtual machine on port 22 for SSH. An extra rule is created to allow all ports for outbound connections.
 
 Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create the network security group rules.
 
@@ -119,11 +119,11 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule
 
 ## Create virtual machine
 
-In this section, you'll crate the virtual machine and it's supporting resources.
+In this section, you'll create the virtual machine and its supporting resources.
 
 ### Create network interface
 
-You'll use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC as part of the command. The network interface is attached to the virtual network you created previously.
+You'll use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.
 
 ```azurecli-interactive
   az network nic create \
@@ -203,7 +203,7 @@ user@Azure:~$ az network public-ip show \
 2603:1030:408:6::9d
 ```
 
-Open a SSH connection to the virtual machine by using the following command.
+Open an SSH connection to the virtual machine by using the following command.
 
 ```bash
   ssh azureuser@20.119.201.208
@@ -220,9 +220,9 @@ When no longer needed, use the [az group delete](/cli/azure/group#az_group_delet
 
 ## Next steps
 
-In this article you learned how to create a Azure Virtual machine with a dual-stack network.
+In this article, you learned how to create an Azure Virtual machine with a dual-stack network.
 
-For more information about IPv6 and IP addresses in Azure see:
+For more information about IPv6 and IP addresses in Azure, see:
 
 - [Overview of IPv6 for Azure Virtual Network.](ipv6-overview.md)
 
