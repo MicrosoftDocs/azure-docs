@@ -318,5 +318,3 @@ To enable a Conditional Access policy for Azure Cognitive Search, follow the bel
 
 > [!IMPORTANT]
 > If your search service has a managed identity assigned to it, the specific search service will show up as a cloud app that can be included or excluded as part of the Conditional Access policy. Conditional Access policies cannot be enforced on a specific search service. Instead make sure you select the general **Azure Cognitive Search** cloud app.
-
-## Preview Limitations
