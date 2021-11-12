@@ -8,7 +8,10 @@ ms.custom: ignite-fall-2021
 
 # Quickstart: Get started with Video Analyzer in the portal
 
-[!INCLUDE [header](includes/edge-env.md)]
+![edge icon](media/env-icon/edge.png)  
+Alternatively, check out [get started with Video Analyzer live pipelines using portal](../cloud/get-started-livepipelines-portal.md).
+
+---
 
 This quickstart walks you through the steps to get started with Azure Video Analyzer. You'll create an Azure Video Analyzer account and its accompanying resources by using the Azure portal. You'll then deploy the Video Analyzer edge module and a Real Time Streaming Protocol (RTSP) camera simulator module to your Azure IoT Edge device.
 
