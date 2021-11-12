@@ -59,16 +59,20 @@ The following metadata information about the connected machine is collected and 
 
 For example, if the machine is registered with Azure Arc in the East US region, this data is stored in the US region.
 
-### Supported environments
+## Supported environments
 
 Azure Arc-enabled servers support the management of physical servers and virtual machines hosted *outside* of Azure. For specific details of which hybrid cloud environments hosting VMs are supported, see [Connected Machine agent prerequisites](agent-overview.md#supported-environments).
 
 > [!NOTE]
 > Azure Arc-enabled servers is not designed or supported to enable management of virtual machines running in Azure.
 
-### Agent status
+## Agent status
 
 The Connected Machine agent sends a regular heartbeat message to the service every 5 minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline and the status will automatically be changed to **Disconnected** in the portal within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed to **Connected**.
+
+## Service limits
+
+Azure Arc-enabled servers has a limit for the number of instances that can be created in each resource group. It does not have any limits at the subscription or service level. To learn about what resource type limits exist, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
 
 ## Next steps
 
