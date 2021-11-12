@@ -88,7 +88,7 @@ Next, add the Recurrence [trigger](../logic-apps/logic-apps-overview.md#logic-ap
 
 1. Now set the values for the properties as shown and described here.
 
-   ![Screenshot that shows the properties set to the values as described in the following table.](images/tutorial-schedule-recurrence-parameters-final.png)
+   ![Screenshot that shows the action properties set to the values as described in the following table.](images/tutorial-schedule-recurrence-parameters-final.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
