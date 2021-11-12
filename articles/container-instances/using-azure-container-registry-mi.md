@@ -28,7 +28,7 @@ ms.custom: mvc, devx-track-azurecli
 
 * Windows Sever 2016 container groups do not support managed identity authentication image pulls with ACR.
 
-* Container groups cannot use managed identity to authenticate image pulls from Azure container registry's that use [private DNS zones](../zones/private-dns-privatednszone.md).
+* Container groups cannot use managed identity to authenticate image pulls from Azure container registry's that use [private DNS zones](../dns/private-dns-privatednszone.md).
 
 ## Configure registry authentication
 
