@@ -16,7 +16,7 @@ You would ordinarily perform each of these tasks individually in your own custom
 ## Prerequisites
 Before you can integrate your CI/CD pipeline with Azure DevTest Labs, you must: 
 1. Install [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) extension from Visual Studio Marketplace. 
-1. [Create a lab](devtest-lab-create-lab.md) and ensure configured to use **Public Environment**.
+1. [Create a lab](devtest-lab-create-lab.md) and ensure it is configured to use **Public Environment**, which is turned on by default.
 
 ## Create a release definition & environment
 To create the release definition, follow these steps:
@@ -39,12 +39,13 @@ To create the release definition, follow these steps:
 
    |Field|Description|
    |-----|-----------|
-   |**Azure RM Subscription**|Select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints).|
-   |**Lab Name**|Select the name of a lab you created earlier (see prerequisites). In practice, you should select the lab against which you want to deploy. You can also use variables, `$(labName)`.  Manually entering the friendly name will cause failures, use the drop-down lists to select the information.|
-   |**Repository Name**|You can choose the default repository, `Public Environment Repo`, or another repo containing the template you want to use. Repositories are designed in the lab policies.  Manually entering the friendly name will cause failures, use the drop-down lists to select the information.|
-   |**Template Name**|Select the name of the environment template from your source code repository. Manually entering the friendly name will cause failures, use the drop-down lists to select the information.| 
+   |**Azure RM Subscription**|This is the Azure Resource Manager subscription to configure before running. Select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints).|
+   |**Lab Name**|Select the name of a lab you created earlier (see prerequisites). In practice, you should select the lab against which you want to deploy. The resource will be create in this lab.  You can also use variables, `$(labName)`.  Manually entering the friendly name will cause failures, use the drop-down lists to select the information.|
+   |**Environment name**|Name of the environment to be created within the selected lab.|
+   |**Repository Name**|Name of the source code repository containing the template. You can choose the default repository, `Public Environment Repo`, or another repo containing the template you want to use. Repositories are designed in the lab policies.  Manually entering the friendly name will cause failures, use the drop-down lists to select the information.|
+   |**Template Name**|Name of the template to use to create the environment. Select the name of the environment template. Manually entering the friendly name will cause failures, use the drop-down lists to select the information.| 
    |**Environment Name**|Enter a name to uniquely identify the environment instance within the lab.  It must be unique within the lab.|
-   |**Parameters File** & **Parameter overrides**|Use to pass custom parameters to the environment. Either or both can be used to set the parameter values. For example, you can use these fields to pass the encrypted password.|
+   |**Parameters File** & **Parameter overrides**|Use to pass custom parameters to the environment. Either or both can be used to set the parameter values. For example, you can use these fields to pass the encrypted password. You can also use variables to avoid passing secret information in the logs and even hook it up to Azure Key Vault.|
 
 ## Delete the environment
 The final stage is to delete the Environment that you deployed in your Azure DevTest Labs instance. You would ordinarily delete the environment after you execute the dev tasks or run the tests that you need on the deployed resources.
