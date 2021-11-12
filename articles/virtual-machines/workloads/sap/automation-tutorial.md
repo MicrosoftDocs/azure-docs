@@ -1,5 +1,5 @@
 ---
-title: SAP Deployment automation - Hands-On Lab
+title: SAP deployment automation - hands-on lab
 description: Hands-On Lab
 author: hdamecharla
 ms.author: hdamecharla
@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.service: virtual-machines-sap
 ---
 
-# Enterprise Scale for SAP Automation Framework Deployment - Hands-on Lab
+# Enterprise scale for SAP Automation Framework deployment - hands-on lab
 
 
 This tutorial shows how to do enterprise scaling for deployments of the [SAP automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. There's a feature-locked branch in the [GitHub repository for the automation framework](https://github.com/Azure/sap-hana/), named `sap-level-up`, for use with this tutorial.
@@ -38,7 +38,7 @@ There are three main steps of an SAP deployment on Azure with the automation fra
 3. Deploying the system. This step includes the infrastructure for the SAP system.
 
 There are several workflows in the deployment automation process. However, this tutorial focuses on one workflow for ease of deployment. You can deploy this workflow,  the SAP-S4HANA standalone environment, using Bash. The tutorial describes the general hierarchy and different phases of the deployment.
-### Environment Overview
+### Environment overview
 
 The SAP on Azure Deployment Automation Framework has two main components:
 
@@ -53,7 +53,7 @@ The framework uses Terraform for infrastructure deployment, and Ansible for the 
 
 automation-tutorial type="content" source="media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram SAP Deployment Automation Environment Diagram.":::
 
-#### Management Zone
+#### Management zone
 
 The management zone contains the control plane infrastructure from which other environments are deployed. Once the management zone is deployed, you rarely, if ever, need to redeploy.
 
@@ -65,7 +65,7 @@ The **SAP Library** provides the persistent storage for the Terraform state file
 
 You configure the deployer and library in a Terraform `.tfvars` variable file. See [configuring the control plane](automation-configure-control-plane.md)
 
-#### Workload Zone
+#### Workload zone
 
 An SAP application typically has multiple deployment tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as workload zones.
 
@@ -75,7 +75,7 @@ The **SAP Workload zone** contains the networking and shared components for the 
 
 The system deployment consists of the virtual machines that will be running the SAP application, including the web, app, and database tiers. See [configuring the SAP system](automation-configure-system.md)
 
-## Hands-On Lab
+## Hands-On lab
 
 ### Prerequisites
 
@@ -86,7 +86,7 @@ The [SAP deployment automation framework repository](https://github.com/Azure/sa
 
 You will need an SSH client to connect to the Deployer. Use any SSH client that you feel comfortable with.
 
-#### Review the Azure Subscription Quota
+#### Review the Azure Subscription quota
 
 Ensure that your Microsoft Azure Subscription has a sufficient core quote for DdSV4 & EdsV4 family SKU in the elected region. About 50 cores each available for VM family should suffice.
 
@@ -519,7 +519,7 @@ cd ~/Azure_SAP_Automated_Deployment/
 cp -Rp ./sap-hana/deploy/samples/WORKSPACES ./
 ```
 
-## Deploy the Workload Zone
+## Deploy the workload zone
 
 1. On the deployer VM, navigate to the `Azure_SAP_Automated_Deployment` folder.
   
@@ -602,7 +602,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
 
 1. Check that the system resource group is now in the Azure portal.
 
-## SAP Installation
+## SAP installation
 
 The SAP installation happens through Ansible playbooks. 
 1. Navigate to the system deployment folder:
