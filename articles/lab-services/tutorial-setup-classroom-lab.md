@@ -53,12 +53,12 @@ In this step, you create a lab for your class in Azure.
     4. In the **Template Virtual Machine Settings** window, select **Finish**.
 
         :::image type="content" source="./media/tutorial-setup-classroom-lab/template-virtual-machine-settings.png" alt-text="Template virtual machine settings":::
-5. You should see the following screen that shows the status of the template VM creation. This operation takes up to 20 minutes.
+5. You should see the following screen that shows the status of the template VM creation. This operation takes up to 15 minutes.
 
     :::image type="content" source="./media/tutorial-setup-classroom-lab/create-template-vm-progress.png" alt-text="Status of the template VM creation":::
 6. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
 
-    1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
+    1. Connect to the template VM by selecting **Start**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
     2. Install and configure software required for your class on the template VM. 
     3. **Stop** the template VM.  
 
