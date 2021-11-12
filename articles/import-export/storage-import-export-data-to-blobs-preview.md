@@ -20,23 +20,90 @@ The steps for orderinig an Import/Export job through Azure Data Box will be on a
 
 ### [Portal (Preview)](#tab/azure-portal)
 
-ADD: Elevator pitch for Import/Export convergence with Azure Data Box.
+TK: Elevator pitch for Import/Export convergence with Azure Data Box.
 
 Perform the following steps to order an Azure Import/Export job through Azure Data Box.
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
-2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**. *STOPPED HERE TO REBOOT. Snagit is crashing.*
+1. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Screenshot of New section with Azure Data Box in search field](media/data-box-order-portal/data-box-import-01.png)
+   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-01.png)
 
-3. Select **Create**.  
+1. Select **Create**.  
 
-   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/data-box-import-02.png)
+   ![Screenshot of the top of the Azure portal screen after selecting Azure Data Box. The Create button is highlighted.](media/data-box-order-portal/data-box-import-02.png)
+
+1. To get started with the import order, select the following options:
+ 
+    1. Select the **Import to Azure** transfer type.
+    1. Select the subscription to use for the Import/Export job.
+    1. Select a resource group.
+    1. Select the **Source country/region** for the job.
+    1. Select the **Destination Azure region** for the job.
+    1. Then select **Apply**.
+   
+    ![Screenshot showing the Get Started options for a new Data Box order. The Import To Azure transfer typ and the Apply button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-03.png)
+
+1. Choose the **Select** button for **Import/Export Job**.
+
+    ![Screenshot showing product options for a new Data Box order. The Select button for Import Export Job is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-04.png)
+
+1. In **Basics**:
+
+    - Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
+      <!-- OUT OF DATE - Test restrictions during next shoot. - * The name may contain only lowercase letters, numbers, and hyphens.
+      * The name must start with a letter, and may not contain spaces.-->
+
+    ![Screenshot showing the Basics tab for an import job in Azure Data Box. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-05.png)
+
+    Select **Next: Job details >** to proceed.
+
+1. In **Job Details**:
+
+   1. Before you go further, make sure you're using the latest WAImportExport tool. The tool will be used behind the scenes when you upload the journal file, later on this screen. You can use the download link to update the tool.<!--Add a mini-screen showing the link?-->
+   1. You can change the destination Azure region for the job if needed.
+   1. Select one or more storage accounts to use for the job. You can create a new storage account if needed.
+   1. Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml` also created with the journal file.
+   
+      When you upload a journal file, the Drive ID is displayed.<!--Add a mini-screen showing a drive ID for a selected journal file?-->
+
+   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.<!--More info would be useful. Where is it stored? If they don't store a verbose log, what is the result? This functionality may have changed in Converge.-->
+
+   ![Screenshot of the Job Details tab for an import job in Azure Data Box. The Job Detail tab and Next: Return Shipping button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-06.png)
+
+1. In **Return shipping**:
+
+   1. Select a shipping carrier from the drop-down list for **Carrier**. The location of the Microsoft datacenter for the selected region determines which carriers are available.
+   1. Enter a **Carrier account number**. The account number for an valid carrier account is required.
+   1. In **Return address**, use **+ Address** to add the address to ship [WHAT?] to.
+
+      ![Screenshot of the Return Shipping tab for an import job in Azure Data Box. The Return Shipping tab and the Plus Add Address button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-07.png)
+
+      On the Add address blade, you can add an address or use an existing one.
+
+      ![Screenshot showing an address on the Add Address blade for an import job in Azure Data Box. The Add Shipping Address button is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-08.png)
+
+   1. In **Notification**, enter email addresses for the people you want to notify of the job's progress.
+   
+      > [!TIP]
+      > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
+
+   ![Screenshot of the Return Shipping tab for an import job in Azure Data Box with all fields filled in. The Return Shipping tab and the Review Plus Create button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-09.png)
+
+   Select **Review + Create** to proceed.
+
+1. In **Review + Create**:
+
+   1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
+   1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
+   1. Select **Create**.
+
+     ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-10.png)
 
 
 ### [Portal (classic)](#tab/azure-portal)
 
-Perform the following steps to create an import job in the Azure portal.
+*DO NOT USE. Cut & Paste errors guaranteed.* Perform the following steps to create an import job in the Azure portal.
 
 1. Log on to https://portal.azure.com/.
 2. Search for **import/export jobs**.
@@ -63,14 +130,16 @@ Perform the following steps to create an import job in the Azure portal.
 
 5. In **Job details**:
 
+   1. Before you go further, make sure you're using the latest WAImportExport tool. The tool will be used behind the scenes when you upload the journal file, later on this screen. You can use the download link to update the tool.
+   1. You can change the destination Azure region for the job if needed.
+   1. Select one or more storage accounts to use for the job. You can create a new storage account if needed.
    1. Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml` also created with the journal file.
-   1. Select the destination Azure region for the order.
-   1. Select the storage account for the import.
-      
-      The dropoff location is automatically populated based on the region of the storage account selected.
-   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
+   
+      When you upload a journal file, the Drive ID is displayed.
 
-   ![Screenshot of the Job Details tab for an import job in Azure Import Export Jobs. A journal file, destination region, and storage account are selected.](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.<!--This >
+
+   ![Screenshot of the Job Details tab for an import job in Azure Data Box. The Job Detail tab and Next: Return Shipping button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
    Select **Next: Shipping >** to proceed.
 
