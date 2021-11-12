@@ -14,9 +14,11 @@ ms.date: 11/12/2021
 
 # Create a search index in Azure Cognitive Search
 
-Query requests in Azure Cognitive Search target searchable text in a search index. In this article, learn the steps for defining and publishing a search index using any of the modalities supported by Azure Cognitive Search. 
+Queries in Azure Cognitive Search target searchable text in a search index. In this article, learn the steps for defining and publishing a search index using any of the modalities supported by Azure Cognitive Search. 
 
-Unless you are using an [indexer](search-howto-create-indexers.md), creating an index and populating an index are separate tasks. For non-indexer scenarios, your next step after index creation will be [data import](search-what-is-data-import.md). For more background, see [Search indexes in Azure Cognitive Search](search-what-is-an-index.md).
+Unless you are using an [indexer](search-howto-create-indexers.md), creating an index and populating an index are two separate tasks. For non-indexer scenarios, your next step after index creation will be [data import](search-what-is-data-import.md). 
+
+To learn more about index-related concepts, see [Search indexes in Azure Cognitive Search](search-what-is-an-index.md).
 
 ## Prerequisites
 
@@ -34,7 +36,7 @@ Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#
 
 ## Allowed updates
 
-[Create Index](/rest/api/searchservice/create-index) is an operation that creates physical data structures (files and inverted indexes) on your search service. Your ability to effect changes using [Update Index](/rest/api/searchservice/update-index) is contingent upon whether the modification invalidates those physical structures. Most field attributes can't be changed once the field is created in your index.
+[**Create Index**](/rest/api/searchservice/create-index) is an operation that creates the physical data structures (files and inverted indices) on your search service. Once the index is created, your ability to effect changes using [**Update Index**](/rest/api/searchservice/update-index) is contingent upon whether your modifications invalidate those physical structures. Most field attributes can't be changed once the field is created in your index.
 
 To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
 
@@ -64,7 +66,7 @@ Use this checklist to help drive the design decisions for your search index.
 
 1. Identify one field in the source data that contains unique values, allowing it to function as the key field in your index. For example, if you're indexing from Blob Storage, the storage path is often used as the document key. 
 
-   Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"). The key should be mapped to the unique identifier in your source data. The ability to uniquely identify specific search documents is required for retrieving a specific document in the search index, and for selective data processing at the per-document level.
+   Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"). The key will be a string in the search index, but you can map it to any unique identifier in your source data. The ability to uniquely identify specific search documents is required for reconstituting a record or entity in a search result, for retrieving a specific document in the search index, and for selective data processing at the per-document level.
 
 1. Identify the fields in your data source that will contribute searchable content in the index. Searchable content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
 
