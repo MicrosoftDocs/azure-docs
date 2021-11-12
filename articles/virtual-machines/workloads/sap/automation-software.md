@@ -34,17 +34,18 @@ First, configure your deployer key vault secrets. For this example configuration
      az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
     ```
 
-1. Add a secret with the password for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-password>` with your SAP password.
+2. Add a secret with the password for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-password>` with your SAP password.
 
 ```azurecli-interactive
 az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
 ```
 
-1. Add a secret with the access key to the storage account `sapbits` in the SAP Library. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<access-key>` with the storage account access key.
+3. There are two other secrets which are needed in this step for the storage account `sapbits`, are automatically setup by the automation framework. However its always good to verify whether these are existed in your deployer keyvault or not.
 
-```azurecli-interactive
-az keyvault secret set --name "sapbits-access-key" --vault-name "<keyvault-name>" --value "<access-key>";
-```
+    ```azurecli-interactive
+    sapbits-access-key
+    sapbits-location-base-path
+    ```
 
 ## Download SAP software
 
@@ -72,7 +73,9 @@ Configure the SAP parameters file:
     cat <<EOF > sap-parameters.yaml
     ---
     bom_base_name:               S41909SPS03_v0006ms
-    kv_name:                     
+    sapbits_location_base_path:  https://<storage_account_FQDN>/sapbits
+    kv_name: Name of your Management/Control Plane keyvault
+    secret_prefix:
     ...
     EOF
     ```
@@ -85,9 +88,14 @@ Configure the SAP parameters file:
 
 1. Update the following parameters:
 
-    
-    1. Change the value of `kv_name` to the name of the deployer key vault.
+    1. Change the value of `bom_base_name` to `S41909SPS03_v0006ms`.
 
+    2. Change the value of `sapbits_location_base_path` to the path to your storage account `sapbits`.
+
+    3. Change the value of `kv_name` to the name of the deployer key vault.
+   
+   4. (If needed) Change the value of `secret_prefix` to match the prefix in your environment (for example DEV-WEEU-SAP)
+   
 ### Execute Ansible playbooks
 
 Then, execute the Ansible playbooks. One way you can execute the playbooks is to use the validator test menu:
