@@ -100,23 +100,23 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
 1. Log in to your Azure account.
 
-  ```cloudshell-interactive
-  az login
-  ```
+```cloudshell-interactive
+az login
+```
 
-    1. Authenticate your login. Don't close the window until you're prompted.
+1. Authenticate your login. Don't close the window until you're prompted.
 
-    1. Optionally, change your active subscription.
+1. Optionally, change your active subscription.
   
 ```cloudshell-interactive
 az account set -s <Subscription ID>
 ```
 
-    Validate that your active subscription changed:
+1. Validate that your active subscription changed:
 
 ```cloudshell-interactive
 az account list --query "[?isDefault]"
- ```
+```
     **or**
 
 ```cloudshell-interactive
@@ -179,7 +179,7 @@ az ad sp create-for-rbac --role="Contributor" \
   --name="<environment>-Deployment-Account"
 ```
 
-1. Review the output. For example:
+Review the output. For example:
 
 ```json
 {
@@ -191,7 +191,7 @@ az ad sp create-for-rbac --role="Contributor" \
 }
 ```
 
-1. Copy down the output details. Make sure to save the values for the following fields: `appId`, `password`, and `Tenant`.
+Copy down the output details. Make sure to save the values for the following fields: `appId`, `password`, and `Tenant`.
 
 The output maps to the following parameters. You use these parameters in later steps, with automation commands.
 
@@ -201,7 +201,7 @@ The output maps to the following parameters. You use these parameters in later s
 | `spn_secret`             | `password`      |
 | `tenant_id`              | `tenant`        |
 
-1. Assign the **User Access Administrator** role to the service principal.
+Assign the **User Access Administrator** role to the service principal.
 
 ```shell
 az role assignment create --assignee <appId> \
