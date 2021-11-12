@@ -602,7 +602,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
 
 1. Check that the system resource group is now in the Azure portal.
 
-## SAP Installation
+## SAP installation
 
 The SAP installation happens through Ansible playbooks. 
 1. Navigate to the system deployment folder:
