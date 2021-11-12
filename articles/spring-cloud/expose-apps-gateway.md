@@ -62,11 +62,11 @@ az account set --subscription $SUBSCRIPTION
 
 ## Acquire a certificate
 
-### [Using a Publicly Signed Cert](#tab/public-cert)
+### [Use a publicly signed certificate](#tab/public-cert)
 
 For production deployments, you'll most likely use a publicly signed certificate. In this case, import the certificate in Azure Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md). Make sure the certificate includes the entire certificate chain.
 
-### [Using a Self-Signed Cert](#tab/self-signed-cert)
+### [Use a self-signed certificate](#tab/self-signed-cert)
 
 When you need a self-signed certificate for testing or development, you need to create it. You'll also need to ensure that the list of "Subject Alternative Names" in the certificate contains the domain name on which you'll expose the application. When creating a self-signed certificate through Azure Key Vault, you can do so through the Azure portal. Alternatively, when using the Azure CLI, you'll need a policy JSON file.
 
@@ -193,7 +193,7 @@ APPGW_IDENTITY_CLIENTID=$(az identity show --resource-group $RESOURCE_GROUP --na
 APPGW_IDENTITY_OID=$(az ad sp show --id $APPGW_IDENTITY_CLIENTID --query objectId --output tsv)
 ```
 
-## Set Policy on Key Vault
+## Set policy on Key Vault
 
 Configure Key Vault using the following command so that the Managed Identity for Application Gateway is allowed to access the certificate stored in Key Vault:
 
@@ -236,11 +236,11 @@ az network application-gateway create \
 It can take up to 30 minutes for Azure to create the application gateway.
 
 >[!NOTE]
-> For development and test purposes when it desired to do TLS termination at Application Gateway, change the `http-settings-port` to `80` and `http-settings-protocol` to `Https` and continue to follow the instructions below for "Using a Publicly Signed Cert".
+> For development and test purposes when it desired to do TLS termination at Application Gateway, change the `http-settings-port` to `80` and `http-settings-protocol` to `Https` and continue to follow the instructions below for "Use a publicly signed certificate".
 
 ### Update HTTP Settings to use the domain name towards the backend
 
-#### [Using a Publicly Signed Cert](#tab/public-cert-2)
+#### [Use a publicly signed certificate](#tab/public-cert-2)
 
 Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Cloud with.
 
@@ -253,7 +253,7 @@ az network application-gateway http-settings update \
     --name appGatewayBackendHttpSettings
 ```
 
-#### [Using a Self-Signed Cert](#tab/self-signed-cert-2)
+#### [Use a self-signed certificate](#tab/self-signed-cert-2)
 
 Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Cloud with. Given that a self-signed certificate is used, it will need to be allow-listed on the HTTP Settings of Application Gateway.
 
