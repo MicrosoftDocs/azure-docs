@@ -28,7 +28,7 @@ To create the release definition, follow these steps:
 
    :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-stage.png" alt-text="Screenshot shows opening the pipeline release stage.":::
 
-1. To add tasks, select the plus (+) sign in the **Agent job** section. A searchable list of available tasks appears. 
+1. To add tasks to the stage, select the plus (+) sign in the **Agent job** section. A searchable list of available tasks appears. 
 1. In the **Add task** window, search for `Azure DevTest Labs Create Environment`.
 1. Select `Azure DevTest Labs Create Environment` task in the results, and select **Add**.
 1. Select the task you just added. The **Azure DevTest Labs Create Environment (Preview)** window appears.
@@ -40,9 +40,9 @@ To create the release definition, follow these steps:
    |Field|Description|
    |-----|-----------|
    |**Azure RM Subscription**|Select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints).|
-   |**Lab Name**|Select the name of a lab you created earlier (see prerequisites). Manually entering the friendly name will cause failures, use the drop-down lists to select the information.|
-   |**Repository Name**|Select the default repository, `Public Environment Repo`, or one containing the template you want to use. Manually entering the friendly name will cause failures, use the drop-down lists to select the information.|
-   |**Template Name**|Select the name of the environment that you saved to your source code repository. Manually entering the friendly name will cause failures, use the drop-down lists to select the information.| 
+   |**Lab Name**|Select the name of a lab you created earlier (see prerequisites). In practice, you should select the lab against which you want to deploy. You can also use variables, `$(labName)`.  Manually entering the friendly name will cause failures, use the drop-down lists to select the information.|
+   |**Repository Name**|You can choose the default repository, `Public Environment Repo`, or another repo containing the template you want to use. Repositories are designed in the lab policies.  Manually entering the friendly name will cause failures, use the drop-down lists to select the information.|
+   |**Template Name**|Select the name of the environment template from your source code repository. Manually entering the friendly name will cause failures, use the drop-down lists to select the information.| 
    |**Environment Name**|Enter a name to uniquely identify the environment instance within the lab.  It must be unique within the lab.|
    |**Parameters File** & **Parameter overrides**|Use to pass custom parameters to the environment. Either or both can be used to set the parameter values. For example, you can use these fields to pass the encrypted password.|
 
