@@ -26,14 +26,14 @@ To create the release definition, do the following:
 1. For this pipeline, click **Empty Job** to start creating the environment to be used for development or testing purposes.
 1. In the empty job, select **Tasks** in the toolbar, and then select **Stage 1**.
 
-   :::image type="content" source="/media/integrate-environments-devops-pipeline/new-release-pipeline-stage.png" alt-text="Screenshot shows opening the pipeline release stage.":::
+   :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-stage.png" alt-text="Screenshot shows opening the pipeline release stage.":::
 
 1. To add tasks, select the plus (+) sign in the **Agent job** section. A searchable list of available tasks appears. 
 1. In the **Add task** window, search for `Azure DevTest Labs Create Environment`.
 1. Select `Azure DevTest Labs Create Environment` task in the results, and select **Add**.
 1. Select the task you just added. The **Azure DevTest Labs Create Environment (Preview)** window appears.
 
-   :::image type="content" source="/media/integrate-environments-devops-pipeline/new-release-pipeline-environment.png" alt-text="Screenshot shows the fields needed for Azure Pipelines environment for Azure DevTest Labs.":::
+   :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-environment.png" alt-text="Screenshot shows the fields needed for Azure Pipelines environment for Azure DevTest Labs.":::
 
 2. On the **Tasks** tab, configure the environment as follows:
 
