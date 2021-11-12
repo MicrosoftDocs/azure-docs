@@ -62,9 +62,9 @@ sections:
          Yes. Idle, disconnected, and active sessions will be forced to sign out if the users don't sign out during the ramp-down phase wait time.
 
       - question: |
-         If an active session is forced to sign off, but the user tries to reconnect, is there a way to prevent them from starting a new session on a session host that the autoscale feature is about to turn off?
+         If an active session is forced to sign out, but the user tries to reconnect, is there a way to prevent them from starting a new session on a session host that the autoscale feature is about to turn off?
         answer: |
-         After the autoscale feature selects a session host to be shut down, it puts the session host in drain mode. Once all the user sessions have been signed out, the autoscale feature deallocates the VM. After deallocating the VM, the autoscale feature sets the AllowNewSessions setting to true, which turns off drain mode. Because sessions hosts that are about to be shut down are put in drain mode, a user who is forced to sign off their session won't connect to a session host that is about to be shut down if they try to reconnect.
+         After the autoscale feature selects a session host to be shut down, it puts the session host in drain mode. Once all the user sessions have been signed out, the autoscale feature deallocates the VM. After deallocating the VM, the autoscale feature sets the AllowNewSessions setting to true, which turns off drain mode. Because sessions hosts that are about to be shut down are put in drain mode, a user who is forced to sign out of their session won't connect to a session host that is about to be shut down if they try to reconnect.
 
       - question: |
          Can the autoscale feature turn off all the VMs in a host pool, or does it need to keep at least a few VMs on to work properly?

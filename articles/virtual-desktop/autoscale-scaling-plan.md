@@ -228,7 +228,7 @@ To create or change a schedule:
       - Force logoff users
 
     >[!IMPORTANT]
-    >If you've enabled the autoscale feature to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions to shut down. The autoscale feature will put the session host in drain mode, send all active user sessions a notification telling them they'll be signed out, and then sign out all users after the specified wait time is over. After the autoscale feature signs off all user sessions, it then deallocates the VM. If you haven't enabled forced sign out during ramp-down, session hosts with no active or disconnected sessions will be deallocated.
+    >If you've enabled the autoscale feature to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions to shut down. The autoscale feature will put the session host in drain mode, send all active user sessions a notification telling them they'll be signed out, and then sign out all users after the specified wait time is over. After the autoscale feature signs out all user sessions, it then deallocates the VM. If you haven't enabled forced sign out during ramp-down, session hosts with no active or disconnected sessions will be deallocated.
 
     - Likewise, **Off-peak hours** works the same way as **Peak hours**:
 
