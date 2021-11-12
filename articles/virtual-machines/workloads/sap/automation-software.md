@@ -40,7 +40,7 @@ First, configure your deployer key vault secrets. For this example configuration
 az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
 ```
 
-3. There are two other secrets which are needed in this step for the storage account `sapbits`, are automatically setup by the automation framework. However its always good to verify whether these are existed in your deployer keyvault or not
+3. There are two other secrets which are needed in this step for the storage account `sapbits`, are automatically setup by the automation framework. However its always good to verify whether these are existed in your deployer keyvault or not.
 
     ```azurecli-interactive
     sapbits-access-key
