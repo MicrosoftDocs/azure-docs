@@ -6,7 +6,13 @@ ms.date: 06/26/2020
 ---
 
 # Security alerts for environments in Azure DevTest Labs
-As a lab user, you can view Microsoft Defender for Cloud alerts for your lab environments. Defender for Cloud automatically collects, analyzes, and integrates log data from  Azure resources, the network, and connected solutions, like firewall and endpoint protection. Defender for Cloud detects real threats and reduces false positives. Defender for Cloud lists prioritized security alerts, provides information to quickly investigate problems, and recommends how to remediate attacks. [Learn more about security alerts in Microsoft Defender for Cloud](../security-center//security-center-alerts-overview.md).  
+As a lab user, you can view Microsoft Defender for Cloud alerts for your labs. Defender for Cloud automatically collects, analyzes, and integrates log data. Data comes from Azure resources, the network, and connected solutions, like firewall and endpoint protection. Defender for Cloud detects real threats and reduces false positives. Defender for Cloud:
+
+- Lists prioritized security alerts.
+- Provides information to quickly investigate problems.
+- Recommends how to remediate attacks.
+
+[Learn more about security alerts in Microsoft Defender for Cloud](../security-center//security-center-alerts-overview.md).
 
 
 ## Prerequisites
