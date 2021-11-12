@@ -63,7 +63,7 @@ Azure Cognitive Search indexers are capable of efficiently extracting content fr
 
 For optimum processing, a search service will determine an internal execution environment to set up the operation. You cannot control or configure the environment, but it's important to know they exist so that you can account for them when setting up IP firewall rules.
 
-Depending on the number and types of tasks assigned , the indexer will run in one of two environments:
+Depending on the number and types of tasks assigned, the indexer will run in one of two environments:
 
 - An environment private to a specific search service. Indexers running in such environments share resources with other workloads (such as other customer-initiated indexing or querying workloads). Typically, only indexers that perform text-based indexing (for example, do not use a skillset) run in this environment.
 
