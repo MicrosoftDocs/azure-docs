@@ -4,7 +4,7 @@ description: This article describes how to build a highly available solution usi
 author: elioda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 11/11/2021
 ms.author: elioda
 ms.reviewer: sngun
 
@@ -25,7 +25,7 @@ This article details the events that can affect Cosmos DB availability and the c
 ## Node maintenance
 Cosmos DB is a fully-managed multi-tenant service that manages all details of individual compute nodes transparently. Users do not have to worry about any kind of patching and planned maintenance. Using redundancy and with no user involvement, Cosmos DB guarantees SLAs for availability and P99 latency through all automatic maintenance operations performed by the system.
 
-Refer to the [SLAs section](#SLAs) for the guaranteed availability SLAs.
+Refer to the [SLAs section](#slas) for the guaranteed availability SLAs.
 
 ## Node outages
 Node outages refer to outages of individual nodes in a Cosmos DB cluster deployed in an Azure region.
