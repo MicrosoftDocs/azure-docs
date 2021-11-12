@@ -49,7 +49,7 @@ Most tasks and services can be performed on delegated resources across managed t
   - [Manage Windows Server or Linux machines outside Azure that are connected](../../azure-arc/servers/onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of policies are applied across customers' hybrid environments
-  - Use Azure Security Center to monitor compliance across customers' hybrid environments
+  - Use Microsoft Defender for Cloud to monitor compliance across customers' hybrid environments
 - Manage hybrid Kubernetes clusters at scale - [Azure Arc-enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
   - [Manage Kubernetes clusters that are connected](../../azure-arc/kubernetes/quickstart-connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
   - [Use GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) for connected clusters
@@ -120,7 +120,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Now includes the tenant ID in returned query results, allowing you to identify whether a subscription belongs to a managed tenant
 
-[Azure Security Center](../../security-center/index.yml):
+[Microsoft Defender for Cloud](../../security-center/index.yml):
 
 - Cross-tenant visibility
   - Monitor compliance to security policies and ensure security coverage across all tenants' resources
@@ -136,13 +136,13 @@ Most tasks and services can be performed on delegated resources across managed t
   - Harden network security group configuration with Adaptive Network Hardening
   - Ensure servers are running only the applications and processes they should be with adaptive application controls
   - Monitor changes to important files and registry entries with File Integrity Monitoring (FIM)
-- Note that the entire subscription must be delegated to the managing tenant; Azure Security Center scenarios are not supported with delegated resource groups
+- Note that the entire subscription must be delegated to the managing tenant; Microsoft Defender for Cloud scenarios are not supported with delegated resource groups
 
-[Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
+[Microsoft Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 
-- Manage Azure Sentinel resources [in customer tenants](../../sentinel/multiple-tenants-service-providers.md)
+- Manage Microsoft Sentinel resources [in customer tenants](../../sentinel/multiple-tenants-service-providers.md)
 - [Track attacks and view security alerts across multiple tenants](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [View incidents](../../sentinel/multiple-workspace-view.md) across multiple Azure Sentinel workspaces spread across tenants
+- [View incidents](../../sentinel/multiple-workspace-view.md) across multiple Microsoft Sentinel workspaces spread across tenants
 
 [Azure Service Health](../../service-health/index.yml):
 

@@ -530,7 +530,7 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 >
 > The following connectors make inbound webhook callbacks to the Logic Apps service:
 >
-> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Azure Sentinel, Business Central, Calendly, 
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Microsoft Sentinel, Business Central, Calendly, 
 > Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, 
 > Shifts for Microsoft Teams, Teamwork Projects, Typeform
 >
