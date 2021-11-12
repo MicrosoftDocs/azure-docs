@@ -133,7 +133,7 @@ In the preceding example, **child** is the NS delegation records. The records _*
 | Zone only contains NS delegation records. | **Healthy** |
 | Zone only contains NS delegation records and glue records. | **Healthy** |
 | Zone contains NS delegation records and other records (except glue records) below delegation record, that should be present in the child zone. | **Unhealthy** |
-| Zone contains NS delegation Records, glue Records, and other records (except glue records). | **Unhealthy** |
+| Zone contains NS delegation Records, glue records, and other records (except glue records). | **Unhealthy** |
 
 **How can you fix it?** - To resolve, locate and remove all records except glue records under NS delegation records in your parent zone.
 
