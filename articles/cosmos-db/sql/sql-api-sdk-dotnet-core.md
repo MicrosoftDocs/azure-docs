@@ -48,13 +48,17 @@ ms.custom: devx-track-dotnet
 
 ## <a name="release-history"></a> Release history
 
-Release history is maintained in the Azure Cosmos DB .NET SDK source repo. Different sub versions of .NET SDKs are available under the 2.x.x version. **The minimum recommended version is 2.16.2**. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)
+Release history is maintained in the Azure Cosmos DB .NET SDK source repo. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)
 
 Because version 3 of the Azure Cosmos DB .NET SDK includes updated features and improved performance, The 2.x of this SDK will be retired on 31 August 2024. You must update your SDK to version 3 by that date. We recommend following the instructions to migrate to Azure Cosmos DB .NET SDK version 3.
 
+## <a name="recommended-version"></a> Recommended version
+
+Different sub versions of .NET SDKs are available under the 2.x.x version. **The minimum recommended version is 2.16.2**.
+
 ## <a name="known-issues"></a> Known issues
 
-Below is a list of any know issues affecting the [recommended minimum version](#release-history):
+Below is a list of any know issues affecting the [recommended minimum version](#recommended-version):
 
 | Issue | Impact | Mitigation | Tracking link |
 | --- | --- | --- | --- |
