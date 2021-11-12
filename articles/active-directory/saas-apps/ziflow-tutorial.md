@@ -152,7 +152,7 @@ To provision a user account, perform the following steps:
 
 	![Screenshot shows the Add user option selected.](./media/ziflow-tutorial/add-tab.png)
 
-4. On the **Add a user** popup, perform the following steps:
+4. On the **Add a user** pop-up, perform the following steps:
 
 	![Screenshot shows the Add a user dialog box where you can enter the values described.](./media/ziflow-tutorial/add-user.png)
 
@@ -181,4 +181,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Ziflow you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Ziflow you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -1,5 +1,5 @@
 ---
-title: Infosys supply chain traceability solution using Azure Cosmos DB Graph API
+title: Infosys supply chain traceability solution using Azure Cosmos DB Gremllin API
 description: The supply chain traceability graph solution implemented by Infosys uses the Azure Cosmos DB Gremlin API and other Azure services. It provides global supply chain track and trace capability for finished goods.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -9,7 +9,7 @@ author: manishmsfte
 ms.author: mansha
 ---
 
-# Supply chain traceability solution using Azure Cosmos DB Graph API
+# Supply chain traceability solution using Azure Cosmos DB Gremlin API
 
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
@@ -25,19 +25,20 @@ After reading this article, you will learn:
 
 ## Overview
 
-In the food supply chain, product traceability is the ability to ‘track and trace’ them across the supply chain throughout the product’s lifecycle. The supply chain includes supply, manufacturing, and distribution. Traceability is vital for food safety, brand, and regulatory exposure. In the past some organizations failed to track and trace products effectively in their supply chain, resulting in expensive recalls, fines, and consumer health issues.
+In the food supply chain, product traceability is the ability to 'track and trace' them across the supply chain throughout the product’s lifecycle. The supply chain includes supply, manufacturing, and distribution. Traceability is vital for food safety, brand, and regulatory exposure. In the past, some organizations failed to track and trace products effectively in their supply chain, resulting in expensive recalls, fines, and consumer health issues. The traceability solutions had to address the needs of data harmonization, data ingestion at different velocity and veracity, and, more importantly, follow the inventory cycle, objectives that weren't possible with traditional platforms.
 
-Infosys’s traceability solution, developed with Azure capabilities such as application services, integration services and database services, provides vital capabilities to:
+Infosys's traceability solution, developed with Azure capabilities such as application services, integration services and database services, provides vital capabilities to:
 
 * Connect to factories, warehouses/distribution centers.
 * Ingest/process parallel stock movement events.
 * A knowledge graph, which shows connections between raw material, batch, finish goods (FG) pallets, multi-level parent/child relationship of pallets, goods movement.
-* Portal with search to trace and track pallets.
+* User portal with a search capability range of wildcard search to specific keyword search.
 * Identify impacts of a quality incident such as impacted raw material batch, pallets affected, location of the pallets.
+* Ability to have the history of events captured across multiple markets, including product recall information.
 
 ## Solution architecture
 
-Supply chain traceability commonly shares patterns in ingesting pallet movements, handing quality incidents, and tracing/analyzing store data. First, these systems need to ingest bursts of data from factory/Warehouse Management Systems systems that spread across geographies. Next, these systems process and analyze streaming data to derive complex relationships between raw material, production batches, finished good pallets and complex parent/child relationships (co-pack/repack.). Then the system requires to store intricate relationships between raw-material, finished goods, pallets necessary for traceability. A user portal with search capability allows the users to track and trace products in the supply chain network.
+Supply chain traceability commonly shares patterns in ingesting pallet movements, handing quality incidents, and tracing/analyzing store data. First, these systems need to ingest bursts of data from factory and warehouse management systems that cross geographies. Next, these systems process and analyze streaming data to derive complex relationships between raw material, production batches, finished good pallets and complex parent/child relationships (co-pack/repack). Then, the system must store information about the intricate relationships between raw material, finished goods, and pallets, all necessary for traceability. A user portal with search capability allows the users to track and trace products in the supply chain network. These services enable the end-to-end traceability solution that supports cloud-native, API-first, and data-driven capabilities.
 
 Microsoft Azure offers rich services that can be applied for traceability use cases, including Azure Cosmos DB, Azure Event Hubs, Azure API Management, Azure App Service, Azure SignalR, Azure Synapse Analytics, and Power BI.
 
@@ -50,7 +51,7 @@ Different Azure services used in this architecture help with the following tasks
 * Azure Cosmos DB allows you to scale performance up or down elastically. Gremlin API allows you to create and query complex relationships between raw material, finished goods and warehouses.
 * Azure API Management provides APIs for stock movement events to the 3PLs (thirdpParty Logistic Providers) and Warehouse Management Systems (WMS).  
 * Azure Event Hub provides the ability to gather large numbers of concurrent events from WMS and 3PLs for further processing.
-* Azure Function apps processes events and ingest data to Azure Cosmos DB using graph API.
+* Azure Function apps processes events and ingest data to Azure Cosmos DB using Gremlin API.
 * Azure Search service allows users to do complex find, filter pallet information.
 * Azure Databricks reads change feed and creates models in Synapse Analytics for self-service reporting for users in Power BI.
 * Azure Web App and App Service plan allow you to deploy the user portal.

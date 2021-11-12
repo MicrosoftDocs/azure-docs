@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+          "source_path_from_root": "/articles/active-directory/manage-apps/common-scenarios.md",
+          "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/active-directory/manage-apps/application-management-fundamentals.md",
+          "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
             "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
             "redirect_document_id": false
@@ -72,7 +82,7 @@
         },
         {
             "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-first-time.md",
-            "redirect_url": "https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc",
+            "redirect_url": "https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a",
             "redirect_document_id": false
         },
         {
@@ -947,7 +957,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-saas-facebook-at-work-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-provisioning-tutorial",
+            "redirect_url": "/azure/active-directory/saas-apps/workplace-by-facebook-provisioning-tutorial",
             "redirect_document_id": false
         },
         {
@@ -4229,6 +4239,26 @@
             "source_path_from_root": "/articles/active-directory/active-directory-azure-ad-controls-how-to-review-your-access.md",
             "redirect_url": "/azure/active-directory/governance/review-your-access",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/azure/active-directory/governance/review-your-access.md",
+            "redirect_url": "/azure/active-directory/governance/self-access-review",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/azure/active-directory/governance/entitlement-management-access-reviews-self-review.md",
+            "redirect_url": "/azure/active-directory/governance/self-access-review",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/azure/active-directory/governance/manage-guest-access-with-access-reviews.md",
+            "redirect_url": "/azure/active-directory/governance/manage-access-review",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/azure/active-directory/governance/manage-user-access-with-access-reviews.md",
+            "redirect_url": "/azure/active-directory/governance/manage-access-review",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md",
@@ -9857,7 +9887,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-saas-workplacebyfacebook-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/saas-apps/workplacebyfacebook-provisioning-tutorial",
+            "redirect_url": "/azure/active-directory/saas-apps/workplace-by-facebook-provisioning-tutorial",
             "redirect_document_id": true
         },
         {
@@ -10514,6 +10544,33 @@
             "source_path_from_root": "/articles/active-directory-b2c/troubleshoot-custom-policies.md",
             "redirect_url": "/azure/active-directory-b2c/troubleshoot",
             "redirect_document_id": false
-          }
+          },
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest",
+            "redirect_document_id": false
+        }
+   
+         
     ]
 }

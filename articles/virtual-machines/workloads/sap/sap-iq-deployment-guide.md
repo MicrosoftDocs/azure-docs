@@ -94,7 +94,7 @@ For SAP IQ on Azure, you can use the following Azure storage types. The choice d
 
 - Azure managed disks
 
-  A [managed disk](../../managed-disks-overview.md) is a block-level storage volume that Azure manages. You can use managed disks for SAP IQ simplex deployment. Various types of managed disks are available, but we recommend that you use [premium SSDs](../../disks-types.md#premium-ssd) for SAP IQ. 
+  A [managed disk](../../managed-disks-overview.md) is a block-level storage volume that Azure manages. You can use managed disks for SAP IQ simplex deployment. Various types of managed disks are available, but we recommend that you use [premium SSDs](../../disks-types.md#premium-ssds) for SAP IQ. 
 
 - Azure shared disks
 
@@ -199,7 +199,7 @@ If you've installed SAP IQ as a highly available system where SAP IQ binaries an
   
 If you need a standalone SAP IQ instance on a DR site, you can use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to replicate a primary SAP IQ virtual machine in the secondary region. It replicates the servers and all the local attached managed disks to the secondary region, but it won't replicate an Azure shared disk or a network drive like Azure NetApp Files. 
   
-To copy data from Azure a shared disk or a network drive, you can use any file-base copy tool to replicate data between Azure regions. For more information on how to copy an Azure NetApp Files volume in another region, see [FAQs about Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
+To copy data from Azure a shared disk or a network drive, you can use any file-base copy tool to replicate data between Azure regions. For more information on how to copy an Azure NetApp Files volume in another region, see [FAQs about Azure NetApp Files](../../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
 
 ## Next steps
 
