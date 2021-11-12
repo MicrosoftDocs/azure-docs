@@ -23,11 +23,11 @@ To learn more about parameters, and for hands-on guidance, see [Build reusable B
 
 Each parameter has a name and [data type](data-types.md). Optionally, you can provide a default value for the parameter.
 
-A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
-
 ```bicep
 param <parameter-name> <parameter-data-type> = <default-value>
 ```
+
+A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
 
 The following example shows basic declarations of parameters.
 

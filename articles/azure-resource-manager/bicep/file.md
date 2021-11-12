@@ -97,6 +97,14 @@ For example, you can add a SKU parameter to specify different sizes for a resour
 param storageSKU string = 'Standard_LRS'
 ```
 
+The parameter is available for use in your Bicep file.
+
+```bicep
+sku: {
+  name: storageSKU
+}
+```
+
 For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Parameter decorators
@@ -117,13 +125,18 @@ For more information, including descriptions of all available decorators, see [D
 
 ## Variables
 
-Use variables for complex expressions that are repeated in a Bicep file. For example, you might add a variable for a resource name that is constructed by concatenating several values together.
+You can make your Bicep file more readable by encapsulating complex expressions in a variable. For example, you might add a variable for a resource name that is constructed by concatenating several values together.
 
 ```bicep
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 ```
 
-You can then reuse this variable throughout your file rather than the expression.
+Apply this variable wherever you need the complex expression.
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+  name: uniqueStorageName
+```
 
 For more information, see [Variables in Bicep](./variables.md).
 
@@ -131,7 +144,7 @@ For more information, see [Variables in Bicep](./variables.md).
 
 Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file to get a value from the resource.
 
-The resource declaration includes the resource type and API version. Within the body of the resource declaration, you include properties for the resource type. These properties are unique to each resource type.
+The resource declaration includes the resource type and API version. Within the body of the resource declaration, include properties that are specific to the resource type.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -151,7 +164,7 @@ For more information, see [Resource declaration in Bicep](resource-declaration.m
 
 ## Modules
 
-Modules enable you to reuse Bicep files in other Bicep files. You link to the file through the module declaration. When you deploy the Bicep file, the resources in the module are also deployed.
+Modules enable you to reuse code from a Bicep file in other Bicep files. In the module declaration, you link to the file to reuse. When you deploy the Bicep file, the resources in the module are also deployed.
 
 ```bicep
 module webModule './webApp.bicep' = {
@@ -194,15 +207,67 @@ For more information, see [Outputs in Bicep](./outputs.md).
 
 ## Loops
 
-You can add iterative loops to your Bicep file to define multiple copies of a resource, module, variable, property, or output. Use the `for` expression to define a loop. You can iterate over an array, object, or integer index. For more information, see [Iterative loops in Bicep](loops.md).
+You can add iterative loops to your Bicep file to define multiple copies of a:
+
+* resource
+* module
+* variable
+* property
+* output
+
+Use the `for` expression to define a loop.
+
+```bicep
+param moduleCount int = 2
+
+module stgModule './example.bicep' = [for i in range(0, moduleCount): {
+  name: '${i}deployModule'
+  params: {
+  }
+}]
+```
+
+You can iterate over an array, object, or integer index.
+
+For more information, see [Iterative loops in Bicep](loops.md).
 
 ## Conditional deployment
 
-You can add a resource or module to your Bicep file that is conditionally deployed. During deployment, the condition is evaluated and the result determines whether the resource or module is deployed. Use the `if` expression to define a conditional deployment. For more information, see [Conditional deployment in Bicep](conditional-resource-deployment.md).
+You can add a resource or module to your Bicep file that is conditionally deployed. During deployment, the condition is evaluated and the result determines whether the resource or module is deployed. Use the `if` expression to define a conditional deployment.
+
+```bicep
+param deployZone bool
+
+resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+  name: 'myZone'
+  location: 'global'
+}
+```
+
+For more information, see [Conditional deployment in Bicep](conditional-resource-deployment.md).
 
 ## Whitespace
 
-Spaces and tabs are ignored when authoring Bicep files. New lines however have semantic meaning. For example, you must declare [objects](./data-types.md#objects) and [arrays](./data-types.md#arrays) in multiple lines.
+Spaces and tabs are ignored when authoring Bicep files.
+
+Bicep is newline sensitive. For example:
+
+```bicep
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+  ...
+}
+```
+
+Can't be written as:
+
+```bicep
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' =
+    if (newOrExisting == 'new') {
+      ...
+    }
+```
+
+Define [objects](./data-types.md#objects) and [arrays](./data-types.md#arrays) in multiple lines.
 
 ## Comments
 
