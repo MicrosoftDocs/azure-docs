@@ -78,8 +78,6 @@ The status of items that appear in this tables may change over time as support c
 | Create NFS shares on existing storage accounts*| ⛔ |
 | Support for more than 16 groups| ⛔ |
 
-\* If a storage account was created prior to registering for NFS, you cannot use it for NFS. Only storage accounts created after registering for NFS can be used.
-
 ## Regional availability
 
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
