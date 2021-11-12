@@ -56,7 +56,7 @@ Agent-based faults may fail for a variety of reasons related to missing prerequi
 
 ### AKS Chaos Mesh faults fail
 AKS Chaos Mesh faults may fail for a variety of reasons related to missing prerequisites:
-* Chaos Mesh must first be installed on the AKS cluster before using the AKS Chaos Mesh faults. Instructions can be found in the [Chaos Mesh faults on AKS tutorial](chaos-studio-tutorial-aks.md#set-up-chaos-mesh-on-your-aks-cluster).
+* Chaos Mesh must first be installed on the AKS cluster before using the AKS Chaos Mesh faults. Instructions can be found in the [Chaos Mesh faults on AKS tutorial](chaos-studio-tutorial-aks-portal.md#set-up-chaos-mesh-on-your-aks-cluster).
 * Chaos Mesh must be version 2.0.4 or greater. You can get the Chaos Mesh version by connecting to your AKS cluster and running `helm version chaos-mesh`.
 * Chaos Mesh must be installed with the namespace `chaos-testing`. Other namespace names for Chaos Mesh are not supported.
 * The Azure Kubernetes Service Cluster Admin role must be assigned to the system-assigned managed identity for the chaos experiment.
