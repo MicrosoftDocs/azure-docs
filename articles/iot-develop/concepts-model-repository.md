@@ -3,7 +3,7 @@ title: Understand concepts of the device models repository | Microsoft Docs
 description: As a solution developer or an IT professional, learn about the basic concepts of the device models repository.
 author: rido-min
 ms.author: rmpablos
-ms.date: 11/17/2020
+ms.date: 11/12/2021
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
