@@ -213,7 +213,7 @@ az arcdata dc create --name arc-dc1 --resource-group my-resource-group --locatio
 
 ## Monitor the status of Azure Arc data controller deployment
 
-The depoyment status of the Arc data controller on the cluster can be monitored as follows:
+The deployment status of the Arc data controller on the cluster can be monitored as follows:
 
 ```console
 kubectl get datacontrollers --name arc
