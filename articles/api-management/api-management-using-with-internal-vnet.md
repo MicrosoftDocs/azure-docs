@@ -39,7 +39,7 @@ Use API Management in internal mode to:
 Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) for your API Management instance. 
 
 > [!TIP]
-> When you use the portal to create or update the network configuration of your API Management instance, the instance is hosted on the `stv2` compute platform.
+> When you use the portal to create or update the network connection of an existing API Management instance, the instance is hosted on the `stv2` compute platform.
 
 ### [stv2](#tab/stv2)
 
