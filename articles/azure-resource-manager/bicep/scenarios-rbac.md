@@ -28,10 +28,14 @@ If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. 
 
 ### Name
 
-A role assignment's resource name must be a globally unique identifier (GUID). It's a good practice to create a GUID that uses the scope, principal ID, and role ID together, as in the example above. This helps you to ensure that each role assignment has a unique name.
+A role assignment's resource name must be a globally unique identifier (GUID). It's a good practice to create a GUID that uses the scope, principal ID, and role ID together.
 
 > [!TIP]
-> Use the `guid()` function to help you to create a deterministic GUID for your role assignment names.
+> Use the `guid()` function to help you to create a deterministic GUID for your role assignment names, like in this example:
+>
+> ```bicep
+> name: guid(subscription().id, principalId, roleDefinitionResourceId)
+> ```
 
 ### Role definition ID
 

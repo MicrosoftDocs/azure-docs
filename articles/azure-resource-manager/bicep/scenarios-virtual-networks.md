@@ -14,9 +14,11 @@ Many Azure deployments require networking resources to be deployed and configure
 
 Define your virtual networks by creating a resource with the type `Microsoft.Network/virtualNetworks`.
 
-Virtual networks contain subnets, which are logical groups of IP addresses within the virtual network. There are two ways to define subnets in Bicep: by using the `subnets` property on the virtual network resource, and by creating a [child resource](child-resource-name-type.md) with type `Microsoft.Network/virtualNetworks/subnets`. We generally advise defining your subnets within the virtual network definition, as in this example:
+### Configure subnets by using the subnets property
 
-::: code language="bicep" source="code/scenarios-virtual-networks/vnet.bicep" range="5-29" :::
+Virtual networks contain subnets, which are logical groups of IP addresses within the virtual network. There are two ways to define subnets in Bicep: by using the `subnets` property on the virtual network resource, and by creating a [child resource](child-resource-name-type.md) with type `Microsoft.Network/virtualNetworks/subnets`. It's best to define your subnets within the virtual network definition, as in this example:
+
+::: code language="bicep" source="code/scenarios-virtual-networks/vnet.bicep" range="7-30, 39" :::
 <!-- TODO move to correct repo -->
 
 Although both approaches enable you to define and create your subnets, there is an important difference to be aware of. When you define subnets by using child resources, the first time your Bicep file is deployed, the virtual network is deployed. Then, after the virtual network deployment is complete, each subnet is deployed. This sequencing occurs because Azure Resource Manager deploys each individual resource separately.
@@ -25,6 +27,14 @@ When you redeploy the same Bicep file, the same deployment sequence occurs. Howe
 
 > [!WARNING]
 > Avoid defining subnets as child resources. This approach can result in downtime for your resources during subsequent deployments, or failed deployments.
+
+### Access subnet resource IDs
+
+You often need to refer to a subnet's resource ID. When you use the `subnets` property to define your subnet, [you can use the `existing` keyword](resource-declaration.md#existing-resources) to also obtain a strongly typed reference to the subnet, and then access the subnet's `id` property:
+
+::: code language="bicep" source="code/scenarios-virtual-networks/vnet.bicep" range="7-42" highlight="26-28, 30-32, 35-26" :::
+
+Because this example uses the `existing` keyword to access the subnet resource, instead of defining it, this approach doesn't have the risks outlined in the previous section.
 
 ## Network security groups
 
