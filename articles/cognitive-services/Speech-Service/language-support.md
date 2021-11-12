@@ -15,9 +15,9 @@ ms.custom: references_regions, ignite-fall-2021
 
 # Language and voice support for the Speech service
 
-Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), [Speech translation](#speech-translation) and [Speaker Recognition](#speaker-recognition) service offerings.
+Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-Text](#speech-to-text), [Text-to-Speech](#text-to-speech), [Speech translation](#speech-translation) and [Speaker Recognition](#speaker-recognition) service offerings.
 
-## Speech-to-text
+## Speech-to-Text
 
 Both the Microsoft Speech SDK and the REST API support the following languages (locales). 
 
@@ -139,21 +139,21 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Turkish (Turkey)                   | `tr-TR` | Text                                   |                           |                          |
 | Vietnamese (Vietnam)               | `vi-VN` | Text                                   |                           |                          |
 
-## Text-to-speech
+## Text-to-Speech
 
-Both the Microsoft Speech SDK and REST APIs support these voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region/endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices). 
+Both the Microsoft Speech SDK and REST APIs support these neural voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region/endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices). 
 
 > [!IMPORTANT]
-> Pricing varies for standard, custom and neural voices. Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
+> Pricing varies for prebuilt neural voices (referred as *Neural* on the pricing page) and custom neural voices (referred as *Custom Neural* on the pricing page). Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
 
-### Neural voices
+### Prebuilt neural voices
 
-Neural text-to-speech is a new type of speech synthesis powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.
+You can have easy access to more than 278 neural voices across 119 different languages as of November, 2021. Neural Text-to-Speech is a new type of speech synthesis powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.
 
-Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
+Prebuilt neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, prebuilt neural voices significantly reduce listening fatigue when users interact with AI systems.
 
 > [!NOTE]
-> Neural voices are created from samples that use a 24 khz sample rate.
+> Prebuilt neural voices are created from samples that use a 24 khz sample rate.
 > All voices can upsample or downsample to other sample rates when synthesizing.
 
 | Language | Locale | Gender | Voice name | Style support |
@@ -436,7 +436,7 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 > The English (United Kingdom) voice `en-GB-MiaNeural` will be retired on **30 October 2021**. All service requests to `en-GB-MiaNeural` will be re-directed to `en-GB-SoniaNeural` automatically after **30 October 2021**.
 > If you are using container Neural TTS, please [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version before **30 October 2021**. After **30 October 2021**, all requests with previous versions will be rejected.
 
-#### Neural voices in preview
+#### Prebuilt neural voices in preview
 
 Below neural voices are in public preview. 
 
@@ -454,7 +454,7 @@ Below neural voices are in public preview.
 > [!TIP]
 > `en-US-JennyNeuralMultilingual` supports multiple languages. Check the [voices list API](rest-text-to-speech.md#get-a-list-of-voices) for supported languages list.
 
-For more information about regional availability, see [regions](regions.md#neural-and-standard-voices).
+For more information about regional availability, see [regions](regions.md#prebuilt-neural--voices).
 
 To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
@@ -464,110 +464,9 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 > [!TIP]
 > You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)" in your speech synthesis requests.
 
-### Standard voices
+### Custom neural voice
 
-More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#neural-and-standard-voices).
-
-> [!IMPORTANT]
-> We are retiring the standard voices on **31st August 2024** and they will no longer be supported after that date. We announced this in emails sent to all existing Speech subscriptions created before **31st August 2021**. During the retiring period (**31st August 2021** - **31st August 2024**), existing standard voice users can continue to use standard voices, but all new users/new speech resources must choose neural voices.
-
-> [!NOTE]
-> With two exceptions, standard voices are created from samples that use a 16 khz sample rate.
-> **The en-US-AriaRUS** and **en-US-GuyRUS** voices are also created from samples that use a 24 khz sample rate.
-> All voices can upsample or downsample to other sample rates when synthesizing.
-
-| Language | Locale (BCP-47) | Gender | Voice name |
-|--|--|--|--|
-| Arabic (Egypt) | `ar-EG` | Female | `ar-EG-Hoda`|
-| Arabic (Saudi Arabia) | `ar-SA` | Male | `ar-SA-Naayf`|
-| Bulgarian (Bulgaria) | `bg-BG` | Male | `bg-BG-Ivan`|
-| Catalan (Spain) | `ca-ES` | Female | `ca-ES-HerenaRUS`|
-| Chinese (Cantonese, Traditional) | `zh-HK` | Male | `zh-HK-Danny`|
-| Chinese (Cantonese, Traditional) | `zh-HK` | Female | `zh-HK-TracyRUS`|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-HuihuiRUS`|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-Kangkang`|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-Yaoyao`|
-| Chinese (Taiwanese Mandarin) |  `zh-TW` | Female | `zh-TW-HanHanRUS`|
-| Chinese (Taiwanese Mandarin) |  `zh-TW` | Female | `zh-TW-Yating`|
-| Chinese (Taiwanese Mandarin) |  `zh-TW` | Male | `zh-TW-Zhiwei`|
-| Croatian (Croatia) | `hr-HR` | Male | `hr-HR-Matej`|
-| Czech (Czech) | `cs-CZ` | Male | `cs-CZ-Jakub`|
-| Danish (Denmark) | `da-DK` | Female | `da-DK-HelleRUS`|
-| Dutch (Netherlands) | `nl-NL` | Female | `nl-NL-HannaRUS`|
-| English (Australia) | `en-AU` | Female | `en-AU-Catherine`|
-| English (Australia) | `en-AU` | Female | `en-AU-HayleyRUS`|
-| English (Canada) | `en-CA` | Female | `en-CA-HeatherRUS`|
-| English (Canada) | `en-CA` | Female | `en-CA-Linda`|
-| English (India) | `en-IN` | Female | `en-IN-Heera`|
-| English (India) | `en-IN` | Female | `en-IN-PriyaRUS`|
-| English (India) | `en-IN` | Male | `en-IN-Ravi`|
-| English (Ireland) | `en-IE` | Male | `en-IE-Sean`|
-| English (United Kingdom) | `en-GB` | Male | `en-GB-George`|
-| English (United Kingdom) | `en-GB` | Female | `en-GB-HazelRUS`|
-| English (United Kingdom) | `en-GB` | Female | `en-GB-Susan`|
-| English (United States) | `en-US` | Male | `en-US-BenjaminRUS`|
-| English (United States) | `en-US` | Male | `en-US-GuyRUS`|
-| English (United States) | `en-US` | Female | `en-US-AriaRUS`|
-| English (United States) | `en-US` | Female | `en-US-ZiraRUS`|
-| Finnish (Finland) | `fi-FI` | Female | `fi-FI-HeidiRUS`|
-| French (Canada) | `fr-CA` | Female | `fr-CA-Caroline`|
-| French (Canada) | `fr-CA` | Female | `fr-CA-HarmonieRUS`|
-| French (France) | `fr-FR` | Female | `fr-FR-HortenseRUS`|
-| French (France) | `fr-FR` | Female | `fr-FR-Julie`|
-| French (France) | `fr-FR` | Male | `fr-FR-Paul`|
-| French (Switzerland) | `fr-CH` | Male | `fr-CH-Guillaume`|
-| German (Austria) | `de-AT` | Male | `de-AT-Michael`|
-| German (Germany) | `de-DE` | Female | `de-DE-HeddaRUS`|
-| German (Germany) | `de-DE` | Male | `de-DE-Stefan`|
-| German (Switzerland) | `de-CH` | Male | `de-CH-Karsten`|
-| Greek (Greece) | `el-GR` | Male | `el-GR-Stefanos`|
-| Hebrew (Israel) | `he-IL` | Male | `he-IL-Asaf`|
-| Hindi (India) | `hi-IN` | Male | `hi-IN-Hemant`|
-| Hindi (India) | `hi-IN` | Female | `hi-IN-Kalpana`|
-| Hungarian (Hungary) | `hu-HU` | Male | `hu-HU-Szabolcs`|
-| Indonesian (Indonesia) | `id-ID` | Male | `id-ID-Andika`|
-| Italian (Italy) | `it-IT` | Male | `it-IT-Cosimo`|
-| Italian (Italy) | `it-IT` | Female | `it-IT-LuciaRUS`|
-| Japanese (Japan) | `ja-JP` | Female | `ja-JP-Ayumi`|
-| Japanese (Japan) | `ja-JP` | Female | `ja-JP-HarukaRUS`|
-| Japanese (Japan) | `ja-JP` | Male | `ja-JP-Ichiro`|
-| Korean (Korea) | `ko-KR` | Female | `ko-KR-HeamiRUS`|
-| Malay (Malaysia) | `ms-MY` | Male | `ms-MY-Rizwan`|
-| Norwegian (Bokmål, Norway) | `nb-NO` | Female | `nb-NO-HuldaRUS`|
-| Polish (Poland) | `pl-PL` | Female | `pl-PL-PaulinaRUS`|
-| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-Daniel`|
-| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-HeloisaRUS`|
-| Portuguese (Portugal) | `pt-PT` | Female | `pt-PT-HeliaRUS`|
-| Romanian (Romania) | `ro-RO` | Male | `ro-RO-Andrei`|
-| Russian (Russia) | `ru-RU` | Female | `ru-RU-EkaterinaRUS`|
-| Russian (Russia) | `ru-RU` | Female | `ru-RU-Irina`|
-| Russian (Russia) | `ru-RU` | Male | `ru-RU-Pavel`|
-| Slovak (Slovakia) | `sk-SK` | Male | `sk-SK-Filip`|
-| Slovenian (Slovenia) | `sl-SI` | Male | `sl-SI-Lado`|
-| Spanish (Mexico) | `es-MX` | Female | `es-MX-HildaRUS`|
-| Spanish (Mexico) | `es-MX` | Male | `es-MX-Raul`|
-| Spanish (Spain) | `es-ES` | Female | `es-ES-HelenaRUS`|
-| Spanish (Spain) | `es-ES` | Female | `es-ES-Laura`|
-| Spanish (Spain) | `es-ES` | Male | `es-ES-Pablo`|
-| Swedish (Sweden) | `sv-SE` | Female | `sv-SE-HedvigRUS`|
-| Tamil (India) | `ta-IN` | Male | `ta-IN-Valluvar`|
-| Telugu (India) | `te-IN` | Female | `te-IN-Chitra`|
-| Thai (Thailand) | `th-TH` | Male | `th-TH-Pattara`|
-| Turkish (Turkey) | `tr-TR` | Female | `tr-TR-SedaRUS`|
-| Vietnamese (Vietnam) | `vi-VN` | Male | `vi-VN-An` |
-
-> [!IMPORTANT]
-> The `en-US-Jessa` voice has changed to `en-US-Aria`. If you were using "Jessa" before, convert over to "Aria".
-
-> [!TIP]
-> You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)" in your speech synthesis requests.
-
-### Customization
-
-Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based on the Neural TTS technology and the multi-lingual multi-speaker universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. Check below for the languages supported.  
-
-> [!IMPORTANT]
-> The standard tier including the statistical parametric and the concatenative training methods of custom voice is being deprecated and will be retired on 2/29/2024. If you are using non-neural/standard Custom Voice, migrate to Custom Neural Voice immediately to enjoy the better quality and deploy the voices responsibly. 
+Based on the neural Text-to-Speech technology and the multi-lingual multi-speaker universal model, custom neural voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. Check below for the languages supported.  
 
 | Language | Locale | Neural | Cross-lingual |
 |--|--|--|--|
@@ -602,10 +501,10 @@ Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based
 | Turkish (Turkey) | `tr-TR` | Yes | No |
 | Vietnamese (Vietnam) | `vi-VN` | Yes | No |
 
-Select the right locale that matches the training data you have to train a custom voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
+Select the right locale that matches the training data you have to train a custom neural voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 
 > [!NOTE]
-> We do not support bi-lingual model training in Custom Voice, except for the Chinese-English bi-lingual. Select "Chinese-English bilingual" if you want to train a Chinese voice that can speak English as well. Chinese-English bilingual model training using the standard method is available in North Europe and North Central US only. Custom Neural Voice training is available in UK South and East US.
+> The custom neural voice enables you to create a unique brand voice in multiple languages and styles by using a small set of recording data. Chinese-English bilingual model training in custom neural voice is available in UK South and East US.
 
 ## Speech translation
 

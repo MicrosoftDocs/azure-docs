@@ -147,13 +147,19 @@ items:
           href: long-audio-api.md
         - name: Get facial pose events for lip-sync
           href: how-to-speech-synthesis-viseme.md
+        - name: Migration overview
+          href: migration-overview.md
+          - name: Migrate to prebuilt neural voice
+          - href: how-to-migrate-to-prebuilt-neural-voice.md 
+          - name: Migrate to custom neural voice 
+          - href: how-to-migrate-to-custom-neural-voice.md  
         - name: Customization
           items:
             - name: Custom Neural Voice
               items:
-                - name: What is Custom Neural Voice?
+                - name: What is custom neural voice?
                   href: custom-neural-voice.md
-                - name: Get started with Custom Neural Voice
+                - name: Get started with custom neural voice
                   displayName: 'custom voice, neural voice'
                   href: how-to-custom-voice.md
                 - name: Prepare data for training

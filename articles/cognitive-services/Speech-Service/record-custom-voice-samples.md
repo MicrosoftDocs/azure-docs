@@ -12,7 +12,7 @@ ms.date: 04/13/2020
 ms.author: eur
 ---
 
-# Record voice samples to create a custom voice
+# Record voice samples to create a custom neural voice
 
 Creating a high-quality production custom neural voice from scratch isn't a casual undertaking. The central component of a custom neural voice is a large collection of audio samples of human speech. It's vital that these audio recordings be of high quality. Choose a voice talent who has experience making these kinds of recordings, and have them recorded by a recording engineer using professional equipment.
 
@@ -26,7 +26,7 @@ Many small but important details go into creating a professional voice recording
 > "I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice."
 This sentence will be used to verify if the training data is done by the same person that makes the consent. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
 
-> Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural). 
+> Custom neural voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural). 
 
 ## Voice recording roles
 
@@ -47,7 +47,7 @@ Actors with experience in voiceover or voice character work make good custom neu
 
 Your voice talent is the other half of the equation. They must be able to speak with consistent rate, volume level, pitch, and tone. Clear diction is a must. The talent also needs to be able to strictly control their pitch variation, emotional affect, and speech mannerisms. Recording voice samples can be more fatiguing than other kinds of voice work. Most voice talent can record for two or three hours a day. Limit sessions to three or four a week, with a day off in-between if possible.
 
-Work with your voice talent to develop a "persona" that defines the overall sound and emotional tone of the custom neural voice. In the process, you'll pinpoint what "neutral" sounds like for that persona. Using the Custom Neural Voice capability, you can train a model that speaks with emotions. Define the "speaking styles" and ask your voice talent to read the script in a way that resonates the styles you want.  
+Work with your voice talent to develop a "persona" that defines the overall sound and emotional tone of the custom neural voice. In the process, you'll pinpoint what "neutral" sounds like for that persona. Using the custom neural voice capability, you can train a model that speaks with emotions. Define the "speaking styles" and ask your voice talent to read the script in a way that resonates the styles you want.  
 
 A persona might have, for example, a naturally upbeat personality. So "their" voice might carry a note of optimism even when they speak neutrally. However, such a personality trait should be subtle and consistent. Listen to readings by existing voices to get an idea of what you're aiming for.
 
@@ -66,11 +66,11 @@ We recommend the recording scripts include both general sentences and your domai
 
 We provide [sample scripts in the 'General', 'Chat' and 'Customer Service' domains for each language](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) to help you prepare your recording scripts. You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. Building a custom neural voice requires at least 300 recorded sentences as training data.
 
-You can select your domain-specific scripts from the sentences that your custom voice will be used to read.
+You can select your domain-specific scripts from the sentences that your custom neural voice will be used to read.
 
 ### Script selection criteria
 
-Below are some general guidelines that you can follow to create a good corpus (recorded audio samples) for Custom Neural Voice training.
+Below are some general guidelines that you can follow to create a good corpus (recorded audio samples) for custom neural voice training.
 
 -  Balance your script to cover different sentence types in your domain including statements, questions, exclamations, long sentences, and short sentences.
 
@@ -89,11 +89,11 @@ Below are some general guidelines that you can follow to create a good corpus (r
 
    Best practices include:
     - Balanced coverage for Part of Speech, like verb, noun, adjective, and so on.  
-    - Balanced coverage for pronunciations. Include all letters from A to Z so the TTS engine learns how to pronounce each letter in your defined style.
+    - Balanced coverage for pronunciations. Include all letters from A to Z so the Text-to-Speech engine learns how to pronounce each letter in your defined style.
     - Readable, understandable, common-sense for speaker to read out.
     - Avoid too much similar pattern for word/phrase, like "easy" and "easier".
     - Include different format of numbers: address, unit, phone, quantity, date, and so on, in all sentence types.  
-    - Include spelling sentences if it's something your TTS voice will be used to read. For example, "Spell of Apple is A P P L E".
+    - Include spelling sentences if it's something your custom neural voice will be used to read. For example, "Spell of Apple is A P P L E".
 
 - Don't put multiple sentences into one line/one utterance. Separate each line per utterances.
 
@@ -198,7 +198,7 @@ You can refer to below specification to prepare for the audio samples as best pr
 | Environment noise, echo |   - The level of noise at start of the wave before speaking < -70 dB |
 
 > [!Note]
-> You can record at higher sampling rate and bit depth, for example in the format of 48 KHz 24 bit PCM. During the custom voice training, we'll down sample it to 24 KHz 16 bit PCM automatically.
+> You can record at higher sampling rate and bit depth, for example in the format of 48 KHz 24 bit PCM. During the custom neural voice training, we'll down sample it to 24 KHz 16 bit PCM automatically.
 
 ### Typical audio errors
 
