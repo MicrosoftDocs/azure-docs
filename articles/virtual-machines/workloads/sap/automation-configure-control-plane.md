@@ -89,12 +89,12 @@ The table below contains the parameters related to the deployer virtual machine.
 The Virtual Machine image is defined using the following structure: 
 ```python 
 { 
-os_type| Optional	 =""
-source_image_id=""
-publisher="Canonical"
-offer="0001-com-ubuntu-server-focal"
-sku="20_04-lts"
-version="latest"
+  os_type=""
+  source_image_id=""
+  publisher="Canonical"
+  offer="0001-com-ubuntu-server-focal"
+  sku="20_04-lts"
+  version="latest"
 }
 ```
 
@@ -111,7 +111,6 @@ The table below defines the parameters used for defining the Virtual Machine aut
 > | `deployer_authentication_password`               | Administrator password                              | Optional  |
 > | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication      | Optional  |
 > | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication     | Optional  |
-
 
 ### Key Vault Parameters
 
