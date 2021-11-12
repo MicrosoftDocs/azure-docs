@@ -171,7 +171,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
-[Azure Defender for Kubernetes](https://docs.microsoft.com/azure/defender-for-cloud/container-security)
+[Azure Defender for Kubenetes]: ../defender-for-cloud/container-security.md
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md
