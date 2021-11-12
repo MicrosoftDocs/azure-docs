@@ -82,7 +82,7 @@ You can set the path to where logs will be written by using the logback-spring.x
 </configuration>
 ```
 
-In the preceeding example, there are two placeholders named `{LOGS}` in the path for writing the application's logs to. A value needs to be assigned to the environment variable `LOGS` to have the log write to both the console and your persistent storage. 
+In the preceding example, there are two placeholders named `{LOGS}` in the path for writing the application's logs to. A value needs to be assigned to the environment variable `LOGS` to have the log write to both the console and your persistent storage. 
 
 ## Use the Azure CLI to create and deploy Logback to write logs to persistent storage
 
