@@ -37,7 +37,7 @@ In this step, you create a lab for your class in Azure.
     
     :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-button.png" alt-text="Create a classroom lab":::
 4. In the **New Lab** window, do the following actions: 
-    1. Specify a **name** for your lab, and select **Next**.  
+    1. Specify a **name**, **lab plan**, **virtual machine image**, **size**, and **region** for your lab, and select **Next**.  
 
         :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-window.png" alt-text="Screenshot that shows the "New lab" window.":::
     2. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab. Specify the **name** and the **password** for the user, and then select **Next**.  
