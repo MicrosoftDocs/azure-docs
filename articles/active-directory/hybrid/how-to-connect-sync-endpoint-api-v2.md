@@ -32,13 +32,13 @@ Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves t
 
 ## Prerequisites  
 In order to use the new V2 endpoint, you will need to use Azure AD Connect v2.0. When you deploy AADConnect V2.0, the V2 endpoint will be automatically enabled.
-Support for the V2 endpoint is no longer available for V1.x versions. If you need to sync groups with more than 50K members, you need to upgrade to Azure AD Connect V2.0.
+There is an known issue where upgrading to the latest 1.6 build resets the group membership limit to 50k. When a server is upgraded to AADConnect 1.6 then the customer should reapply the rules changes they applied when initially increasing the group membership limit to 250k before they enable sync for the server. 
 
 ## Frequently asked questions  
  
 **When will the new end point become the default for upgrades and new installations?**  
-The V2 endpoint is the default setting for AADConnect V2.0 and is not supported for AADConnect V1.x.
-There is an issue where customers who have the V2 endpoint running with an older version and try to upgrade to a newer V1.6 release will see that the 50K limitation on group membership is reinstated. We won't fix this issue in V1.6 and will require customers to upgrade to AADConnect V2.0 if this is an issue for them.
+The V2 endpoint is the default setting for AADConnect V2.0 and we advise customers to upgrade to AADConnect V2.0 to leverage the benefits of this endpoint.
+There is an issue where customers who have the V2 endpoint running with an older version and try to upgrade to a newer V1.6 release will see that the 50K limitation on group membership is reinstated. When a server is upgraded to AADConnect 1.6 then the customer should reapply the rules changes they applied when initially increasing the group membership limit to 250k before they enable sync for the server. 
 
 ## Next steps
 
