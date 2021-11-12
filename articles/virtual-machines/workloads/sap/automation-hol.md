@@ -30,7 +30,6 @@ During this lab, you will perform the following tasks
 
 ## Introduction
 
-The SAP on Azure Deployment Automation Framework is an open-source solution that can be used to deploy SAP Infrastructures and install SAP applications in Azure. You can create infrastructure for SAP landscapes based on SAP HANA and NetWeaver with AnyDB on any of the SAP-supported operating system versions and deploy them into any Azure region.
 
 There are three main steps of an SAP deployment on Azure with the automation framework.
 
