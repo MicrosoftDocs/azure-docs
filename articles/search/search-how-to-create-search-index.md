@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/08/2021
+ms.date: 11/12/2021
 ---
 
 # Create a search index in Azure Cognitive Search
@@ -48,7 +48,7 @@ To minimize churn in the design process, the following table describes which ele
 | [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify "searchAnalyzer". All other assignments and modifications require a rebuild. |
 | [Scoring profiles](index-add-scoring-profiles.md) | Yes |
 | [Suggesters](index-add-suggesters.md) | No |
-| [cross-origin remote scripting (CORS)](search-what-is-an-index.md#corsoptions) | Yes |
+| [cross-origin remote scripting (CORS)](#corsoptions) | Yes |
 | [Encryption](search-security-manage-encryption-keys.md) | Yes |
 
 > [!NOTE]
@@ -178,6 +178,28 @@ For Cognitive Search, the Azure SDKs implement generally available features. As 
 | Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations.py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
 
 ---
+
+<a name="corsoptions"></a>
+
+## Set `corsOptions` for cross-origin queries
+
+Index schemas include a section for setting `corsOptions`. Client-side JavaScript cannot call any APIs by default since the browser will prevent all cross-origin requests. To allow cross-origin queries to your index, enable CORS (Cross-Origin Resource Sharing) by setting the **corsOptions** attribute. For security reasons, only [query APIs](search-query-create.md#choose-query-methods) support CORS.
+
+```json
+"corsOptions": {
+  "allowedOrigins": [
+    "*"
+  ],
+  "maxAgeInSeconds": 300
+```
+
+The following properties can be set for CORS:
+
++ **allowedOrigins** (required): This is a list of origins that will be granted access to your index. This means that any JavaScript code served from those origins will be allowed to query your index (assuming it provides the correct api-key). Each origin is typically of the form `protocol://<fully-qualified-domain-name>:<port>` although `<port>` is often omitted. See [Cross-origin resource sharing (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) for more details.
+
+  If you want to allow access to all origins, include `*` as a single item in the **allowedOrigins** array. *This is not a recommended practice for production search services* but it is often useful for development and debugging.
+
++ **maxAgeInSeconds** (optional): Browsers use this value to determine the duration (in seconds) to cache CORS preflight responses. This must be a non-negative integer. The larger this value is, the better performance will be, but the longer it will take for CORS policy changes to take effect. If it is not set, a default duration of 5 minutes will be used.
 
 ## Next steps
 

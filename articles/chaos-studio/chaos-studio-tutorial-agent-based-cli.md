@@ -67,7 +67,7 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
 
 ### Enable chaos target and capabilities
 
-Next, set up a Microsoft-Agent target on each virtual machine or virtual machine scale set that specifies the user-assigned managed identity that the agent will use to connect to Chaos Studio. In this example, we use one managed identity for all VMs. A target must be created via REST API. In this example we use the `az rest` CLI command to execute the REST API calls.
+Next, set up a Microsoft-Agent target on each virtual machine or virtual machine scale set that specifies the user-assigned managed identity that the agent will use to connect to Chaos Studio. In this example, we use one managed identity for all VMs. A target must be created via REST API. In this example, we use the `az rest` CLI command to execute the REST API calls.
 
 1. Modify the following JSON by replacing `$USER_IDENTITY_CLIENT_ID` with the clientID of your managed identity, which you can find in the Azure portal overview of the user-assigned managed identity you created, and `$USER_IDENTITY_TENANT_ID` with your Azure tenant ID, which you can find in the Azure portal under **Azure Active Directory** under  **Tenant information**. Save the JSON as a file in the same location where you are running the Azure CLI (in Cloud Shell you can drag-and-drop the JSON file to upload it).
 
@@ -91,7 +91,7 @@ Next, set up a Microsoft-Agent target on each virtual machine or virtual machine
     az rest --method put --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2021-09-15-preview --body @target.json --query properties.agentProfileId -o tsv
     ```
 
-3. The command returns a GUID for the **agentProfileId**. Copy this down for use in a later step.
+3. Copy down the GUID for the **agentProfileId** returned by this command for use in a later step.
 
 4. Create the capabilities on the target by creating a capability.json file as shown below. Save the JSON file in the same location where you are running the Azure CLI. Replace `$RESOURCE_ID` with the resource ID of the target virtual machine or virtual machine scale set and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
     
@@ -110,9 +110,9 @@ Next, set up a Microsoft-Agent target on each virtual machine or virtual machine
 The chaos agent is an application that runs in your virtual machine or virtual machine scale set instances to execute agent-based faults. During installation, you configure the agent with the managed identity the agent should use to authenticate to Chaos Studio, the profile ID of the Microsoft-Agent target that you created, and optionally an Application Insights instrumentation key that enables the agent to send diagnostic events to Azure Application Insights.
 
 1. Before beginning, make sure you have the following details:
-    * **agentProfileId** - the property returned when creating the target. If you don't have this, you can run `az rest --method get --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2021-09-15-preview` and copy the `agentProfileId` property.
-    * **ClientId** - the client ID of the user-assigned managed identity used in the target. If you don't have this, you can run `az rest --method get --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2021-09-15-preview` and copy the `clientId` property
-    * (optionally) **AppInsightsKey** - the instrumentation key for your Application Insights component. You can find this in the Application Insights blade in the portal under **Essentials**.
+    * **agentProfileId** - the property returned when creating the target. If you don't have this property, you can run `az rest --method get --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2021-09-15-preview` and copy the `agentProfileId` property.
+    * **ClientId** - the client ID of the user-assigned managed identity used in the target. If you don't have this property, you can run `az rest --method get --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2021-09-15-preview` and copy the `clientId` property
+    * (optionally) **AppInsightsKey** - the instrumentation key for your Application Insights component, which you can find in the Application Insights page in the portal under **Essentials**.
 
 2. Install the Chaos Studio VM extension. Replace `$VM_RESOURCE_ID` with the resource ID of your VM or replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$VMSS_NAME` with those properties for your virtual machine scale set. Replace `$AGENT_PROFILE_ID` with the agentProfileId, `$USER_IDENTITY_CLIENT_ID` with the clientID of your managed identity, and `$APP_INSIGHTS_KEY` with your Application Insights instrumentation key. If you are not using Application Insights, remove that key/value pair.
 
@@ -149,7 +149,7 @@ The chaos agent is an application that runs in your virtual machine or virtual m
 
 With your virtual machine now onboarded, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially, and branches, which run in parallel.
 
-1. Formulate your experiment JSON starting with the JSON sample below. Modify the JSON to correspond to the experiment you want to run using the [Create Experiment API](https://docs.microsoft.com/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md)
+1. Formulate your experiment JSON starting with the JSON sample below. Modify the JSON to correspond to the experiment you want to run using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md)
 
     ```json
     {
@@ -246,9 +246,9 @@ You are now ready to run your experiment. To see the impact, we recommend openin
     az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2021-09-15-preview
     ```
 
-2. The response includes a status URL which you can use to query experiment status as the experiment runs.
+2. The response includes a status URL that you can use to query experiment status as the experiment runs.
 
 ## Next steps
 Now that you have run an agent-based experiment, you are ready to:
-- [Create an experiment that uses service-direct faults](chaos-studio-tutorial-service-direct.md)
+- [Create an experiment that uses service-direct faults](chaos-studio-tutorial-service-direct-portal.md)
 - [Manage your experiment](chaos-studio-run-experiment.md)
