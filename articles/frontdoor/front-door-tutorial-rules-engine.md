@@ -46,11 +46,12 @@ In this tutorial, you learn how to:
 1. Determine the priority of the rules within your configuration by using the Move up, Move down, and Move to top buttons. The priority is in ascending order, meaning the rule first listed is the most important rule.
 
 
-> [!TIP]
-You can create a custom response header in the rule to verify when the changes have replicated using the example above. If you add response header X-Rule1-Version where Rule1 is the name of your rule and change the value each time you make a change. This will let you know when the changes have been propgated to the Front Door:
-![image](https://user-images.githubusercontent.com/73197942/141169910-e6eb0977-fe25-427a-a0ef-ca0d36697b32.png)
-When going to the URL after the changes, I can see which rule I hit and the version: 
-![image](https://user-images.githubusercontent.com/73197942/141170492-a8c4cbcb-af54-4a28-a612-6a0a81982cd7.png)
+    > [!TIP]
+    > If you like to verify when the changes are propagated to Azure Front Door, you can create a custom response header in the rule using the example below. You can add a response header `_X-<RuleName>-Version_`  and change the value each time rule is updated.
+    >  
+    > :::image type="content" source="./media/front-door-rules-engine/rules-version.png" alt-text="Screenshot of custom version header rule." lightbox="./media/front-door-rules-engine/rules-version-expanded.png":::
+    > After the changes are updated, you can go to the URL to confirm the rule version being invoked: 
+    > :::image type="content" source="./media/front-door-rules-engine/version-output.png" alt-text="Screenshot of custom header version output.":::
 
 
 1. Once you have created one or more rules, press **Save**. This action creates your Rules Engine configuration.
