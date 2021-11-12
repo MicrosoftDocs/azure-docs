@@ -43,7 +43,8 @@ testName: SampleTest
 testPlan: SampleTest.jmx
 description: Load test website home page
 engineInstances: 1
-configurationFiles: ['*.csv']
+configurationFiles:
+  - '*.csv'
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50
