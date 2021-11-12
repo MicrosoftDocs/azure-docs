@@ -45,7 +45,8 @@ Be sure to enable the following capabilities in your Unity project:
 - InternetClient
 - PrivateNetworkClientServer
 
-> [!WARNING] Failure to enable the PrivateNetworkClientServer capability may lead to a failure to query anchors when the device is using a network that is configured to be private.
+> [!WARNING]
+> Failure to enable the PrivateNetworkClientServer capability may lead to a failure to query anchors when the device is using a network that is configured to be private.
 ### Android only: Configure the mainTemplate.gradle file
 
 1. Go to **Edit** > **Project Settings** > **Player**.
