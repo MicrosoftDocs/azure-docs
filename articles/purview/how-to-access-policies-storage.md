@@ -82,13 +82,12 @@ Complete all the following steps to enable Azure Purview to manage access polici
 This functionality is currently in preview, so you will need to [Opt in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
 
 #### Register Purview as a resource provider in other subscriptions
-Execute this step only if you have data sources in the same tenant but outside the subscription used for the Azure Purview account, and you want to enable access to be managed from Purview. Register Azure Purview as a resource provider in those additional subscriptions by following this guide, but do not this in the subscription used for the Azure Purview account:  
+Execute this step only if the Storage account you want to manage access to is in a different subscription than the Azure Purview account. Register Azure Purview as a resource provider in that subscriptions by following this guide:  
 [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
 
 #### Configure permissions for policy management actions
-- A user needs to be owner 
--   A user needs to be part of Purview data curator role to perform policy authoring/management actions.
--   A user needs to be part of Purview data source admin role to publish the policy.
+-   A user needs to be part of Purview Policy Author role at root collection level to perform policy authoring/management actions.
+-   A user needs to be part of Purview data source admin role at the root collection level to publish the policy.
 
 See the section on managing role assignments in this guide: [How to create and manage collections](how-to-create-and-manage-collections.md)
 
@@ -181,12 +180,35 @@ The steps to publish a policy are as follows
 
     :::image type="content" source="./media/how-to-access-policies-storage/publish-policy-storage.png" alt-text="Image shows how a data owner can publish a policy.":::
 
-1. A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button. Publish is a background operation. It can take up to 2 hours for the changes to be reflected in the data source.
+1. A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button.
 
     :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a data owner can select the data source where the policy will be published.":::
 
+>[!NOTE]
+> Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
+
+## Azure Purview policy action to Azure Storage action mapping
+
+This section contains a reference of how actions in Azure Purview data policies map to specific actions in Azure Storage.
+
+| **Purview policy action** | **Data source specific actions**                                                                |
+|---------------------------|-------------------------------------------------------------------------------------------------|
+|||
+| *Read*                      |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read                        |
+|                           |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery                      |
+|                           |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed                    |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                            |
+|||
+| *Modify*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                            |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write                           |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action                      |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action                     |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete                          |
+|||
+
 ## Next steps
 
-Check this article to understand concepts related to Azure Purview:
+Check the blog and demo related to the capabilities mentioned in this how-to guide
 
-* [Azure Purview overview](overview.md)
+* [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
+* [Demo of access policy for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)

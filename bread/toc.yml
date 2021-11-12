@@ -1061,3 +1061,6 @@
   - name: 'Azure DevTest offer (Visual Studio subscriber benefit)'
     tocHref: /azure/devtest/offer/
     topicHref: /azure/devtest/offer/overview-what-is-devtest-offer-visual-studio
+  - name: Service Connector
+    tocHref: /azure/service-connector/
+    topicHref: /azure/service-connector/
