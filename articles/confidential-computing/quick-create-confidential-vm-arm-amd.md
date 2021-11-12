@@ -1,5 +1,5 @@
 ---
-title: Create a confidential VM on AMD with an ARM template (preview)
+title: Create a confidential VM with ARM template (preview)
 description: Learn how to quickly create a confidential virtual machine (confidential VM) using an ARM template. Deploy the confidential VM from the Azure portal or the Azure CLI.
 author: RunCai
 ms.service: virtual-machines
@@ -11,15 +11,15 @@ ms.author: RunCai
 ---
 
 
-# Quickstart: Deploy confidential VM on AMD with ARM template (preview)
+# Quickstart: Deploy confidential VM with ARM template (preview)
 
 > [!IMPORTANT]
 > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You can use an Azure Resource Manager template (ARM template) to create a [confidential VM](confidential-vm-overview.md) quickly. The confidential VM you create runs on AMD processors backed by AMD SEV-SNP to achieve VM memory encryption and isolation. For more information, see [Confidential VM options on AMD](virtual-machine-solutions-amd.md).
+You can use an Azure Resource Manager template (ARM template) to create a [confidential VM](confidential-vm-overview.md) quickly. The confidential VM you create runs on AMD processors backed by AMD SEV-SNP to achieve VM memory encryption and isolation. For more information, see [Confidential VM Overview](confidential-vm-overview.md).
 
-This tutorial covers deployment of a confidential VM with a custom configuration. For standard configurations, see the [Confidential Computing VM deployment steps for the Microsoft commercial marketplace](quick-create-marketplace.md) instead.
+This tutorial covers deployment of a confidential VM with a custom configuration. 
 
 ## Prerequisites
 
@@ -103,33 +103,23 @@ To create and deploy a confidential VM using an ARM template through the Azure C
     az group create -n $resourceGroup -l $region
     ```
 
-1. Deploy your VM to Azure with your preferred method.
+1. Deploy your VM to Azure using ARM template with custom parameter file
 
-    To deploy using the ARM template:
-    
+      
     ```powershell-interactive
     az deployment group create `
      -g $resourceGroup `
      -n $deployName `
      -u "https://aka.ms/CVMTemplate" `
-     -p vmLocation=$region `
-        vmName=$vmName
-    ```
-
-    To [deploy using a custom JSON parameter file](#use-custom-parameter-file):
-
-    ```powershell-interactive
-    az deployment group create `
-     -g $resourceGroup `
-     -n $deployName `
      -p "<json-parameter-file-path>" `
      -p vmLocation=$region `
         vmName=$vmName
     ```
 
-### Use custom parameter file
 
-When you [create your confidential VM using the Azure CLI](#deploy-with-azure-cli), you can use the ARM template directly or a custom parameter file. To create a custom JSON parameter file:
+### Define custom parameter file
+
+When you create your confidential VM using the Azure CLI, you need to define custom parameter file. To create a custom JSON parameter file:
 
 1. Sign into your Azure account in the Azure CLI.
 
@@ -141,7 +131,7 @@ When you [create your confidential VM using the Azure CLI](#deploy-with-azure-cl
 
 #### Example Windows parameter file
 
-Use this example to [create a custom parameter file](#use-custom-parameter-file) to create a Windows-based confidential VM.
+Use this example to create a custom parameter file for a Windows-based confidential VM.
 
 ```json
 {
@@ -170,7 +160,7 @@ Use this example to [create a custom parameter file](#use-custom-parameter-file)
 
 #### Example Linux parameter file
 
-Use this example to [create a custom parameter file](#use-custom-parameter-file) to create a Linux-based confidential VM.
+Use this example to create a custom parameter file for a Linux-based confidential VM.
 
 ```json
 {
