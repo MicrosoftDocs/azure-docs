@@ -32,7 +32,7 @@ highlightedContent:
       itemType: tutorial
       url: tutorial-identify-bottlenecks-azure-portal.md
     # Card
-    - title: 'Add regression testing to a CI/CD workflow'
+    - title: 'Identify performance regressions with CI/CD'
       itemType: tutorial
       url: tutorial-cicd-azure-pipelines.md
 
@@ -74,10 +74,10 @@ conceptualContent:
       links:
         - url: tutorial-cicd-azure-pipelines.md
           itemType: tutorial
-          text: Identify regressions with an Azure Pipelines CI/CD workflow
+          text: Identify regressions with Azure Pipelines
         - url: tutorial-cicd-github-actions.md
           itemType: tutorial
-          text: Identify regressions with a GitHub Actions CI/CD workflow
+          text: Identify regressions with GitHub Actions
 
     # Card
     - title: Reference
