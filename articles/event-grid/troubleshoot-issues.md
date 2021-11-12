@@ -28,7 +28,7 @@ If you receive error messages with error codes like 400, 409, and 403, see [Trou
 
 ## Distributed tracing 
 
-The Event Grid libraries in .NET, Java, Python and JavaScript support distributing tracing. To adhere to the [CloudEvents specification's guidance](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) on distributing tracing, the library sets the `traceparent` and `tracestate` on the [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126) of a `CloudEvent` when distributed tracing is enabled. 
+The Event Grid libraries in .NET, Java, Python and JavaScript support distributing tracing. To adhere to the [CloudEvents specification's guidance](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) on distributing tracing, the library sets the `traceparent` and `tracestate` on the [ExtensionAttributes](https://github.com/cloudevents/spec/blob/v1.0.1/extensions/distributed-tracing.md) of a `CloudEvent` when distributed tracing is enabled. 
 To learn more about how to enable distributed tracing in your application, take a look at the Azure SDK distributed tracing documentation:
 - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)
 - [Java](/azure/developer/java/sdk/tracing)
