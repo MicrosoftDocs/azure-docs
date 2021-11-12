@@ -30,9 +30,7 @@ This article shows you how to load Logback and write logs to custom persistent s
 
 ## Edit the Logback configuration to write logs into a specific path
 
-You can set the path where logs will be written by using the following example.
-
-Let's use this simple logback-spring.xml file as an example:
+You can set the path to where logs will be written by using the logback-spring.xml example file.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
