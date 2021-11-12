@@ -13,7 +13,7 @@ ms.date: 10/04/2021
 # Authorize search requests using Azure AD (preview)
 
 > [!IMPORTANT]
-> Role-based access control for data plane operations such as creating an index or querying an index is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). This functionality is only available in public clouds and may impact the latency of your operations while the functionality is in preview. 
+> Role-based access control for data plane operations, such as creating an index or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). This functionality is only available in public cloud regions and may impact the latency of your operations while the functionality is in preview. For more information on preview limitations, see [RBAC preview limitations](./search-security-rbac.md?tabs=config-svc-rest%2croles-powershell%2ctest-rest#preview-limitations).
 
 With Azure Active Directory (Azure AD), you can use role-based access control (RBAC) to grant access to your Azure Cognitive Search services. A key advantage of using Azure AD is that your credentials no longer need to be stored in your code. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search. To learn more about the advantages of using Azure AD in your applications, see [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md#benefits-of-integration).
 
@@ -29,24 +29,24 @@ The parts of Azure Cognitive Search's RBAC capabilities required to use Azure AD
 
 To add your subscription to the preview:
 
-1. Navigate to the **Subscriptions** page in the [Azure portal](https://portal.azure.com/).
-1. Select the subscription you want to use.
-1. On the left-hand side of the subscription page, select **Preview Features**.
-1. Use the search bar or filters to find and select **Role Based Access Control for Search Service (Preview)**
+1. Navigate to your search service in the [Azure portal](https://portal.azure.com/).
+1. On the left-hand side of the page, select **Keys**.
 1. Select **Register** to add the feature to your subscription.
 
-![sign up for rbac on afec](media/search-howto-aad/rbac-signup-afec.png)
+![sign up for the rbac preview in the portal](media/search-howto-aad/rbac-signup-portal.png)
 
-For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
+You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
+> [!NOTE]
+> Once you add the preview to your subscription, your subscription will always be enrolled in the preview. This won't be a problem because you can still choose to disable RBAC for data plane operations as shown in the next step.
 
 ### Enable RBAC for data plane operations
 
-Once your subscription is onboarded to the preview, you'll still need to enable RBAC for data plane operations so that you can use Azure AD authentication. By default, Azure Cognitive Search uses key-based authentication for data plane operations but you can change the setting to allow role-based access control. 
+Once your subscription is added to the preview, you'll still need to enable RBAC for data plane operations so that you can use Azure AD authentication. By default, Azure Cognitive Search uses key-based authentication for data plane operations but you can change the setting to allow role-based access control. 
 
 To enable role-based access control:
 
-1. Navigate to the Azure portal with this preview link: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). 
+1. Navigate to your search service in the [Azure portal](https://portal.azure.com/).
 1. On the left navigation pane, select **Keys**.
 1. Determine if you'd like to allow both key-based and role-based access control, or only role-based access control.
 
@@ -74,9 +74,9 @@ At this point, you've created your Azure AD application and service principal. M
 
 The application will also need a client secret or certificate to prove its identity when requesting a token. In this document, we'll show how to use a client secret.
 
-1. Navigate to the app registration you just created.
+1. Navigate to the app registration you created.
 1. Select **Certificates and secrets**.
-1. Under **Client secrets**, click **New client secret**.
+1. Under **Client secrets**, select **New client secret**.
 1. Provide a description of the secret and select the desired expiration interval.
 
 ![create a client secret wizard](media/search-howto-aad/create-secret.png)
@@ -94,9 +94,9 @@ To assign a role to your app registration:
 1. Open the Azure portal and navigate to your search service.
 1. Select **Access Control (IAM)** in the left navigation pane.
 1. On the right side under **Grant access to this resource**, select **Add role assignment**.
-1. Select the role you'd like to use and then click **Next**.
-1. On the next page, click **Select members** and find the application you created previously. 
-1. Finally, click **Review + assign**.
+1. Select the role you'd like to use and then select **Next**.
+1. On the next page, select **Select members** and find the application you created previously. 
+1. Finally, select **Review + assign**.
 
 ![Add role assignment in the azure portal](media/search-howto-aad/role-assignment.png)
 

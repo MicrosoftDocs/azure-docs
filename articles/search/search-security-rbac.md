@@ -60,16 +60,29 @@ New built-in preview roles provide a granular set of permissions over content on
 
 To add your subscription to the preview:
 
-1. Navigate to the **Subscriptions** page in the [Azure portal](https://portal.azure.com/).
-1. Select the subscription you want to use.
-1. On the left-hand side of the subscription page, select **Preview Features**.
-1. Use the search bar or filters to find and select **Role Based Access Control for Search Service (Preview)**
+1. Navigate to your search service in the [Azure portal](https://portal.azure.com/).
+1. On the left-hand side of the page, select **Keys**.
 1. Select **Register** to add the feature to your subscription.
 
-![sign up for rbac on afec](media/search-howto-aad/rbac-signup-afec.png)
+![sign up for the rbac preview in the portal](media/search-howto-aad/rbac-signup-portal.png)
 
-For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
+You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
+> [!NOTE]
+> Once you add the preview to your subscription, your subscription will always be enrolled in the preview. This won't be a problem because you can still choose to disable RBAC for data plane operations as shown in the next step.
+
+### Preview limitations
+
+Role-based access control for data plane operations, such as creating an index or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+There are also a few other limitations to be aware of:
+
+* Using RBAC may increase request latency if a high number of service principals are used to access different service resources (indexes, indexers, etc.). Each combination of resource and service principal will require an authorization check to be done.
+* In scenarios where there are requests coming from a high number of different service principals, it's possible that there could be throttling caused by the authorization checks required. 
+* The RBAC preview is currently only available in public cloud regions and isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
+* If a subscription is migrated to a new tenant, the RBAC preview will need to be re-enabled. 
+
+If you have questions or concerns about these limitations, or experience issues with latency or throttling while using the preview, you can reach out to us at [acs-rbac-preview@microsoft.com](acs-rbac-preview@microsoft.com).
 
 ## Step 2: Preview configuration
 
@@ -81,7 +94,7 @@ In this step, configure your search service to recognize an **authorization** he
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
-1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true).
+1. Open the [Azure portal](https://ms.portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -144,10 +157,7 @@ You must be an **Owner** or have [Microsoft.Authorization/roleAssignments/write]
 
 ### [**Azure portal**](#tab/roles-portal)
 
-1. For preview roles, open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). You should see `feature.enableRbac=true` in the URL.
-
-   > [!NOTE]
-   > For users and groups assigned to a preview role, portal content such as indexes and indexers will only be visible if you open the portal with the feature flag. 
+1. Open the [Azure portal](https://ms.portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -200,10 +210,7 @@ Recall that you can only scope access to top-level resources, such as indexes, s
 
 ### [**Azure portal**](#tab/test-portal)
 
-1. For preview roles, open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). 
-
-   > [!NOTE]
-   > For users and groups assigned to a preview role, portal content such as indexes and indexers will only be visible if you open the portal with the feature flag. 
+1. Open the [Azure portal](https://ms.portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -311,3 +318,5 @@ To enable a Conditional Access policy for Azure Cognitive Search, follow the bel
 
 > [!IMPORTANT]
 > If your search service has a managed identity assigned to it, the specific search service will show up as a cloud app that can be included or excluded as part of the Conditional Access policy. Conditional Access policies cannot be enforced on a specific search service. Instead make sure you select the general **Azure Cognitive Search** cloud app.
+
+## Preview Limitations
