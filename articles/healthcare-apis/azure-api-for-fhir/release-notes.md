@@ -14,6 +14,15 @@ ms.author: cavoeg
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+
+## October 2021
+
+### **Bug fixes**
+
+|Infinite loop bug| Description|
+| :----------------------------------- | ------: |
+|Fixed issue where [Conditional Delete](./././../azure-api-for-fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop. | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
+
 ## September 2021 
 
 ### **Features and enhancements**
@@ -71,15 +80,6 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Bug fixes| Description|
 | :-----------------------------------| ------: |
 |Fixed broken link.| Updated link to the IoT connector Azure documentation in the Azure API for FHIR portal. |
-
-
-## October 2021
-
-### **Bug fixes**
-
-|Infinite loop bug| Description|
-| :----------------------------------- | ------: |
-|Fixed issue where [Conditional Delete](./././../azure-api-for-fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop. | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
 
 ## Next steps
 

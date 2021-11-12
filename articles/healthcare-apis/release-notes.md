@@ -17,6 +17,42 @@ ms.author: cavoeg
 
 Azure Healthcare APIs is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Healthcare APIs including the different service types (FHIR service, DICOM service, and IoT connector) that seamlessly work with one another.
 
+## October 2021
+
+### Azure Healthcare APIs Feature Enhancements
+
+
+|Enhancements | Description |
+|:------------------- | -----------:|
+|Healthcare APIs Samples - Test Data Generator tool |We've updated our GitHub samples repo to include a [test data generator tool](https://github.com/microsoft/healthcare-apis-samples/blob/main/docs/HowToRunPerformanceTest.md) using Synthea data. This tool is an improvement to the open source [public test projects](https://github.com/ShadowPic/PublicTestProjects), based on Apache JMeter, that can be deployed to Azure AKS for performance tests. |
+
+### FHIR service
+
+#### **Feature enhancements**
+
+|Enhancements | Description |
+|:------------------- | -----------:|
+|Added support for [_sort](././../healthcare-apis/fhir/overview-of-search.md#search-result-parameters) on strings and dateTime. |[#2169](https://github.com/microsoft/fhir-server/pull/2169)  |
+
+#### **Bug fixes**
+
+|Bug fixes | Description |
+|:------------------- | -----------:|
+|Fixed issue where [Conditional Delete](././../healthcare-apis/fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop. | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
+|Resolved 500 error possibly caused by a malformed transaction body in a bundle POST. We've added a check that the URL is populated in the [transaction bundle](././..//healthcare-apis/fhir/fhir-features-supported.md#rest-api) requests. | [#2255](https://github.com/microsoft/fhir-server/pull/2255) |
+
+### **DICOM service**
+
+|Added support | Description |
+|:------------------- | -----------:|
+|Regions |South Brazil and Central Canada |
+|Extended Query tags |DT and TM VR types |
+
+|Bug fixes | Description |
+|:------------------- | -----------:|
+|Implemented complete support for: |DA, DT, and TM VR types |
+|Implemented fix to: |Enable DICOM service to work with workspaces that have names beginning with a letter. |
+
 ## September 2021
 
 ### FHIR service
@@ -77,42 +113,6 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 |Bug fixes | Description |
 |:------------------- | -----------:|
 |IoT connector normalized improvements with calculations to support and enhance health data standardization. | See: [Use device mappings](./../healthcare-apis/iot/how-to-use-device-mapping-iot.md) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md) |
-
-## October 2021
-
-### Azure Healthcare APIs Feature Enhancements
-
-
-|Enhancements | Description |
-|:------------------- | -----------:|
-|Healthcare APIs Samples - Test Data Generator tool |We've updated our GitHub samples repo to include a [test data generator tool](https://github.com/microsoft/healthcare-apis-samples/blob/main/docs/HowToRunPerformanceTest.md) using Synthea data. This tool is an improvement to the open source [public test projects](https://github.com/ShadowPic/PublicTestProjects), based on Apache JMeter, that can be deployed to Azure AKS for performance tests. |
-
-### FHIR service
-
-#### **Feature enhancements**
-
-|Enhancements | Description |
-|:------------------- | -----------:|
-|Added support for [_sort](././../healthcare-apis/fhir/overview-of-search.md#search-result-parameters) on strings and dateTime. |[#2169](https://github.com/microsoft/fhir-server/pull/2169)  |
-
-#### **Bug fixes**
-
-|Bug fixes | Description |
-|:------------------- | -----------:|
-|Fixed issue where [Conditional Delete](././../healthcare-apis/fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop. | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
-|Resolved 500 error possibly caused by a malformed transaction body in a bundle POST. We've added a check that the URL is populated in the [transaction bundle](././..//healthcare-apis/fhir/fhir-features-supported.md#rest-api) requests. | [#2255](https://github.com/microsoft/fhir-server/pull/2255) |
-
-### **DICOM service**
-
-|Enhancements | Description |
-|:------------------- | -----------:|
-|Added supported regions: |South Brazil and Central Canada |
-|Added support for: |DT and TM VR types for Extended Query tags |
-
-|Bug fixes | Description |
-|:------------------- | -----------:|
-|Implemented complete support for: |DA, DT, and TM VR types |
-|Implemented fix to: |Enable DICOM service to work with workspaces that have names beginning with a letter. |
 
 ## Next steps
 
