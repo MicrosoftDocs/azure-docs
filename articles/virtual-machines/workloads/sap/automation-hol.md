@@ -816,7 +816,7 @@ Before you start executing remover script make sure, you have logged into your A
     export ARM_SUBSCRIPTION_ID=<subscriptionID>
   ```
 
-- Run the below command:
+1. Run the following command.
 
   ```shell
     ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                  \
