@@ -87,7 +87,7 @@ Delegate credentials if server disks are located on remote SMB shares | Delegate
 ### Run the script
 
 1. Download the script from the [Microsoft Download Center](https://aka.ms/migrate/script/hyperv). The script is cryptographically signed by Microsoft.
-2. Validate the script integrity using SHA256 hash files. Hashtag values are below. Run this command to generate the hash for the script:
+2. Validate the script integrity using SHA256 hash file. Hashtag value is below. Run this command to generate the hash for the script:
 
     ```powershell
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
@@ -102,11 +102,10 @@ Delegate credentials if server disks are located on remote SMB shares | Delegate
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
-Hash values are:
+Hash value is:
 
 **Hash** |  **Value**
 --- | ---
-MD5 | 0ef418f31915d01f896ac42a80dc414e
 SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## Set up a project
