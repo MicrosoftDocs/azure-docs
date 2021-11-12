@@ -22,7 +22,7 @@ For more information on Synapse lake databases see [Overview of Azure Synapse da
 Map Data provides for a guided experience where the user can generate a mapping data flow without having to start with a blank canvas and quickly generate a scalable mapping data flow runnable in Synapse pipelines.
 
 
-[!NOTE] 
+> [!NOTE] 
 The Map Data feature in Synapse Analytics pipelines is currently in public preview
 
 ## Getting started
