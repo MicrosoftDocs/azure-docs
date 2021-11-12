@@ -85,7 +85,7 @@ While ubiquitous across all Azure regions, and works with all storage account ty
 
 Azure support for the Network File System (NFS) v3.0 protocol is now available. [NFS](../../../storage/blobs/network-file-system-protocol-support.md) support enables Windows and Linux clients to mount a Blob storage container to an Azure VM. 
 
-Azure Blobs NFS 3.0 supports GPV2 storage accounts with standard tier performance in the following regions: 
+NFS 3.0 supports GPV2 storage accounts with standard tier performance in the following regions: 
 - Australia East
 - Korea Central
 - South Central US. 
