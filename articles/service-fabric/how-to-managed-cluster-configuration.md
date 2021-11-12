@@ -13,7 +13,7 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 * Configuring cluster [network settings](how-to-managed-cluster-networking.md)
 * Configure a node type for [large virtual machine scale sets](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
 * Configuring [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) on cluster node types
-* Enabling [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on cluster nodes
+* Enabling [OS and data disk encryption](how-to-managed-cluster-enable-disk-encryption.md) on cluster nodes
 * Configure [autoscaling](how-to-managed-cluster-autoscale.md) on a secondary node type
 * [Manually scale a node type](how-to-managed-cluster-modify-node-type.md#scale-a-node-type-manually-with-portal)
 * Enable [automatic OS image upgrades](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades) on cluster node types
