@@ -7,7 +7,7 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-java
 ms.author: rhudson
-ms.date: 10/12/2021
+ms.date: 11/12/2021
 ---
 
 # Quickstart: Provision Azure Spring Cloud using an ARM template

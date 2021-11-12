@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/19/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
 ---
 
@@ -25,7 +25,6 @@ It's important that you have the following prerequisites completed before you be
 * [Event Hubs namespace and Event Hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
 * [Workspace deployed in Azure Healthcare APIs](../healthcare-apis-quickstart.md)  
 * [FHIR service deployed in Azure Healthcare APIs](../fhir/fhir-portal-quickstart.md) 
-
 
 ## Deploy IoT connector 
 

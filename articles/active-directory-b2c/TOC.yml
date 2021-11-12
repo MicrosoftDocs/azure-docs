@@ -49,7 +49,7 @@
       href: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Tokens
       href: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-    - name: Protocols
+    - name: Application authentication request
       href: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Authentication library
       href: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
@@ -345,9 +345,9 @@
       items:
       - name: Azure Monitor
         href: azure-monitor.md
-      - name: Azure Sentinel
+      - name: Microsoft Sentinel
         href: azure-sentinel.md
-        displayName: log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration
+        displayName: log, logs, logging, events, Azure Monitor, Microsoft Sentinel, SIEM, threat hunting, Security, Security Orchestration
     - name: Web Application Firewall partners
       items:
       - name: Akamai
