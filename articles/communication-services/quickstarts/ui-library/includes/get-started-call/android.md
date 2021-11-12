@@ -59,12 +59,10 @@ dependencies {
 }
 ```
 
-In your project setting level (**app folder**) `settings.gradle`, add the following lines to the repositories.
+In your project gradle scripts add following lines to `repositories`. For gradle version `6.7.1` the `repositories` are in (**app folder**) `settings.gradle`.
 
 ```groovy
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
+repositories {
         ...
         maven {
             url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
@@ -79,7 +77,6 @@ dependencyResolutionManagement {
         }
         ...
     }
-}
 ```
 Sync project with gradle files. (Android Studio -> File -> Sync Project With Gradle Files)
 
@@ -286,9 +283,7 @@ Depending on what type of Call/Meeting you would like to setup, use the appropri
 ### Group Call
 
 Initialize a `GroupCallOptions` instance inside the `startCallComposite` function.
-
 Replace `"GROUP_CALL_ID"` with your group ID for your call.
-
 Replace `"DISPLAY_NAME"` with your name.
 
 #### [Kotlin](#tab/kotlin)
@@ -316,8 +311,7 @@ GroupCallOptions options = new GroupCallOptions(
 ### Teams Meeting
 
 Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function.
-Replace `"TEAMS_MEETING_LINK"` with your group ID for your call.
-
+Replace `"TEAMS_MEETING_LINK"` with teams meeting url for your call.
 Replace `"DISPLAY_NAME"` with your name.
 
 #### [Kotlin](#tab/kotlin)
