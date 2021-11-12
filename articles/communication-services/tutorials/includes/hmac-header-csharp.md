@@ -178,8 +178,8 @@ Use the following code to add the required headers to your `requestMessage`.
 // Add a date header.
 requestMessage.Headers.Add("x-ms-date", date);
 
-// Add a host hash header.
-// The 'host' header is added automatically by the 'HttpClient'
+// Add a host header.
+// In C#, the 'host' header is added automatically by the 'HttpClient'. However, this step may be required on other platforms such as Node.js.
 
 // Add a content hash header.
 requestMessage.Headers.Add("x-ms-content-sha256", contentHash);
