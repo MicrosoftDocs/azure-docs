@@ -53,7 +53,7 @@ The framework uses Terraform for infrastructure deployment, and Ansible for the 
 
 :::image type="content" source="media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram SAP Deployment Automation Environment Diagram.":::
 
-#### Management Zone
+#### Management zone
 
 The management zone contains the control plane infrastructure from which other environments are deployed. Once the management zone is deployed, you rarely, if ever, need to redeploy.
 
