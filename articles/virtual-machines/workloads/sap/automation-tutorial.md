@@ -65,7 +65,7 @@ The **SAP Library** provides the persistent storage for the Terraform state file
 
 You configure the deployer and library in a Terraform `.tfvars` variable file. See [configuring the control plane](automation-configure-control-plane.md)
 
-#### Workload Zone
+#### Workload zone
 
 An SAP application typically has multiple deployment tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as workload zones.
 
