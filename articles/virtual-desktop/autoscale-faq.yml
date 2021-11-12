@@ -57,7 +57,7 @@ sections:
          No. If you've enabled the autoscale feature, you can only force users to sign out during the ramp-down phase. This means that if, during ramp-down, a session host is put in drain mode in preparation for it to be shut down but not all users get signed out before the phase changes to off-peak, the remaining user sessions will not be forced to sign out from their session. This is because during off-peak hours, users aren't forced to sign out of their sessions. Instead, the autoscale feature will wait until all users have signed out before deallocating the VM. For example, if the ramp-down phase is 15 minutes long, and the wait time before signing out users and shutting down VMs is 20 minutes long, the schedule will shift to the off-peak phase and the user sessions will not be forced to sign out.
       
       - question: |
-         I've configured the autoscale feature to force users to sign out during ramp-down, will it also sign out users with active sessions?
+         If I configure the autoscale feature to force users to sign out during ramp-down, will it also sign out users with active sessions?
         answer: |
          Yes. Idle, disconnected, and active sessions will be forced to sign out if the users don't sign out during the ramp-down phase wait time.
 
