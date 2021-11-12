@@ -51,13 +51,13 @@ The following diagram shows the dependency between the control plane and the app
 
 The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. The following diagram shows the logical separation of the control plane and workload zone.
 
-:::image type="content" source="media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram SAP Deployment Automation Environment Diagram.":::
+automation-tutorial type="content" source="media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram SAP Deployment Automation Environment Diagram.":::
 
 #### Management Zone
 
 The management zone contains the control plane infrastructure from which other environments are deployed. Once the management zone is deployed, you rarely, if ever, need to redeploy.
 
-:::image type="content" source="./media/automation-deployment-framework/control-plane.png" alt-text="Diagram Control Plane.":::
+automation-tutorial type="content" source="./media/automation-deployment-framework/control-plane.png" alt-text="Diagram Control Plane.":::
 
 The **Deployer** is the execution engine of the SAP automation framework. This  pre-configured virtual machine (VM) is used for executing Terraform and Ansible commands.
 
@@ -69,9 +69,9 @@ You configure the deployer and library in a Terraform `.tfvars` variable file. S
 
 An SAP application typically has multiple deployment tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as workload zones.
 
-:::image type="content" source="./media/automation-deployment-framework/workload-zone.png" alt-text="Workload zone.":::
+automation-tutorial type="content" source="./media/automation-deployment-framework/workload-zone.png" alt-text="Workload zone.":::
 
-The **SAP Workload zone ** contains the networking and shared components for the SAP VMs. These components include route tables, network security groups, and virtual networks (VNets). The Landscape provides the opportunity to divide deployments into different environments. See [configuring the workload zone](automation-configure-workload-zone.md)
+The **SAP Workload zone** contains the networking and shared components for the SAP VMs. These components include route tables, network security groups, and virtual networks (VNets). The Landscape provides the opportunity to divide deployments into different environments. See [configuring the workload zone](automation-configure-workload-zone.md)
 
 The system deployment consists of the virtual machines that will be running the SAP application, including the web, app, and database tiers. See [configuring the SAP system](automation-configure-system.md)
 
@@ -104,20 +104,20 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
   az login
   ```
 
-1. Authenticate your login. Don't close the window until you're prompted.
+    1. Authenticate your login. Don't close the window until you're prompted.
 
-1. Optionally, change your active subscription.
+    1. Optionally, change your active subscription.
   
 ```cloudshell-interactive
 az account set -s <Subscription ID>
 ```
 
-Validate that your active subscription changed:
+    Validate that your active subscription changed:
 
 ```cloudshell-interactive
 az account list --query "[?isDefault]"
  ```
-** or **
+    **or**
 
 ```cloudshell-interactive
 az  account list -o table | grep True
@@ -168,7 +168,7 @@ To run the automation framework, update to the following versions.
 The SAP automation deployment framework uses service principals for deployment. Create a service principal for your control plane deployment as follows. Make sure to use an account with permissions to create service principals.
 
 > [!NOTE] 
-> When choosing the name for your service principal, ensure that the name is unique within your Azure tenant*
+> When choosing the name for your service principal, ensure that the name is unique within your Azure tenant.
 
 
 Give the service principal contributor and user access administrator permissions.
@@ -269,7 +269,7 @@ firewall_deployment=true
 
 ## Deploy control plane
 
-Use the *prepare_region** script to deploy the Deployer and Library. These deployment pieces make up the
+Use the *prepare_region* script to deploy the Deployer and Library. These deployment pieces make up the
 control plane for a chosen automation area.
 
 - The deployment goes through cycles of deploying the infrastructure, refreshing the state, and uploading the Terraform state files to the Library storage account. All of these steps are packaged into a single deployment script. The script needs to know the location of the configuration file for the Deployer and Library, and some other parameters as follows.
@@ -312,13 +312,13 @@ The deployment of the deployer might run for about 15-20 minutes.
 
 1. The contents of the Deployer and SAP Library resource group are shown below.
 
-:::image type="content" source="media/automation-hol/image16.png" alt-text="Deployer resources":::
+automation-tutorial type="content" source="media/automation-tutorial/deployer-resource-group.png" alt-text="Deployer resources":::
     
-:::image type="content" source="media/automation-hol/image17.png" alt-text="Library resources":::
+automation-tutorial type="content" source="media/automation-hol/sap-library-resource-group.png" alt-text="Library resources":::
 
 The Terraform state file is now in the storage account whose name contains 'tfstate'. The storage account has a container named 'tfstate' with the deployer and library state files. Below is a listing of the contents of the 'tfstate' container after a successful control plane deployment.
     
-:::image type="content" source="media/automation-hol/image18.png" alt-text="Control plane tfstate files":::
+automation-tutorial type="content" source="media/automation-hol/terraform-state-files.png" alt-text="Control plane tfstate files":::
 
 ### Common issues and solutions
 
@@ -649,7 +649,7 @@ Triggers app server installation.
 
 You've now deployed and configured a stand-alone HANA system.
 
-## # Clean up installation
+## Clean up installation
 
 > [!NOTE]
 > It's important to clean up your SAP installation from this tutorial after you're done. Otherwise, you continue to incur costs related to the resources.
@@ -722,5 +722,4 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                         
 > [!div class="nextstepaction"]
 > [Configure control plane](automation-configure-control-plane.md)
 
----
 
