@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 07/22/2021
+ms.date: 11/10/2021
 ---
 
 # Create a virtual machine using your own image
@@ -15,10 +15,10 @@ This article describes how to publish a virtual machine (VM) image that you buil
 
 ## Bring your image into Azure
 
-Upload your VHD to an Azure shared image gallery.
+Upload your VHD to an Azure Compute Gallery (formerly know as Shared Image Gallery).
 
-1. On the Azure portal, search for **Shared image galleries**.
-2. Create or use an existing shared image gallery. We suggest you create a separate Shared image gallery for images being published to Marketplace.
+1. On the Azure portal, search for **Azure Compute Galleries**.
+2. Create or use an existing Azure Compute Gallery. We suggest you create a separate Azure Compute Gallery for images being published to the Marketplace.
 3. Create or use an existing image definition.
 4. Select **Create a version**.
 5. Choose the region and image version.
@@ -26,11 +26,11 @@ Upload your VHD to an Azure shared image gallery.
 7. Select **Review + create**. Once validation finishes, select **Create**.
 
 > [!TIP]
-> Publisher account must have “Owner” access to publish the SIG Image. If required, follow the steps in the following section, **Set the right permissions**, to grant access.
+> Publisher account must have “Owner” access to publish the Azure Compute Gallery Image. If required, follow the steps in the following section, **Set the right permissions**, to grant access.
 
 ## Set the right permissions
 
-If your Partner Center account is the owner of the subscription hosting Shared Image Gallery, nothing further is needed for permissions.
+If your Partner Center account is the owner of the subscription hosting Azure Compute Gallery, nothing further is needed for permissions.
 
 If you only have read access to the subscription, use one of the following two options.
 
@@ -38,7 +38,7 @@ If you only have read access to the subscription, use one of the following two o
 
 Steps for the owner to grant owner permission:
 
-1. Go to the Shared Image Gallery (SIG).
+1. Go to the Azure Compute Gallery.
 2. Select **Access control** (IAM) on the left panel.
 3. Select **Add**, then **Add role assignment**.<br>
     :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
@@ -49,7 +49,7 @@ Steps for the owner to grant owner permission:
 
 ### Option Two – Run a command
 
-Ask the owner to run either one of these commands (in either case, use the SusbscriptionId of the subscription where you created the Shared image gallery).
+Ask the owner to run either one of these commands (in either case, use the SusbscriptionId of the subscription where you created the Azure Compute Gallery).
 
 ```azurecli
 az login
@@ -63,10 +63,10 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
 > [!NOTE]
-> You don’t need to generate SAS URIs as you can now publish a Shared image gallery (SIG) Image on Partner  Center, without using APIs. <br/> <br/>If you *are* publishing using APIs, you would need to generate SAS URIs instead of using a SIG, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
+> You don’t need to generate SAS URIs as you can now publish an Azure Compute Gallery Image on Partner  Center, without using APIs. <br/> <br/>If you *are* publishing using APIs, you would need to generate SAS URIs instead of using an Azure Compute Gallery, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
 
 ## Next steps
 
 - [Test your VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements (optional).
-- If you don't want to test your VM image, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935) and publish the SIG Image.
+- If you don't want to test your VM image, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935) and publish the Azure Compute Gallery Image.
 - If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.yml).

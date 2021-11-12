@@ -32,7 +32,7 @@ kubectl logs -l app=secrets-store-csi-driver -n kube-system --since=1h | grep ^E
 
 ## Common issues
 
-### Failed to get key vault token: nmi response failed with status code: 404 
+### Failed to get key vault token: nmi response failed with status code: 404
 
 Error message in logs/events:
 
@@ -45,7 +45,7 @@ Description: The Node Managed Identity (NMI) component in aad-pod-identity retur
 > [!NOTE]
 > Azure Active Directory (Azure AD) is shortened to *aad* in the *aad-pod-identity* string.
 
-### keyvault.BaseClient#GetSecret: Failure sending request: StatusCode=0 – Original Error: context canceled” 
+### keyvault.BaseClient#GetSecret: Failure sending request: StatusCode=0 – Original Error: context canceled
 
 Error message in logs/events:
 
@@ -56,8 +56,7 @@ E1029 17:37:42.461313       1 server.go:54] failed to process mount request, err
 Description: The provider pod is unable to access the key vault instance for either of the following reasons:
 - A firewall rule is blocking egress traffic from the provider.
 - Network policies that are configured in the AKS cluster are blocking egress traffic.
-
-The provider pods run on hostNetwork. A failure could occur if a policy is blocking this traffic or there are network jitters on the node. Check for policies that are configured to block traffic, and place the provider pods on the allowlist. Also, ensure that there is connectivity to Azure AD and your key vault from the node.
+- The provider pods run on hostNetwork. A failure could occur if a policy is blocking this traffic or there are network jitters on the node. Check for policies that are configured to block traffic, and place the provider pods on the allowlist. Also, ensure that there is connectivity to Azure AD and your key vault from the node.
 
 You can test the connectivity to your Azure key vault from the pod that's running on the host network by doing the following:
 
