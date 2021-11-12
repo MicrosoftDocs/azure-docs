@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ---
 
-# Get started with the SAP automation framework on Azure
+# Get started with SAP automation framework on Azure
 
 Get started quickly with the [SAP Deployment Automation Framework on Azure](automation-deployment-framework.md).
 
