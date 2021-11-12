@@ -38,7 +38,7 @@ There are three main steps of an SAP deployment on Azure with the automation fra
 3. Deploying the system. This step includes the infrastructure for the SAP system.
 
 There are several workflows in the deployment automation process. However, this tutorial focuses on one workflow for ease of deployment. You can deploy this workflow,  the SAP-S4HANA standalone environment, using Bash. The tutorial describes the general hierarchy and different phases of the deployment.
-### Environment Overview
+### Environment overview
 
 The SAP on Azure Deployment Automation Framework has two main components:
 
