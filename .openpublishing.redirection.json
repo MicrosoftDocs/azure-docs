@@ -26717,6 +26717,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/spring-cloud/expose-apps-gateway-azure-firewall.md",
+      "redirect_url": "/azure/spring-cloud/expose-apps-gateway",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/how-to-provision-azure-spring-cloud-instance-terraform.md",
       "redirect_url": "/azure/spring-cloud/quickstart-deploy-infrastructure-vnet-terraform",
       "redirect_document_id": false
