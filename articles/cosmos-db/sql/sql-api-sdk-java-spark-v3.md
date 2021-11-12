@@ -34,7 +34,7 @@ ms.custom: devx-track-java
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-**Azure Cosmos DB OLTP Spark connector** provides Apache Spark support for Azure Cosmos DB using the [SQL API](sql_api_query.md). Azure Cosmos DB is a globally-distributed database service which allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
+**Azure Cosmos DB OLTP Spark connector** provides Apache Spark support for Azure Cosmos DB using the SQL API. Azure Cosmos DB is a globally-distributed database service which allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
 If you have any feedback or ideas on how to improve your experience create an issue in our [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java/issues/new)
 
