@@ -2,7 +2,7 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 11/12/2021
 ---
 
 # Outputs in Bicep
@@ -17,7 +17,7 @@ The syntax for defining an output value is:
 output <name> <data-type> = <value>
 ```
 
-Each output value must resolve to one of the [data types](data-types.md).
+An output can have the same name as a parameter, variable, module, or resource. Each output value must resolve to one of the [data types](data-types.md).
 
 The following example shows how to return a property from a deployed resource. In the example, `publicIP` is the symbolic name for a public IP address that is deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
 
