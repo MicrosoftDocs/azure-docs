@@ -157,8 +157,8 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `ANF_service_level`                | Service level for the Azure NetApp Files Capacity Pool                 | Optional     | |
 > | `ANF_pool_size`                    | The size (in GB) of the Azure NetApp Files Capacity Pool               | Optional     | |
 > | `anf_subnet_name`                  | The name of the ANF subnet                                             | Optional     | |
-> | `anf_subnet_arm_id`                | The Azure resource identifier for the 'ANF' subnet                     | Required     | Brown field |
-> | `anf_subnet_address_prefix`        | The address range for the 'ANF' subnet                                 | Required     | Green field |
+> | `anf_subnet_arm_id`                | The Azure resource identifier for the `ANF` subnet                     | Required     | Brown field |
+> | `anf_subnet_address_prefix`        | The address range for the `ANF` subnet                                 | Required     | Green field |
 
 
 ## Other Parameters
