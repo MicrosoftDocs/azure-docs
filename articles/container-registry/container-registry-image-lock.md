@@ -54,7 +54,7 @@ az acr repository show \
 
 ### Lock an image by tag
 
-To lock the *myrepo/myimage:tag* image in *myregistry*, run the following [az acr repository update][az-acr-repository-update] command:
+To lock the *myimage:tag* image in *myregistry*, run the following [az acr repository update][az-acr-repository-update] command:
 
 ```azurecli
 az acr repository update \
@@ -64,7 +64,7 @@ az acr repository update \
 
 ### Lock an image by manifest digest
 
-To lock a *myrepo/myimage* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr repository show-manifests][az-acr-repository-show-manifests] command.)
+To lock a *myimage* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr repository show-manifests][az-acr-repository-show-manifests] command.)
 
 ```azurecli
 az acr repository update \
@@ -74,7 +74,7 @@ az acr repository update \
 
 ### Lock a repository
 
-To lock the *myrepo/myimage* repository and all images in it, run the following command:
+To lock the *myrepo* repository and all images in it, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -86,7 +86,7 @@ az acr repository update \
 
 ### Protect an image from deletion
 
-To allow the *myrepo/myimage:tag* image to be updated but not deleted, run the following command:
+To allow the *myimage:tag* image to be updated but not deleted, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -96,7 +96,7 @@ az acr repository update \
 
 ### Protect a repository from deletion
 
-The following command sets the *myrepo/myimage* repository so it can't be deleted. Individual images can still be updated or deleted.
+The following command sets the *myrepo* repository so it can't be deleted. Individual images can still be updated or deleted.
 
 ```azurecli
 az acr repository update \
@@ -106,7 +106,7 @@ az acr repository update \
 
 ## Prevent read operations on an image or repository
 
-To prevent read (pull) operations on the *myrepo/myimage:tag* image, run the following command:
+To prevent read (pull) operations on the *myimage:tag* image, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -114,7 +114,7 @@ az acr repository update \
     --read-enabled false
 ```
 
-To prevent read operations on all images in the *myrepo/myimage* repository, run the following command:
+To prevent read operations on all images in the *myrepo* repository, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -124,7 +124,7 @@ az acr repository update \
 
 ## Unlock an image or repository
 
-To restore the default behavior of the *myrepo/myimage:tag* image so that it can be deleted and updated, run the following command:
+To restore the default behavior of the *myimage:tag* image so that it can be deleted and updated, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -132,7 +132,7 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-To restore the default behavior of the *myrepo/myimage* repository and all images so that they can be deleted and updated, run the following command:
+To restore the default behavior of the *myrepo* repository and all images so that they can be deleted and updated, run the following command:
 
 ```azurecli
 az acr repository update \
