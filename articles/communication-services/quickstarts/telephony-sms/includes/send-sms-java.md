@@ -136,7 +136,7 @@ System.out.println("Send Result Successful:" + sendResult.isSuccessful());
 You should replace `<from-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with a phone number you wish to send a message to.
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
+> Note that phone numbers should be provided in E.164 international standard format (e.g.: +14255550123). The **From** phone number may be a Short Code as well (e.g.: 23456).
 
 ## Send a 1:N SMS message with options
 To send an SMS message to a list of recipients, call the `send` method with a list of recipient phone numbers. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.
@@ -162,7 +162,7 @@ for (SmsSendResult result : sendResults) {
 You should replace `<from-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number-1>` and `<to-phone-number-2>` with phone number(s) you wish to send a message to.
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
+> Note that phone numbers should be provided in E.164 international standard format (e.g.: +14255550123). The **From** phone number may be a Short Code as well (e.g.: 23456).
 
 The `setDeliveryReportEnabled` method is used to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 

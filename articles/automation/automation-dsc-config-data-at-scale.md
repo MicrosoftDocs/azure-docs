@@ -3,13 +3,9 @@ title: Configure data at scale for Azure Automation State Configuration
 description: This article tells how to configure data at scale for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgreenegit
-ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 
 # Configure data at scale for Azure Automation State Configuration
