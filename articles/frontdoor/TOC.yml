@@ -118,8 +118,8 @@
     href: front-door-diagnostics.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot routing issues
-      href: front-door-troubleshoot-routing.md
+    - name: Troubleshooting Front Door issues
+      href: troubleshoot-issues.md
     - name: Allowed certificate authorities
       href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
 - name: Reference
