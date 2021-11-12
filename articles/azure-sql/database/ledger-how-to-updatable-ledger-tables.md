@@ -6,8 +6,8 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
-author: JasonMAnderson
-ms.author: janders
+author: rothja
+ms.author: jroth
 ---
 
 # Create and use updatable ledger tables

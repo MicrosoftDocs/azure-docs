@@ -4,7 +4,7 @@ description: Describes practices to follow when creating your Bicep files so the
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 11/02/2021
 ---
 # Best practices for Bicep
 
@@ -36,8 +36,6 @@ For more information about Bicep parameters, see [Parameters in Bicep](parameter
 
 ## Variables
 
-* Use lower camel case for variable names, such as `myVariableName`.
-
 * When you define a variable, the [data type](data-types.md) isn't needed. Variables infer the type from the resolve value.
 
 * You can use Bicep functions to create a variable.
@@ -46,13 +44,29 @@ For more information about Bicep parameters, see [Parameters in Bicep](parameter
 
 For more information about Bicep variables, see [Variables in Bicep](variables.md).
 
-## Naming
+## Names
+
+* Use lower camel case for names, such as `myVariableName` or `myResource`.
 
 * The [uniqueString() function](bicep-functions-string.md#uniquestring) is useful for creating globally unique resource names. When you provide the same parameters, it returns the same string every time. Passing in the resource group ID means the string is the same on every deployment to the same resource group, but different when you deploy to different resource groups or subscriptions.
 
 * Sometimes the `uniqueString()` function creates strings that start with a number. Some Azure resources, like storage accounts, don't allow their names to start with numbers. This requirement means it's a good idea to use string interpolation to create resource names. You can add a prefix to the unique string.
 
 * It's often a good idea to use template expressions to create resource names. Many Azure resource types have rules about the allowed characters and length of their names. Embedding the creation of resource names in the template means that anyone who uses the template doesn't have to remember to follow these rules themselves.
+
+* Avoid using `name` in a symbolic name. The symbolic name represents the resource, not the resource's name. For example, instead of this:
+
+  ```bicep
+  resource cosmosDBAccountName 'Microsoft.DocumentDB/databaseAccounts@2021-04-15' = {
+  ```
+
+  use this:
+
+  ```bicep
+  resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2021-04-15' = {
+  ```
+
+* Avoid distinguishing variables and parameters by the use of suffixes.
 
 ## Resource definitions
 
@@ -64,19 +78,21 @@ For more information about Bicep variables, see [Variables in Bicep](variables.m
 
 * When possible, avoid using the [reference](./bicep-functions-resource.md#reference) and [resourceId](./bicep-functions-resource.md#resourceid) functions in your Bicep file. You can access any resource in Bicep by using the symbolic name. For example, if you define a storage account with the symbolic name toyDesignDocumentsStorageAccount, you can access its resource ID by using the expression `toyDesignDocumentsStorageAccount.id`. By using the symbolic name, you create an implicit dependency between resources.
 
+* Prefer using implicit dependencies over explicit dependencies. Although the `dependsOn` resource property enables you to declare an explicit dependency between resources, it's usually possible to use the other resource's properties by using its symbolic name. This creates an implicit dependency between the two resources, and enables Bicep to manage the relationship itself.
+
 * If the resource isn't deployed in the Bicep file, you can still get a symbolic reference to the resource using the `existing` keyword.
 
 ## Child resources
 
 * Avoid nesting too many layers deep. Too much nesting makes your Bicep code harder to read and work with.
 
-* It's best to avoid constructing resource names for child resources. You lose the benefits that Bicep provides when it understands the relationships between your resources. Use the `parent` property or nesting instead.
+* Avoid constructing resource names for child resources. You lose the benefits that Bicep provides when it understands the relationships between your resources. Use the `parent` property or nesting instead.
 
 ## Outputs
 
 * Make sure you don't create outputs for sensitive data. Output values can be accessed by anyone who has access to the deployment history. They're not appropriate for handling secrets.
 
-* Instead of passing property values around through outputs, use the `existing` keyword to look up properties of resources that already exist. It's a best practice to look up keys from other resources in this way instead of passing them around through outputs. You'll always get the most up-to-date data.
+* Instead of passing property values around through outputs, use the `[existing` keyword](resource-declaration.md#existing-resources) to look up properties of resources that already exist. It's a best practice to look up keys from other resources in this way instead of passing them around through outputs. You'll always get the most up-to-date data.
 
 For more information about Bicep outputs, see [Outputs in Bicep](outputs.md).
 

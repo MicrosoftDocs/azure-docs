@@ -1,5 +1,5 @@
 ---
-title: What is Azure SQL Managed Instance? 
+title: What is Azure SQL Managed Instance?
 description: Learn about how Azure SQL Managed Instance provides near 100% compatibility with the latest SQL Server (Enterprise Edition) database engine
 services: sql-database
 ms.service: sql-managed-instance
@@ -8,7 +8,7 @@ ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: overview
 author: niko-neugebauer
-ms.author: nneugebauer 
+ms.author: nneugebauer
 ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
 ---
@@ -145,7 +145,7 @@ Azure SQL Managed Instance provides a set of advanced security features that can
 
 - [SQL Managed Instance auditing](auditing-configure.md) tracks database events and writes them to an audit log file placed in your Azure storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 - Data encryption in motion - SQL Managed Instance secures your data by providing encryption for data in motion using Transport Layer Security. In addition to Transport Layer Security, SQL Managed Instance offers protection of sensitive data in flight, at rest, and during query processing with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted offers data security against breaches involving the theft of critical data. For example, with Always Encrypted, credit card numbers are stored encrypted in the database always, even during query processing, allowing decryption at the point of use by authorized staff or applications that need to process that data.
-- [Advanced Threat Protection](threat-detection-configure.md) complements [auditing](auditing-configure.md) by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Advanced Threat Protection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/). They provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.  
+- [Advanced Threat Protection](threat-detection-configure.md) complements [auditing](auditing-configure.md) by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Advanced Threat Protection alerts can be viewed from [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/). They provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.  
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking helps prevent unauthorized access to sensitive data by enabling you to designate how much of the sensitive data to reveal with minimal impact on the application layer. It's a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 - [Row-level security](/sql/relational-databases/security/row-level-security) (RLS) enables you to control access to rows in a database table based on the characteristics of the user executing a query (such as by group membership or execution context). RLS simplifies the design and coding of security in your application. RLS enables you to implement restrictions on data row access. For example, ensuring that workers can access only the data rows that are pertinent to their department, or restricting a data access to only the relevant data.
 - [Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) encrypts SQL Managed Instance data files, known as encrypting data at rest. TDE performs real-time I/O encryption and decryption of the data and log files. The encryption uses a database encryption key (DEK), which is stored in the database boot record for availability during recovery. You can protect all your databases in a managed instance with transparent data encryption. TDE is proven encryption-at-rest technology in SQL Server that is required by many compliance standards to protect against theft of storage media.

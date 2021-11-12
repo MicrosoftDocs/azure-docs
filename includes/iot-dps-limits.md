@@ -37,4 +37,3 @@ The Device Provisioning Service has the following rate limits.
 | Device registrations | 200/min/service | Yes |
 | Device polling operation | 5/10 sec/device | No |
 
-Each API call on DPS is billable as one *Operation*. This includes all the service APIs and the device registration API. The device registration polling operation is not billed.
