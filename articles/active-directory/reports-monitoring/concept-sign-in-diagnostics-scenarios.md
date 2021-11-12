@@ -72,8 +72,12 @@ The sign-in diagnostic for Azure AD provides you with support for the following 
     - Error code insights  
 
     - Legacy authentication  
+    
+    - B2B blocked sign-in due to conditional access
 
     - Blocked by risk policy 
+    
+    - Pass Through Authentication
     
     - Seamless single sign on
 
