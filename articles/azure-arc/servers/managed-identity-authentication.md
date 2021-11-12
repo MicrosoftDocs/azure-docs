@@ -40,7 +40,7 @@ The system environment variable **IDENTITY_ENDPOINT** is used to discover the id
 - On Linux, you must be a member of the **himds** group.
 - A server connected and registered with Azure Arc-enabled servers.
 - You are a member of the [Owner group](../../role-based-access-control/built-in-roles.md#owner) in the subscription or resource group, in order to perform required resource creation and role management steps.
-- An Azure Key Vault to store and retrieve your credential. and assign the Azure Arc identity access to the KeyVault.
+- An Azure Key Vault to store and retrieve your credential, and assign the Azure Arc identity access to the KeyVault.
 
     - If you don't have a Key Vault created, see [Create Key Vault](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#create-a-key-vault-).
     - To configure access by the managed identity used by the server, see [Grant access for Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) or [Grant access for Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). For step number 5, you are going to enter the name of the Azure Arc-enabled server. To complete this using PowerShell, see [Assign an access policy using PowerShell](../../key-vault/general/assign-access-policy-powershell.md).
