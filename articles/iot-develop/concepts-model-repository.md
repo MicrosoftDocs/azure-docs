@@ -15,13 +15,13 @@ The device models repository (DMR) enables device builders to manage and share I
 
 The DMR defines a pattern to store DTDL interfaces in a folder structure based on the device twin model identifier (DTMI). You can locate an interface in the DMR by converting the DTMI to a relative path. For example, the `dtmi:com:example:Thermostat;1` DTMI translates to `/dtmi/com/example/thermostat-1.json` and can be obtained from the public base URL `devicemodels.azure.com` at the URL [https://devicemodels.azure.com/dtmi/com/example/thermostat-1.json](https://devicemodels.azure.com/dtmi/com/example/thermostat-1.json).
 
-## Index, Expanded and Metadata
+## Index, expanded and metadata
 
 The DMR conventions include additional artifacts for simplifying consumption of hosted models. These features are _optional_ for custom or private repositories.
 
-- Index. All avaialble DTMIs are exposed through an *index* composed by a sequence of json files, eg: https://devicemodels.azure.com/index.page.2.json
-- Expanded. A file with all the dependencies is available for each interface, eg: https://devicemodels.azure.com/dtmi/com/example/temperaturecontroller-1.expanded.json
-- Metadata. This file exposes key attributes of a repository and is refreshed periodically with the latest published models snapshot. It includes features that a repository implements such as if the model index or expanded model files are available. DMR metadata can be accessed here: https://devicemodels.azure.com/metadata.json
+- _Index_. All avaialble DTMIs are exposed through an *index* composed by a sequence of json files, for example: [https://devicemodels.azure.com/index.page.2.json](https://devicemodels.azure.com/index.page.2.json)
+- _Expanded_. A file with all the dependencies is available for each interface, for example: [https://devicemodels.azure.com/dtmi/com/example/temperaturecontroller-1.expanded.json](https://devicemodels.azure.com/dtmi/com/example/temperaturecontroller-1.expanded.json)
+- _Metadata_. This file exposes key attributes of a repository and is refreshed periodically with the latest published models snapshot. It includes features that a repository implements such as whether the model index or expanded model files are available. You can access the DMR metadata at [https://devicemodels.azure.com/metadata.json](https://devicemodels.azure.com/metadata.json)
 
 ## Public device models repository
 
@@ -173,9 +173,9 @@ Models can be exported from a given repository (local or remote) to a single fil
 dmr-client export --dtmi "dtmi:com:example:TemperatureController;1" -o TemperatureController.expanded.json
 ```
 
-### Create the repo `index`
+### Create the repository `index`
 
-The DMR can include an *index* with a list of all the DTMIs available at the time of publishing. This file can be split in multiple files as described in the [DMR Tools Wiki](https://github.com/Azure/iot-plugandplay-models-tools/wiki/Model-Index).
+The DMR can include an *index* with a list of all the DTMIs available at the time of publishing. This file can be split in to multiple files as described in the [DMR Tools Wiki](https://github.com/Azure/iot-plugandplay-models-tools/wiki/Model-Index).
 
 To generate the index in a custom or private DMR, use the index command:
 
@@ -183,7 +183,8 @@ To generate the index in a custom or private DMR, use the index command:
 dmr-client index -r . -o index.json
 ```
 
->Note: The public DMR is configured to provide an updated index available at: https://devicemodels.azure.com/index.json
+> [!NOTE]
+> The public DMR is configured to provide an updated index available at: https://devicemodels.azure.com/index.json
 
 ### Create *expanded* files
 
