@@ -9,7 +9,7 @@ ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# How to Deploy your Spring Boot application from Azure CLI
+# How to Deploy Spring Boot applications from Azure CLI
 
 **This article applies to:** ✔️ Java
 
@@ -66,7 +66,7 @@ az group create --location eastus --name <resource-group-name>
 Run the following commands to provision an instance of Azure Spring Cloud. Prepare a name for your service in Azure Spring Cloud. The name must be between 4 and 32 characters and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
 ```azurecli
-az spring-cloud create -n <resource-name> -g <resource-group-name>
+az spring-cloud create --resource-group <resource-group-name> --name <resource-name>
 ```
 
 The service instance will take about five minutes to deploy.
@@ -97,15 +97,15 @@ To deploy from a JAR built on your local machine, ensure that your build produce
 To deploy the fat-JAR to an active deployment
 
 ```azurecli
-az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR>
+az spring-cloud app deploy --name <app-name> --jar-path <path-to-fat-JAR>
 ```
 
 To deploy the fat-JAR to a specific deployment
 
 ```azurecli
 az spring-cloud app deployment create --app <app-name> \
-         -n <deployment-name> \
-         --jar-path <path-to-fat-JAR>
+    --name <deployment-name> \
+    --jar-path <path-to-fat-JAR>
 ```
 
 ### Deploy from source code
@@ -127,7 +127,7 @@ For Maven / Gradle projects with multiple modules, repeat for each module:
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
 az spring-cloud app deploy -n <app-name> \
-         --target-module <relative-path-to-module>
+    --target-module <relative-path-to-module>
 ```
 
 ### Show deployment logs
