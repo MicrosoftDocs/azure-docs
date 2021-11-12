@@ -68,7 +68,7 @@ For production deployments, you'll most likely use a publicly signed certificate
 
 ### [Using a Self-Signed Cert](#tab/self-signed-cert)
 
-When you need a self-signed certificate for testing or development, you need to create it, and ensure that the list of "Subject Alternative Names" in the certificate contains the domain name on which you'll expose the application. When creating a self-signed certificate through Azure Key Vault, you can do so through the Azure portal. Alternatively, when using the Azure CLI, you'll need a policy JSON file.
+When you need a self-signed certificate for testing or development, you need to create it. You'll also need to ensure that the list of "Subject Alternative Names" in the certificate contains the domain name on which you'll expose the application. When creating a self-signed certificate through Azure Key Vault, you can do so through the Azure portal. Alternatively, when using the Azure CLI, you'll need a policy JSON file.
 
 To request the default policy, use the following command:
 
@@ -293,7 +293,7 @@ az network application-gateway http-settings update \
 
 ### Check the deployment of Application Gateway
 
-After it's created, check the backend health by using the following command. This enables you to determine whether the application gateway reaches your application through its private FQDN.
+After it's created, check the backend health by using the following command. The output of this command enables you to determine whether the application gateway reaches your application through its private FQDN.
 
 ```azurecli
 az network application-gateway show-backend-health \
