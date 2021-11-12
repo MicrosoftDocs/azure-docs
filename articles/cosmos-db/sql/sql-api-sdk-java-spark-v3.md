@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/11/2021
+ms.date: 11/12/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
 ---
@@ -46,7 +46,7 @@ If you have any feedback or ideas on how to improve your experience create an is
 
 ## Version compatibility
 
-| Connector     | Minimum spark version | Minimum Java version | Supported Scala versions | Supported Databricks runtimes |
+| Connector     | Minimum Spark version | Minimum Java version | Supported Scala versions | Supported Databricks runtimes |
 | ------------- | --------------------- | -------------------- | -----------------------  | ----------------------------- |
 | 4.4.0         | 3.1.1                 | 8                    | 2.12                     | 8.\*, 9.\*                    |
 | 4.3.1         | 3.1.1                 | 8                    | 2.12                     | 8.\*, 9.\*                    |
