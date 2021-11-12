@@ -37,7 +37,7 @@ Download and install a preview ORAS release for your operating system. See [ORAS
 
 ## Configure a private registry
 
-Configure environment variables to easily copy/paste commands into your shell. The commands can be run in the [Azure Cloud Shell](https://http://shell.azure.com/)
+Configure environment variables to easily copy/paste commands into your shell. The commands can be run in the [Azure Cloud Shell](https://shell.azure.com/)
 
 ```console
 ACR_NAME=myregistry
@@ -381,7 +381,7 @@ az acr repository show-manifests \
 
 ## Next steps
 
-* Learn more about [the ORAS cli](https://oras.land)
+* Learn more about [the ORAS CLI](https://oras.land)
 * Learn more about [ORAS Artifacts][oras-artifacts] for how to push, discover, pull, copy a graph of supply chain artifacts
 
 <!-- LINKS - external -->
