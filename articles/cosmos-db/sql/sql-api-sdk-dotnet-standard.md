@@ -47,7 +47,11 @@ ms.custom: devx-track-dotnet
 
 ## Release history
 
-Release history is maintained in the Azure Cosmos DB .NET SDK source repo. Different sub versions of .NET SDKs are available under the 3.x.x version. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md)
+Release history is maintained in the Azure Cosmos DB .NET SDK source repo. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md)
+
+## <a name="recommended-version"></a> Recommended version
+
+Different sub versions of .NET SDKs are available under the 3.x.x version. **The minimum recommended version is 3.20.1**.
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
