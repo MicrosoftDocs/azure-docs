@@ -81,12 +81,12 @@ The table below contains the parameters related to the deployer virtual machine.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                        | Description                                                                  | Type       | 
 > | ----------------------------- - | ---------------------------------------------------------------------------- | ---------- | 
-> | `deployer_size`                 | Defines the Virtual machine SKU to use, for example	Standard_D4s_v3          | Optional   |
-> | `deployer_image`	               | Defines the Virtual machine image to use, see below                          | Optional	  |
-> | `deployer_disk_type`            | Defines the disk type, for example Premium_LRS                               | Optional   |
-> | `deployer_use_DHCP`             | Controls if Azure subnet provided IP addresses should be used (dynamic) true | Optional   |
-> | `deployer_private_ip_address`   | Defines the Private IP address to use                                        | Optional   |
-> | `deployer_enable_public_ip`     | Defined if the deployer has a public IP                                      |            |
+> | `deployer_size`                 | Defines the Virtual machine SKU to use. For example, Standard_D4s_v3.          | Optional   |
+> | `deployer_image`	               | Defines the VM  image to use. See the following code sample.                      | Optional	  |
+> | `deployer_disk_type`            | Defines the disk type. For example, Premium_LRS.                               | Optional   |
+> | `deployer_use_DHCP`             | Controls if the dynamic IP addresses provided by the Azure subnet are dynamic | Optional   |
+> | `deployer_private_ip_address`   | Defines the Private IP address to use.                                        | Optional   |
+> | `deployer_enable_public_ip`     | Defined if the deployer has a public IP.                                      |            |
 
 The Virtual Machine image is defined using the following structure: 
 ```python 
