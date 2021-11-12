@@ -1,88 +1,231 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+title: Create an Azure virtual machine with a dual-stack network - Azure CLI
+titleSuffix: Azure Virtual Network
+description: In this article, learn how to use the Azure CLI to create a virtual machine with a dual-stack virtual network in Azure.
+author: asudbring
+ms.author: allensu
+ms.service: virtual-network
+ms.subservice: ip-services
+ms.topic: how-to
+ms.date: 11/11/2021
+ms.custom: template-how-to
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+# Create an Azure Virtual Machine with a dual-stack network using the Azure CLI
 
-<!--
-This template provides the basic structure of a how-to article.
-See the [how-to guidance](contribute-how-to-write-howto.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task the 
-user will complete.
--->
-
-# [H1 heading here]
-
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
-
-[Add your introductory paragraph]
-
-<!-- 3. Prerequisites 
-Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
-Use clear and unambiguous language and use a list format.
--->
+In this article, you'll create a virtual machine in Azure with the Azure CLI. The virtual machine is created along with the dual-stack network as part of the procedures.  When completed, the virtual machine supports IPv4 and IPv6 communication.  
 
 ## Prerequisites
 
-- <!-- prerequisite 1 -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
-<!-- remove this section if prerequisites are not needed -->
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-<!-- 4. H2s 
-Required. A how-to article explains how to do a task. The bulk of each H2 should be 
-a procedure.
--->
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
+- This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+## Create a resource group
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+Create a resource group with [az group create](/cli/azure/group#az_group_create) named **myResourceGroup** in the **eastus2** location.
+
+```azurecli-interactive
+  az group create \
+    --name myResourceGroup \
+    --location eastus2
+```
+
+## Create a virtual network
+
+In this section, you'll create a dual-stack virtual network for the virtual machine.
+
+Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create a virtual network.
+
+```azurecli-interactive
+  az network vnet create \
+    --resource-group myResourceGroup \
+    --location eastus2 \
+    --name myVNet \
+    --address-prefixes 10.0.0.0/16 2404:f800:8000:122::/63 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.0.0.0/24 2404:f800:8000:122::/64
+```
+
+## Create public IP addresses
+
+You'll create two public IP addresses in this section, IPv4 and IPv6. 
+
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create the public IP addresses.
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group myResourceGroup \
+    --name myPublicIP-Ipv4 \
+    --sku Standard \
+    --version IPv4
+
+  az network public-ip create \
+    --resource-group myResourceGroup \
+    --name myPublicIP-Ipv6 \
+    --sku Standard \
+    --version IPv6
+
+```
+## Create a network security group
+
+In this section, you'll create a network security group for the virtual machine and virtual network.
+
+Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the network security group.
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group myResourceGroup \
+    --name myNSG
+```
+
+### Create network security group rules
+
+You'll create a rule to allow connections to the virtual machine on port 22 for SSH. An additional rule is created to allow all ports for outbound connections.
+
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create the network security group rules.
+
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name myNSGRuleSSH \
+    --protocol '*' \
+    --direction inbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 22 \
+    --access allow \
+    --priority 200
+
+  az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name myNSGRuleAllOUT \
+    --protocol '*' \
+    --direction outbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range '*' \
+    --access allow \
+    --priority 200
+```
+
+## Create virtual machine
+
+In this section, you'll crate the virtual machine and it's supporting resources.
+
+### Create network interface
+
+You'll use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC as part of the command. The network interface is attached to the virtual network you created previously.
+
+```azurecli-interactive
+  az network nic create \
+    --resource-group myResourceGroup \
+    --name myNIC1 \
+    --vnet-name myVNet \
+    --subnet myBackEndSubnet \
+    --network-security-group myNSG \
+    --public-ip-address myPublicIP-IPv4
+```
+
+### Create IPv6 IP configuration
+
+Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create) to create the IPv6 configuration for the NIC.
+
+```azurecli-interactive
+  az network nic ip-config create \
+    --resource-group myResourceGroup \
+    --name myIPv6config \
+    --nic-name myNIC1 \
+    --private-ip-address-version IPv6 \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet \
+    --public-ip-address myPublicIP-IPv6
+```
+
+### Create VM
+
+Use [az vm create](/cli/azure/vm#az_vm_create) to create the virtual machine.
+
+```azurecli-interactive
+  az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --nics myNIC1 \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --authentication-type ssh \
+    --generate-ssh-keys
+```
+
+## Test SSH connection
+
+Use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to display the IP addresses of the virtual machine.
+
+```azurecli-interactive
+  az network public-ip show \
+    --resource-group myResourceGroup \
+    --name myPublicIP-IPv4 \
+    --query ipAddress \
+    --output tsv
+```
+
+```bash
+user@Azure:~$ az network public-ip show \
+>     --resource-group myResourceGroup \
+>     --name myPublicIP-IPv4 \
+>     --query ipAddress \
+>     --output tsv
+20.119.201.208
+```
+
+```azurecli-interactive
+  az network public-ip show \
+    --resource-group myResourceGroup \
+    --name myPublicIP-IPv6 \
+    --query ipAddress \
+    --output tsv
+```
+
+```bash
+user@Azure:~$ az network public-ip show \
+>     --resource-group myResourceGroup \
+>     --name myPublicIP-IPv6 \
+>     --query ipAddress \
+>     --output tsv
+2603:1030:408:6::9d
+```
+
+Open a SSH connection to the virtual machine by using the following command.
+
+```bash
+  ssh azureuser@20.119.201.208
+```
+
+## Clean up resources
+
+When no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, virtual machine, and all related resources.
+
+```azurecli-interactive
+  az group delete \
+    --name myResourceGroup
+```
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+In this article you learned how to create a Azure Virtual machine with a dual-stack network.
+
+For more information about IPv6 and IP addresses in Azure see:
+
+- [Overview of IPv6 for Azure Virtual Network.](ipv6-overview.md)
+
+- [What is Azure Virtual Network IP Services?](ip-services-overview.md)
+
+
