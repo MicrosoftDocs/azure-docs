@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/26/2021
+ms.date: 11/12/2021
 ms.author: radeltch
 
 ---
@@ -49,7 +49,41 @@ This article describes how to deploy a highly available SAP HANA system in a sca
 
 In the example configurations and installation commands, the HANA instance is `03` and the HANA system ID is `HN1`. The examples are based on HANA 2.0 SP4 and Red Hat Enterprise Linux (RHEL) for SAP 7.6. 
 
-Some readers will benefit from consulting a variety of SAP notes and resources before proceeding further with the topics in this article. You can find these resources collected in the "Additional resources" section near the end of this article.
+## Prerequisites
+
+Some readers will benefit from consulting a variety of SAP notes and resources before proceeding further with the topics in this article:
+
+* SAP note [1928533] includes:  
+  * A list of Azure VM sizes that are supported for the deployment of SAP software.
+  * Important capacity information for Azure VM sizes.
+  * Supported SAP software, and operating system and database combinations.
+  * The required SAP kernel version for Windows and Linux on Microsoft Azure.
+* SAP note [2015553]: Lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP note [2002167]: Has recommended operating system settings for RHEL.
+* SAP note [2009879]: Has SAP HANA guidelines for RHEL.
+* SAP note [2178632]: Contains detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP note [2191498]: Contains the required SAP host agent version for Linux in Azure.
+* SAP note [2243692]: Contains information about SAP licensing on Linux in Azure.
+* SAP note [1999351]: Contains additional troubleshooting information for the Azure enhanced monitoring extension for SAP.
+* SAP note [1900823]: Contains information about SAP HANA storage requirements.
+* [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Contains all required SAP notes for Linux.
+* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide].
+* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide].
+* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
+* [SAP HANA network requirements](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html).
+* General RHEL documentation:
+  * [High availability add-on overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index).
+  * [High availability add-on administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index).
+  * [High availability add-on reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index).
+  * [Red Hat Enterprise Linux networking guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide).
+  * [How do I configure SAP HANA scale-out system replication in a Pacemaker cluster with HANA file systems on NFS shares](https://access.redhat.com/solutions/5423971).
+  * [Active/Active (read-enabled): RHEL HA solution for SAP HANA scale out and system replication](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf).
+* Azure-specific RHEL documentation:
+  * [Install SAP HANA on Red Hat Enterprise Linux for use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
+  * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
+* [NetApp SAP applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].
+* [Azure NetApp Files documentation][anf-azure-doc]. 
+* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 
 ## Overview
 
@@ -182,7 +216,8 @@ It's best to use the standard load balancer. Here's how:
    
 When you're using the standard load balancer, you should be aware of the following limitation. When you place VMs without public IP addresses in the back-end pool of an internal load balancer, there's no outbound internet connectivity. To allow routing to public end points, you need to perform additional configuration. For more information, see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
-Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set the parameter `net.ipv4.tcp_timestamps` to `0`. For details, see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) and SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+   > [!IMPORTANT]
+   > Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set the parameter `net.ipv4.tcp_timestamps` to `0`. For details, see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) and SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
 ### Deploy the Azure NetApp Files infrastructure 
 
@@ -439,20 +474,20 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
 
 ### Prepare for HANA installation
 
-1. **[AH]** Before the HANA installation, set the root password. You can disable the root password after the installation has been completed. Run the `root` command `passwd` to set the password.  
+1. **[AH]** Before the HANA installation, set the root password. You can disable the root password after the installation has been completed. Run as `root` command `passwd` to set the password.  
 
 1. **[1,2]** Change the permissions on `/hana/shared`. 
     ```bash
     chmod 775 /hana/shared
     ```
 
-1. **[1]** In **hana-s1-db2** and **hana-s1-db3**, verify that you can sign in via secure shell (SSH), without being prompted for a password. If that isn't the case, exchange `ssh` keys, as documented in [Using key-based authentication](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
+1. **[1]** Verify that you can sign in **hana-s1-db2** and **hana-s1-db3** via secure shell (SSH), without being prompted for a password. If that isn't the case, exchange `ssh` keys, as documented in [Using key-based authentication](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```bash
     ssh root@hana-s1-db2
     ssh root@hana-s1-db3
     ```
 
-1. **[2]** In **hana-s2-db2** and **hana-s2-db3**, verify that you can sign in via SSH, without being prompted for a password. If that isn't the case, exchange `ssh` keys, as documented in [Using key-based authentication](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
+1. **[2]** Verify that you can sign in **hana-s2-db2** and **hana-s2-db3** via SSH, without being prompted for a password. If that isn't the case, exchange `ssh` keys, as documented in [Using key-based authentication](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```bash
     ssh root@hana-s2-db2
     ssh root@hana-s2-db3
@@ -959,7 +994,7 @@ Now you're ready to create the cluster resources:
        meta master-max="1" clone-node-max=1 interleave=true
       ```
       > [!IMPORTANT]
-      > It's a good idea to set `AUTOMATED_REGISTER` to `false`, while you're performing failover tests, to prevent a failed primary instance to automatically register as secondary. After testing, as a best practice, set `AUTOMATED_REGISTER` to `*true`, so that after takeover, system replication can resume automatically. 
+      > It's a good idea to set `AUTOMATED_REGISTER` to `false`, while you're performing failover tests, to prevent a failed primary instance to automatically register as secondary. After testing, as a best practice, set `AUTOMATED_REGISTER` to `true`, so that after takeover, system replication can resume automatically. 
 
    1. Create the virtual IP and associated resources.  
       ```bash
@@ -1279,42 +1314,6 @@ When you're testing a HANA cluster configured with a read-enabled secondary, be 
 
 
 It's a good idea to test the SAP HANA cluster configuration thoroughly, by also performing the tests documented in [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
-
-## Additional resources
-
-For the benefit of readers who might require additional background on the material covered in this article, we've collected these resources:
-
-* SAP note [1928533] includes:  
-  * A list of Azure VM sizes that are supported for the deployment of SAP software.
-  * Important capacity information for Azure VM sizes.
-  * Supported SAP software, and operating system and database combinations.
-  * The required SAP kernel version for Windows and Linux on Microsoft Azure.
-* SAP note [2015553]: Lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP note [2002167]: Has recommended operating system settings for RHEL.
-* SAP note [2009879]: Has SAP HANA guidelines for RHEL.
-* SAP note [2178632]: Contains detailed information about all monitoring metrics reported for SAP in Azure.
-* SAP note [2191498]: Contains the required SAP host agent version for Linux in Azure.
-* SAP note [2243692]: Contains information about SAP licensing on Linux in Azure.
-* SAP note [1999351]: Contains additional troubleshooting information for the Azure enhanced monitoring extension for SAP.
-* SAP note [1900823]: Contains information about SAP HANA storage requirements.
-* [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Contains all required SAP notes for Linux.
-* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide].
-* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide].
-* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
-* [SAP HANA network requirements](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html).
-* General RHEL documentation:
-  * [High availability add-on overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index).
-  * [High availability add-on administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index).
-  * [High availability add-on reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index).
-  * [Red Hat Enterprise Linux networking guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide).
-  * [How do I configure SAP HANA scale-out system replication in a Pacemaker cluster with HANA file systems on NFS shares](https://access.redhat.com/solutions/5423971).
-  * [Active/Active (read-enabled): RHEL HA solution for SAP HANA scale out and system replication](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf).
-* Azure-specific RHEL documentation:
-  * [Install SAP HANA on Red Hat Enterprise Linux for use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
-  * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
-* [NetApp SAP applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].
-* [Azure NetApp Files documentation][anf-azure-doc]. 
-* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 
 ## Next steps
 
