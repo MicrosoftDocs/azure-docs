@@ -19,7 +19,7 @@ The DMR defines a pattern to store DTDL interfaces in a folder structure based o
 
 The DMR conventions include additional artifacts for simplifying consumption of hosted models. These features are _optional_ for custom or private repositories.
 
-- _Index_. All avaialble DTMIs are exposed through an *index* composed by a sequence of json files, for example: [https://devicemodels.azure.com/index.page.2.json](https://devicemodels.azure.com/index.page.2.json)
+- _Index_. All available DTMIs are exposed through an *index* composed by a sequence of json files, for example: [https://devicemodels.azure.com/index.page.2.json](https://devicemodels.azure.com/index.page.2.json)
 - _Expanded_. A file with all the dependencies is available for each interface, for example: [https://devicemodels.azure.com/dtmi/com/example/temperaturecontroller-1.expanded.json](https://devicemodels.azure.com/dtmi/com/example/temperaturecontroller-1.expanded.json)
 - _Metadata_. This file exposes key attributes of a repository and is refreshed periodically with the latest published models snapshot. It includes features that a repository implements such as whether the model index or expanded model files are available. You can access the DMR metadata at [https://devicemodels.azure.com/metadata.json](https://devicemodels.azure.com/metadata.json)
 
