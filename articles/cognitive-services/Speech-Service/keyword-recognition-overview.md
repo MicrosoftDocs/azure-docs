@@ -25,7 +25,7 @@ To balance accuracy, latency, and computational complexity, keyword recognition 
 
 The current system is designed with multiple stages spanning across the edge and cloud:
 
-![Multiple stages of keyword recognition across edge and cloud.](media/custom-keyword/keyword-recognition-multi-stage.png)
+![Multiple stages of keyword recognition across edge and cloud.](media/custom-keyword/kw-recognition-multi-stage.png)
 
 Accuracy of keyword recognition is measured via the following metrics:
 * **Correct accept rate (CA)** – Measures the system’s ability to recognize the keyword when it is spoken by an end-user. This is also known as the true positive rate. 
@@ -77,7 +77,7 @@ Keyword Verification is always used in combination with Speech-to-text, and ther
 
 When Keyword Verification is used, it is always in combination with Speech-to-text. Both services run in parallel. This means that audio is sent to both services for simultaneous processing.
 
-![Parallel processing of Keyword Verification and Speech-to-text.](media/custom-keyword/keyword-verification-parallel-processing.png)
+![Parallel processing of Keyword Verification and Speech-to-text.](media/custom-keyword/custom-kw-portal-parallel-processing.png)
 
 Running Keyword Verification and Speech-to-text in parallel yields the following benefits:
 * **No additional latency on Speech-to-text results** – Parallel execution means Keyword Verification adds no latency, and the client receives Speech-to-text results just as quickly. If Keyword Verification determines the keyword was not present in the audio, Speech-to-text processing is terminated, which protects against unnecessary Speech-to-text processing. However, network and cloud model processing increases the user-perceived latency of voice activation. For details, see [Recommendations and guidelines](keyword-recognition-guidelines.md).
