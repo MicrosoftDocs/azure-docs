@@ -53,6 +53,10 @@ Release history is maintained in the Azure Cosmos DB .NET SDK source repo. For a
 
 Different sub versions of .NET SDKs are available under the 3.x.x version. **The minimum recommended version is 3.20.1**.
 
+## <a name="known-issues"></a> Known issues
+
+For a list of known issues with the recommended minimum version of the SDK, see [known issues section](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md#-known-issues).
+
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
