@@ -2,12 +2,18 @@
 title: Connect to your virtual network in Azure Lab Services | Microsoft Docs
 description: Learn how to connect your virtual network with another network. For example, connect your on-premises organization/university network with Lab's virtual network in Azure.  
 ms.topic: how-to
-ms.date: 11/2/2021
+ms.date: 11/11/2021
 ---
 
 # Connect to your virtual network in Azure Lab Services
 
 This article provides information about connecting a lab plan to your virtual network.
+
+Some organizations have advanced network requirements and configurations, such as network traffic control, ports management, access to resources in an internal network, etc., that they want to apply to labs. Until now, we offered limited control over the network of the labs, and you could only peer to custom virtual networks (VNet). The peering experience was limited in what admins could control through the peered network.
+
+In the Azure Lab Services November 2021 Update, customers have the option to take full control of the network for the labs. Instead of peering to your VNet, you can now tell us which VNet to use, and we’ll inject the lab resources into your network.
+
+With VNet injection. you can connect to on premise resources such as licensing servers and use user defined routes (UDRs).
 
 ## Overview
 
@@ -51,6 +57,8 @@ Only one lab plan at a time can be delegated for use with one subnet.
     2. Specify an existing **subnet** for VMs in the lab. For a subnet to appear in this list, it must be delegated for use with lab plans when you configure the subnet for the virtual network. For more information, see [Add a virtual network subnet](/azure/virtual-network/virtual-network-manage-subnet).  
 
         :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-advanced-networking.png" alt-text="Create lab plan -> Networking":::
+
+Once you have a lab plan configured with advanced networking, all labs created with this lab plan use the specified subnet.
 
 ## Configure the subnet after the lab plan is created
 
