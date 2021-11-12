@@ -20,6 +20,7 @@ In this article, you'll create a virtual machine in Azure with the Azure CLI. Th
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
@@ -202,7 +203,7 @@ user@Azure:~$ az network public-ip show \
 2603:1030:408:6::9d
 ```
 
-Open an SSH connection to the virtual machine by using the following command.
+Open an SSH connection to the virtual machine by using the following command. Replace the IP address with the IP address of your virtual machine.
 
 ```bash
   ssh azureuser@20.119.201.208
