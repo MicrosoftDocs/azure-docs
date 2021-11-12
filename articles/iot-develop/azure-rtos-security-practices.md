@@ -1,7 +1,7 @@
 ---
 title: Azure RTOS Security Guidance for Embedded Devices
 description: Learn best practices for developing secure applications on embedded devices with Azure RTOS.
-author: v-jbrannian
+author: JimacoMS4
 ms.author: v-jbrannian
 ms.service: iot-develop
 ms.topic: conceptual
@@ -277,7 +277,7 @@ It is vital that a device can be proven to be running valid firmware upon reset.
 
 Over-the-Air (OTA) update, sometimes referred to as “firmware update”, involves updating the firmware image on your device to a new version to add features or fix bugs. OTA update is important for security because any vulnerabilities that are discovered must be patched as soon as possible.
 
-> [!NOTE]:
+> [!NOTE]
 > OTA updates MUST be tied to secure boot and code signing, or it is impossible to validate that new images aren’t compromised.
 
 **Hardware**: Various implementations for OTA update exist, and some MCU vendors provide OTA update solutions that are tied to their hardware. Some OTA update mechanisms can also utilize extra storage space (for example, flash) for rollback protection and to provide uninterrupted application functionality during update downloads.
