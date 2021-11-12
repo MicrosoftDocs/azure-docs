@@ -129,34 +129,6 @@ In addition to manually upgrading a cluster, you can set an auto-upgrade channel
 
 Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more details, see [Upgrade an AKS cluster][upgrade-cluster].
 
-The cluster auto-upgrade for AKS clusters is a preview feature.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-Add the following extension, for `az cli`.
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
-
-Register the `AutoUpgradePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
-```
-
-It can take several minutes for the status to show *Registered*. Please wait for the registration to finish. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 To set the auto-upgrade channel when creating a cluster, use the *auto-upgrade-channel* parameter, similar to the following example.
 
 ```azurecli-interactive
@@ -175,7 +147,7 @@ If you are using Planned Maintenance as well as Auto-Upgrade, your upgrade will 
 
 ## Special considerations for node pools that span multiple Availability Zones
 
-AKS uses best-effort zone balancing in node groups. During an Upgrade surge, zone(s) for the surge node(s) in VMSS is unknown ahead of time. This can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes the surge node(s) once the upgrade has been completed and preserves the original zone balance. If you desire to keep your zones balanced during upgrade, increase the surge to a multiple of 3 nodes. VMSS will then balance your nodes across Availability Zones with best-effort zone balancing.
+AKS uses best-effort zone balancing in node groups. During an Upgrade surge, zone(s) for the surge node(s) in virtual machine scale sets is unknown ahead of time. This can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes the surge node(s) once the upgrade has been completed and preserves the original zone balance. If you desire to keep your zones balanced during upgrade, increase the surge to a multiple of 3 nodes. Virtual machine scale sets will then balance your nodes across Availability Zones with best-effort zone balancing.
 
 If you have PVCs backed by Azure LRS Disks, they will be bound to a particular zone and may fail to recover immediately if the surge node does not match the zone of the PVC. This could cause downtime on your application when the Upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application. This allows Kubernetes to respect your availability requirements during Upgrade's drain operation. 
 

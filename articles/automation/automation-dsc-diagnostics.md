@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
-ms.author: magoedte
+ms.author: v-ssudhir
 ms.date: 08/16/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
