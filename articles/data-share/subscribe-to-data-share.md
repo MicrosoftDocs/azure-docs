@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/05/2021
+ms.date: 11/12/2021
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -29,7 +29,7 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 ### Receive data into a storage account
 
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](../storage/common/storage-account-create.md). 
-* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role. 
+* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Storage Account Contributor role. 
 * Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role.  
 
 ### Receive data into a SQL-based target
