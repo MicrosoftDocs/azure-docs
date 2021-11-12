@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Monitor for performance regressions by comparing load test runs
 
-In this article, learn how to compare multiple test runs Azure Load Testing by using the Azure Load Testing dashboard in Azure portal. Visually compare multiple test runs to help you monitor for and identify performance regressions across test runs.
+In this article, learn how to compare multiple test runs in Azure Load Testing by using the Azure Load Testing dashboard in Azure portal. Visually compare multiple test runs to help you monitor for and identify performance regressions across test runs.
 
 A test run contains client-side and server-side metrics. The test engine reports client-side metrics, such as the number of virtual users. The server-side metrics provide application-specific information.
 
