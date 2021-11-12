@@ -15,7 +15,7 @@ The creation of the [SAP system](automation-deployment-framework.md#sap-concepts
 
 The SAP system deploys:
 
-- The [database tier](#database-tier), which deploys database VMs and their disks and a Standard Azure Load Balancer. You can run [HANA databases](automation-configure-extra-disks.md#hana-databases) or [AnyDB databases](automation-configure-extra-disks.md#anydb-databases) in this tier.
+- The [database tier](#database-tier), which deploys database VMs, their disks, and a Standard Azure Load Balancer. You can run [HANA databases](automation-configure-extra-disks.md#hana-databases) or [AnyDB databases](automation-configure-extra-disks.md#anydb-databases) in this tier.
 - The [SAP central services tier](#central-services-tier), which deploys a customer-defined number of VMs and an Azure Standard Load Balancer.
 - The [application tier](#application-tier), which deploys the VMs and their disks.
 - The [web dispatcher tier](#web-dispatcher-tier)
