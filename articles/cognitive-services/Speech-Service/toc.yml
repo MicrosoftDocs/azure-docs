@@ -150,9 +150,9 @@ items:
         - name: Migration overview
           href: migration-overview.md
           - name: Migrate to prebuilt neural voice
-          - href: how-to-migrate-to-prebuilt-neural-voice.md 
+            href: how-to-migrate-to-prebuilt-neural-voice.md 
           - name: Migrate to custom neural voice 
-          - href: how-to-migrate-to-custom-neural-voice.md  
+            href: how-to-migrate-to-custom-neural-voice.md  
         - name: Customization
           items:
             - name: Custom Neural Voice
