@@ -45,6 +45,14 @@ In this tutorial, you learn how to:
 
 1. Determine the priority of the rules within your configuration by using the Move up, Move down, and Move to top buttons. The priority is in ascending order, meaning the rule first listed is the most important rule.
 
+
+> [!TIP]
+You can create a custom response header in the rule to verify when the changes have replicated using the example above. If you add response header X-Rule1-Version where Rule1 is the name of your rule and change the value each time you make a change. This will let you know when the changes have been propgated to the Front Door:
+![image](https://user-images.githubusercontent.com/73197942/141169910-e6eb0977-fe25-427a-a0ef-ca0d36697b32.png)
+When going to the URL after the changes, I can see which rule I hit and the version: 
+![image](https://user-images.githubusercontent.com/73197942/141170492-a8c4cbcb-af54-4a28-a612-6a0a81982cd7.png)
+
+
 1. Once you have created one or more rules, press **Save**. This action creates your Rules Engine configuration.
 
 1. Once you have created one or more configurations, associate a Rules Engine configuration with a Route Rule. While a single configuration can be applied to many route rules, a Route rule may only contain one Rules Engine configuration. To make the association, go to your **Front Door designer** > **Route rules**. Select the Route rule you'd like to add the Rules engine configuration to, go to **Route details** > **Rules engine configuration**, and select the configuration you'd like to associate.
