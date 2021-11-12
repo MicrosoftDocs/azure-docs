@@ -824,7 +824,7 @@ Before you start executing remover script make sure, you have logged into your A
     --library_parameter_file LIBRARY/MGMT-NOEU-SAP_LIBRARY/MGMT-NOEU-SAP_LIBRARY.tfvars
   ```
 
-  **Congratulations!** You have cleaned up all resources.
+1. Verify that all resources are now cleaned up.
 
 ---
 
