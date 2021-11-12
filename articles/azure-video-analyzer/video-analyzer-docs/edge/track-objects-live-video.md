@@ -2,7 +2,7 @@
 title: Track objects in a live video with Azure Video Analyzer
 description: This quickstart shows you how to use Azure Video Analyzer edge module to track objects in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames.
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -33,7 +33,7 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 
 This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](../pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](../pipeline.md#http-extension-processor) node.
 
-The HTTP extension node plays the role of a proxy. It converts every 15th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module uses the [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model which can detect many types of objects. The HTTP extension processor node receives the detection results and sends these results and all the video frames (not just the 15th frame) to the [object tracker](../pipeline.md#object-tracker-processor) node. The object tracker node uses optical flow techniques to track the object in the 14 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub message sink node. This [IoT Hub message sink](../pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It converts every 15th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module uses the [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model which can detect many types of objects. The HTTP extension processor node receives the detection results and sends these results and all the video frames (not just the 15th frame) to the [object tracker](../pipeline.md#object-tracker-processor) node. The object tracker node uses optical flow techniques to track the object in the 14 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub message sink node. This [IoT Hub message sink](../pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
 
 > [!NOTE]
 > You should review the discussion of the about the trade-off between accuracy and processing power with the [object tracker](../pipeline.md#object-tracker-processor) node.

@@ -1,7 +1,6 @@
 ---
 title: Reference for writing expressions for attribute mappings in Azure Active Directory Application Provisioning
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory. Includes a reference list of functions.
-services: active-directory
 author: kenwith
 manager: karenh444
 ms.service: active-directory
@@ -789,7 +788,7 @@ Let's say you are sourcing the attributes *firstName* and *lastName* from SAP Su
 RandomString(Length, MinimumNumbers, MinimumSpecialCharacters , MinimumCapital, MinimumLowerCase, CharactersToAvoid)
 
 **Description:** 
-The RandomString function generates a random string based on the conditions specified. Characters allowed can be identified [here](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
+The RandomString function generates a random string based on the conditions specified. Characters allowed can be identified [here](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
 **Parameters:** 
 

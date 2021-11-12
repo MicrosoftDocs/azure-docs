@@ -228,7 +228,9 @@ If you're doing the move action, you need permission at each of the following la
 - Child subscription / management group
   - `Microsoft.management/managementgroups/write`
   - `Microsoft.management/managementgroups/subscription/write` (only for Subscriptions)
-  - `Microsoft.Authorization/roleassignment/write`
+  - `Microsoft.Authorization/roleAssignments/write`
+  - `Microsoft.Authorization/roleAssignments/delete`
+  - `Microsoft.Management/register/action`
 - Target parent management group
   - `Microsoft.management/managementgroups/write`
 - Current parent management group

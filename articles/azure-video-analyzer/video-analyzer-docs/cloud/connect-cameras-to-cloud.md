@@ -3,7 +3,7 @@ title: Connecting cameras to Azure Video Analyzer service
 description: This article discusses ways to connect cameras directly to Azure Video Analyzer service.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -34,7 +34,7 @@ This method allows RTSP cameras or devices to connect to Video Analyzer behind a
 
 This method should only be used for supervised proof-of-concept exercises, where it may be permissible to permit the Video Analyzer service to access the device over the internet, without a firewall. 
 
-A related use case is when an module is deployed to an Azure VM to simulate an RTSP camera, as described in this [quickstart](get-started-livepipelines-portal.md).
+A related use case is when a module is deployed to an Azure VM to simulate an RTSP camera, as described in this [quickstart](get-started-livepipelines-portal.md).
 
 
 ## Next Steps

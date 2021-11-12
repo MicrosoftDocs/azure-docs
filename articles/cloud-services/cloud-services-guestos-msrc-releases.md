@@ -576,7 +576,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 20-12 |  4580325  |  Flash update | [3.92], [4.85], [5.50], [6.26] | Oct 13, 2020 |
 |  Rel 20-12 |  [4586768]  |  IE Cumulative Updates | [2.105], [3.92], [4.85] | Nov 10, 2020 |
 |  Rel 20-12 |  [4593226]  |  Latest Cumulative Update | [5.50] | Dec 8, 2020 |
-|  Rel 20-12 |  [4052623]  |  Defender | [5.50], [6.26] | Dec 13, 2020 |
+|  Rel 20-12 |  [4052623]  |  Defender for Cloud | [5.50], [6.26] | Dec 13, 2020 |
 |  Rel 20-12 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | [2.105] | Nov 10, 2020 |
 |  Rel 20-12 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.105] | Nov 10, 2020 |
 |  Rel 20-12 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | [4.85] | Nov 10, 2020 |

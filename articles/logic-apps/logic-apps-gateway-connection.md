@@ -60,7 +60,7 @@ You can also create [custom connectors](../logic-apps/custom-connector-overview.
 
     > [!NOTE]
     > Currently, you can't share a gateway resource or installation across multiple subscriptions. 
-    > To submit product feedback, see [Microsoft Azure Feedback Forum](https://feedback.azure.com/forums/34192--general-feedback).
+    > To submit product feedback, see [Microsoft Azure Feedback Forum](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
 <a name="create-gateway-resource"></a>
 

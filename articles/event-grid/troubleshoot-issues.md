@@ -28,6 +28,16 @@ If you receive error messages with error codes like 400, 409, and 403, see [Trou
 
 ## Distributed tracing 
 
+To enable end-to-end tracing for [Azure Event Hubs](handler-event-hubs.md) or [Azure Service Bus](handler-service-bus.md) Event Grid subscription, configure [Custom Delivery Properties](delivery-properties.md) to forward `traceparent` CloudEvent extension attribute to `Diagnostic-Id` AMQP application property. Example of a subscription with tracing delivery properties configuration for Event Hubs:
+
+```azurecli
+az eventgrid event-subscription create --name <event-grid-subscription-name> \
+    --source-resource-id <event-grid-resource-id>
+    --endpoint-type eventhub \
+    --endpoint <event-hubs-endpoint> \
+    --delivery-attribute-mapping Diagnostic-Id dynamic traceparent
+```
+
 ### .NET
 The Event Grid .NET library supports distributing tracing. To adhere to the [CloudEvents specification's guidance](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) on distributing tracing, the library sets the `traceparent` and `tracestate` on the [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126) of a `CloudEvent` when distributed tracing is enabled. To learn more about how to enable distributed tracing in your application, take a look at the Azure SDK [distributed tracing documentation](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing).
 

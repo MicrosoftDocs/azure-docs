@@ -4,7 +4,7 @@ description: Azure Cosmos DB currently supports a one-way migration from periodi
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 10/04/2021
+ms.date: 10/28/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
@@ -26,7 +26,7 @@ The following are the key reasons to migrate into continuous mode:
 > [!NOTE]
 > The migration capability is one-way only and it's an irreversible action. Which means once you migrate from periodic mode to continuous mode, you can’t switch back to periodic mode.
 >
-> You can migrate an account to continuous backup mode only if the following conditions are true:
+> You can migrate an account to continuous backup mode only if the following conditions are true. Also checkout the [point in time restore limitations](continuous-backup-restore-introduction.md#current-limitations) before migrating your account:
 >
 > * If the account is of type SQL API or API for MongoDB.
 > * If the account has a single write region.

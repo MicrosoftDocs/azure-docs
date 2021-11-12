@@ -4,6 +4,8 @@
   items:
     - name: About Azure Container Apps
       href: overview.md
+    - name: Compare container options in Azure
+      href: compare-options.md
 - name: Quickstarts
   expanded: true
   items:
@@ -35,6 +37,8 @@
       href: ingress.md
     - name: Connect multiple apps
       href: connect-apps.md
+    - name: Publish revisions with GitHub Actions
+      href: github-actions-cli.md
 - name: Tutorials
   items:
     - name: Microservices with Dapr using the CLI
@@ -45,8 +49,6 @@
       href: background-processing.md
 - name: Reference
   items:
-    - name: Azure CLI
-      href: /cli/azure/containerapps
     - name: ARM API specification
       href: azure-resource-manager-api-spec.md
 - name: Resources
