@@ -3,13 +3,13 @@ title: Inspect data quality for Custom Speech - Speech service
 titleSuffix: Azure Cognitive Services
 description: Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. You can play back uploaded audio and determine if the provided recognition result is correct.
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: erhopf
+ms.author: eur
 ---
 
 # Inspect Custom Speech data
@@ -26,11 +26,16 @@ In this document, you learn how to visually inspect the quality of Microsoft's b
 Follow these instructions to create a test:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
-2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Test models**.
-3. Click **Create new test**.
-4. Select **Inspect quality (Audio-only data)**. Give the test a name, description, and select your audio dataset.
-5. Select up to two models that you'd like to test.
-6. Click **Create**.
+1. Navigate to **Speech Studio** > **Custom Speech** and select your project name from the list.
+1. Select **Test models** > **Create new test**.
+1. Select **Inspect quality (Audio-only data)** > **Next**. 
+1. Choose an audio dataset that you'd like to use for testing, then select **Next**.
+
+    ![Review your keyword](media/custom-speech/custom-speech-choose-test-data.png)
+
+1. Choose one or two models to evaluate and compare accuracy.
+1. Enter the test name and description, then select **Next**.
+1. Review your settings, then select **Save and close**.
 
 After a test has been successfully created, you can see how a model
 transcribes the audio dataset you specified, or compare results from two models side by side.
