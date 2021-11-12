@@ -46,12 +46,11 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 |Added support |Related information |
 |:------------------- | ---------------: |
 |Regions |South Brazil and Central Canada |
-|Extended Query tags |DT and TM VR types |
+|Extended Query tags |DateTime (DT) and Time (TM) Value Representation (VR) types |
 
 |Bug fixes |Related information |
 |:------------------- | ---------------: |
-|Implemented complete support for: |DA, DT, and TM VR types |
-|Implemented fix to: |Enable DICOM service to work with workspaces that have names beginning with a letter. |
+|Implemented fix to workspace names |Enabled DICOM service to work with workspaces that have names beginning with a letter. |
 
 ## September 2021
 
