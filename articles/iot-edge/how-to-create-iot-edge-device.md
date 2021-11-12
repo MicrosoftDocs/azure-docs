@@ -35,7 +35,7 @@ If you want more information about how to choose the right option for you, conti
 |    | Linux containers on Linux hosts | Linux containers on Windows hosts | Windows containers on Windows hosts |
 |--| ----- | ---------------- | ------- |
 | **Manual provisioning (single device)** | [X.509 certificates](how-to-provision-single-device-linux-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-symmetric.md) | [X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) | [X.509 certificates](how-to-provision-single-device-windows-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-windows-symmetric.md) |
-| **Autoprovisioning (devices at scale)** | [X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md) | [X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md) | <br><br>[X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md) |
+| **Autoprovisioning (devices at scale)** | [X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md) | [X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md) | [X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md) |
 
 :::moniker-end
 
@@ -90,9 +90,7 @@ Support for ARM64 devices is in [public preview](https://azure.microsoft.com/sup
 :::moniker range="iotedge-2018-06"
 IoT Edge for Linux on Windows hosts a Linux virtual machine on your Windows device. The virtual machine comes prebuilt with the IoT Edge runtime and updates are managed through Microsoft Update.
 
-IoT Edge for Linux on Windows is the recommended way to run IoT Edge on Windows devices.
-
-You can learn more about IoT Edge for Linux on Windows on its [concepts page](iot-edge-for-linux-on-windows.md).
+IoT Edge for Linux on Windows is the recommended way to run IoT Edge on Windows devices. To learn more, see [What is Azure IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md).
 
 Currently, IoT Edge for Linux on Windows does not support version 1.2 of Azure IoT Edge.
 :::moniker-end
@@ -177,7 +175,7 @@ You can use the table of contents to navigate to the appropriate end-to-end guid
 
 You can also use the links below to go to the relevant article.
 
-### Linux
+### Linux containers on Linux hosts
 
 **Manually provision a single device**:
 
@@ -192,7 +190,7 @@ You can also use the links below to go to the relevant article.
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
-### Linux on Windows
+### Linux containers on Windows hosts
 
 **Manually provision a single device**:
 
@@ -205,7 +203,7 @@ You can also use the links below to go to the relevant article.
 * [Provision Linux on Windows devices at-scale using TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
 * [Provision Linux on Windows devices at-scale using symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
 
-### Windows
+### Windows containers on Windows hosts
 
 **Manually provision a single device**:
 
