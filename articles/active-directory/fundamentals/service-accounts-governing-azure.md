@@ -106,7 +106,7 @@ Proactively monitor your service accounts to ensure the service account’s usag
 
 * Are sign-in patterns of service accounts changing?
 
-We recommend you export Azure AD sign-In logs and import them into your existing Security Information and Event Management (SIEM) tools such as Azure Sentinel. Use your SIEM to build alerting and dashboards.
+We recommend you export Azure AD sign-In logs and import them into your existing Security Information and Event Management (SIEM) tools such as Microsoft Sentinel. Use your SIEM to build alerting and dashboards.
 
 ### Review service account permissions
 
@@ -190,4 +190,3 @@ For more information on securing Azure service accounts, see:
 
 
  
-

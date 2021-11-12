@@ -2,7 +2,7 @@
 title: Authenticate against Azure resources with Azure Arc-enabled servers
 description: This article describes Azure Instance Metadata Service support for Azure Arc-enabled servers and how you can authenticate against Azure resources and local using a secret.
 ms.topic: conceptual
-ms.date: 11/08/2021
+ms.date: 11/11/2021
 ---
 
 # Authenticate against Azure resources with Azure Arc-enabled servers
@@ -36,8 +36,6 @@ The system environment variable **IDENTITY_ENDPOINT** is used to discover the id
 ## Prerequisites
 
 - An understanding of Managed identities.
-- On Windows, you must be a member of the local **Administrators** group or the **Hybrid Agent Extension Applications** group.
-- On Linux, you must be a member of the **himds** group.
 - A server connected and registered with Azure Arc-enabled servers.
 - You are a member of the [Owner group](../../role-based-access-control/built-in-roles.md#owner) in the subscription or resource group, in order to perform required resource creation and role management steps.
 - An Azure Key Vault to store and retrieve your credential. and assign the Azure Arc identity access to the KeyVault.

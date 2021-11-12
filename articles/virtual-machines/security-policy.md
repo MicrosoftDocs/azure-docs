@@ -1,4 +1,4 @@
-﻿---
+---
 title: Secure and use policies
 description: Learn about security and policies for virtual machines in Azure.
 author: cynthn
@@ -20,11 +20,11 @@ It's important to keep your virtual machine (VM) secure for the applications tha
 
 The modern threat landscape for cloud environments is dynamic, increasing the pressure to maintain effective protection in order to meet compliance and security requirements. [Microsoft Antimalware for Azure](../security/fundamentals/antimalware.md) is a free real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. Alerts can be configured to notify you when known malicious or unwanted software attempts to install itself or run on your VM. It is not supported on VMs running Linux or Windows Server 2008.
 
-## Azure Security Center
+## Microsoft Defender for Cloud
 
-[Azure Security Center](../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats to your VMs. Security Center provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats to your VMs. Defender for Cloud provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-Security Center's just-in-time access can be applied across your VM deployment to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. When just-in-time is enabled and a user requests access to a VM, Security Center checks what permissions the user has for the VM. If they have the correct permissions, the request is approved and Security Center automatically configures the Network Security Groups (NSGs) to allow inbound traffic to the selected ports for a limited amount of time. After the time has expired, Security Center restores the NSGs to their previous states. 
+Defender for Cloud's just-in-time access can be applied across your VM deployment to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. When just-in-time is enabled and a user requests access to a VM, Defender for Cloud checks what permissions the user has for the VM. If they have the correct permissions, the request is approved and Defender for Cloud automatically configures the Network Security Groups (NSGs) to allow inbound traffic to the selected ports for a limited amount of time. After the time has expired, Defender for Cloud restores the NSGs to their previous states. 
 
 ## Encryption
 
@@ -70,4 +70,4 @@ Using [Azure role-based access control (Azure RBAC)](../role-based-access-contro
 
 
 ## Next steps
-- Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../security/fundamentals/overview.md) or [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).
+- Walk through the steps to monitor virtual machine security by using Microsoft Defender for Cloud for [Linux](../security/fundamentals/overview.md) or [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).
