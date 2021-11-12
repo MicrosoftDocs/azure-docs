@@ -23,7 +23,11 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
-The following video walks you through routing platform logs with diagnostic settings.
+The following video walks you through routing platform logs with diagnostic settings. The video was done at an earlier time and doesn't include the following:
+ - There are now 4 destinations. You can send platform metrics and logs to certain Azure Monitor partners. 
+ - A new feature called category groups was introduced in Nov 2021. 
+Information on these newer features is included in this article. 
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
 
 ## Sources
@@ -117,11 +121,11 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
    If there are existing settings on the resource, you see a list of settings already configured. Either click **Add diagnostic setting** to add a new setting or **Edit setting** to edit an existing one. Each setting can have no more than one of each of the destination types.
 
-   ![Add diagnostic setting - existing settings](media/diagnostic-settings/edit-setting.png)
+   :::image type="Add diagnostic setting - existing settings" source="media/diagnostic-settings/edit-setting.png" alt-text="Add a diagnostic setting for existing settings":::
 
 3. Give your setting a name if it doesn't already have one.
 
-      :::image type="Add diagnostic setting" source="media/diagnostic-settings/setting-new-blank.png" alt-text="Add a new diagnostic setting":::
+      :::image type="Add diagnostic setting" source="media/diagnostic-settings/setting-new-blank.png" alt-text="Name your diagnostic setting":::
 
 4. **Logs and metrics to route** - For logs, either choose a category group or check the individual boxes for each category of data you want to send to the destinations specified later. The list of categories varies for each Azure service. Choose *allMetrics* if you want to store metrics into Azure Monitor Logs as well. 
 
