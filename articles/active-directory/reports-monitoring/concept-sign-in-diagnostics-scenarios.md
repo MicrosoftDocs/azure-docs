@@ -74,6 +74,8 @@ The sign-in diagnostic for Azure AD provides you with support for the following 
     - Legacy authentication  
 
     - Blocked by risk policy 
+    
+    - Seamless single sign on
 
 
 
@@ -286,9 +288,9 @@ This diagnostic scenario identifies user specific sign-in issues when the authen
 The diagnostic shows contextual information about the failure and the user signing in, additional reasons why the sign-in failed, and recommended actions the admin can take to resolve the problem. For more information, see [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md). 
 
 
-### Seamless single sign on integrates Kerberos authentication with cloud authentication 
+### Seamless single sign on
 
-Since two authentication protocols are involved it may be difficult to understand where a failure point lies sign-in problems occur. This diagnostic is intended to make these scenarios easier to diagnose and resolve.
+Seamless single sign on integrates Kerberos authentication with cloud authentication. Because this scenario involves two authentication protocols it can be difficult to understand where a failure point lies when sign-in problems occur. This diagnostic is intended to make these scenarios easier to diagnose and resolve.
  
 This diagnostic scenario examines the context of the sign-in failure and specific failure cause, contextual information on the sign-in attempt, and suggested actions which the admin can take-on premises or in the cloud-to resolve the problem.
  
