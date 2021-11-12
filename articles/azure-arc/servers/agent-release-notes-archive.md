@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 The primary [What's new in Azure Arc-enabled servers agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
 
-The Azure Arc-enabled servers Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:
+The Azure Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:
 
 - Previous releases
 - Known issues
@@ -24,8 +24,8 @@ Version 1.7
 
 - Improved reliability during onboarding:
   - Improved retry logic when HIMDS is unavailable
-  - Onboarding will now continue instead of aborting if OS information cannot be obtained
-- Improved reliability when installing the OMS agent extension on Red Hat and CentOS systems
+  - Onboarding continues instead of aborting if OS information cannot be obtained
+- Improved reliability when installing the Log Analytics agent for Linux extension on Red Hat and CentOS systems
 
 ## May 2021
 

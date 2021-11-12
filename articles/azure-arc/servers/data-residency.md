@@ -16,7 +16,7 @@ Azure Arc-enabled servers is **[available](https://azure.microsoft.com/global-in
 
 Azure Arc-enabled servers store [Azure VM extension](manage-vm-extensions.md) configuration settings (that is, property values) the extension requires specifying before attempting to enable on the connected machine. For example, when you enable the Log Analytics VM extension, it asks for the Log Analytics **workspace ID** and **primary key**.
 
-Metadata information about the connected machine is also collected by the Azure Connected Machine Agent and sent to Azure. A full list of metadata collected is available in the [instance metadata documentation](agent-overview.md#instance-metadata).
+Metadata information about the connected machine is also collected by the Azure Connected Machine agent and sent to Azure. A full list of metadata collected is available in the [instance metadata documentation](agent-overview.md#instance-metadata).
 
 Azure Arc-enabled servers allow you to specify the region where your data is stored. Microsoft may replicate to other regions for data resiliency, but Microsoft does not replicate or move data outside the geography. This data is stored in the region where the Azure Arc machine resource is configured. For example, if the machine is registered with Arc in the East US region, this data is stored in the US region.
 

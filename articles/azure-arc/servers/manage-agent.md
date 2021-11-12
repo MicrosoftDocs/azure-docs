@@ -1,13 +1,13 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
-description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc-enabled servers Connected Machine agent.
+description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
 ms.date: 10/28/2021
 ms.topic: conceptual
 ---
 
 # Managing and maintaining the Connected Machine agent
 
-After initial deployment of the Azure Arc-enabled servers Connected Machine agent for Windows or Linux, you may need to reconfigure the agent, upgrade it, or remove it from the computer. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+After initial deployment of the Azure Connected Machine agent for Windows or Linux, you may need to reconfigure the agent, upgrade it, or remove it from the computer. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
 ## Before uninstalling agent
 
@@ -165,7 +165,7 @@ Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as 
 
 ## About the Azcmagent tool
 
-The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc-enabled servers Connected Machine agent during installation, or modify the initial configuration of the agent after installation. Azcmagent.exe provides command-line parameters to customize the agent and view its status:
+The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Connected Machine agent during installation, or modify the initial configuration of the agent after installation. Azcmagent.exe provides command-line parameters to customize the agent and view its status:
 
 * **connect** - To connect the machine to Azure Arc
 
@@ -333,14 +333,14 @@ If you are planning to stop managing the machine with supporting services in Azu
 
 To configure the agent to communicate to the service through a proxy server or remove this configuration after deployment, or use one of the following methods to complete this task. The agent communicates outbound using the HTTP protocol under this scenario.
 
-As of agent version 1.13, proxy settings can be configured using the `azcmagent config` command or system environment variables. If a proxy server is specified in both the agent configuration and system environment variables, the agent configuration will take precedence and become the effective setting. `azcmagent show` will show the effective proxy configuration for the agent.
+As of agent version 1.13, proxy settings can be configured using the `azcmagent config` command or system environment variables. If a proxy server is specified in both the agent configuration and system environment variables, the agent configuration will take precedence and become the effective setting. `azcmagent show` returns the effective proxy configuration for the agent.
 
 > [!NOTE]
 > Azure Arc-enabled servers does not support using proxy servers that require authentication, TLS (HTTPS) connections, or a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
 
 ### Universal proxy configuration
 
-Universal proxy configuration is available starting with version 1.13 of the Azure Connected Machine Agent and is the preferred way of configuring proxy server settings.
+Universal proxy configuration is available starting with version 1.13 of the Azure Connected Machine agent and is the preferred way of configuring proxy server settings.
 
 To configure the agent to communicate through a proxy server, run the following command:
 
@@ -366,7 +366,7 @@ You do not need to restart any services when reconfiguring the proxy settings wi
 
 ### Windows environment variables
 
-On Windows, the Azure Connected Machine Agent will first check the `proxy.url` agent configuration property (for agent versions >= 1.13), then the system-wide `HTTPS_PROXY` environment variable to determine which proxy server to use. If both are empty, no proxy server is used, even if the default Windows system-wide proxy setting is configured.
+On Windows, the Azure Connected Machine agent will first check the `proxy.url` agent configuration property (starting with agent version 1.13), then the system-wide `HTTPS_PROXY` environment variable to determine which proxy server to use. If both are empty, no proxy server is used, even if the default Windows system-wide proxy setting is configured.
 
 Microsoft recommends using the agent configuration property instead of the system environment variable.
 
@@ -391,7 +391,7 @@ Restart-Service -Name himds, ExtensionService, GCArcService
 
 ### Linux environment variables
 
-On Linux, the Azure Connected Machine Agent will first check the `proxy.url` agent configuration property (for agent versions >= 1.13), then the `HTTPS_PROXY` environment variable set for the himds, GC_Ext, and GCArcService daemons. There is an included script that will configure systemd's default proxy settings for the Azure Connected Machine Agent and all other services on the machine to use a specified proxy server.
+On Linux, the Azure Connected Machine agent first checks the `proxy.url` agent configuration property (starting with agent version 1.13), and then the `HTTPS_PROXY` environment variable set for the himds, GC_Ext, and GCArcService daemons. There is an included script that will configure systemd's default proxy settings for the Azure Connected Machine agent and all other services on the machine to use a specified proxy server.
 
 To configure the agent to communicate through a proxy server, run the following command:
 
@@ -407,9 +407,9 @@ sudo /opt/azcmagent/bin/azcmagent_proxy remove
 
 ### Migrating from environment variables to universal proxy configuration
 
-If you are already using environment variables to configure the proxy server for the Azure Connected Machine Agent and want to migrate to the universal proxy configuration based on local agent settings, follow these steps:
+If you are already using environment variables to configure the proxy server for the Azure Connected Machine agent and want to migrate to the universal proxy configuration based on local agent settings, follow these steps:
 
-1. [Upgrade the Azure Connected Machine agent](#upgrading-agent) to the latest version (at least 1.13 to use the new proxy configuration settings)
+1. [Upgrade the Azure Connected Machine agent](#upgrading-agent) to the latest version (starting with version 1.13) to use the new proxy configuration settings
 1. Configure the agent with your proxy server information by running `azcmagent config set proxy.url "http://ProxyServerFQDN:port"`
 1. Remove the unused environment variables by following the steps for [Windows](#windows-environment-variables) or [Linux](#linux-environment-variables)
 

@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # What's new with Azure Arc-enabled servers agent
 
-The Azure Arc-enabled servers Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+The Azure Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
