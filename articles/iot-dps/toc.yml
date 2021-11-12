@@ -110,7 +110,7 @@
     items:
     - name: Troubleshooting DPS
       href: how-to-troubleshoot-dps.md
-    - name: DSP FAQ
+    - name: DPS FAQ
       href: dps-faq.yml
 - name: Reference
   items:
