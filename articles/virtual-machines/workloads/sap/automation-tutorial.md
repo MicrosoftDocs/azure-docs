@@ -86,7 +86,7 @@ The [SAP deployment automation framework repository](https://github.com/Azure/sa
 
 You will need an SSH client to connect to the Deployer. Use any SSH client that you feel comfortable with.
 
-#### Review the Azure Subscription Quota
+#### Review the Azure Subscription quota
 
 Ensure that your Microsoft Azure Subscription has a sufficient core quote for DdSV4 & EdsV4 family SKU in the elected region. About 50 cores each available for VM family should suffice.
 
