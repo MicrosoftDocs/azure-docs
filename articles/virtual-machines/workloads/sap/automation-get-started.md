@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 
 Get started quickly with the [SAP Deployment Automation Framework on Azure](automation-deployment-framework.md).
 
-## Prerequisites for SAP automation framework on Azure
+## Prerequisites
 
 
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

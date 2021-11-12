@@ -208,11 +208,11 @@ The table below contains the parameters related to the anchor virtual machine.
 > | Variable                           | Description                                                                       | Type        | 
 > | ---------------------------------- | --------------------------------------------------------------------------------- | ----------- | 
 > | `deploy_anchor_vm`                 | Defines if the anchor Virtual Machine is used                                     | Optional	   | 
-> | `anchor_vm_sku`                    | Defines the Virtual machine SKU to use, for example	Standard_D4s_v3              | Optional    | 
-> | `anchor_vm_image`	                 | Defines the Virtual machine image to use, see below                               | Optional	   | 
-> | `anchor_vm_use_DHCP`               | Controls if Azure subnet provided IP addresses should be used (dynamic)           | Optional    | 
-> | `anchor_vm_accelerated_networking` | Defines if the Anchor Virtual machine is configured to use accelerated networking | Optional    | 
-> | `anchor_vm_authentication_type`    | Defines the authentication type for the anchor virtual machine key/password       | Optional	   | 
+> | `anchor_vm_sku`                    | Defines the VM SKU to use. For example, Standard_D4s_v3.              | Optional    | 
+> | `anchor_vm_image`	                 | Defines the VM image to use. See the following code sample.                              | Optional	   | 
+> | `anchor_vm_use_DHCP`               | Controls whether to use dynamic IP addresses provided by Azure subnet.           | Optional    | 
+> | `anchor_vm_accelerated_networking` | Defines if the Anchor VM is configured to use accelerated networking | Optional    | 
+> | `anchor_vm_authentication_type`    | Defines the authentication type for the anchor VM key and password       | Optional	   | 
 
 The Virtual Machine and the operating system image is defined using the following structure: 
 ```python 
