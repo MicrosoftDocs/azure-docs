@@ -50,17 +50,17 @@ In this step, you create a lab for your class in Azure.
 
         :::image type="content" source="./media/tutorial-setup-classroom-lab/quota-for-each-user.png" alt-text="Quota for each user":::
 
-5. In the **Template Virtual Machine Settings** window, select **Finish**.
+    4. In the **Template Virtual Machine Settings** window, select **Finish**.
 
         :::image type="content" source="./media/tutorial-setup-classroom-lab/template-virtual-machine-settings.png" alt-text="Template virtual machine settings":::
-6. You should see the following screen that shows the status of the template VM creation. This operation takes up to 20 minutes.
+5. You should see the following screen that shows the status of the template VM creation. This operation takes up to 20 minutes.
 
-    ![Status of the template VM creation](./media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
-7. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
+    :::image type="content" source="./media/tutorial-setup-classroom-lab/create-template-vm-progress.png" alt-text="Status of the template VM creation":::
+6. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
 
     1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
-    3. Install and configure software required for your class on the template VM. 
-    4. **Stop** the template VM.  
+    2. Install and configure software required for your class on the template VM. 
+    3. **Stop** the template VM.  
 
     > [!NOTE]
     > Template VMs incur **cost** when running, so ensure that the template VM is shutdown when you don’t need it to be running. 
@@ -71,7 +71,7 @@ In this step, you publish the template VM. When you publish the template VM, Azu
 
 1. On the **Template** page, select **Publish** on the toolbar. 
 
-    ![Publish template button](./media/tutorial-setup-classroom-lab/template-page-publish-button.png)
+    :::image type="content" source="./media/tutorial-setup-classroom-lab/template-page-publish-button.png" alt-text="Publish template button":::
 
     > [!WARNING]
     > Once you publish, you can't unpublish. 
