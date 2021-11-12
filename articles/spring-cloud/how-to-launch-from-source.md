@@ -119,7 +119,7 @@ For single module Maven / Gradle projects:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring-cloud app deploy -n <app-name>
+az spring-cloud app deploy --name <app-name>
 ```
 
 For Maven / Gradle projects with multiple modules, repeat for each module:
