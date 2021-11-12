@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 10/19/2021
 ms.custom: references_regions 
 ---
 
@@ -52,7 +52,7 @@ The following table summarizes the supported operating systems when backing up W
 
 **Scenario** | **OS support**
 --- | ---
-Back up with Azure VM agent extension | - Windows 10 Client (64 bit only) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only)
+Back up with Azure VM agent extension | - Windows 10 Client (64 bit only) <br/><br/>- Windows Server 2022 (Datacenter/Datacenter Core/Standard)   <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only)
 Back up with MARS agent | [Supported](backup-support-matrix-mars-agent.md#supported-operating-systems) operating systems.
 Back up with DPM/MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](/system-center/dpm/dpm-protection-matrix).
 
@@ -169,7 +169,7 @@ Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can't be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
-Disks with Write Accelerator enabled | Currently, Azure VM with WA disk backup is previewed in all Azure public regions. <br><br> (Quota is exceeded and no further change to the approved list is possible until GA) <br><br> Snapshots don’t include WA disk snapshots for unsupported subscriptions as WA disk will be excluded. <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
+Disks with Write Accelerator enabled | Currently, Azure VM with WA disk backup is previewed in all Azure public regions. <br><br> To enroll your subscription for WA Disk, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com). <br><br> Snapshots don’t include WA disk snapshots for unsupported subscriptions as WA disk will be excluded. <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
 Back up & Restore deduplicated VMs/disks | Azure Backup doesn't support deduplication. For more information, see this [article](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  - Azure Backup doesn't deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored because the vault doesn't understand the format. However, you can successfully perform the full VM restore.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.

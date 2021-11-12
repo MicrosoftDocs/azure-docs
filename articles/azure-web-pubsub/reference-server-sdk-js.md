@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
-ms.date: 08/26/2021
+ms.date: 11/01/2021
 ---
 
 # JavaScript SDK for Azure Web PubSub

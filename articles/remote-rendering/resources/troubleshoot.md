@@ -32,9 +32,9 @@ If you are working on a laptop with two GPUs, it is possible that the GPU you ar
 
 ## Retrieve session/conversion status fails
 
-Sending REST API commands too frequently will cause the server to throttle and return failure eventually. The http status code in the throttling case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
+Sending REST API commands too frequently will cause the server to throttle and return failure eventually. The HTTP status code in the throttling case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
 
-Note this limit not only affects the REST API calls when called directly but also their C#/C++ counterparts, such as `Session.GetPropertiesAsync`, `Session.RenewAsync`, or `Frontend.GetAssetConversionStatusAsync`.
+Note this limit not only affects the REST API calls when called directly but also their C#/C++ counterparts, such as `Session.GetPropertiesAsync`, `Session.RenewAsync`, or `Frontend.GetAssetConversionStatusAsync`. Some functions also return information when it is save to retry. For example `RenderingSessionPropertiesResult.MinimumRetryDelay` specifies how many seconds to wait before attempting another check. When available, using such a returned value is best, as it allows you to do checks as often as possible, without getting throttled.
 
 If you experience server-side throttling, change the code to do the calls less frequently. The server will reset the throttling state every minute, so it is safe to rerun the code after a minute.
 
@@ -198,6 +198,10 @@ Another reason for unstable holograms (wobbling, warping, jittering, or jumping 
 Another value to look at is `ServiceStatistics.LatencyPoseToReceiveAvg`. It should consistently be below 100 ms. Seeing higher values could indicate that you are connected to a data center that is too far away.
 
 For a list of potential mitigations, see the [guidelines for network connectivity](../reference/network-requirements.md#guidelines-for-network-connectivity).
+
+## Local content (UIs, ...) on HoloLens 2 renders with significantly more distortion artifacts than without ARR
+
+This is a default setting that trades local content projection quality for runtime performance. Refer to the chapter about the [reprojection pose modes](../overview/features/late-stage-reprojection.md#reprojection-pose-modes) to see how the projection mode can be changed so that local content is rendered at the same reprojection quality level as without ARR.
 
 ## Z-fighting
 

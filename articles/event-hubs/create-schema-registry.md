@@ -1,12 +1,12 @@
 ---
 title: Create an Azure Event Hubs schema registry
-description: This article shows you how to create a schema registry in an Azure Event Hubs namespace. 
-ms.topic: how-to
+description: This article shows you how to create a schema registry in an Azure Event Hubs namespace.
+ms.topic: quickstart
 ms.date: 06/01/2021
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
-# Create an Azure Event Hubs schema registry 
+# Create an Azure Event Hubs schema registry
 This article shows you how to create a schema group with schemas in a schema registry hosted by Azure Event Hubs. For an overview of the Schema Registry feature of Azure Event Hubs, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
 
 > [!NOTE]
@@ -41,24 +41,24 @@ In this section, you add a schema to the schema group using the Azure portal.
 
 1. On the **Schema Group** page, select **+ Schema** on the toolbar. 
 1. On the **Create Schema** page, do these steps:
-    1. Enter a **name** for the schema.
+    1. For **Name**, enter **orderschema**.
     1. Enter the following **schema** into the text box. You can also select file with the schema.
     
         ```json
         {
-            "type": "record",
-            "name": "AvroUser",
-            "namespace": "com.azure.schemaregistry.samples",
-            "fields": [
-                {
-                    "name": "name",
-                    "type": "string"
-                },
-                {
-                    "name": "favoriteNumber",
-                    "type": "int"
-                }
-            ]
+          "namespace": "com.azure.schemaregistry.samples",
+          "type": "record",
+          "name": "Order",
+          "fields": [
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "amount",
+              "type": "double"
+            }
+          ]
         }
         ```
     1. Select **Create**. 
@@ -67,12 +67,12 @@ In this section, you add a schema to the schema group using the Azure portal.
     :::image type="content" source="./media/create-schema-registry/select-schema.png" alt-text="Image showing the schema selected.":::
 1. You see the **Schema Overview** page for the schema. 
 
-    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="Image showing the Schema Overview page":::    
+    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="Image showing the Schema Overview page.":::    
 1. If there are multiple versions of a schema, you see them in the **Versions** drop-down list. Select a version to switch to that version schema. 
 
 ## Create a new version of schema
 
-1. Update the schema in the text box, and select **Validate**. In the following example, a new field `id` has been added to the schema. 
+1. Update the schema in the text box, and select **Validate**. In the following example, a new field `description` has been added to the schema. 
 
     :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="Image showing the Update schema page":::    
     
@@ -82,9 +82,8 @@ In this section, you add a schema to the schema group using the Azure portal.
 1. You see that `2` is selected for the **version** on the **Schema Overview** page. 
 
     :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Image showing the new version of schema":::    
-1. Select `1` to see the version 1 fo the schema. 
+1. Select `1` to see the version 1 of the schema. 
 
 
 ## Next steps
 For more information about schema registry, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
-

@@ -1,17 +1,17 @@
 ---
-title: Configure Azure Defender for IoT agent-based solution
-description: Learn how to configure data collection in Azure Defender for IoT agent-based solution
-ms.date: 05/26/2021
+title: Configure Microsoft Defender for IoT agent-based solution
+description: Learn how to configure data collection in Microsoft Defender for IoT agent-based solution
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
-# Configure Azure Defender for IoT agent-based solution  
+# Configure Microsoft Defender for IoT agent-based solution  
 
-This article describes how to configure data collection in Azure Defender for IoT agent-based solution.
+This article describes how to configure data collection in Microsoft Defender for IoT agent-based solution.
 
 ## Configure data collection
 
-To configure data collection in Azure Defender for IoT agent-based solution: 
+To configure data collection in Microsoft Defender for IoT agent-based solution: 
 
 1. Navigate to the Azure portal, and select the IoT Hub that the Defender for IoT is attached to 
 

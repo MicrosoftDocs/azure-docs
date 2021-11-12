@@ -28,15 +28,17 @@ You can view and copy your account access keys with the Azure portal, PowerShell
 
 To view and copy your storage account access keys or connection string from the Azure portal:
 
-1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. Under **Settings**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+2. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
 
-3. Locate the **Key** value under **key1**, and click the **Copy** button to copy the account key.
+3. Select **Show keys** to show your access keys and connection strings and to enable buttons to copy the values.
 
-4. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
+4. Under **key1**, find the **Key** value. Select the **Copy** button to copy the account key.
 
-    :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Screenshot showing how to view access keys in the Azure portal":::
+5. Alternately, you can copy the entire connection string. Under **key1**, find the **Connection string** value. Select the **Copy** button to copy the connection string.
+
+    :::image type="content" source="./media/storage-account-keys-manage/portal-connection-string.png" alt-text="Screenshot showing how to view access keys in the Azure portal":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -46,7 +48,7 @@ The following example retrieves the first key. To retrieve the second key, use `
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzStorageAccountKey `
+    (Get-AzStorageAccountKey
     -ResourceGroupName <resource-group> `
     -Name <storage-account>).Value[0]
 ```
@@ -89,7 +91,19 @@ If you plan to manually rotate access keys, Microsoft recommends that you set a 
 
 #### [Portal](#tab/azure-portal)
 
-The ability to set a key expiration policy by using the Azure portal is not yet available. You can use either PowerShell or Azure CLI.
+To create a key expiration policy in the Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com), go to your storage account.
+
+2. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+
+3. Select the **Set rotation reminder** link.
+
+4. In **Set a reminder to rotate access keys**, select the **Enable key rotation reminders** checkbox and set a frequency for the reminder.
+
+5. Select **Save**.
+
+:::image type="content" source="media/storage-account-keys-manage/portal-key-expiration-policy.png" alt-text="Screenshot showing how to create a key expiration policy in the Azure portal":::
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -181,7 +195,7 @@ StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated".
 You can also create a query that helps you determine if a query is nearing expiration. The following query provides this information.
 
 ```kusto
-resources 
+StorageBlobLogs 
 | where type =~ 'microsoft.storage/storageAccounts'
 | extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime))
 | extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "")
@@ -198,7 +212,7 @@ To rotate your storage account access keys in the Azure portal:
 
 2. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
 
-3. Under **Settings**, select **Access keys**.
+3. Under **Security + networking**, select **Access keys**.
 
 4. To regenerate the primary access key for your storage account, select the **Regenerate** button next to the primary access key.
 

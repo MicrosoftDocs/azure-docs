@@ -126,7 +126,7 @@ Be aware of the following Azure Networking terms as you explore Virtual network 
 
 The Azure SQL Database firewall allows you to specify IP address ranges from which communications are accepted into SQL Database. This approach is fine for stable IP addresses that are outside the Azure private network. However, virtual machines (VMs) within the Azure private network are configured with *dynamic* IP addresses. Dynamic IP addresses can change when your VM is restarted and in turn invalidate the IP-based firewall rule. It would be folly to specify a dynamic IP address in a firewall rule, in a production environment.
 
-You can work around this limitation by obtaining a *static* IP address for your VM. For details, see [Create a virtual machine with a static public IP address using the Azure portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md). However, the static IP approach can become difficult to manage, and it's costly when done at scale.
+You can work around this limitation by obtaining a *static* IP address for your VM. For details, see [Create a virtual machine with a static public IP address using the Azure portal](../../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md). However, the static IP approach can become difficult to manage, and it's costly when done at scale.
 
 Virtual network rules are easier alternative to establish and to manage access from a specific subnet that contains your VMs.
 

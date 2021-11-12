@@ -6,8 +6,8 @@ metadata:
   description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: cache
   ms.topic: landing-page
-  author: yegu-ms
-  ms.author: yegu
+  author: curib
+  ms.author: cauribeg
   ms.date: 12/16/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

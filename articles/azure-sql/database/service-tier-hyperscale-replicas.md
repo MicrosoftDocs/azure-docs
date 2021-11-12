@@ -58,6 +58,11 @@ The difference from HA replicas is that named replicas:
 - support for up to 30 named replicas (for each primary replica);
 - support different authentication for each named replica by creating different logins on logical servers hosting named replicas.
 
+As a result, named replicas offers several benefits over HA replicas, for what concern read-only workloads:
+
+- users connected to a named replica will suffer no disconnection if the primary replica is scaled up or down; at the same time users connected to primary replica will be unaffected by named replicas scaling up or down
+-	workloads running on any replica, primary or named, will be unaffected by long running queries running on other replicas
+
 The main goal of named replicas is to enable massive OLTP [read scale-out](read-scale-out.md) scenario, and to improve Hybrid Transactional and Analytical Processing (HTAP) workloads. Examples of how to create such solutions are available here:
 
 - [OLTP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)
@@ -78,7 +83,7 @@ WITH (SERVICE_OBJECTIVE = 'HS_Gen5_2', SECONDARY_TYPE = Named, DATABASE_NAME = [
 ```
 # [PowerShell](#tab/azure-powershell)
 ```azurepowershell
-New-AzSqlDatabaseSecondary -ResourceGroupName "MyResourceGroup" -ServerName "MyServer" -DatabaseName "WideWorldImporters" -PartnerResourceGroupName "MyResourceGroup" -PartnerServerName "MyServer" -PartnerDatabaseName "WideWorldImporters_NR" -SecondaryServiceObjectiveName HS_Gen5_2
+New-AzSqlDatabaseSecondary -ResourceGroupName "MyResourceGroup" -ServerName "MyServer" -DatabaseName "WideWorldImporters" -PartnerResourceGroupName "MyResourceGroup" -PartnerServerName "MyServer" -PartnerDatabaseName "WideWorldImporters_NR" -SecondaryType Named -SecondaryServiceObjectiveName HS_Gen5_2
 ```
 # [Azure CLI](#tab/azure-cli)
 ```azurecli

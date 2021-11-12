@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/22/2021
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -15,9 +15,6 @@ This article describes how to create and manage a self-hosted integration runtim
 
 > [!NOTE]
 > The Purview Integration Runtime cannot be shared with an Azure Synapse Analytics or Azure Data Factory Integration Runtime on the same machine. It needs to be installed on a separated machine.
-
-> [!IMPORTANT]
-> If you have created your Azure Purview account after 18th August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## Prerequisites
 
@@ -37,6 +34,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
 - Scan runs happen with a specific frequency per the schedule you've set up. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is scanned. When multiple scan jobs are in progress, you see resource usage go up during peak times.
 - Tasks might fail during extraction of data in Parquet, ORC, or Avro formats.
+
+> [!IMPORTANT]
+> If you will use the Self-Hosted Integration runtime to scan Parquet files, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](#java-runtime-environment-installation) for an installation guide.
 
 ## Setting up a self-hosted integration runtime
 
@@ -73,6 +73,61 @@ To create and set up a self-hosted integration runtime, use the following proced
 6. After the Self-hosted integration runtime is registered successfully, you see the following window:
 
    :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="successfully registered.":::
+
+### Configure proxy server settings
+
+If you select the **Use system proxy** option for the HTTP proxy, the self-hosted integration runtime uses the proxy settings in diahost.exe.config and diawp.exe.config. When these files specify no proxy, the self-hosted integration runtime connects to the cloud service directly without going through a proxy. The following procedure provides instructions for updating the diahost.exe.config file:
+
+1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config as a backup of the original file.
+1. Open Notepad running as administrator.
+1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config.
+1. Find the default **system.net** tag as shown in the following code:
+
+    ```xml
+    <system.net>
+        <defaultProxy useDefaultCredentials="true" />
+    </system.net>
+    ```
+
+    You can then add proxy server details as shown in the following example:
+
+    ```xml
+    <system.net>
+        <defaultProxy enabled="true">
+              <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
+        </defaultProxy>
+    </system.net>
+    ```
+
+    The proxy tag allows additional properties to specify required settings like `scriptLocation`. See [\<proxy\> Element (Network Settings)](/dotnet/framework/configure-apps/file-schema/network/proxy-element-network-settings) for syntax.
+
+    ```xml
+    <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+    ```
+
+1. Save the configuration file in its original location. Then restart the self-hosted integration runtime host service, which picks up the changes.
+
+   To restart the service, use the services applet from Control Panel. Or from Integration Runtime Configuration Manager, select the **Stop Service** button, and then select **Start Service**.
+
+   If the service doesn't start, you likely added incorrect XML tag syntax in the application configuration file that you edited.
+
+> [!IMPORTANT]
+> Don't forget to update both diahost.exe.config and diawp.exe.config.
+
+You also need to make sure that Microsoft Azure is in your company's allowlist. You can download the list of valid Azure IP addresses. IP Ranges for each cloud, broken down by region and by the tagged services in that cloud are now available on MS Download: 
+   - Public: https://www.microsoft.com/download/details.aspx?id=56519
+
+### Possible symptoms for issues related to the firewall and proxy server
+
+If you see error messages like the following ones, the likely reason is improper configuration of the firewall or proxy server. Such configuration prevents the self-hosted integration runtime from connecting to Azure managed storage accounts or data sources. To ensure that your firewall and proxy server are properly configured, refer to the previous section.
+
+- When you try to register the self-hosted integration runtime, you receive the following error message: "Failed to register this Integration Runtime node! Confirm that the Authentication key is valid and the integration service host service is running on this machine."
+- When you open Integration Runtime Configuration Manager, you see a status of **Disconnected** or **Connecting**. When you view Windows event logs, under **Event Viewer** > **Application and Services Logs** > **Microsoft Integration Runtime**, you see error messages like this one:
+
+  ```output
+  Unable to connect to the remote server
+  A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
+  ```
 
 ## Networking requirements
 
@@ -112,7 +167,7 @@ Based on your sources, you may also need to allow the domains of other Azure or 
 | Various Domains | Dependant          | Domains for any other sources the SHIR will connect to. |
   
 > [!IMPORTANT]
-> In most environments, you will also need to confirm that your DNS is correctly configured. To confirm you can use **nslookup** from your SHIR machine to check connectivity to each of the above domains. Each nslookup should return the the IP of the resource. If you are using [Private Endpoints](catalog-private-link.md), the private IP should be returned and not the Public IP. If no IP is returned, or if when using Private Endpoints the public IP is returned, you will need to address your DNS/VNET association, or your Private Endpoint/VNET peering.
+> In most environments, you will also need to confirm that your DNS is correctly configured. To confirm you can use **nslookup** from your SHIR machine to check connectivity to each of the above domains. Each nslookup should return the IP of the resource. If you are using [Private Endpoints](catalog-private-link.md), the private IP should be returned and not the Public IP. If no IP is returned, or if when using Private Endpoints the public IP is returned, you will need to address your DNS/VNET association, or your Private Endpoint/VNET peering.
 
 ## Manage a self-hosted integration runtime
 
@@ -123,6 +178,51 @@ You can edit a self-hosted integration runtime by navigating to **Integration ru
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="edit IR details.":::
 
 You can delete a self-hosted integration runtime by navigating to **Integration runtimes** in the Management center, selecting the IR and then selecting **Delete**. Once an IR is deleted, any ongoing scans relying on it will fail.
+
+## Java Runtime Environment Installation
+
+If you will be scanning Parquet files using the Self-Hosted Integration runtime with Purview, you will need to install either the Java Runtime Environment or OpenJDK on your self-hosted IR machine.
+
+When scanning Parquet files using the Self-hosted IR, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
+
+- **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
+
+## Proxy server considerations
+
+If your corporate network environment uses a proxy server to access the internet, configure the self-hosted integration runtime to use appropriate proxy settings. You can set the proxy during the initial registration phase.
+
+:::image type="content" source="media/manage-integration-runtimes/self-hosted-proxy.png" alt-text="Specify the proxy":::
+
+When configured, the self-hosted integration runtime uses the proxy server to connect to the cloud service's source and destination (which use the HTTP or HTTPS protocol). This is why you select **Change link** during initial setup.
+
+:::image type="content" source="media/manage-integration-runtimes/set-http-proxy.png" alt-text="Set the proxy":::
+
+There are three configuration options:
+
+- **Do not use proxy**: The self-hosted integration runtime doesn't explicitly use any proxy to connect to cloud services.
+- **Use system proxy**: The self-hosted integration runtime uses the proxy setting that is configured in diahost.exe.config and diawp.exe.config. If these files specify no proxy configuration, the self-hosted integration runtime connects to the cloud service directly without going through a proxy.
+- **Use custom proxy**: Configure the HTTP proxy setting to use for the self-hosted integration runtime, instead of using configurations in diahost.exe.config and diawp.exe.config. **Address** and **Port** values are required. **User Name** and **Password** values are optional, depending on your proxy's authentication setting. All settings are encrypted with Windows DPAPI on the self-hosted integration runtime and stored locally on the machine.
+
+The integration runtime host service restarts automatically after you save the updated proxy settings.
+
+After you register the self-hosted integration runtime, if you want to view or update proxy settings, use Microsoft Integration Runtime Configuration Manager.
+
+1. Open **Microsoft Integration Runtime Configuration Manager**.
+3. Under **HTTP Proxy**, select the **Change** link to open the **Set HTTP Proxy** dialog box.
+4. Select **Next**. You then see a warning that asks for your permission to save the proxy setting and restart the integration runtime host service.
+
+You can use the configuration manager tool to view and update the HTTP proxy.
+
+> [!NOTE]
+> If you set up a proxy server with NTLM authentication, the integration runtime host service runs under the domain account. If you later change the password for the domain account, remember to update the configuration settings for the service and restart the service. Because of this requirement, we suggest that you access the proxy server by using a dedicated domain account that doesn't require you to update the password frequently.
+
+## Installation best practices
+
+You can install the self-hosted integration runtime by downloading a Managed Identity setup package from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).
+
+- Configure a power plan on the host machine for the self-hosted integration runtime so that the machine doesn't hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
+- Regularly back up the credentials associated with the self-hosted integration runtime.
 
 ## Next steps
 

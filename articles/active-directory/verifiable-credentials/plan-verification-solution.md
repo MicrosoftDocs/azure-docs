@@ -12,7 +12,7 @@ ms.author: baselden
 ms.custom: references_regions
 ---
 
-# Plan your Azure Active Directory Verifiable Credentials  verification solution (Preview)
+# Plan your Azure Active Directory Verifiable Credentials  verification solution (preview)
 
 >[!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -327,7 +327,7 @@ As part of your operational planning, consider monitoring the following:
 
    * Enable logging for Key Vault to track signing operations, as well as to monitor and alert on configuration changes. Refer to [How to enable Key Vault logging](../../key-vault/general/howto-logging.md) for more information.
 
-   * Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for long-term retention.
+   * Archive logs in a security information and event management (SIEM) systems, such as [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for long-term retention.
 
  
 
