@@ -17,6 +17,8 @@ zone_pivot_groups: microsoft-identity-platform-dev-languages
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my single-page app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
+# Quickstart: Sign in users in single-page apps (SPA) using the auth code flow
+
 ::: zone pivot="programming-language-angular"
 [!INCLUDE [angular](./includes/single-page-app/quickstart-javascript-auth-code-angular.md)]
 ::: zone-end
@@ -26,5 +28,5 @@ zone_pivot_groups: microsoft-identity-platform-dev-languages
 ::: zone-end
 
 ::: zone pivot="programming-language-react"
-[!INCLUDE [react](./includes/single-page-app/quickstart-javascript-auth-code-react)]
+[!INCLUDE [react](./includes/single-page-app/quickstart-javascript-auth-code-react.md)]
 ::: zone-end

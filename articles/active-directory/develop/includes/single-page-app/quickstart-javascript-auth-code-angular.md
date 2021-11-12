@@ -16,9 +16,6 @@ ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-j
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript Angular app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
-# Quickstart: Sign in and get an access token in an Angular SPA using the auth code flow
-
-
 In this quickstart, you download and run a code sample that demonstrates how a JavaScript Angular single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 
 See [How the sample works](#how-the-sample-works) for an illustration.
