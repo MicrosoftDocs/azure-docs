@@ -18,7 +18,7 @@ This article provides information about limitations and known issues related to 
 > [!IMPORTANT]
 > There are multiple factors that can affect the quality of your calling experience. To learn more about Communication Services network configuration and testing best practices, see [Network recommendations](./voice-video-calling/network-requirements.md).
 
-## Communication Services Calling SDKs
+## JavaScript SDK
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
@@ -32,7 +32,7 @@ This is a [known bug on iOS 15.1 with Safari](https://bugs.webkit.org/show_bug.c
 
 If a user is in a call and decides to refresh the page, the Communication Services media service won't remove this user immediately from the call. It will wait for the user to rejoin. The user will be removed from the call after the media service times out.
 
-It's best to build user experiences that don't require end users to refresh the page of your application while in a call. If a user refreshes the page, reuse the same Communication Services user ID after that user returns back to the application. By rejoining with the same user ID, the user is represented as the same, existing object in the `remoteParticipants` collection. (Note that from the perspective of other participants in the call, the user remains in the call during the time it takes to refresh the page, up to a minute or two.)
+It's best to build user experiences that don't require end users to refresh the page of your application while in a call. If a user refreshes the page, reuse the same Communication Services user ID after that user returns back to the application. By rejoining with the same user ID, the user is represented as the same, existing object in the `remoteParticipants` collection. From the perspective of other participants in the call, the user remains in the call during the time it takes to refresh the page, up to a minute or two.
 
 If the user was sending video before refreshing, the `videoStreams` collection will keep the previous stream information until the service times out and removes it. In this scenario, the application might decide to observe any new streams added to the collection, and render one with the highest `id`. 
 
@@ -42,7 +42,7 @@ This is a known limitation. For more information, see [Calling SDK overview](./v
 
 ### Enumerating devices isn't possible in Safari when the application runs on iOS or iPadOS
 
-Applications can't enumerate or select mic or speaker devices (like Bluetooth) on Safari iOS or iPadOS. This is a known limitation of these operating systems.
+Applications can't enumerate or select microphone or speaker devices (like Bluetooth) on Safari iOS or iPadOS. This is a known limitation of these operating systems.
 
 If you're using Safari on macOS, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. If you use Chrome on macOS, the app can enumerate or select devices through the Communication Services device manager.
 
