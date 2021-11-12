@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/10/2021
+ms.date: 11/12/2021
 ms.author: danlep
 ---
 
@@ -16,7 +16,7 @@ ms.author: danlep
 
 Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. To use Azure API Management's interactive developer console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
 
-## <a name="prerequisites"> </a>Prerequisites
+## Prerequisites
 
 This guide shows you how to configure your API Management service instance to use OAuth 2.0 authorization for developer accounts, but does not show you how to configure an OAuth 2.0 provider. 
 
@@ -31,22 +31,23 @@ If you have not yet created an API Management service instance, see [Create an A
 
 ## Authorization grant types
  
-Azure API Management supports the following OAuth 2.0 grant types (flows). A grant type refers to a way for your client application to obtain an access token to your backend API. You may configure one or more grant types, depending on your OAuth provider and scenarios. 
+Azure API Management supports the following OAuth 2.0 grant types (flows). A grant type refers to a way for a client application (in this context, the developer portal) to obtain an access token to your backend API. You may configure one or more grant types, depending on your OAuth provider and scenarios. 
 
-For more information, see the [OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749) and [OAuth grant types](https://oauth.net/2/grant-types/),
+The following is a high level summary. For more information about grant types, see the [OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749) and [OAuth grant types](https://oauth.net/2/grant-types/).
 
 
 |Grant type  |Description  |Scenarios  |
 |---------|---------|---------|
 |Authorization code     | Exchanges authorization code for token         |  Server-side apps such as web apps      |
-|Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Public clients such as native apps and JavaScript apps<br/><br/>Not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it is received by client     |
-|Resource owner password  | Requests user credentials (username and password), typically using an interactive form |    For use with highly trusted applications<br/><br/>Should only be used when other, more secure flows cannot be used        |
-|Client credentials     | Authenticates and authorizes an app rather than a user       |  Machine-to-machine (M2M) applications, such as CLIs, daemons, or services running on your backend       |
+|Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it is received by client     |
+|Resource owner password  | Requests user credentials (username and password), typically using an interactive form |    For use with highly trusted applications<br/><br/>Should only be used when other, more secure flows can't be used        |
+|Client credentials     | Authenticates and authorizes an app rather than a user       |  Machine-to-machine applications that do not require a specific user's permissions to access data, such as CLIs, daemons, or services running on your backend       |
 
 > [!WARNING]
-> Consider the security risks of your grant type choices and scope permissions. If your grant type directly exposes an access token, the token can be retrieved through the test console in the developer portal. It could be used by a malicious actor to access additional resources with the scopes granted by the user. 
+> * The client credentials flow can expose an access token through the test console in the developer portal. A compromised token could be used by a malicious actor to access additional resources within the token's [scope](https://oauth.net/2/scope/) of access. 
+> * Always limit the scope of token access when used in the developer console.
 
-## <a name="step1"> </a>Configure an OAuth 2.0 authorization server in API Management
+## Configure an OAuth 2.0 authorization server in API Management
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 
@@ -104,7 +105,7 @@ For more information, see the [OAuth 2.0 Authorization Framework](https://datatr
 
 After the server configuration is saved, you can configure APIs to use this configuration, as shown in the next section.
 
-## <a name="step2"> </a>Configure an API to use OAuth 2.0 user authorization
+## Configure an API to use OAuth 2.0 user authorization
 
 1. Select **APIs** from the **API Management** menu on the left.
 
@@ -119,7 +120,7 @@ After the server configuration is saved, you can configure APIs to use this conf
 
 [!INCLUDE [api-management-test-oauth-authorization](../../includes/api-management-test-oauth-authorization.md)]
 
-## <a name="step3"> </a>Legacy developer portal - test the OAuth 2.0 user authorization
+## Legacy developer portal - test the OAuth 2.0 user authorization
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
