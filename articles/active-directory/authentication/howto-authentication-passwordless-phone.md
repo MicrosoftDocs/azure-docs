@@ -61,7 +61,7 @@ To enable the authentication method for passwordless phone sign-in, complete the
 1. To apply the new policy, click **Save**. 
 
    >[!NOTE]
-   >If you see an error when you try to save, the cause might be due to the number of users or groups being added. As a workaround, replace the current users or groups with a single group, in the same operation, and then click **Save** again.
+   >If you see an error when you try to save, the cause might be due to the number of users or groups being added. As a workaround, replace the users and groups you are trying to add with a single group, in the same operation, and then click **Save** again.
 
 ## User registration and management of Microsoft Authenticator
 
