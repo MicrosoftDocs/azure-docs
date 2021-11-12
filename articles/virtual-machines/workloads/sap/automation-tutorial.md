@@ -519,7 +519,7 @@ cd ~/Azure_SAP_Automated_Deployment/
 cp -Rp ./sap-hana/deploy/samples/WORKSPACES ./
 ```
 
-## Deploy the Workload Zone
+## Deploy the workload zone
 
 1. On the deployer VM, navigate to the `Azure_SAP_Automated_Deployment` folder.
   
