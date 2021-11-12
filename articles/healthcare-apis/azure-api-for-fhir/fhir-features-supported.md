@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/10/2021
+ms.date: 11/11/2021
 ms.author: cavoeg
 ---
 
@@ -54,8 +54,6 @@ All the operations that are supported that extend the REST API.
 | Search parameter type | Azure API for FHIR | FHIR service in Healthcare APIs| Comment |
 |------------------------|-----------|-----------|---------|
 | [$export](../../healthcare-apis/data-transformation/export-data.md) (whole system) | Yes       | Yes       | Supports system, group, and patient.   |
-| Patient/$export       | Yes       | Yes       |         |
-| Group/$export          | Yes       | Yes       |         |
 | [$convert-data](convert-data.md)          | Yes       | Yes       |         |
 | [$validate](validation-against-profiles.md)              | Yes       | Yes       |         |
 | [$member-match](tutorial-member-match.md)          | Yes       | Yes       |         |
