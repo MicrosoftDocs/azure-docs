@@ -7,6 +7,7 @@ ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurepowershell
 ---
+
 # Set up continuous deployment with Chocolatey
 
 In a DevOps world, there are many tools to assist with various points in the continuous integration

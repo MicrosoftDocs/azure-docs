@@ -3,7 +3,7 @@ title: Use the Video Analyzer player widget
 description: This article explains how to add a Video Analyzer player widget to your application.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 11/12/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -137,6 +137,10 @@ The Zone Drawer component allows you to draw lines and polygons on top of the Vi
    ```javascript
    zoneDrawer.load();
    ```
+1. Configure the zone drawer:
+   ```javascript
+   zoneDrawer.configure();
+   ```
 1. To create and save zones, you have to add event listeners here:
    ```javascript
    zoneDrawer.addEventListener('ZONE_DRAWER_ADDED_ZONE', (event) => {
@@ -190,6 +194,7 @@ Combining the preceding web elements, you get the following static HTML page. Th
     
         const zoneDrawer = document.getElementById("zoneDrawer");
         zoneDrawer.load();
+        zoneDrawer.configure();
 
         zoneDrawer.addEventListener('ZONE_DRAWER_ADDED_ZONE', (event) => {
             console.log(event);
