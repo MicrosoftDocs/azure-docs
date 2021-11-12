@@ -5,8 +5,8 @@ author: anastasia-ms
 ms.author: v-stharr
 ms.service: iot-dps
 services: iot-dps
-ms.topic: conceptual
-ms.date: 11/05/2021
+ms.topic: how-to
+ms.date: 11/12/2021
 ---
 
 # Use Azure IoT DPS IP connection filters
@@ -30,61 +30,96 @@ The IP filter rules are applied at the DPS instance level. Therefore the IP filt
 
 Any connection attempt from an IP address that matches a rejecting IP rule in your DPS instance receives an unauthorized 401 status code and description. The response message does not mention the IP rule.
 
-## View the **IP Filter** grid
+> [!IMPORTANT]
+> Rejecting IP addresses can prevent other Azure Services from interacting with the DPS instance.
 
-To view the **IP Filter** grid:
+## Default setting
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+By default, IP filtering is disabled and **Public network access** is set to *All networks*. This default setting means that your DPS accepts connections from any IP address, or conforms to a rule that accepts the 0.0.0.0/0 IP address range.
+
+:::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-default.png" alt-text="IoT DPS default IP filter settings.":::
+
+## Add an IP filter rule
+
+To add an IP filter rule:
+
+1. Go to the [Azure portal](https://portal.azure.com).
 
 2. On the left-hand menu or on the portal page, select **All resources**.
 
 3. Select your Device Provisioning Service.
 
-4. Under the **Settings** menu on the left-hand side, select **Networking**.
+4. In the **Settings** menu on the left-side, select *Networking*.
 
-5. By default, *All Networks* is selected for the **Public network access** setting. To view the **IP Filter** grid, select **Selected IP range**. The grid should be empty, which means that your DPS accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.
+5. Under **Public network access**, select *Selected IP ranges*
 
-![IoT DPS default IP filter settings](./media/iot-dps-ip-filtering/ip-filter-default.png)
+6. Select **+ Add IP Filter Rule**.
 
-## Add or edit an IP filter rule
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-add-rule.png" alt-text="Add an IP filter rule to an IoT DPS.":::
 
-To add an IP filter rule, select **+ Add IP Filter Rule**.
+7. Fill in the following fields:
 
-![Add an IP filter rule to an IoT DPS](./media/iot-dps-ip-filtering/ip-filter-add-rule.png)
+    | Field | Description|
+    |-------|------------|
+    | **Name** |A unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.|
+    | **Address Range** |A single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.|
+    | **Action** |Select either **Allow** or **Block**.|
 
-After selecting **Add IP Filter Rule**, fill in the fields.
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png" alt-text="After selecting Add an IP Filter rule.":::
 
-![After selecting Add an IP Filter rule](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
+8. Select **Save**. You should see an alert notifying you that the update is in progress.
 
-* Provide a **name** for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png" alt-text="Notification about saving an IP filter rule.":::
 
-* Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.
+    >[!Note]
+    > **+ Add IP Filter Rule** is disabled when you reach the maximum of 100 IP filter rules.
 
-* Select **Allow** or **Block** as the **action** for the IP filter rule.
+## Edit an IP filter rule
 
-After filling in the fields, select **Save** to save the rule. You see an alert notifying you that the update is in progress.
+To edit an existing rule:
 
-![Notification about saving an IP filter rule](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
+1. Select the IP filter rule data you want to change.
 
-The **Add** option is disabled when you reach the maximum of 100 IP filter rules.
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-rule-edit.png" alt-text="Edit an an IP filter rule.":::
 
-To edit an existing rule, select the data you want to change, make the change, then select **Save** to save your edit.
+2. Make the change.
 
-> [!NOTE]
-> Rejecting IP addresses can prevent other Azure Services from interacting with the DPS instance.
+3. Select **Save** .
 
 ## Delete an IP filter rule
 
-To delete an IP filter rule, select the trash can icon on that row and then select **Save**. The rule is removed and the change is saved.
+To delete an IP filter rule:
 
-![Delete an IoT DPS IP filter rule](./media/iot-dps-ip-filtering/ip-filter-delete-rule.png)
+1. Select the delete icon on the row of the IP rule you wish to delete.
 
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-delete-rule.png" alt-text="Delete an IoT DPS IP filter rule.":::
 
-## Update IP filter rules in code
+2. Select **Save**.
 
-You may retrieve and modify your DPS IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](/rest/api/iot-dps/iotdpsresource/createorupdate).
+## IP filter rule evaluation
 
-Updating DPS IP filter rules is not currently supported with Azure CLI or Azure PowerShell but, can be accomplished with Azure Resource Manager templates. See, [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) for guidance on using Resource Manager templates. The template examples that follow show how to create, edit, and delete DPS IP filter rules.
+IP filter rules are applied in order. The first rule that matches the IP address determines the accept or reject action.
+
+For example, if you want to accept addresses in the range 192.168.100.0/22 and reject everything else, the first rule in the grid should accept the address range 192.168.100.0/22. The next rule should reject all addresses by using the range 0.0.0.0/0.
+
+To change the order of your IP filter rules:
+
+1. Select the rule you want to move.
+
+2. Drag and drop the rule to the desired location.
+
+3. Select **Save**.
+
+## Update IP filter rules using Azure Resource Manager templates
+
+There are two ways you can update your DPS IP filter:
+
+1. Call the IoT Hub Resource REST API method. To learn how to update your IP filter rules using REST,  see `IpFilterRule` in the [Definitions section](/api/iothub/iot-hub-resource/update#definitions) of the [Iot Hub Resource - Update method](/api/iothub/iot-hub-resource/update).
+
+2. Use the Azure Resource Manager templates. For guidance on how to use the Resource Manager templates, see [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md). The examples that follow show you how to create, edit, and delete DPS IP filter rules with Azure Resource Manager templates.
+
+    >[!NOTE]
+    >Azure CLI and Azure PowerShell don't currently support DPS IP filter rules updates.
 
 ### Add an IP filter rule
 
@@ -246,20 +281,6 @@ The following template example deletes all IP filter rules for the DPS instance.
     ] 
 }
 ```
-
-
-
-## IP filter rule evaluation
-
-IP filter rules are applied in order and the first rule that matches the IP address determines the accept or reject action.
-
-For example, if you want to accept addresses in the range 192.168.100.0/22 and reject everything else, the first rule in the grid should accept the address range 192.168.100.0/22. The next rule should reject all addresses by using the range 0.0.0.0/0.
-
-You can change the order of your IP filter rules in the grid by clicking the three vertical dots at the start of a row and using drag and drop.
-
-To save your new IP filter rule order, click **Save**.
-
-![Change the order of your DPS IP filter rules](./media/iot-dps-ip-filtering/ip-filter-rule-order.png)
 
 ## Next steps
 
