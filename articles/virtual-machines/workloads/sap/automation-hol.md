@@ -195,11 +195,11 @@ az ad sp create-for-rbac --role="Contributor" \
 
 The output maps to the following parameters. You use these parameters in later steps, with automation commands.
 
-    | **Parameter input name** | **Output name** |
-    |--------------------------|-----------------|
-    | `spn_id`                 | `appId`         |
-    | `spn_secret`             | `password`      |
-    | `tenant_id`              | `tenant`        |
+| **Parameter input name** | **Output name** |
+|--------------------------|-----------------|
+| `spn_id`                 | `appId`         |
+| `spn_secret`             | `password`      |
+| `tenant_id`              | `tenant`        |
 
 1. Assign the **User Access Administrator** role to the service principal.
 
@@ -233,19 +233,19 @@ Expand each of these folders to find regional deployment configuration files.
 
 Find the appropriate four-character code that corresponds to the Azure region you're using.
 
-    | Region Name        | Region Code |
-    |--------------------|-------------|
-    | Australia East     | AUEA        |
-    | Canada Central     | CACE        |
-    | Central US         | CEUS        |
-    | East US            | EAUS        |
-    | North Europe       | NOEU        |
-    | South Africa North | SANO        |
-    | Southeast Asia     | SOEA        |
-    | UK South           | UKSO        |
-    | West US 2          | WES2        |
+| Region Name        | Region Code |
+|--------------------|-------------|
+| Australia East     | AUEA        |
+| Canada Central     | CACE        |
+| Central US         | CEUS        |
+| East US            | EAUS        |
+| North Europe       | NOEU        |
+| South Africa North | SANO        |
+| Southeast Asia     | SOEA        |
+| UK South           | UKSO        |
+| West US 2          | WES2        |
 
- Find the Terraform variable files in the appropriate sub-folder. For example, the **DEPLOYER** terraform variable file might look like:
+Find the Terraform variable files in the appropriate sub-folder. For example, the **DEPLOYER** terraform variable file might look like:
 
 ```bash
 # The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
@@ -376,7 +376,8 @@ Make sure you can connect to your deployer VM:
 - Once connected to the deployer VM, you can now provision the workload zone
 
 
-> [!IMPORTANT] > The rest of the tasks need to be executed on the Deployer
+> [!IMPORTANT]
+> The rest of the tasks need to be executed on the Deployer
 
 ## Get SAP software using the BoM
 
