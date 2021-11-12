@@ -288,8 +288,6 @@
     href: automation-deployment-framework.md
   - name: Supported platforms and features
     href: automation-supportability.md
-  - name: Get started with the SAP deployment automation framework
-    href: automation-get-started.md
   - name: Plan deployment
     href: automation-plan-deployment.md
   - name: Configuration
@@ -367,7 +365,7 @@
     - name: Sample deployment configurations
       href: automation-new-vs-existing.md
     - name: Hands-On Lab Instructions
-      href: automation-hol.md
+      href: automation-tutorial.md
     - name: Frequently Asked Questions
       href: automation-faq.md
   - name: SAP Software

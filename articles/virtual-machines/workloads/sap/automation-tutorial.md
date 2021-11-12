@@ -63,7 +63,7 @@ The **Deployer** is the execution engine of the SAP automation framework. This  
 
 The **SAP Library** provides the persistent storage for the Terraform state files and the downloaded SAP installation media for the control plane.
 
-You configure the deployer and library in a Terraform `.tfvars` variable file.
+You configure the deployer and library in a Terraform `.tfvars` variable file. See [configuring the control plane](automation-configure-control-plane.md)
 
 #### Workload Zone
 
@@ -71,9 +71,9 @@ An SAP application typically has multiple deployment tiers. For example, you mig
 
 :::image type="content" source="./media/automation-deployment-framework/workload-zone.png" alt-text="Workload zone.":::
 
-The **SAP Worklosd zone ** contains the networkingand shared components for the SAP VMs. These components include route tables, network security groups, and virtual networks (VNets). The Landscape provides the opportunity to divide deployments into different environments.
+The **SAP Workload zone ** contains the networking and shared components for the SAP VMs. These components include route tables, network security groups, and virtual networks (VNets). The Landscape provides the opportunity to divide deployments into different environments. See [configuring the workload zone](automation-configure-workload-zone.md)
 
-The system deployment consists of the virtual machines that will be running the SAP application, including the web, app, and database tiers.
+The system deployment consists of the virtual machines that will be running the SAP application, including the web, app, and database tiers. See [configuring the SAP system](automation-configure-system.md)
 
 ## Hands-On Lab
 
