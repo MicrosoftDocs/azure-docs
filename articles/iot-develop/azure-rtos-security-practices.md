@@ -10,7 +10,7 @@ ms.date: 11/11/2021
 
 # Guidelines to develop secure embedded applications with Azure RTOS
 
-INTRO TEXT HERE
+**INTRO TEXT COMING**
 
 Throughout this guide we’ll reference security categories from the following two documents:
 
@@ -70,7 +70,7 @@ An invalid time will disrupt all TLS communication, possibly rendering the devic
 
 ### Use approved cryptographic routines with strong key sizes
 
-There are a wide variety of cryptographic routines available today. Research the cryptographic routines that you'll need and choose the strongest (largest) keys possible when designing your application. Look to NIST or other organizations that provide guidance on appropriate cryptography for different applications.
+There are a wide variety of cryptographic routines available today. When designing your application, research the cryptographic routines that you'll need and choose the strongest (largest) keys possible. Look to NIST or other organizations that provide guidance on appropriate cryptography for different applications.
 
 - Choose key sizes that are appropriate for your application. RSA is still acceptable in some organizations but only if the key is 2048 bits or larger. For AES, minimum key sizes of 128 bits are often required.
 - Choose modern, widely accepted algorithms and choose cipher modes that provide the highest level of security available for your application.
@@ -131,7 +131,8 @@ Regardless of implementation, the device ID and any associated cryptographic mat
 
 While the device ID can be used for client authentication with a cloud service or server, it is highly advisable to split the device ID from operational certificates typically used for such purposes. To lessen the attack surface, operational certificates should be relatively short-lived, and the public portion of the device ID shouldn't be widely distributed. Instead, the device ID can be used to sign and/or derive private keys associated with operational certificates.
 
-Note: this recommendation is very closely related to the “Attestation” recommendation below, with slightly different semantics.
+> [!NOTE]
+> This recommendation is very closely related to the “Attestation” recommendation below, with slightly different semantics.
 
 **Hardware**: A device ID must be tied to the hardware and must not be easily replicated. This requires hardware-based cryptographic features such as those found in an HSM. Some MCU devices may provide similar functionality.
 
@@ -331,7 +332,7 @@ Support current TLS versions:
 - TLS 1.3 is the latest TLS version. Finalized in 2018, it adds many security and performance enhancements, but is not yet widely deployed. However, if your application can support TLS 1.3 it's recommended for new applications.
 
 > [!NOTE]
-> TLS 1.0 and TLS 1.1 are obsolete protocols and shouldn't be used for new application development. They are disabled by default in Azure RTOS.
+> TLS 1.0 and TLS 1.1 are obsolete protocols and shouldn't be used for new application development. They're disabled by default in Azure RTOS.
 
 **Hardware**: No specific hardware requirements.
 
@@ -373,7 +374,7 @@ Use the strongest cryptography and cipher suites available for TLS. Having the a
 
 **SMM Practices**: The Implementation of Data Protection Controls
 
-### TLS Mutual certificate authentication
+### TLS mutual certificate authentication
 
 When using X.509 authentication in TLS, opt for mutual certificate authentication. With mutual authentication, both the server and client must provide a verifiable certificate for identification.
 
