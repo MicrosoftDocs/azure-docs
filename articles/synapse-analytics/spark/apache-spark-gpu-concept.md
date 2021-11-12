@@ -26,7 +26,7 @@ To simplify the process for creating and managing pools, Azure Synapse takes car
 >  - GPU-accelerated pools are only availble with the Apache Spark 3 runtime.
 >  - You might need to request a [limit increase](./apache-spark-rapids-gpu.md#quotas-and-resource-constraints-in-azure-synapse-gpu-enabled-pools) in order to create GPU-enabled clusters. 
 
-![Apache Spark pool create flow - basics tab.](../media/quickstart-create-apache-spark-pool/create-spark-gpu-pool-portal-01.png)
+![Apache Spark pool create flow.](../media/quickstart-create-apache-spark-pool/create-spark-gpu-pool-portal-01.png#lightbox)
  
 ## GPU-accelerated runtime
 
@@ -56,7 +56,7 @@ With built-in support for NVIDIA’s [RAPIDS Accelerator for Apache Spark](https
 To learn more about how you can use the NVIDIA RAPIDS Accelerator with your GPU-accelerated pool in Azure Synapse Analytics, visit this guide on how to [improve performance with RAPIDS](apache-spark-rapids-gpu.md).
 
 ## Improve machine learning scoring workloads
-Many organizations rely on large batch scoring jobs to frequently execute during narrow windows of time. To achieve improve batch scoring jobs, you can also use GPU-accelerated Spark pools with Microsoft’s [Hummingbird library](https://github.com/Microsoft/hummingbird). With Hummingbird, users can take their traditional, tree-based ML models and compile them into tensor computations. Hummingbird allows users to then seamlessly leverage native hardware acceleration and neural network frameworks to accelerate their ML model scoring without needing to rewrite their models.  
+Many organizations rely on large batch scoring jobs to frequently execute during narrow windows of time. To achieve improved batch scoring jobs, you can also use GPU-accelerated Spark pools with Microsoft’s [Hummingbird library](https://github.com/Microsoft/hummingbird). With Hummingbird, users can take their traditional, tree-based ML models and compile them into tensor computations. Hummingbird allows users to then seamlessly leverage native hardware acceleration and neural network frameworks to accelerate their ML model scoring without needing to rewrite their models.  
 
 ## Next steps
 - [Azure Synapse Analytics](../overview-what-is.md)
