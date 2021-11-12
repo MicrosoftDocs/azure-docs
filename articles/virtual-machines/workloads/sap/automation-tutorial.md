@@ -75,7 +75,7 @@ The **SAP Workload zone ** contains the networking and shared components for the
 
 The system deployment consists of the virtual machines that will be running the SAP application, including the web, app, and database tiers. See [configuring the SAP system](automation-configure-system.md)
 
-## Hands-On Lab
+## Hands-On lab
 
 ### Prerequisites
 
