@@ -49,7 +49,7 @@ If you created and configured an Immersive Reader resource using the instruction
 1. Copy and paste the following code snippet into the shell.
 
     ```azurepowershell-interactive
-    function Update-ImmersiveReaderRoleAssingment(
+    function Update-ImmersiveReaderRoleAssignment(
         [Parameter(Mandatory=$true, Position=0)] [String] $SubscriptionName,
         [Parameter(Mandatory=$true)] [String] $ResourceGroupName,
         [Parameter(Mandatory=$true)] [String] $ResourceName,
@@ -111,16 +111,16 @@ If you created and configured an Immersive Reader resource using the instruction
     }
     ```
 
-1. Run the function `Update-ImmersiveReaderRoleAssingment`, supplying the '<PARAMETER_VALUES>' placeholders below with your own values as appropriate.
+1. Run the function `Update-ImmersiveReaderRoleAssignment`, supplying the '<PARAMETER_VALUES>' placeholders below with your own values as appropriate.
 
     ```azurepowershell-interactive
-    Update-ImmersiveReaderRoleAssingment -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceName '<RESOURCE_NAME>' -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>'
+    Update-ImmersiveReaderRoleAssignment -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceName '<RESOURCE_NAME>' -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>'
     ```
 
     The full command will look something like the following. Here we have put each parameter on its own line for clarity, so you can see the whole command. Do not copy or use this command as-is. Copy and use the command above with your own values. This example has dummy values for the '<PARAMETER_VALUES>' above. Yours will be different, as you will come up with your own names for these values.
 
     ```
-    Update-ImmersiveReaderRoleAssingment
+    Update-ImmersiveReaderRoleAssignment
         -SubscriptionName 'MyOrganizationSubscriptionName'
         -ResourceGroupName 'MyResourceGroupName'
         -ResourceName 'MyOrganizationImmersiveReader'
