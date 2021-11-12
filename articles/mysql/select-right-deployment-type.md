@@ -12,27 +12,17 @@ ms.date: 08/26/2020
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-With Azure, your MySQL server workloads can run in a hosted virtual machine infrastructure as a service (IaaS) or as a hosted platform as a service (PaaS). PaaS has multiple deployment options, and there are service tiers within each deployment option. When you choose between IaaS and PaaS, you must decide if you want to manage your database, apply patches, and make backups, or if you want to delegate these operations to Azure.
+With Azure, your MySQL server workloads can run in a hosted virtual machine infrastructure as a service (IaaS) or as a hosted platform as a service (PaaS). PaaS has two deployment options, and there are service tiers within each deployment option. When you choose between IaaS and PaaS, you must decide if you want to manage your database, apply patches, backups, security, monitoring, scaling or if you want to delegate these operations to Azure.
 
 When making your decision, consider the following two options:
 
-- **Azure Database for MySQL**. This option is a fully managed MySQL database engine based on the stable version of MySQL community edition. This relational database as a service (DBaaS), hosted on the Azure cloud platform, falls into the industry category of PaaS.
+- **Azure Database for MySQL**. This option is a fully managed MySQL database engine based on the stable version of MySQL community edition. This relational database as a service (DBaaS), hosted on the Azure cloud platform, falls into the industry category of PaaS. With a managed instance of MySQL on Azure, you can use built-in features viz automated patching, high availability, automated backups, elastic scaling, enterprise grade security, compliance and governance, monitoring and alerting that otherwise require extensive configuration when MySQL Server is either on-premises or in an Azure VM. When using MySQL as a service, you pay-as-you-go, with options to scale up or scale out for greater control with no interruption. [Azure Database for MySQL](overview.md), powered by the MySQL community edition is available in two deployment modes:
 
-  With a managed instance of MySQL on Azure, you can use built-in features viz automated patching, high availability, automated backups, elastic scaling, enterprise grade security, compliance and governance, monitoring and alerting that otherwise require extensive configuration when MySQL Server is either on-premises or in an Azure VM. When using MySQL as a service, you pay-as-you-go, with options to scale up or scale out for greater control with no interruption.
-  
-  [Azure Database for MySQL](overview.md), powered by the MySQL community edition is available in two deployment modes:
+   - [Flexible Server](flexible-server/overview.md) - Azure Database for MySQL Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. Flexible Server also supports reserved instances allowing you to save up to 63% cost, ideal for production workloads with predictable compute capacity requirements. The service supports community version of MySQL 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](flexible-server/overview.md#azure-regions). Flexible servers are best suited for all new developments and migration of production workloads to Azure Database for MySQL service.
 
-  - [Single Server](single-server-overview.md) is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom MySQL configuration settings.
-
-  - [Flexible Server (Preview)](flexible-server/overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations compared to the single server deployment based on the user requirements. The flexible server architecture allows users to opt for high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with the ability to start/stop your server and burstable SKUs, ideal for workloads that do not need full compute capacity continuously.
-
-Flexible servers are best suited for:
-
-  - Application development requiring better control and customizations of MySQL engine.
-  - Zone redundant high availability
-  - Managed maintenance windows
+   - [Single Server](single-server-overview.md) is a fully managed database service designed for minimal customization. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability on single availability zone. It supports community version of MySQL 5.6 (retired), 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/). Single servers are best suited **only for existing applications already leveraging single server**. For all new developments or migrations, Flexible Server would be the recommended deployment option. To learn about the differences between Flexible Server and Single Server deployment options, refer [select the right deployment option for you](select-right-deployment-type.md) documentation.
  
-  - **MySQL on Azure VMs**. This option falls into the industry category of IaaS. With this service, you can run MySQL Server inside a managed virtual machine on the Azure cloud platform. All recent versions and editions of MySQL can be installed in the virtual machine.
+- **MySQL on Azure VMs**. This option falls into the industry category of IaaS. With this service, you can run MySQL Server inside a managed virtual machine on the Azure cloud platform. All recent versions and editions of MySQL can be installed in the virtual machine.
 
 ## Comparing the MySQL deployment options in Azure
 
@@ -41,8 +31,8 @@ The main differences between these options are listed in the following table:
 | Attribute          | Azure Database for MySQL<br/>Single Server |Azure Database for MySQL<br/>Flexible Server  |MySQL on Azure VMs |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:------------------|
 | [**General**](flexible-server/overview.md)  | | | |
-| General availability | GA since 2018 | Public Preview | GA |
-| Service-level agreement (SLA) | 99.99% availability SLA |No SLA in preview| 99.99% using Availability Zones|
+| General availability | Generally Available | Generally Available | Generally Available |
+| Service-level agreement (SLA) | 99.99% availability SLA |99.99% using Availability Zones| 99.99% using Availability Zones|
 | Underlying O/S | Windows | Linux  | User Managed |
 | MySQL Edition | Community Edition | Community Edition | Community or Enterprise Edition |
 | MySQL Version Support | 5.6(Retired), 5.7 & 8.0| 5.7 & 8.0 | Any version|
@@ -50,7 +40,7 @@ The main differences between these options are listed in the following table:
 | Username in connection string | `<user_name>@server_name`. For example, `mysqlusr@mypgServer` | Just username. For example, `mysqlusr` | Just username. For example, `mysqlusr` | 
 | [**Compute & Storage Scaling**](flexible-server/concepts-compute-storage.md) | | | |
 | Compute tiers | Basic, General Purpose, Memory Optimized | Burstable, General Purpose, Memory Optimized | Burstable, General Purpose, Memory Optimized |
-| Compute scaling | Supported (Scaling from and to Basic tier is not supported)| Supported | Supported|
+| Compute scaling | Supported (Scaling from and to Basic tier is **not supported**)| Supported | Supported|
 | Storage size | 5 GiB to 16 TiB| 20 GiB to 16 TiB | 32 GiB to 32,767 GiB|
 | Online Storage scaling | Supported| Supported| Not Supported|
 | Auto storage scaling | Supported| Supported| Not Supported|
@@ -64,7 +54,7 @@ The main differences between these options are listed in the following table:
 | SSL/TLS | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Enabled by default with support for TLS v1.2, 1.1 and 1.0| Supported with TLS v1.2, 1.1 and 1.0 |
 | Data Encryption at rest | Supported with customer managed keys (BYOK) | Supported with service managed keys | Not Supported|
 | Azure AD Authentication | Supported | Not Supported | Not Supported|
-| Azure defender support | Yes | No | No |
+| Microsoft Defender for Cloud support | Yes | No | No |
 | Server Audit | Supported | Supported | User Managed |
 | [**Patching & Maintenance**](flexible-server/concepts-maintenance.md) | | |
 | Operating system patching| Automatic  | Automatic  | User managed |
@@ -78,7 +68,7 @@ The main differences between these options are listed in the following table:
 | Zone redundancy | Not supported | Supported | Supported|
 | Standby zone placement | Not supported | Supported | Supported|
 | Automatic failover | Yes (spins another server)| Yes | User Managed|
-| Forced failover | No | Yes | User Managed |
+| User initiated Forced failover | No | Yes | User Managed |
 | Transparent Application failover | Yes | Yes | User Managed|
 | [**Replication**](flexible-server/concepts-read-replicas.md) | | | |
 | Support for read replicas | Yes | Yes | User Managed |
@@ -87,7 +77,7 @@ The main differences between these options are listed in the following table:
 | Gtid support for read replicas | Supported | Supported | User Managed |
 | Cross-region support (Geo-replication) | Yes | Not supported | User Managed |
 | Hybrid scenarios | Supported with [Data-in Replication](./concepts-data-in-replication.md)| Supported with [Data-in Replication](./flexible-server/concepts-data-in-replication.md) | User Managed |
-| Gtid support for data-in replication | Supported | Not Supported | User Managed |
+| Gtid support for data-in replication | Supported | Supported | User Managed |
 | Data-out replication | Not Supported | In preview | Supported |
 | [**Backup and Recovery**](flexible-server/concepts-backup-restore.md) | | | |
 | Automated backups | Yes | Yes | No |
@@ -95,6 +85,7 @@ The main differences between these options are listed in the following table:
 | Long term retention of backups | User Managed | User Managed | User Managed |
 | Exporting backups | Supported using logical backups | Supported using logical backups | Supported |
 | Point in time restore capability to any time within the retention period | Yes | Yes | User Managed |
+| Fast restore point | No | Yes | No |
 | Ability to restore on a different zone | Not supported | Yes | Yes |
 | Ability to restore to a different VNET | No | Yes | Yes |
 | Ability to restore to a different region | Yes (Geo-redundant) | No | User Managed |
@@ -106,7 +97,7 @@ The main differences between these options are listed in the following table:
 | [**Monitoring**](flexible-server/concepts-monitoring.md) | | | |
 | Azure Monitor integration & alerting | Supported | Supported | User Managed |
 | Monitoring database operations | Supported | Supported | User Managed |
-| Query Performance Insights | Supported | Not Supported | User Managed |
+| Query Performance Insights | Supported | Supported (using Workbooks)| User Managed |
 | Server Logs | Supported | Supported (using Diagnostics logs) | User Managed |
 | Audit Logs | Supported | Supported | Supported | 
 | Error Logs | Not Supported | Supported | Supported |
@@ -116,7 +107,7 @@ The main differences between these options are listed in the following table:
 | caching_sha2_password | Not Supported | In preview | Supported |
 | [**Developer Productivity**](flexible-server/quickstart-create-server-cli.md) | | | |
 | Fleet Management | Supported with Azure CLI, PowerShell, REST, and Azure Resource Manager | Supported with Azure CLI, PowerShell, REST, and Azure Resource Manager  | Supported for VMs with Azure CLI, PowerShell, REST, and Azure Resource Manager |
-| Terraform Support | Supported | Not Supported | Supported |
+| Terraform Support | Supported | Supported | Supported |
 | GitHub Actions | Supported | Supported | User Managed |
 
 ## Business motivations for choosing PaaS or IaaS
@@ -149,7 +140,7 @@ With IaaS, Microsoft:
 
 - Administers the underlying infrastructure.
 - Provides automated patching for underlying hardware and OS.
-  
+
 With PaaS, Microsoft:
 
 - Administers the underlying infrastructure.

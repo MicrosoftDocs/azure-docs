@@ -1,14 +1,14 @@
 ---
 
 title: Defender-IoT-micro-agent for Azure RTOS overview
-description: Learn more about the Defender-IoT-micro-agent for Azure RTOS support and implementation as part of Azure Defender for IoT.
+description: Learn more about the Defender-IoT-micro-agent for Azure RTOS support and implementation as part of Microsoft Defender for IoT.
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 11/09/2021
 ---
 
 # Overview: Defender for IoT Defender-IoT-micro-agent for Azure RTOS
 
-The Azure Defender for IoT micro module provides a comprehensive security solution for devices that use Azure RTOS. It provides coverage for common threats and potential malicious activities on real-time operating system (RTOS) devices. Azure RTOS now ships with the Azure IoT Defender-IoT-micro-agent built in.
+The Microsoft Defender for IoT micro module provides a comprehensive security solution for devices that use Azure RTOS. It provides coverage for common threats and potential malicious activities on real-time operating system (RTOS) devices. Azure RTOS now ships with the Azure IoT Defender-IoT-micro-agent built in.
 
 :::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Visualization of Defender for IoT Azure RTOS.":::
 

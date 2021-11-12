@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 10/01/2021
+ms.date: 10/21/2021
 ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
@@ -46,7 +46,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). 
 To get the required packages, 
-* [Install the full `automl` client](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).
+* [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
 * Run `pip install azureml-opendatasets azureml-widgets` to get the required packages.
 
 ## Download and prepare data

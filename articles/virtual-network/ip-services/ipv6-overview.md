@@ -46,18 +46,17 @@ IPv6 for Azure VNet includes the following capabilities:
     - And the Azure platform's Distributed Denial of Service (DDoS) protections are extended to Internet-facing Public IP's
 - Customize the routing of IPv6 traffic in your virtual network with User-Defined Routes- especially when leveraging Network Virtual Appliances to augment your application.
 - Linux and Windows Virtual Machines can all use IPv6 for Azure VNET
-- [Standard IPv6 public Load Balancer](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) support to create resilient, scalable applications, which include:
+- [Standard IPv6 public Load Balancer](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) support to create resilient, scalable applications, which include:
     - Optional IPv6 health probe to determine which backend pool instances are health and thus can receive new flows.
     - Optional outbound rules which provide full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
     - Optional multiple front-end configurations which enable a single load balancer to use multiple IPv6 public IP addresses- the same frontend protocol and port can be reused across frontend addresses.
     - Optional IPv6 ports can be reused on backend instances using the *Floating IP* feature of load-balancing rules 
     - Note: Load balancing does not perform any protocol translation (no NAT64). 
-    - Note: IPv6 can be load balanced only to the primary network interface (NIC) on Azure VMs. 
-- [Standard IPv6 internal Load Balancer](../../virtual-network/ipv6-dual-stack-standard-internal-load-balancer-powershell.md) support to create resilient multi-tier applications within Azure VNETs.   
+- [Standard IPv6 internal Load Balancer](../../load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell.md) support to create resilient multi-tier applications within Azure VNETs.   
 - Basic IPv6 public Load Balancer support for compatibility with legacy deployments
 - [Reserved IPv6 Public IP addresses and address ranges](public-ip-address-prefix.md) provide stable, predictable IPv6 addresses which ease filtering of your azure-hosted applications for your company and your customers.
 - Instance-level Public IP provides IPv6 Internet connectivity directly to individual VMs.
-- [Add IPv6 to Existing IPv4-only deployments](../../virtual-network/ipv6-add-to-existing-vnet-powershell.md)- this feature enables you to easily add IPv6 connectivity to existing IPv4-only deployments without the need to recreate deployments.  The IPv4 network traffic is unaffected during this process so depending on your application and OS you may be able to add IPv6 even to live services.    
+- [Add IPv6 to Existing IPv4-only deployments](../../load-balancer/ipv6-add-to-existing-vnet-powershell.md)- this feature enables you to easily add IPv6 connectivity to existing IPv4-only deployments without the need to recreate deployments.  The IPv4 network traffic is unaffected during this process so depending on your application and OS you may be able to add IPv6 even to live services.    
 - Let Internet clients seamlessly access your dual stack application using their protocol of choice with Azure DNS support for IPv6 (AAAA) records. 
 - Create dual stack applications that automatically scale to your load with virtual machine scale sets with IPv6.
 - [Virtual Network (VNET) Peering](../../virtual-network/virtual-network-peering-overview.md) - both within-regional and global peering - enables you to seamlessly connect dual stack VNETs- both the IPv4 and IPv6 endpoints on VMs in the peered networks will be able to communicate with each other. You can even peer dual stack with IPv4-only VNETs as you are transitioning your deployments to dual stack. 
@@ -68,9 +67,7 @@ IPv6 for Azure VNET is a foundational feature set which enables customers to hos
 
 ## Limitations
 The current IPv6 for Azure virtual network release has the following limitations:
-- IPv6 for Azure virtual network is available in all global Azure Commercial and US Government regions using all deployment methods.  
-- ExpressRoute gateways CAN be used for IPv4-only traffic in a VNET with IPv6 enabled.  Support for IPv6 traffic for ExpressRoute is in Preview.   
-- VPN gateways CANNOT be used in a VNET with IPv6 enabled, either directly or peered with "UseRemoteGateway".
+- VPN gateways currently support IPv6 traffic only, but they still CAN be deployed in a Dual-stacked VNET.
 - The Azure platform (AKS, etc.) does not support IPv6 communication for Containers. 
 - IPv6-only Virtual Machines or Virtual Machines Scale Sets are not supported, each NIC must include at least one IPv4 IP configuration. 
 - When adding IPv6 to existing IPv4 deployments, IPv6 ranges can not be added to a VNET with existing resource navigation links.  
@@ -83,6 +80,6 @@ IPv6 Azure resources and bandwidth are charged at the same rates as IPv4. There 
 
 ## Next steps
 
-- Learn how to [deploy an IPv6 dual stack application using Azure PowerShell](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
-- Learn how to [deploy an IPv6 dual stack application using Azure CLI](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
-- Learn how to [deploy an IPv6 dual stack application using Resource Manager Templates (JSON)](../../virtual-network/ipv6-configure-standard-load-balancer-template-json.md)
+- Learn how to [deploy an IPv6 dual stack application using Azure PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
+- Learn how to [deploy an IPv6 dual stack application using Azure CLI](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
+- Learn how to [deploy an IPv6 dual stack application using Resource Manager Templates (JSON)](../../load-balancer/ipv6-configure-standard-load-balancer-template-json.md)

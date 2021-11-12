@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Mail Luck! | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Mail Luck!'
 description: Learn how to configure single sign-on between Azure Active Directory and Mail Luck!.
 services: active-directory
 author: jeevansd
@@ -9,19 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 10/11/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Mail Luck!
+# Tutorial: Azure AD SSO integration with Mail Luck!
 
 In this tutorial, you'll learn how to integrate Mail Luck! with Azure Active Directory (Azure AD). When you integrate Mail Luck! with Azure AD, you can:
 
 * Control in Azure AD who has access to Mail Luck!.
 * Enable your users to be automatically signed-in to Mail Luck! with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,52 +32,52 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Mail Luck! supports **SP** initiated SSO
+* Mail Luck! supports **SP** initiated SSO.
 
-## Adding Mail Luck! from the gallery
+## Add Mail Luck! from the gallery
 
 To configure the integration of Mail Luck! into Azure AD, you need to add Mail Luck! from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Mail Luck!** in the search box.
 1. Select **Mail Luck!** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Mail Luck!
+## Configure and test Azure AD SSO for Mail Luck!
 
 Configure and test Azure AD SSO with Mail Luck! using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Mail Luck!.
 
-To configure and test Azure AD SSO with Mail Luck!, complete the following building blocks:
+To configure and test Azure AD SSO with Mail Luck!, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Mail Luck! SSO](#configure-mail-luck-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Mail Luck! test user](#create-mail-luck-test-user)** - to have a counterpart of B.Simon in Mail Luck! that is linked to the Azure AD representation of user.
+    1. **[Create Mail Luck! test user](#create-mail-luck-test-user)** - to have a counterpart of B.Simon in Mail Luck! that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Mail Luck!** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Mail Luck!** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://manage<UNITID>.ml-sgw.jp/<TENANT_NAME>/saml/sign_in`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://manage<UNITID>.ml-sgw.jp/<TENANT_NAME>/saml/`
 
+	b. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://manage<UNITID>.ml-sgw.jp/<TENANT_NAME>/saml/sign_in`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Mail Luck! Client support team](https://customer.nttpc.co.jp/cgi-bin/form/inquiry_index.cgi) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Mail Luck! Client support team](https://customer.nttpc.co.jp/cgi-bin/form/inquiry_index.cgi) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -104,13 +102,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Mail Luck!**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
@@ -125,16 +117,14 @@ In this section, you create a user called B.Simon in Mail Luck!. Work with [Mai
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Mail Luck! tile in the Access Panel, you should be automatically signed in to the Mail Luck! for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* Click on **Test this application** in Azure portal. This will redirect to Mail Luck! Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to Mail Luck! Sign-on URL directly and initiate the login flow from there.
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+* You can use Microsoft My Apps. When you click the Mail Luck! tile in the My Apps, this will redirect to Mail Luck! Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## Next steps
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Mail Luck! with Azure AD](https://aad.portal.azure.com/)
+Once you configure Mail Luck! you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

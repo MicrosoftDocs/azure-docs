@@ -76,6 +76,8 @@ Use Azure APIs to programmatically get information for your organization about A
 - View and manage reservation access
 - Split or merge reservations
 - Change the scope of reservations
+ 
+For more information, see [APIs for Azure reservation automation](../cost-management-billing/reservations/reservation-apis.md).
 
 ## vCore size flexibility
 

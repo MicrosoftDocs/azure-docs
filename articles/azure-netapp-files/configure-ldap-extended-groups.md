@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 11/02/2021
 ms.author: b-juche
 ---
 # Configure ADDS LDAP with extended groups for NFS volume access
@@ -32,7 +32,7 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 * You cannot modify the LDAP option setting (enabled or disabled) after you have created the volume.  
 
-* The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access denied message appears on the client. 
+* The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
 
     |     Error condition    |     Resolution    |
     |-|-|
@@ -106,4 +106,4 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
-* [Troubleshoot LDAP volume issues](troubleshoot-ldap-volumes.md)
+* [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)

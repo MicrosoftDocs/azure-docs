@@ -136,8 +136,8 @@ In this section, you'll create a virtual machine to test the NAT gateway and ver
     | **Instance details** |   |
     | Virtual machine name | Enter **myVM**. |
     | Region | Select **(Europe) West Europe**. |
-    | Availability options | Leave the default of no redundancy required. |
-    | Image | Select **Windows Server 2019 Datacenter - Gen1**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Image | Select **Windows Server 2019 Datacenter - Gen2**. |
     | Size | Select **Standard_DS1_v2**. |
     | **Administrator account** |   |
     | Username | Enter a username for the virtual machine. |
