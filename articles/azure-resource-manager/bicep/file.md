@@ -13,7 +13,9 @@ For a step-by-step tutorial that guides you through the process of creating a Bi
 
 ## Bicep format
 
-A Bicep file has the following elements. Bicep is a declarative language, which means the elements can appear in any order.  Unlike imperative languages, the order of elements doesn't affect how deployment is processed.
+Bicep is a declarative language, which means the elements can appear in any order.  Unlike imperative languages, the order of elements doesn't affect how deployment is processed.
+
+A Bicep file has the following elements.
 
 ```bicep
 targetScope = '<scope>'
@@ -89,7 +91,7 @@ In a module, you can specify a scope that is different than the scope for the re
 
 Use parameters for values that need to vary for different deployments. You can define a default value for the parameter that is used if no value is provided during deployment.
 
-For example, you might add a SKU parameter to specify different sizes for a resource.
+For example, you can add a SKU parameter to specify different sizes for a resource. You might pass in different values depending on whether you're deploying to test or production.
 
 ```bicep
 param storageSKU string = 'Standard_LRS'
@@ -99,7 +101,7 @@ For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Parameter decorators
 
-You can add one or more decorators for each parameter. These decorators define the values that are allowed for the parameter. The following example specifies the SKUs that can be deployed through the Bicep file.
+You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but there are many others that are available.
 
 ```bicep
 @allowed([
@@ -111,7 +113,7 @@ You can add one or more decorators for each parameter. These decorators define t
 param storageSKU string = 'Standard_LRS'
 ```
 
-For more information, see [Decorators](parameters.md#decorators).
+For more information, including descriptions of all available decorators, see [Decorators](parameters.md#decorators).
 
 ## Variables
 
@@ -121,13 +123,15 @@ Use variables for complex expressions that are repeated in a Bicep file. For exa
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 ```
 
+You can then reuse this variable throughout your file rather than the expression.
+
 For more information, see [Variables in Bicep](./variables.md).
 
 ## Resource
 
 Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file to get a value from the resource.
 
-The resource declaration also includes the resource type and API version.
+The resource declaration includes the resource type and API version. Within the body of the resource declaration, you include properties for the resource type. These properties are unique to each resource type.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -143,13 +147,11 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-In your resource declaration, you include properties for the resource type. These properties are unique to each resource type.
-
 For more information, see [Resource declaration in Bicep](resource-declaration.md).
 
 ## Modules
 
-Modules enable you to reuse Bicep files in other Bicep files. You link to the file through the module declaration. The module contains one or more resources to deploy. Those resources are deployed along with any other resources in your Bicep file.
+Modules enable you to reuse Bicep files in other Bicep files. You link to the file through the module declaration. When you deploy the Bicep file, the resources in the module are also deployed.
 
 ```bicep
 module webModule './webApp.bicep' = {
@@ -169,7 +171,7 @@ For more information, see [Use Bicep modules](./modules.md).
 
 You can add a decorator to a resource or module definition. The only supported decorator is `batchSize(int)`. You can only apply it to a resource or module definition that uses a `for` expression.
 
-By default, resources are deployed in parallel. You don't know the order in which they finish. When you add the `batchSize` decorator, you deploy instances serially. Use the integer argument to specify the number of instances to deploy in parallel.
+By default, resources are deployed in parallel. When you add the `batchSize` decorator, you deploy instances serially.
 
 ```bicep
 @batchSize(3)
@@ -250,6 +252,11 @@ The preceding example is equivalent to the following JSON.
   "stringVar": "this is multi-line\r\n  string with formatting\r\n  preserved.\r\n"
 }
 ```
+
+## Known limitations
+
+- No support for the concept of apiProfile, which is used to map a single apiProfile to a set apiVersion for each resource type.
+- No support for user-defined functions.
 
 ## Next steps
 

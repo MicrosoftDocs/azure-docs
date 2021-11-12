@@ -41,9 +41,10 @@ resource <symbolic-name> '<full-type-name>@<api-version>' = if (condition) {
 }
 ```
 
-To deploy more than one instance of a resource, use the `for` syntax. For more information, see [Iterative loops in Bicep](loops.md).
+To deploy more than one instance of a resource, use the `for` syntax. You can use the `batchSize` decorator to specify whether the instances are deployed serially or in parallel. For more information, see [Iterative loops in Bicep](loops.md).
 
 ```bicep
+@batchSize(int) // optional decorator for serial deployment
 resource <symbolic-name> '<full-type-name>@<api-version>' = [for <item> in <collection>: {
   <properties-to-repeat>
 }]
