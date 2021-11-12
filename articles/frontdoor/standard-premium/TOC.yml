@@ -131,7 +131,7 @@
       href: how-to-reports.md
   - name: Troubleshoot
     items:
-    - name: Trouble routing issues
+    - name: Troubleshooting Front Door issues
       href: troubleshoot-route-issues.md
     - name: Allowed certificate authorities
       href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
