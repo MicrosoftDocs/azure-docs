@@ -109,7 +109,7 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
 | Medium GPU (Visualization) | 12 | 112 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
 
 > [!NOTE]
-> You may not see some of these VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab plan creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available. 
+> You may not see some of these VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab plan creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available.
 
 ## View all labs
 
@@ -119,21 +119,21 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
     [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
 1. Confirm that you see all the labs in the selected lab plan. On the lab's tile, you see the number of virtual machines in the lab and the quota for each user (outside the scheduled time).
 
-    ![All labs](./media/how-to-manage-classroom-labs/all-labs.png)
+    ![All labs](./media/how-to-manage-classroom-labs-2/all-labs.png)
 1. Use the drop-down list at the top to select a different lab plan. You see labs in the selected lab plan. 
 
 ## Delete a classroom lab
 
 1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
 
-    ![Delete button](./media/how-to-manage-classroom-labs/delete-button.png)
+    ![Delete button](./media/how-to-manage-classroom-labs-2/delete-button.png)
 1. On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
 ## Switch to another classroom lab
 
 To switch to another classroom lab from the current, select the drop-down list of labs in the lab plan at the top.
 
-![Select the lab from drop-down list at the top](./media/how-to-manage-classroom-labs/switch-lab.png)
+![Select the lab from drop-down list at the top](./media/how-to-manage-classroom-labs-2/switch-lab.png)
 
 You can also create a new lab using the **New lab** in this drop-down list.
 

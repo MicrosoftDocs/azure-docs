@@ -2,7 +2,7 @@
 title: View and delete labs in a lab plan in Azure Lab Services
 description: Learn how to view all labs in a lab plan and delete a lab from the lab plan. 
 ms.topic: how-to
-ms.date: 10/26/2021
+ms.date: 11/12/2021
 ---
 
 # Manage labs in a lab plan
@@ -13,7 +13,7 @@ This article shows you how a lab plan owner or administrator can view all the la
 
 1. On the **Lab Plan** page, select **All labs** on the left menu.
 
-    ![Labs in the account](./media/how-to-manage-lab-accounts/labs-in-account.png)
+    ![Labs in the plan](./media/how-to-manage-lab-plans/labs-in-plan.png)
 1. You see a **list of labs** in the account with the following information:
     1. Name of the lab.
     2. The date on which the lab was created.
@@ -24,14 +24,15 @@ This article shows you how a lab plan owner or administrator can view all the la
 
 ## Delete a lab in a lab plan
 
-Follow instructions in the previous section to see a list of the labs in the lab account.
+Follow instructions in the previous section to see a list of the labs in the lab plan.
 
 1. Select **... (ellipsis)**, and select **Delete**.
 
-    ![Delete a lab - button](./media/how-to-manage-lab-accounts/delete-lab-button.png)
+    ![Delete a lab - button](./media/how-to-manage-lab-plans/delete-lab-button.png)
 2. Select **Yes** on the warning message.
 
-    ![Confirm lab deletion](./media/how-to-manage-lab-accounts/confirm-lab-delete.png)
+    ![Confirm lab deletion](./media/how-to-manage-lab-plans/confirm-lab-delete.png)
 
 ## Next steps
-See other articles in the **How-to guides** -> **Create and configure lab accounts (lab account owner)** section of the table-of-content (TOC). 
+
+See other articles in the **How-to guides** -> **Create and configure lab plans (lab plan owner)** section of the table-of-content (TOC). 
