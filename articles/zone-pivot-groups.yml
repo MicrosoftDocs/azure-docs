@@ -1472,3 +1472,14 @@ groups:
     title: CLI
   - id: client-portaltier
     title: Azure portal
+# Owner: dmwendia
+- id: microsoft-identity-platform-dev-languages
+  title: Programming languages
+  prompt: Choose a programming language 
+  pivots:
+  - id: programming-language-angular
+    title: Angular
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-react
+    title: React 
