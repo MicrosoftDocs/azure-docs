@@ -39,7 +39,7 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
 
 1. Create an Azure Storage account for diagnostics output.
 
-1. Create an Azure Cloud Service for your Split-Merge service.
+1. Create an Azure Cloud Service (classic) for your Split-Merge service.
 
 ## Configure your Split-Merge service
 
