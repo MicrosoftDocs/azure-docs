@@ -78,7 +78,7 @@ The table below contains the parameters related to the deployer virtual machine.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                        | Description                                                                  | Type       | 
-> | ----------------------------- - | ---------------------------------------------------------------------------- | ---------- | 
+> | ------------------------------- | ---------------------------------------------------------------------------- | ---------- | 
 > | `deployer_size`                 | Defines the Virtual machine SKU to use, for example	Standard_D4s_v3        | Optional   |
 > | `deployer_image`	            | Defines the Virtual machine image to use, see below                          | Optional	|
 > | `deployer_disk_type`            | Defines the disk type, for example Premium_LRS                               | Optional   |
@@ -105,7 +105,7 @@ The table below defines the parameters used for defining the Virtual Machine aut
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                         | Description                                         | Type      | 
-> | --------------------------------------------- -- | --------------------------------------------------- | ----------| 
+> | ------------------------------------------------ | --------------------------------------------------- | --------- | 
 > | `deployer_vm_authentication_type`                | Defines the default authentication for the Deployer | Optional  |
 > | `deployer_authentication_username`               | Administrator account name                          | Optional  |
 > | `deployer_authentication_password`               | Administrator password                              | Optional  |

@@ -166,7 +166,7 @@ The table below defines the parameters used for defining the Key Vault informati
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                            | Type     | Notes                                 |
-> | ------------------------------------ | ---------------------------------------------------------------------- | ---------|-------------------------------------- |
+> | ------------------------------------ | ---------------------------------------------------------------------- | -------- | ------------------------------------- |
 > | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional | Use only for test deployments         |
 > | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used                 | Optional |                                       |
 > | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For existing environment deployments  |
