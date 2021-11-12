@@ -101,7 +101,7 @@ The database tier defines the infrastructure for the database tier, supported da
 > | `database_platform`               | Defines the database backend                                                             | Required     |                    |
 > | `database_high_availability`      | Defines if the database tier is deployed highly available                                | Optional     |                    |
 > | `database_server_count`           | Defines the number of database servers                                                   | Optional     | Default value is 1 |
-> | `database_vm_names`               | Defines the database server virtual machine names if the default naming is not acceptable| Optional     |                    |
+> | `database_vm_names`               | Defines the database server virtual machine names if the default naming is not acceptable | Optional    |                    |
 > | `database_size`                   | Defines the database sizing information                                                  | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
 > | `database_sid`                    | Defines the database SID                                                                 | Required     |                    |
 > | `db_disk_sizes_filename`          | Defines the custom database sizing                                                       | Optional     | See [Custom Sizing](automation-configure-extra-disks.md) |
