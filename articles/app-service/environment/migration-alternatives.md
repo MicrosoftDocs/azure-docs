@@ -12,7 +12,7 @@ ms.author: jordanselig
 > The App Service Environment v3 [migration tool](migrate.md) is now available in preview for a set of supported environment configurations. Consider that tool which provides an automated migration path to [App Service Environment v3](overview.md).
 >
 
-If you're currently using App Service Environment v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs. Consider using the [migration tool](migrate.md) if your environment falls into one of the [supported configurations](migrate.md#supported-scenarios). If your environment isn't currently supported by the migration tool, you can wait for support if your scenario is listed in the [upcoming supported scenarios](migrate.md#preview-limitations). Otherwise, you choose to use one of the alternative migration options given below.
+If you're currently using App Service Environment v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs. Consider using the [migration tool](migrate.md) if your environment falls into one of the [supported configurations](migrate.md#supported-scenarios). If your environment isn't currently supported by the migration tool, you can wait for support if your scenario is listed in the [upcoming supported scenarios](migrate.md#preview-limitations). Otherwise, you can choose to use one of the alternative migration options given below.
 
 > [!IMPORTANT]
 > If your App Service Environment will [not be supported for migration](migrate.md#migration-tool-limitations) with the migration tool, you must use one of the alternative methods to migrate to App Service Environment v3.
@@ -22,7 +22,7 @@ If you're currently using App Service Environment v1 or v2, you have the opportu
 
 Scenario: An existing app running on an App Service Environment v1 or v2 and you need that app to run on an App Service Environment v3.
 
-For any migration method that doesn't use the [migration tool](migrate.md), you'll need to [create the App Service Environment v3](creation.md) and a new subnet using the method of your choice. There are feature differences between App Service Environment v1/v2 and v3 as well as [networking changes](networking.md) that will involve new (and an extra one for internet facing environments) IP addresses. You'll need to update any infrastructure that relies on these IPs.
+For any migration method that doesn't use the [migration tool](migrate.md), you'll need to [create the App Service Environment v3](creation.md) and a new subnet using the method of your choice. There are [feature differences](overview.md#feature-differences) between App Service Environment v1/v2 and v3 as well as [networking changes](networking.md) that will involve new (and for internet facing environments, additional) IP addresses. You'll need to update any infrastructure that relies on these IPs.
 
 > [!WARNING]
 > Multiple App Service Environments can't exist in a single subnet. If you need to use your existing subnet for your new App Service Environment v3, you'll need to delete the existing App Service Environment before creating a new one.
@@ -73,7 +73,7 @@ This solution is recommended for users that are running Windows apps and can't m
 To clone an app using the [Azure portal](https://www.portal.azure.com), navigate to your existing App Service and select **Clone App** under **Development Tools**. Fill in the required fields using the details for your new App Service Environment v3.
 
 - Select an existing or create a new **Resource Group**
-- Give your app a **Name**. This name can be the same as the old app, but note the site's default URL using the new environment will be different. You'll need to update any custom DNS to point to the new URL.
+- Give your app a **Name**. This name can be the same as the old app, but note the site's default URL using the new environment will be different. You'll need to update any custom DNS or connected resources to point to the new URL.
 - Use your App Service Environment v3 name for **Region**
 - Choose whether or not to clone your deployment source
 - You can use an existing Windows **App Service Plan** from your new environment if you created one already, or create a new one. The available Windows App Service Plans in your new App Service Environment v3, if any, will be listed in the dropdown.
@@ -91,7 +91,7 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 
 If the above features don't support your apps or you're looking to take a more manual route, you have the option of deploying your apps following the same process you used for your old App Service Environment. All deployment methods except FTP are supported on App Service Environment v3. You shouldn't need to make updates when deploying your apps to your new environment unless you want to make changes or take advantage of App Service Environment v3's dedicated features.
 
-You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them on your new environment. To export a template for just your app, head over to your App Service and go to **Export template** under **Automation**.
+You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them in your new environment. To export a template for just your app, head over to your App Service and go to **Export template** under **Automation**.
 
 ![export from toc](./media/migration/export_toc.png)
 
@@ -101,7 +101,7 @@ You can also export templates for multiple resources directly from your resource
 
 The following initial changes to your Azure Resource Manager templates are required to get your apps onto your App Service Environment v3:
 
-- Update SKU parameters for App Service plan to Isolated v2 if creating a new plan
+- Update SKU parameters for App Service plan to an Isolated v2 plan if creating a new plan
 
     ```json
     "type": "Microsoft.Web/serverfarms",
@@ -148,7 +148,7 @@ Azure Resource Manager templates can be [deployed](../deploy-complex-application
 
 The [migration tool](migrate.md) automates the migration to App Service Environment v3 and at the same time transfers all of your apps to the new environment. There's about one hour of downtime during this migration. If you're in a position where you can't have any downtime, the recommendation is to use one of the manual options to recreate your apps in an App Service Environment v3.
 
-You can then distribute traffic between your environments using an [Application Gateway](../networking/app-gateway-with-service-endpoints.md). If you're using an Internal Load Balancer (ILB) App Service Environment, see the [considerations](../networking/app-gateway-with-service-endpoints.md#considerations-for-ilb-ase) and [create an Azure Application Gateway](integrate-with-application-gateway.md) with an extra backend pool to distribute traffic between your environments. For internet facing App Service Environments, see these [considerations](../networking/app-gateway-with-service-endpoints.md#considerations-for-external-ase). You can also use services like [Azure Front Door](../../frontdoor/quickstart-create-front-door.md), [Azure Content Delivery Network (CDN)](../../cdn/cdn-add-to-web-app.md), and [Azure Traffic Manager](../../cdn/cdn-traffic-manager.md) to distribute traffic between environments. Using these services also allows for testing of your new environment in a controlled manner and allows you to move to your new environment at your own pace.
+You can distribute traffic between your old and new environment using an [Application Gateway](../networking/app-gateway-with-service-endpoints.md). If you're using an Internal Load Balancer (ILB) App Service Environment, see the [considerations](../networking/app-gateway-with-service-endpoints.md#considerations-for-ilb-ase) and [create an Azure Application Gateway](integrate-with-application-gateway.md) with an extra backend pool to distribute traffic between your environments. For internet facing App Service Environments, see these [considerations](../networking/app-gateway-with-service-endpoints.md#considerations-for-external-ase). You can also use services like [Azure Front Door](../../frontdoor/quickstart-create-front-door.md), [Azure Content Delivery Network (CDN)](../../cdn/cdn-add-to-web-app.md), and [Azure Traffic Manager](../../cdn/cdn-traffic-manager.md) to distribute traffic between environments. Using these services allows for testing of your new environment in a controlled manner and allows you to move to your new environment at your own pace.
 
 Once your migration and any testing with your new environment is complete, delete your old App Service Environment, the apps that are on it, and any supporting resources that you no longer need. You'll continue to be charged for any resources that haven't been deleted.
 
