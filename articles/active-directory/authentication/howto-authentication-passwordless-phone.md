@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/29/2021
+ms.date: 11/12/2021
 
 ms.author: justinha
 author: justinha
@@ -58,7 +58,10 @@ To enable the authentication method for passwordless phone sign-in, complete the
 1. Each added group or user is enabled by default to use Microsoft Authenticator in both passwordless and push notification modes ("Any" mode). To change this, for each row:
    1. Browse to **...** > **Configure**.
    1. For **Authentication mode** - choose **Any**, or **Passwordless**. Choosing **Push** prevents the use of the passwordless phone sign-in credential. 
-1. To apply the new policy, select **Save**.
+1. To apply the new policy, click **Save**. 
+
+   >[!NOTE]
+   >If you see an error when you try to save, the cause might be due to the number of users or groups being added. As a workaround, replace the users and groups you are trying to add with a single group, in the same operation, and then click **Save** again.
 
 ## User registration and management of Microsoft Authenticator
 
