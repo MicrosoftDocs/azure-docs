@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 11/12/2021
 
 ms.author: justinha
 author: justinha
@@ -96,7 +96,11 @@ This setting allows configuration of lifetime for token issued by Azure Active D
 
 ## Review your tenant configuration  
 
-Now that you understand how different settings works and the recommended configuration, it's time to check your tenants configuration and make changes accordingly:
+Now that you understand how different settings works and the recommended configuration, it's time to check your tenants. You can start by looking at the sign-in logs to understand which session lifetime policies were applied during sign-in.
+
+Under each sign-in log, go to the **Authentication details** tab and explore **Session Lifetime policies applied**. For more information, see [Authentication details](../reports-monitoring/concept-sign-ins.md#authentication-details).
+
+![Screenshot of authentication details.](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/details.png)
 
 To configure or review the *Remain signed-in* option, complete the following steps:
 
