@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How to: Block legacy authentication to Azure AD with Conditional Access   
 
-To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. However, legacy authentication does not support multi-factor authentication (MFA). MFA is in many environments a common requirement to address identity theft. 
+To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. However, legacy authentication does not support multifactor authentication (MFA). MFA is in many environments a common requirement to address identity theft. 
 
 > [!NOTE]
 > Effective October 1, 2022, we will begin to permanently disable Basic Authentication for Exchange Online in all Microsoft 365 tenants regardless of usage, except for SMTP Authentication.
@@ -55,7 +55,7 @@ Azure AD supports several of the most widely used authentication and authorizati
 
 For more information about modern authentication support in Office, see [How modern authentication works for Office client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide).
 
-Single factor authentication (for example, username and password) is not enough these days. Passwords are bad as they are easy to guess and we (humans) are bad at choosing good passwords. Passwords are also vulnerable to various attacks, like phishing and password spray. One of the easiest things you can do to protect against password threats is to implement multi-factor authentication (MFA). With MFA, even if an attacker gets in possession of a user's password, the password alone is not sufficient to successfully authenticate and access the data.
+Single factor authentication (for example, username and password) is not enough these days. Passwords are bad as they are easy to guess and we (humans) are bad at choosing good passwords. Passwords are also vulnerable to various attacks, like phishing and password spray. One of the easiest things you can do to protect against password threats is to implement multifactor authentication (MFA). With MFA, even if an attacker gets in possession of a user's password, the password alone is not sufficient to successfully authenticate and access the data.
 
 How can you prevent apps using legacy authentication from accessing your tenant's resources? The recommendation is to just block them with a Conditional Access policy. If necessary, you allow only certain users and specific network locations to use apps that are based on legacy authentication.
 
@@ -72,10 +72,10 @@ The following messaging protocols support legacy authentication:
 - Authenticated SMTP - Used to send authenticated email messages.
 - Autodiscover - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
 - Exchange ActiveSync (EAS) - Used to connect to mailboxes in Exchange Online.
-- Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+- Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multifactor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
 - Exchange Web Services (EWS) - A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.
 - IMAP4 - Used by IMAP email clients.
-- MAPI over HTTP (MAPI/HTTP) - Primary mailbox access protocol Uused by Outlook 2010 SP2 and later.
+- MAPI over HTTP (MAPI/HTTP) - Primary mailbox access protocol used by Outlook 2010 SP2 and later.
 - Offline Address Book (OAB) - A copy of address list collections that are downloaded and used by Outlook.
 - Outlook Anywhere (RPC over HTTP) - Legacy mailbox access protocol supported by all current Outlook versions.
 - POP3 - Used by POP email clients.
@@ -113,7 +113,7 @@ The easiest way to block legacy authentication across your entire organization i
 
 ### Indirectly blocking legacy authentication
 
-Even if your organization isn’t ready to block legacy authentication across the entire organization, you should ensure that sign-ins using legacy authentication aren’t bypassing policies that require grant controls such as requiring multi-factor authentication or compliant/hybrid Azure AD joined devices. During authentication, legacy authentication clients do not support sending MFA, device compliance, or join state information to Azure AD. Therefore, apply policies with grant controls to all client applications so that legacy authentication based sign-ins that cannot satisfy the grant controls are blocked. With the general availability of the client apps condition in August 2020, newly created Conditional Access policies apply to all client apps by default.
+Even if your organization isn’t ready to block legacy authentication across the entire organization, you should ensure that sign-ins using legacy authentication aren’t bypassing policies that require grant controls such as requiring multifactor authentication or compliant/hybrid Azure AD joined devices. During authentication, legacy authentication clients do not support sending MFA, device compliance, or join state information to Azure AD. Therefore, apply policies with grant controls to all client applications so that legacy authentication based sign-ins that cannot satisfy the grant controls are blocked. With the general availability of the client apps condition in August 2020, newly created Conditional Access policies apply to all client apps by default.
 
 ![Client apps condition default configuration](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
