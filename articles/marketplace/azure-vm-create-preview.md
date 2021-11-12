@@ -7,7 +7,7 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.reviewer: amhindma
-ms.date: 11/11/2021
+ms.date: 11/12/2021
 ---
 
 # Add a preview audience for a virtual machine offer
