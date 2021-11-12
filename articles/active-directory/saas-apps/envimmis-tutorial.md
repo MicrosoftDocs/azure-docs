@@ -69,10 +69,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    1. In the **Identifier** text box, type a URL using the following pattern:
     `https://www.<CUSTOMER DOMAIN>.com/Account`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+    1. In the **Reply URL** text box, type a URL using the following pattern:
     `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
@@ -80,16 +80,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.<CUSTOMER DOMAIN>.com/Account`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Envi MMIS Client support team](mailto:support@ioscorp.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Envi MMIS Client support team](mailto:support@ioscorp.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 7. On the **Set up Envi MMIS** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user 
 
@@ -121,33 +121,33 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on **My Domain** tab.
 
-	![Screenshot that shows the "User" menu with "My Domain" selected.](./media/envimmis-tutorial/domain.png)
+    ![Screenshot that shows the "User" menu with "My Domain" selected.](./media/envimmis-tutorial/domain.png)
 
 3. Click **Edit**.
 
-	![Screenshot that shows the "Edit" button selected.](./media/envimmis-tutorial/edit-icon.png)
+    ![Screenshot that shows the "Edit" button selected.](./media/envimmis-tutorial/edit-icon.png)
 
 4. Select **Use remote authentication** checkbox and then select **HTTP Redirect** from the **Authentication Type** dropdown.
 
-	![Screenshot that shows the "Details" tab with "Use remote authentication" checked and "H T T P Redirect" selected.](./media/envimmis-tutorial/details.png)
+    ![Screenshot that shows the "Details" tab with "Use remote authentication" checked and "H T T P Redirect" selected.](./media/envimmis-tutorial/details.png)
 
 5. Select **Resources** tab and then click **Upload Metadata**.
 
-	![Screenshot that shows the "Resources" tab with the "Upload Metadata" action selected.](./media/envimmis-tutorial/metadata.png)
+    ![Screenshot that shows the "Resources" tab with the "Upload Metadata" action selected.](./media/envimmis-tutorial/metadata.png)
 
-6. In the **Upload Metadata** popup, perform the following steps:
+6. In the **Upload Metadata** pop-up, perform the following steps:
 
-	![Screenshot that shows the "Upload Metadata" popup with the "File" option selected and the "choose file" icon and "OK" button highlighted.](./media/envimmis-tutorial/file.png)
+    ![Screenshot that shows the "Upload Metadata" pop-up with the "File" option selected and the "choose file" icon and "OK" button highlighted.](./media/envimmis-tutorial/file.png)
 
-	a. Select **File** option from the **Upload From** dropdown.
+    1. Select **File** option from the **Upload From** dropdown.
 
-	b. Upload the downloaded metadata file from Azure portal by selecting the **choose file icon**.
+    1. Upload the downloaded metadata file from Azure portal by selecting the **choose file icon**.
 
-	c. Click **Ok**.
+    1. Click **Ok**.
 
 7. After uploading the downloaded metadata file, the fields will get populated automatically. Click **Update**.
 
-	![Configure Single Sign-On Save button](./media/envimmis-tutorial/fields.png)
+    ![Configure Single Sign-On Save button](./media/envimmis-tutorial/fields.png)
 
 ### Create Envi MMIS test user
 
@@ -159,29 +159,29 @@ To enable Azure AD users to sign in to Envi MMIS, they must be provisioned into 
 
 2. Click on **User List** tab.
 
-	![Screenshot that shows the "User" menu with "User List" selected.](./media/envimmis-tutorial/list.png)
+    ![Screenshot that shows the "User" menu with "User List" selected.](./media/envimmis-tutorial/list.png)
 
 3. Click **Add User** button.
 
-	![Screenshot that shows the "Users" section with the "Add User" button selected.](./media/envimmis-tutorial/user.png)
+    ![Screenshot that shows the "Users" section with the "Add User" button selected.](./media/envimmis-tutorial/user.png)
 
 4. In the **Add User** section, perform the following steps:
 
-	![Screenshot that shows to Add Employee.](./media/envimmis-tutorial/add-user.png)
+    ![Screenshot that shows to Add Employee.](./media/envimmis-tutorial/add-user.png)
 
-	a. In the **User Name** textbox, type the username of Britta Simon account like **brittasimon\@contoso.com**.
-	
-	b. In the **First Name** textbox, type the first name of BrittaSimon like **Britta**.
+    1. In the **User Name** textbox, type the username of Britta Simon account like **brittasimon\@contoso.com**.
+    
+    1. In the **First Name** textbox, type the first name of BrittaSimon like **Britta**.
 
-	c. In the **Last Name** textbox, type the last name of BrittaSimon like **Simon**.
+    1. In the **Last Name** textbox, type the last name of BrittaSimon like **Simon**.
 
-	d. Enter the Title of the user in the **Title** of the textbox.
-	
-	e. In the **Email Address** textbox, type the email address of Britta Simon account like **brittasimon\@contoso.com**.
+    1. Enter the Title of the user in the **Title** of the textbox.
 
-	f. In the **SSO User Name** textbox, type the username of Britta Simon account like **brittasimon\@contoso.com**.
+    1. In the **Email Address** textbox, type the email address of Britta Simon account like **brittasimon\@contoso.com**.
 
-	g. Click **Save**.
+    1. In the **SSO User Name** textbox, type the username of Britta Simon account like **brittasimon\@contoso.com**.
+
+    1. Click **Save**.
 
 ## Test SSO
 
@@ -201,4 +201,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Envi MMIS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Envi MMIS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

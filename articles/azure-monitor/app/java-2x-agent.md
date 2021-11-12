@@ -3,9 +3,9 @@ title: Java web apps performance monitoring - Azure Application Insights
 description: Extended performance and usage monitoring of your Java website with Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
+author: mattmccleary
+ms.author: mmcc
 ---
 
 # Monitor dependencies, caught exceptions, and method execution times in Java web apps
@@ -49,7 +49,7 @@ Create a file named `AI-Agent.xml` and place it in the same folder as the agent 
 
 Set the content of the xml file. Edit the following example to include or omit the features you want.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsightsAgent>
    <Instrumentation>

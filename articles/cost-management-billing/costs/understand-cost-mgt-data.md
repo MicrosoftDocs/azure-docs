@@ -3,7 +3,7 @@ title: Understand Azure Cost Management data
 description: This article helps you better understand data that's included in Cost Management and how frequently it's processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 10/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -15,7 +15,7 @@ ms.custom: contperf-fy21q2
 
 This article helps you better understand Azure cost and usage data that's included in Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
 
-Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits.
+Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits. Cost Management also includes costs associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure. Currently, only Partners can purchase New Commerce non-Azure products.
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
@@ -91,12 +91,15 @@ The following tables show data that's included or isn't in Cost Management. All 
 | Marketplace purchases<sup>5</sup>      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
 | Reservation purchases<sup>6</sup>      |  |
 | Amortization of reservation purchases<sup>6</sup>      |  |
+| New Commerce non-Azure products (Microsoft 365 and Dynamics 365) <sup>7</sup> | |
 
 _<sup>**4**</sup> Azure service usage is based on reservation and negotiated prices._
 
 _<sup>**5**</sup> Marketplace purchases aren't available for MSDN and Visual Studio offers at this time._
 
 _<sup>**6**</sup> Reservation purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
+
+_<sup>**7**</sup> Only available for Partners_
 
 ## How tags are used in cost and usage data
 

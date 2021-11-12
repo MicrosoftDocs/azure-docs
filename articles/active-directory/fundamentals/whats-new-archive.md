@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 9/7/2021
+ms.date: 10/30/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
@@ -28,6 +28,334 @@ The What's new in Azure Active Directory? release notes provide information abou
 - Deprecated functionality
 - Plans for changes
 
+---
+
+## April 2021
+
+### Bug fixed - Azure AD will no longer double-encode the state parameter in responses
+
+**Type:** Fixed  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+Azure AD has identified, tested, and released a fix for a bug in the `/authorize` response to a client application.  Azure AD was incorrectly URL encoding the `state` parameter twice when sending responses back to the client.  This can cause a client application to reject the request, due to a mismatch in state parameters. [Learn more](../develop/reference-breaking-changes.md#bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice). 
+
+---
+
+### Users can only create security and Microsoft 365 groups in Azure portal being deprecated
+
+**Type:** Plan for change  
+**Service category:** Group Management  
+**Product capability:** Directory
+ 
+Users will no longer be limited to create security and Microsoft 365 groups only in the Azure portal. The new setting will allow users to create security groups in the Azure portal, PowerShell, and API. Users will be required to verify and update the new setting. [Learn more](../enterprise-users/groups-self-service-management.md).
+
+---
+
+### Public preview -  External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+External users can now use Email One-Time Passcode accounts to sign up or sign in to Azure AD 1st party and line-of-business applications. [Learn more](../external-identities/one-time-passcode.md).
+
+---
+
+### General availability - External Identities Self-Service Sign Up
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+Self-service sign-up for external users is now in general availability. With this new feature, external users can now self-service sign up to an application. 
+
+You can create customized experiences for these external users, including collecting information about your users during the registration process and allowing external identity providers like Facebook and Google. You can also integrate with third-party cloud providers for various functionalities like identity verification or approval of users. [Learn more](../external-identities/self-service-sign-up-overview.md).
+ 
+---
+
+### General availability - Azure AD B2C Phone Sign-up and Sign-in using Built-in Policy
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+B2C Phone Sign-up and Sign-in using a built-in policy enable IT administrators and developers of organizations to allow their end-users to sign in and sign-up using a phone number in user flows. With this feature, disclaimer links such as privacy policy and terms of use can be customized and shown on the page before the end-user proceeds to receive the one-time passcode via text message. [Learn more](../../active-directory-b2c/phone-authentication-user-flows.md).
+ 
+---
+
+### New Federated Apps available in Azure AD Application gallery - April 2021
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In April 2021, we have added following 31 new applications in our App gallery with Federation support
+
+[Zii Travel Azure AD Connect](http://ziitravel.com/), [Cerby](../saas-apps/cerby-tutorial.md), [Selflessly](https://app.selflessly.io/sign-in), [Apollo CX](https://apollo.cxlabs.de/sso/aad), [Pedagoo](https://account.pedagoo.com/), [Measureup](https://account.measureup.com/), [Wistec Education](https://wisteceducation.fi/login/index.php), [ProcessUnity](../saas-apps/processunity-tutorial.md), [Cisco Intersight](../saas-apps/cisco-intersight-tutorial.md), [Codility](../saas-apps/codility-tutorial.md), [H5mag](https://account.h5mag.com/auth/request-access/ms365), [Check Point Identity Awareness](../saas-apps/check-point-identity-awareness-tutorial.md), [Jarvis](https://jarvis.live/login), [desknet's NEO](../saas-apps/desknets-neo-tutorial.md), [SDS & Chemical Information Management](../saas-apps/sds-chemical-information-management-tutorial.md), [Wúru App](../saas-apps/wuru-app-tutorial.md), [Holmes](../saas-apps/holmes-tutorial.md), [Tide Multi Tenant](https://gallery.tideapp.co.uk/), [Telenor](https://admin.smartansatt.telenor.no/), [Yooz US](https://us1.getyooz.com/?kc_idp_hint=microsoft), [Mooncamp](https://app.mooncamp.com/#/login), [inwise SSO](https://app.inwise.com/defaultsso.aspx), [Ecolab Digital Solutions](https://ecolabb2c.b2clogin.com/account.ecolab.com/oauth2/v2.0/authorize?p=B2C_1A_Connect_OIDC_SignIn&client_id=01281626-dbed-4405-a430-66457825d361&nonce=defaultNonce&redirect_uri=https://jwt.ms&scope=openid&response_type=id_token&prompt=login), [Taguchi Digital Marketing System](https://login.taguchi.com.au/), [XpressDox EU Cloud](https://test.xpressdox.com/Authentication/Login.aspx), [EZSSH](https://docs.keytos.io/getting-started/registering-a-new-tenant/registering_app_in_tenant/), [EZSSH Client](https://portal.ezssh.io/signup), [Verto 365](https://www.vertocloud.com/Login/), [KPN Grip](https://www.grip-on-it.com/), [AddressLook](https://portal.bbsonlineservices.net/Manage/AddressLook), [Cornerstone Single Sign-On](../saas-apps/cornerstone-ondemand-tutorial.md)
+
+You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
+
+---
+
+### New provisioning connectors in the Azure AD Application Gallery - April 2021
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Bentley - Automatic User Provisioning](../saas-apps/bentley-automatic-user-provisioning-tutorial.md)
+- [Boxcryptor](../saas-apps/boxcryptor-provisioning-tutorial.md)
+- [BrowserStack Single Sign-on](../saas-apps/browserstack-single-sign-on-provisioning-tutorial.md)
+- [Eletive](../saas-apps/eletive-provisioning-tutorial.md)
+- [Jostle](../saas-apps/jostle-provisioning-tutorial.md)
+- [Olfeo SAAS](../saas-apps/olfeo-saas-provisioning-tutorial.md)
+- [Proware](../saas-apps/proware-provisioning-tutorial.md)
+- [Segment](../saas-apps/segment-provisioning-tutorial.md)
+
+For more information about how to better secure your organization with automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+
+### Introducing new versions of page layouts for B2C
+
+**Type:** Changed feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+The [page layouts](../../active-directory-b2c/page-layout.md) for B2C scenarios on the Azure AD B2C has been updated to reduce security risks by introducing the new versions of jQuery and Handlebars JS.
+ 
+---
+
+### Updates to Sign-in Diagnostic
+
+**Type:** Changed feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+The scenario coverage of the Sign-in Diagnostic tool has increased. 
+
+With this update, the following event-related scenarios will now be included in the sign-in diagnosis results: 
+- Enterprise Applications configuration problem events.
+- Enterprise Applications service provider (application-side) events.
+- Incorrect credentials events. 
+
+These results will show contextual and relevant details about the event and actions to take to resolve these problems. Also, for scenarios where we don't have deep contextual diagnostics, Sign-in Diagnostic will present more descriptive content about the error event.
+
+For more information, see [What is sign-in diagnostic in Azure AD?](../reports-monitoring/overview-sign-in-diagnostics.md)
+
+---
+### Azure AD Connect cloud sync general availability refresh 
+**Type:** Changed feature  
+**Service category:** Azure AD Connect Cloud Sync 
+**Product capability:** Directory
+
+Azure AD connect cloud sync now has an updated agent (version# - 1.1.359). For more details on agent updates, including bug fixes, check out the [version history](../cloud-sync/reference-version-history.md). With the updated agent, cloud sync customers can use GMSA cmdlets to set and reset their gMSA permission at a granular level. In addition that, we have changed the limit of syncing members using group scope filtering from 1499 to 50,000 (50K) members. 
+
+Check out the newly available [expression builder](../cloud-sync/how-to-expression-builder.md#deploy-the-expression) for cloud sync, which, helps you build complex expressions as well as simple expressions when you do transformations of attribute values from AD to Azure AD using attribute mapping.
+
+---
+
+## March 2021
+
+### Guidance on how to enable support for TLS 1.2 in your environment, in preparation for upcoming Azure AD TLS 1.0/1.1 deprecation
+
+**Type:** Plan for change  
+**Service category:** N/A  
+**Product capability:** Standards
+
+Azure Active Directory will deprecate the following protocols in Azure Active Directory worldwide regions starting June 30, 2021:
+
+
+- TLS 1.0
+- TLS 1.1
+- 3DES cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)
+
+Affected environments include:
+
+- Azure Commercial Cloud
+- Office 365 GCC and WW
+
+For more information, see [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment).
+
+---
+
+### Public preview -  Azure AD Entitlement management now supports multi-geo SharePoint Online
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Entitlement Management
+ 
+For organizations using multi-geo SharePoint Online, you can now include sites from specific multi-geo environments to your Entitlement management access packages. [Learn more](../governance/entitlement-management-catalog-create.md#add-a-multi-geo-sharepoint-site).
+
+---
+
+### Public preview -  Restore deleted apps from App registrations
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Developer Experience
+ 
+Customers can now view, restore, and permanently remove deleted app registrations from the Azure portal. This applies only to applications associated to a directory, not applications from a personal Microsoft account. [Learn more](../develop/howto-restore-app.md).
+ 
+---
+
+### Public preview -  New "User action" in Conditional Access for registering or joining devices
+
+**Type:** New feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+ 
+ A new user action called "Register or join devices" in Conditional access is available. This user action allows you to control Azure Active Directory Multi-Factor Authentication (MFA) policies for Azure AD device registration. 
+
+Currently, this user action only allows you to enable Azure AD MFA as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration are disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
+ 
+---
+
+### Public preview -  Optimize connector groups to use the closest Application Proxy cloud service
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+With this new capability, connector groups can be assigned to the closest regional Application Proxy service an application is hosted in. This can improve app performance in scenarios where apps are hosted in regions other than the home tenant’s region. [Learn more](../app-proxy/application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview). 
+ 
+---
+
+### Public preview -  External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+
+External users will now be able to use Email One-Time Passcode accounts to sign up in to Azure AD 1st party and LOB apps. [Learn more](../external-identities/one-time-passcode.md).
+
+---
+
+### Public preview -  Availability of AD FS Sign-Ins in Azure AD
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** Monitoring & Reporting
+ 
+AD FS sign-in activity can now be integrated with Azure AD activity reporting, providing a unified view of hybrid identity infrastructure. Using the Azure AD Sign-Ins report, Log Analytics, and Azure Monitor Workbooks, it's possible to do in-depth analysis for both AAD and AD FS sign-in scenarios such as AD FS account lockouts, bad password attempts, and spikes of unexpected sign-in attempts.
+
+To learn more, visit [AD FS sign-ins in Azure AD with Connect Health](../hybrid/how-to-connect-health-ad-fs-sign-in.md).
+
+---
+
+### General availability - Staged rollout to cloud authentication
+
+**Type:** New feature  
+**Service category:** AD Connect  
+**Product capability:** User Authentication
+ 
+Staged rollout to cloud authentication is now generally available. The staged rollout feature allows you to selectively test groups of users with cloud authentication methods, such as Passthrough Authentication (PTA) or Password Hash Sync (PHS). Meanwhile, all other users in the federated domains continue to use federation services, such as AD FS or any other federation services to authenticate users. [Learn more](../hybrid/how-to-connect-staged-rollout.md).
+
+---
+
+### General availability - User Type attribute can now be updated in the Azure admin portal
+
+**Type:** New feature  
+**Service category:** User Experience and Management  
+**Product capability:** User Management
+ 
+Customers can now update the user type of Azure AD users when they update their user profile information from the Azure admin portal. The user type can be updated from Microsoft Graph also. To learn more, see [Add or update user profile information](active-directory-users-profile-azure-portal.md).
+ 
+---
+
+### General availability - Replica Sets for Azure Active Directory Domain Services
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+ 
+The capability of replica sets in Azure AD DS is now generally available. [Learn more](../../active-directory-domain-services/concepts-replica-sets.md).
+ 
+---
+
+### General availability - Collaborate with your partners using Email One-Time Passcode in the Azure Government cloud
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+Organizations in the Microsoft Azure Government cloud can now enable their guests to redeem invitations with Email One-Time Passcode. This ensures that any guest users with no Azure AD, Microsoft, or Gmail accounts in the Azure Government cloud can still collaborate with their partners by requesting and entering a temporary code to sign in to shared resources. [Learn more](../external-identities/one-time-passcode.md#note-for-azure-us-government-customers).
+
+---
+
+### New Federated Apps available in Azure AD Application gallery - March 2021
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In March 2021 we have added following 37 new applications in our App gallery with Federation support:
+
+[Bambuser Live Video Shopping](https://lcx.bambuser.com/), [DeepDyve Inc](https://www.deepdyve.com/azure-sso), [Moqups](../saas-apps/moqups-tutorial.md), [RICOH Spaces Mobile](https://ricohspaces.app/welcome), [Flipgrid](https://auth.flipgrid.com/), [hCaptcha Enterprise](../saas-apps/hcaptcha-enterprise-tutorial.md), [SchoolStream ASA](https://jsd.schoolstreamk12.com/ASA/ASAlogin.aspx), [TransPerfect GlobalLink Dashboard](../saas-apps/transperfect-globallink-dashboard-tutorial.md), [SimplificaCI](https://app.simplificaci.com.br/), [Thrive LXP](../saas-apps/thrive-lxp-tutorial.md), [Lexonis TalentScape](../saas-apps/lexonis-talentscape-tutorial.md), [Exium](../saas-apps/exium-tutorial.md), [Sapient](../saas-apps/sapient-tutorial.md), [TrueChoice](../saas-apps/truechoice-tutorial.md), [RICOH Spaces](https://ricohspaces.app/welcome), [Saba Cloud](../saas-apps/learning-at-work-tutorial.md), [Acunetix 360](../saas-apps/acunetix-360-tutorial.md), [Exceed.ai](../saas-apps/exceed-ai-tutorial.md), [GitHub Enterprise Managed User](../saas-apps/github-enterprise-managed-user-tutorial.md), [Enterprise Vault.cloud for Outlook](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=openid%20profile%20User.Read&client_id=7176efe5-e954-4aed-b5c8-f5c85a980d3a&nonce=4b9e1981-1bcb-4938-a283-86f6931dc8cb), [Smartlook](../saas-apps/smartlook-tutorial.md), [Accenture Academy](../saas-apps/accenture-academy-tutorial.md), [Onshape](../saas-apps/onshape-tutorial.md), [Tradeshift](../saas-apps/tradeshift-tutorial.md), [JuriBlox](../saas-apps/juriblox-tutorial.md), [SecurityStudio](../saas-apps/securitystudio-tutorial.md), [ClicData](https://app.clicdata.com/), [Evergreen](../saas-apps/evergreen-tutorial.md), [Patchdeck](https://patchdeck.com/ad_auth/authenticate/), [FAX.PLUS](../saas-apps/fax-plus-tutorial.md), [ValidSign](../saas-apps/validsign-tutorial.md), [AWS Single Sign-on](../saas-apps/aws-single-sign-on-tutorial.md), [Nura Space](https://dashboard.nuraspace.com/login), [Broadcom DX SaaS](../saas-apps/broadcom-dx-saas-tutorial.md), [Interplay Learning](https://skilledtrades.interplaylearning.com/#login), [SendPro Enterprise](../saas-apps/sendpro-enterprise-tutorial.md), [FortiSASE SIA](../saas-apps/fortisase-sia-tutorial.md)
+
+You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
+
+---
+
+### New provisioning connectors in the Azure AD Application Gallery - March 2021
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [AWS Single Sign-on](../saas-apps/aws-single-sign-on-provisioning-tutorial.md)
+- [Bpanda](../saas-apps/bpanda-provisioning-tutorial.md)
+- [Britive](../saas-apps/britive-provisioning-tutorial.md)
+- [GitHub Enterprise Managed User](../saas-apps/github-enterprise-managed-user-provisioning-tutorial.md)
+- [Grammarly](../saas-apps/grammarly-provisioning-tutorial.md)
+- [LogicGate](../saas-apps/logicgate-provisioning-tutorial.md)
+- [SecureLogin](../saas-apps/secure-login-provisioning-tutorial.md)
+- [TravelPerk](../saas-apps/travelperk-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+
+### Introducing MS Graph API for Company Branding
+
+**Type:** Changed feature  
+**Service category:** MS Graph  
+**Product capability:** B2B/B2C
+
+[MS Graph API for the Company Branding](/graph/api/resources/organizationalbrandingproperties)  is available for the Azure AD or Microsoft 365 login experience to allow the management of the branding parameters programmatically.
+
+---
+
+### General availability - Header-based authentication SSO with Application Proxy
+
+**Type:** Changed feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+Azure AD Application Proxy native support for header-based authentication is now in general availability. With this feature, you can configure the user attributes required as HTTP headers for the application without additional components needed to deploy. [Learn more](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
+
+---
+
+### Two-way SMS for MFA Server is no longer supported
+
+**Type:** Deprecated  
+**Service category:** MFA  
+**Product capability:** Identity Security & Protection
+ 
+
+Two-way SMS for MFA Server was originally deprecated in 2018, and will not be supported after February 24, 2021. Administrators should enable another method for users who still use two-way SMS.
+
+Email notifications and Azure portal Service Health notifications were sent to affected admins on December 8, 2020 and January 28, 2021. The alerts went to the Owner, Co-Owner, Admin, and Service Admin RBAC roles tied to the subscriptions. [Learn more](../authentication/how-to-authentication-two-way-sms-unsupported.md).
+ 
 ---
  
 ## February 2021
@@ -120,7 +448,7 @@ Users can now create their own groupings of apps on the My Apps app launcher. Th
 **Service category:** Microsoft Authenticator App  
 **Product capability:** Identity Security & Protection
  
-Microsoft Authenticator provides Multi-factor Authentication (MFA) and account management capabilities, and now also will autofill passwords on sites and apps users visit on their mobile (iOS and Android). 
+Microsoft Authenticator provides multi-factor authentication (MFA) and account management capabilities, and now also will autofill passwords on sites and apps users visit on their mobile (iOS and Android). 
 
 To use autofill on Authenticator, users need to add their personal Microsoft account to Authenticator and use it to sync their passwords. Work or school accounts cannot be used to sync passwords at this time. [Learn more](../user-help/user-help-auth-app-faq.md#autofill-for-it-admins).
 
@@ -196,13 +524,13 @@ For more information, read [Automate user provisioning to SaaS applications with
 
 ---
 
-### New Company Branding in MFA/SSPR Combined Registration
+### New Company Branding in multi-factor authentication (MFA)/SSPR Combined Registration
 
 **Type:** Changed feature  
 **Service category:** User Experience and Management  
 **Product capability:** End User Experiences
  
-In the past, company logos weren't used on Azure Active Directory sign-in pages. Company branding is now located to the top left of MFA/SSPR Combined Registration. Company branding is also included on My Sign-Ins and the Security Info page. [Learn more](../fundamentals/customize-branding.md).
+In the past, company logos weren't used on Azure Active Directory sign-in pages. Company branding is now located to the top left of multi-factor authentication (MFA)/SSPR Combined Registration. Company branding is also included on My Sign-Ins and the Security Info page. [Learn more](../fundamentals/customize-branding.md).
 
 ---
 
@@ -440,8 +768,8 @@ B2C Phone Sign-up and Sign-in using Built-in Policy enable IT administrators and
 **Product capability:** Identity Security & Protection
  
 To protect user accounts, all new tenants created on or after November 12, 2020, will come with Security Defaults enabled. Security Defaults enforces multiple policies including:
-- Requires all users and admins to register for MFA using the Microsoft Authenticator App
-- Requires critical admin roles to use MFA every single time they sign-in. All other users will be prompted for MFA whenever necessary. 
+- Requires all users and admins to register for multi-factor authentication (MFA) using the Microsoft Authenticator App
+- Requires critical admin roles to use multi-factor authentication (MFA) every single time they sign-in. All other users will be prompted for multi-factor authentication (MFA) whenever necessary. 
 - Legacy authentication will be blocked tenant wide. 
 
 For more information, read [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md)
@@ -651,7 +979,7 @@ Tenant administrators can now use Staged Rollout to deploy Email Sign-In with Pr
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
  
-With the initial preview release of the Sign-in Diagnostic, admins can now review user sign-ins. Admins can receive contextual, specific, and relevant details and guidance on what happened during a sign-in and how to fix problems. The diagnostic is available in both the Azure AD level, and Conditional Access Diagnose and Solve blades. The diagnostic scenarios covered in this release are Conditional Access, Azure Active Directory Multi-factor Authentication, and successful sign-in.
+With the initial preview release of the Sign-in Diagnostic, admins can now review user sign-ins. Admins can receive contextual, specific, and relevant details and guidance on what happened during a sign-in and how to fix problems. The diagnostic is available in both the Azure AD level, and Conditional Access Diagnose and Solve blades. The diagnostic scenarios covered in this release are Conditional Access, Azure Active Directory Multi-Factor Authentication, and successful sign-in.
 
 For more information, see [What is sign-in diagnostic in Azure AD?](../reports-monitoring/overview-sign-in-diagnostics.md).
  
@@ -921,7 +1249,7 @@ Manually created connected organizations will have a default setting of "configu
  
 Risk-based Conditional Access and risk detection features of Identity Protection are now available in [Azure AD B2C](../..//active-directory-b2c/conditional-access-identity-protection-overview.md). With these advanced security features, customers can now:
 - Leverage intelligent insights to assess risk with B2C apps and end user accounts. Detections include atypical travel, anonymous IP addresses, malware-linked IP addresses, and Azure AD threat intelligence. Portal and API-based reports are also available.
-- Automatically address risks by configuring adaptive authentication policies for B2C users. App developers and administrators can mitigate real-time risk by requiring Azure Active Directory Multi-factor Authentication (MFA) or blocking access depending on the user risk level detected, with additional controls available based on location, group, and app.
+- Automatically address risks by configuring adaptive authentication policies for B2C users. App developers and administrators can mitigate real-time risk by requiring Azure Active Directory Multi-Factor Authentication (MFA) or blocking access depending on the user risk level detected, with additional controls available based on location, group, and app.
 - Integrate with Azure AD B2C user flows and custom policies. Conditions can be triggered from built-in user flows in Azure AD B2C or can be incorporated into B2C custom policies. As with other aspects of the B2C user flow, end user experience messaging can be customized. Customization is according to the organization’s voice, brand, and mitigation alternatives.
  
 ---
@@ -991,16 +1319,16 @@ MSAL.js version 2.x now includes support for the authorization code flow for sin
 
 ---
 
-### Updates to Remember Azure Active Directory Multi-factor Authentication (MFA) on a trusted device setting
+### Updates to Remember Azure Active Directory Multi-Factor Authentication (MFA) on a trusted device setting
 
 **Type:** Changed feature  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
 
-We've recently updated the [remember Azure Active Directory Multi-factor Authentication (MFA)](../authentication/howto-mfa-mfasettings.md#remember-multi-factor-authentication) on a trusted device feature to extend authentication for up to 365 days. Azure Active Directory (Azure AD) Premium licenses, can also use the [Conditional Access – Sign-in Frequency policy](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) that provides more flexibility for reauthentication settings.
+We've recently updated the [remember Azure Active Directory Multi-Factor Authentication (MFA)](../authentication/howto-mfa-mfasettings.md#remember-multi-factor-authentication) on a trusted device feature to extend authentication for up to 365 days. Azure Active Directory (Azure AD) Premium licenses, can also use the [Conditional Access – Sign-in Frequency policy](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) that provides more flexibility for reauthentication settings.
 
-For the optimal user experience, we recommend using Conditional Access sign-in frequency to extend session lifetimes on trusted devices, locations, or low-risk sessions as an alternative to the remember MFA on a trusted device setting. To get started, review our [latest guidance on optimizing the reauthentication experience](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+For the optimal user experience, we recommend using Conditional Access sign-in frequency to extend session lifetimes on trusted devices, locations, or low-risk sessions as an alternative to remember multi-factor authentication (MFA) on a trusted device setting. To get started, review our [latest guidance on optimizing the reauthentication experience](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ---
 
@@ -1160,7 +1488,7 @@ With this new role, you benefit from the least privileges needed to delegate man
 **Service category:** Privileged Identity Management  
 **Product capability:** Privileged Identity Management
  
-Previously, onboarding to Privileged Identity Management (PIM) required user consent and an onboarding flow in PIM's blade that included enrollment in Azure AD MFA. With the recent integration of PIM experience into the Azure AD roles and administrators blade, we are removing this experience. Any tenant with valid P2 license will be auto-onboarded to PIM.
+Previously, onboarding to Privileged Identity Management (PIM) required user consent and an onboarding flow in PIM's blade that included enrollment in Azure Active Directory Multi-Factor Authentication (MFA). With the recent integration of PIM experience into the Azure AD roles and administrators blade, we are removing this experience. Any tenant with valid P2 license will be auto-onboarded to PIM.
 
 Onboarding to PIM does not have any direct adverse effect on your tenant. You can expect the following changes:
 - Additional assignment options such as active vs. eligible with start and end time when you make an assignment in either PIM or Azure AD roles and administrators blade. 
@@ -1187,15 +1515,15 @@ This experience will be changed to display only the resources currently added in
 
 ## August 2020 
  
-### Updates to Azure Active Directory Multi-factor Authentication Server firewall requirements
+### Updates to Azure Active Directory Multi-Factor Authentication Server firewall requirements
 
 **Type:** Plan for change  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-Starting 1 October 2020, Azure MFA Server firewall requirements will require additional IP ranges.
+Starting 1 October 2020, Azure AD Multi-Factor Authentication (MFA) Server firewall requirements will require additional IP ranges.
 
-If you have outbound firewall rules in your organization, update the rules so that your MFA servers can communicate with all the necessary IP ranges. The IP ranges are documented in [Azure Active Directory Multi-factor Authentication Server firewall requirements](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements).
+If you have outbound firewall rules in your organization, update the rules so that your multi-factor authentication (MFA) servers can communicate with all the necessary IP ranges. The IP ranges are documented in [Azure Active Directory Multi-Factor Authentication Server firewall requirements](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements).
 
 ---
 
@@ -1515,16 +1843,16 @@ You can now view role assignments across all scopes for a role in the "Roles and
  
 ---
 
-### Azure Active Directory Multi-factor Authentication Software Development (Azure MFA SDK) Deprecation
+### Azure Active Directory Multi-Factor Authentication Software Development (Azure MFA SDK) Deprecation
 
 **Type:** Deprecated  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-The Azure Active Directory Multi-factor Authentication Software Development (Azure MFA SDK) reached the end of life on November 14th, 2018, as first announced in November 2017. Microsoft will be shutting down the SDK service effective on September 30th, 2020. Any calls made to the SDK will fail.
+The Azure Active Directory Multi-Factor Authentication Software Development (Azure MFA SDK) reached the end of life on November 14th, 2018, as first announced in November 2017. Microsoft will be shutting down the SDK service effective on September 30th, 2020. Any calls made to the SDK will fail.
 
 If your organization is using the Azure MFA SDK, you need to migrate by September 30th, 2020:
-- Azure MFA SDK for MIM:  If you use the SDK with MIM, you should migrate to Azure MFA Server and activate Privileged Access Management (PAM) following these [instructions](/microsoft-identity-manager/working-with-mfaserver-for-mim).   
+- Azure MFA SDK for MIM:  If you use the SDK with MIM, you should migrate to Azure AD Multi-Factor Authentication (MFA) Server and activate Privileged Access Management (PAM) following these [instructions](/microsoft-identity-manager/working-with-mfaserver-for-mim).   
 - Azure MFA SDK for customized apps: Consider integrating your app into Azure AD and use Conditional Access to enforce MFA. To get started, review this [page](../manage-apps/plan-an-application-integration.md). 
 
 ---
@@ -1585,7 +1913,7 @@ The externalUserState and externalUserStateChangedDateTime properties can be use
  
 Authentication session management capabilities allow you to configure how often your users need to provide sign-in credentials and whether they need to provide credentials after closing and reopening browsers to offer more security and flexibility in your environment.
  
-Additionally, authentication session management used to only apply to the First Factor Authentication on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices. Now authentication session management will apply to MFA as well. For more information, see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
+Additionally, authentication session management used to only apply to the First Factor Authentication on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices. Now authentication session management will apply to multi-factor authentication (MFA) as well. For more information, see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 ---
 
@@ -1742,14 +2070,14 @@ We have introduced a new riskEventsTypes_v2 (string) property to the signIns v1.
 
 --- 
 
-### Upcoming changes to MFA email notifications
+### Upcoming changes to multi-factor authentication (MFA) email notifications
 
 **Type:** Plan for change  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
 
-We are making the following changes to the email notifications for cloud MFA:
+We are making the following changes to the email notifications for cloud multi-factor authentication (MFA):
 
 E-mail notifications will be sent from the following address: azure-noreply@microsoft.com and msonlineservicesteam@microsoftonline.com. We're updating the content of fraud alert emails to better indicate the required steps to unblock uses.
 
@@ -2000,7 +2328,7 @@ For more information, visit [The New app registration experience for Azure AD B2
 
 **Product capability:** Identity Security & Protection
 
-The combined registration experience for Multi-Factor Authentication (MFA) and Self-Service Password Reset (SSPR) is now generally available. This new registration experience enables users to register for MFA and SSPR in a single, step-by-step process. When you deploy the new experience for your organization, users can register in less time and with fewer hassles. Check out the blog post [here](https://bit.ly/3etiRyQ).
+The combined registration experience for Multi-Factor Authentication (MFA) and Self-Service Password Reset (SSPR) is now generally available. This new registration experience enables users to register for multi-factor authentication (MFA) and SSPR in a single, step-by-step process. When you deploy the new experience for your organization, users can register in less time and with fewer hassles. Check out the blog post [here](https://bit.ly/3etiRyQ).
 
 ---
 
@@ -2147,7 +2475,7 @@ Delta query for administrative units is available for public preview! You can no
 
 **Product capability:** Developer Experience
 
-These APIs are a key tool for managing your users’ authentication methods. Now you can programmatically pre-register and manage the authenticators used for MFA and self-service password reset (SSPR). This has been one of the most-requested features in the Azure AD MFA, SSPR, and Microsoft Graph spaces. The new APIs we’ve released in this wave give you the ability to:
+These APIs are a key tool for managing your users’ authentication methods. Now you can programmatically pre-register and manage the authenticators used for multi-factor authentication (MFA) and self-service password reset (SSPR). This has been one of the most-requested features in the Azure AD Multi-Factor Authentication (MFA), SSPR, and Microsoft Graph spaces. The new APIs we’ve released in this wave give you the ability to:
 
 - Read, add, update, and remove a user’s authentication phones
 - Reset a user’s password
@@ -2316,7 +2644,7 @@ For more information, see [Validate a dynamic group membership rule (preview)](.
 
 ---
 
-### Identity Secure Score - Security Defaults and MFA improvement action updates
+### Identity Secure Score - Security Defaults and multi-factor authentication (MFA) improvement action updates
 
 **Type:** Changed feature
 
@@ -2327,23 +2655,23 @@ For more information, see [Validate a dynamic group membership rule (preview)](.
 **Supporting security defaults for Azure AD improvement actions:** Microsoft Secure Score will be updating improvement actions to support [security defaults in Azure AD](./concept-fundamentals-security-defaults.md), which make it easier to help protect your organization with pre-configured security settings for common attacks. This will affect the following improvement actions:
 
 - Ensure all users can complete multifactor authentication for secure access
-- Require MFA for administrative roles
+- Require multi-factor authentication (MFA) for administrative roles
 - Enable policy to block legacy authentication
  
-**MFA improvement action updates:** To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score has removed three improvement actions centered around multifactor authentication and added two.
+**Multi-factor authentication (MFA) improvement action updates:** To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score has removed three improvement actions centered around multifactor authentication and added two.
 
 Removed improvement actions:
 
 - Register all users for multifactor authentication
-- Require MFA for all users
-- Require MFA for Azure AD privileged roles
+- Require multi-factor authentication (MFA) for all users
+- Require multi-factor authentication (MFA) for Azure AD privileged roles
 
 Added improvement actions:
 
 - Ensure all users can complete multifactor authentication for secure access
-- Require MFA for administrative roles
+- Require multi-factor authentication (MFA) for administrative roles
 
-These new improvement actions require registering your users or admins for multifactor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. That can take the form of having multiple policies that apply scoped decisions, or setting security defaults (as of March 16th) that let Microsoft decide when to challenge users for MFA. [Read more about what's new in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score#whats-new).
+These new improvement actions require registering your users or admins for multi-factor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. That can take the form of having multiple policies that apply scoped decisions, or setting security defaults (as of March 16th) that let Microsoft decide when to challenge users for multi-factor authentication (MFA). [Read more about what's new in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score#whats-new).
 
 ---
 
@@ -2508,32 +2836,32 @@ To provide a more flexible way for customers to create directory-wide groups tha
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-We're planning to replace the current custom controls preview with an approach that allows partner-provided authentication capabilities to work seamlessly with the Azure Active Directory administrator and end user experiences. Today, partner MFA solutions face the following limitations: they work only after a password has been entered; they don't serve as MFA for step-up authentication in other key scenarios; and they don't integrate with end user or administrative credential management functions. The new implementation will allow partner-provided authentication factors to work alongside built-in factors for key scenarios, including registration, usage, MFA claims, step up authentication, reporting, and logging. 
+We're planning to replace the current custom controls preview with an approach that allows partner-provided authentication capabilities to work seamlessly with the Azure Active Directory administrator and end user experiences. Today, partner multi-factor authentication (MFA) solutions face the following limitations: they work only after a password has been entered; they don't serve as multi-factor authentication (MFA) for step-up authentication in other key scenarios; and they don't integrate with end user or administrative credential management functions. The new implementation will allow partner-provided authentication factors to work alongside built-in factors for key scenarios, including registration, usage, multi-factor authentication (MFA) claims, step up authentication, reporting, and logging. 
 
 Custom controls will continue to be supported in preview alongside the new design until it reaches general availability. At that point, we'll give customers time to migrate to the new design. Because of the limitations of the current approach, we won't onboard new providers until the new design is available. We are working closely with customers and providers and will communicate the timeline as we get closer. [Learn more](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/upcoming-changes-to-custom-controls/ba-p/1144696#).
 
 ---
 
-### Identity Secure Score - MFA improvement action updates
+### Identity Secure Score - multi-factor authentication (MFA) improvement action updates
 
 **Type:** Plan for change  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score is removing three improvement actions centered around multifactor authentication (MFA), and adding two.
+To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score is removing three improvement actions centered around multi-factor authentication (MFA), and adding two.
 
 The following improvement actions will be removed:
 
-- Register all users for MFA
-- Require MFA for all users
-- Require MFA for Azure AD privileged roles
+- Register all users for  multi-factor authentication (MFA)
+- Require multi-factor authentication (MFA) for all users
+- Require multi-factor authentication (MFA) for Azure AD privileged roles
 
 The following improvement actions will be added:
 
-- Ensure all users can complete MFA for secure access
-- Require MFA for administrative roles
+- Ensure all users can complete multi-factor authentication (MFA) for secure access
+- Require multi-factor authentication (MFA) for administrative roles
 
-These new improvement actions will require registering your users or admins for MFA across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. This can take the form of setting security defaults that let Microsoft decide when to challenge users for MFA, or having multiple policies that apply scoped decisions. As part of these improvement action updates, Baseline protection policies will no longer be included in scoring calculations. [Read more about what's coming in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming).
+These new improvement actions will require registering your users or admins for multi-factor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. This can take the form of setting security defaults that let Microsoft decide when to challenge users for multi-factor authentication (MFA), or having multiple policies that apply scoped decisions. As part of these improvement action updates, Baseline protection policies will no longer be included in scoring calculations. [Read more about what's coming in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming).
 
 ---
 
@@ -2959,7 +3287,7 @@ For more information about using application-specific role definitions, see [Add
 **Service category:** Identity Protection
 **Product capability:** Identity Security & Protection
 
-In response to developer feedback, Azure AD Premium P2 subscribers can now perform complex queries on Azure AD Identity Protection's risk detection data by using the new riskDetection API for Microsoft Graph. The existing [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) API beta version will stop returning data around **January 10, 2020**. If your organization is using the identityRiskEvent API, you should transition to the new riskDetection API.
+In response to developer feedback, Azure AD Premium P2 subscribers can now perform complex queries on Azure AD Identity Protection's risk detection data by using the new riskDetection API for Microsoft Graph. The existing [identityRiskEvent](/graph/api/resources/identityprotection-root) API beta version will stop returning data around **January 10, 2020**. If your organization is using the identityRiskEvent API, you should transition to the new riskDetection API.
 
 For more information about the new riskDetection API, see the [Risk detection API reference documentation](/graph/api/resources/riskdetection).
 
@@ -2998,15 +3326,15 @@ To learn more about the new App registrations experience, see the [App registrat
 
 ---
 
-### Users are no longer required to re-register during migration from per-user MFA to Conditional Access-based MFA
+### Users are no longer required to re-register during migration from per-user multi-factor authentication (MFA) to Conditional Access-based multi-factor authentication (MFA)
 
 **Type:** Fixed
 **Service category:** MFA
 **Product capability:** Identity Security & Protection
 
-We've fixed a known issue whereby when users were required to re-register if they were disabled for per-user Multi-Factor Authentication (MFA) and then enabled for MFA through a Conditional Access policy.
+We've fixed a known issue whereby when users were required to re-register if they were disabled for per-user Multi-Factor Authentication (MFA) and then enabled for multi-factor authentication (MFA) through a Conditional Access policy.
 
-To require users to re-register, you can select the **Required re-register MFA** option from the user's authentication methods in the Azure AD portal. 
+To require users to re-register, you can select the **Required re-register multi-factor authentication (MFA)** option from the user's authentication methods in the Azure AD portal. 
 
 ---
 
@@ -3125,7 +3453,7 @@ The new **Security** menu includes:
 - Security Center
 - Identity Secure Score
 - Authentication methods
-- MFA
+- Multi-factor authentication (MFA)
 - Risk reports - Risky users, Risky sign-ins, Risk detections
 - And more...
 
@@ -3283,17 +3611,17 @@ New cmdlets were added to the AzureADPreview module, to help define and assign c
 **Service category:** Other
 **Product capability:** Directory
 
-We've released an updated version of Azure AD Connect for auto-upgrade customers. This new version includes several new features, improvements, and bug fixes. For more information about this new version, see [Azure AD Connect: Version release history](../hybrid/reference-connect-version-history.md#14250).
+We've released an updated version of Azure AD Connect for auto-upgrade customers. This new version includes several new features, improvements, and bug fixes. 
 
 ---
 
-### Azure Active Directory Multi-factor Authentication (MFA) Server, version 8.0.2 is now available
+### Azure Active Directory Multi-Factor Authentication (MFA) Server, version 8.0.2 is now available
 
 **Type:** Fixed
 **Service category:** MFA
 **Product capability:** Identity Security & Protection
 
-If you're an existing customer, who activated MFA Server prior to July 1, 2019, you can now download the latest version of MFA Server (version 8.0.2). In this new version, we:
+If you're an existing customer, who activated Azure AD Multi-Factor Authentication (MFA) Server prior to July 1, 2019, you can now download the latest version of Azure AD Multi-Factor Authentication (MFA) Server (version 8.0.2). In this new version, we:
 
 - Fixed an issue so when Azure AD sync changes a user from Disabled to Enabled, an email is sent to the user.
 
@@ -3307,7 +3635,7 @@ If you're an existing customer, who activated MFA Server prior to July 1, 2019, 
 
 - Fixed other minor bugs.
 
-Starting July 1, 2019, Microsoft stopped offering MFA Server for new deployments. New customers who require multifactor authentication should use cloud-based Azure AD Multi-Factor Authentication. For more information, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+Starting July 1, 2019, Microsoft stopped offering multi-factor authentication (MFA) Server for new deployments. New customers who require multifactor authentication should use cloud-based Azure AD Multi-Factor Authentication. For more information, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -3338,7 +3666,7 @@ For more information, see [Manage groups in the Azure portal](./active-directory
 
 Custom roles (available with an Azure AD P1 or P2 subscription) can now help provide you with fine-grained access, by letting you create role definitions with specific permissions and then to assign those roles to specific resources. Currently, you create custom roles by using permissions for managing app registrations and then assigning the role to a specific app. For more information about custom roles, see [Custom administrator roles in Azure Active Directory (preview)](../roles/custom-overview.md).
 
-If you need additional permissions or resources supported, which you don't currently see, you can send feedback to our [Azure feedback site](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032) and we'll add your request to our update road map.
+If you need additional permissions or resources supported, which you don't currently see, you can send feedback to our [Azure feedback site](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) and we'll add your request to our update road map.
 
 ---
 
@@ -3550,13 +3878,13 @@ New user interface changes are coming to the design of the **Add from the galler
 
 ---
 
-### Plan for change: Removal of the MFA server IP address from the Office 365 IP address
+### Plan for change: Removal of the multi-factor authentication (MFA) server IP address from the Office 365 IP address
 
 **Type:** Plan for change
 **Service category:** MFA
 **Product capability:** Identity Security & Protection
 
-We're removing the MFA server IP address from the [Office 365 IP Address and URL Web service](/office365/enterprise/office-365-ip-web-service). If you currently rely on these pages to update your firewall settings, you must make sure you're also including the list of IP addresses documented in the **Azure Active Directory Multi-factor Authentication Server firewall requirements** section of the [Getting started with the Azure Active Directory Multi-factor Authentication Server](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements) article.
+We're removing the multi-factor authentication (MFA) server IP address from the [Office 365 IP Address and URL Web service](/office365/enterprise/office-365-ip-web-service). If you currently rely on these pages to update your firewall settings, you must make sure you're also including the list of IP addresses documented in the **Azure Active Directory Multi-Factor Authentication Server firewall requirements** section of the [Getting started with the Azure Active Directory Multi-Factor Authentication Server](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements) article.
 
 ---
 
@@ -3853,15 +4181,15 @@ For more information about setting up your company branding, see [Add branding t
 
 ---
 
-### Azure Active Directory Multi-factor Authentication (MFA) Server is no longer available for new deployments
+### Azure Active Directory Multi-Factor Authentication (MFA) Server is no longer available for new deployments
 
 **Type:** Deprecated
 **Service category:** MFA
 **Product capability:** Identity Security & Protection
 
-As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who want to require multifactor authentication in their organization must now use cloud-based Azure AD Multi-Factor Authentication. Customers who activated MFA Server prior to July 1 won't see a change. You'll still be able to download the latest version, get future updates, and generate activation credentials.
+As of July 1, 2019, Microsoft will no longer offer multi-factor authentication (MFA) Server for new deployments. New customers who want to require multifactor authentication in their organization must now use cloud-based Azure AD Multi-Factor Authentication. Customers who activated multi-factor authentication (MFA) Server prior to July 1 won't see a change. You'll still be able to download the latest version, get future updates, and generate activation credentials.
 
-For more information, see [Getting started with the Azure Active Directory Multi-factor Authentication Server](../authentication/howto-mfaserver-deploy.md). For more information about cloud-based Azure AD Multi-Factor Authentication, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+For more information, see [Getting started with the Azure Active Directory Multi-Factor Authentication Server](../authentication/howto-mfaserver-deploy.md). For more information about cloud-based Azure AD Multi-Factor Authentication, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -4388,19 +4716,19 @@ For more information about how create an access review using Azure AD Access Rev
 
 In February 2019, we've added these 27 new apps with Federation support to the app gallery:
 
-[Euromonitor Passport](../saas-apps/euromonitor-passport-tutorial.md), [MindTickle](../saas-apps/mindtickle-tutorial.md), [FAT FINGER](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7), [AirStack](../saas-apps/airstack-tutorial.md), [Oracle Fusion ERP](../saas-apps/oracle-fusion-erp-tutorial.md), [IDrive](../saas-apps/idrive-tutorial.md), [Skyward Qmlativ](../saas-apps/skyward-qmlativ-tutorial.md), [Brightidea](../saas-apps/brightidea-tutorial.md), [AlertOps](../saas-apps/alertops-tutorial.md), [Soloinsight-CloudGate SSO](../saas-apps/soloinsight-cloudgate-sso-tutorial.md), Permission Click, [Brandfolder](../saas-apps/brandfolder-tutorial.md), [StoregateSmartFile](../saas-apps/smartfile-tutorial.md), [Pexip](../saas-apps/pexip-tutorial.md), [Stormboard](../saas-apps/stormboard-tutorial.md), [Seismic](../saas-apps/seismic-tutorial.md), [Share A Dream](https://www.shareadream.org/how-it-works), [Bugsnag](../saas-apps/bugsnag-tutorial.md), [webMethods Integration Cloud](../saas-apps/webmethods-integration-cloud-tutorial.md), [Knowledge Anywhere LMS](../saas-apps/knowledge-anywhere-lms-tutorial.md), [OU Campus](../saas-apps/ou-campus-tutorial.md), [Periscope Data](../saas-apps/periscope-data-tutorial.md), [Netop Portal](../saas-apps/netop-portal-tutorial.md), [smartvid.io](../saas-apps/smartvid.io-tutorial.md), [PureCloud by Genesys](../saas-apps/purecloud-by-genesys-tutorial.md), [ClickUp Productivity Platform](../saas-apps/clickup-productivity-platform-tutorial.md)
+[Euromonitor Passport](../saas-apps/euromonitor-passport-tutorial.md), [MindTickle](../saas-apps/mindtickle-tutorial.md), [FAT FINGER](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7), [AirStack](../saas-apps/airstack-tutorial.md), [Oracle Fusion ERP](../saas-apps/oracle-fusion-erp-tutorial.md), [IDrive](../saas-apps/idrive-tutorial.md), [Skyward Qmlativ](../saas-apps/skyward-qmlativ-tutorial.md), [Brightidea](../saas-apps/brightidea-tutorial.md), [AlertOps](../saas-apps/alertops-tutorial.md), [Soloinsight-CloudGate SSO](../saas-apps/soloinsight-cloudgate-sso-tutorial.md), Permission Click, [Brandfolder](../saas-apps/brandfolder-tutorial.md), [StoregateSmartFile](../saas-apps/smartfile-tutorial.md), [Pexip](../saas-apps/pexip-tutorial.md), [Stormboard](../saas-apps/stormboard-tutorial.md), [Seismic](../saas-apps/seismic-tutorial.md), [Share A Dream](https://www.shareadream.org/), [Bugsnag](../saas-apps/bugsnag-tutorial.md), [webMethods Integration Cloud](../saas-apps/webmethods-integration-cloud-tutorial.md), [Knowledge Anywhere LMS](../saas-apps/knowledge-anywhere-lms-tutorial.md), [OU Campus](../saas-apps/ou-campus-tutorial.md), [Periscope Data](../saas-apps/periscope-data-tutorial.md), [Netop Portal](../saas-apps/netop-portal-tutorial.md), [smartvid.io](../saas-apps/smartvid.io-tutorial.md), [PureCloud by Genesys](../saas-apps/purecloud-by-genesys-tutorial.md), [ClickUp Productivity Platform](../saas-apps/clickup-productivity-platform-tutorial.md)
 
 For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
-### Enhanced combined MFA/SSPR registration
+### Enhanced combined multi-factor authentication (MFA)/SSPR registration
 
 **Type:** Changed feature
 **Service category:** Self Service Password Reset
 **Product capability:** User Authentication
 
-In response to customer feedback, we've enhanced the combined MFA/SSPR registration preview experience, helping your users to more quickly register their security info for both MFA and SSPR.
+In response to customer feedback, we've enhanced the combined multi-factor authentication (MFA)/SSPR registration preview experience, helping your users to more quickly register their security info for both multi-factor authentication (MFA) and SSPR.
 
 **To turn on the enhanced experience for your users' today, follow these steps:**
 
@@ -4408,7 +4736,7 @@ In response to customer feedback, we've enhanced the combined MFA/SSPR registrat
 
 2. In the **Users who can use the preview features for registering and managing security info – refresh** option, choose to turn on the features for a **Selected group of users** or for **All users**.
 
-Over the next few weeks, we'll be removing the ability to turn on the old combined MFA/SSPR registration preview experience for tenants that don't already have it turned on.
+Over the next few weeks, we'll be removing the ability to turn on the old combined multi-factor authentication (MFA)/SSPR registration preview experience for tenants that don't already have it turned on.
 
 **To see if the control will be removed for your tenant, follow these steps:**
 
@@ -4416,7 +4744,7 @@ Over the next few weeks, we'll be removing the ability to turn on the old combin
 
 2. If the **Users who can use the preview features for registering and managing security info** option is set to **None**, the option will be removed from your tenant.
 
-Regardless of whether you previously turned on the old combined MFA/SSPR registration preview experience for users or not, the old experience will be turned off at a future date. Because of that, we strongly suggest that you move to the new, enhanced experience as soon as possible.
+Regardless of whether you previously turned on the old combined multi-factor authentication (MFA)/SSPR registration preview experience for users or not, the old experience will be turned off at a future date. Because of that, we strongly suggest that you move to the new, enhanced experience as soon as possible.
 
 For more information about the enhanced registration experience, see the [Cool enhancements to the Azure AD combined MFA and password reset registration experience](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271).
 
@@ -4510,7 +4838,7 @@ For more information about the new cookies, see [Cookie settings for accessing o
 
 In January 2019, we've added these 35 new apps with Federation support to the app gallery:
 
-[Firstbird](../saas-apps/firstbird-tutorial.md), [Folloze](../saas-apps/folloze-tutorial.md), [Talent Palette](../saas-apps/talent-palette-tutorial.md), [Infor CloudSuite](../saas-apps/infor-cloud-suite-tutorial.md), [Cisco Umbrella](../saas-apps/cisco-umbrella-tutorial.md), [Zscaler Internet Access Administrator](../saas-apps/zscaler-internet-access-administrator-tutorial.md), [Expiration Reminder](../saas-apps/expiration-reminder-tutorial.md), [InstaVR Viewer](../saas-apps/instavr-viewer-tutorial.md), [CorpTax](../saas-apps/corptax-tutorial.md), [Verb](https://app.verb.net/login), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Close](../saas-apps/pavaso-digital-close-tutorial.md), [GoodPractice Toolkit](../saas-apps/goodpractice-toolkit-tutorial.md), [Cloud Service PICCO](../saas-apps/cloud-service-picco-tutorial.md), [AuditBoard](../saas-apps/auditboard-tutorial.md), [iProva](../saas-apps/iprova-tutorial.md), [Workable](../saas-apps/workable-tutorial.md), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO System](../saas-apps/gtnexus-sso-module-tutorial.md), [CBRE ServiceInsight](../saas-apps/cbre-serviceinsight-tutorial.md), [Deskradar](../saas-apps/deskradar-tutorial.md), [Coralogixv](../saas-apps/coralogix-tutorial.md), [Signagelive](../saas-apps/signagelive-tutorial.md), [ARES for Enterprise](../saas-apps/ares-for-enterprise-tutorial.md), [K2 for Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](../saas-apps/idid-manager-tutorial.md), [HighGear](../saas-apps/highgear-tutorial.md), [Visitly](../saas-apps/visitly-tutorial.md), [Korn Ferry ALP](../saas-apps/korn-ferry-alp-tutorial.md), [Acadia](../saas-apps/acadia-tutorial.md), [Adoddle cSaas Platform](../saas-apps/adoddle-csaas-platform-tutorial.md)
+[Firstbird](../saas-apps/firstbird-tutorial.md), [Folloze](../saas-apps/folloze-tutorial.md), [Talent Palette](../saas-apps/talent-palette-tutorial.md), [Infor CloudSuite](../saas-apps/infor-cloud-suite-tutorial.md), [Cisco Umbrella](../saas-apps/cisco-umbrella-tutorial.md), [Zscaler Internet Access Administrator](../saas-apps/zscaler-internet-access-administrator-tutorial.md), [Expiration Reminder](../saas-apps/expiration-reminder-tutorial.md), [InstaVR Viewer](../saas-apps/instavr-viewer-tutorial.md), [CorpTax](../saas-apps/corptax-tutorial.md), [Verb](https://app.verb.net/login), [OpenLattice](https://help.openlattice.com/), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Close](../saas-apps/pavaso-digital-close-tutorial.md), [GoodPractice Toolkit](../saas-apps/goodpractice-toolkit-tutorial.md), [Cloud Service PICCO](../saas-apps/cloud-service-picco-tutorial.md), [AuditBoard](../saas-apps/auditboard-tutorial.md), [iProva](../saas-apps/iprova-tutorial.md), [Workable](../saas-apps/workable-tutorial.md), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO System](../saas-apps/gtnexus-sso-module-tutorial.md), [CBRE ServiceInsight](../saas-apps/cbre-serviceinsight-tutorial.md), [Deskradar](../saas-apps/deskradar-tutorial.md), [Coralogixv](../saas-apps/coralogix-tutorial.md), [Signagelive](../saas-apps/signagelive-tutorial.md), [ARES for Enterprise](../saas-apps/ares-for-enterprise-tutorial.md), [K2 for Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](../saas-apps/idid-manager-tutorial.md), [HighGear](../saas-apps/highgear-tutorial.md), [Visitly](../saas-apps/visitly-tutorial.md), [Korn Ferry ALP](../saas-apps/korn-ferry-alp-tutorial.md), [Acadia](../saas-apps/acadia-tutorial.md), [Adoddle cSaas Platform](../saas-apps/adoddle-csaas-platform-tutorial.md)
 
 For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
@@ -5038,15 +5366,15 @@ For this and other protocols-related changes, see [the full list of what's new f
 
 ---
 
-### Converged security info management for self-service password (SSPR) and Multi-Factor Authentication (MFA)
+### Converged security info management for self-service password (SSPR) and multi-factor authentication (MFA)
 
 **Type:** New feature
 **Service category:** SSPR
 **Product capability:** User Authentication
 
-This new feature helps people manage their security info (such as, phone number, mobile app, and so on) for SSPR and MFA in a single location and experience; as compared to previously, where it was done in two different locations.
+This new feature helps people manage their security info (such as, phone number, mobile app, and so on) for SSPR and multi-factor authentication (MFA) in a single location and experience; as compared to previously, where it was done in two different locations.
 
-This converged experience also works for people using either SSPR or MFA. Additionally, if your organization doesn't enforce MFA or SSPR registration, people can still register any MFA or SSPR security info methods allowed by your organization from the My Apps portal.
+This converged experience also works for people using either SSPR or multi-factor authentication (MFA). Additionally, if your organization doesn't enforce multi-factor authentication (MFA) or SSPR registration, people can still register any multi-factor authentication (MFA) or SSPR security info methods allowed by your organization from the My Apps portal.
 
 This is an opt-in public preview. Administrators can turn on the new experience (if desired) for a selected group or for all users in a tenant. For more information about the converged experience, see the [Converged experience blog](https://cloudblogs.microsoft.com/enterprisemobility/2018/08/06/mfa-and-sspr-updates-now-in-public-preview/)
 
@@ -5306,9 +5634,9 @@ Pass-through Authentication now supports legacy protocols and apps. The followin
 **Service category:** SSPR
 **Product capability:** User Authentication
 
-This new feature lets users manage their security info (for example, phone number, email address, mobile app, and so on) for self-service password reset (SSPR) and Multi-Factor Authentication (MFA) in a single experience. Users will no longer have to register the same security info for SSPR and MFA in two different experiences. This new experience also applies to users who have either SSPR or MFA.
+This new feature lets users manage their security info (for example, phone number, email address, mobile app, and so on) for self-service password reset (SSPR) and multi-factor authentication (MFA) in a single experience. Users will no longer have to register the same security info for SSPR and multi-factor authentication (MFA) in two different experiences. This new experience also applies to users who have either SSPR or multi-factor authentication (MFA).
 
-If an organization isn't enforcing MFA or SSPR registration, users can register their security info through the **My Apps** portal. From there, users can register any methods enabled for MFA or SSPR.
+If an organization isn't enforcing multi-factor authentication (MFA) or SSPR registration, users can register their security info through the **My Apps** portal. From there, users can register any methods enabled for multi-factor authentication (MFA) or SSPR.
 
 This is an opt-in public preview. Admins can turn on the new experience (if desired) for a selected group of users or all users in a tenant.
 
@@ -5456,7 +5784,7 @@ For more information, see [Azure Active Directory Terms of use feature](../condi
 
 We've released new step-by-step guidance about how to deploy Azure AD Multi-Factor Authentication (MFA) in your organization.
 
-To view the MFA deployment guide, go to the [Identity Deployment Guides](./active-directory-deployment-plans.md) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https://aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
+To view the Azure AD Multi-Factor Authentication (MFA) deployment guide, go to the [Identity Deployment Guides](./active-directory-deployment-plans.md) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https://aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
 ---
 
@@ -6333,9 +6661,9 @@ As of January 8, 2018, the Azure AD administration experience in the Azure class
 **Service category:** Azure AD
 **Product capability:** Directory
 
-As of January 8, 2018, the PhoneFactor web portal has been retired. This portal was used for the administration of MFA server, but those functions have been moved into the Azure portal at portal.azure.com.
+As of January 8, 2018, the PhoneFactor web portal has been retired. This portal was used for the administration of multi-factor authentication (MFA) server, but those functions have been moved into the Azure portal at portal.azure.com.
 
-The MFA configuration is located at: **Azure Active Directory \> MFA Server**
+The multi-factor authentication (MFA) configuration is located at: **Azure Active Directory \> multi-factor authentication (MFA) Server**
 
 ---
 
@@ -6640,12 +6968,12 @@ For more information, see:
 ### Network Policy Server extension for Azure AD Multi-Factor Authentication
 
 **Type:** New feature
-**Service category:**  Multi-factor Authentication
+**Service category:**  Multi-factor authentication
 **Product capability:** User authentication
 
 The Network Policy Server extension for Azure Active Directory (Azure AD) Multi-Factor Authentication adds cloud-based multifactor authentication capabilities to your authentication infrastructure by using your existing servers. With the Network Policy Server extension, you can add phone call, text message, or phone app verification to your existing authentication flow. You don't have to install, configure, and maintain new servers.
 
-This extension was created for organizations that want to protect virtual private network connections without deploying the Azure Active Directory Multi-factor Authentication Server. The Network Policy Server extension acts as an adapter between RADIUS and cloud-based Azure AD Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
+This extension was created for organizations that want to protect virtual private network connections without deploying the Azure Active Directory Multi-Factor Authentication Server. The Network Policy Server extension acts as an adapter between RADIUS and cloud-based Azure AD Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
 
 For more information, see [Integrate your existing Network Policy Server infrastructure with Azure AD Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
 
@@ -6746,15 +7074,15 @@ Due to a service issue, this functionality was temporarily disabled. The issue w
 ### New Multi-Factor Authentication features
 
 **Type:** New feature
-**Service category:** Multi-factor Authentication
+**Service category:** Multi-factor authentication
 **Product capability:** Identity security and protection
 
-Azure Active Directory (Azure AD) Multi-factor Authentication (MFA) is an essential part of protecting your organization. To make credentials more adaptive and the experience more seamless, the following features were added:
+Azure Active Directory Multi-Factor Authentication (MFA) is an essential part of protecting your organization. To make credentials more adaptive and the experience more seamless, the following features were added:
 
-- Multi-factor challenge results are directly integrated into the Azure AD sign-in report, which includes programmatic access to MFA results.
-- The MFA configuration is more deeply integrated into the Azure AD configuration experience in the Azure portal.
+- Multi-factor challenge results are directly integrated into the Azure AD sign-in report, which includes programmatic access to multi-factor authentication (MFA) results.
+- The multi-factor authentication (MFA) configuration is more deeply integrated into the Azure AD configuration experience in the Azure portal.
 
-With this public preview, MFA management and reporting are an integrated part of the core Azure AD configuration experience. Now you can manage the MFA management portal functionality within the Azure AD experience.
+With this public preview, multi-factor authentication (MFA) management and reporting are an integrated part of the core Azure AD configuration experience. Now you can manage the multi-factor authentication (MFA) management portal functionality within the Azure AD experience.
 
 For more information, see [Reference for MFA reporting in the Azure portal](../authentication/howto-mfa-reporting.md).
 

@@ -40,6 +40,8 @@ The following table details the offer IDs that are eligible to deploy Windows cl
 | [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
 | [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
 
+For more information, see [Understand Microsoft offer types](../../cost-management-billing/costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers)
+
 ## Check your Azure subscription
 If you do not know your offer ID, you can obtain it through the Azure portal.  
 - On the *Subscriptions* window:

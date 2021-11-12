@@ -71,7 +71,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
 
     | Key | Value |
     |---|---|
-    | sentinel | 1 |
+    | Sentinel | 1 |
 
     Leave **Label** and **Content Type** empty for now.
 
@@ -98,11 +98,11 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
     |---|---|
     | /application/config.message | Hello - Updated |
 
-1. Update the sentinel key you created earlier to a new value. This change will trigger the application to refresh all configuration keys once the the refresh interval has passed.
+1. Update the sentinel key you created earlier to a new value. This change will trigger the application to refresh all configuration keys once the refresh interval has passed.
 
     | Key | Value |
     |---|---|
-    | sentinel | 2 |
+    | Sentinel | 2 |
 
 1. Refresh the browser page to see the new message displayed.
 

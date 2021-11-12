@@ -21,8 +21,8 @@ Autoscale continuously monitors the Spark instance and collects the following me
 
 |Metric|Description|
 |---|---|
-|Total Pending CPU|The total number of cores required to start execution of all pending nodes.|
-|Total Pending Memory|The total memory (in MB) required to start execution of all pending nodes.|
+|Total Pending CPU|The total number of cores required to start execution of all pending jobs.|
+|Total Pending Memory|The total memory (in MB) required to start execution of all pending jobs.|
 |Total Free CPU|The sum of all unused cores on the active nodes.|
 |Total Free Memory|The sum of unused memory (in MB) on the active nodes.|
 |Used Memory per Node|The load on a node. A node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.|
@@ -40,7 +40,7 @@ When the following conditions are detected, Autoscale will issue a scale request
 
 For scale-up, the Azure Synapse Autoscale service calculates how many new nodes are needed to meet the current CPU and memory requirements, and then issues a scale-up request to add the required number of nodes.
 
-For scale-down, based on the number of executors, application masters per node and the current CPU and memory requirements, Autoscale issues a request to remove a certain number of nodes. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
+For scale-down, based on the number of executors, application masters per node, the current CPU and memory requirements, Autoscale issues a request to remove a certain number of nodes. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
 
 ## Get started
 

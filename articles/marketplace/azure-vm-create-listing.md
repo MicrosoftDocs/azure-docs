@@ -6,21 +6,21 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/20/2020
+ms.reviewer: amhindma
+ms.date: 11/11/2021
 ---
 
 # Configure virtual machine offer listing details
 
-On the **Offer listing** page (select from the left-nav menu in Partner Center), you define the offer details such as offer name, description, links, and contacts.
+On the **Offer listing** page (select from the left-nav menu in Partner Center), you define the offer details such as offer name, description, links, and support contacts.
 
-> [!NOTE]
-> Your offer listing content, such as the description, documents, screenshots, and terms of use, doesn't have to be in English, as long as the offer description begins with the phrase, "This application is available only in \<non-English language>." You can also provide a web address to link to a site that offers content in a language other than the one that's used in the offer listing content.
+Offer listing content is not required to be in English as long as the offer description begins with the phrase "This application is available only in [non-English language]." You can also link to a site that offers content in a language other than the one that's used in the offer listing content.
 
 ## Marketplace details
 
 ### Name
 
-The name you enter here is shown to customers as the title of your offer listing. This field is auto-filled with the name that you entered in the **Offer alias** box when you created the offer. The name:
+The name entered here should be descriptive because it will be the title of your offer listing. This field is autofilled with the name that you entered in the **Offer alias** box when you created the offer. The name:
 
 - Can include trademark and copyright symbols.
 - Must be 50 characters or less.
@@ -28,19 +28,26 @@ The name you enter here is shown to customers as the title of your offer listing
 
 ### Search results summary
 
-Provide a short description of your offer to display in Azure Marketplace search results. It can contain up to 100 characters.
+Provide a brief summary of the purpose or function of your offer to display on your offer’s search results page in Azure Marketplace.
 
 ### Short description
 
-Provide a longer description of your offer to display in Azure Marketplace search results. It can contain up to 256 characters.
+Provide a short description of your offer to display on your offer’s details page in Azure Marketplace.
 
 ### Description
 
-[!INCLUDE [Long description-1](includes/long-description-1.md)]
+Provide a thorough Description of your offer to display to customers in the Azure Marketplace listing overview.
+
+Consider including the following items in your description:
+
+- Description of the offer
+- The type of user who benefits from the offer
+- The customer needs or issues that the offer addresses
+- Category and/or industry associations selected within the Properties tab
+- In-app purchase opportunities
+- Any required disclosures
 
 [!INCLUDE [Long description-2](includes/long-description-2.md)]
-
-Use HTML tags to format your description so it's more engaging. For a list of allowed tags, see [Supported HTML tags](supported-html-tags.md).
 
 ### Privacy policy link
 
@@ -48,58 +55,62 @@ Enter the web address (URL) of your organization's privacy policy. Ensure your o
 
 ## Useful links
 
-Provide supplemental online documents about your offer. To add a link, select **Add a link** and complete the following fields:
+Provide additional product related links and support links for your offer.
 
-- **Name**: Customers will see the name on the details page.
+### Product information links
+
+Optionally, provide supplemental online documents about your offer. To add a link, select **+ Add a link** and complete the following fields for each link you add:
+
+- **Name**: Customers will see this name as a link on the details page.
 - **Link**: Enter a web address that lets customers view your online document.
 
-## Customer support links
+### Customer support links
 
-Provide the support website where customers can reach your support team.
+Provide the support website(s) where customers can reach your support team.
 
-- Azure Global support website
-- Azure Government support website
+- Azure Global support website (specific for Azure Global customers)
+- Azure Government support website (specific for Azure Government customers)
 
-## Partner support contact
+## Contact information
+
+Provide the following contact information.
+
+### Partner support contact
 
 Provide the **Name**, **Email**, and **Phone** for Microsoft partners to use when your customers open a support ticket. This information isn't listed on Azure Marketplace.
 
-## Engineering contact
+### Engineering contact
 
 Provide the **Name**, **Email**, and **Phone** for Microsoft to use when there are issues with your offer, including issues with certification. This information isn't listed on Azure Marketplace.
 
-## Cloud Solution Provider Program contact
+### Cloud Solution Provider Program contact
 
-Provide the **Name**, **Email**, and **Phone** of the person who handles your CSP program (if applicable). This information isn't listed on Azure Marketplace. For **CSP Program Marketing Materials**, enter the web address where partners in this program can view your marketing materials.
+If applicable, provide the **Name**, **Email**, and **Phone** of the contact for partners in the Cloud Solution Provider (CSP) program to use for support and business issues. This information is only shown to CSP partners and isn't listed on Azure Marketplace. For **CSP Program Marketing Materials**, enter the web address where partners in this program can view your marketing materials.
 
 ## Marketplace media
 
-Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
+Provide logos, screenshots, and videos to use with your offer. These will appear on the search results and detail pages in the Azure Marketplace. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 
 ### Logos
 
-Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later. These logos are used in different places in the listing:
 
-- **Large** (from 216 x 216 to 350 x 350 px, required)
-- **Medium** (90 x 90 px, optional)
-- **Small** (48 x 48 px, optional)
-
-These logos are used in different places in the listing:
-
-[!INCLUDE [logos-azure-marketplace-only](includes/logos-azure-marketplace-only.md)]
+- **Large** (from 216 x 216 to 350 x 350 px, required) - Appears on your offer details page in Azure Marketplace
+- **Medium** (90 x 90 px, optional) - Appears when you create a new resource in the Azure portal
+- **Small** (48 x 48 px, optional) - Appears in the search results of Azure Marketplace
 
 [!INCLUDE [Logo tips](includes/graphics-suggestions.md)]
 
 ### Screenshots
 
-Add up to five screenshots that show how your offer works. Each screenshot must be 1280 x 720 pixels in size and in PNG format. Each screenshot must include a caption.
+Optionally, add up to five screenshots that show how your offer works. Incorporate key search words in the file names. Each screenshot must be 1280 x 720 pixels in size and in PNG format. Each screenshot must include a caption. Add a caption by selecting the pencil icon that appears after uploading an image.
 
 ### Videos
 
-Add up to five videos that demonstrate your offer. The videos should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 x 720 pixels.
+Add up to five videos that demonstrate your offer. The videos should be hosted on an external video service (YouTube or Vimeo only). Enter each video's Name, Link, and a Thumbnail of the video as a 1280 x 720 pixel PNG image.
 
 For additional marketplace listing resources, see [Best practices for marketplace offer listings](gtm-offer-listing-best-practices.md).
 

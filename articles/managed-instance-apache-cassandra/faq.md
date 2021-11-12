@@ -1,11 +1,12 @@
 ---
 title: Frequently asked questions about Azure Managed Instance for Apache Cassandra from the Azure portal
-description:  Frequently asked questions about Azure Managed Instance for Apache Cassandra. This article addresses questions on when to use managed instances, benefits, throughput limits, supported regions, and other configuration details. 
+description: Frequently asked questions about Azure Managed Instance for Apache Cassandra. This article addresses questions on when to use managed instances, benefits, throughput limits, supported regions, and other configuration details.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 # Frequently asked questions about Azure Managed Instance for Apache Cassandra
 
@@ -65,7 +66,7 @@ Yes, you can configure a hybrid cluster with Azure Virtual Network injected data
 
 ### Where can I give feedback on Azure Managed Instance for Apache Cassandra features?
 
-Provide feedback via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db?category_id=398548) using the category "Managed Apache Cassandra".
+Provide feedback via [user voice feedback](https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858?c=e6e5c7c4-0d25-ec11-b6e6-000d3a4f0858#) using the category "Managed Apache Cassandra".
 
 To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 

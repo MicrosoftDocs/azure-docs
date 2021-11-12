@@ -562,7 +562,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |MoveExistingReplicaForPlacement | Bool, default is true |Dynamic|Setting which determines if to move existing replica during placement. |
 |MovementPerPartitionThrottleCountingInterval | Time in seconds, default is 600 |Static| Specify timespan in seconds. Indicate the length of the past interval for which to track replica movements for each partition (used along with MovementPerPartitionThrottleThreshold). |
 |MovementPerPartitionThrottleThreshold | Uint, default is 50 |Dynamic| No balancing-related movement will occur for a partition if the number of balancing related movements for replicas of that partition has reached or exceeded MovementPerFailoverUnitThrottleThreshold in the past interval indicated by MovementPerPartitionThrottleCountingInterval. |
-|MoveParentToFixAffinityViolation | Bool, default is false |Dynamic| Setting which determines if parent replicas can be moved to fix affinity constraints.|
+|MoveParentToFixAffinityViolation | Bool, default is true |Dynamic| Setting which determines if parent replicas can be moved to fix affinity constraints.|
 |NodeTaggingEnabled | Bool, default is false |Dynamic| If true; NodeTagging feature will be enabled. |
 |NodeTaggingConstraintPriority | Int, default is 0 |Dynamic| Configurable priority of node tagging. |
 |PartiallyPlaceServices | Bool, default is true |Dynamic| Determines if all service replicas in cluster will be placed "all or nothing" given limited suitable nodes for them.|
