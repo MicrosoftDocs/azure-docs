@@ -35,6 +35,10 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
   The Backup and Restore blade will also include section dedicated to listing your most frequently asked questions, together with answers. This should provide you with answers to most questions about backup directly within the Azure portal. In addition, selecting the question mark icon for FAQs on the top menu provides access to even more related detail.
 
+- **Restore a deleted Flexible server**
+    
+  The service now allows you to recover a deleted MySQL flexible server resource within 5 days from the time of server deletion. For a detailed guide on how to restore a deleted server, [refer documented steps](../flexible-server/how-to-restore-dropped-server.md). To protect server resources post deployment from accidental deletion or unexpected changes, we recommend administrators to leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
+
 - **Known issues**
 
 On servers where we have HA and  Geo-redundant backup option enabled, we found an rare issue encountered by a race condition which blocks the restart of the standby server to finish. As a result of this issue, when you failover the  HA enabled Azure database for MySQL - Flexible server MySQL Instance may get stuck in restarting state for a long time. The fix will be deployed to the production in the next deployment cycle.

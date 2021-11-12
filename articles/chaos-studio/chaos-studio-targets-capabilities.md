@@ -106,4 +106,4 @@ returns the following JSON:
 ## Next steps
 Now that you understand what targets and capabilities are, you are ready to:
 - [Learn about faults and actions](chaos-studio-faults-actions.md)
-- [Create and run your first experiment](chaos-studio-tutorial-service-direct.md)
+- [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)

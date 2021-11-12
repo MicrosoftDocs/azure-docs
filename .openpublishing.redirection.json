@@ -448,6 +448,21 @@
       "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
       "redirect_document_id": false
     },
+    { 
+      "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations.md",
+      "redirect_url": "/azure/frontdoor/edge-locations-by-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations-by-abbreviation.md",
+      "redirect_url": "/azure/frontdoor/edge-locations-by-abbreviation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/edge-locations-abbreviation.md",
+      "redirect_url": "/azure/frontdoor/edge-locations-by-abbreviation",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
       "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
@@ -47434,6 +47449,21 @@
     {
     "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-agent-based.md",
+      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-agent-based-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-service-direct.md",
+      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-service-direct-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
+      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
       "redirect_document_id": false
     }
   ]
