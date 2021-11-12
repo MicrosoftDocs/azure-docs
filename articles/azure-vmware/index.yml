@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: suzizuber
   ms.author: v-szuber 
-  ms.date: 10/06/2021 
+  ms.date: 11/12/2021 
 
 
 # card 1
@@ -74,19 +74,25 @@ landingContent:
         - text: 7 - Scale in a private cloud
           url: tutorial-scale-private-cloud.md
         - text: 8 - Delete a private cloud
-          url: tutorial-delete-private-cloud.md
+          url: tutorial-delete-private-cloud.md     
 
 # card 2
-  - title: Disaster recovery
+  - title: Enterprise-Scale for Azure VMware Solution
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: architecture
         links:
-        - text: Deploy JetStream DR
-          url: deploy-disaster-recovery-using-jetstream.md
-        - text: Deploy VMware HCX for disaster recovery
-          url: deploy-disaster-recovery-using-vmware-hcx.md
-        - text: Deploy VMware SRM for disaster recovery
-          url: disaster-recovery-using-vmware-site-recovery-manager.md
+        - text: Identity and access management
+          url: eslz-identity-and-access-management.md
+        - text: Network topology and connectivity
+          url: eslz-network-topology-connectivity.md
+        - text: Management and monitoring
+          url: eslz-management-and-monitoring.md
+        - text: Enterprise-scale business continuity and disaster recovery
+          url: eslz-business-continuity-and-disaster-recovery.md
+        - text: Enterprise-scale security, governance, and compliance
+          url: eslz-security-governance-and-compliance.md
+        - text: Platform automation and DevOps
+          url: eslz-platform-automation-and-devops.md
 
 # card 12
   - title: Identity management
@@ -164,6 +170,14 @@ landingContent:
           url: set-up-backup-server-for-azure-vmware-solution.md
         - text: Back up private cloud VMs with Backup Server
           url: backup-azure-vmware-solution-virtual-machines.md
+      - linkListType: deploy
+        links:
+        - text: Deploy JetStream DR
+          url: deploy-disaster-recovery-using-jetstream.md
+        - text: Deploy VMware HCX for disaster recovery
+          url: deploy-disaster-recovery-using-vmware-hcx.md
+        - text: Deploy VMware SRM for disaster recovery
+          url: disaster-recovery-using-vmware-site-recovery-manager.md          
 
 # card 7
   - title: VMware solutions
