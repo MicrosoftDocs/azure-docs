@@ -202,9 +202,11 @@ Use these steps to regenerate and download the Azure Stack Edge Pro GPU device c
 
 ::: zone-end
 
-    The device generated certificates are saved as DER certificates with the following name format: 
+The device generated certificates are saved as DER certificates with the following name format: 
 
-    `<Device name>_<Endpoint name>.cer`. These certificates contain the public key for the corresponding certificates installed on the device. 
+- `<Device name>_<Endpoint name>.cer`
+
+These certificates contain the public key for the corresponding certificates installed on the device. 
 
 You will need to install these certificates on the client system that you are using to access the endpoints on the Azure Stack Edge device. These certificates establish trust between the client and the device.
 
