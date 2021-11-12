@@ -808,7 +808,7 @@ Before you start executing remover script make sure, you have logged into your A
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/
   ```
 
-- Export the below two environment variables
+1. Export the following two environment variables.
 
   ```shell
     export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-hana
