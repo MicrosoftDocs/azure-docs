@@ -112,14 +112,15 @@ az ml model register -n bidaf_onnx \
 
 Set `-p` to the path of a folder or a file that you want to register.
 
+For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ml(v1)/model).
 
+### Register a model from an Azure ML training run
 
-> [!TIP]
-> If you need to register a model that was created previously through an Azure Machine Learning training job, you can specify the experiment, run, and path to the model:
->
-> ```azurecli-interactive
-> az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-name myexperiment --run-id myrunid --tag area=qna
-> ```
+If you need to register a model that was created previously through an Azure Machine Learning training job, you can specify the experiment, run, and path to the model:
+
+```azurecli-interactive
+az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-name myexperiment --run-id myrunid --tag area=qna
+```
 
 The `--asset-path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `--asset-path` to the path of a folder that contains the files.
 
