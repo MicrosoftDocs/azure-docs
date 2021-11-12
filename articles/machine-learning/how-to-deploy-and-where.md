@@ -19,7 +19,7 @@ adobe-target: true
 Learn how to deploy your machine learning or deep learning model as a web service in the Azure cloud.
 
 > [!TIP]
-> Managed online endpoints (preview) provide a way to deploy your trained model without your having to create and manage the underlying infrastructure. For more information, see [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
+> Managed online endpoints (preview) provide a way to deploy your trained model without having to create and manage the underlying infrastructure. For more information, see [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 
 ## Workflow for deploying a model
 
@@ -59,15 +59,13 @@ For more information on the concepts involved in the machine learning deployment
 
 # [Azure CLI](#tab/azcli)
 
-Do
+To see the workspaces that you have access to, use the following commands:
 
 ```azurecli-interactive
 az login
 az account set -s <subscription>
 az ml workspace list --resource-group=<resource-group>
 ```
-
-to see the workspaces you have access to.
 
 # [Python](#tab/python)
 
@@ -87,8 +85,8 @@ For more information on using the SDK to connect to a workspace, see the [Azure 
 
 A typical situation for a deployed machine learning service is that you need the following components:
 	
- + resources representing the specific model that you want deployed (for example: a pytorch model file)
- + code that you will be running in the service, that executes the model on a given input
++ Resources representing the specific model that you want deployed (for example: a pytorch model file).
++ Code that you will be running in the service, that executes the model on a given input.
 
 Azure Machine Learnings allows you to separate the deployment into two separate components, so that you can keep the same code, but merely update the model. We define the mechanism by which you upload a model _separately_ from your code as "registering the model".
 
