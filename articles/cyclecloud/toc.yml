@@ -216,7 +216,7 @@
   - name: Azure Community Forums
     href: https://social.msdn.microsoft.com/Forums/home?forum=azurecyclecloud
   - name: Azure CycleCloud Feedback
-    href: https://feedback.azure.com/forums/914491--azure-cyclecloud
+    href: https://feedback.azure.com/d365community/forum/ca60b1c2-eb24-ec11-b6e6-000d3a4f0da0
   - name: Release Notes
     items:
     - name: Current Release - v8.x
