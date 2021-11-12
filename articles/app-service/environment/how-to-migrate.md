@@ -48,7 +48,7 @@ If there are no errors, your migration is supported and you can continue to the 
 
 ### Pre-migration
 
-Pre-migration refers to [Step 1 of the migration process](migrate.md#step-1-of-migration). Run the following command to create the new IPs. This step will take about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this step.
+Pre-migration refers to [Step 1 of the migration process](migrate.md#overview-of-migration-process). Run the following command to create the new IPs. This step will take about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this step.
 
 ```azurecli
 az rest --method post --uri ${ASE_ID}/migrate?api-version=2021-02-01&phase=premigration
@@ -72,7 +72,7 @@ az rest --method get --uri ${ASE_ID}/configurations/networking
 
 ### Full migration
 
-Full migration refers to [Step 2 of the migration process](migrate.md#step-2-of-migration). Be sure to read the details of this step and understand what running the following command will do to your apps and your App Service Environment. Only start this step once you've completed all pre-migration actions and understand the implications of moving on. There will be about one hour of downtime during this step. Don't scale or make changes to your existing App Service Environment during this step.
+Full migration refers to [Step 2 of the migration process](migrate.md#overview-of-migration-process). Be sure to read the details of this step and understand what running the following command will do to your apps and your App Service Environment. Only start this step once you've completed all pre-migration actions and understand the implications of moving on. There will be about one hour of downtime during this step. Don't scale or make changes to your existing App Service Environment during this step.
 
 ```azurecli
 az rest --method post --uri ${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration
@@ -86,7 +86,7 @@ The response from this command will include a location that you can poll to chec
 
 Once you get a status of "Succeeded", migration is done and you now have an App Service Environment v3.
 
-Get the details of your new environment by running the following command or navigating to the [Azure portal](https://portal.azure.com).
+Get the details of your new environment by running the following command or by navigating to the [Azure portal](https://portal.azure.com).
 
 ```azurecli
 az appservice ase show --name $ASE_NAME --resource group $ASE_RG
@@ -99,7 +99,7 @@ If you experience any issues during the migration process...
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [App Service Environment v3 Networking](networking.md)
+> [Using an App Service Environment v3](using.md)
 
 > [!div class="nextstepaction"]
-> [Using an App Service Environment v3](using.md)
+> [App Service Environment v3 Networking](networking.md)
