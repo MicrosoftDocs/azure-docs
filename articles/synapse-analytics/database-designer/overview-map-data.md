@@ -23,7 +23,7 @@ Map Data provides for a guided experience where the user can generate a mapping 
 
 
 > [!NOTE] 
-The Map Data feature in Synapse Analytics pipelines is currently in public preview
+> The Map Data feature in Synapse Analytics pipelines is currently in public preview
 
 ## Getting started
 
