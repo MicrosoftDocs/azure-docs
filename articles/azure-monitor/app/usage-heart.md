@@ -1,6 +1,6 @@
 ---
 title: HEART Metrics and their Implementation
-description: Overview of Happiness, Engagement, Adoption, Retention, and Task Success metrics and how to instrument them
+description: Overview of Happiness, Engagement, Adoption, Retention, & Task Success metrics and how to instrument them
 ms.topic: conceptual
 ms.date: 11/11/2021
 
