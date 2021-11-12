@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/15/2021
 ---
 
-# Integrate environments into your Azure DevOps CI/CD pipelines
-You can use the Azure DevTest Labs Tasks extension that is installed in Azure DevOps Services (formerly known as Visual Studio Team Services) to easily integrate your continuous integration (CI)/ continuous delivery (CD) build-and-release pipeline with Azure DevTest Labs. These extensions make it easier to quickly deploy an [environment](devtest-lab-test-env.md) for a specific test task and then delete it when the test is finished. 
+# Integrate environments into your CI/CD pipelines 
+In this article, you'll learn how to create and deploy an environment, then delete the environment, all in one complete pipeline. You can use this environment to integrate your continuous integration (CI)/ continuous delivery (CD) release pipelines with Azure DevTest Labs. You'll use the Azure DevTest Labs Tasks extension in Azure DevOps Services for the integration. These extensions make it easier to quickly deploy an [environment](devtest-lab-test-env.md) for a specific test task, and then delete it when the test is finished. 
 
-This article shows how to create and deploy an environment, then delete the environment, all in one complete pipeline. You would ordinarily perform each of these tasks individually in your own custom build-test-deploy pipeline. The extensions used in this article are in addition to these [create/delete DTL VM tasks](devtest-lab-integrate-ci-cd.md):
+You would ordinarily perform each of these tasks individually in your own custom build-test-deploy pipeline. The extensions used in this article are in addition to these [create/delete DTL VM tasks](devtest-lab-integrate-ci-cd.md):
 
 - Create an Environment
 - Delete an Environment
@@ -19,11 +19,11 @@ Before you can integrate your CI/CD pipeline with Azure DevTest Labs, you must:
 1. [Create a lab](devtest-lab-create-lab.md) and ensure configured to use **Public Environment**.
 
 ## Create a release definition & environment
-To create the release definition, do the following:
+To create the release definition, follow these steps:
 
 1. In your Azure DevOps project, select **Releases** under the **Pipelines** section.
-1. On the **Releases** tab, select **New pipeline**.  In the **Select a template** window on the right is a list of featured templates for common deployment patterns. 
-1. For this pipeline, click **Empty Job** to start creating the environment to be used for development or testing purposes.
+1. On the **Releases** tab, select **New pipeline**.  In the **Select a template** window on the right, you can find the list of featured templates for common deployment patterns. 
+1. For this pipeline, select **Empty Job** to start creating the environment to be used for development or testing purposes.
 1. In the empty job, select **Tasks** in the toolbar, and then select **Stage 1**.
 
    :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-stage.png" alt-text="Screenshot shows opening the pipeline release stage.":::
@@ -44,7 +44,7 @@ To create the release definition, do the following:
    |**Repository Name**|Select the default repository, `Public Environment Repo`, or one containing the template you want to use. Manually entering the friendly name will cause failures, use the drop-down lists to select the information.|
    |**Template Name**|Select the name of the environment that you saved to your source code repository. Manually entering the friendly name will cause failures, use the drop-down lists to select the information.| 
    |**Environment Name**|Enter a name to uniquely identify the environment instance within the lab.  It must be unique within the lab.|
-   |**Parameters File** & **Parameter overrides**|Use to pass custom parameters to the environment. Either or both can be used to set the parameter values. For example, you can these to pass the encrypted password.|
+   |**Parameters File** & **Parameter overrides**|Use to pass custom parameters to the environment. Either or both can be used to set the parameter values. For example, you can use these fields to pass the encrypted password.|
 
 ## Delete the environment
 The final stage is to delete the Environment that you deployed in your Azure DevTest Labs instance. You would ordinarily delete the environment after you execute the dev tasks or run the tests that you need on the deployed resources.
