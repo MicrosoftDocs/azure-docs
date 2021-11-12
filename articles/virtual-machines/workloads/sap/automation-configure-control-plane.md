@@ -195,7 +195,7 @@ The table below contains the parameters that define the resource group and the r
 > | ---------------------  | ------------------------------------- | ----- | 
 > | `deployer_environment` | A five-character identifier for the workload zone. For example, `PROD` for a production environment and `NP` for a non-production environment. | Mandatory |
 > | `deployer_location`    | The Azure region in which to deploy.   | Mandatory |
-> | `deployer_vnet`        | The logical name for the deployer_vnet | Mandatory |
+> | `deployer_vnet`        | The logical name for the deployer VNet | Mandatory |
 
 
 ### SAP Installation media storage account
