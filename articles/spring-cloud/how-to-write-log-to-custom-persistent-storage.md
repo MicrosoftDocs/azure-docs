@@ -1,5 +1,5 @@
 ---
-title: How to use Logback to write logs to custom persistent storage | Microsoft Docs
+title: How to use Logback to write logs to custom persistent storage in Azure Spring Cloud | Microsoft Docs
 description: How to use Logback to write logs to custom persistent storage in Azure Spring Cloud.
 author: karlerickson
 ms.author: xuycao
@@ -97,7 +97,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
         --env LOGS=/byos/logs
    ```
 
-    You must mount your persistent storage to the same path as used in your application. Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. Make sure to pass the same value for the environment variable in the cli command above and in the `mountPath` property below: 
+    You must mount your persistent storage to the same path as used in your application. Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. Make sure to pass the same value for the environment variable in the CLI command above and in the `mountPath` property below: 
 
     ```json
     {
