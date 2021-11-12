@@ -84,11 +84,11 @@ Let's use this simple logback-spring.xml file as an example:
 </configuration>
 ```
 
-In the preceeding example, there are two placeholders named `{LOGS}` in the path for writing the application's logs to. A value needs to be assigned to the environment variable `LOGS` to have the log write to both the console and your persistent storage. Then attach your persistent storage to the same path in your application in Azure Spring Cloud.
+In the preceeding example, there are two placeholders named `{LOGS}` in the path for writing the application's logs to. A value needs to be assigned to the environment variable `LOGS` to have the log write to both the console and your persistent storage. 
 
 ## Use the Azure CLI to create and deploy Logback to write logs to persistent storage
 
-1. Use the following command to create an applicaiton in Azure Spring Cloud with persistent storage enabled and the environment variable set:
+1. Use the following command to create an application in Azure Spring Cloud with persistent storage enabled and the environment variable set:
 
     ```azurecli
     az spring-cloud app create \
@@ -99,7 +99,7 @@ In the preceeding example, there are two placeholders named `{LOGS}` in the path
        --env LOGS=/byos/logs
     ```
 
-    Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. Make sure to pass the same value for the environment variable in the cli command above and in the `mountPath` property below:
+    You must mount your persistent storage to the same path as used in your application. Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. Make sure to pass the same value for the environment variable in the cli command above and in the `mountPath` property below: 
 
     ```json
     {
