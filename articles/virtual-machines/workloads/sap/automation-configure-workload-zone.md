@@ -84,13 +84,13 @@ The table below contains the networking parameters.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                         | Description                                                          | Type      | Notes  |
 > | -------------------------------- | -------------------------------------------------------------------- | --------- | ------ |
-> | `iscsi_subnet_name`              | The name of the 'iscsi' subnet                                       | Optional  |        |
-> | `iscsi_subnet_address_prefix`    | The address range for the 'iscsi' subnet                             | Mandatory | Green field |
-> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the 'iscsi' subnet                 | Mandatory | Brown field |
-> | `iscsi_subnet_nsg_name`          |  The name of the 'iscsi' Network Security Group name                 | Optional  |         |
-> | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the 'iscsi' Network Security Group | Mandatory | Brown field |
+> | `iscsi_subnet_name`              | The name of the `iscsi` subnet                                       | Optional  |        |
+> | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet                             | Mandatory | Green field |
+> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the `iscsi` subnet                 | Mandatory | Brown field |
+> | `iscsi_subnet_nsg_name`          |  The name of the `iscsi` Network Security Group name                 | Optional  |         |
+> | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the `iscsi` Network Security Group | Mandatory | Brown field |
 > | `iscsi_count`                    | The number of iSCSI Virtual Machines                                 | Optional  |         |   
-> | `iscsi_use_DHCP`                 | Controls if Azure subnet provided IP addresses (dynamic) are used    | Optional  |         |
+> | `iscsi_use_DHCP`                 | Controls whether to use dynamic IP addresses provided by the Azure subnet   | Optional  |         |
 > | `iscsi_image`	                 | Defines the Virtual machine image to use, see below                  | Optional  |         |
 > | `iscsi_authentication_type`      | Defines the default authentication for the iSCSI Virtual Machines    | Optional  |         |
 > | `iscsi__authentication_username` | Administrator account name                                           | Optional  |         |
