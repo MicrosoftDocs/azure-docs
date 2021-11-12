@@ -26,7 +26,7 @@ Outbound connectivity to the internet can be enabled in the following ways in Az
 | 3 | Assigning a Public IP to the Virtual Machine | Static, explicit | Yes | OK | 
 | 4 | Using [default outbound access](../virtual-network/ip-services/default-outbound-access.md) | Implicit | No | Worst |
 
-## <a name="outboundrules"></a>Using the frontend IP address of a load balancer for outbound via outbound rules
+## <a name="outboundrules"></a>1. Using the frontend IP address of a load balancer for outbound via outbound rules
 
 Outbound rules enable you to explicitly define SNAT (source network address translation) for a Standard Public Load Balancer. This configuration allows you to use the public IP or IPs of your load balancer for outbound connectivity of the backend instances.
 
@@ -48,7 +48,7 @@ If you have Virtual Machine Scale Sets in the backend, it's recommended to alloc
 
 For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 
-## Associating a NAT gateway to the subnet
+## 2. Associating a NAT gateway to the subnet
 
 Virtual Network NAT simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
 
@@ -56,20 +56,20 @@ Using a NAT gateway is the best method for outbound connectivity. A NAT gateway 
 
 For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md).
 
-##  Assigning a public IP to the virtual machine
+##  3. Assigning a public IP to the virtual machine
 
  | Associations | Method | IP protocols |
  | ---------- | ------ | ------------ |
- | Public IP on VM's NIC | [SNAT (Source Network Address Translation)](#snat) </br> isn't used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
+ | Public IP on VM's NIC | SNAT (Source Network Address Translation) </br> isn't used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
 
- Traffic will return to the requesting client from the virtual machine's public IP address (Instance Level IP).
+Traffic will return to the requesting client from the virtual machine's public IP address (Instance Level IP).
  
- Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others. 
+Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others. 
 
- A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
+A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
 
 
-## Default Outbound Access
+## 4. Default Outbound Access
 
 >[!NOTE]
 > This method is **NOT recommended** for production workloads as it adds risk of exhausting ports. Please refrain from using this method for production workloads to avoid potential connection failures. 
@@ -94,7 +94,7 @@ A port used for a load balancing or inbound NAT rule consumes eight ports from t
 
 ### How does default SNAT work?
 
-When a VM creates an outbound flow, Azure translates the source IP address to an ephemeral IP address. This translation is done via [SNAT](#snat). 
+When a VM creates an outbound flow, Azure translates the source IP address to an ephemeral IP address. This translation is done via SNAT. 
 
 If using SNAT without Outbound rules via a Public Load Balancer, SNAT ports are pre-allocated as described in the default SNAT ports allocation table below.
 
