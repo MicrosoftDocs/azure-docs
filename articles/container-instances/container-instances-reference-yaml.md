@@ -64,6 +64,9 @@ properties: # Properties of container group
           command:
           - string
         httpGet:
+          httpHeaders:
+          - name: string
+            value: string
           path: string
           port: integer
           scheme: string
@@ -77,6 +80,9 @@ properties: # Properties of container group
           command:
           - string
         httpGet:
+          httpHeaders:
+          - name: string
+            value: string
           path: string
           port: integer
           scheme: string
@@ -89,6 +95,8 @@ properties: # Properties of container group
   - server: string
     username: string
     password: string
+    identity: string
+    identityUrl: string
   restartPolicy: string
   ipAddress: # IP address configuration of container group
     ports:
@@ -115,6 +123,7 @@ properties: # Properties of container group
     logAnalytics:
       workspaceId: string
       workspaceKey: string
+      workspaceResourceId: string
       logType: string
       metadata: {}
   subnetIds: # Subnet to deploy the container group into
@@ -213,6 +222,8 @@ The following tables describe the values you need to set in the schema.
 |  server | string | Yes | The Docker image registry server without a protocol such as "http" and "https". |
 |  username | string | Yes | The username for the private registry. |
 |  password | string | No | The password for the private registry. |
+|  identity | string | No? | The resource ID of the user or system-assigned managed identity used to authenticate. |
+|  identityUrl | string | No? | ? |
 
 
 
@@ -340,6 +351,7 @@ The following tables describe the values you need to set in the schema.
 |  ---- | ---- | ---- | ---- |
 |  workspaceId | string | Yes | The workspace id for log analytics |
 |  workspaceKey | string | Yes | The workspace key for log analytics |
+|  workspaceResourceId | string | Yes? | The workspace resource id for log analytics |
 |  logType | enum | No | The log type to be used. - ContainerInsights or ContainerInstanceLogs |
 |  metadata | object | No | Metadata for log analytics. |
 
@@ -448,9 +460,14 @@ The following tables describe the values you need to set in the schema.
 |  path | string | No | The path to probe. |
 |  port | integer | Yes | The port number to probe. |
 |  scheme | enum | No | The scheme. - http or https |
+|  httpHeaders | object | No? | The HTTP headers included in the probe. - [HttpHeaders object](#httpheaders-object) |
 
+### HttpHeaders object
 
-
+|  Name | Type | Required | Value |
+|  ---- | ---- | ---- | ---- |
+|  name | string | No? | Name of the header. |
+|  value | string | No? | Value of the header. |
 
 ### GpuResource object
 
