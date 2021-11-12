@@ -454,7 +454,7 @@ Below neural voices are in public preview.
 > [!TIP]
 > `en-US-JennyNeuralMultilingual` supports multiple languages. Check the [voices list API](rest-text-to-speech.md#get-a-list-of-voices) for supported languages list.
 
-For more information about regional availability, see [regions](regions.md#prebuilt-neural--voices).
+For more information about regional availability, see [regions](regions.md#prebuilt-neural-voices).
 
 To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
