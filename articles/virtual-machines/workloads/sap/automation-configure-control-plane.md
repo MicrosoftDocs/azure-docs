@@ -58,6 +58,7 @@ The recommended CIDR value for the firewall subnet is /26 that allows 64 IP addr
 
 The table below contains the networking parameters.
 
+> [!div class="mx-tdCol2BreakAll "]
 > | Variable                                    | Description                                                      | Type       | Notes  |
 > | ------------------------------------------  | ---------------------------------------------------------------- | ---------- | ------ |
 > | `management_network_name`                   | The logical name of the network (DEV-WEEU-MGMT01-INFRASTRUCTURE) | Required   | |

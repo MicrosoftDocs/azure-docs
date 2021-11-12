@@ -27,7 +27,7 @@ The table below contains the Terraform parameters, these parameters need to be 
 > | `deployer_tfstate_key`    | The name of the state file for the Deployer                                                                      | Required * |
 > | `landscaper_tfstate_key`  | The name of the state file for the workload zone                                                                 | Required * |
 
-* = required for manual deployments
+\* = required for manual deployments
 ## Generic Parameters
 
 The table below contains the parameters that define the resource group and the resource naming.
@@ -80,7 +80,7 @@ The table below contains the networking parameters.
 > | `web_subnet_nsg_name`            | The name of the 'web' Network Security Group name                    | Optional	|          |
 > | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the 'web' Network Security Group   | Mandatory | For existing environment deployments |
 
-* = Required for for existing environment deployments deployments
+\* = Required for for existing environment deployments deployments
 
 ### Database Tier Parameters
 
