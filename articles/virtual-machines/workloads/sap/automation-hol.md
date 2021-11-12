@@ -11,7 +11,6 @@ ms.service: virtual-machines-sap
 
 # Enterprise Scale for SAP Automation Framework Deployment - Hands-on Lab
 
-## Scenario
 
 For this workshop, we will be using the Cloud Shell in Azure portal to deploy the Control Plane infrastructure. Then, we will be using the Deployer VM to deploy the remaining infrastructure and the SAP HANA configurations. There is a feature-locked branch based on the Automation Framework that will enable us to follow this scenario. This is the
 **sap-level-up** branch.
