@@ -100,6 +100,10 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 
      ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-10.png)
 
+1. After the job is created, open the resource, and enter **Tracking information**.<!--Add step detail Monday. May want to have a complex illustration showing the initial pane and then the resource Overview. Or two screens - they are wide.-->
+
+     ![Screenshot showing the Overview panel for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-11.png)<!--Add highlights after I determine when the "Drives have been shipped" info is added.-->
+
 
 ### [Portal (classic)](#tab/azure-portal)
 
