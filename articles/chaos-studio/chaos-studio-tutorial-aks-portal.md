@@ -1,6 +1,6 @@
 ---
-title: Create an experiment that uses an AKS Chaos Mesh fault with Azure Chaos Studio
-description: Create an experiment that uses an AKS Chaos Mesh fault
+title: Create an experiment that uses an AKS Chaos Mesh fault using Azure Chaos Studio with the Azure portal
+description: Create an experiment that uses an AKS Chaos Mesh fault with the Azure portal
 author: johnkemnetz
 ms.topic: how-to
 ms.date: 11/01/2021
@@ -9,11 +9,11 @@ ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Create a chaos experiment that uses a Chaos Mesh fault to kill AKS pods
+# Create a chaos experiment that uses a Chaos Mesh fault to kill AKS pods with the Azure portal
 
 You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this guide, you will cause periodic Azure Kubernetes Service pod failures on a namespace using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against service unavailability when there are sporadic failures.
 
-Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source chaos engineering platform for Kubernetes to inject faults into an AKS cluster. Chaos Mesh faults are [service-direct](chaos-studio-tutorial-aks.md) faults that require Chaos Mesh to be installed on the AKS cluster. These same steps can be used to set up and run an experiment for any AKS Chaos Mesh fault.
+Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source chaos engineering platform for Kubernetes to inject faults into an AKS cluster. Chaos Mesh faults are [service-direct](chaos-studio-tutorial-aks-portal.md) faults that require Chaos Mesh to be installed on the AKS cluster. These same steps can be used to set up and run an experiment for any AKS Chaos Mesh fault.
 
 ## Prerequisites
 
