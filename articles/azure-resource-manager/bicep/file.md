@@ -13,7 +13,7 @@ For a step-by-step tutorial that guides you through the process of creating a Bi
 
 ## Bicep format
 
-Bicep is a declarative language, which means the elements can appear in any order.  Unlike imperative languages, the order of elements doesn't affect how deployment is processed.
+Bicep is a declarative language, which means the elements can appear in any order. Unlike imperative languages, the order of elements doesn't affect how deployment is processed.
 
 A Bicep file has the following elements.
 

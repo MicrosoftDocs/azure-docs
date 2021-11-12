@@ -47,7 +47,7 @@ When the value to return depends on a condition in the deployment, use the the `
 output <name> <data-type> = <condition> ? <true-value> : <false-value>
 ```
 
-Typically, you use a conditional output when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed:
+Typically, you use a conditional output when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed.
 
 To specify a conditional output in Bicep, use the `?` operator. The following example either returns an endpoint URL or an empty string depending on a condition.
 
