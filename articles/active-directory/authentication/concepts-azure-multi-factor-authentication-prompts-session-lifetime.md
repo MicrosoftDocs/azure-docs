@@ -98,7 +98,7 @@ This setting allows configuration of lifetime for token issued by Azure Active D
 
 Now that you understand how different settings works and the recommended configuration, it's time to check your tenants. You can start by looking at the sign-in logs to understand which session lifetime policies were applied during sign-in.
 
-Under each sign-in log, go to the **Authentication details** tab and explore **Session Lifetime policies applied**. For more information, see [Authentication details](../reports-monitoring/concept-sign-ins.md#authentication-details).
+Under each sign-in log, go to the **Authentication details** tab and explore **Session Lifetime Policies Applied**. For more information, see [Authentication details](../reports-monitoring/concept-sign-ins.md#authentication-details).
 
 ![Screenshot of authentication details.](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/details.png)
 
