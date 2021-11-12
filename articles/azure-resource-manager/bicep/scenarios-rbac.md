@@ -61,7 +61,6 @@ The following example shows how to create a user-assigned managed identity and a
 ## Custom role definitions
 
 To create a custom role definition, define a resource of type `Microsoft.Authorization/roleDefinitions`. See the [Create a new role def via a subscription level deployment](https://azure.microsoft.com/resources/templates/create-role-def/) quickstart for an example.
-<!-- TODO submit a PR to add a Bicep file to this quickstart -->
 
 > [!NOTE]
 > Some services manage their own role definitions and assignments. For example, Azure Cosmos DB maintains its own [`Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments`](/azure/templates/microsoft.documentdb/databaseaccounts/sqlroleassignments?tabs=bicep) and [`Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions`](/azure/templates/microsoft.documentdb/databaseaccounts/sqlroledefinitions?tabs=bicep) resources. Refer to the specific service's documentation for more information.
@@ -77,7 +76,7 @@ To create a custom role definition, define a resource of type `Microsoft.Authori
   - [Subscription](deploy-to-subscription.md)
   - [Management group](deploy-to-management-group.md)
   - [Tenant](deploy-to-tenant.md)
-- Quickstart templates <!-- TODO verify these all have Bicep files -->
+- Quickstart templates
   - [Create a new role def via a subscription level deployment](https://azure.microsoft.com/resources/templates/create-role-def/)
   - [Assign a role at subscription scope](https://azure.microsoft.com/resources/templates/subscription-role-assignment/)
   - [Assign a role at tenant scope](https://azure.microsoft.com/resources/templates/tenant-role-assignment/)
