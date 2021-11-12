@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/11/2021
+ms.date: 11/12/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -37,7 +37,7 @@ If your environment is ready to block legacy authentication to improve your tena
 
 While rolling out legacy authentication blocking protection, we recommend a phased approach, rather than disabling it for all users all at once. Customers may choose to first begin disabling basic authentication on a per-protocol basis, by leveraging Exchange Online authentication policies, then (optionally) also blocking legacy authentication via Conditional Access policies when ready.
 
-Customers without licenses that include Conditional Access can make use of [security defaults](../fundamentals/concept-fundamentals-security-defaults.md)) to block legacy authentication.
+Customers without licenses that include Conditional Access can make use of [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to block legacy authentication.
 
 ## Prerequisites
 
