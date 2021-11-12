@@ -1475,7 +1475,7 @@ groups:
 # Owner: dmwendia
 - id: microsoft-identity-platform-dev-languages
   title: Programming languages
-  prompt: Choose a programming language 
+  prompt: Choose a development language for your application
   pivots:
   - id: programming-language-angular
     title: Angular

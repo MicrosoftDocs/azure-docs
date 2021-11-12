@@ -27,4 +27,4 @@ zone_pivot_groups: microsoft-identity-platform-dev-languages
 
 ::: zone pivot="programming-language-react"
 [!INCLUDE [react](./includes/single-page-app/quickstart-javascript-auth-code-react)]
-:::
+::: zone-end
