@@ -62,14 +62,14 @@ To add your subscription to the preview:
 
 1. Navigate to your search service in the [Azure portal](https://portal.azure.com/).
 1. On the left-hand side of the page, select **Keys**.
-1. Select **Register** to add the feature to your subscription.
+1. In the blue banner that mentions the preview, select **Register** to add the feature to your subscription.
 
 ![sign up for the rbac preview in the portal](media/search-howto-aad/rbac-signup-portal.png)
 
 You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
 > [!NOTE]
-> Once you add the preview to your subscription, your subscription will always be enrolled in the preview. This won't be a problem because you can still choose to disable RBAC for data plane operations as shown in the next step.
+> Once you add the preview to your subscription, all services in the subscription will be enrolled in the preview and can't be removed. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as shown in the next step.
 
 ### Preview limitations
 
@@ -82,7 +82,7 @@ There are also a few other limitations to be aware of:
 * The RBAC preview is currently only available in public cloud regions and isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
 * If a subscription is migrated to a new tenant, the RBAC preview will need to be re-enabled. 
 
-If you have questions or concerns about these limitations, or experience issues with latency or throttling while using the preview, you can reach out to us at [acs-rbac-preview@microsoft.com](acs-rbac-preview@microsoft.com).
+If you have questions or concerns about these limitations, or experience issues with latency or throttling while using the preview, you can reach out to us at acs-rbac-preview@microsoft.com.
 
 ## Step 2: Preview configuration
 
