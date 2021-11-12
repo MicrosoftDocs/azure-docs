@@ -1,24 +1,26 @@
 ---
-title: Push and pull Supply Chain Artifacts
+title: Push and pull supply chain artifacts
 description: Push and pull supply chain artifacts, using a private container registry in Azure 
 author: SteveLasker
 manager: gwallace
 ms.topic: article
 ms.date: 11/11/2021
 ms.author: stevelas
+ms.custom: references_regions
 ---
 
 # Push and pull supply chain artifacts, using a private container registry in Azure (Preview)
 
-Use an Azure container registry to store and manage a graph of artifacts, including signatures, software bill of materials, security scan results or other types. 
+Use an Azure container registry to store and manage a graph of artifacts, including signatures, software bill of materials (SBoM), security scan results or other types. 
 
-![](./media/container-registry-artifacts/oras-artifact-graph.svg)
+![Graph of artifacts, including a container image, signature and signed software bill of materials](./media/container-registry-artifacts/oras-artifact-graph.svg)
 
 To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) tool to push and pull a graph of artifacts to an Azure container registry.
 
+ORAS Artifacts support is a preview feature and subject to [limitations](#preview-limitations). It requires [zone redundancy](zone-redundancy.md), which is available in the Premium service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
+
 ## Prerequisites
 
-* **Azure container registry** - Create a container registry in your Azure subscription. During the preview of ORAS Artifacts support, the registry must be created in specific regsions. 
 * **ORAS CLI** - The ORAS CLI enables push, discover, pull of artifacts to an ORAS Artifacts enabled registry.
 * **Azure CLI** - To create an identity, list and delete repositories, you need a local installation of the Azure CLI. Version 2.29.1 or later is recommended. Run `az --version `to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * **Docker (optional)** - To complete the walkthrough, a container image is referenced. You can use Docker installed locally to build and push a container image, or reference an existing container image. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
@@ -153,7 +155,7 @@ echo '{"artifact": "'${IMAGE}'", "signature": "pat hancock"}' > signature.json
 
 ### Push a signature to the registry, as a reference to the container image
 
-The ORAS command pushes the signature to a repository, referencing another artifact through the `subject` parameter. The `--artifact-type` provides for differentiating artifacts, similar to file extensions enable different file types. One or more files can be pushed by specifying `file:mediaType`
+The ORAS command pushes the signature to a repository, referencing another artifact through the `subject` parameter. The `--artifact-type` provides for differentiating artifacts, similar to file extensions that enable different file types. One or more files can be pushed by specifying `file:mediaType`
 
 ```bash
 oras push $REGISTRY/$REPO \
@@ -193,7 +195,7 @@ Using `oras discover`, view the graph of artifacts now stored in the registry
 oras discover -o tree $IMAGE
 ```
 
-The output shows the beginning of a graph of artifacts, where the signature and docs are viewed as a children of the container image
+The output shows the beginning of a graph of artifacts, where the signature and docs are viewed as children of the container image
 
 ```output
 myregistry.azurecr.io/net-monitor:v1
@@ -267,7 +269,7 @@ myregistry.azurecr.io/net-monitor:v1
             └── sha256:a31ab875d37eee1cca68dbb14b2009979d05594d44a075bdd7...
 ```
 
-## Pull the Docs
+## Pull a referenced artifact
 
 To pull a referenced type, the digest of reference is discovered with the `oras discover` command
 
