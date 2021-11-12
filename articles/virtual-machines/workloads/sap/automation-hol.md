@@ -802,7 +802,7 @@ Before you start executing remover script make sure, you have logged into your A
 
 - Before you start executing remover script make sure, you have logged into your Azure account and are in the appropriate subscription to execute the steps
 
-- Navigate to the WORKSPACES folder 
+1. Go to the `WORKSPACES` folder.
   
   ```shell
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/
