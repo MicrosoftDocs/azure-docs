@@ -25,7 +25,7 @@ After you're satisfied with your model, and made any necessary improvements, you
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
 * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 ## Deploy your model
 

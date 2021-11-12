@@ -217,6 +217,9 @@ items:
     - name: Database templates overview
       href: database-designer/overview-database-templates.md
       displayName: overview
+    - name: Map data overview
+      href: database-designer/overview-map-data.md
+      displayName: map data
   - name: Quickstarts
     items:
     - name: Create a lake database
@@ -226,7 +229,7 @@ items:
     - name: Database templates
       href: database-designer/concepts-database-templates.md
     - name: Lake database
-      href: database-designer/concepts-lake-database.md   
+      href: database-designer/concepts-lake-database.md
   - name: How-to guides      
     items:
     - name: Create an empty lake database
@@ -500,6 +503,8 @@ items:
         href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context
       - name: Monitor your workload - portal
         href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?context=/azure/synapse-analytics/context/context
+      - name: Query history and analysis
+        href: ./sql/query-history-storage-analysis.md
       - name: Manage workloads
         items:
         - name: Analyze your workload

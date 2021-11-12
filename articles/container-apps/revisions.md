@@ -1,9 +1,9 @@
 ---
 title: Revisions in Azure Container Apps Preview
 description: Learn how revisions are created in Azure Container Apps
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
@@ -68,4 +68,4 @@ New revisions remain active until you deactivate them, or you set your container
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure an app](get-started.md)
+> [Secure an app](secure-app.md)

@@ -2,7 +2,7 @@
 title: Access security & recommendation data
 description: Learn about how to access your security alert and recommendation data when using Defender for IoT.
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 11/09/2021
 ---
 
 # Access your security data
