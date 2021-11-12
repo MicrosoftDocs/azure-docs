@@ -54,7 +54,7 @@ Follow these steps and reference this [sample template](https://github.com/Azure
    New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug -Verbose 
    ```
 
-   You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command. First you'll need to find the name of your managed cluster's supporting resource group (containing the underlying virtual network, load balancer, public IP, NSG, scale set(s), and storage accounts). Be sure to modify `VmssName` to whatever cluster node type name you wish to check (as specified in your deployment template).
+   You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmss` command. First you'll need to find the name of your managed cluster's supporting resource group (containing the underlying virtual network, load balancer, public IP, NSG, scale set(s), and storage accounts). Be sure to modify `NodeTypeNAme` to whatever cluster node type name you wish to check (as specified in your deployment template).
 
    ```powershell
    $NodeTypeName = "NT2"
