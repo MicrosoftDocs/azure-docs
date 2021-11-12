@@ -78,13 +78,13 @@ After enabling flagging, the same browser application and client must be used or
 
 You can find flagged sign-ins with a filtered query using the sign-ins reporting API.
 
-Show all Flagged Sign-ins: 
+Show all Flagged Sign-ins:
 `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true`
 
 Flagged Sign-ins query for specific user by UPN (e.g.: user@contoso.com):
 `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true and userPrincipalname eq 'user@contoso.com'`
 
-Flagged Sign-ins query for specific user and date greater than: 
+Flagged Sign-ins query for specific user and date greater than:
 `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true and createdDateTime ge 2021-10-01 and userPrincipalname eq 'user@contoso.com'`
  
 For more information on using the sign-ins Graph API, see [signIn resource type](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true).
