@@ -15,7 +15,9 @@ ms.custom: devx-track-csharp, ignite-fall-2021
 
 # Keyword recognition
 
-Keyword recognition refers to speech technology that recognizes the existence of a word or short phrase within a given stream of audio. It is often synonymously referred to as keyword spotting. The most common use case of keyword recognition is voice activation of virtual assistants. For example, "Hey Cortana" is the keyword for the Cortana assistant. Upon recognition of the keyword, a scenario-specific action is carried out. For virtual assistant scenarios, a common resulting action is speech recognition of audio that follows the keyword.
+Keyword recognition detects a word or short phrase within a stream of audio. It's also referred to as keyword spotting. 
+
+The most common use case of keyword recognition is voice activation of virtual assistants. For example, "Hey Cortana" is the keyword for the Cortana assistant. Upon recognition of the keyword, a scenario-specific action is carried out. For virtual assistant scenarios, a common resulting action is speech recognition of audio that follows the keyword.
 
 Generally, virtual assistants are always listening. Keyword recognition acts as a privacy boundary for the user. A keyword requirement acts as a gate that prevents unrelated user audio from crossing the local device to the cloud.
 
@@ -37,16 +39,19 @@ The [Custom Keyword portal on Speech Studio](https://speech.microsoft.com/custom
 
 ### Pricing
 
-There is no cost to using Custom Keyword for generating models, including both Basic and Advanced models. There is also no cost for running models on-device with the Speech SDK.
+There's no cost to using Custom Keyword for generating models, including both Basic and Advanced models. There is also no cost for running models on-device with the Speech SDK.
 
 ### Types of models
 
-Custom Keyword allows you to generate two types of on-device models for any keyword:
+Custom Keyword allows you to generate two types of on-device models for any keyword.
 
 | Model type | Description |
 | ---------- | ----------- |
 | Basic | Best suited for demo or rapid prototyping purposes. Models are generated with a common base model and can take up to 15 minutes to be ready. Models may not have optimal accuracy characteristics. |
 | Advanced | Best suited for product integration purposes. Models are generated with adaptation of a common base model using simulated training data to improve accuracy characteristics. It can take up to 48 hours for models to be ready. |
+
+> [!NOTE]
+> You can view a list of regions that support the **Advanced** model type in the [Keyword recognition region support](keyword-recognition-region-support.md) documentation. 
 
 Neither model type requires you to upload training data. Custom Keyword fully handles data generation and model training.
 
