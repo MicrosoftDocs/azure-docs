@@ -53,7 +53,7 @@ Generally, it's recommended that you use the platform default, and this is typic
 | Xamarin.iOS | Yes | Yes  | System |
 | Xamarin.Mac| Yes | No | Embedded |
 
-† [Requires the project target at least `net5.0-windows10.0.17763.0`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/efc71473d668fdd42c21cef6a6cadc69e1907290/src/client/Microsoft.Identity.Client/Platforms/netcore/NetCoreWebUIFactory.cs#L28) instead of just `net5.0` or `net5.0-windows` (which is equivilant `net5.0-windows7.0`).
+† [Requires the project target at least `net5.0-windows10.0.17763.0`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/efc71473d668fdd42c21cef6a6cadc69e1907290/src/client/Microsoft.Identity.Client/Platforms/netcore/NetCoreWebUIFactory.cs#L28) instead of just `net5.0` or `net5.0-windows` (which is equivilant to `net5.0-windows7.0`).
 
 ^ Requires "http://localhost" redirect URI
 
