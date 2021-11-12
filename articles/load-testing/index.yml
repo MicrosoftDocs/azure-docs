@@ -24,11 +24,15 @@ highlightedContent:
       itemType: overview
       url: overview-what-is-azure-load-testing.md
     # Card
+    - title: 'Run a load test for a website'
+      itemType: quickstart
+      url: quickstart-create-and-run-load-test.md
+    # Card
     - title: 'Identify performance bottlenecks'
       itemType: tutorial
       url: tutorial-identify-bottlenecks-azure-portal.md
     # Card
-    - title: 'Setup continuous regression testing'
+    - title: 'Add regression testing to a CI/CD workflow'
       itemType: tutorial
       url: tutorial-cicd-azure-pipelines.md
 
@@ -41,33 +45,43 @@ conceptualContent:
       links:
         - url: how-to-high-scale-load.md
           itemType: how-to-guide
-          text: How to configure for high scale
-        - url: how-to-parameterize-load-tests.md
+          text: How to configure for high scale load
+        - url: how-to-define-test-criteria.md
           itemType: how-to-guide
-          text: How to parameterize a load test
+          text: Define test pass/fail criteria
         - url: how-to-update-rerun-test.md
           itemType: how-to-guide
-          text: How to update and rerun your load tests
+          text: Update the load test configuration
+        - url: how-to-parameterize-load-tests.md
+          itemType: how-to-guide
+          text: Use parameters in the load test configuration
     
     # Card
     - title: Analyze test results
       links:
         - url: how-to-compare-multiple-test-runs.md
           itemType: how-to-guide
-          text: Analyze performance by comparing load test runs
+          text: Identify regressions by comparing test runs
         - url: how-to-find-download-logs.md
           itemType: how-to-guide
-          text: Find and download your load testing logs
+          text: Download test run logs
         - url: how-to-appservice-insights.md
           itemType: how-to-guide
-          text: Get more insights from load testing AppService workloads
+          text: Get insights from App Service workload tests
 
     # Card
     - title: Automate load tests
       links:
         - url: tutorial-cicd-azure-pipelines.md
           itemType: tutorial
-          text: Set up a CI/CD workflow in Azure Pipelines
+          text: Identify regressions with an Azure Pipelines CI/CD workflow
         - url: tutorial-cicd-github-actions.md
           itemType: tutorial
-          text: Set up a CI/CD workflow in GitHub Actions
+          text: Identify regressions with a GitHub Actions CI/CD workflow
+
+    # Card
+    - title: Reference
+      links:
+        - url: reference-test-config-yaml.md
+          itemType: reference
+          text: Test configuration YAML reference
