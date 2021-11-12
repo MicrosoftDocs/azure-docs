@@ -15,7 +15,7 @@ ms.date: 11/11/2021
 
 The Map Data tool is a guided process to help users create ETL mappings and mapping data flows from their source data to Synapse lake database tables without writing code. This process starts with the user choosing the destination tables in Synapse lake databases and then mapping their source data into these tables. 
 
-For more information on Synapse lake databases see [Overview of Azure Synapse database templates - Azure Synapse Analytics | Microsoft Docs](overview-database-templates)
+For more information on Synapse lake databases see [Overview of Azure Synapse database templates - Azure Synapse Analytics | Microsoft Docs](overview-database-templates.md)
 
 Map Data provides for a guided experience where the user can generate a mapping data flow without having to start with a blank canvas and quickly generate a scalable mapping data flow runnable in Synapse pipelines.
 
@@ -55,16 +55,16 @@ Use the New Mapping button to add a mapping method to create a mapping or transf
 Use the Additional source button to join to and add another source to your mapping.
 
 ### Preview Data
-The **Data Preview** tab gives you an interactive snapshot of the data of each transform. For more information, see [Data preview in debug mode](../../data-factory/concepts-data-flow-debug-mode#data-preview).
+The **Data Preview** tab gives you an interactive snapshot of the data of each transform. For more information, see [Data preview in debug mode](../../data-factory/concepts-data-flow-debug-mode.md#data-preview).
 
 ### Mapping Methods
 The following mapping methods are supported:
 
-* [Direct](../../data-factory/data-flow-select)
-* [Surrogate Key](../../data-factory/data-flow-surrogate-key)
-* [Lookup](../../data-factory/data-flow-lookup)
-* [Unpivot](../../data-factory/data-flow-unpivot)
-* [Aggregate](../../data-factory/data-flow-aggregate)
+* [Direct](../../data-factory/data-flow-select.md)
+* [Surrogate Key](../../data-factory/data-flow-surrogate-key.md)
+* [Lookup](../../data-factory/data-flow-lookup.md)
+* [Unpivot](../../data-factory/data-flow-unpivot.md)
+* [Aggregate](../../data-factory/data-flow-aggregate.md)
 	* Sum
 	* Minimum
 	* Maximum
@@ -73,7 +73,7 @@ The following mapping methods are supported:
 	* Standard Deviation
 	* Average
 	* Mean
-* [Derived Column](../../data-factory/data-flow-derived-column)
+* [Derived Column](../../data-factory/data-flow-derived-column.md)
 	* Trim
 	* Upper
 	* Lower
