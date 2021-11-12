@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/12/2021
 ---
 
-# Index large data sets in Azure Cognitive Search
+# How to index large data sets in Azure Cognitive Search
 
 Azure Cognitive Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 

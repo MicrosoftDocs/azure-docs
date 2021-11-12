@@ -13,14 +13,14 @@ ms.date: 11/11/2021
 
 # Configure IP firewall rules to allow indexer connections in Azure Cognitive Search
 
-A search service will issue outbound calls during indexer-based indexing, when the indexer connects to external Azure resources for data import. If your Azure resource uses IP firewall rules to filter incoming calls, you'll need to create an inbound rule in your firewall that admits the indexer's requests.
+On behalf of an indexer, a search service will issue outbound calls to an external Azure resource to pull in data during indexing. If your Azure resource uses IP firewall rules to filter incoming calls, you'll need to create an inbound rule in your firewall that admits indexer requests.
 
 This article explains how to find the IP address of your search service, and then use Azure portal to configure an inbound IP rule on an Azure Storage account. While specific to Azure Storage, this approach also works for other Azure resources that use IP firewall rules for data access, such as Cosmos DB and Azure SQL.
 
 > [!NOTE]
 > IP firewall rules for a storage account are only effective if the storage account and the search service are in different regions. If your setup does not permit this, we recommend utilizing the [trusted service exception option](search-indexer-howto-access-trusted-service-exception.md) as an alternative.
 
-## Get the IP address of the search service
+## Get a search service IP address
 
 1. Determine the fully qualified domain name (FQDN) of your search service. This will look like `<search-service-name>.search.windows.net`. You can find out the FQDN by looking up your search service on the Azure portal.
 
@@ -41,7 +41,7 @@ This article explains how to find the IP address of your search service, and the
    aliases:  contoso.search.windows.net
    ```
 
-## Get the IP address ranges for "AzureCognitiveSearch" service tag
+## Get IP addresses for "AzureCognitiveSearch" service tag
 
 Depending on your search service configuration, you might also need to create an inbound rule that admits requests from a range of IP addresses. Specifically, additional IP addresses are used for requests that originate from the indexer's [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment). 
 
@@ -74,7 +74,7 @@ You can get this IP address range from the `AzureCognitiveSearch` service tag.
 
 For `/32` IP addresses, drop the "/32" (52.253.133.74/32 becomes 52.253.133.74 in the rule definition). All other IP addresses can be used verbatim.
 
-## Add the IP address ranges to IP firewall rules
+## Add IP addresses to IP firewall rules
 
 Once you have the IP addresses, you are ready to set up the rule. The easiest way to add IP address ranges to a storage account's firewall rule is via the Azure portal. 
 
