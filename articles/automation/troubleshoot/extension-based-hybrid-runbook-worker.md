@@ -3,7 +3,7 @@ title: Troubleshoot extension-based Hybrid Runbook Worker issues in Azure Automa
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation extension-based Hybrid Runbook Workers.
 services: automation
 author: mgoedtel
-ms.author: magoedte
+ms.author: v-ssudhir
 ms.date: 09/28/2021
 ms.topic: troubleshooting 
 ms.custom: devx-track-azurepowershell
