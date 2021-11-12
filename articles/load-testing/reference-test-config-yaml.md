@@ -16,7 +16,7 @@ adobe-target: true
 Learn how to configure your load test in [YAML](https://yaml.org/). You will create a YAML test configuration to add a load test to your CI/CD workflow.
 
 
-## Pipeline definition
+## Load Test definition
 
 A test configuration uses the following keys.
 
@@ -28,7 +28,7 @@ A test configuration uses the following keys.
 | `engineInstances` | integer | **Required**. The number of parallel test engine instances to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
 | `configurationFiles` | array | List of relevant configuration files, references from the JMeter script. By default, a wildcard *`*.csv`* is generated to reference all *.csv* files in the test plan's folder. |
 | `description` | string | Short description of the load test run. |
-| `failureCriteria` | object | The criteria that indicate failure of the test. Each criteria is in the form of:<BR>`<aggregate function> > <threshold>, continue`<BR><BR>- *`aggregate function`*: one of `avg(response_time_ms)` or `percentage(error)`<BR>- *`threshold`*: integer number. |
+| `failureCriteria` | object | The criteria that indicate failure of the test. Each criteria is in the form of:<BR>`[Aggregate_function] ([client_metric]) > [value]`<BR><BR>- *`[Aggregate function] ([client_metric])`*: one of `avg(response_time_ms)` or `percentage(error)`<BR>- *`value`*: integer number. |
 | `secrets` | object | List of secrets that the JMeter script references. |
 | `secrets.name` | string | Name of the secret. This name should match the secret name that you use in the JMeter script. |
 | `secrets.value` | string | Azure Key Vault secret URI. |
@@ -43,14 +43,15 @@ testName: SampleTest
 testPlan: SampleTest.jmx
 description: Load test website home page
 engineInstances: 1
-configurationFiles: ['*.csv']
+configurationFiles:
+  - '*.csv'
 failureCriteria:
-  - avg(response_time_ms) > 300ms, continue
-  - percentage(error) > 50, continue
+  - avg(response_time_ms) > 300
+  - percentage(error) > 50
 env:
   - name: my-variable
     value: my-value
-env:
+secrets:
   - name: my-secret
     value: https://akv-contoso.vault.azure.net/secrets/MySecret
 ```
