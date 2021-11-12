@@ -77,8 +77,8 @@ The table below contains the networking parameters.
 The table below contains the parameters related to the deployer virtual machine. 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                        | Description                                                                  | Type       | 
-> | ------------------------------- | ---------------------------------------------------------------------------- | ---------- | 
+> | Variable                        | Description                                                                  | Type       |
+> | ------------------------------- | ---------------------------------------------------------------------------- | ---------- |
 > | `deployer_size`                 | Defines the Virtual machine SKU to use, for example	Standard_D4s_v3        | Optional   |
 > | `deployer_image`	            | Defines the Virtual machine image to use, see below                          | Optional	|
 > | `deployer_disk_type`            | Defines the disk type, for example Premium_LRS                               | Optional   |
