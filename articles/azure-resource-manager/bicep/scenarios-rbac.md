@@ -10,7 +10,7 @@ ms.date: 11/10/2021
 
 Azure has a powerful role-based access control (RBAC) system. By using Bicep, you can programmatically define your RBAC role assignments and role definitions.
 
-<!-- TODO move all code samples into the correct repo -->
+<!-- TODO move all code samples into the azure-docs-bicep-samples repo -->
 
 ## Role assignments
 
