@@ -59,35 +59,7 @@ DNS name resolution is a multi-step process, which can fail for many reasons. Th
 
 * [Delegate a domain to Azure DNS](dns-domain-delegation.md)
 
-## Unhealthy DNS zones
-
-Configuration errors can cause DNS zones to become unhealthy. The following are scenarios that can lead to this behavior:
-
-* **Unhealthy delegation** - A zone contain *NS* delegation records that help delegate traffic from the primary to the child zones. If any of the *NS* records are present in the parent zone, the DNS server is suppose to mask other records below the delegation, except glue records. However, if the zone contains other records below the delegation, the zone will be marked unhealthy.
-
-    The below table provides scenarios and their corresponding zone health outcomes when a zone contains NS delegation record.
-
-    | Scenario | Zone contains </br>NS delegation record? | Zone contains </br>glue records? | Zone contains other </br>records below the </br>delegation? | Zone health |
-    |----------|-------------------------------------|-----------------------------|--------------------------------------------------|-------------|
-    | 1        | No                                  | -                           | -                                                | Healthy     |
-    | 2        | Yes                                 | Yes                         | No                                               | Healthy     |
-    | 3        | Yes                                 | No                          | No                                               | Healthy     |
-    | 4        | Yes                                 | No                          | Yes                                              | Unhealthy   |
-    | 5        | Yes                                 | Yes                         | Yes                                              | Unhealthy   |
-
-    **Recommendation:** Remove all records except glue records under delegation records in your zones.
-
-* **Zero TTL** - TTL (time to live) is a setting that tells the DNS resolver how long to cache a query before requesting a new one. The information gathered is then stored in the cache of the recursive or local resolver for the TTL duration before it reaches back out to collect new and updated details.
-
-    If the TTL is set to 0 in the configuration, then you can experience one of the following issues:
-
-    * Long response.
-    * Increase in DNS traffic and cost.
-    * Prone to DDoS attacks.
-
-    **Recommendation**: Ensure the TTL value isn't set to *0*. 
-
-## DNS zone status
+## DNS zone status and unhealthy delegation scenarios
 
 DNS zone status indicates the current status of the zone. DNS zone status can be **Unknown**, **Available**, and **Degraded**.
 
@@ -123,9 +95,11 @@ If 24 hours have elapsed after correcting the configuration and the DNS zones ar
 
 The following scenario demonstrates where a configuration error has led to the unhealthy state of the DNS zones.
 
-* **Unhealthy Delegation** - A primary zone contains NS delegation records, which help delegate traffic from the primary to the child zones. If any NS delegation record is present in the parent zone, the DNS server is supposed to mask all other records below the NS delegation record, except glue records, and direct traffic to the respective child zone based on the user query. If a parent zone contains other records meant for the child zones (delegated zones) below the NS delegation record, the zone will be marked unhealthy, and its status is **Degraded**.
+**Unhealthy Delegation**
 
-* **Glue record** - These are records under the delegation record, which help direct traffic to the delegated/child zones using their IP addresses and are configured as seen in the following.
+A primary zone contains NS delegation records, which help delegate traffic from the primary to the child zones. If any NS delegation record is present in the parent zone, the DNS server is supposed to mask all other records below the NS delegation record, except glue records, and direct traffic to the respective child zone based on the user query. If a parent zone contains other records meant for the child zones (delegated zones) below the NS delegation record, the zone will be marked unhealthy, and its status is **Degraded**.
+
+**What are glue records?** - These are records under the delegation record, which help direct traffic to the delegated/child zones using their IP addresses and are configured as seen in the following.
 
 | Setting | Value |
 | ------- | ----- |
@@ -151,13 +125,15 @@ The following is an example of a zone containing records below NS delegation.
 
 In the preceding example, **child** is the NS delegation records. The records _**foo.child**_ and _**txt.child**_ are records that should only be present in the child zone, **child.contoso.com**. These records might cause inconsistencies if they aren't removed from the parent zone, **contoso.com**. These inconsistencies could cause the zone to be considered as unhealthy with a **Degraded** status.
 
-#### Example of when a zone is considered healthy or unhealthy
+#### Examples of when a zone is considered healthy or unhealthy
 
-* Zone doesn't contain NS delegation records, glue records, and other records. - **Healthy**
-* Zone only contains NS delegation records. - **Healthy**
-* Zone only contains NS delegation records and glue records. - **Healthy**
-* Zone contains NS delegation records and other records (except glue records) below delegation record, that should be present in the child zone. - **Unhealthy**
-* Zone contains NS delegation Records, glue Records, and other records (except glue records). - **Unhealthy**
+| Example | Status |
+| ------- | ------ |
+| Zone doesn't contain NS delegation records, glue records, and other records. | **Healthy** |
+| Zone only contains NS delegation records. | **Healthy** |
+| Zone only contains NS delegation records and glue records. | **Healthy** |
+| Zone contains NS delegation records and other records (except glue records) below delegation record, that should be present in the child zone. | **Unhealthy** |
+| Zone contains NS delegation Records, glue records, and other records (except glue records). | **Unhealthy** |
 
 **How can you fix it?** - To resolve, locate and remove all records except glue records under NS delegation records in your parent zone.
 
