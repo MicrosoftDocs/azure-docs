@@ -95,9 +95,11 @@ If 24 hours have elapsed after correcting the configuration and the DNS zones ar
 
 The following scenario demonstrates where a configuration error has led to the unhealthy state of the DNS zones.
 
-* **Unhealthy Delegation** - A primary zone contains NS delegation records, which help delegate traffic from the primary to the child zones. If any NS delegation record is present in the parent zone, the DNS server is supposed to mask all other records below the NS delegation record, except glue records, and direct traffic to the respective child zone based on the user query. If a parent zone contains other records meant for the child zones (delegated zones) below the NS delegation record, the zone will be marked unhealthy, and its status is **Degraded**.
+**Unhealthy Delegation**
 
-* **Glue record** - These are records under the delegation record, which help direct traffic to the delegated/child zones using their IP addresses and are configured as seen in the following.
+A primary zone contains NS delegation records, which help delegate traffic from the primary to the child zones. If any NS delegation record is present in the parent zone, the DNS server is supposed to mask all other records below the NS delegation record, except glue records, and direct traffic to the respective child zone based on the user query. If a parent zone contains other records meant for the child zones (delegated zones) below the NS delegation record, the zone will be marked unhealthy, and its status is **Degraded**.
+
+**What are glue records?** - These are records under the delegation record, which help direct traffic to the delegated/child zones using their IP addresses and are configured as seen in the following.
 
 | Setting | Value |
 | ------- | ----- |
@@ -123,13 +125,15 @@ The following is an example of a zone containing records below NS delegation.
 
 In the preceding example, **child** is the NS delegation records. The records _**foo.child**_ and _**txt.child**_ are records that should only be present in the child zone, **child.contoso.com**. These records might cause inconsistencies if they aren't removed from the parent zone, **contoso.com**. These inconsistencies could cause the zone to be considered as unhealthy with a **Degraded** status.
 
-#### Example of when a zone is considered healthy or unhealthy
+#### Examples of when a zone is considered healthy or unhealthy
 
-* Zone doesn't contain NS delegation records, glue records, and other records. - **Healthy**
-* Zone only contains NS delegation records. - **Healthy**
-* Zone only contains NS delegation records and glue records. - **Healthy**
-* Zone contains NS delegation records and other records (except glue records) below delegation record, that should be present in the child zone. - **Unhealthy**
-* Zone contains NS delegation Records, glue Records, and other records (except glue records). - **Unhealthy**
+| Example | Status |
+| ------- | ------ |
+| Zone doesn't contain NS delegation records, glue records, and other records. | **Healthy** |
+| Zone only contains NS delegation records. | **Healthy** |
+| Zone only contains NS delegation records and glue records. | **Healthy** |
+| Zone contains NS delegation records and other records (except glue records) below delegation record, that should be present in the child zone. | **Unhealthy** |
+| Zone contains NS delegation Records, glue records, and other records (except glue records). | **Unhealthy** |
 
 **How can you fix it?** - To resolve, locate and remove all records except glue records under NS delegation records in your parent zone.
 
