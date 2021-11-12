@@ -337,8 +337,6 @@ To generate an unattended installation parameter file for the database content l
 
 1. Review that all core HANA database export files are available. Then, select **Next**.
 
-1. On **Database Schema** for `DBACOCKPIT`, select **Next**.
-
 1. On **Database Schema** for `SAPHANADB`, select **Next**.
 
 1. On **Secure Storage for Database Connection**, select **Next**.
@@ -489,16 +487,7 @@ Generate an unattended installation parameter file for use with PAS. These files
 
     1. Set user password for **TMSADM** int **Client 000** to the main password. Then, select **Next**.
 
-    1. Set **SPAM/SAINT Update Archive** to `/usr/sap/install/config/KD75371.SAR`.
-
     1. Enable **No for Import ABAP Transports**. Then, select **Next**.
-
-
-1. On **Preparing for the Software Update Manager**, make sure to enable **Extract the SUM*.SAR Archive**. Then, select **Next**.
-
-1. On **Software Package Browser**, review the table **Detected Packages**. If the individual package location for **SUM 2.0** is empty, set the package path to `/usr/sap/install/config`. Then, select **Next**.
-
-1. Wait for the package location to populate. Then, select **Next**.
 
 1. On **Additional SAP System Languages**, select **Next**. 
 

@@ -15,10 +15,10 @@ The creation of the [SAP system](automation-deployment-framework.md#sap-concepts
 
 The SAP system deploys:
 
-- The [application tier](#application-tier), which deploys the VMs and their disks.
+- The [database tier](#database-tier), which deploys database VMs, their disks, and a Standard Azure Load Balancer. You can run [HANA databases](automation-configure-extra-disks.md#hana-databases) or [AnyDB databases](automation-configure-extra-disks.md#anydb-databases) in this tier.
 - The [SAP central services tier](#central-services-tier), which deploys a customer-defined number of VMs and an Azure Standard Load Balancer.
+- The [application tier](#application-tier), which deploys the VMs and their disks.
 - The [web dispatcher tier](#web-dispatcher-tier)
-- The [database tier](#database-tier), which deploys database VMs and their disks and a Standard Azure Load Balancer. You can run [HANA databases](automation-configure-extra-disks.md#hana-databases) or [AnyDB databases](automation-configure-extra-disks.md#anydb-databases) in this tier.
 
 ## Application tier
 
@@ -80,9 +80,9 @@ database_vm_use_DHCP=true
 database_vm_image={
   os_type="linux"
   source_image_id=""
-  publisher="RedHat"
-  offer="RHEL-SAP-HA"
-  sku="79sapha-gen2"
+  publisher="SUSE"
+  offer="sles-sap-15-sp2"
+  sku="gen2"
   version="latest"
 }
 
@@ -92,9 +92,9 @@ application_server_count=2
 application_server_image= {
   os_type=""
   source_image_id=""
-  publisher="RedHat"
-  offer="RHEL-SAP-APPS"
-  sku="7_9"
+  publisher="SUSE"
+  offer="sles-sap-15-sp2"
+  sku="gen2"
   version="latest"
 }
 
@@ -132,7 +132,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh          \
 ```
 # [Windows](#tab/windows)
 
-```powershell-interactive
+```powershell
 
 cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\SYSTEM\DEV-WEEU-SAP01-X01
 

@@ -15,6 +15,8 @@ The control plane deployment consists of the following components:
  - Deployer
  - SAP library
 
+:::image type="content" source="./media/automation-deployment-framework/control-plane.png" alt-text="Diagram Control Plane.":::
+
 ## Prepare the deployment credentials
 
 The SAP Deployment Frameworks uses Service Principals when doing the deployment. You can create the Service Principal for the Control Plane deployment using the following steps using an account with permissions to create Service Principals:
@@ -65,7 +67,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
         --subscription $subscriptionID                                                                           \
         --spn_id $appID                                                                                          \
-        --spn_secret "$spn_secret"                                                                               \ 
+        --spn_secret  $spn_secret                                                                                \ 
         --tenant_id $tenant
 ```
 

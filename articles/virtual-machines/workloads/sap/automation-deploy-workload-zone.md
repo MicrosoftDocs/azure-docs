@@ -33,7 +33,7 @@ Supports the Private DNS from the Control Plane.
 
 The following example parameter file shows only required parameters.
 
-```azurecli-interactive
+```bash
 # The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
 environment="DEV"
 
