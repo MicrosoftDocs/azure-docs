@@ -4,13 +4,11 @@ description: This article tells how to set up machines for management with Azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: v-ssudhir
 ms.topic: conceptual
 ms.date: 12/10/2019 
 ms.custom: devx-track-azurepowershell
-manager: carmonm
 ---
+
 # Enable Azure Automation State Configuration
 
 This topic describes how you can set up your machines for management with Azure Automation State Configuration. For details of this service, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
