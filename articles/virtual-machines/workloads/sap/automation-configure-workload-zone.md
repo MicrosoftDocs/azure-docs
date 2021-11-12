@@ -57,26 +57,26 @@ The table below contains the networking parameters.
 > | `network_name`                   | The logical name of the network                                      | Required  |        |       
 > | `network_arm_id`                 | The Azure resource identifier for the virtual network                | Optional  | Brown field |
 > | `network_address_space`          | The address range for the virtual network                            | Mandatory | Green field  |
-> | `admin_subnet_name`              | The name of the 'admin' subnet                                       | Optional  |         |
-> | `admin_subnet_address_prefix`    | The address range for the 'admin' subnet                             | Mandatory | Green field |
-> | `admin_subnet_arm_id`	         | The Azure resource identifier for the 'admin' subnet                 | Mandatory | Brown field |
-> | `admin_subnet_nsg_name`          | The name of the 'admin' Network Security Group name                  | Optional	|         |
-> | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the 'admin' Network Security Group | Mandatory | Brown field |
-> | `db_subnet_name`                 | The name of the 'db' subnet                                          | Optional  |         |
-> | `db_subnet_address_prefix`       | The address range for the 'db' subnet                                | Mandatory | Green field |
-> | `db_subnet_arm_id`	             | The Azure resource identifier for the 'db' subnet                    | Mandatory | Brown field |
-> | `db_subnet_nsg_name`             | The name of the 'db' Network Security Group name                     | Optional	|          |
-> | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the 'db' Network Security Group    | Mandatory | Brown field |
-> | `app_subnet_name`                | The name of the 'app' subnet                                         | Optional  |          |
-> | `app_subnet_address_prefix`      | The address range for the 'app' subnet                               | Mandatory | Green field |
-> | `app_subnet_arm_id`	             | The Azure resource identifier for the 'app' subnet                   | Mandatory | Brown field |
-> | `app_subnet_nsg_name`            | The name of the 'app' Network Security Group name                    | Optional	|          |
-> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the 'app' Network Security Group   | Mandatory | Brown field |
-> | `web_subnet_name`                | The name of the 'web' subnet                                         | Optional  |          |
-> | `web_subnet_address_prefix`      | The address range for the 'web' subnet                               | Mandatory | Green field |
-> | `web_subnet_arm_id`	             | The Azure resource identifier for the 'web' subnet                   | Mandatory | Brown field |
-> | `web_subnet_nsg_name`            | The name of the 'web' Network Security Group name                    | Optional	|          |
-> | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the 'web' Network Security Group   | Mandatory | Brown field |
+> | `admin_subnet_name`              | The name of the `admin` subnet                                       | Optional  |         |
+> | `admin_subnet_address_prefix`    | The address range for the `admin` subnet                             | Mandatory | Green field |
+> | `admin_subnet_arm_id`	         | The Azure resource identifier for the `admin` subnet                 | Mandatory | Brown field |
+> | `admin_subnet_nsg_name`          | The name of the `admin`Network Security Group name                  | Optional	|         |
+> | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the `admin` Network Security Group | Mandatory | Brown field |
+> | `db_subnet_name`                 | The name of the `db` subnet                                          | Optional  |         |
+> | `db_subnet_address_prefix`       | The address range for the `db`  subnet                                | Mandatory | Green field |
+> | `db_subnet_arm_id`	             | The Azure resource identifier for the `db` subnet                    | Mandatory | Brown field |
+> | `db_subnet_nsg_name`             | The name of the `db` Network Security Group name                     | Optional	|          |
+> | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the `db` Network Security Group    | Mandatory | Brown field |
+> | `app_subnet_name`                | The name of the `app` subnet                                         | Optional  |          |
+> | `app_subnet_address_prefix`      | The address range for the `app` subnet                               | Mandatory | Green field |
+> | `app_subnet_arm_id`	             | The Azure resource identifier for the `app` subnet                   | Mandatory | Brown field |
+> | `app_subnet_nsg_name`            | The name of the `app` Network Security Group name                    | Optional	|          |
+> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the `app` Network Security Group   | Mandatory | Brown field |
+> | `web_subnet_name`                | The name of the `web` subnet                                         | Optional  |          |
+> | `web_subnet_address_prefix`      | The address range for the `web` subnet                               | Mandatory | Green field |
+> | `web_subnet_arm_id`	             | The Azure resource identifier for the `web` subnet                   | Mandatory | Brown field |
+> | `web_subnet_nsg_name`            | The name of the `web` Network Security Group name                    | Optional	|          |
+> | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the `web` Network Security Group   | Mandatory | Brown field |
 
 ## ISCSI Parameters
 
