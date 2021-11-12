@@ -12,29 +12,31 @@ Many Azure deployments require networking resources to be deployed and configure
 
 ## Virtual networks and subnets
 
-Define your virtual networks by creating a resource with the type `Microsoft.Network/virtualNetworks`.
+Define your virtual networks by creating a resource with the type [`Microsoft.Network/virtualNetworks`](/azure/templates/microsoft.network/virtualnetworks?tabs=bicep).
 
 ### Configure subnets by using the subnets property
 
-Virtual networks contain subnets, which are logical groups of IP addresses within the virtual network. There are two ways to define subnets in Bicep: by using the `subnets` property on the virtual network resource, and by creating a [child resource](child-resource-name-type.md) with type `Microsoft.Network/virtualNetworks/subnets`. It's best to define your subnets within the virtual network definition, as in this example:
+Virtual networks contain subnets, which are logical groups of IP addresses within the virtual network. There are two ways to define subnets in Bicep: by using the `subnets` property on the virtual network resource, and by creating a [child resource](child-resource-name-type.md) with type `Microsoft.Network/virtualNetworks/subnets`.
+
+> [!WARNING]
+> Avoid defining subnets as child resources. This approach can result in downtime for your resources during subsequent deployments, or failed deployments.
+
+It's best to define your subnets within the virtual network definition, as in this example:
 
 ::: code language="bicep" source="code/scenarios-virtual-networks/vnet.bicep" range="7-30, 39" :::
 <!-- TODO move to correct repo -->
 
-Although both approaches enable you to define and create your subnets, there is an important difference to be aware of. When you define subnets by using child resources, the first time your Bicep file is deployed, the virtual network is deployed. Then, after the virtual network deployment is complete, each subnet is deployed. This sequencing occurs because Azure Resource Manager deploys each individual resource separately.
+Although both approaches enable you to define and create your subnets, there is an important difference. When you define subnets by using child resources, the first time your Bicep file is deployed, the virtual network is deployed. Then, after the virtual network deployment is complete, each subnet is deployed. This sequencing occurs because Azure Resource Manager deploys each individual resource separately.
 
-When you redeploy the same Bicep file, the same deployment sequence occurs. However, the virtual network is deployed without any subnets configured on it. Then, after the virtual network is reconfigured, the subnet resources are redeployed, which re-establishes each subnet. In some situations, this behavior causes the resources within your virtual network to lose connectivity for a short period of time during your deployment. In other situations, Azure prevents you from modifying the virtual network and your deployment fails.
-
-> [!WARNING]
-> Avoid defining subnets as child resources. This approach can result in downtime for your resources during subsequent deployments, or failed deployments.
+When you redeploy the same Bicep file, the same deployment sequence occurs. However, the virtual network is deployed without any subnets configured on it because the `subnets` property is effectively empty. Then, after the virtual network is reconfigured, the subnet resources are redeployed, which re-establishes each subnet. In some situations, this behavior causes the resources within your virtual network to lose connectivity for a period of time during your deployment. In other situations, Azure prevents you from modifying the virtual network and your deployment fails.
 
 ### Access subnet resource IDs
 
 You often need to refer to a subnet's resource ID. When you use the `subnets` property to define your subnet, [you can use the `existing` keyword](resource-declaration.md#existing-resources) to also obtain a strongly typed reference to the subnet, and then access the subnet's `id` property:
 
-::: code language="bicep" source="code/scenarios-virtual-networks/vnet.bicep" range="7-42" highlight="26-28, 30-32, 35-26" :::
+::: code language="bicep" source="code/scenarios-virtual-networks/vnet.bicep" range="7-42" highlight="26-28, 30-32, 35-36" :::
 
-Because this example uses the `existing` keyword to access the subnet resource, instead of defining it, this approach doesn't have the risks outlined in the previous section.
+Because this example uses the `existing` keyword to access the subnet resource, instead of defining the complete subnet resource, it doesn't have the risks outlined in the previous section.
 
 ## Network security groups
 
@@ -42,11 +44,9 @@ Network security groups are frequently used to apply rules controlling the inbou
 
 ## Private endpoints
 
-Need to authorize cross-sub endpoints by using an operation. Can use a deployment script, or do it outside of your Bicep file
+Private endpoints [must be approved](../../private-link/manage-private-endpoint.md). In some situations, approval happens automatically. But in other scenarios, you need to approve the endpoint before it's usable.
 
-## Other networking resources
-
-You can define almost all of your Azure networking resources in Bicep. TODO is there a list somewhere
+Private endpoint approval is an operation, so you can't perform it directly within your Bicep code. However, you can use a [deployment script](../templates/deployment-script-template.md) to invoke the operation. Alternatively, you can invoke the operation outside of your Bicep file, such as in a pipeline script.
 
 ## Related resources
 
