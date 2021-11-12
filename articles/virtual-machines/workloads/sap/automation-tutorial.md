@@ -1,5 +1,5 @@
 ---
-title: SAP Deployment automation - Hands-On Lab
+title: SAP deployment automation - hands-on lab
 description: Hands-On Lab
 author: hdamecharla
 ms.author: hdamecharla
