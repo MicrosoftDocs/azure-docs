@@ -157,7 +157,7 @@ Here's a basic layered deployment manifest with one module as an example:
 The previous example showed the layered deployment setting `properties.desired` for a module. If this layered deployment targeted a device where the same module was already applied, it would overwrite any existing desired properties. To update desired properties instead of overwriting them, you can define a new subsection. For example:
 
 ```json
-"SimulatedTEmperatureSensor": {
+"SimulatedTemperatureSensor": {
   "properties.desired.layeredProperties": {
     "SendData": true,
     "SendInterval": 5
@@ -168,7 +168,7 @@ The previous example showed the layered deployment setting `properties.desired` 
 The same can also be expressed with:
 
 ```json
-"SimulatedTEmperatureSensor": {
+"SimulatedTemperatureSensor": {
   "properties.desired.layeredProperties.SendData" : true,
   "properties.desired.layeredProperties.SendInterval": 5
 }

@@ -6,24 +6,27 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
+ms.reviewer: amhindma
+ms.date: 11/12/2021
 ---
 
 # Add a preview audience for a virtual machine offer
 
-On the **Preview** page (select from the left-nav menu in Partner Center), select a limited **Preview audience** for validating your offer before you publish it live to the broader commercial marketplace audience.
+On the **Preview audience** page (select from the left-nav menu in Partner Center), configure a limited *Preview audience* to be authorized to validate your offer before publishing it live to the broader commercial marketplace audience. When you publish your offer, preview links will be made available to the members of the preview audience that you specified. Only the preview audience you configure will be able to access the preview links and verify the details of your offer preview before you sign off to **Go live**.
+
+Preview links are not available for hidden plans. For hidden plans, the preview audience can test the offer via the command prompt.
+
+Your preview audience is identified by **Azure subscription IDs**, along with an optional **Description** for each. Neither of these fields can be seen by customers. You can find your Azure subscription ID on the **[Subscriptions](https://go.microsoft.com/fwlink/?LinkId=2122490)** page in the Azure portal.
+
+Add at least one Azure subscription ID, either individually or by uploading a CSV file. If your offer is already live, you can still modify the preview audience for testing changes or updates to your offer.
 
 > [!IMPORTANT]
-> After checking your offer on the **Preview** pane, select **Go live** to publish your offer for the commercial marketplace public audience.
-
-Your preview audience is identified by **Azure subscription ID** GUIDs, along with an optional **Description** for each. Neither of these fields can be seen by customers. You can find your Azure subscription ID on the **Subscriptions** page in the Azure portal.
-
-Add at least one Azure subscription ID, either individually (up to 10 IDs) or by uploading a CSV file (up to 100 IDs). By adding these subscription IDs, you define who can preview your offer before it is published live. If your offer is already live, you can still define a preview audience for testing offer changes or updates to your offer.
+> Any changes made to the preview audience for your offer must be saved and will only take effect after you republish your offer.
 
 > [!NOTE]
-> A preview audience differs from a private audience. A preview audience can access your offer *before* it's published live on Azure Marketplace. The preview audience can see and validate all plans, including those that will be available only to a private audience after your offer is fully published to Azure Marketplace. A private audience (defined on the plan **Pricing and Availability** pane) has exclusive access to a particular plan.
+> A preview audience differs from a private audience. A preview audience is a list of subscription IDs that can test and validate your offer. This includes any private plans, before they are made available to your users. In contrast, when making an offer private, you need to specify a private audience to restrict visibility of your offer to customers of your choosing. A private audience (defined on the **Pricing and Availability** page for each of your plans) is a list of subscription IDs and/or tenant IDs that will have access to a particular plan after the offer is live.
 
-If you made changes, select **Save draft** before continuing to the next tab in the left-nav menu, **Plan overview**.
+After configuring the preview audience, select **Save draft** before continuing to the next tab in the left-nav menu, **Plan overview**.
 
 ## Next steps
 

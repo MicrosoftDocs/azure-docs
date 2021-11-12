@@ -164,6 +164,8 @@
       href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Nudge Microsoft Authenticator setup (Preview)
     href: how-to-nudge-authenticator-app.md
+  - name: Use Microsoft managed settings 
+    href: how-to-mfa-microsoft-managed.md
   - name: Use a Temporary Access Pass (Preview)
     href: howto-authentication-temporary-access-pass.md
   - name: Use SMS-based authentication

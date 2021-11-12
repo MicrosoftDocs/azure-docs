@@ -3,20 +3,18 @@ title: Text-to-speech overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: The text-to-speech feature in the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. This article is an overview of the benefits and capabilities of the text-to-speech service.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: text to speech
 ---
 
 # What is neural text-to-speech?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Microsoft neural text-to-speech uses deep neural networks to make the voices of computers nearly indistinguishable from recordings of people. With the human-like natural prosody and clear articulation of words, neural text-to-speech has significantly reduced listening fatigue when you interact with AI systems.
 

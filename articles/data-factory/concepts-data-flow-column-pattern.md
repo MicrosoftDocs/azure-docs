@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/08/2021
 ---
 
 # Using column patterns in mapping data flow
@@ -78,9 +78,10 @@ If your defined projection has a hierarchy, you can use rule-based mapping to ma
 
 The above example matches on all subcolumns of complex column `a`. `a` contains two subcolumns `b` and `c`. The output schema will include two columns `b` and `c` as the 'Name as' condition is `$$`.
 
-## Pattern matching expression values.
+## Pattern matching expression values
 
-* `$$` translates to the name or value of each match at run time. Think of `$$` as equivalent to `this`.
+* `$$` translates to the name or value of each match at run time. Think of `$$` as equivalent to `this`
+* `$0` translates to the current column name match at run time for scalar types. For hierarchical types, `$0` represents the current matched column hierarchy path.
 * `name` represents the name of each incoming column
 * `type` represents the data type of each incoming column. The list of data types in the data flow type system can be found [here.](concepts-data-flow-overview.md#data-flow-data-types)
 * `stream` represents the name associated with each stream, or transformation in your flow

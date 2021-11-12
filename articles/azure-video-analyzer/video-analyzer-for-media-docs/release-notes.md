@@ -22,7 +22,7 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
  
 ### Public preview of Azure Video Analyzer for Media account management based on ARM
 
-Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based APIs to create, edit, and deleted an account from the Azure portal.
+Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based APIs to create, edit, and delete an account from the Azure portal.
 
 For more information go to [create a Video Analyzer for Media account](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422).
 
@@ -124,7 +124,7 @@ The newly added bundle is available when indexing or re-indexing your file by ch
 
 ### New developer portal 
 
-Video Analyzer for Media has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Analyzer for Media APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Analyzer for Media tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Analyzer for Media FAQs](faq.yml), [User Voice](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
+Video Analyzer for Media has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Analyzer for Media APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Analyzer for Media tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Analyzer for Media FAQs](faq.yml), [User Voice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
  
 ### Advanced customization capabilities for insight widget 
 
