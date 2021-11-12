@@ -45,7 +45,7 @@ The table below contains the parameters that define the resource group and the r
 
 If the subnets are not deployed using the workload zone deployment, they can be added in the system's tfvars file.
 
-The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of green field and brown field.
+The automation framework supports both creating the virtual network and the subnets for new environment deployments (Green field) or using an existing virtual network and existing subnets for existing environment deployments (Brown field) or a combination of for new environment deployments  and for existing environment deployments.
  - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified 
  - For the brown field scenario, the Azure resource identifier for the virtual network and the subnets must be specified
 
@@ -58,29 +58,29 @@ The table below contains the networking parameters.
 > | Variable                         | Description                                                          | Type      | Notes  |
 > | -------------------------------- | -------------------------------------------------------------------- | --------- | ------ |
 > | `network_logical_name`           | The logical name of the network                                      | Required  |        |       
-> | `network_address_space`          | The address range for the virtual network                            | Mandatory | Green field  |
+> | `network_address_space`          | The address range for the virtual network                            | Mandatory | For new environment deployments   |
 > | `admin_subnet_name`              | The name of the 'admin' subnet                                       | Optional  |         |
-> | `admin_subnet_address_prefix`    | The address range for the 'admin' subnet                             | Mandatory | Green field |
-> | `admin_subnet_arm_id`  	         | The Azure resource identifier for the 'admin' subnet                 | Mandatory | Brown field |
+> | `admin_subnet_address_prefix`    | The address range for the 'admin' subnet                             | Mandatory | For new environment deployments  |
+> | `admin_subnet_arm_id`  	         | The Azure resource identifier for the 'admin' subnet                 | Mandatory | For existing environment deployments |
 > | `admin_subnet_nsg_name`          | The name of the 'admin' Network Security Group name                  | Optional	|         |
-> | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the 'admin' Network Security Group | Mandatory | Brown field |
+> | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the 'admin' Network Security Group | Mandatory | For existing environment deployments |
 > | `db_subnet_name`                 | The name of the 'db' subnet                                          | Optional  |         |
-> | `db_subnet_address_prefix`       | The address range for the 'db' subnet                                | Mandatory | Green field |
-> | `db_subnet_arm_id`	             | The Azure resource identifier for the 'db' subnet                    | Mandatory | Brown field |
+> | `db_subnet_address_prefix`       | The address range for the 'db' subnet                                | Mandatory | For new environment deployments  |
+> | `db_subnet_arm_id`	             | The Azure resource identifier for the 'db' subnet                    | Mandatory | For existing environment deployments |
 > | `db_subnet_nsg_name`             | The name of the 'db' Network Security Group name                     | Optional	|          |
-> | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the 'db' Network Security Group    | Mandatory | Brown field |
+> | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the 'db' Network Security Group    | Mandatory | For existing environment deployments |
 > | `app_subnet_name`                | The name of the 'app' subnet                                         | Optional  |          |
-> | `app_subnet_address_prefix`      | The address range for the 'app' subnet                               | Mandatory | Green field |
-> | `app_subnet_arm_id`	             | The Azure resource identifier for the 'app' subnet                   | Mandatory | Brown field |
+> | `app_subnet_address_prefix`      | The address range for the 'app' subnet                               | Mandatory | For new environment deployments  |
+> | `app_subnet_arm_id`	             | The Azure resource identifier for the 'app' subnet                   | Mandatory | For existing environment deployments |
 > | `app_subnet_nsg_name`            | The name of the 'app' Network Security Group name                    | Optional	|          |
-> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the 'app' Network Security Group   | Mandatory | Brown field |
+> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the 'app' Network Security Group   | Mandatory | For existing environment deployments |
 > | `web_subnet_name`                | The name of the 'web' subnet                                         | Optional  |          |
-> | `web_subnet_address_prefix`      | The address range for the 'web' subnet                               | Mandatory | Green field |
-> | `web_subnet_arm_id`	             | The Azure resource identifier for the 'web' subnet                   | Mandatory | Brown field |
+> | `web_subnet_address_prefix`      | The address range for the 'web' subnet                               | Mandatory | For new environment deployments  |
+> | `web_subnet_arm_id`	             | The Azure resource identifier for the 'web' subnet                   | Mandatory | For existing environment deployments |
 > | `web_subnet_nsg_name`            | The name of the 'web' Network Security Group name                    | Optional	|          |
-> | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the 'web' Network Security Group   | Mandatory | Brown field |
+> | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the 'web' Network Security Group   | Mandatory | For existing environment deployments |
 
-* = Required for brown field deployments
+* = Required for for existing environment deployments deployments
 
 ### Database Tier Parameters
 
