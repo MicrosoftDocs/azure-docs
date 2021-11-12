@@ -114,7 +114,7 @@ Image Builder creates a VM using the default D1v2 VM size for Gen1 images and D2
 Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
 
 ## Hyper-V generation
-Image Builder currently supports creating Hyper-V generation Gen1 and Gen2 images in the Azure Compute Gallery. 
+Image Builder currently supports creating Hyper-V Gen1 and Gen2 images in the Azure Compute Gallery. 
  
 ## Next steps 
  
