@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 07/28/2021
+ms.date: 11/12/2021
 ms.custom: mvc
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
@@ -181,13 +181,13 @@ Before you deploy the OVA file, verify that the file is secure:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140333) | 08e4fa3aa827a88b68d3b56306926773f75c3a8a47ba4296871cfcb6c9830ea8
 
     - For Azure Government:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 #### Create the appliance server
 
