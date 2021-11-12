@@ -1,5 +1,5 @@
 ---
-title: Schedule a recurring experient run with Azure Chaos Studio
+title: Schedule a recurring experiment run with Azure Chaos Studio
 description: Set up a logic app that schedules a chaos experiment in Azure Chaos Studio to run periodically.
 services: chaos-studio
 author: johnkemnetz
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A chaos experiment. [Create a chaos experiment using the quickstart](chaos-studio-quickstart-azure-portal).
+- A chaos experiment. [Create a chaos experiment using the quickstart](chaos-studio-quickstart-azure-portal.md).
 - All resources targeted in the chaos experiment must be [onboarded to Chaos Studio](chaos-studio-targets-capabilities.md)
 
 ## Create a logic app
@@ -44,10 +44,10 @@ A logic app is an automated workflow that can execute based on a schedule. The l
    |----------|-------|-------------|
    | **Subscription** | <*Azure-subscription-name*> | Your Azure subscription name. This example uses `Azure Chaos Studio Demo`. |
    | **Resource group** | chaosstudiodemo | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which is used to organize related resources. This example creates a new resource group named `chaosstudiodemo`. |
-   | **Type** | Consumption | The [logic app resource type](../logic-apps/single-tenant-overview-compare.md). Set this to **Consumption**. |
+   | **Type** | Consumption | The [logic app resource type](../logic-apps/single-tenant-overview-compare.md). Set to **Consumption**. |
    | **Name** | scheduleExperiment | Your logic app's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses `scheduleExperiment`. |
    | **Location** | East US | The region where to store your logic app information. This example uses `East US`. |
-   | **Enable log analytics** | No | Set up diagnostic logging for the logic app. Set this to **No**. |
+   | **Enable log analytics** | No | Set up diagnostic logging for the logic app. Set to **No**. |
 
 1. When you're done, select **Review + create**. After Azure validates the information about your logic app, select **Create**.
 
@@ -86,9 +86,9 @@ Next, add the Recurrence [trigger](../logic-apps/logic-apps-overview.md#logic-ap
 
    ![Screenshot that shows the opened "Add new parameter" list and these selected properties: "On these days", "At these hours", and "At these minutes".](images/tutorial-schedule-recurrence-parameters.png)
 
-1. Now set the values for the additional properties as shown and described here.
+1. Now set the values for the properties as shown and described here.
 
-   ![Screenshot that shows the additional properties set to the values as described in the following table.](images/tutorial-schedule-recurrence-parameters-final.png)
+   ![Screenshot that shows the properties set to the values as described in the following table.](images/tutorial-schedule-recurrence-parameters-final.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
@@ -100,7 +100,7 @@ Next, add the Recurrence [trigger](../logic-apps/logic-apps-overview.md#logic-ap
 1. Save your logic app. On the designer toolbar, select **Save**.
 
 ## Add a run chaos experiment action
-Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) that starts the experiment. This tutorial uses the **Invoke resourec operation** action to start the experiment.
+Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) that starts the experiment. This tutorial uses the **Invoke resource operation** action to start the experiment.
 
 1. In the Logic App Designer, under the Recurrence trigger, select **New step**.
 
