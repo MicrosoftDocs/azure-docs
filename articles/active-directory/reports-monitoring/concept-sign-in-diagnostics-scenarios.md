@@ -15,7 +15,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/08/2021
+ms.date: 11/12/2021
 ms.author: markvi
 ms.reviewer: tspring  
 
@@ -284,6 +284,22 @@ Because pass trough authentication is an integration of on premises and cloud au
 This diagnostic scenario identifies user specific sign-in issues when the authentication method being used is pass through authentication (PTA) and there is a PTA specific error. Errors due to other problems-even when PTA authentication is being used-will still be diagnosed correctly. 
 
 The diagnostic shows contextual information about the failure and the user signing in, additional reasons why the sign-in failed, and recommended actions the admin can take to resolve the problem. For more information, see [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md). 
+
+
+### Seamless single sign on integrates Kerberos authentication with cloud authentication 
+
+Since two authentication protocols are involved it may be difficult to understand where a failure point lies sign-in problems occur. This diagnostic is intended to make these scenarios easier to diagnose and resolve.
+ 
+This diagnostic scenario examines the context of the sign-in failure and specific failure cause, contextual information on the sign-in attempt, and suggested actions which the admin can take-on premises or in the cloud-to resolve the problem.
+ 
+More information on the scenario can be found at the link below:
+Troubleshoot Azure Active Directory Seamless Single Sign-On 
+
+
+
+
+
+
 
 ## Next steps
 
