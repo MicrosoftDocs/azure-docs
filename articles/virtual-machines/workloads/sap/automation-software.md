@@ -72,7 +72,7 @@ Configure the SAP parameters file:
     ```azurecli-interactive
     cat <<EOF > sap-parameters.yaml
     ---
-    bom_base_name:               S41909SPS03_v0005ms
+    bom_base_name:               S41909SPS03_v0006ms
     sapbits_location_base_path:  https://<storage_account_FQDN>/sapbits
     kv_name: Name of your Management/Control Plane keyvault
     secret_prefix:
