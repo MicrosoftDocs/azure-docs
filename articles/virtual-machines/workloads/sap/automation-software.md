@@ -94,7 +94,7 @@ Configure the SAP parameters file:
 
     3. Change the value of `kv_name` to the name of the deployer key vault.
    
-   4. Change the value of `secret_prefix` of your choice.
+   4. (If needed) Change the value of `secret_prefix` to match the prefix in your environment (for example DEV-WEEU-SAP)
    
 ### Execute Ansible playbooks
 
