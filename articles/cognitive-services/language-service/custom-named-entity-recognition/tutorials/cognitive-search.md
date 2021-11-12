@@ -110,7 +110,7 @@ In the following sections, you will use the [Cognitive Search Integration tool](
 
 ### Prepare configuration file
 
-1. In the folder you just download, and find the [sample configuration file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/configs.json). Open it in a text editor. 
+1. In the folder you just download, and find the [sample configuration file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Samples/configs.json). Open it in a text editor. 
 
 2. Get your storage account connection string by:
     1. Navigating to your storage account overview page in the [Azure portal](https://ms.portal.azure.com/#home).
@@ -132,7 +132,7 @@ In the following sections, you will use the [Cognitive Search Integration tool](
 
 ### Prepare schema file
 
-In the folder you downloaded earlier, find the [sample schema file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/app-schema.json). Open it in a text editor. 
+In the folder you downloaded earlier, find the [sample schema file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Samples/app-schema.json). Open it in a text editor. 
 
 The entries in the `entityNames` array will be the entity names you have assigned while creating your project. You can copy and paste them from your project in [Language Studio](https://aka.ms/custom-extraction), or 
 
