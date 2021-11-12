@@ -88,14 +88,14 @@ In the preceeding example, there are two placeholders named `{LOGS}` in the path
 
 1. Use the following command to create an application in Azure Spring Cloud with persistent storage enabled and the environment variable set:
 
-    ```azurecli
-    az spring-cloud app create \
-       --resource-group <resource-group-name> \
-       --name <app-name> \
-       --service <spring-instance-name> \
-       --persistent-storage <path-to-json-file> \
-       --env LOGS=/byos/logs
-    ```
+   ```azurecli
+   az spring-cloud app create \
+        --resource-group <resource-group-name> \
+        --name <app-name> \
+        --service <spring-instance-name> \
+        --persistent-storage <path-to-json-file> \
+        --env LOGS=/byos/logs
+   ```
 
     You must mount your persistent storage to the same path as used in your application. Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. Make sure to pass the same value for the environment variable in the cli command above and in the `mountPath` property below: 
 
@@ -116,21 +116,23 @@ In the preceeding example, there are two placeholders named `{LOGS}` in the path
     ```
   
 1. Use the following command to deploy your application:
-    ```azurecli
-    az spring-cloud app deploy \
-       --resource-group <resource-group-name> \
-       --name <app-name> \
-       --service <spring-instance-name> \
-       --jar-path <path-to-jar-file>
-    ```
+
+   ```azurecli
+   az spring-cloud app deploy \
+        --resource-group <resource-group-name> \
+        --name <app-name> \
+        --service <spring-instance-name> \
+        --jar-path <path-to-jar-file>
+   ```
 
 1. Use the following command to check your application's console log:
-    ```azurecli
-    az spring-cloud app logs \
-       --resource-group <resource-group-name> \
-       --name <app-name> \
-       --service <spring-instance-name>
-    ```
+
+   ```azurecli
+   az spring-cloud app logs \
+        --resource-group <resource-group-name> \
+        --name <app-name> \
+        --service <spring-instance-name>
+   ```
 
     Go to the Azure Storage Account resource you bound and find the Azure File Share that was attached as persistent storage. In this example, the logs will be written to the *spring-boot-logger.log* file in your Azure File Share's home path. All of the rotated log files will be stored in the */archived* folder in your Azure File Share.
 
