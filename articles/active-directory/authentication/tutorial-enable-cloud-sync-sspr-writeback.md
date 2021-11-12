@@ -30,7 +30,7 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
 - Enabling password writeback in Azure AD Connect cloud sync requires executing signed PowerShell scripts.
   - Ensure that the PowerShell execution policy will allow running of scripts. 
   - The recommended execution policy during installation is "RemoteSigned". 
-  - For more information about setting the PowerShell execution policy, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy.md?view=powershell-7.1). 
+  - For more information about setting the PowerShell execution policy, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy). 
 
 
 ## Deployment steps
