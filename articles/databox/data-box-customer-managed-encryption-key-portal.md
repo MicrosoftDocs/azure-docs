@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 11/11/2021
 ms.author: alkohli
 ms.subservice: pod
 ---
@@ -28,7 +28,7 @@ The customer-managed key for a Data Box order must meet the following requiremen
 
 - The key must be created and stored in an Azure Key Vault that has **Soft delete** and **Do not purge** enabled. For more information, see [What is Azure Key Vault?](../key-vault/general/overview.md). You can create a key vault and key while creating or updating your order.
 - The key must be an RSA key of 2048 size or larger.
-- You must enable the **Get**, **Unwrap Key**, and **Wrap Key** permissions for the key in Azure Key Vault. If these permissions are not set, order creation will fail. The permissions must remain in place for the lifetime of the order. Otherwise, the customer-managed key can't be accessed at the start of the Data Copy phase.<!--Can't find instructions for setting this in Azure Key Vault, although I was able to find the screen where it's set. All docs recommend using role-based access. This is the old way - ACLs?-->
+- You must enable the **Get**, **Unwrap Key**, and **Wrap Key** permissions for the key in Azure Key Vault. The permissions must remain in place for the lifetime of the order. Otherwise, the customer-managed key can't be accessed at the start of the Data Copy phase.
 
 ## Enable key
 
@@ -110,7 +110,7 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
 
     The key URL is displayed under **Encryption type**.
 
-    ![Customer-managed key URL](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)<!--Probably need new screen from recent order. Can you provide one? I can't create an order using CMK with the subscription I'm using.-->
+    ![Customer-managed key URL](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
 
 ## Change key
 
