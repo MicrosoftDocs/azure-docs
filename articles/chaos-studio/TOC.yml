@@ -24,6 +24,8 @@
       href: sample-template-targets.md
     - name: Experiments
       href: sample-template-experiment.md
+  - name: Azure policy definitions
+    href: samples-policy-targets.md
 - name: Concepts
   items:
   - name: Chaos experiments
