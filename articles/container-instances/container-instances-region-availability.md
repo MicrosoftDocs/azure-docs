@@ -145,4 +145,4 @@ For information on troubleshooting container instance deployment, see [Troublesh
 
 
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
-[az-region-support]: /availability-zones/az-region.md#azure-regions-with-availability-zones
+[az-region-support]: /azure/availability-zones/az-overview#regions
