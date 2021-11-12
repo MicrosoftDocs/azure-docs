@@ -2,7 +2,7 @@
 title: Terminate a Cluster
 description: Learn how to terminate a cluster in Azure CycleCloud. Cluster termination stops and removes the VMs and deletes non-persistent volumes.
 author: adriankjohnson
-ms.date: 03/30/2020
+ms.date: 11/12/2021
 ms.author: adjohnso
 ---
 
@@ -39,3 +39,16 @@ To remove the resources no longer needed, you can simply delete the resource gro
 ```azurecli-interactive
 az group delete --name "{RESOURCE GROUP}"
 ```
+
+::: moniker range=">=cyclecloud-8"
+## Force-Delete VMs
+
+CycleCloud 8.2.1 supports the **Force Delete** option for VMs, which can provide faster delete times at the risk of possible data loss on the disks. This can be enabled separately for standalone VMs (such as scheduler head nodes) or scaleset VMs (execute nodes). To enable it, go to the **Settings** page in the upper right corner, and **Configure CycleCloud**.
+
+![Force Delete settings](~/images/force-delete-settings.png)
+
+This setting affects all VMs managed by CycleCloud, but can be changed at any time.
+
+> [!WARNING]
+> This feature is not recommended for VMs whose data disks contain critical data!
+::: moniker-end
