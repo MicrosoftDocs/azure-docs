@@ -9,11 +9,11 @@ ms.custom: mvc, devx-track-azurecli
 
 # Deploy to Azure Container Instances from Azure Container Registry using a managed identity
 
-[Azure Container Registry](../container-registry/container-registry-intro.md) (ACR) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to container groups with Azure Container Instances. One way to configure registry access is to create an Azure Active Directory managed identity.
+[Azure Container Registry][acr-overview] (ACR) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to container groups with Azure Container Instances. One way to configure registry access is to create an Azure Active Directory managed identity.
 
 ## Prerequisites
 
-**Azure container registry**: You need a premium SKU Azure container registry. If you need to create a registry, see [Create a container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
+**Azure container registry**: You need a premium SKU Azure container registry. If you need to create a registry, see [Create a container registry using the Azure CLI][acr-get-started].
 
 **Azure CLI**: The command-line examples in this article use the [Azure CLI](/cli/azure/) and are formatted for the Bash shell. You can [install the Azure CLI](/cli/azure/install-azure-cli) locally, or use the [Azure Cloud Shell][cloud-shell-bash].
 
@@ -22,29 +22,27 @@ ms.custom: mvc, devx-track-azurecli
 > [!IMPORTANT]
 > Managed identity-authenticated container image pulls from ACR are not supported in Canada Central, South India, and West Central US at this time.  
 
-* You can't pull images from [Azure Container Registry](../container-registry/container-registry-vnet.md) deployed into an Azure Virtual Network at this time.
-
 * Virtual Network injected container groups do not support a managed identity authentication image pulls with ACR.
 
 * Windows Sever 2016 container groups do not support managed identity authentication image pulls with ACR.
 
-* Container groups cannot use managed identity to authenticate image pulls from Azure container registry's that use [private DNS zones](../dns/private-dns-privatednszone.md).
+* Container groups cannot use managed identity to authenticate image pulls from Azure container registry's that use [private DNS zones][private-dns-zones].
 
 ## Configure registry authentication
 
-Your container registry must have Trusted Services enabled. To find instructions on how to enable trusted services, see [Allow trusted services to securely access a network-restricted container registry (preview)](../container-registry/allow-access-trusted-services.md).
+Your container registry must have Trusted Services enabled. To find instructions on how to enable trusted services, see [Allow trusted services to securely access a network-restricted container registry (preview)][allow-access-trusted-services].
 
 ## Create an identity
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity#az_identity_create) command. You can use the same resource group you used previously to create the container registry, or a different one.
+Create an identity in your subscription using the [az identity create][az-identity-create] command. You can use the same resource group you used previously to create the container registry, or a different one.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId
 ```
 
-To configure the identity in the following steps, use the [az identity show][az_identity_show] command to store the identity's resource ID and service principal ID in variables.
+To configure the identity in the following steps, use the [az identity show][az-identity-show] command to store the identity's resource ID and service principal ID in variables.
 
-In order to properly configure the identity in future steps, use [az identity show][az_identity_show] to obtain and store the identity's resource ID and service principal ID in variables.
+In order to properly configure the identity in future steps, use [az identity show][az-identity-show] to obtain and store the identity's resource ID and service principal ID in variables.
 
 ```azurecli-interactive
 # Get resource ID of the user-assigned identity
@@ -146,4 +144,18 @@ az group delete --name myResourceGroup
 
 ## Next Steps
 
-* [Learn how to deploy to Azure Container Instances from Azure Container Registry using a service principal][./container-instances-using-azure-container-registry.md]
+* [Learn how to deploy to Azure Container Instances from Azure Container Registry using a service principal][use-service-principal]
+
+<!-- LINKS -->
+<!-- Internal -->
+
+[use-service-principal]: ./container-instances-using-azure-container-registry.md
+[az-identity-show]: /cli/azure/identity#az_identity_show
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[acr-overview]: ../container-registry/container-registry-intro.md
+[acr-get-started]: ../container-registry/container-registry-get-started-azure-cli.md
+[private-dns-zones]: ../dns/private-dns-privatednszone.md
+[allow-access-trusted-services]: ../container-registry/allow-access-trusted-services.md
+
+<!-- External -->
+[cloud-shell-bash]: https://shell.azure.com/bash
