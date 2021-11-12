@@ -59,7 +59,7 @@ In these cases, the client using the Azure Cosmos SDK exposes logs and includes 
 
 When determining the next region in order of preference, the SDK client will use the account region list, prioritizing the preferred regions (if any).
 
-For a comprehensive detail on SLA guarantees during these events, see the [SLAs for availability](../high-availability.md#slas-for-availability).
+For a comprehensive detail on SLA guarantees during these events, see the [SLAs for availability](../high-availability.md#slas).
 
 ## <a id="remove-region"></a>Removing a region from the account
 
@@ -93,7 +93,7 @@ If the user has configured a preferred region list with more than one region and
 
 ## Next steps
 
-* Review the [Availability SLAs](../high-availability.md#slas-for-availability).
+* Review the [Availability SLAs](../high-availability.md#slas).
 * Use the latest [.NET SDK](sql-api-sdk-dotnet-standard.md)
 * Use the latest [Java SDK](sql-api-sdk-java-v4.md)
 * Use the latest [Python SDK](sql-api-sdk-python.md)

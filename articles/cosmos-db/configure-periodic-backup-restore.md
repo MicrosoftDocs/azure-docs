@@ -45,7 +45,7 @@ Backup data in Azure Cosmos DB is replicated three times in the primary region. 
 * **Locally-redundant backup storage:** This option copies your data asynchronously three times within a single physical location in the primary region.
 
 > [!NOTE]
-> Zone-redundant storage is currently available only in [specific regions](high-availability.md#availability-zone-support). Depending on the region you select for a new account or the region you have for an existing account; the zone-redundant option will not be available.
+> Zone-redundant storage is currently available only in [specific regions](../availability-zones/az-region.md). Depending on the region you select for a new account or the region you have for an existing account; the zone-redundant option will not be available.
 >
 > Updating backup storage redundancy will not have any impact on backup storage pricing.
 
