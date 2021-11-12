@@ -1,5 +1,6 @@
 ---
 title:  "Expose applications to the internet using Application Gateway"
+titleSuffix: Azure Spring Cloud
 description: How to expose applications to internet using Application Gateway
 author: karlerickson
 ms.author: karler
@@ -20,7 +21,7 @@ This article explains how to expose applications to the internet using Applicati
 - A custom domain to be used to access the application.
 - A certificate, stored in Key Vault, which matches the custom domain to be used to establish the HTTPS listener. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
 
-## Configuring Application Gateway for Azure Spring Cloud
+## Configure Application Gateway for Azure Spring Cloud
 
 We recommend that the domain name, as seen by the browser, is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Cloud back end. This recommendation provides the best experience when using Application Gateway to expose applications hosted in Azure Spring Cloud and residing in a virtual network. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Cloud, cookies and generated redirect URLs (for example) can be broken.
 
