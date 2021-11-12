@@ -83,7 +83,7 @@ az config set defaults.spring-cloud=<service-instance-name>
 The following command creates an application in Azure Spring Cloud in your subscription.  This creates an empty service to which you can upload your application.
 
 ```azurecli
-az spring-cloud app create -n <app-name>
+az spring-cloud app create --name <app-name>
 ```
 
 ## Deploy your Spring Boot application
@@ -126,7 +126,7 @@ For Maven / Gradle projects with multiple modules, repeat for each module:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring-cloud app deploy -n <app-name> \
+az spring-cloud app deploy --name <app-name> \
     --target-module <relative-path-to-module>
 ```
 
@@ -135,7 +135,7 @@ az spring-cloud app deploy -n <app-name> \
 Review the kpack build logs using the following command:
 
 ```azurecli
-az spring-cloud app show-deploy-log -n <app-name>
+az spring-cloud app show-deploy-log --name <app-name>
 ```
 
 > [!NOTE]
