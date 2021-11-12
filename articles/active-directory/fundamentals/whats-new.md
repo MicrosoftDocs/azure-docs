@@ -95,7 +95,7 @@ The following new capabilities have been added to the claims transformations ava
 
 ---
 
-### Public preview - Flagged  
+### Public Preview – Flagged Sign-ins  
 
 **Type:** New feature  
 **Service category:** Reporting  
