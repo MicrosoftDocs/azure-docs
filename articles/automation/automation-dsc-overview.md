@@ -6,7 +6,7 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
-ms.author: magoedte
+ms.author: v-ssudhir
 ms.date: 08/17/2021
 ms.topic: conceptual
 manager: carmonm
