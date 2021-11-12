@@ -112,7 +112,7 @@ To minimize issues related to throttling (Response Code 429), we recommend using
 - Create additional Speech resources in the same or different Regions and distribute the workload among them using "Round Robin" technique. This is especially important for **Text-to-Speech TPS (transactions per second)** parameter, which is set as 200 per Speech Resource and cannot be adjusted
 
 The next sections describe specific cases of adjusting quotas.<br/>
-Jump to [Text-to-Speech: increasing concurrent request limit for custom neural voices](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-and-custom-voices)
+Jump to [Text-to-Speech: increasing concurrent request limit for custom neural voices](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-voices)
 
 ### Speech-to-text: increasing online transcription concurrent request limit
 By default the number of concurrent requests is limited to 100 per Speech resource (Base model) and to 100 per Custom endpoint (Custom model). For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
