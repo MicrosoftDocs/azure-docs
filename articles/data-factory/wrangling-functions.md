@@ -122,8 +122,6 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | Table.RowCount | Not supported, but can be achieved by adding a custom column containing the value 1, then aggregating that column with List.Sum. Table.Group is supported. | 
 | Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in scaled-out M. |
 | Table.Transpose | Not supported |
-| Table.Pivot | Not supported |
-| Table.SplitColumn | Partially supported |
 
 ## M script workarounds
 
