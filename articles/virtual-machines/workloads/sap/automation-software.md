@@ -57,19 +57,19 @@ Configure the SAP parameters file:
 
 1. Navigate to the SAP deployment workspace's directory.
 
-    ```azurecli-interactive
+    ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/
     ```
 
 1. Create a new directory called `BOMS`:
 
-    ```azurecli-interactive
+    ```bash
     mkdir -p ~/Azure_SAP_Automated_Deployment/WORKSPACES/BOMS; cd $_
     ```
 
 1. Create the SAP parameters YAML file.
 
-    ```azurecli-interactive
+    ```bash
     cat <<EOF > sap-parameters.yaml
     ---
     bom_base_name:               S41909SPS03_v0006ms
@@ -82,13 +82,13 @@ Configure the SAP parameters file:
 
 1. Open `sap-parameters.yaml` in an editor.
 
-    ```azurecli-interactive
+    ```bash
     vi sap-parameters.yaml
     ``` 
 
 1. Update the following parameters:
 
-    1. Change the value of `bom_base_name` to `S41909SPS03_v0004ms`.
+    1. Change the value of `bom_base_name` to `S41909SPS03_v0006ms`.
 
     2. Change the value of `sapbits_location_base_path` to the path to your storage account `sapbits`.
 
@@ -102,30 +102,26 @@ Then, execute the Ansible playbooks. One way you can execute the playbooks is to
 
 1. Run the validator test menu script:
 
-    ```azurecli-interactive
+    ```bash
     ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/validator_test_menu.sh
     ```
 
-1. Select which playbook to execute. For example:
+1. Select the playbook to execute. For example:
     
     ```output
     1) BoM Downloader
-    2) BoM Uploader
-    3) Quit
+    2) Quit
     Please select playbook: 
     ```
 
-1. Repeat for other playbooks you want to execute.
 
-Another option is to execute the Ansible playbooks using the command `ansible-playbook`. You can execute the SAP BoM uploader and downloader in either separate commands or the same command.
+Another option is to execute the Ansible playbooks using the command `ansible-playbook`. 
 
-```azurecli-interactive
+```bash
 ansible-playbook                                                                                   \
   --user        azureadm                                                                           \
-  --private-key sshkey                                                                             \
   --extra-vars="@sap-parameters.yaml"                                                              \
-  ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/playbook_bom_downloader.yaml            \
-  ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/playbook_bom_uploader.yaml              
+  ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/playbook_bom_downloader.yaml
 ```
 
 ## Next steps

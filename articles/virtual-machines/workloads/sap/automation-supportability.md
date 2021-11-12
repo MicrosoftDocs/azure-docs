@@ -1,5 +1,5 @@
 ---
-title: Supportability for the SAP Deployment Automation Framework
+title: Supportability matrix for the SAP Deployment Automation Framework
 description: Supported platforms, topologies, and capabilities for the SAP Deployment Automation Framework on Azure.
 author: kimforss
 ms.author: kimforss
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Supportability for the automation framework
+# Supportability matrix for the SAP Automation Framework
 
 The [SAP Deployment Automation Framework on Azure](automation-deployment-framework.md) supports deployment of all the supported SAP on Azure topologies,
 
@@ -33,13 +33,13 @@ You can also deploy the automation framework to a standalone server by specifyin
 
 The automation framework supports both green field and brown field deployments. 
 
-### Green field deployments
+### New environment deployments
 In the green field deployment all the required resources will be created by the automation framework.
 
 In this scenario, you provide the relevant data (address spaces for networks and subnets) when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone.md) for more examples.
 
-### Brown field deployments
-The automation deployment framework will use existing Azure resources when deploying in a brown field scenario
+### Existing environment deployments
+The automation deployment framework can use existing Azure resources for deployments, also known as brown field scenarios.
 
 In this scenario, you provide the Azure resource identifiers for the existing resources when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone.md) for more examples.
 
@@ -83,8 +83,7 @@ The automation framework uses or can use the following Azure services, features,
 
 At this time the automation framework **doesn't support** the following Azure services, features, or capabilities:
 
-- Azure Files for the Network File System (NFS) protocol
-- Azure Monitor for SAP Solutions
+- Azure Files for NFS
 - Azure NetApp Files (ANF)
     - For database files
 
