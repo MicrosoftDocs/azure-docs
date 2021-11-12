@@ -2,7 +2,7 @@
 author: mattchenderson
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/08/2021
+ms.date: 11/12/2021
 ms.author: mahender
 ---
 
