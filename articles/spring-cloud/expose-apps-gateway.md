@@ -22,13 +22,13 @@ This article explains how to expose applications to the internet using Applicati
 
 ## Configuring Application Gateway for Azure Spring Cloud
 
-In order to get the best experience using Application Gateway to expose Azure Spring Cloud hosted applications residing in a virtual network, it is recommended that the domain name as seen by the browser is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Cloud backend. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Cloud, cookies and generated redirect URL's can be broken for example.
+We recommend that the domain name, as seen by the browser, is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Cloud back end. This recommendation provides the best experience when using Application Gateway to expose applications hosted in Azure Spring Cloud and residing in a virtual network. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Cloud, cookies and generated redirect URLs (for example) can be broken.
 
 To configure Application Gateway in front of Azure Spring Cloud, use the following steps.
 
-1. [deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
-1. Acquire a certificate for your domain of choice and [store that in Key Vault](../key-vault/quick-create-cli.md#add-a-certificate-to-key-vault).
-1. [Configure a custom domain and corresponding certificate](./tutorial-custom-domain.md) from Key Vault on an app deployed onto Azure Spring Cloud.
+1. Follow the instructions in [Deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
+1. Acquire a certificate for your domain of choice and store that in Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
+1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Cloud. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Cloud](./tutorial-custom-domain.md).
 1. Deploy Application Gateway in a virtual network:
   - using Azure Spring Cloud in the backend pool, referenced by the domain suffixed with "private.azuremicroservices.io"
   - with an https listener using the same certificate from Key Vault
@@ -37,7 +37,7 @@ To configure Application Gateway in front of Azure Spring Cloud, use the followi
 
 ## Define variables
 
-Define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment. When you define SPRING_APP_PRIVATE_FQDN, remove 'https' from the uri.
+Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
 
 ```bash
 SUBSCRIPTION='subscription-id'
@@ -53,7 +53,7 @@ APPLICATION_GATEWAY_SUBNET_CIDR='10.1.2.0/24'
 
 ## Sign in to Azure
 
-Sign in to the Azure CLI and choose your active subscription.
+Use the following command to sign in to the Azure CLI and choose your active subscription.
 
 ```azurecli
 az login
@@ -64,11 +64,11 @@ az account set --subscription $SUBSCRIPTION
 
 ### [Using a Publicly Signed Cert](#tab/public-cert)
 
-For production deployments, You'll most likely use a publicly signed certificate. In this case, [import the certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md). Make sure the certificate includes the entire certificate chain.
+For production deployments, you'll most likely use a publicly signed certificate. In this case, import the certificate in Azure Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md). Make sure the certificate includes the entire certificate chain.
 
 ### [Using a Self-Signed Cert](#tab/self-signed-cert)
 
-When you need a self-signed certificate instead (for testing or development), you need to create it, and ensure that the list of "Subject Alternative Names" in the certificate contains the domain name on which the Spring Cloud application will be exposed. When creating a self-signed certificate through Azure Key Vault, you can do so through the Azure portal. Alternatively, when using the Azure CLI, you'll need a policy JSON file.
+When you need a self-signed certificate (for testing or development), you need to create it, and ensure that the list of "Subject Alternative Names" in the certificate contains the domain name on which you'll expose the application. When creating a self-signed certificate through Azure Key Vault, you can do so through the Azure portal. Alternatively, when using the Azure CLI, you'll need a policy JSON file.
 
 To request the default policy, use the following command:
 
@@ -112,7 +112,7 @@ az keyvault certificate create \
 
 ## Configure the public domain name on Azure Spring Cloud
 
-Traffic will enter the application deployed on Azure Spring Cloud using the public domain name. To configure your application to listen to this host name and do so over HTTPS, add a custom domain to the Spring Cloud app:
+Traffic will enter the application deployed on Azure Spring Cloud using the public domain name. To configure your application to listen to this host name and do so over HTTPS, use the following commands to add a custom domain to your app:
 
 ```azurecli
 KV_NAME='name-of-key-vault'
@@ -146,7 +146,7 @@ az spring-cloud app custom-domain bind \
 ```
 
 > [!NOTE]
-> For development and test purposes when it desired to do TLS termination at Application Gateway, there's no need to configure a certificate on Spring Cloud or to provide permissions for Spring Cloud to read from Key Vault. Just the domain name needs to be bound. You can do this by using the following command:
+> For development and test purposes when you want to do TLS termination at Application Gateway, there's no need to configure a certificate on Azure Spring Cloud or to provide permissions for Azure Spring Cloud to read from Key Vault. You just need to bind the domain name, which you can do with the following command:
 >
 > ```azurecli
 > az spring-cloud app custom-domain bind \
@@ -177,7 +177,7 @@ az network public-ip create \
 
 ## Create a Managed Identity for Application Gateway
 
-Application Gateway will need to be able to access Key Vault to read the certificate. To do so, it will use a User-assigned [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md). Create the Managed Identity as follows:
+Application Gateway will need to be able to access Key Vault to read the certificate. To do so, it will use a User-assigned [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md). Create the Managed Identity by using the following command:
 
 ```azurecli
 APPGW_IDENTITY_NAME='name-for-appgw-managed-identity'
@@ -195,7 +195,7 @@ APPGW_IDENTITY_OID=$(az ad sp show --id $APPGW_IDENTITY_CLIENTID --query objectI
 
 ## Set Policy on Key Vault
 
-Configure Key Vault so that the Managed Identity for Application Gateway is allowed to access the certificate stored in Key Vault:
+Configure Key Vault using the following command so that the Managed Identity for Application Gateway is allowed to access the certificate stored in Key Vault:
 
 ```azurecli
 az keyvault set-policy \
@@ -267,7 +267,7 @@ az keyvault certificate download \
     --encoding DER
 ```
 
-Then upload it to Application Gateway:
+Then upload it to Application Gateway using this command:
 
 ```azurecli
 az network application-gateway root-cert create \
@@ -277,7 +277,7 @@ az network application-gateway root-cert create \
     --name MySelfSignedTrustedRootCert
 ```
 
-Now the HTTP Settings can be updated to trust this new (self-signed) root cert:
+Now you can update the HTTP Settings to trust this new (self-signed) root certificate by using this command:
 
 ```azurecli
 az network application-gateway http-settings update \
@@ -293,7 +293,7 @@ az network application-gateway http-settings update \
 
 ### Check the deployment of Application Gateway
 
-After it's created, check the backend health using `az network application-gateway show-backend-health`. This examines whether the application gateway reaches your application through its private FQDN.
+After it's created, check the backend health by using the following command. This examines whether the application gateway reaches your application through its private FQDN.
 
 ```azurecli
 az network application-gateway show-backend-health \
@@ -301,7 +301,7 @@ az network application-gateway show-backend-health \
     --resource-group $RESOURCE_GROUP
 ```
 
-The output indicates the healthy status of backend pool.
+The output indicates the healthy status of backend pool, as shown in the following example:
 
 ```output
 {

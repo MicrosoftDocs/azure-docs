@@ -59,7 +59,7 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | *crl.microsoft.com*<sup>1</sup>   | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
 | *crl3.digicert.com*<sup>1</sup>   | HTTPS:80  | Third Party TLS/SSL Certificate Chain Paths.                 |
 
-<sup>1</sup> Please note that these FQDNs are not included in the FQDN tag.
+<sup>1</sup> Please note that these FQDNs aren't included in the FQDN tag.
 
 
 ## Azure Spring Cloud optional FQDN for third-party application performance management
@@ -77,4 +77,4 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 ## See also
 
 * [Access your application in a private network](access-app-virtual-network.md)
-* [Expose apps using Application Gateway and Azure Firewall](expose-apps-gateway.md)
+* [Expose applications to the internet using Application Gateway](expose-apps-gateway.md)
