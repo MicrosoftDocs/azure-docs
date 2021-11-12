@@ -125,13 +125,15 @@ The following is an example of a zone containing records below NS delegation.
 
 In the preceding example, **child** is the NS delegation records. The records _**foo.child**_ and _**txt.child**_ are records that should only be present in the child zone, **child.contoso.com**. These records might cause inconsistencies if they aren't removed from the parent zone, **contoso.com**. These inconsistencies could cause the zone to be considered as unhealthy with a **Degraded** status.
 
-#### Example of when a zone is considered healthy or unhealthy
+#### Examples of when a zone is considered healthy or unhealthy
 
-* Zone doesn't contain NS delegation records, glue records, and other records. - **Healthy**
-* Zone only contains NS delegation records. - **Healthy**
-* Zone only contains NS delegation records and glue records. - **Healthy**
-* Zone contains NS delegation records and other records (except glue records) below delegation record, that should be present in the child zone. - **Unhealthy**
-* Zone contains NS delegation Records, glue Records, and other records (except glue records). - **Unhealthy**
+| Example | Status |
+| ------- | ------ |
+| Zone doesn't contain NS delegation records, glue records, and other records. | **Healthy** |
+| Zone only contains NS delegation records. | **Healthy** |
+| Zone only contains NS delegation records and glue records. | **Healthy** |
+| Zone contains NS delegation records and other records (except glue records) below delegation record, that should be present in the child zone. | **Unhealthy** |
+| Zone contains NS delegation Records, glue Records, and other records (except glue records). | **Unhealthy** |
 
 **How can you fix it?** - To resolve, locate and remove all records except glue records under NS delegation records in your parent zone.
 
