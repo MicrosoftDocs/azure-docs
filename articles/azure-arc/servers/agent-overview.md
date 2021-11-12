@@ -49,6 +49,10 @@ Metadata information about the connected machine is collected after the Connecte
 * Policy compliance status and details (if using guest configuration policies)
 * SQL Server installed (Boolean value)
 * Cluster resource ID (for Azure Stack HCI nodes)
+* Hardware manufacturer
+* Hardware model
+* Cloud provider
+* AWS account ID, instance ID and region (if running in AWS)
 
 The following metadata information is requested by the agent from Azure:
 
