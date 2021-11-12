@@ -30,7 +30,7 @@ The workflow is similar no matter where you deploy your model:
 1. Prepare an inference configuration.
 1. Deploy the model locally to ensure everything works.
 1. Choose a compute target.
-1. Re-deploy the model to the cloud.
+1. Deploy the model to the cloud.
 1. Test the resulting web service.
 
 For more information on the concepts involved in the machine learning deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
@@ -110,7 +110,7 @@ az ml model register -n bidaf_onnx \
 
 Set `-p` to the path of a folder or a file that you want to register.
 
-For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ml(v1)/model).
+For more information on `az ml model register`, see the [reference documentation](/cli/azure/ml(v1)/model).
 
 ### Register a model from an Azure ML training run
 
@@ -122,7 +122,7 @@ az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-
 
 The `--asset-path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `--asset-path` to the path of a folder that contains the files.
 
-For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ml(v1)/model).
+For more information on `az ml model register`, see the [reference documentation](/cli/azure/ml(v1)/model).
 
 # [Python](#tab/python)
 
@@ -213,7 +213,7 @@ For more information on inference configuration, see the [InferenceConfig](/pyth
 
 ## Define a deployment configuration
 
-A deployment configuration specifies the amount of memory and cores to reserve for your webservice will require in order to run, as well as configuration details of the underlying webservice. For example, a deployment configuration lets you specify that your service needs 2 gigabytes of memory, 2 CPU cores, 1 GPU core, and that you want to enable autoscaling.
+A deployment configuration specifies the amount of memory and cores your webservice needs in order to run. It also provides configuration details of the underlying webservice. For example, a deployment configuration lets you specify that your service needs 2 gigabytes of memory, 2 CPU cores, 1 GPU core, and that you want to enable autoscaling.
 
 The options available for a deployment configuration differ depending on the compute target you choose. In a local deployment, all you can specify is which port your webservice will be served on.
 
@@ -225,7 +225,7 @@ For more information, see the [deployment schema](./reference-azure-machine-lear
 
 # [Python](#tab/python)
 
-To create a local deployment configuration, do the following:
+The following Python demonstrates how to create a local deployment configuration: 
 
 [!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deployment-configuration-code)]
 
@@ -358,7 +358,7 @@ curl -v -X POST -H "content-type:application/json" \
 
 [!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
-## Re-deploy to cloud
+## Deploy to cloud
 
 Once you've confirmed your service works locally and chosen a remote compute target, you are ready to deploy to the cloud. 
 
