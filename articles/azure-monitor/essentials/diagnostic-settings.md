@@ -26,6 +26,7 @@ A single diagnostic setting can define no more than one of each of the destinati
 The following video walks you through routing platform logs with diagnostic settings. The video was done at an earlier time and doesn't include the following:
  - There are now 4 destinations. You can send platform metrics and logs to certain Azure Monitor partners. 
  - A new feature called category groups was introduced in Nov 2021. 
+
 Information on these newer features is included in this article. 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
@@ -223,7 +224,7 @@ See [Diagnostic Settings](/rest/api/monitor/diagnosticsettings) to create or upd
 
 Since a diagnostic setting needs to be created for each Azure resource, Azure Policy can be used to automatically create a diagnostic setting as each resource is created. Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this fact, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition. 
 
-With the addition of resource log category groups, you can now choose options that dynamically update as the log categories change.  For more information, see [diagnostic settings sources](#sources) listed earlier in this article. 
+With the addition of resource log category groups, you can now choose options that dynamically update as the log categories change.  For more information, see [diagnostic settings sources](#sources) listed earlier in this article. All resource types have the "All" category. Some have the "Audit" category.  
 
 ### Built-in policy definitions for Azure Monitor
 There are two built-in policy definitions for each resource type: one to send to a Log Analytics workspace and another to send to an event hub. If you need only one location, assign that policy for the resource type. If you need both, assign both policy definitions for the resource.
