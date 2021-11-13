@@ -31,7 +31,7 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
     1. Review the **total price per hour** displayed on the page.
     1. Select **Save**.
 
-        :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-window.png" alt-text="Screenshot that shows the "New lab" window.":::
+        :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-window.png" alt-text="Screenshot that shows the New lab window.":::
 
         > [!NOTE]
         > You see an option to select a location for your lab if the lab plan was configured to [allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md) option. 
