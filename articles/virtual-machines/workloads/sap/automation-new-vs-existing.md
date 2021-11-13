@@ -67,8 +67,6 @@ cd WORKSPACES
     
 1. Prepare the control plane by installing the deployer and library. Run either the Bash or PowerShell command. Be sure to replace the sample values with your service principal's information.
 
-# [Linux](#tab/linux)
-
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
@@ -89,7 +87,6 @@ $DEPLOYMENT_REPO_PATH/scripts/prepare_region.sh
     --tenant_id $tenant
     --auto-approve
 ```
-# [Windows](#tab/windows)
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
@@ -107,19 +104,13 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRAS
 -Tenant_id $Tenant_id
 ```
 
----
-
 1. Deploy the SAP system. Run either the Bash or PowerShell command.
-
-# [Linux](#tab/linux)
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh --parameterfile DEV-WEEU-SAP01-X00.tfvars --type sap_system --auto-approve
 ```
-
-# [Windows](#tab/windows)
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
@@ -128,8 +119,6 @@ cd \Azure_SAP_Automated_Deployment\WORKSPACES\SYSTEM\DEV-WEEU-SAP01-X00
 New-SAPSystem --parameterfile .\DEV-WEEU-SAP01-X00.tfvars
         -Type sap_system
 ```
-
----
 ## Existing example scenarios
 
 The following are example existing scenarios that use existing Azure resources.
@@ -189,8 +178,6 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 Deploy the control plane installing the deployer and SAP Library. Run either the Bash or PowerShell command. Be sure to replace the sample credentials with your service principal's information.
 
-# [Linux](#tab/linux)
-
 ```bash
 subscriptionID=<subscriptionID>
 appId=<appID>
@@ -209,14 +196,12 @@ $DEPLOYMENT_REPO_PATH/scripts/prepare_region.sh
     --tenant_id $tenant
     --auto-approve
 ```
-# [Windows](#tab/windows)
 
 ```powershell
 $subscription="<subscriptionID>"
 $appId="<appID>"
 $spn_secret="<password>"
 $tenant_id="<tenant>"
-
 
 New-SAPAutomationRegion 
     -DeployerParameterfile .\DEPLOYER\MGMT-EUS2-DEP01-INFRASTRUCTURE\MGMT-EUS2-DEP01-INFRASTRUCTURE.json 
@@ -227,7 +212,6 @@ New-SAPAutomationRegion
     -Tenant_id $tenant_id
     -Silent      
     ```
----
 
 1. Open the workload zone folder for the QA environment.
 
@@ -238,8 +222,6 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/QA-EUS2-SAP03-INFRASTRU
 Deploy the workload zone by running either the Bash or PowerShell script. 
 
 Be sure to replace the sample credentials with your service principal's information. You can use the same service principal credentials that you used in the control plane deployment, however for production deployments we recommend using different service principals per workload zone.
-
-# [Linux](#tab/linux)
 
 ```bash
 
@@ -257,7 +239,6 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
     --tenant_id $tenant                                        \
     --auto-approve
 ```
-# [Windows](#tab/windows)
 
 ```powershell
 $subscription="<subscriptionID>"
@@ -282,17 +263,14 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/QA-EUS2-SAP03-X01
 
 1. Deploy the SAP system for the QA environment. Run either the Bash or PowerShell command.
 
-# [Linux](#tab/linux)
 
 ```bash
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh --parameterfile QA-EUS2-SAP03-X01.tfvars --type sap_system --auto-approve
 ```
-# [Windows](#tab/windows)
 
 ```powershell
 New-SAPSystem --parameterfile .\QA-EUS2-SAP03-tfvars.json -Type sap_system
 ```
----
 ## Next steps
 
 > [!div class="nextstepaction"]
