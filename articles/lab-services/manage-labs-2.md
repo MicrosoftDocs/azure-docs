@@ -5,9 +5,11 @@ ms.topic: how-to
 ms.date: 11/12/2021
 ---
 
-# Manage labs 
+# Manage labs
 
 This article shows you how a lab plan owner or administrator can view all the labs and delete labs associated with a lab plan.
+
+Lab plans and labs are sibling resources contained in a resource group. Administrators can use existing tools in the Azure Portal to manage labs.
 
 ## View labs
 
@@ -32,7 +34,7 @@ This article shows you how a lab plan owner or administrator can view all the la
 1. Select **... (ellipsis)**, and select **Delete**.
 
     ![Delete a lab - button](./media/how-to-manage-lab-plans/delete-lab-button.png)
-2. Type **Yes** on the warning message.
+1. Type **Yes** on the warning message.
 
     ![Confirm lab deletion](./media/how-to-manage-lab-plans/confirm-lab-delete.png)
 
