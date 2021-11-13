@@ -7,7 +7,7 @@ ms.date: 11/15/2021
 ms.author: juliako
 ---
 
-## People's detected clothing (preview)
+# People's detected clothing (preview)
 
 Video Analyzer for Media detects clothing associated with the person wearing it in the video and provides information such as the type of clothing detected and the timestamp of the appearance (start, end). The API returns the detection confidence level.
  
