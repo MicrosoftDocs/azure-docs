@@ -91,7 +91,7 @@ disks:
 ...
 ```
 
-The **<SID>_hosts.yaml** is the inventory file Ansible uses for configuration of the SAP infrastructure.
+The **`<SID>_hosts.yaml`** is the inventory file Ansible uses for configuration of the SAP infrastructure.
 
 ```yaml
 X01_DB:
