@@ -13,7 +13,7 @@ You can enable several auto-shutdown cost control features to proactively preven
 - Shutdown virtual machines when users disconnect
 - Shutdown virtual machines when users do not connect
 
-Idle detection examines both mouse/keyboard input and disk/CPU usage. By checking disk/CPU usage, operations such as long-running queries are accounted for.
+Idle detection examines both mouse/keyboard input (user absence) and disk/CPU usage (resource usage). By selecting resource usage, that is, disk/CPU usage, operations such as long-running queries are accounted for.
 
 Review more details about the auto-shutdown features in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) section.
 

@@ -51,8 +51,11 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
         ![New lab window](./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
     5. Then, select **Next** on the **Virtual machine credentials** page. 
 1. On the **Lab policies** page, do the following steps:
-    1. Enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab. 
-    2. Then, select **Next**. 
+    1. Enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab.
+    1. Enter the timeouts for the auto-shutdown settings.
+
+        For idle settings, idle detection examines both mouse/keyboard input (user absence) and disk/CPU usage (resource usage). By selecting resource usage as an idle setting, operations such as long-running queries are accounted for.
+    1. Then, select **Next**.
 
         ![Quota for each user](./media/tutorial-setup-classroom-lab/quota-for-each-user.png)
 
