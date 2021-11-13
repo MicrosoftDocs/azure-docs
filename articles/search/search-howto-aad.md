@@ -38,7 +38,7 @@ To add your subscription to the preview:
 You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
 > [!NOTE]
-> Once you add the preview to your subscription, all services in the subscription will be enrolled in the preview and can't be removed. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as shown in the next step.
+> Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as shown in the next step.
 
 ### Enable RBAC for data plane operations
 
