@@ -9,7 +9,11 @@ ms.date: 11/11/2021
 # HEART Workbook Overview
 This workbook uses click analytics auto-collection plugin to understand usage in a wholistic manner. The HEART framework was originally introduced by Google. In this workbook, we are using a metrics based approach to understand the product usage and uncover key questions to build a user centric product. 
 
-
+# Heart Workbook Walkthrough
+> [!VIDEO https://microsoft-my.sharepoint.com/personal/anhakhoo_microsoft_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fanhakhoo%5Fmicrosoft%5Fcom%2FDocuments%2FWorkbook%5FDemo%2Emp4&parent=%2Fpersonal%2Fanhakhoo%5Fmicrosoft%5Fcom%2FDocuments&wdLOR=c5B8B6923%2D0DEF%2D4E10%2DA64C%2D59D681930F9E]
+# Benefits of Implementing HEART
+ ![Heart Benefits](./media/usage-overview/heartbenefits.png)
+ 
 # Framework Dimensions
 HEART is an acronym standing for Happiness, Engagement, Adoption, Retention and Task Success. The measurement framework was originally introduced by Google. It focuses on 5 customer experience dimensions: 
 
@@ -130,7 +134,7 @@ The workbook is designed in a way that users only have to interact with the mast
 
 The first step after accessing the workbook would be validate that the telemetry has been correctly implemented and we are getting the data as expected to light up the metrics accurately. That can be done using the "Development Requirements" tab on the workbook as shown (image 2).  
 
-![WorkbookPreview](./media/usage-overview/workbookpreview.png)  
+![WorkbookPreview](./media/usage-overview/workbookpreview3.png)  
 
 ### Workbook Structure
 The workbook has visuals depicting metric trends for different HEART dimensions split over 8 tabs. The tabs in the workbook have descriptions on metric descriptions and how to interpret each of them. 
