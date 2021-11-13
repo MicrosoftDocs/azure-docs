@@ -4,7 +4,7 @@ description: Describes how to define variables in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 11/12/2021
 ---
 
 # Variables in Bicep
@@ -20,6 +20,8 @@ The syntax for defining a variable is:
 ```bicep
 var <variable-name> = <variable-value>
 ```
+
+A variable can't have the same name as a parameter, module, or resource.
 
 Notice that you don't specify a [data type](data-types.md) for the variable. The type is inferred from the value. The following example sets a variable to a string.
 

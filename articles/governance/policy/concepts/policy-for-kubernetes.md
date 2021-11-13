@@ -218,7 +218,7 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](/
 > Note: If you have already deployed Azure Policy for Kubernetes on an Azure Arc cluster using Helm directly without extensions, follow the instructions listed to [delete the Helm chart](#remove-the-add-on-from-azure-arc-enabled-kubernetes). Once the deletion is done, you can then proceed.
 1. Ensure your Kubernetes cluster is a supported distribution.
 
-    > Note: Azure Policy for Arc extension is supported on [the following Kubernetes distributions](/azure-arc/kubernetes/conceptual-extensions).
+    > Note: Azure Policy for Arc extension is supported on [the following Kubernetes distributions](/azure/azure-arc/kubernetes/validation-program).
 1. Ensure you have met all the common prerequisites for Kubernetes extensions listed [here](/azure/azure-arc/kubernetes/extensions) including [connecting your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
 
     > Note: Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -261,19 +261,19 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](/
 > 
 To create an extension instance, for your Arc enabled cluster, run the following command substituting `<>` with your values:
 
-```console
+```azurecli-interactive
 az k8s-extension create --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --extension-type Microsoft.PolicyInsights --name <EXTENSION_INSTANCE_NAME>
 ```
 
 #### Example:
 
-```console
+```azurecli-interactive
 az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --extension-type Microsoft.PolicyInsights --name azurepolicy
 ```
 
 #### Example Output:
 
-```
+```json
 {
   "aksAssignedIdentity": null,
   "autoUpgradeMinorVersion": true,
@@ -328,20 +328,20 @@ az k8s-extension show --cluster-type connectedClusters --cluster-name <CLUSTER_N
 az k8s-extension show --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --name azurepolicy
 ```
 
-#### To validate that the add-on installation was successful and that the azure-policy and gatekeeper pods are running, run the following command:
+To validate that the extension installation was successful and that the azure-policy and gatekeeper pods are running, run the following command:
 
-```console
+```bash
+# azure-policy pod is installed in kube-system namespace
 kubectl get pods -n kube-system
-```
 
-```console
+# gatekeeper pod is installed in gatekeeper-system namespace
 kubectl get pods -n gatekeeper-system
 ```
 
 ### Delete Azure Policy extension
 To delete the extension instance, run the following command substituting `<>` with your values:
 
-```console
+```azurecli-interactive
 az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --name <EXTENSION_INSTANCE_NAME>
 ```
 
