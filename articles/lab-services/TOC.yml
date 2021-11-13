@@ -111,6 +111,8 @@
       href: how-to-manage-lab-plans.md
     - name: Manage labs
       href: manage-labs-2.md
+    - name: Configure auto-shutdown of VMs for a lab plan
+      href: how-to-configure-lab-plan.md
     - name: Connect to a virtual network
       href: how-to-connect-vnet-injection.md
   - name: Create and configure lab accounts (deprecated)
