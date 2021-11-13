@@ -109,18 +109,18 @@ You can quickly configure your IoT Edge device with symmetric key authentication
    sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
    ```
 
-The `iotedge config mp` command creates a configuration file on the device, provides your connection string, and applies the configuration changes.
+   The `iotedge config mp` command creates a configuration file on the device and enters your connection string in the file.
+
+Apply the configuration changes.
+
+   ```bash
+   sudo iotedge config apply
+   ```
 
 If you want to see the configuration file, you can open it:
 
    ```bash
    sudo nano /etc/aziot/config.toml
-   ```
-
-If you make any changes to the configuration file, use the `iotedge config apply` command apply your changes:
-
-   ```bash
-   sudo iotedge config apply
    ```
 
 <!-- end 1.2 -->

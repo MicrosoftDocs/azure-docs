@@ -4,7 +4,7 @@ description: Describes how to define parameters in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 11/12/2021
 ---
 
 # Parameters in Bicep
@@ -21,7 +21,15 @@ To learn more about parameters, and for hands-on guidance, see [Build reusable B
 
 ## Declaration
 
-Each parameter needs a name and type. A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
+Each parameter has a name and [data type](data-types.md). Optionally, you can provide a default value for the parameter.
+
+```bicep
+param <parameter-name> <parameter-data-type> = <default-value>
+```
+
+A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
+
+The following example shows basic declarations of parameters.
 
 ```bicep
 param demoString string
@@ -62,6 +70,19 @@ param demoPassword string
 @description('Must be at least Standard_A3 to support 2 NICs.')
 param virtualMachineSize string = 'Standard_DS1_v2'
 ```
+
+The following table describes the available decorators and how to use them.
+
+| Decorator | Apply to | Argument | Description |
+| --------- | ---- | ----------- | ------- |
+| [allowed](#allowed-values) | all | array | Allowed values for the parameter. Use this decorator to make sure the user provides correct values. |
+| [description](#description) | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
+| [maxLength](#length-constraints) | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
+| [maxValue](#integer-constraints) | int | int | The maximum value for the integer parameter. This value is inclusive. |
+| metadata | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
+| [minLength](#length-constraints) | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
+| [minValue](#integer-constraints) | int | int | The minimum value for the integer parameter. This value is inclusive. |
+| [secure](#secure-parameters) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
 
