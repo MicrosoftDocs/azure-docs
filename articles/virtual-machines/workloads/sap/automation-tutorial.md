@@ -273,7 +273,7 @@ appId=<appID>
 spn_secret=<password>
 tenant_id=<tenant>
 
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-hana/"
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-hana"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                     \
@@ -281,7 +281,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
     --library_parameter_file LIBRARY/MGMT-NOEU-SAP_LIBRARY/MGMT-NOEU-SAP_LIBRARY.tfvars                      \
     --subscription $subscriptionID                                                                           \
     --spn_id $appID                                                                                          \
-    --spn_secret "$spn_secret"                                                                               \ 
+    --spn_secret $spn_secret                                                                                 \
     --tenant_id $tenant
 ```
 

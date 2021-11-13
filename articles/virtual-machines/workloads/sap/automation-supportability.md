@@ -33,13 +33,13 @@ You can also deploy the automation framework to a standalone server by specifyin
 
 The automation framework supports both green field and brown field deployments. 
 
-### New environment deployments
+### Greenfield deployments
 In the green field deployment all the required resources will be created by the automation framework.
 
 In this scenario, you provide the relevant data (address spaces for networks and subnets) when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone.md) for more examples.
 
-### Existing environment deployments
-The automation deployment framework can use existing Azure resources for deployments, also known as brown field scenarios.
+### Brownfield deployments
+In the brownfield deployment existing Azure resources can be used as part of the deployment.
 
 In this scenario, you provide the Azure resource identifiers for the existing resources when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone.md) for more examples.
 

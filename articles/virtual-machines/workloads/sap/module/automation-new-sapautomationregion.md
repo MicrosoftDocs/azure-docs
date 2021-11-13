@@ -51,12 +51,17 @@ This example deploys the control plane, as defined by the parameter files. The p
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
 
+$Subscription=<subscriptionID>
+$SPN_id=<appID>
+$SPN_password=<password>
+$Tenant_id=<tenant>
+
 New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRASTRUCTURE\MGMT-WEEU-DEP01-INFRASTRUCTURE.tfvars 
 -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars
--Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
--SPN_id yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
--SPN_password ************************
--Tenant_id zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz  
+-Subscription $Subscription
+-SPN_id $SPN_id
+-SPN_password $SPN_password
+-Tenant_id $Tenant_id
 ```
 
 ## Parameters
