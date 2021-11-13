@@ -136,7 +136,7 @@ git clone https://github.com/Azure/sap-hana.git \
 cd ~/Azure_SAP_Automated_Deployment/sap-hana
 ```
 
-Optionally validate your versions of Terraform, and the Azure Command-Line Interface (Azure CLI).
+Optionally, validate the version of Terraform, and the Azure Command-Line Interface (Azure CLI) available on your instance of the Cloud Shell.
 
 ```bash
 ./util/check_workstation.sh
