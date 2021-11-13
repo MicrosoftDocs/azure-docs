@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 # Enterprise Scale for SAP Automation Framework Deployment - Hands-on Lab
 
 
-This tutorial shows how to do enterprise scaling for deployments of the [SAP automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. There's a feature-locked branch in the [GitHub repository for the automation framework](https://github.com/Azure/sap-hana/), named `sap-level-up`, for use with this tutorial.
+This tutorial shows how to do enterprise scaling for deployments using the [SAP automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. There's a feature-locked branch in the [GitHub repository for the automation framework](https://github.com/Azure/sap-hana/), named `sap-level-up`, for use with this tutorial.
 
 During this lab, you will perform the following tasks
 
@@ -51,7 +51,7 @@ The following diagram shows the dependency between the control plane and the app
 
 The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. The following diagram shows the logical separation of the control plane and workload zone.
 
-:::image type="content" source="media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram SAP Deployment Automation Environment Diagram.":::
+:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram SAP Deployment Automation Environment Diagram.":::
 
 #### Management Zone
 
@@ -259,9 +259,9 @@ control plane for a chosen automation area.
 
 - The deployment goes through cycles of deploying the infrastructure, refreshing the state, and uploading the Terraform state files to the Library storage account. All of these steps are packaged into a single deployment script. The script needs the location of the configuration file for the Deployer and Library, and some other parameters as follows.
 
-For example, choose **North Europe** as the deployment location, with the four-character name `NOEU` as previously described. The sample deployer configuration file `MGMT-NOEU-DEP00-INFRASTRUCTURE.tfvars` is in the `*~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-NOEU-DEP00-INFRASTRUCTURE*` folder.
+For example, choose **North Europe** as the deployment location, with the four-character name `NOEU` as previously described. The sample deployer configuration file `MGMT-NOEU-DEP00-INFRASTRUCTURE.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-NOEU-DEP00-INFRASTRUCTURE` folder.
 
-The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in the `*~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-NOEU-SAP_LIBRARY*` folder.
+The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-NOEU-SAP_LIBRARY` folder.
 
 1. Create the Deployer and the SAP Library. Also add the Service Principal details to the deployment key vault.
 
