@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication
 
-Azure Active Directory (Azure AD) has multiple settings that determine how often users need to reauthenticate. This reauthentication could be with a first factor such as password, FIDO, or passwordless Microsoft Authenticator, or to perform multi-factor authentication (MFA). You can configure these reauthentication settings as needed for your own environment and the user experience you want.
+Azure Active Directory (Azure AD) has multiple settings that determine how often users need to reauthenticate. This reauthentication could be with a first factor such as password, FIDO, or passwordless Microsoft Authenticator, or to perform multifactor authentication (MFA). You can configure these reauthentication settings as needed for your own environment and the user experience you want.
 
 The Azure AD default configuration for user sign-in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire. If users are trained to enter their credentials without thinking, they can unintentionally supply them to a malicious credential prompt.
 
@@ -108,7 +108,7 @@ To configure or review the *Remain signed-in* option, complete the following ste
 1. Select **Company Branding**, then for each locale, choose **Show option to remain signed in**.
 1. Choose *Yes*, then select **Save**.
 
-To remember Multi-factor authentication settings on trusted devices, complete the following steps:
+To remember multifactor authentication settings on trusted devices, complete the following steps:
 
 1. In the Azure AD portal, search for and select *Azure Active Directory*.
 1. Select **Security**, then **MFA**.
