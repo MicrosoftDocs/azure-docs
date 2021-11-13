@@ -1,6 +1,6 @@
 ---
 title: Run ansible to configure SAP system
-description: Configure the environmane and install SAP using Ansible
+description: Configure the environment and install SAP using Ansible
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Get started Ansible configuration
 
-Along with [automated infrastructure deployment](automation-get-started.md), you can also do the required operating system configurations and install SAP using Ansible playbooks provided in the repository. These playbooks are located in the automation framework repository in `/sap-hana/deploy/ansible`.
+Along with [automated infrastructure deployment](automation-get-started.md), you can also do the required operating system configurations and install SAP using Ansible playbooks provided in the repository. These playbooks are located in the automation framework repository in the `/sap-hana/deploy/ansible` folder.
 
 | Filename                                   | Description                                       |
 | ------------------------------------------ | ------------------------------------------------- |
@@ -28,7 +28,7 @@ Along with [automated infrastructure deployment](automation-get-started.md), you
 
 ## Prerequisites
 
-The Ansible playbooks require the following files `sap-parameters.yaml` and `SID_host.yaml`
+The Ansible playbooks require the following files `sap-parameters.yaml` and `SID_host.yaml` in the current directory.
 
 ### Configuration files
 
@@ -36,20 +36,21 @@ The **sap-parameters.yaml** contains information that Ansible uses for configura
 
 ```yaml
 ---
+
 # bom_base_name is the name of the SAP Application Bill of Materials file
 bom_base_name:                 S41909SPS03_v0006ms
 # Set to true to instruct Ansible to update all the packages on the virtual machines
 upgrade_packages:              false 
 
 # TERRAFORM CREATED
-sap_fqdn:                      sap.contoso.com                      
+sap_fqdn:                      sap.contoso.net                      
 # kv_name is the name of the key vault containing the system credentials
 kv_name:                       DEVWEEUSAP01user###
 # secret_prefix is the prefix for the name of the secret stored in key vault
 secret_prefix:                 DEV-WEEU-SAP01
+
 # sap_sid is the application SID
 sap_sid:                       X01
-
 # scs_high_availability is a boolean flag indicating 
 # if the SAP Central Services are deployed using high availability 
 scs_high_availability:         false
@@ -57,7 +58,7 @@ scs_high_availability:         false
 scs_instance_number:           "00"
 # scs_lb_ip is the SCS IP address of the load balancer in 
 # from of the SAP Central Services virtual machines
-scs_lb_ip:                     
+scs_lb_ip:                     10.110.32.26
 # ERS Instance Number
 ers_instance_number:           "02"
 # ecs_lb_ip is the ERS IP address of the load balancer in
@@ -68,11 +69,12 @@ ers_lb_ip:
 db_sid:                        XDB
 # platform
 platform:                      HANA
+
 # db_high_availability is a boolean flag indicating if the 
 # SAP database servers are deployed using high availability
 db_high_availability:          false
 # db_lb_ip is the IP address of the load balancer in from of the database virtual machines
-db_lb_ip:                      
+db_lb_ip:                      10.110.96.13
 
 disks:
   - { host: 'x01dxdb00l0538', LUN: 0, type: 'sap' }
@@ -91,7 +93,7 @@ disks:
 ...
 ```
 
-The **`<SID>_hosts.yaml`** is the inventory file Ansible uses for configuration of the SAP infrastructure.
+The **`X01_hosts.yaml`** is the inventory file Ansible uses for configuration of the SAP infrastructure. 'X01' may differ for your deployments.
 
 ```yaml
 X01_DB:
@@ -152,7 +154,7 @@ X01_WEB:
 
 Make sure you've [downloaded the SAP software](automation-software.md) to your Azure environment before running this step.
 
-To execute a playbook or multiple playbooks, use the command `ansible-playbook` as follows. Be sure to change all placeholder values to your own information:
+To execute a playbook or multiple playbooks, use the command `ansible-playbook` as follows. The example below runs the Operating System configuration playbook.
 
 
 ```bash
@@ -195,7 +197,7 @@ playbook_options=(
         "${@}"
 )
 
-ansible-playbook "${playbook_options[@]}" <playbook>                                                                                                     
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/playbook_01_os_base_config.yaml
 
 ```
 
