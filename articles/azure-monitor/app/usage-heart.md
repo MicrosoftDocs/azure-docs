@@ -151,6 +151,36 @@ We recommend reading through the content in each tab to get a detailed understan
 
 # FAQs 
 
+### Q: How do I view the data at different grains? (Daily, Monthly, Weekly)?
+
+**Ans:** You can click on the 'Date Grain' filter on the top of the tab to change the grain (As shown in below image)
+
+![grainfaq](./media/usage-overview/monthlygrainfaq.png)  
+
+### Q: How do I access insights from my application that are not available on the HEART workbooks?
+
+**Ans:** You can dig into the data that feeds the HEART workbook if the visuals don't answer all your questions. To do this, please navigate to 'Logs' under 'Monitoring' section and query the customEvents table. Some of the click analytics attributes are contained within the customDimensions field. A sample query is shown in the image below:
+
+![logfaq](./media/usage-overview/logquery.png)  
+
+### Q: Who can I contact if I have more questions?
+
+**Ans:** Please email your questions to HEARTAnalytics@microsoft.com
+
+### Q: Can I edit visuals in the workbook?
+
+**Ans:** Yes, when you click on the public template of the workbook, you can navigate to the top left corner, click edit and make your changes.
+
+![workbookedit1](./media/usage-overview/workbookeditfaq2.png) 
+
+After making your changes, click 'Done Editing' and then the 'Save' icon.
+
+
+![workbookeditfaq2](./media/usage-overview/workbookeditfaq2.5.png)  
+
+To view your saved workbook, navigate to the 'Workbooks' section under 'Monitoring', and then click on the 'Workbooks' tab instead of the 'Public templates' tab. You will see a copy of your customized workbook there (Shown below). You can make any further changes you want on this particular copy.
+
+![workbookeditfaq3](./media/usage-overview/workbookeditfaq3.png)  
  
 
  
