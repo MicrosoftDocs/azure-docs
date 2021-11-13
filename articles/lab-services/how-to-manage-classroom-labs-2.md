@@ -27,6 +27,7 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
 
         If you signed in using lab plan owner credentials, you will see an option to enable more images for the lab. For more information, see [Enable images at the time of lab creation](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
     1. Select the **location** (region) for the lab.
+        If your lab plan is connected to your own virtual network, labs can only be created in the same Azure region as that virtual network.
     1. Review the **total price per hour** displayed on the page.
     1. Select **Save**.
 
@@ -36,7 +37,7 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
         > You see an option to select a location for your lab if the lab plan was configured to [allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md) option. 
 4. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab.
     1. Specify the **name of the user** for all VMs in the lab.
-    2. Specify the **password** for the user. 
+    2. Specify the **password** for the user.
 
         > [!IMPORTANT]
         > Make a note of user name and password. They won't be shown again.

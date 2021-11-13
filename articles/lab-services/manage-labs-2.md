@@ -1,38 +1,41 @@
 ---
-title: View and delete labs in a lab plan in Azure Lab Services
-description: Learn how to view all labs in a lab plan and delete a lab from the lab plan. 
+title: View and delete labs in Azure Lab Services
+description: Learn how to view all labs and delete labs associated with a lab plan. 
 ms.topic: how-to
 ms.date: 11/12/2021
 ---
 
-# Manage labs in a lab plan
+# Manage labs 
 
-This article shows you how a lab plan owner or administrator can view all the labs in a lab plan, and delete a lab in the lab plan.
+This article shows you how a lab plan owner or administrator can view all the labs and delete labs associated with a lab plan.
 
-## View labs in a lab plan
+## View labs
 
-1. On the **Lab Plan** page, select **All labs** on the left menu.
+1. Open the **Resource Group** page.
 
-    ![Labs in the plan](./media/how-to-manage-lab-plans/labs-in-plan.png)
-1. You see a **list of labs** in the account with the following information:
+    ![Labs in the plan](./media/how-to-manage-lab-plans/labs-in-resource-group.png)
+
+    To view only lab resources, set a filter for `Type == Lab`.
+1. You see a **list of labs** with the following information:
     1. Name of the lab.
-    2. The date on which the lab was created.
-    3. Email address of the user who created the lab.
-    4. Maximum number of users allowed into the lab.
-    5. Status of the lab.
-    6. Role assignments.
+    2. Type of resource (Lab)
+    3. Location of the lab.
 
-## Delete a lab in a lab plan
+1. Open a lab to view additional information such as the associated lab plan, OS type, and virtual machine size.
 
-Follow instructions in the previous section to see a list of the labs in the lab plan.
+## Delete a lab
+
+1. Open the **Resource Group** page.
+
+    To view only lab resources, set a filter for `Type == Lab`.
 
 1. Select **... (ellipsis)**, and select **Delete**.
 
     ![Delete a lab - button](./media/how-to-manage-lab-plans/delete-lab-button.png)
-2. Select **Yes** on the warning message.
+2. Type **Yes** on the warning message.
 
     ![Confirm lab deletion](./media/how-to-manage-lab-plans/confirm-lab-delete.png)
 
 ## Next steps
 
-See other articles in the **How-to guides** -> **Create and configure lab plans (lab plan owner)** section of the table-of-content (TOC). 
+See other articles in the **How-to guides** -> **Create and configure lab plans (lab plan owner)** section of the table-of-content (TOC).
