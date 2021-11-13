@@ -263,7 +263,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | `anf_transport_volume_size`        | Defines the size (in GB) for the 'saptransport' volume                  | Optional    |
 
 
-### High availability configuration
+## High availability configuration
 
 High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device)
 
