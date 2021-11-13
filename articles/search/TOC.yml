@@ -126,6 +126,8 @@
     href: samples-rest.md
 - name: Concepts
   items:
+  - name: Search indexes
+    href: search-what-is-an-index.md
   - name: Full-text search
     href: search-lucene-query-architecture.md
   - name: Analyzers
@@ -198,6 +200,8 @@
       items:
       - name: Key-based authentication
         href: search-security-api-keys.md
+      - name: Azure AD authentication
+        href: search-howto-aad.md
       - name: Role-based authorization
         href: search-security-rbac.md
       - name: Configure an IP firewall
@@ -255,7 +259,7 @@
   - name: Indexes
     items:
     - name: Create an index
-      href: search-what-is-an-index.md
+      href: search-how-to-create-search-index.md
     - name: Create a multi-language index
       href: search-language-support.md
     - name: Synonyms
@@ -338,6 +342,8 @@
           href: search-howto-index-encrypted-blobs.md
       - name: Azure Tables
         href: search-howto-indexing-azure-tables.md
+      - name: Azure Files
+        href: search-file-storage-integration.md
       - name: Azure Cosmos DB
         items:
         - name: SQL and MongoDB APIs
@@ -400,7 +406,9 @@
         href: knowledge-store-projection-shape.md
       - name: Define projections
         href: knowledge-store-projections-examples.md 
-      - name: View with Storage Explorer
+      - name: Projection example
+        href: knowledge-store-projection-example-long.md
+      - name: View with Storage Browser
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
         href: knowledge-store-connect-power-bi.md 

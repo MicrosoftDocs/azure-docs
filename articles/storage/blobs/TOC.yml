@@ -210,7 +210,7 @@ items:
       items:
       - name: Overview
         href: access-tiers-overview.md
-      - name: Blob rehydration from archive tier
+      - name: Blob rehydration from Archive tier
         href: archive-rehydrate-overview.md
       - name: Lifecycle management policies
         href: lifecycle-management-overview.md
@@ -310,8 +310,6 @@ items:
         href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Get account configuration properties
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Manage the default access tier of a storage account
-        href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
       - name: Create or delete a container (.NET)
@@ -326,8 +324,6 @@ items:
         href: storage-blobs-list.md
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md
-      - name: Manage the access tier of a blob
-        href: manage-access-tier.md
       - name: Copy a blob (SDK)
         href: storage-blob-copy.md
       - name: Use blob index tags
@@ -436,7 +432,7 @@ items:
             href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Configure network routing preference
           href: ../common/configure-network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Configure Azure Defender for threat protection
+      - name: Enable threat protection with Microsoft Defender for Storage
         href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Protect blob data
       items:
@@ -476,14 +472,18 @@ items:
         href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage blob tiering and lifecycle
       items:
-      - name: Configure lifecycle management policies
-        href: lifecycle-management-policy-configure.md
-      - name: Manage data in the archive tier
+      - name: Change a blob's access tier
+        href: access-tiers-online-manage.md
+      - name: Manage data archiving
         items:
+        - name: Archive a blob
+          href: archive-blob.md
         - name: Rehydrate an archived blob
           href: archive-rehydrate-to-online-tier.md
         - name: Handle an event on blob rehydration
           href: archive-rehydrate-handle-event.md
+      - name: Configure lifecycle management policies
+        href: lifecycle-management-policy-configure.md
     - name: Manage object replication
       items:
       - name: Configure object replication policies
@@ -887,7 +887,7 @@ items:
     - name: .NET
       href: /dotnet/api/azure.storage.files.datalake
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme
+      href: /java/api/overview/azure/storage-file-datalake-readme
     - name: Python
       href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html
     - name: JavaScript

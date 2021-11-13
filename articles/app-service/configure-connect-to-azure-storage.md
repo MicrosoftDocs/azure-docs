@@ -15,13 +15,13 @@ zone_pivot_groups: app-service-containers-windows-linux
 > [!NOTE]
 >Azure Storage in App Service Windows container is **in preview** and **not supported** for **production scenarios**.
 
-This guide shows how to mount Azure Storage Files as a network share in a Windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
+This guide shows how to mount Azure Storage Files as a network share in a Windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
-This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. The benefits of custom-mounted storage include:
+This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. See the video [how to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y). The benefits of custom-mounted storage include:
 
 ::: zone-end
 
@@ -34,7 +34,7 @@ This guide shows how to mount Azure Storage as a network share in a built-in Lin
 
 The following features are supported for Windows containers:
 
-- Secured access to storage accounts with [private links](../storage/common/storage-private-endpoints.md) (when [VNET integration](web-sites-integrate-with-vnet.md) is used). [Service endpoint](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) support is currently unavailable.
+- Secured access to storage accounts with [private links](../storage/common/storage-private-endpoints.md) (when [VNET integration](./overview-vnet-integration.md) is used). [Service endpoint](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) support is currently unavailable.
 - Azure Files (read/write).
 - Up to five mount points per app.
 - Drive letter assignments (`C:` to `Z:`).
@@ -45,7 +45,7 @@ The following features are supported for Windows containers:
 
 The following features are supported for Linux containers:
 
-- Secured access to storage accounts with [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private links](../storage/common/storage-private-endpoints.md) (when [VNET integration](web-sites-integrate-with-vnet.md) is used).
+- Secured access to storage accounts with [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private links](../storage/common/storage-private-endpoints.md) (when [VNET integration](./overview-vnet-integration.md) is used).
 - Azure Files (read/write).
 - Azure Blobs (read-only).
 - Up to five mount points per app.
@@ -57,7 +57,7 @@ The following features are supported for Linux containers:
 ::: zone pivot="container-windows"
 
 - [An existing Windows Container app in Azure App Service](quickstart-custom-container.md)
-- [Create Azure file share](../storage/files/storage-how-to-use-files-cli.md)
+- [Create Azure file share](../storage/files/storage-how-to-use-files-portal.md)
 - [Upload files to Azure File share](../storage/files/storage-how-to-create-file-share.md)
 
 ::: zone-end
@@ -66,7 +66,7 @@ The following features are supported for Linux containers:
 
 - An existing [App Service on Linux app](index.yml).
 - An [Azure Storage Account](../storage/common/storage-account-create.md?tabs=azure-cli)
-- An [Azure file share and directory](../storage/files/storage-how-to-use-files-cli.md).
+- An [Azure file share and directory](../storage/files/storage-how-to-use-files-portal.md).
 
 ::: zone-end
 
@@ -80,7 +80,7 @@ The following features are supported for Linux containers:
 
 - Storage mounts are not supported for native Windows (non-containerized) apps.
 - Azure blobs are not supported.
-- [Storage firewall](../storage/common/storage-network-security.md) is supported only through [private endpoints](../storage/common/storage-private-endpoints.md) (when [VNET integration](web-sites-integrate-with-vnet.md) is used). Custom DNS support is currently unavailable when the mounted Azure Storage account uses a private endpoint.
+- [Storage firewall](../storage/common/storage-network-security.md) is supported only through [private endpoints](../storage/common/storage-private-endpoints.md) (when [VNET integration](./overview-vnet-integration.md) is used). Custom DNS support is currently unavailable when the mounted Azure Storage account uses a private endpoint.
 - FTP/FTPS access to mounted storage not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Mapping `[C-Z]:\`, `[C-Z]:\home`, `/`, and `/home` to custom-mounted storage is not supported.
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
@@ -90,10 +90,11 @@ The following features are supported for Linux containers:
 
 ::: zone pivot="container-linux"
 
-- [Storage firewall](../storage/common/storage-network-security.md) is supported only through [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../storage/common/storage-private-endpoints.md) (when [VNET integration](web-sites-integrate-with-vnet.md) is used). Custom DNS support is currently unavailable when the mounted Azure Storage account uses a private endpoint.
+- [Storage firewall](../storage/common/storage-network-security.md) is supported only through [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../storage/common/storage-private-endpoints.md) (when [VNET integration](./overview-vnet-integration.md) is used). Custom DNS support is currently unavailable when the mounted Azure Storage account uses a private endpoint.
 - FTP/FTPS access to custom-mounted storage is not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
 - Mapping `/` or `/home` to custom-mounted storage is not supported.
+- Don't map the custom storage mount to `/tmp` or its subdirectories as this may cause timeout during app startup.
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
 
@@ -243,5 +244,6 @@ To validate that the Azure Storage is mounted successfully for the app:
 ::: zone pivot="container-linux"
 
 - [Configure a custom container](configure-custom-container.md?pivots=platform-linux).
+- [Video: How to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y).
 
 ::: zone-end

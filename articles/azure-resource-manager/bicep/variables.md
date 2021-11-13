@@ -4,7 +4,7 @@ description: Describes how to define variables in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 11/12/2021
 ---
 
 # Variables in Bicep
@@ -15,7 +15,15 @@ Resource Manager resolves variables before starting the deployment operations. W
 
 ## Define variable
 
-When defining a variable, you don't specify a [data type](data-types.md) for the variable. Instead provide a value or template expression. The variable type is inferred from the resolved value. The following example sets a variable to a string.
+The syntax for defining a variable is:
+
+```bicep
+var <variable-name> = <variable-value>
+```
+
+A variable can't have the same name as a parameter, module, or resource.
+
+Notice that you don't specify a [data type](data-types.md) for the variable. The type is inferred from the value. The following example sets a variable to a string.
 
 ```bicep
 var stringVar = 'example value'
@@ -24,50 +32,92 @@ var stringVar = 'example value'
 You can use the value from a parameter or another variable when constructing the variable.
 
 ```bicep
-param inputValue string = 'deployment Parameter'
+param inputValue string = 'deployment parameter'
 
-var stringVar = 'myVariable'
-
+var stringVar = 'preset variable'
 var concatToVar =  '${stringVar}AddToVar'
 var concatToParam = '${inputValue}AddToParam'
+
+output addToVar string = concatToVar
+output addToParam string = concatToParam
 ```
 
-You can use [Bicep functions](bicep-functions.md) to construct the variable value. The [reference](bicep-functions-resource.md#reference) and [list](bicep-functions-resource.md#list) functions are valid when declaring a variable.
+The preceding example returns:
 
-The following example creates a string value for a storage account name. It uses several Bicep functions to get a parameter value, and concatenates it to a unique string.
+```json
+{
+  "addToParam": {
+    "type": "String",
+    "value": "deployment parameterAddToParam"
+  },
+  "addToVar": {
+    "type": "String",
+    "value": "preset variableAddToVar"
+  }
+}
+```
+
+You can use [Bicep functions](bicep-functions.md) to construct the variable value. The following example uses Bicep functions to create a string value for a storage account name.
 
 ```bicep
+param storageNamePrefix string = 'stg'
 var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
+output uniqueStorageName string = storageName
 ```
 
-The following example doesn't deploy any resources. It shows how to declare variables of different types.
+The preceding example returns a value like the following:
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variables.bicep":::
+```json
+"uniqueStorageName": {
+  "type": "String",
+  "value": "stghzuunrvapn6sw"
+}
+```
 
-You can use loops to declare an array variable that has a dynamic number of elements. For more information, see [Variable iteration in Bicep](loop-variables.md).
+You can use iterative loops when defining a variable. The following example creates an array of objects with three properties.
+
+```bicep
+param itemCount int = 3
+
+var objectArray = [for i in range(0, itemCount): {
+  name: 'myDataDisk${(i + 1)}'
+  diskSizeGB: '1'
+  diskIndex: i
+}]
+
+output arrayResult array = objectArray
+```
+
+The output returns an array with the following values:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  }
+]
+```
+
+For more information about the types of loops you can use with variables, see [Iterative loops in Bicep](loops.md).
 
 ## Use variable
 
 The following example shows how to use the variable for a resource property. You reference the value for the variable by providing the variable's name: `storageName`.
 
-```bicep
-param rgLocation string = resourceGroup().location
-param storageNamePrefix string = 'STG'
-
-var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
-
-resource demoAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: storageName
-  location: rgLocation
-  kind: 'Storage'
-  sku: {
-    name: 'Standard_LRS'
-    tier: 'Standard'
-  }
-}
-
-output stgOutput string = storageName
-```
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variableswithfunction.bicep" highlight="4,7,15" :::
 
 Because storage account names must use lowercase letters, the `storageName` variable uses the `toLower` function to make the `storageNamePrefix` value lowercase. The `uniqueString` function creates a unique value from the resource group ID. The values are concatenated to a string.
 
@@ -80,4 +130,4 @@ You can define variables that hold related values for configuring an environment
 ## Next steps
 
 - To learn about the available properties for variables, see [Understand the structure and syntax of Bicep files](file.md).
-- To learn about using loops with the variable declaration, see [Variable iteration in Bicep](loop-variables.md).
+- To learn about using loop syntax, see [Iterative loops in Bicep](loops.md).

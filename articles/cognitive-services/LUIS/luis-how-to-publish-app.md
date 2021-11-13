@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 10/28/2021
 
 ---
 
@@ -67,9 +67,9 @@ If you need the endpoint URL, select the link. You can also get to the endpoint 
 
 <a name="enable-sentiment-analysis"></a>
 
-Sentiment analysis allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis.
+Sentiment analysis allows LUIS to integrate with the [Language service](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis.
 
-You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account.
+You do not have to provide a Language service key and there is no billing charge for this service to your Azure account.
 
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data. The sentiment label of `positive`, `neutral`, and `negative` is per supported culture. Currently, only English supports sentiment labels.
 

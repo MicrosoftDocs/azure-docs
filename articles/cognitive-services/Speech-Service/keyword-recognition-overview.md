@@ -10,12 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: hasshah
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
 # Keyword recognition
 
-Keyword recognition refers to speech technology that recognizes the existence of a word or short phrase within a given stream of audio. It is often synonymously referred to as keyword spotting. The most common use case of keyword recognition is voice activation of virtual assistants. For example, "Hey Cortana" is the keyword for the Cortana assistant. Upon recognition of the keyword, a scenario-specific action is carried out. For virtual assistant scenarios, a common resulting action is speech recognition of audio that follows the keyword.
+Keyword recognition detects a word or short phrase within a stream of audio. It's also referred to as keyword spotting. 
+
+The most common use case of keyword recognition is voice activation of virtual assistants. For example, "Hey Cortana" is the keyword for the Cortana assistant. Upon recognition of the keyword, a scenario-specific action is carried out. For virtual assistant scenarios, a common resulting action is speech recognition of audio that follows the keyword.
 
 Generally, virtual assistants are always listening. Keyword recognition acts as a privacy boundary for the user. A keyword requirement acts as a gate that prevents unrelated user audio from crossing the local device to the cloud.
 
@@ -23,7 +25,7 @@ To balance accuracy, latency, and computational complexity, keyword recognition 
 
 The current system is designed with multiple stages spanning across the edge and cloud:
 
-![Multiple stages of keyword recognition across edge and cloud.](media/custom-keyword/keyword-recognition-multi-stage.png)
+![Multiple stages of keyword recognition across edge and cloud.](media/custom-keyword/kw-recognition-multi-stage.png)
 
 Accuracy of keyword recognition is measured via the following metrics:
 * **Correct accept rate (CA)** – Measures the system’s ability to recognize the keyword when it is spoken by an end-user. This is also known as the true positive rate. 
@@ -37,16 +39,19 @@ The [Custom Keyword portal on Speech Studio](https://speech.microsoft.com/custom
 
 ### Pricing
 
-There is no cost to using Custom Keyword for generating models, including both Basic and Advanced models. There is also no cost for running models on-device with the Speech SDK.
+There's no cost to using Custom Keyword for generating models, including both Basic and Advanced models. There is also no cost for running models on-device with the Speech SDK.
 
 ### Types of models
 
-Custom Keyword allows you to generate two types of on-device models for any keyword:
+Custom Keyword allows you to generate two types of on-device models for any keyword.
 
 | Model type | Description |
 | ---------- | ----------- |
 | Basic | Best suited for demo or rapid prototyping purposes. Models are generated with a common base model and can take up to 15 minutes to be ready. Models may not have optimal accuracy characteristics. |
 | Advanced | Best suited for product integration purposes. Models are generated with adaptation of a common base model using simulated training data to improve accuracy characteristics. It can take up to 48 hours for models to be ready. |
+
+> [!NOTE]
+> You can view a list of regions that support the **Advanced** model type in the [Keyword recognition region support](keyword-recognition-region-support.md) documentation. 
 
 Neither model type requires you to upload training data. Custom Keyword fully handles data generation and model training.
 
@@ -72,10 +77,10 @@ Keyword Verification is always used in combination with Speech-to-text, and ther
 
 When Keyword Verification is used, it is always in combination with Speech-to-text. Both services run in parallel. This means that audio is sent to both services for simultaneous processing.
 
-![Parallel processing of Keyword Verification and Speech-to-text.](media/custom-keyword/keyword-verification-parallel-processing.png)
+![Parallel processing of Keyword Verification and Speech-to-text.](media/custom-keyword/kw-verification-parallel-processing.png)
 
 Running Keyword Verification and Speech-to-text in parallel yields the following benefits:
-* **No additional latency on Speech-to-text results** – Parallel execution means Keyword Verification adds no latency, and the client receives Speech-to-text results just as quickly. If Keyword Verification determines the keyword was not present in the audio, Speech-to-text processing is terminated, which protects against unnecessary Speech-to-text processing. However, network and cloud model processing increases the user-perceived latency of voice activation. For details, see [Recommendations and guidelines](keyword-recognition-guidelines.md)).
+* **No additional latency on Speech-to-text results** – Parallel execution means Keyword Verification adds no latency, and the client receives Speech-to-text results just as quickly. If Keyword Verification determines the keyword was not present in the audio, Speech-to-text processing is terminated, which protects against unnecessary Speech-to-text processing. However, network and cloud model processing increases the user-perceived latency of voice activation. For details, see [Recommendations and guidelines](keyword-recognition-guidelines.md).
 * **Forced keyword prefix in Speech-to-text results** – Speech-to-text processing will ensure that the results sent to the client are prefixed with the keyword. This allows for increased accuracy in the Speech-to-text results for speech that follows the keyword.
 * **Increased Speech-to-text timeout** – Due to the expected presence of the keyword at the beginning of audio, Speech-to-text will allow for a longer pause of up to 5 seconds after the keyword, before determining end of speech and terminating Speech-to-text processing. This ensures the end-user experience is correctly handled for both staged commands (*\<keyword> \<pause> \<command>*) and chained commands (*\<keyword> \<command>*). 
 
