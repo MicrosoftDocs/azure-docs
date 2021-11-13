@@ -163,9 +163,6 @@ We recommend reading through the content in each tab to get a detailed understan
 
 ![logfaq](./media/usage-overview/logquery.png)  
 
-### Q: Who can I contact if I have more questions?
-
-**Ans:** Please email your questions to HEARTAnalytics@microsoft.com
 
 ### Q: Can I edit visuals in the workbook?
 
