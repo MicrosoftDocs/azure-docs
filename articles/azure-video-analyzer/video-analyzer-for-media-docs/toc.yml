@@ -40,8 +40,9 @@
   - name: Live stream analysis
     href: live-stream-analysis.md
   - name: Observed people 
-    href: observed-people-tracing.md
     items:
+    - name: Observed in a video people  
+      href: observed-people-tracing.md    
     - name: People's detected clothing
       href: detected-clothing.md
   - name: Audio effects detection
