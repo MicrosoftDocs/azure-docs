@@ -213,7 +213,7 @@ Open VS Code from Cloud Shell
 code .
 ```
 
-Expand the **WORKSPACES** directory. There are five sub-folders: **DEPLOYER**, **LANDSCAPE**, **LIBRARY**, **SYSTEM**, and **BOMS**. Expand each of these folders to find regional deployment configuration files.
+Expand the **WORKSPACES** directory. There are five subfolders: **DEPLOYER**, **LANDSCAPE**, **LIBRARY**, **SYSTEM**, and **BOMS**. Expand each of these folders to find regional deployment configuration files.
 
 Find the appropriate four-character code that corresponds to the Azure region you're using.
 
@@ -229,10 +229,10 @@ Find the appropriate four-character code that corresponds to the Azure region yo
 | UK South           | UKSO        |
 | West US 2          | WES2        |
 
-Find the Terraform variable files in the appropriate sub-folder. For example, the **DEPLOYER** terraform variable file might look like:
+Find the Terraform variable files in the appropriate subfolder. For example, the **DEPLOYER** terraform variable file might look like:
 
 ```bash
-# The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
+# The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
 environment="MGMT"
 # The location/region value is a mandatory field, it is used to control where the resources are deployed
 location="westeurope"
@@ -285,13 +285,13 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
 
 If you run into authentication issues,  run `az logout` to logout. Clear `token-cache`, then run `az login` to reauthenticate.
 
-Wait for the automation framework to run the Terraform operations, `plan` and `apply`.
+Wait for the automation framework to run the Terraform operations `plan`, and `apply`.
 
 The deployment of the deployer might run for about 15-20 minutes.
 
 Go to the [Azure portal](https://portal.azure.com).  
 
-Select **Resource groups**. Look for new resource groups for the deployer infrastructure and library. For example `MGMT-[region]-DEP00-INFRASTRUCTURE` and `MGMT-[region]-SAP_LIBRARY`.
+Select **Resource groups**. Look for new resource groups for the deployer infrastructure and library. For example, `MGMT-[region]-DEP00-INFRASTRUCTURE` and `MGMT-[region]-SAP_LIBRARY`.
 
 The contents of the Deployer and SAP Library resource group are shown below.
 
@@ -351,7 +351,7 @@ Make sure you can connect to your deployer VM:
  
 1. Save the file. If you're prompted to **Save as type**, select **All files** if **SSH** isn't an option. For example, use `deployer.ssh`.
 
-1. Connect to the deployer VM through any SSH client. Use the public IP address you noted earlier, and the SSH key you just downloaded. If you're using PuTTY, convert the SSH key file first using PuTTYGen. 
+1. Connect to the deployer VM through any SSH client. Use the public IP address you noted earlier, and the SSH key you downloaded. If you're using PuTTY, convert the SSH key file first using PuTTYGen. 
 
 > [!NOTE] 
 >The default username is *azureadm*
@@ -431,12 +431,12 @@ vi sap-parameters.yaml
   
 In the `kv_name parameter`, enter the name of the deployer resource group key vault
   
-  Your file should look similar to this:
+  Your file should look similar to the following example configuration:
 
 ```yaml
 
 bom_base_name:                 S41909SPS03_v0006ms
-kv_name:                       PERMWEEUDEP00user56F 
+kv_name:                       MGMTNOEUDEP00user99F 
 
 ```
     
@@ -464,7 +464,7 @@ Collect the following information in a text editor:
     - Following from the example above, the resource group would be *MGMT-NOEU-SAP_LIBRARY*.
     - The name of the storage account would contain *mgmtnoeutfstate*.
 
-  - The name of deployer state file, this can be found under Library resource group
+  - The name of deployer state file, can be found under Library resource group
     - Library resource group -> state storage account -> containers -> tfstate -> Copy the **name** of the Deployer state file.
     - Following from the example above, the name of the blob will be: *MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate*
   
@@ -515,7 +515,7 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTR
    
 Open the workload zone configuration file and if needed change the network logical name to match the network name.
 
-The details we collected in **Step-5** will be needed here. These are:
+The details, which we collected in **Step-5** will be needed here. These details are:
   - Name of the deployer tfstate file (found in the tfstate container)
   - Name of the tfstate storage account
 
@@ -601,11 +601,11 @@ Trigger the playbooks to execute.
 
 ### Playbook: OS Config
 
-Selecting this playbook does the generic OS configuration setup on all the machines, this includes configuring of software repositories, packages, services and so on.
+Selecting this playbook performs the generic OS configuration setup on all the machines, which includes configuring of software repositories, packages, services and so on.
 
 ### Playbook: SAP-Specific OS config
 
-Selecting this playbook does the SAP OS configuration setup on all the machines, this includes creation of volume groups, file systems, configuring of software repositories, packages, services.
+Selecting this playbook performs the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, services.
 
 ### Playbook: BoM Processing
 
@@ -614,9 +614,11 @@ Selecting this playbook, downloads the SAP software to the SCS virtual machine.
 ### Playbook: HANA DB Install
 
 This playbook will install the HANA database instances.
+
 ### Playbook: SCS Install
   
 This playbook will install SAP Central Services. If high availability is configured the playbook will also install the ERS instance and configure Pacemaker.
+
 ### Playbook: DB Load
 
 This playbook will invoke the database load task from the primary application server.
@@ -634,6 +636,7 @@ You've now deployed and configured a stand-alone HANA system, if you need to con
 ### Playbook: Hana HA playbook
 
 This playbook will configure HANA System Replication (HSR) and Pacemaker for the HANA database.
+
 ## Clean up installation
 
 > [!NOTE]
