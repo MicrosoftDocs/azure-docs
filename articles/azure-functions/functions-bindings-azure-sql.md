@@ -3,11 +3,12 @@ title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 11/9/2021
+ms.date: 11/12/2021
 ms.author: drskwier
+ms.reviewer: cachai
 ---
 
-# Azure SQL bindings for Azure Functions overview
+# Azure SQL bindings for Azure Functions overview (preview)
 
 This set of articles explains how to work with [Azure SQL](/azure/azure-sql/) bindings in Azure Functions. Azure Functions supports input and output bindings for the Azure SQL and SQL Server products.
 
