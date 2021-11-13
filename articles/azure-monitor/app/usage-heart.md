@@ -7,7 +7,7 @@ ms.date: 11/11/2021
 ---
 
 # HEART Workbook Overview
-This workbook uses click analytics auto-collection plugin to understand usage in a wholistic manner. The HEART framework was originally introduced by Google. In this workbook, we are using a metrics based approach to understand the product usage and uncover key questions to build a user centric product. 
+This workbook uses click analytics auto-collection plugin to understand usage in a holistic manner. The HEART framework was originally introduced by Google. In this workbook, we are using a metrics-based approach to understand the product usage and uncover key questions to build a user-centric product. 
 
 # Heart Workbook Walkthrough
 > [!VIDEO https://microsoft-my.sharepoint.com/personal/anhakhoo_microsoft_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fanhakhoo%5Fmicrosoft%5Fcom%2FDocuments%2FWorkbook%5FDemo%2Emp4&parent=%2Fpersonal%2Fanhakhoo%5Fmicrosoft%5Fcom%2FDocuments&wdLOR=c5B8B6923%2D0DEF%2D4E10%2DA64C%2D59D681930F9E]
@@ -15,7 +15,7 @@ This workbook uses click analytics auto-collection plugin to understand usage in
  ![Heart Benefits](./media/usage-overview/heartbenefits.png)
  
 # Framework Dimensions
-HEART is an acronym standing for Happiness, Engagement, Adoption, Retention and Task Success. The measurement framework was originally introduced by Google. It focuses on 5 customer experience dimensions: 
+HEART is an acronym standing for Happiness, Engagement, Adoption, Retention, and Task Success. The measurement framework was originally introduced by Google. It focuses on five customer experience dimensions: 
 
  
 
@@ -35,14 +35,14 @@ Even though these dimensions are measured independently, they drive and interact
   ![Heart Funnel](./media/usage-overview/heartfunnel.png)
   
 
-These 5 dimensions are described in detail below:
+These five dimensions are described in detail below:
 
 ## Happiness
 ### Defining Happiness	
 Happiness is a user-reported dimension that measures how users feel about the experience offered to them. 
 
 ### Measuring Happiness
-A common approach to measure this dimension is to ask users a Net Promoter Score (NPS) question such as “Would you recommend this experience to a co-worker?”. Users' responses on a 3 or a 5-point scale (e.g., no, maybe and yes) are aggregated to create an experience-level score ranging from 1-5 (with 5 being the highest). As user-initiated feedback tends to be negatively biased, HEART tracks Happiness from surveys displayed to users at pre-defined intervals.
+A common approach to measure this dimension is to ask users a Net Promoter Score (NPS) question such as “Would you recommend this experience to a coworker?”. Users' responses on a 3 or a 5-point scale (for example, no, maybe and yes) are aggregated to create an experience-level score ranging from 1-5 (with 5 being the highest). As user-initiated feedback tends to be negatively biased, HEART tracks Happiness from surveys displayed to users at pre-defined intervals.
 
 ### User Sentiment Data
 Refer to the [Azure Monitor documentation regarding custom sources](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources#custom-sources) to upload user sentiment data to calculate Happiness metrics. Common Happiness metrics include "Average Star Rating", "Net Promoter Score", etc.
@@ -51,7 +51,7 @@ Refer to the [Azure Monitor documentation regarding custom sources](https://docs
 
 ## Engagement
 ### Measuring Engagement
-It is challenging to measure engagement generically because engagement is driven both by expected usage and actual usage. While an experience such as Microsoft Teams would have high daily usage as employees rely on Teams for daily communication, other experiences might expect usage at a weekly or even monthly cadence (such as a rent payment portal). For this reason, the HEART Framework measures engagement using the concept of Active Users (users who voluntarily interact with the experinces) and will be assessing engagement by breaking active usage down into 3 sub-dimensions: 
+It is challenging to measure engagement generically because engagement is driven both by expected usage and actual usage. While an experience such as Microsoft Teams would have high daily usage as employees rely on Teams for daily communication, other experiences might expect usage at a weekly or even monthly cadence (such as a rent payment portal). For this reason, the HEART Framework measures engagement using the concept of Active Users (users who voluntarily interact with the experiences) and will be assessing engagement by breaking down active usage into three sub-dimensions: 
 1. Activity Depth – How many features are users leveraging each time the user interacts with the experience?
 2. Activity Breadth – Over a given time period, how many features of the experience is a user leveraging?
 3. Activity Frequency – How often does a user interact with the experience – daily, weekly, monthly?
@@ -65,9 +65,9 @@ Any user who performs a user-initiated action like clicking a button, typing an 
 
 ### Measuring Adoption
 The Adoption dimension measures how quickly an application is gaining new users. For this reason, Adoption metrics are useful for measuring the below scenarios:  
-a. newly released products  
-b. newly updated products  
-c. marketing campaigns  
+a. Newly released products  
+b. Newly updated products  
+c. Marketing campaigns  
 
 
 
@@ -86,9 +86,9 @@ A Retained User is an Active User who was active both this reporting period and 
 ## Task Success
 ### Defining Task Success
 Many experiences include structures designed to funnel users through completing a task. Some examples include the following: 
-* *adding items to a cart* -> *purchasing items from the cart*
-* *searching a keyword* -> *clicking on a result*
-* *initiating a new account* -> *completing account registration* 
+* *Adding items to a cart* -> *purchasing items from the cart*
+* *Searching a keyword* -> *clicking on a result*
+* *Initiating a new account* -> *completing account registration* 
 
 Task Success tracks whether users can perform a task efficiently and effectively using the capabilities provided by the experience. 
 
@@ -132,7 +132,7 @@ The workbook is designed in a way that users only have to interact with the mast
 
 ## HEART Analytics - All Sections Workbook
 
-The first step after accessing the workbook would be validate that the telemetry has been correctly implemented and we are getting the data as expected to light up the metrics accurately. That can be done using the "Development Requirements" tab on the workbook as shown (image 2).  
+The first step after accessing the workbook would be to validate that the telemetry has been correctly implemented and we are getting the data as expected to light up the metrics accurately. That can be done using the "Development Requirements" tab on the workbook as shown (image 2).  
 
 ![WorkbookPreview](./media/usage-overview/workbookpreview3.png)  
 
@@ -143,7 +143,7 @@ We recommend reading through the content in each tab to get a detailed understan
 
 - **Summary Tab** - Usage Funnel metrics giving a high level view of visits, interactions and repeat usage. 
 - **Adoption** - This tab helps understand what is the penetration among the target audience, acquisition velocity and total user base*. 
-- **Engagement** -  Frequency , Depth and Breadth of Usage. 
+- **Engagement** -  Frequency, Depth and Breadth of Usage. 
 - **Retention** - Repeat Usage 
 - **Task Success** - Enabling understanding of user flows and their time distributions. 
 - **Happiness** -  We recommend using a survey tool to measure CSAT/NSAT over a 5 point scale. In this tab, we have provided the likelihood of happiness by using usage and performance metrics. 
@@ -153,20 +153,20 @@ We recommend reading through the content in each tab to get a detailed understan
 
 ### Q: How do I view the data at different grains? (Daily, Monthly, Weekly)?
 
-**Ans:** You can click on the 'Date Grain' filter on the top of the tab to change the grain (As shown in below image)
+**Answer:** You can click on the 'Date Grain' filter on the top of the tab to change the grain (As shown in below image)
 
 ![grainfaq](./media/usage-overview/monthlygrainfaq.png)  
 
 ### Q: How do I access insights from my application that are not available on the HEART workbooks?
 
-**Ans:** You can dig into the data that feeds the HEART workbook if the visuals don't answer all your questions. To do this, please navigate to 'Logs' under 'Monitoring' section and query the customEvents table. Some of the click analytics attributes are contained within the customDimensions field. A sample query is shown in the image below:
+**Answer:** You can dig into the data that feeds the HEART workbook if the visuals don't answer all your questions. To do this, please navigate to 'Logs' under 'Monitoring' section and query the customEvents table. Some of the click analytics attributes are contained within the customDimensions field. A sample query is shown in the image below:
 
 ![logfaq](./media/usage-overview/logquery.png)  
 
 
 ### Q: Can I edit visuals in the workbook?
 
-**Ans:** Yes, when you click on the public template of the workbook, you can navigate to the top left corner, click edit and make your changes.
+**Answer:** Yes, when you click on the public template of the workbook, you can navigate to the top left corner, click edit and make your changes.
 
 ![workbookedit1](./media/usage-overview/workbookeditfaq2.png) 
 
