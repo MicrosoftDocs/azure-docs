@@ -138,7 +138,7 @@ cd ~/Azure_SAP_Automated_Deployment/sap-hana
 
 Optionally validate your versions of Terraform, the Azure Command-Line Interface (Azure CLI), and the JSON processor.
 
-```shell
+```bash
 ./util/check_workstation.sh
 ```
 
@@ -191,7 +191,7 @@ The output maps to the following parameters. You use these parameters in later s
 
 Assign the **User Access Administrator** role to the service principal.
 
-```shell
+```bash
 az role assignment create --assignee <appId> \
   --role "User Access Administrator"
 ```
@@ -203,7 +203,7 @@ az role assignment create --assignee <appId> \
 
 Copy the sample configurations to a local workspace directory:
 
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment
 
 cp -Rp ./sap-hana/deploy/samples/WORKSPACES ./
@@ -265,7 +265,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 
 1. Create the Deployer and the SAP Library. Also add the Service Principal details to the deployment key vault.
 
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 subscriptionID=<subscriptionID>
@@ -299,11 +299,11 @@ The contents of the Deployer and SAP Library resource group are shown below.
 
 :::image type="content" source="media/automation-tutorial/deployer-resource-group.png" alt-text="Deployer resources":::
     
-:::image type="content" source="media/automation-hol/sap-library-resource-group.png" alt-text="Library resources":::
+:::image type="content" source="media/automation-tutorial/sap-library-resource-group.png" alt-text="Library resources":::
 
 The Terraform state file is now in the storage account whose name contains 'tfstate'. The storage account has a container named 'tfstate' with the deployer and library state files. Below is a listing of the contents of the 'tfstate' container after a successful control plane deployment.
     
-:::image type="content" source="media/automation-hol/terraform-state-files.png" alt-text="Control plane tfstate files":::
+:::image type="content" source="media/automation-tutorial/terraform-state-files.png" alt-text="Control plane tfstate files":::
 
 ### Common issues and solutions
 
@@ -325,7 +325,7 @@ timeout - last error: dial tcp
 
 If you have authentication issues directly after running the script `prepare_region.sh`, run:
 
-```shell
+```bash
 az logout
 
 az login
@@ -411,21 +411,21 @@ materials:
 
 For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRUCTURE`. The deployer key vault name would contain `MGMTNOEUDEP00user` in the name. You use this information to configure your deployer's key vault secrets.
 
-1. Add a secret with the username for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
+Add a secret with the username for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
 
-```shell
+```bash
 az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
 ```
 
-1. Add a secret with the password for your SAP user account. Replace `<keyvault-name>` with your deployer key vault name, and `<sap-password>` with your SAP password.
+Add a secret with the password for your SAP user account. Replace `<keyvault-name>` with your deployer key vault name, and `<sap-password>` with your SAP password.
 
-```shell
+```bash
 az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
 ```
 
-- Next, configure your SAP parameters file for the download process. Then, download the SAP software using Ansible playbooks. Execute the following commands:
+Next, configure your SAP parameters file for the download process. Then, download the SAP software using Ansible playbooks. Execute the following commands:
 
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/BOMS
 
 vi sap-parameters.yaml
@@ -444,13 +444,13 @@ kv_name:                       PERMWEEUDEP00user56F
     
 Execute the Ansible playbooks. One way you can execute the playbooks is to use the validator test menu. Run the validator test menu script.
   
-```shell
+```bash
 ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/validator_test_menu.sh
 ```
   
 Select which playbooks to execute.
   
-```shell
+```bash
 1) BoM Downloader
 3) Quit
 Please select playbook:
@@ -476,26 +476,23 @@ The Public IP address of the Deployer VM. Go to your deployer's resource group, 
 
 Connect to your deployer VM for the following steps. A copy of the repo is now there.
 
-1. Go into the *Azure_SAP_Automated_Deployment* folder in your home directory.
+Go into the *Azure_SAP_Automated_Deployment* folder in your home directory. Remove the existing **WORKSPACES** folder. You'll copy in the examples later.
 
-1. Remove the existing **WORKSPACES** folder. You'll copy in the examples later.
-
-```shell
+```bash
 rm -rf WORKSPACES
 ```
 
-1. Go to the **sap-hana** folder. Check out the **sap-level-up** branch.
+Go to the **sap-hana** folder. Check out the **sap-level-up** branch.
   
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/sap-hana/
 
 git checkout sap-level-up
 ```
 
+Copy the sample configuration files from the repository.
 
-1. Copy the sample configuration files from the repository.
-
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/
 
 cp -Rp ./sap-hana/deploy/samples/WORKSPACES ./
@@ -508,13 +505,13 @@ Use the [install_workloadzone](bash/automation-install_workloadzone.md) script t
 
 On the deployer VM, navigate to the `Azure_SAP_Automated_Deployment` folder.
   
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-XXXX-SAP01-INFRASTRUCTURE
 ```
 
 From the example region 'northeurope', the folder will look like:
 
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTRUCTURE
 ```
    
@@ -526,7 +523,7 @@ The details we collected in **Step-5** will be needed here. These are:
 
 Start deployment of the workload zone:
 
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTRUCTURE
 
 subscriptionID=<subscriptionID>
@@ -566,7 +563,7 @@ The SAP system deploys:
 
 Deploy the SAP system.
 
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-XXXX-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh \
@@ -577,7 +574,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh \
   
 The deployment command for the `northeurope` example will look like:
 
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
@@ -594,7 +591,7 @@ The SAP application installation happens through Ansible playbooks.
 
 Navigate to the system deployment folder:
 
-```shell
+```bash
 cd ~/Azure_ SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00/
 ```
 
@@ -628,7 +625,7 @@ Triggers DB load for the previously installed HANA database from PAS server.
 
 ### Playbook: PAS Install
 
-Triggers PAS installation
+Triggers primary application server installation
   
 ### Playbook: APP Install
 
@@ -656,7 +653,7 @@ Before you begin, log in to your Azure account. Then, check that you're in the c
 
 Navigate to the `DEV-NOEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then, run this command:
   
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
@@ -668,7 +665,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
 
 Navigate to the `DEV-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE` folder. Then, execute the following command.
 
-```shell
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTRUCTURE
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
@@ -678,31 +675,31 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
 
 ### Remove control plane
 
-1. Sign in to [Cloud Shell](https://shell.azure.com).
+Sign in to [Cloud Shell](https://shell.azure.com).
 
-1. Go to the `WORKSPACES` folder.
+Go to the `WORKSPACES` folder.
   
-```shell
-  cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/
+```bash
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/
 ```
 
-1. Export the following two environment variables.
+Export the following two environment variables.
 
-```shell
+```bash
 export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-hana
 
 export ARM_SUBSCRIPTION_ID=<subscriptionID>
 ```
 
-1. Run the following command.
+Run the following command.
 
-```shell
+```bash
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                    \
   --deployer_parameter_file DEPLOYER/MGMT-NOEU-DEP00-INFRASTRUCTURE/MGMT-NOEU-DEP00-INFRASTRUCTURE.tfvars  \
   --library_parameter_file LIBRARY/MGMT-NOEU-SAP_LIBRARY/MGMT-NOEU-SAP_LIBRARY.tfvars
 ```
 
-1. Verify that all resources are now cleaned up.
+Verify that all resources are now cleaned up.
 
 
 ## Next steps
