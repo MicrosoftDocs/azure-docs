@@ -8,13 +8,11 @@ ms.author: crtreasu
 
 # [Web download](#tab/unity-package-web-ui)
 
-Follow the instructions <a href="https://docs.unity3d.com/Manual/upm-ui-tarball.html" target="_blank">here</a> to import
-the Azure Object Anchors package you downloaded into the Unity project using the Unity Package Manager.
+Follow the instructions <a href="https://docs.unity3d.com/Manual/upm-ui-tarball.html" target="_blank">here</a> to import the Azure Object Anchors package you downloaded into the Unity project using the Unity Package Manager.
 
 # [NPM download](#tab/unity-package-npm)
 
-Follow the instructions <a href="https://docs.unity3d.com/Manual/upm-ui-tarball.html" target="_blank">here</a> to import
-the Azure Object Anchors package you downloaded into the Unity project using the Unity Package Manager.
+Follow the instructions <a href="https://docs.unity3d.com/Manual/upm-ui-tarball.html" target="_blank">here</a> to import the Azure Object Anchors package you downloaded into the Unity project using the Unity Package Manager.
 
 # [Mixed Reality Feature Tool (beta)](#tab/unity-package-mixed-reality-feature-tool)
 

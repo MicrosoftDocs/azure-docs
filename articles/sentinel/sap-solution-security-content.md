@@ -1,25 +1,25 @@
 ---
-title: Azure Sentinel SAP solution - security content reference | Microsoft Docs
-description: Learn about the built-in security content provided by the Azure Sentinel SAP solution.
+title: Microsoft Sentinel SAP solution - security content reference | Microsoft Docs
+description: Learn about the built-in security content provided by the Microsoft Sentinel SAP solution.
 author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 07/28/2021
+ms.date: 11/09/2021
 ms.subservice: azure-sentinel
 ---
 
-# Azure Sentinel SAP solution: security content reference (public preview)
+# Microsoft Sentinel SAP solution: security content reference (public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This article details the security content available for the [Azure Sentinel SAP solution](sap-deploy-solution.md#deploy-sap-security-content).
+This article details the security content available for the [Microsoft Sentinel SAP solution](sap-deploy-solution.md#deploy-sap-security-content).
 
 Available security content includes a built-in workbook and built-in analytics rules. You can also add SAP-related [watchlists](watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
 
 > [!IMPORTANT]
-> The Azure Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 
@@ -40,7 +40,7 @@ For more information, see [Tutorial: Visualize and monitor your data](monitor-yo
 
 ## Built-in analytics rules
 
-The following tables list the built-in [analytics rules](sap-deploy-solution.md#deploy-sap-security-content) that are included in the Azure Sentinel SAP solution, deployed from the Azure Sentinel Solutions marketplace.
+The following tables list the built-in [analytics rules](sap-deploy-solution.md#deploy-sap-security-content) that are included in the Microsoft Sentinel SAP solution, deployed from the Microsoft Sentinel Solutions marketplace.
 
 ### Built-in SAP analytics rules for initial access
 
@@ -122,13 +122,11 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |**SAP - Medium - Sensitive Roles Changes**     |Identifies changes in sensitive roles. <br><br> Maintain sensitive roles in the [SAP - Sensitive Roles](#roles) watchlist.       |  Change a role using PFCG. <br><br>**Data sources**: SAPcon - Change Documents Log, SAPcon – Audit Log   |  Impact, Privilege Escalation, Persistence    |
 | | | | |
 
-
 ## Available watchlists
 
-The following table lists the [watchlists](sap-deploy-solution.md#deploy-sap-security-content) available for the Azure Sentinel SAP solution, and the fields in each watchlist.
+The following table lists the [watchlists](sap-deploy-solution.md#deploy-sap-security-content) available for the Microsoft Sentinel SAP solution, and the fields in each watchlist.
 
-These watchlists provide the configuration for the Azure Sentinel SAP Continuous Threat Monitoring solution, and are accessible in the Azure Sentinel GitHub repository at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists.
-
+These watchlists provide the configuration for the Microsoft Sentinel SAP Continuous Threat Monitoring solution. The [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) are available in the Microsoft Sentinel GitHub repository.
 
 |Watchlist name  |Description and fields  |
 |---------|---------|
@@ -157,9 +155,9 @@ These watchlists provide the configuration for the Azure Sentinel SAP Continuous
 
 For more information, see:
 
-- [Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
-- [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
-- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
+- [Deploy the Microsoft Sentinel solution for SAP](sap-deploy-solution.md)
+- [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
-- [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
-- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
+- [Troubleshooting your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

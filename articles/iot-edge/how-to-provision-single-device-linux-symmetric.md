@@ -50,7 +50,7 @@ An X64, ARM32, or ARM64 Linux device.
 
 Microsoft provides installation packages for Ubuntu Server 18.04 and Raspberry Pi OS Stretch operating systems.
 
-For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems)
+For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems).
 
 >[!NOTE]
 >Support for ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -80,7 +80,7 @@ Find the provisioning configurations of the file and uncomment the **Manual prov
    # Manual provisioning configuration using a connection string
    provisioning:
      source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+     device_connection_string: "ADD_DEVICE_CONNECTION_STRING_HERE"
    ```
 
 Update the value of **device_connection_string** with the connection string from your IoT Edge device. Make sure that any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
@@ -106,21 +106,21 @@ After entering the provisioning information in the configuration file, restart t
 You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
 
    ```bash
-   sudo iotedge config mp --connection-string 'PASTE_CONNECTION_STRING_HERE'
+   sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
    ```
 
-The `iotedge config mp` command creates a configuration file on the device, provides your connection string, and applies the configuration changes.
+   The `iotedge config mp` command creates a configuration file on the device and enters your connection string in the file.
+
+Apply the configuration changes.
+
+   ```bash
+   sudo iotedge config apply
+   ```
 
 If you want to see the configuration file, you can open it:
 
    ```bash
    sudo nano /etc/aziot/config.toml
-   ```
-
-If you make any changes to the configuration file, use the `iotedge config apply` command apply your changes:
-
-   ```bash
-   sudo iotedge config apply
    ```
 
 <!-- end 1.2 -->
@@ -217,7 +217,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
    2. Use the copied link in the following command to install that version of the hsmlib:
 
       ```bash
-      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
+      curl -L libiothsm-std_link_here -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
       ```
 
    3. Find the **iotedge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -225,7 +225,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
    4. Use the copied link in the following command to install that version of the IoT Edge security daemon.
 
       ```bash
-      curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
+      curl -L iotedge_link_here -o iotedge.deb && sudo apt-get install ./iotedge.deb
       ```
 
 <!-- end 1.1 -->

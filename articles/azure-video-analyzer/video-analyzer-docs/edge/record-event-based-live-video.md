@@ -2,7 +2,7 @@
 title: Event-based video recording to the cloud and playback from the cloud tutorial - Azure
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to record an event-based video recording to the cloud and play it back from the cloud.
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Tutorial: Event-based video recording and playback
@@ -62,9 +62,9 @@ The diagram is a pictorial representation of a [pipeline](../pipeline.md) and ad
     
 As the diagram shows, you'll use an [RTSP source](../pipeline.md#rtsp-source) node in the pipeline to capture the simulated live video of traffic on a highway and send that video to two paths:
 
-* The first path is to a HTTP extension node. The node samples the video frames to a value set by you using the `samplingOptions` field and then relays the frames, as images, to the AI module YOLOv3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
+* The first path is to an HTTP extension node. The node samples the video frames to a value set by you using the `samplingOptions` field and then relays the frames, as images, to the AI module YOLOv3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
 
-* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the pipeline. Upon receiving such a message, the IoT Hub source node in the pipeline triggers the [signal gate processor](../pipeline.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the video sink node for that duration. That portion of the live stream is then recorded via the [video sink](../pipeline.md#video-sink) node to an [video](../terminology.md#video) in your  Video Analyzer account. The video that will be used in this tutorial is [a highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
+* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the pipeline. Upon receiving such a message, the IoT Hub source node in the pipeline triggers the [signal gate processor](../pipeline.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the video sink node for that duration. That portion of the live stream is then recorded via the [video sink](../pipeline.md#video-sink) node to an [video](../terminology.md#video) in your  Video Analyzer account. The video that will be used in this tutorial is [a highway intersection sample video](https://avamedia.blob.core.windows.net/public/camera-300s.mkv).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 

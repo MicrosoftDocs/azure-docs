@@ -615,12 +615,6 @@ Now you can continue using Delta Lake folder with Spark pool. You will provide c
 
 **Release**: August 2021
 
-### Query failed because of a topology change or compute container failure
-
-**Status**: Resolved
-
-**Release**: August 2021
-
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 
 **Status**: Resolved

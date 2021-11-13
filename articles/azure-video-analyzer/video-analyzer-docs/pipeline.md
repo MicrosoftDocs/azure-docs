@@ -2,7 +2,7 @@
 title: Azure Video Analyzer pipeline
 description: An Azure Video Analyzer pipeline you ingest, process, and publish video within Azure Video Analyzer edge and cloud. A pipeline consists of nodes that are connected to achieve the desired flow of data.
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Pipeline
@@ -137,7 +137,7 @@ If the cache gets full, the Video Analyzer edge module will start deleting the o
 
 #### IoT Hub message sink
 
-An IoT Hub message sink node enables you to publish events to IoT Edge hub. The IoT Edge hub can be configured to route the data to other modules or apps on the edge device, or to IoT Hub in the cloud (per routes specified in the deployment manifest). The IoT Hub message sink node can accept events from upstream processor nodes such as a motion detection processor node, or from an external inference service via a HTTP extension processor node.
+An IoT Hub message sink node enables you to publish events to IoT Edge hub. The IoT Edge hub can be configured to route the data to other modules or apps on the edge device, or to IoT Hub in the cloud (per routes specified in the deployment manifest). The IoT Hub message sink node can accept events from upstream processor nodes such as a motion detection processor node, or from an external inference service via an HTTP extension processor node.
 
 ## Rules on the use of nodes
 

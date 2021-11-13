@@ -108,7 +108,6 @@ For detailed instructions on how to complete these steps, see [Secure an Azure M
 ### Limitations
 
 Securing your workspace and associated resources within a virtual network have the following limitations:
-- Using an Azure Machine Learning workspace with private endpoint is not available in Azure China 21Vianet regions.
 - All resources must be behind the same VNet. However, subnets within the same VNet are allowed.
 
 ## Secure the training environment

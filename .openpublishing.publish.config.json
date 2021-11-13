@@ -46,6 +46,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_arc_sample",
+      "url": "https://github.com/microsoft/azure_arc",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "resourcemanager-templates",
       "url": "https://github.com/Azure/azure-docs-json-samples",
       "branch": "master",
@@ -424,12 +430,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-cli-preview",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "cli-preview",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "terraform",
       "url": "https://github.com/Azure/terraform",
       "branch": "master",
@@ -592,12 +592,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "samples-cosmosdb-dotnet-v2",
-      "url": "https://github.com/Azure/azure-cosmos-dotnet-v2",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "samples-cosmosdb-java-v4-web-app",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app",
       "branch": "main",
@@ -714,12 +708,6 @@
     {
       "path_to_root": "ImmersiveReaderSdk",
       "url": "https://github.com/microsoft/immersive-reader-sdk",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azure-cosmosdb-java-v2",
-      "url": "https://github.com/Azure/azure-cosmosdb-java",
       "branch": "master",
       "branch_mapping": {}
     },

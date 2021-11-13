@@ -69,7 +69,7 @@
         href: /security/benchmark/azure/baselines/sql-database-security-baseline?toc=/azure/azure-sql/toc.json
       - name: Always Encrypted
         href: database/always-encrypted-landing.yml
-      - name: Azure Defender for SQL
+      - name: Microsoft Defender for SQL
         href: database/azure-defender-for-sql.md
       - name: Advanced Threat Protection
         href: database/threat-detection-overview.md
@@ -503,6 +503,8 @@
             href: database/ledger-limits.md
         - name: Network access controls
           href: database/network-access-controls-overview.md
+        - name: Outbound firewall rules
+          href: database/outbound-firewall-rule-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
         - name: VNet endpoints
@@ -1278,39 +1280,56 @@
           - name: Automated backup (SQL 2014)
             href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Availability group (AG)
+          displayName: Always On, alwayson, availability group
           items:
-          - name: Create AG 
+          - name: Configure AG (multi-subnet)
+            displayName: Always On, alwayson, availability group
+            items: 
+            - name: Prerequisites
+              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md
+              displayName: Always On, alwayson, availability group
+            - name: Create availability group
+              href: virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet.md
+              displayName: Always On, alwayson, availability group
+          - name: Configure AG (single subnet)
+            displayName: Always On, alwayson, availability group
             items: 
             - name: Azure portal
               href: virtual-machines/windows/availability-group-azure-portal-configure.md
+              displayName: Always On, alwayson, availability group
             - name: PowerShell or Az CLI
               href: virtual-machines/windows/availability-group-az-commandline-configure.md
+              displayName: Always On, alwayson, availability group
             - name: Azure Quickstart templates
               href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+              displayName: Always On, alwayson, availability group
             - name: Multiple regions
               href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+              displayName: Always On, alwayson, availability group
             - name: Domain-independent (workgroup)
               href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-            - name: Configure manually
-              items:
+              displayName: Always On, alwayson, availability group
+            - name: Manually
+              items: 
               - name: Prerequisites
-                href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-              - name: Tutorial
-                href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-single-subnet.md
+                displayName: Always On, alwayson, availability group
+              - name: Create availability group
+                href: virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet.md
               - name: Load balancer - Azure portal
                 href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
               - name: Load balancer - Azure PowerShell
                 href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-          - name: Configure connectivity
-            items:  
-            - name: VNN listener
-              displayName: virtual network name
-              href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
-            - name: DNN listener
-              displayName: distributed network name
-              href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
-            - name: DNN interoperability
-              href: virtual-machines/windows/availability-group-dnn-interoperability.md
+            - name: Configure connectivity
+              items:  
+              - name: VNN listener
+                displayName: virtual network name
+                href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+              - name: DNN listener
+                displayName: distributed network name
+                href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+              - name: DNN interoperability
+                href: virtual-machines/windows/availability-group-dnn-interoperability.md
 
         - name: Failover cluster instance (FCI)
           items:
@@ -1324,7 +1343,7 @@
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
             - name: Premium file share (Win2012+)
               href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-          - name: Configure connectivity
+          - name: Configure connectivity (Single subnet)
             items: 
             - name: Virtual network name (VNN)
               href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
@@ -1512,6 +1531,8 @@
       href: database/troubleshoot-common-errors-issues.md
     - name: Common connection issues
       href: database/troubleshoot-common-connectivity-issues.md
+    - name: Troubleshoot out of memory errors
+      href: database/troubleshoot-memory-errors-issues.md
     - name: Import/Export service hangs
       href: database/database-import-export-hang.md
     - name: Transaction log errors

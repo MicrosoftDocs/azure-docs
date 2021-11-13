@@ -21,6 +21,34 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 
 This page is updated monthly, so revisit it regularly. 
 
+## October 2021
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+  
+<tr><td rowspan=3><b>Data Flow</b></td><td>Azure Data Explorer and Amazon Web Services S3 connectors</td><td>The Microsoft Data Integration team has just released two new connectors for mapping data flows. If you are using Azure Synapse, you can now connect directly to your AWS S3 buckets for data transformations. In both Azure Data Factory and Azure Synapse, you can now natively connect to your Azure Data Explorer clusters in mapping data flows.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/mapping-data-flow-gets-new-native-connectors/ba-p/2866754">Learn more</a></td></tr>
+<tr><td>Power Query activity leaves preview for General Availability (GA)</td><td>Microsoft has released the Azure Data Factory Power Query pipeline activity as Generally Available. This new feature provides scaled-out data prep and data wrangling for citizen integrators inside the ADF browser UI for an integrated experience for data engineers. The Power Query data wrangling feature in ADF provides a powerful easy-to-use pipeline capability to solve your most complex data integration and ETL patterns in a single service.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/data-wrangling-at-scale-with-adf-s-power-query-activity-now/ba-p/2824207">Learn more</a></td></tr>
+<tr><td>New Stringify data transformation in mapping data flows</td><td>Mapping data flows adds a new data transformation called Stringify to make it easy to convert complex data types like structs and arrays into string form that can be sent to structured output destinations.<br><a href="data-flow-stringify.md">Learn more</a></td></tr>
+  
+<tr>
+  <td rowspan=2><b>Integration Runtime</b></td>
+  <td>Azure Data Factory Managed vNet goes GA</td>
+  <td>You can now provision the Azure Integration Runtime as part of a managed Virtual Network and leverage Private Endpoints to securely connect to supported data stores. Data traffic goes through Azure Private Links which provide secured connectivity to the data source. In addition, it prevents data exfiltration to the public internet.<br><a href="managed-virtual-network-private-endpoint.md">Learn more</a></td>
+ </tr>
+ <tr>
+   <td>Express VNet injection for SSIS integration runtime (Public Preview)</td>
+   <td>The SSIS integration runtime now supports express VNet injection.<br>
+     Learn more:<br>
+     <a href="join-azure-ssis-integration-runtime-virtual-network.md">Overview of VNet injection for SSIS integration runtime</a><br>
+     <a href="azure-ssis-integration-runtime-virtual-network-configuration.md">Standard vs. express VNet injection for SSIS integration runtime</a><br>
+     <a href="azure-ssis-integration-runtime-express-virtual-network-injection.md">Express VNet injection for SSIS integration runtime</a>
+   </td>
+ </tr>
+
+<tr><td rowspan=2><b>Security</b></td><td>Azure Key Vault integration improvement</td><td>We have improved Azure Key Vault integration by adding user selectable drop-downs to select the secret values in the linked service, increasing productivity and not requiring users to type in the secrets, which could result in human error.</td></tr>
+<tr><td>Support for user-assigned managed identity in Azure Data Factory</td><td>Credential safety is crucial for any enterprise. With that in mind, the Azure Data Factory (ADF) team is committed to making the data engineering process secure yet simple for data engineers. We are excited to announce the support for user-assigned managed identity (Preview) in all connectors/ linked services that support Azure Active Directory (Azure AD) based authentication.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/support-for-user-assigned-managed-identity-in-azure-data-factory/ba-p/2841013">Learn more</a></td></tr>
+</table>
+
 ## September 2021
 <br>
 <table>
@@ -56,7 +84,7 @@ This page is updated monthly, so revisit it regularly.
 <tr><td><b>Data Movement</b></td><td>Get metadata driven data ingestion pipelines on ADF Copy Data Tool within 10 minutes (Public Preview)</td><td>With this, you can build large-scale data copy pipelines with metadata-driven approach on copy data tool(Public Preview) within 10 minutes.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/get-metadata-driven-data-ingestion-pipelines-on-adf-within-10/ba-p/2528219">Learn more</a></td></tr>
 <tr><td><b>Data Flow</b></td><td>New map functions added in data flow transformation functions</td><td>A new set of data flow transformation functions has been added to enable data engineers to easily generate, read, and update map data types and complex map structures.<br><a href="data-flow-expression-functions.md#map-functions">Learn more</a></td></tr>
 <tr><td><b>Integration Runtime</b></td><td>5 new regions available in Azure Data Factory Managed VNET (Public Preview)</td><td>These 5 new regions(China East2, China North2, US Gov Arizona, US Gov Texas, US Gov Virginia) are available in Azure Data Factory managed virtual network (Public Preview).<br><a href="managed-virtual-network-private-endpoint.md#azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions">Learn more</a></td></tr>
-<tr><td rowspan=2><b>Developer Productivity</b></td><td>ADF homepage redesigned with a few sessions added</td><td>The Data Factory home page has been redesigned with better contrast and reflow capabilities. Additionally, a few sections have been introduced on the homepage to help you improve productivity in your data integration journey.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/the-new-and-refreshing-data-factory-home-page/ba-p/2515076">Learn more</a></td></tr>
+<tr><td rowspan=2><b>Developer Productivity</b></td><td>ADF homepage improvements</td><td>The Data Factory home page has been redesigned with better contrast and reflow capabilities. Additionally, a few sections have been introduced on the homepage to help you improve productivity in your data integration journey.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/the-new-and-refreshing-data-factory-home-page/ba-p/2515076">Learn more</a></td></tr>
 <tr><td>New landing page for Azure Data Factory Studio</td><td>The landing page for Data Factory blade in the Azure portal.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/the-new-and-refreshing-data-factory-home-page/ba-p/2515076">Learn more</a></td></tr>
 </table>
 
