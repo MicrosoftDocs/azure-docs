@@ -18,7 +18,7 @@ In new deployment scenarios, the automation framework doesn't use existing Azure
 In existing deployment scenarios, the automation framework uses existing Azure infrastructure. For example, the deployment uses existing virtual networks.
 ## New deployment scenarios
 
-The following are examples of new deployment scenarios that create new resources.
+The following is an example of new deployment scenarios that create new resources.
 
 > [!IMPORTANT]
 > Modify all example configurations as necessary for your scenario.
@@ -27,8 +27,8 @@ The following are examples of new deployment scenarios that create new resources
 In this scenario, the automation framework creates all Azure components, and uses the [deployer](automation-deployment-framework.md#deployment-components). This example deployment contains:
 
 - Two environments the West Europe Azure region
-  - Management (`MGMT`)
-  - Development (`DEV`)
+  - Management (`MGMT`) hosts the control plane
+  - Development (`DEV`) hosts the development environment
 - A deployer
 - SAP Library
 - SAP system (`SID X00`) with:
@@ -46,8 +46,7 @@ In this scenario, the automation framework creates all Azure components, and use
 
 To test this scenario: 
 
-1. Clone the [SAP Deployment Automation Framework](https://github.com/Azure/sap-hana/) repository. 
-1. Copy the sample files to your root folder for parameter files:
+Clone the [SAP Deployment Automation Framework](https://github.com/Azure/sap-hana/) repository and copy the sample files to your root folder for parameter files:
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
@@ -65,7 +64,7 @@ cp sap-hana/deploy/samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00 WORKSPACES/SYSTE
 cd WORKSPACES
 ```
     
-1. Prepare the control plane by installing the deployer and library. Run either the Bash or PowerShell command. Be sure to replace the sample values with your service principal's information.
+Prepare the control plane by installing the deployer and library. Be sure to replace the sample values with your service principal's information.
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
@@ -88,6 +87,8 @@ $DEPLOYMENT_REPO_PATH/scripts/prepare_region.sh
     --auto-approve
 ```
 
+You can also use PowerShell to do the deployment.
+
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
 
@@ -104,7 +105,47 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRAS
 -Tenant_id $Tenant_id
 ```
 
-1. Deploy the SAP system. Run either the Bash or PowerShell command.
+Deploy the workload zone by running either the Bash or PowerShell script. 
+
+Be sure to replace the sample credentials with your service principal's information. You can use the same service principal credentials that you used in the control plane deployment, however for production deployments we recommend using different service principals per workload zone.
+
+```bash
+
+subscriptionID=<subscriptionID>
+appId=<appID>
+spn_secret=<password>
+tenant_id=<tenant>
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
+    --parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars       \
+    --deployer_environment 'MGMT'                              \           
+    --subscription $subscriptionID                             \
+    --spn_id $appID                                            \
+    --spn_secret $spn_secret                                   \
+    --tenant_id $tenant                                        \
+    --auto-approve
+```
+
+```powershell
+
+cd \Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE
+
+$subscription="<subscriptionID>"
+$appId="<appID>"
+$spn_secret="<password>"
+$tenant_id="<tenant>"
+
+New-SAPWorkloadZone --parameterfile .\DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
+    -DeployerEnvironment MGMT
+    -Subscription $subscription
+    -SPN_id $appId
+    -SPN_password $spn_secret
+    -Tenant_id $tenant_id
+```
+
+Deploy the SAP system. Run either the Bash or PowerShell command.
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00
@@ -125,15 +166,15 @@ The following are example existing scenarios that use existing Azure resources.
 
 > [!IMPORTANT]
 > Modify all example configurations as necessary for your scenario.
-> Update all the '<arm_resource_is>' placeholders
+> Update all the '<arm_resource_id>' placeholders
 
 ### Existing environment scenario
 
 In this scenario, the automation framework uses existing Azure components, and uses the [deployer](automation-deployment-framework.md#deployment-components). These existing components include resource groups, storage accounts, virtual networks, subnets, and network security groups. This example deployment contains:
 
 - Two environments in the East US 2 region
-  - Management (`MGMT`)
-  - Quality assurance (`QA`)
+  - Management (`MGMT`) hosts the control plane
+  - Quality assurance (`QA`) hosts the SAP QA environment
 - A deployer
 - The SAP Library
 - An SAP system (`SID X01`) with:
@@ -150,7 +191,7 @@ In this scenario, the automation framework uses existing Azure components, and u
 | System          | SYSTEM/QA-EUS2-SAP03-X01/QA-EUS2-SAP03-X01.tfvars                             |
 
 
-1. Copy the sample files to your root folder for parameter files:
+Copy the sample files to your root folder for parameter files:
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
@@ -170,15 +211,11 @@ cd WORKSPACES
 
 The sample tfvars file has placeholders '"<azure_resource_id>"' which you need to replace with the actual Azure resource IDs for resource groups, virtual networks, and subnets.
 
-Open the workspaces folder.
-
-```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-```
-
 Deploy the control plane installing the deployer and SAP Library. Run either the Bash or PowerShell command. Be sure to replace the sample credentials with your service principal's information.
 
 ```bash
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+
 subscriptionID=<subscriptionID>
 appId=<appID>
 spn_secret=<password>
@@ -198,6 +235,10 @@ $DEPLOYMENT_REPO_PATH/scripts/prepare_region.sh
 ```
 
 ```powershell
+
+cd \Azure_SAP_Automated_Deployment\WORKSPACES
+
+
 $subscription="<subscriptionID>"
 $appId="<appID>"
 $spn_secret="<password>"
@@ -211,19 +252,15 @@ New-SAPAutomationRegion
     -SPN_password $spn_secret 
     -Tenant_id $tenant_id
     -Silent      
-    ```
-
-1. Open the workload zone folder for the QA environment.
-
-```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/QA-EUS2-SAP03-INFRASTRUCTURE
 ```
 
 Deploy the workload zone by running either the Bash or PowerShell script. 
 
-Be sure to replace the sample credentials with your service principal's information. You can use the same service principal credentials that you used in the control plane deployment, however for production deployments we recommend using different service principals per workload zone.
+Be sure to replace the sample credentials with your service principals information. You can use the same service principal credentials that you used in the control plane deployment, however for production deployments we recommend using different service principals per workload zone.
 
 ```bash
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/QA-EUS2-SAP03-INFRASTRUCTURE
 
 subscriptionID=<subscriptionID>
 appId=<appID>
@@ -232,7 +269,7 @@ tenant_id=<tenant>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
     --parameterfile QA-EUS2-SAP03-INFRASTRUCTURE.tfvars        \
-    --deployer_environment 'MGMT'                              \           
+    --deployer_environment MGMT                                \           
     --subscription $subscriptionID                             \
     --spn_id $appID                                            \
     --spn_secret $spn_secret                                   \
@@ -241,6 +278,9 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
 ```
 
 ```powershell
+
+cd \Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\QA-EUS2-SAP03-INFRASTRUCTURE
+
 $subscription="<subscriptionID>"
 $appId="<appID>"
 $spn_secret="<password>"
@@ -253,25 +293,23 @@ New-SAPWorkloadZone --parameterfile .\QA-EUS2-SAP03-INFRASTRUCTURE.tfvars
     -SPN_password $spn_secret
     -Tenant_id $tenant_id
 ```
----
 
-1. Open the SAP system folder for the QA environment.
+
+Deploy the SAP system in the QA environment. Run either the Bash or PowerShell command.
+
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/QA-EUS2-SAP03-X01
-```
 
-1. Deploy the SAP system for the QA environment. Run either the Bash or PowerShell command.
-
-
-```bash
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh --parameterfile QA-EUS2-SAP03-X01.tfvars --type sap_system --auto-approve
 ```
 
 ```powershell
+cd \Azure_SAP_Automated_Deployment\WORKSPACES\SYSTEM\QA-EUS2-SAP03-X01
+
 New-SAPSystem --parameterfile .\QA-EUS2-SAP03-tfvars.json -Type sap_system
 ```
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [About manual deployments with automation framework](automation-manual-deployment.md)
+> [Hands-on lab instructions](automation-tutorial.md)

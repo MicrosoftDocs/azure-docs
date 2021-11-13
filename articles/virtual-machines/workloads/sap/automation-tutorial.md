@@ -611,28 +611,31 @@ Selecting this playbook does the SAP OS configuration setup on all the machines,
 
 ### Playbook: BoM Processing
 
-Selecting this playbook, downloads the SAP software to the scs node.
+Selecting this playbook, downloads the SAP software to the SCS virtual machine. 
     
 ### Playbook: HANA DB Install
 
 This playbook will install the HANA database instances.
 ### Playbook: SCS Install
   
-This playbook triggers the SCS installation.
+This playbook will install SAP Central Services. If high availability is configured the playbook will also install the ERS instance and configure Pacemaker.
 ### Playbook: DB Load
 
-Triggers DB load for the previously installed HANA database from PAS server.
+This playbook will invoke the database load task from the primary application server.
 
 ### Playbook: PAS Install
 
-Triggers primary application server installation
+This playbook will install the primary application server.
   
 ### Playbook: APP Install
 
-Triggers app server installation.
+This playbook will install the additional application servers.
 
-You've now deployed and configured a stand-alone HANA system.
+You've now deployed and configured a stand-alone HANA system, if you need to configure a highly available SAP HANA database run the HANA HA playbook
 
+### Playbook: Hana HA playbook
+
+This playbook will configure HANA System Replication (HSR) and Pacemaker for the HANA database.
 ## Clean up installation
 
 > [!NOTE]

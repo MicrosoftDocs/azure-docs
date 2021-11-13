@@ -362,6 +362,8 @@
       href: automation-deploy-workload-zone.md
     - name: Deploy the SAP system
       href: automation-deploy-system.md
+    - name: Configure the system
+      href: automation-run-ansible.md
     - name: Hands-on lab
       href: automation-tutorial.md
     - name: Manual infrastructure deployment
