@@ -1,6 +1,6 @@
 ---
 title: Manage labs in Azure Lab Services (deprecated) | Microsoft Docs
-description: Learn how to create and configure a classroom lab, view all the labs, share the registration link with a lab user, or delete a lab. 
+description: Learn how to create and configure a classroom lab, view all the labs, share the registration link with a lab user, or delete a lab. (deprecated)
 ms.topic: how-to
 ms.date: 11/12/2021
 ---

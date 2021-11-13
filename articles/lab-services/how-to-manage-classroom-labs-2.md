@@ -35,7 +35,7 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
 
         > [!NOTE]
         > You see an option to select a location for your lab if the lab plan was configured to [allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md) option. 
-4. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab.
+1. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab.
     1. Specify the **name of the user** for all VMs in the lab.
     2. Specify the **password** for the user.
 
@@ -50,13 +50,13 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
 
         ![New lab window](./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
     5. Then, select **Next** on the **Virtual machine credentials** page. 
-5. On the **Lab policies** page, do the following steps:
+1. On the **Lab policies** page, do the following steps:
     1. Enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab. 
     2. Then, select **Next**. 
 
         ![Quota for each user](./media/tutorial-setup-classroom-lab/quota-for-each-user.png)
 
-6. On the **Template Virtual Machine Settings** page, select whether to create a template VM or a non-customized VM.
+1. On the **Template Virtual Machine Settings** page, select whether to create a template VM or a non-customized VM.
     1. If you choose **Create a template virtual machine**, the lab owner gets a template VM, which can be customized with software, settings, etc., and each student gets a copy of the template.
     2. If you choose **Use a virtual machine image without customization**, each student gets a VM directly from the source VM image with no customization. (No template VM.)
 
@@ -64,29 +64,29 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
         :::image type="content" source="./media/tutorial-setup-classroom-lab/template-virtual-machine-settings.png" alt-text="Template virtual machine settings":::
     1. Select **Finish**.
 
-7. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 15 minutes. 
+1. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 15 minutes. 
 
     ![Status of the template VM creation](./media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
-8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
+1. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
 
     1. Connect to the template VM by selecting **Start**. If it's a Linux template VM, you choose whether you want to connect using SSH or a GUI remote desktop.  Additional setup is required to use a GUI remote desktop. See [Enable graphical remote desktop for Linux virtual machines](how-to-use-remote-desktop-linux-student.md) for more information.
     1. Select **Reset password** to reset the password for the VM.
     1. Install and configure software on your template VM.
     1. **Stop** the VM.  
     1. Enter a **description** for the template
-9.  On **Template** page, select **Publish** on the toolbar.
+1.  On **Template** page, select **Publish** on the toolbar.
 
     ![Publish template button](./media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
     > [!WARNING]
     > Once you publish, you can't unpublish. 
-10. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**. 
+1. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**. 
 
     ![Publish template - number of VMs](./media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
-11. You see the **status of publishing** the template on page. This process can take up to an hour. 
+1. You see the **status of publishing** the template on page. This process can take up to an hour. 
 
     ![Publish template - progress](./media/tutorial-setup-classroom-lab/publish-template-progress.png)
-12. Switch to the **Virtual machines pool** page by selecting Virtual machines on the left menu or by selecting Virtual machines tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
+1. Switch to the **Virtual machines pool** page by selecting Virtual machines on the left menu or by selecting Virtual machines tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
 
     ![Virtual machines in stopped state](./media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
