@@ -41,13 +41,13 @@ The log files you use for investigation and monitoring are:
 
 From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* [Azure Sentinel](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
+* [Microsoft Sentinel](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
 
 * [Azure Monitor](../../azure-monitor/overview.md) – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM- [Azure AD logs can be pushed to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
 
-* [Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
 * Microsoft Graph - you can export the data and user MS Graph to do more analysis. For more information on MS Graph, visit [Microsoft Graph PowerShell SDK and Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md). 
 
@@ -57,7 +57,7 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
    * Risky sign-ins – contains information surrounding the circumstance of a sign in that might indicate suspicious circumstances. For additional information on investigating information from this report, visit [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md). 
 
-   * Risk detections – contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Cloud App Security (MCAS).
+   * Risk detections – contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
 
  
 

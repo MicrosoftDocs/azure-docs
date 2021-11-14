@@ -207,7 +207,7 @@ After the assignment, you can access the private FQDN of your application in pri
 
 ## Next steps
 
-- [Expose applications to Internet - using Application Gateway and Azure Firewall](./expose-apps-gateway-azure-firewall.md)
+- [Expose applications to Internet - using Application Gateway](./expose-apps-gateway.md)
 
 ## See also
 

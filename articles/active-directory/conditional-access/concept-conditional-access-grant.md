@@ -152,6 +152,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Teams
+- Microsoft To Do
 - Microsoft Word
 - MultiLine for Intune
 - Nine Mail - Email & Calendar
