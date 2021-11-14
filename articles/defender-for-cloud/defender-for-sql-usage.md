@@ -38,7 +38,7 @@ To enable this plan:
 
 [Step 2. Provision the Log Analytics agent on your SQL server's host:](#step-2-provision-the-log-analytics-agent-on-your-sql-servers-host)
 
-[Step 3. Enable the optional plan in Defender for Cloud's pricing and settings page:](#step-3-enable-the-optional-plan-in-defender-for-clouds-pricing-and-settings-page)
+[Step 3. Enable the optional plan in Defender for Cloud's environment settings page:](#step-3-enable-the-optional-plan-in-defender-for-clouds-environment-settings-page)
 
 
 ### Step 1. Install the agent extension
@@ -59,19 +59,17 @@ To enable this plan:
     - **Connect the Windows machine without Azure Arc** - If you choose to connect a SQL Server running on a Windows machine without using Azure Arc, follow the instructions in [Connect Windows machines to Azure Monitor](../azure-monitor/agents/agent-windows.md).
 
 
-### Step 3. Enable the optional plan in Defender for Cloud's pricing and settings page:
+### Step 3. Enable the optional plan in Defender for Cloud's environment settings page:
 
 1. From Defender for Cloud's menu, open the **Environment settings** page.
 
     - If you're using **Microsoft Defender for Cloud's default workspace** (named “defaultworkspace-[your subscription ID]-[region]”), select the relevant **subscription**.
 
-    - If you're using **a non-default workspace**, select the relevant **workspace** (enter the workspace's name in the filter if necessary):
-
-        ![Finding your non-default workspace by title.](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
+    - If you're using **a non-default workspace**, select the relevant **workspace** (enter the workspace's name in the filter if necessary).
 
 1. Set the option for **Microsoft Defender for SQL servers on machines** plan to **on**. 
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png" alt-text="Defender for Cloud pricing page with optional plans.":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png" alt-text="Screenshot of Microsoft Defender for Cloud's 'Defender plans' page with optional plans.":::
 
     The plan will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server instance.
 
