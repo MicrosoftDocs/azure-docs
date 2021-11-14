@@ -131,8 +131,8 @@
       href: how-to-reports.md
   - name: Troubleshoot
     items:
-    - name: Trouble routing issues
-      href: troubleshoot-route-issues.md
+    - name: Troubleshooting Front Door issues
+      href: ../troubleshoot-issues.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Allowed certificate authorities
       href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
     - name: File Compression

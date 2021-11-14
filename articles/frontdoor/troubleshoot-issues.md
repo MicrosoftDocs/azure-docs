@@ -1,17 +1,21 @@
 ---
-title: Troubleshoot Azure Front Door Standard/Premium configuration problems
-description: In this tutorial, you'll learn how to troubleshoot some of the common problems that you might face for your Azure Front Door Standard/Premium instance.
+title: Troubleshoot Azure Front Door common issues
+description: In this tutorial, you'll learn how to troubleshoot some of the common problems that you might face for your Azure Front Door instance.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 09/08/2021
+ms.date: 11/12/2021
 ms.author: duau
 ---
 
-# Troubleshooting common routing problems with Azure Front Door Standard/Premium
+# Troubleshoot Azure Front Door common issues
 
 This article describes how to troubleshoot common routing problems that you might face for your Azure Front Door configuration.
+
+## Additional debugging HTTP headers
+
+You can request Front Door to return additional debugging HTTP response headers. For more details, refer to [optional response headers](front-door-http-headers-protocol.md#optional-debug-response-headers).
 
 ## 503 response from Azure Front Door after a few seconds
 
@@ -35,15 +39,15 @@ The cause of this problem can be one of three things:
 * Send the request via Azure Front Door and see if you're getting any 503 responses. If not, the problem might not be a timeout issue. Contact support.
 * If requests going through Azure Front Door results in a 503 error response code, configure the **Origin response timeout (in seconds)** for the endpoint. You can extend the default timeout to up to 4 minutes (240 seconds). The setting can be configured by going to the *Endpoint manager* and selecting **Edit endpoint**.
 
-    :::image type="content" source="..\media\troubleshoot-route-issues\origin-response-timeout-1.png" alt-text="Screenshot of selecting edit endpoint from Endpoint manager.":::
+    :::image type="content" source="./media/troubleshoot-issues/origin-response-timeout-1.png" alt-text="Screenshot of selecting edit endpoint from Endpoint manager.":::
 
     Then select **Endpoint properties** to configure the **Origin response timeout**:
 
-    :::image type="content" source="..\media\troubleshoot-route-issues\origin-response-timeout-2.png" alt-text="Screenshot of select endpoint properties and Origin response timeout field." lightbox="..\media\troubleshoot-route-issues\origin-response-timeout-2-expanded.png":::
+    :::image type="content" source="./media/troubleshoot-issues/origin-response-timeout-2.png" alt-text="Screenshot of select endpoint properties and Origin response timeout field." lightbox="./media/troubleshoot-issues/origin-response-timeout-2-expanded.png":::
 
 * If the timeout doesn’t resolve the issue, use a tool like Fiddler or your browser's developer tool to check if the client is sending byte range requests with Accept-Encoding headers, leading to the origin responding with different content lengths. If yes, then you can either disable compression on the Origin/Azure Front Door or create a Rules Set rule to remove `accept-encoding` from the request for byte range requests.
 
-    :::image type="content" source="..\media\troubleshoot-route-issues\remove-encoding-rule.png" alt-text="Screenshot of accept-encoding rule in a Rule Set.":::
+    :::image type="content" source="./media/troubleshoot-issues/remove-encoding-rule.png" alt-text="Screenshot of accept-encoding rule in a Rule Set.":::
 
 ## Requests sent to the custom domain return a 400 status code
 
@@ -97,4 +101,5 @@ This behavior is separate from the Web Application Firewall (WAF) functionality 
 
 ## Next steps
 
-Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
+* Learn how to [create a Front Door](quickstart-create-front-door.md).
+* Learn how to [create a Front Door Standard/Premium](standard-premium/create-front-door-portal.md).

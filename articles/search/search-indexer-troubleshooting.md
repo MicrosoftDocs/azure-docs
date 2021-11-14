@@ -196,6 +196,43 @@ api-key: [admin key]
 
 Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
 
+## Documents processed multiple times
+
+Indexers leverage a conservative buffering strategy to ensure that every new and changed document in the data source is picked up during indexing. In certain situations, these buffers can overlap, causing an indexer to index a document two or more times resulting in the processed documents count to be more than actual number of documents in the data source. This behavior does **not** affect the data stored in the index, such as duplicating documents, only that it may take longer to reach eventual consistency. This can be especially prevelent if any of the following conditions are true:
+
+- On-demand indexer requests are issued in quick succession
+- The data source's topology includes multiple replicas and partitions (one such example is discussed [here](https://docs.microsoft.com/azure/cosmos-db/consistency-levels))
+
+Indexers are not intended to be invoked multiple times in quick succession. If you need updates quickly, the supported approach is to push updates to the index while simultaneously updating the data source. For on-demand processing, we recommend that you pace your requests in five-minute intervals or more, and run the indexer on a schedule.
+
+### Example of duplicate document processing with 30 second buffer
+Conditions under which a document is processed twice is explained below in a timeline that notes each action and counter action. The following timeline illustrates the issue:
+
+| Timeline (hh:mm:ss) | Event | Indexer High Water Mark | Comment |
+|---------------------|-------|-------------------------|---------|
+| 00:01:00 | Write `doc1` to data source with eventual consistency | `null` | Document timestamp is 00:01:00. |
+| 00:01:05 | Write `doc2` to data source with eventual consistency | `null` | Document timestamp is 00:01:05. |
+| 00:01:10 | Indexer starts | `null` | |
+| 00:01:11 | Indexer queries for all changes before 00:01:10; the replica that the indexer queries happens to be only aware of `doc2`; only `doc2` is retrieved | `null` | Indexer requests all changes before starting timestamp but actually receives a subset. This behavior necessitates the look back buffer period. |
+| 00:01:12 | Indexer processes `doc2` for the first time | `null` | |
+| 00:01:13 | Indexer ends | 00:01:10 | High water mark is updated to starting timestamp of current indexer execution. |
+| 00:01:20 | Indexer starts | 00:01:10 | |
+| 00:01:21 | Indexer queries for all changes between 00:00:40 and 00:01:20; the replica that the indexer queries happens to be aware of both `doc1` and `doc2`; retrieves `doc1` and `doc2` | 00:01:10 | Indexer requests for all changes between current high water mark minus the 30 second buffer, and starting timestamp of current indexer execution. |
+| 00:01:22 | Indexer processes `doc1` for the first time | 00:01:10 | |
+| 00:01:23 | Indexer processes `doc2` for the second time | 00:01:10 | |
+| 00:01:24 | Indexer ends | 00:01:20 | High water mark is updated to starting timestamp of current indexer execution. |
+| 00:01:32 | Indexer starts | 00:01:20 | |
+| 00:01:33 | Indexer queries for all changes between 00:00:50 and 00:01:32; retrieves `doc1` and `doc2` | 00:01:20 | Indexer requests for all changes between current high water mark minus the 30 second buffer, and starting timestamp of current indexer execution. |
+| 00:01:34 | Indexer processes `doc1` for the second time | 00:01:20 | |
+| 00:01:35 | Indexer processes `doc2` for the third time | 00:01:20 | |
+| 00:01:36 | Indexer ends | 00:01:32 | High water mark is updated to starting timestamp of current indexer execution. |
+| 00:01:40 | Indexer starts | 00:01:32 | |
+| 00:01:41 | Indexer queries for all changes between 00:01:02 and 00:01:40; retrieves `doc2` | 00:01:32 | Indexer requests for all changes between current high water mark minus the 30 second buffer, and starting timestamp of current indexer execution. |
+| 00:01:42 | Indexer processes `doc2` for the fourth time | 00:01:32 | |
+| 00:01:43 | Indexer ends | 00:01:40 | Notice this indexer execution started more than 30 seconds after the last write to the data source and also processed `doc2`. This is the expected behavior because if all indexer executions before 00:01:35 are eliminated, this will become the first and only execution to process `doc1` and `doc2`. |
+
+In practice, this scenario only happens when on-demand indexers are manually invoked within minutes of each other, for certain data sources. It may result in mismatched numbers (like the indexer processed 345 documents total according to the indexer execution stats, but there are 340 documents in the data source and index) or potentially increased billing if you are running the same skills for the same document multiple times. Running an indexer using a schedule is the preferred recommendation.
+
 ## See also
 
 * [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md)
