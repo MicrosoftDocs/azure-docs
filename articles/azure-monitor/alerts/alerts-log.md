@@ -16,7 +16,7 @@ This article shows you how to create and manage log alerts using Azure Monitor. 
 - Target: A specific Azure resource to monitor.
 - Criteria: Logic to evaluate. If met, the alert fires.  
 - Action: Notifications or automation - email, SMS, webhook, and so on.
-You can also create log alert rules using Azure Resource Manager templates, which are described in [a separate article](../alerts/alerts-log-create-templates.md).
+You can also create log alert rules using Azure Resource Manager templates, as described in [a separate article](../alerts/alerts-log-create-templates.md).
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../logs/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](./alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](./alerts-metric-logs.md).
 
@@ -25,13 +25,14 @@ You can also create log alert rules using Azure Resource Manager templates, whic
 > This article describes creating alert rules using the new alert rule wizard. Please note these changes in the new alert rule experience:
 > - Search results are not included with the triggered alert and its associated notifications. The alert contains a link to the search results in Logs.
 > - The new alert rule wizard does not include the option to customize the triggered alert's email or to include a custom JSON payload.
-> - The new alert rule wizard doe not currently support a frequency of 1 minute. 1 minute alert frequency will be supported soon.
+> - The new alert rule wizard does not currently support a frequency of 1 minute. 1 minute alert frequency will be supported soon.
 
 1. In the [portal](https://portal.azure.com/), select the resource you would like to alert on.
 1. In the Resource menu, under **Monitoring**, select **Alerts**.
 1. From the top command bar, click **Create**, and then **Alert rule**.
     :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule.":::
 1. The **Create alert rule** wizard opens to the **Select a signal** page of the **Condition** tab, with the scope already defined based on the resource you selected.
+    :::image type="content" source="media/alerts-log/alerts-create-new-rule-select-signal.png" alt-text="Select Signal.":::
 1. Click on the **Custom log search** signal.
 1. Write a query to identify the conditions for triggering alerts. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. Click **Run** to confirm that the query correctly identifies the data you want to alert on.
@@ -52,7 +53,7 @@ You can also create log alert rules using Azure Resource Manager templates, whic
     
     :::image type="content" source="media/alerts-log/alerts-rule-preview-agg-params-and-splitting.png" alt-text="Preview alert rule parameters.":::
       
-1. In the **Advanced options** section, you can optionally set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).
+1. (Optional) In the **Advanced options** section, set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).
        
     :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Advanced options.":::
 
@@ -80,7 +81,7 @@ You can also create log alert rules using Azure Resource Manager templates, whic
     :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 
 > [!NOTE]
-> We recommended that you create alerts at scale when using resource access mode for log running on multiple resources using a resource group or subscription scope. Alerting at scale reduces rule management overhead. To be able to target the resources, include the resource ID column in the results. [Learn more about splitting alerts by dimensions](./alerts-unified-log.md#split-by-alert-dimensions).
+> We recommend that you create alerts at scale when using resource access mode for log running on multiple resources using a resource group or subscription scope. Alerting at scale reduces rule management overhead. To be able to target the resources, include the resource ID column in the results. [Learn more about splitting alerts by dimensions](./alerts-unified-log.md#split-by-alert-dimensions).
 
 ## Manage alert rules in the Alerts portal
 
