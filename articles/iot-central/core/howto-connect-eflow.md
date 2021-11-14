@@ -16,7 +16,7 @@ Azure IoT Edge for Linux on Windows allows you to run containerized Linux worklo
 
 :::image type="content" source="media/howto-connect-eflow/centos-edge-central.png" alt-text="Screenshot that shows the architecture."::: 
 
-In this article, learn how to provision [Azure IoT Edge for Linux on Windows EFLOW](https://docs.microsoft.com/en-us/windows/iot/iot-enterprise/eflow) device and manage it from IoT Central application. 
+In this article, learn how to provision [Azure IoT Edge for Linux on Windows EFLOW](https://docs.microsoft.com/windows/iot/iot-enterprise/eflow) device and manage it from IoT Central application. 
 
 In this tutorial, you learn how to:
 
@@ -143,7 +143,7 @@ You've now finished configuring your IoT Central application to enable an IoT Ed
 
 ## Install and provision Azure IoT Edge for Linux on a Windows device
 
-To install and provision Edge for Linux on a windows device see [Install and provision Azure IoT Edge for Linux on a Windows device](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-on-windows?view=iotedge-2018-06&tabs=windowsadmincenter)
+To install and provision Edge for Linux on a windows device see [Install and provision Azure IoT Edge for Linux on a Windows device](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-on-windows?view=iotedge-2018-06&tabs=windowsadmincenter)
 
 > [!NOTE]
 > You are not required to create an IoTHub with this tutorial. You can skip the step of creating IoT Hub since you will connecting to IoT Central. 
@@ -156,4 +156,4 @@ For this tutorial pick **option 2** to provision your device, Provisioning via D
 
 Go To Device Details page on IoT Central and you can see telemetry flowing from your device
     
-:::image type="content" source="media/howto-connect-eflow/telemetry.png" alt-text="Device template created from IoT Edge manifest."::: 
+:::image type="content" source="media/howto-connect-eflow/telemetry.png" alt-text="Telemetry from the device."::: 
