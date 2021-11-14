@@ -25,7 +25,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 ## Maintenance
 
-* The [Nodetool repair](https://docs.datastax.com/cassandra-oss/3.0/cassandra/tools/toolsRepair.html) is automatically run by the service using [reaper](http://cassandra-reaper.io/). This tool is run once every week. You may wish to disable it if using your own service for a [hybrid deployment](configure-hybrid-cluster.md).
+* The [Nodetool repair](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/tools/toolsRepair.html) is automatically run by the service using [reaper](http://cassandra-reaper.io/). This tool is run once every week. You may wish to disable it if using your own service for a [hybrid deployment](configure-hybrid-cluster.md).
 
 * Node health monitoring consists of:
 
