@@ -17,7 +17,7 @@ By default, the [SAP deployment automation framework](automation-deployment-fram
 > When possible, it's a best practice to increase the disk size instead of adding more disks.
 
 
-### HANA database default disk sizing
+### HANA databases
 
 The table below shows the default disk configuration for HANA systems. 
 
@@ -37,7 +37,7 @@ The table below shows the default disk configuration for HANA systems.
 | M416s_v2  | Standard_M416s_v2   | P10 (128 GB)  | 4 P40 (2048 GB)  | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | 3 P40 (2048 GB) |
 | M416ms_v2 | Standard_M416m_v2   | P10 (128 GB)  | 4 P50 (4096 GB)  | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | 4 P50 (4096 GB) |
 
-### AnyDB database disk sizing
+### AnyDB databases
 
 The table below shows the default disk configuration for AnyDB systems. 
 
