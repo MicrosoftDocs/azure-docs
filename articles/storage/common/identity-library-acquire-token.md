@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/11/2021
+ms.date: 11/13/2021
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
@@ -16,9 +16,9 @@ ms.custom: devx-track-csharp
 
 # Use the Azure Identity library to get an access token for authorization
 
-The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). The latest versions of the Azure Storage client libraries for .NET, Java, Python, and JavaScript integrate with the Azure Identity libraries for each of those languages to provide a simple and secure means to acquire an access token for authorization of Azure Storage requests.
+The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). The latest versions of the Azure Storage client libraries for .NET, Java, Python, JavaScript, and Go integrate with the Azure Identity libraries for each of those languages to provide a simple and secure means to acquire an access token for authorization of Azure Storage requests.
 
-An advantage of the Azure Identity client library is that it enables you to use the same code to acquire the access token whether your application is running in the development environment or in Azure. The Azure Identity client library for .NET returns an access token for a security principal. When your code is running in Azure, the security principal may be a managed identity for Azure resources, a service principal, or a user or group. In the development environment, the client library provides an access token for either a user or a service principal for testing purposes.
+An advantage of the Azure Identity client library is that it enables you to use the same code to acquire the access token whether your application is running in the development environment or in Azure. The Azure Identity client library returns an access token for a security principal. When your code is running in Azure, the security principal may be a managed identity for Azure resources, a service principal, or a user or group. In the development environment, the client library provides an access token for either a user or a service principal for testing purposes.
 
 The access token returned by the Azure Identity client library is encapsulated in a token credential. You can then use the token credential to get a service client object to use in performing authorized operations against Azure Storage. A simple way to get the access token and token credential is to use the **DefaultAzureCredential** class that is provided by the Azure Identity client library. An instance of this class attempts to get the token credential in a variety of common ways, and it works in both the development environment and in Azure.
 
@@ -28,6 +28,7 @@ For more information about the Azure Identity client library for your language, 
 - [Azure Identity client library for Java](/java/api/overview/azure/identity-readme)
 - [Azure Identity client library for Python](/python/api/overview/azure/identity-readme)
 - [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme)
+- [Azure Identity client library for Go](/javascript/api/overview/azure/identity-readme)
 
 ## Assign Azure roles for access to data
 

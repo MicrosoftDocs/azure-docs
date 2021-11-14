@@ -1,6 +1,6 @@
 ---
-title: Detect threats quickly with near-real-time (NRT) analytics rules in Azure Sentinel | Microsoft Docs
-description: This article explains how the new near-real-time (NRT) analytics rules can help you detect threats quickly in Azure Sentinel.
+title: Detect threats quickly with near-real-time (NRT) analytics rules in Microsoft Sentinel | Microsoft Docs
+description: This article explains how the new near-real-time (NRT) analytics rules can help you detect threats quickly in Microsoft Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
-# Detect threats quickly with near-real-time (NRT) analytics rules in Azure Sentinel
+# Detect threats quickly with near-real-time (NRT) analytics rules in Microsoft Sentinel
 
 > [!IMPORTANT]
 >
@@ -24,9 +24,9 @@ ms.custom: ignite-fall-2021
 
 ## What are near-real-time (NRT) analytics rules?
 
-When you're faced with security threats, time and speed are of the essence. You need to be aware of threats as they materialize so you can analyze and respond quickly to contain them. Azure Sentinel's near-real-time (NRT) analytics rules offer you faster threat detection - closer to that of an on-premises SIEM - and the ability to shorten response times in specific scenarios.
+When you're faced with security threats, time and speed are of the essence. You need to be aware of threats as they materialize so you can analyze and respond quickly to contain them. Microsoft Sentinel's near-real-time (NRT) analytics rules offer you faster threat detection - closer to that of an on-premises SIEM - and the ability to shorten response times in specific scenarios.
 
-Azure Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) provide up-to-the-minute threat detection out-of-the-box. This type of rule was designed to be highly responsive by running its query at intervals just one minute apart.
+Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) provide up-to-the-minute threat detection out-of-the-box. This type of rule was designed to be highly responsive by running its query at intervals just one minute apart.
 
 ## How do they work?
 
@@ -59,7 +59,7 @@ The following limitations currently govern the use of NRT rules:
 
 ## Next steps
 
-In this document, you learned how near-real-time (NRT) analytics rules work in Azure Sentinel.
+In this document, you learned how near-real-time (NRT) analytics rules work in Microsoft Sentinel.
 
 - Learn how to [create NRT rules](create-nrt-rules.md).
 - Learn about [other types of analytics rules](detect-threats-built-in.md).

@@ -281,7 +281,7 @@ For security logging and monitoring, we recommend the following:
 
 * Enable logging of your Azure Storage account to monitor and send alert for configuration changes. More information can be found at [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage.md).
 
-* Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) for long-term retention.
+* Archive logs in a security information and event management (SIEM) systems, such as [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) for long-term retention.
 
 * Mitigate spoofing risks by using the following
 
