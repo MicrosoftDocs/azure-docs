@@ -466,7 +466,12 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 
 ### Custom neural voice
 
-Based on the neural Text-to-Speech technology and the multi-lingual multi-speaker universal model, custom neural voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. Check below for the languages supported.  
+Custom neural voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data.  
+
+Select the right locale that matches the training data you have to train a custom neural voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
+
+> [!NOTE]
+> Chinese-English bilingual model training in custom neural voice is available in the UK South and East US [regions](regions.md#custom-neural-voices).
 
 | Language | Locale | Neural | Cross-lingual |
 |--|--|--|--|
@@ -500,11 +505,6 @@ Based on the neural Text-to-Speech technology and the multi-lingual multi-speake
 | Spanish (Spain) | `es-ES` | Yes | Yes |
 | Turkish (Turkey) | `tr-TR` | Yes | No |
 | Vietnamese (Vietnam) | `vi-VN` | Yes | No |
-
-Select the right locale that matches the training data you have to train a custom neural voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
-
-> [!NOTE]
-> The custom neural voice enables you to create a unique brand voice in multiple languages and styles by using a small set of recording data. Chinese-English bilingual model training in custom neural voice is available in UK South and East US.
 
 ## Speech translation
 
