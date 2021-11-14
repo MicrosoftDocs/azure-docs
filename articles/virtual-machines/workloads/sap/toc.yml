@@ -300,7 +300,7 @@
       href: automation-configure-workload-zone.md
     - name: Configure the SAP system
       href: automation-configure-system.md
-    - name: Configure extra disks
+    - name: Configure custom disk sizing
       href: automation-configure-extra-disks.md
     - name: Naming convention
       href: automation-naming.md
