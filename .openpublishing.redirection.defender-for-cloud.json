@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/security-center/release-notes.md",
+            "redirect_url": "/azure/defender-for-cloud/release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/release-notes-archive.md",
+            "redirect_url": "/azure/defender-for-cloud/release-notes-archive",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/azure-defender.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
             "redirect_document_id": false
@@ -33,6 +43,11 @@
         {
             "source_path_from_root": "/articles/security-center/just-in-time-explained.md",
             "redirect_url": "/azure/defender-for-cloud/just-in-time-access-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/apply-security-baseline.md",
+            "redirect_url": "/azure/defender-for-cloud/apply-security-baseline",
             "redirect_document_id": false
         },
         {
@@ -106,7 +121,17 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/security-center/threat-intelligence-reports.md",
+            "redirect_url": "/azure/defender-for-cloud/threat-intelligence-reports",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/security-center-data-security.md",
+            "redirect_url": "/azure/defender-for-cloud/data-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/data-security.md",
             "redirect_url": "/azure/defender-for-cloud/data-security",
             "redirect_document_id": false
         },
@@ -121,7 +146,17 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/security-center/tenant-wide-permissions-management.md",
+            "redirect_url": "/azure/defender-for-cloud/tenant-wide-permissions-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/security-center-cross-tenant-management.md",
+            "redirect_url": "/azure/defender-for-cloud/cross-tenant-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/cross-tenant-management.md",
             "redirect_url": "/azure/defender-for-cloud/cross-tenant-management",
             "redirect_document_id": false
         },
@@ -137,6 +172,11 @@
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-troubleshooting-guide.md",
+            "redirect_url": "/azure/defender-for-cloud/troubleshooting-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/troubleshooting-guide.md",
             "redirect_url": "/azure/defender-for-cloud/troubleshooting-guide",
             "redirect_document_id": false
         },
@@ -196,6 +236,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/security-center/features-paas.md",
+            "redirect_url": "/azure/defender-for-cloud/features-paas",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/security-center-alerts-overview.md",
             "redirect_url": "/azure/defender-for-cloud/alerts-overview",
             "redirect_document_id": false
@@ -203,6 +248,21 @@
         {
             "source_path_from_root": "/articles/security-center/security-center-alert-validation.md",
             "redirect_url": "/azure/defender-for-cloud/alert-validation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/alert-validation.md",
+            "redirect_url": "/azure/defender-for-cloud/alert-validation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/incidents.md",
+            "redirect_url": "/azure/defender-for-cloud/incidents",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/implement-security-recommendations.md",
+            "redirect_url": "/azure/defender-for-cloud/implement-security-recommendations",
             "redirect_document_id": false
         },
         {
@@ -233,6 +293,11 @@
         {
             "source_path_from_root": "/articles/security-center/alerts-overview.md",
             "redirect_url": "/azure/defender-for-cloud/alerts-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security-center/alerts-schemas.md",
+            "redirect_url": "/azure/defender-for-cloud/alerts-schemas",
             "redirect_document_id": true
         },
         {
@@ -411,11 +476,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/security-center/implement-security-recommendations.md",
-            "redirect_url": "/azure/defender-for-cloud/implement-security-recommendations",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/security-center/index.yml",
             "redirect_url": "/azure/defender-for-cloud/index",
             "redirect_document_id": true
@@ -486,6 +546,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/security-center/auto-deploy-vulnerability-assessment.md",
+            "redirect_url": "/azure/defender-for-cloud/auto-deploy-vulnerability-assessment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-policy-concept.md",
+            "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/security-center/quickstart-onboard-gcp.md",
             "redirect_url": "/azure/defender-for-cloud/quickstart-onboard-gcp",
             "redirect_document_id": true
@@ -516,6 +586,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/security-center/secure-score-access-and-track.md",
+            "redirect_url": "/azure/defender-for-cloud/secure-score-access-and-track",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/security-center/security-center-planning-and-operations-guide.md",
             "redirect_url": "/azure/defender-for-cloud/security-center-planning-and-operations-guide",
             "redirect_document_id": true
@@ -531,8 +606,28 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/security-center/tutorial-protect-resources.md",
+            "redirect_url": "/azure/defender-for-cloud/tutorial-protect-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security-center/tutorial-security-incident.md",
+            "redirect_url": "/azure/defender-for-cloud/tutorial-security-incident",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/security-center/tutorial-security-policy.md",
             "redirect_url": "/azure/defender-for-cloud/tutorial-security-policy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security-center/update-regulatory-compliance-packages.md",
+            "redirect_url": "/azure/defender-for-cloud/update-regulatory-compliance-packages",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security-center/windows-admin-center-integration.md",
+            "redirect_url": "/azure/defender-for-cloud/windows-admin-center-integration",
             "redirect_document_id": true
         },
         {

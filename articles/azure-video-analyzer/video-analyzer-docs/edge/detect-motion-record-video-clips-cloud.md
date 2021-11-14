@@ -36,7 +36,7 @@ You can get more details [here](https://github.com/Azure/video-analyzer/tree/mai
 
 In the virtual machine created by the above deployment are several MKV files.  One of these files is called `lots_015.mkv`. In the following steps, we will use this video file to simulate a live stream for this tutorial.
 
-You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit `Ctrl+N`, and paste [the parking lot video sample](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) link to start playback. At about the 5-second mark, a white car moves through the parking lot.
+You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit `Ctrl+N`, and paste [the parking lot video sample](https://avamedia.blob.core.windows.net/public/lots_015.mkv) link to start playback. At about the 5-second mark, a white car moves through the parking lot.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
