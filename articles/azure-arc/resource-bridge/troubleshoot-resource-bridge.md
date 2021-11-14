@@ -15,9 +15,10 @@ For any issues encountered with the Azure Arc resource bridge, you can collect l
 
 The `Az arcappliance log` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the client machine where the deployment of the appliance was performed from. If you are going to use a different client machine to run the Azure CLI command, you need to make sure the following files are copied to the new client machine:
 
-- `.ssh\logkey.pub`
-- `.ssh\logkey`
-
+```azurecli
+$HOME\.KVA\.ssh\logkey.pub
+$HOME\.KVA\.ssh\logkey 
+```
 To view the logs, run the following command:
 
 ```azurecli
