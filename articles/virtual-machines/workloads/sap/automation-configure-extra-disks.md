@@ -100,7 +100,7 @@ The following sample code is an example configuration for the database tier. The
         {
           "name"                  : "backup",
           "count"                 : 1,
-          "disk_type"             : "Premium_LRS",
+          "disk_type"             : "StandardSSD_LRS",
           "size_gb"               : 256,
           "caching"               : "ReadWrite",
           "write_accelerator"     : false,
@@ -156,7 +156,7 @@ If you need to add disks to an already deployed system, you can add a new block 
         {
           "name"                  : "backup",
           "count"                 : 1,
-          "disk_type"             : "Premium_LRS",
+          "disk_type"             : "StandardSSD_LRS",
           "size_gb"               : 256,
           "caching"               : "ReadWrite",
           "write_accelerator"     : false,
