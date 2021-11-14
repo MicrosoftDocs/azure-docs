@@ -198,7 +198,7 @@ az containerapp env create `
 
 ## Create a container app
 
-Now that you have an environment created, you can deploy you first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
+Now that you have an environment created, you can deploy your first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
 
 # [Bash](#tab/bash)
 
