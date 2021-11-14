@@ -141,7 +141,7 @@ The following diagram represents a well-architected hub and spoke design that ad
 
 ## Azure Spring Cloud on-premises connectivity
 
-Applications running in Azure Spring Cloud can communicate to various Azure, on-premises, and external resources. By using the hub and spoke design, applications can route traffic externally or to the on-premises network using Express Route or Site-to-Site Virtual Private Network (VPN).
+Applications in Azure Spring Cloud can communicate to various Azure, on-premises, and external resources. By using the hub and spoke design, applications can route traffic externally or to the on-premises network using Express Route or Site-to-Site Virtual Private Network (VPN).
 
 ## Azure Well-Architected Framework considerations
 

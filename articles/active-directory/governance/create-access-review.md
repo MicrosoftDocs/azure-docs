@@ -3,7 +3,7 @@ title: Create an access review of groups & applications - Azure AD
 description: Learn how to create an access review of group members or application access in Azure Active Directory access reviews. 
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -117,7 +117,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     > [!NOTE]
     > Action to apply on denied guest users isn't configurable on reviews scoped to more than guest users. It's also not configurable for reviews of **All Microsoft 365 groups with guest users.** When not configurable, the default option of removing user's membership from the resource is used on denied users.
  
-13. Use **(Preview) At end of review, send notification to** to send notifications to other users or groups with completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
+13. Use **At end of review, send notification to** to send notifications to other users or groups with completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
  
 14. In the **Enable review decision helpers** choose whether you would like your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended to be approved, while users who have not signed in during the past 30 days are recommended to be denied.
 

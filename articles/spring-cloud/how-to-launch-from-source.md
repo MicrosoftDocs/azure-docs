@@ -1,10 +1,10 @@
 ---
-title: "How to - Deploy Spring Boot applications using Azure CLI"
-description: In this quickstart, learn how to deploy your Spring Boot application using Azure CLI
+title: "How to - Launch your Spring Cloud application from source code"
+description: In this quickstart, learn how to launch your application in Azure Spring Cloud directly from your source code
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/03/2020
+ms.date: 11/12/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 ---
