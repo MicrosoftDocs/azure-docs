@@ -34,16 +34,16 @@ For this example, we want our job to run for N minutes, before pausing it for M 
 
 ![Behavior of the auto-paused job over time](./media/automation/principle.png)
 
-When running, the job shouldn't be stopped until the entire input backlog is processed. Instead of letting it run for N minutes, we'll instead set a cool down period of N minutes. During that period, the backlogged input events should stay at 0. This behavior translates to two actions:
+When running, the job shouldn't be stopped until the input backlog is processed, and the [watermark](/azure/stream-analytics/stream-analytics-time-handling#background-time-concepts) is back to its baseline. We'll check these 2 metrics are healthy for at least N minutes. This behavior translates to two actions:
 
 - A stopped job is restarted after M minutes
-- A running job is, that has no backlogged input events, is stopped after N minutes
+- A running job is stopped anytime after N minutes, as soon as its backlog and watermark metrics are healthy
 
 ![State diagram of the job](./media/automation/States.png)
 
 As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. Potential cost savings are up to 66%.
 
-To restart the job, we'll use the `When Last Stopped` [start option](/azure/stream-analytics/start-job#start-options). This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are 2 caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [Event Hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than 1 day. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted. So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
+To restart the job, we'll use the `When Last Stopped` [start option](/azure/stream-analytics/start-job#start-options). This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are 2 caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [Event Hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than 1 day. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted (else it has literally never been stopped before). So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
 
 The last consideration is to make these actions idempotent. This way, they can be repeated at will with no side effects, for both ease of use and resiliency.
 
@@ -55,7 +55,8 @@ We anticipate the need to interact with ASA on the following **aspects**:
 
 - **Get the current job status** (*ASA Resource Management*)
   - If running
-    - **Get the current backlogged event count** (*Metrics*)
+    - **Get the time since started** (*Logs*)
+    - **Get the current metric values** (*Metrics*)
     - If applicable, **stop the job** (*ASA Resource Management*)
   - If stopped
     - **Get the time since stopped** (*Logs*)
@@ -63,7 +64,7 @@ We anticipate the need to interact with ASA on the following **aspects**:
 
 For *ASA Resource Management*, we can use either the [REST API](/rest/api/streamanalytics/), the [.NET SDK](/dotnet/api/microsoft.azure.management.streamanalytics) or one of the CLI libraries ([Az CLI](/cli/azure/stream-analytics), [PowerShell](/powershell/module/az.streamanalytics)).
 
-For *Metrics* and *Logs*, in Azure everything is centralized under [Azure Monitor](/azure/azure-monitor/overview), with a similar choice of API surfaces.
+For *Metrics* and *Logs*, in Azure everything is centralized under [Azure Monitor](/azure/azure-monitor/overview), with a similar choice of API surfaces. We have to remember that logs and metrics are always 1 to 3 minutes behind when querying the APIs. Setting N at 5 usually means that the job will be running 6 to 8 minutes instead. Another thing to consider is that metrics are always emitted, even when the job is stopped (they are empty then). We'll have to clean-up the output of our API calls to make sure we're only looking at relevant values.
 
 ### Scripting language
 
@@ -93,18 +94,20 @@ We highly recommend local development using [VSCode](https://code.visualstudio.c
 
 The best way to develop the script is locally. PowerShell being cross-platform, the script can be written and tested on any OS. On Windows we can use [Windows Terminal](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701) with [PowerShell 7](/powershell/scripting/install/installing-powershell-on-windows), and [Az PowerShell](/powershell/azure/install-az-ps).
 
-The final script that will be used is available for [Functions](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/run.ps1) (and [Azure Automation](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1)). It's different than the one explained below, having been wired to the hosting environment (Functions or Automation). We'll discuss that aspect later.
+The final script that will be used is available for [Functions](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/run.ps1) (and [Azure Automation](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1)). It's different than the one explained below, having been wired to the hosting environment (Functions or Automation). We'll discuss that aspect later. First, let's step through a version of it that only **runs locally**.
 
-So first, let's step through a version of it that only **runs locally**.
+This script is purposefully written in a simple form. It was not optimized in any way, so it can be understood by all.
 
 At the top, we set the required parameters, and check the initial job status:
 
 ```PowerShell
 
 # Setting variables
-$metricName = "InputEventsSourcesBacklogged"
 $restartThresholdMinute = 10 # This is M
 $stopThresholdMinute = 5 # This is N
+
+$maxInputBacklog = 0 # The amount of backlog we tolerate when stopping the job (in event count, 0 is a good starting point)
+$maxWatermark = 10 # The amount of watermark we tolerate when stopping the job (in seconds, 10 is a good starting point at low SUs)
 
 $subscriptionId = "<Replace with your Subscription Id - not the name>"
 $resourceGroupName = "<Replace with your Resource Group Name>"
@@ -122,30 +125,57 @@ Write-Output "asaRobotPause - Job $($asaJobName) is $($currentJobState)."
 
 ```
 
-Then if the job is running, we check if the job has been at 0 backlog for at least N minutes:
+Then if the job is running, we check if the job has been running at least N minutes, its backlog, and its watermark.
 
 ```PowerShell
 
 # Switch state
 if ($currentJobState -eq "Running")
 {
-    # Get-AzMetric issues warnings about deprecation coming in future releases, here we ignore them via -WarningAction Ignore
-    $currentMetricValues = Get-AzMetric -ResourceId $resourceId -TimeGrain 00:01:00 -MetricName $metricName -DetailedOutput -WarningAction Ignore
+    # First we look up the job start time with Get-AzActivityLog
+    ## Get-AzActivityLog issues warnings about deprecation coming in future releases, here we ignore them via -WarningAction Ignore
+    ## We check in 1000 record of history, to make sure we're not missing what we're looking for. It may need adjustment for a job that has a lot of logging happening.
+    ## There is a bug in Get-AzActivityLog that triggers an error when Select-Object First is in the same pipeline (on the same line). We move it down.
+    $startTimeStamp = Get-AzActivityLog -ResourceId $resourceId -MaxRecord 1000 -WarningAction Ignore | Where-Object {$_.EventName.Value -like "Start Job*"}
+    $startTimeStamp = $startTimeStamp | Select-Object -First 1 | Foreach-Object {$_.EventTimeStamp}
+
+    # Then we gather the current metric values
+    ## Get-AzMetric issues warnings about deprecation coming in future releases, here we ignore them via -WarningAction Ignore
+    $currentBacklog = Get-AzMetric -ResourceId $resourceId -TimeGrain 00:01:00 -MetricName "InputEventsSourcesBacklogged" -DetailedOutput -WarningAction Ignore
+    $currentWatermark = Get-AzMetric -ResourceId $resourceId -TimeGrain 00:01:00 -MetricName "OutputWatermarkDelaySeconds" -DetailedOutput -WarningAction Ignore
 
     # Metric are always lagging 1-3 minutes behind, so grabbing the last N minutes means checking N+3 actually. This may be overly safe and fined tune down per job.
-    $lastMetricValues = $currentMetricValues.Data | Sort-Object -Property Timestamp -Descending | Select-Object -First $stopThresholdMinute | Measure-Object -Sum Maximum
-    $lastMetricValue = $lastMetricValues.Sum
+    $Backlog =  $currentBacklog.Data |
+                    Where-Object {$_.Maximum -ge 0} | # We remove the empty records (when the job is stopped or starting)
+                    Sort-Object -Property Timestamp -Descending |
+                    Where-Object {$_.Timestamp -ge $startTimeStamp} | # We only keep the records of the latest run
+                    Select-Object -First $stopThresholdMinute | # We take the last N records
+                    Measure-Object -Sum Maximum # We sum over those N records
+    $BacklogSum = $Backlog.Sum
 
-    Write-Output "asaRobotPause - Job $($asaJobName) is running with a sum of $($lastMetricValue) backlogged events over the last $($stopThresholdMinute) minutes."
+    $Watermark = $currentWatermark.Data |
+                    Where-Object {$_.Maximum -ge 0} |
+                    Sort-Object -Property Timestamp -Descending |
+                    Where-Object {$_.Timestamp -ge $startTimeStamp} |
+                    Select-Object -First $stopThresholdMinute |
+                    Measure-Object -Average Maximum # Here we average
+    $WatermarkAvg = [int]$Watermark.Average # Rounding the decimal value casting it to integer
 
-    # -eq for equal
-    if ($lastMetricValue -eq 0)
+    # Since we called Get-AzMetric with a TimeGrain of a minute, counting the number of records gives us the duration in minutes
+    Write-Output "asaRobotPause - Job $($asaJobName) is running since $($startTimeStamp) with a sum of $($BacklogSum) backlogged events, and an average watermark of $($WatermarkAvg) sec, for $($Watermark.Count) minutes."
+
+    # -le for lesser or equal, -ge for greater or equal
+    if (
+        ($BacklogSum -ge 0) -and ($BacklogSum -le $maxInputBacklog) -and ` # is not null and is under the threshold
+        ($WatermarkAvg -ge 0) -and ($WatermarkAvg -le $maxWatermark) -and ` # is not null and is under the threshold
+        ($Watermark.Count -ge $stopThresholdMinute) # at least N values
+        )
     {
         Write-Output "asaRobotPause - Job $($asaJobName) is stopping..."
         Stop-AzStreamAnalyticsJob -ResourceGroupName $resourceGroupName -Name $asaJobName
     }
     else {
-        Write-Output "asaRobotPause - Job $($asaJobName) is not stopping yet, it needs to have 0 backlogged events over the last $($stopThresholdMinute) minutes."
+        Write-Output "asaRobotPause - Job $($asaJobName) is not stopping yet, it needs to have less than $($maxInputBacklog) backlogged events and under $($maxWatermark) sec watermark for at least $($stopThresholdMinute) minutes."
     }
 }
 
@@ -157,9 +187,10 @@ If the job is stopped, we look in the log when was the last "Stop Job" action:
 
 elseif ($currentJobState -eq "Stopped")
 {
-    # Get-AzActivityLog issues warnings about deprecation coming in future releases, here we ignore them via -WarningAction Ignore
-    # We check in 1000 record of history, to make sure we're not missing what we're looking for. It may need adjustment for a job that has a lot of logging happening.
-    # There is a bug in Get-AzActivityLog that triggers an error when Select-Object First is in the same pipeline (on the same line). We move it down.
+    # First we look up the job start time with Get-AzActivityLog
+    ## Get-AzActivityLog issues warnings about deprecation coming in future releases, here we ignore them via -WarningAction Ignore
+    ## We check in 1000 record of history, to make sure we're not missing what we're looking for. It may need adjustment for a job that has a lot of logging happening.
+    ## There is a bug in Get-AzActivityLog that triggers an error when Select-Object First is in the same pipeline (on the same line). We move it down.
     $stopTimeStamp = Get-AzActivityLog -ResourceId $resourceId -MaxRecord 1000 -WarningAction Ignore | Where-Object {$_.EventName.Value -like "Stop Job*"}
     $stopTimeStamp = $stopTimeStamp | Select-Object -First 1 | Foreach-Object {$_.EventTimeStamp}
 
@@ -169,12 +200,11 @@ elseif ($currentJobState -eq "Stopped")
     # -ge for greater or equal
     if ($minutesSinceStopped -ge $restartThresholdMinute)
     {
-        Write-Output "asaRobotPause - Job $($jobName) was paused $($minutesSinceStopped) minutes ago, set interval is $($restartThresholdMinute), it is now starting..."
-        # LastOutputEventTime requires that the job has been started at least once before
+        Write-Output "asaRobotPause - Job $($jobName) was paused $([int]$minutesSinceStopped) minutes ago, set interval is $($restartThresholdMinute), it is now starting..."
         Start-AzStreamAnalyticsJob -ResourceGroupName $resourceGroupName -Name $asaJobName -OutputStartMode LastOutputEventTime
     }
     else{
-        Write-Output "asaRobotPause - Job $($jobName) was paused $($minutesSinceStopped) minutes ago, set interval is $($restartThresholdMinute), it will not be restarted yet."
+        Write-Output "asaRobotPause - Job $($jobName) was paused $([int]$minutesSinceStopped) minutes ago, set interval is $($restartThresholdMinute), it will not be restarted yet."
     }
 }
 else {
@@ -248,8 +278,10 @@ To do so, the first step is in the Function App page, to define our parameters a
 
 |Name|Value|
 |-|-|
+|maxInputBacklog|The amount of backlog we tolerate when stopping the job (in event count, 0 is a good starting point)|
+|maxWatermark|The amount of watermark we tolerate when stopping the job (in seconds, 10 is a good starting point at low SUs)|
 |restartThresholdMinute|M: the time (in minutes) until a stopped job is restarted|
-|stopThresholdMinute|N: the time (in minutes) of cool down until a running job is stopped. The input backlog will need to stay at 0 during that time.|
+|stopThresholdMinute|N: the time (in minutes) of cool down until a running job is stopped. The input backlog will need to stay at 0 during that time|
 |subscriptionId|The SubscriptionId (not the name) of the ASA job to be auto-paused|
 |resourceGroupName|The Resource Group Name of the ASA job to be auto-paused|
 |asaJobName|The Name of the ASA job to be aut-paused|
@@ -257,6 +289,8 @@ To do so, the first step is in the Function App page, to define our parameters a
 We'll later need to update our PowerShell script to load the variables accordingly:
 
 ```PowerShell
+$maxInputBacklog = $env:maxInputBacklog
+$maxWatermark = $env:maxWatermark
 
 $restartThresholdMinute = $env:restartThresholdMinute
 $stopThresholdMinute = $env:stopThresholdMinute
@@ -344,7 +378,10 @@ Param(
     [string]$asaJobName,
 
     [int]$restartThresholdMinute,
-    [int]$stopThresholdMinute
+    [int]$stopThresholdMinute,
+
+    [int]$maxInputBacklog,
+    [int]$maxWatermark
 )
 ```
 
@@ -402,6 +439,8 @@ And via its Metrics:
 
 ![Metrics of the ASA job](./media/automation/asa-metrics.png)
 
+Once the script is understood, it's straightforward to rework it to extend its scope. It can easily target a list of jobs, or tags, resource groups, or even subscriptions, rather than a single one.
+
 ## Get support
 
 For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
@@ -410,9 +449,9 @@ For further assistance, try our [Microsoft Q&A question page for Azure Stream An
 
 You've learned the basics of using PowerShell to automate the management of Azure Stream Analytics jobs. To learn more, see the following articles:
 
-* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Management .NET SDK](/previous-versions/azure/dn889315(v=azure.100)).
-* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Management .NET SDK](/previous-versions/azure/dn889315(v=azure.100)).
+- [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+- [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)
