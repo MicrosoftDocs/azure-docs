@@ -476,11 +476,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/security-center/implement-security-recommendations.md",
-            "redirect_url": "/azure/defender-for-cloud/implement-security-recommendations",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/security-center/index.yml",
             "redirect_url": "/azure/defender-for-cloud/index",
             "redirect_document_id": true
