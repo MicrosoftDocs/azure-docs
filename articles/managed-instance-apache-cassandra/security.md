@@ -30,7 +30,7 @@ Data security is a shared responsibility between you, the customer, and your dat
 |Monitor for attacks|Azure Managed Instance for Apache Cassandra is integrated with [Azure Monitor](../azure-monitor/overview.md). By using audit logging and activity logs, you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources, who initiated the operation, when the operation occurred, the status of the operation, and many more tasks.|
 |Respond to attacks|Once you have contacted Azure support to report a potential attack, a five step incident response process is kicked off. The goal of the five step process is to restore normal service security and operations as quickly as possible after an issue is detected and an investigation is started.|
 |Patched servers|As a managed database, Azure Managed Instance for Apache Cassandra eliminates the need to manage and patch servers, that's done for you, automatically.|
-|Certifications| For the most up-to-date list of certifications, see the overall [Azure Compliance site](https://www.microsoft.com/trustcenter/compliance/complianceoffering).
+|Certifications| For the most up-to-date list of certifications, see the overall [Azure Compliance site](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
 
 ## Next steps
