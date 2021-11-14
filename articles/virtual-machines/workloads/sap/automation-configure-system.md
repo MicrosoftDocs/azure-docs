@@ -99,7 +99,7 @@ The database tier defines the infrastructure for the database tier, supported da
 > | Variable                          | Description                                                                              | Type         | Notes              |
 > | --------------------------------  | -----------------------------------------------------------------------------------------| -----------  | ------------------ |
 > | `database_platform`               | Defines the database backend                                                             | Required     |                    |
-> | `database_high_availability`      | Defines if the database tier is deployed highly available                                | Optional     |                    |
+> | `database_high_availability`      | Defines if the database tier is deployed highly available                                | Optional     | See [High availability configuration ](automation-configure-system.md#high-availability-configuration) |
 > | `database_server_count`           | Defines the number of database servers                                                   | Optional     | Default value is 1 |
 > | `database_vm_names`               | Defines the database server virtual machine names if the default naming is not acceptable | Optional    |                    |
 > | `database_size`                   | Defines the database sizing information                                                  | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
@@ -167,7 +167,7 @@ The application tier defines the infrastructure for the application tier, which 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                               | Description                                                          | Type      | Notes  |
 > | -------------------------------------- | -------------------------------------------------------------------- | ----------| ------ |
-> | `scs_high_availability`	               | Defines if the Central Services is highly available                  | Optional	|        |
+> | `scs_high_availability`	               | Defines if the Central Services is highly available                  | Optional	| See [High availability configuration ](automation-configure-system.md#high-availability-configuration) |
 > | `scs_instance_number`	                 | The instance number of SCS                                           | Optional  |        |
 > | `ers_instance_number`	                 | The instance number of ERS                                           | Optional	|        |
 > | `scs_server_count`	                   | Defines the number of scs servers                                    | Required	|        |
@@ -264,6 +264,8 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 
 
 ## High availability configuration
+
+The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags. 
 
 High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device)
 
