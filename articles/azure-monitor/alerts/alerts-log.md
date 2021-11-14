@@ -35,7 +35,7 @@ You can also create log alert rules using Azure Resource Manager templates, as d
 
 1. The **Create alert rule** wizard opens to the **Select a signal** page of the **Condition** tab, with the scope already defined based on the resource you selected.
 
-    :::image type="content" source="media/alerts-log/alerts-create-new-rule-select-signal.png" alt-text="Select Signal.":::
+    :::image type="content" source="media/alerts-log/alerts-create-new-rule-select-signal.png" alt-text="Select signal.":::
 
 1. Click on the **Custom log search** signal.
 1. Write a query to identify the conditions for triggering alerts. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
