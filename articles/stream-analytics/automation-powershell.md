@@ -34,7 +34,7 @@ For this example, we want our job to run for N minutes, before pausing it for M 
 
 ![Behavior of the auto-paused job over time](./media/automation/principle.png)
 
-When running, the task should not stop the job until its metrics are healthy. The metrics of interest will be the input backlog and the [watermark](/azure/stream-analytics/stream-analytics-time-handling#background-time-concepts). We'll check that both are at their baseline for at least N minutes. This behavior translates to two actions:
+When running, the task shouldn't stop the job until its metrics are healthy. The metrics of interest will be the input backlog and the [watermark](/azure/stream-analytics/stream-analytics-time-handling#background-time-concepts). We'll check that both are at their baseline for at least N minutes. This behavior translates to two actions:
 
 - A stopped job is restarted after M minutes
 - A running job is stopped anytime after N minutes, as soon as its backlog and watermark metrics are healthy
@@ -64,7 +64,7 @@ We anticipate the need to interact with ASA on the following **aspects**:
 
 For *ASA Resource Management*, we can use either the [REST API](/rest/api/streamanalytics/), the [.NET SDK](/dotnet/api/microsoft.azure.management.streamanalytics) or one of the CLI libraries ([Az CLI](/cli/azure/stream-analytics), [PowerShell](/powershell/module/az.streamanalytics)).
 
-For *Metrics* and *Logs*, in Azure everything is centralized under [Azure Monitor](/azure/azure-monitor/overview), with a similar choice of API surfaces. We have to remember that logs and metrics are always 1 to 3 minutes behind when querying the APIs. So setting N at 5 usually means the job will be running 6 to 8 minutes in reality. Another thing to consider is that metrics are always emitted. When the job is stopped, the API returns empty records. We'll have to clean up these up to look only at relevant values.
+For *Metrics* and *Logs*, in Azure everything is centralized under [Azure Monitor](/azure/azure-monitor/overview), with a similar choice of API surfaces. We have to remember that logs and metrics are always 1 to 3 minutes behind when querying the APIs. So setting N at 5 usually means the job will be running 6 to 8 minutes in reality. Another thing to consider is that metrics are always emitted. When the job is stopped, the API returns empty records. We'll have to clean up the output of our API calls to only look at relevant values.
 
 ### Scripting language
 
@@ -222,7 +222,7 @@ Write-Output "asaRobotPause - Job $($asaJobName) was $($currentJobState), is now
 
 ```
 
-## Option 1: Hosting the job in Azure Functions
+## Option 1: Hosting the task in Azure Functions
 
 For reference, the Azure Functions team maintains an exhaustive [PowerShell developer guide](/azure/azure-functions/functions-reference-powershell?tabs=portal).
 
@@ -359,7 +359,7 @@ From there, reuse or create a new [action group](/azure/azure-monitor/alerts/act
 
 To check that the alert was set up properly, we can add `throw "Testing the alert"` anywhere in the PowerShell script, and wait 5 minutes to receive an email.
 
-## Option 2: Hosting the job in Azure Automation
+## Option 2: Hosting the task in Azure Automation
 
 First we'll need a new **Automation Account**. An Automation Account is similar to a solution that can host multiple runbooks.
 
