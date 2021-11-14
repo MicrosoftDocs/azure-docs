@@ -74,6 +74,8 @@ Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control p
 
 Intermittently, the resource bridge (preview) can lose the reserved IP configuration. This is due to the behavior described in [loss of VIPs when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address is not assigned to the Azure Arc resource bridge (preview) VM, any call to the resource bridge API server will fail. As a result you are unable to create any new resource through the resource bridge (preview), ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
 
+Another possible cause is slow disk access. Azure Arc resource bridge uses etcd which requires 10ms latency or less per [recommendation](https://docs.openshift.com/container-platform/4.6/scalability_and_performance/recommended-host-practices.html#recommended-etcd-practices_). If the underlying disk has low performance, it can impact the operations, and causing failures.
+
 ### Resolution
 
 Reboot the resource bridge (preview) VM and it should recover its IP address. If the address is assigned from a DHCP server, reserve the IP address associated with the resource bridge (preview).
