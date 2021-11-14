@@ -30,7 +30,7 @@ You can also create log alert rules using Azure Resource Manager templates, as d
 1. In the [portal](https://portal.azure.com/), select the resource you would like to alert on.
 1. In the Resource menu, under **Monitoring**, select **Alerts**.
 1. From the top command bar, click **Create**, and then **Alert rule**.
-    :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule.":::
+   :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule.":::
 1. The **Create alert rule** wizard opens to the **Select a signal** page of the **Condition** tab, with the scope already defined based on the resource you selected.
     :::image type="content" source="media/alerts-log/alerts-create-new-rule-select-signal.png" alt-text="Select Signal.":::
 1. Click on the **Custom log search** signal.
