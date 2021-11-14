@@ -66,7 +66,7 @@ You can also create log alert rules using Azure Resource Manager templates, as d
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
-        :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Alert rule preview.":::
+    :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Alert rule preview.":::
 
 1. From this point on, you can select the **Review + create** button at any time. 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
