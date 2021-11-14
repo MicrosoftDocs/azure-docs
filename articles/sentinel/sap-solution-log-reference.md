@@ -161,7 +161,7 @@ This article is intended for advanced SAP users.
 
 ## ABAP DB table data log
 
-Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)0.
+Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 - **Name in Microsoft Sentinel**: `ABAPTableDataLog_CL`
 
@@ -195,7 +195,7 @@ Support for this log is experimental. To have this log sent to Microsoft Sentine
 
 ## ABAP Gateway log
 
-Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)0.
+Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 
 - **Name in Microsoft Sentinel**: `ABAPOS_GW_CL`
@@ -218,7 +218,7 @@ Support for this log is experimental. To have this log sent to Microsoft Sentine
 
 ## ABAP ICM log
 
-Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)0.
+Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 
 - **Name in Microsoft Sentinel**: `ABAPOS_ICM_CL`
@@ -447,7 +447,7 @@ Support for this log is experimental. To have this log sent to Microsoft Sentine
 
 ## ABAP SysLog
 
-Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)0.
+Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 
 - **Name in Microsoft Sentinel**: `ABAPOS_Syslog_CL`
@@ -534,7 +534,7 @@ Support for this log is experimental. To have this log sent to Microsoft Sentine
 
 ## ABAP WorkProcess log
 
-Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)0.
+Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 
 - **Name in Microsoft Sentinel**: `ABAPOS_WP_CL`
@@ -562,7 +562,7 @@ Support for this log is experimental. To have this log sent to Microsoft Sentine
 
 ## HANA DB Audit Trail
 
-Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)0.
+Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 
 - **Name in Microsoft Sentinel**: `Syslog`
@@ -589,7 +589,7 @@ Support for this log is experimental. To have this log sent to Microsoft Sentine
 
 ## JAVA files
 
-Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)0.
+Support for this log is experimental. To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 
 - **Name in Microsoft Sentinel**: `JavaFilesLogsCL`
