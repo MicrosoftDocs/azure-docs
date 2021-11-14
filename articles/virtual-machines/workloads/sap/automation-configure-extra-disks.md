@@ -59,9 +59,11 @@ The table below shows the default disk configuration for AnyDB systems.
 
 ## Custom sizing file
 
-The disk sizing for an SAP system can be defined using a custom sizing file. Save the file in the same folder as the parameter file and refer to it.
+The disk sizing for an SAP system can be defined using a custom sizing file. 
 
-The following sample code is an example configuration for the database tier. The three data disks are LUN 0, LUN 1, and LUN 2. A log disk, LUN 9, uses the Ultra SKU. A backup disk, LUN 13, uses the standard SSDN SKU.
+Create a file using the structure shown below and save the file in the same folder as the parameter file for the system, for instance 'XO1_db_sizes.json'.  Then, define the parameter `db_disk_sizes_filename` in the parameter file for the database tier. For example, `db_disk_sizes_filename = "XO1_db_sizes.json"`.
+
+The following sample code is an example configuration for the database tier. It defines three data disks (LUNs 0, 1, and 2), a log disk (LUN 9, using the Ultra SKU) and a backup disk (LUN 13, using the standard SSDN SKU).
 
 ```json
 {
@@ -76,7 +78,7 @@ The following sample code is an example configuration for the database tier. The
           "name"                  : "os",
           "count"                 : 1,
           "disk_type"             : "Premium_LRS",
-          "size_gb"               : 127,
+          "size_gb"               : 128,
           "caching"               : "ReadWrite"
         },
         {
@@ -132,7 +134,7 @@ If you need to add disks to an already deployed system, you can add a new block 
           "name"                  : "os",
           "count"                 : 1,
           "disk_type"             : "Premium_LRS",
-          "size_gb"               : 127,
+          "size_gb"               : 128,
           "caching"               : "ReadWrite"
         },
         {
@@ -167,7 +169,7 @@ If you need to add disks to an already deployed system, you can add a new block 
         ,
         {
           "name"                  : "data",
-          "count"                 : 3,
+          "count"                 : 1,
           "disk_type"             : "Premium_LRS",
           "size_gb"               : 256,
           "caching"               : "ReadWrite",
