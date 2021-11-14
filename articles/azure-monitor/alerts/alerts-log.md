@@ -47,39 +47,25 @@ You can also create log alert rules using Azure Resource Manager templates, as d
     - The **Resource ID column** is selected automatically, if detected, and changes the context of the fired alert to the record's resource. 
     - The **Resource ID column** can be de-selected to fire alerts on subscription or resource groups. De-selecting is useful when query results are based on cross-resources. For example, a query that check if 80% of the resource group's virtual machines are experiencing high CPU usage.
     - Up to six more splittings can be also selected for any number or text columns types using the dimensions table.
-    - Alerts are fired separately according to splitting based on unique combinations and alert payload includes this information.
-        
-1. In the **Alert logic** section, set the **Alert logic**: [**Operator**, **Threshold Value**](./alerts-unified-log.md#threshold-and-operator), and [**Frequency**](./alerts-unified-log.md#frequency).
-    
-    :::image type="content" source="media/alerts-log/alerts-rule-preview-agg-params-and-splitting.png" alt-text="Preview alert rule parameters.":::
-      
-1. (Optional) In the **Advanced options** section, set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).
-       
+    - Alerts are fired separately according to splitting based on unique combinations and alert payload includes this information.    
+1. In the **Alert logic** section, set the **Alert logic**: [**Operator**, **Threshold Value**](./alerts-unified-log.md#threshold-and-operator), and [**Frequency**](./alerts-unified-log.md#frequency).   
+    :::image type="content" source="media/alerts-log/alerts-rule-preview-agg-params-and-splitting.png" alt-text="Preview alert rule parameters.":::  
+1. (Optional) In the **Advanced options** section, set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).      
     :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Advanced options.":::
-
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
         :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Alert rule preview.":::
-
 1. From this point on, you can select the **Review + create** button at any time. 
-1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
-    
+1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).    
     :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
-
 1. In the **Details** tab, define the **Alert rule details**, and **Project details**. You can optionally set whether to not **Start running now**, or [**Mute Actions**](./alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
     > [!NOTE]
-    > Log alert rules are currently stateless and fire an action every time an alert is created unless muting is defined.
-  
+    > Log alert rules are currently stateless and fire an action every time an alert is created unless muting is defined. 
     :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
-
-1. In the **Tags** tab, set any required tags on the alert rule resource.
-   
+1. In the **Tags** tab, set any required tags on the alert rule resource.  
     :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
-
 1. In the **Review + create** tab, a validation will run and inform you of any issues.
-1. When validation passes and you have reviewed the settings, click the **Create** button.
-     
+1. When validation passes and you have reviewed the settings, click the **Create** button.    
     :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
-
 > [!NOTE]
 > We recommend that you create alerts at scale when using resource access mode for log running on multiple resources using a resource group or subscription scope. Alerting at scale reduces rule management overhead. To be able to target the resources, include the resource ID column in the results. [Learn more about splitting alerts by dimensions](./alerts-unified-log.md#split-by-alert-dimensions).
 
@@ -95,6 +81,7 @@ You can also create log alert rules using Azure Resource Manager templates, as d
     > Log alert rules are currently [stateless and do not resolve](./alerts-unified-log.md#state-and-resolving-alerts).
 1. Select the alert rule that you want to edit.
 1. Edit any fields necessary, then select **Save** on the top command bar.
+
 ## Manage log alerts using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
