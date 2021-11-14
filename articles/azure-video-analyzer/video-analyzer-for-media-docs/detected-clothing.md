@@ -20,7 +20,7 @@ The newly added clothing detection feature is available when indexing your file 
  
 :::image type="content" source="./media/detected-clothing/index-video.png" alt-text="This screenshot represents an indexing video option":::  
 
-When you choose to see **Insights** of your video on the [Video Analyzer for Media](https://www.videoindexer.ai/) (former Video Indexer) website, the People's detected clothing could be viewed from the Observed People tracing insight. When choosing a thumbnail of a person the detected clothing became available.
+When you choose to see **Insights** of your video on the [Video Analyzer for Media](https://www.videoindexer.ai/) (former Video Indexer) website, the People's detected clothing could be viewed from the **Observed People** tracing insight. When choosing a thumbnail of a person the detected clothing became available.
 
 :::image type="content" source="./media/detected-clothing/observed-people.png" alt-text="Observed people screenshot":::  
  
@@ -28,7 +28,7 @@ If you are interested to view People's detected clothing in the Timeline of your
 
 :::image type="content" source="./media/detected-clothing/observed-person.png" alt-text="Observed person screenshot":::  
  
-Searching for a specific clothing to return all the Observed persons wearing it is enabled using the search bar of either the **Insights** or from the **Timeline** of your video on the Video Analyzer for Media website .
+Searching for a specific clothing to return all the observed people wearing it is enabled using the search bar of either the **Insights** or from the **Timeline** of your video on the Video Analyzer for Media website .
 
 The following JSON response illustrates what Video Analyzer for Media returns when tracing observed people having detected clothing associated:
 
