@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Change the disk configuration for the SAP deployment automation
 
-By default, the [SAP deployment automation framework](automation-deployment-framework.md) defines the disk configuration for the SAP systems. As needed, you can change the default configuration by providing a custom disk configuration file.
+By default, the [SAP deployment automation framework](automation-deployment-framework.md) defines the disk configuration for the SAP systems. As needed, you can change the default configuration by providing a custom disk configuration json file.
 
 > [!TIP]
 > When possible, it's a best practice to increase the disk size instead of adding more disks.
@@ -57,9 +57,9 @@ The table below shows the default disk configuration for AnyDB systems.
 | 50  TB  | Standard_M128s   | P10(128 GB) | 13 P50 (4096 GB) | 2 P40 (2048 GB) |
 
 
-## Add extra disks to new system
+## Custom sizing file
 
-You can add multiple nodes to the structure to create more disks that meet your business requirements. 
+The disk sizing for an SAP system can be defined using a custom sizing file. Save the file in the same folder as the parameter file and refer to it.
 
 The following sample code is an example configuration for the database tier. The three data disks are LUN 0, LUN 1, and LUN 2. A log disk, LUN 9, uses the Ultra SKU. A backup disk, LUN 13, uses the standard SSDN SKU.
 
