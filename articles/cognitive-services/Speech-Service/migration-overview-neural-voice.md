@@ -21,9 +21,11 @@ We're retiring two features from [Text-to-Speech](index-text-to-speech.yml) capa
 > [!IMPORTANT]
 > The standard/non-neural training tier of custom voice is deprecated. Existing standard tier non-neural models can be used through the end of February 2024. Starting in March 2024 we will only support custom neural voice. 
 
-Go to [this article](how-to-migrate-to-prebuilt-neural-voice.md) to learn how to migrate to prebuilt neural voice.
+Go to [this article](how-to-migrate-to-custom-neural-voice.md) to learn how to migrate to custom neural voice. 
 
-Custom neural voice is a gated service. You need to create an Azure account and Speech service subscription (with S0 tier), and [apply](https://aka.ms/customneural) to use custom neural feature. After you've been granted access, you can visit the [Speech Studio portal](https://speech.microsoft.com/portal) and then select Custom Voice to get started. Listening to the voice sample without creating an Azure account, you can visit [here](https://aka.ms/customvoice) and determine the right voice for your business needs.
+Custom neural voice is a gated service. You need to create an Azure account and Speech service subscription (with S0 tier), and [apply](https://aka.ms/customneural) to use custom neural feature. After you've been granted access, you can visit the [Speech Studio portal](https://speech.microsoft.com/portal) and then select Custom Voice to get started. 
+
+Even without an Azure account, you can listen to voice samples in [Speech Studio](https://aka.ms/customvoice) and determine the right voice for your business needs.
 
 Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and check the pricing details. Custom voice (deprecated) is referred as **Custom**, and custom neural voice is referred as **Custom Neural**. 
 
@@ -32,7 +34,7 @@ Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-s
 > [!IMPORTANT]
 > The prebuilt standard voice is deprecated. Existing standard tier non-neural models can be used through the end of August 2024. Starting in September 2024 we will only support prebuilt neural voice. 
 
-Go to [this article](how-to-migrate-to-custom-neural-voice.md) to learn how to migrate to custom neural voice. 
+Go to [this article](how-to-migrate-to-prebuilt-neural-voice.md) to learn how to migrate to prebuilt neural voice.
 
 Prebuilt neural voice is powered by deep neural networks. You need to create an Azure account and Speech service subscription. Then you can visit the [Speech Studio portal](https://speech.microsoft.com/portal), and select prebuilt neural voices to get started. Listening to the voice sample without creating an Azure account, you can visit [here](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs.
 
