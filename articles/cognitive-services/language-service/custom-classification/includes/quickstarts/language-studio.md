@@ -55,7 +55,8 @@ The provided sample dataset contains around 200 movie summaries that belong to o
 1. Log in to [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the resource you created in the above step.
 
 2. Under the **Classify text** section of Language Studio, select **custom text classification** from the available services, and select it.
-    :::image type="content" source="../../media/create-project.png" alt-text="Select custom classification from landing page." lightbox="../../media/select-custom-text-classification":::
+    
+    :::image type="content" source="../../media/select-custom-text-classification.png" alt-text="Select custom classification from landing page." lightbox="../../media/select-custom-text-classification":::
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
