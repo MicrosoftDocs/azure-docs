@@ -229,7 +229,7 @@ Use Microsoft Sentinel's own features to monitor events and actions that occur w
 
   For more information, see [Commonly used Microsoft Sentinel workbooks](top-workbooks.md).
 
-- **Watch for ingestion delay**.  If you have concerns about ingestion delay, [set a variable in an analytics rule](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851) to represent the delay.
+- **Watch for ingestion delay**.  If you have concerns about ingestion delay, [set a variable in an analytics rule](ingestion-delay.md) to represent the delay.
 
   For example, the following analytics rule can help to ensure that results don't include duplicates, and that logs aren't missed when running the rules:
 

@@ -185,6 +185,11 @@ sections:
         answer: |
           For information about what licenses your organization needs to use Azure AD B2B, see [External Identities pricing](external-identities-pricing.md).
 
+      - question: |
+          Can B2B collaboration users sign in with their non-UPN email address?
+        answer: |
+          Yes. For more information about email as an alternate login ID for B2B collaboration, see [B2B guest user sign-in with an email address](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-use-email-signin#b2b-guest-user-sign-in-with-an-email-address).
+
 additionalContent: |
 
   ## Next steps

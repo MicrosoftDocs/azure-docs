@@ -100,7 +100,7 @@ Now connect the storage account to Data Explorer, so that data flowing into the 
 1. Select **Next: Ingest properties**.
 
 > [!NOTE]
-> We recommend updating the storage account to use managed identities as soon as soon as the option becomes available.
+> We recommend updating the data connection to use managed identities to access the storage account as soon as soon as the option becomes available for your cluster.
 
 #### Data connection - Ingest properties tab
 
