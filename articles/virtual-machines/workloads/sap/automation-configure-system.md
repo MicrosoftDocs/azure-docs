@@ -263,6 +263,36 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | `anf_transport_volume_size`        | Defines the size (in GB) for the 'saptransport' volume                  | Optional    |
 
 
+## High availability configuration
+
+High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device)
+
+```azurecli-interactive
+az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"
+```
+
+Replace `<prefix>` with the name prefix of your environment, such as `DEV-WEEU-SAP01` and `<subscriptionID>` with the workload zone subscription id.
+  
+> [!IMPORTANT]
+> The name of the Fencing Agent Service Principal must be unique in the tenant. The script assumes that a role 'Linux Fence Agent Role' has already been created
+>
+> Record the values from the Fencing Agent SPN.
+   > - appId
+   > - password
+   > - tenant
+
+The fencing agent details must be stored in the workload zone key vault using a predefined naming convention. Replace `<prefix>` with the name prefix of your environment, such as `DEV-WEEU-SAP01`, `<workload_kv_name>` with the name of the key vault from the workload zone resource group and for the other values use the values recorded from the previous step and run the script.
+
+
+```azurecli
+
+    ```azurecli-interactive
+    az keyvault secret set --name "<prefix>-fencing-spn-id" --vault-name "<workload_kv_name>" --value "<appId>";
+    az keyvault secret set --name "<prefix>-fencing-spn-pwd" --vault-name "<workload_kv_name>" --value "<password>";
+    az keyvault secret set --name "<prefix>-fencing-spn-tenant" --vault-name "<workload_kv_name>" --value "<tenant>";
+    ```
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
