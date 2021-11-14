@@ -34,7 +34,7 @@ For this example, we want our job to run for N minutes, before pausing it for M 
 
 ![Behavior of the auto-paused job over time](./media/automation/principle.png)
 
-When running, the job shouldn't be stopped until the input backlog is processed, and the [watermark](/azure/stream-analytics/stream-analytics-time-handling#background-time-concepts) is back to its baseline. We'll check these 2 metrics are healthy for at least N minutes. This behavior translates to two actions:
+When running, the task should not stop the job until its metrics are healthy. The metrics of interest will be the input backlog and the [watermark](/azure/stream-analytics/stream-analytics-time-handling#background-time-concepts). We'll check that both are at their baseline for at least N minutes. This behavior translates to two actions:
 
 - A stopped job is restarted after M minutes
 - A running job is stopped anytime after N minutes, as soon as its backlog and watermark metrics are healthy
@@ -43,7 +43,7 @@ When running, the job shouldn't be stopped until the input backlog is processed,
 
 As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. Potential cost savings are up to 66%.
 
-To restart the job, we'll use the `When Last Stopped` [start option](/azure/stream-analytics/start-job#start-options). This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are 2 caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [Event Hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than 1 day. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted (else it has literally never been stopped before). So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
+To restart the job, we'll use the `When Last Stopped` [start option](/azure/stream-analytics/start-job#start-options). This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are two caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [Event Hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than one day. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted (else it has literally never been stopped before). So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
 
 The last consideration is to make these actions idempotent. This way, they can be repeated at will with no side effects, for both ease of use and resiliency.
 
@@ -64,7 +64,7 @@ We anticipate the need to interact with ASA on the following **aspects**:
 
 For *ASA Resource Management*, we can use either the [REST API](/rest/api/streamanalytics/), the [.NET SDK](/dotnet/api/microsoft.azure.management.streamanalytics) or one of the CLI libraries ([Az CLI](/cli/azure/stream-analytics), [PowerShell](/powershell/module/az.streamanalytics)).
 
-For *Metrics* and *Logs*, in Azure everything is centralized under [Azure Monitor](/azure/azure-monitor/overview), with a similar choice of API surfaces. We have to remember that logs and metrics are always 1 to 3 minutes behind when querying the APIs. Setting N at 5 usually means that the job will be running 6 to 8 minutes instead. Another thing to consider is that metrics are always emitted, even when the job is stopped (they are empty then). We'll have to clean-up the output of our API calls to make sure we're only looking at relevant values.
+For *Metrics* and *Logs*, in Azure everything is centralized under [Azure Monitor](/azure/azure-monitor/overview), with a similar choice of API surfaces. We have to remember that logs and metrics are always 1 to 3 minutes behind when querying the APIs. So setting N at 5 usually means the job will be running 6 to 8 minutes in reality. Another thing to consider is that metrics are always emitted. When the job is stopped, the API returns empty records. We'll have to clean up these up to look only at relevant values.
 
 ### Scripting language
 
@@ -96,7 +96,7 @@ The best way to develop the script is locally. PowerShell being cross-platform, 
 
 The final script that will be used is available for [Functions](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/run.ps1) (and [Azure Automation](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1)). It's different than the one explained below, having been wired to the hosting environment (Functions or Automation). We'll discuss that aspect later. First, let's step through a version of it that only **runs locally**.
 
-This script is purposefully written in a simple form. It was not optimized in any way, so it can be understood by all.
+This script is purposefully written in a simple form, so it can be understood by all.
 
 At the top, we set the required parameters, and check the initial job status:
 
@@ -439,7 +439,7 @@ And via its Metrics:
 
 ![Metrics of the ASA job](./media/automation/asa-metrics.png)
 
-Once the script is understood, it's straightforward to rework it to extend its scope. It can easily target a list of jobs, or tags, resource groups, or even subscriptions, rather than a single one.
+Once the script is understood, it's straightforward to rework it to extend its scope. It can easily be updated to target a list of jobs instead of a single one. Larger scopes can be defined and processed via tags, resource groups, or even entire subscriptions.
 
 ## Get support
 
