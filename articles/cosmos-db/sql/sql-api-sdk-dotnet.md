@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 06/18/2021
+ms.date: 11/11/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
 
@@ -52,9 +52,23 @@ ms.custom: devx-track-dotnet
 > [!NOTE]
 > If you are using .NET Framework, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard.
 
-The following sub versions of .NET SDKs are available under the 2.x.x version:
+## <a name="release-history"></a> Release history
 
-[!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
+Release history is maintained in the Azure Cosmos DB .NET SDK source repo. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)
+
+Because version 3 of the Azure Cosmos DB .NET SDK includes updated features and improved performance, The 2.x of this SDK will be retired on 31 August 2024. You must update your SDK to version 3 by that date. We recommend following the instructions to migrate to Azure Cosmos DB .NET SDK version 3.
+
+## <a name="recommended-version"></a> Recommended version
+
+Different sub versions of .NET SDKs are available under the 2.x.x version. **The minimum recommended version is 2.16.2**.
+
+## <a name="known-issues"></a> Known issues
+
+Below is a list of any know issues affecting the [recommended minimum version](#recommended-version):
+
+| Issue | Impact | Mitigation | Tracking link |
+| --- | --- | --- | --- |
+| When using Direct mode with an account with multiple write locations, the SDK might not detect when a region is added to the account. The background process that [refreshes the account information](troubleshoot-sdk-availability.md#adding-a-region-to-an-account) fails to start. |If a new region is added to the account which is part of the PreferredLocations on a higher order than the current region, the SDK won't detect the new available region. |Restart the application. |https://github.com/Azure/azure-cosmos-dotnet-v2/issues/852 |
 
 ## FAQ
 

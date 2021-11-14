@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to create a new Azure Kubernetes Service cluster through Azure Machine Learning, or how to attach an existing AKS cluster to your workspace.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: jordane
