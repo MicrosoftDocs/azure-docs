@@ -256,7 +256,7 @@ This procedure describes the steps required to use an Azure ML workspace in a vi
 
 1. Access the jump box, and then go to your Microsoft Sentinel workspace. We recommend using [Azure Bastion](/azure/bastion/bastion-overview) to access the VM.
 
-1. Create an Azure Machine Learning workspace as [described earlier in this article](#create-an-azure-ml-workspace-from-azure-sentinel). In the **Networking** tab, make sure to select **Private Endpoint** and use the same VNET as you have in the VM jump box. For example:
+1. Create an Azure Machine Learning workspace as [described earlier in this article](#create-an-azure-ml-workspace-from-microsoft-sentinel). In the **Networking** tab, make sure to select **Private Endpoint** and use the same VNET as you have in the VM jump box. For example:
 
     :::image type="content" source="media/notebooks/create-private-endpoint.png" alt-text="Screenshot of the Create private endpoint page in Microsoft Sentinel." lightbox="media/notebooks/create-private-endpoint.png":::
 
