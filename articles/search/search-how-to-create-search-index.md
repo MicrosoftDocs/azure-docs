@@ -9,14 +9,16 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/08/2021
+ms.date: 11/12/2021
 ---
 
 # Create a search index in Azure Cognitive Search
 
-Query requests in Azure Cognitive Search target searchable text in a search index. In this article, learn the steps for defining and publishing a search index using any of the modalities supported by Azure Cognitive Search. 
+Queries in Azure Cognitive Search target searchable text in a search index. In this article, learn the steps for defining and publishing a search index using any of the modalities supported by Azure Cognitive Search. 
 
-Unless you are using an [indexer](search-howto-create-indexers.md), creating an index and populating an index are separate tasks. For non-indexer scenarios, your next step after index creation will be [data import](search-what-is-data-import.md). For more background, see [Search indexes in Azure Cognitive Search](search-what-is-an-index.md).
+Unless you are using an [indexer](search-howto-create-indexers.md), creating an index and populating an index are two separate tasks. For non-indexer scenarios, your next step after index creation will be [data import](search-what-is-data-import.md). 
+
+To learn more about index-related concepts, see [Search indexes in Azure Cognitive Search](search-what-is-an-index.md).
 
 ## Prerequisites
 
@@ -34,7 +36,7 @@ Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#
 
 ## Allowed updates
 
-[Create Index](/rest/api/searchservice/create-index) is an operation that creates physical data structures (files and inverted indexes) on your search service. Your ability to effect changes using [Update Index](/rest/api/searchservice/update-index) is contingent upon whether the modification invalidates those physical structures. Most field attributes can't be changed once the field is created in your index.
+[**Create Index**](/rest/api/searchservice/create-index) is an operation that creates the physical data structures (files and inverted indices) on your search service. Once the index is created, your ability to effect changes using [**Update Index**](/rest/api/searchservice/update-index) is contingent upon whether your modifications invalidate those physical structures. Most field attributes can't be changed once the field is created in your index.
 
 To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
 
@@ -48,7 +50,7 @@ To minimize churn in the design process, the following table describes which ele
 | [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify "searchAnalyzer". All other assignments and modifications require a rebuild. |
 | [Scoring profiles](index-add-scoring-profiles.md) | Yes |
 | [Suggesters](index-add-suggesters.md) | No |
-| [cross-origin remote scripting (CORS)](search-what-is-an-index.md#corsoptions) | Yes |
+| [cross-origin remote scripting (CORS)](#corsoptions) | Yes |
 | [Encryption](search-security-manage-encryption-keys.md) | Yes |
 
 > [!NOTE]
@@ -64,7 +66,7 @@ Use this checklist to help drive the design decisions for your search index.
 
 1. Identify one field in the source data that contains unique values, allowing it to function as the key field in your index. For example, if you're indexing from Blob Storage, the storage path is often used as the document key. 
 
-   Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"). The key should be mapped to the unique identifier in your source data. The ability to uniquely identify specific search documents is required for retrieving a specific document in the search index, and for selective data processing at the per-document level.
+   Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"). The key will be a string in the search index, but you can map it to any unique identifier in your source data. The ability to uniquely identify specific search documents is required for reconstituting a record or entity in a search result, for retrieving a specific document in the search index, and for selective data processing at the per-document level.
 
 1. Identify the fields in your data source that will contribute searchable content in the index. Searchable content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
 
@@ -178,6 +180,28 @@ For Cognitive Search, the Azure SDKs implement generally available features. As 
 | Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations.py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
 
 ---
+
+<a name="corsoptions"></a>
+
+## Set `corsOptions` for cross-origin queries
+
+Index schemas include a section for setting `corsOptions`. Client-side JavaScript cannot call any APIs by default since the browser will prevent all cross-origin requests. To allow cross-origin queries to your index, enable CORS (Cross-Origin Resource Sharing) by setting the **corsOptions** attribute. For security reasons, only [query APIs](search-query-create.md#choose-query-methods) support CORS.
+
+```json
+"corsOptions": {
+  "allowedOrigins": [
+    "*"
+  ],
+  "maxAgeInSeconds": 300
+```
+
+The following properties can be set for CORS:
+
++ **allowedOrigins** (required): This is a list of origins that will be granted access to your index. This means that any JavaScript code served from those origins will be allowed to query your index (assuming it provides the correct api-key). Each origin is typically of the form `protocol://<fully-qualified-domain-name>:<port>` although `<port>` is often omitted. See [Cross-origin resource sharing (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) for more details.
+
+  If you want to allow access to all origins, include `*` as a single item in the **allowedOrigins** array. *This is not a recommended practice for production search services* but it is often useful for development and debugging.
+
++ **maxAgeInSeconds** (optional): Browsers use this value to determine the duration (in seconds) to cache CORS preflight responses. This must be a non-negative integer. The larger this value is, the better performance will be, but the longer it will take for CORS policy changes to take effect. If it is not set, a default duration of 5 minutes will be used.
 
 ## Next steps
 

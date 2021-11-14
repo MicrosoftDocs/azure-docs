@@ -14,10 +14,20 @@
   items:
   - name: Run and manage experiment
     href: chaos-studio-run-experiment.md
+  - name: Schedule an experiment
+    href: tutorial-schedule.md
 - name: Samples
   items:
   - name: Azure REST API 
     href: chaos-studio-samples-rest-api.md
+  - name: ARM templates
+    items:
+    - name: Targets and capabilities
+      href: sample-template-targets.md
+    - name: Experiments
+      href: sample-template-experiment.md
+  - name: Azure policy definitions
+    href: sample-policy-targets.md
 - name: Concepts
   items:
   - name: Chaos experiments
@@ -43,7 +53,11 @@
     - name: CLI
       href: chaos-studio-tutorial-agent-based-cli.md
   - name: Create and run experiment - Chaos Mesh faults on AKS
-    href: chaos-studio-tutorial-aks.md
+    items:
+    - name: Portal
+      href: chaos-studio-tutorial-aks-portal.md
+    - name: CLI
+      href: chaos-studio-tutorial-aks-cli.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
 - name: Reference
