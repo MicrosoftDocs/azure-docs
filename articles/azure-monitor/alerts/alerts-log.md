@@ -30,16 +30,24 @@ You can also create log alert rules using Azure Resource Manager templates, as d
 1. In the [portal](https://portal.azure.com/), select the resource you would like to alert on.
 1. In the Resource menu, under **Monitoring**, select **Alerts**.
 1. From the top command bar, click **Create**, and then **Alert rule**.
+
    :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule.":::
+
 1. The **Create alert rule** wizard opens to the **Select a signal** page of the **Condition** tab, with the scope already defined based on the resource you selected.
+
     :::image type="content" source="media/alerts-log/alerts-create-new-rule-select-signal.png" alt-text="Select Signal.":::
+
 1. Click on the **Custom log search** signal.
 1. Write a query to identify the conditions for triggering alerts. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. Click **Run** to confirm that the query correctly identifies the data you want to alert on.
+ 
     :::image type="content" source="media/alerts-log/alerts-logs-query-results.png" alt-text="Query results.":::
+
 1. Once you have successfully finished writing your query, click **Continue Editing Alert**.
 1. The **Condition** tab opens, populated with your log query.
+ 
     :::image type="content" source="media/alerts-log/alerts-logs-conditions_tab.png" alt-text="Conditions Tab.":::
+
 1. In the **Measurement** section, select values for the [**Measure**](./alerts-unified-log.md#measure), [**Aggregation type**](./alerts-unified-log.md#aggregation-type), and [**Aggregation granularity**](./alerts-unified-log.md#aggregation-granularity) fields.
     - By default, the rule counts the number of results in the last 5 minutes.
     - If we detect summarized query results, the rule is updated automatically within a few seconds to capture that.
@@ -49,30 +57,44 @@ You can also create log alert rules using Azure Resource Manager templates, as d
     - Up to six more splittings can be also selected for any number or text columns types using the dimensions table.
     - Alerts are fired separately according to splitting based on unique combinations and alert payload includes this information.    
 1. In the **Alert logic** section, set the **Alert logic**: [**Operator**, **Threshold Value**](./alerts-unified-log.md#threshold-and-operator), and [**Frequency**](./alerts-unified-log.md#frequency).   
-    :::image type="content" source="media/alerts-log/alerts-rule-preview-agg-params-and-splitting.png" alt-text="Preview alert rule parameters.":::  
-1. (Optional) In the **Advanced options** section, set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).      
+
+    :::image type="content" source="media/alerts-log/alerts-rule-preview-agg-params-and-splitting.png" alt-text="Preview alert rule parameters.":::
+
+1. (Optional) In the **Advanced options** section, set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).
+    
     :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Advanced options.":::
+
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
+
         :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Alert rule preview.":::
+
 1. From this point on, you can select the **Review + create** button at any time. 
-1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).    
+1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
+
     :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
+
 1. In the **Details** tab, define the **Alert rule details**, and **Project details**. You can optionally set whether to not **Start running now**, or [**Mute Actions**](./alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
     > [!NOTE]
-    > Log alert rules are currently stateless and fire an action every time an alert is created unless muting is defined. 
+    > Log alert rules are currently stateless and fire an action every time an alert is created unless muting is defined.
+
     :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
-1. In the **Tags** tab, set any required tags on the alert rule resource.  
+
+1. In the **Tags** tab, set any required tags on the alert rule resource.
+
     :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
+
 1. In the **Review + create** tab, a validation will run and inform you of any issues.
 1. When validation passes and you have reviewed the settings, click the **Create** button.    
+    
     :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
+
 > [!NOTE]
 > We recommend that you create alerts at scale when using resource access mode for log running on multiple resources using a resource group or subscription scope. Alerting at scale reduces rule management overhead. To be able to target the resources, include the resource ID column in the results. [Learn more about splitting alerts by dimensions](./alerts-unified-log.md#split-by-alert-dimensions).
 
 ## Manage alert rules in the Alerts portal
 
 > [!NOTE]
-> This article describes the process of managing alert rules created in the latest UI or using API version `2018-04-16` or later. Alert rules created in the previous UI are viewed and managed as described in [View and manage alert rules created in previous versions](alerts-manage-alerts-previous-version.md).
+> This article describes the process of managing alert rules created in the latest UI or using any API version later than `2018-04-16`. Alert rules created in the previous UI are viewed and managed as described in [View and manage alert rules created in previous versions](alerts-manage-alerts-previous-version.md).
 
 1. In the [portal](https://portal.azure.com/), select the relevant resource.
 1. Under **Monitoring**, select **Alerts**.
