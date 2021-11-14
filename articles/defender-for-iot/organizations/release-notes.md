@@ -30,33 +30,15 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 | 10.5.2 | 10/2021 | 07/2022 |
 | 10.5.3 | 11/2021 | 08/2022|
 
-## November
+## November 2021
 
-The following feature enhancements are available with version 10.5.2 of Azure Defender for IoT.
-
-- [Proxy on the Sensor (BP)](#proxy-on-the-sensor-bp)
+The following feature enhancements are available with version 10.5.3 of Azure Defender for IoT.
 
 - [Generalized performance enhancements](#generalized-performance-enhancements)
-
-### Proxy on the Sensor (BP)
-
-Users can now have their sensors run a proxy module that allows communication through a proxy between sensors in the 3rd layer of networks.
-
-:::image type="content" source="media/release-notes/enable-proxy.png" alt-text="Screenshot of the ability to enable a proxy on the sensor.":::
 
 ### Generalized performance enhancements
 
 The following is a list of generalized performance enhancements that are included within this release.
-
-- The sensor has been enhanced in the following ways;
-
-    1. The ability to map low-risk enhancements.
-
-    1. Low-risk enhancements can be documented as tasks.
-
-    1. The sensor now has the ability to develop, and test in stressed environments.
-
-- Linux packages have the ability to be updated in the management console.
 
 - The management console's certificate has an expiration date of 10 years.
 
@@ -65,14 +47,6 @@ The following is a list of generalized performance enhancements that are include
 - Users can now get a device's API through Tomcat.
 
 - Redundant groups such as unclassified subnets, authorized devices, and nonactive directory devices will be removed.
-
-- The event indexing character count has been reduced from 40 to 15.
-
-- The side bar has been reduced to 14px.
-
-- The ability to export alerts from the management console, has been improved.
-
-- The Threat Intelligence download infrastructure has been enhanced.
 
 ## October 2021
 
