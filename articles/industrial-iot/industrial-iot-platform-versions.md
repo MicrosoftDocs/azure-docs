@@ -8,9 +8,9 @@ ms.topic: overview
 ms.date: 11/10/2021
 ---
 # Azure Industrial IoT Platform Release 2.8.1
-We are pleased to announce the release of version 2.8.1 of our Industrial IoT Platform components as the first patch update of the 2.8 Long-Term Support (LTS) release. This release contains important security updates, bugfixes and performance optimizations.
+We are pleased to announce the release of version 2.8.1 of our Industrial IoT Platform components. This is the first patch update of the 2.8 Long-Term Support (LTS) release. It contains important security updates, bug fixes, and performance optimizations.
 
-# Azure Industrial IoT Platform Release 2.8
+## Azure Industrial IoT Platform Release 2.8
 
 We are pleased to announce the declaration of Long-Term Support (LTS) for version 2.8. While we continue to develop and release updates to our ongoing projects on GitHub, we now also offer a branch that will only get critical bug fixes and security updates starting in July 2021. Customers can rely upon a longer-term support lifecycle for these LTS builds, providing stability and assurance for the planning on longer time horizons our customers require. The LTS branch offers customers a guarantee that they will benefit from any necessary security or critical bug fixes with minimal impact to their deployments and module interactions.  At the same time, customers can access the latest updates in the [main branch](https://github.com/Azure/Industrial-IoT) to keep pace with the latest developments and fastest cycle time for product updates. 
 
