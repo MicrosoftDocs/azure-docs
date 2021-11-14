@@ -67,15 +67,9 @@ This graphic and the following text shows how the parts of this connector soluti
 
 - To connect to the SQS queue and the S3 bucket, Microsoft Sentinel uses AWS credentials and connection information embedded in the AWS S3 connector's configuration. The AWS credentials are configured with a role and a permissions policy giving them access to those resources. Similarly, the Microsoft Sentinel workspace ID is embedded in the AWS configuration, so there is in effect two-way authentication.
 
-## Prerequisites
+## Global prerequisites
 
-- You must have write permission on your Microsoft Sentinel workspace.
-
-- You must have PowerShell and the AWS CLI on your machine.
-
-    - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7.1)
-    - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
-
+You must have write permission on your Microsoft Sentinel workspace.
 
 ## Automatic setup
 
@@ -90,6 +84,13 @@ The script takes the following actions:
 - If necessary, creates that S3 bucket and that SQS queue for this purpose.
 
 - Configures any necessary IAM permissions policies and applies them to the IAM role created above.
+
+### Prerequisites
+
+You must have PowerShell and the AWS CLI on your machine.
+
+   - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7.1)
+   - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 
 ### Instructions
 
@@ -247,11 +248,11 @@ The following permissions policies must be applied to the [Microsoft Sentinel ro
 
 1. **Verify that messages are arriving in the SQS queue.**
 
-   View the AWS SQS queue dashboard - under the Monitoring tab, you should see traffic in the "Number Of Messages Sent" graph widget.  ***(SHOULDN'T THIS BE THE "NUMBER OF MESSAGES RECEIVED" WIDGET? -YL)***  If you see no traffic, check that S3 PUT object notification is configured correctly. 
+   View the AWS SQS queue dashboard - under the Monitoring tab, you should see traffic in the "Number Of Messages Sent" graph widget. If you see no traffic, check that S3 PUT object notification is configured correctly. 
 
 1. **Verify that messages are being read from the SQS queue.**
 
-   Check the "Number of Messages Received" ***(NOT "SENT"?)*** and "Number of Messages Deleted" widgets in the queue dashboard. If there are no notifications under messages deleted," then check health messages. It's possible that some permissions are missing.
+   Check the "Number of Messages Received" and "Number of Messages Deleted" widgets in the queue dashboard. If there are no notifications under messages deleted," then check health messages. It's possible that some permissions are missing.
 
 # [CloudTrail connector (legacy)](#tab/ct)
 
