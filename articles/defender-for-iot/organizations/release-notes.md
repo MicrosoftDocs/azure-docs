@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 11/14/2021
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -27,7 +27,52 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 |--|--|--|
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 01/2022 |
-| 10.5.2 | 11/2021 | 07/2022 |
+| 10.5.2 | 10/2021 | 07/2022 |
+| 10.5.3 | 11/2021 | 08/2022|
+
+## November
+
+The following feature enhancements are available with version 10.5.2 of Azure Defender for IoT.
+
+- [Proxy on the Sensor (BP)](#proxy-on-the-sensor-bp)
+
+- [Generalized performance enhancements](#generalized-performance-enhancements)
+
+### Proxy on the Sensor (BP)
+
+Users can now have their sensors run a proxy module that allows communication through a proxy between sensors in the 3rd layer of networks.
+
+:::image type="content" source="media/release-notes/enable-proxy.png" alt-text="Screenshot of the ability to enable a proxy on the sensor.":::
+
+### Generalized performance enhancements
+
+The following is a list of generalized performance enhancements that are included within this release.
+
+- The sensor has been enhanced in the following ways;
+
+    1. The ability to map low-risk enhancements.
+
+    1. Low-risk enhancements can be documented as tasks.
+
+    1. The sensor now has the ability to develop, and test in stressed environments.
+
+- Linux packages have the ability to be updated in the management console.
+
+- The management console's certificate has an expiration date of 10 years.
+
+- Sensors, and the management console will now automatically delete archived alerts that are over 90 days old.
+
+- Users can now get a device's API through Tomcat.
+
+- Redundant groups such as unclassified subnets, authorized devices, and nonactive directory devices will be removed.
+
+- The event indexing character count has been reduced from 40 to 15.
+
+- The side bar has been reduced to 14px.
+
+- The ability to export alerts from the management console, has been improved.
+
+- The Threat Intelligence download infrastructure has been enhanced.
 
 ## October 2021
 
@@ -41,11 +86,12 @@ The following feature enhancements are available with version 10.5.2 of Azure De
 
 - [Webhook Extended](#webhook-extended)
 
-- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases) 
+- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases)
 
 ### PLC operating mode detections (Public Preview)
 
 Users can now view PLC operating mode states, changes, and risks. The PLC Operating mode consists of the PLC logical Run state and the physical Key state, if a physical key switch exists on the PLC.
+
 This new capability helps improve security by detecting *unsecure* PLCs, and as a result prevents malicious attacks such as PLC Program Downloads. The 2017 Triton attack on a petrochemical plant illustrates the impact of such risks.
 This information also provides operational engineers with critical visibility into the operational mode of enterprise PLCs.
 
