@@ -9,7 +9,7 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 11/14/2021
 ---
 
 # Use Jupyter notebooks to hunt for security threats
@@ -246,17 +246,19 @@ Having Microsoft Sentinel notebooks stored in your Azure ML workspace allows you
 
 ## Use an Azure ML workspace in a virtual network
 
-This procedure describes the steps required to use an Azure ML workspace in a virtual network for your notebooks in Azure Sentinel, and references specific articles in the Azure Machine Learning documentation when relevant.
+This procedure describes the steps required to use an Azure ML workspace in a virtual network for your notebooks in Microsoft Sentinel, and references specific articles in the Azure Machine Learning documentation when relevant.
+
+**To use an Azure ML workspace in a virtual network for your notebooks**:
 
 1. Configure your network traffic to access Azure ML from behind a firewall. For more information, see [Configure inbound and outbound network traffic](/azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress%2Cpublic).
 
 1. Create a VM jump box within a VNet. For more information, see [How to create a secure Azure ML workspace](/azure/machine-learning/tutorial-create-secure-workspace).
 
-1. Access the jump box, and then go to your Azure Sentinel workspace. We recommend using [Azure Bastion](/azure/bastion/bastion-overview) to access the VM.
+1. Access the jump box, and then go to your Microsoft Sentinel workspace. We recommend using [Azure Bastion](/azure/bastion/bastion-overview) to access the VM.
 
 1. Create an Azure Machine Learning workspace as [described earlier in this article](#create-an-azure-ml-workspace-from-azure-sentinel). In the **Networking** tab, make sure to select **Private Endpoint** and use the same VNET as you have in the VM jump box. For example:
 
-    :::image type="content" source="media/notebooks/create-private-endpoint.png" alt-text="Screenshot of the Create private endpoint page in Azure Sentinel." lightbox="media/notebooks/create-private-endpoint.png":::
+    :::image type="content" source="media/notebooks/create-private-endpoint.png" alt-text="Screenshot of the Create private endpoint page in Microsoft Sentinel." lightbox="media/notebooks/create-private-endpoint.png":::
 
 1. In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNET that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance.](/azure/machine-learning/how-to-create-manage-compute-instance?tabs=python).
 
@@ -264,9 +266,9 @@ This procedure describes the steps required to use an Azure ML workspace in a vi
 
     - **If you have one private link only**: You can now do any of the following:
 
-        - Clone and launch notebooks from Azure Sentinel to Azure Machine Learning
+        - Clone and launch notebooks from Microsoft Sentinel to Azure Machine Learning
         - Upload notebooks to Azure Machine Learning manually
-        - Clone the [Azure Sentinel notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) on the Azure Machine learning terminal
+        - Clone the [Microsoft Sentinel notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) on the Azure Machine learning terminal
 
     - **If you have another private link, that uses a different VNET**, do the following:
 
@@ -278,7 +280,7 @@ This procedure describes the steps required to use an Azure ML workspace in a vi
 
             Select the resource > **Virtual network links** > **Add**. For more information, see [Link the virtual network](/azure/dns/private-dns-getstarted-portal).
 
-You're now ready to start [launching your notebooks from Azure Sentinel](#launch-a-notebook-in-your-azure-ml-workspace).
+You're now ready to start [launching your notebooks from Microsoft Sentinel](#launch-a-notebook-in-your-azure-ml-workspace).
 
 ## Troubleshooting
 
