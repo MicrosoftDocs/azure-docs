@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Change the disk configuration for the SAP deployment automation
 
-By default, the [SAP deployment automation framework](automation-deployment-framework.md) sets the number of disks in a configuration. As needed, you can [create more disks in a new system](#add-extra-disks-to-new-system). You can also [create more disks in an existing system](#add-extra-disks-to-existing-system) that you've already deployed.
+By default, the [SAP deployment automation framework](automation-deployment-framework.md) defines the disk configuration for the SAP systems. As needed, you can change the default configuration by providing a custom disk configuration file.
 
 > [!TIP]
 > When possible, it's a best practice to increase the disk size instead of adding more disks.
@@ -19,7 +19,7 @@ By default, the [SAP deployment automation framework](automation-deployment-fram
 
 ### HANA databases
 
-The table below shows the defaul disc configuration for HANA 
+The table below shows the default disk configuration for HANA systems. 
 
 | Size      | VM SKU              | OS disk       | Data disks       | Log disks        | Hana shared    | User SAP     | Backup          |
 |-----------|---------------------|---------------|------------------|------------------|----------------|--------------|-----------------|
@@ -38,6 +38,8 @@ The table below shows the defaul disc configuration for HANA
 | M416ms_v2 | Standard_M416m_v2   | P10 (128 GB)  | 4 P50 (4096 GB)  | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | 4 P50 (4096 GB) |
 
 ### AnyDB databases
+
+The table below shows the default disk configuration for AnyDB systems. 
 
 | Size    | VM SKU           | OS disk     | Data disks       | Log disks       |
 |---------|------------------|-------------|------------------|-----------------|
