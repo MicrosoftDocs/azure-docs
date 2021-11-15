@@ -508,7 +508,7 @@ You can also:
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 [helm]: https://helm.sh/
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
-[ingress-shim]: https://docs.cert-manager.io/en/latest/tasks/issuing-certificates/ingress-shim.html
+[ingress-shim]: https://cert-manager.io/docs/usage/ingress/
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 
 <!-- LINKS - internal -->
