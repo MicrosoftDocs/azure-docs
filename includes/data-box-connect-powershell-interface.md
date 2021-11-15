@@ -11,6 +11,9 @@ Depending on the software version, that your Data Box is running, you may need t
 
 ### Identify software version of the device
 
+> [!NOTE]
+> The version number is displayed in the local UI starting v 4.9 and later. If you don't see a version number as described here in your local UI, contact Microsoft Support to identify the version number and then follow the steps to connect to the PowerShell interface of the device.
+
 Use one of the following ways to identify the software version running on your device and the device serial number.
 
  - Go to the **Sign in** page. The software version is displayed on this page.
@@ -20,6 +23,7 @@ Use one of the following ways to identify the software version running on your d
  - In the local web UI, select the **Help** icon. In the **Help** pane, the software version and the device serial number are displayed. Make a note of both the device serial number and the software version.
  
     ![Serial number and software version on the Help pane in the local web UI of Data Box](media/data-box-connect-powershell-interface/device-serial-number-software-version-help-pane-local-ui.png)
+
 
 
 The next steps are determined by the version of software that your Data Box is running.
