@@ -240,7 +240,7 @@ Use **Live Trace** from the Web PubSub service portal to view the live traffic.
 
 ## Azure Web PubSub CloudEvents handlers for express
 
-When a WebSocket connection connects, the Web PubSub service transforms the connection lifecycle and messages into [events in CloudEvents format](https://docs.microsoft.com/azure/azure-web-pubsub/concept-service-internals#workflow). This library provides an express middleware to handle events representing the WebSocket connection's lifecycle and messages, as shown in below diagram:
+When a WebSocket connection connects, the Web PubSub service transforms the connection lifecycle and messages into [events in CloudEvents format](concept-service-internals.md#workflow). This library provides an express middleware to handle events representing the WebSocket connection's lifecycle and messages, as shown in below diagram:
 
 ![The overflow diagram shows the overflow of using the event handler middleware.](media/sdk-reference/event-handler-middleware.png)
 

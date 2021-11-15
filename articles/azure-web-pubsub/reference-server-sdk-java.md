@@ -97,12 +97,16 @@ When the client is connected, it can send messages to the upstream application, 
 * [Send message to a connection](#send-to-connection "Send message to a connection")
 * [Send message to a user](#send-to-user "Send message to a user")
 
+<a name="broadcast-all"></a>
+
 ### Broadcast message to entire hub
 
 <!-- embedme ./src/samples/java/com/azure/messaging/webpubsub/ReadmeSamples.java#L47-L47 -->
 ```java
 webPubSubServiceClient.sendToAll("Hello world!", WebPubSubContentType.TEXT_PLAIN);
 ```
+
+<a name="broadcast-group"></a>
 
 ### Broadcast message to a group
 
@@ -111,12 +115,16 @@ webPubSubServiceClient.sendToAll("Hello world!", WebPubSubContentType.TEXT_PLAIN
 webPubSubServiceClient.sendToGroup("java", "Hello Java!", WebPubSubContentType.TEXT_PLAIN);
 ```
 
+<a name="send-to-connection"></a>
+
 ### Send message to a connection
 
 <!-- embedme ./src/samples/java/com/azure/messaging/webpubsub/ReadmeSamples.java#L71-L71 -->
 ```java
 webPubSubServiceClient.sendToConnection("myconnectionid", "Hello connection!", WebPubSubContentType.TEXT_PLAIN);
 ```
+
+<a name="send-to-user"></a>
 
 ### Send message to a user
 <!-- embedme ./src/samples/java/com/azure/messaging/webpubsub/ReadmeSamples.java#L83-L83 -->
@@ -148,7 +156,7 @@ reduce the dependency size, refer to the [performance tuning][performance_tuning
 <!-- LINKS -->
 
 [azure_subscription]: https://azure.microsoft.com/free
-[jdk_link]: /java/azure/jdk/?view=azure-java-stable
+[jdk_link]: /java/azure/jdk
 [source_code]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub/azure-messaging-webpubsub/src
 [product_documentation]: https://aka.ms/awps/doc
 [samples_readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/webpubsub/azure-messaging-webpubsub/src/samples/README.md
