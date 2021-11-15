@@ -280,7 +280,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
     --subscription $subscriptionID                                                                           \
     --spn_id $appID                                                                                          \
     --spn_secret $spn_secret                                                                                 \
-    --tenant_id $tenant
+    --tenant_id $tenant_id
 ```
 
 If you run into authentication issues,  run `az logout` to logout. Clear `token-cache`, then run `az login` to reauthenticate.
@@ -547,7 +547,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh              \
     --subscription $subscriptionID                                          \
     --spn_id $appID                                                         \
     --spn_secret $spn_secret                                                \
-    --tenant_id $tenant
+    --tenant_id $tenant_id
 ```
 
 The workload zone deployment should start automatically.
