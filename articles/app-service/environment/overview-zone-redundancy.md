@@ -30,5 +30,3 @@ When the App Service platform allocates instances to a zone redundant App Servic
 ## Next steps
 
 * Read more about [Availability Zones](../../availability-zones/az-overview.md)
-
-* Design [reliable Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
