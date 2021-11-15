@@ -44,7 +44,7 @@ Zonal ILB ASEs can be created in any of the following regions:
 
 Applications deployed on a zonal ILB ASE will continue to run and serve traffic on that ASE even if other zones in the same region suffer an outage.  It is possible that non-runtime behaviors, including; application service plan scaling, application creation, application configuration, and application publishing may still be impacted from an outage in other availability zones. The zone-pinned deployment of a zonal ILB ASE only ensures continued uptime for already deployed applications.
 
-## How to Deploy an App Service Environment in an Availability Zone ##
+## How to Deploy an App Service Environment in an Availability Zone
 
 Zonal ILB ASEs must be created using ARM templates. Once a zonal ILB ASE is created via an ARM template, it can be viewed and interacted with via the Azure portal and CLI.  An ARM template is only needed for the initial creation of a zonal ILB ASE.
 
@@ -52,7 +52,7 @@ The only change needed in an ARM template to specify a zonal ILB ASE is the new 
 
 The example ARM template snippet below shows the new ***zones*** property specifying that the ILB ASE should be pinned to zone 2.
 
-```
+```json
 "resources": [
     {
         "type": "Microsoft.Web/hostingEnvironments",
@@ -80,7 +80,7 @@ The example ARM template snippet below shows the new ***zones*** property specif
 
 To make your apps zone redundant, you need to deploy two zonal ILB ASEs. The two zonal ILB ASEs must be in separate availability zones. You then need to deploy your apps into each of the ILB ASEs. After your apps are created, you need to configure a load balancing solution. The recommended solution is to deploy a [zone redundant Application Gateway](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) upstream of the zonal ILB ASEs. 
 
-## In Region Data Residency ##
+## In-region data residency
 
 ILB ASEs deployed in an availability zone will only store customer data within the region where the zonal ILB ASE has been deployed. Both website file content as well as customer supplied settings and secrets stored in App Service remain within the region where the zonal ILB ASE is deployed.
 

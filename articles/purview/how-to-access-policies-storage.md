@@ -180,9 +180,31 @@ The steps to publish a policy are as follows
 
     :::image type="content" source="./media/how-to-access-policies-storage/publish-policy-storage.png" alt-text="Image shows how a data owner can publish a policy.":::
 
-1. A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button. Publish is a background operation. It can take up to 2 hours for the changes to be reflected in the data source.
+1. A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button.
 
     :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a data owner can select the data source where the policy will be published.":::
+
+>[!NOTE]
+> Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
+
+## Azure Purview policy action to Azure Storage action mapping
+
+This section contains a reference of how actions in Azure Purview data policies map to specific actions in Azure Storage.
+
+| **Purview policy action** | **Data source specific actions**                                                                |
+|---------------------------|-------------------------------------------------------------------------------------------------|
+|||
+| *Read*                      |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read                        |
+|                           |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery                      |
+|                           |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed                    |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                            |
+|||
+| *Modify*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                            |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write                           |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action                      |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action                     |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete                          |
+|||
 
 ## Next steps
 

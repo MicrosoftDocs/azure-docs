@@ -1,6 +1,6 @@
 ---
-title: Investigate incidents with Azure Sentinel| Microsoft Docs
-description: In this article, learn how to use Azure Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
+title: Investigate incidents with Microsoft Sentinel| Microsoft Docs
+description: In this article, learn how to use Microsoft Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Investigate incidents with Azure Sentinel
+# Investigate incidents with Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -25,7 +25,7 @@ ms.custom: ignite-fall-2021
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-This article helps you investigate incidents with Azure Sentinel. After you connected your data sources to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
+This article helps you investigate incidents with Microsoft Sentinel. After you connected your data sources to Microsoft Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Microsoft Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
 
 This article covers:
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ This article covers:
 > * Use the investigation graph
 > * Respond to threats
 
-An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytics rules that you created in the **Analytics** page. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Azure Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
+An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytics rules that you created in the **Analytics** page. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Microsoft Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ To use the investigation graph:
    > [!IMPORTANT] 
    > - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
    >
-   > - Azure Sentinel currently supports investigation of **incidents up to 30 days old**.
+   > - Microsoft Sentinel currently supports investigation of **incidents up to 30 days old**.
 
 
 1. Select an entity to open the **Entities** pane so you can review information on that entity.
@@ -131,7 +131,7 @@ Once you have resolved a particular incident (for example, when your investigati
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Screenshot that highlights the classifications available in the Select classification list.":::
 
-For more information about false positives and benign positives, see [Handle false positives in Azure Sentinel](false-positives.md).
+For more information about false positives and benign positives, see [Handle false positives in Microsoft Sentinel](false-positives.md).
 
 After choosing the appropriate classification, add some descriptive text in the **Comment** field. This will be useful in the event you need to refer back to this incident. Click **Apply** when you’re done, and the incident will be closed.
 
@@ -176,7 +176,7 @@ Using advanced search options changes the search behavior as follows:
 
 
 ## Next steps
-In this article, you learned how to get started investigating incidents using Azure Sentinel. For more information, see:
+In this article, you learned how to get started investigating incidents using Microsoft Sentinel. For more information, see:
 
-- [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md)
+- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Investigate incidents with UEBA data](investigate-with-ueba.md)

@@ -1,11 +1,12 @@
 ---
-title: Quickstart - Create a lab using the portal
+title: 'Quickstart: Create a lab in Azure portal'
 description: In this quickstart, you create a lab using the Azure portal and Azure DevTest Labs. 
 ms.topic: quickstart
 ms.date: 11/04/2021
+
 ---
 
-# Quickstart: Create a lab in Azure DevTest Labs using the portal
+# Quickstart: Create a lab in Azure DevTest Labs in Azure portal
 
 Get started with Azure DevTest Labs by using the Azure portal to create a lab. Azure DevTest Labs encompasses a group of resources, such as Azure virtual machines (VMs) and networks. This infrastructure lets you better manage those resources by specifying limits and quotas. This quickstart walks you through the process of creating a lab using the Azure portal.
 
