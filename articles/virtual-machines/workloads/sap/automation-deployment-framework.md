@@ -4,7 +4,7 @@ description: Overview of the framework and tooling for automated deployment for 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/29/2021
+ms.date: 11/17/2021
 ms.service: virtual-machines-sap
 ms.topic: conceptual
 ---

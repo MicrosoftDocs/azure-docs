@@ -4,7 +4,7 @@ description: Hands-On Lab
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
-ms.date: 11/5/2021
+ms.date: 11/17/2021
 ms.topic: tutorial
 ms.service: virtual-machines-sap
 ---

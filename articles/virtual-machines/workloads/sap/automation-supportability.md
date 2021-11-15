@@ -4,7 +4,7 @@ description: Supported platforms, topologies, and capabilities for the SAP Deplo
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/14/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---

@@ -4,7 +4,7 @@ description: How to generate SAP Application templates for use with the deployme
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/14/2021
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ---

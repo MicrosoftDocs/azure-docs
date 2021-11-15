@@ -8,7 +8,7 @@ keywords: 'Azure, SAP'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 10/23/2021
+ms.date: 11/17/2021
 ms.author: kimforss
 ---
 

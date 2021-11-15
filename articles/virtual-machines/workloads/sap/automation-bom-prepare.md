@@ -4,7 +4,7 @@ description: How to prepare a full SAP Bill of Materials (BoM) for use with the 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/14/2021
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ---

@@ -4,7 +4,7 @@ description: How to handle common errors with SAP deployment automation framewor
 author: jhajduk
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/5/2021
+ms.date: 11/17/2021
 ms.topic: faq
 ms.service: virtual-machines-sap
 ---

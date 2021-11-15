@@ -4,7 +4,7 @@ description: Explanation of naming conventions for the SAP Deployment Automation
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/14/2021
+ms.date: 11/17/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 ---

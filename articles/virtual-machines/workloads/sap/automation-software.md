@@ -4,7 +4,7 @@ description: Download the SAP software to your Azure environment using Ansible p
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/13/2021
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ---

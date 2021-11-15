@@ -4,7 +4,7 @@ description: How to configure the SAP deployment automation framework for both n
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/14/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---

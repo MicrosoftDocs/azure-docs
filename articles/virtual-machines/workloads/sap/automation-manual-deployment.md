@@ -4,7 +4,7 @@ description: Manually deploy the automation framework using an example configura
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/14/2021
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ---

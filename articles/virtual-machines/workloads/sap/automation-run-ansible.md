@@ -4,7 +4,7 @@ description: Configure the environment and install SAP using Ansible
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/13/2021
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ---

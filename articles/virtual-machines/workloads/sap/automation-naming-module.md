@@ -4,7 +4,7 @@ description: Explanation of how to implement custom naming conventions for the S
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/14/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
