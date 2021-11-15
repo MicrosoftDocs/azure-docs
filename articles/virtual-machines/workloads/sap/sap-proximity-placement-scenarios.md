@@ -80,14 +80,14 @@ Avoid bundling several SAP production or non-production systems into a single pr
 
 The proximity placement group usage that we recommended so far, looks like in this graphic
 
-![Old Proximity placement groups with zones](./media/sap-proximity-placement-scenarios/vm-ppg-zones-old.png)
+![Old Proximity placement groups with zones](./media/sap-proximity-placement-scenarios/vm-ppg-zone-old.png)
 
 You created a proximity placement group (PPG) in each of the two Availability Zones you deployed your SAP system into. All the VMs of a particular zones are part of the individual proximity placement group of that particular zone. You started in each zone with deploying the DBMS VM to scope the PPG and then deployed the ASCS VM into the same zone and PPG. In a third step you created an Azure availability set, assigned the availability set to the scoped PPG and deployed the SAP application layer into it. The advantage of this configuration was that all the components were nicely aligned underneath the same network spine. The large disadvantage is that your flexibility in resizing virtual machines can be limited.
 
 
 Based on many improvements deployed by Microsoft into the Azure regions to reduce network latency within an Azure Availability Zone, the new deployment guidance for zonal deployments, looks like:
 
-![New Proximity placement groups with zones](./media/sap-proximity-placement-scenarios/vm-ppg-zones.png)
+![New Proximity placement groups with zones](./media/sap-proximity-placement-scenarios/vm-ppg-zone.png)
 
 The difference to the recommendation given so far is that the database VMs in the two zones are no more a part of the proximity placement groups. The proximity placement groups per zone are now scoped with the deployment of the VM running the SAP ASCS/SCS instances. This also means that for the regions where Availability Zones are collected by multiple datacenters, the ASCS/SCS instance, and the application tier could run under one network spine and the database VMs could run under another network spine. Though with the network improvements made, the network latency between the SAP application tier and the DBMS tier still should be sufficient for sufficiently good performance and throughput. The advantage of this new configuration is that you have more flexibility in resizing VMs or moving to new VM types with either the DBMS layer or/and the application layer of the SAP system. 
 
@@ -96,7 +96,7 @@ The difference to the recommendation given so far is that the database VMs in th
 In this case, the purpose is to use proximity placement groups to collocate the VMs that are deployed through different availability sets. In this usage scenario, you are not using a controlled deployment across different Availability Zones in a region. Instead you want to deploy the SAP system by using availability sets. As a result, you have at least an availability set for the DBMS VMs, ASCS/SCS VMs, and the application tier VMs. Since you cannot specify at deployment time of a VM an availability set AND an Availability Zone, you can't control where the VMs in the different availability sets are going to be allocated. This could result in some Azure regions that the network latency between different VMs, still could be too high to give a sufficiently good performance experience. So the resulting architecture would look like:
 
 
-![Proximity placement groups with AvSets](./media/sap-proximity-placement-scenarios/vm-ppg-avset.png)
+![Proximity placement groups with AvSets](./media/sap-proximity-placement-scenarios/vm-ppg-avsets.png)
 
 In this graphic, a single proximity placement group would be assigned to a single SAP system. This PPG gets assigned to the three availability sets. The proximity placement group is then scoped by deploying the first database tier VMs into the DBMS availability set. This architecture recommendation will collocate all VMs under the same network spine. It is introducing the restrictions mentioned earlier in this article. Therefore, the proximity placement group architecture should be used sparsely.
 
