@@ -292,10 +292,10 @@ For example if you say "Take me to floor 7", this should be the output:
 Say something ...
 RECOGNIZED: Text = Take me to floor 7.
   Intent Id = ChangeFloors
-  Floor name: = seven
+  Floor name: = 7
 ```
 
 ## Next steps
 
-> Improve your pattern matching with custom entities:</br>
+> Improve your pattern matching by using [custom entities](how-to-use-custom-entity-pattern-matching.md).
 

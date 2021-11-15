@@ -103,17 +103,37 @@ Now create an `IntentRecognizer`. Insert this code right below your Speech confi
 
 ## Add some intents
 
-You need to associate some patterns with the `IntentRecognizer` by calling `AddIntent()`.
-We will add 2 intents with the same ID for changing floors, and another intent with a separate ID for opening and closing doors.
+You need to associate some patterns with a `PatternMatchingModel` and apply it to the `IntentRecognizer`.
+We will start by creating a `PatternMatchingModel` and adding a few intents to it. A PatternMatchingIntent is a struct so we will just use the in-line syntax.
+
+> [!Note]
+> We can add multiple patterns to an `Intent`.
 
 ```cpp
-    intentRecognizer->AddIntent("Take me to floor {floorName}.", "ChangeFloors");
-    intentRecognizer->AddIntent("Go to floor {floorName}.", "ChangeFloors");
-    intentRecognizer->AddIntent("{action} the door.", "OpenCloseDoor");
+    auto model = PatternMatchingModel::FromId("myNewModel");
+    
+    model->Intents.push_back({"Take me to floor {floorName}.", "Go to floor {floorName}."} , "ChangeFloors");
+    model->Intents.push_back({"{action} the door."}, "OpenCloseDoor");
 ```
 
-> [!NOTE]
-> There is no limit to the number of entities you can declare, but they will be loosely matched. If you add a phrase like "{action} door" it will match any time there is text before the word "door". Intents are evaluated based on their number of entities. If two patterns would match, the one with more defined entities is returned.
+## Add some custom entities
+
+To take full advantage of the pattern matcher you can customize your entities. We will make "floorName" a list of the available floors.
+
+```cpp
+    model->Entities.push_back({ "floorName" , Intent::EntityType::List, Intent::EntityMatchMode::Strict, {"one","two", "lobby", "ground floor"} });
+```
+
+## Apply our model to the Recognizer
+
+Now it is necessary to apply the model to the `IntentRecognizer`. It is possible to use multiple models at once so the API takes a collection of models.
+
+```cpp
+    std::vector<std::shared_ptr<LanguageUnderstandingModel>> collecton;
+    
+    collection.push_back(model);
+    intentRecognizer->ApplyLanguageModels(collection);
+```
 
 ## Recognize an intent
 
@@ -203,9 +223,17 @@ int main()
     auto config = SpeechConfig::FromSubscription("YOUR_SUBSCRIPTION_KEY", "YOUR_SUBSCRIPTION_REGION");
     auto intentRecognizer = IntentRecognizer::FromConfig(config);
 
-    intentRecognizer->AddIntent("Take me to floor {floorName}.", "ChangeFloors");
-    intentRecognizer->AddIntent("Go to floor {floorName}.", "ChangeFloors");
-    intentRecognizer->AddIntent("{action} the door.", "OpenCloseDoor");
+    auto model = PatternMatchingModel::FromId("myNewModel");
+    
+    model->Intents.push_back({"Take me to floor {floorName}.", "Go to floor {floorName}."} , "ChangeFloors");
+    model->Intents.push_back({"{action} the door."}, "OpenCloseDoor");
+    
+    model->Entities.push_back({ "floorName" , Intent::EntityType::List, Intent::EntityMatchMode::Strict, {"one","two", "lobby", "ground floor"} });
+
+    std::vector<std::shared_ptr<LanguageUnderstandingModel>> collecton;
+    
+    collection.push_back(model);
+    intentRecognizer->ApplyLanguageModels(collection);
 
     std::cout << "Say something ..." << std::endl;
 
@@ -272,16 +300,23 @@ Now you're ready to build your app and test our speech recognition using the Spe
 2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press <kbd>F5</kbd>.
 3. **Start recognition** - It will prompt you to say something. The default language is English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
 
-For example if you say "Take me to floor 7", this should be the output:
+For example if you say "Take me to floor 2", this should be the output:
+
+```
+Say something ...
+RECOGNIZED: Text = Take me to floor 2.
+  Intent Id = ChangeFloors
+  Floor name: = 2
+```
+
+Another example if you say "Take me to floor 7", this should be the output:
 
 ```
 Say something ...
 RECOGNIZED: Text = Take me to floor 7.
-  Intent Id = ChangeFloors
-  Floor name: = seven
+  Intent Id =
+  Floor name: =
 ```
 
-## Next steps
-
-> Improve your pattern matching with custom entities:</br>
+The Intent Id is empty because 7 was not in our list.
 
