@@ -91,7 +91,7 @@ Follow these steps if you'll bring your own certificates on Data Box.
     ```powershell
     $Pwd = ConvertTo-SecureString <Password from Azure portal> -AsPlainText -Force 
     ```
-<!--
+   <!--
 
     ```powershell
     $Cred = New-Object System.Management.Automation.PSCredential("<ipv4_address of databox>\StorSimpleAdmin",$Pwd) 
