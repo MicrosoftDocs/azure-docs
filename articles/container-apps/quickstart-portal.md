@@ -44,7 +44,7 @@ In the *Basics* tab, do the following actions.
 | Setting | Action |
 |---|---|
 | Subscription | Select your Azure subscription. |
-| Resource group | Select **Create new** and enter **my-containerapps**. |
+| Resource group | Select **Create new** and enter **my-container-apps**. |
 | Container app name |  Enter **my-container-app**. |
 
 #### Create an Environment
