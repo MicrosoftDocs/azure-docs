@@ -76,7 +76,7 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
    1. Under **Drive information**, use the **Copy** button to upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml`, also created with the journal file.
       When you upload a journal file, the Drive ID is displayed.
 
-      ![Screenshot showing Drive Information on the Job Details tab of an Azure Import Export job. The Copy button and drive info for an uploaded journal file are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-06-drive-information.png)
+      ![Screenshot showing Drive Information on the Job Details tab for an Azure Import Export job. The Copy button and the Drive ID for an uploaded journal file are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-06-drive-information.png)
 
    1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option. The verbose log is an optional log that lists all files that were successfully imported, with details like the file size and checksum. It's uploaded to a container or share in the storage account. For more information, see LINK TO COME.
 
