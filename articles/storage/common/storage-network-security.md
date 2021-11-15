@@ -136,20 +136,15 @@ Storage account and the virtual networks granted access may be in different subs
 
 ### Available virtual network regions
 
-By default, service endpoints work between virtual networks and service instances in the same Azure region. If you need to grant access to your storage account from a virtual network in a different Azure region, you must register the `AllowGlobalTagsForStorage` feature. This capability is currently in public preview. 
-
-When using service endpoints with Azure Storage, service endpoints also work between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md). 
+By default, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, service endpoints also work between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md). If you want to use a service endpoint to grant access to virtual networks in other regions, you must register the `AllowGlobalTagsForStorage` feature. This capability is currently in public preview. 
 
 Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
 When planning for disaster recovery during a regional outage, you should create the VNets in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
 
-> [!NOTE]
-> By default, service endpoints don't apply to traffic outside the region of the virtual network and the designated region pair. You can only apply network rules granting access from virtual networks to storage accounts in the primary region of a storage account or in the designated paired region. If you want to grant access to virtual networks in a different region, you must register the `AllowGlobalTagsForStorage` feature. This capability is currently in public preview.
+### Enabling access to virtual networks in other regions (preview)
 
-### Enabling access to virtual networks in a different region (preview)
-
-To enable access to your storage account from a virtual network in a different region, register the `AllowGlobalTagsForStorage` feature.
+To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature. Subnets in other regions which have storage service endpoints will no longer use a public IP address to communicate with the storage account. All traffic will originate from a private IP address and any IP network rules that permit traffic from those subnets will no longer have an effect.
 
 > [!IMPORTANT]
 > This capability is currently in PREVIEW.
@@ -243,7 +238,7 @@ You can manage virtual network rules for storage accounts through the Azure port
     > [!NOTE]
     > If a service endpoint for Azure Storage wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
     >
-    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use Powershell, CLI or REST APIs.
+    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use , Powershell, CLI or REST APIs.
     > 
     > Even if you registered the `AllowGlobalTagsForStorageOnly` feature, subnets in regions other than the region of the storage account or its paired region aren't shown for selection. If you want to enable access to your storage account from a virtual network/subnet in a different region, use the instructions in the PowerShell or Azure CLI tabs.
 
