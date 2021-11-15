@@ -4,7 +4,7 @@ description: Learn how data is managed and safeguarded in Microsoft Defender for
 services: security-center
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: overview
 ms.date: 11/09/2021
 ms.author: memildin

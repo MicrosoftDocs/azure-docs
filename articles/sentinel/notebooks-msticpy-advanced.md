@@ -4,7 +4,7 @@ description: Learn about advanced configurations available for Jupyter notebooks
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
