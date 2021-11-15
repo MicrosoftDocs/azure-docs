@@ -331,8 +331,8 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-csharp"
 ## Attributes and annotations
+::: zone pivot="programming-language-csharp"
 
 # [C#](#tab/csharp)
 
@@ -369,36 +369,25 @@ For a complete example, see the [C# example](#example).
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - attributes](./functions-bindings-storage-table-input.md#attributes-and-annotations).
 
 # [C# script](#tab/csharp-script)
-
-## Attributes and annotations
-
 Attributes aren't supported by C# Script.
 
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-## Attributes and annotations
-
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) annotation on parameters to write values into table storage.
 
 See the [example for more detail](#example).
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-## Attributes and annotations
-
 Attributes aren't supported by JavaScript.
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
-## Attributes and annotations
-
 Attributes aren't supported by PowerShell.
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-## Attributes and annotations
-
 Attributes aren't supported by Python.
 
 ---
