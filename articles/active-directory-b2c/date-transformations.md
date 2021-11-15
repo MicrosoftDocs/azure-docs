@@ -167,7 +167,7 @@ Get the current UTC date and time and add the value to a ClaimType.
 
 ## DateTimeComparison
 
-Determine whether one dateTime is later, earlier, or equal to another. The result is a new boolean ClaimType boolean with a value of `true` or `false`.
+Determine whether one dateTime is later, earlier, or equal to another. The result is a new boolean ClaimType with a value of `true` or `false`.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -209,7 +209,7 @@ To run the claim transformation, you first need to get the current dateTime and 
 
 ## IsTermsOfUseConsentRequired
 
-Determine whether the terms of use updated date is newer than the terms of use consented date. The result is a new boolean ClaimType boolean with a value of `true` or `false`.
+Determine whether the terms of use updated date is newer than the terms of use consented date. The result is a new boolean ClaimType with a value of `true` or `false`.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
