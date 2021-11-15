@@ -47,11 +47,11 @@ The SAP on Azure Deployment Automation Framework has two main components:
 
 The following diagram shows the dependency between the control plane and the application plane.
 
-![dependency between application and control plane](media/automation-deployment-framework/control-plane-sap-infrastructure.png)
+:::image type="content" source="media/automation-deployment-framework/control-plane-sap-infrastructure.png" alt-text="Dependency between the control plane and the application plane":::
 
 The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. The following diagram shows the logical separation of the control plane and workload zone.
 
-:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram SAP Deployment Automation Environment Diagram.":::
+:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="SAP Deployment Automation Environment Diagram":::
 
 #### Management Zone
 
