@@ -7,7 +7,9 @@ ms.date: 11/15/2021
 ms.author: alkohli
 ---
 
-If you're using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, United Kingdom, Germany, Switzerland, West Europe, Australia, or Brazil, and you selected self-managed shipping when you created your order, follow these instructions. For detailed steps, see [Use self-managed shipping](../articles/databox/data-box-disk-portal-customer-managed-shipping.md).
+If you're using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, United Kingdom, Germany, Switzerland, West Europe, Australia, or Brazil, and you selected self-managed shipping when you created your order, follow these instructions. 
+
+For detailed steps, see [Use self-managed shipping](../articles/databox/data-box-portal-customer-managed-shipping.md).
 
 1. Write down the Authorization code that's shown on the **Prepare to Ship** page of the local web UI for the Data Box after the step completes successfully.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
