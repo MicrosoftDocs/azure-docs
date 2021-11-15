@@ -29,7 +29,7 @@ Do we need to include steps to login?  Probably not..
 
 ## Create a container app
 
-To create a your container app, start at the Azure portal home page.
+To create your container app, start at the Azure portal home page.
 
 1. Search for **Container Apps** in the top search bar.
 1. Select **Container Apps** in the search results.
@@ -113,7 +113,7 @@ If you're not going to continue to use this application, you can delete the Azur
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.
 1. Enter the resource group name **my-container-apps** in the *Are you sure you want to delete "my-container-apps"* confirmation dialog.
 1. Select **Delete**.  
-    The process to delete the resource group may may take a few minutes to complete.
+    The process to delete the resource group may take a few minutes to complete.
 
 
 > [!TIP]
