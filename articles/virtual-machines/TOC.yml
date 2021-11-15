@@ -1720,16 +1720,16 @@
         href: agents/azure-monitor-agent-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Install
         displayname: Azure Monitor agent
-        href: agents/azure-monitor-agent-install.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
-        href: agents/data-collection-rule-azure-monitor-agent.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        href: ../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Migrate from legacy agents
         displayname: Migrate to Azure Monitor agent
-        href: agents/azure-monitor-agent-migration.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        href: ../azure-monitor/agents/azure-monitor-agent-migration.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
         displayname: Azure Monitor agent FAQ
-        href: ./faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Log Analytics agent
       items:
       - name: Overview
