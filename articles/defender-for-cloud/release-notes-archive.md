@@ -3,7 +3,7 @@ title: Archive of what's new in Defender for Cloud
 description: A description of what's new and changed in Defender for Cloud from six months ago and earlier.
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: memildin

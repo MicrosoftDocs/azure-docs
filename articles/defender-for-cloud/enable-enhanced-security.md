@@ -4,7 +4,7 @@ description: Learn how to enable enhanced security features to extend the protec
 author: memildin
 ms.author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: quickstart
 ms.date: 11/09/2021
 ---
