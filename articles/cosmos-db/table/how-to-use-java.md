@@ -37,14 +37,18 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 ## Create a Java application
 
-To use the samples in this article, install the [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule), then create an Azure storage account or Azure Cosmos DB account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Tables client library for Java][Azure Tables client library for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository. After you complete those tasks, you can create a Java application that uses the examples in this article.
+To use the samples in this article:
+1. Install the [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule).
+2. Create an Azure storage account or Azure Cosmos DB account in your Azure subscription.
+3. Verify that your development system meets the minimum requirements and dependencies listed in the [Azure Tables client library for Java][Azure Tables client library for Java] repository on GitHub.
+4. Follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository.
+5. Create a Java app that uses the examples in this article.
 
-## Configure your application to access Table Storage
+## Configure your app to access Table Storage
 
-Add the following entry to your POM's dependency section:
+Add the following entry to your *pom.xml* file's `dependencies` section:
 
 ```xml
-// Update the pom.xml file to now include table APIs
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-data-tables</artifactId>
@@ -52,7 +56,7 @@ Add the following entry to your POM's dependency section:
 </dependency>
 ```
 
-Then, add the following import statements to the top of the Java file where you want to use Azure Tables APIs to access tables:
+Then, add the following `import` statements to the top of the Java file where you want to use Azure Tables APIs to access tables:
 
 ```java
 // Include the following imports to use table APIs
@@ -73,7 +77,7 @@ You can either connect to the Azure storage account or the Azure Cosmos DB Table
 
 ### Add an Azure Storage connection string
 
-An Azure Tables client can use a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the Storage connection string in the following format, using the name of your Storage account and the Primary access key for the Storage account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
+An Azure Tables client can use a storage connection string to store endpoints and credentials for accessing data management services. When running in a client app, you must provide the Storage connection string in the following format, using the name of your Storage account and the Primary access key for the Storage account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
 
 This example shows how you can declare a static field to hold the connection string:
 
@@ -88,7 +92,7 @@ public final String connectionString =
 
 ### Add an Azure Cosmos DB Table API connection string
 
-An Azure Cosmos DB account uses a connection string to store the table endpoint and your credentials. When running in a client application, you must provide the Azure Cosmos DB connection string in the following format, using the name of your Azure Cosmos DB account and the primary access key for the account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
+An Azure Cosmos DB account uses a connection string to store the table endpoint and your credentials. When running in a client app, you must provide the Azure Cosmos DB connection string in the following format, using the name of your Azure Cosmos DB account and the primary access key for the account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
 
 This example shows how you can declare a static field to hold the Azure Cosmos DB connection string:
 
@@ -100,7 +104,7 @@ public final String connectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-In an application running within a role in Azure, you can store this string in the service configuration file, *ServiceConfiguration.cscfg*, and you can access it with a call to the `System.getenv` method. Here's an example of getting the connection string from a **Setting** element named *ConnectionString* in the service configuration file:
+In an app running within a role in Azure, you can store this string in the service configuration file, *ServiceConfiguration.cscfg*. You can access it with a call to the `System.getenv` method. Here's an example of getting the connection string from a **Setting** element named *ConnectionString* in the service configuration file:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -117,7 +121,7 @@ The following samples assume that you have used one of these methods to get the 
 
 ## Create a table
 
-A `TableServiceClient` object allows you to interact with the Tables service in order to create, list, and delete tables. The following code creates a `TableServiceClient` object and uses it to create a new `TableClient` object, which represents a table named "Employees".
+A `TableServiceClient` object allows you to interact with the Tables service in order to create, list, and delete tables. The following code creates a `TableServiceClient` object and uses it to create a new `TableClient` object, which represents a table named `Employees`.
 
 ```java
 try
@@ -166,7 +170,7 @@ catch (Exception e)
 
 ## Add an entity to a table
 
-The following code creates a new instance of the `TableEntity` class with some customer data to be stored. The code calls the `upsertEntity` method on the `TableClient` object, which inserts the new customer entity into the "Employees" table, or replaces the entity if it already exists.
+The following code creates a new instance of the `TableEntity` class with some customer data to be stored. The code calls the `upsertEntity` method on the `TableClient` object. That method either inserts the new customer entity into the `Employees` table or replaces the entity if it already exists.
 
 ```java
 try
@@ -275,7 +279,7 @@ Some things to note on batch operations:
 
 ## Retrieve all entities in a partition
 
-To query a table for entities in a partition, you can use a `ListEntitiesOptions`. Call `ListEntitiesOptions.setFilter` to create a query on a particular table that returns a specified result type. The following code specifies a filter for entities where 'Sales' is the partition key. When the query is executed with a call to `listEntities` on the `TableClient` object, it returns an `Iterator` of `TableEntity`. You can then use the `Iterator` returned in a "ForEach" loop to consume the results. This code prints the fields of each entity in the query results to the console.
+To query a table for entities in a partition, you can use a `ListEntitiesOptions`. Call `ListEntitiesOptions.setFilter` to create a query on a particular table that returns a specified result type. The following code specifies a filter for entities where `Sales` is the partition key. When the query is executed with a call to `listEntities` on the `TableClient` object, it returns an `Iterator` of `TableEntity`. You can then use the `Iterator` returned in a "ForEach" loop to consume the results. This code prints the fields of each entity in the query results to the console.
 
 ```java
 try
@@ -312,7 +316,7 @@ catch (Exception e)
 
 ## Retrieve a range of entities in a partition
 
-If you don't want to query all the entities in a partition, you can specify a range by using comparison operators in a filter. The following code combines two filters to get all entities in partition "Sales" with a row key between '0001' and '0004'. Then it prints the query results. If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise).
+If you don't want to query all the entities in a partition, specify a range by using comparison operators in a filter. The following code combines two filters to get all entities in partition `Sales` with a row key between '0001' and '0004'. Then it prints the query results. If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise).
 
 ```java
 try
@@ -451,7 +455,7 @@ catch (Exception e)
 
 ## Insert or Replace an entity
 
-Often you want to add an entity to a table without knowing if it already exists in the table. An insert-or-replace operation allows you to make a single request, which will insert the entity if it does not exist or replace the existing one if it does. Building on prior examples, the following code inserts or replaces the entity for "Walter Harp". After creating a new entity, this code calls the `TableClient.upsertEntity` method.
+Often you want to add an entity to a table without knowing if it already exists in the table. An insert-or-replace operation allows you to make a single request. That request will either insert the entity if it doesn't exist or replace the existing one if it does. Building on prior examples, the following code inserts or replaces the entity for "Walter Harp". After creating a new entity, this code calls the `TableClient.upsertEntity` method.
 
 ```java
 try
@@ -486,7 +490,7 @@ catch (Exception e)
 
 ## Delete an entity
 
-You can easily delete an entity by providing its partition key and row key via `TableClient.deleteEntity`.
+You can delete an entity by providing its partition key and row key via `TableClient.deleteEntity`.
 
 ```java
 try
