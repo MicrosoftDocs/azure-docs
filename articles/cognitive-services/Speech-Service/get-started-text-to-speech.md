@@ -34,7 +34,7 @@ keywords: text to speech
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
-[!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/speech-to-text-basics-nodejs.md)]
+[!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-nodejs.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-browserjs"
