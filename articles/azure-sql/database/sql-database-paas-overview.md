@@ -163,7 +163,7 @@ SQL Database provides a range of [built-in security and compliance features](../
 
 ### Advance threat protection
 
-Azure Defender for SQL is a unified package for advanced SQL security capabilities. It includes functionality for managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
+Microsoft Defender for SQL is a unified package for advanced SQL security capabilities. It includes functionality for managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
 
 - [Vulnerability assessment](sql-vulnerability-assessment.md):
 

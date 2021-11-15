@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 10/28/2021
 ms.author: aahi
 ---
 
@@ -45,8 +45,8 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 > * Face
 > * Language Understanding (LUIS)
 > * Personalizer
-> * Speech Services
-> * Text Analytics
+> * Speech service
+> * Language service
 > * QnA Maker
 > * Translator Text
 

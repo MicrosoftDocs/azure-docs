@@ -29,7 +29,7 @@ Each additional zoom level quad-divides the tiles of the previous one, creating 
 
 The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Although road data will only be available at the zoom levels in when the tiles are available.
 
-The following table provides the full list of values for zoom levels where the tile size is 512 pixels square at latitude 0:
+The following table provides the full list of values for zoom levels where the tile size is **512** pixels square at latitude 0:
 
 |Zoom level|Meters/pixel|Meters/tile side|
 |--- |--- |--- |

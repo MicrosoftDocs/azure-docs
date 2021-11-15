@@ -14,7 +14,7 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This article contains a list of all the samples available for Media Services organized by method and SDK.  Samples include .NET, Node.JS (Typescript), Python and Java as well as REST with Postman.
+This article contains a list of all the samples available for Media Services organized by method and SDK.  Samples include .NET, Node.js (TypeScript), Python and Java as well as REST with Postman.
 
 ## Samples by SDK
 

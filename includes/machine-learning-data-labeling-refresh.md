@@ -6,7 +6,7 @@ ms.date: 09/23/2021
 ms.author: sdgilley
 ---
 
-If you plan to add new files to your dataset, use incremental refresh to add these new files your project.   When **incremental refresh** is enabled,  the dataset is checked periodically for new images to be added to a project, based on the labeling completion rate.   The check for new data stops when the project contains the maximum 500,000 files.
+If you plan to add new files to your dataset, use incremental refresh to add these new files your project.   When **incremental refresh** is enabled,  the dataset is checked periodically for new files to be added to a project, based on the labeling completion rate.   The check for new data stops when the project contains the maximum 500,000 files.
 
 To add more files to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 06/14/2021
+ms.date: 10/27/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4
 # Customer intent: As developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
@@ -116,7 +116,7 @@ You can add both certificates and client secrets (a string) as credentials to yo
 Sometimes called a _public key_, a certificate is the recommended credential type because they're considered more secure than client secrets. For more information about using a certificate as an authentication method in your application, see [Microsoft identity platform application authentication certificate credentials](active-directory-certificate-credentials.md).
 
 1. In the Azure portal, in **App registrations**, select your application.
-1. Select **Certificates & secrets** > **Upload certificate**.
+1. Select **Certificates & secrets** > **Certificates** > **Upload certificate**.
 1. Select the file you want to upload. It must be one of the following file types: _.cer_, _.pem_, _.crt_.
 1. Select **Add**.
 
@@ -127,7 +127,7 @@ Sometimes called an _application password_, a client secret is a string value yo
 Client secrets are considered less secure than certificate credentials. Application developers sometimes use client secrets during local app development because of their ease of use. However, you should use certificate credentials for any application you have running in production.
 
 1. In the Azure portal, in **App registrations**, select your application.
-1. Select **Certificates & secrets** > **New client secret**.
+1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
 1. Add a description for your client secret.
 1. Select an expiration for the secret or specify a custom lifetime.
     - Client secret lifetime is limited to two years (24 months) or less. You can't specify a custom lifetime longer than 24 months.

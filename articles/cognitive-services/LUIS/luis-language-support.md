@@ -25,7 +25,7 @@ If you need a multi-language LUIS client application such as a chatbot, you have
 
 LUIS understands utterances in the following languages:
 
-| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](../text-analytics/language-support.md)<br>(Sentiment and<br>Keywords)|
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Sentiment analysis](../language-service/sentiment-opinion-mining/overview.md) and [key phrase extraction](../language-service/key-phrase-extraction/overview.md)|
 |--|--|:--:|:--:|:--:|:--:|
 | Arabic (preview - modern standard Arabic) |`ar-AR`|-|-|-|-|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -60,7 +60,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
      - でございます is not the same as です.
      - です is not the same as だ.
 
-[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
+[!INCLUDE [Language service support notes](includes/text-analytics-support-notes.md)]
 
 ### Speech API supported languages
 See Speech [Supported languages](../speech-service/speech-to-text.md) for Speech dictation mode languages.
