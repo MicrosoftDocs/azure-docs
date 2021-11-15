@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel data source schema reference
-description: This article lists Azure and third-party data source schemas supported by Azure Sentinel, with links to their reference documentation.
+title: Microsoft Sentinel data source schema reference
+description: This article lists Azure and third-party data source schemas supported by Microsoft Sentinel, with links to their reference documentation.
 author: batamig
 ms.author: bagol
 manager: rkarlin
@@ -9,7 +9,7 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ignite-fall-2021
-ms.date: 01/14/2021
+ms.date: 11/09/2021
 ---
 
 # Data source schema reference
@@ -64,8 +64,8 @@ The following table lists supported third-party vendors and their Syslog or Comm
 > 
 ## Next steps
 
-Learn more supported Azure Sentinel connectors, such as CEF, Syslog, direct, agent, and custom connectors:
+Learn more supported Microsoft Sentinel connectors, such as CEF, Syslog, direct, agent, and custom connectors:
 
 - [Connect data sources](connect-data-sources.md)
 
-- [Azure Sentinel Syslog, CEF, and other 3rd-party connectors](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-syslog-cef-and-other-3rd-party-connectors-grand/ba-p/803891)
+- [Microsoft Sentinel Syslog, CEF, and other 3rd-party connectors](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-syslog-cef-and-other-3rd-party-connectors-grand/ba-p/803891)

@@ -18,7 +18,7 @@ ms.reviewer: cynthn
 
 Azure Compute Gallery now includes the existing Shared Image Gallery service and the new [VM Applications](vm-applications.md) features and capabilities.  
 
-An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and [applications])(vm-applications.md). An Azure Compute Gallery provides:
+An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and [applications](vm-applications.md). An Azure Compute Gallery provides:
 - Global replication.
 - Versioning and grouping of resources for easier management.
 - Highly available resources with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.

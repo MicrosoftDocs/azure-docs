@@ -58,7 +58,7 @@
     items:
     - name: Protect, monitor, and manage VMs
       href: integrate-azure-native-services.md
-    - name: Integrate Azure Security Center
+    - name: Integrate Microsoft Defender for Cloud
       href: azure-security-integration.md
     - name: Integrate Azure NetApp Files
       href: netapp-files-with-azure-vmware-solution.md

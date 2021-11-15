@@ -94,16 +94,12 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     ```bash
     mkdir logstream
     cd logstream
-
     # Create venv
     python -m venv env
-
     # Active venv
-    ./env/Scripts/activate
+    source ./env/bin/activate
 
-    # Or call .\env\Scripts\activate when you are using CMD under Windows
-
-    pip install azure-messaging-webpubsubservice==1.0.0b1
+    pip install azure-messaging-webpubsubservice
     ```
     
     ---
@@ -162,10 +158,10 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
                 {
                     endpoints.MapGet("/negotiate", async context =>
                     {
-                        var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
+                        var service = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
                         var response = new
                         {
-                            url = serviceClient.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
+                            url = service.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
                         };
                         await context.Response.WriteAsJsonAsync(response);
                     });
@@ -184,11 +180,11 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     const express = require('express');
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-    let endpoint = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, 'stream');
+    let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, 'stream');
     const app = express();
 
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getClientAccessToken({
+      let token = await service.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       res.send({
@@ -207,34 +203,38 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     ```python
     import json
     import sys
+    
     from http.server import HTTPServer, SimpleHTTPRequestHandler
-    from azure.messaging.webpubsubservice import (
-        build_authentication_token
-    )
-
+    
+    from azure.messaging.webpubsubservice import WebPubSubServiceClient
+    
+    service = WebPubSubServiceClient.from_connection_string(sys.argv[1], hub='stream')
+    
     class Resquest(SimpleHTTPRequestHandler):
         def do_GET(self):
             if self.path == '/':
                 self.path = 'public/index.html'
                 return SimpleHTTPRequestHandler.do_GET(self)
             elif self.path == '/negotiate':
-                token = build_authentication_token(sys.argv[1], 'stream', roles=['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream'])
-                print(token)
+                roles = ['webpubsub.sendToGroup.stream',
+                         'webpubsub.joinLeaveGroup.stream']
+                token = service.get_client_access_token(roles=roles)
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')
                 self.end_headers()
                 self.wfile.write(json.dumps({
                     'url': token['url']
                 }).encode())
-
+    
     if __name__ == '__main__':
         if len(sys.argv) != 2:
             print('Usage: python server.py <connection-string>')
             exit(1)
-
+    
         server = HTTPServer(('localhost', 8080), Resquest)
         print('server started')
         server.serve_forever()
+    
     ```
 
     ---
@@ -434,11 +434,9 @@ This will be useful if you want to stream a large amount of data to other client
 
     # Create venv
     python -m venv env
-
     # Active venv
-    ./env/Scripts/activate
+    source ./env/bin/activate
 
-    # Or call .\env\Scripts\activate when you are using CMD under Windows
     pip install websockets
     ```
 
@@ -452,8 +450,7 @@ This will be useful if you want to stream a large amount of data to other client
     import websockets
     import requests
     import json
-
-
+    
     async def connect(url):
         async with websockets.connect(url, subprotocols=['json.webpubsub.azure.v1']) as ws:
             print('connected')
@@ -470,14 +467,15 @@ This will be useful if you want to stream a large amount of data to other client
                 id = id + 1
                 await ws.send(json.dumps(payload))
                 await ws.recv()
-
-    res = requests.get('http://localhost:8080/negotiate').json()
-
-    try:
-        asyncio.get_event_loop().run_until_complete(connect(res['url']))
-    except KeyboardInterrupt:
-        pass
-
+    
+    if __name__ == '__main__':
+        res = requests.get('http://localhost:8080/negotiate').json()
+    
+        try:
+            asyncio.get_event_loop().run_until_complete(connect(res['url']))
+        except KeyboardInterrupt:
+            pass
+    
     ```
 
     The code above creates a WebSocket connection to the service and then whenever it receives some data it uses `ws.send()` to publish the data. In order to publish to others, you just need to set `type` to `sendToGroup` and specify a group name in the message.
@@ -521,7 +519,7 @@ This will be useful if you want to stream a large amount of data to other client
     # [C#](#tab/csharp)
     Set the `roles` when `GenerateClientAccessUri` in `Startup.cs` like below:
     ```csharp
-    serviceClient.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" })
+    service.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" })
     ```
 
     # [JavaScript](#tab/javascript)
@@ -530,7 +528,7 @@ This will be useful if you want to stream a large amount of data to other client
 
     ```javascript
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getClientAccessToken({
+      let token = await service.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       ...
@@ -540,11 +538,12 @@ This will be useful if you want to stream a large amount of data to other client
     
     # [Python](#tab/python)
     
-    Update the token generation code to give client such `roles` when `build_authentication_token` in `server.py`:
+    Note that when generating the access token, we set the correct roles to the client in `server.py`:
 
     ```python
-    token = build_authentication_token(sys.argv[1], 'stream', roles=['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream'])
-    
+    roles = ['webpubsub.sendToGroup.stream',
+              'webpubsub.joinLeaveGroup.stream']
+    token = service.get_client_access_token(roles=roles)
     ```
     ---
     

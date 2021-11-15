@@ -369,41 +369,41 @@ sections:
           
           If you are using a certificate issued by one of the revoked ICAs, your application’s availability might be interrupted and depending on your application, you may receive a variety of error messages including but not limited to: 
           
-          1.	Invalid certificate/revoked certificate
-          2.	Connection timed out
-          3.	HTTP 502
+          1. Invalid certificate/revoked certificate
+          2. Connection timed out
+          3. HTTP 502
           
           To avoid any interruption to your application due to this issue, or to re-issue a CA which has been revoked, you need to take the following actions: 
           
-          1.	Contact your certificate provider on how to re-issue your certificates
-          2.	Once reissued, update your certificates on the Azure Application Gateway/WAF with the complete [chain of trust](/windows/win32/seccrypto/certificate-chains) (leaf, intermediate, root certificate). Based on where you are using your certificate, either on the listener or the HTTP settings of the Application Gateway, follow the steps below to update the certificates and check the documentation links mentioned for more information.
-          3.	Update your backend application servers to use the re-issued certificate. Depending on the backend server that you are using, your certificate update steps may vary. Please check for the documentation from your vendor.
+          1. Contact your certificate provider on how to re-issue your certificates
+          2. Once reissued, update your certificates on the Azure Application Gateway/WAF with the complete [chain of trust](/windows/win32/seccrypto/certificate-chains) (leaf, intermediate, root certificate). Based on where you are using your certificate, either on the listener or the HTTP settings of the Application Gateway, follow the steps below to update the certificates and check the documentation links mentioned for more information.
+          3. Update your backend application servers to use the re-issued certificate. Depending on the backend server that you are using, your certificate update steps may vary. Please check for the documentation from your vendor.
           
           To update the certificate in your listener:
           
-          1.	In the [Azure portal](https://portal.azure.com/), open your Application Gateway resource
-          2.	Open the listener settings that’s associated with your certificate
-          3.	Click “Renew or edit selected certificate”
-          4.	Upload your new PFX certificate with the password and click Save
-          5.	Access the website and verify if the site is working as expected
+          1. In the [Azure portal](https://portal.azure.com/), open your Application Gateway resource
+          2. Open the listener settings that’s associated with your certificate
+          3. Click “Renew or edit selected certificate”
+          4. Upload your new PFX certificate with the password and click Save
+          5. Access the website and verify if the site is working as expected
           For more information, check documentation [here](./renew-certificates.md).
           
           If you are referencing certificates from Azure KeyVault in your Application Gateway listener, we recommend the following the steps for a quick change –
           
-          1.	In the [Azure portal](https://portal.azure.com/), navigate to your Azure KeyVault settings which has been associated with the Application Gateway
-          2.	Add/import the reissued certificate in your store. See documentation [here](../key-vault/certificates/quick-create-portal.md) for more information on how-to.
-          3.	Once the certificate has been imported, navigate to your Application Gateway listener settings and under “Choose a certificate from Key Vault”, click on the “Certificate” drop down and choose the recently added certificate
-          4.	Click Save
+          1. In the [Azure portal](https://portal.azure.com/), navigate to your Azure KeyVault settings which has been associated with the Application Gateway
+          2. Add/import the reissued certificate in your store. See documentation [here](../key-vault/certificates/quick-create-portal.md) for more information on how-to.
+          3. Once the certificate has been imported, navigate to your Application Gateway listener settings and under “Choose a certificate from Key Vault”, click on the “Certificate” drop down and choose the recently added certificate
+          4. Click Save
           For more information on TLS termination on Application Gateway with Key Vault certificates, check documentation [here](./key-vault-certs.md).
           
           
           To update the certificate in your HTTP Settings:
           
           If you are using V1 SKU of the Application Gateway/WAF service, then you would have to upload the new certificate as your backend authentication certificate.
-          1.	In the [Azure portal](https://portal.azure.com/), open your Application Gateway resource
-          2.	Open the HTTP settings that’s associated with your certificate
-          3.	Click on “Add certificate” and upload the reissued certificate and click save
-          4.	You can remove the old certificate later by clicking on the “…” options button next to the old certificate and select delete and click save.
+          1. In the [Azure portal](https://portal.azure.com/), open your Application Gateway resource
+          2. Open the HTTP settings that’s associated with your certificate
+          3. Click on “Add certificate” and upload the reissued certificate and click save
+          4. You can remove the old certificate later by clicking on the “…” options button next to the old certificate and select delete and click save.
           For more information, check documentation [here](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers).
           
           If you are using the V2 SKU of the Application Gateway/WAF service, you don’t have to upload the new certificate in the HTTP settings since V2 SKU uses “trusted root certificates” and no action needs to be taken here.

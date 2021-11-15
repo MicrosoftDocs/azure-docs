@@ -317,7 +317,7 @@ Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Ma
 
 Azure Route Server provides a Border Gateway Protocol (BGP) peering service that can be used by NVAs (Network Virtual Appliance) to learn routes from the route server in a DIY hub VNet. Virtual WAN routing provides multiple capabilities including VNet-to-VNet transit routing, custom routing, custom route association and propagation, and a zero-touch fully meshed hub service along with connectivity services of ExpressRoute, Site VPN, Remote User/Large Scale P2S VPN, and Secure hub (Azure Firewall) capabilities. When you establish a BGP peering between your NVA and Azure Route Server, you can advertise IP addresses from your NVA to your virtual network. For all advanced routing capabilities such as transit routing, custom routing, etc., you can use Virtual WAN routing.
 
-### If I am using a third-party security provider (ZScalar, iBoss or Checkpoint) to secure my internet traffic, why don't I see the VPN site associated to the third-party security provider in the Azure portal?
+### If I am using a third-party security provider (Zscaler, iBoss or Checkpoint) to secure my internet traffic, why don't I see the VPN site associated to the third-party security provider in the Azure portal?
 
 When you choose to deploy a security partner provider to protect Internet access for your users, the third-party security provider creates a VPN site on your behalf. Because the third-party security provider is created automatically by the provider and is not a user-created VPN site, this VPN site will not show up in the Azure portal.
 

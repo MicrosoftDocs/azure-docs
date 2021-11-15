@@ -411,7 +411,7 @@ To change the primary color of composite, create a new theme style in `src/main/
 ```kotlin
 import com.azure.android.communication.ui.configuration.ThemeConfiguration
 
-val communicationCallComposite: CallComposite =
+val callComposite: CallComposite =
         CallCompositeBuilder()
             .theme(ThemeConfiguration(R.style.MyCompany_CallComposite))
             .build()

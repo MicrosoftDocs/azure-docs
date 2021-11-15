@@ -121,10 +121,10 @@ You can perform both item-level and share-level restores in the Azure portal usi
 
 For more information about backup, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### Azure Defender for Azure Files 
-Azure Defender for Azure Storage (formerly Advanced Threat Protection for Azure Storage) provides an additional layer of security intelligence that provides alerts when it detects anomalous activity on your storage account, for example unusual access attempts. It also runs malware hash reputation analysis and will alert on known malware. You can configure Azure Defender on a subscription or storage account level via Azure Security Center. 
+### Protect Azure Files with Microsoft Defender for Storage
+Microsoft Defender for Storage provides an additional layer of security intelligence that generates alerts when it detects anomalous activity on your storage account, for example unusual access attempts. It also runs malware hash reputation analysis and will alert on known malware. You can configure Microsoft Defender for Storage at the subscription or storage account level via Microsoft Defender for Cloud.
 
-For more information, see [Introduction to Azure Defender for Storage](../../security-center/defender-for-storage-introduction.md).
+For more information, see [Introduction to Microsoft Defender for Storage](../../security-center/defender-for-storage-introduction.md).
 
 ## Storage tiers
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

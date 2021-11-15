@@ -93,17 +93,17 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
                 var hub = args[1];
                 var message = args[2];
 
-                var serviceClient = new WebPubSubServiceClient(connectionString, hub);
+                var service = new WebPubSubServiceClient(connectionString, hub);
                 
                 // Send messages to all the connected clients
                 // You can also try SendToConnectionAsync to send messages to the specific connection
-                await serviceClient.SendToAllAsync(message);
+                await service.SendToAllAsync(message);
             }
         }
     }
     ```
 
-    The `SendToAllAsync()` call simply sends a message to all connected clients in the hub.
+    The `service.SendToAllAsync()` call simply sends a message to all connected clients in the hub.
 
 3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
 
@@ -138,9 +138,9 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
       return 1;
     }
     const hub = "pubsub";
-    let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
+    let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
-    serviceClient.sendToAll(process.argv[2], { contentType: "text/plain" });
+    service.sendToAll(process.argv[2], { contentType: "text/plain" });
     ```
 
     The `sendToAll()` call simply sends a message to all connected clients in a hub.
@@ -161,46 +161,39 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 # [Python](#tab/python)
 
 1. First let's create a new folder `publisher` for this project and install required dependencies:
-    * When using bash
-        ```bash
-        mkdir publisher
-        cd publisher
-        # Create venv
-        python -m venv env
+    ```bash
+    mkdir publisher
+    cd publisher
+    # Create venv
+    python -m venv env
+    # Active venv
+    source ./env/bin/activate
 
-        # Active venv
-        ./env/Scripts/activate
+    pip install azure-messaging-webpubsubservice
 
-        # Or call .\env\Scripts\activate when you are using CMD
-
-        pip install azure-messaging-webpubsubservice==1.0.0b1
-
-        ```
+    ```
 2. Now let's use Azure Web PubSub SDK to publish a message to the service. Create a `publish.py` file with the below code:
 
     ```python
     import sys
-    from azure.messaging.webpubsubservice import (
-        WebPubSubServiceClient
-    )
-    from azure.messaging.webpubsubservice.rest import *
-
-    if len(sys.argv) != 4:
-        print('Usage: python publish.py <connection-string> <hub-name> <message>')
-        exit(1)
-
-    connection_string = sys.argv[1]
-    hub_name = sys.argv[2]
-    message = sys.argv[3]
-
-    service_client = WebPubSubServiceClient.from_connection_string(connection_string)
-    res = service_client.send_request(build_send_to_all_request(hub_name, content=message, content_type='text/plain'))
-    # res should be <HttpResponse: 202 Accepted>
-    print(res)
-
+    from azure.messaging.webpubsubservice import WebPubSubServiceClient
+    
+    if __name__ == '__main__':
+    
+        if len(sys.argv) != 4:
+            print('Usage: python publish.py <connection-string> <hub-name> <message>')
+            exit(1)
+    
+        connection_string = sys.argv[1]
+        hub_name = sys.argv[2]
+        message = sys.argv[3]
+    
+        service = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
+        res = service.send_to_all(message, content_type='text/plain')
+        print(res)
     ```
 
-    The `build_send_to_all_request()` build a message and use `send_request()` call to sends the message to all connected clients in a hub.
+    The `service.send_to_all()` method sends the message to all connected clients in a hub.
 
 3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
 
@@ -253,17 +246,17 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
                 return;
             }
 
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();
-            client.sendToAll(args[2], WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(args[2], WebPubSubContentType.TEXT_PLAIN);
         }
     }
 
     ```
 
-    The `sendToAll()` call simply sends a message to all connected clients in a hub.
+    The `service.sendToAll()` call simply sends a message to all connected clients in a hub.
 
 4. Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
 

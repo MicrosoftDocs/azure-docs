@@ -142,7 +142,7 @@ landingContent:
         links:
           - text: Protect, monitor, and manage VMs
             url: integrate-azure-native-services.md
-          - text: Integrate Azure Security Center
+          - text: Integrate Microsoft Defender for Cloud
             url: azure-security-integration.md
           - text: Integrate Azure NetApp Files
             url: netapp-files-with-azure-vmware-solution.md
