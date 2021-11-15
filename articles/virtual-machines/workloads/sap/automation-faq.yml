@@ -1,5 +1,3 @@
----
-
 ### YamlMime:FAQ
 metadata:
   title: SAP Deployment automation - frequently asked questions
@@ -96,3 +94,12 @@ sections:
           I am getting a fatal error while deploying the SAP HANA Software from test_menu.sh on the following task: Retrieve SSH Key Secret Details
         answer: |
           Ensure that the name of the secrets in the user credentials Key Vault align with the environment naming prefix, for instance `DEV-XXXX-SAP01` vs `DEV-XXXX-SAP` 
+
+additionalContent: |
+
+  ## Next steps
+  
+  Learn more about SAP deployment automation framework for Azure
+
+  > [!div class="nextstepaction"]
+  > [Get started with SAP deployment automation framework for Azure](automation-get-started.md)
