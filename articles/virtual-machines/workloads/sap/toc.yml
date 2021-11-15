@@ -362,7 +362,7 @@
       href: automation-deploy-workload-zone.md
     - name: Deploy the SAP system
       href: automation-deploy-system.md
-    - name: Configure the system
+    - name: Use Ansible for system configuration
       href: automation-run-ansible.md
     - name: Hands-on lab
       href: automation-tutorial.md
@@ -376,10 +376,10 @@
     items:               
     - name: Download and prepare software media
       href: automation-software.md
-    - name: Prepare BoM
-      href: automation-bom-prepare.md
     - name: Get SAP media for BoM
       href: automation-bom-get-files.md
+    - name: Prepare BoM
+      href: automation-bom-prepare.md
     - name: Create automation template files
       href: automation-bom-templates-db.md
 - name: Azure Monitor for SAP Solutions
