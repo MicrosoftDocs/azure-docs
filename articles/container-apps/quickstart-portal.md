@@ -27,7 +27,7 @@ Begin by signing in to the [Azure Portal](https://portal.azure.com).
 Do we need to include steps to login?  Probably not..
 -->
 
-## Create a Container App
+## Create a container app
 
 To create a Container App Resource, start at the Azure Portal home page.
 
