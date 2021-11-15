@@ -302,13 +302,15 @@ See a list of all the workspaces you can use.
 
 # [Python](#tab/python)
 
-Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).  Copy the ID and use it in the code below to see all workspaces available for that subscription.
+Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Copy the ID and use it in the code below to see all workspaces available for that subscription.
 
 ```python
 from azureml.core import Workspace
 
 Workspace.list('<subscription-id>')
 ```
+
+Note that the Workspace.list(..) method does not return the full workspace object. It includes only basic information about existing workspaces in the subscription. To get a full object for specific workspace, use Workspace.get(..).
 
 # [Portal](#tab/azure-portal)
 
