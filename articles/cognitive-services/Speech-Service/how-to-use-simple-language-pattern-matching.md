@@ -8,7 +8,7 @@ manager: travisw
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/14/2021
+ms.date: 11/15/2021
 ms.author: chschrae
 ms.custom: devx-track-cpp
 ---
