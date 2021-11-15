@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Deploy your first container app using the Azure Portal'
-description: Deploy your first application to Azure Container Apps Preview using the Azure Portal.
+title: 'Quickstart: Deploy your first container app using the Azure portal'
+description: Deploy your first application to Azure Container Apps Preview using the Azure portal.
 services: container-apps
 author: cebundy
 ms.service: container-apps
@@ -10,11 +10,11 @@ ms.author: v-bcatherine
 ms.custom: 
 ---
 
-# Quickstart: Deploy your first container app using the Azure Portal
+# Quickstart: Deploy your first container app using the Azure portal
 
 Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
-In this quickstart, you create a secure Container Apps environment and deploy your first container app using the Azure Portal.
+In this quickstart, you create a secure Container Apps environment and deploy your first container app using the Azure portal.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ An Azure account with an active subscription is required. If you don't already h
 
 ## Setup
 
-Begin by signing in to the [Azure Portal](https://portal.azure.com).
+Begin by signing in to the [Azure portal](https://portal.azure.com).
 <!--
 Do we need to include steps to login?  Probably not..
 -->
