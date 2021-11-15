@@ -12,7 +12,7 @@ ms.custom:
 
 # Quickstart: Deploy your first container app using the Azure portal
 
-Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+Azure Container Apps Preview lets you run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers without the complexities of manually configuring cloud infrastructure and container orchestrators.
 
 In this quickstart, you create a secure Container Apps environment and deploy your first container app using the Azure portal.
 
