@@ -371,7 +371,7 @@
     - name: Sample deployment configurations
       href: automation-new-vs-existing.md
     - name: Frequently Asked Questions
-      href: automation-faq.md
+      href: automation-faq.yml
   - name: SAP Software
     items:               
     - name: Download and prepare software media
