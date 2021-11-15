@@ -191,7 +191,7 @@ You can use the `settings` section in the pipeline job to specify a different da
 You can specify a compute at the pipeline job level, which will be used by jobs that don't explicitly mention a compute. (See line 28 in [this example](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml).)
 
 ### What job types are supported in the pipeline job?
-The current release supports command, component and sweep job types.
+The current release supports command, component, and sweep job types.
 
 ### What are the different modes that I use with inputs or outputs?
 | Category | Allowed Modes | Default |
