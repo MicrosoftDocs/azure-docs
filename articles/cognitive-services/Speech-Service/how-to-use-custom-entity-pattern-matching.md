@@ -13,7 +13,7 @@ ms.author: chschrae
 ms.custom: devx-track-cpp
 ---
 
-# How to use simple language pattern matching with the C++ Speech SDK
+# How to use custom entity pattern matching with the C++ Speech SDK
 
 The Cognitive Services [Speech SDK](speech-sdk.md) has a built-in feature to provide **intent recognition** with **simple language pattern matching**. An intent is something the user wants to do: close a window, mark a checkbox, insert some text, etc.
 
