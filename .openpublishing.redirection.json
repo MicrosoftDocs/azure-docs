@@ -5599,6 +5599,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
+      "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/availability-zones/index.md",
       "redirect_url": "/azure/availability-zones/az-overview",
       "redirect_document_id": false
