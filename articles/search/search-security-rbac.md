@@ -9,7 +9,6 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
-ms.custom: references_regions 
 ---
 
 # Use role-based authorization in Azure Cognitive Search
@@ -71,17 +70,6 @@ You can also sign up for the preview using Azure Feature Exposure Control (AFEC)
 
 > [!NOTE]
 > Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as shown in the next step.
-
-### Preview limitations
-
-Role-based access control for data plane operations, such as creating an index or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-There are also a few other limitations to be aware of:
-
-* Using RBAC may increase request latency if a high number of service principals are used to access different service resources (indexes, indexers, etc.). Each combination of resource and service principal will require an authorization check to be done.
-* In scenarios where there are requests coming from a high number of different service principals, it's possible that there could be throttling caused by the authorization checks required. 
-* The RBAC preview is currently only available in public cloud regions and isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
-* If a subscription is migrated to a new tenant, the RBAC preview will need to be re-enabled. 
 
 ## Step 2: Preview configuration
 
