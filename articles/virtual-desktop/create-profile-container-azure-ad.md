@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/17/2021
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory
@@ -72,6 +72,7 @@ Follow the instructions in the following sections to set up Azure Files. To set 
 - Enable Azure AD authentication on your storage account by running the following PowerShell cmdlets:
 
     ```powershell
+    Connect-AzAccount
     $Subscription =  $(Get-AzContext).Subscription.Id;
     $ApiVersion = '2021-04-01'
 
@@ -98,11 +99,9 @@ Follow the instructions in the following sections to set up Azure Files. To set 
     New-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName -KeyName kerb1 -ErrorAction Stop 
     ```
 
-- Validate your environment can connect to your Azure file share by mounting it with SMB. [More info](../storage/files/storage-how-to-use-files-windows.md#using-an-azure-file-share-with-windows).
-
 ### Configure the Azure AD service principal and application
 
-To enable Azure AD authentication on a storage account, you need to create an Azure AD application to represent the storage account in Azure AD. You can create the application by opening PowerShell and following these steps:
+To enable Azure AD authentication on a storage account, you need to create an Azure AD application to represent the storage account in Azure AD. During the preview, this configuration is not available in the Azure portal. To create the application using PowerShell, follow these steps:
 
 - Set the password (service principal secret) based on the Kerberos key of the storage account. The Kerberos key is a password shared between Azure AD and Azure Storage. Kerberos derives its value as the first 32 bytes of the storage account’s kerb1 key. To set the password, run the following cmdlets:
 
@@ -186,7 +185,7 @@ You can configure the API permissions from the [Azure portal](https://portal.azu
 9. Select **openid** and **profile** under the **OpenID** permissions group.
 10. Select **User.Read** under the **User** permission group.
 11. Select **Add permissions** at the bottom of the page.
-12. Select **Grant admin consent for "StorageAccountName"**.
+12. Select **Grant admin consent for "DirectoryName"**.
 
 ### Create a file share and configure the access permissions
 
@@ -201,11 +200,25 @@ Your FSLogix profiles will be stored in a file share under your storage account.
 
 3. You must also assign directory and file-level permissions to ensure users cannot access other user's profile. We recommend you [configure the Windows ACLs](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) for the directory where the profiles will be stored. Learn more about the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht).
 
+4. Ensure that you can mount your file share. From an Azure AD-joined VM or PC, follow the steps below:
+1. 
+net use <DriveLetter>: \\<storage-account-name>.file.core.windows.net\<fIle-share-name>
+
 ## Configure the session hosts
 
 To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you must configure the session hosts. To configure session hosts:
 
-1. By default, session hosts can't retrieve a Kerberos token from Azure AD unless you enable this feature on the VMs by changing the **Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon** policy. When you enable this policy, you can stage this feature by choosing the VMs you want to test your deployment on. After your test, you can expand the deployment to all the VMs across your environment.
+1. By default, session hosts can't retrieve a Kerberos token from Azure AD unless you enable this feature on the VMs through a group policy or registry value. The policy to enable is:
+
+    ```
+    Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon
+    ```
+
+    You can also set the following registry value to enable the feature:
+
+    ```
+    reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1
+    ```
 
 2. When you use Azure AD with a roaming profile solution like FSLogix, the credential keys in Credential Manager must belong to the profile that's currently loading. This will let you load your profile on many different VMs instead of being limited to just one. To enable this setting, create a new registry value by running the following command:
 
@@ -220,27 +233,11 @@ To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you
 
 This section will show you how to configure a VM with FSLogix. You'll need to follow these instructions every time you configure a session host. There are several options available that ensure the registry keys are set on all session hosts. You can set these options in an image or configure a group policy.
 
-First, you'll need to get the Universal Naming Convention (UNC) path of the file share storing the user profiles. To get the UNC path:
-
-1. Open the Azure portal.
-
-2. In the Azure portal, open the storage account you created and select the file share you want to get the UNC path for.
-
-3. Select **Properties** under the Settings header in the left panel.
-
-4. Copy the **URL** to the text editor of your choice.
-
-5. After copying the URL, do the following things to change it into UNC:
-
-    - Remove `https://` and replace with `\\`
-    - Replace the forward slash `/` with a back slash `\`.
-    - The resulting UNC path should follow this format: `\\customdomain.file.core.windows.net\<fileshare-name>`
-
-After you've got the UNC path, you'll need to configure FSLogix on your Azure AD-joined session host VM. To configure FSLogix:
+To configure FSLogix:
 
 1. [Update or install FSLogix](/fslogix/install-ht) on your session host, if needed.
 
-2. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings) to create the **Profiles** and **VHDLocations** registry values. Set the value of **VHDLocations** to the UNC path you generated in step 5.
+2. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings) to create the **Enabled** and **VHDLocations** registry values. Set the value of **VHDLocations** to `\\<Storage-account-name>.file.core.windows.net\<file-share-name>`.
 
 ## Test your deployment
 
