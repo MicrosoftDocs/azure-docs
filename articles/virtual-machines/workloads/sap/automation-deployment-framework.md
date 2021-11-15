@@ -17,11 +17,13 @@ The [SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-
 -	Deployment infrastructure (control plane) 
 -	SAP Infrastructure (SAP Workload)
 
-The dependency between the control plane and the application plane is illustrated in the diagram below
+The dependency between the control plane and the application plane is illustrated in the diagram below.
 
+:::image type="content" source="./media/automation-deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram of dependency between the Control Plane and Application plane.":::
 
-:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram of dependency between the Control Plane and Application plane.":::
+The following diagram shows the key components of the control plane and workload zone.
 
+:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram SAP Deployment Automation Environment.":::
 
 The framework uses [Terraform](https://www.terraform.io/) for infrastructure deployment, and [Ansible](https://www.ansible.com/) for the operating system and application configuration.
 
