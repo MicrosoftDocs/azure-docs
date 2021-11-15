@@ -83,9 +83,8 @@ For more information, review the [Azurite documentation](https://github.com/Azur
     These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
     > [!IMPORTANT]
-    > * If you have an installation that's earlier than these versions, uninstall that version first, 
+    > If you have an installation that's earlier than these versions, uninstall that version first, 
     > or make sure that the PATH environment variable points at the version that you download and install.
-    > * 4.x version is not supported and will not work.
 
   * [Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
 
