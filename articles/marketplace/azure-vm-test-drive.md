@@ -36,7 +36,7 @@ Enter values between 0-99 in the boxes to indicate how many of Hot, Warm, or Col
 
 ### Technical configuration
 
-The ARM template for your test drive is a coded container of all the Azure resources that comprise your solution. To create the ARM deployment template you'll need for your test drive, see [Azure Resource Manager test drive](azure-resource-manager-test-drive.md). Once your template is complete, return here to learn how to uploaded your ARM template and complete the configuration.
+The ARM template for your test drive is a coded container of all the Azure resources that comprise your solution. To create the ARM deployment template you'll need for your test drive, see [Azure Resource Manager test drive](azure-resource-manager-test-drive.md#write-the-test-drive-template). Once your template is complete, return here to learn how to uploaded your ARM template and complete the configuration.
 
 To publish successfully, it is important to validate the formatting of the ARM template. Two ways to do this are by using an [online API tool](/rest/api/resources/deployments/validate) or with a [test deployment](/azure/azure-resource-manager/templates/deploy-portal). Once you are ready to upload your template, drag .zip file into the area indicated, or **Browse** for the file.
 
@@ -44,7 +44,33 @@ Enter a **Test drive duration**, in hours. This is the number of hours the test 
 
 ### Deployment subscription details
 
-For Microsoft to deploy the test drive on your behalf, connect to your Azure Subscription and Azure Active Directory (AAD) by entering the requested information in the four fields, then select **Save draft**.
+For Microsoft to deploy the test drive on your behalf, connect to your Azure Subscription and Azure Active Directory (AAD) by completing the steps below, then select **Save draft**.
+
+1. **Azure subscription ID** – This grants access to Azure services and the Azure portal. The subscription is where resource usage is reported and services are billed. Consider creating a [separate Azure subscription](/azure/cost-management-billing/manage/create-subscription) to use for test drives if you don't have one already. You can find your Azure subscription ID by signing into the Azure portal and searching *Subscriptions* in the search bar.
+2. **Azure AD tenant ID** – Enter your Azure Active Directory (AD) tenant ID by going to **Azure Active Directory** > **Properties** > **Directory ID** within the Azure Portal. If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](/azure/active-directory/develop/quickstart-create-new-tenant?branch=main).
+3. Before proceeding with the other fields, provision the Microsoft Test-Drive application to your tenant. We will use this application to perform operations on your test drive resources.
+    1. If you don't have it yet, install the [Azure Az PowerShell module](/powershell/azure/install-az-ps?branch=main&view=azps-6.6.0).
+    2. Add the Service Principal for Microsoft Test-Drive application.
+        1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account, which requires the Azure active directory **Global Administrator** [built-in role](/azure/active-directory/roles/permissions-reference?branch=main).
+        2. Create a new service principal: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment`.
+        3. Ensure the service principal has been created: `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
+            :::image type="content" source="media/test-drive/commands-to-verify-service-principal.png" :::
+1. **Azure AD App ID** - After provisioning the Microsoft Test-Drive application to your tenant, then paste in this Application ID: `d7e39695-0b24-441c-a140-047800a05ede`.  
+1. **Azure AD app client secret** – No secret is required. Insert a dummy secret, such as “no-secret”.
+1. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription. Do this using either the Azure portal or PowerShell:
+
+    **Method 1: Azure portal**
+
+    1. Select the Subscription being used for the test drive.
+    2. Select **Access control (IAM)**.
+    3. Select the **Role assignments** tab within the main window, then **+Add** and select **+ Add role assignment** from the drop-down menu.
+    4. Enter this Azure AD application name: `Microsoft TestDrive`. Select the application to which you want to assign the **Contributor** role.
+    5. Select **Save**.
+
+    **Method 2: PowerShell**
+
+    1. Run this to get the ServicePrincipal object-id: `(Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive').id`.
+    2. Run this with the ObjectId and subscription ID: `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>`.
 
 Complete your test drive solution by continuing to the next **Test drive** tab in the left-nav menu, **Marketplace listing**.
 
@@ -54,7 +80,7 @@ Provide additional details of your listing and resources for your customers.
 
 **Description** – Describe your test drive, what will be demonstrated, features to explore, objectives for the user to experiment with, and other relevant information to help them determine if your offer is right for them (up to 3,000 characters).
 
-**Access information** – Explain what a customer needs to know to access and use this test drive. Walk through a scenario for using your offer and exactly what the customer should know to access and use the features throughout the test drive (up to 10,000 characters).
+**Access information** – Walk through a scenario for exactly what the customer needs to know to access and use the features throughout the test drive (up to 10,000 characters).
 
 **User Manual** – Describe your test drive experience in detail. The manual should cover exactly what you want the customer to gain from experiencing the test drive and serve as a reference for questions. It must be in PDF format with a name less than 255 characters in length.
 
