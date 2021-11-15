@@ -128,6 +128,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
  * Running container-based apps requires running SF on a Linux host. Nested container apps are currently not supported.
 
 ## Next steps
+* [Set up a Linux cluster on Windows via WSL2](service-fabric-local-linux-cluster-windows-wsl2.md)
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * Get started with [Eclipse](./service-fabric-get-started-eclipse.md)
 * Check out other [Java samples](https://github.com/Azure-Samples/service-fabric-java-getting-started)
