@@ -33,7 +33,7 @@ To add your subscription to the preview:
 1. On the left-hand side of the page, select **Keys**.
 1. In the blue banner that mentions the preview, select **Register** to add the feature to your subscription.
 
-![sign up for the rbac preview in the portal](media/search-howto-aad/rbac-signup-portal.png)
+![screenshot of how to sign up for the rbac preview in the portal](media/search-howto-aad/rbac-signup-portal.png)
 
 You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
@@ -50,7 +50,7 @@ To enable role-based access control:
 1. On the left navigation pane, select **Keys**.
 1. Determine if you'd like to allow both key-based and role-based access control, or only role-based access control.
 
-![authentication options for azure cognitive search in the portal](media/search-howto-aad/portal-api-access-control.png)
+![screenshot of authentication options for azure cognitive search in the portal](media/search-howto-aad/portal-api-access-control.png)
 
 You can also change these settings programatically as described in the [Azure Cognitive Search RBAC Documentation](./search-security-rbac.md?tabs=config-svc-rest%2croles-powershell%2ctest-rest#step-2-preview-configuration).
 
@@ -66,7 +66,7 @@ To register an application with Azure AD:
 1. Select **New Registration**.
 1. Give your application a name and select a supported account type, which determines who can use the application. Then, select **Register**.
 
-![Register an application wizard](media/search-howto-aad/register-app.png)
+![screenshot of the register an application wizard](media/search-howto-aad/register-app.png)
 
 At this point, you've created your Azure AD application and service principal. Make a note of tenant (or directory) ID and the client (or application) ID on the overview page of your app registration. You'll need those values in a future step.
 
@@ -79,7 +79,7 @@ The application will also need a client secret or certificate to prove its ident
 1. Under **Client secrets**, select **New client secret**.
 1. Provide a description of the secret and select the desired expiration interval.
 
-![create a client secret wizard](media/search-howto-aad/create-secret.png)
+![screenshot of create a client secret wizard](media/search-howto-aad/create-secret.png)
 
 Make sure to save the value of the secret in a secure location as you won't be able to access the value again. 
 
@@ -98,7 +98,7 @@ To assign a role to your app registration:
 1. On the next page, select **Select members** and find the application you created previously. 
 1. Finally, select **Review + assign**.
 
-![Add role assignment in the azure portal](media/search-howto-aad/role-assignment.png)
+![screenshot of how to add role assignment in the azure portal](media/search-howto-aad/role-assignment.png)
 
 You can also [assign roles using PowerShell](./search-security-rbac.md?tabs=config-svc-rest%2croles-powershell%2ctest-rest#step-3-assign-roles).
 

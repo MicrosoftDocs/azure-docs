@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
+ms.custom: references_regions 
 ---
 
 # Use role-based authorization in Azure Cognitive Search
@@ -64,7 +65,7 @@ To add your subscription to the preview:
 1. On the left-hand side of the page, select **Keys**.
 1. In the blue banner that mentions the preview, select **Register** to add the feature to your subscription.
 
-![sign up for the rbac preview in the portal](media/search-howto-aad/rbac-signup-portal.png)
+![screenshot of how to sign up for the rbac preview in the portal](media/search-howto-aad/rbac-signup-portal.png)
 
 You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
@@ -81,8 +82,6 @@ There are also a few other limitations to be aware of:
 * In scenarios where there are requests coming from a high number of different service principals, it's possible that there could be throttling caused by the authorization checks required. 
 * The RBAC preview is currently only available in public cloud regions and isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
 * If a subscription is migrated to a new tenant, the RBAC preview will need to be re-enabled. 
-
-If you have questions or concerns about these limitations, or experience issues with latency or throttling while using the preview, you can reach out to us at acs-rbac-preview@microsoft.com.
 
 ## Step 2: Preview configuration
 
