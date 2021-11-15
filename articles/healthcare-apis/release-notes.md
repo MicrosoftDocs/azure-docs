@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/12/2021
+ms.date: 11/15/2021
 ms.author: cavoeg
 ---
 
@@ -21,9 +21,9 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 ### Azure Healthcare APIs Feature Enhancements
 
-|Enhancements | Related information |
-|------------------------ | -------------------------------|
-|<img width=600/>|<img width=300/>|
+
+| <div style="width:150px">Enhancements</div> | Related information          |
+|-------------------------------------------- | -----------------------------|
 |Test Data Generator tool |We've updated the Healthcare APIs  GitHub samples repo to include a [Test Data Generator tool](https://github.com/microsoft/healthcare-apis-samples/blob/main/docs/HowToRunPerformanceTest.md) using Synthea data. This tool is an improvement to the open source [public test projects](https://github.com/ShadowPic/PublicTestProjects), based on Apache JMeter, that can be deployed to Azure AKS for performance tests. |
 
 ### FHIR service

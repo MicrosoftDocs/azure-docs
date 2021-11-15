@@ -19,7 +19,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ### **Bug fixes**
 
-| <div style="width:150px">Infinite loop bug</div> | Related information                          |
+| <div style="width:150px">Infinite loop bug</div> | Related information          |
 | --------------------------------------- | ------------------------------------- |
 |Fixed issue where [Conditional Delete](./././../azure-api-for-fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop. | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
 
