@@ -16,12 +16,11 @@ Temporary file to develop Preview steps, which will coexist with the **Classic**
 
 The steps for orderinig an Import/Export job through Azure Data Box will be on a **Preview** tab in the Import/Export "Order" tutorials. A second tab, **Classic**, will have existing instructions for starting an Import/Export job directly through Import/Export.
 
-
-## Step 2: Create an import job
-
 ## Step 1: Prepare the drives
 
 *INCLUDING SECTION FRAMEWORK TO PRESERVE INTERNAL LINK.* This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
+
+## Step 2: Create an import job
 
 ### [Portal (Preview)](#tab/azure-portal-preview)
 
@@ -65,16 +64,20 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 
 1. In **Job Details**:
 
-   1. Before you go further, make sure you're using the latest WAImportExport tool. The tool will be used behind the scenes when you upload the journal file, later on this screen. You can use the download link to update the tool.<!--Add a mini-screen showing the link?-->
+   1. Before you go further, make sure you're using the latest WAImportExport tool. The tool will be used behind the scenes when you upload the journal file, later on this screen. You can use the download link to update the tool.
+   
+      ![Screenshot showing the link to download the latest WAImportExport tool in Job Details for an Azure Import/Export import job. The tool link is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-06-tool-link.png)
+
    1. You can change the destination Azure region for the job if needed.
    1. Select one or more storage accounts to use for the job. You can create a new storage account if needed.
-   1. Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml` also created with the journal file.
-   
-      When you upload a journal file, the Drive ID is displayed.<!--Add a mini-screen showing a drive ID for a selected journal file?-->
+   1. Under **Drive information**, use the **Copy** button to upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml`, also created with the journal file.
+      When you upload a journal file, the Drive ID is displayed.
 
-   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.<!--More info would be useful. Where is it stored? If they don't store a verbose log, what is the result? This functionality may have changed in Converge.-->
+      ![Screenshot showing Drive Information on the Job Details tab of an Azure Import Export job. The Copy button and drive info for an uploaded journal file are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-06-drive-information.png)
 
-   ![Screenshot of the Job Details tab for an import job in Azure Data Box. The Job Detail tab and Next: Return Shipping button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-06.png)
+   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option. The verbose log is an optional log that lists all files that were successfully imported, with details like the file size and checksum. It's uploaded to a container or share in the storage account. For more information, see LINK TO COME.
+
+   ![Screenshot of completed Job Details tab for an import job in Azure Data Box. The Job Detail tab and Next: Return Shipping button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-06.png)
 
 1. In **Return shipping**:
 
