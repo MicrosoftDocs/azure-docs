@@ -532,7 +532,7 @@ storageaccount=<storageaccountName>
 statefile_subscription=<subscriptionID>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh          \
-    --parameter_file ./DEV-NOEU-SAP01-INFRASTRUCTURE.tfvars                 \
+    --parameterfile ./DEV-NOEU-SAP01-INFRASTRUCTURE.tfvars                 \
     --deployer_environment MGMT                                             \
     --deployer_tfstate_key MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate \
     --storageaccountname $storageaccount                                    \
