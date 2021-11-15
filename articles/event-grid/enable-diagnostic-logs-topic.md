@@ -202,7 +202,7 @@ Then, it creates a diagnostic setting on the topic to send diagnostic informatio
 
 ## Enable diagnostic logs for audit traces
 
-Event Grid can publish the audit traces for data plane operations when selecting the category group **audit** or when selecting the category **DataPlaneRequests** in the **Logs**, the audit trace can be used to ensure that data access is allowed only for authorized purposes and collects information about security control such as resource name, operation type, network access, level, region and more. For more information about how to enable the diagnostic setting, see [Diagnostic logs in Event Grid topics and Event Grid domains](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic).
+Event Grid can publish the audit traces for data plane operations when selecting the category group **audit** or when selecting the category **DataPlaneRequests** in the **Logs**, the audit trace can be used to ensure that data access is allowed only for authorized purposes and collects information about security control such as resource name, operation type, network access, level, region and more. For more information about how to enable the diagnostic setting, see [Diagnostic logs in Event Grid topics and Event Grid domains](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-event-grid-domains).
 ![Select the audit traces](./media/enable-diagnostic-logs-topic/enable-audit-logs.png)
 
 > [!IMPORTANT]
