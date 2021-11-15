@@ -135,7 +135,7 @@ https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.w
 
 To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `tfp` (default) or `acr` claim (as configured) in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `tfp` or `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
 
-Azure AD B2C uses RS256 algorithm based on [RFC 3447](https://www.rfc-editor.org/rfc/rfc3447#section-3.1) specification. The public key consists of two components `n`, and `e`. The RSA modulus and the RSA public exponent. You can convert `n` and `e` values to a certificate format for token validation programmatically.
+Azure AD B2C uses the RS256 algorithm, which is based on the [RFC 3447](https://www.rfc-editor.org/rfc/rfc3447#section-3.1) specification. The public key consists of two components: the RSA modulus (`n`) and the RSA public exponent (`e`). You can programmatically convert `n` and `e` values to a certificate format for token validation.
 
 A description of how to perform signature validation is outside the scope of this document. Many open-source libraries are available to help you validate a token.
 
