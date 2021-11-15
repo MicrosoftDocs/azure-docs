@@ -1,6 +1,6 @@
 ---
-title: Create a codeless connector for Azure Sentinel
-description: Learn how to create a codeless connector in Azure Sentinel using the Codeless Connector Platform (CCP).
+title: Create a codeless connector for Microsoft Sentinel
+description: Learn how to create a codeless connector in Microsoft Sentinel using the Codeless Connector Platform (CCP).
 services: sentinel
 author: batamig
 ms.author: bagol
@@ -10,29 +10,29 @@ ms.topic: how-to
 ms.date: 11/07/2021
 ---
 
-# Create a codeless connector for Azure Sentinel (Public preview)
+# Create a codeless connector for Microsoft Sentinel (Public preview)
 
 > [!IMPORTANT]
 > The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-This article describes how to create a codeless connector for Azure Sentinel using the Codeless Connector Platform (CCP).
+This article describes how to create a codeless connector for Microsoft Sentinel using the Codeless Connector Platform (CCP).
 
-The Codeless Connector Platform (CCP) provides a JSON configuration file that can be used by both customers and partners to create a connector, including both the back-end connection and the user interface displayed in Azure Sentinel. Deploy the connector to your own Azure Sentinel workspace via an ARM template or an API call, or as a solution to Azure Sentinel's solution's gallery.
+The Codeless Connector Platform (CCP) provides a JSON configuration file that can be used by both customers and partners to create a connector, including both the back-end connection and the user interface displayed in Microsoft Sentinel. Deploy the connector to your own Microsoft Sentinel workspace via an ARM template or an API call, or as a solution to Microsoft Sentinel's solution's gallery.
 
-Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Azure Sentinel.
+Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
 
 > [!NOTE]
 > - The CCP supports connections that can be polled via REST API and provide a JSON log format. Data connetions require a publicly accessibly REST API endpoint.
 >
-> - Issues due to authentication errors or the data source's REST API availability are the customers' responsibility. Azure Sentinel provides built-in health data, and you can open a support ticket to request detailed health audit records as needed.
+> - Issues due to authentication errors or the data source's REST API availability are the customers' responsibility. Microsoft Sentinel provides built-in health data, and you can open a support ticket to request detailed health audit records as needed.
 >
 
 ## Data source authentication
 
-Codeless data connectors pull data from publicly accessible APIs. To pull data, Azure Sentinel must authenticate to the data source service using an authentication method supported by both the data source's API and the CCP.
+Codeless data connectors pull data from publicly accessible APIs. To pull data, Microsoft Sentinel must authenticate to the data source service using an authentication method supported by both the data source's API and the CCP.
 
-Authentication data isn't included in the codeless connector's configuration, but provided when you connect your data connector from Azure Sentinel. This connection is performed using the [CONNECT](#connect) action, with connection data stored in an encrypted keystore residing in the customer region.
+Authentication data isn't included in the codeless connector's configuration, but provided when you connect your data connector from Microsoft Sentinel. This connection is performed using the [CONNECT](#connect) action, with connection data stored in an encrypted keystore residing in the customer region.
 
 Supported authentication methods include:
 
@@ -42,9 +42,9 @@ Supported authentication methods include:
 
 - **OAuth2**. Uses an open standard for access delegation intended to grant access from applications to an API without supporting the actual authentication data.
 
-    Using OAuth2 requires app registration, authentication, and then getting a token and access by the application using the registration and authentication data. When connecting a codeless data connector, register Azure Sentinel as your application, and then interact directly with your data source's API authentication process for the required keys. Provide the keys to the connector when you need to connect.
+    Using OAuth2 requires app registration, authentication, and then getting a token and access by the application using the registration and authentication data. When connecting a codeless data connector, register Microsoft Sentinel as your application, and then interact directly with your data source's API authentication process for the required keys. Provide the keys to the connector when you need to connect.
 
-For more information, see [Connect to your data connector from Azure Sentinel](#connect-to-your-data-connector-from-azure-sentinel).
+For more information, see [Connect to your data connector from Microsoft Sentinel](#connect-to-your-data-connector-from-azure-sentinel).
 
 
 ## Supported REST API actions
@@ -128,7 +128,7 @@ The following code shows the basic syntax of the CCP configuration file:
 }
 ```
 
-Your connector uses the `connectorUiConfig` section to define the visual elements and text displayed on the data connector page in Azure Sentinel, and the `pollingConfig` section to define how Azure Sentinel collects data from your data source.
+Your connector uses the `connectorUiConfig` section to define the visual elements and text displayed on the data connector page in Microsoft Sentinel, and the `pollingConfig` section to define how Microsoft Sentinel collects data from your data source.
 
 For more information, see:
 
@@ -137,15 +137,15 @@ For more information, see:
 
 ## User interface configuration
 
-This section describes the configuration for how the user interface on the data connector page appears in Azure Sentinel.
+This section describes the configuration for how the user interface on the data connector page appears in Microsoft Sentinel.
 
-Each data connector page in Azure Sentinel has the following areas, configured using the `connectorUiConfig` section of the [data connector configuration file](#connector-configuration).
+Each data connector page in Microsoft Sentinel has the following areas, configured using the `connectorUiConfig` section of the [data connector configuration file](#connector-configuration).
 
 - **Title**: The title displayed for your data connector
 
 - **Icon**: The icon displayed for your data connector
 
-- **Status**: Displays whether or not your data connector is connected to Azure Sentinel
+- **Status**: Displays whether or not your data connector is connected to Microsoft Sentinel
 
 - **Data charts**: Displays relevant queries and the amount of ingested data in the last two weeks.
 
@@ -229,10 +229,10 @@ TableName
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **tenant** | ENUM | Lists required permissions as one or more of the following values: `GlobalAdmin`, `SecurityAdmin`,  `SecurityReader`, `InformationProtection` <br><br>For example, the **tenant** value displays displays in Azure Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
-| **licenses** | ENUM | Lists required licenses as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>For example, the **licenses** value displays in Azure Sentinel as: **License: Required Azure AD Premium P2**|
-| **customs** | `{`<br>`  name:string,`<br>` description:string`<br>`}` | Description of any custom permissions required for your data connection. <br><br>For example, the **customs** value displays in Azure Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
-| **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Description of prerequisites for your Azure resource. <br><br>For example, the **resourceProvider** value displays in Azure Sentinel as: <br>**Workspace: write permission is required. **<br>**Keys: read permissions to shared keys for the workspace are required.**|
+| **tenant** | ENUM | Lists required permissions as one or more of the following values: `GlobalAdmin`, `SecurityAdmin`,  `SecurityReader`, `InformationProtection` <br><br>For example, the **tenant** value displays displays in Microsoft Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
+| **licenses** | ENUM | Lists required licenses as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>For example, the **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
+| **customs** | `{`<br>`  name:string,`<br>` description:string`<br>`}` | Description of any custom permissions required for your data connection. <br><br>For example, the **customs** value displays in Microsoft Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
+| **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Description of prerequisites for your Azure resource. <br><br>For example, the **resourceProvider** value displays in Microsoft Sentinel as: <br>**Workspace: write permission is required. **<br>**Keys: read permissions to shared keys for the workspace are required.**|
 | | |
 
 #### ResourceProviderPermissions
@@ -274,8 +274,8 @@ TableName
 | **title**	| String | A title for your instructions (optional) |
 | **description** | 	String	| A meaningful description for your instructions (optional) |
 | **innerSteps**	| [InstructionStep](#instructionstep) | An array of inner instruction steps (optional) |
-| **bottomBorder** | 	Boolean	| When `true`, adds a bottom border to the instructions area on the connector page in Azure Sentinel |
-| **isComingSoon** |	Boolean	| When `true`, adds a **Coming soon** title on the connector page in Azure Sentinel |
+| **bottomBorder** | 	Boolean	| When `true`, adds a bottom border to the instructions area on the connector page in Microsoft Sentinel |
+| **isComingSoon** |	Boolean	| When `true`, adds a **Coming soon** title on the connector page in Microsoft Sentinel |
 | | | |
 
 
@@ -381,7 +381,7 @@ new LinkInstructionModel({ linkType: LinkType.OpenAzureActivityLog } )
 To define an inline link using markdown, use the following example as a guide:
 
 ```markdown
-<value>Follow the instructions found on article [Connect Azure Sentinel to your threat intelligence platform]({0}). Once the application is created you will need to record the Tenant ID, Client ID and Client Secret.</value>
+<value>Follow the instructions found on article [Connect Microsoft Sentinel to your threat intelligence platform]({0}). Once the application is created you will need to record the Tenant ID, Client ID and Client Secret.</value>
 ```
 
 The code sample listed above shows an inline link that looks like the following image:
@@ -598,15 +598,15 @@ The following code shows an example of the `pollingConfig` section of the CCP co
 }
 ```
 
-## Connect to your data connector from Azure Sentinel
+## Connect to your data connector from Microsoft Sentinel
 
 After you've configured your CCP connector JSON file, use the [UPSERT](#upsert) API or an ARM template to deploy an instance of your connector to your workspace.
 
 Then connect by passing credentials with one of the following methods:
 
-- **Connect via the user interface**: In your Azure Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
+- **Connect via the user interface**: In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
 
-    The data connector page in Azure Sentinel is controlled by the `instructionSteps` configuration in the `connectorUiConfig` element of the CCP configuration file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
+    The data connector page in Microsoft Sentinel is controlled by the `instructionSteps` configuration in the `connectorUiConfig` element of the CCP configuration file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
 
 - **Connect via API**: Use the [CONNECT](#connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
 
@@ -645,7 +645,7 @@ If you no longer need your connector's data, disconnect the connector to stop th
 
 Use one of the following methods:
 
-- **Disconnect via the user interface**: In your Azure Sentinel data connector page, select **Disconnect**.
+- **Disconnect via the user interface**: In your Microsoft Sentinel data connector page, select **Disconnect**.
 
 - **Disconnect via API** Use the [DISCONNECT](#disconnect) API to send a PUT call with an empty body to the following URL:
 
@@ -655,6 +655,6 @@ Use one of the following methods:
 
 ## Next steps
 
-Share your new codeless data connector with the Azure Sentinel community! Create a solution for your data connector and share it in the Azure Sentinel Marketplace.
+Share your new codeless data connector with the Microsoft Sentinel community! Create a solution for your data connector and share it in the Microsoft Sentinel Marketplace.
 
-For more information, see [About Azure Sentinel solutions](sentinel-solutions.md).
+For more information, see [About Microsoft Sentinel solutions](sentinel-solutions.md).

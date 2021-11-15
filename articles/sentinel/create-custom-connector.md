@@ -51,11 +51,11 @@ The following table compares essential details about each method for creating cu
 
 ## Connect with the Codeless Connector Platform
 
-The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners, and then deployed to your own workspace, or as a solution to Azure Sentinel's solution's gallery.
+The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners, and then deployed to your own workspace, or as a solution to Microsoft Sentinel's solution's gallery.
 
-Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Azure Sentinel.
+Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
 
-For more information, see [Create a codeless connector for Azure Sentinel](create-codeless-connector.md).
+For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 
 ## Connect with the Log Analytics agent
 
