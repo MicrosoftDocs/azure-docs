@@ -61,6 +61,16 @@ To enable a zone resilient Azure Service Fabric managed cluster, you must includ
   "zonalResiliency": "true"
 }
 ```
+# Migrate existing Clusters across Availability Zones (Preview) 
+Service Fabric Managed clusters which are not spanned across Availability zones can now be migrated across Availability Zones. Clusters created in regions supporting Availability zones as well as clusters in regions where Availability zones are currently not supported but will arrive in future, both will be able to migrate. 
+
+## Steps to Migrate 
+* Use apiVersion 2021-11-01-preview or higher 
+* Add a new primary nodetype to the cluster with **zones** parameter in the nodetype set to ["1", "2", "3"].
+* Add more secondary nodetypes with same **zones** parameter if required to migrate existing services. 
+* Move existing services from the old nodetypes to the new ones.
+* Remove the old nodetypes from the ARM template. 
+* Set **zonalResiliency: true**  int cluster ARM template to mark cluster as zone resilient and ensure all other deployments span across availability zones.
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
