@@ -8,7 +8,7 @@ ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: sentinel
 ms.subservice: sentinel
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 11/15/2021
 ---
 
 # Best practices for partners integrating with Microsoft Sentinel
@@ -131,32 +131,52 @@ The following sections describes common partner integration scenarios, and recom
 
 **Example**: Products that supply some form of log data include firewalls, cloud application security brokers, physical access systems, Syslog output, commercially available and enterprise-built LOB applications, servers, network metadata, anything deliverable over Syslog in Syslog or CEF format, or over REST API in JSON format.
 
-**How to use data in Microsoft Sentinel**: Import your product's data into Microsoft Sentinel via a data connector to provide analytics, hunting, investigations, visualizations, and more.
+**How to use your data in Microsoft Sentinel**: Import your product's data into Microsoft Sentinel via a data connector to provide analytics, hunting, investigations, visualizations, and more.
 
-**What to buid**: Include the following elements in your solution:
+**What to build**: For this scenario, include the following elements in your solution:
 
-- A Microsoft Sentinel data connector to deliver the data and link other customizations in the portal.
-- Workbooks (recommended)
-- Sample queries
-- Analytics rules, to build detections based your data in Microsoft Sentinel (recommended)
-- Hunting Queries -  Enable hunters with pre-built queries they can use in hunting(Optional)
-	Azure Notebooks – Deliver fully guided, repeatable hunting experience. (Optional)
+|Type  |Elements to include  |
+|---------|---------|
+|**Required**     |  - A Microsoft Sentinel data connector to deliver the data and link other customizations in the portal.  <br><br>Sample data queries     |
+|**Recommended**     | - Workbooks <br><br>- Analytics rules, to build detections based your data in Microsoft Sentinel       |
+|**Optional**     |  - Hunting queries, to provide hunters with out-of-the-box queries to use when hunting <br><br>- Notebooks, to deliver a fully-guided, repeatable hunting experience       |
+|     |         |
+
+### Your product provides detections
+
+**Scenario**: Your product provides detections that complement alerts and incidents from other systems
+
+**Examples**: Antimalware, enterprise detection and response solutions, network detection and response solutions, mail security solutions such as anti-phishing products, vulnerability scanning, mobile device management solutions, UEBA solutions, information protection services, and so on.
+
+**How to use your data in Microsoft Sentinel**: Make your detections, alerts, or incidents available in Microsoft Sentinel to show them in context with other alerts and incidents that may be occurring in your customers' environments. Also consider delivering the logs and metadata that power your detections, as extra context for investigations.
+
+**What to build**: For this scenario, include the following elements in your solution:
+
+|Type  |Elements to include  |
+|---------|---------|
+|**Required**     |  A Microsoft Sentinel data connector to deliver the data and link other customizations in the portal.   |
+|**Recommended**     | Analytics rules, to create Microsoft Sentinel incidents from your detections that are helpful in investigations |
+|     |         |
 
 
-If you provide detections…	Antimalware, Enterprise Detection and Response solutions, Network Detection and Response solutions, Mail Security solutions including anti Phishing products, Vulnerability scanning, Mobile Device Management, UEBA Solutions, Information protection, products, etc.	Making your detection, alert or incident available in Azure Sentinel enables your detections to appear in context with other alerts and incidents.
-Consider also delivering the log or metadata that powers your detections as customers routinely ask for it as additional context during investigation.	Build an Azure Sentinel Data connector as above plus:
-	Analytics – Create Azure Sentinel Incidents from your detections so they become useable in incident investigations (Recommended)
+### Your product supplies threat intelligence indicators
+
+**Scenario**: Your product supplies threat intelligence indicators that can provide context for security events occurring in customers' environments
+
+**Examples**: TIP platforms, STIX/TAXII collections, and public or licensed threat intelligence sources. Reference data, such as WhoIS, GeoIP, or newly observed domains. 
 
 
-Supplying Threat Intelligence Indicators	TIP platforms, STIX/TAXII Collections, public or licensed TI Sources.
+**How to use your data in Microsoft Sentinel**: Deliver current indicators to Microsoft Sentinel for use across Microsoft detection platforms. Use very large scale or historical datasets for enrichment scenarios, via remote access.
 
-Reference data: WhoIS, GeoIP, Newly observed Domains, etc.	Current indicators should be delivered to Azure Sentinel for use in Microsoft detection platforms including Sentinel and Defender
-Very Large scale or Historical datasets should be used for enrichment scenarios and are best accessed remotely.	Current TI
-	Build GSAPI connector to push indicators to Azure Sentinel
-	Provide STIX 2.0,2.1 TAXII Server, customers will use built in TAXII data connector.
+**What to build**: For this scenario, include the following elements in your solution:
 
-Historical indicators and/or reference datasets
-	Logic app Connector and enrichment workflow playbook
+|Type  |Elements to include  |
+|---------|---------|
+|**Current threat intelligence**     |  Build a GSAPI data connector to push indicators to Microsoft Sentinel. <br><br>Provide a STIX 2.0 or 2.1 TAXII Server that customers can use with the out-of-the-box TAXII data connector. |
+|**Historical indicators and/or reference datasets**     | Provide a logic app connector to access the data and an enrichment workflow playbook that directs the data to the correct places.|
+|     |         |
+
+### Your product provides additional context for investigations
 
 
 Additional Context	CMDB, High value Asset DB, vIP DBs, Application dependency DBs, Incident Management Systems, Ticketing Systems	Alert and Incident Enrichment.		Logic App connector
