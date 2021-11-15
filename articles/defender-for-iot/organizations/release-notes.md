@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 11/14/2021
+ms.date: 11/15/2021
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -32,7 +32,7 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 
 ## November 2021
 
-The following is a list of feature enhancements that are available with version 10.5.3 of Microsoft Defender for IoT.
+The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
 
 - The management console's certificate has an expiration date of 10 years.
 
