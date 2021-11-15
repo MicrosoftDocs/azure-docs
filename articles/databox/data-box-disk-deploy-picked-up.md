@@ -233,9 +233,7 @@ Take the following steps if returning the device in South Africa.
 
 ### Self-managed shipping
 
-If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, India, or Brazil, and have selected the self-managed shipping option during order creation, follow these instructions. 
-
-For detailed steps, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
+If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, India, or Brazil, and have selected the self-managed shipping option during order creation, follow these instructions. For detailed steps, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 
