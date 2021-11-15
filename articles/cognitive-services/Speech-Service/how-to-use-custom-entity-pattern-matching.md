@@ -1,14 +1,14 @@
 ---
-title: How to use simple language pattern matching with the C++ Speech SDK
+title: How to use custom entity pattern matching with the C++ Speech SDK
 titleSuffix: Azure Cognitive Services
-description: In this guide, you learn how to recognize intents and entities from simple patterns.
+description: In this guide, you learn how to recognize intents and custom entities from simple patterns.
 services: cognitive-services
 author: chschrae
 manager: travisw
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/14/2021
+ms.date: 11/15/2021
 ms.author: chschrae
 ms.custom: devx-track-cpp
 ---
@@ -24,7 +24,7 @@ In this guide, you use the Speech SDK to develop a C++ console application that 
 > - Create a Visual Studio project referencing the Speech SDK NuGet package
 > - Create a speech configuration and get an intent recognizer
 > - Add intents and patterns via the Speech SDK API
-> - Recognize speech from a microphone
+> - Add custom entities via the Speech SDK API
 > - Use asynchronous, event-driven continuous recognition
 
 ## When should you use this?
@@ -44,21 +44,7 @@ Be sure you have the following items before you begin this guide:
 - A [Cognitive Services Azure resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) or a [Unified Speech resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
 
-## Speech and simple patterns
-
-The simple patterns are a feature of the Speech SDK and need a Cognitive Services resource or a Unified Speech resource.
-
-A pattern is a phrase that includes an Entity somewhere within it. An Entity is defined by wrapping a word in curly brackets. For example:
-
-```
-    Take me to the {floorName}
-```
-
-This defines an Entity with the ID "floorName" which is case sensitive.
-
-All other special characters and punctuation will be ignored.
-
-Intents will be added using calls to the IntentRecognizer->AddIntent() API.
+[!INCLUDE [Pattern Matching Overview](pattern-matching-overview.md)]
 
 ## Create a speech project in Visual Studio
 
