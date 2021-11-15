@@ -1,6 +1,6 @@
 ---
 title: Naming standards for the automation framework
-description: Explanation of naming conventions for the SAP Deployment Automation Framework on Azure.
+description: Explanation of naming conventions for the SAP deployment automation framework on Azure.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss

@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Deploy the control plane
 
-The control plane deployment consists of the following components:
+The control plane deployment for the [SAP deployment automation framework on Azure](automation-deployment-framework.md) consists of the following components:
  - Deployer
  - SAP library
 

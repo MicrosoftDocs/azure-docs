@@ -1,6 +1,6 @@
 ---
 title: Get SAP media for Bill of Materials
-description: How to download SAP media to use in your Bill of Materials (BOM) for the deployment automation framework.
+description: How to download SAP media to use in your Bill of Materials (BOM) for the SAP deployment automation framework on Azure.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -72,7 +72,7 @@ To prepare for [downloading the SAP installation media](#download-media):
 
     1. Select **Install New S4HANA System**. 
     
-    1. Click **Next**
+    1. Select **Next**
 
     1. For **Install a New System**, enter the SAP SID you're using.
 

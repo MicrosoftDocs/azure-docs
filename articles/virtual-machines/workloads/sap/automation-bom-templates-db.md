@@ -1,6 +1,6 @@
 ---
 title: Generate Application Database templates for automation
-description: How to generate SAP Application templates for use with the deployment automation framework.
+description: How to generate SAP Application templates for use with the SAP deployment automation framework on Azure.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss

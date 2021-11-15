@@ -1,6 +1,6 @@
 ---
-title: Configure control plane for automation 
-description: Configure your deployment control plane for the SAP automation framework on Azure.
+title: Configure control plane for automation framework
+description: Configure your deployment control plane for the SAP deployment automation framework on Azure.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configure the control plane
 
-The control plane consists of the following components:
+The control plane for the [SAP deployment automation framework on Azure](automation-deployment-framework.md) consists of the following components:
  - Deployer
  - SAP library
 

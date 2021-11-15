@@ -1,6 +1,6 @@
 ---
-title: Get started with Deployment Automation Framework
-description: Quickly get started with the SAP Deployment Automation Framework on Azure. Deploy an example configuration using sample parameter files.
+title: Get started with the SAP on Azure deployment automation framework
+description: Quickly get started with the SAP deployment automation framework on Azure. Deploy an example configuration using sample parameter files.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Get started with SAP automation framework on Azure
 
-Get started quickly with the [SAP Deployment Automation Framework on Azure](automation-deployment-framework.md).
+Get started quickly with the [SAP deployment automation framework on Azure](automation-deployment-framework.md).
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ Import-Module             C:\Azure_SAP_Automated_Deployment\sap-hana\deploy\scri
 ---
 
 > [!TIP]
-> The deployer already clones [SAP Deployment Automation Framework repository](https://github.com/Azure/sap-hana). 
+> The deployer already clones [SAP deployment automation framework repository](https://github.com/Azure/sap-hana). 
 
 ## Copy the samples
 

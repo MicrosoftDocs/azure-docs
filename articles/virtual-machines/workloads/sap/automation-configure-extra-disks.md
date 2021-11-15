@@ -1,6 +1,6 @@
 ---
 title: Add more disks to SAP deployment automation configuration
-description: Configure more disks for your system in the SAP deployment automation framework. Add extra disks to a new system, or an existing system.
+description: Configure more disks for your system in the SAP deployment automation framework on Azure. Add extra disks to a new system, or an existing system.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Change the disk configuration for the SAP deployment automation
 
-By default, the [SAP deployment automation framework](automation-deployment-framework.md) defines the disk configuration for the SAP systems. As needed, you can change the default configuration by providing a custom disk configuration json file.
+By default, the [SAP deployment automation framework on Azure](automation-deployment-framework.md) defines the disk configuration for the SAP systems. As needed, you can change the default configuration by providing a custom disk configuration json file.
 
 > [!TIP]
 > When possible, it's a best practice to increase the disk size instead of adding more disks.

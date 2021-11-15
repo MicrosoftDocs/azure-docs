@@ -1,6 +1,6 @@
 ---
 title: Configure SAP system parameters for automation
-description: Define the SAP system properties for the automation framework using a parameters JSON file.
+description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters JSON file.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configure SAP system parameters for automation
 
-Configuration for the [SAP deployment automation framework](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. 
+Configuration for the [SAP deployment automation framework on Azure](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. 
 
 The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
 
@@ -199,7 +199,7 @@ The application tier defines the infrastructure for the application tier, which 
 
 ### Anchor Virtual Machine Parameters
 
-The SAP Deployment Automation Framework supports having an Anchor Virtual Machine. The anchor Virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
+The SAP deployment automation framework supports having an Anchor Virtual Machine. The anchor Virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
 
 The table below contains the parameters related to the anchor virtual machine. 
 

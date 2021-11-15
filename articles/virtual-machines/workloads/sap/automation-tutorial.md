@@ -1,6 +1,6 @@
 ---
-title: SAP deployment automation - Hands-on lab
-description: Hands-On Lab
+title: Enterprise scaling with the SAP deployment automation framework
+description: How to do enterprise scaling for deployments using the SAP deployment automation framework on Azure.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 # Enterprise Scale for SAP Automation Framework Deployment - Hands-on Lab
 
 
-This tutorial shows how to do enterprise scaling for deployments using the [SAP automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. There's a feature-locked branch in the [GitHub repository for the automation framework](https://github.com/Azure/sap-hana/), named `sap-level-up`, for use with this tutorial.
+This tutorial shows how to do enterprise scaling for deployments using the [SAP deployment automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. There's a feature-locked branch in the [GitHub repository for the automation framework](https://github.com/Azure/sap-hana/), named `sap-level-up`, for use with this tutorial.
 
 During this lab, you will perform the following tasks
 
@@ -40,7 +40,7 @@ There are three main steps of an SAP deployment on Azure with the automation fra
 There are several workflows in the deployment automation process. However, this tutorial focuses on one workflow for ease of deployment. You can deploy this workflow,  the SAP-S4HANA standalone environment, using Bash. The tutorial describes the general hierarchy and different phases of the deployment.
 ### Environment Overview
 
-The SAP on Azure Deployment Automation Framework has two main components:
+The SAP on Azure deployment automation framework has two main components:
 
 - Deployment infrastructure (control plane)
 - SAP Infrastructure (SAP Workload)
@@ -51,7 +51,7 @@ The following diagram shows the dependency between the control plane and the app
 
 The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. The following diagram shows the logical separation of the control plane and workload zone.
 
-:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="SAP Deployment Automation Environment Diagram":::
+:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram showing the SAP deployment automation framework environment.":::
 
 #### Management Zone
 
