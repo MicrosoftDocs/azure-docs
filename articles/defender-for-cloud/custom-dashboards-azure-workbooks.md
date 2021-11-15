@@ -28,7 +28,7 @@ Within Microsoft Defender for Cloud, you can access the built-in workbooks to tr
 | Release state:                  | General availability (GA)                                                                                                                    |
 | Pricing:                        | Free                                                                                                                                         |
 | Required roles and permissions: | To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet) |
+| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 |                                 |                                                                                                                                              |
 
 ## Workbooks gallery in Microsoft Defender for Cloud
