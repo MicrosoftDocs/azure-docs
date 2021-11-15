@@ -121,7 +121,7 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-   This step isn't required for dedicated SQL pools within an Azure Synapse Analytics workspace.
+   This step isn't required for the dedicated SQL pools within an Azure Synapse Analytics workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
   
 1. Create a **general-purpose v2 Storage Account** by following the steps in [Create a storage account](../../storage/common/storage-account-create.md).
 
@@ -147,7 +147,8 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
        ```
 
-       - There's no need to specify SECRET with an Azure Storage access key because this mechanism uses [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) under the covers. The Synapse System identity always has the Synapse Administrator role.
+       - There's no need to specify SECRET with an Azure Storage access key because this mechanism uses [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) under the covers. This step isn't required for the dedicated SQL pools within an Azure Synapse Analytics workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
+
        - The IDENTITY name must be **'Managed Service Identity'** for PolyBase connectivity to work with an Azure Storage account secured to a virtual network.
 
    1. Create an external data source with the `abfss://` scheme for connecting to your general-purpose v2 storage account using PolyBase.

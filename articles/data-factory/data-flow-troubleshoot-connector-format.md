@@ -405,13 +405,8 @@ When you use the Synapse as a source/sink in the data flow to preview data, debu
 #### Recommendation
 You need to confirm if the SQL pool is created from the Synapse workspace.
 
-- If the SQL pool is created from the Synapse workspace, you need to re-register the MI of the workspace. You can apply the following steps to work around this issue by re-registering the workspace's MI:
-    1. Go to your Synapse workspace in the Azure portal.
-    1. Go to the **managed identities** blade.
-    1. If the **Allow pipelines** option is already to be checked, you must uncheck this setting and save.
-    1. Check the **Allow pipelines** option and save.
-
-- If the SQL pool is the old DWH version, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md#steps).
+- If the SQL pool is created from the Synapse workspace, no additional steps are necessary. Do no longer need to re-register the Managed Identity (MI) of the workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
+- If the SQL pool is a dedicated SQL pool (formerly SQL DW) pre-dating Azure Synapse, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md#steps).
 
 ### Failed with an error: "SQLServerException: Not able to validate external location because the remote server returned an error: (403)"
 
@@ -490,7 +485,7 @@ Update your manifest document to have the `dataPartitions` information, and you�
 ### JSON array attributes are inferred as separate columns
 
 #### Symptoms 
-You may encounter an issue where one attribute (string type) of the CDM entity has a JSON array as data. When this data is encountered, ADF infers the data as separate columns incorrectly. As you can see from the following pictures, a single attribute presented in the source (msfp_otherproperties) is inferred as a separate column in the CDM connector’s preview.<br/> 
+You may encounter an issue where one attribute (string type) of the CDM entity has a JSON array as data. When this data is encountered, ADF infers the data as separate columns incorrectly. As you can see from the following pictures, a single attribute presented in the source (msfp_otherproperties) is inferred as a separate column in the CDM connector's preview.<br/> 
 
 - In the CSV source data (refer to the second column): <br/>
 
@@ -504,13 +499,13 @@ You may encounter an issue where one attribute (string type) of the CDM ent
 You may also try to map drifted columns and use the data flow expression to transform this attribute as an array. But since this attribute is read as a separate column when reading, transforming to an array does not work.  
 
 #### Cause
-This issue is likely caused by the commas within your JSON object value for that column. Since your data file is expected to be a CSV file, the comma indicates that it is the end of a column’s value. 
+This issue is likely caused by the commas within your JSON object value for that column. Since your data file is expected to be a CSV file, the comma indicates that it is the end of a column's value. 
 
 #### Recommendation
-To solve this problem, you need to double quote your JSON column and avoid any of the inner quotes with a backslash (`\`). In this way, the contents of that column’s value can be read in as a single column entirely.  
+To solve this problem, you need to double quote your JSON column and avoid any of the inner quotes with a backslash (`\`). In this way, the contents of that column's value can be read in as a single column entirely.  
   
 >[!Note]
->The CDM doesn’t inform that the data type of the column value is JSON, yet it informs that it is a string and parsed as such.
+>The CDM doesn't inform that the data type of the column value is JSON, yet it informs that it is a string and parsed as such.
 
 ### Unable to fetch data in the data flow preview
 
