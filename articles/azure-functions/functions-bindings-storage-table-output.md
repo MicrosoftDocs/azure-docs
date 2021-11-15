@@ -332,6 +332,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 
 ::: zone-end  
 ## Attributes and annotations
+
 ::: zone pivot="programming-language-csharp"
 
 # [C#](#tab/csharp)
@@ -390,7 +391,6 @@ Attributes aren't supported by PowerShell.
 ::: zone pivot="programming-language-python"  
 Attributes aren't supported by Python.
 
----
 ::: zone end
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
