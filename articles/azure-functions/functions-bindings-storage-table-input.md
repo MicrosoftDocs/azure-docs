@@ -15,6 +15,8 @@ Use the Azure Table storage input binding to read a table in an Azure Storage ac
 
 ## Example
 
+# [C#](#tab/csharp)
+
 ### One entity
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. For every message sent to the queue, the function will be triggered.
@@ -595,7 +597,7 @@ Attributes aren't supported by PowerShell.
 
 Attributes aren't supported by Python.
 ::: zone-end
-  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `Table` attribute.
@@ -613,7 +615,7 @@ The following table explains the binding configuration properties that you set i
 |**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is "AzureWebJobsMyStorage", you can specify "MyStorage" here. The Functions runtime will automatically look for an app setting that named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
+::: zone-end  
 
 ## Usage
 
