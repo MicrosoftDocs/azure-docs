@@ -96,7 +96,7 @@ The difference to the recommendation given so far is that the database VMs in th
 In this case, the purpose is to use proximity placement groups to collocate the VMs that are deployed through different availability sets. In this usage scenario, you are not using a controlled deployment across different Availability Zones in a region. Instead you want to deploy the SAP system by using availability sets. As a result, you have at least an availability set for the DBMS VMs, ASCS/SCS VMs, and the application tier VMs. Since you cannot specify at deployment time of a VM an availability set AND an Availability Zone, you can't control where the VMs in the different availability sets are going to be allocated. This could result in some Azure regions that the network latency between different VMs, still could be too high to give a sufficiently good performance experience. So the resulting architecture would look like:
 
 
-![Proximity placement groups with AvSets](./media/sap-proximity-placement-scenarios/vm-ppg-avsets.png)
+![Proximity placement groups with AvSets](./media/sap-proximity-placement-scenarios/vm-ppg-avset.png)
 
 In this graphic, a single proximity placement group would be assigned to a single SAP system. This PPG gets assigned to the three availability sets. The proximity placement group is then scoped by deploying the first database tier VMs into the DBMS availability set. This architecture recommendation will collocate all VMs under the same network spine. It is introducing the restrictions mentioned earlier in this article. Therefore, the proximity placement group architecture should be used sparsely.
 
