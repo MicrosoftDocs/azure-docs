@@ -14,6 +14,8 @@
   items:
   - name: Run and manage experiment
     href: chaos-studio-run-experiment.md
+  - name: Schedule an experiment
+    href: tutorial-schedule.md
 - name: Samples
   items:
   - name: Azure REST API 

@@ -137,7 +137,7 @@ The tables below show the current billable status for each DPS service API opera
 
 | API | Operation | Billable? |
 | --------------- | -------  | -- |
-|  Device API | [Device Registration Status Lookup](/api/iot-dps/device/runtime-registration/device-registration-status-lookup) | Yes|
+|  Device API | [Device Registration Status Lookup](/api/iot-dps/device/runtime-registration/device-registration-status-lookup) | No|
 |  Device API | [Operation Status Lookup](/api/iot-dps/device/runtime-registration/operation-status-lookup)| No |
 |  Device API | [Register Device](/api/iot-dps/device/runtime-registration/register-device) | Yes |
 | DPS Service API (registration state)  | [Delete](/api/iot-dps/service/device-registration-state/delete) | Yes|

@@ -1497,6 +1497,7 @@
     href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
   - name: Microsoft Defender for Cloud
     href: ../security-center/security-center-introduction.md
+    maintainContext: true
   - name: Security baselines
     items:
     - name: Linux
