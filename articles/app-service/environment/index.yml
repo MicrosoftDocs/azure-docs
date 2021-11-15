@@ -49,9 +49,9 @@ landingContent:
         links:
           - text: App Service Environment common tasks
             url: using.md
-          - text: Provision an App Service Environment from an ARM template
+          - text: Provision an ASE from an ARM template
             url: create-from-template.md
-          - text: Configure custom settings
+          - text: Configure ASE custom settings
             url: app-service-app-service-environment-custom-settings.md
       - linkListType: reference
         links:
