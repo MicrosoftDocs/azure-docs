@@ -49,7 +49,7 @@ In the *Basics* tab, do the following actions.
 
 #### Create an Environment
  
-1. In the *Create Container App Environment* field, select **Create new**.
+1. In the *Create Container App environment* field, select **Create new**.
 1. In the *Create Container App Environment* page on the *Basics* tab, enter the following values:
 
     | Setting | Value |
