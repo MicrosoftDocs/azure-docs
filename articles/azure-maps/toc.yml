@@ -280,7 +280,9 @@ items:
   - name: Develop with the iOS SDK
     items:
     - name: Getting started with iOS map control
-      href: how-to-use-ios-map-control-library.md      
+      href: how-to-use-ios-map-control-library.md
+    - name: Use the Azure Maps Indoor Maps
+      href: how-to-use-indoor-module-ios.md
   - name: Use Azure Maps in Power BI
     items: 
     - name: Getting started
