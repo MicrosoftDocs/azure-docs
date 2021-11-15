@@ -156,6 +156,47 @@ To configure the data export:
 
     :::image type="content" source="media/quick-export-data/data-transformation-query.png" alt-text="Screenshot that shows the data transformation query for the export.":::
 
+    If you want to see how the transformation works and experiment with the query, paste the following sample telemetry message into **1. Add your input message**:
+
+    ```json
+    {
+      "messageProperties": {},
+      "device": {
+        "id": "8hltz8xa7n",
+        "properties": {
+          "reported": []
+        },
+        "approved": true,
+        "types": [],
+        "name": "8hltz8xa7n",
+        "simulated": false,
+        "provisioned": true,
+        "modules": [],
+        "templateId": "urn:modelDefinition:vlcd3zvzdm:y425jkkpqzeu",
+        "templateName": "IoT Plug and Play mobile",
+        "organizations": [],
+        "cloudProperties": [],
+        "blocked": false
+      },
+      "component": "sensors",
+      "applicationId": "40a97c91-50cc-44f0-9f63-71386613facc",
+      "messageSource": "telemetry",
+      "telemetry": [
+        {
+          "id": "dtmi:azureiot:PhoneSensors:__accelerometer;1",
+          "name": "accelerometer",
+          "value": {
+            "x": 0.09960123896598816,
+            "y": 0.09541380405426025,
+            "z": 9.907781600952148
+          }
+        }
+      ],
+      "enqueuedTime": "2021-11-12T10:01:30.588Z",
+      "enrichments": {}
+    }
+    ```
+
 1. Save the transformation. Then save the data export definition.
 
 Wait until the export status shows **Healthy**:
