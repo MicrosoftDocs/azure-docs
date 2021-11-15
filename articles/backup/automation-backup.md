@@ -31,7 +31,7 @@ To access Azure Backup functionality, you can use the following standard automat
 
 You can also use Azure Backup associated with other Azure services, such as Logic Apps, Runbooks, and Action Groups, to set up end-to-end automation workflows.
 
-For more information on about the various scenarios that automation clients support and the corresponding document references, see the [supported automation solutions for Azure Backup](#supported-automation-methods-by-operation-type) section.
+For more information on about the various scenarios that automation clients support and the corresponding document references, see the [supported automation solutions for Azure Backup](#supported-automation-methods-by-operation-types) section.
 
 ## Sample automation scenarios
 
@@ -232,7 +232,7 @@ To get started, follow these steps:
 ### Vault-level configurations
 
 | **Category** | **Operation** | **PowerShell** | **CLI** | **REST API** | **Azure Policy** | **ARM Template** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Vault-level configurations | Manage | Create Recovery Services vault | Supported    <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#create-a-recovery-services-vault). | Supported    <br><br> [See the examples](/azure/backup/quick-backup-vm-cli#create-a-recovery-services-vault). | Supported    <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-createorupdatevault). | N/A | Supported    <br><br> [See the examples](/azure/backup/backup-rm-template-samples). |
 | Vault-level configurations | Manage | Create Backup vault | Supported    <br><br> [See the examples](/azure/backup/backup-blobs-storage-account-ps#create-a-backup-vault). | Supported    <br><br> [See the examples](/azure/backup/backup-blobs-storage-account-cli#create-a-backup-vault). | Supported    <br><br> [See the examples](/azure/backup/backup-azure-dataprotection-use-rest-api-create-update-backup-vault). | N/A | Supported |
 | Vault-level configurations | Manage | Move Recovery Services vault | Supported    <br><br> [See the examples](/azure/backup/backup-azure-move-recovery-services-vault#use-powershell-to-move-recovery-services-vault). | Supported    <br><br> [See the examples](/azure/backup/backup-azure-move-recovery-services-vault#use-powershell-to-move-recovery-services-vault). | Supported | N/A | N/A |
