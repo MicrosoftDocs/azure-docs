@@ -50,9 +50,20 @@ Some of the resource names can be changed by providing parameters in the tfvars 
 | `web nsg name`         | `web_subnet_nsg_name`   |                                                                    |
 | `admin nsg name`       | `admin_subnet_nsg_name` |                                                                    |
 
-## Module input
+## Changing the naming module
 
-The module input uses parameters as follows to create names:
+To prepare your Terraform environment for custom naming, you first need to create custom naming module. The easiest way is to copy the existing module and make the required changes in the copied module.
+
+1. Create a root-level folder in your Terraform environment. For example, `Azure_SAP_Automated_Deployment`.
+1. Navigate to your new root-level folder.
+1. Clone the [automation framework repository](https://github.com/Azure/sap-hana). This step creates a new folder `sap-hana`.
+1. Create a folder within the root-level folder called `Contoso_naming`.
+1. Navigate to the `sap-hana` folder.
+1. Check out the appropriate branch in git.
+1. Navigate to `\deploy\terraform\terraform-units\modules` within the `sap-hana` folder.
+1. Copy the folder `sap_namegenerator` to the `Contoso_naming` folder.
+
+The naming module is called from the root terraform folders:
 
 ```terraform
 module "sap_namegenerator" {
@@ -161,30 +172,6 @@ output "naming" {
   }
 }
 ```
-
-## Prepare Terraform environment
-
-To prepare your Terraform environment for custom naming, you first need to create custom naming module.
-
-1. Create a root-level folder in your Terraform environment. For example, `Azure_Deployment`.
-1. Navigate to your new root-level folder.
-1. Create a folder within the root-level folder called `Workspaces`.
-1. Navigate to the `Workspaces` folder.
-1. Clone the [automation framework repository](https://github.com/Azure/sap-hana) into the `Workspaces` folder. This step creates a new folder `sap-hana`.
-1. Navigate to the `sap-hana` folder.
-1. Check out the appropriate branch in git.
-1. Navigate to `\deploy\terraform\terraform-units\modules` within the `sap-hana` folder.
-1. Copy the folder `sap_namegenerator` to a new folder within the `Workspaces` folder. For example, `\Workspaces\Contoso_naming`.
-
-Next, you need to point your other Terraform module files to your custom naming module. These module files include:
-
-- `deploy\terraform\run\sap_system\module.tf`
-- `deploy\terraform\bootstrap\sap_deployer\module.tf`
-- `deploy\terraform\bootstrap\sap_library\module.tf`
-- `deploy\terraform\run\sap_library\module.tf`
-- `deploy\terraform\run\sap_deployer\module.tf`
-
-For each file, change the source for the module `sap_namegenerator` to point to your new naming module's location. For example `module "sap_namegenerator" { source        = "../../terraform-units/modules/sap_namegenerator"` becomes `module "sap_namegenerator" { source        = "../../../../workspaces/Contoso_naming"`.
 
 ## Change resource group naming logic
 
