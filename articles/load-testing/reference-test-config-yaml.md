@@ -22,7 +22,7 @@ A test configuration uses the following keys.
 
 | Key | Type | Description | 
 | ----- | ----- | ----- | 
-| `version` | string | **Required**. The version of the YAML config file used by the service. Currently the only valid value is `v0.1`. |
+| `version` | string | The version of the YAML config file used by the service. Currently the only valid value is `v0.1`. |
 | `testName` | string | **Required**. Name of the test to run. The results of different test runs will be collected under this test name in the Azure portal. |
 | `testPlan` | string | **Required**. The relative path to the JMeter test script to run. |
 | `engineInstances` | integer | **Required**. The number of parallel test engine instances to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
@@ -39,6 +39,7 @@ A test configuration uses the following keys.
 The following example contains the configuration for a load test:
 
 ```yaml
+version: v0.1
 testName: SampleTest
 testPlan: SampleTest.jmx
 description: Load test website home page
