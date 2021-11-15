@@ -32,13 +32,7 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 
 ## November 2021
 
-The following feature enhancements are available with version 10.5.3 of Azure Defender for IoT.
-
-- [Generalized performance enhancements](#generalized-performance-enhancements)
-
-### Generalized performance enhancements
-
-The following is a list of generalized performance enhancements that are included within this release.
+The following is a list of feature enhancements that are available with version 10.5.3 of Microsoft Defender for IoT.
 
 - The management console's certificate has an expiration date of 10 years.
 
