@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. The following tables describe the properties available in the container app ARM template.
 
-The [sample ARM template for usage examples](#example).
+The [sample ARM template for usage examples](#examples).
 
 ## Resources
 
