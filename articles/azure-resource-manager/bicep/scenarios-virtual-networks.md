@@ -10,6 +10,8 @@ ms.date: 11/10/2021
 
 Many Azure deployments require networking resources to be deployed and configured. You can use Bicep to define your Azure networking resources.
 
+<!-- TODO move all code samples into the azure-docs-bicep-samples repo -->
+
 ## Virtual networks and subnets
 
 Define your virtual networks by creating a resource with the type [`Microsoft.Network/virtualNetworks`](/azure/templates/microsoft.network/virtualnetworks?tabs=bicep).
@@ -24,7 +26,6 @@ Virtual networks contain subnets, which are logical groups of IP addresses withi
 It's best to define your subnets within the virtual network definition, as in this example:
 
 ::: code language="bicep" source="code/scenarios-virtual-networks/vnet.bicep" range="7-30, 39" :::
-<!-- TODO move to correct repo -->
 
 Although both approaches enable you to define and create your subnets, there is an important difference. When you define subnets by using child resources, the first time your Bicep file is deployed, the virtual network is deployed. Then, after the virtual network deployment is complete, each subnet is deployed. This sequencing occurs because Azure Resource Manager deploys each individual resource separately.
 
