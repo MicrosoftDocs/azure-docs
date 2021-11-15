@@ -62,7 +62,7 @@ To enable a zone resilient Azure Service Fabric managed cluster, you must includ
 }
 ```
 # Migrate existing Clusters across Availability Zones (Preview) 
-Service Fabric Managed clusters which are not spanned across Availability zones can now be migrated across Availability Zones. Clusters created in regions supporting Availability zones as well as clusters in regions where Availability zones are currently not supported but will arrive in future, both will be able to migrate. 
+Service Fabric Managed clusters which are not spanned across Availability zones can now be migrated across Availability Zones. Clusters created in regions supporting availability zones as well as clusters in regions where availability zones are currently not supported but will arrive in future, both will be able to migrate. 
 
 >[!NOTE]
 >Availability Zone spanning is only available on Standard SKU clusters.
@@ -72,13 +72,13 @@ Service Fabric Managed clusters which are not spanned across Availability zones 
 
 ## Steps to Migrate 
 * Use apiVersion 2021-11-01-preview or higher 
-* Add a new primary nodetype to the cluster with **zones** parameter in the nodetype set to ["1", "2", "3"].
-* Add more secondary nodetypes with same **zones** parameter if required to migrate existing services. 
-* Move existing services from the old nodetypes to the new ones.
-* Remove the old nodetypes from the cluster using ARM template deployement. 
+* Add a new primary node type to the cluster with **zones** parameter in the nodetype set to ["1", "2", "3"].
+* Add more secondary node types with same **zones** parameter if required to migrate existing services. 
+* Move existing services from the old node types to the new ones.
+* Remove the old nodetypes from the cluster using ARM template deployment. 
 * Set **zonalResiliency: true**  int cluster ARM template to mark cluster as zone resilient and ensure all other deployments span across availability zones.
 
-### Node Type deployment for Migration to availability zones
+### Node type ARM deployment for Migration to availability zones
 ```json
 {
   "apiVersion": "2021-11-01-preview",
