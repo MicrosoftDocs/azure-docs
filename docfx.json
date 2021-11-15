@@ -217,7 +217,7 @@
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
-        "articles/app-service/environment/*.md": "ccompy",
+        "articles/app-service/environment/*.md": "madsd",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/automanage/*md": "daberry",
@@ -572,7 +572,7 @@
         "articles/ansible/**/*.md": "tarcher",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
-        "articles/app-service/environment/*.md": "ccompy",
+        "articles/app-service/environment/*.md": "madsd",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-service-mobile/**/*.md": "emalani",
         "articles/automanage/*md": "daberry",
@@ -853,8 +853,7 @@
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
       },
       "recommendations": {
-        "articles/cognitive-services/Translator/**/*.md": false,
-        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": false
+        "articles/cognitive-services/Translator/**/*.md": false
       },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
