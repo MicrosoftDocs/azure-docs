@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/16/2020
+ms.date: 11/15/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -177,8 +177,8 @@ Determine whether one dateTime is later, earlier, or equal to another. The resul
 | InputParameter | timeSpanInSeconds | int | Add the timespan to the first datetime. |
 | OutputClaim | result | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
-Use this claims transformation to determine if two ClaimTypes are  equal, later, or earlier than each other. For example, you may store the last time a user accepted your terms of services (TOS). After 3 months, you can ask the user to access the TOS again.
-To run the claim transformation, you first need to get the current dateTime and also the last time user accepts the TOS.
+Use this claims transformation to determine if two ClaimTypes are  equal, later, or earlier than each other. For example, you may store the last time a user accepted your terms of services (TOS). After 3 months, you can ask the user to accept the TOS again.
+To run the claim transformation, you first need to get the current dateTime and also the last time user accepted the TOS.
 
 ```xml
 <ClaimsTransformation Id="CompareLastTOSAcceptedWithCurrentDateTime" TransformationMethod="DateTimeComparison">
@@ -206,3 +206,46 @@ To run the claim transformation, you first need to get the current dateTime and 
     - **timeSpanInSeconds**: 7776000 (90 days)
 - Output claims:
     - **result**: true
+
+## IsTermsOfUseConsentRequired
+
+Determine whether the terms of use updated date is newer than the terms of use consented date. The result is a new boolean ClaimType boolean with a value of `true` or `false`.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | termsOfUseConsentDateTime | dateTime | The dateTime of when the user has previously consented to terms of use. Null value throws an exception. |
+| InputParameter | termsOfUseTextUpdateDateTime | dateTime | The dateTime of when new terms of use were issued. |
+| OutputClaim | result | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+
+Use this claims transformation to determine if the user has consented to the latest terms of use. For example, you may store the last time a user accepted your terms of use (TOU). When your TOU wording changes, you can ask the user to accept the updated TOU.
+To run the claim transformation, you first need to get the last time user consented to the TOU.
+
+```xml
+<ClaimsTransformation Id="IsTermsOfUseConsentRequired" TransformationMethod="IsTermsOfUseConsentRequired">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2021-11-15T00:00:00" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **termsOfUseConsentDateTime**: 2020-01-01T00:00:00
+- Input parameters:
+    - **termsOfUseTextUpdateDateTime**: 2021-11-15T00:00:00
+- Output claims:
+    - **result**: true
+
+- Input claims:
+    - **termsOfUseConsentDateTime**: 2021-11-16T15:30:45
+- Input parameters:
+    - **termsOfUseTextUpdateDateTime**: 2021-11-15T00:00:00
+- Output claims:
+    - **result**: false
