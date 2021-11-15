@@ -326,7 +326,7 @@
   - name: REST APIs documentation
     href: /rest/api/securitycenter/
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/security-center/TOC.json
+    href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
   - name: FAQ for Microsoft Defender for Cloud
     items:
     - name: General questions
