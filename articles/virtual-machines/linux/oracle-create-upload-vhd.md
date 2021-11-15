@@ -293,10 +293,10 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
+    **Note:** if you are migrating a specific virtual machine and do not wish to create a generalized image,skip the deprovision step
+    
 	```console
-	# Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
-    # skip the deprovision step
-    # sudo rm -rf /var/lib/waagent/
+    # sudo cloud-init clean
     # sudo rm -f /var/log/waagent.log
 
     # waagent -force -deprovision+user

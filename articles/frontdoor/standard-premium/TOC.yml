@@ -131,8 +131,8 @@
       href: how-to-reports.md
   - name: Troubleshoot
     items:
-    - name: Trouble routing issues
-      href: troubleshoot-route-issues.md
+    - name: Troubleshooting Front Door issues
+      href: ../troubleshoot-issues.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Allowed certificate authorities
       href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
     - name: File Compression
@@ -146,9 +146,9 @@
   - name: Azure Front Door edge locations
     items:
     - name: Edge locations by region
-      href: edge-locations.md
+      href: ../edge-locations-by-region.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Edge locations by abbreviation
-      href: edge-locations-by-abbreviation.md
+      href: ../edge-locations-by-abbreviation.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.cdn
   - name: REST API

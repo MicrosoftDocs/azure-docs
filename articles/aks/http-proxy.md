@@ -98,7 +98,7 @@ Note the CA cert should be the base64 encoded string of the PEM format cert cont
 {
   "httpProxy": "http://myproxy.server.com:8080/", 
   "httpsProxy": "https://myproxy.server.com:8080/", 
-  "noProxy": [
+  "noProxy": [
     "localhost",
     "127.0.0.1"
   ],

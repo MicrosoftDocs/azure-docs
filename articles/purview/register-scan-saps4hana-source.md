@@ -32,6 +32,9 @@ This article outlines how to register SAP S/4HANA, and how to authenticate and i
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
 
+    >[!NOTE]
+    >Scanning SAP S/4HANA is a memory intensive operation, you are recommended to install Self-hosted Integration Runtime on a machine with large memory e.g. 128 GB.
+
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
 * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
@@ -111,10 +114,7 @@ Follow the steps below to scan SAP S/4HANA to automatically identify assets and 
 
     1. **JCo library path**: Specify the path to the folder where the JCo libraries are located.
 
-    1. **Maximum memory available:** Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of SAP S/4HANA source to be scanned.
-
-        > [!Note]
-        > As a thumb rule, please provide 1GB memory for every 1000 tables
+    1. **Maximum memory available:** Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of SAP S/4HANA source to be scanned. It's recommended to provide large available memory e.g. 100.
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="scan SAP S/4HANA" border="true":::
 

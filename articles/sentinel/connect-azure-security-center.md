@@ -4,8 +4,8 @@ description: Learn how to connect security alerts from Microsoft Defender for Cl
 author: yelevin
 manager: rkarlin
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
@@ -34,10 +34,6 @@ As Defender for Cloud itself is enabled per subscription, the Defender for Cloud
 
 ### Bi-directional alert synchronization
 
-> [!IMPORTANT]
->
-> - The **bi-directional alert synchronization** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 - Enabling **bi-directional sync** will automatically sync the status of original security alerts with that of the Microsoft Sentinel incidents that contain those alerts. So, for example, when a Microsoft Sentinel incident containing a security alerts is closed, the corresponding original alert will be closed in Microsoft Defender for Cloud automatically.
 
 ## Prerequisites
@@ -62,7 +58,7 @@ As Defender for Cloud itself is enabled per subscription, the Defender for Cloud
     > - The check boxes and **Connect** toggles will be active only on the subscriptions for which you have the required permissions.
     > - The **Connect** button will be active only if at least one subscription's check box has been marked.
 
-1. To enable bi-directional sync on a subscription, locate the subscription in the list, and choose **Enabled** from the drop-down list in the **Bi-directional sync (Preview)** column. To enable bi-directional sync on several subscriptions at once, mark their check boxes and select the **Enable bi-directional sync** button on the bar above the list.
+1. To enable bi-directional sync on a subscription, locate the subscription in the list, and choose **Enabled** from the drop-down list in the **Bi-directional sync** column. To enable bi-directional sync on several subscriptions at once, mark their check boxes and select the **Enable bi-directional sync** button on the bar above the list.
 
     > [!NOTE]
     > - The check boxes and drop-down lists will be active only on the subscriptions for which you have the [required permissions](#prerequisites).
