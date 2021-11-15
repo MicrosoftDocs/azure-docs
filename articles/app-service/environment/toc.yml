@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create App Service Environment
+  - name: Create App Service Environment in portal
     href: creation.md
 - name: Tutorials
   items:
@@ -15,14 +15,6 @@
     href: integrate-with-application-gateway.md
   - name: Geo-distributed scale
     href: app-service-app-service-environment-geo-distributed-scale.md
-  - name: ASE custom settings
-    href: app-service-app-service-environment-custom-settings.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-  - name: Azure PowerShell
-    href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: Concepts
   items:
   - name: Networking architecture
@@ -37,8 +29,10 @@
   items:
   - name: Using App Service Environment
     href: using.md
-  - name: Create ASE from a template
+  - name: Provision ASE from an ARM template
     href: create-from-template.md
+  - name: ASE custom settings
+    href: app-service-app-service-environment-custom-settings.md
 - name: Reference
   items:
   - name: Management addresses

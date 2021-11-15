@@ -17,12 +17,8 @@ landingContent:
         links:
           - text: What is App Service Environment?
             url: overview.md
-          - text: What is an App Service plan?
-            url: ../overview-hosting-plans.md
-          - text: App Service
+          - text: What is App Service?
             url: ../overview.md
-          - text: Compare Azure hosting options for web apps
-            url: /azure/architecture/guide/technology-choices/compute-decision-tree
       - linkListType: whats-new
         links:
           - text: Service updates
@@ -49,14 +45,14 @@ landingContent:
         links:
           - text: Integrate with Application Gateway
             url: integrate-with-application-gateway.md
-          - text: Configure custom settings
-            url: app-service-app-service-environment-custom-settings.md
       - linkListType: how-to-guide
         links:
           - text: App Service Environment common tasks
             url: using.md
-          - text: Create an App Service Environment from template
+          - text: Provision an App Service Environment from an ARM template
             url: create-from-template.md
+          - text: Configure custom settings
+            url: app-service-app-service-environment-custom-settings.md
       - linkListType: reference
         links:
           - text: Azure CLI reference
