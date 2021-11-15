@@ -87,11 +87,11 @@ Defender for Cloud.
 Enhancements for v3 include: 
 
 - Additional mappings to industry frameworks [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf) and [CIS Controls v8](https://www.cisecurity.org/controls/v8/).
-- More granular and actionable guidance for controls with the introduction:
+- More granular and actionable guidance for controls with the introduction of:
     - **Security Principles** - Providing insight into the overall security objectives that build the foundation for our recommendations.
     - **Azure Guidance** - The technical “how-to” for meeting these objectives.
 
-New controls include DevOps security for issues such as threat modeling and software supply chain security, as well as key and certificate management for best practices in Azure.
+- New controls include DevOps security for issues such as threat modeling and software supply chain security, as well as key and certificate management for best practices in Azure.
 
 Learn more in [Introduction to Azure Security Benchmark](/security/benchmark/azure/introduction).
 

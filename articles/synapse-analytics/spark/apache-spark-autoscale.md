@@ -56,6 +56,26 @@ To enable the Autoscale feature, complete the following steps as part of the nor
 
 The initial number of nodes will be the minimum. This value defines the initial size of the instance when it's created. The minimum number of nodes can't be fewer than three.
 
+Optionally, you can enable dynamic allocation of executors in scenarios where the executor requirements are vastly different across stages of a Spark Job or the volume of data processed fluctuates with time. By enabling Dynamic Allocation of Executors, we can utilize capacity as required.
+
+On enabling Dynamic Allocation of Executors while creation a Spark pool, minimum and maximum number of nodes can be set subject to the limits of available nodes. These values are defaulted to every new session that is created within the pool.
+
+Apache Spark enables configuration of Dynamic Allocation of Executors through code as below:
+
+```
+    %%configure -f
+    {
+        "conf" : {
+            "spark.dynamicAllocation.maxExecutors" : "6",
+            "spark.dynamicAllocation.enable": "true",
+            "spark.dynamicAllocation.minExecutors": "2"
+     }
+    }
+```
+The defaults specified through the code override the values set through the user interface.
+
+On enabling Dynamic allocation, Executors scale up or down based on the utilization of the Executors. This ensure that the Executors are provisioned in accordance with the needs of the job being run.
+
 ## Best practices
 
 ### Consider the latency of scale up or scale down operations

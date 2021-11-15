@@ -69,7 +69,7 @@ Your runbooks must include logic to deal with [resources](/rest/api/resources/re
 
 ## Security
 
-Azure Automation uses the [Microsoft Defender for Cloud](../security-center/security-center-introduction.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
+Azure Automation uses the [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
 [Introduction to authentication in Azure Automation](automation-security-overview.md).
 
 Defender for Cloud places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you are a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.

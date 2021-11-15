@@ -37,9 +37,8 @@ For more information, see:
 - [Advanced threat protection for Azure Cosmos DB (Preview)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 - [The list of threat protection alerts for Azure Cosmos DB (Preview)](alerts-reference.md#alerts-azurecosmos)
 
-<a name="azure-mcas">
 
-## Display recommendations in Microsoft Defender for Cloud Apps</a>
+## Display recommendations in Microsoft Defender for Cloud Apps <a name="azure-mcas"></a>
 
 Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security) is a cloud access security broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
 
@@ -72,7 +71,7 @@ If you have Azure DDoS Protection enabled, your DDoS alerts are streamed to Defe
 ## Next steps
 To learn more about the security alerts from these threat protection features, see the following articles:
 
-* [Reference table for all Defender for Cloud alerts](alerts-reference.md)
-* [Security alerts in Defender for Cloud](alerts-overview.md)
-* [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.md)
-* [Continuously export Defender for Cloud data](continuous-export.md)
+- [Reference table for all Defender for Cloud alerts](alerts-reference.md)
+- [Security alerts in Defender for Cloud](alerts-overview.md)
+- [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.md)
+- [Continuously export Defender for Cloud data](continuous-export.md)

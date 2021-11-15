@@ -7,10 +7,7 @@ ms.date: 11/09/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-
 ---
-
-
 # Harden your Docker hosts
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]

@@ -225,9 +225,6 @@
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
       href: defender-for-container-registries-cicd.md
-    - name: Disable specific image vulnerability findings
-      displayName: ACR, registry, images, qualys
-      href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: Protect Azure Arc-enabled Kubernetes clusters
       displayName: k8s, containers, aks, hybrid, arc, azure arc, multicloud
       href: defender-for-kubernetes-azure-arc.md
@@ -326,7 +323,7 @@
   - name: REST APIs documentation
     href: /rest/api/securitycenter/
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/security-center/TOC.json
+    href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
   - name: FAQ for Microsoft Defender for Cloud
     items:
     - name: General questions
