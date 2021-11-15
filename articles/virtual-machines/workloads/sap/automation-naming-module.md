@@ -32,11 +32,29 @@ The different resource names are identified by prefixes in the Terraform code.
 
 The calculated names are returned in a data dictionary which is used by all the terraform modules. 
 
+## Using custom names
+
+Some of the resource names can be changed by providing parameters in the tfvars parameter file.
+
+| Resource               | Parameter               | Notes                                                              |
+| ---------------------- | ----------------------- | ------------------------------------------------------------------ |
+| `Prefix`               | `custom_prefix`         | This is used as prefix for all the resources in the resource group |
+| `Resource group`       | `resourcegroup_name`    |                                                                    |
+| `admin subnet name`    | `admin_subnet_name`     |                                                                    |
+| `admin nsg name`       | `admin_subnet_nsg_name` |                                                                    |
+| `db subnet name`       | `db_subnet_name`        |                                                                    |
+| `db nsg name`          | `db_subnet_nsg_name`    |                                                                    |
+| `app subnet name`      | `app_subnet_name`       |                                                                    |
+| `app nsg name`         | `app_subnet_nsg_name`   |                                                                    |
+| `web subnet name`      | `web_subnet_name`       |                                                                    |
+| `web nsg name`         | `web_subnet_nsg_name`   |                                                                    |
+| `admin nsg name`       | `admin_subnet_nsg_name` |                                                                    |
+
 ## Module input
 
 The module input uses parameters as follows to create names:
 
-```json
+```terraform
 module "sap_namegenerator" {
   source           = "../../terraform-units/modules/sap_namegenerator"
   environment      = var.infrastructure.environment
