@@ -587,7 +587,7 @@ Attributes aren't supported by JavaScript.
 ::: zone pivot="programming-language-powershell"
 ## Attributes and annotations
 
-Attributes aren't supported by Powershell.
+Attributes aren't supported by PowerShell.
 ::: zone-end  
 ::: zone pivot="programming-language-Python"
 ## Attributes and annotations
