@@ -13,19 +13,19 @@ ms.author: madsd
 > This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
 > 
 
-The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that hosts web apps, api apps, and function apps. When you install an ASE, you pick the Azure Virtual Network that you want it to be deployed in. All of the inbound and outbound traffic application will be inside the virtual network you specify. The ASE is deployed into a single subnet in your virtual network. Nothing else can be deployed into that same subnet.
+The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that hosts Windows and Linux containers, web apps, api apps, logic apps, and function apps. When you install an ASE, you pick the Azure Virtual Network that you want it to be deployed in. All of the inbound and outbound application traffic will be inside the virtual network you specify. The ASE is deployed into a single subnet in your virtual network. Nothing else can be deployed into that same subnet.
 
 ## Subnet requirements
 
 The subnet must be delegated to Microsoft.Web/hostingEnvironments and must be empty.
 
-The size of the subnet can affect the scaling limits of the App Service Plan instances within the ASE. We recommend using a `/24` address space (256 addresses) for your subnet to ensure enough addresses to support production scale.
+The size of the subnet can affect the scaling limits of the App Service plan instances within the ASE. We recommend using a `/24` address space (256 addresses) for your subnet to ensure enough addresses to support production scale.
 
 To use a smaller subnet, you should be aware of the following details of the ASE and network setup.
 
-Any given subnet has five addresses reserved for management purposes. On top of the management addresses, ASE will dynamically scale the supporting infrastructure and will use between 4 and 27 addresses depending on configuration, scale, and load. The remaining addresses can be used for instances in the App Service Plan. The minimal size of your subnet is a `/27` address space (32 addresses).
+Any given subnet has five addresses reserved for management purposes. On top of the management addresses, ASE will dynamically scale the supporting infrastructure and will use between 4 and 27 addresses depending on configuration and load. The remaining addresses can be used for instances in the App Service plan. The minimal size of your subnet is a `/27` address space (32 addresses).
 
-The effect of running out of addresses is, that you can be restricted from scaling out your App Service Plans in the ASE or you can experience increased latency during intensive traffic load if we are not able scale the supporting infrastructure.
+If you run out of addresses within your subnet, you can be restricted from scaling out your App Service plans in the ASE or you can experience increased latency during intensive traffic load if we are not able scale the supporting infrastructure.
 
 ## Addresses
 
@@ -48,7 +48,7 @@ As you scale your App Service plans in your ASE, you'll use more addresses out o
 
 ## Ports and network restrictions
 
-For your app to receive traffic, you need to ensure that inbound Network Security Groups (NSGs) rules allow the ASE subnet to receive traffic from the needed ports. In addition to the rules needed by your app, port 80 must be allowed from the AzureLoadBalancer to the ASE subnet for internal keep alive traffic between the load balancer and the ASE infrastructure. You can still control port 80 traffic from the virtual network to you ASE subnet.
+For your app to receive traffic, you need to ensure that inbound Network Security Groups (NSGs) rules allow the ASE subnet to receive traffic from the required ports. In addition to any ports you'd like to receive traffic on, you should ensure the AzureLoadBalancer is able to connect to the ASE subnet on port 80. This is used for internal VM health checks. You can still control port 80 traffic from the virtual network to you ASE subnet.
 
 The general recommendation is to configure the following inbound NSG rule:
 
@@ -62,7 +62,7 @@ The minimal requirement for ASE to be operational is:
 |-|-|-|
 |80|AzureLoadBalancer|ASE subnet range|
 
-If you use the minimum required rule you will need one or more rules for your app traffic, and if you are using any of the deployment or debugging options, you will also have to allow this traffic to the ASE subnet. The source of these rules can be VirtualNetwork or one or more specific client IPs or IP ranges. The destination will always be the ASE subnet range.
+If you use the minimum required rule you may need one or more rules for your application traffic, and if you are using any of the deployment or debugging options, you will also have to allow this traffic to the ASE subnet. The source of these rules can be VirtualNetwork or one or more specific client IPs or IP ranges. The destination will always be the ASE subnet range.
 
 The normal app access ports are:
 
@@ -70,13 +70,12 @@ The normal app access ports are:
 |-|-|
 |HTTP/HTTPS|80, 443|
 |FTP/FTPS|21, 990, 10001-10020|
-|Visual Studio remote debugging|4020, 4022, 4024|
+|Visual Studio remote debugging|4022, 4024, 4026|
 |Web Deploy service|8172|
-
 
 ## Network routing
 
-You can set Route Tables (UDRs) without restriction. You can force tunnel all of the outbound traffic from your ASE to an egress firewall device, such as the Azure Firewall, and not have to worry about anything other than your application dependencies. You can put WAF devices, such as the Application Gateway, in front of inbound traffic to your ASE to expose specific apps on that ASE. For a different dedicated outbound address to the internet, you can use a NAT Gateway with your ASE. To use a NAT Gateway with your ASE, configure the NAT Gateway against the ASE subnet.
+You can set Route Tables (UDRs) without restriction. You can force tunnel all of the outbound application traffic from your ASE to an egress firewall device, such as the Azure Firewall, and not have to worry about anything other than your application dependencies. You can put WAF devices, such as the Application Gateway, in front of inbound traffic to your ASE to expose specific apps on that ASE. If you'd like to customize the outbound address of your applications on an ASE, you can add a NAT Gateway to your ASE subnet.
 
 ## DNS
 
@@ -101,11 +100,11 @@ To configure DNS in Azure DNS Private zones:
 1. create an A record in that zone that points @ to the inbound IP address
 1. create an A record in that zone that points *.scm to the inbound IP address
 
-The DNS settings for your ASE default domain suffix don't restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the inbound IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
+In addition to the default domain provided when an app is created, you can also add a custom domain to your app. You can set a custom domain name without any validation on your apps in an ILB ASE. If you are using custom domains, you will need to ensure they have DNS records configured. You can follow the guidance above to configure DNS zones and records for a custom domain name by replacing the default domain name with the custom domain name. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*.
 
 ### DNS configuration from your ASE
 
-The apps in your ASE will use the DNS that your virtual network is configured with. If you want some apps to use a different DNS server than what your virtual network is configured with, you can manually set it on a per app basis with the app settings WEBSITE_DNS_SERVER and WEBSITE_DNS_ALT_SERVER. The app setting WEBSITE_DNS_ALT_SERVER configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server. 
+The apps in your ASE will use the DNS that your virtual network is configured with. If you want some apps to use a different DNS server than what your virtual network is configured with, you can manually set it on a per app basis with the app settings WEBSITE_DNS_SERVER and WEBSITE_DNS_ALT_SERVER. The app setting WEBSITE_DNS_ALT_SERVER configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server.
 
 ## Limitations
 

@@ -21,7 +21,9 @@ Apps that are hosted in an ASE can use the app-centric certificate features that
 - SNI certificates
 - KeyVault hosted certificates
 
-The instructions for uploading and managing those certificates are available in [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).
+The requirements and instructions for uploading and managing those certificates are available in [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).
+
+Once the certificate is added to your App Service app or function app, you can [secure a custom domain name with it](../configure-ssl-bindings.md) or [use it in your application code](../configure-ssl-certificate-in-code.md).
 
 ## TLS settings
 
@@ -34,30 +36,27 @@ A common use case is to configure your app as a client in a client-server model.
 >[!NOTE]
 > Private client certificates are not supported outside the app. This limits usage in scenarios such as pulling the app container image from a registry using a private certificate and TLS validating through the front-end servers using a private certificate.
 
-To upload the certificate to your app in your ASE:
+Follow these steps to upload the certificate (*.cer* file) to your app in your ASE. The *.cer* file can be exported from your certificate. For testing purposes, there is a PowerShell example at the end to generate a temporary self-signed certificate:
 
-1. Generate a *.cer* file for your certificate. 
-2. Go to the app that needs the certificate in the Azure portal
-3. Go to **TLS/SSL settings** in the app. Click **Public Key Certificate (.cer)**. Select **Upload Public Key Certificate**. Provide a name. Browse and select your *.cer* file. Select upload. 
-4. Copy the thumbprint.
-5. Go to **Application Settings**. Create an app setting WEBSITE_LOAD_ROOT_CERTIFICATES with the thumbprint as the value. If you have multiple certificates, you can put them in the same setting separated by commas and no whitespace like 
+1. Go to the app that needs the certificate in the Azure portal
+1. Go to **TLS/SSL settings** in the app. Click **Public Key Certificate (.cer)**. Select **Upload Public Key Certificate**. Provide a name. Browse and select your *.cer* file. Select upload. 
+1. Copy the thumbprint.
+1. Go to **Application Settings**. Create an app setting WEBSITE_LOAD_ROOT_CERTIFICATES with the thumbprint as the value. If you have multiple certificates, you can put them in the same setting separated by commas and no whitespace like 
 
 	84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
 The certificate will be available by all the apps in the same app service plan as the app, which configured that setting. If you need it to be available for apps in a different App Service plan, you will need to repeat the app setting operation in an app in that App Service plan. To check that the certificate is set, go to the Kudu console and issue the following command in the PowerShell debug console:
 
 ```azurepowershell-interactive
-dir cert:\localmachine\root
+dir Cert:\LocalMachine\Root
 ```
 
 To perform testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
 
 ```azurepowershell-interactive
-$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+$certificate = New-SelfSignedCertificate -CertStoreLocation "Cert:\LocalMachine\My" -DnsName "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
-
+$certThumbprint = "Cert:\LocalMachine\My\" + $certificate.Thumbprint
 $fileName = "exportedcert.cer"
-export-certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
+Export-Certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
 ```

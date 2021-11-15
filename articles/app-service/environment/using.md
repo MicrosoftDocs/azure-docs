@@ -27,14 +27,14 @@ To create an app in an ASE:
 1. Select **Create a resource** > **Web + Mobile** > **Web App**.
 1. Select a subscription.
 1. Enter a name for a new resource group, or select **Use existing** and select one from the drop-down list.
-1. Enter a name for the app. If you already selected an App Service plan in an ASE, the domain name for the app reflects the domain name of the ASE:
-![create an app in an ASE][1]
+1. Enter a name for the app. If you already selected an App Service plan in an ASE, the domain name for the app reflects the domain name of the ASE
 1. Select your Publish type, Stack, and Operating System.
-1. Select region. Here you need to select a pre-existing App Service Environment v3.  You can't make an ASEv3 during app creation 
-1. Select an existing App Service plan in your ASE, or create a new one. If creating a new app, select the size that you want for your App Service plan. The only SKU you can select for your app is an Isolated v2 pricing SKU. Making a new App Service plan will normally take less than 20 minutes. 
+1. Select region. Here you need to select a pre-existing App Service Environment v3. You can't make an ASEv3 during app creation:
+![create an app in an ASE][1]
+1. Select an existing App Service plan in your ASE, or create a new one. If creating a new app, select the size that you want for your App Service plan. The only SKU you can select for your app is an Isolated v2 pricing SKU. Making a new App Service plan will normally take less than 20 minutes.
 ![Isolated v2 pricing tiers][2]
-1. Select **Next: Monitoring**  If you want to enable App Insights with your app, you can do it here during the creation flow. 
-1.  Select **Next: Tags** Add any tags you want to the app  
+1. Select **Next: Monitoring**  If you want to enable App Insights with your app, you can do it here during the creation flow.
+1.  Select **Next: Tags** Add any tags you want to the app
 1. Select **Review + create**, make sure the information is correct, and then select **Create**.
 
 Windows and Linux apps can be in the same ASE but cannot be in the same App Service plan.
@@ -43,9 +43,9 @@ Windows and Linux apps can be in the same ASE but cannot be in the same App Serv
 
 Every App Service app runs in an App Service plan. App Service Environments hold App Service plans, and App Service plans hold apps. When you scale an app, you also scale the App Service plan and all the apps in that same plan.
 
-When you scale an App Service plan, the needed infrastructure is added automatically. There's a time delay to scale operations while the infrastructure is being added. When you scale an App Service plan, any other scale operations requested of the same OS and size will wait until the first one completes. After the blocking scale operation completes, all of the queued requests are processed at the same time. A scale operation on one size and OS won't block scaling of the other combinations of size and OS. For example, if you scaled a Windows I2v2 App Service plan then, any other requests to scale Windows I2v2 in that ASE will be queued until that completes. Scaling will normally take less than 20 minutes. 
+When you scale an App Service plan, the needed infrastructure is added automatically. There's a time delay to scale operations while the infrastructure is being added. When you scale an App Service plan, and you have another scale operation of the same OS and size running, there might be a slight delay of a few minutes until the requested scale starts. A scale operation on one size and OS won't affect scaling of the other combinations of size and OS. For example, if you are scaling a Windows I2v2 App Service plan then, any other requests to scale Windows I2v2 might be slightly delayed, but a scale operation to a Windows I3v2 App Service plan will start immediately. Scaling will normally take less than 20 minutes.
 
-In the multitenant App Service, scaling is immediate because a pool of resources is readily available to support it. In an ASE, there's no such buffer, and resources are allocated based on need.
+In the multitenant App Service, scaling is immediate because a pool of *shared* resources is readily available to support it. ASE is a single-tenant service, so there's no shared buffer, and resources are allocated based on need.
 
 ## App access
 
