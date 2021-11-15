@@ -109,11 +109,11 @@ Select **Go to resource** to view your new container app.  Select the link next 
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
 
-1. Select the **my-containerapps** resource group from the *my-container-app* page.
-1. Select **Delete resource group** on the my-containerapps page.
-1. Enter the resource group name **my-containerapps** in the *Are you sure you want to delete "my-containerapps"* dialog.
+1. Select the **my-container-apps** resource group from the *Overview* section.
+1. Select the **Delete resource group** button at the top of the resource group *Overview*.
+1. Enter the resource group name **my-container-apps** in the *Are you sure you want to delete "my-container-apps"* confirmation dialog.
 1. Select **Delete**.  
-    It may take a few minutes to complete the deletion.
+    The process to delete the resource group may may take a few minutes to complete.
 
 
 > [!TIP]
