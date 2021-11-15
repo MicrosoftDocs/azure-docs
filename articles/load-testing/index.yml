@@ -24,15 +24,11 @@ highlightedContent:
       itemType: overview
       url: overview-what-is-azure-load-testing.md
     # Card
-    - title: 'Run a load test for a website'
-      itemType: quickstart
-      url: quickstart-create-and-run-load-test.md
-    # Card
     - title: 'Identify performance bottlenecks'
       itemType: tutorial
       url: tutorial-identify-bottlenecks-azure-portal.md
     # Card
-    - title: 'Identify performance regressions with CI/CD'
+    - title: 'Setup continuous regression testing'
       itemType: tutorial
       url: tutorial-cicd-azure-pipelines.md
 
@@ -45,43 +41,36 @@ conceptualContent:
       links:
         - url: how-to-high-scale-load.md
           itemType: how-to-guide
-          text: How to configure for high scale load
-        - url: how-to-define-test-criteria.md
-          itemType: how-to-guide
-          text: Define test pass/fail criteria
-        - url: how-to-update-rerun-test.md
-          itemType: how-to-guide
-          text: Update the load test configuration
+          text: How to configure for high scale
         - url: how-to-parameterize-load-tests.md
           itemType: how-to-guide
-          text: Use parameters in the load test configuration
+          text: How to parameterize a load test
+        - url: how-to-update-rerun-test.md
+          itemType: how-to-guide
+          text: How to update and rerun your load tests
     
     # Card
     - title: Analyze test results
       links:
         - url: how-to-compare-multiple-test-runs.md
           itemType: how-to-guide
-          text: Identify regressions by comparing test runs
+          text: Analyze performance by comparing load test runs
         - url: how-to-find-download-logs.md
           itemType: how-to-guide
-          text: Download test run logs
+          text: Find and download your load testing logs
         - url: how-to-appservice-insights.md
           itemType: how-to-guide
-          text: Get insights from App Service workload tests
+          text: Get more insights from load testing AppService workloads
+        - url: how-to-export-test-results.md
+          itemType: how-to-guide
+          text: Export load test results for use in third-party tools
 
     # Card
     - title: Automate load tests
       links:
         - url: tutorial-cicd-azure-pipelines.md
           itemType: tutorial
-          text: Identify regressions with Azure Pipelines
+          text: Set up a CI/CD workflow in Azure Pipelines
         - url: tutorial-cicd-github-actions.md
           itemType: tutorial
-          text: Identify regressions with GitHub Actions
-
-    # Card
-    - title: Reference
-      links:
-        - url: reference-test-config-yaml.md
-          itemType: reference
-          text: Test configuration YAML reference
+          text: Set up a CI/CD workflow in GitHub Actions
