@@ -179,26 +179,29 @@ The following steps will show you how to create a UAMI for Purview to use.
 
 ### Create a user-assigned managed identity
 
-1. In the [Purview Studio](https://web.purview.azure.com/), navigate to the Management Center in the studio and then navigate to credentials.
-1. Create a user-assigned managed identity by selecting **+New**. 
-1. Provide the required information. Select the Managed identity authentication method. 
+1. In the [Azure Portal](https://portal.azure.com/) navigate to your Azure Purview account.
 
-   :::image type="content" source="media/manage-credentials/new-user-assigned-managed-identity-credential.png" alt-text="Screenshot showing the new managed identity creation tile, with the Learn More link highlighted.":::
-
-1. Clicking the **Learn more** link will redirect to Azure Purview in the Azure portal. In the **Managed identities** section, select the **+ Add** button to add user assigned managed identities.  
+1. In the **Managed identities** section on the left menu, select the **+ Add** button to add user assigned managed identities.  
     
     :::image type="content" source="media/manage-credentials/create-new-managed-identity.png" alt-text="Screenshot showing managed identity screen in the Azure portal with user-assigned and add highlighted.":::
-
-1. After finishing the setup, go back to your Azure Purview account in the Azure Portal. If the managed identity is successfully deployed, you'll see the status as **Succeeded**.
+   
+1. After finishing the setup, go back to your Azure Purview account in the Azure Portal. If the managed identity is successfully deployed, you'll see the Azure Purview account's status as **Succeeded**.
 
    :::image type="content" source="media/manage-credentials/status-successful.png" alt-text="Screenshot the Azure Purview account in the Azure Portal with Status highlighted under the overview tab and essentials menu.":::
 
-1. Once the managed identity is deployed, go back to the Purview Studio credentials section, to add a user-assigned managed identity. After refreshing the page, user assigned managed identities should be available in the dropdown.  
+
+1. Once the managed identity is successfully deployed, navigate to the [Purview Studio](https://web.purview.azure.com/), by selecting the **Open Purview Studio** button.
+
+1. In the [Purview Studio](https://web.purview.azure.com/), navigate to the Management Center in the studio and then navigate to the Credentials section.
+
+1. Create a user-assigned managed identity by selecting **+New**. 
+1. Select the Managed identity authentication method, and select your user assigned managed identity from the drop down menu.
+
+   :::image type="content" source="media/manage-credentials/new-user-assigned-managed-identity-credential.png" alt-text="Screenshot showing the new managed identity creation tile, with the Learn More link highlighted.":::  
 
     >[!NOTE]
-    > You'll need to refresh the Purview web portal to load the settings finished in the Azure portal.
+    > If the portal was open during creation of your user assigned managed identity, you'll need to refresh the Purview web portal to load the settings finished in the Azure portal.
 
-   Select your user-managed identity and fill in any necessary information.
 1. After all the information is filled in, select **Create**.
 
 
