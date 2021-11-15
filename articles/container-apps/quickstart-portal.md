@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Deploy your first container app via the Azure Portal'
-description: Deploy your first application to Azure Container Apps Preview via the Azure Portal.
+title: 'Quickstart: Deploy your first container app using the Azure Portal'
+description: Deploy your first application to Azure Container Apps Preview using the Azure Portal.
 services: container-apps
 author: cebundy
 ms.service: container-apps
