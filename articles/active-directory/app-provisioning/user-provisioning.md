@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/28/2021
+ms.date: 11/15/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -21,7 +21,7 @@ In Azure Active Directory (Azure AD), the term *app provisioning* refers to auto
 
 Azure AD to software as a service (SaaS) application provisioning refers to automatically creating user identities and roles in the cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](../../active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../../active-directory/saas-apps/servicenow-provisioning-tutorial.md), and more.
 
-Azure AD supports provisioning users into SaaS applications and applications hosted on-premises or an infrastructure as a service (IaaS) solution such as a virtual machine. You might have a legacy application that relies on an LDAP user store or a SQL database. By using the Azure AD provisioning service, you can create, update, and delete users into on-premises applications without having to open up firewalls or deal with TCP ports. 
+Azure AD supports provisioning users into SaaS applications and applications hosted on-premises or an infrastructure as a service (IaaS) solution such as a virtual machine, without having to open up any firewalls or deal with TCP ports. If your application supports SCIM, or you've built a SCIM gateway to connect to your legacy application, you can use the Azure AD Provisioning agent to [directly connect](https://docs.microsoft.com/azure/active-directory/app-provisioning/on-premises-scim-provisioning) with your application. You might have a legacy application that relies on an [LDAP](https://docs.microsoft.com/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure) user store or a [SQL](https://docs.microsoft.com/azure/active-directory/app-provisioning/tutorial-ecma-sql-connector) database, and we can support those as well.
 
 Using lightweight agents, you can provision users into on-premises applications and govern access. When Azure AD is used with the application proxy, you can manage access to your on-premises application and provide automatic user provisioning (with the provisioning service) and single sign-on (with app proxy). 
 
