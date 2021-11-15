@@ -92,7 +92,7 @@ The above will install the Secrets Store CSI Driver and the Azure Key Vault Prov
 
 
 ### Install AKV secrets provider extension using ARM template
-After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the <cluster-name> value:
+After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the \<cluster-name\> value:
 
 ```json
 {
@@ -232,8 +232,8 @@ The Secrets Store CSI Driver on Arc connected clusters currently allows for the 
 
 Follow the steps below to provide identity to access Azure Key Vault
 
-1. Follow the steps [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal) to create a service principal in Azure. Take note of the Client ID and Client Secret generated in this step.
-2.  Provide Azure Key Vault GET permission to the created service principal by following the steps [here](https://docs.microsoft.com/en-us/azure/key-vault/general/assign-access-policy).
+1. Follow the steps [here](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) to create a service principal in Azure. Take note of the Client ID and Client Secret generated in this step.
+2.  Provide Azure Key Vault GET permission to the created service principal by following the steps [here](../../key-vault/general/assign-access-policy.md).
 3. Use the client ID and Client Secret from step 1 to create a Kubernetes secret on the Arc connected cluster:
 ```bash
 kubectl create secret generic secrets-store-creds --from-literal clientid="<client-id>" --from-literal clientsecret="<client-secret>"
