@@ -10,7 +10,7 @@ ms.date: 11/15/2021
 ms.topic: how-to
 
 ---
-# Update and rerun you test
+# Export your load test results
 
 In this article, you'll learn how to download the results file generated post a test run completion **Azure Portal**.  
 
@@ -28,7 +28,7 @@ In this article you'll learn how to:
     > [!NOTE]
     > A test run needs to be in the **Done**, **Stopped**, or **Failed** in order for the results file to be available for download.
 
-## Download and save results from the test run page.
+## Download and save results from the test run page
 
 1. Go to your load test resource.  
 2. Select **Tests** in the navigation menu to view the list of test plans.  
@@ -39,7 +39,7 @@ In this article you'll learn how to:
 :::image type="content" source="media/how-to-export-test-results/test-run-page-download.png" alt-text="Downloading the logs from the test run page.":::  
 7. You'll see an option to download and save the results file as a zip folder on your local system.  
 
-## Download and save results from the dashboard page.
+## Download and save results from the dashboard page
 
 1. Go to your load test resource.  
 2. Select **Tests** in the navigation menu to view the list of test plans.  
