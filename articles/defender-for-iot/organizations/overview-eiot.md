@@ -43,4 +43,4 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
 
 ## See also
 
-[Azure Defender for IoT architecture](architecture.md)
+Learn how to [Get started with Enterprise IoT](tutorial-get-started-eiot.md).
