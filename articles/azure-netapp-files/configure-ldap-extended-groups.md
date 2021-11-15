@@ -94,7 +94,7 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 6. If your LDAP-enabled volumes use NFSv4.1, follow instructions in [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain) to configure the `/etc/idmapd.conf` file.
 
-    You need to set `Domain` in `/etc/idmapd.conf` to the domain that is configured in you Active Directory Connection on your NetApp account. For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
+    You need to set `Domain` in `/etc/idmapd.conf` to the domain that is configured in the Active Directory Connection on your NetApp account. For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
     Then you need to restart the `rpcbind` service on your host or reboot the host. 
 

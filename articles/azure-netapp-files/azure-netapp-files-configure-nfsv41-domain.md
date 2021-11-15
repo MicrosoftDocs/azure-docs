@@ -33,7 +33,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
 
     * If the volume isn’t enabled for LDAP, set `Domain = defaultv4iddomain.com`.
-    * If the volume is enabled for LDAP, set `Domain` to the domain that is configured in you Active Directory Connection on your NetApp account.
+    * If the volume is enabled for LDAP, set `Domain` to the domain that is configured in the Active Directory Connection on your NetApp account.
         For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
     The following examples shows the initial configuration of `/etc/idmapd.conf` before changes:
