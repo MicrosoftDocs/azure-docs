@@ -59,7 +59,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Fixes history with PATCH in STU3.| [#2177](https://github.com/microsoft/fhir-server/pull/2177)|
 
 |Custom search bugs |Related information |
-| ----------------------------------- | ---------------: |
+| ----------------------------------- | --------------- |
 |Addresses the delete failure with Custom Search parameters. | [#2133](https://github.com/microsoft/fhir-server/pull/2133)|
 |Added retry logic while Deleting Search parameter. | [#2121](https://github.com/microsoft/fhir-server/pull/2121)|
 |Set max item count in search options in SearchParameterDefinitionManager. | [#2141](https://github.com/microsoft/fhir-server/pull/2141)|
