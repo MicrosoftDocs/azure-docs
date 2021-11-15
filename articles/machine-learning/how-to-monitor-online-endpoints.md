@@ -54,7 +54,7 @@ Depending on the resource that you select, the metrics that you see will be diff
 - Network bytes
 
 > ![NOTE]
-> Bandwidth will be throttled if the limits are exceeded (see managed online endpoints section in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas#azure-machine-learning-managed-online-endpoints-preview)). To determine if requests are throttled:
+> Bandwidth will be throttled if the limits are exceeded (see managed online endpoints section in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)). To determine if requests are throttled:
 > - Monitor the "Network bytes" metric
 > - The response headers will have the fields: `ms-azureml-bandwidth-request-delay-ms` and `ms-azureml-bandwidth-response-delay-ms`. The values of the fields are the delays, in milliseconds, of the bandwidth throttling.
 
