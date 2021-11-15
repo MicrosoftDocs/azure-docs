@@ -80,6 +80,8 @@ landingContent:
         links:
           - text: Restore a server
             url: how-to-restore-server-portal.md
+          - text: Restore a deleted server
+            url: how-to-restore-dropped-server.md
 
 # Card
   - title: Network and Connectivity

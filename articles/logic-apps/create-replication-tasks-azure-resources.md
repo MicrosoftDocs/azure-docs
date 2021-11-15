@@ -49,7 +49,7 @@ Currently, replication task templates are available for [Azure Event Hubs](../ev
 | Resource type | Replication source and target |
 |---------------|-------------------------------|
 | Azure Event Hubs namespace | - Event Hubs instance to Event Hubs instance <br>- Event Hubs instance to Service Bus queue <br>- Event Hubs instance to Service Bus topic |
-| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic to Service Bus topic <br>- Service Bus queue to Event Hub instance <br>- Service Bus topic to Service Bus queue <br>- Service Bus topic to Event Hubs instance |
+| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic to Service Bus topic <br>- Service Bus queue to Event Hubs instance <br>- Service Bus topic to Service Bus queue <br>- Service Bus topic to Event Hubs instance |
 |||
 
 ### Replication topology and workflow
@@ -82,7 +82,7 @@ For information about replication and federation in Azure Service Bus, review th
 
 ## Metadata and property mappings
 
-For Event Hubs, the following items obtained from the source Event Hubs namespace are replaced by new service-assigned values in the target Event Hub namespace: service-assigned metadata of an event, original enqueue time, sequence number, and offset. However, for [helper functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) and the replication tasks in the Azure-provided samples, the original values are preserved in the user properties: `repl-enqueue-time` (ISO8601 string), `repl-sequence`, and `repl-offset`. These properties have the `string` type and contain the stringified value of the respective original properties. If the event is forwarded multiple times, the service-assigned metadata of the immediate source is appended to the already existing properties, with values separated by semicolons. For more information, review [Service-assigned metadata - Event replication task patterns](../event-hubs/event-hubs-federation-patterns.md#service-assigned-metadata).
+For Event Hubs, the following items obtained from the source Event Hubs namespace are replaced by new service-assigned values in the target Event Hubs namespace: service-assigned metadata of an event, original enqueue time, sequence number, and offset. However, for [helper functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) and the replication tasks in the Azure-provided samples, the original values are preserved in the user properties: `repl-enqueue-time` (ISO8601 string), `repl-sequence`, and `repl-offset`. These properties have the `string` type and contain the stringified value of the respective original properties. If the event is forwarded multiple times, the service-assigned metadata of the immediate source is appended to the already existing properties, with values separated by semicolons. For more information, review [Service-assigned metadata - Event replication task patterns](../event-hubs/event-hubs-federation-patterns.md#service-assigned-metadata).
 
 For Service Bus, the following items obtained from the source Service Bus queue or topic are replaced by new service-assigned values in the target Service Bus queue or topic: service-assigned metadata of a message, original enqueue time, and sequence number. However, for the default replication tasks in the Azure-provided samples, the original values are preserved in the user properties: `repl-enqueue-time` (ISO8601 string) and `repl-sequence`. These properties have the `string` type and contain the stringified value of the respective original properties. If the message is forwarded multiple times, the service-assigned metadata of the immediate source is appended to the already existing properties, with values separated by semicolons. For more information, review [Service-assigned metadata - Message replication task patterns](../service-bus-messaging/service-bus-federation-patterns.md#service-assigned-metadata).
 
@@ -229,7 +229,7 @@ The examples in this section use 800 as the default value for the prefetch count
 
 ## Naming conventions
 
-Give careful consideration to the naming strategy you use for your replication tasks or entities, if you haven't created them yet. Make sure that the names are easily identifiable and differentiated. For example, if you're working with Event Hubs namespace, the replication task replicates from every Event Hub in the source namespace. If you're working with Service Bus queues, the following table provides an example for naming the entities and replication task:
+Give careful consideration to the naming strategy you use for your replication tasks or entities, if you haven't created them yet. Make sure that the names are easily identifiable and differentiated. For example, if you're working with Event Hubs namespace, the replication task replicates from every Event Hubs instance in the source namespace. If you're working with Service Bus queues, the following table provides an example for naming the entities and replication task:
 
 | Source name | Example | Replication app | Example | Target name | Example |
 |-------------|---------|-----------------|---------|-------------|---------|
@@ -371,9 +371,9 @@ This example shows how to view a task's history of workflow runs along with thei
 
    The following table describes the possible statuses for a run:
 
-   | Status | Description |
-   |--------|-------------|
-   | **Canceled** | The task was canceled while running. |
+   | Status label | Description |
+   |--------------|-------------|
+   | **Cancelled** | The task was canceled while running. |
    | **Failed** | The task has at least one failed action, but no subsequent actions existed to handle the failure. |
    | **Running** | The task is currently running. |
    | **Succeeded** | All actions succeeded. A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |

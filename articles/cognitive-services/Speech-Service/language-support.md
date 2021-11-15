@@ -250,7 +250,6 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (Tanzania) | `en-TZ` | Female | `en-TZ-ImaniNeural` <sup>New</sup>  | General |
 | English (Tanzania) | `en-TZ` | Male | `en-TZ-ElimuNeural` <sup>New</sup>  | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` <sup>Retires Oct 30, see below</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-SoniaNeural` | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-RyanNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-AmberNeural` | General |
@@ -431,10 +430,6 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Welsh (United Kingdom) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
 | Zulu (South Africa) | `zu-ZA` | Female | `zu-ZA-ThandoNeural` <sup>New</sup>  | General |
 | Zulu (South Africa) | `zu-ZA` | Male | `zu-ZA-ThembaNeural` <sup>New</sup>  | General |
-
-> [!IMPORTANT]
-> The English (United Kingdom) voice `en-GB-MiaNeural` will be retired on **30 October 2021**. All service requests to `en-GB-MiaNeural` will be re-directed to `en-GB-SoniaNeural` automatically after **30 October 2021**.
-> If you are using container Neural TTS, please [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version before **30 October 2021**. After **30 October 2021**, all requests with previous versions will be rejected.
 
 #### Neural voices in preview
 

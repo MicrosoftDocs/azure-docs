@@ -265,7 +265,7 @@ You can also specify options to limit the size of the in memory token cache:
       // Configure the memory cache options
       services.Configure<MemoryCacheOptions>(options =>
       {
-          options.SizeLimit = 5000000; // in bytes (5 Mb)
+          options.SizeLimit = 500 * 1024 * 1024; // in bytes (500 Mb)
       });
   }
   );
@@ -738,8 +738,8 @@ MSAL exposes important metrics as part of [AuthenticationResult.AuthenticationRe
 |  `DurationTotalInMs` | Total time spent in MSAL, including network calls and cache   | Alarm on overall high latency (> 1 s). Value depends on token source. From the cache: one cache access. From AAD: two cache accesses + one HTTP call. First ever call (per-process) will take longer because of one extra HTTP call. |
 |  `DurationInCacheInMs` | Time spent loading or saving the token cache, which is customized by the app developer (for example, save to Redis).| Alarm on spikes. |
 |  `DurationInHttpInMs`| Time spent making HTTP calls to AAD.  | Alarm on spikes.|
-|  `TokenSource` | Indicates the source of the token. Tokens are retrieved from the cache much faster (for example, ~100 ms versus ~700 ms). Can be used to monitor and alarm the cache hit ratio. | Use with `DurationTotalInMs` |
-
+|  `TokenSource` | Indicates the source of the token. Tokens are retrieved from the cache much faster (for example, ~100 ms versus ~700 ms). Can be used to monitor and alarm the cache hit ratio. | Use with `DurationTotalInMs`. |
+|  `CacheRefreshReason` | Specifies the reason for fetching the access token from the identity provider. | Use with `TokenSource`. |
 
 ## Next steps
 
