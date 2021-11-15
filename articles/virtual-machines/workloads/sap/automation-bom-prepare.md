@@ -15,8 +15,6 @@ The [SAP deployment automation framework on Azure](automation-deployment-framewo
 
 The SAP Deployment Automation GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/sap-hana/tree/main/deploy/ansible/BOM-catalog) that you can use to get started. It is also possible to create BoMs for other SAP Applications and databases. 
 
-If you want to generate a BoM that includes permalinks, [follow the steps for creating this type of BoM](#permalinks).
- 
 > [!NOTE]
 > This guide covers advanced deployment topics. For a basic explanation of how to deploy the automation framework, see the [get started guide](automation-get-started.md) instead.
 
@@ -30,8 +28,7 @@ If you want to generate a BoM that includes permalinks, [follow the steps for cr
     - The SAP Primary Application Server (PAS)
     - The SAP Additional Application Server (AAS)
 - Downloads of necessary stack files to the folder you created for [acquiring SAP media](automation-bom-get-files.md#acquire-media). For more information, see the [basic BoM preparation how-to guide](automation-bom-prepare.md).
-- Optionally, if you want to [create a BoM with permalinks](#permalinks), you also need:
-    - A copy of your [SAP Download Basket manifest](automation-bom-get-files.md#get-download-basket-manifest) (`DownloadBasket.json`), downloaded to the [folder you created for acquiring SAP media](automation-bom-get-files.md#acquire-media).
+- A copy of your [SAP Download Basket manifest](automation-bom-get-files.md#get-download-basket-manifest) (`DownloadBasket.json`), downloaded to the [folder you created for acquiring SAP media](automation-bom-get-files.md#acquire-media).
     - An installation of the [Postman utility](https://www.postman.com/downloads/).
 - An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An SAP account with permissions to work with the database you want to use.
@@ -161,8 +158,6 @@ You can create your BoM through the following manual process. Another option is 
 
 1. Optionally, if you need to override the target media location, add the parameter `override_target_location` to a media item. For example, `override_target_location: "{{ target_media_location }}/config"`.
 
-1. Optionally, [follow the steps to add permalinks](#permalinks).
-
 1. Add a blank templates section.
 
     ```yml
@@ -182,40 +177,6 @@ You can create your BoM through the following manual process. Another option is 
 
 1. Save your changes to `bom.yml`.
 
-### Permalinks
-
-You can automatically generate a basic BoM that functions. However, the BoM doesn't create permanent URLs (permalinks) to the SAP media by default. If you want to create permalinks, you need to do more steps before you [acquire the SAP media](automation-bom-get-files.md#acquire-media). 
-
-> [!NOTE]
-> Manual generation of a full SAP BoM with permalinks takes about twice as long as [preparing a basic BoM manually](#manual-creation-process)]. 
-
-To generate a BoM with permalinks:
-
-1. Open `DownloadBasket.json` in your editor.
-
-1. For each result, note the contents of the `Value` line. For example:
-
-    ```json
-         "Value": "0020000000703122018|SP_B|SAP IGS Fonts and Textures|61489|1|20201023150931|0"
-    ```
-
-1. Copy down the first and fourth values separated by vertical bars.
-
-    1. The first value is the file number. For example, `0020000000703122018`.
-
-    1. The fourth value is the number you'll use to match with your media list. For example, `61489`.
-
-    1. Optionally, copy down the second value, which denotes the file type. For example, `SP_B` for kernel binary files, `SPAT` for non-kernel binary files, and `CD` for database exports.
-
-1. Use the fourth value as a key to match your download basket to your media list. Match the values (for example, `61489`) with the values you added as comments for the media items (for example, `# 61489`).
-
-1. For each matching entry in `bom.yml`, add a new value for the SAP URL. For the URL, use `https://softwaredownloads.sap.com/file/` plus the third value for that item (for example, `0020000000703122018`). For example:
-
-    ```yml
-    - name: "SAP IGS Fonts and Textures"
-      archive: "igshelper_17-10010245.sar"
-      sapurl: "https://softwaredownloads.sap.com/file/0020000000703122018"
-    ```
 ## Example BoM file
 
 The following sample is a small part of an example BoM file for S/4HANA 1909 SP2. 
