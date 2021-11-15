@@ -82,17 +82,17 @@ landingContent:
       - linkListType: architecture
         links:
         - text: Identity and access management
-          url: eslz-identity-and-access-management.md
+          url: ../cloud-adoption-framework/scenarios/azure-vmware/eslz-identity-and-access-management
         - text: Network topology and connectivity
-          url: eslz-network-topology-connectivity.md
+          url: ../cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
         - text: Management and monitoring
-          url: eslz-management-and-monitoring.md
+          url: ../cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
         - text: Enterprise-scale business continuity and disaster recovery
-          url: eslz-business-continuity-and-disaster-recovery.md
+          url: ../cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
         - text: Enterprise-scale security, governance, and compliance
           url: eslz-security-governance-and-compliance.md
         - text: Platform automation and DevOps
-          url: eslz-platform-automation-and-devops.md
+          url: ../cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
 
 # card 12
   - title: Identity management
