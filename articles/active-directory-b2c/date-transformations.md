@@ -213,8 +213,8 @@ Determine whether the terms of use updated date is newer than the terms of use c
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | termsOfUseConsentDateTime | dateTime | The dateTime of when the user has previously consented to terms of use. Null value throws an exception. |
-| InputParameter | termsOfUseTextUpdateDateTime | dateTime | The dateTime of when new terms of use were issued. |
+| InputClaim | termsOfUseConsentDateTime | dateTime | The dateTime of when the user has previously consented to terms of use. Undefined value returns `True` result. |
+| InputParameter | termsOfUseTextUpdateDateTime | dateTime | The dateTime of when new terms of use were issued. Time element is optional. |
 | OutputClaim | result | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
 Use this claims transformation to determine if the user has consented to the latest terms of use. For example, you may store the last time a user accepted your terms of use (TOU). When your TOU wording changes, you can ask the user to accept the updated TOU.
@@ -237,9 +237,9 @@ To run the claim transformation, you first need to get the last time user consen
 ### Example
 
 - Input claims:
-    - **termsOfUseConsentDateTime**: 2020-01-01T00:00:00 
+    - **termsOfUseConsentDateTime**: 2020-03-09T09:15:00 
 - Input parameters: 
-    - **termsOfUseTextUpdateDateTime**: 2021-11-15T00:00:00 
+    - **termsOfUseTextUpdateDateTime**: 2021-11-15 
 - Output claims: 
     - **result**: true 
 
