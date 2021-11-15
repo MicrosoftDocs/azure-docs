@@ -43,15 +43,15 @@ You must be assigned the security reader, security administrator, or global admi
 
 | Permission | Display String | Description | Admin Consent Required | Microsoft Account supported |
 | --- |  --- |  --- |  --- |  --- | 
-| IdentityRiskyUser.Read.All | Roles granted access: Global Administrator, Security Administrator, or Security Reader. | Read identity service principal risk information | Allows the app to read identity service principal risk information for all service principals in your organization on behalf of the signed-in user. | Yes | No |
-| IdentityRiskyUser.ReadWrite.All | Roles granted access: Global Administrator, Security Administrator. | Read and update identity service principal risk information | Allows the app to read and update identity service principal risk information for all service principals in your organization on behalf of the signed-in user. | Yes | No |
+| IdentityRiskyUser.Read.All <br><br> Roles granted access: Global Administrator, Security Administrator, or Security Reader. | Read identity service principal risk information | Allows the app to read identity service principal risk information for all service principals in your organization on behalf of the signed-in user. | Yes | No |
+| IdentityRiskyUser.ReadWrite.All <br><br> Roles granted access: Global Administrator, Security Administrator. | Read and update identity service principal risk information | Allows the app to read and update identity service principal risk information for all service principals in your organization on behalf of the signed-in user. | Yes | No |
 
 Application permissions
 
 | Permission | Display String | Description | Admin Consent Required |
 | --- |  --- |  --- |  --- |
-| IdentityRiskyUser.Read.All | Roles granted access: Global Administrator, Security Administrator, or Security Reader. | Read identity service principal risk information | Allows the app to read identity service principal risk information for all service principals in your organization without a signed-in user. | Yes |
-| IdentityRiskyUser.ReadWrite.All | Roles granted access: Global Administrator, Security Administrator. | Read and update identity service principal risk information | Allows the app to read and update identity service principal risk information for all service principals in your organization without a signed-in user. | Yes |
+| IdentityRiskyUser.Read.All <br><br> Roles granted access: Global Administrator, Security Administrator, or Security Reader. | Read identity service principal risk information | Allows the app to read identity service principal risk information for all service principals in your organization without a signed-in user. | Yes |
+| IdentityRiskyUser.ReadWrite.All <br><br> Roles granted access: Global Administrator, Security Administrator. | Read and update identity service principal risk information | Allows the app to read and update identity service principal risk information for all service principals in your organization without a signed-in user. | Yes |
 
 You must be assigned the Conditional Access administrator, security reader, security administrator, or global administrator role or have the following permissions delegated to interact with any associated Conditional Access policies.
 
