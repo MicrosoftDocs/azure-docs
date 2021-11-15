@@ -56,7 +56,7 @@ The provided sample dataset contains around 200 movie summaries that belong to o
 
 2. Under the **Classify text** section of Language Studio, select **custom text classification** from the available services, and select it.
     
-    :::image type="content" source="../../media/select-custom-text-classification.png" alt-text="Select custom classification from landing page." 
+    :::image type="content" source="../../media/select-custom-text-classification.png" alt-text="A screenshot showing the location of custom classification in the Language Studio landing page." lightbox="../../media/select-custom-text-classification.png":::
     
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 

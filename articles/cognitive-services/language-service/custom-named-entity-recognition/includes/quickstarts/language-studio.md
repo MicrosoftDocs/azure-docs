@@ -58,7 +58,7 @@ Once your resource and storage container are configured, create a new conversati
 
 2. Find the **Entity extraction** section, and select **Custom named entity recognition** from the available services.
     
-    :::image type="content" source="../../media/select-custom-ner.png" alt-text="Select custom ner from landing page." lightbox="../../media/select-custom-ner.png":::
+    :::image type="content" source="../../media/select-custom-ner.png" alt-text="A screenshot showing the location of custom NER in the Language Studio landing page." lightbox="../../media/select-custom-ner.png":::
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
