@@ -268,7 +268,7 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 subscriptionID=<subscriptionID>
 appId=<appID>
-spn_secret=<password>
+spn_secret="<password>"
 tenant_id=<tenant>
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-hana"
@@ -526,7 +526,7 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTR
 
 subscriptionID=<subscriptionID>
 appId=<appID>
-spn_secret=<password>
+spn_secret="<password>"
 tenant_id=<tenant>
 storageaccount=<storageaccountName>
 statefile_subscription=<subscriptionID>
