@@ -509,7 +509,7 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 
-##Attributes and annotations
+## Attributes and annotations
 
 # [C#](#tab/csharp)
 
