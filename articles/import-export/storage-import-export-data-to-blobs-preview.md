@@ -46,11 +46,14 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
     1. Select the **Destination Azure region** for the job.
     1. Then select **Apply**.
    
-    ![Screenshot showing the Get Started options for a new Data Box order. The Import To Azure transfer typ and the Apply button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-03.png)<!--Remove some vertical space to enlarge text.-->
+    ![Screenshot showing the Get Started options for a new Data Box order. The Import To Azure transfer typ and the Apply button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-03.png)
+
+
+
 
 1. Choose the **Select** button for **Import/Export Job**.
 
-    ![Screenshot showing product options for a new Data Box order. The Select button for Import Export Job is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-04.png)
+    [ ![Screenshot showing product options for a new Data Box order. The Select button for Import Export Job is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-04.png) ](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-04.png#lightbox)
 
 1. In **Basics**:
 
@@ -108,9 +111,13 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 
      ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-10.png)<!--Verify border.-->
 
-1. After the job is created, open the resource, and enter **Tracking information**.<!--Add step detail Monday. May want to have a complex illustration showing the initial pane and then the resource Overview. Or two screens - they are wide.-->
+1. After the job is created, you'll see the following message.
 
-     [ ![Screenshot showing the Overview panel for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-11.png) ](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-11.png#lightbox)<!--TK: Add highlights. Consider moving the screen to "Step5: Enter tracking info."-->
+    ![Screenshot of the status message for a completed order for an Azure Import Export job. The status and the Go To Resource button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-11.png)
+
+     Select **Go to resource** to open the job overview.
+
+     [ ![Screenshot showing the Overview pane for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-12.png) ](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-12.png#lightbox)
 
 
 ### [Portal (classic)](#tab/azure-portal)
