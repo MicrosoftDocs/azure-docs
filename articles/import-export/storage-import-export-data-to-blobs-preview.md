@@ -1,24 +1,29 @@
 ---
-title: Tutorial to import data to Azure Blob Storage with Azure Import/Export service | Microsoft Docs
-description: Learn how to create import and export jobs in Azure portal to transfer data to and from Azure Blobs.
+title: Tutorial to import data to Azure Blob Storage with Azure Import/Export service - Preview | Microsoft Docs
+description: Learn how to create import and export jobs in the Azure portal to transfer data to and from Azure Blobs.
 author: v-dalc
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/12/2021
+ms.date: 11/15/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
-# Tutorial: Import data to Blob Storage with Azure Import/Export service
+# Tutorial: Import data to Blob Storage with Azure Import/Export service (Preview)
 
 Temporary file to develop Preview steps, which will coexist with the **Classic** experience. 
 
 The steps for orderinig an Import/Export job through Azure Data Box will be on a **Preview** tab in the Import/Export "Order" tutorials. A second tab, **Classic**, will have existing instructions for starting an Import/Export job directly through Import/Export.
 
+
 ## Step 2: Create an import job
 
-### [Portal (Preview)](#tab/azure-portal)
+## Step 1: Prepare the drives
+
+*INCLUDING SECTION FRAMEWORK TO PRESERVE INTERNAL LINK.* This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
+
+### [Portal (Preview)](#tab/azure-portal-preview)
 
 TK: Elevator pitch for Import/Export convergence with Azure Data Box.
 
@@ -31,7 +36,7 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 
 1. Select **Create**.  
 
-   ![Screenshot of the top of the Azure portal screen after selecting Azure Data Box. The Create button is highlighted.](media/data-box-order-portal/data-box-import-02.png)
+   ![Screenshot of the top of the Azure portal screen after selecting Azure Data Box. The Create button is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-02.png)
 
 1. To get started with the import order, select the following options:
  
@@ -141,9 +146,9 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
    
       When you upload a journal file, the Drive ID is displayed.
 
-   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.<!--This >
+   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
 
-   ![Screenshot of the Job Details tab for an import job in Azure Data Box. The Job Detail tab and Next: Return Shipping button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+   ![Screenshot of completed Job Details tab for an Azure Import/Export job. The Job Detail tab and Next: Return Shipping button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
    Select **Next: Shipping >** to proceed.
 
