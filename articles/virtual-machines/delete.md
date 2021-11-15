@@ -78,19 +78,84 @@ New-AzVm `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
-    -PublicIpAddressName "myPublicIpAddress" `
-    -OpenPorts 80,3389
+    -PublicIpAddressName "myPublicIpAddress" 
 ```
 
 
 ### [REST](#tab/rest2)
 
-<!-- Introduction paragraph if needed -->
+This example shows how to set the data disk and NIC to be deleted when the VM is deleted.
 
 ```rest
-
+PUT 
+https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/myVM?api-version=xx  
+{ 
+"storageProfile": { 
+    "dataDisks": [ 
+        { "diskSizeGB": 1023, 
+          "name": "myVMdatadisk", 
+          "createOption": "Empty", 
+          "lun": 0, 
+          "deleteOption": “Delete” 
+       }    ] 
+},  
+"networkProfile": { 
+      "networkInterfaces": [ 
+        { "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC", 
+          "properties": { 
+            "primary": true, 
+  	    "deleteOption": “Delete” 
+          }        } 
+      ]  
+} 
 ```
 
+
+You can also set this property for a Public IP associated with a NIC, so that the Public IP is automatically deleted when the NIC gets deleted.
+
+```rest
+PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic?api-version=xx 
+{ 
+
+  "properties": { 
+
+    "enableAcceleratedNetworking": true, 
+
+    "ipConfigurations": [ 
+
+      { 
+
+        "name": "ipconfig1", 
+
+        "properties": { 
+
+          "publicIPAddress": { 
+
+            "id": "/subscriptions/../publicIPAddresses/test-ip", 
+
+          "properties": { 
+            “deleteOption”: “Delete” 
+            } 
+          }, 
+
+          "subnet": { 
+
+            "id": "/subscriptions/../virtualNetworks/rg1-vnet/subnets/default" 
+
+          } 
+
+        } 
+
+      } 
+
+    ] 
+
+  }, 
+
+  "location": "eastus" 
+
+}
+```
 ---
 
 
@@ -98,7 +163,6 @@ New-AzVm `
 
 ### [Portal](#tab/portal2)
 
-<!-- Introduction paragraph if needed. The numbering is automatically controlled, so you can put 1. for each step and the rendering engine will fix the numbers in the live content. -->
 
 1. Open the [portal](https://portal.azure.com).
 1. In the search bar, type **<name_of_feature>**.
@@ -118,6 +182,8 @@ New-AzVm `
 <!-- Introduction paragraph if needed -->
 
 ```powershell-interactive
+$vm = Get-AzVM 
+
 
 ```
 
