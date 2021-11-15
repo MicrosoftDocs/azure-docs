@@ -21,6 +21,9 @@ Use one of the following ways to identify the software version running on your d
  
     ![Serial number and software version on the Help pane in the local web UI of Data Box](media/data-box-connect-powershell-interface/device-serial-number-software-version-help-pane-local-ui.png)
 
+
+The next steps are determined by the version of software that your Data Box is running.
+ 
 ### [v4.1 and later](#tab/c)
 
 For these versions of software, you must first install certificates on the host accessing your Data Box and then connect to the PowerShell interface of the device. When you install certificates, you can use the default certificates that the device is shipped with or bring your own certificates. In each case, the specific steps that you'll take are slightly different.
