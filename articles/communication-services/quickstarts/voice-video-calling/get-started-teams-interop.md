@@ -16,8 +16,6 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-Get started with Azure Communication Services by connecting your calling solution to Microsoft Teams using the JavaScript SDK.
-
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/teams-interop/teams-interop-javascript.md)]
 ::: zone-end

@@ -2,12 +2,12 @@
 title: Delete an Azure billing payment method
 description: Describes how to delete a payment method used by an Azure subscription.
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 11/10/2021
 ms.author: banders
 ---
 
@@ -79,8 +79,7 @@ If your payment method is in use by an MOSP subscription, do the following steps
 1. Navigate to **Cost Management + Billing**.
 1. If necessary, select a billing scope.
 1. In the left menu list under **Billing**, select **Payment methods**.
-1. In the Payment methods area, select the _line_ that your payment method is on. Don't select the payment method link. There might not be a visual indication that you've selected the payment method.
-1. Select **Delete**.  
+1. In the Payment methods area, on the row that the payment method is on, select the ellipsis (**...**) symbol and then select **Delete**.
     :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Example showing a corrective action needed to detach a payment method for MOSP" :::
 1. In the Delete a payment method area, select **Delete** if all conditions are met. If Delete is unavailable, continue to the next step.
 1. A list of conditions is shown. Take the actions listed. Select the link shown in the Delete a payment method area.  

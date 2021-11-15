@@ -16,8 +16,6 @@ keywords: speech translation
 
 # What is speech translation?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
-
 In this overview, you learn about the benefits and capabilities of the speech translation service, which enables real-time, [multi-language speech-to-speech](language-support.md#speech-translation) and speech-to-text translation of audio streams. With the Speech SDK, your applications, tools, and devices have access to source transcriptions and translation outputs for provided audio. Interim transcription and translation results are returned as speech is detected, and final results can be converted into synthesized speech.
 
 This documentation contains the following article types:
@@ -40,7 +38,7 @@ See the [quickstart](get-started-speech-translation.md) to get started with spee
 
 ## Sample code
 
-Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition/translation, and working with custom models.
+Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and at-start recognition/translation, and working with custom models.
 
 * [Speech-to-text and translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 

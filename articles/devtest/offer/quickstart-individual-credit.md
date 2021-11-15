@@ -1,6 +1,6 @@
 ---
-title: How to get started with your individual VSS Azure Dev/Test credit subscription
-description: Covers two options for an individual to access an Azure Credit subscription.
+title: Start using individual Azure Dev/Test credit
+description: As a Visual Studio subscriber, learn how to access an Azure Credit subscription.
 author: jamestramel
 ms.author: jametra
 ms.date: 10/20/2021

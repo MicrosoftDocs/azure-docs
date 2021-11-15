@@ -9,7 +9,7 @@ ms.service: iot-hub-device-update
 ---
 
 # Importing updates into Device Update for IoT Hub - schema and other information
-If you want to import an update into Device Update for IoT Hub, be sure you've reviewed the [concepts](import-concepts.md) and [How-To guide](import-update.md) first. If you're interested in the details of the schema used when constructing an import manifest, as well as information about related objects, see below.
+If you want to import an update into Device Update for IoT Hub, be sure you've reviewed the [concepts](import-concepts.md) and [How-To guide](import-update.md) first. If you're interested in the details of the schema used when constructing an import manifest, or information about related objects, see below.
 
 ## Import manifest schema
 
@@ -21,15 +21,15 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 | Compatibility | Array of `CompatibilityInfo` [objects](#compatibilityinfo-object) | Compatibility information of device compatible with this update. | Maximum of 10 items |
 | CreatedDateTime | date/time | Date and time at which the update was created. | Delimited ISO 8601 date and time format, in UTC |
 | ManifestVersion | string | Import manifest schema version. Specify `2.0`, which will be compatible with `urn:azureiot:AzureDeviceUpdateCore:1` interface and `urn:azureiot:AzureDeviceUpdateCore:4` interface. | Must be `2.0` |
-| Files | Array of `File` objects | Update payload files | Maximum of 5 files |
+| Files | Array of `File` objects | Update payload files | Maximum of five files |
 
 ## UpdateId Object
 
 | Name | Type | Description | Restrictions |
 | --------- | --------- | --------- | --------- |
-| Provider | string | Provider part of the update identity. | 1-64 characters, alphanumeric, dot and dash. |
-| Name | string | Name part of the update identity. | 1-64 characters, alphanumeric, dot and dash. |
-| Version | version | Version part of the update identity. | 2 to 4 part, dot separated version number between 0 and 2147483647. Leading zeroes will be dropped. |
+| Provider | string | Provider part of the update identity. | 1-64 characters, alphanumeric, dot, and dash. |
+| Name | string | Name part of the update identity. | 1-64 characters, alphanumeric, dot, and dash. |
+| Version | version | Version part of the update identity. | 2 to 4 part, dot-separated version number. The total number of _each_ dot-separated part can be between 0 and 2147483647. Leading zeroes are not supported.
 
 ## File Object
 
@@ -102,10 +102,10 @@ If an Azure AD application is used to sign the user in, the scope needs to have 
 
 You will need to add permissions to your Azure AD app (in the API permissions tab in Azure AD Application view) to use Azure Device Update API. Request API permission to Azure Device Update (located in "APIs my organization uses") and grant the delegated user_impersonation permission.
 
-ADU accepts tokens acquiring tokens using any of the Azure AD supported flows for users, applications, or managed identities. However, some of the flows require additional Azure AD application setup: 
+ADU accepts tokens acquiring tokens using any of the Azure AD supported flows for users, applications, or managed identities. However, some of the flows require extra Azure AD application setup: 
 
-* For public client flows make sure to enable mobile and desktop flows.
-* For implicit flows make sure to add a Web platform and select "Access tokens" for the authorization endpoint.
+* For public client flows, make sure to enable mobile and desktop flows.
+* For implicit flows make, sure to add a Web platform and select "Access tokens" for the authorization endpoint.
 
 **Example using Azure CLI:**
 

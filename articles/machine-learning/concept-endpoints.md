@@ -125,7 +125,7 @@ There are two types of online endpoints: **managed online endpoints** (preview) 
 | **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Supported |
 | **Application Insights** | Supported | Supported |
 | **Managed identity** | [Supported](how-to-access-resources-from-endpoints-managed-identities.md) | Supported |
-| **Virtual Network (VNET)** | Not supported (public preview) | Supported |
+| **Virtual Network (VNET)** | Not supported yet (we're working on it) | Supported |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
 
 ### Managed online endpoints

@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Deploy your first container app'
 description: Deploy your first application to Azure Container Apps Preview.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic:  quickstart
 ms.date: 11/02/2021
 ms.author: cshoe
@@ -198,7 +198,7 @@ az containerapp env create `
 
 ## Create a container app
 
-Now that you have an environment created, you can deploy you first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
+Now that you have an environment created, you can deploy your first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
 
 # [Bash](#tab/bash)
 

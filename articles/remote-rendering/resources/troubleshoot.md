@@ -199,6 +199,10 @@ Another value to look at is `ServiceStatistics.LatencyPoseToReceiveAvg`. It shou
 
 For a list of potential mitigations, see the [guidelines for network connectivity](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
+## Local content (UIs, ...) on HoloLens 2 renders with significantly more distortion artifacts than without ARR
+
+This is a default setting that trades local content projection quality for runtime performance. Refer to the chapter about the [reprojection pose modes](../overview/features/late-stage-reprojection.md#reprojection-pose-modes) to see how the projection mode can be changed so that local content is rendered at the same reprojection quality level as without ARR.
+
 ## Z-fighting
 
 While ARR offers [z-fighting mitigation functionality](../overview/features/z-fighting-mitigation.md), z-fighting can still show up in the scene. This guide aims at troubleshooting these remaining problems.

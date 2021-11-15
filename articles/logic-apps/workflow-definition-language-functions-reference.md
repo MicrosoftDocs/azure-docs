@@ -62,13 +62,25 @@ you get a combined string, for example, "SophiaOwen":
 
 Either way, both examples assign the result to the `customerName` property.
 
-## Considerations for using functions
+<a name="function-considerations"></a>
 
-* Function parameters are evaluated from left to right.
+## Considerations for using functions
 
 * The designer doesn't evaluate runtime expressions that are used as function parameters at design time. The designer requires that all expressions can be fully evaluated at design time.
 
+* Function parameters are evaluated from left to right.
+ 
 * In the syntax for parameter definitions, a question mark (?) that appears after a parameter means the parameter is optional. For example, see [getFutureTime()](#getFutureTime).
+
+* Function expressions that appear inline with plain text require enclosing curly braces ({}) to use the expression's interpolated format instead. This format helps avoid parsing problems. If your function expression doesn't appear inline with plain text, no curly braces are necessary.
+
+  The following example shows the correct and incorrect syntax:
+
+  **Correct**: `"<text>/@{<function-name>('<parameter-name>')}/<text>"`
+ 
+  **Incorrect**: `"<text>/@<function-name>('<parameter-name>')/<text>"`
+ 
+  **OK**: `"@<function-name>('<parameter-name>')"`
 
 The following sections organize functions based on their general purpose, or you can browse these functions in [alphabetical order](#alphabetical-list).
 

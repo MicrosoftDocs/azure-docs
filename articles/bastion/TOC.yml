@@ -57,6 +57,8 @@
     href: upgrade-sku.md
   - name: Configure host scaling
     href: configure-host-scaling.md
+  - name: Connect to VM via native Windows client
+    href: connect-native-client-windows.md
   - name: Connect to a virtual machine scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs virtual machines

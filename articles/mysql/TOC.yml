@@ -211,6 +211,8 @@
           href: flexible-server/how-to-restore-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restore-server-cli.md
+      - name: Restore a deleted server
+        href: flexible-server/how-to-restore-dropped-server.md 
     - name: Troubleshooting
       items:
       - name: Troubleshoot Connection errors
@@ -351,7 +353,7 @@
         items:
         - name: Configuring SSL
           href: concepts-ssl-connection-security.md
-      - name: Threat protection with Azure Defender
+      - name: Threat protection with Microsoft Defender for Cloud
         href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
       - name: Encryption at rest
         items:

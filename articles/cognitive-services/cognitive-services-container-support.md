@@ -68,14 +68,11 @@ Azure Cognitive Services containers provide the following set of Docker containe
 
 ### Vision containers
 
-> [!WARNING]
-> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
 
 | Service |  Container | Description | Availability |
 |--|--|--|--|
 | [Computer Vision][cv-containers] | **Read OCR** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/overview-ocr.md). | Gated preview. [Request access][request-access]. |
 | [Spatial Analysis][spa-containers] | **Spatial analysis** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. | Preview |
-| [Face][fa-containers] | **Face** | Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits. | Unavailable |
 
 <!--
 |[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -84,7 +81,6 @@ Azure Cognitive Services containers provide the following set of Docker containe
 Additionally, some containers are supported in the Cognitive Services [multi-service resource](cognitive-services-apis-create-account.md) offering. You can create one single Cognitive Services All-In-One resource and use the same billing key across supported services for the following services:
 
 * Computer Vision
-* Face
 * LUIS
 * Language service
 
@@ -116,7 +112,6 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 
 * [Anomaly Detector containers][ad-containers]
 * [Computer Vision containers][cv-containers]
-* [Face containers][fa-containers]
 * [Language Understanding (LUIS) containers][lu-containers]
 * [Speech Service API containers][sp-containers]
 * [Language service containers][ta-containers]
@@ -127,7 +122,6 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
-[fa-containers]: ./face/overview.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
 [spa-containers]: ./computer-vision/spatial-analysis-container.md
