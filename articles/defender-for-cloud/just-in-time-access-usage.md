@@ -4,7 +4,7 @@ description: Learn how just-in-time VM access (JIT) in Microsoft Defender for Cl
 services: security-center
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: memildin

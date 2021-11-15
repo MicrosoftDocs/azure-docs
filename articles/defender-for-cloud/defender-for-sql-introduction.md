@@ -5,7 +5,7 @@ author: memildin
 ms.author: memildin
 ms.date: 11/09/2021
 ms.topic: overview
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.custom: references_regions
 manager: rkarlin
 

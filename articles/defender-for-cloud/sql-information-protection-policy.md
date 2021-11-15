@@ -6,7 +6,7 @@ documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
