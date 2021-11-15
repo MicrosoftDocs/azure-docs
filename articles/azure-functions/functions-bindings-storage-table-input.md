@@ -15,6 +15,8 @@ Use the Azure Table storage input binding to read a table in an Azure Storage ac
 
 ## Example
 
+::: zone pivot="programming-language-csharp"
+
 # [C#](#tab/csharp)
 
 ### One entity
