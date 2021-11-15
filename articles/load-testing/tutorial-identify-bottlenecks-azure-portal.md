@@ -94,7 +94,7 @@ In this section, you update the Apache JMeter script with the URL of the sample 
 
 Before you start, make sure you have the directory of the cloned sample app open in VS Code.
 
-1. Open the directory of the cloned sample app in the Cloud Shell editor.
+1. Open the directory of the cloned sample app in VS Code.
 
     ```powershell
     cd nodejs-appsvc-cosmosdb-bottleneck
