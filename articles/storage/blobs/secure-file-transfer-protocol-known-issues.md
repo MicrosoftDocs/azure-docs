@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/07/2021
+ms.date: 11/15/2021
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -37,7 +37,7 @@ This article describes limitations and known issues of SFTP support in Azure Blo
   > [!NOTE]
   > After your data is ingested into Azure Storage, you can use the full breadth of Azure storage security settings. While authorization mechanisms such as role-based access control (RBAC) and access control lists aren't supported as a means to authorize a connecting SFTP client, they can be used to authorize access via Azure tools (such Azure portal, Azure CLI, Azure PowerShell commands, and AzCopy) as well as Azure SDKS, and Azure REST APIs. 
 
-- Root/account level operations such as listing, putting/getting, creating/deleting containers are not supported.
+- Account level operations such as listing, putting/getting, creating/deleting containers are not supported.
  
 ## Networking
 
@@ -45,7 +45,7 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - To access the storage account using SFTP, your network must allow traffic on port 22.
 
-- When a firewall is configured, connections from non-whitelisted IPs are not rejected as expected. However, if there is a successful connection for an authenticated user then all data plane operations will be rejected.
+- When a firewall is configured, connections from non-allowed IPs are not rejected as expected. However, if there is a successful connection for an authenticated user then all data plane operations will be rejected.
 
 ## Supported algorithms
 
@@ -73,7 +73,7 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## Integrations
 
-- Change feed is not supported. Once it is supported, it will allow you to monitor connection activity.
+- Change feed is not supported.
 
 - Account metrics such as transactions and capacity are available. Filter logs by operations to see SFTP activity.
 
@@ -81,21 +81,25 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## Performance
 
-- Upload performance with default settings for some clients can be slow. Some of this is expected because of the many small blocks that are written by default. For OpenSSH, increasing the buffer size option to 100,000 will help (`For example: sftp -B 100000 testaccount.user1@testaccount.blob.core.windows.net`). Also consider using multiple connections to transfer data. For example, if you use WinSCP, you can use a maximum of 9 concurrent connections to upload multiple files.
+- Upload performance with default settings for some clients can be slow. Some of this is expected because SFTP is a chatty protocol and sends small message requests. Increasing the buffer size and using multiple concurrent connections can significantly improve speed. 
 
-- A buffer size of 262000 can be used for OpenSSH on Linux accompanied by -R 32.
+  - For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple files. 
 
-- There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to hang and then disconnect. Some clients reconnect automatically.
+  - For OpenSSH on Windows, you can increase buffer size to 100000: sftp -B 100000 testaccount.user1@testaccount.blob.core.windows.net 
 
-- Maximum file size upload is limited by client message size:
+  - For OpenSSH on Linux, you can increase buffer size to 262000: sftp -B 262000 -R 32 testaccount.user1@testaccount.blob.core.windows.net 
 
-  - 32k message (OpenSSH default) * 50k blocks = 1.52GB
-  - 100k message (OpenSSH Windows max) * 50k = 4.77GB
-  - 256k message (OpenSSH Linux max) * 50k = 12.20GB
+- There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to hang and then disconnect. Some clients reconnect automatically. 
+
+- Maximum file size upload is limited by client message size. A few examples below: 
+
+  - 32k message (OpenSSH default) * 50k blocks = 1.52GB 
+
+  - 100k message (OpenSSH Windows max) * 50k blocks = 4.77GB 
+
+  - 256k message (OpenSSH Linux max) * 50k blocks = 12.20GB 
 
 ## Other
-
-- Cross-container rename (move) is not supported.
 
 - Symbolic links are not supported.
 

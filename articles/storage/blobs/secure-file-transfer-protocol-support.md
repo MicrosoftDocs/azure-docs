@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/04/2021
+ms.date: 11/15/2021
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
@@ -81,7 +81,7 @@ In the current release, you can specify only container-level permissions. Direct
 
 ## Home directory
 
-As you configure permissions, you have the option of setting a home directory for the local user. If no other container is specified in an SFTP connection request, this the directory that the user connects to by default. For example, consider the following request made by using [Open SSH](/windows-server/administration/openssh/openssh_overview). This request doesn't specify a container or directory name as part of the `sftp` command.
+As you configure permissions, you have the option of setting a home directory for the local user. If no other container is specified in an SFTP connection request, then this is the directory that the user connects to by default. For example, consider the following request made by using [Open SSH](/windows-server/administration/openssh/openssh_overview). This request doesn't specify a container or directory name as part of the `sftp` command.
 
 ```powershell
 sftp myaccount.myusername@myaccount.blob.core.windows.net
@@ -106,6 +106,8 @@ SFTP support is available in the following regions:
 
 - North Central US
 - East US 2
+- East US 2 EUAP
+- Central US EUAP
 - Canada East
 - Canada Central
 - West Europe

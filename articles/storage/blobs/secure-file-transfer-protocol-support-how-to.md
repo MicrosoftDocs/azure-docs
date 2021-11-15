@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 11/15/2021
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -47,7 +47,7 @@ Before you can enable SFTP support, you must register the SFTP feature with your
    > [!div class="mx-imgBorder"]
    > ![Preview setting](./media/secure-file-transfer-protocol-support-how-to/preview-features-setting.png)
 
-3. In the **Preview features** page, select the **AllowSFTP** feature, and then select **Register**.
+4. In the **Preview features** page, select the **AllowSFTP** feature, and then select **Register**.
 
 ### Verify feature registration
 
@@ -106,8 +106,7 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    | Option | Guidance |
    |----|----|
    | Generate a new key pair | Use this option to create a new public / private key pair. The public key is stored in Azure with the key name that you provide. The private key can be downloaded after the local user has been successfully added. |
-   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](/azure/virtual-machines/ssh-keys-portal#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key.
- |
+   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](/azure/virtual-machines/ssh-keys-portal#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
    | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure. If you don't have a public key, but would like to generate one outside of Azure, see [Generate keys with ssh-keygen](/azure/virtual-machines/linux/create-ssh-keys-detailed#generate-keys-with-ssh-keygen). |
 
 4. Select **Next** to open the **Container permissions** tab of the configuration pane.
