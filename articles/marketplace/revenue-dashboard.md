@@ -65,7 +65,7 @@ The following sections describe how to use the Revenue dashboard and how to read
 
 You can find a month range selection at the top-right corner of each page. To customize the output of the Revenue dashboard graphs, selecting a month range based on the past **3**, **6** or **12** months. You can optionally select a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months. Month range selection is not applicable for the Estimated revenue timeline widget.
 
-:::image type="content" source="./media/revenue-dashboard/month-range-filter.png" alt-text="Illustrates the month range filter on the revenue dashboard.":::
+[ ![Illustrates the month range filter on the revenue dashboard.](./media/revenue-dashboard/month-range-filter.png) ](./media/revenue-dashboard/month-range-filter.png#lightbox)
 
 > [!NOTE]
 > Data for revenue report is available from Jan,2021 onwards.
@@ -74,7 +74,7 @@ You can find a month range selection at the top-right corner of each page. To cu
 
 You can choose to view the revenue figures in either USD or your preferred payout currency.
 
-:::image type="content" source="./media/revenue-dashboard/payout-currency-selector.png" alt-text="Illustrates the payout currency selector on the revenue dashboard.":::
+[ ![Illustrates the payout currency selector on the revenue dashboard.](./media/revenue-dashboard/payout-currency-selector.png) ](./media/revenue-dashboard/payout-currency-selector.png#lightbox)
 
 ### Dashboard filters
 
@@ -92,7 +92,7 @@ Each filter is expandable with multiple options that you can select. Filter opti
 > [!NOTE]
 > Filters are not applicable for the Estimated revenue timeline widget.
 
-:::image type="content" source="./media/revenue-dashboard/dashboard-filters.png" alt-text="Illustrates the filters on a revenue dashboard widget.":::
+[ ![Illustrates the filters on a revenue dashboard widget.](./media/revenue-dashboard/dashboard-filters.png) ](./media/revenue-dashboard/dashboard-filters.png#lightbox)
 
 ### Estimated revenue
 
