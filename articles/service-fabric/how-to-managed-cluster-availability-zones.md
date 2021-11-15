@@ -69,8 +69,27 @@ Service Fabric Managed clusters which are not spanned across Availability zones 
 * Add a new primary nodetype to the cluster with **zones** parameter in the nodetype set to ["1", "2", "3"].
 * Add more secondary nodetypes with same **zones** parameter if required to migrate existing services. 
 * Move existing services from the old nodetypes to the new ones.
-* Remove the old nodetypes from the ARM template. 
+* Remove the old nodetypes from the cluster using ARM template deployement. 
 * Set **zonalResiliency: true**  int cluster ARM template to mark cluster as zone resilient and ensure all other deployments span across availability zones.
+
+### Node Type deployment for Migration to availability zones
+```json
+{
+  "apiVersion": "2021-11-01-preview",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "properties": {
+    ...
+    "isPrimary": true,
+    "zones": ["1", "2", "3"]
+    ...
+  }
+}
+```
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
