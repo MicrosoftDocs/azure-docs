@@ -29,12 +29,14 @@ ms.custom: ignite-fall-2021
 
 Once you have a Language resource associated with your account, create a Conversational Language Understanding project. In this quickstart you'll create a project that can identify commands for email, such as reading emails by certain people, deleting emails, and attaching a document to an email.
 
-1. In [Language Studio](https://aka.ms/languageStudio), find the section labelled **Understand conversational language** and click on **Conversational language understanding**. This will bring you to the **Conversations project** page. 
- 
+1. In [Language Studio](https://aka.ms/languageStudio), find the section labelled **Understand conversational language** and click on **Conversational language understanding**.  
+    :::image type="content" source="../../media/select-custom-clu.png" alt-text="A screenshot showing the location of Custom Language Understanding in the Language Studio landing page. lightbox="../../media/select-custom-clu.png"::: 
     
+
+2. This will bring you to the **Conversations project** page. Click on **Create new project**. Select **Conversation project**, then click **Next**.
+
     :::image type="content" source="../../media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="../../media/projects-page.png":::
 
-2. Click on **Create new project**. Select **Conversation project**, then click **Next**.
 
 You then need to provide the following details:
 
