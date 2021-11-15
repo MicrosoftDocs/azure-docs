@@ -2,11 +2,11 @@
 title: Azure Table storage input bindings for Azure Functions
 description: Understand how to use Azure Table storage input bindings in Azure Functions.
 author: craigshoemaker
-
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Table storage input bindings for Azure Functions
@@ -14,8 +14,6 @@ ms.custom: "devx-track-csharp, devx-track-python"
 Use the Azure Table storage input binding to read a table in an Azure Storage account.
 
 ## Example
-
-# [C#](#tab/csharp)
 
 ### One entity
 
@@ -292,7 +290,10 @@ public class Person : TableEntity
 }
 ```
 
-# [Java](#tab/java)
+---
+
+::: zone-end
+::: zone pivot="programming-language-java"
 
 The following example shows an HTTP triggered function which returns a list of person objects who are in a specified partition in Table storage. In the example, the partition key is extracted from the http route, and the tableName and connection are from the function settings. 
 
@@ -361,7 +362,8 @@ public Person[] get(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
 
 The following example shows a  table input binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function uses a queue trigger to read a single table row. 
 
@@ -403,7 +405,8 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-# [PowerShell](#tab/powershell)
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
 
 The following function uses a queue trigger to read a single table row as input to a function.
 
@@ -443,7 +446,8 @@ Write-Host "PowerShell queue trigger function processed work item:
 Write-Host "Person entity name: $($PersonEntity.Name)"
 ```
 
-# [Python](#tab/python)
+::: zone-end  
+::: zone pivot="programming-language-python"  
 
 The following function uses a queue trigger to read a single table row as input to a function.
 
@@ -500,6 +504,8 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
 
 ---
 
+::: zone-end  
+::: zone pivot="programming-language-csharp"
 ## Attributes and annotations
 
 # [C#](#tab/csharp)
@@ -560,28 +566,35 @@ The storage account to use is determined in the following order:
 * The `StorageAccount` attribute applied to the class.
 * The default storage account for the function app ("AzureWebJobsStorage" app setting).
 
-# [C# Script](#tab/csharp-script)
+# [C# script](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
-
-# [Java](#tab/java)
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
-
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [PowerShell](#tab/powershell)
-
-Attributes are not supported by PowerShell.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
+Attributes aren't supported by C# Script.
 
 ---
 
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Attributes and annotations
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+## Attributes and annotations
+
+Attributes aren't supported by JavaScript.
+
+::: zone-end  
+::: zone pivot="programming-language-powershell"
+## Attributes and annotations
+
+Attributes aren't supported by Powershell.
+::: zone-end  
+::: zone pivot="programming-language-Python"
+## Attributes and annotations
+
+Attributes aren't supported by Python.
+::: zone-end
+  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `Table` attribute.
@@ -600,7 +613,10 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
+
 ## Usage
+
+::: zone pivot="programming-language-csharp"  
 
 # [C#](#tab/csharp)
 
@@ -615,7 +631,7 @@ The following table explains the binding configuration properties that you set i
   > [!NOTE]
   > `IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to [use a CloudTable paramName method parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) to read the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
-# [C# Script](#tab/csharp-script)
+# [C# script](#tab/csharp-script)
 
 * **Read one row in**
 
@@ -628,23 +644,21 @@ The following table explains the binding configuration properties that you set i
   > [!NOTE]
   > `IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to [use a CloudTable paramName method parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) to read the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
-# [Java](#tab/java)
-
-The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) attribute gives you access to the table row that triggered the function.
-
-# [JavaScript](#tab/javascript)
-
-Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
-
-# [PowerShell](#tab/powershell)
-
-Data is passed to the input parameter as specified by the `name` key in the *function.json* file. Specifying The `partitionKey` and `rowKey` allows you to filter to specific records. See the [PowerShell example](#example) for more detail.
-
-# [Python](#tab/python)
-
-Table data is passed to the function as a JSON string. De-serialize the message by calling `json.loads` as shown in the input [example](#example).
-
 ---
+
+::: zone-end  
+::: zone pivot="programming-language-java"
+The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) attribute gives you access to the table row that triggered the function.
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+Data is passed to the input parameter as specified by the `name` key in the *function.json* file. Specifying The `partitionKey` and `rowKey` allows you to filter to specific records. See the [PowerShell example](#example) for more detail.
+::: zone-end  
+::: zone pivot="programming-language-python"  
+Table data is passed to the function as a JSON string. De-serialize the message by calling `json.loads` as shown in the input [example](#example).
+::: zone-end  
 
 ## Next steps
 
