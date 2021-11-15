@@ -5,7 +5,7 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: tutorial
 ms.date: 11/09/2021
 ms.author: memildin
