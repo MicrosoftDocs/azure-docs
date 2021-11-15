@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Sync device time for Azure Data Box and Azure Data Box Heavy
 
-This article describes how to diagnose that your Data Box is out of sync and then change the time on your Data Box device. The information in this article applies to import as well as export orders on both Data Box and Data Box Heavy devices.
+This article describes how to diagnose that your Data Box is out of sync and then change the time on your Data Box device. The information in this article applies to import and export orders on both Data Box and Data Box Heavy devices.
 
 
 ## About device time sync
@@ -68,7 +68,7 @@ To change the device time, follow these steps.
     
 ## Next steps
 
-To troubleshoot other Data Box issues, see one of the following:
+To troubleshoot other Data Box issues, see one of the following articles:
 
 - [Troubleshoot Data Box Blob storage errors](data-box-troubleshoot-rest.md).
 - [Troubleshoot Data Box data copy errors](data-box-troubleshoot.md).

@@ -161,7 +161,7 @@ Follow these steps to skip certificate validation:
     Enter-PSSession -Computer <IPv4_address for your Data Box> -ConfigurationName Minishell -Credential $Cred 
     ```
 
-    Here is an example output
+    Here is an example output.
     
     ```powershell
     Windows PowerShell
