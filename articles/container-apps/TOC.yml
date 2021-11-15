@@ -8,11 +8,13 @@
       href: compare-options.md
 - name: Quickstarts
   expanded: true
-  items:
+  items: 
     - name: Deploy your first container app
-      href: get-started.md
-    - name: Deploy a Container App - Portal
-      href: quickstart-portal.md
+      items:
+        - name: Azure Portal
+          href: quickstart-portal.md
+        - name: Azure CLI
+          href: get-started.md  
 - name: Concepts
   items:
     - name: Environment
