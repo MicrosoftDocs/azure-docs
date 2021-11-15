@@ -198,12 +198,34 @@
     items:
     - name: Overview
       href: backup-azure-database-postgresql-overview.md
-    - name: Backup
-      href: backup-azure-database-postgresql.md
-    - name: Restore
-      href: restore-azure-database-postgresql.md
-    - name: Manage
-      href: manage-azure-database-postgresql.md
+    - name: From the Azure portal
+      items:
+      - name: Backup
+        href: backup-azure-database-postgresql.md
+      - name: Restore
+        href: restore-azure-database-postgresql.md
+      - name: Manage
+        href: manage-azure-database-postgresql.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: backup-postgresql-ps.md
+      - name: Restore
+        href: restore-postgresql-database-ps.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-postgresql-cli.md    
+      - name: Restore
+        href: restore-postgresql-database-cli.md
+    - name: With REST API
+      items:
+      - name: Policy
+        href: backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md
+      - name: Backup
+        href: backup-azure-data-protection-use-rest-api-backup-postgresql.md
+      - name: Restore
+        href: restore-postgresql-database-use-rest-api.md
   - name: Windows backup using MARS agent
     items:
     - name: Overview
@@ -436,6 +458,8 @@
       href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
+    - name: Using Azure Monitor metrics
+      href: metrics-overview.md
     - name: Using Azure Monitor Logs
       href: backup-azure-monitoring-use-azuremonitor.md
   - name: Reports
@@ -458,13 +482,15 @@
         href: backup-azure-diagnostics-mode-data-model.md
   - name: Automation
     items:
+    - name: Overview
+      href: automation-backup.md
     - name: Built-in Azure Policy for Azure Backup
       items:
       - name: Auto-Enable Backup on VM Creation using Azure Policy
         href: backup-azure-auto-enable-backup.md
       - name: Configure vault diagnostics settings at scale
-        href: azure-policy-configure-diagnostics.md
-    - name: PowerShell
+        href: azure-policy-configure-diagnostics.md    
+    - name: Use PowerShell
       items:
       - name: Azure VMs
         href: backup-azure-vms-automation.md
@@ -504,6 +530,8 @@
       href: security-overview.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
+    - name: Multi-user authorization using Resource Guard
+      href: multi-user-authorization.md
     - name: Soft delete
       items:
       - name: Overview
@@ -533,10 +561,12 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
-  - name: Access tier
+  - name: Archive tier
     items:
-    - name: Archive tier
+    - name: Overview
       href: archive-tier-support.md
+    - name: Use Archive tier
+      href: use-archive-tier-support.md
   - name: Troubleshoot
     items:
     - name: Azure VM
@@ -565,6 +595,8 @@
       href: backup-azure-sap-hana-database-troubleshoot.md
     - name: System State
       href: backup-azure-system-state-troubleshoot.md
+    - name: Archive tier
+      href: troubleshoot-archive-tier.md
 - name: Reference
   items:
   - name: .NET

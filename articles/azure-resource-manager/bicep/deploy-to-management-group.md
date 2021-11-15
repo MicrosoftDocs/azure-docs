@@ -2,7 +2,7 @@
 title: Use Bicep to deploy resources to management group
 description: Describes how to create a Bicep file that deploys resources at the management group scope.
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 10/18/2021
 ---
 
 # Management group deployments with Bicep files
@@ -196,7 +196,7 @@ Or, you can set the scope to `/` for some resource types, like management groups
 
 ## Management group
 
-To create a management group in a management group deployment, you must set the scope to `/` for the management group.
+To create a management group in a management group deployment, you must set the scope to the tenant.
 
 The following example creates a new management group in the root management group.
 
@@ -214,13 +214,12 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
 output newManagementGroup string = mgName
 ```
 
-The next example creates a new management group in the management group specified as the parent.
+The next example creates a new management group in the management group targeted for the deployment. It uses the [management group function](bicep-functions-scope.md#managementgroup).
 
 ```bicep
 targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
-param parentMGName string
 
 resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
   scope: tenant()
@@ -228,15 +227,10 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
   properties: {
     details: {
       parent: {
-        id: parentMG.id
+        id: managementGroup().id
       }
     }
   }
-}
-
-resource parentMG 'Microsoft.Management/managementGroups@2020-05-01' existing = {
-  name: parentMGName
-  scope: tenant()
 }
 
 output newManagementGroup string = mgName

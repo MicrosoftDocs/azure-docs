@@ -4,7 +4,7 @@ description: Quickstart article that describes how to create a Logz.io resource 
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 08/17/2021
+ms.date: 10/25/2021
 ms.author: tomfitz
 ms.custom: references_regions
 ---
@@ -42,7 +42,7 @@ On the **Basics** tab of the **Create a Logz.io account** screen, input the foll
 | **Subscription** | From the drop-down menu, select the Azure subscription where you have owner access. |
 | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution. |
 | **Logz account name** | Provide the name for the Logz.io account you want to create. |
-| **Location** | Select **West US 2** or **West Europe**. During the preview, only these Azure regions are supported by Logz.io. |
+| **Location** | Select **West US 2** or **West Europe**. Logz.io supports only these Azure regions. |
 | **Pricing Plan** | Select from the list of available Logz.io plans. |
 | **Billing Term** | **Monthly** is the default. |
 | **Price** | Specified based on the selected Logz.io plan. |

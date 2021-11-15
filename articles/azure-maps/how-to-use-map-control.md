@@ -84,7 +84,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
     If you're using a subscription key for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element. Replace `<Your Azure Maps Key>` with your Azure Maps primary subscription key.
 
-     ```HTML
+    ```html
     <script type="text/javascript">
         function InitMap()
         {

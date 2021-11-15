@@ -51,7 +51,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Security Center
+          - text: Microsoft Defender for Cloud
             url: ../../security-center/security-center-introduction.md
       - linkListType: concept
         links:

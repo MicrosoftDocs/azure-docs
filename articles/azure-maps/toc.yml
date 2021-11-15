@@ -70,10 +70,10 @@ items:
     href: choose-pricing-tier.md
   - name: Creator for Indoor maps
     items:
-    - name: Creator service geographic scope
-      href: creator-geographic-scope.md
     - name: Indoor map concepts
       href: creator-indoor-maps.md
+    - name: Creator service geographic scope
+      href: creator-geographic-scope.md
     - name: Drawing conversion errors and warnings
       href: drawing-conversion-error-codes.md  
   - name: Encryption of data at rest
@@ -385,6 +385,8 @@ items:
   items:
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
+  - name: Azure Maps QPS Rate Limits
+    href: azure-maps-qps-rate-limits.md
   - name: Azure IoT services
     items:
     - name: IoT Hub

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
 ---
 # IoT connector troubleshooting guide
@@ -19,11 +19,14 @@ This article provides steps for troubleshooting common IoT connector error messa
 > [!TIP]
 > When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include copies of your Device and FHIR destination mappings to assist in the troubleshooting process.
 
-## Device and FHIR destination mapping validations
+## Device and FHIR destination mappings validations
 
 This section describes the validation process that IoT connector does. The validation process validates the Device and FHIR destination mappings before allowing them to be saved for use. These elements are required in the Device and FHIR destination mappings.
 
-**Device mapping**
+> [!TIP]
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
+
+**Device mappings**
 
 |Element|Required|
 |:-------|:------|
@@ -41,7 +44,7 @@ This section describes the validation process that IoT connector does. The valid
 > 
 >When a wearable IoMT device is put on or removed, the element(s) don't have any values except for a name that IoT connector matches and emits. On the FHIR conversion, IoT connector maps it to a code-able concept based on the semantic type. This means that no actual values are populated.
 
-**FHIR destination mapping**
+**FHIR destination mappings**
 
 |Element|Required|
 |:------|:-------|
@@ -150,7 +153,7 @@ The mapping copies should be provided to Azure Technical Support when opening a 
 > JSON is the only supported format for Device and FHIR destination mappings at this time.
 
 > [!TIP]
-> Learn more about IoT connector [Device and FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
+> Learn more about IoT connector [Device mappings](how-to-use-device-mapping-iot.md) and [FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
 
 1. Select **"IoT connectors"** on the left side of the Healthcare APIs Workspace.
 

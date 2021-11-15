@@ -2,7 +2,7 @@
 title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: Provides instructions to wire up OpenCensus Python with Azure Monitor
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/12/2021
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
@@ -18,6 +18,9 @@ Microsoft's supported solution for tracking and exporting data for your Python a
 Any other telemetry SDKs for Python are UNSUPPORTED and are NOT recommended by Microsoft to use as a telemetry solution.
 
 You may have noted that OpenCensus is converging into [OpenTelemetry](https://opentelemetry.io/). However, we continue to recommend OpenCensus while OpenTelemetry gradually matures.
+
+> [!NOTE]
+> A preview [OpenTelemetry-based Python offering](opentelemetry-enable.md?tabs=python) is available. [Learn more](opentelemetry-overview.md).
 
 ## Prerequisites
 

@@ -100,8 +100,20 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
-  - name: Scale session hosts automatically
-    href: set-up-scaling-script.md
+  - name: Scale session hosts with Azure Automation
+    items:
+      - name: Set up a scaling script
+        href: set-up-scaling-script.md
+  - name: Autoscale (preview)
+    items:
+      - name: Use the autoscale feature (preview)
+        href: autoscale-scaling-plan.md
+      - name: Autoscale session hosts (preview)
+        href: autoscale-new-existing-host-pool.md
+      - name: Autoscale diagnostics (preview)
+        href: autoscale-diagnostics.md
+      - name: Autoscale feature FAQ (preview)
+        href: autoscale-faq.yml
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
   - name: Use service diagnostics
@@ -158,6 +170,8 @@
       href: start-virtual-machine-connect-faq.md
   - name: Set drain mode
     href: drain-mode.md
+  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
+    href: azure-stack-hci.md
 - name: Concepts
   items:
   - name: Management recommendations
@@ -213,9 +227,17 @@
   - name: Security
     items:
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/windows-virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
+        href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
       - name: Screen capture protection
         href: screen-capture-protection.md
+  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
+    items:
+      - name: Overview (preview)
+        href: azure-stack-hci-overview.md
+      - name: Azure Stack HCI FAQ (preview)
+        href: azure-stack-hci-faq.yml
+  - name: Tag Azure Virtual Desktop resources
+    href: tag-virtual-desktop-resources.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support

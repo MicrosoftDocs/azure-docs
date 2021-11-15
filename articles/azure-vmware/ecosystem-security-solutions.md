@@ -13,3 +13,4 @@ Our security partners have industry-leading solutions in VMware-based environmen
 You can find more information about these solutions here:
 
 - [Bitdefender](https://businessinsights.bitdefender.com/expanding-security-support-for-azure-vmware-solution)
+- [Trend Micro Deep Security](https://www.trendmicro.com/en_us/business/products/hybrid-cloud/deep-security.html)

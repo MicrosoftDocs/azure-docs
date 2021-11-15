@@ -1,6 +1,6 @@
 ---
 title: List, update, and delete image resources 
-description: List, update, and delete image resources in your shared image gallery.
+description: List, update, and delete image resources in your Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # List, update, and delete image resources 
 
-You can manage your shared image gallery resources using the Azure CLI or Azure PowerShell.
+You can manage your Azure Compute Gallery (formerly known as Shared Image Gallery) resources using the Azure CLI or Azure PowerShell.
 
 ## List information
 
@@ -31,7 +31,7 @@ List the image definitions in a gallery, including information about OS type and
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-List the shared image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list).
+List the image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list).
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
@@ -90,7 +90,7 @@ Remove-AzGalleryImageVersion `
 ### [CLI](#tab/cli)
 There are some limitations on what can be updated. The following items can be updated: 
 
-Shared image gallery:
+Azure Compute Gallery:
 - Description
 
 Image definition:
@@ -165,7 +165,7 @@ az sig image-version update \
 
 There are some limitations on what can be updated. The following items can be updated: 
 
-Shared image gallery:
+Azure Compute Gallery:
 - Description
 
 Image definition:
@@ -253,7 +253,7 @@ az sig image-definition delete \
 ```
 
 
-Delete an image gallery using [az sig delete](/cli/azure/sig#az_sig_delete).
+Delete a gallery using [az sig delete](/cli/azure/sig#az_sig_delete).
 
 ```azurecli-interactive
 az sig delete \

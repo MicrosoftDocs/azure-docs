@@ -20,36 +20,8 @@
       href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-may-2021/
     - name: April 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-april-2021/
-    - name: March 2021 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-march-2021/
-    - name: February 2021 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/
-    - name: January 2021 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/
-    - name: November 2020 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/
-    - name: October 2020 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/
-    - name: September 2020 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/
-    - name: August 2020 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/
-    - name: July 2020 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/
-    - name: June 2020 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/
-    - name: June 2020 UI and documentation updates
-      href: https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/
-    - name: May 2020 jobs and metrics updates
-      href: https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/
-    - name: May 2020 dashboard updates
-      href: https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/
-    - name: April 2020 new features
-      href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/
-    - name: April 2020 updates
-      href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/
-    - name: March 2020
-      href: https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/
+    - name: Update history
+      href: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
 - name: Quickstarts
   expanded: true
   items:
@@ -142,6 +114,8 @@
   items:
     - name: Architecture
       href: core/concepts-architecture.md
+    - name: Scalability and high availability
+      href: core/concepts-scalability-availability.md
     - name: Device developer guide
       href: core/overview-iot-central-developer.md
     - name: Solution builder guide
@@ -204,7 +178,9 @@
           href: core/howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: core/howto-export-data-legacy.md
-        - name: Transform data
+        - name: Transform data internally for export
+          href: core/howto-transform-data-internally.md
+        - name: Transform data externally
           href: core/howto-transform-data.md
         - name: Use workflows to integrate with other services
           href: core/howto-configure-rules-advanced.md
@@ -218,12 +194,20 @@
       items:
         - name: Authenticate and authorize REST API calls
           href: core/howto-authorize-rest-api.md
+        - name: Query devices
+          href: core/howto-query-with-rest-api.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles-with-rest-api.md
+        - name: Data export
+          href: core/howto-manage-data-export-with-rest-api.md
+        - name: Manage device templates
+          href: core/howto-manage-device-templates-with-rest-api.md
         - name: Control devices
           href: core/howto-control-devices-with-rest-api.md
         - name: Manage jobs
           href: core/howto-manage-jobs-with-rest-api.md
+        - name: Manage applications
+          href: core/howto-manage-iot-central-with-rest-api.md
     - name: Manage your devices
       items:
         - name: Manage devices individually
@@ -254,6 +238,8 @@
       items:
       - name: Device connections
         href: core/troubleshoot-connection.md
+      - name: Data exports
+        href: core/troubleshoot-data-export.md
     - name: FAQ
       href: core/howto-faq.yml
     - name: Manage your personal preferences
@@ -271,6 +257,8 @@
     href: /samples/browse/?expanded=azure&products=azure-iot-central
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+  - name: Video resources
+    href: https://www.youtube.com/playlist?list=PL1ljc761XCiYlm8Rx58jLsUp4gAspw1SG
   - name: IoT Glossary
     href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
 

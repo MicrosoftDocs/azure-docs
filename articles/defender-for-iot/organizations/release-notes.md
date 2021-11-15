@@ -1,30 +1,33 @@
 ---
-title: What's new in Azure Defender for IoT 
+title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 05/05/2021
+ms.date: 11/09/2021
 ---
 
-# What's new in Azure Defender for IoT?  
+# What's new in Microsoft Defender for IoT?
+
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 This article lists new features and feature enhancements for Defender for IoT.
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support for Azure Defender for IoT 
+## Versioning and support for Defender for IoT
 
-Listed below are the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available. 
+Listed below are the support, breaking change policies for Defender for IoT, and the versions of Defender for IoT that are currently available.
 
-### Servicing information and timelines 
+### Servicing information and timelines
 
-Microsoft plans to release updates for Azure Defender for IoT no less than once per quarter. Each general availability (GA) version of the Azure Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+Microsoft plans to release updates for Defender for IoT no less than once per quarter. Each general availability (GA) version of the Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
 
 ### Versions and support dates
 
 | Version | Date released | End support date |
 |--|--|--|
 | 10.0 | 01/2021 | 10/2021 |
-| 10.3 | 04/2021 | 02/2022 |
+| 10.3 | 04/2021 | 01/2022 |
+| 10.5.2 | 11/2021 | 07/2022 |
 
 ## October 2021
 
@@ -52,35 +55,47 @@ If the Key state is detected as Program or the Run state is detected as either R
 
 #### Visibility and risk assessment
 
-- Use the Device Inventory to view the PLC state of organizational PLCs as well as contextual device information. Use the Device Inventory Settings dialog box to add this column to the Inventory.
+- Use the Device Inventory to view the PLC state of organizational PLCs, and contextual device information. Use the Device Inventory Settings dialog box to add this column to the Inventory.
 
-    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing plc operating mode.":::
+    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing PLC operating mode.":::
 
 - View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false. For more information, see [View and manage device properties](how-to-work-with-the-sensor-device-map.md#view-and-manage-device-properties).
 
-    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing plc information.":::
+    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing PLC information.":::
 
 - View all network PLC Run and Key State statuses by creating a Data Mining with PLC operating mode information.
 
-    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Data inventory screen showing plc option.":::
+    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Data inventory screen showing PLC option.":::
 
 - Use the Risk Assessment Report to review the number of network PLCs in the unsecure mode, and additional information you can use to mitigate unsecure PLC risks.
 
 ### PCAP API
 
-The new PCAP API lets the user retrieve PCAP files from the sensor via the on-premises management console with, or without direct access to the sensor itself. This is accomplished by using the management console as a proxy.
+The new PCAP API lets the user retrieve PCAP files from the sensor via the on-premises management console with, or without direct access to the sensor itself.
 
 ### On-premises Management Console audit
 
-Audit logs for your sensor’s deployment are now available from the On-premises management console.
+Audit logs for the on-premises management console can now be exported to facilitate investigations into what changes were made, and by who.
 
 ### Webhook extended
 
-Webhook extended can be used to send all of the information in the Webhook alert, as well as  extra data to the endpoint.
+Webhook extended can be used to send extra data to the endpoint. The extended feature includes all of the information in the Webhook alert and adds the following information to the report:
 
-### Unicode support for certificate passphrases 
+- sensorID
+- sensorName
+- zoneID
+- zoneName
+- siteID
+- siteName
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- handled
+- additionalInformation
 
-Unicode characters are now supported when working with sensor certificate passphrases. For more information see, [About certificates](how-to-deploy-certificates.md#about-certificates)
+### Unicode support for certificate passphrases
+
+Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md#about-certificates)
 
 ## April 2021
 
@@ -88,7 +103,7 @@ Unicode characters are now supported when working with sensor certificate passph
 
 New threat intelligence packages can now be automatically pushed to cloud connected sensors as they are released by Microsoft Defender for IoT. This is in addition to downloading threat intelligence packages and then uploading them to sensors.
 
-Working with automatic updates helps reduce operational efforts and ensure greater security. 
+Working with automatic updates helps reduce operational efforts and ensure greater security.
 Enable automatic updating by onboarding your cloud connected sensor on the Defender for IoT portal with the **Automatic Threat Intelligence Updates** toggle turned on.
 
 If you would like to take a more conservative approach to updating your threat intelligence data, you can manually push packages from the Azure Defender for IoT portal to cloud connected sensors only when you feel it is required.
@@ -97,7 +112,7 @@ This gives you the ability to control when a package is installed, without the n
 You can also review the following information about threat intelligence packages:
 
 - Package version installed
-- Threat intelligence update mode 
+- Threat intelligence update mode
 - Threat intelligence update status
 
 ### View cloud connected sensor information (Public Preview)
@@ -117,7 +132,7 @@ New fields are available for users working with alert APIs.
 - Source and destination address
 - Remediation steps
 - The name of sensor defined by the user
-- The name of zone associated with the sensor 
+- The name of zone associated with the sensor
 - The name of site associated with the sensor
 
 **Sensor**
@@ -156,26 +171,13 @@ You can now enhance the security of your deployment by adding a second network i
 
 This feature is available on the on-premises management console with the release of version 10.2.
 
-### Device builder - new micro agent (Public preview)
-
-A new device builder module is available. The module, referred to as a micro-agent, allows:
-
-- **Integration with Azure IoT Hub and Azure Defender for IoT** - build stronger endpoint security directly into your IoT devices by integrating it with the monitoring option provided by both the Azure IoT Hub and Azure Defender for IoT.
-- **Flexible deployment options with support for standard IoT operating systems** - can be deployed either as a binary package or as modifiable source code, with support for standard IoT operating systems like Linux and Azure RTOS.
-- **Minimal resource requirements with no OS kernel dependencies** - small footprint, low CPU consumption, and no OS kernel dependencies.
-- **Security posture management** – proactively monitor the security posture of your IoT devices.
-- **Continuous, real-time IoT/OT threat detection** - detect threats such as botnets, brute force attempts, crypto miners, and suspicious network activity
-
-The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
-
-This feature set is available with the current public preview cloud release.
-
 ## January 2021
 
 - [Security](#security)
 - [Onboarding](#onboarding)
 - [Usability](#usability)
 - [Other updates](#other-updates)
+
 ### Security
 
 Certificate and password recovery enhancements were made for this release.

@@ -39,7 +39,7 @@ Azure logs are categorized into the following types:
 
 * **Data plane logs** provide information about events raised as part of Azure resource usage. Examples of this type of log are the Windows event system, security, and application logs in a virtual machine (VM) and the [diagnostics logs](../../azure-monitor/essentials/platform-logs-overview.md) that are configured through Azure Monitor.
 
-* **Processed events** provide information about analyzed events/alerts that have been processed on your behalf. Examples of this type are [Azure Security Center alerts](../../security-center/security-center-managing-and-responding-alerts.md) where [Azure Security Center](../../security-center/security-center-introduction.md) has processed and analyzed your subscription and provides concise security alerts.
+* **Processed events** provide information about analyzed events/alerts that have been processed on your behalf. Examples of this type are [Microsoft Defender for Cloud alerts](../../security-center/security-center-managing-and-responding-alerts.md) where [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) has processed and analyzed your subscription and provides concise security alerts.
 
 The following table lists the most important types of logs available in Azure:
 
@@ -52,10 +52,10 @@ The following table lists the most important types of logs available in Azure:
 |[Azure Storage Analytics](/rest/api/storageservices/fileservices/storage-analytics)|Storage logging, provides metrics data for a storage account|Provides insight into trace requests, analyzes usage trends, and diagnoses issues with your storage account.|	REST API or the [client library](/dotnet/api/overview/azure/storage)|
 |[Network security group (NSG) flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|JSON format, shows outbound and inbound flows on a per-rule basis|Displays information about ingress and egress IP traffic through a Network Security Group.|[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)|
 |[Application insight](../../azure-monitor/app/app-insights-overview.md)|Logs, exceptions, and custom diagnostics|	Provides an application performance monitoring (APM) service for web developers on multiple platforms.|	REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|[Process data / security alerts](../../security-center/security-center-introduction.md)|	Azure Security Center alerts, Azure Monitor logs alerts|	Provides security information and alerts.| 	REST APIs, JSON|
+|[Process data / security alerts](../../security-center/security-center-introduction.md)|	Microsoft Defender for Cloud alerts, Azure Monitor logs alerts|	Provides security information and alerts.| 	REST APIs, JSON|
 
 ## Log integration with on-premises SIEM systems
-[Integrating Security Center alerts](../../security-center/security-center-partner-integration.md) discusses how to sync Security Center alerts, virtual machine security events collected by Azure diagnostics logs, and Azure audit logs with your Azure Monitor logs or SIEM solution.
+[Integrating Defender for Cloud alerts](../../security-center/security-center-partner-integration.md) discusses how to sync Defender for Cloud alerts, virtual machine security events collected by Azure diagnostics logs, and Azure audit logs with your Azure Monitor logs or SIEM solution.
 
 ## Next steps
 
@@ -65,4 +65,4 @@ The following table lists the most important types of logs available in Azure:
 
 - [Configure audit settings for a site collection](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): If you're a site collection administrator, retrieve the history of individual users' actions and the history of actions taken during a particular date range.
 
-- [Search the audit log in the Microsoft 365 security center](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): Use the Microsoft 365 security center to search the unified audit log and view user and administrator activity in your organization.
+- [Search the audit log in the Microsoft 365 Defender portal](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): Use the Microsoft 365 Defender portal to search the unified audit log and view user and administrator activity in your organization.

@@ -62,7 +62,7 @@ Prepare both the source SQL Server VM and the target region for the move.
 - To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation: 
     - [Network security groups](../../../virtual-network/tutorial-filter-network-traffic.md) 
     - [Load balancer](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
-    - [Public IP address](../../../virtual-network/virtual-network-public-ip-address.md)
+    - [Public IP address](../../../virtual-network/ip-services/virtual-network-public-ip-address.md)
     - For any additional networking components, see the [networking documentation](../../../virtual-network/virtual-networks-overview.md).
 - Manually create a non-production network in the target region if you want to test the configuration before you perform the final move to the target region. We recommend this step because it ensures minimal interference with the production network. 
 

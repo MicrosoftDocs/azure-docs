@@ -84,7 +84,7 @@ You can upgrade one extension by one of three ways:
 
     :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-selected.png" alt-text="Update selected extension." border="true":::
 
-## Uninstall extensions
+## Remove extensions
 
 You can remove one or more extensions from an Azure Arc-enabled server from the Azure portal. Perform the following steps to remove an extension.
 

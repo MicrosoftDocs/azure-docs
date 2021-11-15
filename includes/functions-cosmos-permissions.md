@@ -2,7 +2,7 @@
 author: mattchenderson
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/08/2021
+ms.date: 10/19/2021
 ms.author: mahender
 ---
 
@@ -10,7 +10,8 @@ You will need to create a role assignment that provides access to your database 
 
 | Binding type   | Example built-in roles                |
 |----------------|---------------------------------------|
-| Trigger        | [Cosmos DB Built-in Data Reader]      |
+| Trigger        | [Cosmos DB Built-in Data Contributor] |
+| Input binding  | [Cosmos DB Built-in Data Reader]      |
 | Output binding | [Cosmos DB Built-in Data Contributor] |
 
 

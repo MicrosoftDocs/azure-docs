@@ -27,8 +27,8 @@ To create a snapshot using the Azure portal, complete these steps.
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 1. Search for and select **Snapshot**.
 1. In the **Snapshot** window, select **Create**. The **Create snapshot** window appears.
-1. For **Resource group**, select an existing [resource group](/azure/azure-resource-manager/management/overview#resource-groups) or enter the name of a new one.
-1. Enter a **Name**, then select a **Region** and **Snapshot type** for the new snapshot. If you would like to store your snapshot in zone-resilient storage, you need to select a region that supports [availability zones](/azure/availability-zones/az-overview). For a list of supporting regions, see [Azure regions with availability zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones).
+1. For **Resource group**, select an existing [resource group](../azure-resource-manager/management/overview.md#resource-groups) or enter the name of a new one.
+1. Enter a **Name**, then select a **Region** and **Snapshot type** for the new snapshot. If you would like to store your snapshot in zone-resilient storage, you need to select a region that supports [availability zones](../availability-zones/az-overview.md). For a list of supporting regions, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 1. For **Source subscription**, select the subscription that contains the managed disk to be backed up.
 1. For **Source disk**, select the managed disk to snapshot.
 1. For **Storage type**, select **Standard HDD**, unless you require zone-redundant storage or high-performance storage for your snapshot.
@@ -69,7 +69,7 @@ First, you'll use the [New-AzSnapshotConfig](/powershell/module/az.compute/new-a
        -CreateOption copy
    ```
 
-   If you want to store your snapshot in zone-resilient storage, you must create the snapshot in a region that supports [availability zones](/azure/availability-zones/az-overview and include the `-SkuName Standard_ZRS` parameter. For a list of regions that support availability zones, see [Azure regions with availability zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones).
+   If you want to store your snapshot in zone-resilient storage, you must create the snapshot in a region that supports [availability zones](/azure/availability-zones/az-overview and include the `-SkuName Standard_ZRS` parameter. For a list of regions that support availability zones, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 1. Take the snapshot.
 
@@ -112,7 +112,7 @@ Follow these steps to take a snapshot with the `az snapshot create` command and 
     	--name osDisk-backup
     ```
 
-    If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](/azure/availability-zones/az-overview) and include the optional `--sku Standard_ZRS` parameter. A list of [availability zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones) can be found here.
+    If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../availability-zones/az-overview.md) and include the optional `--sku Standard_ZRS` parameter. A list of [availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones) can be found here.
     
 1. Use [az snapshot list](/cli/azure/snapshot#az_snapshot_list) to verify that your snapshot exists.
     

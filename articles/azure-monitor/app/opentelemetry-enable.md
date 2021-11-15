@@ -9,7 +9,7 @@ ms.author: mmcc
 
 # Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (Preview)
 
-This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you will be able to send OpenTelemetry traces to Azure Monitor Application Insights.
+This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you will be able to send OpenTelemetry traces to Azure Monitor Application Insights. To learn more about OpenTelemetry, check out the [OpenTelemetry Overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
 
 > [!IMPORTANT]
 > Azure Monitor OpenTelemetry Exporter for .NET, Node.js,and Python applications is currently in PREVIEW.
@@ -26,7 +26,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Auto-capture of unhandled exceptions
  - [Profiler](profiler-overview.md)
  - [Snapshot Debugger](snapshot-debugger.md)
- - Offline disk storage
+ - [Offline disk storage and retry logic](telemetry-channels.md#built-in-telemetry-channels)
  - [Azure AD Authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
@@ -35,7 +35,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Distributed Tracing context propagation (instrumentation libraries) through Azure Functions Worker
+ - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
 
 Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
@@ -67,7 +67,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - [Live Metrics](live-stream.md)
  - Logging API (console logs, logging libraries, etc.)
  - Auto-capture of unhandled exceptions
- - Offline disk storage
+ - Offline disk storage and retry logic
  - [Azure AD Authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
@@ -76,7 +76,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Distributed Tracing context propagation (instrumentation libraries) through Azure Functions Worker
+ - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
 
 Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
@@ -170,17 +170,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ##### [.NET](#tab/net)
 
-> [!NOTE]
-> The following guidance shows how to enable Azure Monitor Application Insights for a C# console applications.
-> 
-> Check out OpenTelemetry GitHub Readmes for guidance on other applications types:
-> - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.AspNet/README.md)
-> - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.AspNetCore/README.md)
-> - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.Http/README.md)
-> 
-> Extension method `AddAzureMonitorTraceExporter` for sending data to Application Insights is applicable for all listed application types.
-> 
-> For additional resources, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). 
+The following code demonstrates enabling OpenTelemetry in a C# console application by setting up OpenTelemetry TracerProvider. This code must be in the application startup. For ASP.NET Core, it is done typically in the `ConfigureServices` method of application `Startup` class. For ASP.NET applications, it is done typically in `Global.asax.cs`.
 
 ```csharp
 using System.Diagnostics;
@@ -294,6 +284,9 @@ with tracer.start_as_current_span("hello"):
 ```
 
 ---
+
+> [!TIP]
+> Add [Instrumentation Libraries](#instrumentation-libraries) to auto-collect telemetry across popular frameworks/libraries.
 
 #### Set Application Insights connection string
 
@@ -432,11 +425,11 @@ The following libraries are validated to work with the Preview Release:
 
 #### [Python](#tab/python)
 
-- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django/README.md) Version:
+- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) Version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.24b0/)
-- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask/README.md) Version:
+- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) Version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.24b0/)
-- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests/README.md) Version:
+- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) Version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.24b0/)
 
 ---
@@ -472,7 +465,7 @@ Span attributes can be added using either of the following two ways.
 1. Using options provided by [instrumentation libraries](#instrumentation-libraries).
 2. Adding a custom span processor.
 
-These attributes may include adding a custom business property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP.
+These attributes may include adding a custom property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as Client IP.
 
 > [!TIP]
 > The advantage of using "options provided by instrumentation libraries" (when available) is that the entire context is available, meaning users can select to add or filter additional attributes. For example, the enrich option the HttpClient instrumentation library includes giving users access to the httpRequestMessage itself, to select anything from it and store it as an attribute.
@@ -601,6 +594,7 @@ You can populate the _client_IP_ field for requests by setting `http.client_ip` 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code in `ActivityEnrichingProcessor.cs`:
 
 ```C#
+// only applicable in case of activity.Kind == Server
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
 

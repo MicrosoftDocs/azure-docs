@@ -26,6 +26,9 @@
   - name: Author
     expanded: true
     items:
+    - name: File structure & syntax
+      displayName: parameters,variables,resources,outputs,condition
+      href: file.md
     - name: Resources
       items:
       - name: Resource declaration
@@ -56,22 +59,7 @@
       - name: Create private registry
         href: private-module-registry.md
     - name: Loops
-      items:
-      - name: Resources
-        displayName: iteration,copy,multiple,batches,child,condition,filter
-        href: loop-resources.md
-      - name: Modules
-        displayName: iteration,copy,multiple,batches,condition,filter
-        href: loop-modules.md
-      - name: Properties
-        displayName: iteration,copy,multiple
-        href: loop-properties.md
-      - name: Variables
-        displayName: iteration,copy,multiple
-        href: loop-variables.md
-      - name: Outputs
-        displayName: iteration,copy,multiple
-        href: loop-outputs.md
+      href: loops.md
     - name: Scopes
       items:
       - name: Resource group
@@ -151,9 +139,6 @@
       displayName: conversion issues,export,convert,playground
 - name: Reference
   items:
-  - name: Bicep file structure
-    displayName: parameters,variables,resources,outputs,condition
-    href: file.md
   - name: Resource reference
     href: /azure/templates/
   - name: Data types

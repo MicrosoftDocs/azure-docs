@@ -113,6 +113,16 @@
       href: active-directory-architecture.md
     - name: Integrating all your apps with Azure AD
       href: five-steps-to-full-application-integration-with-azure-ad.md
+    - name: Multi-tenant user management
+      items:
+      - name: Multi-tenant user management introduction
+        href: multi-tenant-user-management-introduction.md
+      - name: Common scenarios
+        href: multi-tenant-user-management-scenarios.md
+      - name: Common considerations
+        href: multi-tenant-common-considerations.md
+      - name: Common solutions
+        href: multi-tenant-common-solutions.md
     - name: Authentication and provisioning protocols
       items:
       - name: Overview
@@ -268,6 +278,10 @@
       href: license-users-groups.md
     - name: Restore a deleted user
       href: active-directory-users-restore.md
+  - name: Scenarios
+    items:
+    - name: Using Azure Active Directory to secure access to SAP platforms and applications
+      href: scenario-azure-first-sap-identity-integration.md
 - name: Troubleshooting
   expanded: true
   items:

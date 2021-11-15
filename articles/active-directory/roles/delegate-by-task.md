@@ -362,6 +362,7 @@ In this article, you can find the information needed to restrict a user's admini
 > | Add user to group | User Administrator |  |
 > | Assign license | License Administrator | User Administrator |
 > | Create guest user | Guest inviter | User Administrator |
+> | Reset guest user invite | User Administrator | Global Administrator |
 > | Create user | User Administrator |  |
 > | Delete users | User Administrator |  |
 > | Invalidate refresh tokens of limited admins (see documentation) | User Administrator |  |

@@ -52,22 +52,38 @@
     items:
     - name: Create WebSocket clients
       href: howto-websocket-connect.md
+    - name: Configure event handler
+      href: howto-develop-eventhandler.md
+  - name: Monitor
+    items:
+    - name: Audit compliance using Azure Policy
+      href: howto-monitor-azure-policy.md
   - name: Secure
     items:
     - name: Protect the access key
       href: howto-secure-rotate-access-key.md
+    - name: Use Azure Service Tags
+      href: howto-service-tags.md
     - name: Use Azure private endpoints
       href: howto-secure-private-endpoints.md
     - name: Manage network access control
       href: howto-secure-network-access-control.md
     - name: Secure outbound traffic through shared private endpoints
       href: howto-secure-shared-private-endpoints.md
+    - name: Use a managed identity
+      href: howto-use-managed-identity.md
+    - name: Configure Azure AD Authorization
+      items:
+        - name: Authorize from Azure applications
+          href: howto-authorize-from-application.md
+        - name: Authorize from managed identities
+          href: howto-authorize-from-managed-identity.md
   - name: Troubleshooting
     items:
     - name: Collect network trace
       href: howto-troubleshoot-network-trace.md
-    - name: Capture diagnostics logs
-      href: howto-troubleshoot-diagnostic-logs.md
+    - name: Capture resource logs
+      href: howto-troubleshoot-resource-logs.md
 
 - name: Concepts
   expanded: true
@@ -84,6 +100,8 @@
     href: concept-performance.md
   - name: Billing model
     href: concept-billing-model.md
+  - name: Azure AD Authorization
+    href: concept-azure-ad-authorization.md
 
 - name: Reference 
   items:

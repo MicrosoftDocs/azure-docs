@@ -58,7 +58,7 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
 
     | LDAP attribute | Outgoing claim type |
     | -------------- | ------------------- |
-    | User-Principal-Name | UPN |
+    | User-Principal-Name | upn |
     | Surname | family_name |
     | Given-Name | given_name |
     | Display-Name | name |
@@ -90,10 +90,10 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
 1. (Optional) For the **Domain hint**, enter `contoso.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. Under **Identity provider claims mapping**, select the following claims:
 
-    - **User ID**: *upn*
-    - **Display name**: *unique_name*
-    - **Given name**: *given_name*
-    - **Surname**: *family_name*
+    - **User ID**: `upn`
+    - **Display name**: `unique_name`
+    - **Given name**: `given_name`
+    - **Surname**: `family_name`
 
 1. Select **Save**.
 

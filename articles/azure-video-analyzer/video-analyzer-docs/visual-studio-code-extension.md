@@ -1,13 +1,13 @@
 ---
-title: Use Azure Video Analyzer Visual Studio Code extension
-description: This reference article explains how to use the various pieces of functionality in the Azure Video Analyzer Visual Studio Code extension.
+title: Visual Studio Code extension for Azure Video Analyzer
+description: This reference article explains how to use the various pieces of functionality in the Visual Studio Code extension for Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 06/01/2021
-
+ms.date: 11/04/2021
+ms.custom: ignite-fall-2021
 ---
 
-# Use Azure Video Analyzer Visual Studio Code extension
+# Visual Studio Code extension for Azure Video Analyzer
 
 Azure Video Analyzer is a platform to make building video analysis programs easier, and the associated Visual Studio Code extension is a tool to make learning that platform easier.  This article is a reference to the various pieces of functionality offered by the extension.  It covers the basics of:
 
@@ -15,7 +15,7 @@ Azure Video Analyzer is a platform to make building video analysis programs easi
 * Live pipelines – creation, activation, deactivation, deletion, viewing the JSON
 * Editing a pipeline topology  – modules, parameters, system variables, connections, validation
 
-If you have not set up the extension to connect to your edge device, follow the [Azure Video Analyzer Visual Studio Code extension](./create-pipeline-vs-code-extension.md) quickstart.
+If you have not set up the extension to connect to your edge device, follow the steps in [Use the Visual Studio Code extension for Azure Video Analyzer](./edge/use-visual-studio-code-extension.md).
 
 ## Managing pipelines topology
 
@@ -31,7 +31,7 @@ If you want to view the underlying JSON behind an existing topology, on the left
 
 ## Live pipelines
 
-To create a live pipeline, along the left under Pipeline topologies right-click on the name of the topology and select `Create live pipeline`.  You will then need to fill in an live pipeline name, and any required parameters before continuing.  In the top right you can then either click `Save` which will save it in an inactive state, or `Save and activate` which will start the live pipeline immediately. 
+To create a live pipeline, along the left under Pipeline topologies right-click on the name of the topology and select `Create live pipeline`.  You will then need to fill in a live pipeline name, and any required parameters before continuing.  In the top right you can then either click `Save` which will save it in an inactive state, or `Save and activate` which will start the live pipeline immediately. 
 
 To activate an existing live pipeline, along the left under Pipeline topologies right-click on the name of the live pipeline and select `Activate live pipeline`.
 
@@ -43,7 +43,7 @@ If you want to view the underlying JSON behind an existing live pipeline, on the
 
 ## Editing a topology 
 
-Pipeline topologies are constructed of a variety of pieces.  You can learn about these pieces in the [Pipelines](./pipeline.md) concept doc.  This section is about the portions of the interface to help you build or edit a topology.
+Pipeline topologies are constructed of a variety of pieces. You can learn about these pieces in the [Pipelines](pipeline.md) concept doc. This section is about the portions of the interface to help you build or edit a topology.
 
 ### Modules
 
@@ -77,4 +77,4 @@ When creating a series of live pipelines, there are likely cases where you want 
 
 When you create a topology, you will need to connect the various modules together.  This is done with connections.  From the circle on the edge of a module, drag to the circle on the next module you want data to flow to.  This will produce a connection.
 
-By default, connections send all data from one module to another.  If you only want to send certain types of data, you can left click on the connection and edit the output types that are sent.  Selectable types of data include video, audio, and application.
+By default, connections send video data from one module to another. If you want to send only audio data or application data, you can left click on the connection and edit the output types. Selectable types of data include video, audio, and application. Selecting none of the output types will be treated as sending all applicable data from the sender node.

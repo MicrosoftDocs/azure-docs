@@ -21,6 +21,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2.md",
+            "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-apis",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cloud-partner-portal/cloud-partner-portal-manage-publisher-profile.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
             "redirect_document_id": false

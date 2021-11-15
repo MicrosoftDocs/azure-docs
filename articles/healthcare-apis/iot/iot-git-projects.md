@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/18/2021
+ms.date: 10/28/2021
 ms.author: jasteppe
 ---
 # Open-source projects
@@ -14,19 +14,33 @@ Check out our open-source projects on GitHub that provide source code and instru
 
 ## IoT connector GitHub projects
 
-#### Integration with IoT Hub and IoT Central
+#### FHIR integration
 
-* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): integration with IoT Hub or IoT Central to Fast Healthcare Interoperability Resources (FHIR&#174;) with data normalization and FHIR conversion of the normalized data
-* Normalization: device data information is extracted into a common format for further processing
-* FHIR Conversion: normalized and grouped data is mapped to FHIR. Observations are created or updated according to configured templates and linked to the device and patient.
+* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Healthcare APIs IoT connector managed service. Can be used with any Fast Healthcare Interoperability Resources (FHIR&#174;) service that supports [FHIR R7&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
 
-#### Device and FHIR destination mappings authoring and troubleshooting
+#### Device and FHIR destination mappings
 
-* [Tools to help build Device and FHIR destination mappings](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): visualize the mapping configuration for normalizing the device input data and transform it to FHIR resources. Developers can use this tool to edit and test Device mappings and FHIR destination mappings. Export them for uploading to IoT connector in the Azure portal.
+* [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): Tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the open-source version.
 
-#### HealthKit and FHIR integration
+#### Wearables integration
 
-* [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): a Swift library that automates the export of Apple HealthKit Data to a FHIR service.
+Fitbit
+
+* [microsoft/fitbit-on-fhir](https://github.com/microsoft/FitbitOnFHIR): Bring Fitbit&#174; data to a FHIR service.
+
+HealthKit
+
+* [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): Bring Apple&#174; HealthKit&#174; data to a FHIR service.
+
+* [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR Resources from HKObjects
+
+Google Fit on FHIR
+
+* [microsoft/googlefit-on-fhir](https://github.com/microsoft/googlefit-on-fhir): Bring Google Fit&#174; data to a FHIR service.
+
+Health Data Sync
+
+* [microsoft/health-data-sync](https://github.com/microsoft/health-data-sync): A Swift&#174; library that simplifies and automates the export of HealthKit data to an external store.
 
 ## Next steps
 Learn how to deploy IoT connector in the Azure portal

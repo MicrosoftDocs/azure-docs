@@ -189,7 +189,7 @@ Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey -AsPlainText
 
 Notice that `CredentialId` is updated to the alternate `keyName` and that `value` is regenerated:
 
-![Screenshot that shows the output of the a z keyvault secret show command for the first storage account.](../media/secrets/rotation-dual/dual-rotation-4.png)
+![Screenshot that shows the output of the A Z keyvault secret show command for the first storage account.](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 Retrieve the access keys to compare the values:
 # [Azure CLI](#tab/azure-cli)
@@ -205,7 +205,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 
 Notice that `value` of the key is same as secret in key vault:
 
-![Screenshot that shows the output of the a z storage account keys list command for the first storage account.](../media/secrets/rotation-dual/dual-rotation-5.png)
+![Screenshot that shows the output of the A Z storage account keys list command for the first storage account.](../media/secrets/rotation-dual/dual-rotation-5.png)
 
 ## Add storage accounts for rotation
 
@@ -292,7 +292,7 @@ Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey2 -AsPlainText
 
 Notice that `CredentialId` is updated to the alternate `keyName` and that `value` is regenerated:
 
-![Screenshot that shows the output of the a z keyvault secret show command for the second storage account.](../media/secrets/rotation-dual/dual-rotation-8.png)
+![Screenshot that shows the output of the A Z keyvault secret show command for the second storage account.](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 Retrieve the access keys to compare the values:
 # [Azure CLI](#tab/azure-cli)
@@ -308,7 +308,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 
 Notice that `value` of the key is same as secret in key vault:
 
-![Screenshot that shows the output of the a z storage account keys list command for the second storage account.](../media/secrets/rotation-dual/dual-rotation-9.png)
+![Screenshot that shows the output of the A Z storage account keys list command for the second storage account.](../media/secrets/rotation-dual/dual-rotation-9.png)
 
 ## Key Vault rotation functions for two sets of credentials
 

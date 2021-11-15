@@ -5,8 +5,8 @@ ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 01/16/2018
-author: minhe-msft
-ms.author: hemin
+author: joshuha-msft
+ms.author: joowen
 ms.custom: devx-track-python
 ---
 # Programmatically monitor an Azure data factory

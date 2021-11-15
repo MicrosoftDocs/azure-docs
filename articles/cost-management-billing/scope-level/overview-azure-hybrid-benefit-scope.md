@@ -1,5 +1,5 @@
 ---
-title: What is scope-level management of Azure Hybrid Benefit?
+title: What is centrally managed Azure Hybrid Benefit?
 description: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure.
 keywords:
 author: bandersmsft
@@ -11,11 +11,11 @@ ms.subservice: ahb
 ms.reviewer: chrisrin
 ---
 
-# What is scope-level management of Azure Hybrid Benefit?
+# What is centrally managed Azure Hybrid Benefit?
 
 Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-You can manage your Azure Hybrid Benefit for SQL Server across the scope of an entire Azure subscription or overall billing account. At a high level, here's how it works:
+You can centrally manage your Azure Hybrid Benefit for SQL Server across the scope of an entire Azure subscription or overall billing account. At a high level, here's how it works:
 
 1. First, confirm that all your SQL Server VMs are visible to you and Azure by enabling automatic registration of the self-installed SQL server images with the IaaS extension. For more information, see [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
 1. Under **Cost Management + Billing** in the Azure portal, you (the billing administrator) choose the scope and the number of qualifying licenses that you want to assign to cover the resources in the scope.  
@@ -27,7 +27,7 @@ You can manage your Azure Hybrid Benefit for SQL Server across the scope of an e
 
 The original resource-level way to enable Azure Hybrid Benefit is still available for SQL Server and is currently the only option for Windows Server. It involves a DevOps role selecting the benefit for each individual resource (like a SQL Database or Windows Server VM) when creating or managing it. Doing so results in the hourly cost of that resource being discounted. For more information, see [Azure Hybrid Benefit for Windows Server](../../azure-sql/azure-hybrid-benefit.md).
 
-Enabling Azure Hybrid Benefit for SQL Server at a subscription or account scope level is currently in preview. It's available to enterprise customers only. We're working on extending the capability to Windows Server and more customers.
+Enabling centralized management of Azure Hybrid Benefit of for SQL Server at a subscription or account scope level is currently in preview. It's available to enterprise customers only. We're working on extending the capability to Windows Server and more customers.
 
 ## Qualifying SQL Server licenses
 
@@ -35,7 +35,7 @@ SQL Server Enterprise and Standard core licenses with active Software Assurance 
 
 ## Qualifying Azure resources
 
-Scope-level Azure Hybrid Benefit management covers the following common Azure SQL resources:
+Centrally managing Azure Hybrid Benefit at a scope-level covers the following common Azure SQL resources:
 
 - SQL Databases
 - SQL Managed Instances
@@ -47,7 +47,7 @@ Resource-level Azure Hybrid Benefit management can cover all the above, too. It'
 - Azure Dedicated Hosts
 - Azure Data Factory SQL Server Integration Services (SSIS)
 
-## Scope-level management advantages
+## Centralized scope-level management advantages
 
 You get the following:
 
@@ -99,5 +99,5 @@ Here's our recommended recurring rhythm of managing Azure Hybrid Benefit at a sc
 ## Next steps
 
 - Follow the [Manage and optimize Azure Hybrid Benefit for SQL Server](tutorial-azure-hybrid-benefits-sql.md) tutorial.
-- Learn about how to [transition to scope-level management of Azure Hybrid Benefit](transition-existing.md).
-- Review the [Scope-level Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Learn about how to [transition to centrally managed Azure Hybrid Benefit](transition-existing.md).
+- Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).

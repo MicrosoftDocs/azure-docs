@@ -1,7 +1,7 @@
 ---
 title: Data splits and cross-validation in automated machine learning 
 titleSuffix: Azure Machine Learning
-description: Learn how to configure dataset splits and cross-validation for automated machine learning experiments
+description: Learn how to configure training, validation, cross-validation and test data for automated machine learning experiments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -10,11 +10,11 @@ ms.custom: automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
-ms.date: 02/23/2021
+ms.date: 11/15/2021
 
 ---
 
-# Configure data splits and cross-validation in automated machine learning
+# Configure training, validation, cross-validation and test data in automated machine learning
 
 In this article, you learn the different options for configuring training data and validation data splits along with cross-validation settings for your automated machine learning, automated ML, experiments.
 
@@ -23,9 +23,6 @@ In Azure Machine Learning, when you use automated ML to build multiple ML models
 Automated ML experiments perform model validation automatically. The following sections describe how you can further customize validation settings with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/). 
 
 For a low-code or no-code experience, see [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment). 
-
-> [!NOTE]
-> The studio currently supports training and validation data splits as well as cross-validation options, but it does not support specifying individual data files for your validation set. 
 
 ## Prerequisites
 
@@ -60,19 +57,20 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-If you do not explicitly specify either a `validation_data` or `n_cross_validations` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`:
+If you do not explicitly specify either a `validation_data` or `n_cross_validations` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`.
 
 |Training&nbsp;data&nbsp;size| Validation technique |
 |---|-----|
 |**Larger&nbsp;than&nbsp;20,000&nbsp;rows**| Train/validation data split is applied. The default is to take 10% of the initial training data set as the validation set. In turn, that validation set is used for metrics calculation.
 |**Smaller&nbsp;than&nbsp;20,000&nbsp;rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is less than 1,000 rows**, 10 folds are used. <br> **If the rows are between 1,000 and 20,000**, then three folds are used.
 
+
 ## Provide validation data
 
 In this case, you can either start with a single data file and split it into training data and validation data sets or you can provide a separate data file for the validation set. Either way, the `validation_data` parameter in your `AutoMLConfig` object assigns which data to use as your validation set. This parameter only accepts data sets in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe.   
 
 > [!NOTE]
-> The `validation_data` parameter requires the `training_data` and `label_column_name` parameters to be set as well. You can only set one validation parameter, that is you can only specifiy either `validation_data` or `n_cross_validations`, not both.
+> The `validation_data` parameter requires the `training_data` and `label_column_name` parameters to be set as well. You can only set one validation parameter, that is you can only specify either `validation_data` or `n_cross_validations`, not both.
 
 The following code example explicitly defines which portion of the provided data in `dataset` to use for training and validation.
 
@@ -196,6 +194,42 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 When either k-fold or Monte Carlo cross validation is used, metrics are computed on each validation fold and then aggregated. The aggregation operation is an average for scalar metrics and a sum for charts. Metrics computed during cross validation are based on all folds and therefore all samples from the training set. [Learn more about metrics in automated machine learning](how-to-understand-automated-ml.md).
 
 When either a custom validation set or an automatically selected validation set is used, model evaluation metrics are computed from only that validation set, not the  training data.
+
+## Provide test data (preview)
+
+You can also provide test data to evaluate the recommended model that automated ML generates for you upon completion of the experiment. When you provide test data it's considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. [Learn more about training, validation and test data in automated ML.](concept-automated-ml.md#training-validation-and-test-data) 
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Test datasets must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset). You can specify a test dataset with the `test_data` and `test_size` parameters in your `AutoMLConfig` object.  These parameters are mutually exclusive and can not be specified at the same time. 
+
+With the `test_data` parameter, specify an existing dataset to pass into your `AutoMLConfig` object. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             ...
+                             # Provide an existing test dataset
+                             test_data=test_dataset,
+                             ...
+                             forecasting_parameters=forecasting_parameters)
+```
+
+To use a train/test split instead of providing test data directly, use the `test_size` parameter when creating the `AutoMLConfig`. This parameter must be a floating point value between 0.0 and 1.0 exclusive, and specifies the percentage of the training dataset that should be used for the test dataset.
+
+```python
+automl_config = AutoMLConfig(task = 'regression',
+                             ...
+                             # Specify train/test split
+                             training_data=training_data,
+                             test_size=0.2)
+```
+
+> [!Note]
+> For regression tasks, random sampling is used.<br>
+> For classification tasks, stratified sampling is used, but random sampling is used as a fall back when stratified sampling is not feasible. <br>
+> Forecasting does not currently support specifying a test dataset using a train/test split.
+
+Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run upon completion of your experiment. This test run uses the provided test data to evaluate the best model that automated ML recommends. Learn more about [how to get the predictions from the test run](how-to-configure-auto-train.md#test-models-preview).
 
 ## Next steps
 

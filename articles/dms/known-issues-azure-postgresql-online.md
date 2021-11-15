@@ -75,7 +75,7 @@ Known issues and limitations associated with online migrations from PostgreSQL t
      ```
 
 ## Size limitations
-- You can migrate up to 2 TB of data from PostgreSQL to Azure DB for PostgreSQL using a single DMS service.
+- You can migrate up to 1 TB of data from PostgreSQL to Azure DB for PostgreSQL using a single DMS service.
 ## Datatype limitations
 
   **Limitation**: If there's no primary key on tables, changes may not be synced to the target database.

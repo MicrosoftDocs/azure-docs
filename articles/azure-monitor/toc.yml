@@ -4,45 +4,34 @@
   items:
   - name: What is Azure Monitor?
     href: overview.md
+  - name: What can you monitor?
+    href: monitor-reference.md
   - name: FAQ
     href: faq.yml
   - name: What's new?
     href: whats-new.md
   - name: Migrate from Operations Manager
     href: azure-monitor-operations-manager.md
-- name: Quickstarts
-  items:
-  - name: Monitor Azure resource
-    href: essentials/quick-monitor-azure-resource.md
-  - name: Send Activity log to a workspace
-    items: 
-    - name: Azure portal
-      href: essentials/quick-collect-activity-log-portal.md
-    - name: ARM template
-      displayName: Resource Manager
-      href: essentials/quick-collect-activity-log-arm.md
-  - name: Monitor applications
-    items:
-    - name: ASP.NET Core application
-      href: app/dotnet-quickstart.md
-    - name: Node.js application
-      href: app/nodejs-quick-start.md
-    - name: Mobile application
-      href: app/mobile-center-quickstart.md
-    - name: Web application
-      href: app/website-monitoring.md 
 - name: Tutorials
   items:
-  - name: Create a metrics chart
-    href: essentials/tutorial-metrics-explorer.md
-  - name: Collect logs from Azure resource
+  - name: Monitor Azure resource
+    href: essentials/monitor-azure-resource.md
+  - name: Analyze metric data
+    href: essentials/tutorial-metrics.md
+  - name: Create a metric alert
+    href: alerts/tutorial-metric-alert.md
+  - name: Collect and view resource logs
     href: essentials/tutorial-resource-logs.md
-  - name: Write log queries
-    href: logs/get-started-queries.md
-  - name: Create a dashboard from log query
-    href: visualize/tutorial-logs-dashboards.md
-  - name: Autoscale on performance and schedule
-    href: autoscale/tutorial-autoscale-performance-schedule.md
+  - name: Create a log query alert
+    href: alerts/tutorial-log-alert.md
+  - name: Virtual machines
+    items:
+    - name: Enable monitoring
+      href: vm/tutorial-monitor-vm-enable.md
+    - name: Alert on machine down
+      href: vm/tutorial-monitor-vm-alert.md
+    - name: Collect guest logs and metrics
+      href: vm/tutorial-monitor-vm-guest.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
@@ -55,6 +44,8 @@
       href: app/tutorial-users.md
     - name: Dashboard with application data
       href: app/tutorial-app-dashboards.md
+    - name: Monitor mobile application
+      href: app/mobile-center-quickstart.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -111,8 +102,6 @@
     href: azure-cli-metrics-alert-sample.md
 - name: Concepts
   items:
-  - name: What can you monitor?
-    href: monitor-reference.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
   - name: Data sources
@@ -151,8 +140,6 @@
       href: alerts/alerts-unified-log.md
     - name: Activity log alerts
       href: alerts/activity-log-alerts.md  
-  - name: Visualize data
-    href: visualizations.md
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -166,8 +153,18 @@
   items:
   - name: Scenarios
     items:
-    - name: Monitor Azure resource
-      href: essentials/monitor-azure-resource.md
+    - name: Azure Monitor best practices
+      items:
+      - name: Overview
+        href: best-practices.md
+      - name: Planning
+        href: best-practices-plan.md
+      - name: Configure data collection
+        href: best-practices-data-collection.md
+      - name: Analysis and visualizations
+        href: best-practices-analysis.md
+      - name: Alerts and automated actions
+        href: best-practices-alerts.md
     - name: Monitor virtual machines
       items:
       - name: Overview
@@ -185,13 +182,6 @@
       displayname: VM
     - name: Monitor Kubernetes
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-  - name: Deploy
-    items:
-    - name: Deploy Azure Monitor
-      href: deploy.md
-    - name: Deploy at scale
-      displayName: Azure Policy, Policy
-      href: deploy-scale.md
   - name: Manage and configure
     items:
     - name: Roles permissions and security
@@ -281,6 +271,9 @@
       - name: Overview
         displayname: log query, log queries, query, queries
         href: logs/log-query-overview.md
+      - name: Get started
+        displayname: log query, log queries, query, queries
+        href: logs/get-started-queries.md
       - name: KQL reference
         href: /azure/data-explorer/kusto/query/
       - name: Sample queries
@@ -390,7 +383,7 @@
     - name: Overview
       href: agents/agents-overview.md
     - name: FAQ
-      href: /azure/azure-monitor/faq#agents
+      href: ./faq.yml
     - name: Azure Monitor Agent
       items:
       - name: Overview
@@ -402,15 +395,12 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
-      - name: Deploy at scale
-        displayname: Deploy Azure Monitor agent at scale
-        href: deploy-scale.md#azure-monitor-agent 
       - name: Migrate from legacy agents
         displayname: Migrate to Azure Monitor agent
         href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayname: Azure Monitor agent FAQ
-        href: /azure/azure-monitor/faq#azure-monitor-agent
+        href: ./faq.yml
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -660,8 +650,9 @@
     - name: Application Insights overview
       href: app/app-insights-overview.md
     - name: FAQ
+
       href: /azure/azure-monitor/faq#application-insights
-    - name: Code-based monitoring
+    - name: Application Insights SDKs
       items:
       - name: .NET
         items:
@@ -736,7 +727,7 @@
         href: app/api-custom-events-metrics.md
       - name: Remove Application Insights 
         href: app/remove-application-insights.md
-    - name: Codeless monitoring
+    - name: Auto-instrumentation
       items: 
       - name: Overview
         href: app/codeless-overview.md
@@ -762,7 +753,7 @@
         href: app/monitor-functions.md
       - name: Azure Kubernetes Service
         href: app/kubernetes-codeless.md
-      - name: On-Premises servers
+      - name: Any environment
         items:
         - name: ASP.NET
           items:
@@ -779,7 +770,7 @@
               href: app/status-monitor-v2-api-reference.md
         - name: Java
           href: app/java-on-premises.md
-    - name: OpenTelemetry
+    - name: OpenTelemetry-based instrumentation
       items: 
       - name: Overview
         href: app/opentelemetry-overview.md 
@@ -814,7 +805,7 @@
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
-        href: /azure/azure-monitor/faq#opentelemetry
+        href: ./faq.yml
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
@@ -1054,7 +1045,7 @@
     - name: General Availability FAQ
       href: vm/vminsights-ga-release-faq.yml
     - name: FAQ
-      href: /azure/azure-monitor/faq#vm-insights
+      href: ./faq.yml
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1106,7 +1097,7 @@
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: /azure/azure-monitor/faq#container-insights
+      href: ./faq.yml
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1200,7 +1191,7 @@
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#sql-insights-(preview)
+        href: ./faq.yml
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts
@@ -1214,61 +1205,6 @@
       href: insights/resource-group-insights.md
     - name: Troubleshoot insights
       href: insights/troubleshoot-workbooks.md
-    - name: Solutions
-      items:
-      - name: Overview
-        href: insights/solutions.md
-        displayName: Azure CLI, az monitor log-analytics
-      - name: Target solutions
-        href: insights/solution-targeting.md
-      - name: Available solutions
-        items:
-        - name: AD health assessment
-          href: insights/ad-assessment.md
-        - name: AD Replication Status
-          href: insights/ad-replication-status.md
-        - name: Capacity and performance solution
-          href: insights/capacity-performance.md
-        - name: Docker and Windows Container monitoring
-          href: containers/containers.md
-        - name: Networks
-          items:
-          - name: Networking Analytics
-            href: insights/azure-networking-analytics.md
-          - name: DNS
-            href: insights/dns-analytics.md
-          - name: Network Performance Monitor
-            items:
-            - name: Solution overview
-              href: insights/network-performance-monitor.md
-            - name: Performance Monitor
-              href: insights/network-performance-monitor-performance-monitor.md
-            - name: Service Connectivity Monitor
-              href: insights/network-performance-monitor-service-connectivity.md
-            - name: ExpressRoute
-              href: insights/network-performance-monitor-expressroute.md
-            - name: Pricing
-              href: insights/network-performance-monitor-pricing-faq.yml
-            - name: FAQ
-              href: insights/network-performance-monitor-faq.yml
-        - name: Office 365
-          href: insights/solution-office-365.md
-        - name: Service Map solution
-          href: vm/service-map.md
-        - name: Service Map and Operations Manager
-          href: vm/service-map-scom.md
-        - name: Azure SQL
-          href: insights/azure-sql.md
-        - name: SQL Server
-          href: insights/sql-assessment.md
-        - name: Surface Hub
-          href: insights/surface-hubs.md
-        - name: VMware Analytics solution
-          href: insights/vmware.md
-        - name: Wire Data solution
-          href: insights/wire-data.md
-        - name: Alert Management solution
-          href: insights/alert-management-solution.md
   - name: Workbooks
     items:
     - name: Overview
@@ -1346,6 +1282,61 @@
         href: visualize/view-designer-conversion-examples.md
   - name: Other visualizations
     items:
+    - name: Monitoring solutions
+      items:
+      - name: Overview
+        href: insights/solutions.md
+        displayName: Azure CLI, az monitor log-analytics
+      - name: Target solutions
+        href: insights/solution-targeting.md
+      - name: Available solutions
+        items:
+        - name: AD health assessment
+          href: insights/ad-assessment.md
+        - name: AD Replication Status
+          href: insights/ad-replication-status.md
+        - name: Capacity and performance solution
+          href: insights/capacity-performance.md
+        - name: Docker and Windows Container monitoring
+          href: containers/containers.md
+        - name: Networks
+          items:
+          - name: Networking Analytics
+            href: insights/azure-networking-analytics.md
+          - name: DNS
+            href: insights/dns-analytics.md
+          - name: Network Performance Monitor
+            items:
+            - name: Solution overview
+              href: insights/network-performance-monitor.md
+            - name: Performance Monitor
+              href: insights/network-performance-monitor-performance-monitor.md
+            - name: Service Connectivity Monitor
+              href: insights/network-performance-monitor-service-connectivity.md
+            - name: ExpressRoute
+              href: insights/network-performance-monitor-expressroute.md
+            - name: Pricing
+              href: insights/network-performance-monitor-pricing-faq.yml
+            - name: FAQ
+              href: insights/network-performance-monitor-faq.yml
+        - name: Office 365
+          href: insights/solution-office-365.md
+        - name: Service Map solution
+          href: vm/service-map.md
+        - name: Service Map and Operations Manager
+          href: vm/service-map-scom.md
+        - name: Azure SQL
+          href: insights/azure-sql.md
+        - name: SQL Server
+          href: insights/sql-assessment.md
+        - name: Surface Hub
+          href: insights/surface-hubs.md
+        - name: VMware Analytics solution
+          href: insights/vmware.md
+        - name: Wire Data solution
+          href: insights/wire-data.md
+        - name: Alert Management solution
+          href: insights/alert-management-solution.md
     - name: Power BI
       items:
       - name: Export log data
@@ -1382,18 +1373,18 @@
     items:
     - name: Platform metrics
       href: essentials/metrics-supported.md
-    - name: Metrics in diagnostic settings
+    - name: Export via diagnostic settings
       href: essentials/metrics-supported-export-diagnostic-settings.md
     - name: Metrics in alerts
       href: alerts/alerts-metric-near-real-time.md
   - name: Platform logs
     items:
-    - name: Activity log schema
-      href: essentials/activity-log-schema.md
-    - name: Resource log schemas
-      href: essentials/resource-logs-schema.md
     - name: Supported resource log categories
       href: essentials/resource-logs-categories.md
+    - name: Resource log schemas
+      href: essentials/resource-logs-schema.md
+    - name: Activity log schema
+      href: essentials/activity-log-schema.md
   - name: Diagnostic extension schemas
     items:
     - name: Windows diagnostics extension
