@@ -75,7 +75,7 @@ In the *App settings* tab, do the following actions:
 | Use quickstart image | **Uncheck** the checkbox. |
 | Name | Enter **my-app**. <!-- I don't know what name to use --> |
 | Image source | Select **Docker Hub or other registries**. |
-| Image type | Select **Public** |
+| Image type | Select **Public**. |
 | Registry login server | Enter `mcr.microsoft.com`. |  
 | Image and tag | Enter **/azuredocs/containerapps-helloworld:latest**. |
 
