@@ -73,7 +73,7 @@ The next steps are determined by where you're returning the device.
 
 Make sure the data copy to the device completed and the **Prepare to ship** run was successful. 
 
-Based on the region where you're shipping the device, the procedure is different. In many countries/regions, you can use [Microsoft managed shipping](#microsoft-managed-shipping) or [self-managed shipping](self-managed-shipping).
+Based on the region where you're shipping the device, the procedure is different. In many countries/regions, you can use [Microsoft managed shipping](#microsoft-managed-shipping) or [self-managed shipping](#self-managed-shipping).
 
 ### Microsoft managed shipping
 
