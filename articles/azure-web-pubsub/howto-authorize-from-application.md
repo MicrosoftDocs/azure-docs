@@ -107,55 +107,14 @@ To learn more about how to assign and manage Azure role assignments, see these a
 - [Assign Azure roles using Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [Assign Azure roles using Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
 
-## Configure your server
+## Sample codes
 
-It is recommended to configure identity and credentials in your environment variables:
+We officially support 4 programming languages:
 
-| Variable	| Description |
-|------|------
-| `AZURE_TENANT_ID`	| The Azure Active Directory tenant(directory) ID. |
-| `AZURE_CLIENT_ID`	| The client(application) ID of an App Registration in the tenant. |
-| `AZURE_CLIENT_SECRET`	| A client secret that was generated for the App Registration. |
-| `AZURE_CLIENT_CERTIFICATE_PATH` | A path to certificate and private key pair in PEM or PFX format, which can authenticate the App Registration. |
-| `AZURE_USERNAME`	| The username, also known as upn, of an Azure Active Directory user account. |
-| `AZURE_PASSWORD`	| The password of the Azure Active Directory user account. Note this does not support accounts with MFA enabled. |
-
-By doing this, you could use either [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) or [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) to configure your Web PubSub endpoints.
-
-### Sample codes
-
-These are sample codes for C#. For other supported languages, see JavaScript/Python/Java.
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var client = new WebPubSubServiceClient(endpoint, "hub", new DefaultAzureCredential());
-```
-
-To learn how `DefaultAzureCredential` works, see [DefaultAzureCredential Class](/dotnet/api/azure.identity.defaultazurecredential).
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var client = new WebPubSubServiceClient(endpoint, "hub", new EnvironmentCredential());
-```
-
-You could also use [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential) or [ClientCertificateCredential](/dotnet/api/azure.identity.clientcertificatecredential) directly if you'd like to.
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var credential = new ClientSecretCredential("tenantId", "clientId", "clientSecret");
-var client = new WebPubSubServiceClient(endpoint, "hub", credential);
-```
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var credential = new ClientCertificateCredential("tenantId", "clientId", "pathToCert");
-var client = new WebPubSubServiceClient(endpoint, "hub", credential);
-```
-
-To learn more about creating `TokenCredential` for Azure AD Authorization, see there articles:
-
-- [DefaultAzureCredential Class](/dotnet/api/azure.identity.defaultazurecredential)
-- [ClientSecretCredential Constructors](/dotnet/api/azure.identity.clientsecretcredential.-ctor)
-- [ClientCertificateCredential Constructors](/dotnet/api/azure.identity.clientcertificatecredential.-ctor)
+- [C#](./howto-use-aad-in-csharp)
+- [Python](./howto-use-aad-in-python)
+- [Java](./howto-use-aad-in-java)
+- [JavaScript](./howto-use-aad-in-javascript)
 
 ## Next steps
 
