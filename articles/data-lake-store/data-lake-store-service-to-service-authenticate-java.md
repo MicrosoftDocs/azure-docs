@@ -20,7 +20,7 @@ ms.author: twooley
 >
 >  
 
-In this article, you learn about how to use the Java SDK to do service-to-service authentication with Azure Data Lake Storage Gen2. End-user authentication with Data Lake Storage Gen2 using Java SDK is not supported.
+In this article, you learn about how to use the Java SDK to do service-to-service authentication with Azure Data Lake Storage Gen2. End-user authentication with Data Lake Storage Gen2 using the Java SDK isn't supported.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ In this article, you learn about how to use the Java SDK to do service-to-servic
     </dependencies>
     ```
 
-    The first dependency is to use the Data Lake Storage Gen2 SDK (`azure-storage-file-datalake`) from the maven repository. The second dependency is to specify the logging framework (`slf4j-nop`) to use for this application. The Data Lake Storage Gen2 SDK uses [slf4j](https://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like log4j, Java logging, logback, etc., or no logging. For this example, we disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [here](https://www.slf4j.org/manual.html#projectDep).
+    The first dependency is to use the Data Lake Storage Gen2 SDK (`azure-storage-file-datalake`) from the Maven repository. The second dependency is to specify the logging framework (`slf4j-nop`) to use for this app. The Data Lake Storage Gen2 SDK uses the [slf4j](https://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like log4j, Java logging, logback, or no logging. For this example, we disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [Declaring project dependencies for logging](https://www.slf4j.org/manual.html#projectDep).
 
 3. Add the following import statements to your application.
 
@@ -75,7 +75,7 @@ In this article, you learn about how to use the Java SDK to do service-to-servic
     import com.azure.storage.file.datalake.models.PathPermissions;
     ```
 
-4. Use the following snippet in your Java application to obtain token for the Active Directory Web application you created earlier using one of the class of `StorageSharedKeyCredential` (the following example uses `credential`). The token provider caches the creds used to obtain the token in memory, and automatically renews the token if it is about to expire. It is possible to create your own subclasses of `StorageSharedKeyCredential` so tokens are obtained by your customer code. For now, let's just use the one provided in the SDK.
+4. Use the following snippet in your Java app to obtain a token for the Active Directory web app you created earlier using one of the class of `StorageSharedKeyCredential` (the following example uses `credential`). The token provider caches the credentials used to obtain the token in memory, and automatically renews the token if it's about to expire. It's possible to create your own subclasses of `StorageSharedKeyCredential` so tokens are obtained by your customer code. For now, let's just use the one provided in the SDK.
 
     Replace **FILL-IN-HERE** with the actual values for the Azure Active Directory Web application.
 
@@ -87,7 +87,7 @@ In this article, you learn about how to use the Java SDK to do service-to-servic
     ClientSecretCredential credential = new ClientSecretCredentialBuilder().clientId(clientId).tenantId(tenantId).clientSecret(clientSecret).build();
     ```
 
-The Data Lake Storage Gen2 SDK provides convenient methods that let you manage the security tokens needed to talk to the Data Lake Storage Gen2 account. However, the SDK does not mandate that only these methods be used. You can use any other means of obtaining token as well, like using the [Azure Identity client library SDK](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity), or your own custom code.
+The Data Lake Storage Gen2 SDK provides convenient methods that let you manage the security tokens needed to talk to the Data Lake Storage Gen2 account. However, the SDK doesn't mandate that only these methods be used. You can use any other means of obtaining token as well, like using the [Azure Identity client library](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity) or your own custom code.
 
 ## Next steps
 
