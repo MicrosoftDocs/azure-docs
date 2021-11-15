@@ -237,15 +237,9 @@ To run the claim transformation, you first need to get the last time user consen
 ### Example
 
 - Input claims:
-    - **termsOfUseConsentDateTime**: 2020-01-01T00:00:00
-- Input parameters:
-    - **termsOfUseTextUpdateDateTime**: 2021-11-15T00:00:00
-- Output claims:
-    - **result**: true
+    - **termsOfUseConsentDateTime**: 2020-01-01T00:00:00 
+- Input parameters: 
+    - **termsOfUseTextUpdateDateTime**: 2021-11-15T00:00:00 
+- Output claims: 
+    - **result**: true 
 
-- Input claims:
-    - **termsOfUseConsentDateTime**: 2021-11-16T15:30:45
-- Input parameters:
-    - **termsOfUseTextUpdateDateTime**: 2021-11-15T00:00:00
-- Output claims:
-    - **result**: false
