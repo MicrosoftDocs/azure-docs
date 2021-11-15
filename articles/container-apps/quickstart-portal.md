@@ -29,7 +29,7 @@ Do we need to include steps to login?  Probably not..
 
 ## Create a container app
 
-To create a Container App Resource, start at the Azure Portal home page.
+To create a your container app, start at the Azure portal home page.
 
 1. Search for **Container Apps** in the top search bar.
 1. Select **Container Apps** in the search results.
