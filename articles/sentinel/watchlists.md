@@ -5,8 +5,8 @@ services: sentinel
 author: yelevin
 ms.author: yelevin
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
