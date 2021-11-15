@@ -15,8 +15,6 @@ The [SAP deployment automation framework on Azure](automation-deployment-framewo
 
 The SAP Deployment Automation GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/sap-hana/tree/main/deploy/ansible/BOM-catalog) that you can use to get started. It is also possible to create BoMs for other SAP Applications and databases. 
 
-If you want to generate a BoM that includes permalinks, [follow the steps for creating this type of BoM](#permalinks).
- 
 > [!NOTE]
 > This guide covers advanced deployment topics. For a basic explanation of how to deploy the automation framework, see the [get started guide](automation-get-started.md) instead.
 
@@ -30,8 +28,7 @@ If you want to generate a BoM that includes permalinks, [follow the steps for cr
     - The SAP Primary Application Server (PAS)
     - The SAP Additional Application Server (AAS)
 - Downloads of necessary stack files to the folder you created for [acquiring SAP media](automation-bom-get-files.md#acquire-media). For more information, see the [basic BoM preparation how-to guide](automation-bom-prepare.md).
-- Optionally, if you want to [create a BoM with permalinks](#permalinks), you also need:
-    - A copy of your [SAP Download Basket manifest](automation-bom-get-files.md#get-download-basket-manifest) (`DownloadBasket.json`), downloaded to the [folder you created for acquiring SAP media](automation-bom-get-files.md#acquire-media).
+- A copy of your [SAP Download Basket manifest](automation-bom-get-files.md#get-download-basket-manifest) (`DownloadBasket.json`), downloaded to the [folder you created for acquiring SAP media](automation-bom-get-files.md#acquire-media).
     - An installation of the [Postman utility](https://www.postman.com/downloads/).
 - An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An SAP account with permissions to work with the database you want to use.
@@ -160,8 +157,6 @@ You can create your BoM through the following manual process. Another option is 
     ```
 
 1. Optionally, if you need to override the target media location, add the parameter `override_target_location` to a media item. For example, `override_target_location: "{{ target_media_location }}/config"`.
-
-1. Optionally, [follow the steps to add permalinks](#permalinks).
 
 1. Add a blank templates section.
 
