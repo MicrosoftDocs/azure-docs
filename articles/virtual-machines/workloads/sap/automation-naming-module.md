@@ -97,37 +97,6 @@ The module outputs a data structure with all names to pass on to the other Terra
 ```json
 output "naming" {
   value = {
-    storageaccount_names = {
-      DEPLOYER = local.deployer_storageaccount_name
-      SDU      = local.sdu_storageaccount_name
-      VNET = {
-        landscape_storageaccount_name = local.landscape_storageaccount_name
-        witness_storageaccount_name   = local.witness_storageaccount_name
-      }
-
-      LIBRARY = {
-        library_storageaccount_name        = local.library_storageaccount_name
-        terraformstate_storageaccount_name = local.terraformstate_storageaccount_name
-      }
-    }
-    keyvault_names = {
-      DEPLOYER = {
-        private_access = local.deployer_private_keyvault_name
-        user_access    = local.deployer_user_keyvault_name
-      }
-      LIBRARY = {
-        private_access = local.library_private_keyvault_name
-        user_access    = local.library_user_keyvault_name
-      }
-      SDU = {
-        private_access = local.sdu_private_keyvault_name
-        user_access    = local.sdu_user_keyvault_name
-      }
-      VNET = {
-        private_access = local.landscape_private_keyvault_name
-        user_access    = local.landscape_user_keyvault_name
-      }
-    }
     virtualmachine_names = {
       APP_COMPUTERNAME         = local.app_computer_names
       APP_SECONDARY_DNSNAME    = local.app_secondary_dnsnames
@@ -153,16 +122,6 @@ output "naming" {
       WEB_VMNAME               = local.web_server_vm_names
     }
 
-    ppg_names = local.ppg_names
-    
-    app_avset_names = local.app_avset_names
-    scs_avset_names = local.scs_avset_names
-    web_avset_names = local.web_avset_names
-    db_avset_names  = local.db_avset_names
-
-    resource_suffixes = var.resource_suffixes
-
-    separator = local.separator
   }
 }
 ```
