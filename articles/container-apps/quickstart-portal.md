@@ -59,7 +59,7 @@ In the *Basics* tab, do the following actions.
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.
 1. Select **Create new** in the *Log Analytics workspace* field.
-1. Enter **containerapps-logs** in the *Name* field of the *Create new Log Analytics Workspace* dialog.
+1. Enter **my-container-apps-logs** in the *Name* field of the *Create new Log Analytics Workspace* dialog.
   
     The *Location* field will be filled with *Canada Central*
 1. Select **OK**
