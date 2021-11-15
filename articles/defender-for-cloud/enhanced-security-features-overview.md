@@ -4,7 +4,7 @@ description: Learn about the benefits of enabling enhanced security in Microsoft
 author: memildin
 ms.author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: overview
 ms.date: 11/14/2021
 ---

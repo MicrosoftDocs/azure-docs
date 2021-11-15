@@ -4,7 +4,7 @@ description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and
 services: security-center
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: overview
 ms.custom: mvc
 ms.date: 11/09/2021

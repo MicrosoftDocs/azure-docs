@@ -5,7 +5,7 @@ ms.date: 11/09/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Microsoft Defender for Cloud
