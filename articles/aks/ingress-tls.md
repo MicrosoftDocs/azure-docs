@@ -514,7 +514,7 @@ You can also:
 [helm-cli]: ./kubernetes-helm.md
 [cert-manager]: https://github.com/jetstack/cert-manager
 [cert-manager-certificates]: https://cert-manager.io/docs/concepts/certificate/
-[ingress-shim]: https://docs.cert-manager.io/en/latest/tasks/issuing-certificates/ingress-shim.html
+[ingress-shim]: https://cert-manager.io/docs/usage/ingress/
 [cert-manager-cluster-issuer]: https://cert-manager.io/docs/concepts/issuer/
 [cert-manager-issuer]: https://cert-manager.io/docs/concepts/issuer/
 [lets-encrypt]: https://letsencrypt.org/
