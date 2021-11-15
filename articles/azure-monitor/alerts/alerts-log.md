@@ -203,7 +203,7 @@ Here the steps to get started writing queries for alerts:
 > [!NOTE]
 > PowerShell is not currently supported in the API version `2020-08-01`
 
-PowerShell cmdlets listed below are available to manage rules with the [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
+PowerShell cmdlets listed below are available to manage rules with the [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules).
 
 - [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) : PowerShell cmdlet to create a new log alert rule.
 - [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) : PowerShell cmdlet to update an existing log alert rule.
@@ -218,7 +218,7 @@ PowerShell cmdlets listed below are available to manage rules with the [Schedule
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet to delete an existing log alert rule
 
 > [!NOTE]
-> ScheduledQueryRules PowerShell cmdlets can only manage rules created in the current [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/). Log alert rules created using legacy [Log Analytics Alert API](./api-alerts.md) can only be managed using PowerShell only after [switching to Scheduled Query Rules API](../alerts/alerts-log-api-switch.md).
+> ScheduledQueryRules PowerShell cmdlets can only manage rules created in the current [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). Log alert rules created using legacy [Log Analytics Alert API](./api-alerts.md) can only be managed using PowerShell only after [switching to Scheduled Query Rules API](../alerts/alerts-log-api-switch.md).
 
 Here are example steps for creating a log alert rule using the PowerShell:
 
