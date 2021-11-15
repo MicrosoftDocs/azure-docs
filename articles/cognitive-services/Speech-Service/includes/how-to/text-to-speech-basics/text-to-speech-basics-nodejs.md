@@ -11,7 +11,7 @@ In this quickstart, you learn common design patterns for doing text-to-speech sy
 
 * Getting responses as in-memory streams
 * Customizing output sample rate and bit rate
-* Submitting synthesis requests using SSML (speech synthesis markup language)
+* Submitting synthesis requests using Speech Synthesis Markup Language (SSML)
 
 ## Skip to samples on GitHub
 
@@ -25,7 +25,7 @@ This article assumes that you have an Azure account and Speech service resource.
 
 Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. See the [instructions](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk).
 
-Additionally, depending on the target environment use one of the following:
+Additionally, depending on the target environment use one of the following options:
 
 # [script](#tab/script)
 
@@ -59,7 +59,7 @@ For more information on `require`, see <a href="https://nodejs.org/en/knowledge/
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). This class includes information about your resource, like your speech key and associated location/region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). This class includes information about your resource, for example your subscription key, region, endpoint, host, and access token.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
@@ -113,7 +113,7 @@ function synthesizeSpeech() {
 }
 ```
 
-Next, instantiate a `SpeechSynthesizer` passing your `speechConfig` object and the `audioConfig` object as params. Then, executing speech synthesis and writing to a file is as simple as running `speakTextAsync()` with a string of text. The result callback is a great place to call `synthesizer.close()`, in fact - this call is needed in order for synthesis to function correctly.
+Next, instantiate a `SpeechSynthesizer` passing your `speechConfig` and `audioConfig` objects as params. Now, writing synthesized speech to a file is as simple as running `speakTextAsync()` with a string of text. The result callback is a great place to call `synthesizer.close()`. The call to `synthesizer.close()` is needed for synthesis to function correctly.
 
 ```javascript
 function synthesizeSpeech() {
@@ -137,11 +137,11 @@ function synthesizeSpeech() {
 }
 ```
 
-Run the program, and a synthesized `.wav` file is written to the location you specified. This is a good example of the most basic usage, but next you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
+Run the program, and a synthesized speech is written to a `.wav` file in the location you specified. 
 
-## Synthesize to speaker output (browser only)
+## Synthesize to speaker output
 
-In some cases, you may want to directly output synthesized speech directly to a speaker. To do this, instantiate the `AudioConfig` using the `fromDefaultSpeakerOutput()` static function. This outputs to the current active output device.
+You can choose to output the synthesized speech directly to a speaker instead of writing to a file. To synthesize speech from a web browser, instantiate the `AudioConfig` using the `fromDefaultSpeakerOutput()` static function. The audio is sent to the current active output device.
 
 ```javascript
 function synthesizeSpeech() {
@@ -166,11 +166,11 @@ function synthesizeSpeech() {
 
 ## Get result as an in-memory stream
 
-For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. This will allow you to build custom behavior including:
+For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. You can build custom behavior including:
 
 * Abstract the resulting byte array as a seek-able stream for custom downstream services.
 * Integrate the result with other API's or services.
-* Modify the audio data, write custom `.wav` headers, etc.
+* Modify the audio data and write custom `.wav` headers.
 
 It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `undefined` for the `AudioConfig` in the `SpeechSynthesizer` constructor.
 
@@ -199,7 +199,7 @@ function synthesizeSpeech() {
 }
 ```
 
-From here you can implement any custom behavior using the resulting `ArrayBuffer` object. The ArrayBuffer is a common type to receive in a browser and play from this format.
+From here, you can implement any custom behavior using the resulting `ArrayBuffer` object. The ArrayBuffer is a common type to receive in a browser and play from this format.
 
 For any server-based code, if you need to work with the data as a stream, instead of an ArrayBuffer, you need to convert the object into a stream.
 
@@ -238,7 +238,7 @@ The following section shows how to customize audio output attributes including:
 
 To change the audio format, you use the `speechSynthesisOutputFormat` property on the `SpeechConfig` object. This property expects an `enum` of type [`SpeechSynthesisOutputFormat`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat), which you use to select the output format. See the reference docs for a [list of audio formats](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat) that are available.
 
-There are various options for different file types depending on your requirements. Note that by definition, raw formats like `Raw24Khz16BitMonoPcm` do not include audio headers. Use raw formats only when you know your downstream implementation can decode a raw bitstream, or if you plan on manually building headers based on bit-depth, sample-rate, number of channels, etc.
+There are various options for different file types depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` do not include audio headers. Use raw formats only when you know your downstream implementation can decode a raw bitstream, or if you plan on manually building headers based on bit-depth, sample-rate, number of channels, etc.
 
 In this example, you specify a high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting the `speechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, get the audio `ArrayBuffer` data and interact with it.
 
@@ -323,8 +323,8 @@ function synthesizeSpeech() {
 
 ## Get facial pose events
 
-Speech can be a good way to drive the animation of facial expressions.
-Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
-You can subscribe the viseme event in Speech SDK.
-Then, you can apply viseme events to animate the face of a character as speech audio plays.
+Speech can be a good way to drive the animation of facial expressions. Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme. 
+
+You can subscribe to the `viseme` event in Speech SDK. Then, you apply `viseme` events to animate the face of a character as speech audio plays.
+
 Learn [how to get viseme events](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).
