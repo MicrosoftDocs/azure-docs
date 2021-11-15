@@ -95,7 +95,7 @@ The following new capabilities have been added to the claims transformations ava
 
 ---
 
-### Public preview - Flagged  
+### Public Preview – Flagged Sign-ins  
 
 **Type:** New feature  
 **Service category:** Reporting  
@@ -302,16 +302,6 @@ The load time of My Apps has been improved. Users going to myapps.microsoft.com 
 **Product capability:** Developer Experience
  
 The modern Edge browser is now included in the requirement to provide an `Origin` header when redeeming a [single page app authorization code](../develop/v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps). A compatibility fix accidentally exempted the modern Edge browser from CORS controls, and that bug is being fixed during October. A subset of applications depended on CORS being disabled in the browser, which has the side effect of removing the `Origin` header from traffic. This is an unsupported configuration for using Azure AD, and these apps that depended on disabling CORS can no longer use modern Edge as a security workaround.  All modern browsers must now include the `Origin` header per HTTP spec, to ensure CORS is enforced. [Learn more](../develop/reference-breaking-changes.md#the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt). 
-
----
-
-### General availability - Access packages can expire after number of hours
-
-**Type:** New feature  
-**Service category:** User Access Management 
-**Product capability:** Entitlement Management
- 
-There is now another option for advanced expiration settings in entitlement management. It's possible to configure an access package that will expire in hours, in addition to prior settings. [Learn more](../governance/entitlement-management-access-package-create.md#lifecycle).
 
 ---
 

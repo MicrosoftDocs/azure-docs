@@ -327,7 +327,7 @@ The following example shows the `entityID` value in the SAML metadata:
 The `identifierUris` property will accept URLs only on the domain `tenant-name.onmicrosoft.com`.
 
 ```json
-"identifierUris":"https://samltestapp2.azurewebsites.net",
+"identifierUris":"https://tenant-name.onmicrosoft.com",
 ```
 
 #### Share the application's metadata with Azure AD B2C

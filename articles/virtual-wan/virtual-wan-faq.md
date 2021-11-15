@@ -243,6 +243,10 @@ A virtual hub can propagate a learned default route to a virtual network/site-to
 
 The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled. A default route does not propagate between hubs (inter-hub).
 
+### Is it possible to create multiple virtual WAN hubs in the same region?
+Yes. Customers can now create more than one hub in the same region for the same Azure Virtual WAN. 
+
+
 ### How does the virtual hub in a virtual WAN select the best path for a route from multiple hubs?
 
 If a virtual hub learns the same route from multiple remote hubs,  the order in which it decides is as follows:

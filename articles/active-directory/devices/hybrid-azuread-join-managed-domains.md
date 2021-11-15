@@ -128,6 +128,14 @@ If some of your domain-joined devices are Windows down-level devices, you must:
 - Configure seamless SSO
 - Install Microsoft Workplace Join for Windows down-level computers
 
+Windows down-level devices are devices with older operating systems. The following are Windows down-level devices:
+
+- Windows 7
+- Windows 8.1
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
+
 > [!NOTE]
 > Windows 7 support ended on January 14, 2020. For more information, see [Windows 7 support ended](https://support.microsoft.com/help/4057281/windows-7-support-ended-on-january-14-2020).
 
