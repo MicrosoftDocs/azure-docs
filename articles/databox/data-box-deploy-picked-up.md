@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/29/2021
+ms.date: 11/15/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -73,7 +73,7 @@ The next steps are determined by where you're returning the device.
 
 Make sure the data copy to the device completed and the **Prepare to ship** run was successful. 
 
-Based on the region where you're shipping the device, the procedure is different. In many countries/regions, you can use Microsoft managed shipping or self-managed shipping.
+Based on the region where you're shipping the device, the procedure is different. In many countries/regions, you can use [Microsoft managed shipping](#microsoft-managed-shipping) or [self-managed shipping](self-managed-shipping).
 
 ### Microsoft managed shipping
 
@@ -121,11 +121,11 @@ Follow the guidelines for the region you're shipping from if you're using Micros
 
 [!INCLUDE [data-box-shipping-in-uae](../../includes/data-box-shipping-in-uae.md)]
 
+---
+
 ### Self-managed shipping
 
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
-
----
 
 ::: zone target="chromeless"
 
