@@ -16,7 +16,7 @@ ms.custom: mvc, devx-track-azurecli
 In this tutorial, you'll learn how to deploy a [Spring Boot](https://spring.io/projects/spring-boot) application on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster with [Azure Database for MySQL - Flexible Server](overview.md) in the backend, securely communicating with each other within an [Azure virtual network](../../virtual-network/virtual-networks-overview.md). 
 
 > [!NOTE]
-> This quickstart assumes a basic understanding of Kubernetes concepts, Java Spring Boot and MySQL.
+> This tutorial assumes a basic understanding of Kubernetes concepts, Java Spring Boot and MySQL.
 
 ## Prerequisites
 
@@ -304,7 +304,9 @@ az acr login && mvn compile jib:build
 
 ## Create a Kubernetes cluster on AKS
 
-We'll now create an AKS cluster in the virtual network *vnet-mysqlaksdemo*.
+We'll now create an AKS cluster in the virtual network *vnet-mysqlaksdemo*. 
+
+In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to configure kubenet networking instead, see [Use kubenet networking in AKS](../../aks/configure-kubenet.md#create-a-service-principal-and-assign-permissions).  
 
 1. Create a subnet *subnet-aks* for the AKS cluster to use.
 
@@ -316,45 +318,23 @@ We'll now create an AKS cluster in the virtual network *vnet-mysqlaksdemo*.
     --address-prefixes 155.55.2.0/24
     ```
 
-1. Create a service principal and assign permissions
-
-    To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. The service principal needs to have permissions to manage the virtual network and subnet that the AKS nodes use. To create a service principal, use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command:
-    
-    ```azurecli-interactive
-    az ad sp create-for-rbac --skip-assignment
-    ```
-    
-    Make note of the application ID and password produced in the output. These values are used in the following steps to assign a role to the service principal and then create the AKS cluster.
-
-1. Store the VNet and subnet resource IDs for referencing in the remaining steps.
+1. Get the subnet resource ID.
 
     ```azurecli-interactive
-    VNET_ID=$(az network vnet show --resource-group rg-mysqlaksdemo --name vnet-mysqlaksdemo --query id -o tsv)
     SUBNET_ID=$(az network vnet subnet show --resource-group rg-mysqlaksdemo --vnet-name vnet-mysqlaksdemo --name subnet-aks --query id -o tsv)
     ```
-
-1. Assign the service principal for your AKS cluster *Network Contributor* permissions on the virtual network using the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command. Provide your own service principal *\<appId>* as obtained in the output from the previous command to create the service principal.
-
-    ```azurecli-interactive
-    az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
-    ```
     
-1. Create an AKS cluster in the virtual network
-    
-     Provide your own service principal *\<appId>* and *\<password>*, as obtained in the output from the previous command to create the service principal.
+1. Create an AKS cluster in the virtual network, with Azure Container Registry (ACR) *mysqlaksdemoregistry* attached.
 
     ```azurecli-interactive
         az aks create \
         --resource-group rg-mysqlaksdemo \
         --name aks-mysqlaksdemo \
-        --network-plugin kubenet \
+        --network-plugin azure \
         --service-cidr 10.0.0.0/16 \
         --dns-service-ip 10.0.0.10 \
-        --pod-cidr 10.244.0.0/16 \
         --docker-bridge-address 172.17.0.1/16 \
         --vnet-subnet-id $SUBNET_ID \
-        --service-principal <appID> \
-        --client-secret <password> \
         --attach-acr mysqlaksdemoregistry \
         --dns-name-prefix aks-mysqlaksdemo \
         --generate-ssh-keys
@@ -362,17 +342,15 @@ We'll now create an AKS cluster in the virtual network *vnet-mysqlaksdemo*.
 
     The following IP address ranges are also defined as part of the cluster create process:
     
-    - The *--service-cidr* is used to assign internal services in the AKS cluster an IP address. This IP address range should be an address space that isn't in use elsewhere in your network environment, including any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
+    - The *--service-cidr* is used to assign internal services in the AKS cluster an IP address. You can use any private address range that satisfies the following requirements:
+        - Must not be within the virtual network IP address range of your cluster
+        - Must not overlap with any other virtual networks with which the cluster virtual network peers
+        - Must not overlap with any on-premises IPs
+        - Must not be within the ranges 169.254.0.0/16, 172.30.0.0/16, 172.31.0.0/16, or 192.0.2.0/24
     
-    - The *--dns-service-ip* address should be the *.10* address of your service IP address range.
+    - The *--dns-service-ip* address is the IP address for the cluster's DNS service. This address must be within the *Kubernetes service address range*. Don't use the first IP address in your address range. The first address in your subnet range is used for the *kubernetes.default.svc.cluster.local* address.
     
-    - The *--pod-cidr* should be a large address space that isn't in use elsewhere in your network environment. This range includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
-        - This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed if you need more addresses for additional nodes.
-        - The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *10.244.0.0/16* assigns the first node *10.244.0.0/24*, the second node *10.244.1.0/24*, and the third node *10.244.2.0/24*.
-        - As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
-    - The *--docker-bridge-address* lets the AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster, and shouldn't overlap with other address ranges in use on your network.
-
-    In this tutorial, we have used kubenet networking. For more information on  AKS networking concepts, see [Network concepts for applications in AKS](../../aks/concepts-network.md). 
+    - The *--docker-bridge-address* is the Docker bridge network address which represents the default *docker0* bridge network address present in all Docker installations. You must pick an address space that does not collide with the rest of the CIDRs on your networks, including the cluster's service CIDR and pod CIDR.
 
 ## Deploy the application to AKS cluster
 
