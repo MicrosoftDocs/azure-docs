@@ -272,7 +272,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ### Start a backup job
 
-The template creates a VM and enables backup on the VM. After you deploy the template, you need to start a backup job. For more information, see [Start a backup job](quick-backup-vm-powershell#start-a-backup-job.md).
+The template creates a VM and enables backup on the VM. After you deploy the template, you need to start a backup job. For more information, see [Start a backup job](quick-backup-vm-powershell.md#start-a-backup-job).
 
 ### Monitor the backup job
 
