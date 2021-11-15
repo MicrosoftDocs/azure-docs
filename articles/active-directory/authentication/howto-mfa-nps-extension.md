@@ -182,6 +182,8 @@ If you need to create and configure a test account, use the following steps:
 > Combined security registration can be enabled that configures SSPR and Azure AD Multi-Factor Authentication at the same time. For more information, see [Enable combined security information registration in Azure Active Directory](howto-registration-mfa-sspr-combined.md).
 >
 > You can also [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options) if they previously only enabled SSPR.
+>
+> Users who connect to the NPS server using username and password will be required to complete a multi-factor authentication prompt.
 
 ## Install the NPS extension
 
