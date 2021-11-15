@@ -111,10 +111,10 @@ Depending on your requirements, one or more of the following Azure services inte
 
 These Azure services can work with Automation job and runbook resources using an HTTP webhook or API method:
 
-* [Azure Logic Apps](/connectors/built-in.md)
-* [Azure Power Apps](/connectors/azureautomation.md)
+* [Azure Logic Apps](/azure/connectors/built-in)
+* [Azure Power Apps](/connectors/azureautomation)
 * [Azure Event Grid](../event-grid/handler-webhooks.md)
-* [Azure Power Automate](/connectors/azureautomation.md)
+* [Azure Power Automate](/connectors/azureautomation)
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
