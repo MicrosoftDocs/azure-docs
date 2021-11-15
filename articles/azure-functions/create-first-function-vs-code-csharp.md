@@ -14,6 +14,8 @@ adobe-target-content: ./create-first-function-vs-code-csharp-ieux
 
 In this article, you use Visual Studio Code to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
+This article supports creating both types of compiled C# functions: 
+
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]    
 
 This article creates an HTTP triggered function that runs on .NET 6.0. There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.

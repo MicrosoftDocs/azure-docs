@@ -21,6 +21,8 @@ In this article, you learn how to:
 > * Create a function that responds to HTTP requests. 
 > * Run your code locally to verify function behavior.
 > * Deploy your code project to Azure Functions.
+
+This article supports creating both types of compiled C# functions: 
  
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
