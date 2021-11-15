@@ -314,6 +314,7 @@ kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/DemoSecret
 
 ## Additional configuration options
 Following configuration settings are available for Azure Key Vault secrets provider extension:
+
 | Configuration Setting | Default | Description |
 | --------- | ----------- | ----------- |
 | enableSecretRotation | true | Boolean type; Periodically update the pod mount and Kubernetes Secret with the latest content from external secrets store |
