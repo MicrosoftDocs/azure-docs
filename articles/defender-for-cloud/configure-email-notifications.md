@@ -35,7 +35,7 @@ To avoid alert fatigue, Defender for Cloud limits the volume of outgoing mails. 
 |Release state:|General availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
 
 

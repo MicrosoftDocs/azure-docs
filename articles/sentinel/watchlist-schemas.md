@@ -3,11 +3,11 @@ title: Schemas for Microsoft Sentinel watchlist templates | Microsoft Docs
 description: Learn about the schemas used in each built-in watchlist template in Microsoft Sentinel.
 author: batamig
 ms.author: bagold
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: azure-sentinel
+ms.subservice: microsoft-sentinel
 ---
 
 # Microsoft Sentinel built-in watchlist template schemas (Public preview)
