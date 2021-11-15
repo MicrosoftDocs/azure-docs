@@ -72,3 +72,4 @@ See other supported control flow activities, including:
 - [Lookup activity](control-flow-lookup-activity.md)
 - [Web activity](control-flow-web-activity.md)
 - [Until activity](control-flow-until-activity.md)
+- [Understand pipeline error](tutorial-pipeline-failure-error-handling.md)
