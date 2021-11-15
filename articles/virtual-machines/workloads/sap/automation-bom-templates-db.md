@@ -1,5 +1,5 @@
 ---
-title: Generate Application Database templates for automation
+title: Generate Application Installation templates
 description: How to generate SAP Application templates for use with the SAP deployment automation framework on Azure.
 author: kimforss
 ms.author: kimforss
@@ -59,26 +59,21 @@ Before you generate an SAP Application template, make sure you have all required
 /usr/sap/install/download_basket/SAPCAR_1311-80000935.EXE -xf /usr/sap/install/SWPM20SP07_0-80003424.SAR -R /usr/sap/install/SWPM/
 ```
 
-## Install ASCS
-
-You can do an unattended installation of ASCS with a parameter file. This file passes all required parameters to the SWPM installer. 
+You can do an unattended SAP installations with parameter files. These files pass all required parameters to the SWPM installer. 
 
 > [!NOTE]
 > To generate the parameter file, you need to partially perform a manual installation. For more information about why, see [SAP NOTE  2230669](https://launchpad.support.sap.com/#/notes/2230669).
-
-1. [Generate your unattended install parameter file for ASCS](#generate-ascs-parameter-file). 
-1. [Manually install ASCS using your parameter file](#install-ascs-manually).
 
 ## Generate ASCS parameter file
 
 To generate your unattended installation parameter file for ASCS:
 
-1. Sign in to your ASCS VM as the root user through your command-line interface (CLI).
+1. Sign in to your VM as the root user through your command-line interface (CLI).
 
 1. Run the command `hostname` to get the host name of the VM from which you're running the installation. Note both the unique hostname (where `<example-vm-hostname>` is in the example output), and the full URL for the GUI.
    
 
-1. [Check that you have all necessary media and tools installed on your ASCS VM](#check-media-and-tools).
+1. [Check that you have all necessary media and tools installed on your VM](#check-media-and-tools).
 
 1. Launch SWPM as follows. 
 
@@ -187,7 +182,7 @@ To generate your unattended installation parameter file for ASCS:
 
     1. If a directory for the product that you're installing exists, such as `S4HANA2020`, go to the product folder. For example, run `cd /tmp/sapinst_instdir/S4HANA2020/CORE/HDB/INSTALL/HA/ABAP/ASCS/`.
 
-1. In your browser, in the SWPM GUI, select **Cancel**. Now, you can do an unattended installation of ASCS.
+1. In your browser, in the SWPM GUI, select **Cancel**. Now, you have the ini files required to build the template that can do an unattended installation of ASCS.
 
 1. Copy and rename `inifile.params` to `scs.inifile.params` in `/tmp/app_template`. Replace `<path-to-INI-file>` with the path to your INI file as follows:
 
@@ -195,70 +190,9 @@ To generate your unattended installation parameter file for ASCS:
     cp <path-to-INI-file>/inifile.params /tmp/app_template/scs.inifile.params
     ```
 
-### Install ASCS manually
-
-1. Sign in to your ASCS VM as the root user.
-
-1. Empty all existing files in your temporary work directory, then switch to that directory.
-
-    ```bash
-    rm -rf /tmp/workdir/*; cd /tmp/workdir
-    ```
-
-1. Launch the ASCS unattended installation. Replace `<target-VM-hostname>` with the ASCS VM host name.
-
-```bash
-/usr/sap/install/SWPM/sapinst                                            \
- SAPINST_XML_FILE=/usr/sap/install/config/MP_STACK_S4_2020_v001.xml     \
- SAPINST_USE_HOSTNAME=<target-VM-hostname>                             \
- SAPINST_INPUT_PARAMETERS_URL=/tmp/app_template/scs.inifile.params \
- SAPINST_EXECUTE_PRODUCT_ID=NW_ABAP_ASCS:S4HANA2020.CORE.HDB.ABAPHA     \
- SAPINST_START_GUI=false                                                \
- SAPINST_START_GUISERVER=false
-```
-
-## Export SAP file systems
-
-For a distributed system, you must share files between ASCS and the application VMs. These files include the installation media, configuration files, and SID system directory.
-
-Follow the [SAP instructions for exporting directories through Network File Sharing (NFS) for Linux](https://help.sap.com/viewer/e85af73ba3324e29834015d03d8eea84/CURRENT_VERSION/en-US/73297e14899f4dbb878e26d9359f8cf7.html). 
-
-Make sure to export the following directories. Replace `<SID>` with the SID you set during the [generation of the unattended installation parameter file for ASCS](#generate-ascs-parameter-file), such as `{SID}`.
-
-- `/usr/sap/<SID>/system`
-- `/usr/sap/install`
-- `/tmp/app_template`
-- `/sapmnt/<SID>/`
-
-## Mount SAP file systems
-
-To mount the SAP file systems:
-
-1. Connect to the VM as the root user.
-
-1. Check that the mount point exists. Replace `<SID>` with the SID you set.
-
-    ```bash
-    mkdir -p /usr/sap/{downloads,install/config,<SID>/SYS} /tmp/app_template /sapmnt/<SID>/{global,profile}
-    ```
-
-1. Make sure your exported directories are mounted. Replace `<scs-vm-IP>` with your VM's IP address.
-
-    1. `mount <scs-vm-IP>:/usr/sap/install /usr/sap/install`
-
-    1. `mount <scs-vm-IP>:/usr/sap/install/config /usr/sap/install/config`
-
-    1. `mount <scs-vm-IP>:/usr/sap/<SID>/SYS /usr/sap/<SID>/SYS`
-    
-    1. `mount <scs-vm-IP>:/tmp/app_template /tmp/app_template`
-    
-    1. `mount <scs-vm-IP>:/sapmnt/<SID>/global /sapmnt/<SID>/global`
-    
-    1. `mount <scs-vm-IP>:/sapmnt/<SID>/profile /sapmnt/<SID>/profile`
-
 ## Load database content
 
-Make sure the following settings are in place on the PAS VM before you begin:
+Make sure the following settings are in place on the VM before you begin:
 
 - Install and configure your HANA and SCS instances. These instances must be online before you complete the database content load.
 
@@ -385,49 +319,16 @@ To generate an unattended installation parameter file for the database content l
     cp <path_to_config_file>/{keydb.xml,instkey.pkey} /tmp/app_template/
     ```
 
-### Manually load database content
-
-To load the database manually using your template:
-
-1. Connect to your PAS VM as the root user through your CLI.
-
-1. Remove all files from your temporary working directory, then go to that directory.
-
-    ```bash
-    rm -rf /tmp/db_workdir/*; cd /tmp/db_workdir
-    ```
-
-1. Launch the database load process through SWPM.
-
-    ```bash
-    /usr/sap/install/SWPM/sapinst                                           \
-    SAPINST_INPUT_PARAMETERS_URL=/tmp/app_templates/db.inifile.params  \
-    SAPINST_STACK_XML=/usr/sap/install/config/MP_STACK_S4_2020_v001.xml     \
-    SAPINST_EXECUTE_PRODUCT_ID=NW_ABAP_DB:S4HANA2020.CORE.HDB.ABAP          \
-    SAPINST_SKIP_DIALOGS=true                                               \
-    SAPINST_START_GUI=false SAPINST_START_GUISERVER=false
-    ```
-
-## Install PAS 
-
-You can do an unattended installation for ABAP Primary Application Server (PAS) as follows.
-
-1. Make sure you have a fully built HANA database and ASCS instance.
-
-1. [Generate an unattended installation parameter file](#generate-pas-parameter-file).
-
-1. [Install PAS manually using the parameter file](#install-pas-manually).
-
-### Generate PAS parameter file
+## Generate PAS parameter file
 
 Generate an unattended installation parameter file for use with PAS. These files all begin with `inifile`. 
 
 > [!IMPORTANT]
 > You might not see some of these settings in 2020 versions of SAP products. In that case, skip the step.
 
-1. Connect to your PAS VM through your CLI.
+1. Connect to your VM through your CLI.
 
-1. [Check that you have all necessary media and tools installed on your PAS VM](#check-media-and-tools).
+1. [Check that you have all necessary media and tools installed on your VM](#check-media-and-tools).
 
 1. Create and change to a temporary directory. Replace `<SID>` with your SID.
 
@@ -435,7 +336,7 @@ Generate an unattended installation parameter file for use with PAS. These files
     sudo install -d -m 0777 <SID>adm -g sapinst "/tmp/pas_workdir"; cd $_
     ```
     
-1. Connect to the PAS node as the root user. 
+1. Connect to the  node as the root user. 
 
 1. Sign in to the SWPM. 
 
@@ -519,43 +420,7 @@ Generate an unattended installation parameter file for use with PAS. These files
 
 1. Create a copy of `pas.inifile.params` and download to your computer or VM.
 
-### Install PAS manually
-
-To install the PAS manually with your parameter file:
-
-1. Connect to PAS as the root user.
-
-1. Delete the files in your temporary directory, then go to that directory.
-
-    ```bash
-    rm -rf /tmp/pas_workdir/*; cd /tmp/pas_workdir
-    ```
-
-1. Launch your unattended installation of PAS as follows. Replace `<target_vm_hostname>` with the host name of your PAS VM.
-
-    ```bash
-    /usr/sap/install/SWPM/sapinst                                                                                         \
-    SAPINST_XML_FILE=/usr/sap/install/config/MP_STACK_S4_2020_v001.xml                                                    \
-    SAPINST_USE_HOSTNAME=<target_vm_hostname>                                                                             \
-    SAPINST_EXECUTE_PRODUCT_ID=NW_ABAP_CI:S4HANA2020.CORE.HDB.ABAP                                                        \
-    SAPINST_INPUT_PARAMETERS_URL=/tmp/app_template/pas.inifile.params                                                     \
-    SAPINST_START_GUI=false SAPINST_START_GUISERVER=false
-    ```
-
-## Install additional application servers
-
-You can do an unattended installation of additional application servers. You can use the parameter file you generate for multiple AAS installations.
-
-1. Make sure you already [installed PAS](#install-pas).
-
-1. Make sure you have a fully build HANA database and ASCS instance.
-
-1. [Generate an unattended parameter file for AAS](#generate-aas-parameter-file).
-
-1. [Install AAS manually using the parameter file](#install-aas-manually).
-
-
-### Generate AAS parameter file
+## Generate additional application servers parameter file
 
 Generate an unattended installation parameter file for use with AAS. These files all begin with `inifile`. 
 
@@ -564,7 +429,7 @@ Generate an unattended installation parameter file for use with AAS. These files
 
 1. Connect to your AAS VM through the CLI.
 
-1. [Check that you have all necessary media and tools installed on your AAS VM](#check-media-and-tools).
+1. [Check that you have all necessary media and tools installed on your VM](#check-media-and-tools).
 
 1. Make sure the group `sapinst` exists.
     
@@ -654,30 +519,6 @@ Generate an unattended installation parameter file for use with AAS. These files
 
 1. In SWPM, select **Cancel**. You can now do the AAS installation through the unattended method.
 
-
-### Install AAS manually
-
-To install the AAS manually with your parameter file:
-
-1. Connect to your AAS VM as the root user. 
-
-1. Remove all files from your temporary directory and go to that directory. Replace `<target_vm_hostname>` with the host name of your AAS VM.
-
-    ```bash
-    rm -rf /tmp/aas_workdir/*; cd /tmp/aas_workdir
-    ```
-
-1. Launch your AAS unattended installation as follows. Replace 
-
-    ```bash
-    /usr/sap/install/SWPM/sapinst                                                                          \
-    SAPINST_XML_FILE=/usr/sap/install/config/MP_STACK_S4_2020_v001.xml                                     \
-    SAPINST_USE_HOSTNAME=<target_vm_hostname>                                                              \
-    SAPINST_EXECUTE_PRODUCT_ID=NW_DI:S4HANA2020.CORE.HDB.PD                                                \
-    SAPINST_INPUT_PARAMETERS_URL=/tmp/app_template/aas.inifile.params                                      \
-    SAPINST_START_GUI=false SAPINST_START_GUISERVER=false
-    ```
-
 ## Combine parameter files
 
 You can combine your parameter files, which all end with `inifile.params`, into one file for the installation process. 
@@ -763,11 +604,11 @@ Next, improve the readability of your [combination file](#create-combination-fil
 
     1. `archives.downloadBasket                             = {{ download_basket_dir }}`
 
-    1. `HDB_Schema_Check_Dialogs.schemaPassword             = {{ password_hana_system }}`
+    1. `HDB_Schema_Check_Dialogs.schemaPassword             = {{ main_password }}`
     
     1. `HDB_Userstore.doNotResolveHostnames                 = {{ hdb_hostname }}`
     
-    1. `hostAgent.sapAdmPassword                            = {{ password_master }}`
+    1. `hostAgent.sapAdmPassword                            = {{ main_password }}`
     
     1. `NW_AS.instanceNumber                                = {{ aas_instance_number }}`
     
@@ -787,11 +628,11 @@ Next, improve the readability of your [combination file](#create-combination-fil
     
     1. `NW_getFQDN.FQDN                                     = {{ sap_fqdn }}`
     
-    1. `NW_GetMasterPassword.masterPwd                      = {{ password_master }}`
+    1. `NW_GetMasterPassword.masterPwd                      = {{ main_password }}`
     
     1. `NW_GetSidNoProfiles.sid                             = {{ app_sid | upper }}`
     
-    1. `NW_HDB_DB.abapSchemaPassword                        = {{ password_master }}`
+    1. `NW_HDB_DB.abapSchemaPassword                        = {{ main_password }}`
     
     1. `NW_HDB_getDBInfo.dbhost                             = {{ hdb_hostname }}`
     
@@ -799,11 +640,11 @@ Next, improve the readability of your [combination file](#create-combination-fil
     
     1. `NW_HDB_getDBInfo.instanceNumber                     = {{ hdb_instance_number }}`
     
-    1. `NW_HDB_getDBInfo.systemDbPassword                   = {{ password_hana_system }}`
+    1. `NW_HDB_getDBInfo.systemDbPassword                   = {{ main_password }}`
     
     1. `NW_HDB_getDBInfo.systemid                           = {{ hdb_sid | upper }}`
     
-    1. `NW_HDB_getDBInfo.systemPassword                     = {{ password_hana_system }}`
+    1. `NW_HDB_getDBInfo.systemPassword                     = {{ main_password }}`
     
     1. `NW_readProfileDir.profileDir                        = /usr/sap/{{ app_sid | upper }}/SYS/profile`
     
@@ -811,7 +652,7 @@ Next, improve the readability of your [combination file](#create-combination-fil
     
     1. `NW_Recovery_Install_HDB.sidAdmName                  = {{ hdb_sid | lower }}adm`
     
-    1. `NW_Recovery_Install_HDB.sidAdmPassword              = {{ password_master }}`
+    1. `NW_Recovery_Install_HDB.sidAdmPassword              = {{ main_password }}`
     
     1. `NW_SAPCrypto.SAPCryptoFile                          = {{ download_basket_dir }}/SAPEXE_300-80004393.SAR`
     
@@ -831,13 +672,13 @@ Next, improve the readability of your [combination file](#create-combination-fil
     
     1. `nwUsers.sapsysGID                                   = {{ sapsys_gid }}`
     
-    1. `nwUsers.sidadmPassword                              = {{ password_master }}`
+    1. `nwUsers.sidadmPassword                              = {{ main_password }}`
     
     1. `nwUsers.sidAdmUID                                   = {{ sidadm_uid }}`
     
     1. `storageBasedCopy.hdb.instanceNumber                 = {{ hdb_instance_number }}`
     
-    1. `storageBasedCopy.hdb.systemPassword                 = {{ password_hana_system }}`
+    1. `storageBasedCopy.hdb.systemPassword                 = {{ main_password }}`
 
 ### Upload combination file
 

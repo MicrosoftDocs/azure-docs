@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 11/04/2021
 
 ---
-
+ 
 # Access policies
 
 Access policies define the permissions and duration of access to a given Video Analyzer video resource. These access policies allow for greater control and flexibility by allowing 3rd party (Non AAD Clients) JWT tokens to provide authorization to client API’s that enable: 
