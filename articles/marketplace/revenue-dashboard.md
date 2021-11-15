@@ -221,7 +221,6 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Estimated pay out month | The month for receiving your estimated earnings |
 | Sales channel | Represents the sales channel for the customer. It is the same as `Azure license type` in the orders report and usage report. The possible values are:<ul><li>Cloud Solution Provider (CSP)</li><li>Enterprise (EA)</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>Go to market (GTM)</li></ul> |
 | Plan Id | Unique identifier for the plan in the offer |
-
 | Billing model | Subscription or consumption-based billing model used for calculation of estimated revenue. It can have one of these two values:<ul><li>UsageBased</li><li>SubscriptionBased</li></ul> |
 | Customer postal code | The postal code name provided by the bill-to customer |
 | Customer city | The city name provided by the bill-to customer |
