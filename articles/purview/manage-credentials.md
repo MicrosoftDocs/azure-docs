@@ -164,7 +164,7 @@ After storing your secrets in the key vault:
 
 ## Create a user-assigned managed identity
 
-User-assigned managed identities (UAMI) enable Azure resources to authenticate directly with other resources using Azure Active Directory (Azure AD) authentication, without the need to manage those credentials. They allow you to authenticate and assign access just like you would with a managed identity, Azure AD user, Azure AD group, or service principal. User-assigned managed identities are created as their own resource (rather than being connected to a pre-existing resource). For more information about managed identities, see the [managed identities for Azure resources documentation](../active-directory/managed-identities-azure-resources/overview.md).
+User-assigned managed identities (UAMI) enable Azure resources to authenticate directly with other resources using Azure Active Directory (Azure AD) authentication, without the need to manage those credentials. They allow you to authenticate and assign access just like you would with a system assigned managed identity, Azure AD user, Azure AD group, or service principal. User-assigned managed identities are created as their own resource (rather than being connected to a pre-existing resource). For more information about managed identities, see the [managed identities for Azure resources documentation](../active-directory/managed-identities-azure-resources/overview.md).
 
 The following steps will show you how to create a UAMI for Purview to use.
 
