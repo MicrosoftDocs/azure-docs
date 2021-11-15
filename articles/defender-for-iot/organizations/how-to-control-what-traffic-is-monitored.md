@@ -1,7 +1,7 @@
 ---
 title: Control what traffic is monitored
 description: Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and network behavior. Several tools are available to control the type of traffic that each sensor detects. 
-ms.date: 12/07/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -230,7 +230,7 @@ By using a test device, verify that the settings you defined work properly:
 
 ## Configure Windows Endpoint Monitoring
 
-With the Windows Endpoint Monitoring capability, you can configure Azure Defender for IoT to selectively probe Windows systems. This provides you with more focused and accurate information about your devices, such as service pack levels.
+With the Windows Endpoint Monitoring capability, you can configure Microsoft Defender for IoT to selectively probe Windows systems. This provides you with more focused and accurate information about your devices, such as service pack levels.
 
 You can configure probing with specific ranges and hosts, and configure it to be performed only as often as desired. You accomplish selective probing by using the Windows Management Instrumentation (WMI), which is Microsoft's standard scripting language for managing Windows systems.
 

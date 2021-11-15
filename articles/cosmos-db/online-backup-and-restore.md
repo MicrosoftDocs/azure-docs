@@ -4,7 +4,7 @@ description: This article describes how automatic backup, on-demand data restore
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 11/15/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -13,7 +13,9 @@ ms.reviewer: sngun
 # Online backup and on-demand data restore in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All the backups are stored separately in a storage service. The automatic backups are helpful in scenarios when you accidentally delete or update your Azure Cosmos account, database, or container and later require the data recovery. There are two backup modes:
+Azure Cosmos DB automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All the backups are stored separately in a storage service. The automatic backups are helpful in scenarios when you accidentally delete or update your Azure Cosmos account, database, or container and later require the data recovery. Azure Cosmos DB backups are encrypted with Microsoft managed service keys. These backups are transferred over a secure non-public network. Which means, backup data remains encrypted while transferred over the wire and at rest. Backups of an account in a given region are uploaded to storage accounts in the same region.
+
+There are two backup modes:
 
 * **Periodic backup mode** - This mode is the default backup mode for all existing accounts. In this mode, backup is taken at a periodic interval and the data is restored by creating a request with the support team. In this mode, you configure a backup interval and retention for your account. The maximum retention period extends to a month. The minimum backup interval can be one hour.  To learn more, see the [Periodic backup mode](configure-periodic-backup-restore.md) article.
 

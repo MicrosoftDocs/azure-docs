@@ -2,7 +2,7 @@
 title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Azure Resource Manager templates.
 ms.topic: troubleshooting
-ms.date: 05/22/2020
+ms.date: 11/11/2021
 ---
 # Resolve errors for invalid template
 
@@ -48,66 +48,11 @@ When you receive this type of error, carefully review the expression syntax. Con
 
 ## Solution 2 - incorrect segment lengths
 
-Another invalid template error occurs when the resource name isn't in the correct format.
-
-```
-Code=InvalidTemplate
-Message=Deployment template validation failed: 'The template resource {resource-name}'
-for type {resource-type} has incorrect segment lengths.
-```
-
-A root level resource must have one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has two segments and the name has one segment, so it's a **valid name**.
-
-```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "name": "myHostingPlanName",
-  ...
-}
-```
-
-But the next example is **not a valid name** because it has the same number of segments as the type.
-
-```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "name": "appPlan/myHostingPlanName",
-  ...
-}
-```
-
-For child resources, the type and name have the same number of segments. This number of segments makes sense because the full name and type for the child includes the parent name and type. Therefore, the full name still has one less segment than the full type.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.KeyVault/vaults",
-    "name": "contosokeyvault",
-    ...
-    "resources": [
-      {
-        "type": "secrets",
-        "name": "appPassword",
-        ...
-      }
-    ]
-  }
-]
-```
-
-Getting the segments right can be tricky with Resource Manager types that are applied across resource providers. For example, applying a resource lock to a web site requires a type with four segments. Therefore, the name is three segments:
-
-```json
-{
-  "type": "Microsoft.Web/sites/providers/locks",
-  "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-  ...
-}
-```
+Another invalid template error occurs when the resource name isn't in the correct format. To resolve that error, see [Resolve errors for name and type mismatch](error-invalid-name-segments.md).
 
 <a id="parameter-not-valid"></a>
 
-## Solution 3 - parameter is not valid
+## Solution 3 - parameter isn't valid
 
 If you provide a parameter value that isn't one of the allowed values, you receive a message similar to the following error:
 

@@ -197,4 +197,4 @@ Watch this fast-paced video for an overview of the security architecture and eac
 
 + [Azure security fundamentals](../security/fundamentals/index.yml)
 + [Azure Security](https://azure.microsoft.com/overview/security)
-+ [Azure Security Center](../security-center/index.yml)
++ [Microsoft Defender for Cloud](../security-center/index.yml)

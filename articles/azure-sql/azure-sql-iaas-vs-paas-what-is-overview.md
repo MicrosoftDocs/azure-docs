@@ -29,9 +29,6 @@ Learn how each product fits into Microsoft's Azure SQL data platform to match th
 If you're new to Azure SQL, check out the *What is Azure SQL* video from our in-depth [Azure SQL video series](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
 
-> [!TIP]
-> How can we make Azure SQL better? [Take the survey](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
-
 ## Overview
 
 In today's data-driven world, driving digital transformation increasingly depends on our ability to manage massive amounts of data and harness its potential. But today's data estates are increasingly complex, with data hosted on-premises, in the cloud, or at the edge of the network. Developers who are building intelligent and immersive applications can find themselves constrained by limitations that can ultimately impact their experience. Limitations arising from incompatible platforms, inadequate data security, insufficient resources and price-performance barriers create complexity that can inhibit app modernization and development. 

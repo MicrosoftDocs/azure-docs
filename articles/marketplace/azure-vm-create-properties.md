@@ -6,12 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
+msreviewer: amhindma
+ms.date: 11/10/2021
 ---
 
 # Configure virtual machine offer properties
 
-On the **Properties** page (select from the left-nav menu), you define the categories used to group your virtual machine (VM) offer on Azure Marketplace, your application version, and the legal contracts that support your offer.
+On the **Properties** page (select from the left-nav menu in Partner Center), you define the categories used to group your virtual machine (VM) offer on Azure Marketplace and the legal contracts that support your offer.
 
 ## Select a category
 
@@ -19,9 +20,9 @@ Select categories and subcategories to place your offer in the appropriate Azure
 
 - Select a Primary category.
 - To add a second optional category (Secondary), select the **+Categories** link.
-- Select up to two subcategories for the Primary and/or Secondary category. If no subcategory is applicable to your offer, select **Not applicable**. Use Ctrl+click to select a second subcategory.
+- Select up to two subcategories for the Primary and/or Secondary category. Use Ctrl+click to select a second subcategory. If no subcategory is applicable to your offer, then **Not applicable** is automatically selected.
 
-See the full list of categories and subcategories in [Offer Listing Best Practices](gtm-offer-listing-best-practices.md). Virtual machine offers always appear under the **Compute** category on Azure Marketplace.
+See the full list of categories and subcategories in [Categories and subcategories in the commercial marketplace](categories.md). Virtual machine offers always appear under the **Compute** category on Azure Marketplace.
 
 ## Provide terms and conditions
 
@@ -34,11 +35,9 @@ To learn about the standard contract and optional amendments, see [Standard Cont
 
 ### Use the standard contract
 
-To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a standard contract you can use for your offers in the commercial marketplace. When you offer your software under the standard contract, customers only need to read and accept it one time, and you don't have to create custom terms and conditions.
+To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a standard contract you can use for your offers in the commercial marketplace. When you offer your software under the standard contract, customers only need to read and accept it one time, and you don't have to create custom terms and conditions. To learn more about the customer experience during the discovery and purchase process, see [Standard Contract for Microsoft commercial marketplace](standard-contract.md#customer-experience).
 
 1. Select the **Use the Standard Contract for Microsoft's commercial marketplace** check box.
-
-   ![Illustrates the Use the Standard Contract for Microsoft's commercial marketplace check box.](partner-center-portal/media/use-standard-contract.png)
 
 1. In the **Confirmation** dialog box, select **Accept**. Depending on the size of your screen, you may have to scroll up to see it.
 1. Select **Save draft** before continuing.
@@ -56,16 +55,21 @@ In the **Universal amendment terms to the standard contract for Microsoft's comm
 
 ##### Add one or more custom amendments
 
+Custom amendments are special amendments to the Standard Contract that are targeted to specific customers using Azure tenant IDs. Only customers from the tenant will be presented with the custom amendment terms when they purchase the offer.
+
+> [!NOTE]
+> Customers targeted with custom amendments will also get the universal amendment (if any) to the Standard Contract during purchase.
+
 1. Under **Custom amendments terms to the Standard Contract for Microsoft's commercial marketplace**, select the **Add custom amendment term (Max 10)** link.
 2. Enter your **Custom amendment terms** in the box.
-3. Enter the **Tenant ID** in the box. Only customers associated with the tenant IDs you specify for these custom terms will see them in the offer's purchase flow in the Azure portal.
+3. Enter the **Tenant ID** in the box.
 
    > [!TIP]
    > A tenant ID identifies your customer in Azure. You can ask your customer for this ID and they can find it by going to [**https://portal.azure.com**](https://portal.azure.com) > **Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, `50c464d3-4930-494c-963c-1e951d15360e`). You can also look up the organization's tenant ID of your customer by using their domain name URL at [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com/).
 
 4. Optionally, enter a friendly **Description** for the tenant ID. This description helps you identify the customer you're targeting with the amendment.
-5. To add another tenant ID, select the **Add a customer's tenant ID (Max 10)** link and repeat steps 3 and 4. You can add up to 20 tenant IDs.
-6. To add another amendment term, repeat steps 1 through 5. You can provide up to ten custom amendment terms per offer.
+5. To add another tenant ID, select the **Add a customer's tenant ID (Max 10)** link and repeat steps 3 and 4. You can add up to 10 tenant IDs.
+6. To add another amendment term, repeat steps 1 through 5. You can provide up to 10 custom amendment terms per offer.
 7. Select **Save draft** before continuing.
 
 ### Use your own terms and conditions

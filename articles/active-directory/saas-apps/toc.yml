@@ -2410,7 +2410,9 @@
       - name: BenQ IAM
         href: benq-iam-provisioning-tutorial.md 
       - name: Bentley - Automatic User Provisioning
-        href: bentley-automatic-user-provisioning-tutorial.md  
+        href: bentley-automatic-user-provisioning-tutorial.md
+      - name: BIC Cloud Design
+        href: bic-cloud-design-provisioning-tutorial.md    
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Bizagi Studio for Digital Process Automation
@@ -2497,6 +2499,8 @@
         href: elium-provisioning-tutorial.md
       - name: Exium
         href: exium-provisioning-tutorial.md
+      - name: Facebook Work Accounts
+        href: facebook-work-accounts-provisioning-tutorial.md  
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: Figma
@@ -2667,6 +2671,8 @@
         href: proware-provisioning-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-provisioning-tutorial.md
+      - name: Real Links
+        href: real-links-provisioning-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO

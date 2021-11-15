@@ -52,7 +52,7 @@ In the connect process the account management is connected to ARM, which will tr
  | Name | Description |
  | ---|---|
  |**Subscription**| The subscription currently contains the classic account and other related resources such as the Media Services.|
- |**Resource Group**|Select an existing resource or create a new one. The resource group must be a the same location as the classic account being connected|
+ |**Resource Group**|Select an existing resource or create a new one. The resource group must be the same location as the classic account being connected|
  |**Video Analyzer for Media account** (radio button)| Select the *"Connecting an existing classic account"*.|
  |**Existing account ID**| Enter the ID of existing Video Analyzer for Media classic account.|
  |**Resource name**|Enter the name of the new Video Analyzer for Media account. Default value would be the same name the account had as classic.|

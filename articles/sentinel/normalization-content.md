@@ -1,34 +1,34 @@
 ---
-title: Azure Sentinel Information Model (ASIM) content | Microsoft Docs
-description: This article outlines the Azure Sentinel content that utilized Azure Sentinel Information Model (ASIM)
+title: Advanced SIEM Information Model (ASIM) content | Microsoft Docs
+description: This article outlines the Microsoft Sentinel content that utilized Advanced SIEM Information Model (ASIM)
 services: sentinel
 cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/11/2021
+ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel Information Model (ASIM) security content  (Public preview)
+# Advanced SIEM Information Model (ASIM) security content  (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Normalized security content in Azure Sentinel includes analytics rules, hunting queries, and workbooks that work with source-agnostic normalization parsers.
+Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with source-agnostic normalization parsers.
 
-<a name="builtin"></a>You can find normalized, built-in content in Azure Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing content to use normalized data.
+<a name="builtin"></a>You can find normalized, built-in content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing content to use normalized data.
 
-This article lists built-in Azure Sentinel content that has been configured to support ASIM.  While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries.
+This article lists built-in Microsoft Sentinel content that has been configured to support ASIM.  While links to the Microsoft Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Microsoft Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries.
 
 > [!TIP]
-> Also watch the [Deep Dive Webinar on Azure Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). For more information, see [Next steps](#next-steps).
+> Also watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). For more information, see [Next steps](#next-steps).
 >
 
 > [!IMPORTANT]
@@ -191,11 +191,11 @@ imDns
 
 ## <a name="next-steps"></a>Next steps
 
-This article discusses the Azure Sentinel Information Model (ASIM) content.
+This article discusses the Advanced SIEM Information Model (ASIM) content.
 
 For more information, see:
 
-- Watch the [Deep Dive Webinar on Azure Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Azure Sentinel Information Model overview](normalization.md)
-- [Azure Sentinel Information Model schemas](normalization-about-schemas.md)
-- [Azure Sentinel Information Model parsers](normalization-about-parsers.md)
+- Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
+- [Advanced SIEM Information Model overview](normalization.md)
+- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)

@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 11/08/2021
+ms.date: 11/09/2021
 ms.topic: reference
 ---
 
@@ -15,7 +15,7 @@ Connections are secured over SSL.
 
 ## Getting started
 
-In general, when you're using an external API on the Azure Defender for IoT sensor or on-premises management console, you need to generate an access token. Tokens are not required for authentication APIs that you use on the sensor and the on-premises management console.
+In general, when you're using an external API on the Microsoft Defender for IoT sensor or on-premises management console, you need to generate an access token. Tokens are not required for authentication APIs that you use on the sensor and the on-premises management console.
 
 To generate a token:
 

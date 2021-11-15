@@ -1,18 +1,18 @@
 ---
-title: Customize activities on Azure Sentinel entity timelines | Microsoft Docs
-description: Add customized activities to those Azure Sentinel tracks and displays on the timeline of entity pages
+title: Customize activities on Microsoft Sentinel entity timelines | Microsoft Docs
+description: Add customized activities to those Microsoft Sentinel tracks and displays on the timeline of entity pages
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -27,7 +27,7 @@ ms.custom: ignite-fall-2021
 
 ## Introduction
 
-In addition to the activities tracked and presented in the timeline by Azure Sentinel out-of-the-box, you can create any other activities you want to keep track of and have them presented on the timeline as well. You can create customized activities based on queries of entity data from any connected data sources. The following examples show how you might use this capability:
+In addition to the activities tracked and presented in the timeline by Microsoft Sentinel out-of-the-box, you can create any other activities you want to keep track of and have them presented on the timeline as well. You can create customized activities based on queries of entity data from any connected data sources. The following examples show how you might use this capability:
 
 - Add new activities to the entity timeline by modifying existing out-of-the-box activity templates.
 
@@ -35,7 +35,7 @@ In addition to the activities tracked and presented in the timeline by Azure Sen
 
 ## Getting started
 
-1. From the Azure Sentinel navigation menu, select **Entity behavior**.
+1. From the Microsoft Sentinel navigation menu, select **Entity behavior**.
 
 1. In the **Entity behavior** blade, select **Customize entity page** at the top of the screen.
 
@@ -141,7 +141,7 @@ SecurityEvent
 
 For the sake of convenience, you may want to determine how the activity is presented in the timeline by adding dynamic parameters to the activity output.
 
-Azure Sentinel provides built-in parameters for you to use, and you can also use others based on the fields you projected in the query.
+Microsoft Sentinel provides built-in parameters for you to use, and you can also use others based on the fields you projected in the query.
 
 Use the following format for your parameters: `{{ParameterName}}`
 
@@ -204,6 +204,6 @@ You can also use the **Activities** filter to present or hide specific activitie
 
 ## Next steps
 
-In this document, you learned how to create custom activities for your entity page timelines. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to create custom activities for your entity page timelines. To learn more about Microsoft Sentinel, see the following articles:
 - Get the complete picture on [entity pages](identify-threats-with-entity-behavior-analytics.md).
 - See the full list of [entities and identifiers](entities-reference.md).
