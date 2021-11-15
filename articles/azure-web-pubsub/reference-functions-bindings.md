@@ -37,8 +37,6 @@ Working with the trigger and bindings requires you reference the appropriate pac
 | C# Script (online-only in Azure portal)         | Adding a binding                                   | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
 
 > [!NOTE]
-> Azure Web PubSub Function bundle support is rolling out in a new release progress, and probably with a few days delay. Please use [Explicitly install extensions] method to add it if extension bundle is not including Web PubSub at this moment. 
-> 
 > Install the client library from [NuGet](https://www.nuget.org/) with specified package and version.
 > 
 > ```bash

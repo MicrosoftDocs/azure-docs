@@ -66,10 +66,10 @@ In this tutorial, you learn how to:
     func init --worker-runtime dotnet
     ```
 
-2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
+2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
 
     > [!NOTE]
-    > Azure Web PubSub Function bundle support is rolling out in a new release progress, and probably with a few days delay. When this is ready, no need to [Explicitly install extensions] anymore. Suggest to add it explicitly at this moment. See steps below.
+    > The step is optional when [Extension bundles](/azure/azure-functions/functions-bindings-register#extension-bundles) are supported.
 
    a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
     ```json
