@@ -14,7 +14,7 @@ ms.date: 11/11/2021
 
 You can use this library in your app server side to manage the WebSocket client connections, as shown in below diagram:
 
-![overflow](https://user-images.githubusercontent.com/668244/140014067-25a00959-04dc-47e8-ac25-6957bd0a71ce.png)
+![The overflow diagram shows the overflow of using the service client library.](media/sdk-reference/service-client-overflow.png)
 
 Use this library to:
 - Send messages to hubs and groups. 
