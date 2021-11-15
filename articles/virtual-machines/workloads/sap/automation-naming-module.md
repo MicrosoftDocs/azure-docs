@@ -90,6 +90,17 @@ module "sap_namegenerator" {
 }
 ```
 
+Next, you need to point your other Terraform module files to your custom naming module. These module files include:
+
+- `deploy\terraform\run\sap_system\module.tf`
+- `deploy\terraform\bootstrap\sap_deployer\module.tf`
+- `deploy\terraform\bootstrap\sap_library\module.tf`
+- `deploy\terraform\run\sap_library\module.tf`
+- `deploy\terraform\run\sap_deployer\module.tf`
+
+For each file, change the source for the module `sap_namegenerator` to point to your new naming module's location. For example `module "sap_namegenerator" { source = "../../terraform-units/modules/sap_namegenerator"` becomes `module "sap_namegenerator" { source = "../../../../Contoso_naming"`.
+
+
 ## Module output
 
 The module outputs a data structure with all names to pass on to the other Terraform modules. For example:
