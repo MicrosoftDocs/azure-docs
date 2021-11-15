@@ -32,11 +32,11 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 1. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-01.png)
+   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-01.png)<!--Make this smaller. Will have to reshoot and reconstruct. Didn't save the components.-->
 
 1. Select **Create**.  
 
-   ![Screenshot of the top of the Azure portal screen after selecting Azure Data Box. The Create button is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-02.png)
+   ![Screenshot of the top of the Azure portal screen after selecting Azure Data Box. The Create button is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-02.png)<!--Smaller also?-->
 
 1. To get started with the import order, select the following options:
  
@@ -47,7 +47,7 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
     1. Select the **Destination Azure region** for the job.
     1. Then select **Apply**.
    
-    ![Screenshot showing the Get Started options for a new Data Box order. The Import To Azure transfer typ and the Apply button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-03.png)
+    ![Screenshot showing the Get Started options for a new Data Box order. The Import To Azure transfer typ and the Apply button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-03.png)<!--Remove some vertical space to enlarge text.-->
 
 1. Choose the **Select** button for **Import/Export Job**.
 
@@ -103,11 +103,11 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
    1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
    1. Select **Create**.
 
-     ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-10.png)
+     ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-10.png)<!--Verify border.-->
 
 1. After the job is created, open the resource, and enter **Tracking information**.<!--Add step detail Monday. May want to have a complex illustration showing the initial pane and then the resource Overview. Or two screens - they are wide.-->
 
-     ![Screenshot showing the Overview panel for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-11.png)<!--Add highlights after I determine when the "Drives have been shipped" info is added.-->
+     [ ![Screenshot showing the Overview panel for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-11.png) ](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-11.png#lightbox)<!--TK: Add highlights. Consider moving the screen to "Step5: Enter tracking info."-->
 
 
 ### [Portal (classic)](#tab/azure-portal)
