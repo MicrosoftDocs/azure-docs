@@ -4,28 +4,26 @@ description: Explanation of naming conventions for the SAP Deployment Automation
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/14/2021
+ms.date: 11/14/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 ---
 
 # Naming conventions for SAP automation framework
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses standard naming conventions. Consistent naming helps the automation framework run correctly with Terraform. Review the standard terms, area paths, variable names before you begin your deployment.
-
-Standard naming helps you deploy the automation framework smoothly. For example, consistent naming you to:
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses standard naming conventions. Consistent naming helps the automation framework run correctly with Terraform. Standard naming helps you deploy the automation framework smoothly. For example, consistent naming helps you to:
 
 - Deploy the SAP virtual network infrastructure into any supported Azure region.
 
 - Do multiple deployments with partitioned virtual networks. 
 
-- Deploy the SAP system deployment unit into any SAP virtual network. 
+- Deploy the SAP system into any SAP workload zone. 
 
 - Run regular and high availability (HA) instances
 
 - Do disaster recovery and fall forward behavior.
 
-If necessary, you can also [configure custom names using the related Terraform module](automation-naming-module.md).
+Review the standard terms, area paths, variable names before you begin your deployment. If necessary, you can also [configure custom naming](automation-naming-module.md).
 
 ## Placeholder values
 
@@ -33,24 +31,22 @@ The naming convention's example formats use the following placeholder values.
 
 | Placeholder | Concept | Character limit | Example | 
 | ----------- | ------- | --------------- | ------- |
-| `{ENVIRONMENT}` | Environment | 5 | `SND`, `PROTO`, `NP`, `PROD` |
+| `{ENVIRONMENT}` | Environment | 5 | `DEV`, `PROTO`, `NP`, `PROD` |
 | `{REGION_MAP}` | [Region](#azure-region-names) map | 4 | `weus` for `westus` |
 | `{SAP_VNET}` | SAP virtual network (VNet) | 7 |  `SAP0` |
+| `{SID}` | SAP system identifier | 3 | `X01` |
+| `{PREFIX}` | SAP resource prefix | | `DEV-WEEU-SAP01-X01` |
 | `{DEPLOY_VNET}` | Deployer VNet | 7 |  |
 | `{REMOTE_VNET}` | Remote VNet | 7 |  |
 | `{LOCAL_VNET}` |Local VNet | 7 |  |
 | `{CODENAME}` | Logical name for version |  | `version1`, `beta` |
 | `{VM_NAME}` | VM name |  |  |
 | `{SUBNET}` | Subnet |  |  |
-| `{SID}` | SAP system identifier |  |  |
 | `{DBSID}` | Database system identifier |  |  |
 | `{DIAG}` | | 5 |  |
 | `{RND}` | | 3 |  |
-| `{PRVT}` | | 12 |  |
 | `{USER}` | | 12 |  |
-| `SIDp` | | 5 |  |
-| `SIDu` | | 5 |  |
-| `{COMPUTER_NAME}` | | |  |
+| `{COMPUTER_NAME}` | | 14 |  |
 
 ### Deployer names
 
@@ -58,20 +54,19 @@ For an explanation of the **Format** column, see the [definitions for placeholde
 
 | Concept | Character limit | Format | Example |
 | ------- | --------------- | ------ | ------- |
-| Resource Group | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-INFRASTRUCTURE` |  `PROTO-WUS2-DEPLOY-INFRASTRUCTURE` |
-| Virtual network | 38 (64)  | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-vnet` | |
-| Subnet | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deployment-subnet` | |
-| Storage account | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{DIAG}{RND}` | `protowus2deploydiagxxx` |
-| Network security group (NSG) | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deployment-nsg` | |
-| Route table | | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_routeTable` | |
-| User-defined route (UDR) | | `{REMOTE_VNET}_Hub-udr` | |
+| Resource Group | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-INFRASTRUCTURE` |  `MGMT-WEEU-DEP00-INFRASTRUCTURE` |
+| Virtual network | 38 (64)  | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-vnet` | `MGMT-WEEU-DEP00-vnet` |
+| Subnet | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deployment-subnet` | `MGMT-WEEU-DEP00_deployment-subnet` |
+| Storage account | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{DIAG}{RND}` | `mgmtweeudep00diagxxx` |
+| Network security group (NSG) | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deployment-nsg` | `MGMT-WEEU-DEP00_deployment-nsg` |
+| Route table | | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_routeTable` | `MGMT-WEEU-DEP00_route-table` |
 | Network interface component | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_{COMPUTER_NAME}-nic` | `-ipconfig1` (None required for the block `ip_configuration`.) |
-| Disk | |`{vm.name}-deploy00` or `${azurerm_virtual_machine.iscsi.*.name}-iscsi00` (code) | `PROTO-WUS2-DEPLOY_deploy00-deploy00` |
-| VM | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_iscsi##` | |
-| Operating system (OS) disk | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_iscsi##-OsDisk` | |
-| Computer name | | `{environment[_map]}{SAP_VNET}{region_map}iscsi##` | |
-| Key vault | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{PRVT}{RND}` (private key) and `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{USER}{RND}` (user) | |
-| Public IP address | | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_{COMPUTER_NAME}-pip` | |
+| Disk | |`{vm.name}-deploy00` | `PROTO-WUS2-DEPLOY_deploy00-disk00` |
+| VM | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_deploy##` | `MGMT-WEEU-DEP00_permweeudep00deploy00` |
+| Operating system (OS) disk | | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deploy##-OsDisk` | `PERM-WEEU-DEP00_permweeudep00deploy00-OsDisk` |
+| Computer name | | `{environment[_map]}{DEPLOY_VNET}{region_map}deploy##` | `MGMT-WEEU-DEP00_permweeudep00deploy00` |
+| Key vault | 24 | `{ENVIRONMENT}{REGION_MAP}{DEPLOY_VNET}{USER}{RND}` (deployment credentials) | `MGMTWEEUDEP00userxxx` |
+| Public IP address | | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_{COMPUTER_NAME}-pip` | `MGMT-WEEU-DEP00_permweeudep00deploy00-pip` |
 
 ### SAP Library names
 
@@ -79,60 +74,61 @@ For an explanation of the **Format** column, see the [definitions for placeholde
 
 | Concept | Character limit | Format | Example |
 | ------- | --------------- | ------ | ------- |
-| Resource group | 80 | `{ENVIRONMENT}-{REGION_MAP}-SAP_LIBRARY` | `PROTO-WUS2-SAP_LIBRARY` |
-| Storage account | 24 | `{ENVIRONMENT}{REGION_MAP}saplib(12CHAR){RND}` | `protowus2saplibxxx` |
-| Key vault (private) | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{PRVT}{RND}` |
-| Key vault (user) | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{USER}{RND}` |
+| Resource group | 80 | `{ENVIRONMENT}-{REGION_MAP}-SAP_LIBRARY` | `MGMT-WEEU-SAP_LIBRARY` |
+| Storage account | 24 | `{ENVIRONMENT}{REGION_MAP}saplib(12CHAR){RND}` | `mgmtweeusaplibxxx` |
+| Storage account | 24 | `{ENVIRONMENT}{REGION_MAP}tfstate(12CHAR){RND}` | `mgmtweeutfstatexxx` |
 
-
-### SAP VNet names
+### SAP Workload zone names
 
 For an explanation of the **Format** column, see the [definitions for placeholder values](#placeholder-values).
 
-| Concept | Character limit | Format | Example |
-| ------- | --------------- | ------ | ------- |
-| Resource group | 80 | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}-INFRASTRUCTURE` | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}-INFRASTRUCTURE` |
-| Virtual network | 38 (64) | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}-vnet` | |
-| Peering | 80 | `{LOCAL_VNET}_to_{REMOTE_VNET}` | |
-| Subnet | 80 | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_utility-subnet` | |
-| Storage account | 80 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}diag(5CHAR){RND}` | `protowus2sap0diagxxx` |
-| Network security group | 80 | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_iscsi-nsg` | |
-| Route table | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_routeTable` | |
+| Concept         | Character limit | Format | Example |
+| --------------- | --------------- | ------ | ------- |
+| Resource group  | 80              | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}-INFRASTRUCTURE` | `DEV-WEEU-SAP01-INFRASTRUCTURE` |
+| Virtual network | 38 (64)         | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}-vnet` | `DEV-WEEU-SAP01-vnet` |
+| Peering         | 80              | `{LOCAL_VNET}_to_{REMOTE_VNET}` | `DEV-WEEU-SAP01-vnet_to_MGMT-WEEU-DEP00-vnet` |
+| Subnet          | 80              | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_utility-subnet` | `DEV-WEEU-SAP01_db-subnet` |
+| Network security group | 80 | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_utility-nsg` | `DEV-WEEU-SAP01_dbSubnet-nsg` |
+| Route table | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_routeTable` | `DEV-WEEU-SAP01_route-table` |
+| Storage account | 80              | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}diag(5CHAR){RND}` | `devweeusap01diagxxx` |
 | User-defined route | | `{remote_vnet}_Hub-udr` | |
+| User-defined route (firewall)| | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_firewall-route` |`DEV-WEEU-SAP01_firewall-route` |
 | Availability set (AV set) | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_iscsi-avset` | |
 | Network interface component | 80 | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_iscsi##-nic` | |
-| Disk | | `{vm.name}-iscsi00` or `${azurerm_virtual_machine.iscsi.*.name}-iscsi00` (code) | `PROTO-WUS2-SAP0_iscsi00-iscsi00` |
+| Disk | | `{vm.name}-iscsi00` or `${azurerm_virtual_machine.iscsi.*.name}-iscsi00` (code) | `DEV-WEEU-SAP01_iscsi00-iscsi00` |
 | VM | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_iscsi##` | |
 | OS disk | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_iscsi##-OsDisk` | |
 | Computer name | | `{ENVIRONMENT}_{REGION_MAP}{SAP_VNET}{region_map}iscsi##` | |
-| Key vault (private) | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{PRVT}{RND}` | |
-| Key vault (user) | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{USER}{RND}` | |
+| Key vault | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{USER}{RND}` | `DEVWEEUSAP01userxxx` |
+| NetApp account |  | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}_netapp_account` | `DEV-WEEU-SAP01_netapp_account` |
+| NetApp capacity pool | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}_netapp_pool` | `DEV-WEEU-SAP01_netapp_pool` |
 
-### SAP deployment unit names
+### SAP System names
 
 For an explanation of the **Format** column, see the [definitions for placeholder values](#placeholder-values).
 
-| Concept | Character limit | Format | Example |
-| ------- | --------------- | ------ | ------- |
-| Resource group | 80 | `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}_{CODENAME}-{SID}` | `PROTO-WUS2_S4DEV-Z00` |
-| Azure proximity placement group (PPG) | | `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}_{CODENAME}-{SID}_ppg` | |
-| Network interface component's network security group| 80 | `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}_{CODENAME}-{SID}_app-subnet` | |
-| Network security group (network interface component) | 80 | `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}_{CODENAME}-{SID}_app-nsg` | |
-| Network interface component (subnet) | | `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}_{CODENAME}-{SID}_appSubnet-nsg` | |
-| AV set | | `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}_{CODENAME}-{SID}_app-avset` | |
-| Network interface component | | `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}_{CODENAME}-{SID}_{VM_NAME}-{SUBNET}-nic` | `-app-nic`, `-web-nic`, `-admin-nic`, `-db-nic` |
-| Disk | | `${element(azurerm_virtual_machine.app.*.name, count.index)}-sap00` (code) | `{VM-NAME}-sap00`, `{VM-NAME}-data00`, `{VM-NAME}-log00`, `{VM-NAME}-backup00` |
-| VM | | `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}_{CODENAME}-{SID}_{COMPUTER-NAME}` | |
-| OS disk | | `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}_{CODENAME}-{SID}_{COMPUTER-NAME}-osDisk` | |
-| Computer name (database) | 14 | `{SID}d{DBSID}##[l` | |
-| Computer name (non-database) | 14 | `{SID}{COMPUTER-NAME}##[l` | `{SID}app##[l`, `{SID}scs##[l`, `{SID}db##[l`, `{SID}web##[l` |
-| Azure load balancer | 80 | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_{CODENAME}-{SID}_db-alb` | |
-| Load balancer front-end IP address | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_{CODENAME}-{SID}_dbAlb-feip` | |
-| Load balancer backend pool | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_{CODENAME}-{SID}_dbAlb-bePool` | |
-| Load balancer rule | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_{CODENAME}-{SID}_dbAlb-rule_port-01` | |
-| Key vault (private) | 24 | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}{SIDp}{RND}` | |
-| Key vault (user) | 24 | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}{SIDu}{RND}` | |
-| Load balancer health probe | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_{CODENAME}-{SID}_dbAlb-hp?` | |
+| Concept         | Character limit | Format | Example |
+| --------------- | --------------- | ------ | ------- |
+| Resource prefix | 80              | `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}-{SID}` or `{ENVIRONMENT}-{REGION_MAP}-{SAP-VNET}_{CODENAME}-{SID}` | `DEV-WEEU-SAP01-X01` |
+| Resource group  | 80              | `{PREFIX}` | `DEV-WEEU-SAP01-X01` |
+| Azure proximity placement group (PPG) | | `{PREFIX}_ppg` | |
+| Availability set | | `{PREFIX}_app-avset` | `DEV-WEEU-SAP01-X01_app-avset` |
+| Subnet          | 80              | `{PREFIX}_utility-subnet` | `DEV-WEEU-SAP01_X01_db-subnet` |
+| Network security group | 80 | `{PREFIX}_utility-nsg` | `DEV-WEEU-SAP01_X01_dbSubnet-nsg` |
+| Network interface component | | `{PREFIX}_{VM_NAME}-{SUBNET}-nic` | `-app-nic`, `-web-nic`, `-admin-nic`, `-db-nic` |
+| Computer name (database) | 14 | `{SID}d{DBSID}##{OS flag l/w}{primary/secondary 0/1}{RND}` | `DEV-WEEU-SAP01-X01_x01dxdb00l0xxx` |
+| Computer name (non-database) | 14 | `{SID}{ROLE}##{OS flag l/w}{RND}` | `DEV-WEEU-SAP01-X01_x01app01l538`, `DEV-WEEU-SAP01-X01_x01scs01l538` |
+| VM | | `{PREFIX}_{COMPUTER-NAME}` | |
+| Disk | | `{PREFIX}_{VM_NAME}-{disk_type}{counter}` | `{VM-NAME}-sap00`, `{VM-NAME}-data00`, `{VM-NAME}-log00`, `{VM-NAME}-backup00` |
+| OS disk | | `{PREFIX}_{VM_NAME}-osDisk` | `DEV-WEEU-SAP01-X01_x01scs00lxxx-OsDisk` |
+| Azure load balancer (utility)| 80 | `{PREFIX}_db-alb` | `DEV-WEEU-SAP01-X01_db-alb` |
+| Load balancer front-end IP address (utility)| | `{PREFIX}_dbAlb-feip` | `DEV-WEEU-SAP01-X01_dbAlb-feip` |
+| Load balancer backend pool (utility)| | `{PREFIX}_dbAlb-bePool` | `DEV-WEEU-SAP01-X01_dbAlb-bePool` |
+| Load balancer health probe (utility)| | `{PREFIX}_dbAlb-hp` | `DEV-WEEU-SAP01-X01_dbAlb-hp`|
+| Key vault (user) | 24 | `{SHORTPREFIX}u{RND}` | `DEVWEEUSAP01uX01xxx` |
+| NetApp volume (utility) | 24 | `{PREFIX}-utility` | `DEV-WEEU-SAP01-X01_sapmnt` |
+
+
 
 > [!NOTE]
 > Disk numbering starts at zero. The naming convention uses a two-character format; for example, `00`.
