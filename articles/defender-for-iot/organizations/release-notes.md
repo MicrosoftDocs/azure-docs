@@ -28,19 +28,17 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 01/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
-| 10.5.3 | 11/2021 | 08/2022|
+| 10.5.3 | 11/2021 | 08/2022 |
 
 ## November 2021
 
 The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
 
-- The management console's certificate has an expiration date of 10 years.
+- The sensors will now automatically delete archived alerts that are over 90 days old.
 
-- Sensors, and the management console will now automatically delete archived alerts that are over 90 days old.
+- There were sensor performance improvements on the sensor for alerts, and the device inventory.
 
-- Users can now get a device's API through Tomcat.
-
-- Redundant groups such as unclassified subnets, authorized devices, and nonactive directory devices will be removed.
+- There were sensor performance improvements on the management console on the ability to export alerts.
 
 ## October 2021
 
