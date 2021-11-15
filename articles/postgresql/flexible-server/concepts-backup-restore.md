@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 11/15/2021
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
@@ -13,45 +13,61 @@ ms.date: 07/30/2021
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL - Flexible Server automatically backs up your server and retains the backups for the duration of up to 35 days. While restoring, you can specify the date and time to which you want to restore within the retention period. The overall time to restore and recover depends on the size of the database files and the amount of recovery to be performed. 
+Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL - Flexible Server automatically performs regular backup of your server.  You can then do a point-in-time recovery within the retention period where you can specify the date and time to which you want to restore to. The overall time to restore and recovery typically depends on the size of data and amount of recovery to be performed. 
 
-### Backup process in flexible server
-The first snapshot backup is scheduled immediately after the flexible server is created. Subsequently, a daily snapshot backup of data files is performed. Backups are stored in a zone redundant storage within a region. Transaction logs (write ahead logs - WAL) are also archived continuously, so that you will be able to restore to the last committed transaction. These data and logs backups allow you to restore a server to any point-in-time within your configured backup retention period. All backups are encrypted using AES 256-bit encryption.
+## Backup overview
 
-If the database is configured with high availability, daily snapshots are performed from the primary and the continuous log backups are performed from the standby.
+Flexible Server takes snapshot backups of the data files and stores them securely in zone-redundant storage or locally redundant storage depending on the [region](overview.md#regions). The server also performs transaction logs backup as and when the WAL file as and when it is ready to be archived. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days and can be stored up to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
 
-> [!IMPORTANT]
->Backups are not performed on stopped servers. However, backups are resumed when the database is either automatically started after 7 days or started by the user.
+These backup files cannot be exported or used to create servers outside of Azure Database for PostgreSQL - Flexible Server. For that purpose, you can use PostgreSQL tools pg_dump and pg_restore/psql.
 
-The backups can only be used for restore operations within the Flexible server. If you want to export or import data to the flexible server, you use [dump and restore](../howto-migrate-using-dump-and-restore.md) methodology.
+## Backup frequency
 
+Backups on flexible servers are snapshot-based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are currently taken daily once. Transaction log backups occur at a varied frequency depending on the workload and when the WAL file is filled to be archived. In general, the delay (RPO) may be up to 15 minutes.
+
+## Backup redundancy options
+
+Azure Database for PostgreSQL stores multiple copies of your backups so that your data is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Azure Database for PostgreSQL provides the flexibility to choose between a local backup copy within a region or a geo-redundant backup (Preview). By default, Azure Database for PostgreSQL server backup uses zone redundant storage if available in the region. If not, it uses locally redundant storage. In addition, customers can choose geo-redundant backup, which is in preview, for Disaster Recovery at the time of server create. Refer to the list of regions where the geo-redundant backups are supported. 
+
+Backup redundancy ensures that your database meets its availability and durability targets even in the face of failures and Azure Database for PostgreSQL extends three options to users - 
+
+- **Zone-redundant backup storage** : This is automatically chosen for regions that support Availability zones. When the backups are stored in zone-redundant backup storage, multiple copies are not only stored within the availability zone in which your server is hosted, but are also replicated to another availability zone in the same region. This option can be leveraged for scenarios that require high availability or for restricting replication of data to within a country/region to meet data residency requirements. Also this provides at least 99.9999999999% (12 9's) durability of Backups objects over a given year.  
+
+- **Locally redundant backup storage** : This is automatically chosen for regions that do not support Availability zones yet. When the backups are stored in locally redundant backup storage, multiple copies of backups are stored in the same datacenter. This option protects your data against server rack and drive failures. Also this provides at least 99.999999999% (11 9's) durability of Backups objects over a given year. By default backup storage for servers with same-zone high availability (HA) or no high availability configuration is set to locally redundant. 
+
+- **Geo-Redundant backup storage (Preview)** : You can choose this option at the time of server creation. When the backups are stored in geo-redundant backup storage, in addition to three copies of data stored within the region in which your server is hosted, but are also replicated to it's geo-paired region. This provides better protection and ability to restore your server in a different region in the event of a disaster. Also this provides at least 99.99999999999999% (16 9's) durability of Backups objects over a given year. One can enable Geo-Redundancy option at server create time to ensure geo-redundant backup storage. Geo redundancy is supported for servers hosted in any of the [Azure paired regions](../../best-practices-availability-paired-regions.md). 
+
+> [!NOTE]
+> Geo-redundancy backup option can be configured at the time of server creates only.
+
+## Moving from other backup storage options to geo-redundant backup storage 
+
+Configuring geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option.  
 
 ### Backup retention
 
-Backups are retained based on the backup retention period setting for the server. You can select a retention period between 7 and 35 days. The default retention period is seven days. You can set the retention period during server creation or you can update it at a later time. Backups are retained even for stopped servers.
+Backups are retained based on the backup retention period setting for the server. You can select a retention period between 7 and 35 days. The default retention period is seven days. You can set the retention period during server creation or you can change it at a later time. Backups are retained even for stopped servers.
 
-The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it\'s based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in the backup storage. For example - if the backup retention period is set to seven days, the recovery window is considered as last seven days. In this scenario, all the data and logs required to restore and recover the server in last seven days are retained. 
-
+The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it is based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in the backup storage. For example - if the backup retention period is set to seven days, the recovery window is considered as last seven days. In this scenario, all the data and logs required to restore and recover the server in last seven days are retained. 
 
 ### Backup storage cost
 
-Flexible server provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GiB of storage, then you have 250 GiB of backup storage capacity at no additional charge. If the daily backup usage is 25 GiB, then you can have up to 10 days of free backup storage. Backup storage consumption exceeding 250 GiB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/).
+Flexible server provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GiB of storage, then you have 250 GiB of backup storage capacity at no additional charge. If the daily backup usage is 25 GiB, then you can have up to 10 days of free backup storage. Backup storage consumption exceeding 250 GiB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
 
-You can use the [Backup storage used](../concepts-monitoring.md) metric in the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the database backups and log backups retained based on the backup retention period set for the server.  Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size.
+If you configured your server with geo-redundant backup, then the backup data is also copied to the Azure paired region. Hence, your backup size will be two times the local backup copy. Billing is computed as ( (2 x local backup size) - provisioned storage size ) x Price @ GB/month. 
+
+You can use the [Backup storage used](../concepts-monitoring.md) metric in the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the database backups and log backups retained based on the backup retention period set for the server. 
+
+>[!Note]
+> Irrespective of the database size, heavy transactional activity on the server generates more WAL files which in turn increases the backup storage.
 
 The primary means of controlling the backup storage cost is by setting the appropriate backup retention period and choosing the right backup redundancy options to meet your desired recovery goals.
 
-> [!IMPORTANT]
-> Geo-redundant backups are currently not supported with flexible server.
-
 ## Point-in-time restore overview
 
-In Flexible server, performing a point-in-time restore creates a new server from the flexible server\'s backups in the same region as your source server. It is created with the source server's configuration for the pricing tier, compute generation, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as VNET and firewall settings are inherited from the source server. 
+In Flexible server, performing a point-in-time restore creates a new server in the same region as your source server, but you can choose the availability zone. It is created with the source server's configuration for the pricing tier, compute generation, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as VNET and firewall settings are inherited from the source server.
 
- > [!IMPORTANT]
-> If you are restoring a flexible server configured with zone redundant high availability, the restored server will be configured without high availability, and in the same region as your primary server. 
-
- ### Restore process
+ ### Point-in-time restore process
 
 The physical database files are first restored from the snapshot backups to the server's data location. The appropriate backup that was taken earlier than the desired point-in-time is automatically chosen and restored. A recovery process is then initiated using WAL files to bring the database to a consistent state. 
 
@@ -60,7 +76,7 @@ The physical database files are first restored from the snapshot backups to the 
  Please see [these steps](./how-to-restore-server-portal.md) to restore your database server.
 
 > [!IMPORTANT]
-> Restore operations in flexible server creates a new database server and does not overwrite the existing database server.
+> Restore operations in flexible server always creates a new database server with the name you provide and does not overwrite the existing database server.
 
 Point-in-time restore is useful in multiple scenarios. For example, when a user accidentally deletes data, drops an important table or database, or if an application accidentally overwrites good data with bad data due to an application defect. You will be able to restore to the last transaction due to continuous backup of transaction logs.
 
@@ -70,19 +86,44 @@ You can choose between a latest restore point and a custom restore point.
 
 -   **Custom restore point**: This option allows you to choose any point-in-time within the retention period defined for this flexible server. By default, the latest time in UTC is auto-selected, and useful if you want to restore to the last committed transaction for your test purposes. You can optionally choose other days and time. 
 
-The estimated time to recover depends on several factors including database size, volume of transaction logs to process, the network bandwidth, and the total number of databases recovering in the same region at the same time. The overall recovery time usually takes from few minutes up to few hours.
+The estimated time to recover depends on several factors including database size, volume of transaction logs to process, and the total number of databases recovering in the same region at the same time. The overall recovery time usually takes from few minutes up to few hours.
 
-If you have configured your server within a VNET, you can restore to the same VNET or to a different VNET. However, you cannot restore to a public access. Similarly, if you configured your server with public access, you cannot restore to a private access.
-
+If you have configured your server within a VNET, you can restore to the same VNET or to a different VNET. However, you cannot restore to a public access. Similarly, if you configured your server with public access, you cannot restore to a private VNET access.
 
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
+> Deleted servers **cannot** be restored by the user. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md). If you accidentally deleted your server, please reach out to support. In some cases, your server may be restored with or without data loss.
+
+## Geo-restore (Preview) Process
+
+If you configured your server with geo-redundant backup, you can restore it to a [geo-paired region](../../best-practices-availability-paired-regions.md). Please refer to the geo-redundant backup supported [regions](overview.md#regions).
+
+When the server is configured with geo-redundant backup, the backup data is copied to the paired region asynchronously using storage replication. This includes copying of data backup and also transaction logs. After the server creation, please wait at least for one hour before initiating a geo-restore. That will allow the first set of backup data to be replicated to the paired region. Subsequently, the transaction logs and the daily backups are asynchronously copied to the paired region and there could be up to one hour of delay in data transmission. Hence, you can expect up to one hour of RPO when you restore. You can only restore to the last available backup data that is available at the paired region. Currently, point-in-time restore of geo-backup is not available.
+
+During the geo-restore, the server configurations that can be changed include VNET settings and the ability to remove geo-redundant backup from the restored server.  Changing other server configurations such as compute, storage or pricing tier (Burstable, General Purpose, or Memory Optimized) during geo-restore are not supported. 
+
+The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. 
+
+> [!IMPORTANT]
+> When primary region is down, you cannot create geo-redundant servers in the respective geo-paired region as storage cannot be provisioned in the primary region. You must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 
+> With the primary region down, you can still geo-restore the source server to the geo-paired region by disabling the geo-redundancy option in the Compute + Storage Configure Server settings in the restore portal experience and restore as a locally redundant server to ensure business continuity.  
+
+## Restore and networking
+
+### Point-in-time restore
+
+- If your source server is configured with **public access** network, you can only restore to a **public access**. 
+- If your source server is configured with **private access** VNET, then you can either restore in the same VNET or to a different VNET. You cannot perform point-in-time restore across public and private access.
+
+### Geo-restore
+
+- If your source server is configured with **public access** network, you can only restore to a **public access**. Also, you would have to apply firewall rules after the restore operation is complete. 
+- If your source server is configured with **private access** VNET, then you can only restore to a different VNET - as VNET cannot be spanned across regions. You cannot perform geo-restore across public and private access.
 
 ## Perform post-restore tasks
 
 After restoring the database, you can perform the following tasks to get your users and applications back up and running:
 
--   If the new server is meant to replace the original server, redirect clients and client applications to the new server.
+-   If the new server is meant to replace the original server, redirect clients and client applications to the new server. Change server name of your connection string to point to the new restored server.
 
 -   Ensure appropriate server-level firewall and VNet rules are in place for users to connect. These rules are not copied over from the original server.
   
@@ -131,7 +172,15 @@ After restoring the database, you can perform the following tasks to get your us
 
 * **Where are my automated backups stored and how do I manage their retention?**
   
-    Azure Database for PostgreSQL automatically creates server backups and stores them automatically in zone-redundant storage in regions where multiple zones are supported or in locally redundant storage in regions that do not support multiple zones yet. These backup files cannot be exported. You can use backups to restore your server to a point-in-time only. The default backup retention period is seven days. You can optionally configure the backup retention up to 35 days.
+    Azure Database for PostgreSQL automatically creates server backups and stores them automatically in zone-redundant storage in regions where multiple zones are supported or in locally redundant storage in regions that do not support multiple zones yet. These backup files cannot be exported. You can use backups to restore your server to a point-in-time only. The default backup retention period is seven days. You can optionally configure the backup retention up to 35 days. If you configured with geo-redundant backup, the backup is also copied to the paired region.
+
+* **With geo-redundant backup, how frequently the backup is copied to the paired region?**  
+
+    When the server is configured with geo-redundant backup, the backup data is stored on geo-redundant storage account which performs the copy of data to the paired region. Data files are copied to the paired region as and when the daily backup occurs at the primary server. WAL files are backed up as and when the WAL files are ready to be archived. These backup data are asynchronously copied in a continuous manner to the paired region. You can expect up to 1 hr of delay in receiving backup data.
+
+* **Can I do PITR at the remote region?**
+  
+    No. The data is recovered to the last available backup data at the remote region.
 
 * **How are backups performed in a HA enabled servers?**
   
