@@ -507,6 +507,8 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 
+##Attributes and annotations
+
 # [C#](#tab/csharp)
 
  In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a table input binding:
@@ -572,17 +574,25 @@ Attributes aren't supported by C# Script.
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
+##Attributes and annotations
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+##Attributes and annotations
+
 Attributes aren't supported by JavaScript.
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"
+##Attributes and annotations
+
 Attributes aren't supported by PowerShell.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
+##Attributes and annotations
+
 Attributes aren't supported by Python.
 ::: zone-end
   
