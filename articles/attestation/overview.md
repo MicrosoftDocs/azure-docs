@@ -73,7 +73,7 @@ Azure Attestation is the preferred choice for attesting TEEs as it offers the fo
 
 ## Business Continuity and Disaster Recovery (BCDR) support
 
-[Business Continuity and Disaster Recovery](../best-practices-availability-paired-regions.md) (BCDR) for Azure Attestation enables to mitigate service disruptions resulting from significant availability issues or disaster events in a region.
+[Business Continuity and Disaster Recovery](../availability-zones/cross-region-replication-azure.md) (BCDR) for Azure Attestation enables to mitigate service disruptions resulting from significant availability issues or disaster events in a region.
 
 Clusters deployed in two regions will operate independently under normal circumstances. In the case of a fault or outage of one region, the following takes place:
 

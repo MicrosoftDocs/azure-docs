@@ -53,7 +53,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Backup Overview](../backup/backup-overview.md)
 * [Azure Site Recovery Overview](../site-recovery/site-recovery-overview.md)
 * [Azure Governance](../governance/index.yml)
-* [Azure Paired Regions](../best-practices-availability-paired-regions.md)
+* [Azure Paired Regions](../availability-zones/cross-region-replication-azure.md)
 * [Azure Policy](../governance/policy/overview.md)
 * [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md)
 * [Azure Backup Tutorials](../backup/index.yml)

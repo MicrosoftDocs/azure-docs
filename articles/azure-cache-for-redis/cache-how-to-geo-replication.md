@@ -181,7 +181,7 @@ Geo-replicated caches and their resource groups can't be deleted while linked un
 
 ### What region should I use for my secondary linked cache?
 
-In general, it's recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, it's recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../best-practices-availability-paired-regions.md).
+In general, it's recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, it's recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../availability-zones/cross-region-replication-azure.md).
 
 ### How does failing over to the secondary linked cache work?
 
