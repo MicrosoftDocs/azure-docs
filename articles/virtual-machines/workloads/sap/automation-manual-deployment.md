@@ -605,7 +605,7 @@ Configure your setup by executing Ansible playbooks. These playbooks are located
 | ----------------- | ---------------------------------- |
 | `playbook_01_os_base_config.yaml` | Base operating system (OS) configuration |
 | `playbook_02_os_sap_specific_config.yaml ` | SAP-specific OS configuration |
-| `playbook_03_bom_processing.yaml` | SAP Bill of Materials (SAP BoM) processing software download |
+| `playbook_03_bom_processing.yaml` | SAP Bill of Materials (BOM) processing software download |
 | `playbook_04a_sap_scs_install.yaml   ` | SAP central services (SCS) installation |
 | `playbook_05a_hana_db_install.yaml ` | SAP HANA database installation |
 | `playbook_06a_sap_dbload.yaml` | Database loader |

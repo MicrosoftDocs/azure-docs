@@ -1,6 +1,6 @@
 ---
 title: Get SAP media for Bill of Materials
-description: How to download SAP media to use in your Bill of Materials (BoM) for the deployment automation framework.
+description: How to download SAP media to use in your Bill of Materials (BOM) for the deployment automation framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ---
 
-# Acquire media for BoM creation
+# Acquire media for BOM creation
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). To create your BoM, you have to locate and download relevant SAP installation media. Then, you need to upload these media files to your Azure storage account.
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BOM). To create your BOM, you have to locate and download relevant SAP installation media. Then, you need to upload these media files to your Azure storage account.
 
 > [!NOTE]
 > This guide covers advanced deployment topics. For a basic explanation of how to deploy the automation framework, see the [get started guide](automation-get-started.md) instead.
@@ -125,7 +125,7 @@ To prepare for [downloading the SAP installation media](#download-media):
 ## Get download basket manifest
 
 > [!IMPORTANT]
-> Only follow these steps if you want to run the scripted BoM generation. You must perform these actions before you run the SAP Download Manager. If you don't want to run the scripted BoM generation, [skip to the next section](#download-media).
+> Only follow these steps if you want to run the scripted BOM generation. You must perform these actions before you run the SAP Download Manager. If you don't want to run the scripted BOM generation, [skip to the next section](#download-media).
 
 To get your SAP Download Basket manifest JSON file (`DownloadBasket.json`):
 
@@ -219,4 +219,4 @@ To upload the SAP media and stack files to your Azure storage account:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare BoM](automation-bom-prepare.md)
+> [Prepare BOM](automation-bom-prepare.md)

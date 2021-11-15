@@ -376,9 +376,9 @@
     items:               
     - name: Download and prepare software media
       href: automation-software.md
-    - name: Get SAP media for BoM
+    - name: Get SAP media for BOM
       href: automation-bom-get-files.md
-    - name: Prepare BoM
+    - name: Prepare BOM
       href: automation-bom-prepare.md
     - name: Create automation template files
       href: automation-bom-templates-db.md

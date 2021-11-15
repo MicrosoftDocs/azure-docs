@@ -137,7 +137,7 @@ For more information, see the [in-depth explanation of how to configure the depl
 
 ## SAP Library configuration
 
-The SAP library provides storage for SAP installation media, Bill of Material (BoM) files,  and Terraform state files. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](automation-configure-control-plane.md).
+The SAP library provides storage for SAP installation media, Bill of Material (BOM) files,  and Terraform state files. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](automation-configure-control-plane.md).
 
 ## Workload zone structure
 

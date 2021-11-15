@@ -1,6 +1,6 @@
 ---
 title: Prepare Bill of Materials for automation
-description: How to prepare a full SAP Bill of Materials (BoM) for use with the SAP deployment automation framework on Azure.
+description: How to prepare a full SAP Bill of Materials (BOM) for use with the SAP deployment automation framework on Azure.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ---
 
-# Prepare SAP BoM
+# Prepare SAP BOM
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). The BoM helps configure your SAP systems. 
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BOM). The BOM helps configure your SAP systems. 
 
-The SAP Deployment Automation GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/sap-hana/tree/main/deploy/ansible/BOM-catalog) that you can use to get started. It is also possible to create BoMs for other SAP Applications and databases. 
+The SAP Deployment Automation GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/sap-hana/tree/main/deploy/ansible/BOM-catalog) that you can use to get started. It is also possible to create BOMs for other SAP Applications and databases. 
 
-If you want to generate a BoM that includes permalinks, [follow the steps for creating this type of BoM](#permalinks).
+If you want to generate a BOM that includes permalinks, [follow the steps for creating this type of BOM](#permalinks).
  
 > [!NOTE]
 > This guide covers advanced deployment topics. For a basic explanation of how to deploy the automation framework, see the [get started guide](automation-get-started.md) instead.
@@ -24,22 +24,22 @@ If you want to generate a BoM that includes permalinks, [follow the steps for cr
 
 - [Get, download, and prepare your SAP installation media and related files](automation-bom-get-files.md) if you haven't already done so.
     - SAP Application (DB) or HANA media in your Azure storage account.
-- A YAML editor for working with the BoM file.
+- A YAML editor for working with the BOM file.
 - Application installation templates for: 
     - SAP Central Services (SCS)
     - The SAP Primary Application Server (PAS)
     - The SAP Additional Application Server (AAS)
-- Downloads of necessary stack files to the folder you created for [acquiring SAP media](automation-bom-get-files.md#acquire-media). For more information, see the [basic BoM preparation how-to guide](automation-bom-prepare.md).
-- Optionally, if you want to [create a BoM with permalinks](#permalinks), you also need:
+- Downloads of necessary stack files to the folder you created for [acquiring SAP media](automation-bom-get-files.md#acquire-media). For more information, see the [basic BOM preparation how-to guide](automation-bom-prepare.md).
+- Optionally, if you want to [create a BOM with permalinks](#permalinks), you also need:
     - A copy of your [SAP Download Basket manifest](automation-bom-get-files.md#get-download-basket-manifest) (`DownloadBasket.json`), downloaded to the [folder you created for acquiring SAP media](automation-bom-get-files.md#acquire-media).
     - An installation of the [Postman utility](https://www.postman.com/downloads/).
 - An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An SAP account with permissions to work with the database you want to use.
-- A system that runs Linux-type commands for [validating the BoM](#validate-bom). Install the commands `yamllint` and `ansible-lint` on the system.
+- A system that runs Linux-type commands for [validating the BOM](#validate-bom). Install the commands `yamllint` and `ansible-lint` on the system.
 
 ## Scripted creation process
 
-This process automates the same steps as the [manual BoM creation process](#manual-creation-process). Review the [script limitations](#script-limitations) before using this process.
+This process automates the same steps as the [manual BOM creation process](#manual-creation-process). Review the [script limitations](#script-limitations) before using this process.
 
 1. Navigate to your stack files folder.
 
@@ -47,7 +47,7 @@ This process automates the same steps as the [manual BoM creation process](#manu
     cd stackfiles
     ```
 
-1. Run the BoM generation script. Replace the example path with the correct path to your utilities folder. For example:
+1. Run the BOM generation script. Replace the example path with the correct path to your utilities folder. For example:
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/deploy/scripts/generate_bom.sh >../bom.yml
@@ -70,16 +70,16 @@ This process automates the same steps as the [manual BoM creation process](#manu
 
 ## Script limitations
 
-The [scripted BoM creation process](#scripted-creation-process) has the following limitations.
+The [scripted BOM creation process](#scripted-creation-process) has the following limitations.
 
-The scripting has a hard-coded dependency on HANA2. Edit your BoM file manually to match the required dependency name. For example:
+The scripting has a hard-coded dependency on HANA2. Edit your BOM file manually to match the required dependency name. For example:
 
 ```yml
 dependencies:
   - name: "HANA2"
 ```
 
-There are no defaults for the media parameters `override_target_filename:`, `override_target_location`, and `version:`. Edit your BoM file manually to change these parameters. For example:
+There are no defaults for the media parameters `override_target_filename:`, `override_target_location`, and `version:`. Edit your BOM file manually to change these parameters. For example:
 
 ```yml
    - name:     SAPCAR
@@ -92,11 +92,11 @@ There are no defaults for the media parameters `override_target_filename:`, `ove
      sapurl: "https://softwaredownloads.sap.com/file/0020000001812632020"
 ```
 
-The script only generates entries for media files that the SAP Maintenance Planner identifies. This limitation occurs because it processes the stack `.xsl` file. If you add any files to your download basket separately, such as through SAP Launchpad, you must [add those files to the BoM manually](#manual-creation-process).
+The script only generates entries for media files that the SAP Maintenance Planner identifies. This limitation occurs because it processes the stack `.xsl` file. If you add any files to your download basket separately, such as through SAP Launchpad, you must [add those files to the BOM manually](#manual-creation-process).
 
 ## Manual creation process
 
-You can create your BoM through the following manual process. Another option is to use the [scripted creation process](#scripted-creation-process) to do the same steps.
+You can create your BOM through the following manual process. Another option is to use the [scripted creation process](#scripted-creation-process) to do the same steps.
 
 1. Open the downloads folder you created for [acquiring SAP media](automation-bom-get-files.md#acquire-media)
 
@@ -104,7 +104,7 @@ You can create your BoM through the following manual process. Another option is 
 
 1. Open `bom.yml` in an editor.
 
-1. Add a BoM header with names for the build and target. The `name` value must be the same as the BoM folder name in your storage account. For example:
+1. Add a BOM header with names for the build and target. The `name` value must be the same as the BOM folder name in your storage account. For example:
 
     ```yml
     name:    'S4HANA_2020_ISS_v001'
@@ -129,7 +129,7 @@ You can create your BoM through the following manual process. Another option is 
       web:
     ```
 
-1. Add a materials section to specify the list of required materials. Add any dependencies on other BoMs in this section. For example:
+1. Add a materials section to specify the list of required materials. Add any dependencies on other BOMs in this section. For example:
 
     ```yml
     materials:
@@ -137,13 +137,13 @@ You can create your BoM through the following manual process. Another option is 
         - name:     HANA2
     ```
 
-1. Get a list of media to include in your BoM.
+1. Get a list of media to include in your BOM.
 
     1. Open your download basket spreadsheet. This file renders as XML.
 
     1. Format the XML content to be human readable, if necessary.
 
-    1. For each item in the download basket, note the `String` and `Number` data. The `String` data provides the file name (for example, `igshelper_17-10010245.sar`) and a friendly description (for example, `SAP IGS Fonts and Textures`). You'll record the `Number` data after each entry in your BoM. 
+    1. For each item in the download basket, note the `String` and `Number` data. The `String` data provides the file name (for example, `igshelper_17-10010245.sar`) and a friendly description (for example, `SAP IGS Fonts and Textures`). You'll record the `Number` data after each entry in your BOM. 
 
 1. Add the list of media to `bom.yml`. The order of these items doesn't matter, however, you might want to group related items together for readability. Add `SAPCAR` separately, even though your SAP download basket contains this utility. For example:
 
@@ -184,12 +184,12 @@ You can create your BoM through the following manual process. Another option is 
 
 ### Permalinks
 
-You can automatically generate a basic BoM that functions. However, the BoM doesn't create permanent URLs (permalinks) to the SAP media by default. If you want to create permalinks, you need to do more steps before you [acquire the SAP media](automation-bom-get-files.md#acquire-media). 
+You can automatically generate a basic BOM that functions. However, the BOM doesn't create permanent URLs (permalinks) to the SAP media by default. If you want to create permalinks, you need to do more steps before you [acquire the SAP media](automation-bom-get-files.md#acquire-media). 
 
 > [!NOTE]
-> Manual generation of a full SAP BoM with permalinks takes about twice as long as [preparing a basic BoM manually](#manual-creation-process)]. 
+> Manual generation of a full SAP BOM with permalinks takes about twice as long as [preparing a basic BOM manually](#manual-creation-process)]. 
 
-To generate a BoM with permalinks:
+To generate a BOM with permalinks:
 
 1. Open `DownloadBasket.json` in your editor.
 
@@ -216,11 +216,11 @@ To generate a BoM with permalinks:
       archive: "igshelper_17-10010245.sar"
       sapurl: "https://softwaredownloads.sap.com/file/0020000000703122018"
     ```
-## Example BoM file
+## Example BOM file
 
-The following sample is a small part of an example BoM file for S/4HANA 1909 SP2. 
+The following sample is a small part of an example BOM file for S/4HANA 1909 SP2. 
 
-You can find multiple complete, usable BoM files in the [GitHub repository](https://github.com/Azure/sap-hana).
+You can find multiple complete, usable BOM files in the [GitHub repository](https://github.com/Azure/sap-hana).
 
 ```yml
 step|BoM Content
@@ -291,12 +291,12 @@ stackfiles:
       override_target_location: "{{ target_media_location }}/config"
 ```
 
-## Validate BoM
+## Validate BOM
 
-You can validate your BoM structure from any OS that runs Linux-type commands. For Windows, use Windows Subsystem for Linux (WSL). Another option is to run the validation from your deployer if there's a copy of the BoM file there.
+You can validate your BOM structure from any OS that runs Linux-type commands. For Windows, use Windows Subsystem for Linux (WSL). Another option is to run the validation from your deployer if there's a copy of the BOM file there.
 
 
-1. Run the validation script `check_bom.sh` from the directory containing your BoM. For example:
+1. Run the validation script `check_bom.sh` from the directory containing your BOM. For example:
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/deploy/scripts/check_bom.sh bom.yml
@@ -332,11 +332,11 @@ An unsuccessful validation contains error information. For example:
 ... bom structure [errors]
 ```
 
-## Upload your BoM
+## Upload your BOM
 
-To use the BoM with permalinks:
+To use the BOM with permalinks:
 
-1. [Validate the BoM](#validate-bom).
+1. [Validate the BOM](#validate-bom).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -361,4 +361,4 @@ To use the BoM with permalinks:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to generate SAP Application BoM](automation-bom-templates-db.md)
+> [How to generate SAP Application BOM](automation-bom-templates-db.md)

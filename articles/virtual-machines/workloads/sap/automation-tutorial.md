@@ -362,7 +362,7 @@ Make sure you can connect to your deployer VM:
 > [!IMPORTANT]
 > The rest of the tasks need to be executed on the Deployer
 
-## Get SAP software using the BoM
+## Get SAP software using the BOM
 
 The Automation Framework gives you tools to download the SAP Bill Of Materials (BOM). The SAP library acts as the archive for all media required to deploy SAP.
 
@@ -454,7 +454,7 @@ Select which playbooks to execute.
 Please select playbook:
 ```
 
-Select the playbook `1) BOM Downloader` to download the SAP Software described in the BoM file into the storage account. Check that the `sapbits` container has all your media for installation.
+Select the playbook `1) BOM Downloader` to download the SAP Software described in the BOM file into the storage account. Check that the `sapbits` container has all your media for installation.
     
 ## Collect workload zone information
 
@@ -607,7 +607,7 @@ Selecting this playbook performs the generic OS configuration setup on all the m
 
 Selecting this playbook performs the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, and services.
 
-### Playbook: BoM Processing
+### Playbook: BOM Processing
 
 Selecting this playbook, downloads the SAP software to the SCS virtual machine. 
     
