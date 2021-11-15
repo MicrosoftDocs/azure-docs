@@ -467,7 +467,11 @@ Collect the following information in a text editor:
   - The name of deployer state file, can be found under Library resource group
     - Library resource group -> state storage account -> containers -> tfstate -> Copy the **name** of the Deployer state file.
     - Following from the example above, the name of the blob will be: *MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate*
-  
+
+  - The name of the Key Vault in the Deployer resource group.
+    - Following from the example above, the resource group would be *MGMT-NOEU-DEP00-INFRASTRUCTURE*.
+    - The name of the key vault would contain *MGMTNOEUDEP00user*.
+
 The Public IP address of the Deployer VM. Go to your deployer's resource group, open the deployer VM, and copy the public IP address.
   
 ## Prepare the Workload Zone deployment
@@ -515,9 +519,10 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTR
    
 Open the workload zone configuration file and if needed change the network logical name to match the network name.
 
-The details, which we collected in **Step-5** will be needed here. These details are:
+The details, which we collected in earlier will be needed here. These details are:
   - Name of the deployer tfstate file (found in the tfstate container)
   - Name of the tfstate storage account
+  - Name of the deployer key vault
 
 Start deployment of the workload zone:
 
@@ -530,11 +535,13 @@ spn_secret="<password>"
 tenant_id=<tenant>
 storageaccount=<storageaccountName>
 statefile_subscription=<subscriptionID>
+key_vault=<vaultID>
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh          \
-    --parameterfile ./DEV-NOEU-SAP01-INFRASTRUCTURE.tfvars                 \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh              \
+    --parameterfile ./DEV-NOEU-SAP01-INFRASTRUCTURE.tfvars                  \
     --deployer_environment MGMT                                             \
     --deployer_tfstate_key MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate \
+    --keyvault $key_vault                                                   \
     --storageaccountname $storageaccount                                    \
     --state_subscription $statefile_subscription                            \
     --subscription $subscriptionID                                          \
