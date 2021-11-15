@@ -54,7 +54,7 @@ In the *Basics* tab, do the following actions.
 
     | Setting | Value |
     |---|---|
-    | Environment name | **containerapps-env** | 
+    | Environment name | Enter **my-environment**. | 
     | Region | **Canada Central** |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.
