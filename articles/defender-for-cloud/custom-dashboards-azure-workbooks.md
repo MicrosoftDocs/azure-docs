@@ -4,7 +4,7 @@ description: Learn how to create rich, interactive reports of your Microsoft Def
 author: memildin
 ms.author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 11/09/2021
 ---

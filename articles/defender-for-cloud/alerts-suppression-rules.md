@@ -6,7 +6,7 @@ manager: rkarlin
 services: security-center
 ms.author: memildin
 ms.date: 11/09/2021
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: how-to
 ---
 # Suppress alerts from Microsoft Defender for Cloud
