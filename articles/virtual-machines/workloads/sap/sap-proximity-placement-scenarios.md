@@ -46,9 +46,9 @@ To give you a possibility to optimize network latency, Azure offers [proximity p
 
 The scenarios where you used proximity placement groups so far were:
 
-1. Deploying SAP workload with availability sets. Where the SAP database tier, the SAP application tier and ASCS/SCS VMs were grouped in three different availability sets. In such a case, you wanted to make sure that the availability sets were not spread across the complete Azure region since this could, dependent on the Azure region, result in network latency that could impact SAP workload negatively
-2. You wanted to deploy the critical resources of your SAP workload across different Availability Zones and on the other hand wanted to make sure that the VMs of the application tier in each of the zones would be spread across different fault domains by using availability sets. In this case, as later described in the document, proximity placement groups are the glue needed
-3. You used proximity placement groups to group VMs together to achieve optimal network latency between the services hosted in the VMs
+- Deploying SAP workload with availability sets. Where the SAP database tier, the SAP application tier and ASCS/SCS VMs were grouped in three different availability sets. In such a case, you wanted to make sure that the availability sets were not spread across the complete Azure region since this could, dependent on the Azure region, result in network latency that could impact SAP workload negatively
+- You wanted to deploy the critical resources of your SAP workload across different Availability Zones and on the other hand wanted to make sure that the VMs of the application tier in each of the zones would be spread across different fault domains by using availability sets. In this case, as later described in the document, proximity placement groups are the glue needed
+- You used proximity placement groups to group VMs together to achieve optimal network latency between the services hosted in the VMs
 
 As for deployment scenario #1, in many regions, especially regions without Availability Zones and most regions with Availability Zones, the network latency independent on where the VMs land is acceptable. Though there some regions of Azure that cannot provide a sufficiently good experience without collocating the three different availability sets with the usage of availability sets. 
 As of the deployment scenario #2, we are going to recommend a different way of using proximity placement groups in the following sections of this document.
