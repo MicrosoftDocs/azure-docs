@@ -182,7 +182,7 @@ If you are not going to use your deployments, delete them:
 
 To learn more about autoscale with Azure Monitor, see the following articles:
 
-- [Understand autoscale settings](azure-monitor/autoscale/autoscale-understand-settings)
-- [Overview of common autoscale patterns](azure-monitor/autoscale/autoscale-common-scale-patterns)
-- [Best practices for autoscale](azure-monitor/autoscale/autoscale-best-practices)
-- [Troubleshooting Azure autoscale](azure-monitor/autoscale/autoscale-troubleshoot)
+- [Understand autoscale settings](/azure-monitor/autoscale/autoscale-understand-settings)
+- [Overview of common autoscale patterns](/azure-monitor/autoscale/autoscale-common-scale-patterns)
+- [Best practices for autoscale](/azure-monitor/autoscale/autoscale-best-practices)
+- [Troubleshooting Azure autoscale](/azure-monitor/autoscale/autoscale-troubleshoot)
