@@ -95,7 +95,7 @@ For information about when recommendations are generated for each of these solut
 
 
 
-## Feature support in government and sovereign clouds
+## Feature support in government and national clouds
 
 | Feature/Service                                                                                                                                           | Azure          | Azure Government               | Azure China 21Vianet   |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
