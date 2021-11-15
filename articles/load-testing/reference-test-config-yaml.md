@@ -39,6 +39,7 @@ A test configuration uses the following keys.
 The following example contains the configuration for a load test:
 
 ```yaml
+version: v0.1
 testName: SampleTest
 testPlan: SampleTest.jmx
 description: Load test website home page
