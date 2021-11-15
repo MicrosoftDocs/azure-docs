@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 
 There are multiple considerations for running the [SAP deployment automation framework on Azure](automation-deployment-framework.md), this include topics like deployment credentials management, virtual network design.
 
-For generic SAP on Azure design considerations please visit [Introduction to an SAP adoption scenario](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/sap/)
+For generic SAP on Azure design considerations please visit [Introduction to an SAP adoption scenario](azure/cloud-adoption-framework/scenarios/sap/)
 
 > [!NOTE]
 > The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP Deployment Automation Framework repository](https://github.com/Azure/sap-hana/). The templates use parameter files with your system-specific information to perform the deployment.
