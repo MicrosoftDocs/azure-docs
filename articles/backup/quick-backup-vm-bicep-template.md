@@ -12,7 +12,7 @@ ms.author: v-amallick
 
 #  Back up a virtual machine in Azure with a Bicep template
 
-[Azure Backup](backup-overview.md) allows you to back up your Azure VM using multiple options. Such as Azure portal, PowerShell, CLI, ARM, Bicep, and so on. This article describes how to back up an Azure VM with an Azure Bicep template and Azure PowerShell. This quickstart focuses on the process of deploying a Bicep template to create a Recovery Services vault. For more information on developing Bicep templates, see the [Bicep documentation](../azure-resource-manager/bicep/deploy-cli.md) and the [template reference](../templates/microsoft.recoveryservices/allversions.md).
+[Azure Backup](backup-overview.md) allows you to back up your Azure VM using multiple options. Such as Azure portal, PowerShell, CLI, ARM, Bicep, and so on. This article describes how to back up an Azure VM with an Azure Bicep template and Azure PowerShell. This quickstart focuses on the process of deploying a Bicep template to create a Recovery Services vault. For more information on developing Bicep templates, see the [Bicep documentation](../azure-resource-manager/bicep/deploy-cli.md) and the [template reference](/azure/templates/microsoft.recoveryservices/allversions).
 
 Bicep is a language for declaratively deploying Azure resources. You can use Bicep instead of JSON to develop your Azure Resource Manager templates (ARM templates). Bicep syntax reduces the complexity and improves the development experience. Bicep is a transparent abstraction over ARM template JSON that provides all JSON template capabilities. During deployment, the Bicep CLI converts a Bicep file into an ARM template JSON. A Bicep file states the Azure resources and resource properties, without writing a sequence of programming commands to create resources.
 
@@ -27,7 +27,7 @@ To set up your environment for Bicep development, see [Install Bicep tools](../a
 
 ## Review the template
 
-The template used below is from [Azure quickstart templates](https://azure.microsoft.com/en-us/resources/templates/recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services vault configured with the default policy for Protection.
+The template used below is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services vault configured with the default policy for Protection.
 
 ```json
 @description('Specifies a name for generating resource names.')
@@ -240,14 +240,14 @@ resource vaultName_backupFabric_protectionContainer_protectedItem 'Microsoft.Rec
 
 The resources defined in the above template are:
 
-- [Microsoft.Storage/storageAccounts](../templates/microsoft.storage/storageaccounts.md)
-- [Microsoft.Network/publicIPAddresses](../templates/microsoft.network/publicipaddresses.md)
-- [Microsoft.Network/networkSecurityGroups](../templates/microsoft.network/networksecuritygroups.md)
-- [Microsoft.Network/virtualNetworks](../templates/microsoft.network/virtualnetworks.md)
-- [Microsoft.Network/networkInterfaces](../templates/microsoft.network/virtualnetworks.md)
-- [Microsoft.Compute/virtualMachines](../templates/microsoft.compute/virtualmachines.md)
-- [Microsoft.RecoveryServices/vaults](../templates/microsoft.recoveryservices/2016-06-01/vaults.md)
-- [Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems](../templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems.md)
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+- [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+- [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+- [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+- [Microsoft.RecoveryServices/vaults](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults)
+- [Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems](/azure/templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems)
 
 ## Deploy the template
 
@@ -272,11 +272,11 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ### Start a backup job
 
-The template creates a VM and enables backup on the VM. After you deploy the template, you need to start a backup job. For more information, see [Start a backup job](.quick-backup-vm-powershell#start-a-backup-job.md).
+The template creates a VM and enables backup on the VM. After you deploy the template, you need to start a backup job. For more information, see [Start a backup job](quick-backup-vm-powershell#start-a-backup-job.md).
 
 ### Monitor the backup job
 
-To monitor the backup job, see [Monitor the backup job](quick-backup-vm-powershell#monitor-the-backup-job.md).
+To monitor the backup job, see [Monitor the backup job](quick-backup-vm-powershell.md#monitor-the-backup-job).
 
 ## Clean up resources
 
