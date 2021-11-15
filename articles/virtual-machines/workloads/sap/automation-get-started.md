@@ -40,7 +40,7 @@ git clone https://github.com/Azure/sap-hana.git
 
 Prepare the environment using the following steps:
 
-```azurecli-interactive
+```bash
 export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-hana
 export ARM_SUBSCRIPTION_ID=<subscriptionID>
 ```
@@ -69,7 +69,7 @@ git clone https://github.com/Azure/sap-hana.git
 
 Import the PowerShell module
 
-```powershell-interactive
+```powershell
 Import-Module             C:\Azure_SAP_Automated_Deployment\sap-hana\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilitiespsd1
 ```
 
@@ -104,4 +104,4 @@ xcopy sap-hana\deploy\samples\WORKSPACES WORKSPACES
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure Control Plane](automation-configure-control-plane.md)
+> [Plan the deployment](automation-plan-deployment.md)
