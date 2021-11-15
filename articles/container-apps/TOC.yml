@@ -11,7 +11,7 @@
   items: 
     - name: Deploy your first container app
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: quickstart-portal.md
         - name: Azure CLI
           href: get-started.md  
