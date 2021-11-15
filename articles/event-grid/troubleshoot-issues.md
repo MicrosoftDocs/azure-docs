@@ -28,14 +28,18 @@ If you receive error messages with error codes like 400, 409, and 403, see [Trou
 
 ## Distributed tracing 
 
-The Event Grid libraries in .NET, Java, Python and JavaScript support distributing tracing. To adhere to the [CloudEvents specification's guidance](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) on distributing tracing, the library sets the `traceparent` and `tracestate` on the extension attributes of a `CloudEvent` when distributed tracing is enabled. 
-To learn more about how to enable distributed tracing in your application, take a look at the Azure SDK distributed tracing documentation:
+The Event Grid libraries in .NET, Java, Python, and JavaScript support distributing tracing. To adhere to the [CloudEvents specification's guidance](https://github.com/cloudevents/spec/blob/v1.0.1/extensions/distributed-tracing.md) on distributing tracing, the library sets the `traceparent` and `tracestate` attributes of a `CloudEvent` extension when distributed tracing is enabled.
+
+To learn more about how to enable distributed tracing in your application, see the Azure SDK distributed tracing documentation:
+
 - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)
 - [Java](/azure/developer/java/sdk/tracing)
 - [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/core/azure-core-tracing-opentelemetry)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/README.md#tracing)
 
-To enable end-to-end tracing for [Azure Event Hubs](handler-event-hubs.md) or [Azure Service Bus](handler-service-bus.md) Event Grid subscription, configure [Custom Delivery Properties](delivery-properties.md) to forward `traceparent` CloudEvent extension attribute to `Diagnostic-Id` AMQP application property. Example of a subscription with tracing delivery properties configuration for Event Hubs:
+To enable end-to-end tracing for an [Azure Event Hubs](handler-event-hubs.md) or [Azure Service Bus](handler-service-bus.md) Event Grid subscription, configure [custom delivery properties](delivery-properties.md) to forward the `traceparent` CloudEvent extension attribute to the `Diagnostic-Id` AMQP application property. 
+
+Here's an example of a subscription that has tracing delivery properties configured for Event Hubs:
 
 ```azurecli
 az eventgrid event-subscription create --name <event-grid-subscription-name> \
