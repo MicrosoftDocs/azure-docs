@@ -17,7 +17,7 @@ Backups form an essential part of any business continuity strategy. They help wi
 
 ## Backup overview
 
-Flexible Server takes snapshot backups of the data files and stores them securely in zone-redundant storage or locally redundant storage depending on the [region](overview.md#regions). The server also performs transaction logs backup as and when the WAL file as and when it is ready to be archived. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days and can be stored up to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
+Flexible Server takes snapshot backups of the data files and stores them securely in zone-redundant storage or locally redundant storage depending on the [region](overview.md#azure-regions). The server also performs transaction logs backup as and when the WAL file as and when it is ready to be archived. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days and can be stored up to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
 
 These backup files cannot be exported or used to create servers outside of Azure Database for PostgreSQL - Flexible Server. For that purpose, you can use PostgreSQL tools pg_dump and pg_restore/psql.
 
@@ -95,7 +95,7 @@ If you have configured your server within a VNET, you can restore to the same VN
 
 ## Geo-restore (Preview) Process
 
-If you configured your server with geo-redundant backup, you can restore it to a [geo-paired region](../../best-practices-availability-paired-regions.md). Please refer to the geo-redundant backup supported [regions](overview.md#regions).
+If you configured your server with geo-redundant backup, you can restore it to a [geo-paired region](../../best-practices-availability-paired-regions.md). Please refer to the geo-redundant backup supported [regions](overview.md#azure-regions).
 
 When the server is configured with geo-redundant backup, the backup data is copied to the paired region asynchronously using storage replication. This includes copying of data backup and also transaction logs. After the server creation, please wait at least for one hour before initiating a geo-restore. That will allow the first set of backup data to be replicated to the paired region. Subsequently, the transaction logs and the daily backups are asynchronously copied to the paired region and there could be up to one hour of delay in data transmission. Hence, you can expect up to one hour of RPO when you restore. You can only restore to the last available backup data that is available at the paired region. Currently, point-in-time restore of geo-backup is not available.
 
