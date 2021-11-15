@@ -1,5 +1,5 @@
 ---
-title: Migration to App Service Environment v3 Overview
+title: Migrate to App Service Environment v3
 description: Overview of the migration process to an App Service Environment v3
 author: seligj95
 ms.topic: article
