@@ -101,13 +101,9 @@ To estimate monthly costs for your logic app's blob storage operations:
 
 1. Adjust any other settings as needed.
 
-1. Under **Write Operations**, enter your **Blob (write)** operations number from the Logic Apps storage calculator *as-is*.
+1. Under **Write Operations**, enter your **Blob (write)** operations number from the Logic Apps storage calculator *divided by 10,000*. This step is necessary because the calculator works in transactional units for storage operations.
 
-   > [!NOTE]
-   > You don't have to divide the number of blob write and read operations by 10,000 because this division step applies only 
-   > to table and queue operations. The Logic Apps storage calculator works in transactional table and queue operations.
-
-1. Under **Read Operations**, enter your **Blob (read)** operations number from the Logic Apps storage calculator *as-is*.
+1. Under **Read Operations**, enter your **Blob (read)** operations number from the Logic Apps storage calculator *divided by 10,000*. This step is necessary because the calculator works in transactional units for storage operations.
 
 1. Review the estimated blob storage operations costs.
 
