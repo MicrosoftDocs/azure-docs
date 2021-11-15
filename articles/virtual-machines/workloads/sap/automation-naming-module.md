@@ -68,25 +68,25 @@ The naming module is called from the root terraform folders:
 ```terraform
 module "sap_namegenerator" {
   source           = "../../terraform-units/modules/sap_namegenerator"
-  environment      = var.infrastructure.environment
-  location         = var.infrastructure.region
-  codename         = lower(try(var.infrastructure.codename, ""))
+  environment      = local.infrastructure.environment
+  location         = local.infrastructure.region
+  codename         = lower(try(local.infrastructure.codename, ""))
   random_id        = module.common_infrastructure.random_id
   sap_vnet_name    = local.vnet_logical_name
   sap_sid          = local.sap_sid
   db_sid           = local.db_sid
-  app_ostype       = local.app_ostype
-  anchor_ostype    = local.anchor_ostype
-  db_ostype        = local.db_ostype
-  db_server_count  = local.db_server_count
-  app_server_count = local.app_server_count
-  web_server_count = local.webdispatcher_count
-  scs_server_count = local.scs_server_count
-  app_zones        = local.app_zones
+  app_ostype       = try(local.application.os.os_type, "LINUX")
+  anchor_ostype    = upper(try(local.anchor_vms.os.os_type, "LINUX"))
+  db_ostype        = try(local.databases[0].os.os_type, "LINUX")
+  db_server_count  = var.database_server_count
+  app_server_count = try(local.application.application_server_count, 0)
+  web_server_count = try(local.application.webdispatcher_count, 0)
+  scs_server_count = local.application.scs_high_availability ? 2 * local.application.scs_server_count : local.application.scs_server_count  app_zones        = local.app_zones
   scs_zones        = local.scs_zones
   web_zones        = local.web_zones
   db_zones         = local.db_zones
   resource_offset  = try(var.options.resource_offset, 0)
+  custom_prefix    = var.custom_prefix
 }
 ```
 
@@ -97,12 +97,6 @@ The module outputs a data structure with all names to pass on to the other Terra
 ```json
 output "naming" {
   value = {
-    prefix = {
-      DEPLOYER = local.deployer_name
-      SDU      = length(var.custom_prefix) > 0 ? var.custom_prefix : local.sdu_name
-      VNET     = local.landscape_name
-      LIBRARY  = local.library_name
-    }
     storageaccount_names = {
       DEPLOYER = local.deployer_storageaccount_name
       SDU      = local.sdu_storageaccount_name
