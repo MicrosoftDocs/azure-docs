@@ -52,4 +52,9 @@ Private endpoint approval is an operation, so you can't perform it directly with
 
 - Resource documentation
   - [`Microsoft.Network/virtualNetworks`](/azure/templates/microsoft.network/virtualNetworks?tabs=bicep)
+  - [`Microsoft.Network/networkSecurityGroups`](/azure/templates/microsoft.network/networksecuritygroups?tabs=bicep)
 - [Child resources](child-resource-name-type.md)
+- Quickstart templates
+  - [Create a Virtual Network with two Subnets](https://azure.microsoft.com/resources/templates/vnet-two-subnets/)
+  - [Virtual Network with diagnostic logs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-create-with-diagnostic-logs)
+ 
