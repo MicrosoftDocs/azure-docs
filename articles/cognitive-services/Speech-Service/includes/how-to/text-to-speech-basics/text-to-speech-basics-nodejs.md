@@ -23,7 +23,7 @@ This article assumes that you have an Azure account and Speech service resource.
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. See the [instructions](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk)
+Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. See the [instructions](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk).
 
 Additionally, depending on the target environment use one of the following:
 
