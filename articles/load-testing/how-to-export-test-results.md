@@ -12,12 +12,11 @@ ms.topic: how-to
 ---
 # Export your load test results
 
-In this article, you'll learn how to download the results file generated post a test run completion **Azure Portal**.  
+In this article, you'll learn how to download the results file generated post a test run completion **Azure portal**.  
 
 In this article you'll learn how to:  
 
 > [!div class="checklist"]
-
 > - Download and save results file from the test run page.  
 > - Download and save results file from the dashboard page.  
 
