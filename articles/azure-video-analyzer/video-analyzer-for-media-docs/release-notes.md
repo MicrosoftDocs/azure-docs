@@ -26,6 +26,10 @@ Azure Video Analyzer for Media introduces a public preview of Azure Resource Man
 
 For more information go to [create a Video Analyzer for Media account](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422).
 
+### People’s clothing detection
+
+When indexing a video through the advanced video settings, you can view the new **People’s clothing detection** capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player. 
+
 ## October 2021
 
 ### Embed widgets in your app using Azure Video Analyzer for Media package
