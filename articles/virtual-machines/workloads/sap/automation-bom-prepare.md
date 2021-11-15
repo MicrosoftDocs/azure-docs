@@ -182,40 +182,6 @@ You can create your BoM through the following manual process. Another option is 
 
 1. Save your changes to `bom.yml`.
 
-### Permalinks
-
-You can automatically generate a basic BoM that functions. However, the BoM doesn't create permanent URLs (permalinks) to the SAP media by default. If you want to create permalinks, you need to do more steps before you [acquire the SAP media](automation-bom-get-files.md#acquire-media). 
-
-> [!NOTE]
-> Manual generation of a full SAP BoM with permalinks takes about twice as long as [preparing a basic BoM manually](#manual-creation-process)]. 
-
-To generate a BoM with permalinks:
-
-1. Open `DownloadBasket.json` in your editor.
-
-1. For each result, note the contents of the `Value` line. For example:
-
-    ```json
-         "Value": "0020000000703122018|SP_B|SAP IGS Fonts and Textures|61489|1|20201023150931|0"
-    ```
-
-1. Copy down the first and fourth values separated by vertical bars.
-
-    1. The first value is the file number. For example, `0020000000703122018`.
-
-    1. The fourth value is the number you'll use to match with your media list. For example, `61489`.
-
-    1. Optionally, copy down the second value, which denotes the file type. For example, `SP_B` for kernel binary files, `SPAT` for non-kernel binary files, and `CD` for database exports.
-
-1. Use the fourth value as a key to match your download basket to your media list. Match the values (for example, `61489`) with the values you added as comments for the media items (for example, `# 61489`).
-
-1. For each matching entry in `bom.yml`, add a new value for the SAP URL. For the URL, use `https://softwaredownloads.sap.com/file/` plus the third value for that item (for example, `0020000000703122018`). For example:
-
-    ```yml
-    - name: "SAP IGS Fonts and Textures"
-      archive: "igshelper_17-10010245.sar"
-      sapurl: "https://softwaredownloads.sap.com/file/0020000000703122018"
-    ```
 ## Example BoM file
 
 The following sample is a small part of an example BoM file for S/4HANA 1909 SP2. 
