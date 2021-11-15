@@ -28,8 +28,7 @@ To complete the tracking information, perform the following steps.
 
     <!--![Screenshot of tracking information on the Overview pane for an Azure Import Export job. The current order status, Tracking Information area, and Update button are highlighted.](./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-01.png)-->
 
-    [ ![Screenshot of tracking information on the Overview pane for an Azure Import Export job in Completed state.]./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-01-inline.png) ](./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-01-expanded.png#lightbox)
-
+    [ ![Screenshot of tracking information on the Overview pane for an Azure Import Export job in Completed state.](./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-01-inline.png) ](./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-01-expanded.png#lightbox)
 
 You can track the job progress on the **Overview** pane. For a description of each job state, go to [View your job status](../articles/import-export/storage-import-export-view-drive-status.md).
 

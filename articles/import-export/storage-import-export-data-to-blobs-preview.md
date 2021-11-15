@@ -31,11 +31,11 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 1. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-01.png)<!--Make this smaller. Will have to reshoot and reconstruct. Didn't save the components.-->
+   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-01.png)
 
 1. Select **Create**.  
 
-   ![Screenshot of the top of the Azure portal screen after selecting Azure Data Box. The Create button is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-02.png)<!--Smaller also?-->
+   ![Screenshot of the top of the Azure portal screen after selecting Azure Data Box. The Create button is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-02.png)
 
 1. To get started with the import order, select the following options:
  
@@ -45,15 +45,12 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
     1. Select the **Source country/region** for the job.
     1. Select the **Destination Azure region** for the job.
     1. Then select **Apply**.
-   
-    ![Screenshot showing the Get Started options for a new Data Box order. The Import To Azure transfer typ and the Apply button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-03.png)
 
-
-
+    [ ![Screenshot showing the Get Started options for a new Data Box order. The Import To Azure transfer type and the Apply button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-03.png) ](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-03.png#lightbox)
 
 1. Choose the **Select** button for **Import/Export Job**.
 
-    [ ![Screenshot showing product options for a new Data Box order. The Select button for Import Export Job is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-04.png) ](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-04.png#lightbox)
+    ![Screenshot showing product options for a new Data Box order. The Select button for Import Export Job is highlighted.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-04.png)
 
 1. In **Basics**:
 
