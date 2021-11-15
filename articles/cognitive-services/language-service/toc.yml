@@ -505,6 +505,8 @@ items:
       href: question-answering/how-to/manage-knowledge-base.md
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md
+    - name: Prebuilt API
+      href: question-answering/how-to/prebuilt.md
     - name: Troubleshooting
       href: question-answering/how-to/troubleshooting.md
   - name: Concepts

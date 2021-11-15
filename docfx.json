@@ -221,9 +221,9 @@
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/automanage/*md": "daberry",
-        "articles/automation/**/*.md": "mgoedtel",
-        "articles/azure-arc/**/*.md": "mgoedtel",
-        "articles/azure-arc/servers/**/*.md": "mgoedtel",
+        "articles/automation/**/*.md": "sgsneha",
+        "articles/azure-arc/**/*.md": "georgewallace",
+        "articles/azure-arc/servers/**/*.md": "georgewallace",
         "articles/azure-functions/**/*.md": "ggailey777",
         "articles/azure-fluid-relay/**/*.md": "hickeys",
         "articles/azure-government/**/*.md": "stevevi",
@@ -255,7 +255,7 @@
         "articles/azure-vmware/**/*.md": "suzizuber",
         "articles/backup/**/*.md": "v-amallick",
         "articles/backup/**/*.yml": "v-amallick",
-        "articles/baremetal-infrastructure/**/*.md": "Ajayan1008",
+        "articles/baremetal-infrastructure/**/*.md": "dineshga",
         "articles/batch/**/*.md": "lauradolan",
         "articles/blockchain/**/*.md": "PatAltimore",
         "articles/chef/**/*.md": "TomArcherMsft",
@@ -322,7 +322,9 @@
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Juliako",
-        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": "Juliako"
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako",
+        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "Juliako",
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "Juliako"        
       },
       "featureFlags": {
         "articles/**/*.md": [
@@ -574,9 +576,9 @@
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-service-mobile/**/*.md": "emalani",
         "articles/automanage/*md": "daberry",
-        "articles/automation/**/*.md": "magoedte",
-        "articles/azure-arc/**/*.md": "magoedte",
-        "articles/azure-arc/servers/**/*.md": "magoedte",
+        "articles/automation/**/*.md": "v-ssudhir",
+        "articles/azure-arc/**/*.md": "gwallace",
+        "articles/azure-arc/servers/**/*.md": "gwallace",
         "articles/azure-functions/**/*.md": "glenga",
         "articles/azure-fluid-relay/**/*.md": "hickeys",
         "articles/azure-government/**/*.md": "stevevi",
@@ -608,7 +610,7 @@
         "articles/azure-vmware/**/*.md": "v-szuber",
         "articles/backup/**/*.md": "v-amallick",
         "articles/backup/**/*.yml": "v-amallick",
-        "articles/baremetal-infrastructure/**/*.md": "v-hborys",
+        "articles/baremetal-infrastructure/**/*.md": "dineshga",
         "articles/batch/**/*.md": "ladolan",
         "articles/blockchain/**/*.md": "patricka",
         "articles/chef/**/*.md": "tarcher",
@@ -675,7 +677,9 @@
         "articles/virtual-machines/linux/*.md": "cynthn",
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
-        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": "juliako",
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "juliako",
+        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "juliako",  
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "juliako",        
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Juliako"
       },
       "ms.collection": {
@@ -781,7 +785,9 @@
         "articles/virtual-desktop/**/*.md": "virtual-desktop",
         "articles/virtual-machines/*.md": "virtual-machines",
         "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets",
-        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": "azure-video-analyzer",
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
+        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer", 
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",        
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer"
       },
       "ms.subservice": {
@@ -834,7 +840,9 @@
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer",
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer-media",
-        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": "video-analyzer-subservice",
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice",
+        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "video-analyzer-subservice",  
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "video-analyzer-subservice",        
         "articles/cosmos-db/mongodb/*.md": "cosmosdb-mongo",
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
@@ -845,8 +853,7 @@
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
       },
       "recommendations": {
-        "articles/cognitive-services/Translator/**/*.md": false,
-        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": false
+        "articles/cognitive-services/Translator/**/*.md": false
       },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
@@ -978,8 +985,8 @@
         "articles/azure-sql/database/**/*.yml": "Azure SQL Database",
         "articles/azure-sql/managed-instance/**/*.md": "Azure SQL Managed Instance",
         "articles/azure-sql/managed-instance/**/*.yml": "Azure SQL Managed Instance",
-        "articles/azure-sql/virtual-machines/**/*.md": "SQL Server on Azure VM",
-        "articles/azure-sql/virtual-machines/**/*.yml": "SQL Server on Azure VM",
+        "articles/azure-sql/virtual-machines/**/*.md": "SQL Server on Azure VMs",
+        "articles/azure-sql/virtual-machines/**/*.yml": "SQL Server on Azure VMs",
         "articles/azure-vmware/**/*.md" : "Azure VMware Solution",
         "articles/azure-vmware/**/*.yml" : "Azure VMware Solution",
         "articles/backup/**/*.md": "Azure Backup",

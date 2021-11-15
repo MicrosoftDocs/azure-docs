@@ -1,6 +1,6 @@
 ---
-title: Deploy and monitor Azure Key Vault honeytokens with Azure Sentinel | Microsoft Docs
-description: Plant Azure Key Vault honeytoken keys and secrets, and monitor them with Azure Sentinel.
+title: Deploy and monitor Azure Key Vault honeytokens with Microsoft Sentinel
+description: Plant Azure Key Vault honeytoken keys and secrets, and monitor them with Microsoft Sentinel.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/27/2021
+ms.date: 11/09/2021
 ms.author: bagol
 
 ---
 
-# Deploy and monitor Azure Key Vault honeytokens with Azure Sentinel (Public preview)
+# Deploy and monitor Azure Key Vault honeytokens with Microsoft Sentinel (Public preview)
 
 > [!IMPORTANT]
-> The Azure Sentinel Deception (Honey Tokens) solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel Deception (Honey Tokens) solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-This article describes how to use the **Azure Sentinel Deception (Honey Tokens) Solution** to plant decoy [Azure Key Vault](/azure/key-vault/) keys and secrets, called *honeytokens*, into existing workloads.
+This article describes how to use the **Microsoft Sentinel Deception (Honey Tokens)** solution to plant decoy [Azure Key Vault](/azure/key-vault/) keys and secrets, called *honeytokens*, into existing workloads.
 
 Use the [analytics rules](detect-threats-built-in.md), [watchlists](watchlists.md), and [workbooks](monitor-your-data.md) provided by the solution to monitor access to the deployed honeytokens.
 
@@ -32,28 +32,28 @@ When using honeytokens in your system, detection principles remains the same. Be
 
 ## Before you begin
 
-In order to start using the **Azure Sentinel Deception (Honey Tokens)** solution, make sure that you have:
+In order to start using the **Microsoft Sentinel Deception (Honey Tokens)** solution, make sure that you have:
 
-- **Required roles**: You must be a tenant admin to install the **Azure Sentinel Deception (Honey Tokens)** solution. Once the solution is installed, you can share the workbook with key vault owners so that they can deploy their own honeytokens.
+- **Required roles**: You must be a tenant admin to install the **Microsoft Sentinel Deception (Honey Tokens)** solution. Once the solution is installed, you can share the workbook with key vault owners so that they can deploy their own honeytokens.
 
 - **Required data connectors**: Make sure that you've deployed the [Azure Key Vault](data-connectors-reference.md#azure-key-vault) and the [Azure Activity](data-connectors-reference.md#azure-activity) data connectors in your workspace, and that they're connected.
 
-    Verify that data routing succeeded and that the **KeyVault** and **AzureActivity** data is flowing into Azure Sentinel. For more information, see:
+  Verify that data routing succeeded and that the **KeyVault** and **AzureActivity** data is flowing into Microsoft Sentinel. For more information, see:
 
-    - [Connect Azure Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)
-    - [Find your Azure Sentinel data connector](data-connectors-reference.md)
+  - [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)
+  - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 
 ## Install the solution
 
-Install the **Azure Sentinel Deception (Honey Tokens)** solution as you would [other solutions](monitor-key-vault-honeytokens.md). On the **Azure Sentinel Deception** solution page, select **Start** to get started.
+Install the **Microsoft Sentinel Deception (Honey Tokens)** solution as you would [other solutions](sentinel-solutions-deploy.md). On the **Azure Sentinel Deception** solution page, select **Start** to get started.
 
 :::image type="content" source="media/monitor-key-vault-honeytokens/honeytoken-create-solution.png" alt-text="Screenshot of the create solution page.":::
 
 **To install the Deception solution**:
 
-The following steps describe specific actions required for the **Azure Sentinel Deception (Honey Tokens)** solution.
+The following steps describe specific actions required for the **Microsoft Sentinel Deception (Honey Tokens)** solution.
 
-1. On the **Basics** tab, select the same resource group where your Azure Sentinel workspace is located.
+1. On the **Basics** tab, select the same resource group where your Microsoft Sentinel workspace is located.
 
 1. On the **Prerequisites** tab, in the **Function app name** field, enter a meaningful name for the Azure function app that will create honeytokens in your key vaults.
 
@@ -63,7 +63,7 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/prerequisites.png" alt-text="Screenshot of the prerequisites tab showing the updated curl command.":::
 
-1. Select **Click here to open a cloud shell** to open a Cloud Shell tab. Sign in if prompted, and then run the command displayed. 
+1. Select **Click here to open a cloud shell** to open a Cloud Shell tab. Sign in if prompted, and then run the command displayed.
 
     The script you run creates an Azure AD (AAD) function app, which will deploy your honeytokens.    For example:
 
@@ -79,7 +79,7 @@ The following steps describe specific actions required for the **Azure Sentinel 
     maria@Azure:~$curl -sL https://aka.ms/sentinelhoneytokensappcreate | bash -s HoneyTokenFunctionApp
     ```
 
-     The script output includes the AAD app ID and secret. For example:
+    The script output includes the AAD app ID and secret. For example:
 
     ```bash
     WARNING: The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control. For more information, see https://aka.ms/azadsp-cli
@@ -89,7 +89,7 @@ The following steps describe specific actions required for the **Azure Sentinel 
     maria@Azure:~$
     ```
 
-1. Back in Azure Sentinel, at the bottom of **Prerequisites** tab, enter the AAD app ID and secret into the relevant fields. For example:
+1. Back in Microsoft Sentinel, at the bottom of **Prerequisites** tab, enter the AAD app ID and secret into the relevant fields. For example:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/client-app-secret-values.png" alt-text="Screenshot of the function app's client app and secret values added.":::
 
@@ -101,11 +101,10 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
     For more information, see [Grant admin consent in App registrations](/azure/active-directory/manage-apps/grant-admin-consent).
 
-1. Back in Azure Sentinel again, on the **Workbooks**, **Analytics**, **Watchlists**, and **Playbooks** tabs, note the security content that will be created, and modify the names as needed.
+1. Back in Microsoft Sentinel again, on the **Workbooks**, **Analytics**, **Watchlists**, and **Playbooks** tabs, note the security content that will be created, and modify the names as needed.
 
     > [!NOTE]
     > Other instructions in this article refer to the **HoneyTokensIncidents** and **SOCHTManagement** workbooks. If you change the names of these workbooks, make sure to note the new workbook names for your own reference and use them as needed instead of the default names.
-    >
 
 1. On the **Azure Functions** tab, define the following values:
 
@@ -135,9 +134,9 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
     - A link to your **SOCHTManagement** workbook. You may have modified this name on the **Workbooks** tab earlier in this procedure.
 
-    - The URL for a custom ARM template. You can use this ARM template to deploy an Azure Policy initiative, connected to an Azure Security Center custom recommendation, which distributes the **SOCHTManagement** workbook to KeyVault owners in your organization.
+    - The URL for a custom ARM template. You can use this ARM template to deploy an Azure Policy initiative, connected to an Microsoft Defender for Cloud custom recommendation, which distributes the **SOCHTManagement** workbook to key vault owners in your organization.
 
-1. The **Post-deployment Steps** tab notes that you can use the information displayed in the deployment output to distribute the Azure Security Center custom recommendation to all key vault owners in your organization, recommending that they deploy honeytokens in their key vaults.
+1. The **Post-deployment Steps** tab notes that you can use the information displayed in the deployment output to distribute the Microsoft Defender for Cloud custom recommendation to all key vault owners in your organization, recommending that they deploy honeytokens in their key vaults.
 
     Use the custom [ARM template URL](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2faka.ms%2fsentinelhoneytokenspolicy) shown in the installation output to open the linked template's **Custom deployment** page.
 
@@ -145,13 +144,13 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
 ## Deploy your honeytokens
 
-After you've installed the **Azure Sentinel Deception (Honey Tokens)** solution, you're ready to start deploying honeytokens in your key vaults using the steps in the **SOCHTManagement** workbook.
+After you've installed the **Microsoft Sentinel Deception (Honey Tokens)** solution, you're ready to start deploying honeytokens in your key vaults using the steps in the **SOCHTManagement** workbook.
 
 We recommend that you share the **SOCHTManagement** workbook with key vault owners in your organization so that they can create their own honeytokens in their key vaults. You may have renamed this workbook when [installing the solution](#install-the-solution). When sharing, make sure to grant Read permissions only.
 
 **Deploy honeytokens in your key vaults**:
 
-1. In Azure Sentinel, go to **Workbooks > My Workbooks** and open the **SOCHTManagement** workbook. You may have modified this name when deploying the solution.
+1. In Microsoft Sentinel, go to **Workbooks > My Workbooks** and open the **SOCHTManagement** workbook. You may have modified this name when deploying the solution.
 
 1. Select **View saved workbook** > **Add as trusted**. For example:
 
@@ -164,7 +163,6 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
     In the **Is Monitored by SOC** column, a green checkmark :::image type="icon" source="media/monitor-key-vault-honeytokens/checkmark.png" border="false"::: indicates that the key vault already has honeytokens. A red x-mark :::image type="icon" source="media/monitor-key-vault-honeytokens/xmark.png" border="false"::: indicates that the key vault does not yet have honeytokens. For example:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-deployed.png" alt-text="Screenshot of the SOCHTManagement workbooks showing deployed honeytokens.":::
-
 
 1. Scroll down on the workbook page and use the instructions and links in the **Take an action** section to deploy honeytokens to all key vaults at scale, or deploy them manually one at a time.
 
@@ -184,7 +182,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
         At the bottom of the page, select **Create** to deploy your ARM template, and watch for a successful deployment confirmation page.
 
-    1. Back in Azure Sentinel, in your **SOCHTManagement** workbook > **Take an action** > **Deploy at scale** area, select the **Click to deploy** link to add honeytokens to all key vaults that you have access to in the selected subscription.
+    1. Back in Microsoft Sentinel, in your **SOCHTManagement** workbook > **Take an action** > **Deploy at scale** area, select the **Click to deploy** link to add honeytokens to all key vaults that you have access to in the selected subscription.
 
         When complete, your honeytoken deployment results are shown in a table on a new tab.
 
@@ -192,7 +190,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
     # [Deploy a single honeytoken](#tab/deploy-a-single-honeytoken)
 
-    **To deploy a single honey token manually**:
+    **To deploy a single honeytoken manually**:
 
     1. In the table at the top of the page, select the key vault where you want to deploy your honeytoken. The **Deploy on a specific key-vault:** section appears at the bottom of the page.
 
@@ -204,7 +202,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
         - Select **Click to validate the key-vault is audited**. In Azure Key Vault, verify that your key vault diagnostic settings are set to send audit events to Log Analytics.
         - Select **Enable your user in the key-vault's policy if missing**. In Azure Key Vault, make sure that your user has access to deploy honeytokens to your required locations. Select **Save** to save any changes.
-        - Select **Click to add a honey token to the key-vault** to open Azure Key Vault. Add a new honeytoken, like a new secret, to the configured key vault.
+        - Select **Click to add a honeytoken to the key-vault** to open Azure Key Vault. Add a new honeytoken, like a new secret, to the configured key vault.
         - Select **Click to add monitoring in the SOC**. If successful, a confirmation message is displayed on a new tab: `Honey-token was successfully added to monitored list`.
 
         For more information, see the [Azure Key Vault documentation](/azure/key-vault/secrets/about-secrets).
@@ -221,7 +219,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
     1. In the **Operation** table, expand the **Remove a honeytoken** section, and select each task name to perform the required steps. Sign in if prompted.
 
-        - Select **Click to delete the honey token from the key-vault** to open Azure Key Vault to the page where you can remove your honeytoken. 
+        - Select **Click to delete the honeytoken from the key-vault** to open Azure Key Vault to the page where you can remove your honeytoken.
         - Select **Send an email to update the SOC**. An email is opened in your default email client to the SOC, recommending that they remove honeytoken monitoring for the selected keyvault.
 
     > [!TIP]
@@ -230,38 +228,36 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
     ---
 
-You may need to wait a few minutes as the data is populated and permissions are updated. Refresh the page to show any updates in your keyvault deployment.
+You may need to wait a few minutes as the data is populated and permissions are updated. Refresh the page to show any updates in your key vault deployment.
 
 ## Test the solution functionality
 
-**To test that you get alerted for any access attempted to your honey tokens**:
+**To test that you get alerted for any access attempted to your honeytokens**:
 
-1. In the Azure Sentinel **Watchlists** page, select the **My watchlists** tab, and then select the **HoneyTokens** watchlist.
+1. In the Microsoft Sentinel **Watchlists** page, select the **My watchlists** tab, and then select the **HoneyTokens** watchlist.
 
     Select **View in Log Analytics** to view a list of the current honeytoken values found. In the **Logs** page, the items in your watchlist are automatically extracted for your query. For example:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png" alt-text="Screenshot of the honeytokens watchlist values in Log Analytics." lightbox="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png":::
 
-
-    For more information, see [Use Azure Sentinel watchlists](watchlists.md).
+    For more information, see [Use Microsoft Sentinel watchlists](watchlists.md).
 
 1. From the list in Log Analytics, choose a honeytoken value to test.
 
     Then, go to Azure Key Vault, and download the public key or view the secret for your chosen honeytoken.
 
-    For example, select your honeytoken and then select **Download public key**. This action creates a `KeyGet` or `SecretGet` log that triggers an alert in Azure Sentinel.
+    For example, select your honeytoken and then select **Download public key**. This action creates a `KeyGet` or `SecretGet` log that triggers an alert in Microsoft Sentinel.
 
     For more information, see the [Key Vault documentation](/azure/key-vault/).
 
-1. Back in Azure Sentinel, go to the **Incidents** page. You might need to wait five minutes or so, but you should should see a new incident, named for example **HoneyTokens: KeyVault HoneyTokens key accessed**.
+1. Back in Microsoft Sentinel, go to the **Incidents** page. You might need to wait five minutes or so, but you should should see a new incident, named for example **HoneyTokens: KeyVault HoneyTokens key accessed**.
 
     Select the incident to view its details, such as the key operation performed, the user who accessed the honeytoken key, and the name of the compromised key vault.
 
     > [!TIP]
-    > Any access or operation with the honeytoken keys and secrets will generate incidents that you can investigate in Azure Sentinel. Since there's no reason to actually use honeytoken keys and secrets, any similar activity in your workspace may be malicious and should be investigated.
-    >
+    > Any access or operation with the honeytoken keys and secrets will generate incidents that you can investigate in Microsoft Sentinel. Since there's no reason to actually use honeytoken keys and secrets, any similar activity in your workspace may be malicious and should be investigated.
 
-1. View honeytoken activity in the **HoneyTokensIncident** workbook. In the Azure Sentinel **Workbooks** page, search for and open the **HoneyTokensIncident** workbook.
+1. View honeytoken activity in the **HoneyTokensIncident** workbook. In the Microsoft Sentinel **Workbooks** page, search for and open the **HoneyTokensIncident** workbook.
 
     This workbook displays all honeytoken-related incidents, the related entities, compromised key vaults, key operations performed, and accessed honeytokens.
 
@@ -273,7 +269,7 @@ We recommend that you deploy honeytokens in as many key vaults as possible to en
 
 However, many SOC teams don't have access to key vaults. To help cover this gap, distribute the **SOCHTManagement** workbook to all key vault owners in your tenant, so that your SOC teams can deploy their own honeytokens. You may have modified the name of this workbook when you [installed the solution](#install-the-solution).
 
-You can always share the direct link to the workbook. Alternately, this procedure describes how to use an ARM template to deploy an Azure Policy initiative, connected to an Azure Security Center custom recommendation, which distributes the **SOCHTManagement** workbook to KeyVault owners in your organization.
+You can always share the direct link to the workbook. Alternately, this procedure describes how to use an ARM template to deploy an Azure Policy initiative, connected to an Microsoft Defender for Cloud custom recommendation, which distributes the **SOCHTManagement** workbook to key vault owners in your organization.
 
 > [!NOTE]
 > Whenever you distribute the workbook, make sure to grant Read access only.
@@ -298,7 +294,7 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
 1. On the **Management Workbook** tab, paste the link to your **SOCHTManagement** workbook.
 
-    You can find the workbook link from the **SOCHTManagement** workbook in Azure Sentinel, and it was also included in the solution deployment's **Output** tab.
+    You can find the workbook link from the **SOCHTManagement** workbook in Microsoft Sentinel, and it was also included in the solution deployment's **Output** tab.
 
     For example, to find the link in the workbook, select  **Workbooks** > **My workbooks** > **SOCHTManagement**, and then select **Copy link** in the toolbar.
 
@@ -328,19 +324,17 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
 An audit recommendation, with a link to the **SOCHTManagement** workbook, is added to all key vaults in the selected scope. You may have modified the name of this workbook [when installing the solution](#install-the-solution).
 
-For more information, see the [Azure Security Center documentation](/azure/security-center/security-center-recommendations).
-
+For more information, see the [Microsoft Defender for Cloud documentation](/azure/security-center/security-center-recommendations).
 
 ## Next steps
 
 For more information, see:
 
-- [About Azure Sentinel solutions](sentinel-solutions.md)
-- [Discover and deploy Azure Sentinel solutions](monitor-key-vault-honeytokens.md)
-- [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
+- [About Microsoft Sentinel solutions](sentinel-solutions.md)
+- [Discover and deploy Microsoft Sentinel solutions](sentinel-solutions-deploy.md)
+- [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md)
 - [Detect threats out-of-the-box](detect-threats-built-in.md)
-- [Commonly used Azure Sentinel workbooks](top-workbooks.md)
-
+- [Commonly used Microsoft Sentinel workbooks](top-workbooks.md)
 
 <!-- The following section is used to store references to external images and links to reduce maintenance overhead and enable tooltips -->
 

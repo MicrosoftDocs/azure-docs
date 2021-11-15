@@ -5,11 +5,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 11/07/2021
 ms.author: jasteppe
 ---
 
-# How to use custom functions
+# How to use Custom Functions
 
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -186,7 +186,7 @@ Examples:
 
 ## Next steps
 
-In this article, you learned how to use IoT connector custom functions. To learn how to use Device mappings, see
+In this article, you learned how to use IoT connector Custom Functions. To learn how to use Custom Functions with Device mappings, see
 
 >[!div class="nextstepaction"]
 >[How to use Device mappings](how-to-use-device-mapping-iot.md)

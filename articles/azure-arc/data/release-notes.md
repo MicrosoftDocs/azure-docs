@@ -63,27 +63,15 @@ The following `sql` commands now support directly connected mode:
 
 You can continue to use `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables as before. If you only provide `AZDATA_USERNAME` and `AZDATA_PASSWORD` then the deployment uses them for both the logs and metrics dashboards.
 
-##### Region Availability
+##### Region availability
 
-- Directly connected mode is only available in the following Azure regions for this release:
+This release introduces directly connected mode availability in the following Azure regions:
 
-   - North Central US *
-   - Central US
-   - East US
-   - East US 2
-   - West US *
-   - West US 2
-   - West US 3 *
-   - UK South
-   - West Europe
-   - North Europe
-   - Australia East
-   - Southeast Asia
-   - Korea Central
-   - France Central
+- North Central US
+- West US
+- West US 3
 
-    \* Newly added for November, 2011
-
+For complete list, see [Supported regions](overview.md#supported-regions).
 
 #### Azure Arc-enabled SQL Managed Instance
 

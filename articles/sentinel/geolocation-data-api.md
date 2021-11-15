@@ -1,6 +1,6 @@
 ---
-title: Enrich entities with geolocation data in Azure Sentinel using REST API  | Microsoft Docs
-description: This article describes how you can enrich entities in Azure Sentinel with geolocation data via REST API.
+title: Enrich entities with geolocation data in Microsoft Sentinel using REST API  | Microsoft Docs
+description: This article describes how you can enrich entities in Microsoft Sentinel with geolocation data via REST API.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -13,15 +13,15 @@ ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ---
 
-# Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)
+# Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This article shows you how to enrich entities in Azure Sentinel with geolocation data using the REST API.
+This article shows you how to enrich entities in Microsoft Sentinel with geolocation data using the REST API.
 
 > [!IMPORTANT]
 > This feature is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -118,12 +118,12 @@ This API has a limit of 100 calls, per user, per hour.
 
 ## Next steps
 
-To learn more about Azure Sentinel, see the following articles:
+To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn more about entities:
 
-    - [Azure Sentinel entity types reference](entities-reference.md)
-    - [Classify and analyze data using entities in Azure Sentinel](entities-in-azure-sentinel.md)
-    - [Map data fields to entities in Azure Sentinel](map-data-fields-to-entities.md)
+    - [Microsoft Sentinel entity types reference](entities-reference.md)
+    - [Classify and analyze data using entities in Microsoft Sentinel](entities-in-azure-sentinel.md)
+    - [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md)
 
-- Explore other uses of the [Azure Sentinel API](/rest/api/securityinsights/)
+- Explore other uses of the [Microsoft Sentinel API](/rest/api/securityinsights/)

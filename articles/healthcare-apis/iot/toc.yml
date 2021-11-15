@@ -24,9 +24,9 @@ items:
       href: iot-data-flow.md
     - name: IoT connector and Azure Machine Learning Service
       href: iot-connector-machine-learning.md
-    - name: IoT connector and Microsoft Power BI
+    - name: IoT connector and Microsoft Power BI 
       href: iot-connector-power-bi.md
-    - name: IoT connector and Microsoft Teams
+    - name: IoT connector and Microsoft Teams notifications
       href: iot-connector-teams.md
 
 - name: How-to guides
@@ -36,12 +36,12 @@ items:
       href: device-data-through-iot-hub.md 
     - name: Use Device mappings
       href: how-to-use-device-mapping-iot.md
-    - name: Use custom functions
+    - name: Use Custom Functions
       href: iot-connector-custom-functions.md  
     - name: Use FHIR destination mappings
       href: how-to-use-fhir-mapping-iot.md
-    - name: Export IoT connector Metrics through Diagnostic settings
-      href: iot-metrics-diagnostics-export.md
+    - name: Display Metrics
+      href: iot-display-metrics.md
 
 - name: Resources
   expanded: true

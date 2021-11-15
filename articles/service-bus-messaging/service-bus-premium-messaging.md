@@ -2,7 +2,7 @@
 title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 11/08/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -20,14 +20,11 @@ Some high-level differences are highlighted in the following table.
 | Predictable performance |Variable latency |
 | Fixed pricing |Pay as you go variable pricing |
 | Ability to scale workload up and down |N/A |
-| Message size up to 1 MB. |Message size up to 256 KB |
+| Message size up to 100 MB. For more information, see [Large message support](#large-messages-support). |Message size up to 256 KB |
 
 **Service Bus Premium Messaging** provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will. The result is predictable and repeatable performance for your Service Bus-based solution.
 
 Not only is this performance more predictable and available, but it is also faster. With Premium Messaging, peak performance is much faster than with the Standard tier.
-
-> [!NOTE]
-> Batch size limit for Premium Messaging is 1 MB.
 
 ## Premium Messaging technical differences
 

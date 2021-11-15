@@ -1,12 +1,12 @@
 ---
-title: Azure Sentinel SAP data connector expert configuration options, on-premises deployment, and SAPControl log sources  | Microsoft Docs
-description: Learn how to deploy the Azure Sentinel data connector for SAP environments using expert configuration options and an on-premises machine. Also learn more about SAPControl log sources.
+title: Microsoft Sentinel SAP data connector expert configuration options, on-premises deployment, and SAPControl log sources  | Microsoft Docs
+description: Learn how to deploy the Microsoft Sentinel data connector for SAP environments using expert configuration options and an on-premises machine. Also learn more about SAPControl log sources.
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 05/19/2021
+ms.date: 11/09/2021
 ms.subservice: azure-sentinel
 ---
 
@@ -14,28 +14,28 @@ ms.subservice: azure-sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This article describes how to deploy the Azure Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
+This article describes how to deploy the Microsoft Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
 > [!NOTE]
-> The default, and most recommended process for deploying the Azure Sentinel SAP data connector is by [using an Azure VM](sap-deploy-solution.md). This article is intended for advanced users.
+> The default, and most recommended process for deploying the Microsoft Sentinel SAP data connector is by [using an Azure VM](sap-deploy-solution.md). This article is intended for advanced users.
 
 > [!IMPORTANT]
-> The Azure Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Prerequisites
 
-The basic prerequisites for deploying your Azure Sentinel SAP data connector are the same regardless of your deployment method.
+The basic prerequisites for deploying your Microsoft Sentinel SAP data connector are the same regardless of your deployment method.
 
 Make sure that your system complies with the prerequisites documented in the main [SAP data connector deployment procedure](sap-deploy-solution.md#prerequisites) before you start.
 
-For more information, see [Azure Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md).
+For more information, see [Microsoft Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md).
 
 ## Create your Azure key vault
 
-Create an Azure key vault that you can dedicate to your Azure Sentinel SAP data connector.
+Create an Azure key vault that you can dedicate to your Microsoft Sentinel SAP data connector.
 
-Run the following command to create your Azure key vault and grant access to an Azure service principal: 
+Run the following command to create your Azure key vault and grant access to an Azure service principal:
 
 ``` azurecli
 kvgp=<KVResourceGroup>
@@ -119,7 +119,7 @@ For more information, see the [az keyvault secret](/cli/azure/keyvault/secret) C
 
 ## Perform an expert / custom installation
 
-This procedure describes how to deploy the SAP data connector using an expert or custom installation, such as when installing on-premises. 
+This procedure describes how to deploy the SAP data connector using an expert or custom installation, such as when installing on-premises.
 
 We recommend that you perform this procedure after you have a key vault ready with your SAP credentials.
 
@@ -134,7 +134,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
 1. On your on-premises machine, create a new folder with a meaningful name, and copy the SDK zip file into your new folder.
 
-1. Clone the Azure Sentinel solution GitHub repo onto your on-premises machine, and copy Azure Sentinel SAP solution **systemconfig.ini** file into your new folder.
+1. Clone the Microsoft Sentinel solution GitHub repository onto your on-premises machine, and copy Microsoft Sentinel SAP solution **systemconfig.ini** file into your new folder.
 
     For example:
 
@@ -149,7 +149,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
     To test your configuration, you may want to add the user and password directly to the **systemconfig.ini** configuration file. While we recommend that you use [Azure Key vault](#add-azure-key-vault-secrets) to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-sap-data-connector), or you can add your credentials directly to the **systemconfig.ini** file.
 
-1. Define the logs that you want to ingest into Azure Sentinel using the instructions in the **systemconfig.ini** file. For example, see [Define the SAP logs that are sent to Azure Sentinel](#define-the-sap-logs-that-are-sent-to-azure-sentinel).
+1. Define the logs that you want to ingest into Microsoft Sentinel using the instructions in the **systemconfig.ini** file. For example, see [Define the SAP logs that are sent to Microsoft Sentinel](#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 1. Define the following configurations using the instructions in the **systemconfig.ini** file:
 
@@ -172,6 +172,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
     ```bash
     ##############################################################
+    # Include the following section if you're using user authentication
     ##############################################################
     # env.list template for Credentials
     SAPADMUSER=<SET_SAPCONTROL_USER>
@@ -181,10 +182,12 @@ We recommend that you perform this procedure after you have a key vault ready wi
     JAVAUSER=<SET_JAVA_OS_USER>
     JAVAPASS=<SET_JAVA_OS_USER>
     ##############################################################
+    # Include the following section if you are using Azure Keyvault
     ##############################################################
     # env.list template for AZ Cli when MI is not enabled
     AZURE_TENANT_ID=<your tenant id>
     AZURE_CLIENT_ID=<your client/app id>
+    AZURE_CLIENT_SECRET=<your password/secret for the service principal>
     ##############################################################
     ```
 
@@ -202,19 +205,19 @@ We recommend that you perform this procedure after you have a key vault ready wi
     docker logs –f sapcon-[SID]
     ```
 
-1. Continue with deploying the **Azure Sentinel - Continuous Threat Monitoring for SAP** solution.
+1. Continue with deploying the **Microsoft Sentinel - Continuous Threat Monitoring for SAP** solution.
 
-    Deploying the solution enables the SAP data connector to display in Azure Sentinel and deploys the SAP workbook and analytics rules. When you're done, manually add and customize your SAP watchlists.
+    Deploying the solution enables the SAP data connector to display in Microsoft Sentinel and deploys the SAP workbook and analytics rules. When you're done, manually add and customize your SAP watchlists.
 
     For more information, see [Deploy SAP security content](sap-deploy-solution.md#deploy-sap-security-content).
 
 ## Manually configure the SAP data connector
 
-The Azure Sentinel SAP solution data connector is configured in the **systemconfig.ini** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation).
+The Microsoft Sentinel SAP solution data connector is configured in the **systemconfig.ini** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation).
 
 The following code shows a sample **systemconfig.ini** file:
 
-```Python
+```python
 [Secrets Source]
 secrets = '<DOCKER_RUNTIME/AZURE_KEY_VAULT/DOCKER_SECRETS/DOCKER_FIXED>'
 keyvault = '<SET_YOUR_AZURE_KEYVAULT>'
@@ -269,15 +272,15 @@ javaseverity = <SET_JAVA_SEVERITY  0 = All logs ; 1 = Warning ; 2 = Error>
 javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use javatz = GMT+12>
 ```
 
-### Define the SAP logs that are sent to Azure Sentinel
+### Define the SAP logs that are sent to Microsoft Sentinel
 
-Add the following code to the Azure Sentinel SAP solution **systemconfig.ini** file to define the logs that are sent to Azure Sentinel.
+Add the following code to the Microsoft Sentinel SAP solution **systemconfig.ini** file to define the logs that are sent to Microsoft Sentinel.
 
-For more information, see [Azure Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).
+For more information, see [Microsoft Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).
 
-```Python
+```python
 ##############################################################
-# Enter True OR False for each log to send those logs to Azure Sentinel
+# Enter True OR False for each log to send those logs to Microsoft Sentinel
 [Logs Activation Status]
 ABAPAuditLog = True
 ABAPJobLog = True
@@ -301,12 +304,11 @@ JAVAFilesLogs = False
 
 ### SAL logs connector settings
 
-Add the following code to the Azure Sentinel SAP data connector **systemconfig.ini** file to define other settings for SAP logs ingested into Azure Sentinel.
+Add the following code to the Microsoft Sentinel SAP data connector **systemconfig.ini** file to define other settings for SAP logs ingested into Microsoft Sentinel.
 
 For more information, see [Perform an expert / custom SAP data connector installation](#perform-an-expert--custom-installation).
 
-
-```Python
+```python
 ##############################################################
 [Connector Configuration]
 extractuseremail = True
@@ -330,26 +332,25 @@ This section enables you to configure the following parameters:
 
 ### Configuring an ABAP SAP Control instance
 
-To ingest all ABAP logs into Azure Sentinel, including both NW RFC and SAP Control Web Service-based logs, configure the following ABAP SAP Control details:
+To ingest all ABAP logs into Microsoft Sentinel, including both NW RFC and SAP Control Web Service-based logs, configure the following ABAP SAP Control details:
 
 |Setting  |Description  |
 |---------|---------|
 |**javaappserver**     |Enter your SAP Control ABAP server host. <br>For example: `contoso-erp.appserver.com`         |
 |**javainstance**     |Enter your SAP Control ABAP instance number. <br>For example: `00`         |
 |**abaptz**     |Enter the time zone configured on your SAP Control ABAP server, in GMT format. <br>For example: `GMT+3`         |
-|**abapseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest ABAP logs into Azure Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
-
+|**abapseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest ABAP logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
 
 ### Configuring a Java SAP Control instance
 
-To ingest SAP Control Web Service logs into Azure Sentinel, configure the following JAVA SAP Control instance details:
+To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the following JAVA SAP Control instance details:
 
 |Parameter  |Description  |
 |---------|---------|
 |**javaappserver**     |Enter your SAP Control Java server host. <br>For example: `contoso-java.server.com`         |
 |**javainstance**     |Enter your SAP Control ABAP instance number. <br>For example: `10`         |
 |**javatz**     |Enter the time zone configured on your SAP Control Java server, in GMT format. <br>For example: `GMT+3`         |
-|**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Azure Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
+|**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
 
 ## Next steps
 
@@ -359,8 +360,8 @@ For more information, see [Deploy the SAP solution](sap-deploy-solution.md#deplo
 
 For more information, see:
 
-- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
-- [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
-- [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
-- [Azure Sentinel SAP solution: security content reference](sap-solution-security-content.md)
-- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
+- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
+- [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Troubleshooting your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

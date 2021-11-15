@@ -78,7 +78,7 @@ oid            | 24827
 [Audit logging](concepts-audit.md) is also available with Flexible Server to track activity in your databases. 
 
 > [!NOTE]
-> Azure Database for PostgreSQL - Flexible Server currently doesn't support [Azure Defender protection](../../security-center/azure-defender.md). 
+> Azure Database for PostgreSQL - Flexible Server currently doesn't support [Microsoft Defender for Cloud protection](../../security-center/azure-defender.md). 
 
 ## Updating passwords
 

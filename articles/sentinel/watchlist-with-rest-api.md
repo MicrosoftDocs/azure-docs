@@ -1,6 +1,6 @@
 ---
-title: Manage watchlists in Azure Sentinel using REST API | Microsoft Docs
-description: This article describes how Azure Sentinel watchlists can be managed using Log Analytics’ REST API to create, modify, and delete watchlists and their items.
+title: Manage watchlists in Microsoft Sentinel using REST API | Microsoft Docs
+description: This article describes how Microsoft Sentinel watchlists can be managed using Log Analytics’ REST API to create, modify, and delete watchlists and their items.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -13,15 +13,15 @@ ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ---
 
-# Manage watchlists in Azure Sentinel using REST API
+# Manage watchlists in Microsoft Sentinel using REST API
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Azure Sentinel, being built in part on Azure Monitor Log Analytics, lets you use Log Analytics’ REST API to manage watchlists. This document shows you how to create, modify, and delete watchlists and their items using the REST API.  Watchlists created in this way will be displayed in the Azure Sentinel UI.
+Microsoft Sentinel, being built in part on Azure Monitor Log Analytics, lets you use Log Analytics’ REST API to manage watchlists. This document shows you how to create, modify, and delete watchlists and their items using the REST API.  Watchlists created in this way will be displayed in the Microsoft Sentinel UI.
 
 ## Common URI parameters
 
@@ -200,7 +200,7 @@ This command deletes an existing watchlist item.
 
 ## Next steps
 
-In this article, you learned how to manage watchlists and their items in Azure Sentinel using the Log Analytics API. To learn more about Azure Sentinel, see the following articles:
+In this article, you learned how to manage watchlists and their items in Microsoft Sentinel using the Log Analytics API. To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn more about [watchlists](watchlists.md)
-- Explore other uses of the [Azure Sentinel API](/rest/api/securityinsights/)
+- Explore other uses of the [Microsoft Sentinel API](/rest/api/securityinsights/)

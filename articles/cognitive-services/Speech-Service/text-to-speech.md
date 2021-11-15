@@ -16,8 +16,6 @@ keywords: text to speech
 
 # What is neural text-to-speech?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
-
 Microsoft neural text-to-speech uses deep neural networks to make the voices of computers nearly indistinguishable from recordings of people. With the human-like natural prosody and clear articulation of words, neural text-to-speech has significantly reduced listening fatigue when you interact with AI systems.
 
 The patterns of stress and intonation in spoken language are called _prosody_. Traditional text-to-speech systems break down prosody into separate linguistic analysis and acoustic prediction steps that are governed by independent models. That can result in muffled, buzzy voice synthesis. Microsoft neural text-to-speech capability does prosody prediction and voice synthesis simultaneously, uses deep neural networks to overcome the limits of traditional text-to-speech systems in matching the patterns of stress and intonation in spoken language, and synthesizes the units of speech into a computer voice. The result is a more fluid and natural-sounding voice.

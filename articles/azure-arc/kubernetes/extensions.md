@@ -53,7 +53,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | Extension | Description |
 | --------- | ----------- |
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
-| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
+| [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
 | [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md) | Deploys Open Service Mesh on the cluster and enables capabilities like mTLS security, fine grained access control, traffic shifting, monitoring with Azure Monitor or with open source add-ons of Prometheus and Grafana, tracing with Jaeger, integration with external certification management solution. |
 | [Azure Arc-enabled Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-prem, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
 | [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc-enabled Kubernetes clusters. |
@@ -261,11 +261,11 @@ Learn more about the cluster extensions currently available for Azure Arc-enable
 
 > [!div class="nextstepaction"]
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
 > 
 > [!div class="nextstepaction"]
-> [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > 
 > [!div class="nextstepaction"]
 > [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)

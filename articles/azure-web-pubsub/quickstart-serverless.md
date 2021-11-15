@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 03/11/2021
+ms.date: 11/08/2021
 ---
 
 # Tutorial: Create a serverless real-time chat app with Azure Functions and Azure Web PubSub service

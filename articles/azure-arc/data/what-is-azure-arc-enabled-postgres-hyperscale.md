@@ -1,4 +1,4 @@
---- 
+---
 title: What is Azure Arc-enabled PostgreSQL Hyperscale?
 description: What is Azure Arc-enabled PostgreSQL Hyperscale?
 services: azure-arc

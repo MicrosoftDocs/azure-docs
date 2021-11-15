@@ -217,6 +217,9 @@ items:
     - name: Database templates overview
       href: database-designer/overview-database-templates.md
       displayName: overview
+    - name: Map data overview
+      href: database-designer/overview-map-data.md
+      displayName: map data
   - name: Quickstarts
     items:
     - name: Create a lake database
@@ -226,7 +229,7 @@ items:
     - name: Database templates
       href: database-designer/concepts-database-templates.md
     - name: Lake database
-      href: database-designer/concepts-lake-database.md   
+      href: database-designer/concepts-lake-database.md
   - name: How-to guides      
     items:
     - name: Create an empty lake database
@@ -500,6 +503,8 @@ items:
         href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context
       - name: Monitor your workload - portal
         href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?context=/azure/synapse-analytics/context/context
+      - name: Query history and analysis
+        href: ./sql/query-history-storage-analysis.md
       - name: Manage workloads
         items:
         - name: Analyze your workload
@@ -677,6 +682,8 @@ items:
       href: quickstart-create-apache-spark-pool-portal.md
     - name: Create a Spark pool using Synapse Studio
       href: quickstart-create-apache-spark-pool-studio.md
+    - name: Create a GPU-accelerated Apache Spark pool
+      href: quickstart-create-apache-gpu-pool-portal.md
   - name: Tutorials
     items:
     - name: Data visualization with Synapse Studio notebooks
@@ -699,6 +706,8 @@ items:
       href: ./spark/apache-spark-concepts.md
     - name: Apache Spark pool configurations
       href: ./spark/apache-spark-pool-configurations.md
+    - name: GPU-accelerated Apache Spark pools
+      href: ./spark/apache-spark-gpu-concept.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior
@@ -757,6 +766,8 @@ items:
           href: ./spark/apache-spark-performance.md
         - name: Performance optimization for Apache Spark using Hyperspace indexes
           href: ./spark/apache-spark-performance-hyperspace.md
+        - name: Accelerate ETL operations with NVIDIA RAPIDS
+          href: ./spark/apache-spark-rapids-gpu.md
     - name: Manage and monitor
       items:
       - name: Navigate the Apache Spark pool history server
