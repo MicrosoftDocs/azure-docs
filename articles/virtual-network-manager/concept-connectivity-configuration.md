@@ -34,7 +34,7 @@ When you create a mesh topology, a new connectivity construct is created called 
 
 > [!NOTE]
 > * If you have conflicting subnets in two or more virtual networks, resources in those subnets *won't* be able to communicate to each other even if they're part of the same mesh network.
-> * A virtual network can be part of up to **five** mesh configurations.
+> * A virtual network can be part of up to **two** mesh configurations.
 
 ## Hub and spoke topology
 
@@ -55,7 +55,7 @@ See example diagram below:
 When you look at effective routes on a VM, the route between the hub and the spoke virtual networks will have the next hop type of  *VNetPeering* or *GlobalVNetPeering*. Routes between spokes virtual networks will show up with the next hop type of *ConnectedGroup*. Using the example above, only the *Production* network group would have a *ConnectedGroup* because it has *Direct connectivity* enabled.
 
 > [!NOTE]
-> The hub network address space is added to the *ConnectedGroup* when *Transitivity* is **enabled**. Therefore, if the virtual network peering between the hub and the spoke virtual network fail, they can still communicate by *ConnectedGroup*.
+> The hub network address space is added to the *ConnectedGroup* when *Direct Connectivity* is **enabled**. Therefore, if the virtual network peering between the hub and the spoke virtual network fail, they can still communicate by *ConnectedGroup*.
 
 #### Use cases
 

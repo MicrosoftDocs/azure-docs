@@ -6,6 +6,7 @@
   - name: What is Microsoft Defender for Cloud?
     href: defender-for-cloud-introduction.md
   - name: What are the enhanced security features?
+    displayName: azure defender
     href: enhanced-security-features-overview.md
   - name: What's new?
     displayName: changelog, news, release notes
@@ -101,7 +102,7 @@
   - name: Access and track your secure score
     href: secure-score-access-and-track.md
   - name: Prioritize security actions by data sensitivity
-    displayName: sensitivity, data, purview, inventory
+    displayName: sensitivity, data, purview, inventory, information protection
     href: information-protection.md
   - name: Manage your resources with asset inventory
     href: asset-inventory.md
@@ -225,9 +226,6 @@
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
       href: defender-for-container-registries-cicd.md
-    - name: Disable specific image vulnerability findings
-      displayName: ACR, registry, images, qualys
-      href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: Protect Azure Arc-enabled Kubernetes clusters
       displayName: k8s, containers, aks, hybrid, arc, azure arc, multicloud
       href: defender-for-kubernetes-azure-arc.md
@@ -268,6 +266,7 @@
   - name: Integrate security solutions and data sources
     href: partner-integration.md
   - name: Protect network resources
+    displayName: map, network map
     href: protect-network-resources.md
   - name: Enforce and manage MFA
     displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
@@ -326,7 +325,7 @@
   - name: REST APIs documentation
     href: /rest/api/securitycenter/
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/security-center/TOC.json
+    href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
   - name: FAQ for Microsoft Defender for Cloud
     items:
     - name: General questions

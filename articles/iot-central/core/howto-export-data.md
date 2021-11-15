@@ -44,7 +44,13 @@ Your export destination must exist before you configure your data export. The fo
 
 ### Connection options
 
-For the Azure service destinations, you can choose to configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Using a managed identity is more secure because you don't need to store the credentials for the destination in your IoT Central application. IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
+For the Azure service destinations, you can choose to configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities are more secure because:
+
+- You don't store the credentials for your resource in a connection string in your IoT Central application.
+- The credentials are automatically tied to the lifetime of your IoT Central application.
+- Managed identities automatically rotate their security keys regularly.
+
+IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 When you configure a managed identity, the configuration includes a *scope* and a *role*:
 
