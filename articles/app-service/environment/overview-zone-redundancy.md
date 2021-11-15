@@ -26,3 +26,9 @@ When the App Service platform allocates instances to a zone redundant App Servic
 ## Pricing
 
  There is a minimum charge of nine App Service plan instances in a zone redundant ASE. There is no added charge for availability zone support if you have nine or more App Service plan instances. If you have less than nine instances (of any size) across App Service plans in the zone redundant ASE, the difference between nine and the running instance count is charged as additional Windows I1v2 instances.
+
+## Next steps
+
+* Read more about [Availability Zones](../../availability-zones/az-overview.md)
+
+* Design [reliable Azure applications](../../architecture/framework/resiliency/app-design)

@@ -60,3 +60,7 @@ $certThumbprint = "Cert:\LocalMachine\My\" + $certificate.Thumbprint
 $fileName = "exportedcert.cer"
 Export-Certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
 ```
+
+## Next steps
+
+* Information on how to [use certificates in application code](../configure-ssl-certificate-in-code.md)
