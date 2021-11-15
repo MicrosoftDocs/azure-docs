@@ -93,7 +93,7 @@ In the *App settings* tab, do the following actions:
 
     Next, the settings in the Container App are verified. If no errors are found, the *Create* button is enabled.  
 
-    If there are errors, any tab containing errors is marked with a red dot.  Navigate to the appropriate tab.  Fields containing an error will be highlighted in red.  Once any errors are fixed, select **Review and create** again.
+    If there are errors, any tab containing errors is marked with a red dot.  Navigate to the appropriate tab.  Fields containing an error will be highlighted in red.  Once all errors are fixed, select **Review and create** again.
 
 1. Select **Create**.
 
