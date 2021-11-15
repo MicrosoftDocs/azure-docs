@@ -28,7 +28,7 @@ For IoT device builders, Microsoft Defender for IoT also offers lightweight a mi
 
 ## Agentless solution
 
-Older IoT and OT devices don't support agents and are often unpatched, misconfigured, and invisible to IT teams. Those qualities make them soft targets for threat actors who want to pivot deeper into corporate networks.
+Older IoT, and OT devices don't support agents, and are often unpatched, misconfigured, and invisible to IT teams. Those qualities make them soft targets for threat actors who want to pivot deeper into corporate networks.
 
 Traditional network security monitoring tools developed for corporate IT networks can't address these environments because they lack a deep understanding of the specialized protocols, devices, and machine-to-machine (M2M) behaviors found in IoT and OT environments.
 
