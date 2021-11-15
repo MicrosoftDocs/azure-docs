@@ -3,11 +3,23 @@ author: alkohli
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/03/2021
+ms.date: 11/15/2021
 ms.author: alkohli
 ---
 
-Depending on the software version, that your Data Box is running, you may need to take different steps to connect to the PowerShell interface of the device.
+Depending on the software version, that your Data Box is running, you may need to take different steps to connect to the PowerShell interface of the device. The first step in all these cases would be to identify the software version running on your Data Box.
+
+### Identify software version of the device
+
+Use one of the following ways to identify the software version running on your device and the device serial number.
+
+ - Go to the **Sign in** page. The software version is displayed on this page.
+ 
+    ![Serial number and software version on the Sign in page in the local web UI of Data Box](media/data-box-connect-powershell-interface/device-serial-number-software-version-sign-in-local-ui.png)
+
+ - In the local web UI, select the **Help** icon. In the **Help** pane, the software version and the device serial number are displayed. Make a note of both the device serial number and the software version.
+ 
+    ![Serial number and software version on the Help pane in the local web UI of Data Box](media/data-box-connect-powershell-interface/device-serial-number-software-version-help-pane-local-ui.png)
 
 ### [v4.1 and later](#tab/c)
 
@@ -32,9 +44,9 @@ Follow these steps if you'll use the default certificates (shipped with the devi
 
     `<Device IP address>  <Device serial number>.microsoftdatabox.com`
 
-    Get the device serial number from **Device credentials > GUI access to device** in the right-pane of the **Device details** blade in the Azure portal. 
+    Provide the device serial number from the earlier step. 
 
-    ![Get Data Box serial number in the Azure portal](media/data-box-connect-powershell-interface/get-device-serial-number-portal.png)
+    ![Get Data Box serial number from the local UI](media/data-box-connect-powershell-interface/get-device-serial-number-portal.png)
  
 
 #### Use your own certificates 
