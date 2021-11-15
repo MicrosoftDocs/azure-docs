@@ -74,6 +74,8 @@
       href: deploy-azure-iot-edge-workloads.md
     - name: Azure Arc-enabled Machine Learning
       href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+    - name: Access secrets from Azure Key Vault
+      href: tutorial-akv-secrets-provider.md
   - name: Troubleshooting
     href: Troubleshooting.md
 - name: Reference
