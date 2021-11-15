@@ -5,14 +5,14 @@ author: Elazark
 ms.author: V-ekrieg
 ms.service: defender-for-iot
 ms.topic: article
-ms.date: 11/11/2021
+ms.date: 11/15/2021
 ---
 
 # Deploy Enterprise IoT (EIoT)
 
 ## Unified IoT Security - Solution Architecture
 
-The Azure Defender for IoT (AD-IoT) team at Microsoft is responsible for securing IoT devices end-to-end whether they are on-premises, in the cloud, or in hybrid environments.  
+The Microsoft Defender for IoT team at Microsoft is responsible for securing IoT devices end-to-end whether they are on-premises, in the cloud, or in hybrid environments.  
 
 We are now extending agentless capabilities to go beyond operational environments, and advancing into the realm of enterprise environments. Thereby, delivering coverage to the entire breadth of IoT devices in your environment. This includes everything from corporate printers, cameras, to purpose-built devices, proprietary, and unique devices.
 
@@ -20,7 +20,7 @@ We are now extending agentless capabilities to go beyond operational environment
 
 The expansion into the enterprise network, creates a unique opportunity to leverage Microsoft 365 Defender’s asset discovery capabilities.  
 
-The Private Preview of the new Defender for Enterprise IoT solution (covering Enterprise, OT, and M365D) includes:  
+The new Defender for Enterprise IoT solution (covering Enterprise, OT, and M365D) includes:  
 
 ### Automatic 3T discovery for IT, IoT, and OT
 
