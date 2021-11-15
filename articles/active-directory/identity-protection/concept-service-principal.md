@@ -136,6 +136,17 @@ Example response
 "location": null
 ```
 
+## Investigate risky service principals
+
+
+## Remediation
+
+
+### Enable a risk-based Conditional Access policy
+
+Optionally you can enable Conditional Access for workload identities to block service principals at risk.
+
+
 
 ## Next steps
 
