@@ -69,9 +69,9 @@ sections:
       - question: |
           I get the error: `Either an Access Key / SAS Token or the Resource Group for the Storage Account must be specified - or Azure AD Authentication must be enabled` when deploying the workload zone
         answer: |
-          Ensure that you are passing in the correct value for the `storageaccountname` parameter. This parameter should specify the account containing the Terraform state files.
+          Ensure that you are passing in the correct value for the "storageaccountname" parameter. This parameter should specify the account containing the Terraform state files.
       - question: |
-          While running New-SAPAutomationRegion, I am getting the error: “The repository path: \<repo path\> is incorrect!” 
+          While running New-SAPAutomationRegion, I am getting the error: "The repository path: \<repo path\> is incorrect!"
         answer: |
           Go to the location of the `sap_deployment_automation.ini` file in in one of the following locations based on your execution environment: My Documents (Windows), ~/sap_deployment_automation (Linux). Enter the fully qualified path to the repository in the sap_deployment_automation.ini file under the Common -> Repo variable. 
       - question: |
@@ -90,7 +90,6 @@ sections:
           While deploying the Workload zone, I get the following error: 'netAppAccounts' has been restricted in this region. 
         answer: |
           The subscription is not registered for the netAppAccounts resource provider. Follow these steps to [register the provider](/azure/azure-netapp-files/azure-netapp-files-register). 
-
   - name: Ansible configuration
     questions:
       - question: |
