@@ -11,10 +11,12 @@ ms.service: virtual-machines-sap
 
 # Plan your deployment of SAP automation framework
 
-There are multiple considerations for running the [SAP deployment automation framework on Azure](automation-deployment-framework.md). It's a best practice to plan your deployment process before using the automation framework.
+There are multiple considerations for running the [SAP deployment automation framework on Azure](automation-deployment-framework.md), this include topics like deployment credentials management, virtual network design.
+
+For generic SAP on Azure design considerations please visit [Introduction to an SAP adoption scenario](azure/cloud-adoption-framework/scenarios/sap/index.md)
 
 > [!NOTE]
-> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP Deployment Automation Framework repository](https://github.com/Azure/sap-hana/). You must then provide parameter files with your system-specific information. The deployment process merges both sets of configurations.
+> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP Deployment Automation Framework repository](https://github.com/Azure/sap-hana/). The templates use parameter files with your system-specific information to perform the deployment.
 
 ## Credentials management
 
@@ -38,7 +40,7 @@ Create your service principals:
     az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --name="DEV-Deployment-Account"
     ```
 1. Note the output. You need the application identifier (`appId`), password (`password`), and tenant identifier (`tenant`) for the next step. For example:
-    ```azurecli
+    ```json
     {
         "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "displayName": "DEV-Deployment-Account",
@@ -62,8 +64,6 @@ For your own parameter files, it's a best practice to keep these files in a sour
 
 > [!IMPORTANT]
 > Your parameter file's name becomes the name of the Terraform state file. Make sure to use a unique parameter file name for this reason.
-
-By default, the automation framework deploys an Azure VM that executes deployment activities.
 
 ### Folder structure
 
