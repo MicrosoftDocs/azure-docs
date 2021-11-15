@@ -38,7 +38,7 @@
       href: how-to-parameterize-load-tests.md
     - name: Get insights from App Service workload tests
       href: how-to-appservice-insights.md
-    - name: Export load test results
+    - name: Export your load testing results
       href: how-to-export-test-results.md
 - name: Reference
   items:
