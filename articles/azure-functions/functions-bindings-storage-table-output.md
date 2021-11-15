@@ -403,7 +403,7 @@ Attributes aren't supported by Python.
 
 ---
 ::: zone end
-
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `Table` attribute.
@@ -419,7 +419,8 @@ The following table explains the binding configuration properties that you set i
 |**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
+::: zone-end  
+    
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
