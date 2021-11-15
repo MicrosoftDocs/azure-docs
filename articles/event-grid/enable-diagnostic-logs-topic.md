@@ -11,7 +11,7 @@ This article provides step-by-step instructions to enable diagnostic settings fo
 
 These settings allow you to capture and view the information, the following table show the compatibility of settings across the Event Grid resources.
 
-| Diagnostic setting | Description | Event Grid Topics | Event Grid System Topics | Event Grid Domains |
+| Diagnostic setting | Description | Event Grid topics | Event Grid system topics | Event Grid domains |
 | ------------- | ------------- | --------- | ----------- | ----------- |
 | DeliveryFailures | Delivery failures | Yes | Yes | Yes |
 | PublishFailures | Publish failures | Yes | No | Yes |
@@ -29,14 +29,14 @@ These settings allow you to capture and view the information, the following tabl
   - Event Hub
   - Partner solution
 
-## Enable diagnostic logs for Event Grid Topics and Event Grid Domains
+## Enable diagnostic logs for Event Grid topics and Event Grid domains
 
 > [!NOTE]
-> The following procedure provides step-by-step instructions for enabling diagnostic logs for Event Grid Topics. Steps for enabling diagnostic logs for a domain are very similar. In step 2, navigate to the Event Grid **Domains** in the Azure portal.  
+> The following procedure provides step-by-step instructions for enabling diagnostic logs for Event Grid Topics. Steps for enabling diagnostic logs for a domain are very similar. In step 2, navigate to the Event Grid **domains** in the Azure portal.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the Event Grid Topic for which you want to enable diagnostic log settings.
-    1. In the search bar at the top, search for **Event Grid Topics**.
+    1. In the search bar at the top, search for **Event Grid topics**.
         ![Search for custom topics](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
     2. Select the **topic** from the list for which you want to configure diagnostic settings.
 3. Select **Diagnostic settings** under **Monitoring** in the left menu.
@@ -58,11 +58,11 @@ These settings allow you to capture and view the information, the following tabl
 
 You can also enable collection of all metrics for the topic.
 
-## Enable diagnostic logs for Event Grid System Topics
+## Enable diagnostic logs for Event Grid system topics
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the event grid topic for which you want to enable diagnostic log settings.
-    1. In the search bar at the top, search for **Event Grid System Topics**.
+    1. In the search bar at the top, search for **Event Grid system topics**.
         ![Search for system topics](./media/enable-diagnostic-logs-topic/search-system-topics.png)
     1. Select the **system topic** for which you want to configure diagnostic settings.
         ![Select system topic](./media/enable-diagnostic-logs-topic/select-system-topic.png)
@@ -202,7 +202,7 @@ Then, it creates a diagnostic setting on the topic to send diagnostic informatio
 
 ## Enable diagnostic logs for audit traces
 
-Event Grid can publish the audit traces for data plane operations when selecting the category group **audit** or when selecting the category **DataPlaneRequests** in the **Logs**, the audit trace can be used to ensure that data access is allowed only for authorized purposes and collects information about security control such as resource name, operation type, network access, level, region and more. For more information about how to enable the diagnostic setting, see [Diagnostic logs in Event Grid Topic and Event Grid Domains](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic).
+Event Grid can publish the audit traces for data plane operations when selecting the category group **audit** or when selecting the category **DataPlaneRequests** in the **Logs**, the audit trace can be used to ensure that data access is allowed only for authorized purposes and collects information about security control such as resource name, operation type, network access, level, region and more. For more information about how to enable the diagnostic setting, see [Diagnostic logs in Event Grid topics and Event Grid domains](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic).
 ![Select the audit traces](./media/enable-diagnostic-logs-topic/enable-audit-logs.png)
 
 > [!IMPORTANT]
