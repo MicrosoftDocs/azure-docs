@@ -59,7 +59,7 @@ Please ensure you are selecting following options on “Create a Peering” Page
 
 Peering Type:	**Direct**
 
-Microsoft Network:	**8075**
+Microsoft Network:	**8075 (with Voice)**
 
 SKU: 		**Premium Free**
 
