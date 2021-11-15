@@ -5,8 +5,8 @@ services: sentinel
 author: yelevin
 ms.author: yelevin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.custom: references_regions, ignite-fall-2021
