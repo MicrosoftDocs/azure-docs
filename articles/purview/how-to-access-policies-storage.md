@@ -191,19 +191,20 @@ The steps to publish a policy are as follows
 
 This section contains a reference of how actions in Azure Purview data policies map to specific actions in Azure Storage.
 
-| **Purview policy action** | **Data source specific actions**                                                                |
-|---------------------------|-------------------------------------------------------------------------------------------------|
+| **Purview policy action** | **Data source specific actions**                                                        |
+|---------------------------|-----------------------------------------------------------------------------------------|
 |||
-| *Read*                      |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read                        |
-|                           |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery                      |
-|                           |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed                    |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                            |
+| *Read*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
 |||
-| *Modify*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                            |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write                           |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action                      |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action                     |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete                          |
+| *Modify*                  |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write               |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action          |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action         |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete              |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/write                     |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/delete                    |
 |||
 
 ## Next steps
