@@ -45,8 +45,8 @@ Some popular applications running on WSFC include:
 
 - [Create an FCI with Azure shared disks (SQL Server on Azure VMs)](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
     - [Migrate your failover cluster instance to SQL Server on Azure VMs with shared disks](../azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)
-- Scale-out File Server (SoFS) [template] (https://aka.ms/azure-shared-disk-sofs-template)
-- SAP ASCS/SCS [template] (https://aka.ms/azure-shared-disk-sapacs-template)
+- Scale-out File Server (SoFS) [template](https://aka.ms/azure-shared-disk-sofs-template)
+- SAP ASCS/SCS [template](https://aka.ms/azure-shared-disk-sapacs-template)
 - File Server for General Use (IW workload)
 - Remote Desktop Server User Profile Disk (RDS UPD)
 
