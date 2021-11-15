@@ -47,7 +47,7 @@ The SAP on Azure Deployment Automation Framework has two main components:
 
 The following diagram shows the dependency between the control plane and the application plane.
 
-:::image type="content" source="media/automation-deployment-framework/control-plane-sap-infrastructure.png" alt-text="Dependency between the control plane and the application plane":::
+:::image type="content" source="./media/automation-deployment-framework/control-plane-sap-infrastructure.png" alt-text="Dependency between the control plane and the application plane":::
 
 The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. The following diagram shows the logical separation of the control plane and workload zone.
 
@@ -554,7 +554,7 @@ Use the [installler.sh](bash/automation-installer.md) script to deploy the SAP s
 
 The SAP system deploys:
 
-- The database tier, which deploys database VMs and their disks and an Standard Azure Load Balancer. You can run HANA databases or AnyDB databases in this tier.
+- The database tier, which deploys database VMs and their disks and an Azure Standard Load Balancer. You can run HANA databases or AnyDB databases in this tier.
 - The SCS tier, which deploys a customer-defined number of VMs and an Azure Standard Load Balancer.
 - The application tier, which deploys the VMs and their disks.
 - The web dispatcher tier.
@@ -601,11 +601,11 @@ Trigger the playbooks to execute.
 
 ### Playbook: OS Config
 
-Selecting this playbook performs the generic OS configuration setup on all the machines, which includes configuring of software repositories, packages, services and so on.
+Selecting this playbook performs the generic OS configuration setup on all the machines, which includes configuring of software repositories, packages, services, and so on.
 
 ### Playbook: SAP-Specific OS config
 
-Selecting this playbook performs the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, services.
+Selecting this playbook performs the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, and services.
 
 ### Playbook: BoM Processing
 
@@ -617,7 +617,7 @@ This playbook will install the HANA database instances.
 
 ### Playbook: SCS Install
   
-This playbook will install SAP Central Services. If high availability is configured the playbook will also install the ERS instance and configure Pacemaker.
+This playbook will install SAP Central Services. If, high availability is configured the playbook will also install the ERS instance and configure Pacemaker.
 
 ### Playbook: DB Load
 
