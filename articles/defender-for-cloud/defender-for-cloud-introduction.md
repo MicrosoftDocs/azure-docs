@@ -146,7 +146,7 @@ The **Defender plans** page of Microsoft Defender for Cloud offers the following
 Use the advanced protection tiles in the [workload protections dashboard](workload-protections-dashboard.md) to monitor and configure each of these protections.
 
 > [!TIP]
-> Microsoft Defender for IoT (preview) is a separate product. You'll find all the details in [Introducing Microsoft Defender for IoT (Preview)](../defender-for-iot/overview.md).
+> Microsoft Defender for IoT is a separate product. You'll find all the details in [Introducing Microsoft Defender for IoT](../defender-for-iot/overview.md).
 
 ## Next steps
 
