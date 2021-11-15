@@ -38,6 +38,8 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     > [!NOTE]
     > To use this [model version](sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model), you must specify it in your API calls, using the model version parameter. 
  
+* The character limit for Text Analytics for health has been increased from 5,120 to 30,720.
+
 ## Next steps
 
 * [What is Azure Cognitive Service for Language?](overview.md)  
