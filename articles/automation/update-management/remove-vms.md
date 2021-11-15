@@ -3,7 +3,7 @@ title: Remove machines from Azure Automation Update Management
 description: This article tells how to remove Azure and non-Azure machines managed with Update Management.
 services: automation
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 10/26/2021
 ms.custom: mvc
 ---
 # Remove VMs from Update Management
@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    ```kusto
    Heartbeat
    | where TimeGenerated > ago(30d)
-   | where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure")
+   | where ComputerEnvironment == "Non-Azure"
    | summarize by Computer, VMUUID
    ```
 

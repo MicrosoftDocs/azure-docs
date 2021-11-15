@@ -118,7 +118,7 @@ Immutability policies are supported for both new and existing storage accounts. 
 
 ### Access tiers
 
-All blob access tiers support immutable storage. You can change the access tier of a blob with the Set Blob Tier operation. For more information, see [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md).
+All blob access tiers support immutable storage. You can change the access tier of a blob with the Set Blob Tier operation. For more information, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ### Redundancy configurations
 

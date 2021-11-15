@@ -1,29 +1,29 @@
 ---
-title: Azure Sentinel File Event normalization schema reference | Microsoft Docs
-description: This article describes the Azure Sentinel File Event normalization schema.
+title: Microsoft Sentinel File Event normalization schema reference | Microsoft Docs
+description: This article describes the Microsoft Sentinel File Event normalization schema.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 11/09/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel File Event normalization schema reference (Public preview)
+# Microsoft Sentinel File Event normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The File Event normalization schema is used to describe file activity such as creating, modifying, or deleting files or documents. Such events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
 
-For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The File Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -33,16 +33,16 @@ For more information about normalization in Azure Sentinel, see [Normalization a
 
 ## Parsers
 
-Azure Sentinel provides the following built-in, product-specific file event parsers:
+Microsoft Sentinel provides the following built-in, product-specific file event parsers:
 
 - **Sysmon file activity events** (Events 11, 23, and 26), collected using the Log Analytics Agent or Azure Monitor Agent.
 - **Microsoft Office 365 SharePoint and OneDrive events**, collected using the Office Activity connector.
-- **Microsoft 365 Defender for Endpoints file events**
+- **Microsoft 365 Defender for Endpoint file events**
 - **Azure Storage**, including Blob, File, Queue, and Table Storage.
 
 To use the source-agnostic parser that unifies all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use imFileEvent as the table name in your query.
 
-Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelFileEvent).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelFileEvent).
 
 ## Add your own normalized parsers
 
@@ -53,7 +53,7 @@ Add your KQL function to the `imFileEvent` source-agnostic parser to ensure that
 
 ## Normalized content for file activity data
 
-Support for the File Activity ASIM schema also includes support for the following built-in analytics rules with normalized file activity parsers. While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
+Support for the File Activity ASIM schema also includes support for the following built-in analytics rules with normalized file activity parsers. While links to the Microsoft Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Microsoft Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
 
 
 - [SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
@@ -198,9 +198,9 @@ The path should be normalized to match one of the following formats. The format 
 
 For more information, see:
 
-- [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Azure Sentinel network normalization schema reference](normalization-schema.md)
-- [Azure Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)
-- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Normalization in Microsoft Sentinel](normalization.md)
+- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Microsoft Sentinel network normalization schema reference](./network-normalization-schema.md)
+- [Microsoft Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)
+- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

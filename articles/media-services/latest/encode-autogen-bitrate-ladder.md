@@ -33,7 +33,7 @@ To see an example of how this preset is used, see [Stream a file](stream-files-d
 
 ## Output
 
-This section shows three examples of the output video layers produced by the Media Services encoder as a result of encoding with the **AdaptiveStreaming**(H.264) or the or **H265AdaptiveStreaming** (HEVC) presets. In all cases, the output contains an audio-only MP4 file with stereo audio encoded at 128 kbps.
+This section shows three examples of the output video layers produced by the Media Services encoder as a result of encoding with the **AdaptiveStreaming**(H.264) or the **H265AdaptiveStreaming** (HEVC) presets. In all cases, the output contains an audio-only MP4 file with stereo audio encoded at 128 kbps.
 
 ### Example 1
 Source with height "1080" and framerate "29.970" produces 6 video layers:

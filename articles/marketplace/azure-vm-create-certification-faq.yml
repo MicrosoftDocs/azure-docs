@@ -66,7 +66,12 @@ sections:
           > For more information about VM generalization, see:
           > - [Linux documentation](azure-vm-create-using-approved-base.md#generalize-the-image)
           > - [Windows documentation](../virtual-machines/generalize.md#windows)
+
+          > [!NOTE]
+          > If provision fails as VM image requires a custom ARM template to deploy, enable the checkbox 'Requires custom ARM template for deployment' in 'Technical configuration' page of Partner Center. This will help Certification team take the proper action for this request without failing it for provisioning issue.  
           
+          ![Custom ARM template checkbox](./media/create-vm/vm-certification-issues-solutions-27.png)
+
           ## VHD specifications
 
           ### Conectix cookie and other VHD specifications
@@ -317,6 +322,10 @@ sections:
           
           3. Resubmit your certification request.
           
+          >[!NOTE]
+          >If you are publishing a locked-down VM image which has disabled or restricted ssh, please enable to checkbox 'Remote desktop or SSH disabled' in the 'Technical configuration' page of Partner Center. This will inform Certification team that this is by design and perform the right validations on the image without failing it for restricted access.
+          
+          ![Locked-down checkbox](./media/create-vm/vm-certification-issues-solutions-26.png)
       - question: |
           Download failure
         answer: |
@@ -598,7 +607,7 @@ sections:
           1. In the boxes that appear, provide a new disk version and the virtual machine image.
           1. Select **Save draft**.
           
-          Next, remove the VM image with the security vulnerability.          
+          Next, remove the VM image with the security vulnerability.
 
           #### [Current view](#tab/current-view)
          

@@ -8,7 +8,6 @@
   items:
   - name: Create JSON templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
-
   - name: Create JSON templates - portal
     href: quickstart-create-templates-use-the-portal.md
   - name: Create template specs
@@ -54,6 +53,9 @@
     - name: Deploy as linked template
       displayName: template specs
       href: template-specs-deploy-linked-template.md
+    - name: Create portal form
+      href: template-specs-create-portal-forms.md
+      displayName: UI,form,blade
   - name: Advanced templates
     items:
     - name: Use template reference
@@ -77,8 +79,6 @@
       href: template-tutorial-deploy-vm-extensions.md
     - name: Deploy SQL extensions
       href: template-tutorial-deploy-sql-extensions-bacpac.md
-    - name: Troubleshoot template deployment
-      href: template-tutorial-troubleshoot.md
   - name: Microsoft Learn path about templates
     href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Samples - Azure services
@@ -269,7 +269,7 @@
       href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault - secret
       href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Security Center
+    - name: Defender for Cloud
       href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Storage
     items:
@@ -448,40 +448,6 @@
       href: update-visual-studio-deployment-script.md
     - name: IntelliJ IDEA
       href: create-templates-use-intellij.md
-  - name: Troubleshoot deployments
-    items:
-    - name: Troubleshoot deployment errors
-      href: common-deployment-errors.md
-    - name: AccountNameInvalid
-      href: error-storage-account-name.md
-    - name: DeploymentQuotaExceeded
-      href: deployment-quota-exceeded.md
-    - name: InvalidTemplate
-      href: error-invalid-template.md
-    - name: JobSizeExceeded
-      href: error-job-size-exceeded.md
-    - name: Linux deployment issues
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-linux
-    - name: NoRegisteredProviderFound
-      href: error-register-resource-provider.md
-    - name: NotFound
-      href: error-not-found.md
-    - name: ParentResourceNotFound
-      href: error-parent-resource.md
-    - name: Provisioning and allocation issues for Linux
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
-    - name: Provisioning and allocation issues for Windows
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
-    - name: RequestDisallowedByPolicy
-      href: error-policy-requestdisallowedbypolicy.md
-    - name: ReservedResourceName
-      href: error-reserved-resource-name.md
-    - name: ResourceQuotaExceeded
-      href: error-resource-quota.md
-    - name: SkuNotAvailable
-      href: error-sku-not-available.md
-    - name: Windows deployment issues
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-windows
 - name: Reference
   items:
   - name: Template reference

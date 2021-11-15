@@ -141,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Idp metadata url** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal. 
 
-    ![screenshot for Metadata Url](./media/workshop-tutorial/metadata-url.png)
+    ![screenshot for Metadata URL](./media/workshop-tutorial/metadata-url.png)
 
 1. Click **Create Sso**.
 
@@ -168,4 +168,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Workshop you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Workshop you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

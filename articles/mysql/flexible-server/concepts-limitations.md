@@ -8,12 +8,9 @@ ms.topic: conceptual
 ms.date: 10/1/2020
 ---
 
-# Limitations in Azure Database for MySQL - Flexible Server (Preview)
+# Limitations in Azure Database for MySQL - Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article describes limitations in the Azure Database for MySQL Flexible Server service. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource limitations (compute, memory, storage), see the [compute and storage](concepts-compute-storage.md) article.
 
@@ -40,12 +37,14 @@ MySQL supports many storage engines. On Azure Database for MySQL Flexible Server
 
 ## Privileges & data manipulation support
 
-The MySQL service does not allow direct access to the underlying file system. Some data manipulation commands are not supported. 
+Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the MySQL server. To maintain the service integrity and SLA at a product level, this service does not expose multiple roles.
+
+The MySQL service does not allow direct access to the underlying file system. Some data manipulation commands are not supported.
 
 ### Unsupported
 
 The following are unsupported:
-- DBA role: Restricted. Alternatively, you can use the administrator user (created during new server creation), allows you to perform most of DDL and DML statements. 
+- DBA role: Restricted. Alternatively, you can use the administrator user (created during new server creation), allows you to perform most of DDL and DML statements.
 - SUPER privilege: Similarly, [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is restricted.
 - DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
 - System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only and used to support various PaaS functionality. You cannot make changes to the `mysql` system database.
@@ -64,7 +63,6 @@ The following are unsupported:
 - Connectivity method cannot be changed after creating the server. If the server is created with *Private access (VNet Integration)*, it cannot be changed to *Public access (allowed IP addresses)* after create, and vice versa
 
 ### Stop/start operation
-- Not supported with zone redundant HA configurations (both primary and standby).
 - Not supported with read replica configurations (both source and replicas).
 
 ### Scale operations
@@ -80,7 +78,7 @@ The following are unsupported:
 - With point-in-time restore, new servers are created with the same compute and storage configurations as the source server it is based on. The newly restored server's compute can be scaled down after the server is created.
 - Restoring a deleted server isn't supported.
 
-## Features available in Single Server but not yet supported in Flexible Server 
+## Features available in Single Server but not yet supported in Flexible Server
 Not all features available in Azure Database for MySQL - Single Server is available in Flexible Server yet. For complete list of feature comparison between single server and flexible server, refer [choosing the right MySQL Server option in Azure documentation.](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)
 
 ## Next steps

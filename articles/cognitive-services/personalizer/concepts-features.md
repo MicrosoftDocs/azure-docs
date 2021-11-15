@@ -160,7 +160,7 @@ For example:
 You can use several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), like
 
 * [Entity Linking](../text-analytics/index.yml)
-* [Text Analytics](../text-analytics/overview.md)
+* [Language service](../language-service/index.yml)
 * [Emotion](../face/overview.md)
 * [Computer Vision](../computer-vision/overview.md)
 

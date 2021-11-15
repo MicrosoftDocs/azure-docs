@@ -60,7 +60,7 @@ Call call_;
 
 ## Create button handlers
 
-Previously, two UI buttons were added to the XAML code. The following code adds the handlers to be executed when an user click on the button.
+Previously, two UI buttons were added to the XAML code. The following code adds the handlers to be executed when a user selects the button.
 The following code should be added after the data members from the previous section.
 
 ```csharp

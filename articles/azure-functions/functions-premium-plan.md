@@ -5,10 +5,7 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: cachai
-ms.custom:
-- references_regions
-- fasttrack-edit
-- devx-track-azurecli
+ms.custom: references_regions, fasttrack-edit, devx-track-azurecli
 ---
 
 # Azure Functions Premium plan
@@ -197,10 +194,6 @@ See the complete regional availability of Functions on the [Azure web site](http
 |USGov Arizona| 100 | 20 |
 |USGov Texas| 100 | Not Available |
 |USGov Virginia| 100 | 20 |
-|USNat East| 100 | Not Available |
-|USNat West| 100 | Not Available |
-|USSec East| 100 | 20 |
-|USSec West| 100 | 20 |
 |West Central US| 100 | 20 |
 |West Europe| 100 | 20 |
 |West India| 100 | 20 |

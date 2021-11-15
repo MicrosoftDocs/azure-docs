@@ -979,7 +979,7 @@ Create the failover group using the Azure portal.
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, and then type `Azure SQL` in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the primary managed instance you created in the first section, such as `sql-mi-primary`. 
-1. Under **Settings**, navigate to **Instance Failover Groups** and then choose **Add group** to open the **Instance Failover Group** page. 
+1. Under **Data management**, navigate to **Failover groups** and then choose **Add group** to open the **Instance Failover Group** page. 
 
    ![Add a failover group](./media/failover-group-add-instance-tutorial/add-failover-group.png)
 

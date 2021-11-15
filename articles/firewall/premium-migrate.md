@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -29,6 +29,21 @@ The firewall throughput might be lower than 30 Gbps when you have one or more si
 ## Downtime
 
 Migrate your firewall during a planned maintenance time, as there will be some downtime during the migration.
+
+## Migrate Classic rules to Standard policy
+
+During your migration process, you may need to migrate your Classic firewall rules to a Standard policy. You can do this using the Azure portal:
+
+1. From the Azure portal, select your standard firewall. On the **Overview** page, select **Migrate to firewall policy**.
+
+   :::image type="content" source="media/premium-migrate/firewall-overview-migrate.png" alt-text="Migrate to firewall policy":::
+
+1. On the **Migrate to firewall policy** page, select **Review + create**.
+1. Select **Create**.
+
+   The deployment takes a few minutes to complete.
+
+You can also migrate existing Classic rules from Azure Firewall using Azure PowerShell to create policies. For more information, see [Migrate Azure Firewall configurations to Azure Firewall policy using PowerShell](../firewall-manager/migrate-to-policy.md)
 
 ## Migrate an existing policy using Azure PowerShell
 
@@ -167,6 +182,9 @@ TransformPolicyToPremium -Policy $policy
 ## Migrate Azure Firewall using stop/start
 
 If you use Azure Firewall Standard SKU with Firewall Policy, you can use the Allocate/Deallocate method to migrate your Firewall SKU to Premium. This migration approach is supported on both VNet Hub and Secure Hub Firewalls. When you migrate a Secure Hub deployment, it will preserve the firewall public IP address.
+
+The minimum Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
+
  
 ### Migrate a VNET Hub Firewall
 
@@ -190,7 +208,6 @@ If you use Azure Firewall Standard SKU with Firewall Policy, you can use the All
 
 ### Migrate a Secure Hub Firewall
 
-The minimum Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
 
 - Deallocate the Standard Firewall
 

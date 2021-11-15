@@ -26,6 +26,8 @@ In this tutorial you will learn how to:
 > * Deploy an image update
 > * Monitor the update deployment
 
+Note: Image updates in this tutorial have been validated on the Raspberry Pi B3 board.
+
 ## Prerequisites
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 

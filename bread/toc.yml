@@ -21,6 +21,9 @@
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
+      - name: Cloud sync
+        tocHref: /azure/active-directory/cloud-sync/
+        topicHref: /azure/active-directory/cloud-sync/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
@@ -302,6 +305,9 @@
       - name: Elastic
         tocHref: /azure/partner-solutions/elastic/
         topicHref: /azure/partner-solutions/elastic/overview
+      - name: Logz.io
+        tocHref: /azure/partner-solutions/logzio/
+        topicHref: /azure/partner-solutions/logzio/overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -887,13 +893,13 @@
           - name: Managed HSM
             tocHref: /azure/key-vault/managed-hsm/
             topicHref: /azure/key-vault/managed-hsm/
-      - name: Security Center
-        tocHref: /azure/security-center/
-        topicHref: /azure/security-center/
-      - name: Azure Sentinel
+      - name: Microsoft Defender for Cloud
+        tocHref: /azure/defender-for-cloud/
+        topicHref: /azure/defender-for-cloud/
+      - name: Microsoft Sentinel
         tocHref: /azure/sentinel/
         topicHref: /azure/sentinel/
-      - name: Defender for IoT
+      - name: Microsoft Defender for IoT
         tocHref: /azure/defender-for-iot/
         topicHref: /azure/defender-for-iot/
       - name: Attestation
@@ -1052,3 +1058,9 @@
     - name: Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
+  - name: 'Azure DevTest offer (Visual Studio subscriber benefit)'
+    tocHref: /azure/devtest/offer/
+    topicHref: /azure/devtest/offer/overview-what-is-devtest-offer-visual-studio
+  - name: Service Connector
+    tocHref: /azure/service-connector/
+    topicHref: /azure/service-connector/

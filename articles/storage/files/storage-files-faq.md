@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: roygara
 ms.service: storage
-ms.date: 09/15/2021
+ms.date: 11/5/2021
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
@@ -16,7 +16,7 @@ This article answers common questions about Azure Files features and functionali
 
 1. The comments section of this article.
 2. [Microsoft Q&A question page for Azure Storage](/answers/topics/azure-file-storage.html).
-3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
+3. [Azure Community Feedback](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84). 
 4. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
 ## General
@@ -79,7 +79,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="give-us-feedback"></a>
   **I really want to see a specific feature added to Azure Files. Can you add it?**  
-    The Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! We're looking forward to delighting you with many new features.
+    The Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests at [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84)! We're looking forward to delighting you with many new features.
 
 ## Azure File Sync
 
@@ -173,7 +173,7 @@ Initial sync is typically limited by the initial upload rate of 20 files per sec
 
 * <a id="afs-os-support"></a>
   **Can I use Azure File Sync with either Windows Server 2008 R2, Linux, or my network-attached storage (NAS) device?**  
-    Currently, Azure File Sync supports only Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2. At this time, we don't have any other plans we can share, but we're open to supporting additional platforms based on customer demand. Let us know at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) what platforms you would like us to support.
+    Currently, Azure File Sync supports only Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2. At this time, we don't have any other plans we can share, but we're open to supporting additional platforms based on customer demand. Let us know at [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84) what platforms you would like us to support.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Why do tiered files exist outside of the server endpoint namespace?**  
@@ -344,7 +344,7 @@ Initial sync is typically limited by the initial upload rate of 20 files per sec
     
        net use <drive-letter/share-path> /delete
 
-## Network File System
+## Network File System (NFS v4.1)
 
 * <a id="when-to-use-nfs"></a>
 **When should I use Azure Files NFS?**
@@ -415,7 +415,7 @@ Initial sync is typically limited by the initial upload rate of 20 files per sec
 **Can I create share snapshot of individual files?**  
     Share snapshots are created at the file share level. You can restore individual files from the file share snapshot, but you cannot create file-level share snapshots. However, if you have taken a share-level share snapshot and you want to list share snapshots where a specific file has changed, you can do this under **Previous Versions** on a Windows-mounted share. 
     
-    If you need a file snapshot feature, let us know at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+    If you need a file snapshot feature, let us know at [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84).
 
 * <a id="encrypted-snapshots"></a>
 **Can I create share snapshots of an encrypted file share?**  

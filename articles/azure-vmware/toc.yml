@@ -58,7 +58,7 @@
     items:
     - name: Protect, monitor, and manage VMs
       href: integrate-azure-native-services.md
-    - name: Integrate Azure Security Center
+    - name: Integrate Microsoft Defender for Cloud
       href: azure-security-integration.md
     - name: Integrate Azure NetApp Files
       href: netapp-files-with-azure-vmware-solution.md
@@ -136,6 +136,14 @@
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
       href: disaster-recovery-using-vmware-site-recovery-manager.md
+  - name: Deploy virtual desktops
+    items:
+    - name: Deploy Horizon on Azure VMware Solution
+      href: azure-vmware-solution-horizon.md
+    - name: Deploy Citrix on Azure VMware Solution
+      href: azure-vmware-solution-citrix.md
+    - name: Deploy Zerto disaster recovery
+      href: deploy-zerto-disaster-recovery.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
@@ -148,7 +156,7 @@
     href: rotate-cloudadmin-credentials.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
-  - name: VMware ecosystem
+  - name: Partner solution ecosystem
     items:
     - name: Backup solutions for VMs
       href: ecosystem-back-up-vms.md

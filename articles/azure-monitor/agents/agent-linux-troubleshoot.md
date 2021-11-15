@@ -485,3 +485,17 @@ Perform the following steps to correct the issue.
     ```
 
 3. Upgrade packages by executing `sudo sh ./omsagent-*.universal.x64.sh --upgrade`.
+
+## Issue: Installation is failing saying Python2 cannot support ctypes, even though Python3 is being used
+
+### Probable causes
+
+There is a known issue where, if the VM's language isn't English, a check will fail when verifying which version of Python is being used. This leads to the agent always assuming Python2 is being used, and failing if there is no Python2.
+
+### Resolution
+
+Change the VM's environmental language to English:
+
+```
+export LANG=en_US.UTF-8
+```

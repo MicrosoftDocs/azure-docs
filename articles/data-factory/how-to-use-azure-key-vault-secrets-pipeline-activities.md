@@ -6,7 +6,7 @@ ms.author: abnarain
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 10/22/2021
 ---
 
 # Use Azure Key Vault secrets in pipeline activities
