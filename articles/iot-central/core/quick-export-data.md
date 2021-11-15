@@ -101,7 +101,7 @@ To add a table in the database to store the accelerometer data from the **IoT Pl
 
     The result looks like the following screenshot:
 
-    :::image type="content" source="media/quick-export-data/azure-data-explorer-create-table .png" alt-text="Screenshot that shows the results of creating the table in Azure Data Explorer.":::
+    :::image type="content" source="media/quick-export-data/azure-data-explorer-create-table.png" alt-text="Screenshot that shows the results of creating the table in Azure Data Explorer.":::
 
 1. In the Azure Data Explorer, open a new tab and paste in the following Kusto script. The script enables streaming ingress for the **acceleration** table:
 
