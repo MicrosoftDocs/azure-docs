@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 11/15/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -228,6 +228,8 @@ Take the following steps if returning the device in South Africa.
     * Or drop off the package at the nearest DHL service point.
 
 5. If you come across any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s), and put the waybill number in the Subject: line. You can also call +27(0)119213902.
+
+---
 
 ### Self-managed shipping
 
