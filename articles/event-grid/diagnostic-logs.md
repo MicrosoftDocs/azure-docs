@@ -33,7 +33,7 @@ Diagnostic settings allow Event Grid users to capture and view **publish and del
 }
 ```
 
-The possible values of `Outcome` are `Aborted`, `TimedOut`, `GenericError`, and `Busy`. Event Grid logs any information it receives from the event handler in the `message`. For example, for `GenericError`, it logs the HTTP status code, error code, and the error message.
+The possible values of `Outcome` are `NotFound`, `Aborted`, `TimedOut`, `GenericError`, and `Busy`. Event Grid logs any information it receives from the event handler in the `message`. For example, for `GenericError`, it logs the HTTP status code, error code, and the error message.
 
 ## Schema for data plane requests
 
