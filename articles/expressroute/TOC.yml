@@ -136,12 +136,14 @@
       href: expressroute-howto-set-global-reach.md
     - name: Azure CLI
       href: expressroute-howto-set-global-reach-cli.md
-  - name: Add IPv6 support for private peering (Preview)
+  - name: Add IPv6 support for private peering
     items:
     - name: Azure portal
       href: expressroute-howto-add-ipv6-portal.md
     - name: Azure PowerShell
       href: expressroute-howto-add-ipv6-powershell.md
+    - name: Azure CLI
+      href: expressroute-howto-add-ipv6-cli.md
   - name: Monitoring
     items:
     - name: Monitoring ExpressRoute
@@ -164,6 +166,8 @@
         href: expressroute-howto-reset-peering-portal.md
       - name: Azure PowerShell
         href: expressroute-howto-reset-peering.md
+    - name: Configure BGP community value for VNet
+      href: how-to-configure-custom-bgp-communities.md
     - name: Move from public peering to Microsoft peering
       href: how-to-move-peering.md
   - name: Encrypt traffic over circuits

@@ -190,6 +190,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ### Comparison expressions
 
+> [!NOTE]
+> The API for MongoDB does not support comparison expressions with an array literal in the query.
+
 | Command | Supported |
 |---------|---------|
 | $cmp | Yes |
@@ -308,9 +311,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $dateToString | Yes |
 | $isoDayOfWeek | Yes |
 | $isoWeek | Yes |
-| $dateFromParts | No | 
-| $dateToParts | No |
-| $dateFromString | No |
+| $dateFromParts | Yes | 
+| $dateToParts | Yes |
+| $dateFromString | Yes |
 | $isoWeekYear | Yes |
 
 ### Conditional expressions
@@ -529,34 +532,8 @@ $polygon | No |
 
 When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
 
-## Unique indexes
-
-[Unique indexes](mongodb-indexing.md#unique-indexes) ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create unique indexes in Azure Cosmos DB by using the `createIndex` command with the `unique` constraint parameter:
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
-{
-    "_t" : "CreateIndexesResponse",
-    "ok" : 1,
-    "createdCollectionAutomatically" : false,
-    "numIndexesBefore" : 1,
-    "numIndexesAfter" : 4
-}
-```
-
-## Compound indexes
-
-[Compound indexes](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) provide a way to create an index for groups of fields for up to eight fields. This type of index differs from the native MongoDB compound indexes. In Azure Cosmos DB, compound indexes are used for sorting operations that are applied to multiple fields. To create a compound index, you need to specify more than one property as the parameter:
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
-{
-    "createdCollectionAutomatically" : false, 
-    "numIndexesBefore" : 1,
-    "numIndexesAfter" : 2,
-    "ok" : 1
-}
-```
+## Indexing
+The API for MongoDB [supports a variety of indexes](mongodb-indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.
 
 ## GridFS
 

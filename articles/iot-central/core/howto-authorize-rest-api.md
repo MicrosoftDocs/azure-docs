@@ -3,7 +3,7 @@ title: Authorize REST API in Azure IoT Central
 description: How to authenticate and authorize IoT Central REST API calls
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -59,13 +59,13 @@ To get a bearer token for a service principal, see [Service principal authentica
 
 ## Get an API token
 
-To get an API token, you can use the IoT Central UI or a REST API call.
+To get an API token, you can use the IoT Central UI or a REST API call. Administrators associated with the root organization and users assigned to the correct role can create API tokens.
 
 In the IoT Central UI:
 
 1. Navigate to **Administration > API tokens**.
-1. Select **+ Generate token**.
-1. Enter a name for the token and select a role.
+1. Select **+ Create token**.
+1. Enter a name for the token and select a role and [organization](howto-create-organizations.md).
 1. Select **Generate**.
 1. IoT Central displays the token that looks like the following example:
 
@@ -73,7 +73,7 @@ In the IoT Central UI:
 
     This screen is the only time you can see the API token, if you lose it you need to generate a new one.
 
-An API token is valid for approximately one year. You can generate tokens for both built-in and custom roles in your IoT Central application.
+An API token is valid for approximately one year. You can generate tokens for both built-in and custom roles in your IoT Central application. The organization you choose when you create the API token determines which devices the API has access to. Any API tokens created before you add any organizations to your application are associated with the root organization.
 
 You can delete API tokens in the IoT Central UI if you need to revoke access.
 
@@ -143,6 +143,9 @@ Using the REST API:
 
 You can use the REST API to list and delete API tokens in an application.
 
+> [!TIP]
+> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/api-tokens) includes support for the new [organizations feature](howto-create-organizations.md).
+
 ## Use a bearer token
 
 To use a bearer token when you make a REST API call, your authorization header looks like the following example:
@@ -157,4 +160,4 @@ To use an API token when you make a REST API call, your authorization header loo
 
 ## Next steps
 
-Now that you've learned how to authorize REST API calls, a suggested next step is to [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).
+Now that you've learned how to authorize REST API calls, a suggested next step is to [How to use the IoT Central REST API to query devices](howto-query-with-rest-api.md).

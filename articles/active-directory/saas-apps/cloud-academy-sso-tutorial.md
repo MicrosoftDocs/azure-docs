@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/15/2020
+ms.date: 11/03/2021
 ms.author: jeedes
 ---
 
@@ -32,8 +32,9 @@ To get started, you need the following items:
 
 In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
-* Cloud Academy - SSO supports **SP** initiated SSO
-* Cloud Academy - SSO supports **Just In Time** user provisioning
+* Cloud Academy - SSO supports **SP** initiated SSO.
+* Cloud Academy - SSO supports **Just In Time** user provisioning.
+* Cloud Academy - SSO supports [Automated user provisioning](cloud-academy-sso-provisioning-tutorial.md).
 
 ## Add Cloud Academy - SSO from the gallery
 
@@ -119,34 +120,46 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 1. In a different browser window, sign in to your Cloud Academy - SSO company site as administrator.
 
-1. Select your company's name and then select **Settings & Integrations** in the menu that appears:
+1. On the home page, click the **Azure Integration Team** icon and then select **Settings** in the left menu.
 
-    ![Screenshot that shows the Settings & Integrations option.](./media/cloud-academy-sso-tutorial/config-1.PNG)
+1. On the **INTEGRATIONS** tab, select the **SSO** card.
 
-1. On the **Settings & Integrations** page, on the **Integrations** tab, select the **SSO** card:
+    ![Screenshot that shows the Settings & Integrations option.](./media/cloud-academy-sso-tutorial/integrations.png)
 
-    ![Screenshot that shows the SSO card on the Integrations tab.](./media/cloud-academy-sso-tutorial/config-2.PNG)
+1. Click on **Start Configuring** to set up SSO.
 
-1. Complete the following steps in this page:
+    ![Screenshot that shows the Integrations > SSO page.](./media/cloud-academy-sso-tutorial/start-configuring.png)
 
-    ![Screenshot that shows the Inegrations > SSO page.](./media/cloud-academy-sso-tutorial/config-3.PNG)
+1. Complete the following steps in General Settings page:
 
-    a. In the **Entity ID URL** box, enter the entity ID value that you copied from the Azure portal.
+    ![Screenshot that shows the Integrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings.png)
 
-    b. In the **SSO URL** box, paste the login URL value that you copied from the Azure portal.
+    a. In the **SSO URL(Location)** box, paste the login URL value that you copied from the Azure portal.
 
     c. Open the downloaded Base64 certificate from the Azure portal in Notepad. Paste its contents into the **Certificate** box.
 
-    d. In the **Name ID Format** box, keep the default value: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
+    d. In the **Email Domains** box, enter all the domain values your company uses for user emails.
 
-1. Select **Save**.
+1. Perform the following steps in the below page:
 
-    > [!NOTE]
-	> For more information on how to configure the Cloud Academy - SSO, see [Setting Up Single Sign-On](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
+    ![Screenshot that shows the Integrations in additional settings.](./media/cloud-academy-sso-tutorial/additional-settings.png)
+
+    a. In the **SAML Attributes Mapping** section, fill the required fields with the source attribute values.
+
+    b. In the **Security Settings** section, select the **Authentication Requests Signed?** check box to set this value to **True**.
+
+    c. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied from the Azure portal.
+
+1. Click **Save and Test**.
+
+> [!NOTE]
+> For more information on how to configure the Cloud Academy - SSO, see [Setting Up Single Sign-On](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
 
 ### Create a Cloud Academy test user
 
 In this section, a user called Britta Simon is created in Cloud Academy - SSO. Cloud Academy - SSO supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Cloud Academy - SSO, a new one is created after authentication.
+
+Cloud Academy - SSO also supports automatic user provisioning, you can find more details [here](./cloud-academy-sso-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
@@ -156,7 +169,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Cloud Academy - SSO Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Cloud Academy - SSO tile in the My Apps, this will redirect to Cloud Academy - SSO Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Cloud Academy - SSO tile in the My Apps, this will redirect to Cloud Academy - SSO Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## Next steps

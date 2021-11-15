@@ -6,7 +6,7 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 07/30/2021
+ms.date: 09/21/2021
 
 ---
 
@@ -16,6 +16,15 @@ This page provides latest news and updates regarding feature additions, engine v
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
+
+## Release: September 2021
+
+* Support for [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server).
+* Support for [new regions](overview.md#azure-regions) Central India and Japan West.
+* Support for non-SSL mode of connectivity using a new `require_secure_transport` server parameter.
+* Support for `log_line_prefix` server parameter which adds the string at the beginning of each log line.
+* Support for [Azure Resource Health](../../service-health/resource-health-overview.md) for Flexible server health diagnosis and to get support.
+* Several bug fixes, stability, and performance improvements.
 
 ## Release: July 2021
 
@@ -64,7 +73,7 @@ In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
   
 
 ## Next steps

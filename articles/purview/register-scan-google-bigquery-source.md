@@ -1,173 +1,150 @@
 ---
-title: Register Google BigQuery project and setup scans in Azure Purview
-description: This article outlines how to register Google BigQuery project in Azure Purview and set up a scan.
-author: chandrakavya
-ms.author: kchandra
+title: Connect to and manage Google BigQuery projects
+description: This guide describes how to connect to Google BigQuery projects in Azure Purview, and use Purview's features to scan and manage your Google BigQuery source.
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
-ms.subservice: purview-data-catalog
-ms.topic: overview
-ms.date: 7/15/2021
+ms.subservice: purview-data-map
+ms.topic: how-to
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
 ---
-# Register and Scan Google BigQuery source (Preview)
 
-This article outlines how to register a Google BigQuery project in
-Purview and set up a scan.
+# Connect to and manage Google BigQuery projects in Azure Purview (Preview)
+
+This article outlines how to register Google BigQuery projects, and how to authenticate and interact with Google BigQuery in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+
+> [!IMPORTANT]
+> Google BigQuery as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Supported capabilities
 
-The BigQuery source supports Full scan to extract metadata from a
-BigQuery project and fetches Lineage between data assets.
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-google-bigquery.md)|
+
+> [!Important]
+> Supported Google BigQuery version is 11.0.0.
 
 ## Prerequisites
 
-1.  Set up the latest [self-hosted integration
-    runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see 
-    [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-2.  Make sure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
-    is installed on your virtual machine where self-hosted integration
-    runtime is installed.
+* An active [Purview resource](create-catalog-portal.md).
 
-3.  Make sure \"Visual C++ Redistributable 2012 Update 4\" is installed
-    on the self-hosted integration runtime machine. If you don\'t yet
-    have it installed, download it from
-    [here](https://www.microsoft.com/download/details.aspx?id=30679).
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-4.  You will have to manually download BigQuery's JDBC driver on your
-    virtual machine where self-hosted integration runtime is running
-    from
-    [here](https://cloud.google.com/bigquery/providers/simba-drivers)
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+
+* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+
+* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+
+* Download and install BigQuery's JDBC driver on the machine where your self-hosted integration runtime is running. You can find the driver [here](https://cloud.google.com/bigquery/providers/simba-drivers).
 
     > [!Note]
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
-5.  Supported Google BigQuery version is 11.0.0
+## Register
 
-## Register a Google BigQuery project
+This section describes how to register a Google BigQuery project in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
 
-To register a new Google BigQuery project in your data catalog, do the
-following:
+### Steps to register
 
-1.  Navigate to your Purview account.
-2.  Select **Data Map** on the left navigation.
-3.  Select **Register.**
-4.  On Register sources, select **Google BigQuery** . Select **Continue.**
+1. Navigate to your Purview account.
+1. Select **Data Map** on the left navigation.
+1. Select **Register.**
+1. On Register sources, select **Google BigQuery** . Select **Continue.**
+
     :::image type="content" source="media/register-scan-google-bigquery-source/register-sources.png" alt-text="register BigQuery source" border="true":::
-   
+
 On the Register sources (Google BigQuery) screen, do the following:
 
-1.  Enter a **Name** that the data source will be listed within the
-    Catalog.
+1. Enter a **Name** that the data source will be listed within the Catalog.
 
-2.  Enter the **ProjectID.** This should be a fully qualified project
-    Id. For example, mydomain.com:myProject
+1. Enter the **ProjectID.** This should be a fully qualified project ID. For example, mydomain.com:myProject
 
-3.  Select a collection or create a new one (Optional)
+1. Select a collection or create a new one (Optional)
 
-4.  Click on **Register**.
+1. Select **Register**.
+
     :::image type="content" source="media/register-scan-google-bigquery-source/configure-sources.png" alt-text="configure BigQuery source" border="true":::
 
-## Creating and running a scan
+## Scan
 
-To create and run a new scan, do the following:
+Follow the steps below to scan a Google BigQuery project to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
-    self-hosted integration runtime is set up. If it is not set up, use
-    the steps mentioned
-    [here](./manage-integration-runtimes.md)
-    to setup a self-hosted integration runtime
+### Create and run scan
 
-2.  Navigate to **Sources**.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md).
 
-3.  Select the registered **BigQuery** project.
+1. Navigate to **Sources**.
 
-4.  Select **+ New scan**.
+1. Select the registered **BigQuery** project.
 
-5.  Provide the below details:
+1. Select **+ New scan**.
 
-    a.  **Name**: The name of the scan
+1. Provide the below details:
 
-    b.  **Connect via integration runtime**: Select the configured
-        self-hosted integration runtime
+    1. **Name**: The name of the scan
 
-    c.  **Credential**: While configuring BigQuery credential, make sure
-        to:
+    1. **Connect via integration runtime**: Select the configured self-hosted integration runtime
 
-    - Select **Basic Authentication** as the Authentication method
-    - Provide the email ID of the service account in the User name          field. For example, xyz\@developer.gserviceaccount.com
-    - Save your Private key file of the service account in the JSON format in the key vault's secret
+    1. **Credential**: While configuring BigQuery credential, make sure to:
 
-    To create a new private key from Google's cloud platform, in the
-    navigation menu, click on IAM & Admin -\> Service Accounts -\> Select
-    a project -\> Click the email address of the service account that you
-    want to create a key for -\> Click the **Keys** tab -\> Click
-    the **Add key** drop-down menu, then select Create new key. Now choose
-    JSON format.
+        * Select **Basic Authentication** as the Authentication method
+        * Provide the email ID of the service account in the User name field. For example, `xyz\@developer.gserviceaccount.com`
+        * Follow below steps to generate the private key, copy the JSON then store it as the value of a Key Vault secret.
 
-      > [!Note]
-      > The contents of the private key are saved in a temp file on
-    the VM when scanning processes are running. This temp file is deleted
-    after the scans are successfully completed. In the event of a scan
-    failure, the system will continue to retry until success. Please make
-    sure access is appropriately restricted on the VM where SHIR is
-    running.**
+        To create a new private key from Google's cloud platform:
+        1. In the navigation menu, select IAM & Admin -\> Service Accounts -\> Select a project -\> 
+        1. Select the email address of the service account that you want to create a key for.
+        1. Select the **Keys** tab.
+        1. Select the **Add key** drop-down menu, then select Create new key. 
+        1. Choose JSON format.
 
-    To understand more on credentials, refer to the link [here](manage-credentials.md).
+          > [!Note]
+          > The contents of the private key are saved in a temp file on the VM when scanning processes are running. This temp file is deleted after the scans are successfully completed. In the event of a scan failure, the system will continue to retry until success. Please make sure access is appropriately restricted on the VM where SHIR is running.
 
-    d.  **Driver location**: Specify the path to the JDBC driver location in
-        your VM where self-host integration runtime is running. This should
-        be the path to valid JAR folder location    
-    > [!Note]
-    > The driver should be accessible to all accounts in the VM.Please do not install in a user account.
+        To understand more on credentials, refer to the link [here](manage-credentials.md).
 
-    e.  **Dataset**: Specify a list of BigQuery datasets to import. For
-        example, dataset1; dataset2. When the list is empty, all available
-        datasets are imported.
-        Acceptable dataset name patterns using SQL LIKE expressions syntax include using %, 
+    1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location. 
 
-    e.g. A%; %B; %C%; D
-    - start with A or
-    - end with B or
-    - contain C or
-    - equal D    
-Usage of NOT and special characters are not acceptable.
-    
-    f.  **Maximum memory available**: Maximum memory (in GB) available on
-        customer's VM to be used by scanning processes. This is dependent on
-        the size of Google BigQuery project to be scanned.
+        > [!Note]
+        > The driver should be accessible to all accounts in the VM.Please do not install in a user account.
+
+    1. **Dataset**: Specify a list of BigQuery datasets to import.
+        For example, dataset1; dataset2. When the list is empty, all available datasets are imported.
+        Acceptable dataset name patterns using SQL LIKE expressions syntax include using %.
+
+        Example:
+        A%; %B; %C%; D
+        * Start with A or
+        * end with B or
+        * contain C or
+        * equal D
+
+        Usage of NOT and special characters are not acceptable.
+
+    1. **Maximum memory available**: Maximum memory (in GB) available on your VM to be used by scanning processes. This is dependent on the size of Google BigQuery project to be scanned.
+
         :::image type="content" source="media/register-scan-google-bigquery-source/scan.png" alt-text="scan BigQuery source" border="true":::
 
-6.  Click on **Test connection.**
+1. Select **Test connection.**
 
-7.  Click on **Continue**.
+1. Select **Continue**.
 
-8.  Choose your **scan trigger**. You can set up a schedule or ran the
+1. Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-9.  Review your scan and click on **Save and Run**.
+1. Review your scan and select **Save and Run**.
 
-## Viewing your scans and scan runs
-
-1. Navigate to the management center. Select **Data sources** under the **Sources and scanning** section.
-
-2. Select the desired data source. You will see a list of existing scans on that data source.
-
-3. Select the scan whose results you are interested to view.
-
-4. This page will show you all of the previous scan runs along with metrics and status for each scan run. It will also display whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan, and the total scan duration.
-
-## Manage your scans
-
-To manage or delete a scan, do the following:
-
-1. Navigate to the management center. Select **Data sources** under the **Sources and scanning** section then select on the desired data source.
-
-2. Select the scan you would like to manage. You can edit the scan by selecting **Edit**.
-
-3. You can delete your scan by selecting **Delete**.
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 
-- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
+Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+
+- [Data insights in Azure Purview](concept-insights.md)
+- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Search Data Catalog](how-to-search-catalog.md)

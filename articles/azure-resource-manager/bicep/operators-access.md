@@ -4,7 +4,7 @@ description: Describes Bicep resource access operator and property access operat
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/10/2021
 ---
 
 # Bicep accessor operators
@@ -20,11 +20,15 @@ The accessor operators are used to access child resources, properties on objects
 
 ## Index accessor
 
-`array[index]`
+`array[integerIndex]`
 
-`object['index']`
+`object['stringIndex']`
 
-To get an element in an array, use `[index]` and provide an integer for the index.
+Use the index accessor to get either an element from an array or a property from an object.
+
+For an **array**, provide the index as an **integer**. The integer matches the zero-based position of the element to retrieve.
+
+For an **object**, provide the index as a **string**. The string matches the name of the object to retrieve.
 
 The following example gets an element in an array.
 
@@ -44,7 +48,7 @@ Output from the example:
 | ---- | ---- | ---- |
 | accessorResult | string | 'Contoso' |
 
-You can also use the index accessor to get an object property by name. You must use a string for the index, not an integer. The following example gets a property on an object.
+The next example gets a property on an object.
 
 ```bicep
 var environmentSettings = {

@@ -35,7 +35,7 @@ Check that idmapping is disabled and nothing is re-enabling it, then perform the
 - Unmount the share
 - Disable id-mapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
 - Mount the share back
-- If running rsync, run rsync with "—numeric-ids" argument from directory which do not have any bad dir/file name.
+- If running rsync, run rsync with the "—numeric-ids" argument from a directory that does not have a bad dir/file name.
 
 ## Unable to create an NFS share
 
@@ -117,7 +117,7 @@ Double encryption is not supported for NFS shares yet. Azure provides a layer of
 
 Disable secure transfer required in your storage account's configuration blade.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
 
 ### Cause 3: nfs-common package is not installed
 Before running the mount command, install the package by running the distro-specific command from below.
@@ -152,43 +152,14 @@ The NFS protocol communicates to its server over port 2049, make sure that this 
 
 Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port is not open, open it.
 
-## ls (list files) command shows incorrect/inconsistent results
-
-### Cause: Inconsistency between cached values and server file metadata values when the file handle is open
-Sometimes the "list files" or "df" or "find" command displays a non-zero size as expected and in the very next list files command instead shows size 0 or an old time stamp. This is a known issue due to inconsistent caching of file metadata values while the file is open. You may use one of the following workarounds to resolve this:
-
-#### Workaround 1: For fetching file size, use wc -c instead of ls -l
-Using wc -c will always fetch the latest value from the server and won't have any inconsistency.
-
-#### Workaround 2: Use "noac" mount flag
-Remount the file system using the "noac" flag with your mount command. This will always fetch all the metadata values from the server. There may be some minor perf overhead for all metadata operations if this workaround is used.
-
-
-## Unable to mount an NFS share that is restored back from soft-deleted state
-There is a known issue during preview where NFS shares gets soft deleted despite the platform not fully supporting it. These shares will routinely get deleted upon its expiration. You can also early-delete them by "undelete share + disable soft-delete + delete share" flow. However, if you try to recover and use the shares, you will get access denied or permission denied or NFS I/O error on the client.
-
-## ls –la throws I/O error
-
-### Cause: A known bug that has been fixed in newer Linux Kernel
-On older kernels, NFS4ERR_NOT_SAME causes the client to stop enumerating (instead of restarting for the directory). Newer kernels would be unblocked right away, unfortunately, for distros like SUSE, there is no patch for SUSE Enterprise Linux Server 12 or 15 that would bring the kernel-up-to-date to this fix.  The patch is available in kernel 5.12+.  The patch for the client-side fix is described here [PATCH v3 15/17 NFS: Handle NFS4ERR_NOT_SAME and NFSERR_BADCOOKIE from readdir calls](https://www.spinics.net/lists/linux-nfs/msg80096.html).
-
-#### Workaround: Use latest kernel workaround while the fix reaches the region hosting your storage account
-The patch is available in kernel 5.12+.
-
 ## ls hangs for large directory enumeration on some kernels
 
 ### Cause: A bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5.  
-Some kernel versions have a bug which causes directory listings to result in an endless READDIR sequences. Very small directories where all entries can be shipped in one call will not have the problem.
+Some kernel versions have a bug which causes directory listings to result in an endless READDIR sequence. Very small directories where all entries can be shipped in one call will not have the problem.
 The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anything in between has the bug. RHEL 8.4 is known to have this kernel version.
 
 #### Workaround: Downgrading or upgrading the kernel
-Downgrading or upgrading the kernel to anytyhing outside the affected kernel will resolve the issue
-
-## df and find command shows inconsistent results on clients other than where the writes happen
-This is a known issue. Microsoft is actively working to resolve it.
-
-## Application fails with error "Underlying file changed by an external force" when using exclusive OPEN 
-This is a known issue. Microsoft is actively working to resolve it.
+Downgrading or upgrading the kernel to anything outside the affected kernel will resolve the issue
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

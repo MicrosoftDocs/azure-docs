@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/29/2020
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -108,6 +108,7 @@ Azure regions where such an active/active deployment should be possible without 
 - East US (two of the three zones)
 - South Central US (two of the three zones)
 - UK South (two of the three zones)
+- Southeast Asia
 
 Azure regions where this SAP deployment architecture across zones is not recommended are:
 
@@ -130,7 +131,7 @@ The following considerations apply for this configuration:
 - For the load balancers of the failover clusters of SAP Central Services and the DBMS layer, you need to use the [Standard SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). The Basic Load Balancer won't work across zones.
 - The Azure virtual network that you deployed to host the SAP system, together with its subnets, is stretched across zones. You don't need separate virtual networks for each zone.
 - For all virtual machines you deploy, you need to use [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks aren't supported for zonal deployments.
-- Azure Premium Storage, [Ultra SSD storage](../../disks-types.md#ultra-disk), or ANF don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
+- Azure Premium Storage, [Ultra SSD storage](../../disks-types.md#ultra-disks), or ANF don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
 - The same is true for the shared sapmnt directory, which is a shared disk (Windows), a CIFS share (Windows), or an NFS share (Linux). You need to use a technology that replicates these shared disks or shares between the zones. These technologies are supported:
   - For Windows, a cluster solution that uses SIOS DataKeeper, as documented in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
   - For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -149,7 +150,6 @@ If you can't find an acceptable delta between the network latency within one zon
 
 Azure regions where this type of deployment architecture across different zones may be preferable are:
 
-- Southeast Asia
 - Australia East
 - Brazil South
 - Germany West Central
@@ -170,7 +170,7 @@ The following considerations apply for this configuration:
 - For the load balancers of the failover clusters of SAP Central Services and the DBMS layer, you need to use the [Standard SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). The Basic Load Balancer won't work across zones.
 - The Azure virtual network that you deployed to host the SAP system, together with its subnets, is stretched across zones. You don't need separate virtual networks for each zone.
 - For all virtual machines you deploy, you need to use [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks aren't supported for zonal deployments.
-- Azure Premium Storage, [Ultra SSD storage](../../disks-types.md#ultra-disk), or ANF don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
+- Azure Premium Storage, [Ultra SSD storage](../../disks-types.md#ultra-disks), or ANF don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
 - The same is true for the shared sapmnt directory, which is a shared disk (Windows), a CIFS share (Windows), or an NFS share (Linux). You need to use a technology that replicates these shared disks or shares between the zones. These technologies are supported:
 	- For Windows, a cluster solution that uses SIOS DataKeeper, as documented in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
 	- For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -200,7 +200,7 @@ The following considerations apply for this configuration:
 - For the load balancers of the failover clusters of SAP Central Services and the DBMS layer, you need to use the [Standard SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). The Basic Load Balancer won't work across zones.
 - The Azure virtual network that you deployed to host the SAP system, together with its subnets, is stretched across zones. You don't need separate virtual networks for each zone.
 - For all virtual machines you deploy, you need to use [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks aren't supported for zonal deployments.
-- Azure Premium Storage and [Ultra SSD storage](../../disks-types.md#ultra-disk) don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
+- Azure Premium Storage and [Ultra SSD storage](../../disks-types.md#ultra-disks) don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
 - The same is true for the shared sapmnt directory, which is a shared disk (Windows), a CIFS share (Windows), or an NFS share (Linux). You need to use a technology that replicates these shared disks or shares between the zones. These technologies are supported:
 	- For Windows, a cluster solution that uses SIOS DataKeeper, as documented in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
 	- For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).

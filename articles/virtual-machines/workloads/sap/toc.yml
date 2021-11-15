@@ -102,6 +102,14 @@
     href: sap-deployment-checklist.md 
   - name: Deploy SAP NetWeaver applications
     href: deployment-guide.md 
+  - name: Azure VM Extension for SAP
+    items:
+    - name: Prerequisites Azure VM Extension for SAP
+      href: vm-extension-for-sap.md
+    - name: Standard version of Azure VM Extension for SAP
+      href: vm-extension-for-sap-standard.md
+    - name: New version of Azure VM Extension for SAP
+      href: vm-extension-for-sap-new.md
   - name: Plan and implement SAP NetWeaver on Azure
     href: planning-guide.md
   - name: SAP Business One on Azure VMs
@@ -154,6 +162,8 @@
       items:    
       - name: About SAP HANA database backup in Azure VMs
         href: ../../../backup/sap-hana-db-about.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Azure Backup architecture for SAP HANA backup
+        href: ../../../backup/azure-backup-architecture-for-sap-hana-backup.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: Tutorial - back up SAP HANA databases in Azure VMs
         href: ../../../backup/tutorial-backup-sap-hana-db.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: FAQ for database backups
@@ -260,6 +270,8 @@
         href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md              
     - name: SAP with file share
       items:               
+      - name: Install HA SAP NetWeaver with Azure Files SMB
+        href: high-availability-guide-windows-azure-files-smb.md
       - name: Install HA SAP NetWeaver with Azure NetApp Files (SMB)
         href: high-availability-guide-windows-netapp-files-smb.md     
       - name: SAP ASCS/SCS instance with WSFC and SOFS file share
@@ -340,9 +352,9 @@
       href: /power-bi/desktop-sap-bw-connector
     - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
       href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
-  - name: Azure Sentinel threat monitoring
+  - name: Microsoft Sentinel threat monitoring
     items:
-      - name: Deploy the Azure Sentinel solution for SAP
+      - name: Deploy the Microsoft Sentinel solution for SAP
         href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
       - name: Detailed requirements
         href: ../../../sentinel/sap-solution-detailed-requirements.md

@@ -1,17 +1,17 @@
 ---
-title: Copy data from Amazon Simple Storage Service (S3)
+title: Copy and transform data in Amazon Simple Storage Service (S3)
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores by using Azure Data Factory.
+description: Learn how to copy data from Amazon Simple Storage Service (S3), and transform data in Amazon Simple Storage Service (S3) using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 10/15/2021
 ---
 
-# Copy data from Amazon Simple Storage Service by using Azure Data Factory
+# Copy and transform data in Amazon Simple Storage Service using Azure Data Factory or Azure Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 >
 > * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
@@ -19,10 +19,10 @@ ms.date: 08/30/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data from Amazon Simple Storage Service (Amazon S3). To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity to copy data from Amazon Simple Storage Service (Amazon S3), and use Data Flow to transform data in Amazon S3. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!TIP]
->To learn more about the data migration scenario from Amazon S3 to Azure Storage, see [Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md).
+>To learn more about the data migration scenario from Amazon S3 to Azure Storage, see [Migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md).
 
 ## Supported capabilities
 
@@ -85,8 +85,8 @@ The following properties are supported for an Amazon S3 linked service:
 | type | The **type** property must be set to **AmazonS3**. | Yes |
 | authenticationType | Specify the authentication type used to connect to Amazon S3. You can choose to use access keys for an AWS Identity and Access Management (IAM) account, or [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).<br>Allowed values are: `AccessKey` (default) and `TemporarySecurityCredentials`. |No |
 | accessKeyId | ID of the secret access key. |Yes |
-| secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| sessionToken | Applicable when using [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) authentication. Learn how to [request temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) from AWS.<br>Note AWS temporary credential expires between 15 minutes to 36 hours based on settings. Make sure your credential is valid when activity executes， especially for operationalized workload - for example, you can refresh it periodically and store it in Azure Key Vault.<br>Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| sessionToken | Applicable when using [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) authentication. Learn how to [request temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) from AWS.<br>Note AWS temporary credential expires between 15 minutes to 36 hours based on settings. Make sure your credential is valid when activity executes， especially for operationalized workload - for example, you can refresh it periodically and store it in Azure Key Vault.<br>Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | serviceUrl | Specify the custom S3 endpoint `https://<service url>`. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
@@ -269,13 +269,88 @@ This section describes the resulting behavior of using a file list path in a Cop
 
 Assume that you have the following source folder structure and want to copy the files in bold:
 
-| Sample source structure                                      | Content in FileListToCopy.txt                             | Data Factory configuration                                            |
+| Sample source structure                                      | Content in FileListToCopy.txt                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Bucket: `bucket`<br>- Folder path: `FolderA`<br><br>**In Copy activity source:**<br>- File list path: `bucket/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line, with the relative path to the path configured in the dataset. |
 
 ## Preserve metadata during copy
 
 When you copy files from Amazon S3 to Azure Data Lake Storage Gen2 or Azure Blob storage, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
+
+## Mapping data flow properties
+
+When you're transforming data in mapping data flows, you can read files from Amazon S3 in the following formats:
+
+- [Avro](format-avro.md#mapping-data-flow-properties)
+- [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
+- [Delta](format-delta.md#mapping-data-flow-properties)
+- [Excel](format-excel.md#mapping-data-flow-properties)
+- [JSON](format-json.md#mapping-data-flow-properties)
+- [Parquet](format-parquet.md#mapping-data-flow-properties)
+
+Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md).
+
+> [!NOTE]
+> The Amazon S3 source transformation is only supported in the **Azure Synapse Analytics** workspace now.
+
+### Source transformation
+
+In source transformation, you can read from a container, folder, or individual file in Amazon S3. Use the **Source options** tab to manage how the files are read. 
+
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Screenshot of Source options.":::
+
+**Wildcard paths:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
+
+From your source container, choose a series of files that match a pattern. Only a container can be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
+
+Wildcard examples:
+
+- `*` Represents any set of characters.
+- `**` Represents recursive directory nesting.
+- `?` Replaces one character.
+- `[]` Matches one or more characters in the brackets.
+
+- `/data/sales/**/*.csv` Gets all .csv files under /data/sales.
+- `/data/sales/20??/**/` Gets all files in the 20th century.
+- `/data/sales/*/*/*.csv` Gets .csv files two levels under /data/sales.
+- `/data/sales/2004/*/12/[XY]1?.csv` Gets all .csv files in December 2004 starting with X or Y prefixed by a two-digit number.
+
+**Partition root path:** If you have partitioned folders in your file source with  a `key=value` format (for example, `year=2019`), then you can assign the top level of that partition folder tree to a column name in your data flow's data stream.
+
+First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you want to read.
+
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Screenshot of partition source file settings.":::
+
+Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
+
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Screenshot of partition root path.":::
+
+**List of files:** This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.
+
+**Column to store file name:** Store the name of the source file in a column in your data. Enter a new column name here to store the file name string.
+
+**After completion:** Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative.
+
+To move source files to another location post-processing, first select "Move" for file operation. Then, set the "from" directory. If you're not using any wildcards for your path, then the "from" setting will be the same folder as your source folder.
+
+If you have a source path with wildcard, your syntax will look like this:
+
+`/data/sales/20??/**/*.csv`
+
+You can specify "from" as:
+
+`/data/sales`
+
+And you can specify "to" as:
+
+`/backup/priorSales`
+
+In this case, all files that were sourced under `/data/sales` are moved to `/backup/priorSales`.
+
+> [!NOTE]
+> File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *do not* run in Data Flow debug mode.
+
+**Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All datetimes are in UTC. 
 
 ## Lookup activity properties
 
@@ -292,7 +367,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as is for backward compatibility. We suggest that you use the new model mentioned earlier. The Data Factory authoring UI has switched to generating the new model.
+>The following models are still supported as is for backward compatibility. We suggest that you use the new model mentioned earlier. The authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -415,4 +490,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ```
 
 ## Next steps
-For a list of data stores that the Copy activity in Azure Data Factory supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that the Copy activity supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

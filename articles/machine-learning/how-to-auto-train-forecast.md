@@ -6,10 +6,10 @@ services: machine-learning
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
-ms.date: 06/11/2021
+ms.date: 10/21/2021
 ---
 
 # Set up AutoML to train a time-series forecasting model with Python
@@ -140,9 +140,9 @@ The following table summarizes these additional parameters. See the [Forecasting
 |-------|-------|-------|
 |`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
 |`forecast_horizon`|Defines how many periods forward you would like to forecast. The horizon is in units of the time series frequency. Units are based on the time interval of your training data, for example, monthly, weekly that the forecaster should predict out.|✓|
-|`enable_dnn`|[Enable Forecasting DNNs]().||
-|`time_series_id_column_names`|The column name(s) used to uniquely identify the time series in data that has multiple rows with the same timestamp. If time series identifiers are not defined, the data set is assumed to be one time-series. To learn more about single time-series, see the [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
-|`freq`| The time series dataset frequency. This parameter represents the period with which events are expected to occur, such as daily, weekly, yearly, etc. The frequency must be a [pandas offset alias](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). Learn more about [frequency].(#frequency--target-data-aggregation)||
+|`enable_dnn`|[Enable Forecasting DNNs](#enable-deep-learning).||
+|`time_series_id_column_names`|The column name(s) used to uniquely identify the time series in data that has multiple rows with the same timestamp. If time series identifiers are not defined, the data set is assumed to be one time-series. To learn more about single time-series, see the [energy_demand_notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).||
+|`freq`| The time series dataset frequency. This parameter represents the period with which events are expected to occur, such as daily, weekly, yearly, etc. The frequency must be a [pandas offset alias](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). Learn more about [frequency].(#frequency-target-data-aggregation)||
 |`target_lags`|Number of rows to lag the target values based on the frequency of the data. The lag is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependent variable doesn't match up or correlate by default. ||
 |`feature_lags`| The features to lag will be automatically decided by automated ML when `target_lags` are set and `feature_lags` is set to `auto`. Enabling feature lags may help to improve accuracy. Feature lags are disabled by default. ||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model. Learn more about [target rolling window aggregation](#target-rolling-window-aggregation).||
@@ -285,7 +285,7 @@ Supported aggregation operations for target column values include:
 ### Enable deep learning
 
 > [!NOTE]
-> DNN support for forecasting in Automated Machine Learning is in **preview** and not supported for local runs or runs intiated in Databricks.
+> DNN support for forecasting in Automated Machine Learning is in **preview** and not supported for local runs or runs initiated in Databricks.
 
 You can also apply deep learning with deep neural networks, DNNs, to improve the scores of your model. Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
 
@@ -307,7 +307,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-View the [Beverage Production Forecasting notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example using DNNs.
+View the [Beverage Production Forecasting notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example using DNNs.
 
 ### Target rolling window aggregation
 Often the best information a forecaster can have is the recent value of the target.  Target rolling window aggregations allow you to add a rolling aggregation of data values as features. Generating and using these features as extra contextual data helps with the accuracy of the train model.
@@ -318,7 +318,7 @@ The table shows resulting feature engineering that occurs when window aggregatio
 
 ![target rolling window](./media/how-to-auto-train-forecast/target-roll.svg)
 
-View a Python code example applying the [target rolling window aggregate feature](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+View a Python code example applying the [target rolling window aggregate feature](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 
 ### Short series handling
 
@@ -358,7 +358,7 @@ ws = Workspace.from_config()
 experiment = Experiment(ws, "Tutorial-automl-forecasting")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
-```
+``` 
  
 ## Forecasting with best model
 
@@ -412,15 +412,104 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 > [!NOTE]
 > In-sample predictions are not supported for forecasting with automated ML when `target_lags` and/or `target_rolling_window_size` are enabled.
 
+## Forecasting at scale 
+
+There are scenarios where a single machine learning model is insufficient and multiple machine learning models are needed. For instance, predicting sales for each individual store for a brand, or tailoring an experience to individual users. Building a model for each instance can lead to improved results on many machine learning problems. 
+
+Grouping is a concept in time series forecasting that allows time series to be combined to train an individual model per group. This approach can be particularly helpful if you have time series which require smoothing, filling or entities in the group that can benefit from history or trends from other entities. Many models and hierarchical time series forecasting are solutions powered by automated machine learning for these large scale forecasting scenarios. 
+
+### Many models
+
+The Azure Machine Learning many models solution with automated machine learning allows users to train and manage millions of models in parallel. Many models The solution accelerator leverages [Azure Machine Learning pipelines](concept-ml-pipelines.md) to train the model. Specifically, a [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) object and [ParalleRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) are used and require specific configuration parameters set through the [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig). 
+
+
+The following diagram shows the workflow for the many models solution. 
+
+![Many models concept diagram](./media/how-to-auto-train-forecast/many-models.svg)
+
+The following code demonstrates the key parameters users need to set up their many models run.
+
+```python
+from azureml.train.automl.runtime._many_models.many_models_parameters import ManyModelsTrainParameters
+
+partition_column_names = ['Store', 'Brand']
+automl_settings = {"task" : 'forecasting',
+                   "primary_metric" : 'normalized_root_mean_squared_error',
+                   "iteration_timeout_minutes" : 10, #This needs to be changed based on the dataset. Explore how long training is taking before setting this value 
+                   "iterations" : 15,
+                   "experiment_timeout_hours" : 1,
+                   "label_column_name" : 'Quantity',
+                   "n_cross_validations" : 3,
+                   "time_column_name": 'WeekStarting',
+                   "max_horizon" : 6,
+                   "track_child_runs": False,
+                   "pipeline_fetch_max_batch_size": 15,}
+
+mm_paramters = ManyModelsTrainParameters(automl_settings=automl_settings, partition_column_names=partition_column_names)
+
+```
+
+### Hierarchical time series forecasting
+
+In most applications, customers have a need to understand their forecasts at a macro and micro level of the business; whether that be predicting sales of products at different geographic locations, or understanding the expected workforce demand for different organizations at a company. The ability to train a machine learning model to intelligently forecast on hierarchy data is essential. 
+
+A hierarchical time series is a structure in which each of the unique series are arranged into a hierarchy based on dimensions such as, geography or product type. The following example shows data with unique attributes that form a hierarchy. Our hierarchy is defined by: the product type such as headphones or tablets, the product category which splits product types into accessories and devices, and the region the products are sold in. 
+
+![Example raw data table for hierarchical data](./media/how-to-auto-train-forecast/hierarchy-data-table.svg)
+ 
+To further visualize this, the leaf levels of the hierarchy contain all the time series with unique combinations of attribute values. Each higher level in the hierarchy considers one less dimension for defining the time series and aggregates each set of child nodes from the lower level into a parent node.
+ 
+![Hierarchy visual for data](./media/how-to-auto-train-forecast/data-tree.svg)
+
+The hierarchical time series solution is built on top of the Many Models Solution and share a similar configuration setup.
+
+The following code demonstrates the key parameters to set up your hierarchical time series forecasting runs. 
+
+```python
+
+from azureml.train.automl.runtime._hts.hts_parameters import HTSTrainParameters
+
+model_explainability = True
+
+engineered_explanations = False # Define your hierarchy. Adjust the settings below based on your dataset.
+hierarchy = ["state", "store_id", "product_category", "SKU"]
+training_level = "SKU"# Set your forecast parameters. Adjust the settings below based on your dataset.
+time_column_name = "date"
+label_column_name = "quantity"
+forecast_horizon = 7
+
+
+automl_settings = {"task" : "forecasting",
+                   "primary_metric" : "normalized_root_mean_squared_error",
+                   "label_column_name": label_column_name,
+                   "time_column_name": time_column_name,
+                   "forecast_horizon": forecast_horizon,
+                   "hierarchy_column_names": hierarchy,
+                   "hierarchy_training_level": training_level,
+                   "track_child_runs": False,
+                   "pipeline_fetch_max_batch_size": 15,
+                   "model_explainability": model_explainability,# The following settings are specific to this sample and should be adjusted according to your own needs.
+                   "iteration_timeout_minutes" : 10,
+                   "iterations" : 10,
+                   "n_cross_validations": 2}
+
+hts_parameters = HTSTrainParameters(
+    automl_settings=automl_settings,
+    hierarchy_column_names=hierarchy,
+    training_level=training_level,
+    enable_engineered_explanations=engineered_explanations
+)
+```
+
 ## Example notebooks
 
-See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for detailed code examples of advanced forecasting configuration including:
+See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml) for detailed code examples of advanced forecasting configuration including:
 
-* [holiday detection and featurization](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
-* [rolling-origin cross validation](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-* [configurable lags](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
-* [rolling window aggregate features](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-* [DNN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
+* [holiday detection and featurization](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [rolling-origin cross validation](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [configurable lags](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [rolling window aggregate features](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [DNN](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
 
 ## Next steps
 

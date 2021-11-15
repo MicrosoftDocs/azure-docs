@@ -4,18 +4,17 @@ titleSuffix: Azure Bastion
 description: Learn how to create an Azure Bastion host from virtual machine settings and connect to the VM securely through your browser via private IP address.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
-
+ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Configure Azure Bastion from VM settings
 
-This quickstart article shows you how to configure Azure Bastion based on your VM settings in the Azure portal, and then connect to a VM via private IP address. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. The VM doesn't need a public IP address, client software, agent, or a special configuration. If you don't need the public IP address on your VM for anything else, you can remove it. You then connect to your VM through the portal using the private IP address. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+This quickstart article shows you how to configure Azure Bastion based on your VM settings in the Azure portal, and then connect to a VM via private IP address. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. The VM doesn't need a public IP address, client software, agent, or a special configuration. If you don't need the public IP address on your VM for anything else, you can remove it. You then connect to your VM through the portal using the private IP address. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md) 
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -60,7 +59,7 @@ You can use the following example values when creating this configuration, or yo
 | --- | --- |
 | Name | VNet1-bastion |
 | + Subnet Name | AzureBastionSubnet |
-| AzureBastionSubnet addresses | A subnet within your VNet address space with a subnet mask /27 or larger.<br> For example, 10.1.1.0/26.  |
+| AzureBastionSubnet addresses | A subnet within your VNet address space with a subnet mask /26 or larger.<br> For example, 10.1.1.0/26.  |
 | Tier/SKU | Standard |
 | Public IP address |  Create new |
 | Public IP address name | VNet1-ip  |
@@ -86,15 +85,15 @@ There are a few different ways to configure a bastion host. In the following ste
 
    :::image type="content" source="./media/quickstart-host-portal/create-step-1.png" alt-text="Screenshot of step 1 prepopulated settings." lightbox="./media/quickstart-host-portal/create-step-1.png":::
 
-1. On the **Connect using Azure Bastion** page, **Step 2**, configure the subnet values. The AzureBastionSubnet address space is pre-populated with a suggested address space. The AzureBastionSubnet must have an address space of /27 or larger (/26, /25, etc.). We recommend using a /26 so that host scaling is not limited. When you finish configuring this setting, click **Create Subnet** to create the AzureBastionSubnet.
+1. On the **Connect using Azure Bastion** page, **Step 2**, configure the subnet values. The AzureBastionSubnet address space is pre-populated with a suggested address space. The AzureBastionSubnet must have an address space of /26 or larger (/25, /24, etc.). We recommend using a /26 so that host scaling is not limited. When you finish configuring this setting, click **Create Subnet** to create the AzureBastionSubnet.
 
      :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Screenshot of create the Bastion subnet.":::
 
 1. After the subnet creates, the page advances automatically to **Step 3**. For Step 3, use the following values:
 
    * **Name:** Name the bastion host.
-   * **Tier:** The tier is the SKU. For this exercise, select **Standard** from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
-   * **Instance count:** This is the setting for host scaling. Use the slider to configure. If you specify the Basic tier SKU, you are limited to 2 instances and cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). Instance count is in Preview and relies on the Standard SKU. In this quickstart, you can select the instance count you'd prefer, keeping in mind any scale unit [pricing](https://azure.microsoft.com/pricing/details/azure-bastion) considerations.
+   * **Tier:** The tier is the SKU. For this exercise, select **Standard** from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus).
+   * **Instance count:** This is the setting for host scaling. Use the slider to configure. If you specify the Basic tier SKU, you are limited to 2 instances and cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). Instance count relies on the Standard SKU. In this quickstart, you can select the instance count you'd prefer, keeping in mind any scale unit [pricing](https://azure.microsoft.com/pricing/details/azure-bastion) considerations.
    * **Public IP address:** Select **Create new**.
    * **Public IP address name:** The name of the Public IP address resource.
    * **Public IP address SKU:** Pre-configured as **Standard**.

@@ -1,16 +1,16 @@
 ---
-title: Copy data from and to ODBC data stores using Azure Data Factory 
+title: Copy data from and to ODBC data stores
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from and to ODBC data stores by using a copy activity in an Azure Data Factory pipeline.
+description: Learn how to copy data from and to ODBC data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
-# Copy data from and to ODBC data stores using Azure Data Factory
+# Copy data from and to ODBC data stores using Azure Data Factory or Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-odbc-connector.md)
 > * [Current version](connector-odbc.md)
@@ -27,7 +27,7 @@ This ODBC connector is supported for the following activities:
 
 You can copy data from ODBC source to any supported sink data store, or copy from any supported source data store to ODBC sink. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this ODBC connector supports copying data from/to **any ODBC-compatible data stores** using **Basic** or **Anonymous** authentication. A **64-bit ODBC driver** is required. For ODBC sink, ADF support ODBC version 2.0 standard.
+Specifically, this ODBC connector supports copying data from/to **any ODBC-compatible data stores** using **Basic** or **Anonymous** authentication. A **64-bit ODBC driver** is required. For ODBC sink, the service support ODBC version 2.0 standard.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ The following properties are supported for ODBC linked service:
 | connectionString | The connection string excluding the credential portion. You can specify the connection string with pattern like `Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;`, or use the system DSN (Data Source Name) you set up on the Integration Runtime machine with `DSN=<name of the DSN on IR machine>;` (you need still specify the credential portion in linked service accordingly).<br>You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.| Yes |
 | authenticationType | Type of authentication used to connect to the ODBC data store.<br/>Allowed values are: **Basic** and **Anonymous**. | Yes |
 | userName | Specify user name if you are using Basic authentication. | No |
-| password | Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credential | The access credential portion of the connection string specified in driver-specific property-value format. Example: `"RefreshToken=<secret refresh token>;"`. Mark this field as a SecureString. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
@@ -267,4 +267,4 @@ To troubleshoot connection issues, use the **Diagnostics** tab of **Integration 
 5. Click **Test connection** to test the connection to the data store.
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

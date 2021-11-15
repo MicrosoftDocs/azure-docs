@@ -124,7 +124,7 @@ In the Azure portal, create an Azure Synapse workspace:
 
 ## STEP 4: Grant the workspace MSI access to the default storage container
 
-To run pipelines and perform system tasks, Azure Synapse requires that the workspace managed service identity (MSI) needs access to `container1` in the default ADLS Gen2 account. For more information, see [Azure Synapse workspace managed identity](synapse-workspace-managed-identity.md).
+To run pipelines and perform system tasks, Azure Synapse requires that the workspace managed service identity (MSI) needs access to `container1` in the default ADLS Gen2 account. For more information, see [Azure Synapse workspace managed identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics).
 
 - Open the Azure portal
 - Locate the storage account, `storage1`, and then `container1`
@@ -134,7 +134,7 @@ To run pipelines and perform system tasks, Azure Synapse requires that the works
     
     | Setting | Value |
     | --- | --- |
-    | Role | Storage Blob Contributor |
+    | Role | Storage Blob Data Contributor |
     | Assign access to | MANAGEDIDENTITY |
     | Members | managed identity name  |
 
@@ -176,16 +176,15 @@ The workspace creator is automatically set up as the SQL Active Directory Admin 
 
 ## STEP 7: Grant access to SQL pools
 
-By default, all users assigned the Synapse Administrator role are also assigned the SQL `db_owner` role on the serverless SQL pool, 'Built-in', and all its databases.
+By default, all users assigned the Synapse Administrator role are also assigned the SQL `db_owner` role on the serverless SQL pools in the workspace.
 
-Access to SQL pools for other users and for the workspace MSI is controlled using SQL permissions.  Assigning SQL permissions requires that SQL scripts are run on each SQL database after creation.  There are three cases that require you run these scripts:
+Access to SQL pools for other users is controlled using SQL permissions.  Assigning SQL permissions requires that SQL scripts are run on each SQL database after creation.  There are three cases that require you run these scripts:
 1. Granting other users access to the serverless SQL pool, 'Built-in', and its databases
-2. Granting any user access to dedicated pool databases
-3. Granting the workspace MSI access to a SQL pool database to enable pipelines that require SQL pool access to run successfully.
+2. Granting any user access to dedicated SQL pool databases
 
 Example SQL scripts are included below.
 
-To grant access to a dedicated SQL pool database, the scripts can be run by the workspace creator or any member of the `workspace1_SQLAdmins` group.  
+To grant access to a dedicated SQL pool database, the scripts can be run by the workspace creator or any member of the `workspace1_SynapseAdministrators` group.  
 
 To grant access to the serverless SQL pool, 'Built-in', the scripts can be run by any member of the `workspace1_SQLAdmins` group or the  `workspace1_SynapseAdministrators` group. 
 
@@ -263,36 +262,6 @@ To grant access to a **single** dedicated SQL pool database, follow these steps 
 
 After creating the users, run queries to validate that the serverless SQL pool can query the storage account.
 
-### STEP 7.3: SQL access control for Azure Synapse pipeline runs
-
-### Workspace managed identity
-
-> [!IMPORTANT]
-> To run pipelines successfully that include datasets or activities that reference a SQL pool, the workspace identity needs to be granted access to the SQL pool.
-
-For more information on the workspace managed identity, see [Azure Synapse workspace managed identity](synapse-workspace-managed-identity.md). Run the following commands on each SQL pool to allow the workspace managed system identity to run pipelines on the SQL pool database(s):  
-
->[!note]
->In the scripts below, for a dedicated SQL pool database, `<databasename>` is the same as the pool name.  For a database in the serverless SQL pool 'Built-in', `<databasename>` is the name of the database.
-
-```sql
---Create a SQL user for the workspace MSI in database
-CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
-
---Granting permission to the identity
-GRANT CONTROL ON DATABASE::<databasename> TO <workspacename>;
-```
-
-This permission can be removed by running the following script on the same SQL pool:
-
-```sql
---Revoke permission granted to the workspace MSI
-REVOKE CONTROL ON DATABASE::<databasename> TO <workspacename>;
-
---Delete the workspace MSI user in the database
-DROP USER [<workspacename>];
-```
-
 ## STEP 8: Add users to security groups
 
 The initial configuration for your access control system is complete.
@@ -315,7 +284,7 @@ Your workspace is now fully configured and secured.
 
 This guide has focused on setting up a basic access control system. You can support more advanced scenarios by creating additional security groups and assigning these groups more granular roles at more specific scopes. Consider the following cases:
 
-**Enable Git-support** for the workspace for more advanced development scenarios including CI/CD.  While in Git mode, Git permissions will determine whether a user can commit changes to their working branch.  Publishing to the service only takes place from the collaboration branch.  Consider creating a security group for developers who need to develop and debug updates in a working branch but don't need  to publish changes to the live service.
+**Enable Git-support** for the workspace for more advanced development scenarios including CI/CD.  While in Git mode, Git permissions and Synapse RBAC will determine whether a user can commit changes to their working branch.  Publishing to the service only takes place from the collaboration branch.  Consider creating a security group for developers who need to develop and debug updates in a working branch but don't need  to publish changes to the live service.
 
 **Restrict developer access** to specific resources.  Create additional finer-grained security groups for developers who need access only to specific resources.  Assign these groups appropriate Azure Synapse roles that are scoped to specific Spark pools, Integration runtimes, or credentials.
 

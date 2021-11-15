@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory or Azure Synapse Analytics
@@ -342,7 +342,7 @@ For general information about Azure storage authentication, see [Authenticate ac
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
      
-2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity. 
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 
 
 These properties are supported for an Azure Blob storage linked service:
@@ -624,7 +624,7 @@ Format specific settings are located in the documentation for that format. For m
 
 In source transformation, you can read from a container, folder, or individual file in Azure Blob storage. Use the **Source options** tab to manage how the files are read. 
 
-![Source options](media/data-flow/sourceOptions1.png "Source options")
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Source options":::
 
 **Wildcard paths:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
 
@@ -646,11 +646,11 @@ Wildcard examples:
 
 First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you want to read.
 
-![Partition source file settings](media/data-flow/partfile2.png "Partition file setting")
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Partition source file settings":::
 
 Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
 
-![Partition root path](media/data-flow/partfile1.png "Partition root path preview")
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Partition root path":::
 
 **List of files:** This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.
 
@@ -683,7 +683,7 @@ In this case, all files that were sourced under `/data/sales` are moved to `/bac
 
 In the sink transformation, you can write to either a container or a folder in Azure Blob storage. Use the **Settings** tab to manage how the files get written.
 
-![Sink options](media/data-flow/file-sink-settings.png "sink options")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Sink options":::
 
 **Clear the folder:** Determines whether or not the destination folder gets cleared before the data is written.
 

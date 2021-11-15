@@ -114,6 +114,8 @@ items:
     items:
     - name: Transform data with mapping data flows
       items:
+      - name: Adventure Works retail example for Synapse pipelines
+        href: tutorial-data-flow-adventure-works-retail-template.md
       - name: Best practices for landing data in the lake with ADLS Gen2
         href: tutorial-data-flow-write-to-lake.md
       - name: Dynamically set column names
@@ -210,8 +212,18 @@ items:
       - name: Data flow monitoring
         href: concepts-data-flow-monitoring.md
       - name: Data flow performance
-        href: concepts-data-flow-performance.md
-        displayName: merge, timeout
+        items:
+          - name: Overview
+            href: concepts-data-flow-performance.md
+            displayName: merge, timeout
+          - name: Optimizing sources
+            href: concepts-data-flow-performance-sources.md
+          - name: Optimizing sinks
+            href: concepts-data-flow-performance-sinks.md
+          - name: Optimizing transformations
+            href: concepts-data-flow-performance-transformations.md
+          - name: Using data flows in pipelines
+            href: concepts-data-flow-performance-pipelines.md
       - name: Integration Runtime performance
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
@@ -247,15 +259,33 @@ items:
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
-      href: continuous-integration-deployment.md
+      items:
+      - name: Overview
+        href: continuous-integration-delivery.md
+      - name: Automate with Azure Pipelines releases
+        href: continuous-integration-delivery-automate-azure-pipelines.md
+      - name: Manually promote a Resource Manager template for each environment
+        href: continuous-integration-delivery-manual-promotion.md
+      - name: Use custom parameters with a Resource Manager template
+        href: continuous-integration-delivery-resource-manager-custom-parameters.md
+      - name: Linked Resource Manager templates
+        href: continuous-integration-delivery-linked-templates.md
+      - name: Using a hotfix production environment
+        href: continuous-integration-delivery-hotfix-environment.md
+      - name: Sample pre- and post-deployment script
+        href: continuous-integration-delivery-sample-script.md
     - name: Automated publishing for CI/CD
-      href: continuous-integration-deployment-improvements.md
+      href: continuous-integration-delivery-improvements.md
   - name: Connectors
     items:
     - name: Connector overview
       href: connector-overview.md
     - name: Amazon Marketplace Web Service
       href: connector-amazon-marketplace-web-service.md
+    - name: Amazon RDS for Oracle
+      href: connector-amazon-rds-for-oracle.md
+    - name: Amazon RDS for SQL Server 
+      href: connector-amazon-rds-for-sql-server.md          
     - name: Amazon Redshift
       href: connector-amazon-redshift.md
     - name: Amazon S3
@@ -562,6 +592,8 @@ items:
       href: control-flow-append-variable-activity.md
     - name: Execute Pipeline activity
       href: control-flow-execute-pipeline-activity.md
+    - name: Fail activity
+      href: control-flow-fail-activity.md
     - name: Filter activity
       href: control-flow-filter-activity.md
     - name: For Each activity
@@ -634,6 +666,8 @@ items:
       href: data-flow-sort.md
     - name: Source
       href: data-flow-source.md
+    - name: Stringify
+      href: data-flow-stringify.md
     - name: Surrogate key
       href: data-flow-surrogate-key.md
     - name: Union
@@ -673,6 +707,8 @@ items:
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
       displayName: self hosted
+    - name: Credentials in Data Factory
+      href: credentials.md
     - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
     - name: Encrypt data factory with customer managed key
@@ -688,15 +724,35 @@ items:
     - name: Monitor visually
       href: monitor-visually.md
     - name: Monitor with Azure Monitor
-      href: monitor-using-azure-monitor.md
-    - name: Monitor SSIS with Azure Monitor
-      href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
+      items:
+      - name: Overview
+        href: monitor-using-azure-monitor.md
+      - name: Azure Data Factory metrics and alerts
+        href: monitor-metrics-alerts.md
+      - name: Configure diagnostics settings and workspace
+        href: monitor-configure-diagnostics.md
+      - name: Setup diagnostics logs via the Azure Monitor REST API
+        href: monitor-logs-rest.md
+      - name: Monitor SSIS operations with Azure Monitor
+        href: monitor-ssis.md
+      - name: Schema of logs and events
+        href: monitor-schema-logs-events.md
+      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
+        href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
+    - name: Pipeline failure and error handling
+      href: tutorial-pipeline-failure-error-handling.md
+    - name: Monitor pipelines with email notifications
+      href: how-to-send-email.md
+    - name: Monitor pipelines with Microsoft Teams notifications
+      href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
+    - name: Run Data Pipelines with Service Level Agreements
+      href: tutorial-operationalize-pipelines.md
     - name: Reconfigure Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
     - name: Copy or clone a data factory
@@ -727,7 +783,22 @@ items:
           displayName: self hosted
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
-      href: create-azure-ssis-integration-runtime.md
+      items:
+        - name: Overview and prerequisites
+          href: create-azure-ssis-integration-runtime.md
+          displayName: Azure SSIS
+        - name: Create with the Azure portal
+          href: create-azure-ssis-integration-runtime-portal.md
+          displayName: Azure SSIS
+        - name: Create with PowerShell
+          href: create-azure-ssis-integration-runtime-powershell.md
+          displayName: Azure SSIS
+        - name: Create with a Resource Manager template
+          href: create-azure-ssis-integration-runtime-resource-manager-template.md
+          displayName: Azure SSIS
+        - name: Deploy and run SSIS packages
+          href: create-azure-ssis-integration-runtime-deploy-packages.md
+          displayName: Azure SSIS
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT
@@ -737,14 +808,31 @@ items:
     - name: Run SSIS packages with Azure-enabled dtexec
       href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
     - name: Run SSIS packages with Execute SSIS Package activity
-      href: how-to-invoke-ssis-package-ssis-activity.md
-      displayName: retry, timeout
+      items:
+        - name: Using the Azure Data Factory Studio portal UI
+          href: how-to-invoke-ssis-package-ssis-activity.md
+          displayName: retry, timeout
+        - name: Using PowerShell
+          href: how-to-invoke-ssis-package-ssis-activity-powershell.md
+          displayName: retry, timeout
     - name: Run SSIS packages with Stored Procedure activity
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS IR to a virtual network
-      href: join-azure-ssis-integration-runtime-virtual-network.md
+      items:
+        - name: Overview      
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Virtual network configuration
+          href: azure-ssis-integration-runtime-virtual-network-configuration.md
+        - name: Express virtual network injection
+          href: azure-ssis-integration-runtime-express-virtual-network-injection.md
+        - name: Standard virtual network injection
+          href: azure-ssis-integration-runtime-standard-virtual-network-injection.md
+        - name: Using Azure Data Factory UI
+          href: join-azure-ssis-integration-runtime-virtual-network-ui.md
+        - name: Using Azure PowerShell
+          href: join-azure-ssis-integration-runtime-virtual-network-powershell.md
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
@@ -794,10 +882,16 @@ items:
     items:
     - name: Connect a Data Factory to Azure Purview
       href: connect-data-factory-to-azure-purview.md
+    - name: Access a secured Azure Purview account
+      href: ./how-to-access-secured-purview-account.md
     - name: Discover and explore data in ADF using Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
-    items:    
+    items: 
+    - name: Send email from a pipeline
+      href: how-to-send-email.md
+    - name: Send Microsoft Teams notifications from a pipeline
+      href: how-to-send-notifications-to-teams.md
     - name: Data migration for data lake & EDW
       items:
       - name: Why Azure Data Factory
@@ -865,21 +959,61 @@ items:
       displayName: diu  
   - name: Troubleshooting guides
     items:
-    - name: Data Factory UX
+    - name: Azure Data Factory Studio
       href: data-factory-ux-troubleshoot-guide.md
     - name: Activities
       href: data-factory-troubleshoot-guide.md
       displayName: timeout
     - name: Connectors
-      href: connector-troubleshoot-guide.md
-      displayName: polybase, timeout
+      items:
+      - name: Overview and general copy activity errors
+        href: connector-troubleshoot-guide.md
+        displayName: polybase, timeout
+      - name: Azure Blob Storage
+        href: connector-troubleshoot-azure-blob-storage.md
+      - name: Azure Cosmos DB (including SQL API)
+        href: connector-troubleshoot-azure-cosmos-db.md
+      - name: Azure Data Lake (Gen1 and Gen2)
+        href: connector-troubleshoot-azure-data-lake.md
+      - name: Azure database for PostgreSQL
+        href: connector-troubleshoot-postgresql.md
+      - name: Azure files
+        href: connector-troubleshoot-azure-files.md
+      - name: Azure Synapse Analytics, Azure SQL Database, and SQL Server
+        href: connector-troubleshoot-synapse-sql.md
+      - name: Azure Table Storage
+        href: connector-troubleshoot-azure-table-storage.md
+      - name: DB2
+        href: connector-troubleshoot-db2.md
+      - name: Delimited text format
+        href: connector-troubleshoot-delimited-text.md
+      - name: Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
+        href: connector-troubleshoot-dynamics-dataverse.md
+      - name: FTP, SFTP, and HTTP
+        href: connector-troubleshoot-ftp-sftp-http.md
+      - name: Hive
+        href: connector-troubleshoot-hive.md  
+      - name: Oracle
+        href: connector-troubleshoot-oracle.md
+      - name: ORC format
+        href: connector-troubleshoot-orc.md
+      - name: Parquet format
+        href: connector-troubleshoot-parquet.md
+      - name: REST
+        href: connector-troubleshoot-rest.md
+      - name: SharePoint Online list
+        href: connector-troubleshoot-sharepoint-online-list.md
+      - name: XML format
+        href: connector-troubleshoot-xml.md
     - name: Pipeline Triggers 
       href: pipeline-trigger-troubleshoot-guide.md 
     - name: Data Flows
       items:
-      - name: Data flows overview
+      - name: Data flow troubleshooting overview
         href: data-flow-troubleshoot-guide.md
         displayName: timeout
+      - name: Data flow errors and messages
+        href: data-flow-troubleshoot-errors.md
       - name: Connector and format
         href: data-flow-troubleshoot-connector-format.md
     - name: Continuous Integration and Deployment 
@@ -941,5 +1075,7 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Request quota increases from support
+    href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits

@@ -10,11 +10,13 @@ ms.author: tchladek
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: identity
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Set up and manage Teams access tokens
 
 > [!IMPORTANT]
-> To enable or disable the custom Teams endpoint experience, [complete and submit this form](https://forms.office.com/r/B8p5KqCH19).
+> This feature is available in preview only. To enable or disable the custom Teams endpoint experience, [complete and submit this form](https://forms.office.com/r/B8p5KqCH19).
 
 In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving an Azure Active Directory (Azure AD) user token. You'll then exchange that token for a Teams access token with the Azure Communication Services Identity SDK. The Teams access token can then be used by the Communication Services Calling SDK to build a custom Teams endpoint.
 
@@ -37,7 +39,7 @@ The following sections will guide you through the steps for administrators, deve
 
 The Administrator role has extended permissions in Azure AD. Members of this role can set up resources and can read information from the Azure portal. In the following diagram, you can see all actions that have to be executed by Administrators.
 
-![Administrator actions to enable custom Teams endpoint experience](./media/teams-identities/teams-identity-admin-overview.png)
+![Administrator actions to enable custom Teams endpoint experience](./media/teams-identities/teams-identity-admin-overview.svg)
 
 1. The Contoso Administrator creates or selects an existing *application* in Azure Active Directory. The property *Supported account types* defines whether users from various tenants can authenticate to the application. The property *Redirect URI* redirects a successful authentication request to the Contoso *server*.
 1. The Contoso Administrator extends the application's manifest with Communication Services VoIP permission. 
@@ -45,8 +47,8 @@ The Administrator role has extended permissions in Azure AD. Members of this rol
 1. The Contoso Administrator can optionally update.
 1. The Contoso Administrator enables the experience by [completing and submitting this form](https://forms.office.com/r/B8p5KqCH19).
 1. The Contoso Administrator creates or selects existing communication services, which will be used for authentication of the exchanging requests. Azure AD user tokens will be exchanged for Teams access tokens. For more information, see [Create and manage Communication Services resources](./create-communication-resource.md).
-1. The Fabrikam Administrator sets up a new service principal for Communication Services in the Fabrikam tenant.
-1. The Fabrikam Administrator grants Communication Services VoIP permission to the Contoso application. This step is required only if the Contoso application isn't verified. 
+1. The Fabrikam Administrator sets up a new service principal for Communication Services in the Fabrikam tenant. This step is required if the application is missing.
+1. The Fabrikam Administrator grants Communication Services VoIP and or `Teams.ManageCalls` permission to the Contoso application. This step is required only if the Contoso application isn't verified. 
 
 ### Step 1: Create an Azure AD application registration or select an Azure AD application 
 
@@ -67,38 +69,22 @@ On the **Authentication** pane of your application, you can see a configured pla
 ### Step 3: (Optional) Update the publisher domain 
 On the **Branding** pane, you can update your publisher domain for the application. This is useful for multitenant applications, where the application will be marked as verified by Azure. For more information, see [Configure an application's publisher domain](../../active-directory/develop/howto-configure-publisher-domain.md).
 
-### Step 4: Define the Communication Services VoIP permission in the application
+### Step 4: Add the Communication Services permissions in the application
 
-Go to the details of the application, select the **Manifest** pane, and then look for the property *requiredResourceAccess*. It's an array of objects that define the application's permissions. Extend the manifest with the VoIP permissions for the first-party application Communication Services. Add following object to the array:
+- Navigate to your AAD app in the Azure portal and select **API permissions**
+- Select **Add Permissions**
+- In the **Add Permissions** menu select **Azure Communication Services**
+- Select the desired permissions **VoIP** and/or **Teams.ManageCalls** and click **Add permissions**
 
-> [!NOTE] 
-> Do not change the GUIDs in the snippet, because they uniquely identify the application and permissions.
+![Permissions part1.](./media/active_directory_permissions.png)
 
-```json
-{
-   "resourceAppId": "1fd5118e-2576-4263-8130-9503064c837a",
-   "resourceAccess": [
-      {
-         "id": "31f1efa3-6f54-4008-ac59-1bf1f0ff9958",
-         "type": "Scope"
-      }
-   ]
-}
-```
+### Step 5: Create or select a Communication Services resource
 
-To persist the changes, select **Save**. You can now see the *Azure Communication Services - VoIP* permission on the **API Permissions** pane.
+Your Communication Services resource is used to authenticate all requests for exchanging Azure AD user tokens for Teams access tokens. You can trigger this exchange by using the Communication Services Identity SDK, which you can authenticate with an access key, or by using Azure role-based access control (RBAC). You can get the access key either in the Azure portal or by configuring Azure RBAC on the **Access control (IAM)** pane.
 
-### Step 5: Enable a custom Teams endpoint experience for the application
+If you want to create a new Communication Services resource, see [Create and manage Communication Services resources](./create-communication-resource.md).
 
-To enable the custom Teams endpoint experience for the application, the Azure AD Administrator [completes and submits this form](https://forms.office.com/r/B8p5KqCH19) .
-
-### Step 6: Create or select a Communication Services resource
-
-Your Communication Services resource is used to authenticate all requests for exchanging Azure AD user tokens for Teams access tokens. You can trigger this exchange by using the Communication Services Identity SDK, which you can authenticate with an access key or by using Azure role-based access control (RBAC). You can get the access key either in the Azure portal or by configuring Azure RBAC on the **Access control (IAM)** pane.
-
-If you want to create new Communication Services resource, see [Create and manage Communication Services resources](./create-communication-resource.md).
-
-### Step 7: Set up a Communication Services service principal
+### Step 6: Set up a Communication Services service principal
 
 To enable a custom Teams endpoint experience in the Fabrikam tenant, the Fabrikam Azure AD Administrator must set up a service principal named Azure Communication Services with application ID *1fd5118e-2576-4263-8130-9503064c837a*. If you don't see this application on your **Enterprise applications** pane in Azure Active Directory, you'll need to add it manually.
 
@@ -126,7 +112,7 @@ After you connect and authenticate to the Azure portal, set up the Communication
 New-AzureADServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
 ```
 
-### Step 8: Provide Administrator consent
+### Step 7: Provide Administrator consent
 
 If the Contoso application isn't verified, the Azure AD Administrator must grant permission to the Contoso application for Communication Services VoIP. The Fabrikam Azure AD Administrator provides consent via a unique URL. 
 
@@ -153,7 +139,7 @@ The Contoso developer needs to set up the *client application* to authenticate u
 
 The developer's required actions are shown in following diagram:
 
-![Diagram of developer actions to enable the custom Teams endpoint experience.](./media/teams-identities/teams-identity-developer-overview.png)
+![Diagram of developer actions to enable the custom Teams endpoint experience.](./media/teams-identities/teams-identity-developer-overview.svg)
 
 1. The Contoso developer configures the MSAL library to authenticate the user for the application that was created earlier by the Administrator for Communication Services VoIP permission.
 1. The Contoso developer initializes the Communication Services Identity SDK and exchanges the incoming Azure AD user token for the Teams access token via the SDK. The Teams access token is then returned to the *client application*.
@@ -163,131 +149,30 @@ By using the Microsoft Authentication Library, developers can acquire Azure AD u
 For more information about setting up environments in public documentation, see [Microsoft Authentication Library overview](../../active-directory/develop/msal-overview.md).
 
 > [!NOTE]
-> The following sections describe how to exchange the Azure AD access token for the Teams access token for the console application in .NET.
+> The following sections describe how to exchange the Azure AD access token for the Teams access token for the console application.
 
-### Create a new application
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [.NET](./includes/manage-teams-identity-net.md)]
+::: zone-end
 
-In a console window, such as cmd, PowerShell, or Bash, use the `dotnet new` command to create a new console app with the name `TeamsAccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file, *Program.cs*.
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript](./includes/manage-teams-identity-js.md)]
+::: zone-end
 
-```console
-dotnet new console -o TeamsAccessTokensQuickstart
-```
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python](./includes/manage-teams-identity-python.md)]
+::: zone-end
 
-Change your directory to the newly created app folder, and use the `dotnet build` command to compile your application.
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java](./includes/manage-teams-identity-java.md)]
+::: zone-end
 
-```console
-cd TeamsAccessTokensQuickstart
-dotnet build
-```
-#### Install the package
-While you're still in the application directory, install the Azure Communication Services Identity library for .NET package by using the `dotnet add package` command.
-
-```console
-dotnet add package Azure.Communication.Identity
-dotnet add package Microsoft.Identity.Client
-```
-
-#### Set up the app framework
-
-From the project directory, do the following:
-
-1. Open the *Program.cs* file in a text editor.
-1. Add a `using` directive to include the following namespaces: 
-    - Azure.Communication
-    - Azure.Communication.Identity
-    - Microsoft.Identity.Client
-1. Update the `Main` method declaration to support `async` code.
-
-To begin, use the following code:
-
-```csharp
-using System;
-using System.Text;
-using Azure.Communication;
-using Azure.Communication.Identity;
-using Microsoft.Identity.Client;
-
-namespace TeamsAccessTokensQuickstart
-{
-    class Program
-    {
-        static async System.Threading.Tasks.Task Main(string[] args)
-        {
-            Console.WriteLine("Azure Communication Services – Teams access tokens quickstart");
-
-            // Quickstart code goes here
-        }
-    }
-}
-```
-
-### Step 1: Receive the Azure AD user token via the MSAL library
-
-Use the MSAL library to authenticate users against Azure AD for the Contoso application with Communication Services VoIP permission. Configure the client for the Contoso application (*parameter applicationId*) in the public cloud (*parameter authority*). The Azure AD user token will be returned to the redirect URI (*parameter redirectUri*). The credentials will be taken from the interactive pop-up window, which opens in your default browser.
-
-> [!NOTE] 
-> The redirect URI has to match the value defined in the application. Check the first step in the Administrator guide to see how to configure the redirect URI.
-
-```csharp
-const string applicationId = "Contoso's_Application_ID";
-const string authority = "https://login.microsoftonline.com/common";
-const string redirectUri = "http://localhost";
-
-var client = PublicClientApplicationBuilder
-                .Create(applicationId)
-                .WithAuthority(authority)
-                .WithRedirectUri(redirectUri)
-                .Build();
-
-const string scope = "https://auth.msft.communication.azure.com/VoIP";
-
-var aadUserToken = await client.AcquireTokenInteractive(new[] { scope }).ExecuteAsync();
-
-Console.WriteLine("\nAuthenticated user: " + aadUserToken.Account.Username);
-Console.WriteLine("AAD user token expires on: " + aadUserToken.ExpiresOn);
-```
-
-The *aadUserToken* variable now carries a valid Azure AD user token, which will be used for the exchange.
-
-### Step 2: Exchange the Azure AD user token for the Teams access token
-
-The valid Azure AD user token authenticates users against Azure AD for the third-party application with Communication Services VoIP permission. The following code is used by the Communication Services Identity SDK to facilitate the exchange of the Azure AD user token for the Teams access token.
-
-> [!NOTE]
-> In the following code, replace "\<Connection-String>" with a valid connection string, or use Azure RBAC for authentication. For more information, see [Quickstart: Create and manage access tokens](./access-tokens.md).
-
-```csharp
-var identityClient = new CommunicationIdentityClient("<Connection-String>");
-var teamsAccessToken = identityClient.ExchangeTeamsToken(aadUserToken.AccessToken);
-
-Console.WriteLine("\nTeams access token expires on: " + teamsAccessToken.Value.ExpiresOn);
-```
-
-If all required conditions are met, you'll get a Teams access token that's valid for 24 hours.
-
-#### Run the code
-Run the application from your application directory with the `dotnet run` command.
-
-```console
-dotnet run
-```
-
-The output of the app describes each action that's completed:
-
-```console
-Azure Communication Services - Teams access tokens quickstart
-
-Authenticated user: john.smith@contoso.com
-Azure AD user token expires on: 6/10/2021 10:13:17 AM +00:00
-
-Teams access token expires on: 6/11/2021 9:13:18 AM +00:00
-```
 
 ## User actions
 
 The user represents the Fabrikam users of the Contoso application. The user experience is shown in following diagram:
 
-![Diagram of user actions to enable the custom Teams endpoint experience.](./media/teams-identities/teams-identity-user-overview.png)
+![Diagram of user actions to enable the custom Teams endpoint experience.](./media/teams-identities/teams-identity-user-overview.svg)
 
 1. The Fabrikam user uses the Contoso *client application* and is prompted to authenticate.
 1. The Contoso *client application* uses the MSAL library to authenticate the user against the Fabrikam Azure AD tenant for the Contoso application with Communication Services VoIP permission. 

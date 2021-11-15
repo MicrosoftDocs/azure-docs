@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/30/2021
 ---
 
 # Data types in Bicep
@@ -44,7 +44,7 @@ var mixedArray = [
 ]
 ```
 
-Arrays in Bicep are 0-based. In the following example, the expression `exampleArray[0]` evaluates to 1 and `exampleArray[2]` evaluates to 3. The index of the indexer may itself be another expression. The expression `exampleArray[index]` evaluates to 2. Integer indexers are only allowed on expression of array types.
+Arrays in Bicep are zero-based. In the following example, the expression `exampleArray[0]` evaluates to 1 and `exampleArray[2]` evaluates to 3. The index of the indexer may itself be another expression. The expression `exampleArray[index]` evaluates to 2. Integer indexers are only allowed on expression of array types.
 
 ```bicep
 var index = 1
@@ -72,15 +72,13 @@ When specifying integer values, don't use quotation marks.
 param exampleInt int = 1
 ```
 
-For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
+In Bicep, integers are 64-bit integers. When passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
 
 Floating point, decimal or binary formats aren't currently supported.
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object must be declared in multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type.
-
-In Bicep, the key isn't enclosed by quotes. Don't use commas to between properties.
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object must be declared in multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type. Don't use commas to between properties.
 
 ```bicep
 param exampleObject object = {
@@ -88,6 +86,23 @@ param exampleObject object = {
   id: '123-abc'
   isCurrent: true
   tier: 1
+}
+```
+
+In Bicep, quotes are optionally allowed on object property keys:
+
+```bicep
+var test = {
+  'my - special. key': 'value'
+}
+```
+
+In the preceding example, quotes are used when the object property keys contain special characters.  For example space, '-', or '.'. The following example shows how to use interpolation in object property keys.
+
+```bicep
+var stringVar = 'example value'
+var objectVar = {
+  '${stringVar}': 'this value'
 }
 ```
 
@@ -102,7 +117,7 @@ var a = {
   }
 }
 
-output result1 string = a.b // returns 'Dev' 
+output result1 string = a.b // returns 'Dev'
 output result2 int = a.c // returns 42
 output result3 bool = a.d.e // returns true
 ```
@@ -126,7 +141,7 @@ output accessorResult string = environmentSettings['dev'].name
 
 ## Strings
 
-In Bicep, strings are marked with singled quotes, and must be declared on a single line. All Unicode characters with codepoints between *0* and *10FFFF* are allowed.
+In Bicep, strings are marked with singled quotes, and must be declared on a single line. All Unicode characters with code points between *0* and *10FFFF* are allowed.
 
 ```bicep
 param exampleString string = 'test value'
@@ -136,20 +151,20 @@ The following table lists the set of reserved characters that must be escaped by
 
 | Escape Sequence | Represented value | Notes |
 |:-|:-|:-|
-| \\ | \ ||
-| \' | ' ||
-| \n | line feed (LF) ||
-| \r | carriage return (CR) ||
-| \t | tab character ||
-| \u{x} | Unicode code point *x* | *x* represents a hexadecimal codepoint value between *0* and *10FFFF* (both inclusive). Leading zeros are allowed. Codepoints above *FFFF* are emitted as a surrogate pair.
-| \$ | $ | Only needs to be escaped if it's followed by *{*. |
+| `\\` | `\` ||
+| `\'` | `'` ||
+| `\n` | line feed (LF) ||
+| `\r` | carriage return (CR) ||
+| `\t` | tab character ||
+| `\u{x}` | Unicode code point `x` | **x** represents a hexadecimal code point value between *0* and *10FFFF* (both inclusive). Leading zeros are allowed. Code points above *FFFF* are emitted as a surrogate pair.
+| `\$` | `$` | Only escape when followed by `{`. |
 
 ```bicep
 // evaluates to "what's up?"
 var myVar = 'what\'s up?'
 ```
 
-All strings in Bicep support interpolation. To inject an expression, surround it by *${* and *}`. Expressions that are referenced can't span multiple lines.
+All strings in Bicep support interpolation. To inject an expression, surround it by `${` and `}`. Expressions that are referenced can't span multiple lines.
 
 ```bicep
 var storageName = 'storage${uniqueString(resourceGroup().id)}
@@ -157,7 +172,7 @@ var storageName = 'storage${uniqueString(resourceGroup().id)}
 
 ## Multi-line strings
 
-In Bicep, multi-line strings are defined between 3 single quote characters (`'''`) followed optionally by a newline (the opening sequence), and 3 single quote characters (`'''` - the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim, and no escaping is necessary or possible.
+In Bicep, multi-line strings are defined between three single quote characters (`'''`) followed optionally by a newline (the opening sequence), and three single quote characters (`'''` - the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim, and no escaping is necessary or possible.
 
 > [!NOTE]
 > Because the Bicep parser reads all characters as is, depending on the line endings of your Bicep file, newlines can be interpreted as either `\r\n` or `\n`.
@@ -211,6 +226,27 @@ param password string
 @secure()
 param configValues object
 ```
+
+## Data type assignability
+
+In Bicep, a value of one type (source type) can be assigned to another type (target type). The following table shows which source type (listed horizontally) can or can't be assigned to which target type (listed vertically). In the table, `X` means assignable, empty space means not assignable, and `?` means only if they types are compatible.
+
+| Types | `any` | `error` | `string` | `number` | `int` | `bool` | `null` | `object` | `array` | named resource | named module | `scope` |
+|-|-|-|-|-|-|-|-|-|-|-|-|-|
+| `any`          |X| |X|X|X|X|X|X|X|X|X|X|
+| `error`        | | | | | | | | | | | | |
+| `string`       |X| |X| | | | | | | | | |
+| `number`       |X| | |X|X| | | | | | | |
+| `int`          |X| | | |X| | | | | | | |
+| `bool`         |X| | | | |X| | | | | | |
+| `null`         |X| | | | | |X| | | | | |
+| `object`       |X| | | | | | |X| | | | |
+| `array`        |X| | | | | | | |X| | | |
+| `resource`     |X| | | | | | | | |X| | |
+| `module`       |X| | | | | | | | | |X| |
+| `scope`        | | | | | | | | | | | |?|
+| **named resource** |X| | | | | | |?| |?| | |
+| **named module**   |X| | | | | | |?| | |?| |
 
 ## Next steps
 

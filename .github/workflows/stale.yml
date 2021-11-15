@@ -2,7 +2,7 @@ name: Mark stale pull requests
 
 on:
   schedule:
-  - cron: "0 */6 * * *"
+  - cron: "0 */4 * * *"
 
 jobs:
   stale:
@@ -18,9 +18,9 @@ jobs:
         stale-pr-label: inactive
         close-pr-label: auto-close
         exempt-pr-labels: keep-open
-        operations-per-run: 800
+        operations-per-run: 1200
         ascending: true
-        start-date: '2020-03-03'
+        start-date: '2021-07-29'
         stale-pr-message: >
           This pull request has been inactive for at least 14 days.
           If you are finished with your changes, don't forget to sign off. See the [contributor guide](https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-pull-request-automation) for instructions.

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 09/29/2021
 ---
 
 # Copy and transform data to and from SQL Server by using Azure Data Factory or Azure Synapse Analytics
@@ -89,7 +89,8 @@ The following properties are supported for the SQL Server linked service:
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
 
 > [!NOTE]
-> SQL Server [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is not supported in data flow. 
+> - SQL Server [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is not supported in data flow. 
+> - Windows authentication is not supported in data flow.
 
 >[!TIP]
 >If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again.
@@ -435,7 +436,7 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-st
 
 The SQL Server connector in copy activity provides built-in data partitioning to copy data in parallel. You can find data partitioning options on the **Source** tab of the copy activity.
 
-![Screenshot of partition options](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Screenshot of partition options":::
 
 When you enable partitioned copy, copy activity runs parallel queries against your SQL Server source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SQL Server.
 
@@ -496,7 +497,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 If the table has physical partition, you would see "HasPartition" as "yes" like the following.
 
-![Sql query result](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="Sql query result":::
 
 ## Best practice for loading data into SQL Server
 
@@ -521,7 +522,7 @@ Copy activity currently doesn't natively support loading data into a database te
 
 As an example, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into a SQL Server staging table, for example, **UpsertStagingTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the staging table into the target table and clean up the staging table.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 In your database, define a stored procedure with MERGE logic, like the following example, which is pointed to from the previous stored procedure activity. Assume that the target is the **Marketing** table with three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column.
 
@@ -554,7 +555,7 @@ The steps to write data with custom logic are similar to those described in the 
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invoke a stored procedure from a SQL sink
 
-When you copy data into SQL Server database, you also can configure and invoke a user-specified stored procedure with additional parameters on each batch of the source table. The stored procedure feature takes advantage of [table-valued parameters](/dotnet/framework/data/adonet/sql/table-valued-parameters).
+When you copy data into SQL Server database, you also can configure and invoke a user-specified stored procedure with additional parameters on each batch of the source table. The stored procedure feature takes advantage of [table-valued parameters](/dotnet/framework/data/adonet/sql/table-valued-parameters).  Note that the service automatically wraps the stored procedure in its own transaction, so any transaction created inside the stored procedure will become a nested transaction, and could have implications for exception handling.
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert into more than one table.
 
@@ -734,13 +735,13 @@ When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-da
 
 1. Configure your SQL Server instance to accept remote connections. Start **SQL Server Management Studio**, right-click **server**, and select **Properties**. Select **Connections** from the list, and select the **Allow remote connections to this server** check box.
 
-    ![Enable remote connections](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
+    :::image type="content" source="media/copy-data-to-from-sql-server/AllowRemoteConnections.png" alt-text="Enable remote connections":::
 
     For detailed steps, see [Configure the remote access server configuration option](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option).
 
 2. Start **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. Protocols appear in the right pane. Enable TCP/IP by right-clicking **TCP/IP** and selecting **Enable**.
 
-    ![Enable TCP/IP](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
+    :::image type="content" source="./media/copy-data-to-from-sql-server/EnableTCPProptocol.png" alt-text="Enable TCP/IP":::
 
     For more information and alternate ways of enabling TCP/IP protocol, see [Enable or disable a server network protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol).
 

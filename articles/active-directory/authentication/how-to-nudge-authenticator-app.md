@@ -91,7 +91,7 @@ The following table lists **authenticationMethodsRegistrationCampaign** properti
 
 | Name | Possible values | Description |
 |------|-----------------|-------------|
-| state |	"enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>Default value is used when the configuration hasn't been explicitly set and will use Azure AD default value for this setting. Currently maps to disabled.<br>Change states to either enabled or disabled as needed.  |
+| state | "enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>Default value is used when the configuration hasn't been explicitly set and will use Azure AD default value for this setting. Currently maps to disabled.<br>Change states to either enabled or disabled as needed.  |
 | snoozeDurationInDays | Range: 0 – 14 | Defines after how many days the user will see the nudge again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day |
 | includeTargets | N/A | Allows you to include different users and groups that you want the feature to target. |
 | excludeTargets | N/A | Allows you to exclude different users and groups that you want omitted from the feature. If a user is in a group that is excluded and a group that is included, the user will be excluded from the feature.|
@@ -155,7 +155,7 @@ Here are a few sample JSONs you can use to get started!
                     "targetType": "group",
                     "targetedAuthenticationMethod": "microsoftAuthenticator"
                 },
-		{
+                {
                     "id": "*********PLEASE ENTER GUID***********",
                     "targetType": "user",
                     "targetedAuthenticationMethod": "microsoftAuthenticator"
@@ -180,7 +180,7 @@ Here are a few sample JSONs you can use to get started!
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "group"
                   },
-  		{
+                {
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "user"
                   }
@@ -191,7 +191,7 @@ Here are a few sample JSONs you can use to get started!
                       "targetType": "group",
                       "targetedAuthenticationMethod": "microsoftAuthenticator"
                   },
-  		{
+                  {
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "user",
                       "targetedAuthenticationMethod": "microsoftAuthenticator"

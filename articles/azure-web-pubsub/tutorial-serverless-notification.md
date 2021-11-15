@@ -5,7 +5,7 @@ author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 08/24/2021
+ms.date: 11/01/2021
 ---
 
 # Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service
@@ -62,7 +62,10 @@ In this tutorial, you learn how to:
     func init --worker-runtime dotnet
     ```
 
-1. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package explicitly.
+2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
+
+    > [!NOTE]
+    > The step will be optional when [Extension bundles](/azure/azure-functions/functions-bindings-register#extension-bundles) are supported.
 
    a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
     ```json
@@ -72,10 +75,10 @@ In this tutorial, you learn how to:
     ```
    b. Run command to install specific function extension package.
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
     ```
 
-1. Create an `index` function to read and host a static web page for clients.
+3. Create an `index` function to read and host a static web page for clients.
     ```bash
     func new -n index -t HttpTrigger
     ```
@@ -105,8 +108,16 @@ In this tutorial, you learn how to:
    - Update `index/index.js` and copy following codes.
         ```js
         var fs = require('fs');
+        var path = require('path');
+
         module.exports = function (context, req) {
-            fs.readFile('index.html', 'utf8', function (err, data) {
+            var index = 'index.html';
+            if (process.env["HOME"] != null)
+            {
+                index = path.join(process.env["HOME"], "site", "wwwroot", index);
+            }
+            context.log("index.html path: " + index);
+            fs.readFile(index, 'utf8', function (err, data) {
                 if (err) {
                     console.log(err);
                     context.done(err);
@@ -129,15 +140,21 @@ In this tutorial, you learn how to:
         [FunctionName("index")]
         public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
         {
+            string indexFile = "index.html";
+            if (Environment.GetEnvironmentVariable("HOME") != null)
+            {
+                indexFile = Path.Join(Environment.GetEnvironmentVariable("HOME"), "site", "wwwroot", indexFile);
+            }
+            log.LogInformation($"index.html path: {indexFile}.");
             return new ContentResult
             {
-                Content = File.ReadAllText("index.html"),
+                Content = File.ReadAllText(indexFile),
                 ContentType = "text/html",
             };
         }
         ```
 
-2. Create a `negotiate` function to help clients get service connection url with access token.
+4. Create a `negotiate` function to help clients get service connection url with access token.
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
@@ -178,7 +195,7 @@ In this tutorial, you learn how to:
         ```c#
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             [WebPubSubConnection(Hub = "notification")] WebPubSubConnection connection,
             ILogger log)
         {
@@ -188,7 +205,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-3. Create a `notification` function to generate notifications with `TimerTrigger`.
+5. Create a `notification` function to generate notifications with `TimerTrigger`.
    ```bash
     func new -n notification -t TimerTrigger
     ```
@@ -205,7 +222,7 @@ In this tutorial, you learn how to:
                 },
                 {
                 "type": "webPubSub",
-                "name": "webPubSubOperation",
+                "name": "actions",
                 "hub": "notification",
                 "direction": "out"
                 }
@@ -215,9 +232,9 @@ In this tutorial, you learn how to:
    - Update `notification/index.js` and copy following codes.
         ```js
         module.exports = function (context, myTimer) {
-            context.bindings.webPubSubOperation = {
-                "operationKind": "sendToAll",
-                "message": `[DateTime: ${new Date()}] Temperature: ${getValue(22, 1)}\xB0C, Humidity: ${getValue(40, 2)}%`,
+            context.bindings.actions = {
+                "actionName": "sendToAll",
+                "data": `[DateTime: ${new Date()}] Temperature: ${getValue(22, 1)}\xB0C, Humidity: ${getValue(40, 2)}%`,
                 "dataType": "text"
             }
             context.done();
@@ -232,12 +249,12 @@ In this tutorial, you learn how to:
         ```c#
         [FunctionName("notification")]
         public static async Task Run([TimerTrigger("*/10 * * * * *")]TimerInfo myTimer, ILogger log,
-            [WebPubSub(Hub = "notification")] IAsyncCollector<WebPubSubOperation> operations)
+            [WebPubSub(Hub = "notification")] IAsyncCollector<WebPubSubAction> actions)
         {
-            await operations.AddAsync(new SendToAll
+            await actions.AddAsync(new SendToAllAction
             {
-                Message = BinaryData.FromString($"[DateTime: {DateTime.Now}] Temperature: {GetValue(23, 1)}{'\xB0'}C, Humidity: {GetValue(40, 2)}%"),
-                DataType = MessageDataType.Text
+                Data = BinaryData.FromString($"[DateTime: {DateTime.Now}] Temperature: {GetValue(23, 1)}{'\xB0'}C, Humidity: {GetValue(40, 2)}%"),
+                DataType = WebPubSubDataType.Text
             });
         }
 
@@ -249,7 +266,7 @@ In this tutorial, you learn how to:
         }
         ``` 
 
-4. Add the client single page `index.html` in the project root folder and copy content as below.
+6. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
     <html>
         <body>
@@ -286,7 +303,7 @@ In this tutorial, you learn how to:
     </ItemGroup>
     ```
 
-5. Configure and run the Azure Function app
+7. Configure and run the Azure Function app
 
     - In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
     - Select **Keys** and copy out the connection string.
@@ -353,7 +370,7 @@ Use the following commands to create these item.
 
 1. Deploy the function project to Azure:
 
-    After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](/azure-functions/functions-run-local) command.
+    After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](../azure-functions/functions-run-local.md) command.
 
     ```bash
     func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings

@@ -53,7 +53,7 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 
 # [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
+1. In the [Azure portal](https://portal.azure.com/), select your storage account.
 
 2. Navigate to the **Containers** option under **Data storage**, and select your container.
 
@@ -195,7 +195,7 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 
 Within the Azure portal, the blob index tags filter automatically applies the `@container` parameter to scope your selected container. If you wish to filter and find tagged data across your entire storage account, use our REST API, SDKs, or tools.
 
-1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
+1. In the [Azure portal](https://portal.azure.com/), select your storage account.
 
 2. Navigate to the **Containers** option under **Data storage**, select your container.
 
@@ -237,7 +237,7 @@ static async Task FindBlobsByTagsExample()
           AppendBlobClient appendBlobWithTags3 = container2.GetAppendBlobClient("myAppendBlob03.logs");
           AppendBlobClient appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
           AppendBlobClient appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
-           
+
           // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
@@ -246,7 +246,7 @@ static async Task FindBlobsByTagsExample()
               { "Priority", "01" },
               { "Date", "2020-04-20" }
           };
-          
+
           CreateAppendBlobOptions appendOptions2 = new CreateAppendBlobOptions();
           appendOptions2.Tags = new Dictionary<string, string>
           {
@@ -291,7 +291,7 @@ static async Task FindBlobsByTagsExample()
 
 # [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
+1. In the [Azure portal](https://portal.azure.com/), select your storage account.
 
 2. Navigate to the **Lifecycle Management** option under **Blob Service**
 
@@ -309,11 +309,11 @@ static async Task FindBlobsByTagsExample()
 
 # [.NET v12 SDK](#tab/net)
 
-[Lifecycle management](storage-lifecycle-management-concepts.md) policies are applied for each storage account at the control plane level. For .NET, install the [Microsoft Azure Management Storage Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 or higher.
+[Lifecycle management](./lifecycle-management-overview.md) policies are applied for each storage account at the control plane level. For .NET, install the [Microsoft Azure Management Storage Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 or higher.
 
 ---
 
 ## Next steps
 
- - Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md )
- - Learn more about lifecycle management, see [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md )
+- Learn more about lifecycle management, see [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

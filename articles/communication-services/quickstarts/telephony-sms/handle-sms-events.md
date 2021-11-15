@@ -10,6 +10,7 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: sms
 ---
 # Quickstart: Handle SMS events for Delivery Reports and Inbound Messages
 

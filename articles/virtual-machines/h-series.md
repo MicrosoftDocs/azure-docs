@@ -5,7 +5,7 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 09/11/2021
 ms.author: amverma
 ms.reviewer: jushiman
 ---
@@ -42,7 +42,7 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 
 ## Software specifications
 
-| Software Specifications     |HC-series VM           |
+| Software Specifications     |H-series VM           |
 |-----------------------------|-----------------------|
 | Max MPI Job Size            | 4800 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true)  |
 | MPI Support                 | Intel MPI 5.x, MS-MPI  |
@@ -53,7 +53,7 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## Other sizes
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
@@ -61,6 +61,11 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
+
 
 ## Next steps
 

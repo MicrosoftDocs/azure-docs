@@ -7,7 +7,7 @@ ms.topic: article
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 09/12/2017
+ms.date: 10/22/2021
 ---
 
 # PowerShell script - deploy Azure-SSIS integration runtime

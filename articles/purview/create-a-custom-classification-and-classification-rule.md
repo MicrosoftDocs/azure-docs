@@ -1,12 +1,12 @@
 ---
-title: Create a custom classification and classification rule (preview)
+title: Create a custom classification and classification rule
 description: Learn how to create custom classifications to define data types in your data estate that are unique to your organization in Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 3/24/2021
+ms.date: 09/27/2021
 ---
 # Custom classifications in Azure Purview
 
@@ -23,13 +23,16 @@ You also have the ability to create custom classifications, if any of the defaul
 > [!Note]
 > Our [data sampling rules](sources-and-scans.md#sampling-within-a-file) are applied to both system and custom classifications.  
 
+> [!NOTE]
+> Purview custom classifications are applied only to structured data sources like SQL and CosmosDB, and to structured file types like CSV, JSON, and Parquet. Custom classification isn't applied to unstructured data file types like DOC, PDF, and XLSX.
+
 ## Steps to create a custom classification
 
 To create a custom classification, follow these steps:
 
-1. From your catalog, select **Management Center** from the left menu.
+1. From your catalog, select **Data Map** from the left menu.
 
-2. Select **Classifications** under **Metadata management**.
+2. Select **Classifications** under **Annotation management**.
 
 3. Select **+ New**
 
@@ -86,15 +89,15 @@ To create a custom classification rule:
 
 1. Create a custom classification by following the instructions in the previous section. You will add this custom classification in the classification rule configuration so that the system applies it when it finds a match in the column.
 
-2. Select the **Management Center** icon.
+2. Select the **Data Map** icon.
 
 3. Select the **Classifications rules** section.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classificationrules.png" alt-text="Classification rules tile" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification-rules.png" alt-text="Classification rules tile" border="true":::
 
 4. Select **New**.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Add new classification rule" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification-rule.png" alt-text="Add new classification rule" border="true":::
 
 5. The **New classification rule** dialog box opens. Fill in the fields and decide whether to create a **regular expression rule** or a **dictionary rule**.
 

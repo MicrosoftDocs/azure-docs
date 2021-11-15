@@ -67,10 +67,11 @@ To read more about securing your Active Directory environment, see [Best practic
     - The servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. Windows remote management must be enabled on these servers for remote installation. 
     - You must configure TLS/SSL certificates. For more information, see [Managing SSL/TLS protocols and cipher suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) and [Managing SSL certificates in AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - You must configure name resolution. 
+- It is not supported to break and analyze traffic between Azure AD Connect and Azure AD. Doing so may disrupt the service.
 - If your global administrators have MFA enabled, the URL https://secure.aadcdn.microsoftonline-p.com *must* be in the trusted sites list. You're prompted to add this site to the trusted sites list when you're prompted for an MFA challenge and it hasn't been added before. You can use Internet Explorer to add it to your trusted sites.
 - If you plan to use Azure AD Connect Health for syncing, ensure that the prerequisites for Azure AD Connect Health are also met. For more information, see [Azure AD Connect Health agent installation](how-to-connect-health-agent-install.md).
 
-#### Harden your Azure AD Connect server 
+### Harden your Azure AD Connect server 
 We recommend that you harden your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment. Following these recommendations will help to mitigate some security risks to your organization.
 
 - Treat Azure AD Connect the same as a domain controller and other Tier 0 resources. For more information, see [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
@@ -82,6 +83,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 - Implement dedicated [privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) for all personnel with privileged access to your organization's information systems. 
 - Follow these [additional guidelines](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) to reduce the attack surface of your Active Directory environment.
 - Follow the [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md) to setup alerts to monitor changes to the trust established between your Idp and Azure AD. 
+- Enable Multi Factor Authentication (MFA) for all users that have privileged access in Azure AD or in AD. One security issue with using AADConnect is that if an attacker can get control over the Azure AD Connect server they can manipulate users in Azure AD. To prevent a attacker from using these capabilities to take over Azure AD accounts, MFA offers protections so that even if an attacker manages to e.g. reset a user's password using Azure AD Connect they still cannot bypass the second factor.
 
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default, a SQL Server 2019 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10-GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, point the installation wizard to a different installation of SQL Server. The type of SQL Server installation can impact the [performance of Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).

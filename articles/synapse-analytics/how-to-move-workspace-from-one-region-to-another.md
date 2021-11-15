@@ -49,7 +49,7 @@ Moving an Azure Synapse workspace from one region to another region is a multist
 1. Test the new workspace on the target region and update any DNS entries, which are pointing to the source region workspace.
 1. If there's a private endpoint connection created on the source workspace, create one on the target region workspace.
 1. You can delete the workspace in the source region after you test it thoroughly and route all the connections to the target region workspace.
-
+## Prepare
 ## Step 1: Create an Azure Synapse workspace in a target region
 
 In this section, you'll create the Azure Synapse workspace by using Azure PowerShell, the Azure CLI, and the Azure portal. You'll create a resource group along with an Azure Data Lake Storage Gen2 account that will be used as the default storage for the workspace as part of the PowerShell script and the CLI script. If you want to automate the process of deployment, invoke these PowerShell or CLI scripts from the DevOps release pipeline.
@@ -284,7 +284,7 @@ New-AzSynapseSparkPool `
 az synapse spark pool create --name $sparkPoolName --workspace-name $workspaceName --resource-group $resourceGroupName `
 --spark-version $sparkVersion --node-count 3 --node-size small
 ```
-
+## Move
 ## Step 4: Restore a dedicated SQL pool 
 
 ### Restore from geo-redundant backups
@@ -347,7 +347,7 @@ Select-Object Id,Command,JobStateInfo,PSBeginTime,PSEndTime,PSJobTypeName,Error 
 ```
 After the dedicated SQL pool is restored, create all the SQL logins in Azure Synapse. To create all the logins, follow the steps in [Create login](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-## Step 5: Create a serverless SQL pool, Spark pool, and objects
+## Step 5: Create a serverless SQL pool, Spark pool database and objects
 
 You can't back up and restore serverless SQL pool databases and Spark pools. As a possible workaround, you could:
 
@@ -359,7 +359,7 @@ You can't back up and restore serverless SQL pool databases and Spark pools. As 
 
 ## Step 6: Deploy artifacts and pipelines by using CI/CD 
 
- To learn how to integrate an Azure Synapse workspace with Azure DevOps or GitHub and how to deploy the artifacts to a target region workspace, follow the steps in [Continuous integration and continuous delivery (CI/CD) for an Azure Synapse workspace](cicd/continuous-integration-deployment.md). 
+ To learn how to integrate an Azure Synapse workspace with Azure DevOps or GitHub and how to deploy the artifacts to a target region workspace, follow the steps in [Continuous integration and continuous delivery (CI/CD) for an Azure Synapse workspace](cicd/continuous-integration-delivery.md). 
 
 After the workspace is integrated with Azure DevOps, you'll find a branch with the name workspace_publish. This branch contains the workspace template that includes definitions for the artifacts like Notebooks, SQL Scripts, Datasets, Linked Services, Pipelines, Triggers, and Spark job definition.
 
@@ -480,6 +480,11 @@ To set up the access control for the target region Azure Synapse workspace, foll
 
 To re-create the managed private endpoints from the source region workspace in your target region workspace, see [Create a managed private endpoint to your data source](security/how-to-create-managed-private-endpoints.md). 
 
+## Discard
+If you wish to discard the target region workspace, delete the target region workspace. To do so, go to the resource group from your dashboard in the portal and select the workspace and select Delete at the top of the Resource group page.
+
+## Clean up
+To commit the changes and complete the move of the workspace, delete the source region workspace after testing the workspace in the target region. To do so, go to the resource group which has the source region workspace from your dashboard in the portal and select the workspace and select Delete at the top of the Resource group page.
 
 ## Next steps
 

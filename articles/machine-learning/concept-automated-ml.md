@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning can automatically generate a model by using the parameters and criteria you provide with automated machine learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: conceptual
 author: cartacioS
 ms.author: sacartac
-ms.date: 07/01/2021
+ms.date: 10/21/2021
 ms.custom: automl
 ---
 
@@ -37,9 +37,10 @@ Azure Machine Learning offers the following two experiences for working with aut
 The following settings allow you to configure your automated ML experiment. 
 
 | |The Python SDK|The studio web experience|
-----|:----:|:----:
+|----|:----:|:----:|
 |**Split data into train/validation sets**| ✓|✓
-|**Supports ML tasks: classification, regression, and forecasting**| ✓| ✓
+|**Supports ML tasks: classification, regression, & forecasting**| ✓| ✓
+|**Supports computer vision tasks (preview): image classification, object detection & instance segmentation**| ✓| 
 |**Optimizes based on primary metric**| ✓| ✓
 |**Supports Azure ML compute as compute target** | ✓|✓
 |**Configure forecast horizon, target lags & rolling window**|✓|✓
@@ -77,7 +78,7 @@ These settings allow you to review and control your experiment runs and its chil
 |**Get guardrails**| ✓|✓|
 |**Pause & resume runs**| ✓| |
 
-## When to use AutoML: classification, regression, & forecasting
+## When to use AutoML: classification, regression, forecasting & computer vision
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
 
@@ -93,7 +94,7 @@ Classification is a common machine learning task. Classification is a type of su
 
 The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection. Learn more and see an example at [Create a classification model with automated ML](tutorial-first-experiment-automated-ml.md).
 
-See examples of classification and automated machine learning in these Python notebooks: [Fraud Detection](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Marketing Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb), and [Newsgroup Data Classification](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b)
+See examples of classification and automated machine learning in these Python notebooks: [Fraud Detection](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Marketing Prediction](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb), and [Newsgroup Data Classification](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/classification-text-dnn)
 
 ### Regression
 
@@ -101,7 +102,7 @@ Similar to classification, regression tasks are also a common supervised learnin
 
 Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. Learn more and see an example of [regression with automated machine learning](tutorial-auto-train-models.md).
 
-See examples of regression and automated machine learning for predictions in these Python notebooks: [CPU Performance Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb), 
+See examples of regression and automated machine learning for predictions in these Python notebooks: [CPU Performance Prediction](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/regression-explanation-featurization), 
 
 ### Time-series forecasting
 
@@ -118,7 +119,38 @@ Advanced forecasting configuration includes:
 * rolling window aggregate features
 
 
-See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Beverage Production Forecast](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
+See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Beverage Production Forecast](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
+
+### Computer vision (preview)
+
+> [!IMPORTANT]
+> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Automated ML for images (preview) adds support for computer vision tasks, which allows you to easily generate models trained on image data for scenarios like image classification and object detection. 
+
+With this capability you can: 
+ 
+* Seamlessly integrate with the [Azure Machine Learning data labeling](./how-to-create-image-labeling-projects.md) capability
+* Use labeled data for generating image models
+* Optimize model performance by specifying the model algorithm and tuning the hyperparameters. 
+* Download or deploy the resulting model as a web service in Azure Machine Learning. 
+* Operationalize at scale, leveraging Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
+
+Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation runs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
+
+Learn how to [set up AutoML training for computer vision models](how-to-auto-train-image-models.md).
+
+![Computer vision tasks examples. Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf ](./media/concept-automated-ml/automl-computer-vision-tasks.png)
+Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf
+
+Automated ML for images supports the following computer vision tasks: 
+
+Task | Description
+----|----
+Multi-class image classification | Tasks where an image is classified with only a single label from a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'
+Multi-label image classification | Tasks where an image could have one or more labels from a set of labels - e.g. an image could be labeled with both 'cat' and 'dog'
+Object detection| Tasks to identify objects in an image and locate each object with a bounding box e.g. locate all dogs and cats in an image and draw a bounding box around each.
+Instance segmentation | Tasks to identify objects in an image at the pixel level, drawing a polygon around each object in the image.
 
 ## How automated ML works
 
@@ -126,7 +158,7 @@ During training, Azure Machine Learning creates a number of pipelines in paralle
 
 Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
-1. **Identify the ML problem** to be solved: classification, forecasting, or regression
+1. **Identify the ML problem** to be solved: classification, forecasting, regression or computer vision (preview).
 
 1. **Choose whether you want to use the Python SDK or the studio web experience**:
    Learn about the parity between the [Python SDK and studio web experience](#parity).
@@ -150,7 +182,6 @@ The following diagram illustrates this process.
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
 While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models.
-
 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
@@ -220,20 +251,20 @@ Consider these factors when choosing your compute target:
 Consider these pros and cons when choosing to use local vs. remote.
 
 |  | Pros (Advantages)  |Cons (Handicaps)  |
-|---------|---------|---------|---------|
+|---------|---------|---------|
 |**Local compute target** |  <li> No environment start-up time   | <li>  Subset of features<li>  Can't parallelize runs <li> Worse for large data. <li>No data streaming while training <li>  No DNN-based featurization <li> Python SDK only |
 |**Remote ML compute clusters**|  <li> Full set of features <li> Parallelize child runs <li>   Large data support<li>  DNN-based featurization <li>  Dynamic scalability of compute cluster on demand <li> No-code experience (web UI) also available  |  <li> Start-up time for cluster nodes <li> Start-up time for each child run    |
 
 ### Feature availability 
 
- More features are available when you use the remote compute, as shown in the table below. 
+More features are available when you use the remote compute, as shown in the table below. 
 
 | Feature                                                    | Remote | Local | 
 |------------------------------------------------------------|--------|-------|
 | Data streaming (Large data support, up to 100 GB)          | ✓      |       | 
 | DNN-BERT-based text featurization and training             | ✓      |       |
 | Out-of-the-box GPU support (training and inference)        | ✓      |       |
-| Image Classification and Labeling support                  | ✓      |       |
+| Image classification (preview) and labeling support        | ✓      |       |
 | Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | 
 | Multiple runs/iterations in parallel                       | ✓      |       |
 | Create models with interpretability in AutoML studio web experience UI      | ✓      |       |
@@ -242,6 +273,7 @@ Consider these pros and cons when choosing to use local vs. remote.
 | Azure ML Pipeline workflow support                         | ✓      |       |
 | Continue a run                                             | ✓      |       |
 | Forecasting                                                | ✓      | ✓     |
+| Computer vision (preview)                                  | ✓      |       |
 | Create and run experiments in notebooks                    | ✓      | ✓     |
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |
 | Data guardrails                                            | ✓      | ✓     |
@@ -253,9 +285,9 @@ Consider these pros and cons when choosing to use local vs. remote.
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. Once the models are in the ONNX format, they can be run on a variety of platforms and devices. Learn more about [accelerating ML models with ONNX](concept-onnx.md).
 
-See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
+See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#supported-models).
 
-The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [using an AutoML ONNX model in a .NET application with ML.NET](./how-to-use-automl-onnx-model-dotnet.md) and [inferencing ONNX models with the ONNX runtime C# API](https://www.onnxruntime.ai/docs/reference/api/csharp-api.html). 
+The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [using an AutoML ONNX model in a .NET application with ML.NET](./how-to-use-automl-onnx-model-dotnet.md) and [inferencing ONNX models with the ONNX runtime C# API](https://onnxruntime.ai/docs/api/csharp-api.html). 
 
 ## Next steps
 
@@ -265,8 +297,10 @@ There are multiple resources to get you up and running with AutoML.
 Tutorials are end-to-end introductory examples of AutoML scenarios.
 + **For a code first experience**, follow the [Tutorial: Train a regression model with AutoML and Python](tutorial-auto-train-models.md).
 
- + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
++ **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
 
++ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+   
 How-to articles provide additional detail into what functionality automated ML offers. For example, 
 
 + Configure the settings for automatic training experiments
@@ -275,9 +309,11 @@ How-to articles provide additional detail into what functionality automated ML o
 
 +  Learn how to [train forecasting models with time series data](how-to-auto-train-forecast.md).
 
++  Learn how to [train computer vision models with Python](how-to-auto-train-image-models.md).
+   
 ### Jupyter notebook samples 
 
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml).
 
 ### Python SDK reference
 

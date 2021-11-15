@@ -60,9 +60,13 @@ On each server you want to analyze, install the agents.
 > For servers monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow](../azure-monitor/vm/service-map-scom.md#prerequisites) integration guidance.
 
 1. In **Azure Migrate: Discovery and assessment**, click **Discovered servers**.
-2. For each server you want to analyze with dependency visualization, in the **Dependencies** column, click **Requires agent installation**.
-3. In the **Dependencies** page, download the MMA and Dependency agent for Windows or Linux.
-4. Under **Configure MMA agent**, copy the workspace ID and key. You need these when you install the MMA agent.
+1. Click **Columns** to select **Dependencies (Agent-based)** to see the column on the Discovered servers page.
+
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies/columns-inline.png" alt-text="Screenshot showing the result after clicking columns." lightbox="./media/how-to-create-group-machine-dependencies/columns-expanded.png":::
+
+1. For each server you want to analyze with dependency visualization, in the **Dependencies** column, click **Requires agent installation**.
+1. In the **Dependencies** page, download the MMA and Dependency agent for Windows or Linux.
+1. Under **Configure MMA agent**, copy the workspace ID and key. You need these when you install the MMA agent.
 
     ![Install the agents](./media/how-to-create-group-machine-dependencies/dependencies-install.png)
 
@@ -91,18 +95,20 @@ You can install the agent from the command line or using an automated method suc
 To install the MMA on a Linux server:
 
 1. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
+
 2. Install the bundle by using the --install argument.
 
-    ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
+   `sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>`
 
 [Learn more](../azure-monitor/agents/agents-overview.md#supported-operating-systems) about the list of Linux operating systems support by MMA. 
 
 ## Install the Dependency agent
 
 1. To install the Dependency agent on a Windows server, double-click the setup file and follow the wizard.
+
 2. To install the Dependency agent on a Linux server, install as root using the following command:
 
-    ```sh InstallDependencyAgent-Linux64.bin```
+   `sh InstallDependencyAgent-Linux64.bin`
 
 - [Learn more](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
 - [Learn more](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) about the operating systems supported by the Dependency agent.

@@ -8,9 +8,9 @@ metadata:
   description: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
   ms.service: azure-vmware 
   ms.topic: landing-page 
-  author: shortpatti 
-  ms.author: v-patsho 
-  ms.date: 08/31/2021 
+  author: suzizuber
+  ms.author: v-szuber 
+  ms.date: 10/06/2021 
 
 
 # card 1
@@ -142,7 +142,7 @@ landingContent:
         links:
           - text: Protect, monitor, and manage VMs
             url: integrate-azure-native-services.md
-          - text: Integrate Azure Security Center
+          - text: Integrate Microsoft Defender for Cloud
             url: azure-security-integration.md
           - text: Integrate Azure NetApp Files
             url: netapp-files-with-azure-vmware-solution.md
@@ -205,6 +205,8 @@ landingContent:
             url: /cli/azure/vmware
           - text: Azure PowerShell
             url: /powershell/module/az.vmware
+          - text: Resource Manager template
+            url: /azure/templates/microsoft.avs/privateclouds
           - text: Terraform Azure provider
             url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
       - linkListType: video

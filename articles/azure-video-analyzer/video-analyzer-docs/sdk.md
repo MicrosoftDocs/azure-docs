@@ -4,7 +4,7 @@ description: Learn about the Azure Video Analyzer SDKs
 author: bennage
 ms.author: christb
 ms.topic: reference
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 
 ---
 
@@ -34,7 +34,7 @@ The following platforms are supported:
 
 ## See Also
 
-- You can also refer [Azure Video Analyzer APIs](https://docs.microsoft.com/rest/api/videoanalyzer/)
+- You can also refer [Azure Video Analyzer APIs](/rest/api/videoanalyzer/)
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md

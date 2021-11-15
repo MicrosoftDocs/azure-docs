@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a blob with PowerShell
+title: 'Quickstart: Upload, download, and list blobs - Azure PowerShell'
 titleSuffix: Azure Storage
 description: In this quickstart, you use Azure PowerShell in object (Blob) storage. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
@@ -16,8 +16,6 @@ ms.custom: devx-track-azurepowershell
 # Quickstart: Upload, download, and list blobs with PowerShell
 
 Use the Azure PowerShell module to create and manage Azure resources. Creating or managing Azure resources can be done from the PowerShell command line or in scripts. This guide describes using PowerShell to transfer files between local disk and Azure Blob storage.
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Prerequisites
 
@@ -44,7 +42,7 @@ New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## Upload blobs to the container
 
-Blob storage supports block blobs, append blobs, and page blobs. VHD files that back IaaS VMs are page blobs. Use append blobs for logging, such as when you want to write to a file and then keep adding more information. Most files stored in Blob storage are block blobs. 
+Blob storage supports block blobs, append blobs, and page blobs. VHD files that back IaaS VMs are page blobs. Use append blobs for logging, such as when you want to write to a file and then keep adding more information. Most files stored in Blob storage are block blobs.
 
 To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). This operation creates the blob if it doesn't exist, or overwrites the blob if it exists.
 
@@ -55,7 +53,7 @@ The following examples upload *Image001.jpg* and *Image002.png* from the *D:\\_T
 Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
-  -Context $ctx 
+  -Context $ctx
 
 # upload a file to the Hot access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
@@ -93,14 +91,14 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 Download the blobs to your local disk. For each blob you want to download, set the name and call [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) to download the blob.
 
-This example downloads the blobs to *D:\\_TestImages\Downloads* on the local disk. 
+This example downloads the blobs to *D:\\_TestImages\Downloads* on the local disk.
 
 ```powershell
 # download first blob
 Get-AzStorageBlobContent -Blob "Image001.jpg" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
-  -Context $ctx 
+  -Context $ctx
 
 # download another blob
 Get-AzStorageBlobContent -Blob "Image002.png" `
@@ -137,8 +135,8 @@ In this quickstart, you transferred files between a local file system and Azure 
 
 ### Microsoft Azure PowerShell Storage cmdlets reference
 
-* [Storage PowerShell cmdlets](/powershell/module/az.storage)
+- [Storage PowerShell cmdlets](/powershell/module/az.storage)
 
 ### Microsoft Azure Storage Explorer
 
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.

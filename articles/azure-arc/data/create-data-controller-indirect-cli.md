@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
@@ -24,27 +24,31 @@ To create the data controller using the CLI, you will need to install the `arcda
 
 [Install the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
 
-Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller administrator user. You can provide these credentials to other people that need to have administrator access to the data controller as needed.
+Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller. These environment variables will become the credentials used for accessing the metrics and logs dashboards after data controller creation.
+
 
 ### Set environment variables
 
-**AZDATA_USERNAME** - A username of your choice for the Kibana/Grafana administrator user. Example: `arcadmin`
+Following are two sets of environment variables needed to access the metrics and logs dashboards.
 
-**AZDATA_PASSWORD** - A password of your choice for the Kibana/Grafana administrator user. The password must be at least eight characters long and contain characters from three of the following four sets: uppercase letters, lowercase letters, numbers, and symbols.
+#### Windows PowerShell
+
+```powershell
+$ENV:AZDATA_LOGSUI_USERNAME="<username for Kibana dashboard>"
+$ENV:AZDATA_LOGSUI_PASSWORD="<password for Kibana dashboard>"
+$ENV:AZDATA_METRICSUI_USERNAME="<username for Grafana dashboard>"
+$ENV:AZDATA_METRICSUI_PASSWORD="<password for Grafana dashboard>"
+```
 
 #### Linux or macOS
 
 ```console
-export AZDATA_USERNAME="<your username of choice>"
-export AZDATA_PASSWORD="<your password of choice>"
+export AZDATA_LOGSUI_USERNAME="<username for Kibana dashboard>"
+export AZDATA_LOGSUI_PASSWORD="<password for Kibana dashboard>"
+export AZDATA_METRICSUI_USERNAME="<username for Grafana dashboard>"
+export AZDATA_METRICSUI_PASSWORD="<password for Grafana dashboard>"
 ```
 
-#### Windows PowerShell
-
-```console
-$ENV:AZDATA_USERNAME="<your username of choice>"
-$ENV:AZDATA_PASSWORD="<your password of choice>"
-```
 
 You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the creation of the Azure Arc data controller. How you connect to a Kubernetes cluster or service varies. See the documentation for the Kubernetes distribution or service that you are using on how to connect to the Kubernetes API server.
 
@@ -112,10 +116,7 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 
 #### Configure storage (Azure Stack HCI with AKS-HCI)
 
-If you are using Azure Stack HCI with AKS-HCI, do one of the following, depending on your Azure stack HCA AKS-HCI version:
-
-- For version 1.20 and above, create a custom storage class with `fsGroupPolicy:File` (For details - https://kubernetes-csi.github.io/docs/support-fsgroup.html). 
-- For version 1.19, use: 
+If you are using Azure Stack HCI with AKS-HCI, create a custom storage class with `fsType`.
 
    ```json
    fsType: ext4
@@ -227,7 +228,7 @@ By default, the kubeadm deployment profile uses a storage class called `local-st
 If you want to customize your deployment profile to specify a specific storage class and/or service type, start by creating a new custom deployment profile file based on the kubeadm deployment profile by running the following command. This command will create a directory `custom` in your current working directory and a custom deployment profile file `control.json` in that directory.
 
 ```azurecli
-az arcdata dc config init --source azure-arc-kubeadm --path ./custom --k8s-namespace <namespace> --use-k8s
+az arcdata dc config init --source azure-arc-kubeadm --path ./custom 
 ```
 
 You can look up the available storage classes by running the following command.

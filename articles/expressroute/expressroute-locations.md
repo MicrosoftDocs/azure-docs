@@ -120,13 +120,14 @@ The following table shows locations by service provider. If you want to view ava
 | **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |Supported |Supported |Tokyo |
 | **[NTT Global DataCenters EMEA](https://hello.global.ntt/)** |Supported |Supported |Amsterdam2, Berlin, Frankfurt, London2 |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Supported |Supported |Osaka |
-| **[Ooredoo Cloud Connect](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |Supported |Supported |Marseille |
+| **[Ooredoo Cloud Connect](https://www.ooredoo.com.kw/portal/en/b2bOffConnAzureExpressRoute)** |Supported |Supported |Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/)** |Supported |Supported |Melbourne, Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported |Amsterdam, Amsterdam2, Dubai2, Frankfurt, Hong Kong SAR, Johannesburg, London, Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Supported | Supported | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Supported |Supported |Chicago, Dallas, Denver, Las Vegas, Silicon Valley, Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Supported |Supported |Chicago, Hong Kong, Hong Kong2, London, Singapore2 |
 | **[REANNZ](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | Supported | Supported | Auckland |
+| **[Reliance Jio](https://www.jio.com/business/jio-cloud-connect)** | Supported | Supported | Mumbai |
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Supported | Supported | Milan | 
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Supported |Supported |Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Supported |Supported | London2, Washington DC |
@@ -160,6 +161,7 @@ The following table shows locations by service provider. If you want to view ava
 | **Vodacom** |Supported |Supported |Cape Town, Johannesburg|
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Supported |Amsterdam2, London, Singapore |
 | **[Vodafone Idea](https://www.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Supported | Supported | Mumbai2 |
+| **[XL Axiata]** | Supported | Supported | Jakarta |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Amsterdam, Chicago, Dallas, Denver, London, Los Angeles, Montreal, New York, Paris, Phoenix, Seattle, Silicon Valley, Toronto, Washington DC, Washington DC2 |
 
  **+** denotes coming soon
@@ -262,7 +264,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | Washington DC |
 | **[Gulf Bridge International](https://gbiinc.com/)** | Equinix | Amsterdam |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | London, Slough |
-| **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | Toronto |
+| **[IVedha Inc](https://ivedha.com/cloud-services)**| Equinix | Toronto |
 | **[Kaalam Telecom Bahrain B.S.C](http://www.kalaam-telecom.com/azure/)**| Level 3 Communications |Amsterdam |
 | **LGA Telecom** |Equinix |Singapore|
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hong Kong SAR 
@@ -352,7 +354,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
 | **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europe |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
-| **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |
+| **[Vigilant.IT](https://vigilant.it/networking-services/microsoft-azure-networking/)** | Australia |
 
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

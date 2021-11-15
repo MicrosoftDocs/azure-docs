@@ -149,7 +149,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
 3. Choose the **Virtual machine location** where you want to create the virtual machines. They can be the same or different from the region you selected for the host pool. Keep in mind that VM prices vary by region, and the VM locations should be near their users when possible to maximize performance. Learn more at [Data locations for Azure Virtual Desktop](data-locations.md).
    
-4. Next, choose the availability option that best suit your needs. To learn more about which option is right for you, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md) and [our FAQ](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me).
+4. Next, choose the availability option that best suit your needs. To learn more about which option is right for you, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md) and [our FAQ](./faq.yml#which-availability-option-is-best-for-me-).
    
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the availability zone drop-down menu. The "availability zone" option is highlighted.](media/availability-zone.png)
@@ -176,7 +176,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
     - If you choose **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
    
-   The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me).
+   The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](./faq.yml#which-availability-option-is-best-for-me-).
 
 6. After that, choose the **Virtual machine size** you want to use. You can either keep the default size as-is or select **Change size** to change the size. If you select **Change size**, in the window that appears, choose the size of the virtual machine suitable for your workload. To learn more about virtual machine sizes and which size you should choose, see [Virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context).
 
@@ -213,7 +213,12 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
 12. Under **Virtual Machine Administrator account**, enter the credentials for the local admin account to be added while creating the VM. You can use this account for management purposes in both AD and Azure AD-joined VMs.
 
-13. Select **Next: Workspace >**.
+13. Under **Post update custom configuration**, you can enter the location of an Azure Resource Manager template to perform custom configurations on your session hosts after you create them. You'll need to enter the URLs for both the Azure Resource Manager template file and the Azure Resource Manager template parameter file. 
+
+      >[!NOTE]
+      >Azure Virtual Desktop doesn't support provisioning Azure resources in the template.
+
+14. Select **Next: Workspace >**.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -231,7 +236,7 @@ For additional information on using the Azure CLI to create Azure virtual machin
     - [Create a Windows VM using the Azure CLI]( /azure/virtual-machines/windows/quick-create-cli)
     - [Tutorial: Create and Manage Windows VMs with the Azure CLI](/cli/azure/azure-cli-vm-tutorial)
 - Linux
-    - [Create a Linux VM using the Azure CLI]( /virtual-machines/linux/quick-create-cli)
+    - [Create a Linux VM using the Azure CLI](../virtual-machines/linux/quick-create-cli.md)
     - [Tutorial: Create and Manage Linux VMs with the Azure CLI]( /azure/virtual-machines/linux/tutorial-manage-vm) 
 ---
 

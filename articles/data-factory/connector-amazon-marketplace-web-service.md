@@ -1,21 +1,21 @@
 ---
 title: Copy data from AWS Marketplace
+description: Learn how to copy data from Amazon Marketplace Web Service to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Amazon Marketplace Web Service to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ---
 
-# Copy data from Amazon Marketplace Web Service using Azure Data Factory
+# Copy data from Amazon Marketplace Web Service using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Amazon Marketplace Web Service. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Amazon Marketplace Web Service. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -26,7 +26,7 @@ This Amazon Marketplace Web Service connector is supported for the following act
 
 You can copy data from Amazon Marketplace Web Service to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 ## Getting started
 
@@ -69,9 +69,9 @@ The following properties are supported for Amazon Marketplace Web Service linked
 | endpoint | The endpoint of the Amazon MWS server, (that is, mws.amazonservices.com)  | Yes |
 | marketplaceID | The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (`,`). (that is, A2EUQ1WTGCTBG2)  | Yes |
 | sellerID | The Amazon seller ID.  | Yes |
-| mwsAuthToken | The Amazon MWS authentication token. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| mwsAuthToken | The Amazon MWS authentication token. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | accessKeyId | The access key ID used to access data.  | Yes |
-| secretKey | The secret key used to access data. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| secretKey | The secret key used to access data. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
@@ -180,4 +180,4 @@ To copy data from Amazon Marketplace Web Service, set the source type in the cop
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

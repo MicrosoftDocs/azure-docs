@@ -77,7 +77,7 @@ You use the name and key of your Azure storage account in this tutorial. Get the
 
 1. In the left pane, select **More services**, filter by using the **Storage** keyword, and then select **Storage accounts**.
 
-    ![Search for storage account](media/doc-common-process/search-storage-account.png)
+    :::image type="content" source="media/doc-common-process/search-storage-account.png" alt-text="Search for storage account":::
 
 1. In the list of storage accounts, filter for your storage account (if needed), and then select your storage account.
 
@@ -90,13 +90,13 @@ In this section, you create a blob container named **adftutorial** in your Azure
 
 1. In the **Storage account** window, switch to **Overview**, and then select **Blobs**.
 
-    ![Select Blobs option](media/tutorial-hybrid-copy-powershell/select-blobs.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/select-blobs.png" alt-text="Select Blobs option":::
 
 1. In the **Blob service** window, select **Container**.
 
 1. In the **New container** window, in the **Name** box, enter **adftutorial**, and then select **OK**.
 
-    ![Enter container name](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/new-container-dialog.png" alt-text="Enter container name":::
 
 1. In the list of containers, select **adftutorial**.  
 
@@ -182,13 +182,13 @@ In this section, you create a self-hosted integration runtime and associate it w
 1. Create a variable for the name of integration runtime. Use a unique name, and note the name. You use it later in this tutorial.
 
     ```powershell
-   $integrationRuntimeName = "ADFTutorialIR"
+    $integrationRuntimeName = "ADFTutorialIR"
     ```
 
 1. Create a self-hosted integration runtime.
 
     ```powershell
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 
     Here is the sample output:
@@ -205,7 +205,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 1. To retrieve the status of the created integration runtime, run the following command:
 
     ```powershell
-   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+    Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
     ```
 
     Here is the sample output:
@@ -261,21 +261,21 @@ In this section, you create a self-hosted integration runtime and associate it w
 
 1. In the **Register Integration Runtime (Self-hosted)** window, paste the key you saved in the previous section, and then select **Register**.
 
-    ![Register integration runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/register-integration-runtime.png" alt-text="Register integration runtime":::
 
 1. In the **New Integration Runtime (Self-hosted) Node** window, select **Finish**.
 
-    ![New Integration Runtime Node window](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png" alt-text="New Integration Runtime Node window":::
 
  1. When the self-hosted integration runtime is registered successfully, the following message is displayed:
 
-    ![Registered successfully](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/registered-successfully.png" alt-text="Registered successfully":::
 
 1. In the **Register Integration Runtime (Self-hosted)** window, select **Launch Configuration Manager**.
 
 1. When the node is connected to the cloud service, the following message is displayed:
 
-    ![Node is connected](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/node-is-connected.png" alt-text="Node is connected":::
 
 1. Test the connectivity to your SQL Server database by doing the following:
 
@@ -294,7 +294,7 @@ In this section, you create a self-hosted integration runtime and associate it w
     g. Enter the password that's associated with the username.
 
     h. To confirm that integration runtime can connect to the SQL Server, select **Test**.  
-    ![Connectivity succeeded](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png" alt-text="Connectivity succeeded":::
 
     If the connection is successful, a green checkmark icon is displayed. Otherwise, you'll receive an error message associated with the failure. Fix any issues, and ensure that the integration runtime can connect to your SQL Server instance.
 
@@ -356,7 +356,7 @@ In this step, you link your SQL Server instance to the data factory.
 
     **Using SQL authentication (sa):**
 
-	```json
+    ```json
     {  
         "name":"SqlServerLinkedService",
         "type":"Microsoft.DataFactory/factories/linkedservices",
@@ -705,7 +705,7 @@ The pipeline automatically creates the output folder named *fromonprem* in the `
 1. Select `fromonprem` in the list of folders.
 1. Confirm that you see a file named `dbo.emp.txt`.
 
-    ![Output file](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/fromonprem-file.png" alt-text="Output file":::
 
 
 ## Next steps

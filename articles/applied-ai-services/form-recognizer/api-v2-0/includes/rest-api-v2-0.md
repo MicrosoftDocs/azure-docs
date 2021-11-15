@@ -1,7 +1,6 @@
 ---
 title: "reference: Form Recognizer 2.0 REST API"
 description: Use the Form Recognizer REST API to create a forms processing app that extracts key/value pairs and table data from your custom documents.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -9,6 +8,7 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
+ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -25,7 +25,7 @@ ms.author: lajanuar
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A URL for an image of a receipt. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
@@ -192,7 +192,7 @@ This output has been shortened for simplicity. See the [full sample output on Gi
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md). To start analyzing a receipt, call the **[Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipt.md). To start analyzing a receipt, call the **[Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your receipt URL}` with the URL address of a receipt image.
@@ -564,7 +564,7 @@ To train a custom model, you'll need a set of training data in an Azure Storage 
 Training without labeled data is the default operation and is simpler. Alternatively, you can manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model.
 
 > [!NOTE]
-> You can also train models with a graphical user interface such as the [Form Recognizer sample labeling tool](../../label-tool.md).
+> You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../label-tool.md).
 
 ### Train a model without labels
 
@@ -586,7 +586,7 @@ You'll receive a `201 (Success)` response with a **Location** header. The value 
 
 ### Train a model with labels
 
-To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
+To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
 
 Before you run the command, make these changes:
 

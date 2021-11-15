@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 06/08/2021
 ---
 
-# Replicate data into Azure Database for MySQL Flexible  Server (Preview)
+# Replicate data into Azure Database for MySQL Flexible  Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -16,7 +16,7 @@ Data-in replication allows you to synchronize data from an external MySQL server
 
 > [!Note]
 > GTID-based replication is currently not supported for Azure Database for MySQL Flexible Servers.<br>
-> Configuring Data-in replication for zone redundant high availability servers is not supported 
+> Configuring Data-in replication for zone redundant high availability servers is not supported.
 
 ## When to use Data-in replication
 
@@ -24,7 +24,7 @@ The main scenarios to consider about using Data-in replication are:
 
 - **Hybrid Data Synchronization:** With Data-in replication, you can keep data synchronized between your on-premises servers and Azure Database for MySQL Flexible Server. This synchronization is useful for creating hybrid applications. This method is appealing when you have an existing local database server but want to move the data to a region closer to end users.
 - **Multi-Cloud Synchronization:** For complex cloud solutions, use Data-in replication to synchronize data between Azure Database for MySQL Flexible Server and different cloud providers, including virtual machines and database services hosted in those clouds.
-- **Migration:** Customers can do Minimal Time migration using open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with Data-in replication. A selective cutover of production load from source to destination database is possible with Data-in replication. 
+- **Migration:** Customers can do Minimal Time migration using open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with Data-in replication. A selective cutover of production load from source to destination database is possible with Data-in replication.
 
 For migration scenarios, use the [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/)(DMS).
 
@@ -34,12 +34,12 @@ For migration scenarios, use the [Azure Database Migration Service](https://azur
 
 The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) on the source server isn't replicated. In addition, changes to accounts and permissions on the source server aren't replicated. If you create an account on the source server and this account needs to access the replica server, manually create the same account on the replica server. To understand what tables are contained in the system database, see the [MySQL manual](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
-### Data-in replication not supported on HA enabled servers 
-Configuring Data-in replication for zone redundant high availability servers is not supported. On servers were HA is enabled the stored procedures for replication `mysql.az_replication_*` will not be available. 
+### Data-in replication not supported on HA enabled servers
+Configuring Data-in replication for zone redundant high availability servers is not supported. On servers were HA is enabled the stored procedures for replication `mysql.az_replication_*` will not be available.
 
 ### Filtering
 
-Modifying the parameter `replicate_wild_ignore_table` which was used to create replication filter for tables, is currently not supported for Azure Database for MySQL -Flexible server. 
+Modifying the parameter `replicate_wild_ignore_table` which was used to create replication filter for tables, is currently not supported for Azure Database for MySQL -Flexible server.
 
 ### Requirements
 

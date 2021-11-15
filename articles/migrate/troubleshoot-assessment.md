@@ -138,6 +138,10 @@ The confidence rating is calculated for **Performance-based** assessments based 
 - For Azure VM and Azure VMware Solution assessments, few servers were created after discovery had started. For example, say you're creating an assessment for the performance history of the past month, but a few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
 - For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, say you're creating an assessment for the performance history of the past month, but a few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings).
 
+## Why is my RAM utilization greater than 100%?
+
+By design, in Hyper-V if maximum memory provisioned is less than what is required by the VM, Assessment will show memory utilization to be more than 100%.
+
 ## Is the operating system license included in an Azure VM assessment?
 
 An Azure VM assessment currently considers the operating system license cost only for Windows servers. License costs for Linux servers aren't currently considered.
@@ -148,7 +152,7 @@ An Azure VM assessment continuously collects performance data of on-premises ser
 
 ## Can I migrate my disks to an Ultra disk by using Azure Migrate?
 
-No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. Find steps to deploy an Ultra disk at [this website](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk).
+No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. Find steps to deploy an Ultra disk at [this website](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk).
 
 ## Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
 

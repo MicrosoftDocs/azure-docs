@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Taskize Connect | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Taskize Connect'
 description: Learn how to configure single sign-on between Azure Active Directory and Taskize Connect.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 09/23/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Taskize Connect
+# Tutorial: Azure AD SSO integration with Taskize Connect
 
 In this tutorial, you'll learn how to integrate Taskize Connect with Azure Active Directory (Azure AD). When you integrate Taskize Connect with Azure AD, you can:
 
@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Taskize Connect supports **SP and IDP** initiated SSO.
+* Taskize Connect supports [Automated user provisioning](taskize-connect-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -138,6 +139,8 @@ The objective of this section is to create a user called B.Simon in Taskize Conn
 >[!Note]
 >If you need to create a user manually, contact [Taskize Connect support team](mailto:support@taskize.com).
 
+Taskize Connect also supports automatic user provisioning, you can find more details [here](./taskize-connect-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -152,8 +155,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Taskize Connect for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Taskize Connect tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Taskize Connect for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Taskize Connect tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Taskize Connect for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Taskize Connect you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Taskize Connect you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

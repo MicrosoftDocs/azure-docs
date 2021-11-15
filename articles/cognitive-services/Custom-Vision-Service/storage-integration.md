@@ -34,7 +34,7 @@ Next, go to your storage resource in the Azure portal. Go to the **Access contro
 * If you plan to use the model backup feature, select the **Storage Blob Data Contributor** role, and add your Custom Vision training resource as a member. Select **Review + assign** to complete.
 * If you plan to use the notification queue feature, then select the **Storage Queue Data Contributor** role, and add your Custom Vision training resource as a member. Select **Review + assign** to complete.
 
-For help with role assignments, see [Assign Azure roles using the Azure portal](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+For help with role assignments, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### Get integration URLs
 

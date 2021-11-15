@@ -5,6 +5,7 @@ description: In this quick start we'll create an application and service princip
 services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
+ms.subservice: identity
 
 ms.topic: quickstart
 ms.date: 06/30/2021

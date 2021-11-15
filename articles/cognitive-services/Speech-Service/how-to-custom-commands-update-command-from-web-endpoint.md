@@ -3,13 +3,13 @@ title: 'Update a command from a web endpoint'
 titleSuffix: Azure Cognitive Services
 description: Learn how to update the state of a command by using a call to a web endpoint.
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: lajanuar
+ms.author: eur
 ---
 
 # Update a command from a web endpoint

@@ -2,7 +2,7 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 09/01/2021
+ms.date: 09/27/2021
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM
@@ -17,9 +17,6 @@ This tutorial shows you how to back up SAP HANA databases running on Azure VMs t
 
 [Here](sap-hana-backup-support-matrix.md#scenario-support) are all the scenarios that we currently support.
 
->[!NOTE]
->As of August 1st, 2020, SAP HANA backup for RHEL (7.4, 7.6, 7.7 & 8.1) is generally available.
-
 ## Prerequisites
 
 Make sure you do the following before configuring backups:
@@ -33,8 +30,8 @@ Make sure you do the following before configuring backups:
   * It should have credentials to add and delete users
   * Note that this key can be deleted after running the pre-registration script successfully
 * You could also choose to create a key for the existing HANA SYSTSEM user in **hdbuserstore** instead of creating a custom key as listed in the step above.
-* Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/scriptforpermsonhana) gets the HANA system ready for backup and requires the key you have created in the above steps to be passed as input. To understand how this input is to be passed as a parameter to the script, refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section. It also details about what the pre-registration script does.
-* If your HANA setup uses Private Endpoints, run the [pre-registration script](https://aka.ms/scriptforpermsonhana) with the *-sn* or *--skip-network-checks* parameter.
+* Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://go.microsoft.com/fwlink/?linkid=2173610) gets the HANA system ready for backup and requires the key you have created in the above steps to be passed as input. To understand how this input is to be passed as a parameter to the script, refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section. It also details about what the pre-registration script does.
+* If your HANA setup uses Private Endpoints, run the [pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610) with the *-sn* or *--skip-network-checks* parameter.
 
 >[!NOTE]
 >The preregistration script installs the **compat-unixODBC234** for SAP HANA workloads running on RHEL (7.4, 7.6 and 7.7) and **unixODBC** for RHEL 8.1. [This package is located in the RHEL for SAP HANA (for RHEL 7 Server) Update Services for SAP Solutions (RPMs) repo](https://access.redhat.com/solutions/5094721).  For an Azure Marketplace RHEL image the repo would be **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
@@ -52,12 +49,14 @@ The following table lists the various alternatives you can use for establishing 
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
 | Allow access to service FQDNs/IPs | No additional costs   <br><br>  Works with all network security appliances and firewalls | A broad set of IPs or FQDNs may be required to be accessed   |
 | Use an HTTP proxy                 | Single point of internet access to VMs                       | Additional costs to run a VM with the proxy software         |
+| [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Can be used for Azure Storage (= Recovery Services vault).     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can’t be used for Azure AD, Azure Backup service.    |
+| Network Virtual Appliance      |      Can be used for Azure Storage, Azure AD, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Azure AD: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](../firewall/fqdn-tags.md).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
 
 More details around using these options are shared below:
 
 ### Private endpoints
 
-Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
+Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses a private IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. A private endpoint is assigned to a specific subnet of a virtual network and can't be used for Azure Active Directory. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
 
 ### NSG tags
 
@@ -97,17 +96,19 @@ When you back up an SAP HANA database running on an Azure VM, the backup extensi
 
 ## Understanding backup and restore throughput performance
 
-The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are streams to Azure Recovery services vaults and so it is important to understand this streaming methodology.
+The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are streams to Azure Recovery Services vaults (which internally use Azure Storage Blob) and so it is important to understand this streaming methodology.
 
-The Backint component of HANA provides the 'pipes' (a pipe to read from and a pipe to write into), connected to underlying disks where database files reside, which are then read by the Azure Backup service and transported to Azure Recovery Services vault. The Azure Backup service also performs a checksum to validate the streams, in addition to the Backint native validation checks. These validations will make sure that the data present in Azure Recovery Services vault is indeed reliable and recoverable.
+The Backint component of HANA provides the 'pipes' (a pipe to read from and a pipe to write into), connected to underlying disks where database files reside, which are then read by the Azure Backup service and transported to Azure Recovery Services vault, which is a remote Azure Storage Account. The Azure Backup service also performs a checksum to validate the streams, in addition to the Backint native validation checks. These validations will make sure that the data present in Azure Recovery Services vault is indeed reliable and recoverable.
 
-Since the streams primarily deal with disks, you need to understand the disk performance to gauge the backup and restore performance. Refer to [this article](../virtual-machines/disks-performance.md) for an in-depth understanding of disk throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
+Since the streams primarily deal with disks, you need to understand the disk performance for read and network performance to transfer backup data  to gauge the backup and restore performance. Refer to [this article](../virtual-machines/disks-performance.md) for an in-depth understanding of disk/network throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
 
 **The Azure Backup service attempts to achieve upto ~420 MBps for non-log backups (such as full, differential and incremental) and upto 100 MBps for log backups for HANA**. As mentioned above, these are not guaranteed speeds and depend on following factors:
 
-* Max Uncached disk throughput of the VM
-* Underlying disk type and its throughput
-* The number of processes which are trying to read and write into the same disk at the same time.
+- Maximum Uncached disk throughput of the VM – read from data or log area.
+- Underlying disk type and its throughput – read from data or log area.
+- VM’s maximum network throughput – write to Recovery Services vault.
+- If the VNET has NVA/firewall, it's network throughput
+- If the data/log on Azure NetApp Files – both read from ANF and write to Vault consume VM’s network.
 
 > [!IMPORTANT]
 > In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, you may be concerned that the entire disk IOPS are consumed by the backup service which may affect SAP HANA's operations related to read/write from the disks. In that case, if you wishes to throttle or limit the backup service consumption to the maximum limit, you can refer to the next section.
@@ -171,13 +172,19 @@ The command output should display the {SID}{DBNAME} key, with the user shown as 
 
 Here's a summary of steps required for completing the pre-registration script run. Note that in this flow we're providing the SYSTEM user key as an input parameter to the pre-registration script.
 
-|Who  |From  |What to run  |Comments  |
-|---------|---------|---------|---------|
-|```<sid>```adm (OS)     |  HANA OS       |   Read tutorial and download pre-registration script      |   Read the [pre-requisites above](#prerequisites)    Download Pre-registration script from [here](https://aka.ms/scriptforpermsonhana)  |
-|```<sid>```adm (OS) and SYSTEM user (HANA)    |      HANA OS   |   Run hdbuserstore Set command      |   e.g. hdbuserstore Set SYSTEM hostname>:3```<Instance#>```13 SYSTEM ```<password>``` **Note:**  Make sure to use hostname instead of IP address or FQDN      |
-|```<sid>```adm (OS)    |   HANA OS      |  Run hdbuserstore List command       |   Check if the result includes the default store like below : ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
-|Root (OS)     |   HANA OS        |    Run Azure Backup HANA pre-registration script      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
-|```<sid>```adm (OS)    |  HANA OS       |   Run hdbuserstore List command      |    Check if result includes new lines as below :  ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```     |
+| Who     |    From    |    What to run    |    Comments    |
+| --- | --- | --- | --- |
+| `<sid>`adm (OS) |    HANA OS   | Read the tutorial and download the pre-registration script.  |    Tutorial: [Back up HANA databases in Azure VM]()   <br><br>    Download the [pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610) |
+| `<sid>`adm (OS)    |    HANA OS    |   Start HANA (HDB start)    |   Before you set up, ensure that HANA is up and running.   |
+| `<sid>`adm (OS)   |   HANA OS  |    Run the command: <br>  `hdbuserstore Set`   |  `hdbuserstore Set SYSTEM <hostname>:3<Instance#>13 SYSTEM <password>`  <br><br>   **Note** <br>  Ensure that you use hostname instead of IP address/FQDN.   |
+| `<sid>`adm (OS)   |  HANA OS    |   Run the command:<br> `hdbuserstore List`   |  Check if the result includes the default store as below: <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
+| Root (OS)   |   HANA OS    |    Run the [Azure Backup HANA pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610).     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
+| `<sid>`adm (OS)   |   HANA OS   |    Run the command: <br> `hdbuserstore List`   |   Check if result includes new lines as below: <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
+| Azure Contributor     |    Azure portal    |   Configure NSG, NVA, Azure Firewall, and so on to allow outbound traffic to Azure Backup service, Azure AD, and Azure Storage.     |    [Set up network connectivity](#set-up-network-connectivity)    |
+| Azure Contributor |   Azure portal    |   Create or open a Recovery Services vault and then select HANA backup.   |   Find all the target HANA VMs to back up.   |
+| Azure Contributor    |   Azure portal    |   Discover HANA databases and configure backup policy.   |  For example: <br><br>  Weekly backup: Every Sunday 2:00 AM, retention of weekly 12 weeks, monthly 12 months, yearly 3 years   <br>   Differential or incremental: Every day, except for Sunday    <br>   Log: every 15 minutes retained for 35 days    |
+| Azure Contributor  |   Azure portal    |    Recovery Service vault – Backup Items – SAP HANA     |   Check backup jobs (Azure Workload).    |
+| HANA Admin    | HANA Studio   | Check Backup Console, Backup catalog, backup.log, backint.log, and globa.ini   |    Both SYSTEMDB and Tenant database.   |
 
 After running the pre-registration script successfully and verifying, you can then proceed to check [the connectivity requirements](#set-up-network-connectivity) and then [configure backup](#discover-the-databases) from Recovery services vault
 
@@ -216,6 +223,12 @@ To create a Recovery Services vault:
    ![Select Review & Create](./media/tutorial-backup-sap-hana-db/review-create.png)
 
 The Recovery Services vault is now created.
+
+## Enable Cross Region Restore
+
+At the Recovery Services vault, you can enable Cross Region Restore. You must turn on Cross Region Restore before you configure and protect backups on your HANA databases. Learn about [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
+
+[Learn more](./backup-azure-recovery-services-vault-overview.md) about Cross Region Restore.
 
 ## Discover the databases
 

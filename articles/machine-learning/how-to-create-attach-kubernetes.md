@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 04/08/2021
+ms.date: 11/05/2021
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
@@ -39,9 +39,11 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
     Authorized IP ranges only works with Standard Load Balancer.
 
-- > To attach an AKS cluster from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the AKS cluster. Check your access in the [Azure portal](https://ms.portal.azure.com/).
+- To attach an AKS cluster from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the AKS cluster. Check your access in the [Azure portal](https://ms.portal.azure.com/).
 
 - If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
+
+- Using a [public fully qualified domain name (FQDN) with a private AKS cluster](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-fqdn) is __not supported__ with Azure Machine learning. 
 
 - The compute name for the AKS cluster MUST be unique within your Azure ML workspace. It can include letters, digits and dashes. It must start with a letter, end with a letter or digit, and be between 3 and 24 characters in length.
  
@@ -52,9 +54,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
     > [!IMPORTANT]
     > A __dev-test__ cluster is not suitable for production level traffic and may increase inference times. Dev/test clusters also do not guarantee fault tolerance.
 
-- When creating or attaching a cluster, if the cluster will be used for __production__, then it must contain at least 12 __virtual CPUs__. The number of virtual CPUs can be calculated by multiplying the __number of nodes__ in the cluster by the __number of cores__ provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
-
-    For a __dev-test__ cluster, we recommand at least 2 virtual CPUs.
+- When creating or attaching a cluster, if the cluster will be used for __production__, then it must contain at least __3 nodes__. For a __dev-test__ cluster, it must contain at least 1 node.
 
 - The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure Machine Learning studio. You can only change the node count, not the VM size of the cluster. For more information on scaling the nodes in an AKS cluster, see the following articles:
 
@@ -80,9 +80,6 @@ When **creating** an Azure Kubernetes Service cluster using one of the following
 These methods of creating an AKS cluster use the __default__ version of the cluster. *The default version changes over time* as new Kubernetes versions become available.
 
 When **attaching** an existing AKS cluster, we support all currently supported AKS versions.
-
-> [!IMPORTANT]
-> Currently, Azure machine learning does not support deploying models to AKS version **1.21.x**
 
 > [!IMPORTANT]
 > Azure Kubernetes Service uses [Blobfuse FlexVolume driver](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) for the versions <=1.16 and [Blob CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) for the versions >=1.17. 

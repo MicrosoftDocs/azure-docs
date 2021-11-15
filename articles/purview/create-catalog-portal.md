@@ -1,35 +1,29 @@
 ---
-title: 'Quickstart: Create an Azure Purview account in the Azure portal'
+title: 'Quickstart: Create a Purview account in the Azure portal'
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
-ms.subservice: purview-data-catalog
-ms.custom:
-  - mode-portal
+ms.custom: mode-portal
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
-# Quickstart: Create an Azure Purview account in the Azure portal.
+# Quickstart: Create an Azure Purview account in the Azure portal
 
-Azure Purview is a unified data governance tool that helps you to manage your data landscape. This quickstart describes the steps to create an Azure Purview account in the Azure portal and get started on the process of classifying, securing, and discovering your data in Purview!
+This quickstart describes the steps to create an Azure Purview account in the Azure portal and get started on the process of classifying, securing, and discovering your data in Purview!
 
-## Prerequisites
+Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+For more information about Purview, [see our overview page](overview.md). For more information about deploying Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
-* The user account that you use to sign in to Azure must be a contributor, owner, or an administrator of the Azure subscription.
-
-* Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
-
-* No [Azure Policies](../governance/policy/overview.md) preventing creation of **Storage accounts** or **Event Hub namespaces**. Purview will deploy a managed Storage account and Event Hub when it is created. If a blocking policy exists and needs to remain in place, please follow our [Purview exception tag guide](create-purview-portal-faq.md) to prepare your environment.
+[!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
 ## Create an Azure Purview account
 
 1. Go to the **Purview accounts** page in the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Screenshot showing the purview accounts page in the Azure Portal":::
+    :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Screenshot showing the purview accounts page in the Azure portal":::
 
 1. Select **Create** to create a new Azure Purview account.
 
@@ -37,7 +31,7 @@ Azure Purview is a unified data governance tool that helps you to manage your da
   
       Or instead, you can go to the marketplace, search for **Azure Purview**, and select **Create**.
 
-     :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Screenshot showing Azure Purview in the Azure marketplace, with the create button highlighted.":::
+     :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Screenshot showing Azure Purview in the Azure Marketplace, with the create button highlighted.":::
 
 1. On the new Create Purview account page, under the **Basics** tab, select the Azure subscription where you want to create your Purview account.
 

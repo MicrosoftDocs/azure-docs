@@ -4,7 +4,7 @@ description: Describes the Bicep operators available for Azure Resource Manager 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/10/2021
 ---
 
 # Bicep operators
@@ -33,7 +33,9 @@ The operators below are listed in descending order of precedence (the higher the
 | `?` `:` | Conditional expression (ternary) | Right to left
 | `??` | Coalesce | Left to right
 
-Enclosing an expression between `(` and `)` allows you to override the default Bicep operator precedence. For example, the expression x + y / z evaluates the division first and then the addition. However, the expression (x + y) / z evaluates the addition first and division second.
+## Parentheses
+
+Enclosing an expression between parentheses allows you to override the default Bicep operator precedence. For example, the expression `x + y / z` evaluates the division first and then the addition. However, the expression `(x + y) / z` evaluates the addition first and division second.
 
 ## Accessor
 
@@ -69,7 +71,7 @@ The logical operators evaluate boolean values, return non-null values, or evalua
 | ---- | ---- | ---- |
 | `&&` | [And](./operators-logical.md#and-) | Returns `true` if all values are true. |
 | `||`| [Or](./operators-logical.md#or-) | Returns `true` if either value is true. |
-| `!` | [Not](./operators-logical.md#not-) | Negates a boolean value. |
+| `!` | [Not](./operators-logical.md#not-) | Negates a boolean value. Takes one operand. |
 | `??` | [Coalesce](./operators-logical.md#coalesce-) | Returns the first non-null value. |
 | `?` `:` | [Conditional expression](./operators-logical.md#conditional-expression--) | Evaluates a condition for true or false and returns a value. |
 
@@ -83,8 +85,8 @@ The numeric operators use integers to do calculations and return integer values.
 | `/` | [Divide](./operators-numeric.md#divide-) | Divides an integer by an integer. |
 | `%` | [Modulo](./operators-numeric.md#modulo-) | Divides an integer by an integer and returns the remainder. |
 | `+` | [Add](./operators-numeric.md#add-) | Adds two integers. |
-| `-` | [Subtract](./operators-numeric.md#subtract--) | Subtracts an integer from an integer. |
-| `-` | [Minus](./operators-numeric.md#minus--) | Multiplies an integer by `-1`. |
+| `-` | [Subtract](./operators-numeric.md#subtract--) | Subtracts one integer from another integer. Takes two operands. |
+| `-` | [Minus](./operators-numeric.md#minus--) (unary) | Multiplies an integer by `-1`. Takes one operand. |
 
 > [!NOTE]
 > Subtract and minus use the same operator. The functionality is different because subtract uses two

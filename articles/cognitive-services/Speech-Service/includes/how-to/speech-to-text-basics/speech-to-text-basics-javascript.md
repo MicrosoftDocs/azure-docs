@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/04/2021
-ms.author: lajanuar
+ms.author: eur
 ms.custom: devx-track-js
 ---
 
@@ -121,17 +121,17 @@ The previous examples simply get the recognized text from `result.text`, but to 
 
 ```javascript
 switch (result.reason) {
-    case ResultReason.RecognizedSpeech:
+    case sdk.ResultReason.RecognizedSpeech:
         console.log(`RECOGNIZED: Text=${result.text}`);
         break;
-    case ResultReason.NoMatch:
+    case sdk.ResultReason.NoMatch:
         console.log("NOMATCH: Speech could not be recognized.");
         break;
-    case ResultReason.Canceled:
+    case sdk.ResultReason.Canceled:
         const cancellation = CancellationDetails.fromResult(result);
         console.log(`CANCELED: Reason=${cancellation.reason}`);
 
-        if (cancellation.reason == CancellationReason.Error) {
+        if (cancellation.reason == sdk.CancellationReason.Error) {
             console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
             console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
             console.log("CANCELED: Did you update the key and location/region info?");
@@ -142,7 +142,7 @@ switch (result.reason) {
 
 ## Continuous recognition
 
-The previous examples use single-shot recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
+The previous examples use at-start recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 
 In contrast, continuous recognition is used when you want to **control** when to stop recognizing. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
 
@@ -165,10 +165,10 @@ recognizer.recognizing = (s, e) => {
 };
 
 recognizer.recognized = (s, e) => {
-    if (e.result.reason == ResultReason.RecognizedSpeech) {
+    if (e.result.reason == sdk.ResultReason.RecognizedSpeech) {
         console.log(`RECOGNIZED: Text=${e.result.text}`);
     }
-    else if (e.result.reason == ResultReason.NoMatch) {
+    else if (e.result.reason == sdk.ResultReason.NoMatch) {
         console.log("NOMATCH: Speech could not be recognized.");
     }
 };
@@ -176,7 +176,7 @@ recognizer.recognized = (s, e) => {
 recognizer.canceled = (s, e) => {
     console.log(`CANCELED: Reason=${e.reason}`);
 
-    if (e.reason == CancellationReason.Error) {
+    if (e.reason == sdk.CancellationReason.Error) {
         console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
         console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
         console.log("CANCELED: Did you update the key and location/region info?");
@@ -197,7 +197,7 @@ With everything set up, call [`startContinuousRecognitionAsync`](/javascript/api
 recognizer.startContinuousRecognitionAsync();
 
 // make the following call at some point to stop recognition.
-// recognizer.StopContinuousRecognitionAsync();
+// recognizer.stopContinuousRecognitionAsync();
 ```
 
 ### Dictation mode
@@ -233,7 +233,7 @@ Single words or complete phrases can be added to a Phrase List. During recogniti
 >
 > The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
 >
-> Do not use the Phrase List feature with custom endpoints. Instead, train a custom model that includes the phrases.
+> The Phrase List feature is not supported with custom endpoints. Do not use it with custom endpoints. Instead, train a custom model that includes the phrases.
 
 To use a phrase list, first create a [`PhraseListGrammar`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar) object, then add specific words and phrases with [`addPhrase`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar#addphrase-string-).
 

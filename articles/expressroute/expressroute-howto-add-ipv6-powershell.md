@@ -9,7 +9,7 @@ ms.date: 03/02/2021
 ms.author: duau
 ---
 
-# Add IPv6 support for private peering using Azure PowerShell (Preview)
+# Add IPv6 support for private peering using Azure PowerShell
 
 This article describes how to add IPv6 support to connect via ExpressRoute to your resources in Azure using Azure PowerShell.
 
@@ -149,7 +149,7 @@ Follow the steps below if you plan to connect to a new set of Azure resources us
 ## Limitations
 While IPv6 support is available for connections to deployments in Public Azure regions, it does not support the following use cases:
 
-* Connections to existing ExpressRoute gateways that are *not* zone-redundant
+* Connections to *existing* ExpressRoute gateways that are not zone-redundant. Note that *newly* created ExpressRoute gateways of any SKU (both zone-redundant and not) using  a Standard, Static IP address can be used for dual-stack ExpressRoute connections
 * Global Reach connections between ExpressRoute circuits
 * Use of ExpressRoute with virtual WAN
 * FastPath with non-ExpressRoute Direct circuits

@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up AutoML training runs without a single line of code with Azure Machine Learning automated ML in the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 06/11/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
@@ -89,7 +89,9 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
 1. Select a target column; this is the column that you would like to do predictions on.
 
-1. Select a compute for the data profiling and training job. A list of your existing computes is available in the dropdown. To create a new compute, follow the instructions in step 7.
+1. Select a compute type for the data profiling and training job. You can select a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) or [compute instance](concept-compute-instance.md). 
+    
+1. Select a compute from the dropdown list of your existing computes.  To create a new compute, follow the instructions in step 8.
 
 1. Select **Create a new compute** to configure your compute context for this experiment.
 
@@ -109,12 +111,11 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
     Select **Next**.
 
-1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting) for more information.
+1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting--computer-vision) for more information.
 
     1. For **classification**, you can also enable deep learning.
     
         If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options](how-to-configure-cross-validation-data-splits.md).
-
 
     1. For **forecasting** you can, 
     
@@ -122,7 +123,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     
         1. Select *time column*: This column contains the time data to be used.
 
-        1. Select *forecast horizon*: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
+        1. Select *forecast horizon*: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it becomes. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
 
 1. (Optional) View addition configuration settings: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
 
@@ -228,10 +229,10 @@ Automated ML helps you with deploying the model without writing code:
     ----|----
     Name| Enter a unique name for your deployment.
     Description| Enter a description to better identify what this deployment is for.
-    Compute type| Select the type of endpoint you want to deploy: *Azure Kubernetes Service (AKS)* or *Azure Container Instance (ACI)*.
+    Compute type| Select the type of endpoint you want to deploy: [*Azure Kubernetes Service (AKS)*](../aks/intro-kubernetes.md) or [*Azure Container Instance (ACI)*](../container-instances/container-instances-overview.md).
     Compute name| *Applies to AKS only:* Select the name of the AKS cluster you wish to deploy to.
     Enable authentication | Select to allow for token-based or key-based authentication.
-    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. [Learn more about scoring scripts](how-to-deploy-and-where.md).
+    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. Otherwise, automated ML provides these assets for you by default. [Learn more about scoring scripts](how-to-deploy-and-where.md).
 
     >[!Important]
     > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.

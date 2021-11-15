@@ -1,7 +1,6 @@
 - name: Bicep documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What is Bicep?
     href: overview.md
@@ -27,8 +26,10 @@
   - name: Author
     expanded: true
     items:
+    - name: File structure & syntax
+      displayName: parameters,variables,resources,outputs,condition
+      href: file.md
     - name: Resources
-      expanded: true
       items:
       - name: Resource declaration
         href: resource-declaration.md
@@ -36,9 +37,9 @@
       - name: Conditional deployment
         href: conditional-resource-deployment.md
         displayName: runtime
-      - name: Child resource name and type
+      - name: Child resources
         href: child-resource-name-type.md
-        displayName: parent,parent resource
+        displayName: parent,parent resource,sub,nested
       - name: Extension resources
         href: scope-extension-resources.md
     - name: Parameters
@@ -51,25 +52,14 @@
       href: outputs.md
       displayName: dynamic number of outputs,modules
     - name: Modules
-      href: modules.md
-      displayName: scopes,consume
-    - name: Loops
       items:
-      - name: Resources
-        displayName: iteration,copy,multiple,batches,child,condition,filter
-        href: loop-resources.md
-      - name: Modules
-        displayName: iteration,copy,multiple,batches,condition,filter
-        href: loop-modules.md
-      - name: Properties
-        displayName: iteration,copy,multiple
-        href: loop-properties.md
-      - name: Variables
-        displayName: iteration,copy,multiple
-        href: loop-variables.md
-      - name: Outputs
-        displayName: iteration,copy,multiple
-        href: loop-outputs.md
+      - name: Module definition
+        href: modules.md
+        displayName: scopes,consume
+      - name: Create private registry
+        href: private-module-registry.md
+    - name: Loops
+      href: loops.md
     - name: Scopes
       items:
       - name: Resource group
@@ -85,7 +75,25 @@
         href: deploy-to-tenant.md
         displayName: assign role
     - name: Linter
-      href: linter.md
+      items:
+      - name: Linter
+        href: linter.md
+      - name: Linter rules
+        items:
+        - name: Admin user name not literal
+          href: linter-rule-admin-username-should-not-be-literal.md
+        - name: No hardcoded environment URLs
+          href: linter-rule-no-hardcoded-environment-urls.md
+        - name: No unused parameters
+          href: linter-rule-no-unused-parameters.md
+        - name: No unused variables
+          href: linter-rule-no-unused-variables.md
+        - name: Prefer interpolation
+          href: linter-rule-prefer-interpolation.md
+        - name: Secure parameter default
+          href: linter-rule-secure-parameter-default.md
+        - name: Simplify interpolation
+          href: linter-rule-simplify-interpolation.md
     - name: Best practices
       href: best-practices.md
     - name: Patterns
@@ -122,21 +130,22 @@
         href: add-template-to-azure-pipelines.md
       - name: Bicep with GitHub Actions
         href: deploy-github-actions.md
-  - name: Use Bicep CLI
+  - name: Migrate to Bicep
     items:
+    - name: Recommended workflow
+      href: migrate.md
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
 - name: Reference
   items:
-  - name: Bicep file structure
-    displayName: parameters,variables,resources,outputs,condition
-    href: file.md
-  - name: Bicep resource reference
+  - name: Resource reference
     href: /azure/templates/
   - name: Data types
     href: data-types.md
-    displayName: supported types,arrays,booleans,integers,objects,strings,secure,
+    displayName: supported types,arrays,booleans,integers,objects,strings,secure
+  - name: Configuration file
+    href: bicep-config.md
   - name: Functions
     items:
     - name: All functions
@@ -149,6 +158,8 @@
       href: bicep-functions-date.md
     - name: Deployment functions
       href: bicep-functions-deployment.md
+    - name: File functions
+      href: bicep-functions-files.md
     - name: Logical functions
       href: bicep-functions-logical.md
     - name: Numeric functions

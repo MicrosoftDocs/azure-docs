@@ -5,8 +5,9 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ---
 
 # Azure Data Factory - Samples
@@ -49,21 +50,21 @@ You can use the **Sample pipelines** tile on the home page of your data factory 
 1. Create a data factory or open an existing data factory. See [Copy data from Blob Storage to SQL Database using Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for steps to create a data factory.
 2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.
 
-    ![Sample pipelines tile](./media/data-factory-samples/SamplePipelinesTile.png)
+    :::image type="content" source="./media/data-factory-samples/SamplePipelinesTile.png" alt-text="Sample pipelines tile":::
 3. In the **Sample pipelines** blade, click the **sample** that you want to deploy.
 
-    ![Sample pipelines blade](./media/data-factory-samples/SampleTile.png)
+    :::image type="content" source="./media/data-factory-samples/SampleTile.png" alt-text="Sample pipelines blade":::
 4. Specify configuration settings for the sample. For example, your Azure storage account name and account key, logical SQL server name, database, User ID, and password, etc.
 
-    ![Sample blade](./media/data-factory-samples/SampleBlade.png)
+    :::image type="content" source="./media/data-factory-samples/SampleBlade.png" alt-text="Sample blade":::
 5. After you are done with specifying the configuration settings, click **Create** to create/deploy the sample pipelines and linked services/tables used by the pipelines.
 6. You see the status of deployment on the sample tile you clicked earlier on the **Sample pipelines** blade.
 
-    ![Deployment status](./media/data-factory-samples/DeploymentStatus.png)
+    :::image type="content" source="./media/data-factory-samples/DeploymentStatus.png" alt-text="Deployment status":::
 7. When you see the **Deployment succeeded** message on the tile for the sample, close the **Sample pipelines** blade.  
 8. On **DATA FACTORY** blade, you see that linked services, data sets, and pipelines are added to your data factory.  
 
-    ![Data Factory blade](./media/data-factory-samples/DataFactoryBladeAfter.png)
+    :::image type="content" source="./media/data-factory-samples/DataFactoryBladeAfter.png" alt-text="Data Factory blade":::
 
 ## Samples in Visual Studio
 ### Prerequisites
@@ -83,10 +84,10 @@ You must have the following installed on your computer:
    4. Select a **location** for the project.
    5. Click **OK**.
 
-      ![New project dialog box](./media/data-factory-samples/vs-new-project-adf-templates.png)
+      :::image type="content" source="./media/data-factory-samples/vs-new-project-adf-templates.png" alt-text="New project dialog box":::
 3. In the **Data Factory Templates** dialog box, select the sample template from the **Use-Case Templates** section, and click **Next**. The following steps walk you through using the **Customer Profiling** template. Steps are similar for the other samples.
 
-    ![Data Factory Templates dialog box](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
+    :::image type="content" source="./media/data-factory-samples/vs-data-factory-templates-dialog.png" alt-text="Data Factory Templates dialog box":::
 4. In the **Data Factory Configuration** dialog, click **Next** on the **Data Factory Basics** page.
 5. On the **Configure data factory** page, do the following steps:
    1. Select **Create New Data Factory**. You can also select **Use existing data factory**.
@@ -103,7 +104,7 @@ You must have the following installed on your computer:
 11. If you see **Sign in to your Microsoft account** dialog box, enter your credentials for the account that has Azure subscription, and click **sign in**.
 12. You should see the following dialog box:
 
-    ![Publish dialog box](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/publish.png" alt-text="Publish dialog box":::
 13. In the **Configure data factory** page, do the following steps:
 
     1. Confirm that **Use existing data factory** option.

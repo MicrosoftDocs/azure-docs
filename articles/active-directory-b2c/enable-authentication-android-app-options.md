@@ -2,13 +2,13 @@
 title: Enable Android mobile application options by using Azure Active Directory B2C
 description:  This article discusses several ways to enable Android mobile application options by using Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/05/2021
-ms.author: mimart
+ms.date: 11/11/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -270,7 +270,26 @@ b2cApp.acquireToken(parameters);
 
 --- 
 
+## Embedded web view experience
 
+Web browsers are required for interactive authentication. By default, the MSAL library uses the system web view. During sign-in, the MSAL library pops up the Android system web view with the Azure AD B2C user interface.  
+
+For more information, see the [Enable cross-app SSO on Android using MSAL](../active-directory/develop/msal-android-single-sign-on.md#sso-through-system-browser) article.
+
+Depending on your requirements, you can use the embedded web view. There are visual and single sign-on behavior differences between the embedded web view and the system web view in MSAL.
+
+![Screenshot demonstrating the difference between the system web view experience and the embedded web view experience.](./media/enable-authentication-android-app-options/system-web-browser-vs-embedded-view.png)
+
+> [!IMPORTANT]
+> We recommend that you use the platform default, which is ordinarily the system browser. The system browser is better at remembering the users that have logged in before. Some identity providers, such as Google, don't support an embedded view experience.
+
+To change this behavior, open the *app/src/main/res/raw/auth_config_b2c.json* file. Then add the `authorization_user_agent` attribute with the `WEBVIEW` value. The following example demonstrates how to change the web view type to embedded view:
+
+```json
+{
+  "authorization_user_agent": "WEBVIEW" 
+}
+```
 
 ## Next steps
 

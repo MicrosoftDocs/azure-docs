@@ -153,7 +153,7 @@ In this section, you'll create a load balancer for the virtual machines.
 8. Select **IP address** for the **IP type**.
 
     > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/public-ip-address-prefix.md).
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Select **Create new** in **Public IP address**.
 
@@ -435,4 +435,3 @@ In this tutorial, you:
 Advance to the next article to learn how to create a cross-region Azure Load Balancer:
 > [!div class="nextstepaction"]
 > [Create a cross-region load balancer](tutorial-cross-region-portal.md)
-

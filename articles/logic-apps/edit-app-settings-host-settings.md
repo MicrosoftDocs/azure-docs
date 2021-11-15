@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/18/2021
+ms.custom: fasttrack-edit
 ---
 
 # Edit host and app settings for logic apps in single-tenant Azure Logic Apps
@@ -18,7 +19,7 @@ Your logic app also has *host settings*, which specify the runtime configuration
 
 ## App settings, parameters, and deployment
 
-In *multi-tenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In *multi-tenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
@@ -158,6 +159,15 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.FlowRetentionThreshold` | `90.00:00:00` <br>(90 days) | Sets the amount of time to keep workflow run history after a run starts. |
 | `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. <p><p>**Important**: Make sure this value is less than or equal to the `Runtime.FlowRetentionThreshold` value. Otherwise, run histories can get deleted before the associated jobs are complete. |
 ||||
+   
+<a name="run-actions"></a>
+
+### Run actions
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the amount of time for a workflow action job to run before timing out and retrying. |
+||||
 
 <a name="inputs-outputs"></a>
 
@@ -229,7 +239,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.DefaultAppendArrayItemsLimit` | `100000` <br>(100K array items) | Sets the maximum number of items in a variable with the Array type. |
-| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters <p><p>Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store. |
+| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateful workflow. |
+| `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateless workflow. |
 ||||
 
 <a name="http-webhook"></a>
