@@ -92,7 +92,7 @@ For an explanation of the **Format** column, see the [definitions for placeholde
 | Route table | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_routeTable` | `DEV-WEEU-SAP01_route-table` |
 | Storage account | 80              | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}diag(5CHAR){RND}` | `devweeusap01diagxxx` |
 | User-defined route | | `{remote_vnet}_Hub-udr` | |
-| User-defined route (firewal)| | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_firewall-route` |`DEV-WEEU-SAP01_firewall-route` |
+| User-defined route (firewall)| | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_firewall-route` |`DEV-WEEU-SAP01_firewall-route` |
 | Availability set (AV set) | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_iscsi-avset` | |
 | Network interface component | 80 | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_iscsi##-nic` | |
 | Disk | | `{vm.name}-iscsi00` or `${azurerm_virtual_machine.iscsi.*.name}-iscsi00` (code) | `DEV-WEEU-SAP01_iscsi00-iscsi00` |
