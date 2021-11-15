@@ -30,15 +30,53 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
 ## Configure NFSv4.1 domain  
 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
-    Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` to `defaultv4iddomain.com`. 
+    Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
 
-    Initial configuration: 
-    
-    ![Initial configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-initial-config.png)
+    * If the volume isn’t enabled for LDAP, set `Domain = defaultv4iddomain.com`.
+    * If the volume is enabled for LDAP, set `Domain` to the domain that is configured in you Active Directory Connection on your NetApp account.
+        For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
-    Updated configuration:
+    The following examples shows the initial configuration of `/etc/idmapd.conf` before changes:
+
+    ```
+    [General]
+    Verbosity = O 
+    Pipefs—Directory = /run/rpc_pipefs 
+    # set your own domain here, if it differs from FQDN minus hostname 
+    # Domain = localdomain 
+     
+    [Mapping] 
+    Nobody-User = nobody 
+    Nobody-Group = nogroup 
+    ```
+
+    The following example shows updated configuration of *non-LDAP* NFSv4.1 volumes:
+
+    ```
+    [General]
+    Verbosity = O 
+    Pipefs—Directory = /run/rpc_pipefs 
+    # set your own domain here, if it differs from FQDN minus hostname 
+    Domain = defaultv4iddomain.com 
+ 
+    [Mapping] 
+    Nobody-User = nobody 
+    Nobody-Group = nogroup 
+    ```
+
+    The following example shows updated configuration of *LDAP-enabled* NFSv4.1 volumes. In this example, `contoso.com` is the configured domain in the NetApp account:
+
+    ```
+    [General]
+    Verbosity = O 
+    Pipefs—Directory = /run/rpc_pipefs 
+    # set your own domain here, if it differs from FQDN minus hostname 
+    Domain = contoso.com
     
-    ![Updated configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-updated-config.png)
+    [Mapping] 
+    Nobody-User = nobody 
+    Nobody-Group = nogroup 
+    ```
 
 2. Unmount any currently mounted NFS volumes.
 3. Update the `/etc/idmapd.conf` file.

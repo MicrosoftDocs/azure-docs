@@ -92,7 +92,11 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 5. If you want to configure an LDAP-integrated NFSv4.1 Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
 
-6. If your LDAP-enabled volumes use NFSv4.1, configure the `/etc/idmapd.conf` file with the user's domain for the volumes. Then restart the `rpcbind` service on your host or reboot the host.  Follow instructions in [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain).
+6. If your LDAP-enabled volumes use NFSv4.1, follow instructions in [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain) to configure the `/etc/idmapd.conf` file.
+
+    You need to set `Domain` in `/etc/idmapd.conf` to the domain that is configured in you Active Directory Connection on your NetApp account. For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
+
+    Then you need to restart the `rpcbind` service on your host or reboot the host. 
 
 7.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create an NFS volume. During the volume creation process, under the **Protocol** tab, enable the **LDAP** option.   
 
