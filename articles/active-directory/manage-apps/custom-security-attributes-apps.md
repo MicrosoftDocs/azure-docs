@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/03/2021
+ms.date: 11/16/2021
 ms.author: rolyon
 ---
 

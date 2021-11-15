@@ -4,7 +4,7 @@ description: Assign or remove custom security attributes for a user in Azure Act
 services: active-directory 
 author: rolyon
 ms.author: rolyon
-ms.date: 11/03/2021
+ms.date: 11/16/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
