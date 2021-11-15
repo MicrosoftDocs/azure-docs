@@ -37,7 +37,7 @@ groups:
   - id: postgres-single-server
     title: Single Server
   - id: postgres-flexible-server
-    title: Flexible Server (Preview)    
+    title: Flexible Server (Preview)
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages
@@ -317,7 +317,7 @@ groups:
   - id: programmer-tool-spx
     title: CLI
 - id: programming-languages-set-twenty-four
-# Owner: erhopf
+# Owner: yulili
   title: Programming languages
   prompt: Choose a programming language or CLI
   pivots:
@@ -329,8 +329,10 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
-  - id: programming-language-javascript
-    title: JavaScript
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-browserjs
+    title: JavaScript (browser)
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
   - id: programming-language-python
@@ -463,9 +465,9 @@ groups:
   prompt: Choose a runtime version&#58;
   pivots:
   - id: programming-runtime-functions-v3
-    title: Version 3.x 
+    title: Version 3.x
   - id: programming-runtime-functions-v4
-    title: Version 4.x 
+    title: Version 4.x
 - id: programming-languages-metrics-monitor
   title: Programming languages
   prompt: Choose a programming language.
@@ -856,7 +858,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-python
-    title: Python    
+    title: Python
 - id: ams-lva-edge-programming-languages
   title: Live Video Analytics on IoT Edge programming languages
   prompt: Choose a programming language
@@ -1358,9 +1360,9 @@ groups:
   prompt: Choose a Facility Ontology Version
   pivots:
   - id: facility-ontology-v1
-    title: Facility Ontology 1.0 
+    title: Facility Ontology 1.0
   - id: facility-ontology-v2
-    title: Facility Ontology 2.0 
+    title: Facility Ontology 2.0
 # Owner: veyalla
 - id: how-to-troubleshoot-monitoring-and-faq-zpg
   title: Azure Monitor for IoT Edge FAQ

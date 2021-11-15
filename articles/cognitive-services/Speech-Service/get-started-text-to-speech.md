@@ -33,7 +33,11 @@ keywords: text to speech
 [!INCLUDE [Java Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-nodejs"
+[!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/speech-to-text-basics-nodejs.md)]
+::: zone-end
+
+::: zone pivot="programming-language-browserjs"
 [!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-javascript.md)]
 ::: zone-end
 

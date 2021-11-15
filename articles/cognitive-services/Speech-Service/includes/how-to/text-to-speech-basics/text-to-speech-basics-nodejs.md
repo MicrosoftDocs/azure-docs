@@ -1,9 +1,9 @@
 ---
-author: eric-urban
+author: yulin-li
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/02/2021
-ms.author: eur
+ms.date: 11/15/2021
+ms.author: yulili
 ms.custom: devx-track-js
 ---
 
@@ -23,7 +23,7 @@ This article assumes that you have an Azure account and Speech service resource.
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. See the [instructions](../../../speech-sdk.md?tabs=browser#get-the-speech-sdk)
+Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. See the [instructions](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk)
 
 Additionally, depending on the target environment use one of the following:
 
@@ -100,7 +100,46 @@ function synthesizeSpeech() {
 synthesizeSpeech();
 ```
 
-## Synthesize to speaker output
+## Synthesize speech to a file
+
+Next, you create a [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) object, which executes text-to-speech conversions and outputs to speakers, files, or other output streams. The [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) accepts as params the [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) object created in the previous step, and an [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig) object that specifies how output results should be handled.
+
+To start, create an `AudioConfig` to automatically write the output to a `.wav` file using the `fromAudioFileOutput()` static function.
+
+```javascript
+function synthesizeSpeech() {
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path/to/file.wav");
+}
+```
+
+Next, instantiate a `SpeechSynthesizer` passing your `speechConfig` object and the `audioConfig` object as params. Then, executing speech synthesis and writing to a file is as simple as running `speakTextAsync()` with a string of text. The result callback is a great place to call `synthesizer.close()`, in fact - this call is needed in order for synthesis to function correctly.
+
+```javascript
+function synthesizeSpeech() {
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path-to-file.wav");
+
+    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    synthesizer.speakTextAsync(
+        "A simple test to write to a file.",
+        result => {
+            synthesizer.close();
+            if (result) {
+                // return result as stream
+                return fs.createReadStream("path-to-file.wav");
+            }
+        },
+        error => {
+            console.log(error);
+            synthesizer.close();
+        });
+}
+```
+
+Run the program, and a synthesized `.wav` file is written to the location you specified. This is a good example of the most basic usage, but next you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
+
+## Synthesize to speaker output (browser only)
 
 In some cases, you may want to directly output synthesized speech directly to a speaker. To do this, instantiate the `AudioConfig` using the `fromDefaultSpeakerOutput()` static function. This outputs to the current active output device.
 
@@ -124,8 +163,6 @@ function synthesizeSpeech() {
         });
 }
 ```
-
-Run the program, and a synthesized audio is played from the speaker. This is a good example of the most basic usage, but next you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
 
 ## Get result as an in-memory stream
 
@@ -228,6 +265,8 @@ function synthesizeSpeech() {
         });
 }
 ```
+
+Running your program again will write a `.wav` file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
