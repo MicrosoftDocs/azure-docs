@@ -95,14 +95,14 @@ $CertManagerImageController = "jetstack/cert-manager-controller"
 $CertManagerImageWebhook = "jetstack/cert-manager-webhook"
 $CertManagerImageCaInjector = "jetstack/cert-manager-cainjector"
 
-```
-
 Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $ControllerRegistry -SourceImage "${ControllerImage}:${ControllerTag}"
 Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $PatchRegistry -SourceImage "${PatchImage}:${PatchTag}"
 Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $DefaultBackendRegistry -SourceImage "${DefaultBackendImage}:${DefaultBackendTag}"
 Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageController}:${CertManagerTag}"
 Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageWebhook}:${CertManagerTag}"
 Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageCaInjector}:${CertManagerTag}"
+
+```
 
 ---
 
