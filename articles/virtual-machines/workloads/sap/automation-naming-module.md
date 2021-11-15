@@ -17,19 +17,20 @@ The Terraform module `sap_namegenerator` defines the names of all resources that
 
 The framework also supports providing you own names for some of the resources using the [parameter files](automation-configure-system.md). If these capabilities are not enough you can also use custom naming logic by modifying the naming module used by the automation.
 
-There are multiple files within the module for:
+There are multiple files within the module for naming resources:
 
-- Virtual machine (VM) and computer names (`vm.tf`)
-- Resource groups (`resourcegroup.tf`)
-- Key vaults (`keyvault.tf`)
+- Virtual machine (VM) and computer names are defined in (`vm.tf`)
+- Resource group naming is defined in (`resourcegroup.tf`)
+- Key vaults in (`keyvault.tf`)
 - Resource suffixes (`variables_local.tf`)
 
-All four deployment types in the automation framework use the naming module:
-
+The different resource names are identified by prefixes in the Terraform code.
 - SAP deployer deployments use resource names with the prefix `deployer_`
 - SAP library deployments use resource names with the prefix `library`
 - SAP landscape deployments use resource names with the prefix `vnet_`
 - SAP system deployments use resource names with the prefix `sdu_`
+
+The calculated names are returned in a data dictionary which is used by all the terraform modules. 
 
 ## Module input
 
