@@ -1,6 +1,6 @@
 ---
-title: Create a confidential VM on AMD in the Azure portal (preview)
-description: Learn how to quickly create a confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
+title: Create an AMD-based confidential VM in the Azure portal (preview)
+description: Learn how to quickly create an AMD-based confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
 ms.service: virtual-machines
 ms.subservice: workloads
@@ -18,12 +18,11 @@ ms.author: RunCai
 
 You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](confidential-vm-solutions-amd.md) with AMD SEV-SNP technology.
 
-This tutorial covers deployment of a confidential VM with a custom configuration. For standard configurations, see the [Confidential Computing VM deployment steps for the Microsoft commercial marketplace](quick-create-marketplace.md) instead.
 
 ## Prerequisites
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
-- If you're using a Linux-based confidential VM, have a BASH shell to use for SSH. If you're working on a Windows computer, install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+- If you're using a Linux-based confidential VM, have a BASH shell to use for SSH or install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## Create confidential VM
 
@@ -55,7 +54,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
         > [!TIP]
         > Optionally, select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
 
-    1. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. Under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
+    1. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 
     1. For **Size**, select a VM size. For more information, see [supported confidential VM families](confidential-vm-solutions-amd.md#sizes).
 
