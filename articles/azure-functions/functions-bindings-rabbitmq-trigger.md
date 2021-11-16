@@ -23,7 +23,7 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-[](../../includes/functions-bindings-csharp-intro.md)
+<!--[](../../includes/functions-bindings-csharp-intro.md)-->
 
 # [In-process](#tab/in-process)
 

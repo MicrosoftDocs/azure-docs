@@ -31,7 +31,7 @@ To get started with developing with this extension, make sure you first [set up 
 
 ## Install extension
 
-[!INCLUDE [functions-extension-packages-nuget-tabs](../../includes/functions-extension-packages-nuget-tabs.md)]
+<!--[!INCLUDE [functions-extension-packages-nuget-tabs](../../includes/functions-extension-packages-nuget-tabs.md)]-->
 
 The functionality of the extension varies depending on the extension version:
 
