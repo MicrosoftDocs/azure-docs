@@ -371,7 +371,6 @@ Initial sync is typically limited by the initial upload rate of 20 files per sec
     * The following test cases run successfully
         1. https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-verifying-shared-file-system-behavior
         2. https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-running-amqsfhac-test-message-integrity
-    * The results of the above tests have been reviewed with IBM MQ team
 
 ## On-premises access
 
