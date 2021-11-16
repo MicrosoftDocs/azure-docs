@@ -19,7 +19,7 @@ The [automation framework](https://github.com/Azure/sap-hana) has two main compo
 
 The dependency between the control plane and the application plane is illustrated in the diagram below.
 
-:::image type="content" source="./media/automation-deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram show the SAP deployment automation framework's dependency between the control plane and application plane.":::
+:::image type="content" source="./media/automation-deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram showing the SAP deployment automation framework's dependency between the control plane and application plane.":::
 
 The following diagram shows the key components of the control plane and workload zone.
 

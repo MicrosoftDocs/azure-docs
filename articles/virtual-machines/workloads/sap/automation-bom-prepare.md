@@ -29,7 +29,7 @@ If you want to generate a BOM that includes permalinks, [follow the steps for cr
     - SAP Central Services (SCS)
     - The SAP Primary Application Server (PAS)
     - The SAP Additional Application Server (AAS)
-- Downloads of necessary stack files to the folder you created for [acquiring SAP media](automation-bom-get-files.md#acquire-media). For more information, see the [basic BoM preparation how-to guide](automation-bom-prepare.md).
+- Downloads of necessary stack files to the folder you created for [acquiring SAP media](automation-bom-get-files.md#acquire-media). For more information, see the [basic BOM preparation how-to guide](automation-bom-prepare.md).
 - A copy of your [SAP Download Basket manifest](automation-bom-get-files.md#get-download-basket-manifest) (`DownloadBasket.json`), downloaded to the [folder you created for acquiring SAP media](automation-bom-get-files.md#acquire-media).
     - An installation of the [Postman utility](https://www.postman.com/downloads/).
 - An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -184,7 +184,7 @@ You can create your BOM through the following manual process. Another option is 
 You can automatically generate a basic BOM that functions. However, the BOM doesn't create permanent URLs (permalinks) to the SAP media by default. If you want to create permalinks, you need to do more steps before you [acquire the SAP media](automation-bom-get-files.md#acquire-media). 
 
 > [!NOTE]
-> Manual generation of a full SAP BOM with permalinks takes about twice as long as [preparing a basic BOM manually](#manual-creation-process)]. 
+> Manual generation of a full SAP BOM with permalinks takes about twice as long as [preparing a basic BOM manually](#manual-creation-process). 
 
 To generate a BOM with permalinks:
 
@@ -214,14 +214,14 @@ To generate a BOM with permalinks:
       sapurl: "https://softwaredownloads.sap.com/file/0020000000703122018"
     ```
 
-## Example BoM file
+## Example BOM file
 
 The following sample is a small part of an example BOM file for S/4HANA 1909 SP2. 
 
 You can find multiple complete, usable BOM files in the [GitHub repository](https://github.com/Azure/sap-hana).
 
 ```yml
-step|BoM Content
+step|BOM Content
 
 ---
 

@@ -273,7 +273,7 @@ High availability configurations use Pacemaker with Azure fencing agents. The fe
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"
 ```
 
-Replace `<prefix>` with the name prefix of your environment, such as `DEV-WEEU-SAP01` and `<subscriptionID>` with the workload zone subscription id.
+Replace `<prefix>` with the name prefix of your environment, such as `DEV-WEEU-SAP01` and `<subscriptionID>` with the workload zone subscription ID.
   
 > [!IMPORTANT]
 > The name of the Fencing Agent Service Principal must be unique in the tenant. The script assumes that a role 'Linux Fence Agent Role' has already been created
