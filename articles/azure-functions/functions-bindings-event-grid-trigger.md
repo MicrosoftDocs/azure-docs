@@ -31,7 +31,7 @@ The type of the input parameter used with an Event Grid trigger depends on these
 + Binding extension version
 + Modality of the C# function. 
 
-[functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
 
