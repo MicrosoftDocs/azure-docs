@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Authorization
 
-Accessing the key-value data used in ARM templates requires an ARM role, such as contributor or owner. The access via one of the Azure App Configuration [data plane roles](concept-enable-rbac.md) is currently not supported. Support may be added in the future.
+Accessing key-value data inside an ARM template requires an ARM role, such as contributor or owner. Access via one of the Azure App Configuration [data plane roles](concept-enable-rbac.md) is currently not supported. Support may be added in the future.
 
 > [!NOTE]
 > There is a limitation where key-value data access inside an ARM template is disabled if access key authentication is disabled. See [disable access key authentication](./howto-disable-access-key-authentication.md#limitations) for more details.
