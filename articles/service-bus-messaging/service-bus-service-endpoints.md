@@ -59,30 +59,29 @@ This section shows you how to use Azure portal to add a virtual network service 
         > [!IMPORTANT]
         > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.   
     
-        :::image type="content" source="./media/service-bus-ip-filtering/selected-networks.png" alt-text="Networking page with the selected networks option selected." lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+        :::image type="content" source="./media/service-bus-ip-filtering/selected-networks.png" alt-text="Networking page with the selected networks option selected." lightbox="./media/service-bus-ip-filtering/selected-networks.png":::    
     - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
         :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.":::
 2. To restrict access to specific virtual networks, select the **Selected networks** option if it isn't already selected.
 1. In the **Virtual Network** section of the page, select **+Add existing virtual network**. Select **+ Create new virtual network** if you want to create a new VNet.
 
-    ![add existing virtual network](./media/service-endpoints/add-vnet-menu.png)
+    :::image type="content" source="./media/service-endpoints/add-vnet-menu.png" alt-text="Image showing the selection of Add existing virtual network button on the toolbar.":::
 
     >[!WARNING]
     > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
 3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal will prompt you to enable it.
    
-   ![select subnet](./media/service-endpoints/select-subnet.png)
-
+    :::image type="content" source="./media/service-endpoints/select-subnet.png" alt-text="Image showing the selection of VNet and subnet.":::
 4. You should see the following successful message after the service endpoint for the subnet is enabled for **Microsoft.ServiceBus**. Select **Add** at the bottom of the page to add the network. 
 
-    ![select subnet and enable endpoint](./media/service-endpoints/subnet-service-endpoint-enabled.png)
+    :::image type="content" source="./media/service-endpoints/subnet-service-endpoint-enabled.png" alt-text="Image showing the success message of enabling the service endpoint.":::
 
     > [!NOTE]
     > If you are unable to enable the service endpoint, you may ignore the missing virtual network service endpoint using the Resource Manager template. This functionality is not available on the portal.
 6. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up in the portal notifications. The **Save** button should be disabled. 
 
-    ![Save network](./media/service-endpoints/save-vnet.png)
+    :::image type="content" source="./media/service-endpoints/save-vnet.png" alt-text="Image showing the network service endpoint saved.":::
 
     > [!NOTE]
     > For instructions on allowing access from specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](service-bus-ip-filtering.md).
