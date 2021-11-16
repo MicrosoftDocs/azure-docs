@@ -36,9 +36,7 @@ The following feature enhancements are available with version 10.5.3 of Microsof
 
 - The sensors will now automatically delete archived alerts that are over 90 days old.
 
-- There were some performance improvements on the sensor for alerts, and the device inventory.
-
-- There were some performance improvements on the management console with the ability to export alerts.
+- We made performance improvements to the sensor's alerts, and device inventory, and the management console's ability to export alerts.
 
 ## October 2021
 
