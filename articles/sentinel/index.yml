@@ -8,7 +8,7 @@ metadata:
   description: This article presents use cases and scenarios to get started using Microsoft Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Microsoft Sentinel is your birds-eye view across the enterprise.# Required; article description that is displayed in search results. < 160 chars.
   services: sentinel
   ms.service: sentinel #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: azure-sentinel
+  ms.subservice: microsoft-sentinel
   ms.topic: landing-page # Required
   ms.collection: collection
   author: yelevin #Required; your GitHub user alias, with correct capitalization.
