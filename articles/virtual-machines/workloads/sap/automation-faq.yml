@@ -63,12 +63,12 @@ sections:
       - question: |
           What does the error "KeyVault Secret does not exist" mean? 
         answer: |
-          You might see the error `Error: KeyVault Secret "<SECRET-NAME>` …does not exist` where `<SECRET-NAME>` is the secret's name.
-          Make sure that the user's key vault contains the following secrets. Replace `<ENVIRONMENT>` with your environment name. 
-            - `<ENVIRONMENT>-subscription-id``
-            - `<ENVIRONMENT>-tenant-id``
-            - `<ENVIRONMENT>-client-id``
-            - `<ENVIRONMENT>-client-secret``
+          You might see the error `Error: KeyVault Secret `\<SECRET-NAME>` …does not exist` where `\<SECRET-NAME>` is the secret's name.
+          Make sure that the user's key vault contains the following secrets. Replace `\<ENVIRONMENT>` with your environment name. 
+            - `\<ENVIRONMENT>-subscription-id``
+            - `\<ENVIRONMENT>-tenant-id``
+            - `\<ENVIRONMENT>-client-id``
+            - `\<ENVIRONMENT>-client-secret``
 
       - question: |
           What does the error "Either an Access Key / SAS Token must be specified or Azure AD Authentication must be enabled" mean?
