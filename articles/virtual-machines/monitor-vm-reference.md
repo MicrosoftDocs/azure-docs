@@ -1,9 +1,9 @@
 ---
 title: Monitoring Azure virtual machines data reference
 description: Important reference material needed when you monitor Azure virtual machines 
-ms.service: container-service
+ms.service: virtual-machines
 ms.custom: subject-monitoring
-ms.date: 06/21/2021
+ms.date: 11/15/2021
 ms.topic: reference
 ---
 
@@ -20,6 +20,15 @@ This section lists all the automatically collected platform metrics collected fo
 | Virtual Machines| [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
 | Virtual Machine ScaleSets | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
 | Virtual Machine ScaleSets Virtual Machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
+
+
+| Namespace | Description | Requirement |
+|:---|:---|:---|
+| Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
+| Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features such as metric alerts.  | [Diagnostic extension](../agents/diagnostics-extension-overview.md) installed. Data is read from Azure storage.  |
+| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | For Windows, [diagnostic extension installed](../agents/diagnostics-extension-overview.md) installed with Azure Monitor sink enabled. For Linux, [Telegraf agent installed](../essentials/collect-custom-metrics-linux-telegraf.md). |
+
+
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -44,18 +53,6 @@ AKS has the following dimensions associated with its metrics.
 | nodepool | Used by metrics such as *Disk Used Bytes* to split by the name of the nodepool. |
 | device | Used by metrics such as *Disk Used Bytes* to split by the name of the device. |
 
-## Resource logs
-
-This section lists the types of resource logs you can collect for AKS.
-
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
-
-This section lists all the resource log category types collected for AKS.  
-
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Managed Clusters | [Microsoft.ContainerService/managedClusters](/azure/azure-monitor/essentials/resource-logs-categories#microsoftcontainerservicemanagedclusters) |
-
 ## Azure Monitor Logs tables
 
 This section refers to all of the Azure Monitor Logs tables relevant to virtual machines and available for query by Log Analytics. 
@@ -66,12 +63,6 @@ This section refers to all of the Azure Monitor Logs tables relevant to virtual 
 | [Virtual machine scale sets](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | |
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
-
-### Diagnostics tables
-
-AKS uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
-
-
 
 ## Activity log
 
