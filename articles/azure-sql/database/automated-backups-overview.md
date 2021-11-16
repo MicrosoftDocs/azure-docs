@@ -16,10 +16,10 @@ ms.date: 08/28/2021
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
 > [!div class="nextstepaction"]
 > [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## What is a database backup?
 
