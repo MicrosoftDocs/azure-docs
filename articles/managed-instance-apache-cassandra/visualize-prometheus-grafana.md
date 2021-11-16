@@ -120,6 +120,12 @@ The following tasks are required to visualize metrics:
     sudo apt install docker-ce
     ```
 
+1. Then install docker compose:
+
+    ```bash
+    sudo apt install docker-compose
+    ```
+
 1. Now navigate to the top level directory where `docker-compose.yaml` is located, and start the application:
 
     ```bash
