@@ -23,16 +23,61 @@ This article assumes that you have working knowledge of the command prompt, term
 
 ## Create subscription config
 
-You need an Azure subscription key and region identifier to get started. See the [Speech service overview](../overview.md#find-keys-and-locationregion) documentation for steps to get these credentials.
+# [Terminal](#tab/terminal)
 
-Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
+You need an Azure subscription key and region identifier (ex. `eastus`, `westus`) to get started. See the [Speech service overview](overview.md#find-keys-and-locationregion) documentation for steps to get these credentials.
+
+You run the following commands in a terminal to configure your subscription key and region identifier. 
 
 ```console
 spx config @key --set SUBSCRIPTION-KEY
 spx config @region --set REGION
 ```
 
-Your subscription authentication is now stored for future SPX requests. If you need to remove either of these stored values, run `spx config @region --clear` or `spx config @key --clear`.
+The key and region are stored for future Speech CLI commands. Run the following commands to view the current configuration.
+
+```console
+spx config @key
+spx config @region
+```
+
+As needed, include the `clear` option to remove either stored value.
+
+```console
+spx config @key --clear
+spx config @region --clear
+```
+
+# [PowerShell](#tab/powershell)
+
+You need an Azure subscription key and region identifier (ex. `eastus`, `westus`) to get started. See the [Speech service overview](overview.md#find-keys-and-locationregion) documentation for steps to get these credentials.
+
+You run the following commands in a terminal to configure your subscription key and region identifier. 
+
+```powershell
+spx --% config @key --set SUBSCRIPTION-KEY
+spx --% config @region --set REGION
+```
+
+The key and region are stored for future Speech CLI commands. Run the following commands to view the current configuration.
+
+```powershell
+spx --% config @key
+spx --% config @region
+```
+
+As needed, include the `clear` option to remove either stored value.
+
+```powershell
+spx --% config @key --clear
+spx --% config @region --clear
+```
+
+> [!NOTE]
+> In PowerShell, the [stop-parsing token](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.2#stop-parsing-token---) (`--%`) should follow `spx`. 
+
+
+***
 
 ## Basic usage
 
