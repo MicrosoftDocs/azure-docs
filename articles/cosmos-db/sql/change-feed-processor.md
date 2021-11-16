@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/20/2021
+ms.date: 11/16/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
@@ -65,14 +65,24 @@ The normal life cycle of a host instance is:
 
 ## Error handling
 
-The change feed processor is resilient to user code errors. That means that if your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes will be stopped, and a new thread will be created. The new thread will check which was the latest point in time the lease store has for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior will continue until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee, because if the delegate code throws an exception, it will retry that batch.
+The change feed processor is resilient to user code errors. That means that if your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes will be stopped, and a new thread will be created. The new thread will check which was the latest point in time the lease store has for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior will continue until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee.
 
 > [!NOTE]
 > There is only one scenario where a batch of changes will not be retried. If the failure happens on the first ever delegate execution, the lease store has no previous saved state to be used on the retry. On those cases, the retry would use the [initial starting configuration](#starting-time), which might or might not include the last batch.
 
 To prevent your change feed processor from getting "stuck" continuously retrying the same batch of changes, you should add logic in your delegate code to write documents, upon exception, to a dead-letter queue. This design ensures that you can keep track of unprocessed changes while still being able to continue to process future changes. The dead-letter queue might be another Cosmos container. The exact data store does not matter, simply that the unprocessed changes are persisted.
 
-In addition, you can use the [change feed estimator](how-to-use-change-feed-estimator.md) to monitor the progress of your change feed processor instances as they read the change feed. You can use this estimation to understand if your change feed processor is "stuck" or lagging behind due to available resources like CPU, memory, and network bandwidth.
+In addition, you can use the [change feed estimator](how-to-use-change-feed-estimator.md) to monitor the progress of your change feed processor instances as they read the change feed or use the [life cycle notifications](#life-cycle-notifications) to detect underlying failures.
+
+## Life cycle notifications
+
+The change feed processor let's you hook to relevant events in its [life cycle](#processing-life-cycle), you can choose to be notified to one or all of them. The recommendation is to at least register the error notification:
+
+* Register a handler for `WithLeaseAcquireNotification` to be notified when the current host acquires a lease to start processing it.
+* Register a handler for `WithLeaseReleaseNotification` to be notified when the current host releases a lease and stops processing it.
+* Register a handler for `WithErrorNotification` to be notified when the current host encounters an exception during processing, being able to distinguish if the source is the user delegate (unhandled exception) or an error the processor is encountering trying to access the monitored container (for example, networking issues). 
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=StartWithNotifications)]
 
 ## Deployment unit
 
@@ -96,7 +106,7 @@ Moreover, the change feed processor can dynamically adjust to containers scale d
 
 ## Change feed and provisioned throughput
 
-Change feed read operations on the monitored container will consume RUs. 
+Change feed read operations on the monitored container will consume RUs.
 
 Operations on the lease container consume RUs. The higher the number of instances using the same lease container, the higher the potential RU consumption will be. Remember to monitor your RU consumption on the leases container if you decide to scale and increment the number of instances.
 
