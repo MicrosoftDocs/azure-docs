@@ -213,10 +213,11 @@ If you specified a test dataset or opted for a train/test split during your expe
 > Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
 > [!WARNING]
-> This feature is not available for the following scenarios
->  * Computer vision tasks
->  * Forecasting tasks where deep learning neural networks (DNN) are enabled
->  * Automated ML runs from local computes or Azure Databricks clusters.
+> This feature is not available for the following automated ML scenarios
+>  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
+>  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
 
 To view the test run metrics of the recommended model,
  
@@ -241,10 +242,11 @@ The model test run generates the predictions.csv file that's stored in the defau
 > Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
 > [!WARNING]
-> This feature is not available for the following scenarios
->  * Computer vision tasks
->  * Forecasting tasks where deep learning neural networks (DNN) are enabled
->  * Automated ML runs from local computes or Azure Databricks clusters.
+> This feature is not available for the following automated ML scenarios
+>  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
+>  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
 
 After your experiment completes, you can test the model(s) that automated ML generates for you. If you want to test a different automated ML generated model, not the recommended model, you can do so with the following steps. 
 
