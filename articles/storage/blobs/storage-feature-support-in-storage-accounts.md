@@ -11,7 +11,7 @@ ms.author: normesta
 
 # Blob Storage feature support in Azure Storage accounts
 
-This article shows whether a feature is fully supported (generally available), supported at the preview level, or is not yet supported. Support levels are impacted by storage account type, and whether certain capabilities or protocols are enabled on the account.
+This article shows whether a feature is fully supported, supported at the preview level, or is not yet supported. Support levels are impacted by storage account type, and whether certain capabilities or protocols are enabled on the account.
 
 The items that appear in these tables will change over time as support continues to expand.
 
@@ -27,7 +27,7 @@ The items that appear in these tables will change over time as support continues
 | [Blob inventory](blob-inventory.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
 | [Blob index tags](storage-manage-find-blobs.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Blob snapshots](snapshots-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| [Blob Storage APIs](reference.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup> | ![Yes](../media/icons/yes-icon.png) <sup>3</sup>| ![Yes](../media/icons/yes-icon.png) |
+| [Blob Storage APIs](reference.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup> | ![Yes](../media/icons/yes-icon.png) <sup>3</sup>| ![Yes](../media/icons/yes-icon.png) <sup>3</sup> |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Blob Storage events](storage-blob-event-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup>  | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -73,7 +73,7 @@ The items that appear in these tables will change over time as support continues
 | [Blob inventory](blob-inventory.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
 | [Blob index tags](storage-manage-find-blobs.md) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Blob snapshots](snapshots-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| [Blob Storage APIs](reference.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup> | ![Yes](../media/icons/yes-icon.png) <sup>3</sup>| ![Yes](../media/icons/yes-icon.png) |
+| [Blob Storage APIs](reference.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup> | ![Yes](../media/icons/yes-icon.png) <sup>3</sup>| ![Yes](../media/icons/yes-icon.png) <sup>3</sup> |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Blob Storage events](storage-blob-event-overview.md) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup>  | ![Yes](../media/icons/yes-icon.png) <sup>3</sup>| ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -112,3 +112,5 @@ The items that appear in these tables will change over time as support continues
 - [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 
 - [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
+
+- [Known issues with Secure File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)](secure-file-transfer-protocol-known-issues.md)
