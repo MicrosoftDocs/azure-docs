@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 11/12/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -313,10 +313,10 @@ For SAML apps, you need to configure several properties in the application regis
 
 When your SAML application makes a request to Azure AD B2C, the SAML AuthN request includes an `Issuer` attribute. The value of this attribute is typically the same as the application's metadata `entityID` value. Azure AD B2C uses this value to look up the application registration in the directory and read the configuration. For this lookup to succeed, `identifierUri` in the application registration must be populated with a value that matches the `Issuer` attribute.
 
-In the registration manifest, find the `identifierURIs` parameter and add the appropriate value. This value will be the same value that's configured in the SAML AuthN requests for `EntityId` at the application, and the `entityID` value in the application's metadata. You will also need to find the `accessTokenAcceptedVersion` paramater and set the value to `2`.
+In the registration manifest, find the `identifierURIs` parameter and add the appropriate value. This value will be the same value that's configured in the SAML AuthN requests for `EntityId` at the application, and the `entityID` value in the application's metadata. You will also need to find the `accessTokenAcceptedVersion` parameter and set the value to `2`.
 
 > [!IMPORTANT]
-> If you do not update the `accessTokenAcceptedVersion` to `2` you will recive an error message requiring a verfied domain.
+> If you do not update the `accessTokenAcceptedVersion` to `2` you will recieve an error message requiring a verified domain.
 
 The following example shows the `entityID` value in the SAML metadata:
 
@@ -327,7 +327,7 @@ The following example shows the `entityID` value in the SAML metadata:
 The `identifierUris` property will accept URLs only on the domain `tenant-name.onmicrosoft.com`.
 
 ```json
-"identifierUris":"https://samltestapp2.azurewebsites.net",
+"identifierUris":"https://tenant-name.onmicrosoft.com",
 ```
 
 #### Share the application's metadata with Azure AD B2C

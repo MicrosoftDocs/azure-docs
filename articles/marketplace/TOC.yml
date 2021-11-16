@@ -509,8 +509,8 @@
     href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
   - name: Commercial marketplace review policies
     href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
-  - name: Azure Marketplace terms
-    href: https://azure.microsoft.com/support/legal/marketplace-terms/
+  - name: Commercial Marketplace terms
+    href: /legal/marketplace/marketplace-terms
   - name: Microsoft Publisher Agreement
     href: /legal/marketplace/msft-publisher-agreement
   - name: Change history for Microsoft Publisher Agreement
@@ -571,16 +571,24 @@
       href: marketplace-metering-service-apis-faq.yml
   - name: SaaS Fulfillment APIs
     items:
-    - name: SaaS Fulfillment API overview
+    - name: SaaS Fulfillment APIs overview
       href: partner-center-portal/pc-saas-fulfillment-apis.md
     - name: Register a SaaS application
       href: partner-center-portal/pc-saas-registration.md
     - name: SaaS Fulfillment APIs v2
-      href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-    - name: SaaS Fulfillment APIs v1 (deprecated)
-      href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+      items:  
+      - name: SaaS subscription life cycle
+        href: partner-center-portal/pc-saas-fulfillment-life-cycle.md
+      - name: Subscription APIs
+        href: partner-center-portal/pc-saas-fulfillment-subscription-api.md
+      - name: Operations APIs
+        href: partner-center-portal/pc-saas-fulfillment-operations-api.md
+    - name: Implement a webhook
+      href: partner-center-portal/pc-saas-fulfillment-webhook.md
     - name: SaaS fulfillment APIs - FAQ
       href: partner-center-portal/saas-fulfillment-apis-faq.yml
+    - name: SaaS Fulfillment APIs v1 (deprecated)
+      href: partner-center-portal/pc-saas-fulfillment-api-v1.md    
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
@@ -616,4 +624,4 @@
   - name: Reference architecture diagram
     href: reference-architecture-diagram.md
   - name: Customer documentation
-    href: https://docs.microsoft.com/marketplace/
+    href: /marketplace/

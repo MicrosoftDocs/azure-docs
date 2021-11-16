@@ -5,9 +5,9 @@ author: nilsanderselde
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 keywords: spot, nodes, aro, deploy, openshift, red hat
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Use Azure Spot Virtual Machines in an Azure Red Hat OpenShift (ARO) cluster
@@ -50,7 +50,7 @@ aro-cluster-5t2dj-worker-eastus2   1         1         1       1           2d22h
 aro-cluster-5t2dj-worker-eastus3   1         1         1       1           2d22h
 ```
 
-Next, you'll describe the MachineSet deployed. Replace <machineset> with one of the MachineSets listed above and output this to a file.
+Next, you'll describe the MachineSet deployed. Replace \<machineset\> with one of the MachineSets listed above and output this to a file.
 
 ```azurecli-interactive
 oc get machineset <machineset> -n openshift-machine-api -o yaml > spotmachineset.yaml

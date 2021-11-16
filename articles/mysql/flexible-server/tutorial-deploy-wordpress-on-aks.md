@@ -13,13 +13,11 @@ ms.custom: vc, devx-track-azurecli
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI. 
-**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL - Flexible Server (Preview)](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. Currently Flexible server is in Preview.
+In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server using the Azure CLI.
+**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL - Flexible Server](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
 
 > [!NOTE]
->
-> - Azure Database for MySQL Flexible Server is currently in public preview
-> - This quickstart assumes a basic understanding of Kubernetes concepts, WordPress and MySQL.
+> This quickstart assumes a basic understanding of Kubernetes concepts, WordPress and MySQL.
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
@@ -137,7 +135,7 @@ Download the [latest WordPress](https://wordpress.org/download/) version. Create
 
 ```
 
-Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines 21 to 32 with this code snippet. The code snippet below is reading the database host , username and password from the Kubernetes manifest file.
+Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines from beginingin of ```// ** MySQL settings - You can get this info from your web host ** //``` until the line ```define( 'DB_COLLATE', '' );``` with the code snippet below. The code below is reading the database host , username and password from the Kubernetes manifest file.
 
 ```php
 //Using environment variables for DB connection information
@@ -148,9 +146,10 @@ Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines 21 t
 $connectstr_dbhost = getenv('DATABASE_HOST');
 $connectstr_dbusername = getenv('DATABASE_USERNAME');
 $connectstr_dbpassword = getenv('DATABASE_PASSWORD');
+$connectst_dbname = getenv('DATABASE_NAME');
 
 /** MySQL database name */
-define('DB_NAME', 'flexibleserverdb');
+define('DB_NAME', $connectst_dbname);
 
 /** MySQL database username */
 define('DB_USER', $connectstr_dbusername);
@@ -233,11 +232,11 @@ spec:
         - containerPort: 80
         env:
         - name: DATABASE_HOST
-          value: "SERVERNAME.mysql.database.azure.com"
+          value: "SERVERNAME.mysql.database.azure.com" #Update here
         - name: DATABASE_USERNAME
-          value: "YOUR-DATABASE-USERNAME"
+          value: "YOUR-DATABASE-USERNAME"  #Update here
         - name: DATABASE_PASSWORD
-          value: "YOUR-DATABASE-PASSWORD"
+          value: "YOUR-DATABASE-PASSWORD"  #Update here
         - name: DATABASE_NAME
           value: "flexibleserverdb"
       affinity:
@@ -285,20 +284,20 @@ When the application runs, a Kubernetes service exposes the application front en
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
-kubectl get service wordpress-blog --watch
+kubectl get service php-svc --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *wordpress-blog* service is shown as *pending*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-wordpress-blog   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
+php-svc  LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
 ```output
-wordpress-blog  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
+  php-svc  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 ### Browse WordPress

@@ -159,7 +159,7 @@ You can configure optional claims for your application through the UI or applica
 
 1. Under **Manage**, select **Manifest**. A web-based manifest editor opens, allowing you to edit the manifest. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application. For more information on the application manifest, see the [Understanding the Azure AD application manifest article](reference-app-manifest.md).
 
-    The following application manifest entry adds the auth_time, ipaddr, and upn optional claims to ID, access, and SAML tokens.
+    The following application manifest entry adds the `auth_time`, `ipaddr`, and `upn` optional claims to ID, access, and SAML tokens.
 
     ```json
     "optionalClaims": {

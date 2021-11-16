@@ -5,15 +5,11 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: tutorial
-ms.date: 08/17/2021
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Live migration to Azure Managed Instance for Apache Cassandra by using a dual-write proxy
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Where possible, we recommend using the Apache Cassandra native capability to migrate data from your existing cluster into Azure Managed Instance for Apache Cassandra by configuring a [hybrid cluster](configure-hybrid-cluster.md). This capability uses Apache Cassandra's gossip protocol to replicate data from your source datacenter into your new managed-instance datacenter in a seamless way. However, there might be some scenarios where your source database version is not compatible, or a hybrid cluster setup is otherwise not feasible. 
 

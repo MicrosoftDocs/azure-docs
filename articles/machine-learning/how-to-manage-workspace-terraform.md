@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: denniseik
-ms.date: 10/08/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: 
 
@@ -46,7 +46,7 @@ Create the Terraform configuration file that declares the Azure provider:
 
 ## Deploy a workspace
 
-The following Terraform configurations can be used to create an Azure Machine Learning workspace. When you create an Azure Machine Learning workspace, various other services are required as dependencies. The template also specifies these [associated resources to the workspace](/azure/machine-learning/concept-workspace#resources). Depending on your needs, you can choose to use the template that creates resources with either public or private network connectivity.
+The following Terraform configurations can be used to create an Azure Machine Learning workspace. When you create an Azure Machine Learning workspace, various other services are required as dependencies. The template also specifies these [associated resources to the workspace](./concept-workspace.md#resources). Depending on your needs, you can choose to use the template that creates resources with either public or private network connectivity.
 
 # [Public network connectivity](#tab/publicworkspace)
 
@@ -60,11 +60,11 @@ Some resources in Azure require globally unique names. Before deploying your res
 
 # [Private network connectivity](#tab/privateworkspace)
 
-The configuration below creates a workspace in an isolated network environment using Azure Private Link endpoints. [Private DNS zones](/azure/dns/private-dns-privatednszone) are included so domain names can be resolved within the virtual network.
+The configuration below creates a workspace in an isolated network environment using Azure Private Link endpoints. [Private DNS zones](../dns/private-dns-privatednszone.md) are included so domain names can be resolved within the virtual network.
 
 Some resources in Azure require globally unique names. Before deploying your resources using the following templates, set the `resourceprefix` variable to a value that is unique.
 
-When using private link endpoints for both Azure Container Registry and Azure Machine Learning, Azure Container Registry tasks cannot be used for building [environment](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) images. Instead you can build images using an Azure Machine Learning compute cluster. To configure the cluster name of use, set the [image_build_compute_name](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument. You can configure to [allow public access](/azure/machine-learning/how-to-configure-private-link?tabs=python#enable-public-access) to a workspace that has a private link endpoint using the [public_network_access_enabled](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument.
+When using private link endpoints for both Azure Container Registry and Azure Machine Learning, Azure Container Registry tasks cannot be used for building [environment](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) images. Instead you can build images using an Azure Machine Learning compute cluster. To configure the cluster name of use, set the [image_build_compute_name](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument. You can configure to [allow public access](./how-to-configure-private-link.md?tabs=python#enable-public-access) to a workspace that has a private link endpoint using the [public_network_access_enabled](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument.
 
 **variables.tf**:
 :::code language="terraform" source="~/terraform/quickstart/201-machine-learning-moderately-secure/variables.tf":::
@@ -110,7 +110,7 @@ resource "azurerm_subnet" "snet-workspace" {
 # For full reference, see: https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/network.tf
 ```
 
-There are several options to connect to your private link endpoint workspace. To learn more about these options, refer to [Securely connect to your workspace](/azure/machine-learning/how-to-secure-workspace-vnet#securely-connect-to-your-workspace).
+There are several options to connect to your private link endpoint workspace. To learn more about these options, refer to [Securely connect to your workspace](./how-to-secure-workspace-vnet.md#securely-connect-to-your-workspace).
 
 ---
 
@@ -134,5 +134,5 @@ There are several options to connect to your private link endpoint workspace. To
   * [202: Similar to 201, but with the option to bring existing network components.](https://github.com/Azure/terraform/tree/master/quickstart/202-machine-learning-moderately-secure-existing-VNet).
   
 * For details on the Terraform Azure provider, see [Terraform Registry Azure Resource Manager Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs).
-* To learn more about network configuration options, see [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](/azure/machine-learning/how-to-network-security-overview).
+* To learn more about network configuration options, see [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](./how-to-network-security-overview.md).
 * For alternative Azure Resource Manager template-based deployments, see [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).

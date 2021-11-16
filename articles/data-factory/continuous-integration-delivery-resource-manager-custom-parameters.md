@@ -121,6 +121,13 @@ Here's an example of what an Resource Manager parameter configuration might look
                 "*": "="
             }
         }
+    },
+    "Microsoft.DataFactory/factories/credentials" : {
+        "properties": {
+            "typeProperties": {
+                "resourceId": "="
+            }
+        }
     }
 }
 ```

@@ -4,7 +4,7 @@ description: Describes how to declare resources to deploy in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 11/12/2021
 ---
 
 # Resource declaration in Bicep
@@ -29,7 +29,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' = {
 }
 ```
 
-Symbolic names are case-sensitive.  They may contain letters, numbers, and _; but can't start with a number.
+Symbolic names are case-sensitive. They may contain letters, numbers, and underscores (`_`). They can't start with a number. A resource can't have the same name as a parameter, variable, or module.
 
 For the available resource types and version, see [Bicep resource reference](/azure/templates/). Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
 
@@ -41,9 +41,10 @@ resource <symbolic-name> '<full-type-name>@<api-version>' = if (condition) {
 }
 ```
 
-To deploy more than one instance of a resource, use the `for` syntax. For more information, see [Iterative loops in Bicep](loops.md).
+To deploy more than one instance of a resource, use the `for` syntax. You can use the `batchSize` decorator to specify whether the instances are deployed serially or in parallel. For more information, see [Iterative loops in Bicep](loops.md).
 
 ```bicep
+@batchSize(int) // optional decorator for serial deployment
 resource <symbolic-name> '<full-type-name>@<api-version>' = [for <item> in <collection>: {
   <properties-to-repeat>
 }]
@@ -284,6 +285,8 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 
 output blobEndpoint string = stg.properties.primaryEndpoints.blob
 ```
+
+If you attempt to reference a resource that doesn't exist, you get the `NotFound` error and your deployment fails.
 
 For more information about setting the scope, see [Scope functions for Bicep](bicep-functions-scope.md).
 

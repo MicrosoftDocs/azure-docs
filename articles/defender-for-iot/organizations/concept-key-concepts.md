@@ -1,13 +1,13 @@
 ---
 title: Key advantages
 description: Learn about basic Defender for IoT concepts.
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
 # Basic concepts
 
-This article describes key advantages of Azure Defender for IoT.
+This article describes key advantages of Microsoft Defender for IoT.
 
 ## Rapid non-invasive deployment and passive monitoring
 
@@ -52,7 +52,7 @@ The platform provides an intuitive data-mining interface for granular searching 
 
 The Sensor Cloud Management mode determines where device, alert, and other information that the sensor detects is displayed.
 
-For **cloud-connected sensors**, information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Azure Sentinel.
+For **cloud-connected sensors**, information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel.
 
 For **locally connected sensors**, information that the sensor detects is displayed in the sensor console. Detection information is also shared with the on-premises management console if the sensor is connected to it.
 
@@ -109,6 +109,20 @@ In addition, working with Horizon custom alerts lets you write your own alert ti
 Using custom, condition-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
 
 For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md#supported-protocols).
+
+## What is an Inventory Device
+
+The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
+
+Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
+
+1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
+1. Devices composed of multiple backplane components (including all racks/slots/modules)
+1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+
+Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
+Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
+
 
 ## High availability
 

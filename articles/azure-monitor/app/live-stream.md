@@ -172,7 +172,7 @@ The custom filters criteria you specify in Live Metrics portal are sent back to 
 
 In the applicationinsights.config file, add the AuthenticationApiKey to the QuickPulseTelemetryModule:
 
-```XML
+```xml
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
 </Add>
@@ -230,8 +230,8 @@ However, if you recognize and trust all the connected servers, you can try the c
 
 ![Live Metrics Auth options](./media/live-stream/live-stream-auth.png)
 
->[!NOTE]
->We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
+> [!NOTE]
+> We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
 >
 
 ## Supported features table

@@ -26,6 +26,9 @@
   - name: Author
     expanded: true
     items:
+    - name: File structure & syntax
+      displayName: parameters,variables,resources,outputs,condition
+      href: file.md
     - name: Resources
       items:
       - name: Resource declaration
@@ -127,6 +130,14 @@
         href: add-template-to-azure-pipelines.md
       - name: Bicep with GitHub Actions
         href: deploy-github-actions.md
+  - name: Configure settings
+    items:
+    - name: Bicep config file
+      href: bicep-config.md
+    - name: Linter settings
+      href: bicep-config-linter.md
+    - name: Module settings
+      href: bicep-config-modules.md
   - name: Migrate to Bicep
     items:
     - name: Recommended workflow
@@ -136,16 +147,11 @@
       displayName: conversion issues,export,convert,playground
 - name: Reference
   items:
-  - name: Bicep file structure
-    displayName: parameters,variables,resources,outputs,condition
-    href: file.md
   - name: Resource reference
     href: /azure/templates/
   - name: Data types
     href: data-types.md
     displayName: supported types,arrays,booleans,integers,objects,strings,secure
-  - name: Configuration file
-    href: bicep-config.md
   - name: Functions
     items:
     - name: All functions

@@ -21,6 +21,7 @@ Some more complex solutions may require creating a chain of trust to establish s
 ## Limitations and other details
 
 The following scenarios are **not** supported:
+- Monitoring addon
 - Different proxy configurations per node pool
 - Updating proxy settings post cluster creation
 - User/Password authentication
@@ -75,13 +76,13 @@ Using AKS with an HTTP proxy is done at cluster creation, using the [az aks crea
 The schema for the config file looks like this:
 
 ```json
-"httpProxyConfig": {
-    "httpProxy": "string",
-    "httpsProxy": "string",
-    "noProxy": [
-        "string"
-    ],
-    "trustedCa": "string"
+{
+  "httpProxy": "string",
+  "httpsProxy": "string",
+  "noProxy": [
+    "string"
+  ],
+  "trustedCa": "string"
 }
 ```
 
@@ -94,14 +95,14 @@ Example input:
 Note the CA cert should be the base64 encoded string of the PEM format cert content.
 
 ```json
-"httpProxyConfig": { 
-     "httpProxy": "http://myproxy.server.com:8080/", 
-     "httpsProxy": "https://myproxy.server.com:8080/", 
-     "noProxy": [
-         "localhost",
-         "127.0.0.1"
-     ],
-     "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
+{
+  "httpProxy": "http://myproxy.server.com:8080/", 
+  "httpsProxy": "https://myproxy.server.com:8080/", 
+  "noProxy": [
+    "localhost",
+    "127.0.0.1"
+  ],
+  "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
 }
 ```
 

@@ -47,7 +47,7 @@ If your Log Analytics workspace still needs to support monitoring from other sou
 >Don't remove the Log Analytics agent if: 
 >
 > * Azure Automation manages the VM to orchestrate processes or to manage configuration or updates. 
-> * Azure Security Center manages the VM for security and threat detection. 
+> * Microsoft Defender for Cloud manages the VM for security and threat detection. 
 >
 > If you do remove the Log Analytics agent, you will prevent those services and solutions from proactively managing your VM. 
 

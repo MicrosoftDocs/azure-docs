@@ -8,15 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/21/2021
+ms.date: 11/03/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Azure AD-only authentication with Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
-> [!NOTE]
-> The **Azure AD-only authentication** feature discussed in this article is in **public preview**. 
 
 Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) that allows the service to only support Azure AD authentication, and is supported for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). SQL authentication is disabled when enabling Azure AD-only authentication in the Azure SQL environment, including connections from SQL server administrators, logins, and users. Only users using [Azure AD authentication](authentication-aad-overview.md) are authorized to connect to the server or database.
 
@@ -399,7 +397,7 @@ When Azure AD-only authentication is enabled for SQL Database, the following fea
 - [Azure SQL Database server roles](security-server-roles.md)
 - [Elastic jobs](job-automation-overview.md)
 - [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
-- [Change data capture (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server)
+- [Change data capture (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) - If you create a database in Azure SQL Database as an Azure AD user and enable change data capture on it, a SQL user will not be able to disable or make changes to CDC artifacts. However, another Azure AD user will be able to enable or disable CDC on the same database. Similarly, if you create an Azure SQL Database as a SQL user, enabling or disabling CDC as an Azure AD user won't work
 - [Transactional replication](/azure/azure-sql/managed-instance/replication-transactional-overview) - Since SQL authentication is required for connectivity between replication participants, when Azure AD-only authentication is enabled, transactional replication is not supported for SQL Database for scenarios where transactional replication is used to push changes made in an Azure SQL Managed Instance, on-premises SQL Server, or an Azure VM SQL Server instance to a database in Azure SQL Database
 - [SQL insights](/azure/azure-monitor/insights/sql-insights-overview)
 - EXEC AS statement for Azure AD group member accounts

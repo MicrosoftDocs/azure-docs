@@ -4,21 +4,32 @@ description: This article describes how to use the FHIR destination mapping temp
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: conceptual
-ms.date: 10/12/2021
+ms.topic: how-to
+ms.date: 11/05/2021
 ms.author: jasteppe
 ---
 
-# How to use the FHIR destination mapping
+# How to use the FHIR destination mappings
 
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article describes how to configure IoT connector using the Fast Healthcare Interoperability Resources (FHIR&#174;) destination mapping.
+This article describes how to configure IoT connector using the Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings.
 
-## FHIR destination mapping
+> [!TIP]
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
 
-Once the device content is extracted into a normalized model, the data is collected and grouped according to device identifier, measurement type, and time period. The output of this grouping is sent for conversion into a FHIR resource ([Observation](https://www.hl7.org/fhir/observation.html) currently). The FHIR destination mapping template controls how the data is mapped into a FHIR observation. Should an observation be created for a point in time or over a period of an hour? What codes should be added to the observation? Should value be represented as [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) or a [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)? These data types are all options the FHIR destination mapping configuration controls.
+Below is a conceptual example of what happens during the normalization and transformation process within IoT connector:
+
+:::image type="content" source="media/iot-data-normalization-high-level.png" alt-text="IoT data normalization flow example1" lightbox="media/iot-data-normalization-high-level.png":::
+
+## FHIR destination mappings
+
+Once the device content is extracted into a normalized model, the data is collected and grouped according to device identifier, measurement type, and time period. The output of this grouping is sent for conversion into a FHIR resource ([Observation](https://www.hl7.org/fhir/observation.html) currently). The FHIR destination mapping template controls how the data is mapped into a FHIR observation. Should an observation be created for a point in time or over a period of an hour? What codes should be added to the observation? Should the value be represented as [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) or a [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)? These data types are all options the FHIR destination mappings 
+configuration controls.
+
+> [!NOTE]
+> Mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
 
 ### CodeValueFhirTemplate
 
@@ -258,7 +269,9 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 
 ## Next steps
 
+In this article, you learned how to use FHIR destination mappings. To learn how to use Device mappings, see
+
 >[!div class="nextstepaction"]
->[How to use Device mapping](how-to-use-device-mapping-iot.md)
+>[How to use Device mappings](how-to-use-device-mapping-iot.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

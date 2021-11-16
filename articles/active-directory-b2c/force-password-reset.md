@@ -19,6 +19,8 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
+::: zone pivot="b2c-user-flow"
+
 ## Overview
 
 As an administrator, you can [reset a user's password](manage-users-portal.md#reset-a-users-password) if the user forgets their password. Or you would like to force them to reset the password. In this article, you'll learn how to force a password reset in these scenarios.
@@ -29,11 +31,19 @@ When an administrator resets a user's password via the Azure portal, the value o
 
 The password reset flow is applicable to local accounts in Azure AD B2C that use an [email address](sign-in-options.md#email-sign-in) or [username](sign-in-options.md#username-sign-in) with a password for sign-in.
 
-::: zone pivot="b2c-user-flow"
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+This feature is currently only available for User Flows. For setup steps, choose **User Flow** above. For custom policies, use the force password reset first logon [GitHub sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon) with prerequisites below.
+
+::: zone-end
 
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+::: zone pivot="b2c-user-flow"
 
 ## Configure your user flow
 
@@ -112,12 +122,6 @@ Once a password expiration policy has been set, you must also configure force pa
 ### Password expiry duration
 
 The password expiry duration default value is **90** days. The value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure Active Directory Module for Windows PowerShell. This command updates the tenant, so that all users' passwords expire after number of days you configure.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-This feature is currently only available for User Flows. For setup steps, choose **User Flow** above. For custom policies, use the force password reset first logon [GitHub sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon).
 
 ::: zone-end
 

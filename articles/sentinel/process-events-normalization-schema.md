@@ -1,31 +1,31 @@
 ---
-title: Azure Sentinel Process Event normalization schema reference | Microsoft Docs
-description: This article describes the Azure Sentinel Process Event normalization schema.
+title: Microsoft Sentinel Process Event normalization schema reference | Microsoft Docs
+description: This article describes the Microsoft Sentinel Process Event normalization schema.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 11/09/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel Process Event normalization schema reference (Public preview)
+# Microsoft Sentinel Process Event normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Process Event normalization schema is used to describe the operating system activity of running and terminating a process. Such events are reported by operating systems and security systems, such as EDR (End Point Detection and Response) systems.
 
 A process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. While processes themselves do not run, they do manage threads that run and execute code.
 
-For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Process Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -35,13 +35,13 @@ For more information about normalization in Azure Sentinel, see [Normalization a
 
 ## Parsers
 
-Azure Sentinel provides the following built-in, product-specific process event parsers:
+Microsoft Sentinel provides the following built-in, product-specific process event parsers:
 
 - **Security Events process creation (Event 4688)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Security Events process termination (Event 4689)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Sysmon process creation (Event 1)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Sysmon process termination (Event 5)**, collected using the Log Analytics Agent or Azure Monitor Agent
-- **Microsoft 365 Defender for Endpoints process creation**
+- **Microsoft 365 Defender for Endpoint process creation**
 
 To use the source-agnostic parsers that unify all of listed parsers and ensure that you analyze across all the configured sources, use the following table names in your queries:
 
@@ -49,7 +49,7 @@ To use the source-agnostic parsers that unify all of listed parsers and ensure t
 - **imProcessTerminate** for queries that require process termination information.
 - **imProcessEvents** for queries that require both process creation and termination information. In such cases, the `EventType` field enables you to distinguish between the events, and is set to `ProcessCreate` or `ProcessTerminate`, respectively. Process termination events generally include a lot less information than process creation events.
 
-Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
 
 ## Add your own normalized parsers
 
@@ -59,7 +59,7 @@ Add your KQL function to the `imProcess<Type>` and `imProcess` source-agnostic p
 
 ## Normalized content for process activity data
 
-The following Azure Sentinel content works with any process activity that's normalized using the Azure Sentinel Information Model:
+The following Microsoft Sentinel content works with any process activity that's normalized using the Advanced SIEM Information Model:
 
 - **Analytics rules**:
 
@@ -91,7 +91,7 @@ The following Azure Sentinel content works with any process activity that's norm
     - [Unicode Obfuscation in Command Line](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/UnicodeObfuscationInCommandLine.yaml)
 
 
-    For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
+    For more information, see [Hunt for threats with Microsoft Sentinel](hunting.md).
 
 ## Schema details
 
@@ -237,9 +237,9 @@ The process event schema references the following entities, which are central to
 
 For more information, see:
 
-- [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Azure Sentinel network normalization schema reference](normalization-schema.md)
-- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Normalization in Microsoft Sentinel](normalization.md)
+- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Microsoft Sentinel network normalization schema reference](./network-normalization-schema.md)
+- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

@@ -257,14 +257,14 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
         implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
-        > [!Note]
+        > [!NOTE]
         > You can set the version number to "0+" to have your code always point to the latest version.
 
     4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
 
 3. Add a map fragment to the main activity (resources pwd\> layout \> activity\_main.xml):
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

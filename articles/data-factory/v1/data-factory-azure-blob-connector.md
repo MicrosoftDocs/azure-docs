@@ -268,14 +268,16 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 4. You should see five activity windows in the **ACTIVITY WINDOWS** list. The **WindowStart** times should cover all days from pipeline start to pipeline end times.
 5. Click **Refresh** button for the **ACTIVITY WINDOWS** list a few times until you see the status of all the activity windows is set to Ready.
 6. Now, verify that the output files are generated in the output folder of adfblobconnector container. You should see the following folder structure in the output folder:
-    ```
+
+    ```output
     2017/04/21
     2017/04/22
     2017/04/23
     2017/04/24
     2017/04/25
     ```
-   For detailed information about monitoring and managing data factories, see [Monitor and manage Data Factory pipeline](data-factory-monitor-manage-app.md) article.
+
+    For detailed information about monitoring and managing data factories, see [Monitor and manage Data Factory pipeline](data-factory-monitor-manage-app.md) article.
 
 ### Data Factory entities
 Now, switch back to the tab with the Data Factory home page. Notice that there are two linked services, two datasets, and one pipeline in your data factory now.

@@ -82,7 +82,7 @@ If your identity provider does not support these protocols, Azure AD join does n
 
 You can't use smartcards or certificate-based authentication to join devices to Azure AD. However, smartcards can be used to sign in to Azure AD joined devices if you have AD FS configured.
 
-**Recommendation:** Implement Windows Hello for Business for strong, password-less authentication to Windows 10 devices.
+**Recommendation:** Implement Windows Hello for Business for strong, password-less authentication to Windows 10 and above devices.
 
 ### User configuration
 
@@ -101,8 +101,8 @@ UPN changes are only supported starting Windows 10 2004 update. Users on devices
 
 Azure AD join:
 
-- Is only applicable to Windows 10 devices. 
-- Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade to Windows 10 to deploy Azure AD join.
+- Is applicable to Windows 10 and Windows 11 devices. 
+- Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade at least to Windows 10 to deploy Azure AD join.
 - Is supported for FIPS-compliant TPM 2.0 but not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
  
 **Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.

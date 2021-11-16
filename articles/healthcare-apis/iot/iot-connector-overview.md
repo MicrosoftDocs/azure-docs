@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 10/12/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
 ---
 
@@ -65,9 +65,9 @@ Once the Observation FHIR resource is generated in the Transform stage, the reso
 For more information about IoT connector mappings, see these guides:
 
 >[!div class="nextstepaction"]
->[How to use Device mapping](how-to-use-device-mapping-iot.md)
+>[How to use Device mappings](how-to-use-device-mapping-iot.md)
 
 >[!div class="nextstepaction"]
->[How to use FHIR destination mapping](how-to-use-fhir-mapping-iot.md)
+>[How to use FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -18,6 +18,9 @@ ms.date: 08/28/2021
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
 ## What is a database backup?
 
 Database backups are an essential part of any business continuity and disaster recovery strategy, because they protect your data from corruption or deletion. These backups enable database restore to a point in time within the configured retention period. If your data protection rules require that your backups are available for an extended time (up to 10 years), you can configure [long-term retention](long-term-retention-overview.md) for both single and pooled databases.
@@ -145,7 +148,7 @@ Azure SQL Database and Azure SQL Managed Instance provide both short-term and lo
 
 ### Short-term retention
 
-For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last seven days by default. Regular full, differential and log backups are taken to ensure databases are restorable to any point-in-time within the retention period defined for the database or managed instance. Additionally, for Azure SQL Databases, differential backups can be configured to either a 12-hour frequency (default) or a 24-hour frequency. 
+For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last seven days by default. Regular full, differential and log backups are taken to ensure databases are restorable to any point-in-time within the retention period defined for the database or managed instance. Additionally, for Azure SQL Databases, differential backups can be configured to either a 12-hour or a 24-hour frequency. 
 
 > [!NOTE]
 > A 24-hour differential backup frequency may increase the time required to restore the database. 

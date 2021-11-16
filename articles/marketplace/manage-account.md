@@ -229,7 +229,7 @@ The billing address is pre-populated from your legal entity, and you can update 
 
 ## Multi-user account management
 
-Partner Center uses [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
+Partner Center uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
 
 ## Next steps
 

@@ -32,8 +32,8 @@ Click `Finish`.
 
 ## Maven repository credentials
 
-- You need to provide your personal access token that has read:packages scope selected.
-- You might need to have SSO enabled for that PAT.
+- You need to provide your personal access token(PAT) that has `read:packages` scope selected.
+- You might need to have `SSO enabled` for that PAT.
 - Also make sure your GitHub user has access to https://github.com/Azure/communication-preview
 - Personal access token can be generated: [here](https://github.com/settings/tokens
 
@@ -54,17 +54,15 @@ android {
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-ui:1.0.0-alpha.1'
+    implementation 'com.azure.android:azure-communication-ui:1.0.0-alpha.2'
     ...
 }
 ```
 
-In your project setting level (**app folder**) `settings.gradle`, add the following lines to the repositories.
+In your project gradle scripts add following lines to `repositories`. For gradle version `6.7.1` the `repositories` are in (**app folder**) `settings.gradle`.
 
 ```groovy
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
+repositories {
         ...
         maven {
             url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
@@ -79,7 +77,6 @@ dependencyResolutionManagement {
         }
         ...
     }
-}
 ```
 Sync project with gradle files. (Android Studio -> File -> Sync Project With Gradle Files)
 
@@ -143,8 +140,8 @@ class MainActivity : AppCompatActivity() {
         val options = GroupCallOptions(
             this,
             communicationTokenCredential,
+            UUID.fromString("GROUP_CALL_ID"),
             "DISPLAY_NAME",
-            UUID.fromString("GROUP_CALL_ID")
         )
 
         val callComposite: CallComposite = CallCompositeBuilder().build()
@@ -195,8 +192,8 @@ public class MainActivity extends AppCompatActivity {
 
         GroupCallOptions options = new GroupCallOptions(this,
                 communicationTokenCredential,
-                "DISPLAY_NAME",
-                UUID.fromString("GROUP_CALL_ID"));
+                UUID.fromString("GROUP_CALL_ID"),
+                "DISPLAY_NAME");
 
         callComposite.launch(options);
     }
@@ -286,9 +283,7 @@ Depending on what type of Call/Meeting you would like to setup, use the appropri
 ### Group Call
 
 Initialize a `GroupCallOptions` instance inside the `startCallComposite` function.
-
 Replace `"GROUP_CALL_ID"` with your group ID for your call.
-
 Replace `"DISPLAY_NAME"` with your name.
 
 #### [Kotlin](#tab/kotlin)
@@ -297,8 +292,8 @@ Replace `"DISPLAY_NAME"` with your name.
 val options = GroupCallOptions(
             this,
             communicationTokenCredential,
+            UUID.fromString("GROUP_CALL_ID"),
             "DISPLAY_NAME",
-            UUID.fromString("GROUP_CALL_ID")
         )
 ```
 
@@ -308,16 +303,15 @@ val options = GroupCallOptions(
 GroupCallOptions options = new GroupCallOptions(
     this,
     communicationTokenCredential,
-    "DISPLAY_NAME",
-    UUID.fromString("GROUP_CALL_ID")
+    UUID.fromString("GROUP_CALL_ID"),
+    "DISPLAY_NAME"
 );
 ```
 -----
 ### Teams Meeting
 
 Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function.
-Replace `"TEAMS_MEETING_LINK"` with your group ID for your call.
-
+Replace `"TEAMS_MEETING_LINK"` with teams meeting url for your call.
 Replace `"DISPLAY_NAME"` with your name.
 
 #### [Kotlin](#tab/kotlin)
@@ -326,8 +320,8 @@ Replace `"DISPLAY_NAME"` with your name.
 val options = TeamsMeetingOptions(
             this,
             communicationTokenCredential,
+            "TEAMS_MEETING_LINK",
             "DISPLAY_NAME",
-           "TEAMS_MEETING_LINK"
         )
 ```
 
@@ -337,8 +331,8 @@ val options = TeamsMeetingOptions(
 TeamsMeetingOptions options = new TeamsMeetingOptions(
     this,
     communicationTokenCredential,
-    "DISPLAY_NAME",
-    "TEAMS_MEETING_LINK"
+    "TEAMS_MEETING_LINK",
+    "DISPLAY_NAME"
 );
 ```
 
@@ -375,35 +369,23 @@ To receive events, inject a handler to the `CallCompositeBuilder`.
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val communicationCallComposite: CallComposite =
+val callComposite: CallComposite =
             CallCompositeBuilder()
-                .callCompositeEventsHandler(ApplicationCallCompositeEventsHandler())
+                .onException { 
+                    //...
+                }
                 .build()
-
-...
-
-class ApplicationCallCompositeEventsHandler : CallCompositeEventsHandler {
-    override fun onException(eventArgs: OnExceptionEventArgs) {
-        //...
-    }
-}
 ```
 
 #### [Java](#tab/java)
 
 ```java
-CallComposite communicationCallComposite =
+CallComposite callComposite =
                 new CallCompositeBuilder()
-                        .callCompositeEventsHandler(new ApplicationCallCompositeEventsHandler())
+                        .onException(eventArgs -> {
+                            //...
+                        })
                         .build();
-...
-
-class ApplicationCallCompositeEventsHandler implements CallCompositeEventsHandler {
-    @Override
-    public void onException(@NonNull OnExceptionEventArgs eventArgs) {
-        //...
-    }
-}
 ```
 
 -----
@@ -421,7 +403,9 @@ To change the primary color of composite, create a new theme style in `src/main/
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val communicationCallComposite: CallComposite =
+import com.azure.android.communication.ui.configuration.ThemeConfiguration
+
+val callComposite: CallComposite =
         CallCompositeBuilder()
             .theme(ThemeConfiguration(R.style.MyCompany_CallComposite))
             .build()
@@ -430,6 +414,8 @@ val communicationCallComposite: CallComposite =
 #### [Java](#tab/java)
 
 ```java
+import com.azure.android.communication.ui.configuration.ThemeConfiguration;
+
 CallComposite callComposite = 
     new CallCompositeBuilder()
         .theme(new ThemeConfiguration(R.style.MyCompany_CallComposite))

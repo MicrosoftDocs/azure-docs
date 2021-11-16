@@ -100,15 +100,43 @@ Run a query using the [Query Explorer](#query-your-digital-twin-graph) to see th
 
 #### View twin and relationship properties
 
-To view the property values of a twin or a relationship, select the twin or relationship in the **Twin Graph** and use the **Toggle property inspector** button to expand the **Properties** panel. This panel will display all the properties associated with the element, along with their values. It also includes default values for properties that have not yet been set.
+To view the property values of a twin or a relationship, select the twin or relationship in the **Twin Graph** and use the **Toggle property inspector** button to expand the **Twin Properties** or **Relationship Properties** panel, respectively. This panel will display all the properties associated with the element, along with their values. It also includes default values for properties that have not yet been set.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA twin is selected, and the Twin Properties panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-The Twin Properties panel will display error messages if the twin or some of its properties no longer match its model. If the model for the twin can't be found, or if a property is not part of the model definition that the twin is using, you might see error messages like this:
+##### Data type icons
+
+The properties shown in the **Twin Properties** and **Relationship Properties** panels are each displayed with an icon, indicating the type of the field from the DTDL model. You can hover over an icon to display the associated type.
+
+The table below shows the possible data types and their corresponding icons. The table also contains links from each data type to its schema description in the [DTDL spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
+
+| Icon | Data type |
+| --- | --- |
+| ![boolean icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/boolean.svg) | [boolean](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![component icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/component.svg) | [component](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component) |
+| ![date icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/date.svg) | [date](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![dateTime icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/datetime.svg) | [dateTime](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![duration icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/duration.svg) | [duration](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![enum icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/enum.svg) | [enum](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#enum) |
+| ![map icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/map.svg) | [map](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#map) |
+| ![numeric icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.svg) | Numeric types, including [double, float, integer, and long](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![object icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/object.svg) | [object](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#object) |
+| ![string icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/string.svg) | [string](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![time icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/time.svg) | [time](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+
+##### Errors
+
+The Twin Properties panel will display error messages if the twin or some of its properties no longer match its model. 
+
+There are two possible error scenarios that each give their own error message:
+* **One or many models used by the twin are missing**. As a result, all the properties associated with that model will be flagged as "missing" in the Twin Properties panel. This can happen if the model has been deleted since the twin was created.
+* **Some properties on the twin are not part of the twin's model**. Only these properties will be flagged as "missing" in the Twin Properties panel. This can happen if the model for the twin has been replaced or changed since the properties were set, and the properties no longer exist in the most recent version of the model.
+
+Both of these error messages are shown in the screenshot below:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model. " lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model. " lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -162,7 +190,7 @@ You can filter the twins and relationships that appear in the graph by text, by 
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png":::
 
-You can also highlight the twins and graph that appear in the graph by text, by selecting this **Highlight** icon:
+You can also highlight the twins and relationships that appear in the graph by text, by selecting this **Highlight** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-text.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The text filter icon is selected, showing the Highlight tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-text.png":::
 
@@ -174,7 +202,7 @@ This section describes how to perform the following management activities:
 * [View flat list of twins and relationships](#view-flat-list-of-twins-and-relationships)
 * [Create twins](#create-twins), with or without initial properties
 * [Create relationships](#create-relationships) between twins
-* [Edit twins and relationships](#edit-twins-and-relationships)
+* [Edit twin and relationship properties](#edit-twin-and-relationship-properties)
 * [Delete twins and relationships](#delete-twins-and-relationships)
 
 For information about the viewing experience for twins and relationships, see [Explore twins and the Twin Graph](#explore-the-twin-graph).
@@ -199,27 +227,30 @@ To create a twin from a model, find that model in the list and choose the menu d
     :::column-end:::
 :::row-end:::
 
-To add property values to your twin, see [Edit twins and relationships](#edit-twins-and-relationships).
+To add property values to your twin, see [Edit twin and relationship properties](#edit-twin-and-relationship-properties).
 
 ### Create relationships
 
 To create a relationship between two twins, start by selecting the source twin for the relationship in the **Twin Graph** window. Next, hold down a CTRL/CMD or SHIFT key while you select a second twin to be the target of the relationship.
 
-Once the two twins are simultaneously selected, right-click either one of the twins. This will bring up a menu with an option to **Add relationships** between them.
+Once the two twins are simultaneously selected, right-click the target twin. This will bring up a menu with an option to **Add relationships** between them.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA and Consumer twins are selected, and a menu shows the option to Add relationships." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png":::
 
 This will bring up the **Create Relationship** dialog, which shows the source twin and target twin of the relationship, followed by a **Relationship** dropdown menu that contains the types of relationship that the source twin can have (defined in its DTDL model). Select an option for the relationship type, and **Save** the new relationship.
 
-### Edit twins and relationships
+### Edit twin and relationship properties
 
-To view the property values of a twin or a relationship, select the element in the **Twin Graph** and use the **Toggle property inspector** button to expand the **Properties** panel.
+To view the property values of a twin or a relationship, select the element in the **Twin Graph** and use the **Toggle property inspector** button to expand the **Twin Properties** or **Relationship Properties** panel, respectively.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA twin is selected, and the Twin Properties panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-You can use this panel to directly edit writable properties. Update their values inline, and click the **Patch twin** (save) button at the top of the panel to save your changes. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
+You can use this panel to directly edit writable properties. Update their values inline, and select the **Save changes** button at the top of the panel to save. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays a Path Information modal showing JSON Patch code." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
+
+>[!TIP]
+> The properties shown in the **Twin Properties** and **Relationship Properties** panels are each displayed with an icon, indicating the type of the field from the DTDL model. For more information about the type icons, see [Data type icons](#data-type-icons).
 
 ### Delete twins and relationships
 
@@ -276,9 +307,9 @@ You can also view a model's full definition by selecting it in the **Model Graph
 
 You can rearrange the models into different configurations by clicking and dragging them around the Model Graph screen.
 
-You can also apply one of several layout algorithms to the model graph from the options in the **Run Layout** menu. 
+You can also apply one of several layout algorithms to the model graph from the options in the **Choose Layout** menu. 
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The Run Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, Klay, and d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The Choose Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, Klay, and d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
 
 ### Filter and highlight model graph elements
 
@@ -460,7 +491,7 @@ Azure Digital Twins will open an **Import** panel showing a preview of the graph
 
 If import is successful, a modal window will display the number of models, twins, and relationships that were uploaded.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays an Import Successful modal showing 4 twins imported and 2 relationships imported." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays an Import Successful modal showing four twins imported and two relationships imported." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png":::
 
 ### Export graph and models
 
@@ -510,7 +541,7 @@ The query text should be URL encoded.
 >
 > You can also use an independent URL encoder to convert the query text.
 
-Here's an example of the parameter for a query to **SELECT * FROM digitaltwins**:
+Here's an example of the parameter for a query to `SELECT * FROM digitaltwins`:
 
 `...&query=SELECT%20*%20FROM%20digitaltwins`
 
@@ -520,13 +551,13 @@ You can then share the completed URL.
 
 You can enable several advanced settings for Azure Digital Twins Explorer to customize your experience or make it more accessible.
 
-You can use the **Keyboard Shortcuts** icon in the top right toolbar to view a list of keyboard shortcuts that can be used to navigate the Azure Digital Twins Explorer.
+You can use the **Keyboard Shortcuts** icon in the top-right toolbar to view a list of keyboard shortcuts that can be used to navigate the Azure Digital Twins Explorer.
 
  :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Keyboard Shortcuts icon is highlighted in the top toolbar." lightbox="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png":::
 
-There are several advanced features that can be accessed under the Settings cog in the top right toolbar:
+There are several advanced features that can be accessed under the Settings cog in the top-right toolbar:
 * **Eager Loading**: When a query returns twins that have relationships to other twins that **are not** included in the query results, this feature will load the "missing" twins before rendering the graph.
-* **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh.
+* **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh. This feature is off by default.
 * **Console**: This feature enables display of a console window, capable of using simple shell functions for working with the graph.
 * **Output**: This feature enables display of an output window, which shows a diagnostic trace of operations.
 * **High Contrast**: This feature changes the colors of the Azure Digital Twins Explorer so they appear with greater contrast.

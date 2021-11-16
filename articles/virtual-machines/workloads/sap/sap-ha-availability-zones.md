@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/29/2020
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -108,6 +108,7 @@ Azure regions where such an active/active deployment should be possible without 
 - East US (two of the three zones)
 - South Central US (two of the three zones)
 - UK South (two of the three zones)
+- Southeast Asia
 
 Azure regions where this SAP deployment architecture across zones is not recommended are:
 
@@ -149,7 +150,6 @@ If you can't find an acceptable delta between the network latency within one zon
 
 Azure regions where this type of deployment architecture across different zones may be preferable are:
 
-- Southeast Asia
 - Australia East
 - Brazil South
 - Germany West Central

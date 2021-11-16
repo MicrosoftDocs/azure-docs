@@ -42,7 +42,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Peripass to support provisioning with Azure AD
 
-1. Sign in to Peripass using your tenant's sign-in url.
+1. Sign in to Peripass using your tenant's sign-in URL.
 
 2. Go to your tenant's **Configuration**.
 
