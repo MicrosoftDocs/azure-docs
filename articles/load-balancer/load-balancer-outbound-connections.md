@@ -74,7 +74,7 @@ A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and imp
 >[!NOTE]
 > This method is **NOT recommended** for production workloads as it adds risk of exhausting ports. Please refrain from using this method for production workloads to avoid potential connection failures. 
 
-Any Azure resource that does not have a Public IP associated to it, does not have a Load Balancer with Outbound Rules in front of it, is not part of VMSS flexible orchectration mode, or does not have a NAT gateway resource associated to its subnet is allocated a minimal number of ports for outbound. This access is known as Default Outbound Access and is the worst method to provide outbound connectivity for your applications. 
+Any Azure resource that does not have a Public IP associated to it, does not have a Load Balancer with Outbound Rules in front of it, is not part of VMSS flexible orchestration mode, or does not have a NAT gateway resource associated to its subnet is allocated a minimal number of ports for outbound. This access is known as Default Outbound Access and is the worst method to provide outbound connectivity for your applications. 
 
 Some other examples of Default Outbound Access are:
 
