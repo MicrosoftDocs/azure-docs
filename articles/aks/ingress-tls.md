@@ -221,9 +221,9 @@ az network dns record-set a add-record \
 ```azurepowershell
 $Records = @()
 $Records += New-AzDnsRecordConfig -IPv4Address <External IP>
-New-AzDnsRecord -Name "*" `
+New-AzDnsRecordSet -Name "*" `
     -RecordType A `
-    -ResourceGroupName <Resource Group with DNS Zone> `
+    -ResourceGroupName <Name of Resource Group for the DNS Zone> `
     -ZoneName <Custom Domain Name> `
     -TTL 3600
     -DnsRecords $Records
@@ -265,15 +265,11 @@ az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --outpu
 $AksIpAddress = "MY_EXTERNAL_IP"
 
 # Get the Public IP Address for the ingress controller
-$PublicIp = Get-AzPublicIpAddress | Where-Object {$_.IpAddress -like $AksIpAddress}
-
-# Name to associate with public IP address
-$DnsSettings = New-Object Microsoft.Azure.Commands.Network.Models.PSPublicIpAddressDnsSettings
-$DnsSettings.DomainNameLabel = "demo-aks-ingress"
+$PublicIp = Get-AzPublicIpAddress | Where-Object {$_.IpAddress -eq $AksIpAddress}
 
 # Update public ip address with DNS name
-$PublicIp.DnsSettings = $DnsSettings
-$UpdatedPublicIp = Set-AzPublicIpAddress -PublicIpAddress $PublicIp
+$PublicIp.DnsSettings = @{"DomainNameLabel" = "demo-aks-ingress"}
+$UpdatedPublicIp = Set-AzPublicIpAddress -PublicIpAddress $publicIp
 
 # Display the FQDN
 Write-Host $UpdatedPublicIp.DnsSettings.Fqdn
