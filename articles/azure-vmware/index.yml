@@ -227,6 +227,8 @@ landingContent:
             url: /azure/templates/microsoft.avs/privateclouds
           - text: Terraform Azure provider
             url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
+          - text: Enterprise-Scale for Azure VMware Solution automation
+            url: https://github.com/Azure/Enterprise-Scale-for-AVS
       - linkListType: video
         links:
           - text: Playlist
