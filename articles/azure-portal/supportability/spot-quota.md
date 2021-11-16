@@ -17,9 +17,9 @@ Standard vCPU quotas apply to pay-as-you-go VMs and reserved VM instances. They 
 - The first tier is the total regional vCPU quota.
 - The second tier is the VM-family vCPU quota such as D-series vCPUs.
 
-Spot vCPU quotas apply to [spot virtual machines (VMs)](../../virtual-machines/spot-vms.md) across all VM families (SKUs). .
+Spot vCPU quotas apply to [spot virtual machines (VMs)](../../virtual-machines/spot-vms.md) across all VM families (SKUs).
 
-This article shows you how to request quota increases for spot vCPUs. You can also request increases for [VM-family vCPU quotas](regional-quota-requests.md) or [vCPU quotas by region](regional-quota-requests.md).
+This article shows you how to request quota increases for spot vCPUs. You can also request increases for [VM-family vCPU quotas](per-vm-quota-requests.md) or [vCPU quotas by region](regional-quota-requests.md).
 
 ## Special considerations
 
