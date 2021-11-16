@@ -43,7 +43,11 @@ The following tasks are required to visualize metrics:
 
 ## Install Prometheus Dashboards
 
-1. Connect to your newly created Ubuntu server by using [Azure CLI](../virtual-machines/linux/ssh-from-windows.md#ssh-clients) or your preferred client tool to connect via SSH.
+1. First, ensure the networking settings for your newly deployed Ubuntu server have inbound port rules allowing ports `9090` and `3000`. These will be required later for Prometheus and Grafana respectively. 
+
+   :::image type="content" source="./media/visualize-prometheus-grafana/networking.png" alt-text="Allow ports" border="true":::
+
+1. Connect to your Ubuntu server by using [Azure CLI](../virtual-machines/linux/ssh-from-windows.md#ssh-clients) or your preferred client tool to connect via SSH.
 
 1. After connecting to the VM, you have to install the metrics collector software. First, download and unzip the files:
 
@@ -79,7 +83,7 @@ The following tasks are required to visualize metrics:
     ]  
    ```
 
-1. Save the file and next edit the `prometheus.yaml` file. Locate the following section:
+1. Save the file. Next, edit the `prometheus.yaml` file in the same directory. Locate the following section:
 
    ```bash
     file_sd_configs:
@@ -87,7 +91,7 @@ The following tasks are required to visualize metrics:
         - 'tg_mcac.json'
    ```
 
-1. directly below this section, add the following:
+1. Directly below this section, add the following. This is required because metrics are exposed via https.
 
    ```bash
     scheme: https
@@ -95,7 +99,7 @@ The following tasks are required to visualize metrics:
             insecure_skip_verify: true
    ```
 
-1. The file should now look as below (note the tabs on each line should be the same):
+1. The file should now look like the following. Ensure the tabs on each line are as below. 
 
    ```bash
     file_sd_configs:
@@ -123,9 +127,10 @@ The following tasks are required to visualize metrics:
     sudo docker-compose up
     ```
 
-1. Prometheus should be available at port `9090`, and Grafana dashboards on port `3000`:
+1. Prometheus should be available at port `9090`, and Grafana dashboards on port `3000` on your metrics server:
 
    :::image type="content" source="./media/visualize-prometheus-grafana/monitor-cassandra-metrics.png" alt-text="View the Cassandra managed instance metrics in the dashboard." border="true":::
+
 
 ## Next steps
 
