@@ -51,7 +51,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
         >[!WARNING]
         > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).    
 
-        :::image type="content" source="./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from Selected networks is selected and the Firewall section is highlighted.":::
+        :::image type="content" source="./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png" lightbox="./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from Selected networks is selected and the Firewall section is highlighted.":::
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
     > [!NOTE]

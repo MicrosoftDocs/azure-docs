@@ -66,7 +66,7 @@ This section shows you how to use Azure portal to add a virtual network service 
 2. To restrict access to specific virtual networks, select the **Selected networks** option if it isn't already selected.
 1. In the **Virtual Network** section of the page, select **+Add existing virtual network**. Select **+ Create new virtual network** if you want to create a new VNet.
 
-    :::image type="content" source="./media/service-endpoints/add-vnet-menu.png" alt-text="Image showing the selection of Add existing virtual network button on the toolbar.":::
+    :::image type="content" source="./media/service-endpoints/add-vnet-menu.png" lightbox="./media/service-endpoints/add-vnet-menu.png" alt-text="Image showing the selection of Add existing virtual network button on the toolbar.":::
 
     >[!WARNING]
     > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
@@ -81,7 +81,7 @@ This section shows you how to use Azure portal to add a virtual network service 
     > If you are unable to enable the service endpoint, you may ignore the missing virtual network service endpoint using the Resource Manager template. This functionality is not available on the portal.
 6. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up in the portal notifications. The **Save** button should be disabled. 
 
-    :::image type="content" source="./media/service-endpoints/save-vnet.png" alt-text="Image showing the network service endpoint saved.":::
+    :::image type="content" source="./media/service-endpoints/save-vnet.png" lightbox="./media/service-endpoints/save-vnet.png" alt-text="Image showing the network service endpoint saved.":::
 
     > [!NOTE]
     > For instructions on allowing access from specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](service-bus-ip-filtering.md).
