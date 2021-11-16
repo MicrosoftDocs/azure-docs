@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -37,6 +37,11 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * For more information, see the [project z-code site](https://www.microsoft.com/research/project/project-zcode/).
     > [!NOTE]
     > To use this [model version](sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model), you must specify it in your API calls, using the model version parameter. 
+
+* SDK support for sending requests to custom models:
+    * [Custom Named Entity Recognition](custom-named-entity-recognition/how-to/call-api?tabs=api#use-the-sdk)
+    * [Custom text classification](custom-named-entity-recognition/how-to/call-api?tabs=api#use-the-sdk)
+    * [Custom language understanding](custom-named-entity-recognition/how-to/call-api?tabs=api#use-the-sdk)
  
 ## Next steps
 
