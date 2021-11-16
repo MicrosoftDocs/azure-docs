@@ -13,7 +13,7 @@ adobe-target: true
 
 # Quickstart: Create and run a load test with Azure Load Testing Preview
 
-This quickstart describes how to create an Azure Load Testing resource by using Azure portal. With this resource, you'll create a load test using an Apache JMeter script and run the test against an external website. 
+This quickstart describes how to create an Azure Load Testing resource by using Azure portal. With this resource, you'll create a load test with an Apache JMeter script and run the test against an external website. 
 
 After completing this quickstart, you'll have a resource and load test you can use for other tutorials. 
 
@@ -23,7 +23,7 @@ After completing this quickstart, you'll have a resource and load test you can u
 
 ## <a name="create_resource"></a> Create a new Azure Load Testing resource
 
-First you'll create an Azure Load Testing resource. This resource is the top-level resource for your load testing activities, providing a centralized place to view and manage test plans, test results, and other related artifacts.
+First you'll create an Azure Load Testing resource. This is the top-level resource, which provides a centralized place to view and manage test plans, test results, and other related artifacts.
 
 If you  already have a Load Testing resource, skip this section and continue to [Create a load test](#create_test).
 
@@ -81,7 +81,7 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">EndpointURL</stringProp>
+              <stringProp name="HTTPSampler.domain">{your-endpoint-url}</stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -105,9 +105,9 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
 
     This sample Apache JMeter script simulates a load test of five virtual users simultaneously accessing a web endpoint, and takes less than two minutes to complete.
 
-1. In the file, replace the placeholder text *`EndpointURL`* with your own endpoint URL.
+1. In the file, replace the placeholder text *`{your-endpoint-url}`* with your own endpoint URL.
 
-    > [!NOTE]
+    > [!IMPORTANT]
     > Don't include `https` or `http` in the endpoint URL.
 
 1. Save and close the file.
