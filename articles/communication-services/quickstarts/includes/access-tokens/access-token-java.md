@@ -12,15 +12,15 @@ ms.custom: include file
 ms.author: tchladek
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/access-token-quickstart)
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+
+## Final Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/access-token-quickstart).
 
 ## Setting Up
 
@@ -32,9 +32,9 @@ Open your terminal or command window. Navigate to the directory where you'd like
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-You'll notice that the 'generate' task created a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM.
+You'll notice that the 'generate' task created a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM. This file is used for project configuration parameters.
 
-### Install the package
+### Install the ACS packages
 
 Open the **pom.xml** file in your text editor. Add the following dependency element to the group of dependencies.
 
@@ -45,6 +45,8 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
     <version>1.0.0</version>
 </dependency>
 ```
+
+This will instruct Maven to install the ACS Identity SDK.
 
 ### Set up the app framework
 
