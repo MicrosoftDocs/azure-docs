@@ -446,6 +446,14 @@ Configure WAF to be in "Prevention" mode.
 $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
+### Step 13
+
+As TLS 1.0 is presently still the default, it's prudent to define that the application gateway will use the newest [TLS 1.2 policy](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview#appgwsslpolicy20170401s).
+
+```powershell
+$policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
+```
+
 ## Create Application Gateway
 
 Create an Application Gateway with all the configuration objects from the preceding steps.
@@ -459,7 +467,8 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupN
   -HttpListeners $gatewayListener,$portalListener,$managementListener `
   -RequestRoutingRules $gatewayRule,$portalRule,$managementRule `
   -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $certGateway,$certPortal,$certManagement `
-  -TrustedRootCertificate $trustedRootCert -Probes $apimGatewayProbe,$apimPortalProbe,$apimManagementProbe
+  -TrustedRootCertificate $trustedRootCert -Probes $apimGatewayProbe,$apimPortalProbe,$apimManagementProbe `
+  -SslPolicy $policy
 ```
 
 After deployment of the application gateway completes, confirm the health status of the API Management backends in the portal or by running the following command:
