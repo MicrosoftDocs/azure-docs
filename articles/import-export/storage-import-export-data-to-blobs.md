@@ -106,7 +106,7 @@ Perform the following steps to prepare the drives.
 
 ### [Portal (Preview)](#tab/azure-portal-preview)
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/storage-import-export-preview-import-steps.md)]
+[!INCLUDE [storage-import-export-preview-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
 
 ### [Portal (Classic)](#tab/azure-portal)
 

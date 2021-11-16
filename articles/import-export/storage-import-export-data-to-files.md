@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/11/2021
+ms.date: 11/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -118,7 +118,11 @@ For additional samples, go to [Samples for journal files](#samples-for-journal-f
 
 ## Step 2: Create an import job
 
-### [Portal](#tab/azure-portal)
+### [Portal (Preview)](#tab/azure-portal-preview)
+
+[!INCLUDE [storage-import-export-preview-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
+
+### [Portal (Classic)](#tab/azure-portal-classic)
 
 Do the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
