@@ -20,7 +20,7 @@ Language service features utilize AI models that are versioned. We update the la
 
 As new models and new functionality become available and older, less accurate models are retired, see the following timelines for model and endpoint expiration:
 
-TBD
+New Langauge AI models are being released every few months. So, an expiration of any publicly available model is set for 6 months. An expiration timeline of a preview model is for even a shorter duration i.e. for 3 months.
 
 When a model is retired, The API you're using will typically fall back to the newest available model version. 
 
