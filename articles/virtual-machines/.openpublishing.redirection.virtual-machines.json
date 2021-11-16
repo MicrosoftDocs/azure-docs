@@ -1497,12 +1497,12 @@
           },
           {
             "source_path_from_root": "/articles/virtual-machines/linux/shared-images.md",
-            "redirect_url": "/azure/virtual-machines/shared-images-cli",
+            "redirect_url": "/azure/virtual-machines/image-version",
             "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/windows/shared-images.md",
-            "redirect_url": "/azure/virtual-machines/shared-images-powershell",
+            "redirect_url": "/azure/virtual-machines/image-version",
             "redirect_document_id": false
           },
           {
@@ -2757,17 +2757,17 @@
           },
           {
             "source_path": "articles/virtual-machines/shared-images-powershell.md",
-            "redirect_url": "/azure/virtual-machines/create-gallery",
+            "redirect_url": "/azure/virtual-machines/image-version",
             "redirect_document_id": false
           },  
           {
             "source_path": "articles/virtual-machine-scale-sets/shared-images-cli.md",
-            "redirect_url": "/azure/virtual-machines/create-gallery",
+            "redirect_url": "/azure/virtual-machines/image-version",
             "redirect_document_id": false
           },
           {
             "source_path": "articles/virtual-machine-scale-sets/shared-images-powershell.md",
-            "redirect_url": "/azure/virtual-machines/create-gallery",
+            "redirect_url": "/azure/virtual-machines/image-version",
             "redirect_document_id": false
           },  
           {
