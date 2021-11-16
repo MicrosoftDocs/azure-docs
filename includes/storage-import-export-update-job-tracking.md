@@ -6,7 +6,7 @@ services: storage
 
 ms.service: storage
 ms.topic: include
-ms.date: 11/15/2021
+ms.date: 11/16/2021
 ms.author: alkohli
 ms.custom: include file
 
@@ -17,9 +17,9 @@ After shipping the disks, return to the job in the Azure portal and fill in the 
 > [!IMPORTANT]
 > If the tracking number is not updated within 2 weeks of creating the job, the job expires. 
 
-### Portal (Preview)
+#### Enter tracking in Preview portal
 
-To complete the tracking information in the Preview portal, perform the following steps.
+To complete the tracking information for a job in the Preview portal, perform the following steps.
  
 1. Open the job in the [Azure portal/](https://portal.azure.com/).
 1. On the **Overview** pane, scroll down to **Tracking information** and complete the entries: 
@@ -35,9 +35,9 @@ You can track the job progress on the **Overview** pane. For a description of ea
 ![Screenshot showing status tracking on the Overview pane for an Azure Import Export job in the Preview portal.](./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-02.png)
 
 
-### Portal (Classic)
+#### Enter tracking in Classic portal
 
-To complete the tracking information in the Classic portal, perform the following steps.
+To complete the tracking information for a job in the Classic portal, perform the following steps.
  
 1. Open the job in the [Azure portal/](https://portal.azure.com/).
 1. At the top of the ****For job to progress, provide the tracking information** to open the **Update status** pane. Then complete the entries: 
@@ -46,7 +46,7 @@ To complete the tracking information in the Classic portal, perform the followin
     1. Provide the **Carrier** and **Tracking number**.
     1. When you finish, select **Save**.
 
-    [!Screenshot of tracking information on the Overview pane for an Azure Import Export job as it appears in the Classic portal. The current order status, Tracking Information area, and Update button are highlighted.](./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-classic-01.png)
+    ![!Screenshot of tracking information on the Overview pane for an Azure Import Export job as it appears in the Classic portal. Current job status, Tracking Information area, and Update button are highlighted.](./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-classic-01.png)
 
 You can track the job progress on the **Overview** pane. For a description of each job state, go to [View your job status](../articles/import-export/storage-import-export-view-drive-status.md).
 
