@@ -111,7 +111,7 @@ This section helps you connect to your virtual machine. Use the steps that corre
    * If you are logging in using an SSH key pair, use the following command.
 
       ```azurecli-interactive
-      az network bastion ssh "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
+      az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
       ```
 
 ### Connect to a Windows VM
