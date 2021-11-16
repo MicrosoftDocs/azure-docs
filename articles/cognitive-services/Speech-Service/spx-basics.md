@@ -52,7 +52,7 @@ spx config @region --clear
 
 You need an Azure subscription key and region identifier (ex. `eastus`, `westus`) to get started. See the [Speech service overview](overview.md#find-keys-and-locationregion) documentation for steps to get these credentials.
 
-You run the following commands in a terminal to configure your subscription key and region identifier. 
+You run the following commands in PowerShell to configure your subscription key and region identifier. 
 
 ```powershell
 spx --% config @key --set SUBSCRIPTION-KEY
