@@ -15,7 +15,7 @@ ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
 ---
 
-# Unexpected error when performing consent to an application in Azure Active Directory
+# Unexpected error when performing consent to an application
 
 This article discusses errors that can occur during the process of consenting to an application. If you are troubleshooting unexpected consent prompts that do not contain any error messages, see [Authentication Scenarios for Azure AD](../develop/authentication-vs-authorization.md).
 
