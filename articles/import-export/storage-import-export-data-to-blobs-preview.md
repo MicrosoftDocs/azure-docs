@@ -24,7 +24,7 @@ The steps for orderinig an Import/Export job through Azure Data Box will be on a
 
 ### [Portal (Preview)](#tab/azure-portal-preview)
 
-TK: Elevator pitch for Import/Export convergence with Azure Data Box.
+In the Preview portal, creating an import job in Import/Export tracks is similar to the steps for creating an import jobs in other Azure Data Box products.<!--THIS NEEDS WORK!-->
 
 Perform the following steps to order an Azure Import/Export job through Azure Data Box.
 
@@ -116,7 +116,6 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 
      [ ![Screenshot showing the Overview pane for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-12.png) ](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-12.png#lightbox)
 
-
 ### [Portal (classic)](#tab/azure-portal)
 
 *DO NOT USE. Cut & Paste errors guaranteed.* Perform the following steps to create an import job in the Azure portal.
@@ -168,6 +167,14 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
    1. Select **Create**.
 
      ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+
+8. After the job is created, you'll see the following message.
+
+    ![Screenshot of the status message for a completed order for an Azure Import Export job. The status and the Go To Resource button are highlighted.](media/storage-import-export-data-to-blobs-preview/import-to-blob-6.png)
+
+     Select **Go to resource** to open the job overview.
+
+     [ ![Screenshot showing the Overview pane for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-12.png) ](media/storage-import-export-data-to-blobs-preview/import-export-order-converge-12.png#lightbox)
 
 ### [Azure CLI](#tab/azure-cli)
 
