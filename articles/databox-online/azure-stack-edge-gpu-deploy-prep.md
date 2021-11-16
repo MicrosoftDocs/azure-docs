@@ -134,7 +134,8 @@ To create an Azure Stack Edge resource through the Azure Stack Edge service, tak
 
 5. Pick the subscription that you want to use for the Azure Stack Edge Pro GPU device. Select the country or region to ship the physical device to. Then select **Show devices**.
 
-    >[!NOTE] Classic experience will soon be removed. Beginning December 2021, orders can be created only using Azure Edge Hardware center.
+    >[!NOTE] 
+    > Classic experience will soon be removed. Beginning December 2021, orders can be created only using Azure Edge Hardware center.
 
     ![Screenshot of "Select device type" screen to select a subscription and ship to region for an Azure Stack Edge resource. The Show Devices button is highlighted.](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
