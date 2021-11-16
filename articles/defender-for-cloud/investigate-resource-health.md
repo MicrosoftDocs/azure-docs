@@ -3,7 +3,7 @@ title: 'Tutorial: Investigate the health of your resources - Microsoft Defender 
 description: 'Tutorial: Learn how to investigate the health of your resources using Microsoft Defender for Cloud.'
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: tutorial
 ms.date: 11/09/2021
 ms.author: memildin
