@@ -12,7 +12,7 @@ ms.custom: devx-track-dotnet
 
 
 ---
-# Azure Cosmos DB .NET Core SDK v2 for SQL API: Release notes and resources
+# Azure Cosmos DB .NET Core SDK v2 for SQL API: Release notes and resources (Legacy)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -42,6 +42,12 @@ ms.custom: devx-track-dotnet
 |**Get started**|[Get started with the Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Current supported framework**|[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
+
+> [!WARNING]
+> On August 31, 2024 the Azure Cosmos DB .NET SDK v2.x will be retired; the SDK and all applications using the SDK will continue to function;
+> Azure Cosmos DB will simply cease to provide further maintenance and support for this SDK. 
+> We recommend following these [instructions](migrate-dotnet-v3.md) to migrate to the latest version of .NET SDK v3 SDK.
+>
 
 > [!NOTE]
 > If you are using .NET Core, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard.
