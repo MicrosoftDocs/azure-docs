@@ -29,6 +29,9 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
+> [!NOTE]
+> These instructions use a Bash terminal in Azure Cloud Shell. Some commands may not work as described if running the CLI locally or in a PowerShell terminal.
+
 ## Enable Chaos Studio on your Azure Cosmos DB account
 
 Chaos Studio cannot inject faults against a resource unless that resource has been onboarded to Chaos Studio first. You onboard a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Azure Cosmos DB accounts only have one target type (service-direct) and one capability (failover), but other resources may have up to two target types - one for service-direct faults and one for agent-based faults - and many capabilities.
