@@ -59,7 +59,7 @@ dependencies {
 }
 ```
 
-In your project gradle scripts add following lines to `repositories`. For gradle version `6.7.1` the `repositories` are in (**app folder**) `settings.gradle`.
+In your project gradle scripts add following lines to `repositories`. For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement`. The old versions of `Android Studio (4.*)` has `repositories` in `build.gradle` `allprojects{}`.
 
 ```groovy
 repositories {
