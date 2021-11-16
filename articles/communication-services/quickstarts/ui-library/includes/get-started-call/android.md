@@ -18,6 +18,8 @@ ms.service: azure-communication-services
 
 ## Setting up
 
+### Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start).
+
 ### Creating an Android app with an empty activity
 
 In Android Studio, create a new project and select the `Empty Activity`.
@@ -212,8 +214,6 @@ Build and start application from Android Studio.
 - Click `Launch`.
 - Accept audio permissions and select device, mic, and video settings.
 - Click `Join Call`.
-
-## Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start)
 
 ![Launch](../../media/composite-android.gif)
 
