@@ -274,7 +274,7 @@ See the [rate limiting information](./alerts-rate-limiting.md) and [SMS alert be
 You may have a limited number of SMS actions in an Action Group.
 
 > [!NOTE]
-> If the Azure portal action group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country/region.  
+> If the Azure portal action group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country/region.  
 
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -327,7 +327,7 @@ See the [rate limiting information](./alerts-rate-limiting.md) article for addit
 You may have a limited number of Voice actions in an Action Group.
 
 > [!NOTE]
-> If the Azure portal action group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country/region.  
+> If the Azure portal action group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country/region.  
 > Only Country code supported today in Azure portal action group for Voice Notification is +1(United States). 
 
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).

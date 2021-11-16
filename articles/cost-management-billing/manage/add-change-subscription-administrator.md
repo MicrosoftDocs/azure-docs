@@ -1,13 +1,13 @@
 ---
 title: Add or change Azure subscription administrators
 description: Describes how to add or change an Azure subscription administrator using Azure role-based access control (Azure RBAC).
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/27/2021
+ms.date: 10/28/2021
 ms.author: banders
 
 ---

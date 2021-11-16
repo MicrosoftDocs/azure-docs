@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot a declined card at Azure sign-up
 description: Resolve declined credit card at Azure sign-up in the Azure portal.
-author: v-miegge
-ms.reviewer: judupont
+author: bandersmsft
+ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting 
-ms.date: 05/13/2021
+ms.date: 10/28/2021
 ms.author: banders
 ---
 

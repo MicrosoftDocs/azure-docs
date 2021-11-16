@@ -375,6 +375,8 @@ Also, when a NSG is deleted, by default the associated flow log resource is dele
 
 **NSG on ExpressRoute gateway subnet** – It is not recommended to log flows on ExpressRoute gateway subnet because traffic can bypass the express route gateway (example: [FastPath](../expressroute/about-fastpath.md)). Thus, if an NSG is linked to an ExpressRoute Gateway subnet and NSG flow logs are enabled, then outbound flows to virtual machines may not get captured. Such flows must be captured at the subnet or NIC of the VM. 
 
+**Traffic across private link** - To log traffic while accessing PaaS resources via private link, enable NSG flow logs on a subnet NSG containing the private link. Due to platform limitations, the traffic at all the source VMs only can be captured whereas that at the destination PaaS resource cannot be captured.
+
 **Issue with Application Gateway V2 Subnet NSG**: Flow logging on the application gateway V2 subnet NSG is [not supported](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) currently. This issue does not affect Application Gateway V1.
 
 **Incompatible Services**: Due to current platform limitations, a small set of Azure services are not supported by NSG Flow Logs. The current list of incompatible services is

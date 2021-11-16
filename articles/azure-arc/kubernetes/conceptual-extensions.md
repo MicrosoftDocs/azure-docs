@@ -11,7 +11,7 @@ description: "This article provides a conceptual overview of cluster extensions 
 
 # Cluster extensions
 
-Management services such as Azure Monitor and Azure Defender for Kubernetes or services like Azure App services, Azure Data services can be instantiated on Kubernetes clusters through the Cluster Extensions capability. [Helm charts](https://helm.sh/) help you manage Kubernetes applications by providing the building blocks needed to define, install, and upgrade even the most complex Kubernetes applications. Cluster extension feature builds on top of the packaging components of Helm by providing an Azure Resource Manager driven experience for installation and lifecycle management of instances of the services you intend to enable on your kubernetes cluster. A cluster operator or admin can use the Cluster extensions feature to 
+Management services such as Azure Monitor and Microsoft Defender for Kubernetes or services like Azure App services, Azure Data services can be instantiated on Kubernetes clusters through the Cluster Extensions capability. [Helm charts](https://helm.sh/) help you manage Kubernetes applications by providing the building blocks needed to define, install, and upgrade even the most complex Kubernetes applications. Cluster extension feature builds on top of the packaging components of Helm by providing an Azure Resource Manager driven experience for installation and lifecycle management of instances of the services you intend to enable on your kubernetes cluster. A cluster operator or admin can use the Cluster extensions feature to 
 
 - Install different extensions for the desired functionality and get an inventory of all clusters and the extensions installed on those clusters from Azure interfaces like the Azure portal, CLI, SDK etc. 
 - As with any other Azure resource, you can control access to the cluster extension resource using Azure Role Based Access Control (RBAC)
@@ -20,7 +20,7 @@ Management services such as Azure Monitor and Azure Defender for Kubernetes or s
 - Manage updates by setting up auto-upgrade for extensions or by pinning to a specific version.
 - Manage the lifecycle of extensions including updates to extension properties or deletion of one or more extension instances.
 
-An extension can be cluster-scoped or scoped to a namespace. Each extension type (Eg: Azure Monitor, Azure Defender, Azure App services) defines the scope at which they operate on the cluster. 
+An extension can be cluster-scoped or scoped to a namespace. Each extension type (Eg: Azure Monitor, Microsoft Defender for Cloud, Azure App services) defines the scope at which they operate on the cluster. 
 
 ## Architecture for Azure Arc enabled Kubernetes clusters
 

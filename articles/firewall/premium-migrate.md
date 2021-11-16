@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/27/2021
+ms.date: 11/02/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -188,6 +188,9 @@ TransformPolicyToPremium -Policy $policy
 ## Migrate Azure Firewall using stop/start
 
 If you use Azure Firewall Standard SKU with Firewall Policy, you can use the Allocate/Deallocate method to migrate your Firewall SKU to Premium. This migration approach is supported on both VNet Hub and Secure Hub Firewalls. When you migrate a Secure Hub deployment, it will preserve the firewall public IP address.
+
+The minimum Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
+
  
 ### Migrate a VNET Hub Firewall
 
@@ -211,7 +214,6 @@ If you use Azure Firewall Standard SKU with Firewall Policy, you can use the All
 
 ### Migrate a Secure Hub Firewall
 
-The minimum Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
 
 - Deallocate the Standard Firewall
 

@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: pafarley
+ms.author: eur
 ---
 
 This guide shows how to install the [Speech SDK](speech-sdk.md) for C# .NET Core.

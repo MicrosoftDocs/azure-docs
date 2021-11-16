@@ -1,20 +1,22 @@
 ---
-title:  "Set up autoscale for microservice applications"
+title:  "Set up autoscale for applications"
 description: This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/03/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Set up autoscale for microservice applications
+# Set up autoscale for applications
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-Autoscale is a built-in feature of Azure Spring Cloud that helps microservice applications perform their best when demand changes. This includes modifying the number of virtual CPUs, memory, and app instances. This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
+This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 
+Autoscale is a built-in feature of Azure Spring Cloud that helps applications perform their best when demand changes. Azure Spring Cloud supports scale-out and scale-in, which includes modifying the number of app instances and load balancing.
+ 
 ## Prerequisites
 
 To follow these procedures, you need:
@@ -39,7 +41,7 @@ To follow these procedures, you need:
 
 There are two options for Autoscale demand management:
 
-* Manual scale: Maintains a fixed instance count. In the Standard tier, you can scale out to a maximum of 500 instances. This value changes the number of separate running instances of the microservice application.
+* Manual scale: Maintains a fixed instance count. In the Standard tier, you can scale out to a maximum of 500 instances. This value changes the number of separate running instances of the application.
 * Custom autoscale: Scales on any schedule, based on any metrics.
 
 In the Azure portal, choose how you want to scale.  The following figure shows the **Custom autoscale** option and mode settings.

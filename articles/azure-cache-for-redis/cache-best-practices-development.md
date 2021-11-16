@@ -5,7 +5,7 @@ description: Learn how to develop code for Azure Cache for Redis.
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 11/3/2021
 ms.author: shpathak
 ---
 
@@ -83,7 +83,7 @@ If your client library or tool doesn't support TLS, then enabling unencrypted co
 
 ## Client library-specific guidance
 
-- [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
+- [StackExchange.Redis (.NET)](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
 - [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
 - [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
 - [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)

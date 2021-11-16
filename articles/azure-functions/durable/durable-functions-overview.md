@@ -794,6 +794,13 @@ You can get started with Durable Functions in under 10 minutes by completing one
 
 In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
+## Publications
+
+Durable Functions is developed in collaboration with Microsoft Research. As a result, the Durable Functions team actively produces research papers and artifacts; these include:
+
+* [Durable Functions: Semantics for Stateful Serverless](https://www.microsoft.com/en-us/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) _(OOPSLA'21)_
+* [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) _(pre-print)_
+
 ## Learn more
 
 The following video highlights the benefits of Durable Functions:
