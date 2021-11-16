@@ -82,7 +82,7 @@ The change feed processor lets you hook to relevant events in its [life cycle](#
 * Register a handler for `WithLeaseReleaseNotification` to be notified when the current host releases a lease and stops processing it.
 * Register a handler for `WithErrorNotification` to be notified when the current host encounters an exception during processing, being able to distinguish if the source is the user delegate (unhandled exception) or an error the processor is encountering trying to access the monitored container (for example, networking issues).
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=StartWithNotifications)]
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartWithNotifications)]
 
 ## Deployment unit
 
