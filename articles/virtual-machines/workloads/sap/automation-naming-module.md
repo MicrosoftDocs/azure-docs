@@ -1,17 +1,17 @@
 ---
 title: Configure custom naming module for the automation framework
-description: Explanation of how to implement custom naming conventions for the SAP Deployment Automation Framework on Azure.
+description: Explanation of how to implement custom naming conventions for the SAP deployment automation framework on Azure.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/14/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
 # Configure custom naming module
 
-The [SAP Deployment Automation Framework on Azure](automation-deployment-framework.md) uses a standard naming convention for Azure [resource naming](automation-naming.md). 
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a standard naming convention for Azure [resource naming](automation-naming.md). 
 
 The Terraform module `sap_namegenerator` defines the names of all resources that the automation framework deploys. The module is located at `/deploy/terraform/terraform-units/modules/sap_namegenerator/` in the repository. 
 

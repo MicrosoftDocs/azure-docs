@@ -1,6 +1,6 @@
 ---
 title: Generate Application Installation templates
-description: How to generate SAP Application templates for use with the deployment automation framework.
+description: How to generate SAP Application templates for use with the SAP deployment automation framework on Azure.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,12 +11,12 @@ ms.service: virtual-machines-sap
 
 # Generate SAP Application templates for automation
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM) to define the SAP Application. Before you can deploy a system using a custom BoM, you need to also create the templates for the ini-files used in the unattended SAP installation. This guide covers how to create the application templates for an SAP/S4 deployment. The process is the same for the other SAP applications.
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BOM) to define the SAP Application. Before you can deploy a system using a custom BOM, you need to also create the templates for the ini-files used in the unattended SAP installation. This guide covers how to create the application templates for an SAP/S4 deployment. The process is the same for the other SAP applications.
 
 ## Prerequisites
 
 - [Get, download, and prepare your SAP installation media and related files](automation-bom-get-files.md) if you haven't already done so. Make sure to have the [name of the SAPCAR utility file that you downloaded](automation-bom-get-files.md#acquire-media) available.
-- [Prepare your BoM](automation-bom-prepare.md) if you haven't already done so. Make sure to have the BoM file that you created available.
+- [Prepare your BOM](automation-bom-prepare.md) if you haven't already done so. Make sure to have the BOM file that you created available.
 - An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An SAP account with permissions to work with the database you want to use.
 - Optionally, create a virtual machine (VM) within Azure to use for transferring SAP media from your storage account. This method improves the transfer speed. Make sure you have connectivity between your VM and the target SAP VM. For example, check that your SSH keys are in place.
@@ -694,7 +694,7 @@ Finally, upload your combined template file to your SAP Library.
 
 1. Select the `sapbits` container.
 
-1. Go to the product folder for your BoM in `sapbits`. For example, `boms/S4HANA_2020_ISS_v001`.
+1. Go to the product folder for your BOM in `sapbits`. For example, `boms/S4HANA_2020_ISS_v001`.
 
 1. If you don't already have a directory called **templates**, create this directory.
 
@@ -708,9 +708,9 @@ Finally, upload your combined template file to your SAP Library.
 
 1. Select **Upload**.
 
-## Update BoM with templates
+## Update BOM with templates
 
-After [combining your parameter files](#combine-parameter-files), update your BoM with the new template files.
+After [combining your parameter files](#combine-parameter-files), update your BOM with the new template files.
 
 1. Open `bom.yml`.
 
@@ -723,11 +723,11 @@ After [combining your parameter files](#combine-parameter-files), update your Bo
         override_target_location: "{{ target_media_location }}/config"
     ```
 
-1. If you're using the scripted application BoM preparation, remove the `#` before the template.
+1. If you're using the scripted application BOM preparation, remove the `#` before the template.
 
 1. Save your changes.
 
-Then, upload the new BoM file to your SAP Library.
+Then, upload the new BOM file to your SAP Library.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -739,7 +739,7 @@ Then, upload the new BoM file to your SAP Library.
 
 1. Select the `sapbits` container.
 
-1. Go to the product folder for your BoM in `sapbits`. For example, `boms/S4HANA_2020_ISS_v001`.
+1. Go to the product folder for your BOM in `sapbits`. For example, `boms/S4HANA_2020_ISS_v001`.
 
 1. Open the `boms` directory.
 
@@ -747,7 +747,7 @@ Then, upload the new BoM file to your SAP Library.
 
 1. In the pane, select **Select a file**.
 
-1. Select your BoM file, `bom.yml`, from your computer or VM.
+1. Select your BOM file, `bom.yml`, from your computer or VM.
 
 1. Make sure to enable **Overwrite if files already exist**.
 

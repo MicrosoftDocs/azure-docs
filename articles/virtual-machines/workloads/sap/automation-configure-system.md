@@ -1,17 +1,17 @@
 ---
 title: Configure SAP system parameters for automation
-description: Define the SAP system properties for the automation framework using a parameters JSON file.
+description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters JSON file.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/14/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
 # Configure SAP system parameters for automation
 
-Configuration for the [SAP deployment automation framework](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. 
+Configuration for the [SAP deployment automation framework on Azure](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. 
 
 The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
 
@@ -199,7 +199,7 @@ The application tier defines the infrastructure for the application tier, which 
 
 ### Anchor Virtual Machine Parameters
 
-The SAP Deployment Automation Framework supports having an Anchor Virtual Machine. The anchor Virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
+The SAP deployment automation framework supports having an Anchor Virtual Machine. The anchor Virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
 
 The table below contains the parameters related to the anchor virtual machine. 
 
@@ -249,7 +249,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | `resource_offset`                              | Provides and offset for resource naming. The offset number for resource naming when creating multiple resources. The default value is 0, which creates a naming pattern of disk0, disk1, and so on. An offset of 1 creates a naming pattern of disk1, disk2, and so on. | Optional    |
 > | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks using customer provided keys | Optional   |
 > | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations | Optional |
-> | `bom_name`                                     | Name of the SAP BoM to use                                           | Optional |
+> | `bom_name`                                     | Name of the SAP BOM to use                                           | Optional |
 
 
 ## Azure NetApp Support
@@ -273,7 +273,7 @@ High availability configurations use Pacemaker with Azure fencing agents. The fe
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"
 ```
 
-Replace `<prefix>` with the name prefix of your environment, such as `DEV-WEEU-SAP01` and `<subscriptionID>` with the workload zone subscription id.
+Replace `<prefix>` with the name prefix of your environment, such as `DEV-WEEU-SAP01` and `<subscriptionID>` with the workload zone subscription ID.
   
 > [!IMPORTANT]
 > The name of the Fencing Agent Service Principal must be unique in the tenant. The script assumes that a role 'Linux Fence Agent Role' has already been created

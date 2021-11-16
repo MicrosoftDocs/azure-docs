@@ -1,6 +1,6 @@
 ---
-title: SAP Deployment Automation bash reference | Microsoft Docs
-description: SAP Deployment Automation bash reference
+title: SAP deployment automation framework Bash reference | Microsoft Docs
+description: SAP deployment automation framework on Azure Bash reference
 services: virtual-machines-windows
 author: kimforss
 manager: kimforss
@@ -8,13 +8,13 @@ keywords: 'Azure, SAP'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 10/23/2021
+ms.date: 11/17/2021
 ms.author: kimforss
 ---
 
-# Using SAP Deployment Automation shell scripts
+# Using SAP deployment automation framework shell scripts
 
-You can deploy all [SAP Deployment Automation Framework](automation-deployment-framework.md) artifacts using shell scripts.
+You can deploy all [SAP deployment automation framework on Azure](automation-deployment-framework.md) components using shell scripts.
 
 ## Control Plane operations
 

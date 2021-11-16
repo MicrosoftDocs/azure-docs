@@ -1,10 +1,10 @@
 ---
-title: SAP deployment automation - Hands-on lab
-description: Hands-On Lab
+title: Enterprise scaling with the SAP deployment automation framework
+description: How to do enterprise scaling for deployments using the SAP deployment automation framework on Azure.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
-ms.date: 11/5/2021
+ms.date: 11/17/2021
 ms.topic: tutorial
 ms.service: virtual-machines-sap
 ---
@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 # Enterprise Scale for SAP Automation Framework Deployment - Hands-on Lab
 
 
-This tutorial shows how to do enterprise scaling for deployments using the [SAP automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. There's a feature-locked branch in the [GitHub repository for the automation framework](https://github.com/Azure/sap-hana/), named `sap-level-up`, for use with this tutorial.
+This tutorial shows how to do enterprise scaling for deployments using the [SAP deployment automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. There's a feature-locked branch in the [GitHub repository for the automation framework](https://github.com/Azure/sap-hana/), named `sap-level-up`, for use with this tutorial.
 
 During this lab, you will perform the following tasks
 
@@ -40,7 +40,7 @@ There are three main steps of an SAP deployment on Azure with the automation fra
 There are several workflows in the deployment automation process. However, this tutorial focuses on one workflow for ease of deployment. You can deploy this workflow,  the SAP-S4HANA standalone environment, using Bash. The tutorial describes the general hierarchy and different phases of the deployment.
 ### Environment Overview
 
-The SAP on Azure Deployment Automation Framework has two main components:
+The SAP on Azure deployment automation framework has two main components:
 
 - Deployment infrastructure (control plane)
 - SAP Infrastructure (SAP Workload)
@@ -51,7 +51,7 @@ The following diagram shows the dependency between the control plane and the app
 
 The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. The following diagram shows the logical separation of the control plane and workload zone.
 
-:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="SAP Deployment Automation Environment Diagram":::
+:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram showing the SAP deployment automation framework environment.":::
 
 #### Management Zone
 
@@ -362,7 +362,7 @@ Make sure you can connect to your deployer VM:
 > [!IMPORTANT]
 > The rest of the tasks need to be executed on the Deployer
 
-## Get SAP software using the BoM
+## Get SAP software using the BOM
 
 The Automation Framework gives you tools to download the SAP Bill Of Materials (BOM). The SAP library acts as the archive for all media required to deploy SAP.
 
@@ -454,7 +454,7 @@ Select which playbooks to execute.
 Please select playbook:
 ```
 
-Select the playbook `1) BOM Downloader` to download the SAP Software described in the BoM file into the storage account. Check that the `sapbits` container has all your media for installation.
+Select the playbook `1) BOM Downloader` to download the SAP Software described in the BOM file into the storage account. Check that the `sapbits` container has all your media for installation.
     
 ## Collect workload zone information
 
@@ -614,7 +614,7 @@ Selecting this playbook performs the generic OS configuration setup on all the m
 
 Selecting this playbook performs the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, and services.
 
-### Playbook: BoM Processing
+### Playbook: BOM Processing
 
 Selecting this playbook, downloads the SAP software to the SCS virtual machine. 
     

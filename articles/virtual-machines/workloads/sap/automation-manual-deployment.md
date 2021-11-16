@@ -1,17 +1,17 @@
 ---
 title: Get started with manual deployment of automation framework
-description: Manually deploy the automation framework using an example configuration and sample parameter files.
+description: Manually deploy the SAP deployment automation framework on Azure using an example configuration and sample parameter files.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/14/2021
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ---
 
 # Get started with manual deployment
 
-Along with [automated deployment](automation-get-started.md), you can also do manual deployment of the [SAP automation framework](automation-deployment-framework.md). Use this example configuration and sample parameter files to get started.
+Along with [automated deployment](automation-get-started.md), you can also do manual deployment of the [SAP deployment automation framework on Azure](automation-deployment-framework.md). Use this example configuration and sample parameter files to get started.
 
 > [!TIP]
 > This guide covers only how to perform a **manual** deployment. If you want to get started quickly, see the [**automated** deployment guide](automation-get-started.md) instead.
@@ -605,7 +605,7 @@ Configure your setup by executing Ansible playbooks. These playbooks are located
 | ----------------- | ---------------------------------- |
 | `playbook_01_os_base_config.yaml` | Base operating system (OS) configuration |
 | `playbook_02_os_sap_specific_config.yaml ` | SAP-specific OS configuration |
-| `playbook_03_bom_processing.yaml` | SAP Bill of Materials (SAP BoM) processing software download |
+| `playbook_03_bom_processing.yaml` | SAP Bill of Materials (BOM) processing software download |
 | `playbook_04a_sap_scs_install.yaml   ` | SAP central services (SCS) installation |
 | `playbook_05a_hana_db_install.yaml ` | SAP HANA database installation |
 | `playbook_06a_sap_dbload.yaml` | Database loader |

@@ -4,14 +4,14 @@ description: Overview of the SAP workload zone configuration process within the 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/9/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
 # Workload zone configuration in SAP automation framework
 
-An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components).
+An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP deployment automation framework on Azure](automation-deployment-framework.md) refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components).
 
 ## Workload zone deployment configuration
 
