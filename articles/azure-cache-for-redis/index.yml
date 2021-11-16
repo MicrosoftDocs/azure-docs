@@ -114,3 +114,7 @@ landingContent:
             url: cache-troubleshoot-timeouts.md
           - text: Troubleshoot data loss issues
             url: cache-troubleshoot-data-loss.md
+          - text: Troubleshoot common errors
+            url: cache-troubleshoot-common-errors.md
+          - text: Troubleshoot connectivity issues
+            url: cache-troubleshoot-connectivity.md

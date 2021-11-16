@@ -192,6 +192,10 @@
       href: cache-troubleshoot-data-loss.md
     - name: Troubleshooting FAQs
       href: cache-monitor-troubleshoot-faq.yml
+    - name: Troubleshoot common errors
+      href: cache-troubleshoot-common-errors.md
+    - name: Troubleshoot connectivity issues
+      href: cache-troubleshoot-connectivity.md
 - name: Reference
   items:
   - name: Azure Cache for Redis samples
