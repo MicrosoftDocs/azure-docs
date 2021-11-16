@@ -1,6 +1,6 @@
 ---
 title: RabbitMQ trigger for Azure Functions
-description: Learn to run an Azure Function when a RabbitMQ message is created.
+description: Learn how to run an Azure Function when a RabbitMQ message is created.
 author: cachai2
 ms.assetid:
 ms.topic: reference
@@ -230,7 +230,7 @@ The `RabbitMQTrigger` annotation allows you to create a function that runs when 
 See the trigger [example](#example) for more detail.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-java,programming-language-csharp,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-java,programming-language-csharp,programming-language-python,programming-language-typescript,programming-language-powershell"  
 
 ## Configuration
 
@@ -286,7 +286,7 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 
-Refer to Java [attributes and annotations](#attributes-and-annotations).
+Refer to Java [annotations](#annotations).
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
