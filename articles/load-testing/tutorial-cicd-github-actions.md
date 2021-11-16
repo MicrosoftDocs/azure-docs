@@ -27,6 +27,10 @@ You'll learn how to:
 > * Define test criteria for load test to pass or fail based on thresholds.  
 > * Parameterize load test using GitHub secrets.  
 
+> [!IMPORTANT]
+> Azure Load Testing is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
