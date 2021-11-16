@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 11/16/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -80,11 +80,11 @@ See the [application development lifecycle](../overview.md#application-developme
 
 You can find more details about the results in the next section.
 
-# [Using the API](#tab/api)
+# [Using the REST API](#tab/rest-api)
 
-### Using the API
+## Use the REST API
 
-### Get your resource keys endpoint
+First you will need to get your resource key and endpoint
 
 1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 
@@ -94,17 +94,13 @@ You can find more details about the results in the next section.
 
 ### Submit custom NER task
 
-To send a custom NER task, you can use either the REST API or client library for .NET, Java, JavaScript, and Python. 
-
-### REST API
-
 1. Start constructing a POST request by updating the following URL with your endpoint.
     
     `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
 
 2. In the header for the request, add your key to the `Ocp-Apim-Subscription-Key` header.
 
-3. In the JSON body of your request, you will specify The documents you're inputting for analysis, and the parameters for the custom entity recognition task.
+3. In the JSON body of your request, you will specify The documents you're inputting for analysis, and the parameters for the custom entity recognition task. `project-name` is case-sensitive.
  
     > [!tip]
     > See the [quickstart article](../quickstart.md?pivots=rest-api#submit-custom-ner-task) and [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze) for more information about the JSON syntax.
@@ -141,35 +137,42 @@ To send a custom NER task, you can use either the REST API or client library for
 
     You will use this endpoint in the next step to get the custom recognition task results.
 
-5. Use the URL from the previous step to create a **GET** request to query the status/results of the custom recognition task. 
-    1. Add your key to the `Ocp-Apim-Subscription-Key` header for the request.
+5. Use the URL from the previous step to create a **GET** request to query the status/results of the custom recognition task. Add your key to the `Ocp-Apim-Subscription-Key` header for the request.
 
-### Use the SDK
+# [Using the client libraries](#tab/client)
 
-You can also use the client library for .NET, Java, JavaScript, and Python. First you will need to download and install the client library package for your language of choice:
+## Use the client libraries
 
-|Language  |Package version  |
-|---------|---------|
-|.NET     | [5.2.0-beta.1](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.1)        |
-|Java     | [5.2.0-beta.1](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0-beta.1)        |
-|JavaScript     |  [5.2.0-beta.1](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.2.0-beta.1)       |
-|Python     | [5.2.0b1](https://pypi.org/project/azure-ai-textanalytics/5.2.0b1/)         |
+1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 
-After you've installed the client library, use the following samples on GitHub to start calling the API.
+2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 
-* [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/tests/samples/Sample9_RecognizeCustomEntitiesConvenience.cs)
-* [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/RecognizeCustomEntities.java)
-* [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
-* [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py)
+    :::image type="content" source="../../custom-classification/media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../../custom-classification/media/get-endpoint-azure.png":::
 
-See the following reference documentation for more information:
-
-* [REST API](https://aka.ms/ct-runtime-swagger)
-* [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
-* [Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)
-* [JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)
-* [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
-
+3. Download and install the client library package for your language of choice:
+    
+    |Language  |Package version  |
+    |---------|---------|
+    |.NET     | [5.2.0-beta.2](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.2)        |
+    |Java     | [5.2.0-beta.2](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0-beta.2)        |
+    |JavaScript     |  [5.2.0-beta.2](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.2.0-beta.2)       |
+    |Python     | [5.2.0b2](https://pypi.org/project/azure-ai-textanalytics/5.2.0b2/)         |
+    
+4. After you've installed the client library, use the following samples on GitHub to start calling the API.
+    
+    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/tests/samples/Sample9_RecognizeCustomEntitiesConvenience.cs)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/RecognizeCustomEntities.java)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py)
+    
+5. See the following reference documentation for more information:
+    
+    * [REST API](https://aka.ms/ct-runtime-swagger)
+    * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
+    * [Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)
+    * [JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)
+    * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
+    
 ---
 
 #### Custom NER task results

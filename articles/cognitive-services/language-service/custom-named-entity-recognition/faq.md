@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/08/2021
+ms.date: 11/16/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -81,7 +81,7 @@ You need to [deploy your model](quickstart.md#deploy-your-model) before you can 
 
 ## How do I use my trained model for predictions?
 
-After deploying your model, you [call the prediction API](how-to/call-api.md), using either the [REST API](how-to/call-api.md) or [client libraries](how-to/call-api.md#use-the-sdk).
+After deploying your model, you [call the prediction API](how-to/call-api.md), using either the [REST API](how-to/call-api.md?tabs=rest-api) or [client libraries](how-to/call-api.md?tabs=client).
 
 ## Data privacy and security
 
