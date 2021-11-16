@@ -18,9 +18,13 @@ You can use two different Azure services to set up lab environments in the cloud
 Azure DevTest Labs and Azure Lab Services support the following key capabilities and features:
 
 - **Fast and flexible lab setup**. Lab owners can quickly set up labs for their needs. The service can take care of all Azure infrastructure work, or you can let lab owners self-manage and customize infrastructure. Lab Services provides built-in infrastructure scaling and resiliency for managed labs.
+
 - **Simplified lab user experience**. In a classroom lab, lab users can register with a code and access the lab to use resources. A DevTest Labs lab owner can give permissions for lab users to create and access VMs, manage and reuse data disks, and set up reusable secrets.
+
 - **Cost optimization and analysis**. A lab owner can set a lab schedule to specify when lab VMs are accessible to users. The schedule can automatically shut down and start up VMs at specified times. The owner can set usage policies per user or per lab to optimize costs. Lab owners can analyze lab usage and activity trends. Classroom labs offer a smaller subset of cost optimization and analysis options.
+
 - **Embedded security**. A lab owner can set up a private virtual network and subnets for a lab, and enable a shared public IP address. DevTest Labs lab users can securely access virtual network resources by using Azure ExpressRoute or a site-to-site virtual private network (VPN).
+
 - **Workflow and tool integration**. You can integrate Lab Services into your organization's website and management systems. In DevTest Labs, you can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools.
 
 ## Scenarios
@@ -30,7 +34,7 @@ Here are some scenarios that DevTest Labs and Lab Services support:
 ### Set up a resizable classroom computer lab in the cloud
 
 - To create a managed classroom lab, you just tell the service exactly what you need. The service creates and manages lab infrastructure so you can focus on teaching your class, not technical details.
-- Provide students with a lab of VMs that are configured with exactly what's needed. Give each student a limited number of hours for using the VMs for classwork.
+- Provide students with a lab of VMs that are configured with exactly what's needed. Give each student a limited number of hours for using the VMs for class work.
 - Move your school's physical computer lab into the cloud. Automatically scale the number of VMs to only the maximum usage and cost threshold you set.
 - Delete the lab with a single click when you're done.
 
@@ -68,17 +72,19 @@ The following sections provide more details about these labs.
 
 Managed labs are Lab Services labs with infrastructure that Azure manages. Managed lab types can fit specific needs, like classroom labs.
 
-With managed labs, you can get started right away, with minimal setup. To create a classroom lab, first you create a lab account for your organization. The lab account serves as the central account for managing all the labs in the organization. For managed labs, Lab Services creates and manages Azure resources in internal Microsoft subscriptions. Resources aren't created in your own Azure subscription. The service keeps track of resource usage in the internal Microsoft subscriptions, and bills usage back to the Azure subscription that contains the lab account.
+With managed labs, you can get started right away, with minimal setup. To create a classroom lab, first you create a lab account for your organization. The lab account serves as the central account for managing all the labs in the organization.
+
+For managed labs, Lab Services creates and manages Azure resources in internal Microsoft subscriptions, not in your own Azure subscription. The service keeps track of resource usage in the internal Microsoft subscriptions, and bills usage back to the Azure subscription that contains the lab account.
 
 Here are some use cases for managed lab types:
 
 - Provide students with a lab of VMs that have exactly what's needed for a class.
 - Limit the number of hours users can use VMs.
-- Set up a pool of high performance VMs to do compute-intensive or graphics-intensive research.
+- Set up a pool of high-performance VMs to do compute-intensive or graphics-intensive research.
 - Move your school's physical computer lab into the cloud.
 - Quickly provision a lab of VMs for hosting a hackathon.
 
-## DevTest Labs
+### DevTest Labs
 
 You might want to manage all infrastructure and configuration yourself, within your own Azure subscription. For these scenarios, you can create a DevTest Labs lab in the Azure portal. You don't create or use a lab account for DevTest Labs.
 
