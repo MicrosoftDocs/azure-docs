@@ -99,7 +99,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
    > [!NOTE]
    > The value of `LOGS` environment variable can be the same as, or a subdirectory >of the `mountPath`.
     
-    Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. In this example,  the same value is passed for the environment variable in the CLI command above and in the `mountPath` property below: 
+    Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. In this example, the same value is passed for the environment variable in the CLI command above and in the `mountPath` property below: 
 
     ```json
     {
