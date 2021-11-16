@@ -12,7 +12,7 @@ ms.date: 11/04/2021
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
-1. Select the menu button in the upper-left corner of the portal, then select **+ Create a resource**.
+1. Select the menu button in the upper-left corner of the portal, and then select **+ Create a resource**.
 
     :::image type="content" source="media/azure-load-testing-create-in-portal/create-resource.png" alt-text="Screenshot showing + Create a resource.":::
 
@@ -20,11 +20,11 @@ ms.date: 11/04/2021
 
 1. Select **Azure Load Testing**.
 
-1. In the **Azure Load Testing** pane, select **Create** to begin.
+1. In the **Azure Load Testing** pane, select **Create**.
 
     :::image type="content" source="media/azure-load-testing-create-in-portal/create-azure-load-testing.png" alt-text="Screenshot that shows the Azure Load Testing creation page.":::
 
-1. Provide the following information to configure your new Azure Load Testing resource:
+1. Provide the following information to configure your new Azure Load Testing resource.
 
     |Field  |Description  |
     |---------|---------|
@@ -35,11 +35,14 @@ ms.date: 11/04/2021
 
     :::image type="content" source="media/azure-load-testing-create-in-portal/create-azure-load-testing-basics.png" alt-text="Screenshot that shows the Basics tabs when creating an Azure Load Testing resource.":::
 
-1. Optionally, you can configure more details in the **Tags** tab. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
+    > [!NOTE]
+    > Optionally, you can configure more details in the **Tags** tab. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 
 1. After you're finished configuring the resource, select **Review + Create**.
 
-1. Review all the configuration settings and select **Create** to the deployment of the Azure Load Testing resource. When the process has finished, a deployment success message appears.
+1. Review all the configuration settings and select **Create** to start the deployment of the Azure Load Testing resource. 
+    
+    When the process has finished, a deployment success message appears.
 
 1. To view the new resource, select **Go to resource**.
     
