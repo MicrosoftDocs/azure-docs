@@ -3,7 +3,7 @@ title: Handle false positives in Microsoft Sentinel
 description: Learn how to resolve false positives in Microsoft Sentinel by creating automation rules or modifying analytics rules to specify exceptions.
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021

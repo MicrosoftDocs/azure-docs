@@ -16,7 +16,7 @@ ms.reviewer: azmetadatadev
         "azEnvironment": "AZUREPUBLICCLOUD",
         "extendedLocation": {
             "type": "edgeZone",
-            "location": "microsoftlosangeles"
+            "name": "microsoftlosangeles"
         },
         "evictionPolicy": "",
         "isHostCompatibilityLayerVm": "true",
@@ -156,7 +156,7 @@ ms.reviewer: azmetadatadev
         "azEnvironment": "AZUREPUBLICCLOUD",
         "extendedLocation": {
             "type": "edgeZone",
-            "location": "microsoftlosangeles"
+            "name": "microsoftlosangeles"
         },
         "evictionPolicy": "",
         "isHostCompatibilityLayerVm": "true",
