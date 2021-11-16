@@ -23,19 +23,19 @@ You can also use the ACS SDKs to create identities and manage your access tokens
 Any prices seen in images throughout this tutorial are for demonstration purposes only.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [.NET](./includes/user-access-token-net.md)]
+[!INCLUDE [.NET](./includes/access-tokens/access-token-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript](./includes/user-access-token-js.md)]
+[!INCLUDE [JavaScript](./includes/access-tokens/access-token-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python](./includes/user-access-token-python.md)]
+[!INCLUDE [Python](./includes/access-tokens/access-token-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java](./includes/user-access-token-java.md)]
+[!INCLUDE [Java](./includes/access-tokens/access-token-java.md)]
 ::: zone-end
 
 The output of the app describes each action that is completed:
