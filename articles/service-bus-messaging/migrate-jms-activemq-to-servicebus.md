@@ -36,7 +36,7 @@ Even so, there are some differences between the two, as the following table show
 | Application tiering | Clustered monolith | Two-tier <br> (gateway + back end) |
 | Protocol support | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
 | Provisioning mode | <ul> <li> Infrastructure as a service (IaaS), on-premises </li> <li> Amazon MQ (managed platform as a service) </li> | Managed platform as a service (PaaS) |
-| Message size | Customer configurable | 1 MB (Premium tier) |
+| Message size | Customer configurable | 100 MB (Premium tier) |
 | High availability | Customer managed | Platform managed |
 | Disaster recovery | Customer managed | Platform managed | 
 

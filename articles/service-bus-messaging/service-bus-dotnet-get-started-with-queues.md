@@ -19,6 +19,7 @@ In this quickstart, you'll do the following steps:
 > This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus queue and receiving them. You can find pre-built .NET samples for Azure Service Bus in the [Azure SDK for .NET repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
 
 ## Prerequisites
+If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart. 
 
 - **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 - **Microsoft Visual Studio 2019**. The Azure Service Bus client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax won't be available. To make use of the full syntax, we recommend that you compile with the .NET Core SDK 3.0 or higher and language version set to `latest`. If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects.

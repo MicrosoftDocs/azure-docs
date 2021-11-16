@@ -405,7 +405,7 @@ additionalContent:
       items:
 
         - title: Audit reports and certificates
-          summary: Accessible in the Azure portal by navigating to Home > Security Center > Regulatory Compliance
+          summary: Accessible in the Azure portal by navigating to Home > Defender for Cloud > Regulatory Compliance
           links:
             - text: ISO 20000-1, 22301, 27001, 27017, 27018, 27701, 9001
               url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade

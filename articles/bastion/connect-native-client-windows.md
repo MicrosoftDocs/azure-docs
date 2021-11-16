@@ -11,13 +11,17 @@ ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
 
-# Connect to a VM using Bastion and the native client on your Windows computer
+# Connect to a VM using Bastion and the native client on your Windows computer (Preview)
 
 Azure Bastion now offers support for connecting to target VMs in Azure using a native client on your Windows workstation. This feature lets you connect to your target VMs via Bastion using Azure CLI and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). This article helps you configure Bastion with the required settings, and then connect to a VM in the VNet. For more information, see the [What is Azure Bastion?](bastion-overview.md).
 
 > [!NOTE]
 > This configuration requires the Standard SKU for Azure Bastion.
 >
+
+> [!IMPORTANT]
+> This feature is still rolling out globally. If you cannot access it in the Azure portal, please wait for a few days and try again.
+
 
 Currently, this feature has the following limitations:
 
@@ -31,7 +35,7 @@ Currently, this feature has the following limitations:
 
 Before you begin, verify that you have met the following criteria:
 
-* The latest version of the CLI commands is installed. For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+* The latest version of the CLI commands (version 2.30 or later) is installed. For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 * An Azure virtual network.
 * A virtual machine in the virtual network.
 
@@ -115,7 +119,7 @@ This section helps you connect to your virtual machine. Use the steps that corre
 1. Log into your target Windows VM using the following command with Azure AD login. To learn more about how to use Azure AD to log into your Azure Windows VMs, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
       ```azurecli-interactive
-      az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "AAD"
+      az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
       ```
 
 1. Once you log into your target VM, the native client on your workstation will open up with your VM session (**mstsc** for RDP sessions and **ssh CLI extension** for SSH sessions).

@@ -111,7 +111,7 @@ Applies to: Iot Hub, IoT Central, Device developer
 
 These SDKs, available for multiple languages, enable you to create [back-end apps](#back-end-app) that interact with an [IoT hub](#iot-hub).
 
-[Learn more](/iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)
+[Learn more](/azure/iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)
 
 Applies to: Iot Hub
 
