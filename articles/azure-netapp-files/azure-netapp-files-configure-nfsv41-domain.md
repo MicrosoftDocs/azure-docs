@@ -33,7 +33,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
 
     * If the volume isn’t enabled for LDAP, set `Domain = defaultv4iddomain.com`.
-    * If the volume is enabled for LDAP, set `Domain` to the domain that is configured in the Active Directory Connection on your NetApp account.
+    * If the volume is [enabled for LDAP](configure-ldap-extended-groups.md), set `Domain` to the domain that is configured in the Active Directory Connection on your NetApp account.
         For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
     The following examples shows the initial configuration of `/etc/idmapd.conf` before changes:
@@ -105,5 +105,6 @@ On `Host2`, note that the test user accounts have not been created, but the same
 
 ## Next step 
 
-[Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 
