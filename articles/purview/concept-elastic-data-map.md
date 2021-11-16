@@ -119,7 +119,11 @@ The metrics _data map capacity units_ and the _data map storage size_ can be mon
 
 - Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
 
-- Navigate to the **Monitoring --> Metrics** to observe the **Data Map Capacity Units** and **Data Map Storage Size**.
+- Click on **Overview** and scroll down to observe the **Monitoring** section for _Data Map Capacity Units_ and _Data Map Storage Size_ metrics over different time periods
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-metrics.png" alt-text="Menu showing the elastic data map metrics overview page":::
+
+- Alternatively, you can navigate to the **Monitoring --> Metrics** to observe the **Data Map Capacity Units** and **Data Map Storage Size**.
 
     :::image type="content" source="./media/concept-elastic-data-map/elastic-data-map-metrics.png" alt-text="Menu showing the metrics":::
 
