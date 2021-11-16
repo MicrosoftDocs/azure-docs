@@ -40,7 +40,7 @@ By default, when you delete a VM it only deletes the VM resource, not the networ
 To specify what happens to the attached resources when you delete a VM, use the `delete-option` parameters. Each can be set to either `Delete`, which permanently deletes the resource when you delete the VM, or `Detach` which only detaches the resource and leaves it in Azure so it can be reused later. Resources that you `Detach`, like disks, will continue to incur charges as applicable.
 
 - `--os-disk-delete-option` - OS disk.
-- `--data-delete-option` - data disk.
+- `--data-disk-delete-option` - data disk.
 - `--nic-delete-option` - NIC.
 
 In this example, we create a VM and set the OS disk and NIC to be deleted when we delete the VM.
@@ -161,35 +161,6 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 
 ## Update the default delete behavior on an existing VM
 
-### [Portal](#tab/portal2)
-
-
-1. Open the [portal](https://portal.azure.com).
-1. In the search bar, type **<name_of_feature>**.
-1. Select **<name_of_feature>**.
-1. In the left menu under **Settings**, select **<something>**.
-1. In the **<something>** page, select **<something>**.
-
-### [CLI](#tab/cli2)
-<!-- Introduction paragraph if needed-->
-
-```azurecli-interactive
-
-```
-
-### [PowerShell](#tab/powershell2)
-
-<!-- Introduction paragraph if needed -->
-
-```powershell-interactive
-$vm = Get-AzVM 
-
-
-```
-
-
-### [REST](#tab/rest2)
-
 To specify what happens to the attached resources when you delete a VM, use the `deleteOption` parameters. Each can be set to either `delete`, which permanently deletes the resource when you delete the VM, or `detach` which only detaches the resource and leaves it in Azure so it can be reused later. Resources that you `detach`, like disks, will continue to incur charges as applicable.
 
 The `DeleteOption` parameters are:
@@ -269,6 +240,9 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 }
 ```
 ---
+
+# FAQ
+
 
 
 ## Next steps
