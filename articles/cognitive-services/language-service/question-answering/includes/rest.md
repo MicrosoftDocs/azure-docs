@@ -86,7 +86,7 @@ Since we know from our previous execution of the code that our confidence score 
 
 ## Query text without a knowledge base
 
-You can also use question answering without a knowledge base with prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
+You can also use question answering without a knowledge base with the prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
 For this example, you only need to modify the variables for `API KEY` and `ENDPOINT`.
 
