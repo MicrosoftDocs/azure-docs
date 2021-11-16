@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/16/2021
 ---
-# Azure Advisor for PostgreSQL
+# Azure Advisor for PostgreSQL - Flexible Server
 Learn about how Azure Advisor is applied to Azure Database for PostgreSQL and get answers to common questions.
 ## What is Azure Advisor for PostgreSQL?
 The Azure Advisor system uses telemetry to issue performance and reliability recommendations for your PostgreSQL database. 
