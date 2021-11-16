@@ -1,15 +1,15 @@
 ---
-title: How to use Logback to write logs to custom persistent storage in Azure Spring Cloud | Microsoft Docs
-description: How to use Logback to write logs to custom persistent storage in Azure Spring Cloud.
+title: How to create and deploy new app with Logback on persistent storage in Azure Spring Cloud | Microsoft Docs
+description: How to create and deploy new app with Logback on persistent storage in Azure Spring Cloud.
 author: karlerickson
 ms.author: xuycao
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/16/2021
 ms.custom: devx-track-java
 ---
 
-# How to use Logback to write logs to custom persistent storage
+# How to create and deploy new app with Logback on persistent storage
 
 **This article applies to:** ✔️ Java
 
@@ -96,8 +96,10 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
         --persistent-storage <path-to-json-file> \
         --env LOGS=/byos/logs
    ```
-
-    You must mount your persistent storage to the same path as used in your application. Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. Make sure to pass the same value for the environment variable in the CLI command above and in the `mountPath` property below: 
+   > [!NOTE]
+   > The value of `LOGS` environment variable can be the same as, or a subdirectory >of the `mountPath`.
+    
+    Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. In this example,  the same value is passed for the environment variable in the CLI command above and in the `mountPath` property below: 
 
     ```json
     {
@@ -134,7 +136,20 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
         --service <spring-instance-name>
    ```
 
-    Go to the Azure Storage Account resource you bound and find the Azure File Share that was attached as persistent storage. In this example, the logs will be written to the *spring-boot-logger.log* file in your Azure File Share's home path. All of the rotated log files will be stored in the */archived* folder in your Azure File Share.
+    Go to the Azure Storage Account resource you bound and find the Azure file share that was attached as persistent storage. In this example, the logs will be written to the *spring-boot-logger.log* file at the root of your Azure file share. All of the rotated log files will be stored in the */archived* folder in your Azure file share.
+
+1. Optionally, use the following command to change the path or persistent storage to save the log at any time:
+
+   ```azurecli
+   az spring-cloud app update \
+        --resource-group <resource-group-name> \
+        --name <app-name> \
+        --service <spring-instance-name> \
+        --persistent-storage <path-to-new-json-file> \
+        --env LOGS=<new-path>
+   ```
+> [!NOTE]
+> Applications will restart when changes are made to either environment variables or persistent storages.
 
 ## Next steps
 
