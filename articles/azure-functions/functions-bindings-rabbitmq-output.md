@@ -287,7 +287,7 @@ The `RabbitMQOutput` annotation allows you to create a function that runs when s
 See the output binding [example](#example) for more detail.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-csharp,programming-language-java,programming-language-python" 
+::: zone pivot="programming-language-javascript,programming-language-csharp,programming-language-java,programming-language-python,programming-language-powershell,programming-language-typescript" 
  
 ## Configuration
 
