@@ -16,7 +16,9 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Quickstart: Create and manage access tokens
 
-Get started with Azure Communication Services by using the Communication Services Identity SDK. It allows you to create identities and manage your access tokens. Identity is representing entity of your application in the Azure Communication Service (for example, user or device). Access tokens let your Chat and Calling SDKs authenticate directly against Azure Communication Services. We recommend generating access tokens on a server-side service. Access tokens are then used to initialize the Communication Services SDKs on client devices.
+Access tokens let ACS SDKs [authenticate](../concepts/authentication.md) directly against Azure Communication Services as a particular identity. You'll need to create some if you want your users to join a call or chat thread within your application. 
+
+You can also use the ACS SDKs to create identities and manage your access tokens and in this quickstart we'll be learning how to do this. For production use cases we recommend generating access tokens on a [server-side service](../concepts/client-and-server-architecture.md).
 
 Any prices seen in images throughout this tutorial are for demonstration purposes only.
 
