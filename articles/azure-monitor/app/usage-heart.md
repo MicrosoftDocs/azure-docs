@@ -29,12 +29,6 @@ Even though these dimensions are measured independently, they drive and interact
 
 ![Heart Funnel](./media/usage-overview/heartfunnel3.png)
 
-# Workbook Walkthrough
-This video will walk you through the features of the workbook and how to use them.
-
-> [Workbook video walkthrough](https://microsoft-my.sharepoint.com/personal/anhakhoo_microsoft_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fanhakhoo%5Fmicrosoft%5Fcom%2FDocuments%2FVideo%2Emp4&parent=%2Fpersonal%2Fanhakhoo%5Fmicrosoft%5Fcom%2FDocuments)  
-
-
 
 
 # Getting Started with the HEART Workbooks
