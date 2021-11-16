@@ -2,7 +2,6 @@
 title: Azure RabbitMQ bindings for Azure Functions
 description: Learn to send Azure RabbitMQ triggers and bindings in Azure Functions.
 author: cachai2
-
 ms.assetid: 
 ms.topic: reference
 ms.date: 11/15/2021
@@ -41,12 +40,7 @@ The first set of 2-way tabs are displayed when the In-process tab is selected (i
 
 # [Extension v3.x](#tab/extensionv3/in-process)
 
-<!-- An example of a preview NuGet package for WebJobs might look like the following: 
-
-Preview version of the extension that supports new Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Azure.Messaging.EventGrid.EventGridEvent](/dotnet/api/azure.messaging.eventgrid.eventgridevent).
-
-Add the preview extension to your project by installing the [NuGet package], version 3.x. 
--->
+Add this extension by installing the [NuGet package], version 4.x
 
 # [Extension v2.x](#tab/extensionv2/in-process)
 

@@ -2,12 +2,12 @@
 title: RabbitMQ trigger for Azure Functions
 description: Learn to run an Azure Function when a RabbitMQ message is created.
 author: cachai2
+
 ms.assetid:
 ms.topic: reference
-ms.date: 11/17/2021
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom:
-zone_pivot_groups: programming-languages-set-functions
 ---
 
 # RabbitMQ trigger for Azure Functions overview
@@ -21,11 +21,7 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Example
 
-::: zone pivot="programming-language-csharp"
-
-[](../../includes/functions-bindings-csharp-intro.md)
-
-# [In-process](#tab/in-process)
+# [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message as a [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
@@ -63,11 +59,7 @@ namespace Company.Function
 }
 ```
 
-Like with Json objects, an error will occur if the message isn't properly formatted as a C# object. If it is, it's then bound to the variable pocObj, which can be used for what whatever it's needed for.
-
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="17-25":::
+Like with Json objects, an error will occur if the message isn't properly formatted as a C# object. If it is, it is then bound to the variable pocObj, which can be used for what whatever it is needed for.
 
 # [C# Script](#tab/csharp-script)
 
@@ -99,24 +91,8 @@ public static void Run(string myQueueItem, ILogger log)
     log.LogInformation($"C# Script RabbitMQ trigger function processed: {​​myQueueItem}​​");
 }​​
 ```
----
 
-::: zone-end
-::: zone pivot="programming-language-java"
-
-The following Java function uses the `@RabbitMQTrigger` annotation from the [Java RabbitMQ types](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) to describe the configuration for a RabbitMQ queue trigger. The function grabs the message placed on the queue and adds it to the logs.
-
-```java
-@FunctionName("RabbitMQTriggerExample")
-public void run(
-    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "queue") String input,
-    final ExecutionContext context)
-{
-    context.getLogger().info("Java HTTP trigger processed a request." + input);
-}
-```
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+# [JavaScript](#tab/javascript)
 
 The following example shows a RabbitMQ trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads and logs a RabbitMQ message.
 
@@ -135,6 +111,7 @@ Here's the binding data in the *function.json* file:
     ]
 }​​
 ```
+
 Here's the JavaScript script code:
 
 ```javascript
@@ -143,8 +120,7 @@ module.exports = async function (context, myQueueItem) {​​
 }​​;
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-python"  
+# [Python](#tab/python)
 
 The following example demonstrates how to read a RabbitMQ queue message via a trigger.
 
@@ -173,14 +149,25 @@ def main(myQueueItem) -> None:
     logging.info('Python RabbitMQ trigger function processed a queue item: %s', myQueueItem)
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-csharp"
+# [Java](#tab/java)
 
-## Attributes
+The following Java function uses the `@RabbitMQTrigger` annotation from the [Java RabbitMQ types](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) to describe the configuration for a RabbitMQ queue trigger. The function grabs the message placed on the queue and adds it to the logs.
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+```java
+@FunctionName("RabbitMQTriggerExample")
+public void run(
+    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "queue") String input,
+    final ExecutionContext context)
+{
+    context.getLogger().info("Java HTTP trigger processed a request." + input);
+}
+```
 
-# [In-process](#tab/in-process)
+---
+
+## Attributes and annotations
+
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQTrigger](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/src/Trigger/RabbitMQTriggerAttribute.cs) attribute.
 
@@ -196,41 +183,25 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 
 For a complete example, see C# [example](#example).
 
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-16":::
-
-# [C# script](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 Attributes are not supported by C# Script.
 
----
-
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
-
-## Annotations
+# [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
 
-::: zone-end  
-::: zone pivot="programming-language-python"  
-
-## Annotations
+# [Python](#tab/python)
 
 Attributes are not supported by Python.
 
-::: zone-end  
-::: zone pivot="programming-language-java"  
+# [Java](#tab/java)
 
-## Annotations
-
-The `RabbitMQTrigger` annotation allows you to create a function that runs when a RabbitMQ message is created. Configuration options available include queue name and connection string name. For more parameter details, visit the [RabbitMQTrigger Java annotations](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/binding-library/java/src/main/java/com/microsoft/azure/functions/rabbitmq/annotation/RabbitMQTrigger.java).
+The `RabbitMQTrigger` annotation allows you to create a function that runs when a RabbitMQ message is created. Configuration options available include queue name and connection string name. For additional parameter details please visit the [RabbitMQTrigger Java annotations](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/binding-library/java/src/main/java/com/microsoft/azure/functions/rabbitmq/annotation/RabbitMQTrigger.java).
 
 See the trigger [example](#example) for more detail.
 
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-java,programming-language-csharp,programming-language-python"  
+---
 
 ## Configuration
 
@@ -245,21 +216,14 @@ The following table explains the binding configuration properties that you set i
 |**hostName**|**HostName**|(ignored if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
 |**userNameSetting**|**UserNameSetting**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue. Ex. UserNameSetting: "%< UserNameFromSettings >%"|
 |**passwordSetting**|**PasswordSetting**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue. Ex. PasswordSetting: "%< PasswordFromSettings >%"|
-|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. If you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
+|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
+|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-::: zone-end  
-
-See the [Example section](#example) for complete examples.
-
 ## Usage
 
-::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
-
-# [In-process](#tab/in-process)
+# [C#](#tab/csharp)
 
 The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
@@ -268,11 +232,7 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 * `byte[]`
 * `POCO` - The message is formatted as a C# object. For a complete example, see C# [example](#example).
 
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
-# [C# script](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
@@ -281,27 +241,22 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 * `byte[]`
 * `POCO` - The message is formatted as a C# object. For a complete example, see C# Script [example](#example).
 
----
-
-::: zone-end  
-::: zone pivot="programming-language-java"
-
-Refer to Java [attributes and annotations](#attributes-and-annotations).
-
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+# [JavaScript](#tab/javascript)
 
 The queue message is available via context.bindings.\<NAME\> where \<NAME\> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
 
-::: zone-end   
-::: zone pivot="programming-language-python"  
+# [Python](#tab/python)
 
 Refer to the Python [example](#example).
 
-::: zone-end  
+# [Java](#tab/java)
+
+Refer to Java [attributes and annotations](#attributes-and-annotations).
+
+---
 
 ## Dead letter queues
-Dead letter queues and exchanges can't be controlled or configured from the RabbitMQ trigger.  To use dead letter queues, pre-configure the queue used by the trigger in RabbitMQ. Refer to the [RabbitMQ documentation](https://www.rabbitmq.com/dlx.html).
+Dead letter queues and exchanges can't be controlled or configured from the RabbitMQ trigger.  In order to use dead letter queues, pre-configure the queue used by the trigger in RabbitMQ. Please refer to the [RabbitMQ documentation](https://www.rabbitmq.com/dlx.html).
 
 ## host.json settings
 
@@ -325,15 +280,15 @@ Dead letter queues and exchanges can't be controlled or configured from the Rabb
 |---------|---------|---------|
 |prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
 |queueName|n/a| Name of the queue to receive messages from.|
-|connectionString|n/a|The RabbitMQ message queue connection string. The connection string is directly specified here and not through an app setting.|
-|port|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
+|connectionString|n/a|The RabbitMQ message queue connection string. Please note that the connection string is directly specified here and not through an app setting.|
+|port|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting: 5672.|
 
 ## Local testing
 
 > [!NOTE]
 > The connectionString takes precedence over "hostName", "userName", and "password". If these are all set, the connectionString will override the other two.
 
-If you're testing locally without a connection string, you should set the "hostName" setting and "userName" and "password" if applicable in the "rabbitMQ" section of *host.json*:
+If you are testing locally without a connection string, you should set the "hostName" setting and "userName" and "password" if applicable in the "rabbitMQ" section of *host.json*:
 
 ```json
 {

@@ -2,11 +2,12 @@
 title: RabbitMQ output bindings for Azure Functions
 description: Learn to send RabbitMQ messages from Azure Functions.
 author: cachai2
+
 ms.assetid: 
 ms.topic: reference
-ms.date: 11/17/2021
+ms.date: 12/17/2020
 ms.author: cachai
-ms.custom: zone_pivot_groups: programming-languages-set-functions
+ms.custom: 
 ---
 
 # RabbitMQ output binding for Azure Functions overview
@@ -20,11 +21,7 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Example
 
-::: zone pivot="programming-language-csharp"
-
-[](../../includes/functions-bindings-csharp-intro.md)
-
-# [In-process](#tab/in-process)
+# [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a RabbitMQ message when triggered by a TimerTrigger every 5 minutes using the method return value as the output:
 
@@ -75,11 +72,6 @@ namespace Company.Function
 }
 ```
 
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="17-25":::
-
-
 # [C# Script](#tab/csharp-script)
 
 The following example shows a RabbitMQ output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
@@ -122,25 +114,8 @@ public static void Run(string input, out string outputMessage, ILogger log)
     outputMessage = input;
 }
 ```
----
 
-::: zone-end
-::: zone pivot="programming-language-java"
-
-The following Java function uses the `@RabbitMQOutput` annotation from the [Java RabbitMQ types](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) to describe the configuration for a RabbitMQ queue output binding. The function sends a message to the RabbitMQ queue when triggered by a TimerTrigger every 5 minutes.
-
-```java
-@FunctionName("RabbitMQOutputExample")
-public void run(
-@TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-@RabbitMQOutput(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "hello") OutputBinding<String> output,
-final ExecutionContext context) {
-    output.setValue("Some string");
-}
-```
-
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+# [JavaScript](#tab/javascript)
 
 The following example shows a RabbitMQ output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
 
@@ -179,8 +154,7 @@ module.exports = function (context, input) {
 };
 ```
 
-::: zone-end   
-::: zone pivot="programming-language-python"  
+# [Python](#tab/python)
 
 The following example shows a RabbitMQ output binding in a *function.json* file and a Python function that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
 
@@ -227,14 +201,25 @@ def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpRespon
     return 'OK'
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-csharp"
+# [Java](#tab/java)
 
-## Attributes
+The following Java function uses the `@RabbitMQOutput` annotation from the [Java RabbitMQ types](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) to describe the configuration for a RabbitMQ queue output binding. The function sends a message to the RabbitMQ queue when triggered by a TimerTrigger every 5 minutes.
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+```java
+@FunctionName("RabbitMQOutputExample")
+public void run(
+@TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+@RabbitMQOutput(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "hello") OutputBinding<String> output,
+final ExecutionContext context) {
+    output.setValue("Some string");
+}
+```
 
-# [In-process](#tab/in-process)
+---
+
+## Attributes and annotations
+
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQAttribute](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/src/RabbitMQAttribute.cs).
 
@@ -253,41 +238,26 @@ ILogger log)
 
 For a complete example, see C# [example](#example).
 
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-16":::
-
-
-# [C# script](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 Attributes are not supported by C# Script.
 
----
+# [JavaScript](#tab/javascript)
 
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+Attributes are not supported by JavaScript.
 
-## Annotations
+# [Python](#tab/python)
 
-Annotations are not supported by JavaScript.
+Attributes are not supported by Python.
 
-::: zone-end 
-::: zone pivot="programming-language-python"  
-
-## Annotations
-
-Annotations are not supported by Python.
-
-::: zone-end 
-::: zone pivot="programming-language-java"  
+# [Java](#tab/java)
 
 The `RabbitMQOutput` annotation allows you to create a function that runs when sending a RabbitMQ message. Configuration options available include queue name and connection string name. For additional parameter details please visit the [RabbitMQOutput Java annotations](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/binding-library/java/src/main/java/com/microsoft/azure/functions/rabbitmq/annotation/RabbitMQOutput.java).
 
 See the output binding [example](#example) for more detail.
 
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-csharp,programming-language-java,programming-language-python" 
- 
+---
+
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `RabbitMQ` attribute.
@@ -306,16 +276,9 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-::: zone-end  
-
-See the [Example section](#example) for complete examples.
-
 ## Usage
 
-::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
-
-# [In-process](#tab/in-process)
+# [C#](#tab/csharp)
 
 Use the following parameter types for the output binding:
 
@@ -327,11 +290,7 @@ When working with C# functions:
 
 * Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
 
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
-# [C# script](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 Use the following parameter types for the output binding:
 
@@ -343,10 +302,15 @@ When working with C# Script functions:
 
 * Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
 
----
+# [JavaScript](#tab/javascript)
 
-::: zone-end  
-::: zone pivot="programming-language-java"
+The queue message is available via context.bindings.\<NAME\> where \<NAME\> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
+
+# [Python](#tab/python)
+
+Refer to the Python [example](#example).
+
+# [Java](#tab/java)
 
 Use the following parameter types for the output binding:
 
@@ -354,17 +318,7 @@ Use the following parameter types for the output binding:
 * `string` - If the parameter value is null when the function exits, Functions does not create a message.
 * `POJO` - If the parameter value isn't formatted as a Java object, an error will be received.
 
-::: zone-end  
-::: zone pivot="programming-language-javascript"
-  
-The queue message is available via context.bindings.\<NAME\> where \<NAME\> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
-
-::: zone-end  
-::: zone pivot="programming-language-python"  
-
-Refer to the Python [example](#example).
-
-::: zone-end  
+---
 
 ## Next steps
 
