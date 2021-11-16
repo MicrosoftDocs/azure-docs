@@ -66,7 +66,7 @@
       href: howto-conditional-access-policy-azure-management.md
     - name: Require MFA for risky sign-in
       href: howto-conditional-access-policy-risk.md
-    - name: Require password change risky users
+    - name: Require password change for risky users
       href: howto-conditional-access-policy-risk-user.md
     - name: Require compliant or hybrid joined devices
       href: howto-conditional-access-policy-compliant-device.md
