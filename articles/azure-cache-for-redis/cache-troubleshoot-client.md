@@ -5,9 +5,11 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 11/20/2021
 ---
 # Troubleshoot Azure Cache for Redis client-side issues
+
+<!-- Verify that this document is also consistent though there have been no changes-->
 
 This section discusses troubleshooting issues that occur because of a condition on the Redis client that your application uses.
 
@@ -70,38 +72,9 @@ Depending on the architecture of client machines, they may have limitations on h
 
 Monitor how your Bandwidth usage change over time using [an example `BandwidthLogger`](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). This code may not run successfully in some environments with restricted permissions (like Azure web sites).
 
-To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity.
+To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity. For more information, see [Large request or response size](cache-best-practices-development.md#large-request-or-response-size).
 
-<!-- 
-## Large request or response Size
 
-A large request/response can cause timeouts. As an example, suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support request "pipelining", where both requests 'A' and 'B' are sent one after the other without waiting for their responses. The server sends the responses back in the same order. If response 'A' is large, it can eat up most of the timeout for later requests.
-
-In the following example, request 'A' and 'B' are sent quickly to the server. The server starts sending responses 'A' and 'B' quickly. Because of data transfer times, response 'B' must wait behind response 'A' times out even though the server responded quickly.
-
-```console
-|-------- 1 Second Timeout (A)----------|
-|-Request A-|
-     |-------- 1 Second Timeout (B) ----------|
-     |-Request B-|
-            |- Read Response A --------|
-                                       |- Read Response B-| (**TIMEOUT**)
-```
-
-This request/response is a difficult one to measure. You could instrument your client code to track large requests and responses.
-
-Resolutions for large response sizes are varied but include:
-
-1. Optimize your application for a large number of small values, rather than a few large values.
-    - The preferred solution is to break up your data into related smaller values.
-    - See the post [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) for details on why smaller values are recommended.
-1. Increase the size of your VM to get higher bandwidth capabilities
-    - More bandwidth on your client or server VM may reduce data transfer times for larger responses.
-    - Compare your current network usage on both machines to the limits of your current VM size. More bandwidth on only the server or only on the client may not be enough.
-1. Increase the number of connection objects your application uses.
-    - Use a round-robin approach to make requests over different connection objects.
-
- -->
 ## Additional information
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)

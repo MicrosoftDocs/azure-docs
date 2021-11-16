@@ -7,6 +7,7 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 11/20/2021
 ---
+<!-- Verify that this document is also consistent though there have been no changes-->
 
 # Troubleshoot data loss in Azure Cache for Redis
 
@@ -18,7 +19,7 @@ This article discusses how to diagnose actual or perceived data losses that migh
 
 ## Partial loss of keys
 
-Azure Cache for Redis doesn't randomly delete keys after they've been stored in memory. However, it does remove keys in response to expiration or eviction policies and to explicit key-deletion commands. Keys that have been written to the primary node in a Premium or Standard Azure Cache for Redis instance also might not be available on a replica right away. Data is replicated from the primary to the replica in an asynchronous and non-blocking manner.
+Azure Cache for Redis doesn't randomly delete keys after they've been stored in memory. However, it does remove keys in response to expiration policies, eviction policies, and to explicit key-deletion commands. Keys that have been written to the primary node in a Premium or Standard Azure Cache for Redis instance also might not be available on a replica right away. Data is replicated from the primary to the replica in an asynchronous and non-blocking manner.
 
 If you find that keys have disappeared from your cache, check the following possible causes:
 
@@ -75,7 +76,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### Async replication
 
-Any Azure Cache for Redis instance in the Standard or Premium tier is configured with a primary node and at least one replica. Data is copied from the primary to a replica asynchronously by using a background process. The [redis.io](https://redis.io/topics/replication) website describes how Redis data replication works in general. For scenarios where clients write to Redis frequently, partial data loss can occur because this replication is not guaranteed to be instantaneous. For example, if the primary goes down *after* a client writes a key to it, but *before* the background process has a chance to send that key to the replica, the key is lost when the replica takes over as the new primary.
+Any Azure Cache for Redis instance in the Standard or Premium tier is configured with a primary node and at least one replica. Data is copied from the primary to a replica asynchronously by using a background process. The [redis.io](https://redis.io/topics/replication) website describes how Redis data replication works in general. For scenarios where clients write to Redis frequently, partial data loss can occur because replication is not guaranteed to be instantaneous. For example, if the primary goes down *after* a client writes a key to it, but *before* the background process has a chance to send that key to the replica, the key is lost when the replica takes over as the new primary.
 
 ## Major or complete loss of keys
 
@@ -89,7 +90,7 @@ If most or all keys have disappeared from your cache, check the following possib
 
 ### Key flushing
 
-Clients can call the [FLUSHDB](https://redis.io/commands/flushdb) command to remove all keys in a *single* database or [FLUSHALL](https://redis.io/commands/flushall) to remove all keys from *all* databases in a Redis cache. To find out whether keys have been flushed, use the [INFO](https://redis.io/commands/info) command. The `Commandstats` section shows whether either **FLUSH** command has been called:
+Clients can call the [FLUSHDB](https://redis.io/commands/flushdb) command to remove all keys in a *single* database or [FLUSHALL](https://redis.io/commands/flushall) to remove all keys from *all* databases in a Redis cache. To find out whether keys have been flushed, use the [INFO](https://redis.io/commands/info) command. The `Commandstats` section shows whether either `FLUSH` command has been called:
 
 ```
 # Commandstats
@@ -101,7 +102,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### Incorrect database selection
 
-Azure Cache for Redis uses the **db0** database by default. If you switch to another database (for example, **db1**) and try to read keys from it, Azure Cache for Redis won't find them there. Every database is a logically separate unit and holds a different dataset. Use the [SELECT](https://redis.io/commands/select) command to use other available databases and look for keys in each of them.
+Azure Cache for Redis uses the `db0` database by default. If you switch to another database (for example, `db1`) and try to read keys from it, Azure Cache for Redis won't find them there. Every database is a logically separate unit and holds a different dataset. Use the [SELECT](https://redis.io/commands/select) command to use other available databases and look for keys in each of them.
 
 ### Redis instance failure
 
