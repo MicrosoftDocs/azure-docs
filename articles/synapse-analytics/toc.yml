@@ -1434,19 +1434,19 @@ items:
         - name: Anomaly detection wizard
           displayName: cognitive services, score model
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-        - name: Text Analytics with Apache Spark (MMLSpark)
+        - name: Text Analytics with Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-text-analytics-use-mmlspark.md
-        - name: Computer Vision with Apache Spark (MMLSpark)
+        - name: Computer Vision with Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-computer-vision-use-mmlspark.md        
-        - name: Form Recognizer with Apache Spark (MMLSpark)
+        - name: Form Recognizer with Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
-        - name: Translator with Apache Spark (MMLSpark)
+        - name: Translator with Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-translator-use-mmlspark.md
-        - name: With Apache Spark (MMLSpark)
+        - name: With Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
   

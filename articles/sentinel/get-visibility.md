@@ -4,8 +4,8 @@ description: Learn how to quickly view and monitor what's happening across your 
 services: sentinel
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit, ignite-fall-2021
 ms.date: 11/09/2021

@@ -4,7 +4,7 @@ description: This tutorial shows you how to configure a just-in-time VM access p
 services: security-center
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/09/2021
