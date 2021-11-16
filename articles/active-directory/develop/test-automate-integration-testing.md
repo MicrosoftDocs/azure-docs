@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/22/2021
+ms.date: 11/16/2021
 ms.author: arcrowe
 ms.reviewer: 
 ms.custom: aaddev
@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 # Running automated integration tests
 
-As a developer, you'll likely want to run automated integration tests on the apps you develop.  This can be challenging if you want to run integration tests on your own API you've protected with Azure AD, or you want to call other Azure AD protected APIs (like Microsoft Graph) in your integration tests, because Azure AD often requires an interactive user sign in that is difficult to automate.  This article describes how you can use a non-interactive flow, called Resource Owner Password Credential Grant (ROPC), to automatically sign in users for testing.
+As a developer, you'll likely want to run automated integration tests on the apps you develop.  This can be challenging if you want to run integration tests on your own API you've protected with Azure AD, or you want to call other Azure AD protected APIs (like [Microsoft Graph](/graph/)) in your integration tests, because Azure AD often requires an interactive user sign-in that is difficult to automate.  This article describes how you can use a non-interactive flow, called [Resource Owner Password Credential Grant (ROPC)](v2-oauth-ropc.md), to automatically sign in users for testing.
 
 > [!WARNING]
 > Microsoft recommends you do _not_ use the ROPC flow in production. In most production scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks which are not present in other flows. You should only use this flow for testing purposes, and only with test users.
@@ -35,10 +35,11 @@ As a developer, you'll likely want to run automated integration tests on the app
 
 You can read more about how the ROPC flow works in our [protocol documentation](v2-oauth-ropc.md).
 
-## Getting set up 
+## Set up 
 To prepare for your automated integration tests, you'll need to create some test users, acquire and configure an app registration, and potentially make some configuration changes to your tenant.  Some of these steps will require admin privileges, and you'll likely want to create a separate test tenant that you are an administrator of so you can safely and effectively perform these tasks.
 
-### Create some test users
+### Create test users
+Create some test users:
 1. From the [Azure portal](https://portal.azure.com), click on **Azure Active Directory**.
 2. Go to **Users**.
 3. Click **New user** and create some new test users in your directory.
@@ -49,37 +50,39 @@ You'll need to register an application that will act as your client app when cal
 1. Register an application.  You can follow the first few steps of this [quickstart](quickstart-register-app.md) if you don't know how to register an app.  You won't need to add a redirect URI or add credentials, so you can skip those sections.
 2. Enable your app for public client flows, since ROPC is a public client flow.  From your app registration in the Azure portal, go to Authentication > Advanced settings > Allow public client flows.  Set the toggle to 'Yes'.
 3. Consent to the permissions you want to use while testing.  Since ROPC is not an interactive flow, you won't be prompted with a consent screen to consent to these at runtime.  So, you'll need to pre-consent to them to avoid errors when acquiring tokens. 
-
-       First, add the permissions to your app. From your app registration in the Azure portal, go to the API Permissions page > Add a permission.  Add the permissions you need to call the APIs you'll be using. Once the permissions are added, you'll need to consent to them.  This can be done two different ways.
-
-        If you plan on testing your app in the same tenant you registered it in, and you are an administrator in that tenant, you can consent to the permissions from the Azure portal. Simply click the 'Grant admin consent for <your_tenant_name>' button, next to the 'Add a permission' button on the API Permissions page.
+    
+    First, add the permissions to your app. From your app registration in the Azure portal, go to the API Permissions page > Add a permission.  Add the permissions you need to call the APIs you'll be using. Once the permissions are added, you'll need to consent to them.  This can be done two different ways.
+    
+    If you plan on testing your app in the same tenant you registered it in, and you are an administrator in that tenant, you can consent to the permissions from the Azure portal. Simply click the 'Grant admin consent for <your_tenant_name>' button, next to the 'Add a permission' button on the API Permissions page.
         
-        If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you can still pre-consent to some permissions.  
-        First, from your app registration in the Azure portal, go to Authentication > Add a platform > Web.  Add the redirect URI "https://localhost".
-        Then, send the below request in a browser, and when you are prompted with the login screen, sign in with a **test account** you created in a previous step.  Next, consent to the permissions you are prompted with.  You may need to repeat this step for each API you want to call and test user you want to use.
+    If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you can still pre-consent to some permissions.  
+        
+    First, from your app registration in the Azure portal, go to Authentication > Add a platform > Web.  Add the redirect URI "https://localhost".
+    
+    Then, send the below request in a browser, and when you are prompted with the login screen, sign in with a **test account** you created in a previous step.  Next, consent to the permissions you are prompted with.  You may need to repeat this step for each API you want to call and test user you want to use.
 
-         ```HTTP
-         // Line breaks for legibility only
+    ```HTTP
+    // Line breaks for legibility only
 
-         https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
-         client_id={your_client_ID}
-         &response_type=code
-         &redirect_uri=https://localhost
-         &response_mode=query
-         &scope={resource_you_want_to_call}/.default
-         &state=12345
-         ```
+    https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+    client_id={your_client_ID}
+    &response_type=code
+    &redirect_uri=https://localhost
+    &response_mode=query
+    &scope={resource_you_want_to_call}/.default
+    &state=12345
+    ```
 
-Replace {tenant} with your tenant ID, {your_client_ID} with the client ID of your application, and {resource_you_want_to_call} with the identifier URI (i.e. 'https://graph.microsoft.com') or app ID of the API you are trying to access.
+    Replace {tenant} with your tenant ID, {your_client_ID} with the client ID of your application, and {resource_you_want_to_call} with the identifier URI (for example, 'https://graph.microsoft.com') or app ID of the API you are trying to access.
 
 ### Configure your tenant
-Your tenant likely has some security settings that require multi-factor authentication for all users, as recommended by Microsoft.  Multifactor authentication won't work with ROPC, so you'll need to exempt your test application/test users from this requirement.
+Your tenant likely has some security settings that require multifactor authentication for all users, as recommended by Microsoft.  Multifactor authentication won't work with ROPC, so you'll need to exempt your test application/test users from this requirement.
 
 Ryan TODO
 
 ## Write your tests
         
-Now that you're set up, you can write your automated tests!  The following example code uses MSAL and xUnit, a common testing framework.
+Now that you're set up, you can write your automated tests!  The following example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [xUnit](https://xunit.net/), a common testing framework.
         
 ### Set up your appsettings.json file
 
@@ -105,7 +108,7 @@ Now that you're set up, you can write your automated tests!  The following examp
 }
 ```
 
-### Set up your client for use across all your test classes.  
+### Set up your client for use across all your test classes
 
 ```csharp
 using Xunit;
@@ -155,9 +158,9 @@ public class ClientFixture : IAsyncLifetime
 }
 ```
 
-### Use in your test classes.  
+### Use in your test classes
 
-A dummy test that calls Microsoft Graph is included as an example, but you should replace this test with whatever you'd like to test on your own application or API.
+An example test that calls Microsoft Graph is included as an example, but you should replace this test with whatever you'd like to test on your own application or API.
 
 ```csharp
 public class ApiTests : IClassFixture<ClientFixture>
@@ -180,3 +183,5 @@ public async Task GetRequestTest()
 }
 }
 ```
+
+## Next steps
