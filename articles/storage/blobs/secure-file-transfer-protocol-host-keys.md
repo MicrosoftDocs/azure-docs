@@ -28,7 +28,7 @@ When you connect to Blob Storage by using an SFTP client, you might be prompted 
 
 ## Valid host keys
 
-> [!div class="mx-tdCol4BreakAll"]
+> [!div class="mx-tdBreakAll"]
 > | Region | Host key type | SHA 256 fingerprint <sup>1</sup> | Public key |
 > |---|---|---|---|
 > | eastus2euap | rsa-sha2-256 | `0b0IILN+fMMAZ7CZePfSVdFj14ppjACcIl4yi3hT/Rc` | `AAAAB3NzaC1yc2EAAAADAQABAAABAQDE45HQiHTS8Vxs6ktkHVrDoWFYnDzTOFzVF9IE0EZp/NMVIqRSnveYyFcgWtg7AfG648DiPsEar3lHmcGKT5OxGJ7KGP6Z8Nd1HxWC75j59GDadLfkuJyFLnWuSQIyiLV9nsDgl2e/BQ4owhHZhlSUCBlsWkECBaACptS5AvWG5CQN6AQnR2L0CEEjPPUSPh6YibqHCITsCAAduH1N8S2B+xj+OqPLpEqbIUpF6aEHggMrb9/CKBsaRzN9LXXIyJJ2Rovg54bkTUDhQO80JnGzCWQvqT1JX4KSQcr0KzkzoOoPLwuQ6w0FxP3UD+zPLYi2V8MNlW3Xp86bNHoUDfhR` |
