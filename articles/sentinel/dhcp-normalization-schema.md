@@ -1,29 +1,29 @@
 ---
-title: Azure Sentinel DHCP normalization schema reference | Microsoft Docs
-description: This article describes the Azure Sentinel DHCP normalization schema.
+title: Microsoft Sentinel DHCP normalization schema reference | Microsoft Docs
+description: This article describes the Microsoft Sentinel DHCP normalization schema.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/04/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel DHCP normalization schema reference (Public preview)
+# Microsoft Sentinel DHCP normalization schema reference (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The DHCP information model is used to describe events reported by a DHCP server, and is used by Azure Sentinel to enable source-agnostic analytics.
+The DHCP information model is used to describe events reported by a DHCP server, and is used by Microsoft Sentinel to enable source-agnostic analytics.
 
-For more information, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+For more information, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The DHCP normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -43,7 +43,7 @@ A lease's duration is stored in the [DhcpLeaseDuration](#dhcpleaseduration) fiel
 
 ## Schema details
 
-ASIM is aligned with the the [Open Source Security Events Metadata (OSSEM)](https://github.com/OTRF/OSSEM) project.
+ASIM is aligned with the [Open Source Security Events Metadata (OSSEM)](https://github.com/OTRF/OSSEM) project.
 
 OSSEM does not have a DHCP schema comparable to the ASIM DHCP schema.
 
@@ -141,6 +141,6 @@ The fields below are specific to DHCP events, but many are similar to fields in 
 For more information, see:
 
 - Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
-- [Azure Sentinel Information Model schemas](normalization-about-schemas.md)
-- [Azure Sentinel Information Model parsers](normalization-about-parsers.md)
-- [Azure Sentinel Information Model content](normalization-content.md)
+- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)
+- [Advanced SIEM Information Model content](normalization-content.md)

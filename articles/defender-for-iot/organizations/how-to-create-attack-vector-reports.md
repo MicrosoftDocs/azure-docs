@@ -1,7 +1,7 @@
 ---
 title: Create attack vector reports
 description: Attack vector reports provide a graphical representation of a vulnerability chain of exploitable devices.
-ms.date: 12/17/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -63,5 +63,3 @@ To create an attack vector simulation:
 ## See also
 
 [Attack vector reporting](how-to-create-attack-vector-reports.md)
-
-

@@ -413,7 +413,7 @@ sections:
           - Access the instance with a low-privileged DBA account.
           - Configure JIT jumpbox access for the sysadmin account.
           - Turn on [SQL auditing](/sql/relational-databases/security/auditing/sql-server-audit-database-engine), and integrate it with alerting mechanisms.
-          - Turn on [Threat Detection](../database/threat-detection-configure.md) from the [Azure Defender for SQL](../database/azure-defender-for-sql.md) suite.
+          - Turn on [Threat Detection](../database/threat-detection-configure.md) from the [Microsoft Defender for SQL](../database/azure-defender-for-sql.md) suite.
           
       - question: |
           DNS
