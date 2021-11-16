@@ -448,7 +448,7 @@ $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $
 
 ### Step 13
 
-As TLS 1.0 is presently still the default, it's prudent to define that the application gateway will use the newest [TLS 1.2 policy](../application-gateway/application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s).
+Because TLS 1.0 currently is the default, it's a good idea to set the application gateway to use the most recent [TLS 1.2 policy](../application-gateway/application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s).
 
 ```powershell
 $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
