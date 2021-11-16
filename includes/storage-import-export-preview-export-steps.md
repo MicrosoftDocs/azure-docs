@@ -32,11 +32,11 @@ Perform the following steps to order an import job in Azure Import/Export job vi
     1. Select the **Destination Azure region** for the job.
     1. Then select **Apply**.
 
-    [ ![Screenshot of Get Started options for a new export order in Azure Import/Export's Preview portal. The Export From Azure transfer type and the Apply button are highlighted.](media/storage-import-export-preview-export-steps/import-export-order-preview-03-export-job.png) ](media/storage-import-export-preview-export-steps/import-export-order-preview-03-export-job.png#lightbox)
+    [ ![Screenshot of Get Started options for a new export order in Azure Import/Export's Preview portal. The Export From Azure transfer type and the Apply button are highlighted.](./media/storage-import-export-preview-export-steps/import-export-order-preview-03-export-job.png) ](./media/storage-import-export-preview-export-steps/import-export-order-preview-03-export-job.png#lightbox)
 
 1. Choose the **Select** button for **Import/Export Job**.
 
-    ![Screenshot showing product options for a new Data Box order. The Select button for Import Export Job is highlighted.](media/storage-import-export-preview-export-steps/import-export-order-preview-04-export-job.png)
+    ![Screenshot showing product options for a new Data Box order. The Select button for Import Export Job is highlighted.](./media/storage-import-export-preview-export-steps/import-export-order-preview-04-export-job.png)
 
 1. In **Basics**:
 
@@ -44,7 +44,7 @@ Perform the following steps to order an import job in Azure Import/Export job vi
       * The name may contain only lowercase letters, numbers, and hyphens.
       * The name must start with a letter, and may not contain spaces.
 
-    ![Screenshot showing the Basics tab for an import job in Azure Data Box. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](media/storage-import-export-preview-export-steps/import-export-order-preview-05-export-job.png)
+    ![Screenshot showing the Basics tab for an import job in Azure Data Box. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](./media/storage-import-export-preview-export-steps/import-export-order-preview-05-export-job.png)
 
     Select **Next: Job details >** to proceed.
 
@@ -66,7 +66,7 @@ Perform the following steps to order an import job in Azure Import/Export job vi
         |Option|Description|
         |------|-----------|      
         |**Add containers**|Export all blobs in a container.<br>Select **Add containers**, and enter each container name.|
-        |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
+        |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](../articles/import-export/storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
         |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
 
         :::image type="complex" source="./media/storage-import-export-preview-export-steps/import-export-order-preview-06-b-export-job.png" alt-text="Screenshot showing selected containers and blobs for a new Azure Import/Export export job in the Preview portal.":::
@@ -78,7 +78,7 @@ Perform the following steps to order an import job in Azure Import/Export job vi
       > [!IMPORTANT]
       > If you use an XML file to select the blobs to export, make sure that the XML contains valid paths and/or prefixes. If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
 
-      To see how to add an XML file to a container, see [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
+      To see how to add an XML file to a container, see [Export order using XML file](../articles/databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
       ![Screenshot of Job Details for Azure Import Export job that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-preview-export-steps/import-export-order-preview-06-a-export-job.png)
 

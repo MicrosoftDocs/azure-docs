@@ -32,11 +32,11 @@ Perform the following steps to order an import job in Azure Import/Export job vi
     1. Select the **Destination Azure region** for the job.
     1. Then select **Apply**.
 
-    [ ![Screenshot showing the Get Started options for a new Data Box order. The Import To Azure transfer type and the Apply button are highlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-03.png) ](media/storage-import-export-preview-import-steps/import-export-order-preview-03.png#lightbox)
+    [ ![Screenshot showing the Get Started options for a new Data Box order. The Import To Azure transfer type and the Apply button are highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-03.png) ](./media/storage-import-export-preview-import-steps/import-export-order-preview-03.png#lightbox)
 
 1. Choose the **Select** button for **Import/Export Job**.
 
-    ![Screenshot showing product options for a new Data Box order. The Select button for Import Export Job is highlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-04.png)
+    ![Screenshot showing product options for a new Data Box order. The Select button for Import Export Job is highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-04.png)
 
 1. In **Basics**:
 
@@ -44,7 +44,7 @@ Perform the following steps to order an import job in Azure Import/Export job vi
       * The name may contain only lowercase letters, numbers, and hyphens.
       * The name must start with a letter, and may not contain spaces.
 
-    ![Screenshot showing the Basics tab for an import job in Azure Data Box. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-05.png)
+    ![Screenshot showing the Basics tab for an import job in Azure Data Box. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-05.png)
 
     Select **Next: Job details >** to proceed.
 
@@ -52,19 +52,19 @@ Perform the following steps to order an import job in Azure Import/Export job vi
 
    1. Before you go further, make sure you're using the latest WAImportExport tool. The tool ise used to read the journal file(s) that you upload. You can use the download link to update the tool.
    
-      ![Screenshot showing the link to download the latest WAImportExport tool in Job Details for an Azure Import/Export import job. The tool link is highlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-06-tool-link.png)
+      ![Screenshot showing the link to download the latest WAImportExport tool in Job Details for an Azure Import/Export import job. The tool link is highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-06-tool-link.png)
 
    1. Change the destination Azure region for the job if needed.
    1. Select one or more storage accounts to use for the job. You can create a new storage account if needed.
-   1. Under **Drive information**, use the **Copy** button to upload each journal file that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). 
+   1. Under **Drive information**, use the **Copy** button to upload each journal file that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives).
       - If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. 
       - If the journal file is larger than 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml`, which was created along with the journal file.
       When you upload a journal file, the Drive ID is displayed.
 
-      ![Screenshot showing Drive Information on the Job Details tab for an Azure Import Export job. The Copy button and the Drive ID for an uploaded journal file are highlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-06-drive-information.png)
+      ![Screenshot showing Drive Information on the Job Details tab for an Azure Import Export job. The Copy button and the Drive ID for an uploaded journal file are highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-06-drive-information.png)
 
 storage-import-export-preview-import-steps
-   ![Screenshot of completed Job Details tab for an import job in Azure Data Box. The Job Detail tab and Next: Return Shipping button are highlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-06.png)
+   ![Screenshot of completed Job Details tab for an import job in Azure Data Box. The Job Detail tab and Next: Return Shipping button are highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-06.png)
 
 1. In **Return shipping**:storage-import-export-preview-import-steps
 
