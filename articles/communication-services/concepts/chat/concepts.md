@@ -93,6 +93,8 @@ Mobile SDKs (Android Chat SDK) support push notifications. This feature lets cli
 
 For more details, see [Push Notifications](../notifications.md).
 
+> [!NOTE]
+> Currently chat push notifications are only supported for Android SDK in version 1.1.0-beta.4.
 
 ## Build intelligent, AI powered chat experiences 	
 
