@@ -523,10 +523,11 @@ RunDetails(run).show()
 > Testing your models with a test dataset to evaluate automated ML generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
 > [!WARNING]
-> This feature is not available for the following scenarios
->  * Computer vision tasks
->  * Forecasting tasks where deep learning neural networks (DNN) are enabled
->  * Automated ML runs from local computes or Azure Databricks clusters.
+> This feature is not available for the following automated ML scenarios
+>  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
+>  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
 
 Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment. This remote test run is done at the end of the experiment, once the best model is determined. See how to [pass test data into your `AutoMLConfig`](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 
