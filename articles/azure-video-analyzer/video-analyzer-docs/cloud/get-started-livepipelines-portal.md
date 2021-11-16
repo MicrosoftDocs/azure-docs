@@ -60,7 +60,7 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
 
     ```
     cd localmedia
-    wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
+    wget https://avamedia.blob.core.windows.net/public/camera-1800s.mkv
     ```
 1. Start the RTSP server on the VM using the pre-built container image as follow
 

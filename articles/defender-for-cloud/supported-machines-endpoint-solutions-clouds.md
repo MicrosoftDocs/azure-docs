@@ -3,7 +3,7 @@ title: Microsoft Defender for Cloud's features according to OS, machine type, an
 description: Learn about the availability of Microsoft Defender for Cloud features according to OS, machine type, and cloud deployment.
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: overview
 ms.date: 11/09/2021
 ms.custom: references_regions
@@ -95,7 +95,7 @@ For information about when recommendations are generated for each of these solut
 
 
 
-## Feature support in government and sovereign clouds
+## Feature support in government and national clouds
 
 | Feature/Service                                                                                                                                           | Azure          | Azure Government               | Azure China 21Vianet   |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
