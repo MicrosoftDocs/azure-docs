@@ -37,7 +37,7 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
 - To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
 
-- Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config.md#credentials-for-restoring-modules).
+- Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#credentials-for-restoring-modules).
 
 - For more security, you can require access through a private endpoint. For more information, see [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
 
@@ -68,5 +68,5 @@ You're now ready to reference the file in the registry from a Bicep file. For ex
 ## Next steps
 
 * To learn about modules, see [Bicep modules](modules.md).
-* To configure aliases for a module registry, see [Add custom settings in the Bicep config file](bicep-config.md).
+* To configure aliases for a module registry, see [Add module settings in the Bicep config file](bicep-config-modules.md).
 * For more information about publishing and restoring modules, see [Bicep CLI commands](bicep-cli.md).
