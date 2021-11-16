@@ -1,4 +1,4 @@
-   ---
+---
 title: Limits and configuration reference guide
 description: Reference guide to limits and configuration information for Azure Logic Apps.
 services: logic-apps
