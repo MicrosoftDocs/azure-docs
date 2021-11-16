@@ -20,7 +20,7 @@ Some recommendations are common to multiple product offerings, while other recom
 ## Where can I view my recommendations?
 Recommendations are available from the **Overview** navigation sidebar in the Azure portal. A preview will appear as a banner notification, and details can be viewed in the **Notifications** section located just below the resource usage graphs.
 
-:::image type="content" source="./media/concepts-azure-advisor-recommendations/advisor-example.png" alt-text="Screenshot of the Azure portal showing an Azure Advisor recommendation.":::
+:::image type="content" source="../media/concepts-azure-advisor-recommendations/advisor-example.png" alt-text="Screenshot of the Azure portal showing an Azure Advisor recommendation.":::
 
 ## Recommendation types
 Azure Database for PostgreSQL prioritize the following types of recommendations:
