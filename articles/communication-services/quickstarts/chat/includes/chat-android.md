@@ -293,6 +293,10 @@ chatAsyncClient.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED, (ChatEvent 
 > Note with above update, if the application tries to touch any of the notification API like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, there will be a runtime error.
 
 ### Push notifications
+
+> [!NOTE]
+> Currently chat push notifications are only supported for Android SDK in version 1.1.0-beta.4.
+
 Push notifications let clients to be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app is not running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#push-notifications).
 
 1. Set up Firebase Cloud Messaging with ChatQuickstart project. Complete steps `Create a Firebase project`, `Register your app with Firebase`, `Add a Firebase configuration file`, `Add Firebase SDKs to your app`, and `Edit your app manifest` in [Firebase Documentation](https://firebase.google.com/docs/cloud-messaging/android/client).
