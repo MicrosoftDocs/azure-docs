@@ -192,6 +192,24 @@ These can be accessed by looking at where your app is keeping its local data. Th
 5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
 
+## Finding AAD Directory (tenant) and Application (client), user ID values
+
+To find your Directory (tenant) and Application (client) ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **App registrations** in Azure AD, select your application.
+1. Copy the Directory (tenant) ID and store it in your application code.
+
+    ![Copy the directory (tenant ID) and store it in your app code](./media/troubleshooting/copy-tenant-id.png)
+
+    The directory (tenant) ID can also be found in the default directory overview page.
+
+1. Copy the **Application ID** and store it in your application code.
+
+   ![Copy the application (client) ID](./media/troubleshooting/copy-app-id.png)
+
+User ID is the login of the user.
 
 ## Calling SDK error codes
 
