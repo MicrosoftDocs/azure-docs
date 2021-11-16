@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 11/16/2021
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -27,7 +27,18 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 |--|--|--|
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 01/2022 |
-| 10.5.2 | 11/2021 | 07/2022 |
+| 10.5.2 | 10/2021 | 07/2022 |
+| 10.5.3 | 11/2021 | 08/2022 |
+
+## November 2021
+
+The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
+
+- The sensors will now automatically delete archived alerts that are over 90 days old.
+
+- Improvements were made to alert exports, based on customer feedback.
+
+- Performance, and network traffic analysis improvements were made.
 
 ## October 2021
 
@@ -41,11 +52,12 @@ The following feature enhancements are available with version 10.5.2 of Azure De
 
 - [Webhook Extended](#webhook-extended)
 
-- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases) 
+- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases)
 
 ### PLC operating mode detections (Public Preview)
 
 Users can now view PLC operating mode states, changes, and risks. The PLC Operating mode consists of the PLC logical Run state and the physical Key state, if a physical key switch exists on the PLC.
+
 This new capability helps improve security by detecting *unsecure* PLCs, and as a result prevents malicious attacks such as PLC Program Downloads. The 2017 Triton attack on a petrochemical plant illustrates the impact of such risks.
 This information also provides operational engineers with critical visibility into the operational mode of enterprise PLCs.
 
