@@ -27,7 +27,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-+ The [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
++ [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
