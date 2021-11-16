@@ -1,13 +1,13 @@
 ---
 title: Deploy certificates
 description: Learn how to set up and deploy certificates for Defender for IoT.
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
 # About certificates
 
-This article provides information needed when creating and deploying certificates for Azure Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
+This article provides information needed when creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
 
 Defender for IoT uses SSL/TLS certificates to secure communication between the following system components: 
 
@@ -105,13 +105,16 @@ Some organizational security policies may block access to this port. If your org
 
 Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require .pem file. Defender for IoT does not require this file type.
 
-**.crt – certificate container file**  
+**.crt – certificate container file**
+
 A .pem, or .der formatted file with a different extension. The file is recognized by Windows Explorer as a certificate. The .pem file is not recognized by Windows Explorer.
 
-**.key – Private key file**  
+**.key – Private key file**
+
 A key file is in the same format as a PEM file, but it has a different extension.
 
-**.pem – certificate container file (optional)** 
+**.pem – certificate container file (optional)**
+
 PEM is a text file that contains Base64 encoding of the certificate text, a plain-text header & a footer that marks the beginning and end of the certificate.
 
 You may need to convert existing files types to supported types. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.

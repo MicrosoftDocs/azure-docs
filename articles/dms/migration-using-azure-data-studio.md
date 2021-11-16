@@ -107,27 +107,6 @@ Azure Database Migration Service prerequisites that are common across all suppor
 > [!IMPORTANT]
 > **Known issue when migrating multiple databases to SQL Server on Azure VM:** Concurrently migrating multiple databases to the same SQL Server on Azure VM results in migration failures for most databases. Ensure you only migrate a single database to a SQL Server on Azure VM at any point in time.  
 
-### Regions
-Migrate SQL Server database(s) to your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine to any of the following regions during Preview:
-- Australia East
-- Australia Southeast
-- Canada Central
-- Canada East
-- Central India
-- Central US
-- East US
-- East US 2
-- France Central
-- Japan East
-- North Central US
-- South Central US
-- Southeast Asia
-- South India
-- UK South
-- West Europe
-- West US
-- West US 2
-
 ## Pricing
 - Azure Database Migration Service is free to use with the Azure SQL Migration extension in Azure Data Studio. You can migrate multiple SQL Server databases using the Azure Database Migration Service at no charge for using the service or the Azure SQL Migration extension.
 - There's no data movement or data ingress cost for migrating your databases from on-premises to Azure. If the source database is moved from another region or an Azure VM, you may incur [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) based on your bandwidth provider and routing scenario.

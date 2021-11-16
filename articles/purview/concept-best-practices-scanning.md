@@ -7,11 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 10/08/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Purview scanning best practices
 
-Azure Purview supports automated scanning of on-prem, multi-cloud, and SaaS data sources. Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of scan and curation process includes technical metadata like data asset names (table names/ file names), file size, columns, data lineage and so on. For structured data sources (for example Relational Database Management System) the schema details are also captured. The curation process applies automated classification labels on the schema attributes based on the scan rule set configured, and sensitivity labels if your Purview account is connected to a Microsoft 365 Security and Compliance Center(SCC). 
+Azure Purview supports automated scanning of on-prem, multi-cloud, and SaaS data sources. Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of scan and curation process includes technical metadata like data asset names (table names/ file names), file size, columns, data lineage and so on. For structured data sources (for example Relational Database Management System) the schema details are also captured. The curation process applies automated classification labels on the schema attributes based on the scan rule set configured, and sensitivity labels if your Purview account is connected to a Microsoft 365 Security & Compliance Center.
 
 ## Intended audience
 
@@ -93,6 +94,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
             - Account key or Basic Authentication (for example, for SAP S/4HANA sources)
             > [!Note]
             > If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
+            > While setting up a new credential, the credential name can only contain _letters, numbers, underscores and hyphens_. 
 
     - **Integration runtime**
         - Use Azure Auto Resolve Integration runtime, where feasible.
@@ -106,7 +108,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
         - While using SHIR, ensure that the memory is sufficient for the data source being scanned. For example, when using SHIR for scanning SAP source, if you observe "out of memory error":
             - Ensure the SHIR machine has enough memory (it is recommended to have 128 GB)
             - In the scan setting, set the maximum memory Available as some appropriate value (for example, 100)
-            - For details, refer to the 5.f in [this](./register-scan-sapecc-source.md#creating-and-running-a-scan) document
+            - For details, refer to the 5.f in [this](./register-scan-sapecc-source.md#create-and-run-scan) document
 
     - **Scope scan**
         - While setting up the scope for the scan, select only the assets, which are relevant at granular level or parent level. This will ensure that the scan cost is optimal and performance is efficient. All future assets under a certain parent will be automatically selected if the parent is fully or partially checked. For example:

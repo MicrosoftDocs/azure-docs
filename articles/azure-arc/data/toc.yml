@@ -85,6 +85,10 @@ items:
           href: retrieve-the-username-password-for-data-controller.md
         - name: Update service principal credentials
           href: update-service-principal-credentials.md
+    - name: Upgrade
+      items:
+        - name: Data controller indirect - CLI
+          href: upgrade-data-controller-indirect-cli.md
     - name: Troubleshooting
       items:
         - name: Guide
@@ -193,6 +197,10 @@ items:
               href: reserved-capacity-overview.md
             - name: Delete
               href: delete-managed-instance.md
+        - name: Upgrade
+          items:
+            - name: Upgrade via CLI
+              href: upgrade-sql-managed-instance-cli.md
         - name: Migrate
           items:
             - name: Migrate to SQL Managed Instance (Azure Arc)
@@ -209,8 +217,8 @@ items:
     href: version-log.md
   - name: az arcdata extension
     items:
-    - name: Overview
-      href: ./reference/overview.md
+    - name: arcdata
+      href: ./reference/reference-az-arcdata.md
     - name: arcdata dc
       href: ./reference/reference-az-arcdata-dc.md
     - name: arcdata dc config
@@ -233,6 +241,8 @@ items:
       href: ./reference/reference-az-sql-mi-arc-config.md
     - name: sql mi-arc dag
       href: ./reference/reference-az-sql-mi-arc-dag.md
+    - name: sql midb-arc 
+      href: ./reference/reference-az-sql-midb-arc.md
 - name: Resources
   items:
     - name: Plan for deployment

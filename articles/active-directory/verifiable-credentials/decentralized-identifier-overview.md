@@ -122,6 +122,6 @@ The roles in this scenario are:
 
 Now that you know about DIDs and verifiable credentials try them yourself by following our get started article or one of our articles providing more detail on verifiable credential concepts.
 
-- [Get started with verifiable credentials](get-started-verifiable-credentials.md)
+- [Get started with verifiable credentials](verifiable-credentials-configure-tenant.md)
 - [How to customize your credentials](credential-design.md)
 - [Verifiable credentials FAQ](verifiable-credentials-faq.md)

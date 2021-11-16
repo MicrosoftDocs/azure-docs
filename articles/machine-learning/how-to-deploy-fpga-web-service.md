@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
-ms.date: 09/24/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-python, deploy
 ---
