@@ -1,6 +1,6 @@
 ---
-title: Azure RabbitMQ bindings for Azure Functions
-description: Learn to send Azure RabbitMQ triggers and bindings in Azure Functions.
+title: Azure RabbitMQ bindings for Azure Functions - Old
+description: Learn to send Azure RabbitMQ triggers and bindings in Azure Functions. - Old
 author: cachai2
 
 ms.assetid: 
@@ -10,7 +10,7 @@ ms.author: cachai
 ms.custom:
 ---
 
-# RabbitMQ bindings for Azure Functions overview
+# RabbitMQ bindings for Azure Functions overview - Old
 
 > [!NOTE]
 > The RabbitMQ bindings are only fully supported on **Premium and Dedicated** plans. Consumption is not supported.

@@ -1,6 +1,6 @@
 ---
-title: RabbitMQ trigger for Azure Functions
-description: Learn to run an Azure Function when a RabbitMQ message is created.
+title: RabbitMQ trigger for Azure Functions - Old
+description: Learn to run an Azure Function when a RabbitMQ message is created. - Old
 author: cachai2
 
 ms.assetid:
@@ -10,7 +10,7 @@ ms.author: cachai
 ms.custom:
 ---
 
-# RabbitMQ trigger for Azure Functions overview
+# RabbitMQ trigger for Azure Functions overview - Old
 
 > [!NOTE]
 > The RabbitMQ bindings are only fully supported on **Premium and Dedicated** plans. Consumption is not supported.
