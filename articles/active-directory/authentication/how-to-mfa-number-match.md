@@ -1,5 +1,5 @@
 ---
-title: Use number matching in MFA notifications (Preview) - Azure Active Directory
+title: Use number matching in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
 description: Learn how to use number matching in MFA notifications
 
 services: active-directory
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use number matching in MFA notifications (Preview) - Authentication Methods Policy
+# How to use number matching in multifactor authentication (MFA) notifications (Preview) - Authentication Methods Policy
 
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
@@ -64,7 +64,7 @@ The AD FS adapter supports number matching after installing an update. Earlier v
 
 | Version | Update |
 |---------|--------|
-| Windows Server 2022 | [October 26, 2021—KB5006745 (OS Build 20348.320) Preview](https://support.microsoft.com/en-us/topic/october-26-2021-kb5006745-os-build-20348-320-preview-8ff9319a-19e7-40c7-bbd1-cd70fcca066c) |
+| Windows Server 2022 | [October 26, 2021—KB5006745 (OS Build 20348.320) Preview](https://support.microsoft.com/topic/october-26-2021-kb5006745-os-build-20348-320-preview-8ff9319a-19e7-40c7-bbd1-cd70fcca066c) |
 | Windows Server 2019 | [October 19, 2021—KB5006744 (OS Build 17763.2268) Preview](https://support.microsoft.com/topic/october-19-2021-kb5006744-os-build-17763-2268-preview-e043a8a3-901b-4190-bb6b-f5a4137411c0) |
 | Windows Server 2016 | [October 12, 2021—KB5006669 (OS Build 14393.4704)](https://support.microsoft.com/topic/october-12-2021-kb5006669-os-build-14393-4704-bcc95546-0768-49ae-bec9-240cc59df384) |
 
