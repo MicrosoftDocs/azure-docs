@@ -78,8 +78,8 @@ az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGE
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$ResourceGroup = "<RESOURCE_GROUP_NAME>"
 $RegistryName = "<REGISTRY_NAME>"
+$ResourceGroup = (Get-AzContainerRegistry | where { $_.name -eq $RegistryName} ).ResourceGroupName
 $ControllerRegistry = "k8s.gcr.io"
 $ControllerImage = "ingress-nginx/controller"
 $ControllerTag = "v1.0.4"
@@ -153,7 +153,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```console
+```azurepowershell
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
@@ -204,9 +204,9 @@ No ingress rules have been created yet. If you browse to the public IP address, 
 
 ## Add an A record to your DNS zone
 
-Add an *A* record to your DNS zone with the external IP address of the NGINX service using [az network dns record-set a add-record][az-network-dns-record-set-a-add-record].
-
 ### [Azure CLI](#tab/azure-cli)
+
+Add an *A* record to your DNS zone with the external IP address of the NGINX service using [az network dns record-set a add-record][az-network-dns-record-set-a-add-record].
 
 ```azurecli
 az network dns record-set a add-record \
@@ -217,6 +217,8 @@ az network dns record-set a add-record \
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
+
+Add an *A* record to your DNS zone with the external IP address of the NGINX service using [New-AzDnsRecordSet][new-az-dns-recordset-create-a-record].
 
 ```azurepowershell
 $Records = @()
@@ -670,6 +672,7 @@ You can also:
 
 <!-- LINKS - external -->
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az_network_dns_record_set_a_add_record
+[new-az-dns-recordset-create-a-record]: /powershell/module/az.dns/new-azdnsrecordset
 [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../dns/dns-getstarted-cli.md
 [helm]: https://helm.sh/
