@@ -80,7 +80,13 @@ module exampleModule 'module.bicep' = {
 - Resource documentation
   - [`Microsoft.KeyVault/vaults`](/azure/templates/microsoft.keyvault/vaults?tabs=bicep)
   - [`Microsoft.KeyVault/vaults/secrets`](/azure/templates/microsoft.keyvault/vaults/secrets?tabs=bicep)
+- [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md)
+- [Secure parameters](parameters.md#secure-parameters)
 - [Referencing existing resources](resource-declaration.md#existing-resources)
+- [Azure Key Vault](../../key-vault/general/overview.md)
 - [`getSecret` function](bicep-functions-resource.md#getsecret)
 - Quickstart templates
-  - TODO
+  - [Create a user-assigned managed identity and role assignments](https://github.com/Azure/azure-quickstart-templates/tree/master/modules/Microsoft.ManagedIdentity/user-assigned-identity-role-assignment/1.0)
+  - [Create an Azure Key Vault and a secret](https://azure.microsoft.com/resources/templates/key-vault-create/)
+  - [Create a Key Vault and a list of secrets](https://azure.microsoft.com/resources/templates/key-vault-secret-create/)
+  - [Onboard a custom domain and managed TLS certificate with Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-custom-domain)
