@@ -104,7 +104,6 @@ Perform the following steps to prepare the drives.
 
 ## Step 2: Create an import job
 
-
 ### [Portal (Preview)](#tab/azure-portal-preview)
 
 In the Preview portal, you start an import job in Azure Import/Export in the same way you start an order for other Azure Data Box products.
@@ -199,7 +198,7 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 
      You can select **Go to resource** to open the **Overview** of the job.
 
-     [ ![Screenshot showing the Overview pane for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs/import-export-order-preview-12.png) ](media/storage-import-export-data-to-blobs/import-export-order-preview-12.png#lightbox)<!--Border is too light.-->
+     [ ![Screenshot showing the Overview pane for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs/import-export-order-preview-12.png) ](media/storage-import-export-data-to-blobs/import-export-order-preview-12.png#lightbox)
 
 
 ### [Portal (Classic)](#tab/azure-portal)
