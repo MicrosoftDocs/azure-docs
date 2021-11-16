@@ -58,7 +58,7 @@ A manual setup gives you full control over the CDN configuration including the c
 * Custom domain configured for your static web app
 * Apex domain with TTL set to less than 48 hrs
 
-# [Azure portal](tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 1. Navigate to your static web app in the Azure portal.
 
@@ -72,7 +72,7 @@ A manual setup gives you full control over the CDN configuration including the c
 
     Enabling this feature may result in additional costs.
 
-# [Azure CLI](tab/azure-portal)
+# [Azure CLI](#tab/azure-portal)
 
 ```azurecli
 az extension add --yes --source "https://sstrawnwheels.blob.core.windows.net/wheels/enterprise_edge-0.1.0-py3-none-any.whl"
