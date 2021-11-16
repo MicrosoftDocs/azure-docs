@@ -5,28 +5,26 @@ ms.topic: conceptual
 ms.date: 11/16/2021
 ---
 
-# Add custom settings in the Bicep config file
+# Configure your Bicep environment
 
-To customize configuration values for your Bicep deployments, add a file named **bicepconfig.json** to the directory where you store Bicep files. Within this file, specify the configuration values to use.
+Bicep supports a configuration file named **bicepconfig.json**. Within this file, you can add values that customize your Bicep development experience. If you don't add this file, Bicep uses default values.
 
-You can add multiple bicepconfig.json files. The closest configuration file in the directory hierarchy is used.
+To customize values, create this file in the directory where you store Bicep files. You can add bicepconfig.json files in multiple directories. The closest configuration file in the directory hierarchy is used.
 
 ## Available settings
 
-The following settings are available for customization in the Bicep config file:
+When working with [modules](modules.md), you can add aliases for module paths. These aliases simplify your Bicep file because you don't have to repeat complicated paths. You can also configure the credential precedence for authenticating to the registry. The credential is used to restore external modules to the local cache. For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
 
-* To simplify the path for linking to modules, create aliases in the config file. For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
-* To restore external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry. For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
-* To override the default settings for the [Bicep linter](linter.md), set rule-specific values in the config file. For more information, see [Add linter settings to Bicep config](bice-config-linter.md).
+When working with the [Bicep linter](linter.md), you can override the default settings for the Bicep file validation. For more information, see [Add linter settings to Bicep config](bicep-config-linter.md).
 
 ## Intellisense
 
-The Bicep extension for Visual Studio Code provides intellisense for your **bicepconfig.json** file. Use the intellisense to discover available properties and values.
+The Bicep extension for Visual Studio Code supports intellisense for your **bicepconfig.json** file. Use the intellisense to discover available properties and values.
 
 :::image type="content" source="./media/bicep-config/bicep-linter-configure-intellisense.png" alt-text="The intellisense support in configuring bicepconfig.json.":::
 
 ## Next steps
 
 * [Add module settings in Bicep config](bicep-config-modules.md)
-* [Add linter settings to Bicep config](bice-config-linter.md)
+* [Add linter settings to Bicep config](bicep-config-linter.md)
 * Learn about the [Bicep linter](linter.md)

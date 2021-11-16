@@ -7,13 +7,17 @@ ms.date: 11/16/2021
 
 # Add module settings in the Bicep config file
 
-In a **bicepconfig.json** file, you can create aliases for module paths. You can also configure credential precedence for restoring a module.
+In a **bicepconfig.json** file, you can create aliases for module paths and configure credential precedence for restoring a module.
 
-This article describes the settings that are available for working with modules.
+This article describes the settings that are available for working with [modules](modules.md).
 
 ## Aliases for modules
 
-To simplify the path for linking to modules, you can create aliases in the config file. An alias can refer to a module registry or a resource group that contains template specs. The config file has a property for `moduleAliases`. To create an alias for a Bicep registry, add a `br` property under the `moduleAliases` property. To add an alias for a template spec, use the `ts` property.
+To simplify the path for linking to modules, create aliases in the config file. An alias refers to either a module registry or a resource group that contains template specs.
+
+The config file has a property for `moduleAliases`. This property contains all of the aliases you define. Under this property, the aliases are divided based on whether they refer to a registry or a template spec.
+
+To create an alias for a **Bicep registry**, add a `br` property. To add an alias for a **template spec**, use the `ts` property.
 
 ```json
 {
@@ -121,6 +125,6 @@ The available credentials are:
 
 ## Next steps
 
-* [Add custom settings in Bicep config](bicep-config.md)
+* [Configure your Bicep environment](bicep-config.md)
 * [Add linter settings to Bicep config](bicep-config-linter.md)
-* Learn about the [Bicep linter](linter.md)
+* Learn about [modules](modules.md)

@@ -7,13 +7,13 @@ ms.date: 11/16/2021
 
 # Add linter settings in the Bicep config file
 
-In a **bicepconfig.json** file, you can customize settings for the Bicep linter. The linter uses these settings when validating your Bicep files.
+In a **bicepconfig.json** file, you can customize validation settings for the [Bicep linter](linter.md). The linter uses these settings when evaluating your Bicep files for best practices.
 
 This article describes the settings that are available for working with the Bicep linter.
 
 ## Customize linter
 
-In the configuration file, you customize the settings for the [Bicep linter](linter.md). You can enable or disable the linter, supply rule-specific values, and set the level of rules.
+The linter settings are available under the `analyzers` element. You can enable or disable the linter, supply rule-specific values, and set the level of rules.
 
 The following example shows the rules that are available for configuration.
 
@@ -63,6 +63,8 @@ The available values for **level** are:
 | `Info` | Violations don't appear in the command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
 | `Off` | Suppressed completely. | Suppressed completely. |
 
+## Environment URLs
+
 For the rule about hardcoded environment URLs, you can customize which URLs are checked. By default, the following settings are applied:
 
 ```json
@@ -111,6 +113,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
 
 ## Next steps
 
-* [Add custom settings in Bicep config](bicep-config.md)
+* [Configure your Bicep environment](bicep-config.md)
 * [Add module settings in Bicep config](bicep-config-modules.md)
 * Learn about the [Bicep linter](linter.md)
