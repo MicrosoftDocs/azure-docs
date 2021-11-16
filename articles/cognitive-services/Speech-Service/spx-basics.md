@@ -74,7 +74,7 @@ spx --% config @region --clear
 ```
 
 > [!NOTE]
-> In PowerShell, the [stop-parsing token](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.2#stop-parsing-token---) (`--%`) should follow `spx`. 
+> In PowerShell, the [stop-parsing token](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.2#stop-parsing-token---) (`--%`) should follow `spx`. For example, run `spx --% config @region` to view the current region config value.
 
 
 ***
