@@ -13,11 +13,11 @@ ms.author: cshoe
 
 Use Azure Front Door to provide faster load times, better security, and enable better performance in your static web app. Azure Front Door increases the points of presence and extends your static web app with an enterprise-grade edge to provide:
 
-* Protection from [Distributed Denial of Service (DDoS) attacks](../frontdoor/front-door-ddos)
+* Protection from [Distributed Denial of Service (DDoS) attacks](/azure/frontdoor/front-door-ddos)
 * Significant reductions in latency
-* Increased throughput by bringing static assets geographically closer to your users through [edge load balancing](../frontdoor/edge-locations-by-region)
+* Increased throughput by bringing static assets geographically closer to your users through [edge load balancing](/azure/frontdoor/edge-locations-by-region)
 * SSL offloading
-* [Enhanced caching](../frontdoor/front-door-caching)
+* [Enhanced caching](/azure/frontdoor/front-door-caching)
 * Application acceleration
 
 To enable Azure Front Door in Static Web Apps, you must have the following items in place:
