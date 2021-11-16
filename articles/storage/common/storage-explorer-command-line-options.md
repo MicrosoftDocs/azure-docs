@@ -23,6 +23,7 @@ Option  | Description
 `--auto-open-dev-tools` | Let the application open the developer tools window as soon as the browser window shows. This option is useful when you want to hit a break point at a line in the start-up code of the browser window.
 `--verbosity` | Set the verbosity level of Storage Explorer logging. Supported verbosity levels include `debug`, `verbose`, `info`, `warn`, `error`, and `silent`. For example, `--verbosity=verbose`. When running in production mode, the default verbosity level is `info`. When running in debug mode, the log verbosity level will always be `debug`.
 `--log-dir` | Set the directory to save log files. For example, `--log-dir=path_to_a_directory`.
+`--ignore-certificate-errors` | When opened with this flag, Storage Explorer ignores certificate errors. This flag can be useful when you are in a trusted proxy environment with non-public Certificate Authority. We recommend you to try to [use system proxy (preview)](./storage-explorer-network.md#use-system-proxy-preview) to see if it can automatically use the certificate store on the machine before using this flag.
 
 An example of starting Storage Explorer with custom command-line options
 
