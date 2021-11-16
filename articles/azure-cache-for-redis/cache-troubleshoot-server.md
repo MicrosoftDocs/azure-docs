@@ -26,17 +26,20 @@ This section discusses troubleshooting issues that occur because of a condition 
 
 High server load means the Redis server is very busy and is unable to keep up with the request leading to timeout. Check the "Server Load" metric on your cache to check CPU load. Following are some common reasons for high server load
 
-### Rapid changes in number of client connections:
+### Rapid changes in number of client connections
 
-See [Best practices for connection resilience - Azure Cache for Redis | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-best-practices-connection#avoid-client-connection-spikes)
+For more information, see [Avoid client connection Spikes](cache-best-practices-connection.md#avoid-client-connection-spikes).
 
-### Long running or expensive commands 
-For troubleshooting further, see <link to server-side verification for long running commands>
+### Long running or expensive commands
 
-### Scaling 
-Scaling operations are CPU and memory intensive as it could involve moving data around nodes and changing cluster topology. See <scaling best practices>
+For troubleshooting further, see <!--link to server-side verification for long running commands -->
 
-### Server maintenance 
+### Scaling
+
+Scaling operations are CPU and memory intensive as it could involve moving data around nodes and changing cluster topology. See <!--scaling best practices -->
+
+### Server maintenance
+
 If your Azure Cache for Redis underwent a failover, all client connections from the node that went down are transferred to the node that is still running. The server load could see a spike because of the increased connections. You can try rebooting your client applications so that all the client connections get recreated and redistributed among the two nodes.
 
 ### High CPU usage or server load
@@ -68,7 +71,6 @@ To mitigate situations where network bandwidth usage is close to maximum capacit
 - Change client call behavior to reduce network demand.
 - [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
 - [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity. For more information, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
--
 
 ## High memory usage
 
