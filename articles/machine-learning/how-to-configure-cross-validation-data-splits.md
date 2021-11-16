@@ -201,7 +201,12 @@ You can also provide test data to evaluate the recommended model that automated 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Test datasets must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset). You can specify a test dataset with the `test_data` and `test_size` parameters in your `AutoMLConfig` object.  These parameters are mutually exclusive and can not be specified at the same time. 
+> [!WARNING]
+> This feature is not available for the following scenarios
+>  * Computer vision tasks
+>  * Forecasting tasks where deep learning neural networks (DNN) are enabled
+>  * Automated ML runs from local computes or Azure Databricks clusters.
+Test datasets must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset). You can specify a test dataset with the `test_data` and `test_size` parameters in your `AutoMLConfig` object.  These parameters are mutually exclusive and can not be specified at the same time or with `cv_split_column_names` or `cv_splits_indices`.
 
 With the `test_data` parameter, specify an existing dataset to pass into your `AutoMLConfig` object. 
 
@@ -227,7 +232,8 @@ automl_config = AutoMLConfig(task = 'regression',
 > [!Note]
 > For regression tasks, random sampling is used.<br>
 > For classification tasks, stratified sampling is used, but random sampling is used as a fall back when stratified sampling is not feasible. <br>
-> Forecasting does not currently support specifying a test dataset using a train/test split.
+> Forecasting does not currently support specifying a test dataset using a train/test split with the `test_size` parameter.
+
 
 Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run upon completion of your experiment. This test run uses the provided test data to evaluate the best model that automated ML recommends. Learn more about [how to get the predictions from the test run](how-to-configure-auto-train.md#test-models-preview).
 

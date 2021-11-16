@@ -522,11 +522,18 @@ RunDetails(run).show()
 >[!IMPORTANT]
 > Testing your models with a test dataset to evaluate automated ML generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
+> [!WARNING]
+> This feature is not available for the following scenarios
+>  * Computer vision tasks
+>  * Forecasting tasks where deep learning neural networks (DNN) are enabled
+>  * Automated ML runs from local computes or Azure Databricks clusters.
+
 Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment. This remote test run is done at the end of the experiment, once the best model is determined. See how to [pass test data into your `AutoMLConfig`](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 
 ### Get test run results 
 
 You can get the predictions and metrics from the remote test run from the [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) or with the following code. 
+
 
 ```python
 best_run, fitted_model = remote_run.get_output()
@@ -549,6 +556,8 @@ test_run.download_file("predictions/predictions.csv")
 predictions_df = pd.read_csv("predictions.csv")
 
 ```
+
+The model test run generates the predictions.csv file that's stored in the default datastore created with the workspace. This datastore is visible to all users with the same subscription. Test runs are not recommended for scenarios if any of the information used for or created by the test run needs to remain private.
 
 ### Test existing automated ML model
 
