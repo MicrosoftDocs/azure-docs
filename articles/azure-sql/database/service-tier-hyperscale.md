@@ -29,6 +29,10 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 > - For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose](service-tier-general-purpose.md) and [Business Critical](service-tier-business-critical.md) service tiers. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](purchasing-models.md).
 > - The Hyperscale service tier is currently only available for Azure SQL Database, and not Azure SQL Managed Instance.
 
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
 ## What are the Hyperscale capabilities
 
 The Hyperscale service tier in Azure SQL Database provides the following additional capabilities:

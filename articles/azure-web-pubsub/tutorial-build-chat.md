@@ -76,7 +76,7 @@ First let's create an empty ASP.NET Core app.
 
     ```bash
     dotnet new web
-    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
+    dotnet add package Azure.Messaging.WebPubSub
     ```
 
 2.  Then add `app.UseStaticFiles();` before `app.UseRouting();` in `Startup.cs` to support static files. Remove the default `endpoints.MapGet` inside `app.UseEndpoints`.
@@ -149,7 +149,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
                 return;
             }
             var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
-            await context.Response.WriteAsync(serviceClient.GenerateClientAccessUri(userId: id).AbsoluteUri);
+            await context.Response.WriteAsync(serviceClient.GetClientAccessUri(userId: id).AbsoluteUri);
         });
     });
     ```
@@ -224,7 +224,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 1.  Install Azure Web PubSub SDK
 
     ```bash
-    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
+    npm install --save @azure/web-pubsub
     ```
 
 2.  Add a `/negotiate` API to the server to generate the token
@@ -378,7 +378,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.2</version>
+        <version>1.0.0-beta.6</version>
     </dependency>
     ```
 
@@ -387,11 +387,11 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     ```java
     package com.webpubsub.tutorial;
     
-    import com.azure.messaging.webpubsub.WebPubSubClientBuilder;
     import com.azure.messaging.webpubsub.WebPubSubServiceClient;
-    import com.azure.messaging.webpubsub.models.GetAuthenticationTokenOptions;
-    import com.azure.messaging.webpubsub.models.WebPubSubAuthenticationToken;
-    
+    import com.azure.messaging.webpubsub.WebPubSubServiceClientBuilder;
+    import com.azure.messaging.webpubsub.models.GetClientAccessTokenOptions;
+    import com.azure.messaging.webpubsub.models.WebPubSubClientAccessToken;
+    import com.azure.messaging.webpubsub.models.WebPubSubContentType;
     import io.javalin.Javalin;
     
     public class App {
@@ -403,7 +403,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
             }
     
             // create the service client
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
                     .connectionString(args[0])
                     .hub("chat")
                     .buildClient();
@@ -422,9 +422,10 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
                     ctx.result("missing user id");
                     return;
                 }
-                GetAuthenticationTokenOptions option = new GetAuthenticationTokenOptions();
+                GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
                 option.setUserId(id);
-                WebPubSubAuthenticationToken token = client.getAuthenticationToken(option);
+                WebPubSubClientAccessToken token = service.getClientAccessToken(option);
+    
                 ctx.result(token.getUrl());
                 return;
             });
@@ -895,7 +896,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
         } else if ("azure.webpubsub.user.message".equals(event)) {
             String id = ctx.header("ce-userId");
             String message = ctx.body();
-            client.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
         }
         ctx.status(200);
     });
@@ -951,11 +952,11 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
         String event = ctx.header("ce-type");
         if ("azure.webpubsub.sys.connected".equals(event)) {
             String id = ctx.header("ce-userId");
-            client.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
         } else if ("azure.webpubsub.user.message".equals(event)) {
             String id = ctx.header("ce-userId");
             String message = ctx.body();
-            client.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
         }
         ctx.status(200);
     });
