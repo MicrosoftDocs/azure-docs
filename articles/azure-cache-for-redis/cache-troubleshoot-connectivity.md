@@ -20,7 +20,7 @@ Sometimes, your cache undergoes a planned or an unplanned server maintenance. Yo
 
 ## Number of connected clients
 
-Check if the Max aggregate for `Connected Clients` metric is close or higher than the maximum number of allowed connections for a particular cache size. For more information on sizing per client connections, see [Azure Cache for Redis performance](cache-planning-faq#azure-cache-for-redis-performance) <!-- is this the table -->
+Check if the Max aggregate for `Connected Clients` metric is close or higher than the maximum number of allowed connections for a particular cache size. For more information on sizing per client connections, see [Azure Cache for Redis performance](cache-planning-faq.yml#azure-cache-for-redis-performance) <!-- is this the table -->
 
 ## Kubernetes hosted applications
 
