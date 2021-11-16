@@ -74,13 +74,13 @@ To prevent your change feed processor from getting "stuck" continuously retrying
 
 In addition, you can use the [change feed estimator](how-to-use-change-feed-estimator.md) to monitor the progress of your change feed processor instances as they read the change feed or use the [life cycle notifications](#life-cycle-notifications) to detect underlying failures.
 
-## Life cycle notifications
+## Life-cycle notifications
 
-The change feed processor let's you hook to relevant events in its [life cycle](#processing-life-cycle), you can choose to be notified to one or all of them. The recommendation is to at least register the error notification:
+The change feed processor lets you hook to relevant events in its [life cycle](#processing-life-cycle), you can choose to be notified to one or all of them. The recommendation is to at least register the error notification:
 
 * Register a handler for `WithLeaseAcquireNotification` to be notified when the current host acquires a lease to start processing it.
 * Register a handler for `WithLeaseReleaseNotification` to be notified when the current host releases a lease and stops processing it.
-* Register a handler for `WithErrorNotification` to be notified when the current host encounters an exception during processing, being able to distinguish if the source is the user delegate (unhandled exception) or an error the processor is encountering trying to access the monitored container (for example, networking issues). 
+* Register a handler for `WithErrorNotification` to be notified when the current host encounters an exception during processing, being able to distinguish if the source is the user delegate (unhandled exception) or an error the processor is encountering trying to access the monitored container (for example, networking issues).
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=StartWithNotifications)]
 
