@@ -120,13 +120,45 @@ The following is a list of key points to consider when reviewing migration metho
 
 ## Business Intelligence 
 
-There may be additional considerations when migrating SQL Server Business Intelligence services outside the scope of user database migrations. 
+There may be additional considerations when migrating SQL Server Business Intelligence services outside the scope of database migrations. 
 
-These services include:
+### SQL Server Integration Services
 
-- [**SQL Server Integration Services (SSIS)**](/sql/integration-services/install-windows/upgrade-integration-services)
-- [**SQL Server Reporting Services (SSRS)**](/sql/reporting-services/install-windows/upgrade-and-migrate-reporting-services)
-- [**SQL Server Analysis Services (SSAS)**](/sql/database-engine/install-windows/upgrade-analysis-services)
+You can migrate SQL Server Integration Services (SSIS) packages and projects in SSISDB to SQL Server on Azure VM using one of the two methods below. 
+
+- Backup and restore the SSISDB from the source SQL Server instance to SQL Server on Azure VM. This will restore your packages in the SSISDB to the [Integration Services Catalog on your target SQL Server on Azure VM](/sql/integration-services/catalog/ssis-catalog).
+- Re-deploy your SSIS packages on your target SQL Server on Azure VM using one of the [deployment options](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages).
+
+If you have SSIS packages deployed as package deployment model, you can convert them before migration. See the [project conversion tutorial](/sql/integration-services/lesson-6-2-converting-the-project-to-the-project-deployment-model) to learn more. 
+
+
+### SQL Server Reporting Services
+To migrate your SQL Server Reporting Services (SSRS) reports to your target SQL Server on Azure VM, see [Migrate a Reporting Services Installation (Native Mode)](/sql/reporting-services/install-windows/migrate-a-reporting-services-installation-native-mode)
+
+Alternatively, you can also migrate SSRS reports to paginated reports in Power BI. Use the [RDL Migration Tool](https://github.com/microsoft/RdlMigration) to help prepare and migrate your reports. Microsoft developed this tool to help customers migrate Report Definition Language (RDL) reports from their SSRS servers to Power BI. It's available on GitHub, and it documents an end-to-end walkthrough of the migration scenario. 
+
+### SQL Server Analysis Services
+SQL Server Analysis Services databases (multidimensional or tabular models) can be migrated from your source SQL Server to SQL Server on Azure VM using one of the following options:
+
+-	Interactively using SSMS
+-	Programmatically using Analysis Management Objects (AMO)
+-	By script using XMLA (XML for Analysis)
+
+See [Move an Analysis Services Database](/analysis-services/multidimensional-models/move-an-analysis-services-database?view=asallproducts-allversions) to learn more.
+
+Alternatively, you can consider migrating your on-premises Analysis Services tabular models to [Azure Analysis Services](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/) or to [Power BI Premium by using the new XMLA read/write endpoints](/power-bi/admin/service-premium-connect-tools). 
+
+## Server objects
+
+Depending on the setup in your source SQL Server, there may be additional SQL Server features that will require manual intervention to migrate them to SQL Server on Azure VM by generating scripts in Transact-SQL (T-SQL) using SQL Server Management Studio and then running the scripts on the target SQL Server on Azure VM. Some of the commonly used features are:
+
+- Logins and roles
+- Linked server(s)
+- External Data Sources
+- Agent jobs
+- Alerts
+- Database Mail
+- Replication
 
 ## Supported versions
 

@@ -121,6 +121,8 @@
     items:
     - name: PowerShell
       href: how-to-assign-app-role-managed-identity-powershell.md
+    - name: CLI
+      href: how-to-assign-app-role-managed-identity-cli.md
   - name: View managed identity activity
     href: how-to-view-managed-identity-activity.md
 

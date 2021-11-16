@@ -1,21 +1,21 @@
 ---
-title: Advanced multistage attack detection in Azure Sentinel
-description: Use Fusion technology in Azure Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multistage attack detection.
+title: Advanced multistage attack detection in Microsoft Sentinel
+description: Use Fusion technology in Microsoft Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multistage attack detection.
 services: sentinel
 documentationcenter: na
 author: yelevin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Advanced multistage attack detection in Azure Sentinel
+# Advanced multistage attack detection in Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -24,18 +24,18 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Azure Sentinel uses Fusion, a correlation engine based on scalable machine learning algorithms, to automatically detect multistage attacks (also known as advanced persistent threats or APT) by identifying combinations of anomalous behaviors and suspicious activities that are observed at various stages of the kill chain. On the basis of these discoveries, Azure Sentinel generates incidents that would otherwise be difficult to catch. These incidents comprise two or more alerts or activities. By design, these incidents are low-volume, high-fidelity, and high-severity.
+Microsoft Sentinel uses Fusion, a correlation engine based on scalable machine learning algorithms, to automatically detect multistage attacks (also known as advanced persistent threats or APT) by identifying combinations of anomalous behaviors and suspicious activities that are observed at various stages of the kill chain. On the basis of these discoveries, Microsoft Sentinel generates incidents that would otherwise be difficult to catch. These incidents comprise two or more alerts or activities. By design, these incidents are low-volume, high-fidelity, and high-severity.
 
 Customized for your environment, this detection technology not only reduces [false positive](false-positives.md) rates but can also detect attacks with limited or missing information.
 
-Since Fusion correlates multiple signals from various products to detect advanced multistage attacks, successful Fusion detections are presented as **Fusion incidents** on the Azure Sentinel **Incidents** page and not as **alerts**, and are stored in the *Incidents* table in **Logs** and not in the *SecurityAlerts* table.
+Since Fusion correlates multiple signals from various products to detect advanced multistage attacks, successful Fusion detections are presented as **Fusion incidents** on the Microsoft Sentinel **Incidents** page and not as **alerts**, and are stored in the *Incidents* table in **Logs** and not in the *SecurityAlerts* table.
 
 ### Configure Fusion
 
-Fusion is enabled by default in Azure Sentinel, as an [analytics rule](detect-threats-built-in.md#view-built-in-detections) called **Advanced multistage attack detection**. You can view and change the status of the rule, configure source signals to be included in the Fusion ML model, or exclude specific detection patterns that may not be applicable to your environment from Fusion detection. Learn how to [configure the Fusion rule](configure-fusion-rules.md).
+Fusion is enabled by default in Microsoft Sentinel, as an [analytics rule](detect-threats-built-in.md#view-built-in-detections) called **Advanced multistage attack detection**. You can view and change the status of the rule, configure source signals to be included in the Fusion ML model, or exclude specific detection patterns that may not be applicable to your environment from Fusion detection. Learn how to [configure the Fusion rule](configure-fusion-rules.md).
 
 > [!NOTE]
-> Azure Sentinel currently uses 30 days of historical data to train the Fusion engine's machine learning algorithms. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
+> Microsoft Sentinel currently uses 30 days of historical data to train the Fusion engine's machine learning algorithms. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Microsoft Sentinel workspace. To opt out of Fusion, navigate to **Microsoft Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
 
 ## Fusion for emerging threats
 
@@ -45,7 +45,7 @@ Fusion is enabled by default in Azure Sentinel, as an [analytics rule](detect-th
 
 The volume of security events continues to grow, and the scope and sophistication of attacks are ever increasing. We can define the known attack scenarios, but how about the emerging and unknown threats in your environment?  
 
-Azure Sentinel's ML-powered Fusion engine can help you find the **emerging and unknown threats** in your environment by applying **extended ML analysis** and by correlating **a broader scope of anomalous signals**, while keeping the alert fatigue low. 
+Microsoft Sentinel's ML-powered Fusion engine can help you find the **emerging and unknown threats** in your environment by applying **extended ML analysis** and by correlating **a broader scope of anomalous signals**, while keeping the alert fatigue low.
 
 The Fusion engine's ML algorithms constantly learn from existing attacks and apply analysis based on how security analysts think. It can therefore discover previously undetected threats from millions of anomalous behaviors across the kill-chain throughout your environment, which helps you stay one step ahead of the attackers.
 
@@ -53,45 +53,45 @@ The Fusion engine's ML algorithms constantly learn from existing attacks and app
 
 - [Out-of-the-box anomaly detections](soc-ml-anomalies.md)
 - Alerts from Microsoft products:
-    - Azure Active Directory Identity Protection
-    - Azure Defender
-    - Azure Defender for IoT
-    - Microsoft 365 Defender
-    - Microsoft Cloud App Security
-    - Microsoft Defender for Endpoint
-    - Microsoft Defender for Identity
-    - Microsoft Defender for Office 365
+  - Azure Active Directory Identity Protection
+  - Microsoft Defender for Cloud
+  - Microsoft Defender for IoT
+  - Microsoft 365 Defender
+  - Microsoft Defender for Cloud Apps
+  - Microsoft Defender for Endpoint
+  - Microsoft Defender for Identity
+  - Microsoft Defender for Office 365
 - [**Alerts from scheduled analytics rules**](configure-fusion-rules.md#configure-scheduled-analytics-rules-for-fusion-detections), both [built-in](detect-threats-built-in.md#scheduled) and those [created by your security analysts](detect-threats-custom.md). Analytics rules must contain kill-chain (tactics) and entity mapping information in order to be used by Fusion.
 
 You don’t need to have connected *all* the data sources listed above in order to make Fusion for emerging threats work. However, the more data sources you have connected, the broader the coverage, and the more threats Fusion will find.
 
-When the Fusion engine's correlations result in the detection of an emerging threat, a high-severity incident titled “**Possible multistage attack activities detected by Fusion**” is generated in the *incidents* table in your Azure Sentinel workspace.
+When the Fusion engine's correlations result in the detection of an emerging threat, a high-severity incident titled “**Possible multistage attack activities detected by Fusion**” is generated in the *incidents* table in your Microsoft Sentinel workspace.
 
 ## Fusion for ransomware
 
-Azure Sentinel's Fusion engine generates an incident when it detects multiple alerts of different types from the following data sources, and determines that they may be related to ransomware activity:
+Microsoft Sentinel's Fusion engine generates an incident when it detects multiple alerts of different types from the following data sources, and determines that they may be related to ransomware activity:
 
-- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
+- [Microsoft Defender for Cloud](connect-azure-security-center.md)
 - [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
 - [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
-- [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
-- [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information and mapped entities.
+- [Microsoft Defender for Cloud Apps](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
+- [Microsoft Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information and mapped entities.
 
 Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
 
-For example, Azure Sentinel would generate an incident for possible ransomware activities if the following alerts are triggered on the same host within a specific timeframe:
+For example, Microsoft Sentinel would generate an incident for possible ransomware activities if the following alerts are triggered on the same host within a specific timeframe:
 
 | Alert | Source | Severity |
 | ----- | ------ | -------- |
-| **Windows Error and Warning Events** | Azure Sentinel scheduled analytics rules | informational |
-| **'GandCrab' ransomware was prevented** | Azure Defender | medium |
+| **Windows Error and Warning Events** | Microsoft Sentinel scheduled analytics rules | informational |
+| **'GandCrab' ransomware was prevented** | Microsoft Defender for Cloud | medium |
 | **'Emotet' malware was detected** | Microsoft Defender for Endpoint | informational |
-| **'Tofsee' backdoor was detected** | Azure Defender | low |
-| **'Parite' malware was detected** | Microsoft Defender for Endpoint | informational 
+| **'Tofsee' backdoor was detected** | Microsoft Defender for Cloud | low |
+| **'Parite' malware was detected** | Microsoft Defender for Endpoint | informational |
 
 ## Scenario-based Fusion detections
 
-The following section lists the types of [scenario-based multistage attacks](fusion-scenario-reference.md), grouped by threat classification, that Azure Sentinel detects using the Fusion correlation engine.
+The following section lists the types of [scenario-based multistage attacks](fusion-scenario-reference.md), grouped by threat classification, that Microsoft Sentinel detects using the Fusion correlation engine.
 
 In order to enable these Fusion-powered attack detection scenarios, their associated data sources must be ingested to your Log Analytics workspace. Select the links in the table below to learn about each scenario and its associated data sources.
 
@@ -120,9 +120,10 @@ In order to enable these Fusion-powered attack detection scenarios, their associ
 ## Next steps
 
 Get more information about Fusion advanced multistage attack detection:
+
 - Learn more about the [Fusion scenario-based attack detections](fusion-scenario-reference.md).
 - Learn how to [configure the Fusion rules](configure-fusion-rules.md).
 
-Now you've learned more about advanced multistage attack detection, you might be interested in the following quickstart to learn how to get visibility into your data and potential threats: [Get started with Azure Sentinel](get-visibility.md).
+Now you've learned more about advanced multistage attack detection, you might be interested in the following quickstart to learn how to get visibility into your data and potential threats: [Get started with Microsoft Sentinel](get-visibility.md).
 
-If you're ready to investigate the incidents that are created for you, see the following tutorial: [Investigate incidents with Azure Sentinel](investigate-cases.md).
+If you're ready to investigate the incidents that are created for you, see the following tutorial: [Investigate incidents with Microsoft Sentinel](investigate-cases.md).

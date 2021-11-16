@@ -1,23 +1,23 @@
 ---
-title: Customize alert details in Azure Sentinel | Microsoft Docs
+title: Customize alert details in Microsoft Sentinel | Microsoft Docs
 description: Customize how alerts are named and described, along with their severity and assigned tactics, based on the alerts' content.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Customize alert details in Azure Sentinel 
+# Customize alert details in Microsoft Sentinel 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -35,7 +35,7 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 ## How to customize alert details
 
-1. From the Azure Sentinel navigation menu, select **Analytics**.
+1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
 1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 
@@ -60,6 +60,6 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 1. When you have finished customizing your alert details, continue to the next tab in the wizard. If you're editing an existing rule, click the **Review and create** tab. Once the rule validation is successful, click **Save**.
 
 ## Next steps
-In this document, you learned how to customize alert details in Azure Sentinel analytics rules. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to customize alert details in Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
-- Learn more about [entities in Azure Sentinel](entities-in-azure-sentinel.md).
+- Learn more about [entities in Microsoft Sentinel](entities-in-azure-sentinel.md).

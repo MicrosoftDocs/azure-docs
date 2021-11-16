@@ -269,7 +269,7 @@
       href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault - secret
       href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Security Center
+    - name: Defender for Cloud
       href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Storage
     items:
