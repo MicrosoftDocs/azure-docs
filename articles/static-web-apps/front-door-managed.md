@@ -72,7 +72,7 @@ A manual setup gives you full control over the CDN configuration including the c
 
     Enabling this feature may result in additional costs.
 
-# [Azure CLI](#tab/azure-portal)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az extension add --yes --source "https://sstrawnwheels.blob.core.windows.net/wheels/enterprise_edge-0.1.0-py3-none-any.whl"
