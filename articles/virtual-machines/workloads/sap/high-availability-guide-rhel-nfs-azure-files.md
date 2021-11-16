@@ -203,7 +203,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 - Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [Storage account performance scale targets](../../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful to not exceed the limits for the storage account, too.
 - In general,  don't consolidate the shares for more than 5 SAP systems in a single storage account. This guideline helps avoid exceeding the storage account limits and simplifies performance analysis.   
 - In general, avoid mixing shares for non-production and production SAP systems in the same storage account.
-- We recommend to deploy on RHEL 8.4 or higher to benefit from [NFS client improvements](../../../storage/files/storage-troubleshooting-files-nfs#ls-hangs-for-large-directory-enumeration-on-some-kernels).   
+- We recommend to deploy on RHEL 8.4 or higher to benefit from [NFS client improvements](../../../storage/files/storage-troubleshooting-files-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).   
 - Use a private endpoint. In the unlikely event of a zonal failure, your NFS sessions automatically redirect to a healthy zone. You don't have to remount the NFS shares on your VMs.
 - If you're deploying your VMs across Availability Zones, use [Storage account with ZRS](../../../storage/common/storage-redundancy.md#zone-redundant-storage) in the Azure regions that supports ZRS. 
 - Azure Files doesn't currently support automatic cross-region replication for disaster recovery scenarios.
