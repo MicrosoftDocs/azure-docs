@@ -102,7 +102,7 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 > * [Pass in test data to your AutoMLConfig object](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 > * [Test the models automated ML generated for your experiment](#test-models-preview).
 >  
-> If you prefer a no-code experience, see [step 11 in Set up AutoML with the studio UI](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)
+> If you prefer a no-code experience, see [step 12 in Set up AutoML with the studio UI](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)
 
 
 ### Large data 
