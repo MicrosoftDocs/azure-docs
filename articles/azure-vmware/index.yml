@@ -81,18 +81,22 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
+        - text: Enterprise-Scale for Azure VMware Solution
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
         - text: Identity and access management
-          url: /cloud-adoption-framework/scenarios/azure-vmware/eslz-identity-and-access-management
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-identity-and-access-management
         - text: Network topology and connectivity
-          url: /cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
         - text: Management and monitoring
-          url: /cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
         - text: Enterprise-scale business continuity and disaster recovery
-          url: /cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
         - text: Enterprise-scale security, governance, and compliance
-          url: /cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
         - text: Platform automation and DevOps
-          url: /cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
+        - text: Enterprise-Scale for Azure VMware Solution automation
+          url: https://github.com/Azure/Enterprise-Scale-for-AVS
 
 # card 12
   - title: Identity management
