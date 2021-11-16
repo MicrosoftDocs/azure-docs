@@ -6,7 +6,8 @@ ms.assetid:
 ms.topic: reference
 ms.date: 11/17/2021
 ms.author: cachai
-ms.custom: zone_pivot_groups: programming-languages-set-functions
+ms.custom: 
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # RabbitMQ output binding for Azure Functions overview
