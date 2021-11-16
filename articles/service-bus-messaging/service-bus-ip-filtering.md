@@ -2,7 +2,7 @@
 title: Configure IP firewall rules for Azure Service Bus
 description: How to use Firewall Rules to allow connections from specific IP addresses to Azure Service Bus. 
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 11/15/2021
 ---
 
 # Allow access to Azure Service Bus namespace from specific IP addresses or ranges
@@ -30,12 +30,19 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 
     > [!NOTE]
     > You see the **Networking** tab only for **premium** namespaces.  
-    
-    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Networking page - default" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
-    
-    If you select the **All networks** option, your Service Bus namespace accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
+    - **Disabled**. This option disables any public access to the namespace. The namespace will be accessible only through [private endpoints](private-link-service.md). 
+  
+        :::image type="content" source="./media/service-bus-ip-filtering/public-access-disabled.png" alt-text="Networking page - public access tab - public network access is disabled.":::
+    - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
-    ![Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+        > [!IMPORTANT]
+        > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.   
+    
+        :::image type="content" source="./media/service-bus-ip-filtering/selected-networks.png" alt-text="Networking page with the selected networks option selected." lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+    - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+
+        :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.":::
 1. To allow access from only specified IP address, select the **Selected networks** option if it isn't already selected. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
@@ -44,7 +51,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
         >[!WARNING]
         > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).    
 
-        ![Screenshot of the Azure portal Networking page. The option to allow access from Selected networks is selected and the Firewall section is highlighted.](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
+        :::image type="content" source="./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from Selected networks is selected and the Firewall section is highlighted.":::
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
     > [!NOTE]
