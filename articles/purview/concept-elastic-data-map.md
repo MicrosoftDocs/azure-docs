@@ -113,38 +113,37 @@ Select **Service and subscription limits (quota)** and complete the on screen in
 
 In the description, provide as much relevant information as you can about your environment and the additional capacity you would like to request.
 
-## Monitoring the Elastic data map
+## Monitoring the elastic data map
 
 The metrics _data map capacity units_ and the _data map storage size_ can be monitored in order to understand the data estate size and the billing.
 
-- Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
+1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
 
-- Click on **Overview** and scroll down to observe the **Monitoring** section for _Data Map Capacity Units_ and _Data Map Storage Size_ metrics over different time periods
+2. Click on **Overview** and scroll down to observe the **Monitoring** section for _Data Map Capacity Units_ and _Data Map Storage Size_ metrics over different time periods
 
-    :::image type="content" source="./media/concept-elastic-data-map/data-map-metrics.png" alt-text="Menu showing the elastic data map metrics overview page":::
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-metrics.png" alt-text="Screenshot of the menu showing the elastic data map metrics overview page.":::
 
-- Alternatively, you can navigate to the **Monitoring --> Metrics** to observe the **Data Map Capacity Units** and **Data Map Storage Size**.
+3. For additional settings, navigate to the **Monitoring --> Metrics** to observe the **Data Map Capacity Units** and **Data Map Storage Size**.
 
-    :::image type="content" source="./media/concept-elastic-data-map/elastic-data-map-metrics.png" alt-text="Menu showing the metrics":::
+    :::image type="content" source="./media/concept-elastic-data-map/elastic-data-map-metrics.png" alt-text="Screenshot of the menu showing the metrics.":::
 
-- Click on the **Data Map Capacity Units** to view the data map capacity unit usage over the last 24 hours. Observe that hovering the mouse over the line graph will indicate the data map capacity units consumed at that particular time on the particular day.
+4. Click on the **Data Map Capacity Units** to view the data map capacity unit usage over the last 24 hours. Observe that hovering the mouse over the line graph will indicate the data map capacity units consumed at that particular time on the particular day.
 
-    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-default.png" alt-text="Menu showing the data map capacity units consumed over 24 hours":::
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-default.png" alt-text="Screenshot of the menu showing the data map capacity units consumed over 24 hours.":::
 
-- Click on the **Local Time: Last 24 hours (Automatic - 1 hour)** at the top right of the screen to modify time range displayed for the graph.
+5. Click on the **Local Time: Last 24 hours (Automatic - 1 hour)** at the top right of the screen to modify time range displayed for the graph.
 
-    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-custom.png" alt-text="Menu showing the data map capacity units consumed over a custom time range":::
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-custom.png" alt-text="Screenshot of the menu showing the data map capacity units consumed over a custom time range.":::
 
-    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-time-range.png" alt-text="Menu showing the data map capacity units consumed over a three day time range":::
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-time-range.png" alt-text="Screenshot of the menu showing the data map capacity units consumed over a three day time range.":::
 
-- The graph type can be customized by clicking on the option as indicated below.
+6. Customize the graph type by clicking on the option as indicated below.
 
-    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-graph-type.png" alt-text="Menu showing the options to modify the graph type":::
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-graph-type.png" alt-text="Screenshot of the menu showing the options to modify the graph type.":::
 
-- Click on the **New chart** to add the graph for the Data Map Storage Size chart.
+7. Click on the **New chart** to add the graph for the Data Map Storage Size chart.
 
-    :::image type="content" source="./media/concept-elastic-data-map/data-map-storage-size.png" alt-text="Menu showing the data map storage size used":::
-
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-storage-size.png" alt-text="Screenshot of the menu showing the data map storage size used.":::
 
 ## Summary
 
