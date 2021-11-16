@@ -14,7 +14,10 @@ ms.custom: devx-track-azurecli
 
 Many web applications have experienced a rapid increase of traffic in recent weeks because of COVID-19. These web applications are also experiencing a surge in malicious traffic, including denial-of-service attacks. There's an effective way to both scale out your application for traffic surges and protect yourself from attacks: configure Azure Front Door with Azure WAF as an acceleration, caching, and security layer in front of your web app.
 
-We'll be using the Azure CLI to configure security for your Azure Front Door in this tutorial. You can accomplish the same thing by using the Azure portal, Azure PowerShell, Azure Resource Manager, or the Azure REST APIs.
+We'll be using the Azure CLI for your Azure Front Door configuration in this tutorial. You can accomplish the same thing by using the Azure portal, Azure PowerShell, Azure Resource Manager, or the Azure REST APIs.
+
+> [!NOTE]
+> This article is for Azure Front Door (Classic). These instructions do not work for Azure Front Door Standard/Premium (Preview).
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
@@ -125,7 +128,7 @@ Open a web browser and enter the hostname obtained from the commands. The Front 
 
 ## Create a WAF policy
 
-Before you create your security policy, you'll need to run [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create) to create a WAF policy for one of your resource groups. Later, we'll create a security policy that applies your WAF policy to your endpoint's default domain and a custom domain.
+Run [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create) to create a WAF policy for one of your resource groups.
 
 Create a new WAF policy for your Front Door. This example creates a policy that's enabled and in prevention mode.
     
@@ -142,7 +145,7 @@ az network front-door waf-policy create
 
 ## Add and configure a managed WAF policy rule set
 
-Adding a WAF policy managed rule set provides you with previously created rules. Once you've selected and added a rule set, you can configure the set to exclude or override a rule if necessary. Run [az network front-door waf-policy managed-rule-definition list](/cli/azure/network/front-door/waf-policy/managed-rule-definition) to see a list of available rule sets. Run [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules) to add a rule set.
+Adding a WAF policy managed rule set provides you with previously created security rules. Once you've selected and added a rule set, you can configure the set to exclude or override a rule if necessary. Run [az network front-door waf-policy managed-rule-definition list](/cli/azure/network/front-door/waf-policy/managed-rule-definition) to see a list of available rule sets. Run [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules) to add a rule set.
 
 ### Add a managed rule set
 
@@ -201,5 +204,5 @@ az network front-door update
     --resource-group myRGFDCentral \ 
     --set frontendEndpoints[0].webApplicationFirewallPolicyLink='{"id":"/subscriptions/contoso/resourcegroups/myRGFDCentral/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/contosoWAF"}'
 ```
-## Create custom routing rules
+
 
