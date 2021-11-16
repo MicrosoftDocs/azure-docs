@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 11/16/2021
 ---
 
 # Private access (preview) in Azure Database for PostgreSQL Hyperscale (Citus)
@@ -72,7 +72,7 @@ To create a private endpoint to a node in an existing server group, open the
 
    :::image type="content" source="media/howto-hyperscale-private-access/networking.png" alt-text="Networking screen":::
 
-1. In the **Basics** tab, confirm the **Subscription**, **Resource group**, and
+2. In the **Basics** tab, confirm the **Subscription**, **Resource group**, and
    **Region**. Enter a **Name** for the endpoint, such as `my-server-group-eq`.
 
 	> [!NOTE]
@@ -82,16 +82,16 @@ To create a private endpoint to a node in an existing server group, open the
 	> default values for the form fields may not be correct; check them and
 	> update if necessary.
 
-2. Select **Next: Resource >**. In the **Target sub-resource** choose the target
+3. Select **Next: Resource >**. In the **Target sub-resource** choose the target
    node of the server group. Generally `coordinator` is the desired node.
 
-3. Select **Next: Configuration >**. Choose the desired **Virtual network** and
+4. Select **Next: Configuration >**. Choose the desired **Virtual network** and
    **Subnet**. Customize the **Private DNS integration** or accept its default
    settings.
 
-4. Select **Next: Tags >** and add any desired tags.
+5. Select **Next: Tags >** and add any desired tags.
 
-5. Finally, select **Review + create >**. Review the settings and select
+6. Finally, select **Review + create >**. Review the settings and select
    **Create** when satisfied.
 
 ## Next steps
