@@ -15,7 +15,7 @@ ms.custom: language-service-custom-classification, ignite-fall-2021
 
 # How to prepare data and define a schema
 
-In order to create a custom classification model, you will need quality data to train it. This article covers how you should approach selecting and preparing your data, along with defining a schema. A schema defines the classes that you need your model to classify your text into at runtime, and is the first step of [developing a custom classification application](../overview.md#application-development-lifecycle).
+In order to create a custom classification model, you will need quality data to train it. This article covers how you should approach selecting and preparing your data, along with defining a schema. A schema defines the classes that you need your model to classify your text into at runtime, and is the first step of [developing a custom classification application](../overview.md#project-development-lifecycle).
 
 
 ## Data selection
@@ -42,7 +42,7 @@ As a prerequisite for creating a custom text classification project, your traini
 * [Create and upload files from Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 * [Create and upload files using Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs)
 
-You can only use `.txt`. files for custom text. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to change your file format.
+You can only use `.txt`. files for custom text. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to change your file format.
 
  You can upload an annotated dataset, or you can upload an unannotated one and [tag your data](../how-to/tag-data.md) in Language studio. 
  

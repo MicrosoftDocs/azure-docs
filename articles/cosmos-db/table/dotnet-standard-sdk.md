@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/18/2019
+ms.date: 11/03/2021
 ms.custom: devx-track-dotnet
 
 ---
@@ -71,7 +71,8 @@ ms.custom: devx-track-dotnet
 * General availability release
 
 ### <a name="0.11.0-preview"></a>0.11.0-preview
-* Changes were made to how CloudTableClient can be configured. It now takes an a TableClientConfiguration object during construction. TableClientConfiguration provides different properties to configure the client behavior depending on whether the target endpoint is Cosmos DB Table API or Azure Storage Table API.
+
+* Changes were made to how CloudTableClient can be configured. It now takes a TableClientConfiguration object during construction. TableClientConfiguration provides different properties to configure the client behavior depending on whether the target endpoint is Cosmos DB Table API or Azure Storage Table API.
 * Added support to TableQuery to return results in sorted order on a custom column. This feature is only supported on Cosmos DB Table endpoints.
 * Added support to expose RequestCharges on various result types. This feature is only supported on Cosmos DB Table endpoints.
 

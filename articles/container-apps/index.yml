@@ -7,10 +7,10 @@ metadata:
   title: Azure Container Apps documentation
   description: Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure.
   ms.topic: landing-page
-  ms.service: app-service
+  ms.service: container-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 10/22/2021
+  ms.date: 11/08/2021
 
 landingContent:
   - title: About Azure Container Apps
@@ -19,12 +19,18 @@ landingContent:
         links:
           - text: What is Azure Container Apps?
             url: overview.md
+          - text: Compare container options in Azure
+            url: compare-options.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy your first container app
+          - text: Deploy your first container app - Azure CLI
             url: ./get-started.md
+      - linkListType: quickstart
+        links: 
+          - text: Deploy your first container app - Azure portal
+            url: ./quickstart-portal.md
       - linkListType: concept
         links:
           - text: Environments

@@ -18,7 +18,9 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes |
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes** |
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 > [!Important]
 > The supported platforms are Apache Hadoop, Cloudera, Hortonworks and Databricks.

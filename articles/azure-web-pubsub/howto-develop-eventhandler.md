@@ -61,7 +61,7 @@ update | Update hub settings for WebPubSub Service.
 Below is an example of creating 2 webhook URLs for hub `MyHub` of `MyWebPubSub` resource.
 
 ```azurecli-interactive
-az webpubsub hub create -n MyWebPubSub -g MyResourceGroup --hub-name MyHub --event-handler url-template="http://host.com" user-event-pattern="*" --event-handler url-template="http://host2.com" system-event="connected" system-event="disconnected" auth-type="ManagedIdentity" auth-resource="uri://myUri"
+az webpubsub hub create -n "MyWebPubSub" -g "MyResourceGroup" --hub-name "MyHub" --event-handler url-template="http://host.com" user-event-pattern="*" --event-handler url-template="http://host2.com" system-event="connected" system-event="disconnected" auth-type="ManagedIdentity" auth-resource="uri://myUri"
 ```
 
 ## Next steps

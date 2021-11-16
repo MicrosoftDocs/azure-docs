@@ -16,6 +16,13 @@ monikerRange: "=iotedge-2018-06"
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Windows device by using a Trusted Platform Module (TPM). You can automatically provision IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
+>[!NOTE]
+>Azure IoT Edge with Windows containers will not be supported starting with version 1.2 of Azure IoT Edge.
+>
+>Consider using the new method for running IoT Edge on Windows devices, [Azure IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md).
+>
+>If you want to use Azure IoT Edge for Linux on Windows, you can follow the steps in the [equivalent how-to guide](how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
+
 This article outlines two methodologies. Select your preference based on the architecture of your solution:
 
 - Autoprovision a Windows device with physical TPM hardware.
@@ -117,11 +124,11 @@ After the runtime is installed on your device, configure the device with the inf
 
 1. The `Initialize-IoTEdge` command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. Use the `-Dps` flag to use the device provisioning service instead of manual provisioning.
 
-   Replace the placeholder values for `{scope_id}` and `{registration_id}` with the data you collected earlier.
+   Replace the placeholder values for `paste_scope_id_here` and `paste_registration_id_here` with the data you collected earlier.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
+   Initialize-IoTEdge -Dps -ScopeId paste_scope_id_here -RegistrationId paste_registration_id_here
    ```
 
 ## Verify successful installation

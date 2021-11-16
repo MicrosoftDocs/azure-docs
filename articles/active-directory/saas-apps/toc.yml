@@ -519,6 +519,8 @@
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
         href: coupa-risk-assess-tutorial.md
+      - name: Coverity Static Application Security Testing
+        href: coverity-static-application-security-testing-tutorial.md  
       - name: CPQSync by Cincom
         href: cpqsync-by-cincom-tutorial.md
       - name: Creatio
@@ -1652,6 +1654,8 @@
         href: quickhelp-tutorial.md
       - name: Qumu Cloud
         href: qumucloud-tutorial.md
+      - name: R and D Tax Credit Services
+        href: r-and-d-tax-credit-services-tutorial.md
       - name: Rackspace SSO
         href: rackspacesso-tutorial.md
       - name: Raketa
@@ -1984,6 +1988,8 @@
         href: sumtotalcentral-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
+      - name: SURFsecureID - Azure MFA
+        href: surfsecureid-azure-mfa-tutorial.md  
       - name: SurveyMonkey Enterprise
         href: surveymonkey-enterprise-tutorial.md
       - name: Symantec Web Security Service (WSS)
@@ -2385,6 +2391,8 @@
         href: alertmedia-provisioning-tutorial.md
       - name: Amazon Web Services (AWS) - Role Provisioning
         href: amazon-web-service-tutorial.md#configure-azure-ad-sso
+      - name: Appaegis Isolation Access Cloud
+        href: appaegis-isolation-access-cloud-provisioning-tutorial.md  
       - name: Asana
         href: asana-provisioning-tutorial.md
       - name: askSpoke
@@ -2402,7 +2410,9 @@
       - name: BenQ IAM
         href: benq-iam-provisioning-tutorial.md 
       - name: Bentley - Automatic User Provisioning
-        href: bentley-automatic-user-provisioning-tutorial.md  
+        href: bentley-automatic-user-provisioning-tutorial.md
+      - name: BIC Cloud Design
+        href: bic-cloud-design-provisioning-tutorial.md    
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Bizagi Studio for Digital Process Automation
@@ -2489,6 +2499,8 @@
         href: elium-provisioning-tutorial.md
       - name: Exium
         href: exium-provisioning-tutorial.md
+      - name: Facebook Work Accounts
+        href: facebook-work-accounts-provisioning-tutorial.md  
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: Figma
@@ -2659,6 +2671,8 @@
         href: proware-provisioning-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-provisioning-tutorial.md
+      - name: Real Links
+        href: real-links-provisioning-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO

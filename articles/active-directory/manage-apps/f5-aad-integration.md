@@ -37,9 +37,9 @@ Having Azure AD pre-authenticate access to BIG-IP published services provides ma
 
 - [Partner collaboration](../governance/entitlement-management-external-users.md) - Entitlement management for governed guest access
 
-- [Cloud App Security (CASB)](/cloud-app-security/what-is-cloud-app-security) - For complete app discovery and  control
+- [Defender for Cloud Apps (CASB)](/cloud-app-security/what-is-cloud-app-security) - For complete app discovery and  control
 
-- Threat monitoring - [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for advanced threat analytics
+- Threat monitoring - [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for advanced threat analytics
 
 - The [Azure AD portal](https://azure.microsoft.com/features/azure-portal/) - A single control plane for governing identity and access
 
@@ -88,7 +88,7 @@ The screenshots provided are from the Azure AD app portal that users access secu
 
 A BIG-IP’s role is critical to any business, so deployed BIG-IP instances should be monitored to ensure published services are highly available, both at an SHA level and operationally too.
 
-Several options exist for logging events either locally, or remotely through a Security Information and Event Management (SIEM) solution, enabling off-box storage and processing of telemetry. A highly effective solution for monitoring Azure AD and SHA-specific activity, is to use [Azure Monitor](../../azure-monitor/overview.md) and [Azure Sentinel](../../sentinel/overview.md), together offering:
+Several options exist for logging events either locally, or remotely through a Security Information and Event Management (SIEM) solution, enabling off-box storage and processing of telemetry. A highly effective solution for monitoring Azure AD and SHA-specific activity, is to use [Azure Monitor](../../azure-monitor/overview.md) and [Microsoft Sentinel](../../sentinel/overview.md), together offering:
 
 - Detailed overview of your organization, potentially across multiple clouds, and on-premises locations, including BIG-IP infrastructure
 
@@ -142,7 +142,9 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [Configure Azure AD B2C with F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
 
-- [Integrate Azure Active Directory with F5 BIG-IP for forms-based authentication SSO](f5-big-ip-forms-advanced.md)
+- [F5 BIG-IP APM and Azure AD SSO to forms-based applications](f5-big-ip-forms-advanced.md)
+
+- [Integrate Azure Active Directory SSO with F5 BIG-IP for header-based authentication](f5-big-ip-header-advanced.md)
 
 ## Additional resources
 
@@ -152,7 +154,7 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
 
-- [Getting started with Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/?&OCID=AID2100131_SEM_XfknpgAAAHoVMTvh:20200922160358:s&msclkid=5e0e022409fc1c94dab85d4e6f4710e3&ef_id=XfknpgAAAHoVMTvh:20200922160358:s&dclid=CJnX6vHU_esCFUq-ZAod1iQF6A)
+- [Getting started with Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/?&OCID=AID2100131_SEM_XfknpgAAAHoVMTvh:20200922160358:s&msclkid=5e0e022409fc1c94dab85d4e6f4710e3&ef_id=XfknpgAAAHoVMTvh:20200922160358:s&dclid=CJnX6vHU_esCFUq-ZAod1iQF6A)
 
 ## Next steps
 

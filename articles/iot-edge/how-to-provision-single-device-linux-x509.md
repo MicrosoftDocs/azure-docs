@@ -50,7 +50,7 @@ An X64, ARM32, or ARM64 Linux device.
 
 Microsoft provides installation packages for Ubuntu Server 18.04 and Raspberry Pi OS Stretch operating systems.
 
-For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems)
+For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems).
 
 >[!NOTE]
 >Support for ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -85,10 +85,10 @@ Find the provisioning configurations section of the file and uncomment the **Man
      source: "manual"
      authentication:
        method: "x509"
-       iothub_hostname: "<REQUIRED IOTHUB HOSTNAME>"
-       device_id: "<REQUIRED DEVICE ID PROVISIONED IN IOTHUB>"
-       identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
-       identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+       iothub_hostname: "REQUIRED_IOTHUB_HOSTNAME"
+       device_id: "REQUIRED_DEVICE_ID_PROVISIONED_IN_IOTHUB"
+       identity_cert: "REQUIRED_URI_TO_DEVICE_IDENTITY_CERTIFICATE"
+       identity_pk: "REQUIRED_URI_TO_DEVICE_IDENTITY_PRIVATE_KEY"
    ```
 
 Update the following fields:
@@ -132,15 +132,15 @@ Find the **Provisioning** section of the file and uncomment the lines for manual
    # Manual provisioning with x.509 certificates
    [provisioning]
    source = "manual"
-   iothub_hostname = "<REQUIRED IOTHUB HOSTNAME>"
-   device_id = "<REQUIRED DEVICE ID PROVISIONED IN IOTHUB>"
+   iothub_hostname = "REQUIRED_IOTHUB_HOSTNAME"
+   device_id = "REQUIRED_DEVICE_ID_PROVISIONED_IN_IOTHUB"
 
    [provisioning.authentication]
    method = "x509"
 
-   identity_cert = "<REQUIRED URI OR POINTER TO DEVICE IDENTITY CERTIFICATE>"
+   identity_cert = "REQUIRED_URI_OR_POINTER_TO_DEVICE_IDENTITY_CERTIFICATE"
 
-   identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   identity_pk = "REQUIRED_URI_TO_DEVICE_IDENTITY_PRIVATE_KEY"
    ```
 
 Update the following fields:
@@ -254,7 +254,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
    2. Use the copied link in the following command to install that version of the hsmlib:
 
       ```bash
-      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
+      curl -L libiothsm-std_link_here -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
       ```
 
    3. Find the **iotedge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -262,7 +262,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
    4. Use the copied link in the following command to install that version of the IoT Edge security daemon.
 
       ```bash
-      curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
+      curl -L iotedge_link_here -o iotedge.deb && sudo apt-get install ./iotedge.deb
       ```
 
 <!-- end 1.1 -->

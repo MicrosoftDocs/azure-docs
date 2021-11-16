@@ -209,6 +209,8 @@
           href: concept-data-ingestion.md
         - name: Data processing
           href: concept-optimize-data-processing.md
+        - name: Studio network data access
+          href: concept-network-data-access.md
     - name: Security
       items:
         - name: Enterprise security overview

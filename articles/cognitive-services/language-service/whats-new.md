@@ -23,7 +23,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Question Answering (now Generally Available)](question-answering/overview.md) 
     * [Sentiment Analysis and opinion mining](sentiment-opinion-mining/overview.md)
     * [Key Phrase Extraction](key-phrase-extraction/overview.md)
-    * [Named Entity Recognition (NER), Personally Identifying Information (PII)](/azure/cognitive-services/named-entity-recognition/overview.md)
+    * [Named Entity Recognition (NER), Personally Identifying Information (PII)](named-entity-recognition/overview.md)
     * [Language Detection](language-detection/overview.md)
     * [Text Analytics for health](text-analytics-for-health/overview.md)
     * [Text summarization preview](text-summarization/overview.md)
