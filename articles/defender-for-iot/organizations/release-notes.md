@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 11/15/2021
+ms.date: 11/16/2021
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -36,7 +36,9 @@ The following feature enhancements are available with version 10.5.3 of Microsof
 
 - The sensors will now automatically delete archived alerts that are over 90 days old.
 
-- We made performance improvements to the sensor's alerts, and device inventory, and the management console's ability to export alerts.
+- Improvements were made to alert exports, based on customer feedback.
+
+- Performance, and network traffic analysis improvements were made.
 
 ## October 2021
 
