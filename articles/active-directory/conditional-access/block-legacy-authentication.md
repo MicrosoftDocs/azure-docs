@@ -127,9 +127,9 @@ Configuring a policy for **Other clients** blocks the entire organization from c
 
 You can select all available grant controls for the **Other clients** condition; however, the end-user experience is always the same - blocked access.
 
-### SharePoint Online and B2B guest users
+### SharePoint Online
 
-To block B2B user access via legacy authentication to SharePoint Online, organizations must disable legacy authentication on SharePoint using the `Set-SPOTenant` PowerShell command and setting the `-LegacyAuthProtocolsEnabled` parameter to `$false`. More information about setting this parameter can be found in the SharePoint PowerShell reference document regarding [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
+To block user access via legacy authentication to SharePoint Online, organizations must disable legacy authentication on SharePoint using the `Set-SPOTenant` PowerShell command and setting the `-LegacyAuthProtocolsEnabled` parameter to `$false`. More information about setting this parameter can be found in the SharePoint PowerShell reference document regarding [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
 
 ## Next steps
 

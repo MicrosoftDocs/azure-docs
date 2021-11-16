@@ -1,11 +1,11 @@
 ---
 title: Use and manage an App Service Environment
 description: Learn how to create, publish, and scale apps in an App Service Environment. Find all the common tasks in this article.
-author: ccompy
+author: madsd
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 8/5/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
 ---
 # Use an App Service Environment

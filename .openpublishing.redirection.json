@@ -3450,22 +3450,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-app-service-environments-readme.md",
-      "redirect_url": "/azure/app-service/environment/intro",
+      "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-environment/intro.md",
-      "redirect_url": "/azure/app-service/environment/intro",
+      "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-environment/readme.md",
-      "redirect_url": "/azure/app-service/environment/intro",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/environment/index.md",
-      "redirect_url": "/azure/app-service/environment/intro",
+      "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
     },
     {
