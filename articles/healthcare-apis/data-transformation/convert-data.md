@@ -6,7 +6,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 05/11/2021
+ms.date: 11/16/2021
 ms.author: ranku
 ---
 
@@ -164,7 +164,6 @@ Select **Networking** of the Azure storage account from the portal.
 
    :::image type="content" source="media/convert-data/networking-container-registry.png" alt-text="Container registry.":::
 
-
 Select **Selected networks**. 
 
 Under the **Firewall** section, specify the IP address in the **Address range** box. Add IP ranges to allow access from the internet or your on-premises networks. 
@@ -198,6 +197,12 @@ In the table below, you'll find the IP address for the Azure region where the FH
 
 > [!NOTE]
 > The above steps are similar to the configuration steps described in the document How to export FHIR data. For more information, see [Secure Export to Azure Storage](./export-data.md#secure-export-to-azure-storage)
+
+For a private network access, you can also disable the public network access of ACR.
+* Select Networking blade of the Azure storage account from the portal.
+* Select `Disabled`.
+* Select Firewall exception : Allow trusted Microsoft services to access this container registry.
+
 
 ### Verify
 
