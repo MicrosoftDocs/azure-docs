@@ -3,6 +3,8 @@ title: "Quickstart: Use cURL & REST to manage knowledge base - custom question a
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
 ms.date: 11/16/2021
 ms.topic: include
+author: mrbullwinkle
+ms.author: mbullwin
 ms.custom: ignite-fall-2021
 ---
 ## Prerequisites
