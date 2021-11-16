@@ -23,7 +23,7 @@ You can use the workspace diagnostics from the Azure Machine Learning studio or 
 
 From [Azure Machine Learning studio](https://ml.azure.com) or the Python SDK, you can run diagnostics on your workspace to check your setup. To run diagnostics, select the '__?__' icon from the upper right corner of the page. Then select __Run workspace diagnostics__.
 
-:::image type="content" source="./media/machine-learning-workspace-diagnostics/diagnostics.png" alt-text="Screenshot of the workspace diagnostics button":::
+:::image type="content" source="./media/how-to-workspace-diagnostic-api/diagnostics.png" alt-text="Screenshot of the workspace diagnostics button":::
 
 After diagnostics run, a list of any detected problems is returned. This list includes links to possible solutions.
 
