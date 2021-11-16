@@ -111,10 +111,10 @@ To learn more about how to assign and manage Azure role assignments, see these a
 
 We officially support 4 programming languages:
 
-- [C#](howto-use-aad-in-csharp)
-- [Python](howto-use-aad-in-python)
-- [Java](howto-use-aad-in-java)
-- [JavaScript](howto-use-aad-in-javascript)
+- [C#](./howto-use-aad-in-csharp.md)
+- [Python](./howto-use-aad-in-python.md)
+- [Java](./howto-use-aad-in-java.md)
+- [JavaScript](./howto-use-aad-in-javascript.md)
 
 ## Next steps
 
