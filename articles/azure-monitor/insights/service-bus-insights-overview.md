@@ -107,75 +107,36 @@ For more information about these metrics, see [Service Bus - Request metrics](..
 
     :::image type="content" source="./media/service-bus-insights/service-bus-overview.png" lightbox="./media/service-bus-insights/service-bus-overview.png" alt-text="Screenshot of Service Bus Insights Overview.":::
 
-You see the same tabs (**Overview**, **Requests**, and **Messages**) on this page, similar to the ones in the **Azure Monitor - Service Bus (Preview)** page. You'll see more information on these tabs compared to the ones in the Azure Monitor page. 
+You see the same tabs (**Overview**, **Requests**, and **Messages**) on this page, similar to the ones in the **Azure Monitor - Service Bus (Preview)** page. You'll see more information on these tabs compared to the ones on the Azure Monitor page though. 
 
 ### Overview tab
-You see the following information for the Service Bus **namespace** for the selected **time range**.
+You see the following information for the Service Bus **namespace** for the selected **time range**: number of active connections, connections opened, successful requests, throttled requests, and incoming messages.
 
-- Number of active connections
-- Number of connections opened
-- Number of successful requests
-- Number of throttled requests
-- Number of incoming messages
-
-It also has charts showing the following information for the namespace over time in the selected time range.
-
-- Active connections
-- Connections opened and closed
-- Successful requests
-- Throttled requests
-- Incoming and outgoing messages
+You also see charts with the following information for the namespace over time in the selected time range: active connections, connections opened and closed, successful requests, throttled requests, and incoming & outgoing messages. For example, in the image in the previous section, the **Active Connections** chart shows the number of active connections in the last 4 hours (selected time range).
 
 ### Requests tab
-You see the following information for the Service Bus **namespace** for the selected **time range**.
-
-- Number of incoming requests
-- Number of successful requests
-- Number of server errors
-- Number of user errors
-- Number of throttled requests
+You see the following information for the Service Bus **namespace** for the selected **time range**: number of incoming requests, successful requests, server errors, user errors, and throttled requests.
 
 The table that follows this section shows break down of these values for each resource (queue or topic) in the Service Bus namespace.
 
-It also has charts showing the following information for the namespace over time in the selected time range.
+It also has charts showing the following information for the namespace over time in the selected time range:
 
-- Incoming requests
-- Incoming requests by segment (queues and topics in the namespace)
-- Successful requests
-- Successful requests - by segment (queues and topics in the namespace)
-- Server errors
-- Server errors by segment (queues and topics in the namespace)
-- User errors
-- User errors by segment (queues and topics in the namespace)
-- Throttled requests
-- Throttled requests by segment (queues and topics in the namespace)
+- Incoming, successful, and throttled requests for all entities in the namespace and for each entity in the namespace
+- Server and user errors for all entities in the namespace and for each entity (segment) in the namespace. 
+
 
 ### Messages tab
-You see the following information for the Service Bus **namespace** for the selected **time range**.
+You see the following information for the Service Bus **namespace** for the selected **time range**: 
 
-- Number of incoming messages
-- Number of outgoing messages
-- Average of number of messages in queues and topics
-- Average of number of active messages in queues and topics
-- Average of number of scheduled messages in queues and topics
-- Number of dead-lettered messages
+- Number of incoming, outgoing, and dead-lettered messages
+- Average number of messages, active messages, and scheduled messages in queues and topics
 
 The table that follows this section shows break down of these values for each resource (queue or topic) in the Service Bus namespace.
 
-It also has charts showing the following information for the namespace over time in the selected time range.
+It also has charts showing the following information for the namespace over time in the selected time range: 
 
-- Incoming messages
-- Incoming messages by segment (queues or topics in the namespace)
-- Outgoing messages
-- Outgoing messages by segment (queues or topics in the namespace)
-- Messages in queues or topics
-- Messages in queues or topics segmented by each queue or topic
-- Active messages in queues or topics
-- Active messages in queues or topics segmented by each queue or topic
-- Scheduled messages in queues or topics
-- Scheduled messages in queues or topics segmented by each queue or topic
-- Dead-lettered messages in queues or topics
-- Dead-lettered Messages in queues or topics segmented by each queue or topic
+- Incoming, outgoing, all, active, scheduled, and dead-lettered messages for all entities (queues and topics) in the namespace. 
+- Breakdown of above metrics by segment or entity (queue or topic in the namespace)
 
 
 ### Time range
