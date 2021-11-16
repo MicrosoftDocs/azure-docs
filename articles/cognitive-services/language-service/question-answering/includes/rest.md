@@ -55,8 +55,6 @@ When you run the code above, if you are using the data source from the prerequis
     }
   ]
 }
-
-}
 ```
 
 The `confidenceScore` returns a value between 0 and 1. You can think of this like a percentage and multiply by 100 so a confidence score of 0.9185 means question answering is 91.85% confident this is the correct answer to the question based on the knowledge base.
@@ -73,6 +71,7 @@ curl -X POST -H "Ocp-Apim-Subscription-Key: {YOUR_API_KEY}" -H "Content-Type: ap
 Since we know from our previous execution of the code that our confidence score is: `.9185` setting the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
 
 ```json
+{
   "answers": [
     {
       "questions": [],
@@ -87,12 +86,11 @@ Since we know from our previous execution of the code that our confidence score 
 
 ## Query text without a knowledge base
 
-You can also use question answering without a knowledge base with prebuilt question answering REST API which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
+You can also use question answering without a knowledge base with prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
 For this example, you only need to modify the variables for `API KEY` and `ENDPOINT`.
 
 ```bash
-
 curl -X POST -H "Ocp-Apim-Subscription-Key: {YOUR_API_KEY}" -H "Content-Type: application/json" -d '{
 "question":"How long does it takes to charge a surface?",
 "records":[
@@ -101,13 +99,13 @@ curl -X POST -H "Ocp-Apim-Subscription-Key: {YOUR_API_KEY}" -H "Content-Type: ap
 "language":"en",
 "stringIndexType":"Utf16CodeUnit"
 }'  'https://{YOUR_ENDPOINT}.api.cognitive.microsoft.com/language/:query-text?&api-version=2021-10-01'
-
 ```
 
 This example will return a result of:
 
 ```json
-  "answers": [
+{  
+"answers": [
     {
       "answer": "Power and charging.It takes two to four hours to charge the Surface Pro 4 battery fully from an empty state. It can take longer if you're using your Surface for power-intensive activities like gaming or video streaming while you're charging it",
       "confidenceScore": 0.9118788838386536,
