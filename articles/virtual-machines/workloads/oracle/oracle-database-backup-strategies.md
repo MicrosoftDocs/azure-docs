@@ -56,11 +56,11 @@ Azure cloud storage provides five levels of [redundancy](../../../storage/common
 
 #### Blob storage and file storage
 
-When using Azure Files with either SMB or NFS 4.1 (Preview) protocols to mount as backup storage, note that Azure Files does not support read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS). 
+When using Azure Files with either SMB or NFS 4.1 protocols to mount as backup storage, note that Azure Files does not support read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS). 
 
 Additionally, if the backup storage requirement is greater than 5 TiB Azure Files requires [Large File Shares feature](../../../storage/files/storage-files-planning.md) enabled which does not support GRS or GZRS redundancy - only LRS is supported. 
 
-Azure Blob mounted using NFS 3.0 (Preview) protocol currently only supports LRS and ZRS redundancy.  
+Azure Blob mounted using NFS 3.0 protocol currently only supports LRS and ZRS redundancy.  
 
 Azure Blob configured with any redundancy option can be mounted using Blobfuse.
 
@@ -81,14 +81,9 @@ Azure Blob storage is a highly cost effective, durable, and secure cloud-based s
 
 While ubiquitous across all Azure regions, and works with all storage account types including general purpose v1/v2 and Azure Data Lake Store Gen2, performance offered by Blobfuse has shown to be less than alternative protocols such as SMB or NFS. For suitability as the database backup media, we would recommend using SMB or [NFS](../../../storage/blobs/storage-how-to-mount-container-linux.md) protocols to mount Azure Blob storage. 
 
-#### Azure Blob NFS v3.0 (Preview)
+#### Azure Blob NFS v3.0
 
-Azure support for the Network File System (NFS) v3.0 protocol is now in preview. [NFS](../../../storage/blobs/network-file-system-protocol-support.md) support enables Windows and Linux clients to mount a Blob storage container to an Azure VM. 
-
-NFS 3.0 public preview supports GPV2 storage accounts with standard tier performance in the following regions: 
-- Australia East
-- Korea Central
-- South Central US. 
+Azure support for the Network File System (NFS) v3.0 protocol is now available. [NFS](../../../storage/blobs/network-file-system-protocol-support.md) support enables Windows and Linux clients to mount a Blob storage container to an Azure VM. 
 
 To ensure network security, the storage account used for NFS mounting must be contained within a VNet. Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
 
@@ -96,22 +91,15 @@ To ensure network security, the storage account used for NFS mounting must be co
 
 [Azure Files](../../../storage/files/storage-files-introduction.md) is a cloud-based, fully managed distributed file system that can be mounted to on premise or cloud-based Windows, Linux or macOS clients.
 
-Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the Server Message Block (SMB) protocol and Network File System (NFS) protocol (preview). Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. We recommend determining which protocol best suits your needs before creating Azure file shares.
+Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the Server Message Block (SMB) protocol and Network File System (NFS) protocol. Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. We recommend determining which protocol best suits your needs before creating Azure file shares.
 
 Azure File shares can also be protected through Azure Backup to Recovery services vault, providing an additional layer of protection to the Oracle RMAN backups.
 
-#### Azure Files NFS v4.1 (Preview)
+#### Azure Files NFS v4.1
 
-Azure file shares can be mounted in Linux distributions using the Network File System (NFS) v4.1 protocol. While in Preview there are a number of limitations to supported features. For more information, see [Mount an Azure NFS file share (preview)](../../../storage/files/storage-files-how-to-mount-nfs-shares.md). 
+Azure file shares can be mounted in Linux distributions using the Network File System (NFS) v4.1 protocol. There are a number of limitations to supported features. For more information, see [Support for Azure Storage features](../../../storage/files/files-nfs-protocol.md#support-for-azure-storage-features). 
 
-While in preview Azure Files NFS v4.1 is also restricted to the following [regions](../../../storage/files/storage-files-how-to-mount-nfs-shares.md):
-- East US (LRS and ZRS)
-- East US 2
-- West US 2
-- West Europe
-- Southeast Asia
-- UK South
-- Australia East
+[!INCLUDE [files-nfs-regional-availability](../../../../includes/files-nfs-regional-availability.md)]
 
 #### Azure Files SMB 3.0
 
