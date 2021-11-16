@@ -546,7 +546,7 @@ There are two ways to install packages on your Function App:
 2. Deploy your code, and ensure that the `node_modules` folder is included in the deployment. 
 
 
-### <a href="using-kudu">Using Kudu (Windows only)
+### <a name="using-kudu">Using Kudu (Windows only)
 1. Go to `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Click **Debug Console** > **CMD**.
