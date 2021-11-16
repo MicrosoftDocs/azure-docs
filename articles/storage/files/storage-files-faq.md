@@ -360,6 +360,18 @@ Initial sync is typically limited by the initial upload rate of 20 files per sec
 **Can I migrate existing data to an NFS share?**
 
     Within a region, you can use standard tools like scp, rsync, or SSHFS to move data. Because Azure Files NFS can be accessed from multiple compute instances concurrently, you can improve copying speeds with parallel uploads. If you want to bring data from outside of a region, use a VPN or a Expressroute to mount to your file system from your on-premises data center.
+    
+* <a id=nfs-ibm-mq-support></a>
+**Can you run IBM MQ (including multi-instance) on Azure Files NFS?**
+    * Azure Files NFS v4.1 file shares meets the three requirements set by IBM MQ
+       - https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-requirements-shared-file-systems
+          + Data write integrity
+          + Guaranteed exclusive access to files
+          + Release locks on failure
+    * The following test cases run successfully
+        1. https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-verifying-shared-file-system-behavior
+        2. https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-running-amqsfhac-test-message-integrity
+    * The results of the above tests have been reviewed with IBM MQ team
 
 ## On-premises access
 
