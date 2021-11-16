@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 11/18/2021
 ms.custom: devx-track-js
 ---
 # Azure Functions JavaScript developer guide
