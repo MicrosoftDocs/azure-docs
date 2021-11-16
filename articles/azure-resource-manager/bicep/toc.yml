@@ -103,6 +103,8 @@
       items:
       - name: Access control
         href: scenarios-rbac.md
+      - name: Secrets
+        href: scenarios-secrets.md
       - name: Virtual networks
         href: scenarios-virtual-networks.md
   - name: Deploy
