@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # What is Azure AD Connect?
 
-Azure AD Connect is an on-premises Microsoft application designed to meet and accomplish your hybrid identity goals.  If you are evaluating how to best meet your goals, you should also consider [Azure AD Connect cloud sync](https://docs.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync), which is a cloud-managed solution.
+Azure AD Connect is an on-premises Microsoft application that's designed to meet and accomplish your hybrid identity goals. If you're evaluating how to best meet your goals, you should also consider the cloud-managed solution [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
 
 Azure AD Connect provides the following features:
      
