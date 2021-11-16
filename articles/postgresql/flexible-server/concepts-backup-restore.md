@@ -86,7 +86,7 @@ You can choose between a latest restore point and a custom restore point.
 
 -   **Custom restore point**: This option allows you to choose any point-in-time within the retention period defined for this flexible server. By default, the latest time in UTC is auto-selected, and useful if you want to restore to the last committed transaction for your test purposes. You can optionally choose other days and time. 
 
-The estimated time to recover depends on several factors including database size, volume of transaction logs to process, and the total number of databases recovering in the same region at the same time. The overall recovery time usually takes from few minutes up to few hours.
+The estimated time to recover depends on several factors including the volume of transaction logs to process post the previous backup time, and the total number of databases recovering in the same region at the same time. The overall recovery time usually takes from few minutes up to few hours.
 
 If you have configured your server within a VNET, you can restore to the same VNET or to a different VNET. However, you cannot restore to a public access. Similarly, if you configured your server with public access, you cannot restore to a private VNET access.
 
@@ -99,9 +99,9 @@ If you configured your server with geo-redundant backup, you can restore it to a
 
 When the server is configured with geo-redundant backup, the backup data is copied to the paired region asynchronously using storage replication. This includes copying of data backup and also transaction logs. After the server creation, please wait at least for one hour before initiating a geo-restore. That will allow the first set of backup data to be replicated to the paired region. Subsequently, the transaction logs and the daily backups are asynchronously copied to the paired region and there could be up to one hour of delay in data transmission. Hence, you can expect up to one hour of RPO when you restore. You can only restore to the last available backup data that is available at the paired region. Currently, point-in-time restore of geo-backup is not available.
 
-During the geo-restore, the server configurations that can be changed include VNET settings and the ability to remove geo-redundant backup from the restored server.  Changing other server configurations such as compute, storage or pricing tier (Burstable, General Purpose, or Memory Optimized) during geo-restore are not supported. 
+The estimated time to recover the server (RTO) depends on factors including the size of the database, the last database backup time, and the amount of WAL to process till the last received backup data. The overall recovery time usually takes from few minutes up to few hours.
 
-The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. 
+During the geo-restore, the server configurations that can be changed include VNET settings and the ability to remove geo-redundant backup from the restored server.  Changing other server configurations such as compute, storage or pricing tier (Burstable, General Purpose, or Memory Optimized) during geo-restore are not supported.
 
 > [!IMPORTANT]
 > When primary region is down, you cannot create geo-redundant servers in the respective geo-paired region as storage cannot be provisioned in the primary region. You must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 
