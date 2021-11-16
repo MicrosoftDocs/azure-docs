@@ -3584,7 +3584,7 @@
   {
     "source_path_from_root": "/articles/cosmos-db/sql/sql-api-dotnet-samples.md",
     "redirect_url": "/azure/cosmos-db/sql/sql-api-dotnet-v3sdk-samples",
-    "redirect_document_id": true
+    "redirect_document_id": false
   },   
   {
     "source_path_from_root": "/articles/cosmos-db/sql/mobile-apps-with-xamarin.md",
