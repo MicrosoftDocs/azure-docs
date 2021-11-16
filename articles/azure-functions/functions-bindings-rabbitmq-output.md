@@ -281,7 +281,7 @@ Annotations are not supported by Python.
 ::: zone-end 
 ::: zone pivot="programming-language-java"  
 
-The `RabbitMQOutput` annotation allows you to create a function that runs when sending a RabbitMQ message. Configuration options available include queue name and connection string name. For additional parameter details please visit the [RabbitMQOutput Java annotations](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/binding-library/java/src/main/java/com/microsoft/azure/functions/rabbitmq/annotation/RabbitMQOutput.java).
+The `RabbitMQOutput` annotation allows you to create a function that runs when sending a RabbitMQ message. Configuration options available include queue name and connection string name. For more parameter details, visit the [RabbitMQOutput Java annotations](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/binding-library/java/src/main/java/com/microsoft/azure/functions/rabbitmq/annotation/RabbitMQOutput.java).
 
 See the output binding [example](#example) for more detail.
 
@@ -301,8 +301,8 @@ The following table explains the binding configuration properties that you set i
 |**hostName**|**HostName**|(ignored if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
 |**userName**|**UserName**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue. Ex. UserNameSetting: "< UserNameFromSettings >"|
 |**password**|**Password**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue. Ex. UserNameSetting: "< UserNameFromSettings >"|
-|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting: 5672.|
+|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. If you specify the connection string directly and not through an app setting in local.settings.json, the trigger won't work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
+|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -319,8 +319,8 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 
 Use the following parameter types for the output binding:
 
-* `byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
-* `string` - If the parameter value is null when the function exits, Functions does not create a message.
+* `byte[]` - If the parameter value is null when the function exits, Functions doesn't create a message.
+* `string` - If the parameter value is null when the function exits, Functions doesn't create a message.
 * `POCO` - If the parameter value isn't formatted as a C# object, an error will be received. For a complete example, see C# [example](#example).
 
 When working with C# functions:
@@ -335,8 +335,8 @@ When working with C# functions:
 
 Use the following parameter types for the output binding:
 
-* `byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
-* `string` - If the parameter value is null when the function exits, Functions does not create a message.
+* `byte[]` - If the parameter value is null when the function exits, Functions doesn't create a message.
+* `string` - If the parameter value is null when the function exits, Functions doesn't create a message.
 * `POCO` - If the parameter value isn't formatted as a C# object, an error will be received. For a complete example, see C# Script [example](#example).
 
 When working with C# Script functions:
@@ -350,8 +350,8 @@ When working with C# Script functions:
 
 Use the following parameter types for the output binding:
 
-* `byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
-* `string` - If the parameter value is null when the function exits, Functions does not create a message.
+* `byte[]` - If the parameter value is null when the function exits, Functions doesn't create a message.
+* `string` - If the parameter value is null when the function exits, Functions doesn't create a message.
 * `POJO` - If the parameter value isn't formatted as a Java object, an error will be received.
 
 ::: zone-end  

@@ -245,7 +245,7 @@ The following table explains the binding configuration properties that you set i
 |**hostName**|**HostName**|(ignored if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
 |**userNameSetting**|**UserNameSetting**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue. Ex. UserNameSetting: "%< UserNameFromSettings >%"|
 |**passwordSetting**|**PasswordSetting**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue. Ex. PasswordSetting: "%< PasswordFromSettings >%"|
-|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. If you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
+|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. If you specify the connection string directly and not through an app setting in local.settings.json, the trigger won't work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
 |**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
