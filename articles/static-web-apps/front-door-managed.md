@@ -5,73 +5,74 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 11/15/2021
 ms.author: cshoe
 ---
 
 # Enable an enterprise-grade CDN using Azure Front Door in Azure Static Web Apps
 
-Enterprise-grade edge 
+Use Azure Front Door to provide faster load times, better security, and enable better performance in your static web app. Azure Front Door increases the points of presence and extends your static web app with an enterprise-grade edge to provide:
 
-Extend this Static Web App with enterprise-grade edge powered by Azure Front Door. This seamless integration will protect your applications from Distributed Denial of Service (DDoS) attacks, significantly reduce latency and increase throughput for your global users with edge load balancing, SSL offload and application acceleration. 
+* Protection from [Distributed Denial of Service (DDoS) attacks](https://docs.microsoft.com/azure/frontdoor/front-door-ddos)
+* Significant reductions in latency
+* Increased throughput by bringing static assets geographically closer to your users through [edge load balancing](https://docs.microsoft.com/azure/frontdoor/edge-locations-by-region)
+* SSL offloading
+* [Enhanced caching](https://docs.microsoft.com/azure/frontdoor/front-door-caching)
+* Application acceleration
 
- 
+To enable Azure Front Door in Static Web Apps, you must have the following items in place:
 
-prerequisites: 
+* A custom domain configured for your static web app.
+* DNS TTL set for less than 48 hours.
 
-custom domain configured 
+## Caching
 
-apex domain TTL < 48hrs https://www.nslookup.io/blog/what-is-a-good-ttl-for-dns/ 
+When Azure Front Door is enabled in for your static web app, your app is cached at various levels.
 
-Why 
+* **CDN**: Caching files on edge locations as physically close to users a possible.
+* **DNS**: Returning cached results of identical requests on from the DNS server.
+* **Browser**: Files are stored in the browser and returned for identical requests.
 
-Improve page load times by bringing your app assets closer to your users; more points of presence https://docs.microsoft.com/en-us/azure/frontdoor/edge-locations-by-region  
+For further control, you also have the option to create [custom cache control headers](configuration.md) for your static web app.
 
-Better security: protect your application against DDoS https://docs.microsoft.com/en-us/azure/frontdoor/front-door-ddos 
+## Configuration types
 
-Enhanced caching https://docs.microsoft.com/en-us/azure/frontdoor/front-door-caching 
+You can configure Azure Front Door via a managed experience through the Azure portal, or you [can set it up manually](front-door-manual.md).
 
-(⚠️ requires further thought) Managed vs bring your own azure front door 
+A managed experience provides:
 
- 
+* Zero configuration changes
+* No downtime
+* Automatically managed SSL certifications and custom domains
 
-Managed: zero config, no downtime, certs and custom domain are managed by static web apps; smart defaults   
+A manual setup gives you full control over the CDN configuration including the chance to:
 
- 
+* Limit traffic origin by origin
+* Add a web application firewall
+* Use more advanced features of Azure Front Door
 
-Bring your own front door: 	 
+## Enable Azure Front Door
 
-you need to manage the azure front door instance, configure static web apps to limit traffic origin 
+### Prerequisites
 
-you can add WAF and use more advanced features of AFD  
+* Custom domain configured for your static web app
+* Apex domain with TTL set to less than 48 hrs
 
- 
+# [Azure portal](tab/azure-portal)
 
-(⚠️ engineering still working on the default strategy) Custom caching configuration on static web apps 
+1. Navigate to your static web app in the Azure portal.
 
-browser - caching files at the browser level 
+1. Select **Enterprise-grade edge** in the left menu.
 
-CDN - caching files on edge locations close to your usrs 
+1. Check the box labeled **Enable enterprise-grade CDN**.
 
-dns - caching 
+1. Select **Save**.
 
-With static web apps by default, you get this strategy <insert strategy here> 
+1. Select **OK** to confirm the save.
 
-You can also configure caching by setting up cache control headers in static web apps config. 
+    Enabling this feature may result in additional costs.
 
-how to set it up 
-
-using the portal check box in the Enterprise-grade edge 
-
-# [Azure Portal](tab/azure-portal)
-
-1. Navigate to your static web app in the the Azure portal
-1. Enterprise-grade edge
-1. Enable enterprise-grade CDN
-1. Save
-1. OK
-
-# [Azure Portal](tab/azure-portal)
+# [Azure CLI](tab/azure-portal)
 
 ```azurecli
 az extension add --yes --source "https://sstrawnwheels.blob.core.windows.net/wheels/enterprise_edge-0.1.0-py3-none-any.whl"
@@ -79,6 +80,4 @@ az extension add --yes --source "https://sstrawnwheels.blob.core.windows.net/whe
 
 ---
 
-this feature is enabled only in EUAP
-
-
+This feature is enabled only in EUAP
