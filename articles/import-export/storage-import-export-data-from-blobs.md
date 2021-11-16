@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/11/2021
+ms.date: 11/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -40,7 +40,11 @@ You must:
 
 ## Step 1: Create an export job
 
-### [Portal](#tab/azure-portal)
+### [Portal (Preview)](#tab/azure-portal-preview)
+
+[!INCLUDE [storage-import-export-preview-export-steps.md](../../includes/storage-import-export-preview-export-steps.md)]
+
+### [Portal (Classic)](#tab/azure-portal-classic)
 
 Perform the following steps to create an export job in the Azure portal.
 
