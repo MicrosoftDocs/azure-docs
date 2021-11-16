@@ -167,7 +167,7 @@ The structure of accounts and subscriptions affect how they're administered and 
 
 After a new account is added to the enrollment, the account owner is sent an account ownership email that's used to confirm ownership.
 
-Check out the [EA admin manage departments](https://www.youtube.com/watch?v=VKWAEx6qfPc) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [EA admin manage accounts](https://www.youtube.com/watch?v=VKWAEx6qfPc) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/VKWAEx6qfPc]
 
