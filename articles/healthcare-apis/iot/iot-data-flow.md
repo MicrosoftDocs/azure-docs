@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 11/16/2021
 ms.author: jasteppe
 ---
 
@@ -60,9 +60,9 @@ Once the Observation FHIR resource is generated in the Transform stage, resource
 Learn how to create Device and FHIR destination mappings.
 
 > [!div class="nextstepaction"]
-> [Device mappings](how-to-use-device-mapping-iot.md)
+> [Device mappings](how-to-use-device-mappings.md)
 
 > [!div class="nextstepaction"]
-> [FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
+> [FHIR destination mappings](how-to-use-fhir-mappings.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
