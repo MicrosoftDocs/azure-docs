@@ -17,46 +17,11 @@ ms.custom: ignite-fall-2021
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
-## November 2021
-
-### Form Recognizer v3.0 preview release (beta.2)
-
-### [**C#**](#tab/csharp)
-
-#### Bugs Fixed
-
-`BuildModelOperation` and `CopyModelOperation`  now populate the `PercentCompleted` property, instead returning a constant value of 0.
-
-### [**Java**](#tab/java)
-
-#### Feature updates
-
-* `HttpResponseException`  updated to use azure-core `ResponseError`.
-
-* Added client validation to check for empty` modelId` passed by the user for `beginAnalyzeDocument` methods.
-
-#### Breaking changes
-
-* `DocumentAnalysisException`  renamed to `DocumentModelOperationException`.
-
-* `FormRecognizerError`  renamed to `DocumentModelOperationError`.
-
-* `InnerError` renamed to `DocumentModelOperationInnerError`.
-
-### [**JavaScript**](#tab/javascript)
-
-
-
-### [**Python**](#tab/python)
-
-
-
-
 ## October 2021
 
-### Form Recognizer v3.0 preview release (beta.1)
+### Form Recognizer new preview release
 
- Form Recognizer v3.0 preview release introduces several new features and capabilities:
+ Form Recognizer new preview release introduces several new features and capabilities:
 
 * [**General document**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Hotel receipt**](concept-receipt.md) model added to prebuilt receipt processing.
