@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 11/16/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -650,15 +650,15 @@ Application authentication method policies in MS Graph which allow IT admins to 
  
 ---
 
-### Public preview -  Authentication Methods nudge to download Microsoft Authenticator
+### Public preview -  Authentication Methods registration campaign to download Microsoft Authenticator
 
 **Type:** New feature  
 **Service category:** Microsoft Authenticator App  
 **Product capability:** User Authentication
  
-The Authenticator nudge policy helps admins to move their organizations to a more secure posture by prompting users to adopt the Microsoft Authenticator app. Prior to this feature, there was no way for an admin to push their users to set up the Authenticator app. 
+The Authenticator registration campaign helps admins to move their organizations to a more secure posture by prompting users to adopt the Microsoft Authenticator app. Prior to this feature, there was no way for an admin to push their users to set up the Authenticator app. 
 
-The Nudge comes with the ability for an admin to scope users and groups by including and excluding them from the Nudge to ensure a smooth adoption across the organization. [Learn more](../authentication/how-to-nudge-authenticator-app.md)
+The registration campaign comes with the ability for an admin to scope users and groups by including and excluding them from the registration campaign to ensure a smooth adoption across the organization. [Learn more](../authentication/how-to-mfa-registration-campaign.md)
  
 ---
 
