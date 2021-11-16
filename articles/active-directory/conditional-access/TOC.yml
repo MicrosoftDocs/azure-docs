@@ -39,6 +39,8 @@
     href: service-dependencies.md
   - name: Location conditions
     href: location-condition.md
+  - name: Workload identities
+    href: workload-identity.md
   - name: Filter for devices
     href: concept-condition-filters-for-devices.md
   - name: What if tool
