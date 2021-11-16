@@ -39,8 +39,8 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 * SDK support for sending requests to custom models:
     * [Custom Named Entity Recognition](custom-named-entity-recognition/how-to/call-api.md?tabs=client#use-the-client-libraries)
-    * [Custom text classification](custom-classification/how-to/call-api?tabs=api#use-the-client-libraries)
-    * [Custom language understanding](custom-named-entity-recognition/how-to/deploy-query-model.md#use-the-client-libraries)
+    * [Custom text classification](custom-classification/how-to/call-api.md?tabs=api#use-the-client-libraries)
+    * [Custom language understanding](conversational-language-understanding/how-to/deploy-query-model.md#use-the-client-libraries)
  
 ## Next steps
 
