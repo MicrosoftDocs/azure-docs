@@ -29,7 +29,7 @@ Check if the Max aggregate for `Connected Clients` metric is close or higher tha
 
 ## Linux-based client application
 
-Using optimistic TCP settings in Linux can cause client applications could experience connectivity issues. See [Connection stalls lasting for 15 minutes](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646).
+Using optimistic TCP settings in Linux can cause client applications to experience connectivity issues. See [Connection stalls lasting for 15 minutes](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646).
 
 ## Azure Cache for Redis CLI
 
