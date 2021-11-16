@@ -31,11 +31,7 @@ The type of the input parameter used with an Event Grid trigger depends on these
 + Binding extension version
 + Modality of the C# function. 
 
-The C# function can be created using one of the following C# modes:
-
-* [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
-* [Isolated process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0. 
-* [C# script](functions-reference-csharp.md): used primarily when creating C# functions in the Azure portal.
+[functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)
 
 # [In-process](#tab/in-process)
 
