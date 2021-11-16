@@ -107,7 +107,7 @@ Perform the following steps to prepare the drives.
 
 ### [Portal (Preview)](#tab/azure-portal-preview)
 
-In the Preview portal, creating an import job in Import/Export tracks is similar to the steps for creating an import jobs in other Azure Data Box products.<!--THIS NEEDS WORK!-->
+In the Preview portal, you start an import job in Azure Import/Export in the same way you start an order for other Azure Data Box products.
 
 Perform the following steps to order an Azure Import/Export job through Azure Data Box.
 
@@ -147,13 +147,15 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 
 1. In **Job Details**:
 
-   1. Before you go further, make sure you're using the latest WAImportExport tool. The tool will be used behind the scenes when you upload the journal file, later on this screen. You can use the download link to update the tool.
+   1. Before you go further, make sure you're using the latest WAImportExport tool. The tool ise used to read the journal file(s) that you upload. You can use the download link to update the tool.
    
       ![Screenshot showing the link to download the latest WAImportExport tool in Job Details for an Azure Import/Export import job. The tool link is highlighted.](media/storage-import-export-data-to-blobs/import-export-order-preview-06-tool-link.png)
 
-   1. You can change the destination Azure region for the job if needed.
+   1. Change the destination Azure region for the job if needed.
    1. Select one or more storage accounts to use for the job. You can create a new storage account if needed.
-   1. Under **Drive information**, use the **Copy** button to upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml`, also created with the journal file.
+   1. Under **Drive information**, use the **Copy** button to upload each journal file that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). 
+      - If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. 
+      - If the journal file is larger than 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml`, which was created along with the journal file.
       When you upload a journal file, the Drive ID is displayed.
 
       ![Screenshot showing Drive Information on the Job Details tab for an Azure Import Export job. The Copy button and the Drive ID for an uploaded journal file are highlighted.](media/storage-import-export-data-to-blobs/import-export-order-preview-06-drive-information.png)
@@ -166,15 +168,15 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 
    1. Select a shipping carrier from the drop-down list for **Carrier**. The location of the Microsoft datacenter for the selected region determines which carriers are available.
    1. Enter a **Carrier account number**. The account number for an valid carrier account is required.
-   1. In **Return address**, use **+ Address** to add the address to ship [WHAT?] to.
+   1. In the **Return address** area, use **+ Address** to add the address to ship [WHAT?] to.
 
       ![Screenshot of the Return Shipping tab for an import job in Azure Data Box. The Return Shipping tab and the Plus Add Address button are highlighted.](media/storage-import-export-data-to-blobs/import-export-order-preview-07.png)
 
-      On the Add address blade, you can add an address or use an existing one.
+      On the **Add address** blade, you can add an address or use an existing one.
 
       ![Screenshot showing an address on the Add Address blade for an import job in Azure Data Box. The Add Shipping Address button is highlighted.](media/storage-import-export-data-to-blobs/import-export-order-preview-08.png)
 
-   1. In **Notification**, enter email addresses for the people you want to notify of the job's progress.
+   1. In the **Notification** area, enter email addresses for the people you want to notify of the job's progress.
    
       > [!TIP]
       > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
@@ -186,18 +188,18 @@ Perform the following steps to order an Azure Import/Export job through Azure Da
 1. In **Review + Create**:
 
    1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
-   1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
+   1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to. This information is used later on the shipping label.
    1. Select **Create**.
 
-     ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](media/storage-import-export-data-to-blobs/import-export-order-preview-10.png)
+   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](media/storage-import-export-data-to-blobs/import-export-order-preview-10.png)
 
 1. After the job is created, you'll see the following message.
 
     ![Screenshot of the status message for a completed order for an Azure Import Export job. The status and the Go To Resource button are highlighted.](media/storage-import-export-data-to-blobs/import-export-order-preview-11.png)
 
-     Select **Go to resource** to open the job overview.
+     You can select **Go to resource** to open the **Overview** of the job.
 
-     [ ![Screenshot showing the Overview pane for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs/import-export-order-preview-12.png) ](media/storage-import-export-data-to-blobs/import-export-order-preview-12.png#lightbox)
+     [ ![Screenshot showing the Overview pane for an Azure Import Export job in Created state.](media/storage-import-export-data-to-blobs/import-export-order-preview-12.png) ](media/storage-import-export-data-to-blobs/import-export-order-preview-12.png#lightbox)<!--Border is too light.-->
 
 
 ### [Portal (Classic)](#tab/azure-portal)
