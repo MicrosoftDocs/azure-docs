@@ -596,6 +596,7 @@
     href: app-registrations-training-guide.md
   - name: Billing model
     href: billing.md
+    displayName: pricing model
   - name: Code samples
     href: /samples/browse/?terms=b2c
   - name: Cookie definitions
