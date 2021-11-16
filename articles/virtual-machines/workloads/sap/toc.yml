@@ -282,7 +282,7 @@
         href: sap-high-availability-installation-wsfc-file-share.md              
       - name: Mlti-SID with WSFC and file share
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
-- name: SAP deployment automation framework
+- name: Automation framework (Azure VMs)
   items:
   - name: About deployment automation framework
     href: automation-deployment-framework.md
@@ -290,28 +290,30 @@
     href: automation-supportability.md
   - name: Get started with automation framework
     href: automation-get-started.md
-  - name: Plan deployment
+  - name: Plan your automated deployment
     href: automation-plan-deployment.md
+  - name: Naming conventions
+    href: automation-naming.md
+  - name: Frequently asked questions
+    href: automation-faq.yml
   - name: Configuration
     items:               
     - name: Configure the control plane
       href: automation-configure-control-plane.md
-    - name: Configure the Workload zone
+    - name: Configure the workload zone
       href: automation-configure-workload-zone.md
     - name: Configure the SAP system
       href: automation-configure-system.md
     - name: Configure custom disk sizing
       href: automation-configure-extra-disks.md
-    - name: Naming convention
-      href: automation-naming.md
     - name: Using a custom naming convention
       href: automation-naming-module.md
   - name: Script reference
     items:               
     - name: Bash
-      href: automation-reference-bash.md
-    - name: Bash scripts
       items:               
+      - name: Bash scripts for automation framework
+        href: automation-reference-bash.md
       - name: Deploying the control plane using shell scripts
         href: bash/automation-prepare-region.md
       - name: Deploying the workload zone using shell scripts
@@ -333,9 +335,9 @@
       - name: Update the SAP Library SAS token
         href: bash/automation-update_sas_token.md
     - name: PowerShell
-      href: automation-reference-powershell.md
-    - name: PowerShell cmdlets
       items:               
+      - name: PowerShell cmdlets for automation framework
+        href: automation-reference-powershell.md
       - name: Deploying the control plane using PowerShell
         href: module/automation-new-sapautomationregion.md
       - name: Deploying the Workload Zone using PowerShell
@@ -364,15 +366,13 @@
       href: automation-deploy-system.md
     - name: Use Ansible for system configuration
       href: automation-run-ansible.md
-    - name: Hands-on lab
+    - name: Automation framework tutorial
       href: automation-tutorial.md
     - name: Manual infrastructure deployment
       href: automation-manual-deployment.md
     - name: Sample deployment configurations
       href: automation-new-vs-existing.md
-    - name: Frequently Asked Questions
-      href: automation-faq.yml
-  - name: SAP Software
+  - name: SAP software
     items:               
     - name: Download and prepare software media
       href: automation-software.md
