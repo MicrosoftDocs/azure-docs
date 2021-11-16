@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 11/16/2021
 
 ms.author: justinha
 author: mjsantani
@@ -67,7 +67,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 |----------|------|-------------|
 | authenticationMode | String | Possible values are:<br>**any**: Both passwordless phone sign-in and traditional second factor notifications are allowed.<br>**deviceBasedPush**: Only passwordless phone sign-in notifications are allowed.<br>**push**: Only traditional second factor push notifications are allowed. |
 | id | String | Object ID of an Azure AD user or group. |
-| targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.<br>Please note: You will be able to only set one group or user for additional context. |
+| targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.<br>Please note: You can only set one group or user for additional context. |
 | displayAppInformationRequiredState | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
 
 >[!NOTE]
@@ -77,7 +77,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 You will need to change the **displayAppInformationRequiredState** from **default** to **enabled**. 
 
-Note that the value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we will use **any**, but if you do not want to allow passwordless, use **push**.
+The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we will use **any**, but if you do not want to allow passwordless, use **push**.
 
 You need to PATCH the entire includeTarget to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **displayAppInformationRequiredState**. 
 
@@ -105,7 +105,7 @@ You need to PATCH the entire includeTarget to prevent overwriting any previous c
  
 ```
  
-To confirm this has applied, please run the GET request below using the endpoint below.
+To confirm this update has applied, run the GET request below using the endpoint below.
 GET - https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
  
  
@@ -149,10 +149,10 @@ The PATCH request will fail with 400 Bad Request and the error will contain the 
 
 `Persistance of policy failed with error: You cannot enable multiple targets for feature 'Require Display App Information'. Choose only one of the following includeTargets to enable: aede0efe-c1b4-40dc-8ae7-2c402f23e312,aede0efe-c1b4-40dc-8ae7-2c402f23e317.`
 
-### Test the end user experience
+### Test the end-user experience
 Add the test user account to the Microsoft Authenticator app. The account does **not** need to be enabled for phone sign-in. 
 
-See the end user experience of an Authenticator MFA push notification with additional context by signing into aka.ms/MFAsetup. 
+See the end-user experience of an Authenticator MFA push notification with additional context by signing into aka.ms/MFAsetup. 
 
 ### Turn off additional context
 
