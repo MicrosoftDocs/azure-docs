@@ -206,6 +206,7 @@ You can also provide test data to evaluate the recommended model that automated 
 >  * Computer vision tasks
 >  * Forecasting tasks where deep learning neural networks (DNN) are enabled
 >  * Automated ML runs from local computes or Azure Databricks clusters.
+
 Test datasets must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset). You can specify a test dataset with the `test_data` and `test_size` parameters in your `AutoMLConfig` object.  These parameters are mutually exclusive and can not be specified at the same time or with `cv_split_column_names` or `cv_splits_indices`.
 
 With the `test_data` parameter, specify an existing dataset to pass into your `AutoMLConfig` object. 

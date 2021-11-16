@@ -217,6 +217,7 @@ If you specified a test dataset or opted for a train/test split during your expe
 >  * Computer vision tasks
 >  * Forecasting tasks where deep learning neural networks (DNN) are enabled
 >  * Automated ML runs from local computes or Azure Databricks clusters.
+
 To view the test run metrics of the recommended model,
  
 1. Navigate to the **Models** page, select the best model. 
@@ -231,6 +232,8 @@ To view the test predictions used to calculate the test metrics,
     1. Alternatively, the prediction file can also be viewed/downloaded from the **Outputs + logs** tab, expand the **Predictions** folder to locate your `predicted.csv` file.
 
 Alternatively, the predictions file can also be viewed/downloaded from the Outputs + logs tab, expand Predictions folder to locate your predictions.csv file.
+
+The model test run generates the predictions.csv file that's stored in the default datastore created with the workspace. This datastore is visible to all users with the same subscription. Test runs are not recommended for scenarios if any of the information used for or created by the test run needs to remain private.
 
 ## Test an existing automated ML model (preview)
 
