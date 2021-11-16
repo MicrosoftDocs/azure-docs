@@ -624,7 +624,7 @@
               href: sql/change-feed-design-patterns.md
             - name: Reading change feed
               href: sql/read-change-feed.md
-            - name: sql/Change feed processor
+            - name: Change feed processor
               href: sql/change-feed-processor.md
             - name: Trigger Azure Functions
               displayName: change feed
