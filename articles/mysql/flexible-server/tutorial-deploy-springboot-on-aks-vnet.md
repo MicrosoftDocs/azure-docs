@@ -98,7 +98,7 @@ az acr create --resource-group rg-mysqlaksdemo \
 
 ## Code the application
 
-In this section, we'll code the demo application. If you want to go faster, you can download the coded application available at *Azure Samples Link*, and skip to the next section. 
+In this section, we'll code the demo application. If you want to go faster, you can download the coded application available at [https://github.com/Azure-Samples/tutorial-springboot-mysql-aks](https://github.com/Azure-Samples/tutorial-springboot-mysql-aks) and skip to the next section - [Build the image and push to ACR](#build-the-image-and-push-to-acr). 
 
 1. Generate the application using Spring Initializr. 
 
@@ -459,7 +459,9 @@ az group delete --name rg-mysqlaksdemo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)
+> [Deploy WordPress app on AKS with MySQL](tutorial-deploy-wordpress-on-aks.md)
 
 > [!div class="nextstepaction"]
-> [Deploy WordPress app on AKS with MySQL](tutorial-deploy-wordpress-on-aks.md)
+> [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)
+
+
