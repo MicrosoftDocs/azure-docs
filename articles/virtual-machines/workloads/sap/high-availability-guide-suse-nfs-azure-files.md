@@ -783,11 +783,8 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
 
 In this example, SAP NetWeaver is installed on SAP HANA. You can use every supported database for this installation. For more information on how to install SAP HANA in Azure, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
-* Run the SAP database instance installation
-
-   Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database.
-
-   You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
+Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database.  
+You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
     ```bash
     sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
@@ -829,12 +826,12 @@ Follow these steps to install an SAP application server.
       DATABASE: NW1
     ```
 
-In this example, the IP address of the default entry points to the VM, not the load balancer. Change the entry to point to the virtual hostname of the load balancer. Make sure to use the same port and database name. For example, `30313` and `NW1` in the sample output. 
+   In this example, the IP address of the default entry points to the VM, not the load balancer. Change the entry to point to the virtual hostname of the load balancer. Make sure to use the same port and database name. For example, `30313` and `NW1` in the sample output. 
 
-    ```bash
-    su - nw1adm
-    hdbuserstore SET DEFAULT nw1db:30313@NW1 SAPABAP1 <password of ABAP schema>
-    ```
+   ```bash
+   su - nw1adm
+   hdbuserstore SET DEFAULT nw1db:30313@NW1 SAPABAP1 <password of ABAP schema>
+   ```
 
 ## Test cluster setup
 
