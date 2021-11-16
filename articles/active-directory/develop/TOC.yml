@@ -330,6 +330,8 @@
       href: test-setup-environment.md
     - name: Throttling and service limits
       href: test-throttle-service-limits.md
+    - name: Perform integration testing as a user
+      href: test-automate-integration-testing.md
   - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
