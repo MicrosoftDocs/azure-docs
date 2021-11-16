@@ -27,7 +27,7 @@ The autoscale feature is part of the managed service and requires no action from
 
 ### What is the cost of the FHIR service autoscale?  
 
-The autoscale feature incurs no extra costs to customers based on the new API billing model. For information about pricing, see [Azure Healthcare APIs (preview) pricing](https://azure.microsoft.com/pricing/details/azure-api-for-fhir/).
+The autoscale feature incurs no extra costs to customers based on the new API billing model.
 
 ## Next steps
 
