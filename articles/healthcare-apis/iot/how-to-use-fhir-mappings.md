@@ -1,11 +1,11 @@
 ---
-title: FHIR destination mapping in IoT connector - Azure Healthcare APIs
-description: This article describes how to use the FHIR destination mapping template in IoT connector. 
+title: FHIR destination mappings in IoT connector - Azure Healthcare APIs
+description: This article describes how to configure and use the FHIR destination mappings in Azure Healthcare APIs IoT connector. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 11/16/2021
 ms.author: jasteppe
 ---
 
@@ -272,6 +272,6 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 In this article, you learned how to use FHIR destination mappings. To learn how to use Device mappings, see
 
 >[!div class="nextstepaction"]
->[How to use Device mappings](how-to-use-device-mapping-iot.md)
+>[How to use Device mappings](how-to-use-device-mappings.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

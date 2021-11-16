@@ -16,7 +16,7 @@ BareMetal Infrastructure is made up of dedicated BareMetal instances (compute in
  
 This environment also has special VLANs you can access if you're running virtual machines (VMs) on one or more Azure Virtual Networks (VNets) in your Azure subscription. The entire environment is represented as a resource group in your Azure subscription.
 
-BareMetal Infrastructure is offered in over 30 SKUs from 2-socket to 24-socket servers and memory ranging from 1.5 TBs up to 24 TBs. A large set of SKUs is also available with Octane memory. Azure offers the largest range of bare metal instances in a hyperscale cloud.
+BareMetal Infrastructure is offered in over 30 SKUs from 2-socket to 24-socket servers and memory ranging from 1.5 TBs up to 24 TBs. A large set of SKUs is also available with Optane memory. Azure offers the largest range of bare metal instances in a hyperscale cloud.
 
 ## Why BareMetal Infrastructure?  
 

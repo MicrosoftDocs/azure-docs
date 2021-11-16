@@ -18,6 +18,8 @@ ms.service: azure-communication-services
 
 ## Setting up
 
+### Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start).
+
 ### Creating an Android app with an empty activity
 
 In Android Studio, create a new project and select the `Empty Activity`.
@@ -59,7 +61,7 @@ dependencies {
 }
 ```
 
-In your project gradle scripts add following lines to `repositories`. For gradle version `6.7.1` the `repositories` are in (**app folder**) `settings.gradle`.
+In your project gradle scripts add following lines to `repositories`. For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`. If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.
 
 ```groovy
 repositories {
@@ -212,8 +214,6 @@ Build and start application from Android Studio.
 - Click `Launch`.
 - Accept audio permissions and select device, mic, and video settings.
 - Click `Join Call`.
-
-## Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start)
 
 ![Launch](../../media/composite-android.gif)
 
