@@ -11,7 +11,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Deploy a Spring Boot application on AKS cluster with MySQL Flexible Server in a VNet
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 In this tutorial, you'll learn how to deploy a [Spring Boot](https://spring.io/projects/spring-boot) application on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster with [Azure Database for MySQL - Flexible Server](overview.md) in the backend, securely communicating with each other within an [Azure virtual network](../../virtual-network/virtual-networks-overview.md). 
 
@@ -85,7 +85,7 @@ We'll now create a flexible server in a virtual network (private access connecti
     --database-name demo
     ```
 
-## Create an Azure Container Registry 
+## Create an Azure container registry 
 
 Create a private Azure container registry in the resource group. This tutorial pushes the sample app as a Docker image to this registry in later steps. Replace ```mysqlaksdemoregistry``` with a unique name for your registry.
 
@@ -358,7 +358,7 @@ In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to config
 
 1. Select **Add** and **Add with YAML** from any of the resource views (Namespace, Workloads, Services and ingresses, Storage, or Configuration). 
 
-    :::image type="content" source="media/tutorial-deploy-springboot-on-aks-vnet.md/aks-resource-blade.png" alt-text="Screenshot that shows AKS resource view on Azure portal.":::
+    :::image type="content" source="media/tutorial-deploy-springboot-on-aks-vnet.md/aks-resource-blade.png" alt-text="Screenshot that shows Azure Kubernetes Service resource view on Azure portal.":::
 
 1. Paste in the following YAML. Replace your values for MySQL Flexible Server admin username and password.
 
@@ -404,11 +404,11 @@ In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to config
     ```
 1. Select **Add** at the bottom of the YAML editor to deploy the application.
 
-    :::image type="content" source="media/tutorial-deploy-springboot-on-aks-vnet.md/aks-addwithyaml.png" alt-text="Screenshot that shows Add with YAML editor.":::
+    :::image type="content" source="media/tutorial-deploy-springboot-on-aks-vnet.md/aks-add-with-yaml.png" alt-text="Screenshot that shows Add with YAML editor.":::
 
 1. Once the YAML file is added, the resource viewer shows your Spring Boot application. Make a note of the linked external IP address included in the external service.
 
-    :::image type="content" source="media/tutorial-deploy-springboot-on-aks-vnet.md/aks-external-ip.png" alt-text="Screenshot that shows Azure portal view of AKS cluster service external IP.":::
+    :::image type="content" source="media/tutorial-deploy-springboot-on-aks-vnet.md/aks-external-ip.png" alt-text="Screenshot that shows Azure portal view of Azure Kubernetes cluster service external IP.":::
 
 ## Test the application
 
