@@ -106,7 +106,7 @@ The following tasks are required to visualize metrics:
             insecure_skip_verify: true
    ```
 
-1. Save the file. You are now ready to install start Prometheus and Grafana. First, install Docker:
+1. Save the file. You are now ready to start Prometheus and Grafana. First, install Docker:
 
     ```bash
     sudo apt install apt-transport-https ca-certificates curl software-properties-common
