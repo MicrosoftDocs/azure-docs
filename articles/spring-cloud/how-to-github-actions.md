@@ -215,7 +215,7 @@ jobs:
     name: deploy to production with artifact
     steps:
       - name: Checkout Github Action
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
@@ -257,7 +257,7 @@ jobs:
     name: deploy to production with soruce code
     steps:
       - name: Checkout Github Action
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Login via Azure CLI
         uses: azure/login@v1
@@ -307,7 +307,7 @@ The following examples deploy to an existing staging deployment. This deployment
           package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
 ```
 
-For more information on blue-green deployments, including an alternative approach, see [Blue-green deployment strategies](https://docs.microsoft.com/en-us/azure/spring-cloud/concepts-blue-green-deployment-strategies).
+For more information on blue-green deployments, including an alternative approach, see [Blue-green deployment strategies](./concepts-blue-green-deployment-strategies).
 
 ### Setting production deployment
 
