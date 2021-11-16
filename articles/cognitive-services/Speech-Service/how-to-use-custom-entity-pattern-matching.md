@@ -44,7 +44,7 @@ Be sure you have the following items before you begin this guide:
 - A [Cognitive Services Azure resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) or a [Unified Speech resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
 
-[!INCLUDE [Pattern Matching Overview](pattern-matching-overview.md)]
+[!INCLUDE [Pattern Matching Overview](includes/pattern-matching-overview.md)]
 
 ## Create a speech project in Visual Studio
 
