@@ -75,8 +75,8 @@ Service Fabric Managed clusters which are not spanned across Availability zones 
 * Add a new primary node type to the cluster with **zones** parameter in the nodetype set to ["1", "2", "3"].
 * Add more secondary node types with same **zones** parameter if required to migrate existing services. 
 * Move existing services from the old node types to the new ones.
-* Remove the old nodetypes from the cluster using ARM template deployment. 
-* Set **zonalResiliency: true**  int cluster ARM template to mark cluster as zone resilient and ensure all other deployments span across availability zones.
+* Remove the old node types from the cluster using ARM template deployment. 
+* Set **zonalResiliency: true**  in the cluster ARM template to mark cluster as zone resilient and ensure all other deployments span across availability zones.
 
 ### Node type ARM deployment for Migration to availability zones
 ```json
