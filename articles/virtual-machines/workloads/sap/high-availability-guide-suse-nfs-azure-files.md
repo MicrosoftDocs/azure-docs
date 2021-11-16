@@ -786,9 +786,9 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
 Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database.  
 You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-    ```bash
-    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
-    ```
+   ```bash
+   sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
+   ```
 
 ## SAP NetWeaver application server installation
 

@@ -809,11 +809,11 @@ Install the SAP NetWeaver database instance as root using a virtual hostname tha
 
 You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-    ```bash
-    # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
-    sudo firewall-cmd --zone=public  --add-port=4237/tcp
-    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
-    ```
+   ```bash
+   # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
+   sudo firewall-cmd --zone=public  --add-port=4237/tcp
+   sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
+   ```
 
 ## SAP NetWeaver application server installation
 
