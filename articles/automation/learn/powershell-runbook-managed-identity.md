@@ -97,9 +97,11 @@ Create a runbook that will allow execution by either managed identity. The runbo
 1. Under **Process Automation**, select **Runbooks**.
 
 1. Select **Create a runbook**.
-    1. Name the runbook `miTesting`.
-    1. From the **Runbook type** drop-down menu, select **PowerShell**.
-    1. Select **Create**.
+    1. **Name**: Name the runbook `miTesting`.
+    2. **Runbook type**: From the **Runbook type** drop-down menu, select **PowerShell**.
+    3. **Runtime version**: From the **Runtime time** drop-down menu, select **7.1 (preview)** or **5.1**.
+    4. **Descriptionn**: Provide a description for this runbook (not mandatory filed).
+    5. Select **Create**.
 
 1. In the runbook editor, paste the following code:
 
