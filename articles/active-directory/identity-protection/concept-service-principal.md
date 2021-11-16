@@ -99,7 +99,6 @@ The sample should return the following response:
 "keyIds": ["3f5518bb-4d4d-480f-bdd0-7b04a58e2800"],
 "additionalInfo": null,
 "location": null
-
 ```
 
 ### Get servicePrincipalRiskDetection
