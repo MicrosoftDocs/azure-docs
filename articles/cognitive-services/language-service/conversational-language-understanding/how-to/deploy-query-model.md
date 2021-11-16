@@ -49,7 +49,7 @@ You can get the full URL for your endpoint by going to the **Deploy model** page
 
 :::image type="content" source="../media/prediction-url.png" alt-text="Screenshot showing the prediction request and URL" lightbox="../media/prediction-url.png":::
 
-### Use the client library
+### Use the client libraries
 
 1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 
