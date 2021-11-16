@@ -54,7 +54,7 @@ From Defender for Cloud's **Environment settings** page, select **SQL informatio
 > [!NOTE]
 > This option only appears for users with tenant-level permissions. [Grant tenant-wide permissions to yourself](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
-:::image type="content" source="./media/sql-information-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the pricing and settings page of Microsoft Defender for Cloud.":::
+:::image type="content" source="./media/sql-information-protection-policy/environment-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the environment settings page of Microsoft Defender for Cloud.":::
 
 
 
