@@ -84,7 +84,7 @@ You can set the path to where logs will be written by using the logback-spring.x
 
 In the preceding example, there are two placeholders named `{LOGS}` in the path for writing the application's logs to. A value needs to be assigned to the environment variable `LOGS` to have the log write to both the console and your persistent storage. 
 
-## Use the Azure CLI to create and deploy new app with Logback on persistent storage
+## Use the Azure CLI to create and deploy a new app with Logback on persistent storage
 
 1. Use the following command to create an application in Azure Spring Cloud with persistent storage enabled and the environment variable set:
 
@@ -97,7 +97,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
         --env LOGS=/byos/logs
    ```
    > [!NOTE]
-   > The value of `LOGS` environment variable can be the same as, or a subdirectory of the `mountPath`.
+   > The value of the `LOGS` environment variable can be the same as, or a subdirectory of the `mountPath`.
     
     Here's an example of the JSON file that is passed to the `--persistent-storage` parameter in the create command. In this example, the same value is passed for the environment variable in the CLI command above and in the `mountPath` property below: 
 
@@ -138,9 +138,9 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
 
     Go to the Azure Storage Account resource you bound and find the Azure file share that was attached as persistent storage. In this example, the logs will be written to the *spring-boot-logger.log* file at the root of your Azure file share. All of the rotated log files will be stored in the */archived* folder in your Azure file share.
 
-1. Optionally, use the following command to update the path or persistent storage of an existing app
+1. Optionally, use the following command to update the path or persistent storage of an existing app:
 
-    The path or persistent storage where the logs are saved can be changed at any time. However, please note that applications will restart when changes are made to either environment variables or persistent storages.
+    The path or persistent storage where the logs are saved can be changed at any time. The application will restart when changes are made to either environment variables or persistent storage.
 
    ```azurecli
    az spring-cloud app update \
