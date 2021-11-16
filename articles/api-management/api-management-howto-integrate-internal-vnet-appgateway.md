@@ -432,8 +432,9 @@ $managementRule = New-AzApplicationGatewayRequestRoutingRule -Name "managementru
 
 ### Step 11
 
-Configure the number of instances and size for the application gateway. In this example, we are using the [WAF_v2 SKU](../web-application-firewall/ag/ag-overview.md) for increased security of the API Management resource.  
-We recommend a minimum of two instances (_Capacity_) for production workloads; however, you may wish to reduce it to 1 for non-production scenarios or general experimentation. See [Azure Application Gateway Pricing](../application-gateway/understanding-pricing.md#instance-count) for details.
+Configure the number of instances and size for the application gateway. In this example, we are using the [WAF_v2 SKU](../web-application-firewall/ag/ag-overview.md) for increased security of the API Management resource.
+
+We recommend using a minimum of two instances (_Capacity_) for production workloads. However, you might want to use only one instance for non-production scenarios or for general experimentation. For more information, see [Azure Application Gateway pricing](../application-gateway/understanding-pricing.md#instance-count).
 
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_v2" -Tier "WAF_v2" -Capacity 2
