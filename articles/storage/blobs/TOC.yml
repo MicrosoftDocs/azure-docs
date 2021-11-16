@@ -633,6 +633,8 @@ items:
       href: /azure/templates/microsoft.storage/allversions
     - name: Monitoring data
       href: monitor-blob-storage-reference.md
+    - name: Host keys (SFTP) support
+      href: secure-file-transfer-protocol-host-keys.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

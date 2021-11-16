@@ -2,7 +2,7 @@
 title: Known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
 description: Learn about limitations and known issues of Secure File Transfer Protocol (SFTP) support in Azure Blob Storage.
 author: normesta
-ms.subservice: data-lake-storage-gen2
+ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
 ms.date: 11/15/2021
@@ -59,7 +59,7 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## Security
 
-- Host keys are published [here](https://microsoft.sharepoint.com/:x:/t/StorageABACPrivatePreview/EYTTmCjT63dCunstkPh66bIBQpYF9DR-X0jqee202VaaEA?e=MSO9CU). During the public preview, host keys will rotate up to once per month.
+- Host keys are published [here](secure-file-transfer-protocol-host-keys.md). During the public preview, host keys will rotate up to once per month.
 
 - There a few different reasons for "remote host identification has changed" warning:
 

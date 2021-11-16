@@ -137,7 +137,7 @@ You can use any SFTP client to securely connect and then transfer files. The fol
 > ![Connect with Open SSH](./media/secure-file-transfer-protocol-support-how-to/ssh-connect-and-transfer.png)
 
 > [!NOTE]
-> You might be prompted to trust a host key. During the public preview, valid host keys are published [here](https://microsoft.sharepoint.com/:x:/t/StorageABACPrivatePreview/EYTTmCjT63dCunstkPh66bIBQpYF9DR-X0jqee202VaaEA?e=MSO9CU).  
+> You might be prompted to trust a host key. During the public preview, valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
 
 After the transfer is complete, you can view and manage the file in the Azure portal. 
 
