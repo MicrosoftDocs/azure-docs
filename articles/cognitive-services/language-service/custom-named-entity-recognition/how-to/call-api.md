@@ -167,7 +167,6 @@ First you will need to get your resource key and endpoint
     
 5. See the following reference documentation for more information:
     
-    * [REST API](https://aka.ms/ct-runtime-swagger)
     * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
     * [Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)
     * [JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)
