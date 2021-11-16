@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door - backend health monitoring | Microsoft Docs
-description: This article helps you understand how Azure Front Door monitors the health of your backends
+description: This article helps you understand how Azure Front Door monitors the health of your backends.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -75,4 +75,5 @@ If you have a single backend in your backend pool, you can choose to disable the
 ## Next steps
 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn how to [create a Front Door Standard/Premium](standard-premium/create-front-door-portal.md).
 - Learn [how Front Door works](front-door-routing-architecture.md).

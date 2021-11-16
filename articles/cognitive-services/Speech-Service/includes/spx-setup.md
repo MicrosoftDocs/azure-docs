@@ -1,10 +1,11 @@
 ---
-author: v-demjoh
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
-ms.author: v-demjoh
+ms.author: eric-urban
+ms.custom: ignite-fall-2021
 ---
 
 ## Download and install
@@ -28,7 +29,7 @@ Type `spx` to see help for the Speech CLI.
 ### Font limitations
 
 On Windows, the Speech CLI can only show fonts available to the command prompt on the local computer.
-[Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) supports all fonts produced interactively by the Speech CLI.
+[Windows Terminal](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701) supports all fonts produced interactively by the Speech CLI.
 
 If you output to a file, a text editor like Notepad or a web browser like Microsoft Edge can also show all fonts.
 

@@ -19,7 +19,7 @@
     {
         "source_path_from_root": "/articles/mysql/flexible-server/how-to-configure-slow-query-logs-portal.md",
         "redirect_url": "/azure/mysql/flexible-server/tutorial-query-performance-insights",
-        "redirect_document_id": false
+        "redirect_document_id": false 
     }
 ]
 }

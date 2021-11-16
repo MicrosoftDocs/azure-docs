@@ -45,6 +45,10 @@ resource acrResource 'Microsoft.ContainerRegistry/registries@2021-06-01-preview'
     adminUserEnabled: false
   }
 }
+
+@description('Output the login server property for later use')
+output loginServer string = acrResource.properties.loginServer
+
 ```
 
 The following resource is defined in the Bicep file:

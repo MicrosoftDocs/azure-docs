@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 # Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
@@ -19,7 +19,9 @@ There are times when you may need to change the characteristics or the definitio
 
 This guide explains how to scale vCore and/or memory.
 
-Scaling up or down the vCore or memory settings of your server group means you have the possibility to set a minimum and/or a maximum for each of the vCore and memory settings. If you want to configure your server group to use a specific number of vCore or a specific amount of memory, you would set the minimum settings equal to the maximum settings.
+Scaling up or down the vCore or memory settings of your server group means you have the possibility to set a minimum and/or a maximum for each of the vCore and memory settings. If you want to configure your server group to use a specific number of vCore or a specific amount of memory, you would set the minimum settings equal to the maximum settings. Before increasing the value set for vCores and Memory, you must ensure that 
+- you have enough resources available in the physical infrastructure that hosts your deployment and 
+- workloads collocated on the same system are not competing for the same vCores or Memory.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -27,7 +29,7 @@ Scaling up or down the vCore or memory settings of your server group means you h
 
 To show the current definition of your server group and see what are the current vCore and Memory settings, run either of the following command:
 
-### CLI with azure cli (az)
+### With Azure CLI (az)
 
 ```azurecli
 az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
@@ -48,7 +50,9 @@ Spec:
       Name:   citus
     Version:  12
   Scale:
-    Workers:  2
+    Replicas:       1
+    Sync Replicas:  0
+    Workers:        4
   Scheduling:
     Default:
       Resources:
@@ -111,13 +115,13 @@ To indicate a number of cores, you just pass a number without unit.
 **Configure the coordinator role to not exceed 2 cores and the worker role to not exceed 4 cores:**
 
 ```azurecli
- az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace <namespace> --use-k8s
- az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace <namespace> --use-k8s
+ az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace arc --use-k8s
+ az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace arc --use-k8s
 ```
 
 or
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace arc --use-k8s
 ```
 
 > [!NOTE]
@@ -144,6 +148,17 @@ For example if you want to set the following settings for both the coordinator a
 You would set the definition your server group so that it matches the below configuration:
 
 ```json
+...
+  spec:
+  dev: false
+  engine:
+    extensions:
+    - name: citus
+    version: 12
+  scale:
+    replicas: 1
+    syncReplicas: "0"
+    workers: 4
   scheduling:
     default:
       resources:
@@ -157,7 +172,7 @@ You would set the definition your server group so that it matches the below conf
             memory: 1Gi
           requests:
             cpu: "2"
-            memory: 512Mi
+            memory: 256Mi
       worker:
         resources:
           limits:
@@ -165,7 +180,8 @@ You would set the definition your server group so that it matches the below conf
             memory: 1Gi
           requests:
             cpu: "2"
-            memory: 512Mi
+            memory: 256Mi
+...
 ```
 
 If you are not familiar with the `vi` editor, see a description of the commands you may need [here](https://www.computerhope.com/unix/uvi.htm):
@@ -180,13 +196,13 @@ If you are not familiar with the `vi` editor, see a description of the commands 
 To reset core/memory limits/requests parameters to their default values, edit them and pass an empty string instead of an actual value. For example, if you want to reset the core limit parameter, run the following commands:
 
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
-az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace arc --use-k8s
+az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace arc --use-k8s
 ```
 
 or 
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace arc --use-k8s
 ```
 
 ## Next steps

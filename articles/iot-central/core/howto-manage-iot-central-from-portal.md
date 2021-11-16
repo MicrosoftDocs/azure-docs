@@ -69,7 +69,13 @@ To move the application to a different subscription, select  **change** beside t
 
 ## Configure a managed identity
 
-When you configure a data export in your IoT Central application, you can choose to configure the connection to the destination with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Using a managed identity is more secure because you don't need to store the credentials for the destination in your IoT Central application. IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To create the managed identity for your application, you use either the Azure portal or the REST API.
+When you configure a data export in your IoT Central application, you can choose to configure the connection to the destination with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities are more secure because:
+
+* You don't store the credentials for your resource in a connection string in your IoT Central application.
+* The credentials are automatically tied to the lifetime of your IoT Central application.
+* Managed identities automatically rotate their security keys regularly.
+
+IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To create the managed identity for your application, you use either the Azure portal or the REST API.
 
 > [!NOTE]
 > You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region. To learn more, see [Updates](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/).

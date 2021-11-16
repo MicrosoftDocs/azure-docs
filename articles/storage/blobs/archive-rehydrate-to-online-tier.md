@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 11/01/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -210,7 +210,7 @@ To change the rehydration priority for a pending operation with the Azure portal
 
 #### [PowerShell](#tab/azure-powershell)
 
-To change the rehydration priority for a pending operation with PowerShell, first get the blob's properties from the service. This step is necessary to ensure that you have an object with the most recent property settings. Next, use the blob's **BlobClient** property to return a .NET reference to the blob, then call the **SetAccessTier** method on that reference.
+To change the rehydration priority for a pending operation with PowerShell, make sure that you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 3.12.0 or later. Next, get the blob's properties from the service. This step is necessary to ensure that you have an object with the most recent property settings. Finally, use the blob's **BlobClient** property to return a .NET reference to the blob, then call the **SetAccessTier** method on that reference.
 
 ```azurepowershell
 # Get the blob from the service.
@@ -220,7 +220,6 @@ $rehydratingBlob = Get-AzStorageBlob -Container $containerName -Blob $blobName -
 if ($rehydratingBlob.BlobProperties.RehydratePriority -eq "Standard")
 {
     # Change rehydration priority to High, using the same target tier.
-    
     if ($rehydratingBlob.BlobProperties.ArchiveStatus -eq "rehydrate-pending-to-hot")
     {
         $rehydratingBlob.BlobClient.SetAccessTier("Hot", $null, "High")
@@ -237,7 +236,9 @@ if ($rehydratingBlob.BlobProperties.RehydratePriority -eq "Standard")
 
 #### [Azure CLI](#tab/azure-cli)
 
-To change the rehydration priority for a pending operation with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command with the `--rehydrate-priority` parameter set to *High*. The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Remember to replace placeholders in angle brackets with your own values:
+To change the rehydration priority for a pending operation with Azure CLI, first make sure that you have installed the Azure CLI, version 2.29.2 or later. For more information about installing the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command with the `--rehydrate-priority` parameter set to *High*. The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 # Update the rehydration priority for a blob moving to the Hot tier.

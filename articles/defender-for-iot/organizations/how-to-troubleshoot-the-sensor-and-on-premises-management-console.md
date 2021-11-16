@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 10/17/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
@@ -10,7 +10,7 @@ This article describes basic troubleshooting tools for the sensor and the on-pre
 
 **Alerts**: An alert is created when the sensor interface that monitors the traffic is down.
 
-**SNMP**: Sensor health is monitored through SNMP. Azure Defender for IoT responds to SNMP queries sent from an authorized monitoring server.
+**SNMP**: Sensor health is monitored through SNMP. Microsoft Defender for IoT responds to SNMP queries sent from an authorized monitoring server.
 
 **System notifications**: When a management console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
 

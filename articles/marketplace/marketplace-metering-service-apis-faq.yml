@@ -82,7 +82,7 @@ sections:
       - question: |
           Can you get a list of all SaaS subscriptions, including active and unsubscribed subscriptions?
         answer: |
-          Yes, when you call the [GET Subscriptions List API](partner-center-portal/pc-saas-fulfillment-api-v2.md#subscription-apis) as it includes a list of all SaaS subscriptions. The status field in the response for each SaaS subscription captures whether the subscription is active or unsubscribed.
+          Yes, when you call the [GET Subscriptions List API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions) as it includes a list of all SaaS subscriptions. The status field in the response for each SaaS subscription captures whether the subscription is active or unsubscribed.
           
       - question: |
           Are the start and end dates of SaaS subscription term and overage usage emission connected?

@@ -8,6 +8,8 @@ items:
   - name: What is Azure Synapse?
     href: overview-what-is.md
     displayName: overview
+  - name: What's new?
+    href: whats-new.md
   - name: Terminology 
     href: overview-terminology.md
   - name: FAQ 
@@ -24,28 +26,31 @@ items:
   - name: 2 Analyze using serverless SQL pool
     href: get-started-analyze-sql-on-demand.md
     displayName: get, started
-  - name: 3 Analyze using a serverless Spark pool
+  - name: 3 Analyze using a Data Explorer pool
+    href: get-started-analyze-data-explorer.md
+    displayName: get, started
+  - name: 4 Analyze using a serverless Spark pool
     href: get-started-analyze-spark.md
     displayName: get, started
-  - name: 4 Analyze using a dedicated SQL pool
+  - name: 5 Analyze using a dedicated SQL pool
     href: get-started-analyze-sql-pool.md
     displayName: get, started
-  - name: 5 Analyze data in a storage account
+  - name: 6 Analyze data in a storage account
     href: get-started-analyze-storage.md
     displayName: get, started
-  - name: 6 Integrate with pipelines
+  - name: 7 Integrate with pipelines
     href: get-started-pipelines.md
     displayName: get, started
-  - name: 7 Visualize with Power BI
+  - name: 8 Visualize with Power BI
     href: get-started-visualize-power-bi.md
     displayName: get, started
-  - name: 8 Monitor
+  - name: 9 Monitor
     href: get-started-monitor.md
     displayName: get, started
-  - name: 9 Explore the Knowledge center
+  - name: 10 Explore the Knowledge center
     href: get-started-knowledge-center.md
     displayName: get, started
-  - name: 10 Add an administrator
+  - name: 11 Add an administrator
     href: get-started-add-admin.md
     displayName: get, started
 - name: Workspace
@@ -66,9 +71,8 @@ items:
         href: quickstart-create-workspace-powershell.md
         displayName: quickstart
       - name: ARM template
-        displayName: Resource Manager
         href: quickstart-deployment-template-workspaces.md
-      displayName: quickstart
+        displayName: quickstart
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
       displayName: quickstart      
@@ -153,12 +157,10 @@ items:
           href: ./security/synapse-workspace-synapse-rbac-roles.md
         - name: Understand Synapse RBAC roles
           href: ./security/synapse-workspace-understand-what-role-you-need.md  
-        - name: Synapse workspace managed identity
-          href: ./security/synapse-workspace-managed-identity.md
         - name: System and user-assigned managed identity 
-          href: ../data-factory/data-factory-service-identity.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+          href: ../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context
         - name: Credentials for user-assigned managed identity
-          href: ../data-factory/credentials.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+          href: ../data-factory/credentials.md?context=/azure/synapse-analytics/context/context
   - name: How-to guides
     items:
     - name: Manage and Monitor
@@ -208,6 +210,34 @@ items:
         href: troubleshoot/reading-utf8-text.md
     - name: Move workspace to new region
       href: how-to-move-workspace-from-one-region-to-another.md
+- name: Database templates
+  items:
+  - name: Overview
+    items:
+    - name: Database templates overview
+      href: database-designer/overview-database-templates.md
+      displayName: overview
+    - name: Map data overview
+      href: database-designer/overview-map-data.md
+      displayName: map data
+  - name: Quickstarts
+    items:
+    - name: Create a lake database
+      href: database-designer/quick-start-create-lake-database.md
+  - name: Concepts
+    items:
+    - name: Database templates
+      href: database-designer/concepts-database-templates.md
+    - name: Lake database
+      href: database-designer/concepts-lake-database.md
+  - name: How-to guides      
+    items:
+    - name: Create an empty lake database
+      href: database-designer/create-empty-lake-database.md
+    - name: Create lake database from database templates
+      href: database-designer/create-lake-database-from-lake-database-templates.md
+    - name: Modify a lake database
+      href: database-designer/modify-lake-database.md
 - name: Migration guides
   items:
   - name: Migrate to a dedicated SQL pool
@@ -473,6 +503,8 @@ items:
         href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context
       - name: Monitor your workload - portal
         href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?context=/azure/synapse-analytics/context/context
+      - name: Query history and analysis
+        href: ./sql/query-history-storage-analysis.md
       - name: Manage workloads
         items:
         - name: Analyze your workload
@@ -531,7 +563,7 @@ items:
         href: sql/query-json-files.md
       - name: Query nested types
         href: sql/query-parquet-nested-types.md
-      - name: Query Delta Lake (preview)
+      - name: Query Delta Lake
         href: sql/query-delta-lake-format.md
       - name: Query folders and multiple files
         href: sql/query-folders-multiple-csv-files.md
@@ -572,6 +604,70 @@ items:
         href: ../azure-sql/database/connect-query-python.md?context=/azure/synapse-analytics/context/context
       - name: Query with sqlcmd
         href: sql/get-started-connect-sqlcmd.md
+- name: Data Explorer
+  items:
+  - name: Overview
+    items:
+    - name: Data Explorer overview
+      href: data-explorer/data-explorer-overview.md
+    - name: Compare with Azure Data Explorer
+      href: data-explorer/data-explorer-compare.md
+    - name: Data ingestion
+      items:
+      - name: Data ingestion overview
+        href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
+      - name: Data ingestion properties
+        href: data-explorer/ingest-data/data-explorer-ingest-data-properties.md
+      - name: Data ingestion formats
+        href: data-explorer/ingest-data/data-explorer-ingest-data-supported-formats.md
+  - name: Quickstarts
+    items:
+    - name: Create a Data Explorer pool using the Azure portal
+      href: data-explorer/data-explorer-create-pool-portal.md
+    - name: Create a Data Explorer pool using the Synapse Studio
+      href: data-explorer/data-explorer-create-pool-studio.md
+    - name: Ingest data
+      items:
+      - name: Overview
+        href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
+      - name: One-click ingestion
+        href: data-explorer/ingest-data/data-explorer-ingest-data-one-click.md
+      - name: Streaming ingestion
+        href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
+      - name: Event Hub
+        items:
+          - name: Event Hub data connection
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
+          - name: Azure portal
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-portal.md
+          - name: One-click
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-one-click.md
+          - name: C#
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-csharp.md
+          - name: Python
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-python.md
+          - name: Azure Resource Manager template
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
+      - name: Event Grid
+        items:
+          - name: Event Hub data connection
+            href: data-explorer/ingest-data/data-explorer-ingest-event-grid-overview.md
+          - name: Azure portal
+            href: data-explorer/ingest-data/data-explorer-ingest-event-grid-portal.md
+      - name: Ingest data using pipelines
+        href: data-explorer/ingest-data/data-explorer-ingest-data-pipeline.md
+    - name: Monitor and diagnose pools
+      href: data-explorer/data-explorer-monitor-pools.md
+  - name: Kusto Query Language
+    href: data-explorer/kusto-query-language/toc.yml
+  - name: Management commands
+    href: data-explorer/management/toc.yml
+  - name: Reference
+    items:
+    - name: API
+      href: data-explorer/api/toc.yml
+    - name: Functions library
+      href: data-explorer/functions-library/toc.yml
 - name: Apache Spark
   items:
   - name: Overview
@@ -586,12 +682,20 @@ items:
       href: quickstart-create-apache-spark-pool-portal.md
     - name: Create a Spark pool using Synapse Studio
       href: quickstart-create-apache-spark-pool-studio.md
+    - name: Create a GPU-accelerated Apache Spark pool
+      href: quickstart-create-apache-gpu-pool-portal.md
   - name: Tutorials
     items:
     - name: Data visualization with Synapse Studio notebooks
       href: ./spark/apache-spark-data-visualization-tutorial.md
     - name: Analyze data with Apache Spark and Power BI
       href: ./spark/apache-spark-to-power-bi.md
+    - name: Read/write ADLS with Pandas
+      displayName: data prep, data preparation
+      href: ./spark/tutorial-use-pandas-spark-pool.md
+    - name: Read/write ADLS with filesystem spec
+      displayName: data prep, data preparation, fsspec
+      href: ./spark/tutorial-spark-pool-filesystem-spec.md
     - name: Create machine learning models
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Submit Spark job definitions
@@ -602,6 +706,8 @@ items:
       href: ./spark/apache-spark-concepts.md
     - name: Apache Spark pool configurations
       href: ./spark/apache-spark-pool-configurations.md
+    - name: GPU-accelerated Apache Spark pools
+      href: ./spark/apache-spark-gpu-concept.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior
@@ -660,6 +766,8 @@ items:
           href: ./spark/apache-spark-performance.md
         - name: Performance optimization for Apache Spark using Hyperspace indexes
           href: ./spark/apache-spark-performance-hyperspace.md
+        - name: Accelerate ETL operations with NVIDIA RAPIDS
+          href: ./spark/apache-spark-rapids-gpu.md
     - name: Manage and monitor
       items:
       - name: Navigate the Apache Spark pool history server
@@ -1273,6 +1381,8 @@ items:
     items:
     - name: Use a sample notebook from the gallery
       href: machine-learning/quickstart-gallery-sample-notebook.md
+    - name: Use the Retail AI solution
+      href: machine-learning/quickstart-industry-ai-solutions.md
     - name: Create a linked service
       items:
       - name: Azure Machine Learning
@@ -1289,9 +1399,6 @@ items:
     items:
     - name: Data access and preparation
       items:
-      - name: Read/write ADLS with filesystem spec
-        displayName: data prep, data preparation
-        href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
       - name: Visualize data with Apache Spark
         displayName: data prep, data preparation, visualization
         href: ./spark/apache-spark-data-visualization-tutorial.md
@@ -1313,6 +1420,9 @@ items:
       - name: Use the scoring wizard for dedicated SQL pools
         displayName: score model
         href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+      - name: PREDICT score in Synapse spark using model registered in AML or ADLS
+        displayName: predict score, Synapse spark, model registered in AML or ADLS
+        href: ./machine-learning/tutorial-score-model-predict-spark-pool.md
       - name: With Cognitive Services
         items:
         - name: Overview
@@ -1324,7 +1434,19 @@ items:
         - name: Anomaly detection wizard
           displayName: cognitive services, score model
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-        - name: With Apache Spark (MMLSpark)
+        - name: Text Analytics with Apache Spark (SynapseML)
+          displayName: cognitive services, score model, applications
+          href: ./machine-learning/tutorial-text-analytics-use-mmlspark.md
+        - name: Computer Vision with Apache Spark (SynapseML)
+          displayName: cognitive services, score model, applications
+          href: ./machine-learning/tutorial-computer-vision-use-mmlspark.md        
+        - name: Form Recognizer with Apache Spark (SynapseML)
+          displayName: cognitive services, score model, applications
+          href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
+        - name: Translator with Apache Spark (SynapseML)
+          displayName: cognitive services, score model, applications
+          href: ./machine-learning/tutorial-translator-use-mmlspark.md
+        - name: With Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
   
@@ -1344,6 +1466,8 @@ items:
   items:
   - name: Plan and manage costs
     href: plan-manage-costs.md
+  - name: Browse an ADLS Gen2 folder with ACLs
+    href: how-to-access-container-with-access-control-lists.md
 - name: Reference
   items:
   - name: Azure CLI
