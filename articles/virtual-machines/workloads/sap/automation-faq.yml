@@ -19,7 +19,7 @@ sections:
   - name: Terraform deployment
     questions:
       - question: |
-          Why does the error "Incorrect parameter file" mean?
+          What does the error "Incorrect parameter file" mean?
         answer: |
           You might see this error when running a deployment. Make sure that you pass the correct path to the parameter file for the appropriate phase. For example, the Control Plane, Landscape, or System.
       - question: |
