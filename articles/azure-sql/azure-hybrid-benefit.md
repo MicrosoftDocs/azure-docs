@@ -17,16 +17,15 @@ ms.date: 11/09/2021
 
 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) allows you to exchange your existing licenses for discounted rates on Azure SQL Database and Azure SQL Managed Instance. You can save up to 30 percent or more on SQL Database and SQL Managed Instance by using your Software Assurance-enabled SQL Server licenses on Azure. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) page has a calculator to help determine savings.  
 
-For Azure SQL Database, Azure Hybrid Benefit is only available when using the provisioned compute tier of the [vCore-based purchasing model](database/service-tiers-vcore.md). Azure Hybrid Benefit doesn't apply to DTU-based purchasing models or the serverless compute tier.
+Changing to Azure Hybrid Benefit does not require any downtime.
 
-> [!NOTE]
-> Changing to Azure Hybrid Benefit does not require any downtime.
+## Overview
 
 ![vcore pricing structure](./media/azure-hybrid-benefit/pricing.png)
 
-## Choose a license model
-
 With Azure Hybrid Benefit, you pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL Server database engine itself (Base Compute pricing). If you do not use Azure Hybrid Benefit, you pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
+
+For Azure SQL Database, Azure Hybrid Benefit is only available when using the provisioned compute tier of the [vCore-based purchasing model](database/service-tiers-vcore.md). Azure Hybrid Benefit doesn't apply to DTU-based purchasing models or the serverless compute tier.
 
 ## Enable Azure Hybrid Benefit 
 
@@ -61,8 +60,8 @@ To set or update the license type using the Azure CLI:
 
 To set or update the license type using the REST API:
 
-- [Databases - Create Or Update](/rest/api/sql/databases/createorupdate)
-- [Databases - Update](/rest/api/sql/databases/update)
+- [Create or update](/rest/api/sql/databases/createorupdate)
+- [Update](/rest/api/sql/databases/update)
 
 ---
 
@@ -94,11 +93,11 @@ To set or update the license type using the Azure CLI:
 
 To set or update the license type using the REST API:
 
-- [Managed Instances - Create Or Update](/rest/api/sql/managedinstances/createorupdate)
-- [Managed Instances - Update](/rest/api/sql/managedinstances/update)
+- [Create or update](/rest/api/sql/managedinstances/createorupdate)
+- [Update](/rest/api/sql/managedinstances/update)
 
 ---
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### Are there dual-use rights with Azure Hybrid Benefit for SQL Server?
 
