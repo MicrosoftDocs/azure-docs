@@ -27,13 +27,13 @@ ms.topic: how-to
 
   See [Azure authentication with Java and Azure Identity](/azure/developer/java/sdk/identity) to learn more.
 
-- Add [azure-messaging-webpubsub]() dependency in your `pom.xml`.
+- Add [azure-messaging-webpubsub](https://mvnrepository.com/artifact/com.azure/azure-messaging-webpubsub) dependency in your `pom.xml`.
 
   ```xml
   <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-messaging-webpubsub</artifactId>
-      <version>1.0.0-beta.2</version>
+      <version>1.0.0-beta.6</version>
   </dependency>
   ```
 
