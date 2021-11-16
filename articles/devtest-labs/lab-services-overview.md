@@ -97,7 +97,7 @@ The following table compares the two types of Azure lab environments:
 
 | Feature | Lab Services | DevTest Labs |
 | -------- | ----------------- | ---------- |
-| Azure infrastructure management. | Service automatically manages. | You manage.  |
+| Azure infrastructure management. | Service automatically manages. | You manage.  |
 | Infrastructure resiliency. | Service automatically handles. | You handle.  |
 | Subscription management. | Service handles resource allocation in internal subscriptions. | You manage in your own Azure subscription. |
 | Autoscaling. | Service automatically handles. | No autoscaling. |
