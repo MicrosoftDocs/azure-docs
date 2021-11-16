@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021
 
 # Configure Grafana to visualize metrics emitted from the managed instance cluster
 
-When you deploy an Azure Managed Instance for Apache Cassandra cluster, the service provisions [Metric Collector for Apache Cassandra](https://github.com/datastax/metric-collector-for-apache-cassandra) agent software on each data node. The metrics can be consumed by [Prometheus](https://prometheus.io/) and visualised through Grafana. This article describes how to configure Prometheus and Grafana to visualize metrics emitted from your managed instance cluster. 
+When you deploy an Azure Managed Instance for Apache Cassandra cluster, the service provisions [Metric Collector for Apache Cassandra](https://github.com/datastax/metric-collector-for-apache-cassandra) agent software on each data node. The metrics can be consumed by [Prometheus](https://prometheus.io/) and visualized through Grafana. This article describes how to configure Prometheus and Grafana to visualize metrics emitted from your managed instance cluster. 
 
 The following tasks are required to visualize metrics:
 
