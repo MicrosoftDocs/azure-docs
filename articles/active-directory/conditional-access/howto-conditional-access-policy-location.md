@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 11/05/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -53,8 +53,10 @@ More information about the location condition in Conditional Access can be found
    1. Select the blocked location you created for your organization.
    1. Click **Select**.
 1. Under **Access controls** > select **Block Access**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **On**.
-1. Select **Create** to create Conditional Access Policy.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
+1. Select **Create** to create to enable your policy.
+
+After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Next steps
 
