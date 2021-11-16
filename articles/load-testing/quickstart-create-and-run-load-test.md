@@ -23,9 +23,9 @@ After completing this quickstart, you'll have a resource and load test you can u
 
 ## <a name="create_resource"></a> Create a new Azure Load Testing resource
 
-First you'll create an Azure Load Testing resource. This is the top-level resource, which provides a centralized place to view and manage test plans, test results, and other related artifacts.
+First, you'll create an Azure Load Testing resource. This is the top-level resource, which provides a centralized place to view and manage test plans, test results, and other related artifacts.
 
-If you  already have a Load Testing resource, skip this section and continue to [Create a load test](#create_test).
+If you already have a Load Testing resource, skip this section and continue to [Create a load test](#create_test).
 
 If you don't yet have a Load Testing resource, create one now:
 
