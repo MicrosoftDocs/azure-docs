@@ -121,7 +121,7 @@ Check if your selected Azure region offers NFS 4.1 on Azure Files with the appro
 
 It's recommended to access your Azure Storage account through an [Azure Private Endpoint](../../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal). Make sure to deploy the Azure Files storage account endpoint and the VMs, where you need to mount the NFS shares, in the same Azure VNet or peered Azure VNets.
 
-1. Deploy a File Storage account named `sapafsnfs`. In this example, we use ZRS. If you're not familiar with the process, see [Create a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) for the Azure portal.
+1. Deploy a File Storage account named `sapafsnfs`. In this example, we use ZRS. If you're not familiar with the process, see [Create a storage account](../../../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) for the Azure portal.
 1. In the **Basics** tab, use these settings:
 
     1. For **Storage account name**, enter `sapafsnfs`.
@@ -186,7 +186,7 @@ Next, deploy the NFS shares in the storage account you created. In this example,
    > [!IMPORTANT]
    > The share size above is just an example. Make sure to size your shares appropriately. Size not only based on the size of the of data stored on the share, but also based on the requirements for IOPS and throughput. For details see [Azure file share targets](../../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).  
 
-   The SAP file systems that don't need to be mounted via NFS can be also be deployed on [Azure disk storage](../../disks-types.md#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage. 
+   The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](../../disks-types.md#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage. 
 
 ### Important considerations for NFS on Azure Files shares
 
@@ -231,7 +231,8 @@ After you deploy the VMs for your SAP system, create a load balancer. Then, use 
       1. Click Add a virtual machine.
       1. Select Virtual machine
       1. Select the virtual machines of the (A)SCS cluster and their IP addresses.
-      1. Click Add
+      1. Click Add  
+      
    1. Create the health probes
       1. Port 620**00** for ASCS
          1. Open the load balancer, select health probes, and click Add
@@ -820,11 +821,11 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
 
 Follow these steps to install an SAP application server.
 
-1. Prepare application server
+1. **[A]** Prepare application server
 
    Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-rhel-nfs-azure-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
 
-1. Install SAP NetWeaver application server.  
+1. **[A]** Install SAP NetWeaver application server.  
 
    Install a primary or additional SAP NetWeaver applications server.
 
@@ -834,11 +835,11 @@ Follow these steps to install an SAP application server.
     sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
     ```
 
-1. Update SAP HANA secure store
+1. **[A]** Update SAP HANA secure store
 
    Update the SAP HANA secure store to point to the virtual name of the SAP HANA System Replication setup.
 
-   Run the following command to list the entries as \<sapsid>adm
+   Run the following command to list the entries as `<sapsid>adm`
 
     ```bash
     hdbuserstore List
@@ -850,21 +851,22 @@ Follow these steps to install an SAP application server.
     KEY FILE        : /home/nw1adm/.hdb/sapa01/SSFS_HDB.KEY
    
     KEY DEFAULT
-      ENV : 192.168.14.4:30313
+      ENV : 10.90.90.5:30313
       USER: SAPABAP1
       DATABASE: NW1
     ```
 
-   The output shows that the IP address of the default entry is pointing to the virtual machine and not to the load balancer's IP address. This entry needs to be changed to point to the virtual hostname of the load balancer. Make sure to use the same port (**30313** in the output above) and database name (**NW1** in the output above)!
+   In this example, the IP address of the default entry points to the VM, not the load balancer. Change the entry to point to the virtual hostname of the load balancer. Make sure to use the same port and database name. For example, `30313` and `NW1` in the sample output.
+
 
     ```bash
     su - nw1adm
     hdbuserstore SET DEFAULT nw1db:30313@NW1 SAPABAP1 <password of ABAP schema>
     ```
 
-## Test the cluster setup
+## Test cluster setup
 
-Next, make sure that you thoroughly test your Pacemaker cluster: execute the typical [failover tests](./high-availability-guide-rhel.md#test-the-cluster-setup).
+Thoroughly test your Pacemaker cluster. [Execute the typical failover tests](./high-availability-guide-rhel.md#test-the-cluster-setup).
 
 ## Next steps
 
