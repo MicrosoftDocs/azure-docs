@@ -27,7 +27,7 @@ The supported PostgreSQL server versions are 8.4 to 12.x.
 
 When scanning PostgreSQL source, Purview supports:
 
-- Extracting metadata including PostgreSQL server, databases, schemas, tables, views, table/view columns, etc.
+- Extracting metadata including PostgreSQL server, databases, schemas, tables, views, and table/view columns.
 - Fetching lineage on assets relationships among tables and views.
 
 ## Prerequisites

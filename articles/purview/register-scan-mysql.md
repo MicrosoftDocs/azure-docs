@@ -27,7 +27,7 @@ The supported MySQL server versions are 5.7 to 8.x.
 
 When scanning MySQL source, Purview supports:
 
-- Extracting metadata including MySQL server, databases, tables, views, table/view columns, etc.
+- Extracting metadata including MySQL server, databases, tables, views, and table/view columns.
 - Fetching lineage on assets relationships among tables and views.
 
 ## Prerequisites
