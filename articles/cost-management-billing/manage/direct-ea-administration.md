@@ -24,9 +24,9 @@ If you've been set up as the enterprise administrator, then go to the Azure po
 
 If you have more than one billing account, select a billing account from billing scope menu. You can view your billing account properties and policy from the left menu.
 
-Check out the [EA admin manage enrollment](https://www.youtube.com/watch?v=NUlRrJFF1_U&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) video.
+Check out the [EA admin manage enrollment](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
->[!VIDEO https://www.youtube.com/embed/NUlRrJFF1_U&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm]
+>[!VIDEO https://www.youtube.com/embed/NUlRrJFF1_U]
 
 ## Select a billing scope
 
@@ -107,9 +107,9 @@ EA admins and department administrators use departments to organize and report o
 
 A department administrator can add new accounts to their departments. They can also remove accounts from their departments, but not from the enrollment.
 
-Check out the [EA admin manage departments](https://www.youtube.com/watch?v=NUlRrJFF1_U&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) video.
+Check out the [EA admin manage departments](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
->[!VIDEO https://www.youtube.com/embed/cxAtOSSE6UI&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm]
+>[!VIDEO https://www.youtube.com/embed/cxAtOSSE6UI]
 
 ### To create a department
 
@@ -167,9 +167,9 @@ The structure of accounts and subscriptions affect how they're administered and 
 
 After a new account is added to the enrollment, the account owner is sent an account ownership email that's used to confirm ownership.
 
-Check out the [EA admin manage departments](https://www.youtube.com/watch?v=VKWAEx6qfPc&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) video.
+Check out the [EA admin manage departments](https://www.youtube.com/watch?v=VKWAEx6qfPc) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
->[!VIDEO https://www.youtube.com/embed/VKWAEx6qfPc&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm]
+>[!VIDEO https://www.youtube.com/embed/VKWAEx6qfPc]
 
 ### To add an account and account owner
 
@@ -364,9 +364,9 @@ When you create different subscriptions for each application environment, you he
 - You can associate subscriptions with any number of services.
 - The account owner creates subscriptions and assigns a service administrator account to each subscription in their account.
 
-Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KFfcg2eqPo8&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) video.
+Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KFfcg2eqPo8) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
->[!VIDEO https://www.youtube.com/embed/KFfcg2eqPo8&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm]
+>[!VIDEO https://www.youtube.com/embed/KFfcg2eqPo8]
 
 ## Add a subscription
 

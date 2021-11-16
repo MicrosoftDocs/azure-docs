@@ -24,7 +24,7 @@ We have several videos that walk you through getting started with the Azure port
 
 Here's the first video.
 
->[!VIDEO https://www.youtube.com/embed/sfJyTZZ6RxQ&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm]
+>[!VIDEO https://www.youtube.com/embed/sfJyTZZ6RxQ]
 
 ## Understanding EA user roles and introduction to user hierarchy
 

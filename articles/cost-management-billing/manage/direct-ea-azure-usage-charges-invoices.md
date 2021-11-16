@@ -14,9 +14,9 @@ ms.reviewer: sapnakeshari
 
 This article explains how enterprise administrators of direct Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal. Charges are presented at the summary level across all accounts and subscriptions of the enrollment.
 
-Check out the [EA admin manage consumption and invoices](https://www.youtube.com/watch?v=bO8V9eLfQHY&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) video.
+Check out the [EA admin manage consumption and invoices](https://www.youtube.com/watch?v=bO8V9eLfQHY) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
->[!VIDEO https://www.youtube.com/embed/bO8V9eLfQHY&list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm]
+>[!VIDEO https://www.youtube.com/embed/bO8V9eLfQHY]
 
 ## Prerequisites
 
