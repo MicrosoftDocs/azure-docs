@@ -244,6 +244,6 @@ Below is a sample EAP XML file. Please change the *TrustedRootCA* field to the t
     </Config>
 </EapHostConfig>
 ```
-## Next steps
 
+## Next steps
 For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).
