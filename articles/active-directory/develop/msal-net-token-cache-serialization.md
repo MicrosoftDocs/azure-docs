@@ -237,7 +237,6 @@ You can specify that you don't want to have any token cache serialization and re
 - Use `.WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` when you build the application.
 - Don't add any serializer.
 
-
 ```CSharp
     // Create the confidential client application
     app= ConfidentialClientApplicationBuilder.Create(clientId)
