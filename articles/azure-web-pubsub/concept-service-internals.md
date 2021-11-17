@@ -219,7 +219,7 @@ In general, server protocol contains two roles:
 <a name="event_handler"></a>
 
 ### Event handler
-The event handler handles the incoming client events. Event handlers are registered and configured in the service through portal or Azure CLI beforehand so that when a client event is triggered, the service can identify if the event is expected to be handled or not. For public preview, we use `PUSH` mode to invoke the event handler: that the event handler as the server side, exposes public accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook**. 
+The event handler handles the incoming client events. Event handlers are registered and configured in the service through portal or Azure CLI beforehand so that when a client event is triggered, the service can identify if the event is expected to be handled or not. Now we use `PUSH` mode to invoke the event handler: that the event handler as the server side, exposes public accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook**. 
 
 Service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md).
 
@@ -267,7 +267,7 @@ It can also grant or revoke publish/join permissions for a PubSub client:
    - Revoke Join/Publish permissions for some specific group or for all groups
    - Check if the client has permission to Join/Publish to some specific group or to all groups
    
-For public preview, the service provides REST APIs for the server to do connection management:
+The service provides REST APIs for the server to do connection management:
 
 ![Diagram showing the Web PubSub service connection manager workflow.](./media/concept-service-internals/manager-rest.png)
 

@@ -18,6 +18,9 @@ Speech CLI's behavior can rely on settings in configuration files, which you can
 
 In the Speech CLI quickstart, you used the datastore to save your `@key` and `@region` values, so you did not need to specify them with each `spx` command. Keep in mind, that you can use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
 
+> [!NOTE]
+> In PowerShell, the [stop-parsing token](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.2#stop-parsing-token---) (`--%`) should follow `spx`. For example, run `spx --% config @region` to view the current region config value.
+
 ## Create and manage configuration files in the datastore
 
 This section shows how to use a configuration file in the local datastore to store and fetch command settings using `spx config`, and store output from Speech CLI using the `--output` option.

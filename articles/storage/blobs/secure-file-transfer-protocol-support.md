@@ -63,7 +63,7 @@ Passwords are generated for you. If you choose password authentication, then you
 
 #### SSH key pairs
 
-A public-private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret and is known only to you. The public key is stored in Azure. When an SSH client connects to the storage account, it sends a message with the private key and signature. Azure validates the message and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](/azure/virtual-machines/linux/ssh-from-windows##overview-of-ssh-and-keys).
+A public-private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret and is known only to you. The public key is stored in Azure. When an SSH client connects to the storage account, it sends a message with the private key and signature. Azure validates the message and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](../../virtual-machines/linux/ssh-from-windows.md#).
 
 If you choose to authenticate with private-public key pair, you can either generate one, use one already stored in Azure, or provide Azure the public key of an existing public-private key pair. 
 
@@ -110,7 +110,6 @@ SFTP support is available in the following regions:
 - Central US EUAP
 - Canada East
 - Canada Central
-- West Europe
 - North Europe
 - Australia East
 - Switzerland North
