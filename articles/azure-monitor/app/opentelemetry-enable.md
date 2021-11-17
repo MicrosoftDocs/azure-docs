@@ -308,7 +308,7 @@ Run your application and open your **Application Insights Resource** tab in the 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of the Application Insights Overview tab with server requests and server response time highlighted.":::
 
 > [!IMPORTANT]
-> If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](#set-cloud-role-name-and-cloud-role-instance) to represent them properly on the Application Map.
+> If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
@@ -402,7 +402,7 @@ Sampling is supported in OpenTelemetry, but it isn't supported in the Azure Moni
 
 ## Instrumentation libraries
 <!-- Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release. -->
-The following libraries are validated to work with the preview release:
+The following libraries are validated to work with the preview release.
 
 > [!WARNING]
 > Instrumentation libraries are based on experimental OpenTelemetry specifications. Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
@@ -460,6 +460,8 @@ The following libraries are validated to work with the preview release:
 > The *preview* offering only includes instrumentations that handle HTTP and database requests. To learn more, see [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions).
 
 ## Modify telemetry
+
+This section explains how to modify telemetry.
 
 ### Add span attributes
 
@@ -593,7 +595,7 @@ You can populate the _client_IP_ field for requests by setting the `http.client_
 
 ##### [.NET](#tab/net)
 
-Use the add [custom property example](#add-custom-property), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
+Use the add [custom property example](#add-a-custom-property), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
 
 ```C#
 // only applicable in case of activity.Kind == Server
@@ -602,7 +604,7 @@ activity.SetTag("http.client_ip", "<IP Address>");
 
 ##### [Node.js](#tab/nodejs)
 
-Use the add [custom property example](#add-custom-property), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property), but replace the following lines of code:
 
 ```typescript
 ...
@@ -619,7 +621,7 @@ class SpanEnrichingProcessor implements SpanProcessor{
 
 ##### [Python](#tab/python)
 
-Use the add [custom property example](#add-custom-property), but replace the following lines of code in `SpanEnrichingProcessor.py`:
+Use the add [custom property example](#add-a-custom-property), but replace the following lines of code in `SpanEnrichingProcessor.py`:
 
 ```python
 span._attributes["http.client_ip"] = "<IP Address>"
@@ -756,7 +758,7 @@ You might use the following ways to filter out telemetry before you leave your a
     ```
 
 1. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
-Use the add [custom property example](#add-custom-property), but replace the following lines of code:
+Use the add [custom property example](#add-a-custom-property), but replace the following lines of code:
 
     ```typescript
     ...
