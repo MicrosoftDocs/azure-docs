@@ -282,6 +282,11 @@ This procedure describes the steps required to use an Azure ML workspace in a vi
 
 You're now ready to start [launching your notebooks from Microsoft Sentinel](#launch-a-notebook-in-your-azure-ml-workspace).
 
+For more information, see:
+
+- [Network traffic flow when using a secured workspace](/azure/machine-learning/concept-secure-network-traffic-flow)
+- [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](/azure/machine-learning/how-to-network-security-overview)
+
 ## Troubleshooting
 
 Usually, a notebook creates or attaches to a kernel seamlessly, and you don't need to make any manual changes. If you get errors, or the notebook doesn't seem to be running, you might need to check the version and state of the kernel.
