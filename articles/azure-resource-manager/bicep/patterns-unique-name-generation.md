@@ -27,10 +27,10 @@ When planning a resource's name, you need to ensure it is:
 
 ## Solution
 
-Use Bicep's [string interpolation](bicep-functions-string.md#concat) to generate resource names as [variables](variables.md). If the resource requires a globally unique name, use the [uniqueString()](bicep-functions-string#uniquestring) function to generate part of the resource name. Prepend or append meaningful information to ensure your resources are easily identifiable.
+Use Bicep's [string interpolation](bicep-functions-string.md#concat) to generate resource names as [variables](variables.md). If the resource requires a globally unique name, use the [uniqueString()](bicep-functions-string.md#uniquestring) function to generate part of the resource name. Prepend or append meaningful information to ensure your resources are easily identifiable.
 
 > [!NOTE]
-> Some Azure resources, such as Azure RBAC role definitions and role assignments, need to have globally unique identifiers (GUIDs) as their names. Use the [guid() function](bicep-functions-string#guid) to generate names for these resources.
+> Some Azure resources, such as Azure RBAC role definitions and role assignments, need to have globally unique identifiers (GUIDs) as their names. Use the [guid() function](bicep-functions-string.md#guid) to generate names for these resources.
 
 If you're creating reusable Bicep code, you should consider defining names as [parameters](parameters.md). Use a [default parameter value](parameters.md#default-value) to define a default name that can be overridden. This can help to make your Bicep files more reusable, ensuring that users of the file can define their own names if they need to follow a different naming convention.
 
@@ -46,7 +46,7 @@ The following example generates the names for two storage accounts for a differe
 
 ## Considerations
 
-- Ensure you verify the scope of the uniqueness of your resource names. Use appropriate seed values for the [uniqueString() function](bicep-functions-string#uniquestring) to ensure that you can reuse the Bicep file across Azure resource groups and subscriptions.
+- Ensure you verify the scope of the uniqueness of your resource names. Use appropriate seed values for the [uniqueString() function](bicep-functions-string.md#uniquestring) to ensure that you can reuse the Bicep file across Azure resource groups and subscriptions.
   > [!TIP]
   > In most situations, the fully qualified resource group ID is a good option for the seed value for the `uniqueString` function:
   >
