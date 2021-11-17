@@ -100,7 +100,6 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 
 5. Confirm the status of the provider is **Registered**. If the status is **Unregistered**, select the provider then select **Register**.
 
-
 ## Enable NSG flow log
 
 NSG flow log data is written to an Azure Storage account. Complete the following steps to create a storage account for the log data.
@@ -250,7 +249,7 @@ The value for **mac** in the previous output is the MAC address of the network i
 | Example data | What data represents   | Explanation                                                                              |
 | ---          | ---                    | ---                                                                                      |
 | 1542110377   | Time stamp             | The time stamp of when the flow occurred, in UNIX EPOCH format. In the previous example, the date converts to May 1, 2018 at 2:59:05 PM GMT.                                                                                    |
-| 10.0.0.4  | Source IP address      | The source IP address that the flow originated from. 10.0.0.4 is the private IP address of the VM you created in [Create a VM](#create-a-vm).
+| 10.0.0.4  | Source IP address      | The source IP address that the flow originated from. 10.0.0.4 is the private IP address of the VM you created in [Create a VM](#create-a-virtual-machine).
 | 13.67.143.118     | Destination IP address | The destination IP address that the flow was destined to.                                                                                  |
 | 44931        | Source port            | The source port that the flow originated from.                                           |
 | 443         | Destination port       | The destination port that the flow was destined to. Since the traffic was destined to port 443, the rule named **UserRule_default-allow-rdp**, in the log file processed the flow.                                                |
