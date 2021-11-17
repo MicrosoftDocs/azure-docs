@@ -36,6 +36,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/service-fabric/how-to-enable-managed-cluster-disk-encryption.md",
+      "redirect_url": "/azure/service-fabric/how-to-managed-cluster-enable-disk-encryption",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric-mesh/move-across-regions.md",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
       "redirect_document_id": false
@@ -409,6 +414,66 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-health-probes.md",
+      "redirect_url": "/articles/frontdoor/front-door-health-probes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-ddos.md",
+      "redirect_url": "/articles/frontdoor/front-door-ddos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-match-conditions.md",
+      "redirect_url": "/azure/frontdoor/rules-match-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-rules-engine-match-conditions.md",
+      "redirect_url": "/azure/frontdoor/rules-match-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-actions.md",
+      "redirect_url": "/azure/frontdoor/rules-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-rules-engine-actions.md",
+      "redirect_url": "/azure/frontdoor/rules-actions",
+      "redirect_document_id": false
+    },
+    { 
+      "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
+      "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
+      "redirect_document_id": false
+    },
+    { 
+      "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations.md",
+      "redirect_url": "/azure/frontdoor/edge-locations-by-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations-by-abbreviation.md",
+      "redirect_url": "/azure/frontdoor/edge-locations-by-abbreviation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/edge-locations-abbreviation.md",
+      "redirect_url": "/azure/frontdoor/edge-locations-by-abbreviation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-route-issues.md",
+      "redirect_url": "/azure/frontdoor/troubleshoot-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-troubleshoot-routing.md",
+      "redirect_url": "/azure/frontdoor/troubleshoot-issues",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
       "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
       "redirect_document_id": true
@@ -732,6 +797,16 @@
       "source_path_from_root": "/articles/remoteapp/remoteapp-whatsnew.md",
       "redirect_url": "/azure",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-single-subnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-landing-custom.md",
@@ -3375,22 +3450,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-app-service-environments-readme.md",
-      "redirect_url": "/azure/app-service/environment/intro",
+      "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-environment/intro.md",
-      "redirect_url": "/azure/app-service/environment/intro",
+      "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-environment/readme.md",
-      "redirect_url": "/azure/app-service/environment/intro",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/environment/index.md",
-      "redirect_url": "/azure/app-service/environment/intro",
+      "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
     },
     {
@@ -26302,6 +26372,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/watchlist-with-rest-api.md",
+      "redirect_url": "/rest/api/securityinsights/watchlists",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
@@ -26652,6 +26727,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/spring-cloud/expose-apps-gateway-azure-firewall.md",
+      "redirect_url": "/azure/spring-cloud/expose-apps-gateway",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/how-to-provision-azure-spring-cloud-instance-terraform.md",
       "redirect_url": "/azure/spring-cloud/quickstart-deploy-infrastructure-vnet-terraform",
       "redirect_document_id": false
@@ -26813,7 +26893,12 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-persistent-storage.md",
-      "redirect_url": "/azure/spring-cloud/how-to-persistent-storage",
+      "redirect_url": "/azure/spring-cloud/how-to-built-in-persistent-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/how-to-persistent-storage.md",
+      "redirect_url": "/azure/spring-cloud/how-to-built-in-persistent-storage",
       "redirect_document_id": false
     },
     {
@@ -31414,6 +31499,11 @@
     {
       "source_path_from_root": "/articles/virtual-wan/scenario-route-between-hubs-firewall.md",
       "redirect_url": "/azure/virtual-wan/scenario-route-between-vnets-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-wan/virtual-wan-site-to-site-packet-capture.md",
+      "redirect_url": "/azure/virtual-wan/packet-capture-site-to-site-powershell",
       "redirect_document_id": false
     },
     {
@@ -44642,6 +44732,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/essentials/quick-monitor-azure-resource.md",
+      "redirect_url": "/azure/azure-monitor/essentials/monitor-azure-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/quick-collect-activity-log-portal.md",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/quick-collect-activity-log-arm.md",
+      "redirect_url": "/azure/azure-monitor/essentials/resource-manager-diagnostic-settings#diagnostic-setting-for-activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/dotnet-quickstart.md",
+      "redirect_url": "/azure/azure-monitor/app/asp-net-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/nodejs-quick-start.md",
+      "redirect_url": "/azure/azure-monitor/app/asp-net-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/website-monitoring.md",
+      "redirect_url": "/azure/azure-monitor/app/javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/tutorial-metrics-explorer.md",
+      "redirect_url": "/azure/azure-monitor/essentials/tutorial-metrics",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -45724,6 +45849,11 @@
     {
       "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/calling-client-samples.md",
       "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/call-logs-azure-monitor.md",
+      "redirect_url": "/azure/communication-services/concepts/analytics/call-logs-azure-monitor",
       "redirect_document_id": false
     },
     {
@@ -47334,6 +47464,21 @@
     {
     "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-agent-based.md",
+      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-agent-based-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-service-direct.md",
+      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-service-direct-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
+      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
       "redirect_document_id": false
     }
   ]

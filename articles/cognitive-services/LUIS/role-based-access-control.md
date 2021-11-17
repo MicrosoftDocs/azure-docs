@@ -7,13 +7,13 @@ ms.author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ---
 
 # LUIS role-based access control
 
-LUIS supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your LUIS authoring resources. See the [Azure RBAC documentation](/azure/role-based-access-control/) for more information.
+LUIS supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your LUIS authoring resources. See the [Azure RBAC documentation](../../role-based-access-control/index.yml) for more information.
 
 ## Add role assignment to Language Understanding Authoring resource
 
@@ -29,11 +29,11 @@ Azure RBAC can be assigned to a Language Understanding Authoring resource. To gr
 1. On the **Members** tab, select a user, group, service principal, or managed identity.
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Security 
 
-LUIS supports Azure Active Directory (AAD) authentication. For more information, see [Authenticate with Azure Active Directory](/azure/cognitive-services/authentication#authenticate-with-azure-active-directory).
+LUIS supports Azure Active Directory (AAD) authentication. For more information, see [Authenticate with Azure Active Directory](../authentication.md#authenticate-with-azure-active-directory).
 
 ## LUIS role types
 
@@ -62,14 +62,16 @@ A user that should only be validating and reviewing LUIS applications, typically
         * Test Application
     :::column-end:::
     :::column span="":::
-      * All GET APIs under: 
-         * [LUIS Programmatic v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
-         * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
-      * All the APIs under: 
-         * [LUIS Endpoint APIs v2.0](https://chinaeast2.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)
-         * [LUIS Endpoint APIs v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8)
-         * [LUIS Endpoint APIs v3.0-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8)
-      * All the Batch Testing Web APIs
+      All GET APIs under: 
+        * [LUIS Programmatic v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
+        * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
+
+      All the APIs under: 
+        * [LUIS Endpoint APIs v2.0](https://chinaeast2.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)
+        * [LUIS Endpoint APIs v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8)
+        * [LUIS Endpoint APIs v3.0-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8)
+
+      All the Batch Testing Web APIs
     :::column-end:::
 :::row-end:::
 
@@ -87,25 +89,28 @@ A user that is responsible for building and modifying LUIS application, as a col
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalities under Cognitive Services LUIS Reader.
-      * Ability to add: 
-          * Utterances
-          * Intents
-          * Entities
+      * All functionalities under Cognitive Services LUIS Reader. 
+
+      The ability to add: 
+        * Utterances
+        * Intents
+        * Entities
     :::column-end:::
     :::column span="":::
       * All APIs under LUIS reader
-      * All POST, PUT and DELETE APIs under:
-         * [LUIS Programmatic v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
-         * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2d)
 
-          Except for
-          * [Delete application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c39)
-          * [Move app to another LUIS authoring Azure resource](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-          * [Publish an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c3b)
-          * [Update application settings](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58aeface39e2bb03dcd5909e)
-          * [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32228e8473de116325515)
-          * [Remove an assigned LUIS azure accounts from an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32554f8591db3a86232e1)
+      All POST, PUT and DELETE APIs under:
+
+        * [LUIS Programmatic v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
+        * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2d)
+
+        Except for
+        * [Delete application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c39)
+        * [Move app to another LUIS authoring Azure resource](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+        * [Publish an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c3b)
+        * [Update application settings](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58aeface39e2bb03dcd5909e)
+        * [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32228e8473de116325515)
+        * [Remove an assigned LUIS azure accounts from an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32554f8591db3a86232e1)
     :::column-end:::
 :::row-end:::
 
@@ -134,4 +139,4 @@ These users are the gatekeepers for LUIS applications in a production environmen
 
 ## Next steps
 
-* [Managing Azure resources](/azure/cognitive-services/luis/luis-how-to-azure-subscription?branch=pr-en-us-171715&tabs=portal#authoring-resource)
+* [Managing Azure resources](./luis-how-to-azure-subscription.md?branch=pr-en-us-171715&tabs=portal#authoring-resource)

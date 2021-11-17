@@ -142,7 +142,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking) and [Advanced](#advanced) sections to configure more settings for the workspace.
 
-1. Review the settings and make any additional changes or corrections. When you're satisfied with the settings, select **Create**.
+1. Review the settings and make any other changes or corrections. When you're satisfied with the settings, select **Create**.
 
    > [!Warning] 
    > It can take several minutes to create your workspace in the cloud.
@@ -181,7 +181,7 @@ The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/pyth
 
 ### Vulnerability scanning
 
-Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Azure Security Center to scan your resources and follow its recommendations. For more, see  [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
+Microsoft Defender for Cloud provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Microsoft Defender for Cloud to scan your resources and follow its recommendations. For more, see  [Azure Container Registry image scanning by Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ### Advanced
 
@@ -302,13 +302,15 @@ See a list of all the workspaces you can use.
 
 # [Python](#tab/python)
 
-Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).  Copy the ID and use it in the code below to see all workspaces available for that subscription.
+Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Copy the ID and use it in the code below to see all workspaces available for that subscription.
 
 ```python
 from azureml.core import Workspace
 
 Workspace.list('<subscription-id>')
 ```
+
+The Workspace.list(..) method does not return the full workspace object. It includes only basic information about existing workspaces in the subscription. To get a full object for specific workspace, use Workspace.get(..).
 
 # [Portal](#tab/azure-portal)
 
@@ -333,7 +335,7 @@ When you no longer need a workspace, delete it.
 
 [!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. Please refer to [this documentation](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion).
+If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](./how-to-high-availability-machine-learning.md#workspace-deletion).
 
 # [Python](#tab/python)
 
@@ -343,7 +345,7 @@ Delete the workspace `ws`:
 ws.delete(delete_dependent_resources=False, no_wait=False)
 ```
 
-The default action is not to delete resources associated with the workspace, i.e., container registry, storage account, key vault, and application insights.  Set `delete_dependent_resources` to True to delete these resources as well.
+The default action is not to delete resources associated with the workspace, that is, container registry, storage account, key vault, and application insights.  Set `delete_dependent_resources` to True to delete these resources as well.
 
 # [Portal](#tab/azure-portal)
 

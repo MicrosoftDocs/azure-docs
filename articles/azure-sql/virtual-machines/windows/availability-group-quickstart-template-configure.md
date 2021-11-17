@@ -12,7 +12,7 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/04/2019
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
 ms.custom: "seo-lt-2019, devx-track-azurepowershell"
@@ -21,7 +21,10 @@ ms.custom: "seo-lt-2019, devx-track-azurepowershell"
 # Use Azure quickstart templates to configure an availability group for SQL Server on Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to use the Azure quickstart templates to partially automate the deployment of an Always On availability group configuration for SQL Server virtual machines (VMs) in Azure. Two Azure quickstart templates are used in this process: 
+> [!TIP]
+> Eliminate the need for an Azure Load Balancer for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
+
+This article describes how to use the Azure quickstart templates to partially automate the deployment of an Always On availability group configuration for SQL Server virtual machines (VMs) within a single subnet in Azure. Two Azure quickstart templates are used in this process: 
 
    | Template | Description |
    | --- | --- |
@@ -31,7 +34,7 @@ This article describes how to use the Azure quickstart templates to partially au
 
 Other parts of the availability group configuration must be done manually, such as creating the availability group and creating the internal load balancer. This article provides the sequence of automated and manual steps.
 
-While this article uses the Azure Quickstart templates to configure the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
+While this article uses the Azure Quickstart templates to configure the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Manually](availability-group-manually-configure-tutorial-single-subnet.md) as well. 
 
 > [!NOTE]
 > It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 

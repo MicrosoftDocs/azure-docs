@@ -35,4 +35,4 @@ Faults also include the name of the selector that describes the resources that t
 
 ## Next steps
 Now that you understand actions and faults you are ready to:
-- [Create and run your first experiment](chaos-studio-tutorial-service-direct.md)
+- [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)

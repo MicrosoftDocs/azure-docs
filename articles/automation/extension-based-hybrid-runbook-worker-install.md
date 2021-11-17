@@ -6,7 +6,7 @@ ms.subservice: process-automation
 ms.date: 09/28/2021
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
---- 
+---
 
 # Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation (Preview)
 
@@ -436,8 +436,8 @@ You can use an Azure Resource Manager (ARM) template to create a new Azure Windo
 
 The Azure resources defined in the template:
 
-- hybridRunbookWorkerGroups/hybridRunbookWorkers
-- [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions): 
+- [hybridRunbookWorkerGroups/hybridRunbookWorkers](/azure/templates/microsoft.automation/automationaccounts/hybridrunbookworkergroups/hybridrunbookworkers)
+- [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions)
 
 ### Review parameters
 

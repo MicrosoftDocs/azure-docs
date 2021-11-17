@@ -1,6 +1,6 @@
 ---
-title: Windows security event sets that can be sent to Azure Sentinel | Microsoft Docs
-description: Learn about the pre-built sets of Windows security events that you can collect and stream from your Windows systems to your Azure Sentinel workspace. 
+title: Windows security event sets that can be sent to Microsoft Sentinel
+description: Learn about the pre-built sets of Windows security events that you can collect and stream from your Windows systems to your Microsoft Sentinel workspace. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -8,18 +8,16 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 
 ---
 
-# Windows security event sets that can be sent to Azure Sentinel
+# Windows security event sets that can be sent to Microsoft Sentinel
 
 When ingesting security events from Windows devices using the [Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama) (including the [legacy version](data-connectors-reference.md#security-events-via-legacy-agent-windows)), you can choose which events to collect from among the following sets:
 
@@ -45,8 +43,7 @@ The following list provides a complete breakdown of the Security and App Locker 
 
 ## Next steps
 
-In this document, you learned how to filter the collection of Windows events into Azure Sentinel.
+In this document, you learned how to filter the collection of Windows events into Microsoft Sentinel.
 
 - Learn more about [collecting Windows security events](connect-windows-security-events.md).
-- Get started detecting threats with Azure Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.
-
+- Get started detecting threats with Microsoft Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.

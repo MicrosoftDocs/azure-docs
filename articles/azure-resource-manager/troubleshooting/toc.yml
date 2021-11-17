@@ -22,31 +22,33 @@
     items:
     - name: Common deployment errors
       href: common-deployment-errors.md
-    - name: AccountNameInvalid
+    - name: Account name invalid
       href: error-storage-account-name.md
-    - name: DeploymentQuotaExceeded
+    - name: Deployment quota exceeded
       href: deployment-quota-exceeded.md
-    - name: InvalidTemplate
+    - name: Invalid template
       href: error-invalid-template.md
-    - name: JobSizeExceeded
+    - name: Job size exceeded
       href: error-job-size-exceeded.md
-    - name: NoRegisteredProviderFound
+    - name: No registered provider found
       href: error-register-resource-provider.md
-    - name: NotFound
+    - name: Not found
       href: error-not-found.md
-    - name: ParentResourceNotFound
+    - name: Parent resource not found
       href: error-parent-resource.md
     - name: Provisioning and allocation issues for Linux
       href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
     - name: Provisioning and allocation issues for Windows
       href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
-    - name: RequestDisallowedByPolicy
+    - name: Request disallowed by policy
       href: error-policy-requestdisallowedbypolicy.md
-    - name: ReservedResourceName
+    - name: Reserved resource name
       href: error-reserved-resource-name.md
-    - name: ResourceQuotaExceeded
+    - name: Resource name and type format
+      href: error-invalid-name-segments.md
+    - name: Resource quota exceeded
       href: error-resource-quota.md
-    - name: SkuNotAvailable
+    - name: SKU not available
       href: error-sku-not-available.md
 - name: Reference
   items:

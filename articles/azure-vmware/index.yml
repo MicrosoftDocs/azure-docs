@@ -142,7 +142,7 @@ landingContent:
         links:
           - text: Protect, monitor, and manage VMs
             url: integrate-azure-native-services.md
-          - text: Integrate Azure Security Center
+          - text: Integrate Microsoft Defender for Cloud
             url: azure-security-integration.md
           - text: Integrate Azure NetApp Files
             url: netapp-files-with-azure-vmware-solution.md
@@ -184,7 +184,7 @@ landingContent:
             url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html           
 
 # card 8
-  - title: VMware ecosystem
+  - title: Partner solutions ecosystem
     linkLists:
       - linkListType: reference
         links:
@@ -192,7 +192,10 @@ landingContent:
             url: ecosystem-back-up-vms.md
           - text: Migration solutions for VMs
             url: ecosystem-migration-vms.md
-
+          - text: Security solutions for Azure VMware Solution
+            url: ecosystem-security-solutions.md
+          - text: Bitnami appliance deployment
+            url: bitnami-appliances-deployment.md
 
 # card 9
   - title: Resources
