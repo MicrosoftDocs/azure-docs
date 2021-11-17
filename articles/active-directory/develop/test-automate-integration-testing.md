@@ -33,8 +33,6 @@ As a developer, you'll likely want to run automated integration tests on the app
 > * ROPC is not supported in [hybrid identity federation](../hybrid/whatis-fed.md) scenarios (for example, Azure AD and ADFS used to authenticate on-premises accounts). If users are full-page redirected to an on-premises identity providers, Azure AD is not able to test the username and password against that identity provider. [Pass-through authentication](../hybrid/how-to-connect-pta.md) is supported with ROPC, however.
 > * An exception to a hybrid identity federation scenario would be the following: Home Realm Discovery policy with AllowCloudPasswordValidation set to TRUE will enable ROPC flow to work for federated users when on-premises password is synced to cloud. For more information, see [Enable direct ROPC authentication of federated users for legacy applications](../manage-apps/home-realm-discovery-policy.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
 
-You can read more about how the ROPC flow works in our [protocol documentation](v2-oauth-ropc.md).
-
 ## Set up 
 To prepare for your automated integration tests, you'll need to create some test users, acquire and configure an app registration, and potentially make some configuration changes to your tenant.  Some of these steps will require admin privileges, and you'll likely want to create a separate test tenant that you are an administrator of so you can safely and effectively perform these tasks.
 
@@ -47,33 +45,41 @@ Create some test users:
 ### Create and configure an app registration
 You'll need to register an application that will act as your client app when calling APIs.  This should **not** be the same application you may already have in production.  You should have a separate app to use only for testing purposes.
 
-1. Register an application.  You can follow the first few steps of this [quickstart](quickstart-register-app.md) if you don't know how to register an app.  You won't need to add a redirect URI or add credentials, so you can skip those sections.
-2. Enable your app for public client flows, since ROPC is a public client flow.  From your app registration in the Azure portal, go to Authentication > Advanced settings > Allow public client flows.  Set the toggle to 'Yes'.
-3. Consent to the permissions you want to use while testing.  Since ROPC is not an interactive flow, you won't be prompted with a consent screen to consent to these at runtime.  So, you'll need to pre-consent to them to avoid errors when acquiring tokens. 
-    
-    First, add the permissions to your app. From your app registration in the Azure portal, go to the API Permissions page > Add a permission.  Add the permissions you need to call the APIs you'll be using. Once the permissions are added, you'll need to consent to them.  This can be done two different ways.
-    
-    If you plan on testing your app in the same tenant you registered it in, and you are an administrator in that tenant, you can consent to the permissions from the Azure portal. Simply click the 'Grant admin consent for <your_tenant_name>' button, next to the 'Add a permission' button on the API Permissions page.
-        
-    If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you can still pre-consent to some permissions.  
-        
-    First, from your app registration in the Azure portal, go to Authentication > Add a platform > Web.  Add the redirect URI "https://localhost".
-    
-    Then, send the below request in a browser, and when you are prompted with the login screen, sign in with a **test account** you created in a previous step.  Next, consent to the permissions you are prompted with.  You may need to repeat this step for each API you want to call and test user you want to use.
+#### Register an application
 
-    ```HTTP
-    // Line breaks for legibility only
+You can follow the first few steps of this [quickstart](quickstart-register-app.md) if you don't know how to register an app.  You won't need to add a redirect URI or add credentials, so you can skip those sections.
 
-    https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
-    client_id={your_client_ID}
-    &response_type=code
-    &redirect_uri=https://localhost
-    &response_mode=query
-    &scope={resource_you_want_to_call}/.default
-    &state=12345
-    ```
+#### Enable your app for public client flows
 
-    Replace {tenant} with your tenant ID, {your_client_ID} with the client ID of your application, and {resource_you_want_to_call} with the identifier URI (for example, 'https://graph.microsoft.com') or app ID of the API you are trying to access.
+ROPC is a public client flow, so you need to enable your app for public client flows.  From your app registration in the Azure portal, go to **Authentication** > **Advanced settings** > **Allow public client flows**.  Set the toggle to **Yes**.
+
+#### Consent to the permissions you want to use while testing
+
+Since ROPC is not an interactive flow, you won't be prompted with a consent screen to consent to these at runtime.  So, you'll need to pre-consent to them to avoid errors when acquiring tokens.
+
+First, add the permissions to your app. From your app registration in the Azure portal, go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. Once the permissions are added, you'll need to consent to them.  This can be done two different ways.
+
+If you plan on testing your app in the same tenant you registered it in, and you are an administrator in that tenant, you can consent to the permissions from the Azure portal. Simply click the 'Grant admin consent for <your_tenant_name>' button, next to the **Add a permission** button on the API Permissions page.
+
+If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you can still pre-consent to some permissions.  
+
+First, from your app registration in the Azure portal, go to **Authentication** > **Platform configurations** > **Add a platform** > **Web**.  Add the redirect URI "https://localhost" and click **Configure**.
+
+Then, send the below request in a browser, and when you are prompted with the login screen, sign in with a **test account** you created in a previous step.  Next, consent to the permissions you are prompted with.  You may need to repeat this step for each API you want to call and test user you want to use.
+
+```HTTP
+// Line breaks for legibility only
+
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id={your_client_ID}
+&response_type=code
+&redirect_uri=https://localhost
+&response_mode=query
+&scope={resource_you_want_to_call}/.default
+&state=12345
+```
+
+Replace *{tenant}* with your tenant ID, *{your_client_ID}* with the client ID of your application, and *{resource_you_want_to_call}* with the identifier URI (for example, "https://graph.microsoft.com") or app ID of the API you are trying to access.
 
 ### Configure your tenant
 Your tenant likely has some security settings that require multifactor authentication for all users, as recommended by Microsoft.  Multifactor authentication won't work with ROPC, so you'll need to exempt your test application/test users from this requirement.
@@ -82,7 +88,7 @@ Ryan TODO
 
 ## Write your tests
         
-Now that you're set up, you can write your automated tests!  The following example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [xUnit](https://xunit.net/), a common testing framework.
+Now that you're set up, you can write your automated tests.  The following example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [xUnit](https://xunit.net/), a common testing framework.
         
 ### Set up your appsettings.json file
 
@@ -122,39 +128,39 @@ using Microsoft.Extensions.Configuration;
 
 public class ClientFixture : IAsyncLifetime
 {
- public HttpClient httpClient;
+public HttpClient httpClient;
 
- public async Task InitializeAsync()
- {
-     var builder = new ConfigurationBuilder().AddJsonFile(<path_to_appsettings.json_file>);
+public async Task InitializeAsync()
+{
+    var builder = new ConfigurationBuilder().AddJsonFile(<path_to_appsettings.json_file>);
 
-     IConfigurationRoot Configuration = builder.Build();
+    IConfigurationRoot Configuration = builder.Build();
 
-     var PublicClientApplicationOptions = new PublicClientApplicationOptions();
-     Configuration.Bind("Authentication", PublicClientApplicationOptions);
-     var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
-         .Build();
+    var PublicClientApplicationOptions = new PublicClientApplicationOptions();
+    Configuration.Bind("Authentication", PublicClientApplicationOptions);
+    var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
+        .Build();
 
-     string[] scopes = Configuration.GetValue<string[]>("WebAPI:Scopes");
-     string username = Configuration.GetValue<string>("UserInfo:Username");
-     string password = Configuration.GetValue<string>("UserInfo:Password");
-     SecureString securePassword = new NetworkCredential("", password).SecurePassword;
+    string[] scopes = Configuration.GetValue<string[]>("WebAPI:Scopes");
+    string username = Configuration.GetValue<string>("UserInfo:Username");
+    string password = Configuration.GetValue<string>("UserInfo:Password");
+    SecureString securePassword = new NetworkCredential("", password).SecurePassword;
 
-     AuthenticationResult result = null;
-     httpClient = new HttpClient();
+    AuthenticationResult result = null;
+    httpClient = new HttpClient();
 
-     try
-     {
-         result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
-             .ExecuteAsync();
-     }
-     catch (MsalException) { }
+    try
+    {
+        result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
+            .ExecuteAsync();
+    }
+    catch (MsalException) { }
 
-     string accessToken = result.AccessToken;
-     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
- }
+    string accessToken = result.AccessToken;
+    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
+}
 
- public Task DisposeAsync() => Task.CompletedTask;
+public Task DisposeAsync() => Task.CompletedTask;
 }
 ```
 
