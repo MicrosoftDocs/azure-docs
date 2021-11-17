@@ -74,8 +74,16 @@ To avoid this issue, you can either allow Azure Machine Learning to create the d
 
 ### Azure Storage firewall
 
-When an Azure Storage account is behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio it isn't  your client that connects to the storage account; it's the Azure Machine Learning service that makes the request. The IP address of the service isn't documented and changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
+When an Azure Storage account is behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio it isn't your client that connects to the storage account; it's the Azure Machine Learning service that makes the request. The IP address of the service isn't documented and changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
 
+### Azure Storage endpoint type
+
+There are additional requirements depending on whether the storage account connects to the VNet using a service endpoint or a private endpoint:
+
+* __Service endpoint__ is enabled at the subnet level, and direct access to the storage account will not work from different subnets in the same VNet. 
+* __Private endpoint__ is enabled at the VNet level. So the storage account can be accessed from any subnet within the VNet.
+
+When the client accesses a storage account using studio, in addition to other access checks, we also check whether the client is in the same subnet or VNet, depending on the type of endpoint used by the storage account. If the storage account uses both a service endpoint and private endpoint, OR logic is used. If the client is in the subnets for the service endpoint, or the same VNet as the private endpoint, then access is allowed.
 ## Azure Data Lake Storage Gen1
 
 When using Azure Data Lake Storage Gen1 as a datastore, you can only use POSIX-style access control lists. You can assign the workspace's managed identity access to resources just like any other security principal. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
