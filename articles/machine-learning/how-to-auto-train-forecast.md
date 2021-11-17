@@ -27,7 +27,6 @@ For a low code experience, see the [Tutorial: Forecast demand with automated mac
 
 Unlike classical time series methods, in automated ML, past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach incorporates multiple contextual variables and their relationship to one another during training. Since multiple factors can influence a forecast, this method aligns itself well with real world forecasting scenarios. For example, when forecasting sales, interactions of historical trends, exchange rate, and price all jointly drive the sales outcome. 
 
-
 ## Prerequisites
 
 For this article you need, 
@@ -37,6 +36,7 @@ For this article you need,
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+
 ## Preparing data
 
 The most important difference between a forecasting regression task type and regression task type within automated ML is including a feature in your data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. 
@@ -63,7 +63,6 @@ day_datetime,store,sales_quantity,week_of_year
 9/7/2018,A,2450,36
 9/7/2018,B,650,36
 ```
-
 
 Read the data into a Pandas dataframe, then use the `to_datetime` function to ensure the time series is a `datetime` type.
 
@@ -132,23 +131,12 @@ ForecastTCN (Preview)| ForecastTCN is a neural network model designed to tackle 
 
 ### Configuration settings
 
-Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. For forecasting tasks, there are additional parameters that must be set that affect the experiment. 
+Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. Forecasting tasks require the `time_column_name` and `forecast_horizon`  parameters to configure your experiment. You can also include additional parameters to better configure your run, see the [optional configurations](#optional-configurations) section for more detail on what can be included.
 
-The following table summarizes these additional parameters. See the [ForecastingParameter class reference documentation](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) for syntax design patterns.
-
-| Parameter&nbsp;name | Description | Required |
-|-------|-------|-------|
-|`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
-|`forecast_horizon`|Defines how many periods forward you would like to forecast. The horizon is in units of the time series frequency. Units are based on the time interval of your training data, for example, monthly, weekly that the forecaster should predict out.|✓|
-|`enable_dnn`|[Enable Forecasting DNNs](#enable-deep-learning).||
-|`time_series_id_column_names`|The column name(s) used to uniquely identify the time series in data that has multiple rows with the same timestamp. If time series identifiers are not defined, the data set is assumed to be one time-series. To learn more about single time-series, see the [energy_demand_notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).||
-|`freq`| The time series dataset frequency. This parameter represents the period with which events are expected to occur, such as daily, weekly, yearly, etc. The frequency must be a [pandas offset alias](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). Learn more about [frequency].(#frequency-target-data-aggregation)||
-|`target_lags`|Number of rows to lag the target values based on the frequency of the data. The lag is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependent variable doesn't match up or correlate by default. ||
-|`feature_lags`| The features to lag will be automatically decided by automated ML when `target_lags` are set and `feature_lags` is set to `auto`. Enabling feature lags may help to improve accuracy. Feature lags are disabled by default. ||
-|`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model. Learn more about [target rolling window aggregation](#target-rolling-window-aggregation).||
-|`short_series_handling_config`| Enables short time series handling to avoid failing during training due to insufficient data. Short series handling is set to `auto` by default. Learn more about [short series handling](#short-series-handling).||
-|`target_aggregation_function`| The function to be used to aggregate the time series target column to conform to the frequency specified via the `freq` parameter. The `freq` parameter must be set, in order to use the `target_aggregation_function`. Defaults to `None`; for most scenarios using `sum` is sufficient.<br> Learn more about [target column aggregation](#frequency--target-data-aggregation). 
-
+| Parameter&nbsp;name | Description |
+|-------|-------|
+|`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|
+|`forecast_horizon`|Defines how many periods forward you would like to forecast. The horizon is in units of the time series frequency. Units are based on the time interval of your training data, for example, monthly, weekly that the forecaster should predict out.|
 
 The following code, 
 * Leverages the [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) class to define the forecasting parameters for your experiment training
@@ -197,7 +185,7 @@ The following formula calculates the amount of historic data that what would be 
 
 Minimum historic data required: (2x `forecast_horizon`) + #`n_cross_validations` + max(max(`target_lags`), `target_rolling_window_size`)
 
-An Error exception will be raised for any series in the dataset that does not meet the required amount of historic data for the relevant settings specified. 
+An `Error exception` is raised for any series in the dataset that does not meet the required amount of historic data for the relevant settings specified. 
 
 ### Featurization steps
 
@@ -256,7 +244,7 @@ If you're using the Azure Machine Learning studio for your experiment, see [how 
 
 ## Optional configurations
 
-Additional optional configurations are available for forecasting tasks, such as enabling deep learning and specifying a target rolling window aggregation. 
+Additional optional configurations are available for forecasting tasks, such as enabling deep learning and specifying a target rolling window aggregation. A complete list of additional parameters is available in the [ForecastingParameters SDK reference documentation](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters).
 
 ### Frequency & target data aggregation
 
