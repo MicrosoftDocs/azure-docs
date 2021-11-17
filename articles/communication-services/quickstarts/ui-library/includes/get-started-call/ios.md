@@ -31,7 +31,7 @@ Name the project `UILibraryQuickStart` and select `Storyboard` under the `Interf
 
 1. Create a Podfile in your project root directory by running `pod init`.
     - If encounter error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to latest version
-3. Add the following to your Podfile:
+2. Add the following to your Podfile:
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
