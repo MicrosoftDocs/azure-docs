@@ -64,7 +64,7 @@ from azureml.core.compute import AmlCompute, ComputeTarget
 cluster_name = "gpu-nc24sv3"
 
 try:
-    compute_target = ws.compute_targets[cluster_name]
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
     print('Found existing compute target.')
 except KeyError:
     print('Creating a new compute target...')
