@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/11/2021
+ms.date: 11/17/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -29,7 +29,8 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 Jobs for Hybrid Runbook Workers run under the local **System** account.
 >[!NOTE]
 >  To run PowerShell 7.x on a Windows Hybrid Runbook Worker, See [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
->  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](./extension-based-hybrid-runbook-worker-install.md) 
+>  We support [Hybrid worker extension based](/azure/automation/extension-based-hybrid-runbook-worker-install) as well as [agent based](/azure/automation/automation-windows-hrw-install) onboarding. 
+>  For agent based onboarding, ensure the Windows Hybrid Runbook worker version is 7.3.1296.0 or above.
 
 Make sure the path where the *pwsh.exe* executable is located and is added to the PATH environment variable. Restart the Hybrid Runbook Worker after installation completes.
 
@@ -37,7 +38,8 @@ Make sure the path where the *pwsh.exe* executable is located and is added to th
 
 >[!NOTE]
 > To run PowerShell 7.x on a Linux Hybrid Runbook Worker, See [Installing PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
->  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](./extension-based-hybrid-runbook-worker-install.md)
+>  We support [Hybrid worker extension based](/azure/automation/extension-based-hybrid-runbook-worker-install) as well as [agent based](/azure/automation/automation-linux-hrw-install) onboarding.
+>  For agent based onboarding, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
 
 
 Service accounts **nxautomation** and **omsagent** are created. The creation and permission assignment script can be viewed at [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data). The accounts, with the corresponding sudo permissions, must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker, and the account is not present or doesn't have the appropriate permissions, the installation fails. Do not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the accounts and the permissions shouldn't be removed. Restricting this to certain folders or commands may result in a breaking change. The **nxautomation** user enabled as part of Update Management executes only signed runbooks.

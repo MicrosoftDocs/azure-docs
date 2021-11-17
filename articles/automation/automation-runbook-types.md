@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/28/2021
+ms.date: 11/17/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -102,6 +102,7 @@ The following are current known issues with PowerShell runbooks:
 -  *PSCredential* runbook parameter type is not supported in PowerShell 7 runtime version.
 -  PowerShell 7.x does not support workflows. See [this](/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.1#powershell-workflow&preserve-view=true) for more details.
 -  PowerShell 7.x currently does not support signed runbooks.
+-  Source control integration does not support PowerShell 7.1 and PowerShell 7.1 runbooks in source control will get created in Automation account as Runtime 5.1 
 
 ### Known Issues - 7.1 (preview)
 
