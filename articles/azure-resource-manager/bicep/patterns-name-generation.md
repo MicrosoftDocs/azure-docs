@@ -38,11 +38,11 @@ If you're creating reusable Bicep code, you should consider defining names as [p
 
 The following example generates the names for an App Service app and plan, and follows an organizational convention that includes a resource type code (`app` or `plan`), the application or workload name (`contoso`), the environment name (specified by a parameter), and a string that ensures uniqueness by using the `uniqueString()` function with a seed value of the resource group's ID. Although App Service plans don't require globally unique names, the plan name is constructed using the same format to ensure compliance with the organization's policy.
 
-::: code language="bicep" source="code/patterns-unique-name-generation/app-service.bicep" range="3-10, 15-19, 25" highlight="3-5" :::
+::: code language="bicep" source="code/patterns-name-generation/app-service.bicep" range="3-10, 15-19, 25" highlight="3-5" ::: <!-- TODO move to correct repo -->
 
 The following example generates the names for two storage accounts for a different organization without a naming convention. This example again uses the `uniqueString()` function with the resource group's ID. A short string is prepended to the generated names to ensure that each of the two storage accounts has a distinct name. This also helps to ensure that the names begin with a letter, which is a requirement for storage accounts.
 
-::: code language="bicep" source="code/patterns-unique-name-generation/storage.bicep" range="3-8, 14-18, 24" highlight="1-2" :::
+::: code language="bicep" source="code/patterns-name-generation/storage.bicep" range="3-8, 14-18, 24" highlight="1-2" :::
 
 ## Considerations
 
