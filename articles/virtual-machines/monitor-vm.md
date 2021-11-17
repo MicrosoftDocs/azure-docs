@@ -72,28 +72,12 @@ To analyze other log data you collect from your virtual machines, use [log queri
 ## Alerts
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). 
 
-The following sections identify common and recommended alert rules for Azure virtual machines. See [Monitor virtual machines with Azure Monitor: Alerts](../azure-monitor/vm/monitor-virtual-machine-alerts.md) for more detail and additional alerting conditions. Also, see [Monitor virtual machines with Azure Monitor: Workloads](../azure-monitor/vm/monitor-virtual-machine-workloads.md) for data you can collect from workloads running on virtual machines that you can leverage for alerting.
+Multiple resources are available describing alerts for Azure virtual machines:
 
-### Metric alert rules
-If you're not familiar with creating metric alert rules, see [Tutorial: Create a metric alert in Azure Monitor](../azure-monitor/alerts/tutorial-metric-alert.md). The following table lists common metric alerts used for virtual machines. 
-
-| Type | Description  | Metric |
-|:---|:---|:---|
-| Host          | Processor utilization | Percentage CPU  | 
-| Windows Guest | Available memory      | Memory % Committed Bytes in Use   | 
-| Linux Guest   |                       | mem/available_percent             | 
-| Windows Guest | Available disk space  | \Logical Disk(_Total)% Free Space |
-| Linux Guest   |                       | disk/free_percent                 |
-
-
-### Log alert rules
-If you're not familiar with creating log query alert rules, see [Tutorial: Create a log query alert in Azure Monitor](../azure-monitor/alerts/tutorial-metric-alert.md).
-
-For common log alert rules, see the **Queries** in Log Analytics for **Resource type** of *Virtual machines* and type of **Alerts**. Examples of alert queries include the following:
-
-- Not reporting VMs
-- Windows failed logins
-- Members added to security groups
+- See [Create alert when Azure virtual machine is unavailable](../azure-monitor/vm/tutorial-monitor-vm-alert.md) for a tutorial on creating a log query alert for when a virtual machine is unresponsive.
+- See [Monitor virtual machines with Azure Monitor: Alerts](../azure-monitor/vm/monitor-virtual-machine-alerts.md) for common alert rules for virtual machines. 
+- See [Monitor virtual machines with Azure Monitor: Workloads](../azure-monitor/vm/monitor-virtual-machine-workloads.md) for data you can collect from workloads running on virtual machines that you can leverage for alerting.
+- For common log alert rules, see the **Queries** in Log Analytics for **Resource type** of *Virtual machines* and type of **Alerts**. See [Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md) for a tutorial on creating a log query alert rule.
 
 
 ## Next steps
