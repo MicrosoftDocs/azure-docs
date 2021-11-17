@@ -292,7 +292,7 @@ Here is a list of common errors that you might encounter while using this featur
 
 | **Error Message** | **Description** |
 | ------------ | -------- |
-| Invalid patch request: check syntax of patch specification| The Patch operation syntax is invalid. Please review [the specification](partial-document-update.md#partial-document-update-specification)
+| Invalid patch request: check syntax of patch specification| The Patch operation syntax is invalid. Please review [the specification](partial-document-update.md#rest-api-reference-for-partial-document-update)
 | Invalid patch request: Cannot patch system property `SYSTEM_PROPERTY`. | Patching system-generated properties like `_id`, `_ts`, `_etag`, `_rid` is not supported. To learn more: [Partial Document Update FAQs](partial-document-update-faq.yml#is-partial-document-update-supported-for-system-generated-properties-) 
 | The number of patch operations cannot exceed 10 | There is a limit of 10 patch operations that can be added in a single patch specification. To learn more: [Partial Document Update FAQs](partial-document-update-faq.yml#is-there-a-limit-to-the-number-of-partial-document-update-operations-)
 | For Operation(`PATCH_OPERATION_INDEX`): Index(`ARRAY_INDEX`) to operate on is out of array bounds | The index of array element to be patched is out of bounds 
