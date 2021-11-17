@@ -8,13 +8,14 @@ ms.topic: article
 ---
 # URL formats
 
-There are two endpoints through which you can address the Log Analytics API. We offer [api.loganalytics.io](https://api.loganalytics.io/) as a direct URL for the API, and we offer access to the API through Azure Resource Manager (ARM). The query parameters are the same for each endpoint, but the URLs differ.
+There are ways to access the Log Analytics API. While the URLs are different, the query parameters are the same for each endpoint, and both endpoints require authorization through Azure Active Directory (AAD). 
+- A direct URL for the API: [api.loganalytics.io](https://api.loganalytics.io/)
+- Through Azure Resource Manager (ARM).
 
-Both endpoints require authorization through Azure Active Directory (AAD).
 
 ## Public API format
 
-It has the format:
+The format to call the API is:
 
 ```
     https://{hostname}/{api-version}/workspaces/{resource}/{area}/[path]?[parameters]
