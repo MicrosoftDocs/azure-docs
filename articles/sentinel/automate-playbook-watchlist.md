@@ -52,7 +52,7 @@ The process described in this section includes the following steps:
 
 The following image shows the **Watchlists-InformSubowner-IncidentTrigger** playbook in the Logic App designer.
 
-![Image of the Watchlists-InformSubowner-IncidentTrigger playbook.](media/inform-owner-playbook/playbook.png)
+![Image of the Watchlists-InformSubowner-IncidentTrigger playbook.](media/automate-playbook-watchlist/inform-subowner-playbook.png)
 
 The playbook runs the following steps:
 
@@ -66,7 +66,7 @@ The playbook runs the following steps:
 
    1. **Run query and list results - Get Watchlist**. The Azure Monitor Log Analytics connector gets the watchlist items, including the **Subscription**, **Resource Group**, and **Resource Name** for the Microsoft Sentinel workspace details where the watchlist is located. Use the `project` argument to specify which fields are relevant for your use.
 
-      ![Image of the Run query and list results playbook task.](media/inform-owner-playbook/run-query.png)
+      ![Image of the Run query and list results playbook task.](media/automate-playbook-watchlist/inform-subowner-run-query.png)
 
    1. **Filter array to get relevant subscription owners**. This step keeps the watchlist results only for the subscription you're looking for. The Logic Apps expression argument on the right is:
 
@@ -98,7 +98,7 @@ Use the following steps to create and upload the watchlist, deploy the playbook,
 
 1. Upload the table to the Microsoft Sentinel **Watchlist** area. Make a note of the value you use as the **Watchlist Alias**, as you'll use it to query this watchlist from the playbook.
 
-    For more information, see [Use Microsoft Sentinel watchlists](watchlists.md).
+   For more information, see [Use Microsoft Sentinel watchlists](watchlists.md).
 
 **To deploy the playbook**:
 
@@ -148,160 +148,61 @@ The process described in this article includes the following steps:
 
 The following image shows the **Watchlists-CloseIncidentKnownIPs** playbook in the Logic App designer.
 
-![Image of the Watchlists-CloseIncidentKnownIPs playbook.](media/inform-owner-playbook/playbook-close-incidents.png)
+![Image of the Watchlists-CloseIncidentKnownIPs playbook.](media/automate-playbook-watchlist/playbook-known-ips.png)
 
 The playbook runs the following steps:
 
-1.  When a response to an Azure Sentinel alert is triggered
+1. **When a response to a Microsoft Sentinel alert is triggered**, the playbook receives the alert as input.
 
-Azure Sentinel alert was created. The playbook receives the alert as the input.
+1. **Initialize variables** to store the values that will be used in the playbook, including:
 
- 
+    - **Watchlist name**: Variable string, used for the Log Analytics query
+    - **Safe / not safe IPs**: Variable arrays, used to store the IP addresses found
 
-Initialize variables
+1. **Entities - Get IPs** takes all entities found in the alert and parses only the IP addresses,  getting them ready to be used as dynamic values for later actions.
 
-This actions stores values to be used later in the playbook:
+1. **For each IP**, the playbook iterates on each IP address found in the alert, checking to see if the IP address is found in one of the watchlists, and taking the relevant action.
 
-Watchlist name is a variable of type string, will be used for the Log Analytics query 
-Safe/not safe IPs are variables of type array, will be used to store the found IPs
- 
+   In this step, the playbook gets the items in the watchlist from Log Analytics. You'll need to enter the subscription, resource group, and resource name for the Microsoft Sentinel workspace where the watchlist is located.
 
-Entities - Get IPs
+   :::image type="content" source="media/automate-playbook-watchlist/known-ip-run-query.png" alt-text="Screenshot of the run query and list results step.":::
 
-This action takes all the entities found in the alert and parses only the IPs with their special fields ready to be used as dynamic values in later actions.
+   If the playbook finds an IP address in the watchlist, the IP address is added to the *Safe* array. If it's not found in the allow list watchlist, the IP address is added to the *Not safe* array.
 
- 
+1. **A comment is added to the incident**, listing any safe IP addresses found in the watchlist.
 
-For Each IP
+1. **Conditions**. The playbook checks for whether there are any IP addresses in the *Not safe* list. If the *Not safe* list is empty, the playbook closes the incident, with a classification reason of *Benign Positive*.
 
-Iterates on the IPs found in this alert and performs the following:
+### Set up your watchlist and deploy the playbook
 
-thumbnail image 2 of blog post titled 
-	
-	
-	 
-	
-	
-	
-				
-		
-			
-				
-						
-							Playbooks & Watchlists Part 2:  Automate incident response for Deny-list/Allow-list
-							
-						
-					
-			
-		
-	
-			
-	
-	
-	
-	
-	
- 
+Use the following steps to create and upload the watchlist and deploy the playbook.
 
-Run query and list results - Get Watchlist
-In this step we ask Log Analytics (Azure Monitor Logs connector) to get the items of the Watchlist. Subscription, Resource Group and Resource Name are the Azure Sentinel workspace details where the watchlist is located.
-I used the following query:
-_GetWatchlist(@{variables('WatchlistName')})
-| extend IpAddress = tostring(parse_json(WatchlistItem).IpAddress)
-| where IpAddress == ''@{items('For_each')?['Address']}"
-Condition
-In this step I check the length of the response array from the query, using the Logic apps expression length(collection). If it is greater then 0, we have found the IP in the watchlist.
-Therefor, we will add this IP to the Safe array; otherwise, to the not safe.
- 
+**To create and upload the watchlist:**
 
-Add a comment to the incident
-In this step we audit the information collected so far: a list of safe IPs found in the Watchlist, a side to a list of unknown IPs.
+1. Create an input comma-separated (CSV) file, where each row represents an IP address.
 
- 
+1. Upload the table to the Microsoft Sentinel **Watchlist** area. Make a note of the value you use as the **Watchlist Alias**, as you'll use it to query this watchlist from the playbook.
 
-Condition
+   For more information, see [Use Microsoft Sentinel watchlists](watchlists.md).
 
-Finally, we want to check if there is any IP which found as not safe. This step checks if our "not safe" array is empty. If so, we will close the incident.
+**To deploy the playbook**:
 
- 
+1. In the Microsoft Sentinel **Automation** page, on the **Playbook templates (Preview)** tab, search for and locate the **Watchlists-CloseIncidentKnownIPs** playbook.
 
-Change Incident Status
-Closes the incident with Benign Positive classification reason.
+1. On the bottom right, select **Create playbook**, and then use the wizard to deploy the playbook in your workspace.
 
-Setup instructions
- 
+    Make sure to enter a meaningful name for your playbook, and a **User name** to determine the names of the API connection resources.
 
-Create and Upload your watchlist
+1. After the deployment is complete, select your new playbook to open it in the Logic Apps Designer.
 
- 
+1. In your logic app, on the left under **Development Tools**, select **API connections**, and select the connection for each product in the playbook. In this case, the only connection to verify is to Microsoft Sentinel.
 
-Create your input CSV table
-In this use case I have created a simple table, where each row represents an ip address.
-I created the table using Office 365 Excel, and then saved it as a CSV file (save as).
+   For any unconnected products, select **Authorize**, sign in, and then save the logic app.
 
-Upload your table
-
-In Azure Sentinel, go to Watchlists.
-
-Click on Add new
-thumbnail image 3 of blog post titled 
-	
-	
-	 
-	
-	
-	
-				
-		
-			
-				
-						
-							Playbooks & Watchlists Part 2:  Automate incident response for Deny-list/Allow-list
-							
-						
-					
-			
-		
-	
-			
-	
-	
-	
-	
-	
-
-
-Fill in the required details.
-Note that the Alias will be used to query this watchlist in the playbook query step.
-
-Add the CSV file
-
-Review and create.
- 
-Playbook deployment instructions
- 
-
-Open the link to the playbook.  Scroll down on the page and Click on “Deploy to Azure” or "Deploy to Azure Gov" button depending on your need.
-       
-Fill the parameters:
- 
-Basics
-Fill the subscription, resource group and location Sentinel workspace is under.
-Settings
-Playbook name - this is how you'll find the playbook in your subscription
-User name (will affect the names of the API connections resources)
-Check the terms and conditions and click purchase.
-The ARM template, contains the Logic App workflow (playbook) and API connections is now deploying to Azure. When finished, you will be taken to the Azure ARM Template summary page.
-Click on the Logic Apps name. you will be taken to the Logic Apps resource of this playbook.
-Confirm API connections
-On the left menu, click on API connections.
-For each product being used in this playbook, click on the connection name - in our case, it is only the Azure Sentinel connection.
-Click on Authorize to log in with your user, and don't forget to save.
 ## Next steps
 
 - [Microsoft Sentinel Logic Apps connector](/connectors/azuresentinel)
 - [Microsoft Teams Logic Apps connector](/connectors/teams/)
 - [Office 365 Outlook Logic Apps connector](/connectors/office365)
 - [Create incidents from alerts in Microsoft Sentinel](create-incidents-from-alerts.md)
-- [Watchlists-InformSubowner-IncidentTrigger playbook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Watchlist-InformSubowner-IncidentTrigger) in the Microsoft Sentinel Playbooks repository
 
