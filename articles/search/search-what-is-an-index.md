@@ -107,7 +107,7 @@ In Azure Cognitive Search, the physical structure of an index is largely an inte
 The size of an index is determined by:
 
 + Quantity and composition of your documents
-+ Index configuration (specifically,whether you include suggesters)
++ Index configuration (specifically, whether you include suggesters)
 + Attributes on individual fields
 
 You can monitor index size in the Indexes tab in the Azure portal, or by issuing a [GET INDEX request](/rest/api/searchservice/get-index) against your search service.
