@@ -79,7 +79,7 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
     | Public IP address name | Provide a name for the public IP address. |
 
     > [!IMPORTANT]
-    > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static using the [PowerShell instructions](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
+    > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static using the [PowerShell instructions](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
     > 
     > 
 
