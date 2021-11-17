@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Active Directory (AAD) in JavaScript
-description: How to use Azure Active Directory (AAD) in JavaScript
+title: How to create a WebPubSubServiceClient with JavaScript and Azure Identity
+description: How to create a WebPubSubServiceClient with JavaScript and Azure Identity
 author: terencefan
 
 ms.author: tefa
@@ -9,7 +9,9 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-# How to use Azure Active Directory (AAD) in JavaScript
+# How to create a `WebPubSubServiceClient` with JavaScript and Azure Identity
+
+This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure Active Directory in JavaScript.
 
 ## Requirements
 
@@ -44,7 +46,6 @@ ms.topic: how-to
     - VisualStudioCredential
     - VisualStudioCodeCredential
     - AzureCliCredential
-    - ...
 
     To learn more, see [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme)
 
@@ -58,7 +59,7 @@ ms.topic: how-to
     let serviceClient = new WebPubSubServiceClient("<endpoint>", credential, "<hub>");
     ```
 
-3. Learn how to use this client, see [Azure Web PubSub service client library for JavaScript](/javascript/api/overview/azure/web-pubsub-readme)
+    Learn how to use this client, see [Azure Web PubSub service client library for JavaScript](/javascript/api/overview/azure/web-pubsub-readme)
 
 ## Complete sample
 

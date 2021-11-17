@@ -1,15 +1,16 @@
 ---
-title: How to use Azure Active Directory (AAD) in C#
-description: How to use Azure Active Directory (AAD) in C#
+title: How to create a WebPubSubServiceClient with .NET and Azure Identity
+description: How to create a WebPubSubServiceClient with .NET and Azure Identity
 author: terencefan
-
 ms.author: tefa
 ms.date: 11/15/2021
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-# How to use Azure Active Directory (AAD) in C#
+# How to create a `WebPubSubServiceClient` with .NET and Azure Identity
+
+This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure Active Directory in .NET.
 
 ## Requirements
 
@@ -53,7 +54,6 @@ ms.topic: how-to
     - VisualStudioCredential
     - VisualStudioCodeCredential
     - AzureCliCredential
-    - ...
 
     To learn more, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme)
 
@@ -106,7 +106,7 @@ ms.topic: how-to
     }
     ```
 
-3. Learn how to use this client, see [Azure Web PubSub service client library for .NET](/dotnet/api/overview/azure/messaging.webpubsub-readme-pre)
+    Learn how to use this client, see [Azure Web PubSub service client library for .NET](/dotnet/api/overview/azure/messaging.webpubsub-readme-pre)
 
 ## Complete sample
 

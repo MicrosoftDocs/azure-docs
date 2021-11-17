@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Active Directory (AAD) in Java
-description: How to use Azure Active Directory (AAD) in Java
+title: How to create a WebPubSubServiceClient with Java and Azure Identity
+description: How to create a WebPubSubServiceClient with Java and Azure Identity
 author: terencefan
 
 ms.author: tefa
@@ -9,7 +9,9 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-# How to use Azure Active Directory (AAD) in Java
+# How to create a `WebPubSubServiceClient` with Java and Azure Identity
+
+This how-to guide shows you how to create a `WebPubSubServiceClient` with Java and Azure Identity.
 
 ## Requirements
 
@@ -23,6 +25,7 @@ ms.topic: how-to
   </dependency>
   ```
 
+  > [!Tip]
   > Latest version can be found on this [page](https://mvnrepository.com/artifact/com.azure/azure-identity)
 
   See [Azure authentication with Java and Azure Identity](/azure/developer/java/sdk/identity) to learn more.
@@ -37,6 +40,7 @@ ms.topic: how-to
   </dependency>
   ```
 
+  > [!Tip]
   > Latest version can be found on this [page](https://mvnrepository.com/artifact/com.azure/azure-messaging-webpubsub)
 
 ## Sample codes
@@ -66,7 +70,6 @@ ms.topic: how-to
     - VisualStudioCredential
     - VisualStudioCodeCredential
     - AzureCliCredential
-    - ...
 
     To learn more, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme)
 
@@ -95,7 +98,7 @@ ms.topic: how-to
     }
     ```
 
-3. Learn how to use this client, see [Azure Web PubSub service client library for Java](/java/api/overview/azure/messaging-webpubsub-readme)
+    Learn how to use this client, see [Azure Web PubSub service client library for Java](/java/api/overview/azure/messaging-webpubsub-readme)
 
 ## Complete sample
 
