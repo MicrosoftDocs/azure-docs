@@ -2,7 +2,7 @@
 title: Cross-resource query Azure Data Explorer by using Azure Monitor
 description: Use Azure Monitor to perform cross-product queries between Azure Data Explorer, Log Analytics workspaces, and classic Application Insights applications in Azure Monitor.
 author: osalzberg
-ms.author: bwren
+ms.author: orens
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 12/02/2020
@@ -14,6 +14,8 @@ Azure Monitor supports cross-service queries between Azure Data Explorer, [Appli
 The following diagram shows the Azure Monitor cross-service flow:
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagram that shows the flow of queries between a user, Azure Monitor, a proxy, and Azure Data Explorer.":::
+
+## Cross-query your Log Analytics or Application Insights resources and Azure Data Explorer
 
 You can run cross-resource queries by using client tools that support Kusto queries. Examples of these tools include the Log Analytics web UI, Workbooks, PowerShell, and the REST API.
 
