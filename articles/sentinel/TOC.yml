@@ -242,10 +242,10 @@
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
       href: playbook-triggers-actions.md
-    - name: Use a watchlist and playbook to inform about alerts
-      href: watchlists-playbooks-alerts.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
+    - name: Automate activity with both watchlists and playbooks
+      href: automate-playbook-watchlists.md
   - name: Manage Microsoft Sentinel
     items:
     - name: Microsoft Sentinel for MSSPs

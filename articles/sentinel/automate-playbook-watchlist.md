@@ -1,5 +1,5 @@
 ---
-title: Use a Microsoft Sentinel watchlist and playbook to inform owners of alerts
+title: Use a Microsoft Sentinel watchlist and playbook together to automate activity
 description: Learn how to create a Microsoft Sentinel watchlist and playbook based on a Microsoft Defender for Cloud incident creation rule to inform resource owners of security alerts.
 author: batamig
 ms.author: bagol
@@ -9,8 +9,11 @@ ms.date: 09/20/2021
 
 # Use Microsoft Sentinel watchlists and playbooks together to automate activity
 
-This article describes two, common situations where using watchlists and playbooks together are helpful in automating activity in your systems: informing resource owners about alerts and responding to incidents with deny and allow lists.
+This article describes two common situations where using watchlists and playbooks together are helpful in automating activity in your systems: informing resource owners about alerts and responding to incidents with allow lists. 
 
+> [!TIP]
+> Use these sample playbooks as examples or templates for how you can create automation in your own system, modifying the values as needed.
+> 
 ## Automatically inform owners of alerts
 
 [Microsoft Defender for Cloud alerts](/azure/defender-for-cloud/defender-for-cloud-introduction) inform the Security Operations Center (SOC) about possible security attacks on Azure resources.
