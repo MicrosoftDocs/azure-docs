@@ -470,12 +470,12 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/get-healthcare-apis-access-token-cli.md",
         "redirect_url": "/azure/healthcare-apis/get-access-token",
-        "redirect_document_id": false
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-get-access-token-azure-cli.md",
         "redirect_url": "/azure/healthcare-apis/get-access-token",
-        "redirect_document_id": false
+        "redirect_document_id": true
     }
     {
         "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-register-service-client-application.md",
@@ -485,12 +485,12 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-register-public-application.md",
         "redirect_url": "/azure/healthcare-apis/register-application",
-        "redirect_document_id": false
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-register-confidential-client-application.md",
         "redirect_url": "/azure/healthcare-apis/register-application",
-        "redirect_document_id": false
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-configure-azure-rbac.md",
