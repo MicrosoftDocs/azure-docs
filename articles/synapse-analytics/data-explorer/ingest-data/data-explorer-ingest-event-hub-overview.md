@@ -12,7 +12,7 @@ ms.subservice: data-explorer
 ---
 # Event Hub data connection (Preview)
 
-[Azure Event Hubs](/azure/event-hubs/event-hubs-about) is a big data streaming platform and event ingestion service. Azure Synapse Data Explorer offers continuous ingestion from customer-managed Event Hubs.
+[Azure Event Hubs](../../../event-hubs/event-hubs-about.md) is a big data streaming platform and event ingestion service. Azure Synapse Data Explorer offers continuous ingestion from customer-managed Event Hubs.
 
 The Event Hub ingestion pipeline transfers events to Azure Synapse Data Explorer in several steps. You first create an Event Hub in the Azure portal. You then create a target table in Azure Synapse Data Explorer into which the [data in a particular format](#data-format), will be ingested using the given [ingestion properties](#ingestion-properties). The Event Hub connection needs to know [events routing](#events-routing). Data is embedded with selected properties according to the [event system properties mapping](#event-system-properties-mapping). [Create a connection](#event-hub-connection) to Event Hub to [create an Event Hub](#create-an-event-hub) and [send events](#send-events). This process can be managed through the [Azure portal](data-explorer-ingest-event-hub-portal.md), programmatically with [C#](data-explorer-ingest-event-hub-csharp.md) or [Python](data-explorer-ingest-event-hub-python.md), or with the [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md).
 
@@ -105,7 +105,7 @@ If you selected **Event system properties** in the **Data Source** section of th
 
 ### Create an Event Hub
 
-If you don't already have one, [Create an Event Hub](/azure/event-hubs/event-hubs-create). Connecting to Event Hub can be managed through the [Azure portal](data-explorer-ingest-event-hub-portal.md), programmatically with [C#](data-explorer-ingest-event-hub-csharp.md) or [Python](data-explorer-ingest-event-hub-python.md), or with the [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md).
+If you don't already have one, [Create an Event Hub](../../../event-hubs/event-hubs-create.md). Connecting to Event Hub can be managed through the [Azure portal](data-explorer-ingest-event-hub-portal.md), programmatically with [C#](data-explorer-ingest-event-hub-csharp.md) or [Python](data-explorer-ingest-event-hub-python.md), or with the [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md).
 
 > [!Note]
 > * The partition count isn't changeable, so you should consider long-term scale when setting partition count.
@@ -119,7 +119,7 @@ For an example of how to generate sample data, see [Ingest data from Event Hub i
 
 ## Set up Geo-disaster recovery solution
 
-Event Hub offers a [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr) solution. 
+Event Hub offers a [Geo-disaster recovery](../../../event-hubs/event-hubs-geo-dr.md) solution. 
 Azure Synapse Data Explorer doesn't support `Alias` Event Hub namespaces. To implement the Geo-disaster recovery in your solution, create two Event Hub data connections: one for the primary namespace and one for the secondary namespace. Azure Synapse Data Explorer will listen to both Event Hub connections.
 
 > [!NOTE]

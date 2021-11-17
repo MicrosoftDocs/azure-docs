@@ -12,7 +12,7 @@ ms.subservice: data-explorer
 ---
 # Event Grid data connection (Preview)
 
-Event Grid ingestion is a pipeline that listens to Azure storage, and updates Azure Data Explorer to pull information when subscribed events occur. Data Explorer offers continuous ingestion from Azure Storage (Blob storage and ADLSv2) with [Azure Event Grid](/azure/event-grid/overview) subscription for blob created or blob renamed notifications and streaming these notifications to Data Explorer via an Event Hub.
+Event Grid ingestion is a pipeline that listens to Azure storage, and updates Azure Data Explorer to pull information when subscribed events occur. Data Explorer offers continuous ingestion from Azure Storage (Blob storage and ADLSv2) with [Azure Event Grid](../../../event-grid/overview.md) subscription for blob created or blob renamed notifications and streaming these notifications to Data Explorer via an Event Hub.
 
 The Event Grid ingestion pipeline goes through several steps. You create a target table in Data Explorer into which the [data in a particular format](#data-format) will be ingested. Then you create an Event Grid data connection in Data Explorer. The Event Grid data connection needs to know [events routing](#events-routing) information, such as what table to send the data to and the table mapping. You also specify [ingestion properties](#ingestion-properties), which describe the data to be ingested, the target table, and the mapping. You can generate sample data and [upload blobs](#upload-blobs) or [rename blobs](#rename-blobs) to test your connection. [Delete blobs](#delete-blobs-using-storage-lifecycle) after ingestion. This process can be managed through the [Azure portal](data-explorer-ingest-event-grid-portal.md). <!-- , using [one-click ingestion](one-click-ingestion-new-table.md), programmatically with [C#](data-connection-event-grid-csharp.md) or [Python](data-connection-event-grid-python.md), or with the [Azure Resource Manager template](data-connection-event-grid-resource-manager.md). -->
 
@@ -25,7 +25,7 @@ The Event Grid ingestion pipeline goes through several steps. You create a targe
     - The original uncompressed data size should be part of the blob metadata, or else Data Explorer will estimate it. The ingestion uncompressed size limit per file is 4 GB.
 
 > [!NOTE]
-> Event Grid notification subscription can be set on Azure Storage accounts for `BlobStorage`, `StorageV2`, or [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction).
+> Event Grid notification subscription can be set on Azure Storage accounts for `BlobStorage`, `StorageV2`, or [Data Lake Storage Gen2](../../../storage/blobs/data-lake-storage-introduction.md).
 
 ## Ingestion properties
 
@@ -67,7 +67,7 @@ You can create a blob from a local file, set ingestion properties to the blob me
 > - Use `BlockBlob` to generate data. `AppendBlob` is not supported.
 > - Using Azure Data Lake Gen2 storage SDK requires using `CreateFile` for uploading files and `Flush` at the end with the close parameter set to "true".
 <!-- > For a detailed example of Data Lake Gen2 SDK correct usage, see [upload file using Azure Data Lake SDK](data-connection-event-grid-csharp.md#upload-file-using-azure-data-lake-sdk). -->
-> - When the Event Hub endpoint doesn't acknowledge receipt of an event, Azure Event Grid activates a retry mechanism. If this retry delivery fails, Event Grid can deliver the undelivered events to a storage account using a process of *dead-lettering*. For more information, see [Event Grid message delivery and retry](/azure/event-grid/delivery-and-retry#retry-schedule-and-duration).
+> - When the Event Hub endpoint doesn't acknowledge receipt of an event, Azure Event Grid activates a retry mechanism. If this retry delivery fails, Event Grid can deliver the undelivered events to a storage account using a process of *dead-lettering*. For more information, see [Event Grid message delivery and retry](../../../event-grid/delivery-and-retry.md#retry-schedule-and-duration).
 
 ## Rename blobs
 
