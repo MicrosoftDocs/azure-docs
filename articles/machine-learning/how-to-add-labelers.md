@@ -92,7 +92,7 @@ If your labelers are outside of your organization, you'll now add them so that t
 
 To add a guest user, your organization's external collaboration settings must be configured to allow you to invite guests.
 
-1. In [Azure portal](https::/portal.azure.com), in the top-left corner, expand the menu and select **Azure Active Directory**.
+1. In [Azure portal](https://portal.azure.com), in the top-left corner, expand the menu and select **Azure Active Directory**.
 
     :::image type="content" source="media/how-to-add-labeler/menu-active-directory.png" alt-text="Select Azure Active Directory from the menu.":::
 
@@ -115,7 +115,7 @@ Now that you have your labelers added to the system, you're ready to add them to
 
 To add users to your workspace, you must be an owner of the workspace.
 
-1. In [Azure portal](https::/portal.azure.com), in the top search field, type **Machine Learning**.  
+1. In [Azure portal](https://portal.azure.com), in the top search field, type **Machine Learning**.  
 1. Select **Machine Learning**.
     :::image type="content" source="media/how-to-manage-workspace/find-workspaces.png" alt-text="Search for Azure Machine Learning workspace.":::
 
