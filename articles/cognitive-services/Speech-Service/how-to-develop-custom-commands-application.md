@@ -360,7 +360,7 @@ To move the content, start by adding a new web endpoint. In the pane on the left
 | **URL** | `<Your endpoint of getDevices.json>` |
 | **Method** | **GET** |
 
-Please configure and host a web endpoint that returns a JSON file that consists of the list of the devices that can be controlled. The web endpoint should return a JSON file formatted as follows:
+Then, configure and host a web endpoint that returns a JSON file that lists the devices that can be controlled. The web endpoint should return a JSON file that's formatted like this example:
 
 ```json
 {
