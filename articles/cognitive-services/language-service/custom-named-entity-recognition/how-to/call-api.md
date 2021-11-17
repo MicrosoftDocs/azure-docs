@@ -78,7 +78,8 @@ See the [application development lifecycle](../overview.md#application-developme
 
 3. Submit the `GET` cURL request in your terminal or command prompt. You'll receive a 202 response and JSON similar to the below, if the request was successful.
 
-You can find more details about the results in the next section.
+[!INCLUDE [JSON result for entity recognition](../includes/recognition-result-json.md)]
+
 
 # [Using the REST API](#tab/rest-api)
 
@@ -139,6 +140,8 @@ First you will need to get your resource key and endpoint
 
 5. Use the URL from the previous step to create a **GET** request to query the status/results of the custom recognition task. Add your key to the `Ocp-Apim-Subscription-Key` header for the request.
 
+[!INCLUDE [JSON result for entity recognition](../includes/recognition-result-json.md)]
+
 # [Using the client libraries](#tab/client)
 
 ## Use the client libraries
@@ -165,7 +168,7 @@ First you will need to get your resource key and endpoint
     * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
     * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py)
     
-5. See the following reference documentation for more information:
+5. See the following reference documentation for more information on the client, and return object:
     
     * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
     * [Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)
@@ -174,73 +177,3 @@ First you will need to get your resource key and endpoint
     
 ---
 
-#### Custom NER task results
-
-The response returned from the Get result call will be a JSON document with the following parameters:
-
-```json
-{
-    "createdDateTime": "2021-05-19T14:32:25.578Z",
-    "displayName": "MyJobName",
-    "expirationDateTime": "2021-05-19T14:32:25.578Z",
-    "jobId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "lastUpdateDateTime": "2021-05-19T14:32:25.578Z",
-    "status": "completed",
-    "errors": [],
-    "tasks": {
-        "details": {
-            "name": "MyJobName",
-            "lastUpdateDateTime": "2021-03-29T19:50:23Z",
-            "status": "completed"
-        },
-        "completed": 1,
-        "failed": 0,
-        "inProgress": 0,
-        "total": 1,
-        "tasks": {
-    "customEntityRecognitionTasks": [
-        {
-            "lastUpdateDateTime": "2021-05-19T14:32:25.579Z",
-            "name": "MyJobName",
-            "status": "completed",
-            "results": {
-               "documents": [
-                        {
-                            "id": "doc1",
-                            "entities": [
-                                {
-                                    "text": "Government",
-                                    "category": "restaurant_name",
-                                    "offset": 23,
-                                    "length": 10,
-                                    "confidenceScore": 0.0551877357
-                                }
-                            ],
-                            "warnings": []
-                        },
-                        {
-                            "id": "doc2",
-                            "entities": [
-                                {
-                                    "text": "David Schmidt",
-                                    "category": "artist",
-                                    "offset": 0,
-                                    "length": 13,
-                                    "confidenceScore": 0.8022353
-                                }
-                            ],
-                            "warnings": []
-                        }
-                    ],
-                "errors": [],
-                "statistics": {
-                    "documentsCount":0,
-                    "erroneousDocumentsCount":0,
-                    "transactionsCount":0
-                }
-                    }
-                }
-            ]
-        }
-    }
-```
