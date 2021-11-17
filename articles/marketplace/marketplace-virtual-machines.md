@@ -53,7 +53,7 @@ A VM contains two components:
     > [!NOTE]
     > Regardless of which operating system you use, add only the minimum number of data disks needed by the solution. Customers cannot remove disks that are part of an image at the time of deployment, but they can always add disks during or after deployment.
 
-For detailed instructions on preparing your technical assets, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md).
+For detailed instructions on preparing your technical assets, see [Create a virtual machine using an approved base](azure-vm-use-approved-base.md) or [Create a virtual machine using your own image](azure-vm-use-own-image.md).
 
 ## Preview audience
 
@@ -97,13 +97,13 @@ For more information, see [Plans and pricing for commercial marketplace offers](
 
 ## Test drive
 
-You can choose to enable a test drive for your VM. Test drives give customers access to a preconfigured environment for a fixed number of hours. You can enable test drives for any publishing option, however this feature has additional requirements. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md). For information about configuring different kinds of test drives, see [Test drive technical configuration](test-drive-technical-configuration.md).
-
 [!INCLUDE [Test drives section](includes/test-drives.md)]
+
+If you want to read more about test drives for VM offers now, see [Configure a VM test drive](azure-vm-test-drive.md).
 
 ## Customer leads
 
-[!INCLUDE [Customer leads section](includes/customer-leads.md)]
+When you're publishing an offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive (see the preceding section). Otherwise, connecting to a CRM is optional.
 
 ## Legal contracts
 
@@ -119,6 +119,6 @@ When creating your offer in Partner Center, you will see the **Resell through CS
 
 ## Next steps
 
-- [Create a virtual machine offer on Azure Marketplace](azure-vm-create.md)
-- [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [create a virtual machine using your own image](azure-vm-create-using-own-image.md).
+- [Create a virtual machine offer on Azure Marketplace](azure-vm-offer-setup.md)
+- [Create a virtual machine using an approved base](azure-vm-use-approved-base.md) or [create a virtual machine using your own image](azure-vm-use-own-image.md).
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
