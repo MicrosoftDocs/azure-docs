@@ -1,4 +1,3 @@
-
 ---
 title: Getting started with Azure Cosmos DB Partial Document Update
 description: This article provides example for how to use Partial Document Update with .NET, Java, Node SDKs
