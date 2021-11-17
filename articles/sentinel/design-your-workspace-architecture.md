@@ -1,7 +1,6 @@
 ---
 title: Design your Microsoft Sentinel workspace architecture | Microsoft Docs
 description: Use a decision tree to understand how you might want to design your Microsoft Sentinel workspace architecture.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: conceptual

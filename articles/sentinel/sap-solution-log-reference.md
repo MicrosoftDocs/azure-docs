@@ -2,7 +2,7 @@
 title: Microsoft Sentinel SAP solution - Available logs reference | Microsoft Docs
 description: Learn about the SAP logs available from the Microsoft Sentinel SAP solution.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021

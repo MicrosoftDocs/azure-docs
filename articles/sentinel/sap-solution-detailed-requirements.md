@@ -2,7 +2,7 @@
 title: Microsoft Sentinel SAP solution detailed SAP requirements | Microsoft Docs
 description: Learn about the detailed SAP system requirements for the Microsoft Sentinel SAP solution.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021

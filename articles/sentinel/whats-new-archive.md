@@ -1,7 +1,6 @@
 ---
 title: Archive for What's new in Azure Sentinel
 description: A description of what's new and changed in Azure Sentinel from six months ago and earlier.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
