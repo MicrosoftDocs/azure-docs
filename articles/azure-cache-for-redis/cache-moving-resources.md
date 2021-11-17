@@ -6,7 +6,7 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 8/27/2021
+ms.date: 11/17/2021
 #Customer intent: As an Azure developer, I want to move my Azure Cache for Redis resource to another Azure region.
 ---
 
@@ -18,13 +18,15 @@ In this article, you learn how to move Azure Cache for Redis instances to a diff
 - To meet internal policy and governance requirements.
 - To respond to capacity planning requirements.
 
-The tier of Azure Cache for Redis you use determines the option that's best for you.
+If you're looking to migrate to Azure Cache for Redis from on-premises, cloud-based VMs, or another hosting service, we recommend you see [Migrate to Azure Cache for Redis](cache-migration-guide.md).
+
+The tier of Azure Cache for Redis you use determines the option that's best for you. 
 
 | Cache Tier | Options  | 
 | ------------ |  ------- | 
-| Premium | Geo-replication, create a new cache, dual-write to two caches, or export and import data via RDB file| 
-| Basic or Standard | Create a new cache or dual-write to two caches| 
-| Enterprise or Enterprise Flash | Create a new cache or export and import data with an RDB file | 
+| Premium | Geo-replication, create a new cache, dual-write to two caches, export and import data via RDB file, or migrate programmatically | 
+| Basic or Standard | Create a new cache, dual-write to two caches, or migrate programmatically | 
+| Enterprise or Enterprise Flash | Create a new cache or export and import data with an RDB file, or migrate programmatically | 
 
 ## Geo-replication (Premium)
 
@@ -182,6 +184,36 @@ General steps to implement this option are:
 2. Continue reading data from the original instance until the new instance is sufficiently populated with data.
 
 3. Update the application code to reading and writing from the new instance only.
+
+### Clean up source resources 
+Once your new cache in the targeted region is running, delete the original instance.
+
+
+## Migrate programmatically
+You can create a custom migration process by programmatically reading data from an existing cache and writing them into Azure Cache for Redis. This [open-source tool](https://github.com/deepakverma/redis-copy) can be used to copy data from one Azure Cache for Redis instance to an another instance in a different Azure Cache region. A [compiled version](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip) is available as well. You may also find the source code to be a useful guide for writing your own migration tool.
+
+> [!NOTE]
+> This tool isn't officially supported by Microsoft. 
+>
+
+### Prerequisites
+- The second cache is either the same cache size or a larger cache size than the original cache.
+
+### Prepare
+
+- Create a VM in the region where the existing cache is located. If your dataset is large, choose a relatively powerful VM to reduce copying time.
+- To move your cache instance to another region, you'll need to [create a second cache instance](quickstart-create-redis.md) in the desired region.
+
+### Move
+After creating a VM in the region where the existing cache is located and creating a new cache in the desired region, the general steps to implement this option are:
+
+1. Flush data from the new cache to ensure that it's empty. This step is required because the copy tool itself doesn't overwrite any existing key in the target cache.
+
+    > [!IMPORTANT]
+    > Make sure to NOT flush from the source cache.
+    >
+
+2. Use an application such as the open-source tool above to automate the copying of data from the source cache to the target. Remember that the copy process could take a while to complete depending on the size of your dataset.
 
 ### Clean up source resources 
 Once your new cache in the targeted region is running, delete the original instance.
