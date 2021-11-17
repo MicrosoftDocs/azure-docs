@@ -202,7 +202,7 @@
         },
         {
             "source_path_from_root": "/articles/marketplace/azure-vm-create-using-own-image.md",
-            "redirect_url": "/azure/marketplace/azure-vm-use-own-image-base",
+            "redirect_url": "/azure/marketplace/azure-vm-use-own-image",
             "redirect_document_id": false
         },
         {

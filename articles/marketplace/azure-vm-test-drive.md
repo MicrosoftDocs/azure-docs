@@ -34,7 +34,7 @@ Enter values between 0-99 in the boxes to indicate how many of Hot, Warm, or Col
 - **Warm** – Pre-deployed instances that are then put in storage. Less expensive than hot instances while still being quick to reboot for your customers (3-10 minutes acquisition time).
 - **Cold** – Instances that require the test drive ARM template to be deployed when requested by each customer. Cold instances are much slower to load relative to Hot and Warm instances. The wait time varies greatly based on the resources required (up to 1.5 hours). Cold instances are more cost-effective for you since the cost is only for the test drive duration, compared to always running on your Azure subscription as with a Hot instance.
 
-### Technical configuration
+### Technical configuration of ARM template
 
 The ARM template for your test drive is a coded container of all the Azure resources that comprise your solution. To create the ARM deployment template you'll need for your test drive, see [Azure Resource Manager test drive](azure-resource-manager-test-drive.md#write-the-test-drive-template). Once your template is complete, return here to learn how to uploaded your ARM template and complete the configuration.
 
@@ -47,7 +47,7 @@ Enter a **Test drive duration**, in hours. This is the number of hours the test 
 For Microsoft to deploy the test drive on your behalf, connect to your Azure Subscription and Azure Active Directory (AAD) by completing the steps below, then select **Save draft**.
 
 1. **Azure subscription ID** – This grants access to Azure services and the Azure portal. The subscription is where resource usage is reported and services are billed. Consider creating a [separate Azure subscription](/azure/cost-management-billing/manage/create-subscription) to use for test drives if you don't have one already. You can find your Azure subscription ID by signing into the Azure portal and searching *Subscriptions* in the search bar.
-2. **Azure AD tenant ID** – Enter your Azure Active Directory (AD) tenant ID by going to **Azure Active Directory** > **Properties** > **Directory ID** within the Azure Portal. If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](/azure/active-directory/develop/quickstart-create-new-tenant?branch=main).
+2. **Azure AD tenant ID** – Enter your Azure Active Directory (AD) tenant ID by going to **Azure Active Directory** > **Properties** > **Directory ID** within the Azure portal. If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](/azure/active-directory/develop/quickstart-create-new-tenant?branch=main).
 3. Before proceeding with the other fields, provision the Microsoft Test-Drive application to your tenant. We will use this application to perform operations on your test drive resources.
     1. If you don't have it yet, install the [Azure Az PowerShell module](/powershell/azure/install-az-ps?branch=main&view=azps-6.6.0).
     2. Add the Service Principal for Microsoft Test-Drive application.
