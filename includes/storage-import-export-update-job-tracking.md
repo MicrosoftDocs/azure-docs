@@ -17,9 +17,6 @@ After you ship the disks, return to the job in the Azure portal and fill in the 
 > [!IMPORTANT]
 > If the tracking number is not updated within 2 weeks of creating the job, the job expires. 
 
-> [!NOTE]
-> You can only cancel a job while it's in Creating state. After you provide tracking details, the job status changes to Shipping, and the job can't be canceled.
-
 ### [Portal (Preview)](#tab/azure-portal-preview)
 
 To complete the tracking information for your job in the Preview portal, do these steps:
@@ -63,3 +60,6 @@ If you created your Azure Import/Export job using Azure CLI, open the job in the
 If you created your Azure Import/Export job using Azure PowerShell, open the job in the Azure portal to update tracking information.
 
 ---
+
+> [!NOTE]
+> You can only cancel a job while it's in Creating state. After you provide tracking details, the job status changes to Shipping, and the job can't be canceled.

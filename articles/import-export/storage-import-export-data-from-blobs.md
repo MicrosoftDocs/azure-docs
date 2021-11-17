@@ -79,7 +79,7 @@ Perform the following steps to order an import job in Azure Import/Export via th
 
     Select **Next: Job details >** to proceed.
 
-5. In **Job details**:
+5. In **Job Details**:
 
    1. Select the **Source Azure region** where your data currently is.
    1. Select the storage account from which you want to export data. Use a storage account close to your location.
@@ -109,24 +109,24 @@ Perform the following steps to order an import job in Azure Import/Export via th
       > [!IMPORTANT]
       > If you use an XML file to select the blobs to export, make sure that the XML contains valid paths and/or prefixes. If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
 
-      To see how to add an XML file to a container, see [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
+      To see how to add an XML file to a container, go to [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
       ![Screenshot of Job Details for Azure Import Export job that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-06-a-export-job.png)
 
    > [!NOTE]
    > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
 
-   Select **Next: Shipping >** to proceed.
+   Select **Next: Return shipping >** to proceed.
 
 1. In **Return shipping**:
 
    1. Select a shipping carrier from the drop-down list for **Carrier**. The location of the Microsoft datacenter for the selected region determines which carriers are available.
    1. Enter a **Carrier account number**. The account number for an valid carrier account is required.
-   1. In the **Return address** area, use **+ Address** to add the address to ship to.
+   1. In the **Return address** area, use **+ Add Address** to add the address to ship to.
 
       ![Screenshot of the Return Shipping tab for an import job in Azure Data Box. The Return Shipping tab and the Plus Add Address button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-07-export-job.png)
 
-      On the **Add address** blade, you can add an address or use an existing one.
+      On the **Add Address** blade, you can add an address or use an existing one. When you finish entering address information, select **Add shipping address**.
 
       ![Screenshot showing an address on the Add Address blade for an import job in Azure Import Export Preview portal. The Add Shipping Address button is highlighted.](../../includes/media/storage-import-export-preview-import-steps/import-export-order-preview-08.png)
 
@@ -141,8 +141,8 @@ Perform the following steps to order an import job in Azure Import/Export via th
 
 1. In **Review + Create**:
 
-   1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
-   1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to. This information is used later on the shipping label.
+   1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions above." Validation is then performed.
+   1. Review the job information. Make a note of the job name and the Azure datacenter shipping address to ship disks back to. This information is used later on the shipping label.
    1. Select **Create**.
 
    ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job in the Preview portal. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-10-export-job.png)
