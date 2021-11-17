@@ -46,7 +46,7 @@ ms.custom: devx-track-dotnet
 > [!WARNING]
 > On August 31, 2024 the Azure Cosmos DB .NET SDK v2.x will be retired; the SDK and all applications using the SDK will continue to function;
 > Azure Cosmos DB will simply cease to provide further maintenance and support for this SDK. 
-> We recommend following these [instructions](migrate-dotnet-v3.md) to migrate to the latest version of .NET SDK v3 SDK.
+> We recommend [migrating to the latest version](migrate-dotnet-v3.md) of the .NET SDK v3 SDK.
 >
 
 > [!NOTE]
