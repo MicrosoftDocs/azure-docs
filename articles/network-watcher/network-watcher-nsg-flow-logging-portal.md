@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 ## Create a virtual machine
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
 
@@ -98,7 +98,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 
 4. Enter **Microsoft.Insights** in the filter box.
 
-5. Confirm the status of the provider is **Registered**. If the status is **Unregistered**, select the provider then select **Register**.
+5. Confirm the status of the provider displayed is **Registered**. If the status is **Unregistered**, select the provider then select **Register**.
 
 ## Enable NSG flow log
 
@@ -173,7 +173,7 @@ The storage account may take around minute to create. Don't continue with remain
 
 ## View flow log
 
-The following json is an example of what you'll see in the PT1H.json file for each flow that data is logged for:
+The following example json displays data that you'll see in the PT1H.json file for each flow logged:
 
 ### Version 1 flow log event
 ```json
@@ -256,7 +256,7 @@ The value for **mac** in the previous output is the MAC address of the network i
 | T            | Protocol               | Whether the protocol of the flow was TCP (T) or UDP (U).                                  |
 | O            | Direction              | Whether the traffic was inbound (I) or outbound (O).                                     |
 | A            | Action                 | Whether the traffic was allowed (A) or denied (D).  
-| C            | Flow State **Version 2 Only** | Captures the state of the flow. Possible states are **B**: Begin, when a flow is created. Statistics aren't provided. **C**: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals. **E**: End, when a flow is terminated. Statistics are provided. |
+| C            | Flow State **Version 2 Only** | Captures the state of the flow. Possible states are **B**: Begin, when a flow is created. Statistics aren't provided. **C**: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals. **E**: End, when a flow is ended. Statistics are provided. |
 | 30 | Packets sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packets sent from source to destination since last update. |
 | 16978 | Bytes sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload. |
 | 24 | Packets sent - Destination to source **Version 2 Only** | The total number of TCP or UDP packets sent from destination to source since last update. |
@@ -271,7 +271,7 @@ In this tutorial, you learned how to:
 
 The raw data in the json file can be difficult to interpret. To visualize Flow Logs data, you can use [Azure Traffic Analytics](traffic-analytics.md) and  [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
-For alternate methods of enabling NSG Flow Logs, see [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md) and [ARM templates](network-watcher-nsg-flow-logging-azure-resource-manager.md).
+For alternate methods of enabling NSG Flow Logs, see [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md), and [Resource Manager templates](network-watcher-nsg-flow-logging-azure-resource-manager.md).
 
 Advance to the next article to learn how to monitor network communication between two virtual machines:
 
