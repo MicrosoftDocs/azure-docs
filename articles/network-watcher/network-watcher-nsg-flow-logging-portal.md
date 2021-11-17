@@ -80,7 +80,7 @@ If you already have a network watcher enabled in the East US region, skip to [Re
 
 2. In the **Overview** page of **Network Watcher**, select **+ Add**.
 
-    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png" alt-text="Screenshot of enable network watcher.":::
+    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png" alt-text="Screenshot of enable network watcher in portal.":::
 
 3. Select your subscription in **Add network watcher**. Select **(US) East US** in **Region**.
 
@@ -110,16 +110,16 @@ NSG flow log data is written to an Azure Storage account. Complete the following
 
 3. Enter or select the following information in **Create a storage account**.
 
-| Setting | Value |
-| ------- | ----- |
-| **Project details** |   |
-| Subscription | Select your subscription. |
-| Resource group | Select **myResourceGroup**. |
-| **Instance details** |   |
-| Storage account name | Enter a name for your storage account. </br> Must be 3-24 characters in length, can only contain lowercase letters and numbers, and must be unique across all Azure Storage. |
-| Region | Select **(US)East US**. |
-| Performance | Leave the default of **Standard**. |
-| Redundancy | Leave the default of **Geo-redundant storage (GRS)**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |   |
+    | Storage account name | Enter a name for your storage account. </br> Must be 3-24 characters in length, can only contain lowercase letters and numbers, and must be unique across all Azure Storage. |
+    | Region | Select **(US)East US**. |
+    | Performance | Leave the default of **Standard**. |
+    | Redundancy | Leave the default of **Geo-redundant storage (GRS)**. |
 
 4. Select **Review + create**.
 
@@ -133,7 +133,7 @@ The storage account may take around minute to create. Don't continue with remain
 
 3. In **Network Watcher | NSG flow logs**, select **+ Create**.
 
-    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/create-nsg-flow-log.png" alt-text="Screenshot of create NSG flow log.":::
+    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/create-nsg-flow-log.png" alt-text="Screenshot of create Network Security Group flow log.":::
 
 4. Enter or select the following information in **Create a flow log**.
 
@@ -169,7 +169,7 @@ The storage account may take around minute to create. Don't continue with remain
 
 6. Select **...** to the right of the PT1H.json file, then select **Download**.
 
-   :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/log-file.png" alt-text="Screenshot of download NSG flow log.":::
+   :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/log-file.png" alt-text="Screenshot of download Network Security Group flow log.":::
 
 ## View flow log
 
