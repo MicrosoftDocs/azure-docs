@@ -8,13 +8,16 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/12/2021
+ms.date: 11/16/2021
 ms.author: danlep
 ---
 
 # How to authorize developer accounts using OAuth 2.0 in Azure API Management
 
 Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. To use Azure API Management's interactive developer console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
+
+Configuring OAuth 2.0 user authorization in the test console of the developer portal provides developers with a convenient way to acquire an OAuth 2.0 access token. From the test console, the token is simply passed to the backend with the API call. Token validation must be configured separately - either using a [JWT validation policy](api-management-access-restriction-policies.md#ValidateJWT), or in the backend service.
+
 
 ## Prerequisites
 
@@ -31,7 +34,7 @@ If you have not yet created an API Management service instance, see [Create an A
 
 ## Authorization grant types
  
-Azure API Management supports the following OAuth 2.0 grant types (flows). A grant type refers to a way for a client application (in this context, the developer portal) to obtain an access token to your backend API. You may configure one or more grant types, depending on your OAuth provider and scenarios. 
+Azure API Management supports the following OAuth 2.0 grant types (flows). A grant type refers to a way for a client application (in this context, the test console in the developer portal) to obtain an access token to your backend API. You may configure one or more grant types, depending on your OAuth 2.0 provider and scenarios. 
 
 The following is a high level summary. For more information about grant types, see the [OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749) and [OAuth grant types](https://oauth.net/2/grant-types/).
 
@@ -39,13 +42,20 @@ The following is a high level summary. For more information about grant types, s
 |Grant type  |Description  |Scenarios  |
 |---------|---------|---------|
 |Authorization code     | Exchanges authorization code for token         |  Server-side apps such as web apps      |
-|Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it is received by client     |
+|Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Generally not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it is received by client     |
 |Resource owner password  | Requests user credentials (username and password), typically using an interactive form |    For use with highly trusted applications<br/><br/>Should only be used when other, more secure flows can't be used        |
 |Client credentials     | Authenticates and authorizes an app rather than a user       |  Machine-to-machine applications that do not require a specific user's permissions to access data, such as CLIs, daemons, or services running on your backend       |
 
-> [!WARNING]
-> * The client credentials flow can expose an access token through the test console in the developer portal. A compromised token could be used by a malicious actor to access additional resources within the token's [scope](https://oauth.net/2/scope/) of access. 
-> * Always limit the scope of token access when used in the developer console.
+### Security considerations
+
+Consider how the grant type generates a token, the token's [scope](https://oauth.net/2/scope/), and how the token could be exposed. A compromised token could be used by a malicious actor to access additional resources within the token's scope.
+
+When configuring OAuth 2.0 user authorization in the test console of the developer portal:
+
+* **Limit the token's scope to the minimum** needed for developers to test the APIs. Limit the scope to the test console, or to the affected APIs. The steps to configure token scope depend on your OAuth 2.0 provider.
+
+  Depending on your scenarios, you may configure more or less restrictive token scopes for other client applications that you create to access backend APIs.
+* **Take extra care if you enable the Client Credentials flow**. Unlike other authorization flows, Client Credentials doesn't require user credentials to get an access token. An access token could be inadvertently exposed to developers or anonymous users of the developer console. 
 
 ## Configure an OAuth 2.0 authorization server in API Management
 
