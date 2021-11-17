@@ -8,8 +8,6 @@ author: batamig
 manager: rkarlin
 
 ms.assetid:
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

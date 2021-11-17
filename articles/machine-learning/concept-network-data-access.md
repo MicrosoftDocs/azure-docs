@@ -37,9 +37,9 @@ In general, data access from studio involves the following checks:
     - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage.
 2. Do they have permission?
     - Are the credentials correct? If so, does the service principal, managed identity, etc., have the necessary permissions on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
-    - [Reader](/azure/role-based-access-control/built-in-roles#reader) of the storage account reads metadata of the storage.
-    - [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) reads data within a blob container.
-    - [Contributor](/azure/role-based-access-control/built-in-roles#contributor) allows write access to a storage account.
+    - [Reader](../role-based-access-control/built-in-roles.md#reader) of the storage account reads metadata of the storage.
+    - [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) reads data within a blob container.
+    - [Contributor](../role-based-access-control/built-in-roles.md#contributor) allows write access to a storage account.
     - More roles may be required depending on the type of storage.
 3. Where is access from?
     - User: Is the client IP address in the VNet/subnet range?
@@ -70,7 +70,7 @@ See the following sections for information on limitations when using Azure Stora
 
 If you use an existing storage account as the __default storage__ when creating a workspace, the `azureml-filestore` folder in the file store doesn't automatically get created. This folder is required when submitting [AutoML](concept-automated-ml.md) experiments.
 
-To avoid this issue, you can either allow Azure Machine Learning to create the default storage for you when creating the workspace or make sure the existing storage account  is __not__ in the VNet when creating the workspace. For more information on networking with Azure Storage Account, see [Configure Azure Storage Accounts with virtual networks](/azure/storage/common/storage-network-security).
+To avoid this issue, you can either allow Azure Machine Learning to create the default storage for you when creating the workspace or make sure the existing storage account  is __not__ in the VNet when creating the workspace. For more information on networking with Azure Storage Account, see [Configure Azure Storage Accounts with virtual networks](../storage/common/storage-network-security.md).
 
 ### Azure Storage firewall
 
@@ -101,4 +101,3 @@ In Azure SQL Database, the __Deny public network access__ allows you to block pu
 ## Next steps
 
 For information on enabling studio in a network, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
-
