@@ -5,8 +5,6 @@ services: sentinel
 author: yelevin
 ms.author: yelevin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.custom: references_regions, ignite-fall-2021
@@ -24,7 +22,7 @@ Microsoft Sentinel comes with a number of connectors for Microsoft solutions, av
 After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
 >[!IMPORTANT]
-> For information about the charges incurred when using Microsoft Sentinel, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Microsoft Sentinel costs and billing](azure-sentinel-billing.md).
+> For information about the charges incurred when using Microsoft Sentinel, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Microsoft Sentinel costs and billing](billing.md).
 
 ## Global prerequisites
 
@@ -116,11 +114,11 @@ For more information, see [Data collection best practices](best-practices-data.m
 
 For more information, see:
 
-- **Alternate deployment options**:
+- **Alternate deployment / management options**:
 
-    - [Deploy Microsoft Sentinel via API](/rest/api/securityinsights/)
-    - [Deploy Microsoft Sentinel via PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
     - [Deploy Microsoft Sentinel via ARM template](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+    - [Manage Microsoft Sentinel via API](/rest/api/securityinsights/)
+    - [Manage Microsoft Sentinel via PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
 
 - **Get started**:
     - [Get started with Microsoft Sentinel](get-visibility.md)

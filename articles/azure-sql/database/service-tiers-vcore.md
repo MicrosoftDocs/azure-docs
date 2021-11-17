@@ -25,6 +25,9 @@ The virtual core (vCore) purchasing model used by Azure SQL Database and Azure S
 
 For more information on choosing between the vCore and DTU purchase models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
 
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
 ## Service tiers
 
 The following articles provide specific information on the vCore purchase model in each product.

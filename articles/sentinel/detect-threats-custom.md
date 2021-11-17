@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -90,7 +88,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 - Use the **Entity mapping** configuration section to map parameters from your query results to Microsoft Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts together into incidents in the **Incident settings** tab.
 
-    Learn more about [entities in Microsoft Sentinel](entities-in-azure-sentinel.md).
+    Learn more about [entities in Microsoft Sentinel](entities.md).
 
     See [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md) for complete entity mapping instructions, along with important information about [backward compatibility](map-data-fields-to-entities.md#notes-on-the-new-version).
 
@@ -121,7 +119,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
         >
         > To account for **latency** that may occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
         >
-        > For a detailed technical explanation of why this delay is necessary and how it solves this problem, see Ron Marsiano's excellent blog post on the subject, "[Handling ingestion delay in Microsoft Sentinel scheduled alert rules](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851)".
+        > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
 
 - Use the **Alert threshold** section to define the sensitivity level of the rule. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a threshold – that is, if you want your alert to register every event – enter 0 in the number field.
 
@@ -295,7 +293,7 @@ For more information, see:
 For more information, see:
 
 - [Tutorial: Investigate incidents with Microsoft Sentinel](investigate-cases.md)
-- [Classify and analyze data using entities in Microsoft Sentinel](entities-in-azure-sentinel.md)
+- [Classify and analyze data using entities in Microsoft Sentinel](entities.md)
 - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 
 Also, learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).

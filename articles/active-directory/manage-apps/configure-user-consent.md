@@ -15,7 +15,7 @@ ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2, contperf-fy22q2
 ---
 
-# Configure how end-users consent to applications using Azure Active Directory
+# Configure how end-users consent to applications
 
 You can integrate your applications with the Microsoft identity platform to allow users to sign in with their work or school account and access your organization's data to deliver rich data-driven experiences.
 

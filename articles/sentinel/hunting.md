@@ -4,8 +4,6 @@ description: Use Microsoft Sentinel's built-in hunting queries to guide you into
 services: sentinel
 documentationcenter: na
 author: yelevin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021

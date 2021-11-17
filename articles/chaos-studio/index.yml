@@ -26,18 +26,30 @@ landingContent:
             url: chaos-studio-overview.md
           - text: What is chaos engineering?
             url: chaos-studio-chaos-engineering-overview.md
-
+      - linkListType: concept
+        links:
+          - text: Chaos experiments
+            url: chaos-studio-chaos-experiments.md
+          - text: Targets and capabilities
+            url: chaos-studio-targets-capabilities.md
+          - text: Permissions and security
+            url: chaos-studio-permissions-security.md
+ 
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: tutorial
+      - linkListType: video
+        links:
+        - text: Introduction to Chaos Studio
+          url: https://channel9.msdn.com/Shows/Azure-Videos/Azure-Chaos-Studio-Curious-to-control-chaos
+      - linkListType: how-to-guide
         links:
         - text: Create a chaos experiment that uses a service-direct fault to fail over an Azure Cosmos DB instance
-          url: chaos-studio-tutorial-service-direct.md
+          url: chaos-studio-tutorial-service-direct-portal.md
         - text: Create an experiment that uses an agent-based fault with Azure Chaos Studio
-          url: chaos-studio-tutorial-agent-based.md
+          url: chaos-studio-tutorial-agent-based-portal.md
         - text: Create an experiment that uses an AKS Chaos Mesh fault with Azure Chaos Studio
-          url: chaos-studio-tutorial-aks.md
+          url: chaos-studio-tutorial-aks-portal.md
 
   # Card
   - title: Reference
@@ -49,6 +61,17 @@ landingContent:
         - text: Fault providers
           url: chaos-studio-fault-providers.md
         - text: REST API documentation
-          url: https://docs.microsoft.com/rest/api/chaosstudio
+          url: /rest/api/chaosstudio
         - text: Python SDK
-          url: https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview
+          url: /python/api/azure-mgmt-chaos/?view=azure-python-preview
+
+  - title: Samples
+    linkLists:
+      - linkListType: sample
+        links:
+        - text: Create an experiment with an ARM template
+          url: sample-template-experiment.md
+        - text: Onboard resources with an ARM template
+          url: sample-template-targets.md
+        - text: REST API samples
+          url: chaos-studio-samples-rest-api.md

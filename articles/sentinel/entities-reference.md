@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -539,4 +537,4 @@ The following list defines identifiers for known cloud applications. The App ID 
 
 In this document you learned about entity structure, identifiers, and schema in Microsoft Sentinel.
 
-Learn more about [entities](entities-in-azure-sentinel.md) and [entity mapping](map-data-fields-to-entities.md). 
+Learn more about [entities](entities.md) and [entity mapping](map-data-fields-to-entities.md). 

@@ -4,8 +4,6 @@ description: Learn about the scenarios detected by Fusion, listed here grouped b
 services: sentinel
 documentationcenter: na
 author: yelevin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na

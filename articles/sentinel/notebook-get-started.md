@@ -4,7 +4,6 @@ description: Walk through the Getting Started Guide For Microsoft Sentinel ML No
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
 ---

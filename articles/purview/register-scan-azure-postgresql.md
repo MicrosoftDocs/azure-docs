@@ -16,13 +16,15 @@ This article outlines how to register an Azure database for PostgreSQL deployed 
 
 ## Supported capabilities
 
-Purview only supports single server deployment option for Azure database for PostgreSQL.
-
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
 | [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | No** |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+
+> [!Important]
+>  Purview only supports single server deployment option for Azure database for PostgreSQL. 
+>  Versions 8.x to 12.x
 
 ## Prerequisites
 

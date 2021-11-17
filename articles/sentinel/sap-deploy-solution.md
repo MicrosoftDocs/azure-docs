@@ -3,11 +3,9 @@ title: Deploy SAP continuous threat monitoring | Microsoft Docs
 description: Learn how to deploy the Microsoft Sentinel solution for SAP environments.
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: azure-sentinel
 ---
 
 #  Deploy SAP continuous threat monitoring (preview)
