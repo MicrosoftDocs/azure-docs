@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   ms.author: jmartens
   author: j-martens
-  ms.date: 10/21/2021
+  ms.date: 11/30/2021
 
 # highlightedContent section 
 highlightedContent:
@@ -28,7 +28,7 @@ highlightedContent:
       itemType: tutorial
       url: tutorial-identify-bottlenecks-azure-portal.md
     # Card
-    - title: 'Setup continuous regression testing'
+    - title: 'Set up continuous regression testing'
       itemType: tutorial
       url: tutorial-cicd-azure-pipelines.md
 
@@ -41,36 +41,36 @@ conceptualContent:
       links:
         - url: how-to-high-scale-load.md
           itemType: how-to-guide
-          text: How to configure for high scale
+          text: Configure for high scale
         - url: how-to-parameterize-load-tests.md
           itemType: how-to-guide
-          text: How to parameterize a load test
+          text: Parameterize load tests
         - url: how-to-update-rerun-test.md
           itemType: how-to-guide
-          text: How to update and rerun your load tests
+          text: Update & rerun load tests
     
     # Card
     - title: Analyze test results
       links:
         - url: how-to-compare-multiple-test-runs.md
           itemType: how-to-guide
-          text: Analyze performance by comparing load test runs
+          text: Analyze performance by comparing runs
         - url: how-to-find-download-logs.md
           itemType: how-to-guide
-          text: Find and download your load testing logs
+          text: Find & download load testing logs
         - url: how-to-appservice-insights.md
           itemType: how-to-guide
-          text: Get more insights from load testing AppService workloads
+          text: Get insights from AppService workloads
         - url: how-to-export-test-results.md
           itemType: how-to-guide
-          text: Export load test results for use in third-party tools
+          text: Export results 
 
     # Card
     - title: Automate load tests
       links:
         - url: tutorial-cicd-azure-pipelines.md
           itemType: tutorial
-          text: Set up a CI/CD workflow in Azure Pipelines
+          text: CI/CD workflows in Azure Pipelines
         - url: tutorial-cicd-github-actions.md
           itemType: tutorial
-          text: Set up a CI/CD workflow in GitHub Actions
+          text: CI/CD workflows in GitHub Actions
