@@ -7,8 +7,6 @@ author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc, ignite-fall-2021

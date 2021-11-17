@@ -4,7 +4,6 @@ description: Learn how to best migrate from an existing SIEM to Microsoft Sentin
 services: sentinel
 documentationcenter: na
 author: batamig
-ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol

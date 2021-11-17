@@ -4,7 +4,7 @@ description: Learn about the multiple ways to access and track your secure score
 author: memildin
 ms.author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
 ---

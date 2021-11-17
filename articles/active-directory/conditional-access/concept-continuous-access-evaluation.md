@@ -147,16 +147,6 @@ Customers who have configured CAE settings under Security before have to migrate
 
 More information about continuous access evaluation as a session control can be found in the section, [Customize continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation).
 
-> [!NOTE] 
-> CAE migration will create a new Conditional Acces policy with session control, which will block legacy authentication protocols clients in your tenant.
-
-If you want your clients with legacy authentication protocols to continue to work, you should edit the policy named **CA policy created from CAE settings**.
-1. Browse to Azure Active Directory > Security > Conditional Access.
-2. Open policy **CA policy created from CAE settings**
-3. Under **Conditions** > **Client apps**, set **Configure** to **Yes**.
-   1. Uncheck the boxes **Exchange ActiveSync clients** and **Other clients**.
-   1. Select **Done**.
-
 ### Strict enforcement 
 
 With the latest CAE setting under Conditional Access, strict enforcement is a new feature that allows for enhanced security based on two factors: IP address variation and client capability. This functionality can be enabled while customizing CAE options for a given policy. By turning on strict enforcement, CAE will revoke access upon detecting any instances of either [IP address variation](#ip-address-variation) or a lack of CAE [client capability](#client-capabilities).

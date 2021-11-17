@@ -4,8 +4,6 @@ description: Create and configure attack detection rules based on Fusion technol
 services: sentinel
 documentationcenter: na
 author: yelevin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

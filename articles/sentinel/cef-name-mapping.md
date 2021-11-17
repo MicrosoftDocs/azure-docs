@@ -4,8 +4,6 @@ description: This article maps CEF keys to the corresponding field names in the 
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: reference
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021

@@ -3,7 +3,7 @@ title: Adaptive application controls in Microsoft Defender for Cloud
 description: This document helps you use adaptive application control in Microsoft Defender for Cloud to create an allow list of applications running for Azure machines.
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: memildin
@@ -44,7 +44,7 @@ No enforcement options are currently available. Adaptive application controls ar
 |Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
 |Supported machines:|:::image type="icon" source="./media/icons/yes-icon.png"::: Azure and non-Azure machines running Windows and Linux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
 
 

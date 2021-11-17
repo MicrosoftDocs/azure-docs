@@ -5,8 +5,6 @@ services: sentinel
 author: yelevin
 manager: rkarlin
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
