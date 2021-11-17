@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Virtual Network NAT  frequently asked questions
+  title: Virtual Network NAT frequently asked questions
   description: Answers to common questions about using Azure Virtual Network NAT.
 
 title: Frequently asked questions for Azure Virtual Network NAT
@@ -42,111 +42,35 @@ sections:
 
       - question: Can Virtual Network NAT be associated with a gateway subnet? 
         answer: |
-          No. Virtual Network NAT cannot be associated with a gateway subnet.
+          No. Virtual Network NAT can't be associated with a [gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub) subnet.
 
-      - question: Why does audio sometimes cut out even in quiet environments?
+      - question: How does Virtual Network NAT work with Availability zones?   
         answer: |
-          If Dynamics 365 Remote Assist is used in a loud environment, use headphones on both ends for better communication. Using headphones for both users prevents any echo filtering from proactively turning on noise cancellation, which turns off audio.
+          Virtual Network NAT can be non-zonal or zonal only.  
 
-      - question: I signed in to my HoloLens, but I still can't sign in to Dynamics 365 Remote Assist.
+          A non-zonal Virtual Network NAT is one that has not been specified to a specific zone. A non-zonal Virtual Network NAT is still assigned to one zone within the virtual network but in this instance, Azure decides which zone to designate for the Virtual Network NAT. 
+
+          A zonal Virtual Network NAT is one that has been designated to a specific zone by the user when the Virtual Network NAT is being configured.  
+
+      - question: How can I obtain logs for my Virtual Network NAT resource?  
         answer: |
-          If you’re having trouble signing in to Dynamics 365 Remote Assist, try the following:
+          Network security groups (NSG) can be configured to outbound traffic sent from a resource in a subnet/virtual network through a virtual network NAT gateway resource. 
 
-          - Make sure you’re using a work or school account, not a Microsoft account (MSA), to sign in to HoloLens.
+          Network security group flow logs can then be used to monitor outbound traffic flowing through a Virtual Network NAT resource.  
 
-          -  Make sure that the work or school account you’re using has a valid [Microsoft 365 Business](https://products.office.com/business/office) Premium or Essentials subscription with [Microsoft Teams](https://products.office.com/microsoft-teams/group-chat-software) enabled.
-
-          - Make sure your HoloLens is connected to the internet.
-
-          - Check with your administrator to make sure your device and network are set up to work with Dynamics 365 Remote Assist.
-
-      - question: Can I share files from SharePoint on Dynamics 365 Remote Assist?
+          Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+      
+      - question: How do I delete a Virtual Network NAT gateway resource?
         answer: |
-          No, you can only share local files and files from OneDrive.
-
-      - question: Can a Teams desktop user show the Dynamics 365 Remote Assist HoloLens user a video or PowerPoint?
+          To delete a Virtual Network NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted.
+      
+      - question: Can I use the Virtual Network NAT gateway resource with Azure App Services? 
         answer: |
-          Yes. We understand that technicians, inspectors, and remote collaborators want to refer to a wide variety of resources and reference documents during the call. By using the Teams desktop **Share** feature, the Teams desktop user can show the Dynamics 365 Remote Assist HoloLens whatever they are looking at on their desktop or in a specific application window. For example, the Teams desktop user can show the technician a video playing in a web browser. Furthermore, because the Teams desktop user's screen or application window is shared in real time, all call participants will see when the Teams desktop user pauses or restarts the video.
-
-      - question: When a Dynamics 365 Remote Assist call ends, how can I access the messages, snapshots, and files from the call?
+          Yes. For more information about Virtual Network NAT integration with Azure App Services, see [Virtual Network NAT gateway integration](https://docs.microsoft.com/azure/app-service/networking/nat-gateway-integration).
+      
+      - question: Can I use the Virtual Network NAT gateway resource with Azure Kubernetes Service? 
         answer: |
-          All messages, links, or images sent in the text chat will be available for all participants via Teams chat, but not via Dynamics 365 Remote Assist chat. Additional details below.
-
-          **Snapshots from Dynamics 365 Remote Assist HoloLens user:** Snapshots are saved differently depending on whether the Dynamics 365 Remote Assist call is associated with a Dynamics 365 Field Service booking.
-          - If a Dynamics 365 Remote Assist call is associated with a booking, the Dynamics 365 Remote Assist user will take a snapshot and decide whether to save it to OneDrive or to the booking.
-          - If a Dynamics 365 Remote Assist call is not associated with a booking, the Dynamics 365 Dynamics 365 Remote Assist user’s snapshot will automatically be saved in OneDrive.  
-
-          Then, regardless of how snapshots are saved, a link to the snapshot is sent via the text chat, and the Teams user can view the snapshot and also view the link to the snapshot. 
-
-          **Files:** When a Teams user shares a file, a link to the file is sent in the chat. During the call, the Dynamics 365 Remote Assist user can use the controls in the top-right corner of a file to save it to their OneDrive.
-
-      - question: How can I improve hologram stability?
-        answer: |
-          Hologram stability refers to how well a placed hologram stays where you placed it – be this perceptual or actual.
-
-          - *Perceptual* instability could refer to a hologram that seems to move with your head motion, instead of tracking the placed position in space.
-          - *Actual* instability could refer to a hologram whose coordinates have changed in virtual space, or whose position relative to a real-world object has shifted regardless of user input or head tracking.
-
-          Holograms are always going to be most stable **when your head (not your eyes) is pointed directly at them**. The expected tolerance for hologram stability is that they remain within 1 cm of the placed position for every 1 m of distance from the device.
-
-          To improve hologram stability, complete eye calibration. 
-
-          - To complete eye calibration on HoloLens, [manually start the calibration process]( https://docs.microsoft.com/hololens/hololens-calibration#calibrating-your-hololens-1st-gen). 
-          - HoloLens 2 will prompt you to calibrate the device under several circumstances. [Complete eye calibration]( https://docs.microsoft.com/hololens/hololens-calibration#calibrating-your-hololens-2) when requested. It will only take about 20 seconds.
-
-      - question: Multiple people in my organization use Dynamics 365 Remote Assist on the same HoloLens. How do I clean my HoloLens?
-        answer: |
-          Learn how to clean [HoloLens](https://docs.microsoft.com/hololens/hololens1-hardware#care-and-cleaning) and [HoloLens 2](https://docs.microsoft.com/hololens/hololens2-maintenance).
-
-      - question: Can I save call artifacts to a Field Service work order?
-        answer: |
-          Yes! If you opened a Field Service booking and then made a Dynamics 365 Remote Assist call, at the end of the call, you'll be prompted to post the call log and files shared during the call to the work order associated with that booking.
-
-          To view the call log and files, sign into Field Service and select the work order. Two new notes will have been created and attached to the work order. One note will include call log info. The other note will include and a link to each file in plain text. You can also edit the note to include the Stream link of the recorded call, which can be found in your Teams chat.
-
-          For more information, visit our article on [displaying and saving files](display-save-files.md).
-
-      - question: How do I file a support ticket?
-        answer: |
-          If you encounter an issue that blocks you from using the application and you do not see an answer on our [user forum](https://community.dynamics.com/365/remoteassist), please [file a support ticket](https://support.microsoft.com/supportforbusiness/productselection?sapid=e9391227-fa6d-927b-0fff-f96288631b8f). Support will work directly with you and communicate daily until the issue is resolved.
-
-      - question: How do I report a bug?
-        answer: |
-          If you encounter an issue, use the HoloLens Feedback Hub to let us know so we can resolve it in future releases.
-
-          There are two ways to get to the HoloLens Feedback Hub application to report a bug. 
-
-          1. From the **Start menu**: At any time, you can go to the **Start menu** and launch **Feedback Hub**. 
-          2. From Dynamics 365 Remote Assist: Select the **Settings tab** from the left navigation. Select the **Links** sub tab, and in the **Links** section, select **Feedback Hub** to launch **Feedback Hub**. 
-
-          ![Screenshot of the Links tab in the HoloLens settings screen.](https://docs.microsoft.com/en-us/dynamics365/mixed-reality/remote-assist/media/08.02-settings-feedbackhub.png)
-
-          When you're in the HoloLens Feedback Hub: 
-
-          1. From the home tab (represented by this icon![Graphic showing the home icon](https://docs.microsoft.com/en-us/dynamics365/mixed-reality/remote-assist/media/rahl_feedbackhubhome.png), select **Report a problem**, as seen in the following screenshot.
-
-          ![Screenshot of the "Report a problem" option, represented by a bug-looking icon.](https://docs.microsoft.com/en-us/dynamics365/mixed-reality/remote-assist/media/rahl_feedbackhubreport.png)
-
-          2. In the **Enter your feedback** section, summarize your feedback. To type, tap the text field and a holographic keyboard will appear. Then, select **Next**. To edit your response to any step after you’ve chosen **Next**, select **Edit**, which is to the top right of the text field. 
-          3. In the **Choose a category** section, categorize the issue using "Apps" and "Microsoft Remote Assist." To select an item in the drop-down menu, select the menu.
-            - If you're using HoloLens, scroll by gazing at the content of the app window. Tap and hold and then move your hand slightly upwards or downwards to scroll the content.
-            - If you're using HoloLens 2, scroll by placing your finger on the drop-down menu and move your finger up and down, as you would on a touch screen device. 
-
-          ![Screenshot showing the Choose a category section of the Feedback Hub.](https://docs.microsoft.com/en-us/dynamics365/mixed-reality/remote-assist/media/rahl_feedbackhubchoosecategory.png)
-
-          4. In the **Find similar feedback** section, select "Make new bug."
-          5. In the **Additional details** section:
-            - Optionally select "Consider this a blocking issue."  
-            - Categorize your problem.
-          6. Select **Recreate your problem**:
-            - Select **Start recording**.
-            - Use the start menu to launch Dynamics 365 Remote Assist and replicate the issue.
-            - When you're finished replicating the issue, use the start menu to return to **Feedback Hub**.
-            - Select **End recording**.
-            - Diagnostic data, a video, and audio from the recording will be attached. You may remove each one if you want to. 
-
-          > [!Note]
-          > Optionally, check the "This is blocking me" box if the issue is blocking you from completing your work or tasks.
+          Yes. For more information about Virtual Network NAT integration with Azure Kubernetes Service, see [Managed NAT Gateway (preview)](https://docs.microsoft.com/azure/aks/nat-gateway).
 
 additionalContent: |
   ## Next steps
