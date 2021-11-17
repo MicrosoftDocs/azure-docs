@@ -13,6 +13,29 @@ ms.topic: how-to
 
 This article describes how to plan to deploy Azure Arc-enabled data services.
 
+## Deployment steps
+
+In order to experience Azure Arc-enabled data services, you will need to complete the following tasks.
+
+1. Plan your deployment
+
+   The details in this article will guide your plan.
+
+1. Install the [Install client tools](install-client-tools.md)
+1. Access a Kubernetes cluster
+
+   For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. In production, deploy one of the other cluster services listed [in this article]](#overview-create-an-azure-arc-enabled-data-controller).
+
+1. Create the data controller[Create Azure Arc data controller in Direct connectivity mode using CLI](create-data-controller-direct-cli.md)
+
+   For other ways to create a data controller see the links under [Next steps](#next-steps).
+
+1. Create data services
+
+   For example, [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md).
+
+1. Connect with Azure Data Studio
+
 As you begin planning to deploy Azure Arc-enabled data services, it's important to properly understand your database workloads and your business requirements for those workloads. For example, you need to consider availability, business continuity, and capacity requirements for memory, CPU, and storage for the workloads. And you need to carefully prepare the infrastructure to support the database workloads, based on your business requirements.
 
 ## Prerequisites
@@ -101,7 +124,6 @@ As outlined in [Connectivity modes and requirements](./connectivity.md), you can
 
 After you've installed the Azure Arc data controller, you can create and access data services such as Azure Arc-enabled SQL Managed Instance or Azure Arc-enabled PostgreSQL Hyperscale.
 
-
 ## Next steps
 
 You have several additional options for creating the Azure Arc data controller:
@@ -109,6 +131,7 @@ You have several additional options for creating the Azure Arc data controller:
 > **Just want to try things out?**
 > Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on AKS, Amazon EKS, or GKE, or in an Azure VM.
 >
+
 - [Create a data controller in direct connectivity mode with the Azure portal](create-data-controller-direct-prerequisites.md)
 - [Create a data controller in indirect connectivity mode with CLI](create-data-controller-indirect-cli.md)
 - [Create a data controller in indirect connectivity mode with Azure Data Studio](create-data-controller-indirect-azure-data-studio.md)

@@ -17,6 +17,8 @@ This article describes what you need to know to create a data controller for Azu
 
 Azure Arc-enabled data services can be created on multiple different types of Kubernetes clusters and managed Kubernetes services using multiple different approaches.
 
+## Supported Kubernetes distributions
+
 Currently, the supported list of Kubernetes services and distributions are the following:
 
 - Azure Kubernetes Service (AKS)
@@ -58,7 +60,7 @@ In order to experience Azure Arc-enabled data services, you will need to complet
 1. Install the Client Tools
 2. Access a Kubernetes cluster
 
-   For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. In production, deploy one of the other cluster services listed [above](#overview-create-an-azure-arc-enabled-data-controller).
+   For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. In production, deploy one of the other cluster services listed [Supported Kubernetes distributions](#supported-kubernetes-distributions).
 
 1. Create the data controller
 1. Create data services

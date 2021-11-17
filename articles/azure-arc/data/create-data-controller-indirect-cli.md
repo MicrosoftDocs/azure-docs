@@ -16,7 +16,7 @@ ms.topic: how-to
 
 ## Prerequisites
 
-Review the topic [Create the Azure Arc data controller](create-data-controller.md) for overview information.
+Review the topic [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md) for overview information.
 
 ### Install tools
 
