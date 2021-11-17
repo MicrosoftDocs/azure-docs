@@ -111,7 +111,7 @@ Applies to: Iot Hub, IoT Central, Device developer
 
 These SDKs, available for multiple languages, enable you to create [back-end apps](#back-end-app) that interact with an [IoT hub](#iot-hub).
 
-[Learn more](/iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)
+[Learn more](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)
 
 Applies to: Iot Hub
 
@@ -807,4 +807,3 @@ Applies to: Iot Hub
 A relative term describing services that feed data into the current context. For instance, in the context of [Azure Digital Twins](#azure-digital-twins), [IoT Hub](#iot-hub) is considered an upstream service because data flows from IoT Hub into Azure [Digital Twins](#digital-twin).
 
 Applies to: Iot Hub, IoT Central, Digital Twins
-

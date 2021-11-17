@@ -17,7 +17,7 @@ ms.custom: has-adal-ref
 # Customer intent: As an IT admin, I need to learn what it takes to plan a single-sign on deployment for my application in Azure Active Directory.
 ---
 
-# Plan a single sign-on deployment in Azure Active Directory
+# Plan a single sign-on deployment
 
 This article provides information that you can use to plan your [single sign-on (SSO)](what-is-single-sign-on.md) deployment in Azure Active Directory (Azure AD). When you plan your SSO deployment with your applications in Azure AD, you need to consider these questions:
 

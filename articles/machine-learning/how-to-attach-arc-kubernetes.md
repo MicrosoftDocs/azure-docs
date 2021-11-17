@@ -37,7 +37,7 @@ To deploy the Azure Machine Learning extension on Azure Kubernetes Service clust
     > [!NOTE]
     > For AKS clusters, connecting them to Azure Arc is **optional**.
 
-* Fulfill [Azure Arc network requirements](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements)
+* Fulfill [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements)
 
     > [!IMPORTANT]
     > Clusters running behind an outbound proxy server or firewall need additional network configurations.
@@ -59,7 +59,7 @@ To deploy the Azure Machine Learning extension on Azure Kubernetes Service clust
 
 * **Azure RedHat OpenShift Service (ARO) and OpenShift Container Platform (OCP) only**
 
-    * An ARO or OCP Kubernetes cluster is up and running. For more information, see [Create ARO Kubernetes cluster](/azure/openshift/tutorial-create-cluster) and [Create OCP Kubernetes cluster](https://docs.openshift.com/container-platform/4.6/installing/installing_platform_agnostic/installing-platform-agnostic.html)
+    * An ARO or OCP Kubernetes cluster is up and running. For more information, see [Create ARO Kubernetes cluster](../openshift/tutorial-create-cluster.md) and [Create OCP Kubernetes cluster](https://docs.openshift.com/container-platform/4.6/installing/installing_platform_agnostic/installing-platform-agnostic.html)
     * Grant privileged access to AzureML service accounts.
 
         Run `oc edit scc privileged` and add the following 
@@ -248,7 +248,7 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
 1. Enter a compute name and select your Azure Arc-enabled Kubernetes cluster from the dropdown.
 
-   **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](/azure/active-directory/managed-identities-azure-resources/overview) for more information.
+   **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) for more information.
 
    ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png)
 
@@ -264,7 +264,7 @@ You can use the Azure Machine Learning Python SDK to attach Azure Arc-enabled Ku
 
 The following Python code shows how to attach an Azure Arc-enabled Kubernetes cluster and use it as a compute target with managed identity enabled.
 
-Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](/azure/active-directory/managed-identities-azure-resources/overview) for more information.
+Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) for more information.
 
 ```python
 from azureml.core.compute import KubernetesCompute

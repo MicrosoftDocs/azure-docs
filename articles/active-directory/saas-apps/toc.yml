@@ -443,7 +443,7 @@
         href: cloud-service-picco-tutorial.md
       - name: CloudSign
         href: cloudsign-tutorial.md
-      - name: cloudtamer.io
+      - name: Kion
         href: cloudtamer-io-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
@@ -830,6 +830,8 @@
         href: getabstract-tutorial.md
       - name: GetThere
         href: getthere-tutorial.md
+      - name: GHAE
+        href: ghae-tutorial.md  
       - name: Gigya
         href: gigya-tutorial.md
       - name: GitHub
@@ -2198,6 +2200,8 @@
         href: vidyard-tutorial.md
       - name: Virtual Risk Manager
         href: virtual-risk-manager-tutorial.md
+      - name: Virtual Risk Manager - USA
+        href: virtual-risk-manager-usa-tutorial.md  
       - name: Visibly
         href: visibly-tutorial.md  
       - name: Visit.org
@@ -2410,7 +2414,9 @@
       - name: BenQ IAM
         href: benq-iam-provisioning-tutorial.md 
       - name: Bentley - Automatic User Provisioning
-        href: bentley-automatic-user-provisioning-tutorial.md  
+        href: bentley-automatic-user-provisioning-tutorial.md
+      - name: BIC Cloud Design
+        href: bic-cloud-design-provisioning-tutorial.md    
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Bizagi Studio for Digital Process Automation
@@ -2669,6 +2675,8 @@
         href: proware-provisioning-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-provisioning-tutorial.md
+      - name: Real Links
+        href: real-links-provisioning-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO

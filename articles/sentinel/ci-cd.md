@@ -6,8 +6,8 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -37,7 +37,7 @@ When creating custom content, you can store and manage it in your own Microsoft 
 
 Before connecting your Microsoft Sentinel workspace to an external source control repository, make sure that you have:
 
-- Access to a GitHub or Azure DevOps repository, with any custom content files you want to deploy to your workspaces, in relevant [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/).
+- Access to a GitHub or Azure DevOps repository, with any custom content files you want to deploy to your workspaces, in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml).
 
     Microsoft Sentinel currently supports connections only with GitHub and Azure DevOps repositories.
 
@@ -100,7 +100,7 @@ Each connection can support multiple types of custom content, including analytic
     # [Azure DevOps](#tab/azure-devops)
 
     > [!NOTE]
-    > When creating Azure DevOps connections, [guest users](/azure/active-directory/external-identities/what-is-b2b) currently cannot connect to a workspace that is not in their own Azure Active Directory tenant. Such cross-tenant scenarios are not yet supported for Azure DevOps connections.
+    > When creating Azure DevOps connections, [guest users](../active-directory/external-identities/what-is-b2b.md) currently cannot connect to a workspace that is not in their own Azure Active Directory tenant. Such cross-tenant scenarios are not yet supported for Azure DevOps connections.
     >
 
     You are automatically authorized to Azure DevOps using your current Azure credentials. To ensure valid connectivity, [verify that you've authorized to the same Azure DevOps account](https://aex.dev.azure.com/) that you're connecting to from Microsoft Sentinel or use an InPrivate browser window to create your connection.

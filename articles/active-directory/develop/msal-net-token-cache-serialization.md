@@ -265,7 +265,7 @@ You can also specify options to limit the size of the in memory token cache:
       // Configure the memory cache options
       services.Configure<MemoryCacheOptions>(options =>
       {
-          options.SizeLimit = 5000000; // in bytes (5 Mb)
+          options.SizeLimit = 500 * 1024 * 1024; // in bytes (500 Mb)
       });
   }
   );

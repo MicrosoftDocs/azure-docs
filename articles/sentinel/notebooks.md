@@ -5,8 +5,8 @@ services: sentinel
 author: batamig
 ms.author: bagol
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/14/2021
