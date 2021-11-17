@@ -9,8 +9,7 @@ ms.topic: tutorial
 ms.service: virtual-machines-sap
 ---
 
-# Enterprise Scale for SAP Automation Framework Deployment - Hands-on Lab
-
+# Enterprise Scale for SAP deployment automation framework - Hands-on Lab
 
 This tutorial shows how to do enterprise scaling for deployments using the [SAP deployment automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. 
 
