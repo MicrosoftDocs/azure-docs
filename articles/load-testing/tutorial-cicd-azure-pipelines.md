@@ -107,11 +107,11 @@ To access Azure resources, you'll create a service connection in Azure DevOps an
 
 1. Select the service connection from the list, and then select **Manage Service Principal**.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/manage-service-principal.png" alt-text="Screenshot that shows how to create a new service connection.":::
+    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/manage-service-principal.png" alt-text="Screenshot that shows how to manage a service principal.":::
 
     You'll see the details of the service principal in the Azure portal. Note the service principal **Application (Client) ID**.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/service-connection-object-id.png" alt-text="Screenshot that shows how to create a new service connection.":::
+    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/service-connection-object-id.png" alt-text="Screenshot that shows how to get the service connection application ID.":::
     
 1. Now, assign the **Load Test Contributor** role to the service principal to allow access to the Azure Load Testing service.
 
@@ -294,7 +294,7 @@ Next, you'll parameterize your load test using pipeline variables. These variabl
 
 1. Enter the **Name** (*mySecret*) and **Value** (*1797669089*) information, and then check the **Keep this value secret** to store the variable securely. 
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/new-variable.png" alt-text="Screenshot that shows how to edit a pipeline definition.":::
+    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/new-variable.png" alt-text="Screenshot that shows how to create a new pipeline variable.":::
 
 1. Select **OK**, and then select **Save**, to save the new variable.
 
