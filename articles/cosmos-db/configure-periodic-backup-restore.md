@@ -40,9 +40,9 @@ You can configure storage redundancy for periodic backup mode at the time of acc
 
 * **Geo-redundant backup storage:** This option copies your data asynchronously across the paired region.
 
-* **Zone-redundant backup storage:** This option copies your data synchronously across three Azure availability zones in the primary region. For more information, see [Zone-redundant storage.](../storage/common/storage-redundancy.md#redundancy-in-the-primary-regiony)
+* **Zone-redundant backup storage:** This option copies your data synchronously across three Azure availability zones in the primary region. For more information, see [Zone-redundant storage.](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region)
 
-* **Locally-redundant backup storage:** This option copies your data synchronously three times within a single physical location in the primary region. For more information, see [locally-redundant storage.](../storage/common/storage-redundancy.md#redundancy-in-the-primary-regiony)
+* **Locally-redundant backup storage:** This option copies your data synchronously three times within a single physical location in the primary region. For more information, see [locally-redundant storage.](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region)
 
 > [!NOTE]
 > Zone-redundant storage is currently available only in [specific regions](high-availability.md#availability-zone-support). Depending on the region you select for a new account or the region you have for an existing account; the zone-redundant option will not be available.
