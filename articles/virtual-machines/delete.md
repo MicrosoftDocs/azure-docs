@@ -16,7 +16,10 @@ ms.custom: template-how-to
 
 By default, when you delete a VM it only deletes the VM resource, not the networking and disk resources. You can change this default behavior when you create a VM, or update an existing VM, to delete specific resources along with the VM. 
 
-
+> [!IMPORTANT]
+> This feature is currently in public preview.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Set delete options when creating a VM

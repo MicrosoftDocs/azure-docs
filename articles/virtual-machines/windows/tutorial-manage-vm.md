@@ -286,15 +286,9 @@ Start-AzVM `
    -Name "myVM"
 ```
 
-### Delete resource group
+### Deleting VM resources
 
-Everything inside of a resource group is deleted when you delete the resource group.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup `
-   -Name "myResourceGroupVM" `
-   -Force
-```
+You can delete a VM, but by default this only deletes the VM resource, not the disks and networking resources the VM uses. You can change the default behavior to delete other resources when you delete the VM. For more information, see [Delete a VM and attached resources (preview)](../delete.md).
 
 ## Next steps
 
