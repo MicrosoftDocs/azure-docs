@@ -13,8 +13,7 @@ ms.topic: how-to
 
 # Create the Azure Arc data controller
 
-
-## Overview of creating the Azure Arc data controller
+This article describes what you need to know to create a data controller for Azure-Arc enabled data services.
 
 Azure Arc-enabled data services can be created on multiple different types of Kubernetes clusters and managed Kubernetes services using multiple different approaches.
 
@@ -54,14 +53,32 @@ Regardless of the option you choose, during the creation process you will need t
 
 ## Next steps
 
+In order to experience Azure Arc-enabled data services, you will need to complete the following tasks.
+
+1. Install the Client Tools
+2. Access a Kubernetes cluster
+
+   For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. In production, deploy one of the other cluster services listed [above](#overview-create-an-azure-arc-enabled-data-controller).
+
+1. Create the data controller
+1. Create data services
+
+   For example, create an Azure Arc-enabled SQL Managed Instance.
+
+1. Connect from Azure Data Studio
+
+If you already have a Kubernetes cluster, the next step is to create the data controller.
+
 There are multiple options for creating the Azure Arc data controller:
 
-> **Just want to try things out?**  
-> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
-> 
+### Create from CLI
+- [Create a data controller in direct connected mode](create-data-controller-direct-prerequisites.md)
 - [Create a data controller in indirect connected mode with CLI](create-data-controller-indirect-cli.md)
 - [Create a data controller in indirect connected mode with Azure Data Studio](create-data-controller-indirect-azure-data-studio.md)
 - [Create a data controller in indirect connected mode from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-indirect-azure-portal.md)
 - [Create a data controller in indirect connected mode with Kubernetes tools such as kubectl or oc](create-data-controller-using-kubernetes-native-tools.md)
-- [Create a data controller in direct connected mode](create-data-controller-direct-prerequisites.md)
-- [Create a data controller with Azure Arc Jumpstart for an accelerated experience of a test deployment](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)
+
+> **Just want to try things out?**  
+> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
+> 
+

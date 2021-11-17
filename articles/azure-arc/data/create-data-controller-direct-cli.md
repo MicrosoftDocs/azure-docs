@@ -35,9 +35,12 @@ Use the k8s-extension CLI to create a data services extension.
 
 ### Set environment variables
 
-Set the following environment variables, which will be then used in next step.
+Set the environment variables, which will be then used in next step. 
 
-#### Linux
+The environment variables include passwords for log and metric services. The passwords must be at least eight characters long and contain characters from three of the following four categories: Latin uppercase letters, Latin lowercase letters, numbers, and non-alphanumeric characters.
+
+
+# [Linux](#tab/linux)
 
 ``` terminal
 ## variables for Azure location, extension and namespace
@@ -55,7 +58,10 @@ export AZDATA_METRICSUI_USERNAME=<username for Grafana dashboard>
 export AZDATA_METRICSUI_PASSWORD=<password for Grafana dashboard>
 ```
 
-#### Windows PowerShell
+# [Windows (PowerShell)](#tab/windows)
+
+Windows PowerShell
+
 ``` PowerShell
 ## variables for Azure location, extension and namespace
 $ENV:subscription="<Your subscription ID>"
@@ -72,9 +78,11 @@ $ENV:AZDATA_METRICSUI_USERNAME="<username for Grafana dashboard>"
 $ENV:AZDATA_METRICSUI_PASSWORD="<password for Grafana dashboard>"
 ```
 
+--- 
+
 ### Create the Arc data services extension
 
-#### Linux
+# [Linux](#tab/linux)
 
 ```bash
 az k8s-extension create --cluster-name ${clusterName} --resource-group ${resourceGroup} --name ${adsExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace ${namespace} --config Microsoft.CustomLocation.ServiceAccount=sa-arc-bootstrapper
@@ -82,13 +90,16 @@ az k8s-extension create --cluster-name ${clusterName} --resource-group ${resourc
 az k8s-extension show --resource-group ${resourceGroup} --cluster-name ${resourceName} --name ${adsExtensionName} --cluster-type connectedclusters
 ```
 
-#### Windows PowerShell
+# [Windows (PowerShell)](#tab/windows)
+
 ```PowerShell
 
 az k8s-extension create --cluster-name $ENV:clusterName --resource-group $ENV:resourceGroup --name $ENV:adsExtensionName --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace $ENV:namespace --config Microsoft.CustomLocation.ServiceAccount=sa-arc-bootstrapper
 
 az k8s-extension show --resource-group $ENV:resourceGroup --cluster-name $ENV:clusterName --name $ENV:adsExtensionName --cluster-type connectedclusters
 ```
+
+---
 
 #### Deploy Azure Arc data services extension using private container registry and credentials
 
@@ -141,15 +152,16 @@ The managed identity that gets created during Arc data services extension create
 
 ### (1) Retrieve managed identity of the Arc data controller extension
 
+
 ```powershell
 $Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername> --cluster-type connectedClusters --name <name of extension> | convertFrom-json).identity.principalId
 #Example
 $Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | convertFrom-json).identity.principalId
 ```
-
 ### (2) Assign role to the managed identity
 
 Run the below command to assign the **Contributor** and **Monitoring Metrics Publisher** roles:
+
 ```powershell
 az role assignment create --assignee $Env:MSI_OBJECT_ID --role "Contributor" --scope "/subscriptions/$ENV:subscription/resourceGroups/$ENV:resourceGroup"
 
@@ -157,13 +169,14 @@ az role assignment create --assignee $Env:MSI_OBJECT_ID --role "Monitoring Metri
 
 ```
 
-## Step 2: Create a custom location using ```customlocation``` CLI extension
+## Step 2: Create a custom location using `customlocation` CLI extension
 
 A custom location is an Azure resource that is equivalent to a namespace in a Kubernetes cluster.  Custom locations are used as a target to deploy resources to or from Azure. Learn more about custom locations in the [Custom locations on top of Azure Arc-enabled Kubernetes documentation](../kubernetes/conceptual-custom-locations.md).
 
 ### Set environment variables
 
-#### Linux
+# [Linux](#tab/linux)
+
 
 ```bash
 export clName=mycustomlocation
@@ -174,7 +187,7 @@ export extensionId=$(az k8s-extension show --resource-group ${resourceGroup} --c
 az customlocation create --resource-group ${resourceGroup} --name ${clName} --namespace ${namespace} --host-resource-id ${hostClusterId} --cluster-extension-ids ${extensionId} --location ${location}
 ```
 
-#### Windows PowerShell
+# [Windows (PowerShell)](#tab/windows)
 ```PowerShell
 $ENV:clName="mycustomlocation"
 
@@ -184,6 +197,7 @@ $ENV:extensionId=(az k8s-extension show --resource-group $ENV:resourceGroup --cl
 
 az customlocation create --resource-group $ENV:resourceGroup --name $ENV:clName --namespace $ENV:namespace --host-resource-id $ENV:hostClusterId --cluster-extension-ids $ENV:extensionId
 ```
+---
 
 ## Validate  the custom location is created
 
@@ -207,6 +221,7 @@ If you want to create the Azure Arc data controller using a custom configuration
 
 ```
 az arcdata dc create --name <name> --resource-group <resourcegroup> --location <location> --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --auto-upload-metrics true --custom-location <name of custom location>
+
 # Example
 az arcdata dc create --name arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --auto-upload-metrics true --custom-location mycustomlocation
 ```
