@@ -97,7 +97,7 @@ In the *App settings* tab, do the following actions:
 
 1. Select **Create**.
 
-    A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you'll see the message "Your deployment is complete".
+    A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you'll see the message *Your deployment is complete*.
 
 ### View Your deployed application
 

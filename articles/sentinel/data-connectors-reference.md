@@ -4,7 +4,6 @@ description: Learn about specific configuration steps for Microsoft Sentinel dat
 services: sentinel
 documentationcenter: na
 author: batamig
-ms.service: microsoft-sentinel
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
@@ -328,7 +327,7 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-azure-security-center.md)** (Top connector article) |
+| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-defender-for-cloud.md)** (Top connector article) |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |

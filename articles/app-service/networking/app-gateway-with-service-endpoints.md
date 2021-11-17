@@ -87,6 +87,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## Next steps
-For more information on the App Service Environment, see [App Service Environment documentation](/azure/app-service/environment).
+For more information on the App Service Environment, see [App Service Environment documentation](../environment/index.yml).
 
 To further secure your web app, information about Web Application Firewall on Application Gateway can be found in the [Azure Web Application Firewall documentation](../../web-application-firewall/ag/ag-overview.md).

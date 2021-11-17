@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Micro agent authentication methods (Preview)
 
-There are two options for authentication with the Defender for IoT Micro Agent: 
+There are two options for authentication with the Defender for IoT micro agent: 
 
 - Connection string 
 
