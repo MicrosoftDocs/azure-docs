@@ -1,117 +1,166 @@
 ---
 title: Resource provider registration errors
-description: Describes how to resolve Azure resource provider registration errors when deploying resources with Azure Resource Manager.
+description: Describes how to resolve Azure resource provider registration errors when resources are deployed with Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 02/15/2019 
+ms.date: 11/18/2021
 ms.custom:  devx-track-azurepowershell
 ---
+
 # Resolve errors for resource provider registration
 
-This article describes the errors you may encounter when using a resource provider that you haven't previously used in your subscription.
+This article describes the errors that might occur when you use a resource provider that you haven't previously used in your subscription.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Symptom
 
-When deploying resource, you may receive the following error code and message:
+When a resource is deployed, you might receive the following error code and message:
 
-```
+```Output
 Code: NoRegisteredProviderFound
 Message: No registered resource provider found for location {location}
 and API version {api-version} for type {resource-type}.
 ```
 
-Or, you may receive a similar message that states:
+Or, you might receive a similar message that states:
 
-```
+```Output
 Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
-The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you're using, but not all. If you haven't used a particular resource provider before, you may need to register that provider.
+The error message should give you suggestions for the supported locations and API versions. You can change your template to use a suggested value. Most providers are registered automatically by the Microsoft Azure portal or the command-line interface, but not all. If you haven't used a particular resource provider before, you might need to register that provider.
 
-Or, when disabling auto-shutdown for virtual machines, you may receive an error message similar to:
+When virtual machine (VM) auto-shutdown is disabled, you might receive an error message similar to:
 
-```
+```Output
 Code: AuthorizationFailed
-Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform
+action 'Microsoft.Compute/virtualMachines/read' over scope ...
 ```
 
 ## Cause
 
 You receive these errors for one of these reasons:
 
-* The required resource provider hasn't been registered for your subscription
-* API version not supported for the resource type
-* Location not supported for the resource type
-* For auto-shutdown of VMs, the Microsoft.DevTestLab resource provider must be registered.
+- The required resource provider hasn't been registered for your subscription.
+- API version not supported for the resource type.
+- Location not supported for the resource type.
+- For VM auto-shutdown, the `Microsoft.DevTestLab` resource provider must be registered.
 
-## Solution 1 - PowerShell
+## Solution
 
-For PowerShell, use **Get-AzResourceProvider** to see your registration status.
+# [PowerShell](#tab/azure-powershell)
 
-```powershell
+You can use Azure PowerShell to get information about a resource provider's registration status and
+register a resource provider.
+
+Use [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) to display the registration status for your subscription's resource providers.
+
+The following command lists all the subscription's resource providers and whether they're `Registered` or `NotRegistered`.
+
+```azurepowershell-interactive
 Get-AzResourceProvider -ListAvailable
 ```
 
-To register a provider, use **Register-AzResourceProvider** and provide the name of the resource provider you wish to register.
+To list only `Registered` resource providers, omit the `ListAvailable` parameter. You can also filter the output by registration state. Replace the value with `Registered` or `NotRegistered`.
 
-```powershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
+```azurepowershell-interactive
+Get-AzResourceProvider -ListAvailable |
+  Where-Object -Property RegistrationState -EQ -Value "Registered"
 ```
 
-To get the supported locations for a particular type of resource, use:
+To get the registration status for a specific resource provider:
 
-```powershell
-((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```azurepowershell-interactive
+Get-AzResourceProvider -ListAvailable |
+  Where-Object -Property ProviderNamespace -Like -Value "Microsoft.Compute"
 ```
 
-To get the supported API versions for a particular type of resource, use:
+To register a provider, use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) and provide the resource provider's name.
 
-```powershell
-((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Cdn"
 ```
 
-## Solution 2 - Azure CLI
+To get a resource type's supported locations:
 
-To see whether the provider is registered, use the `az provider list` command.
+```azurepowershell-interactive
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes |
+  Where-Object -Property ResourceTypeName -EQ -Value "sites").Locations
+```
+
+To get a resource type's supported API versions:
+
+```azurepowershell-interactive
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes |
+  Where-Object -Property ResourceTypeName -EQ -Value "sites").ApiVersions
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+You can use Azure CLI to get information about a resource provider's registration status and
+register a resource provider.
+
+Use [az provider list](/cli/azure/provider#az_provider_list) to display the registration status for your subscription's resource providers. The examples use the `--output table` parameter to filter the output for readability. You can omit the parameter to see all properties.
+
+The following command lists all the subscription's resource providers and whether they're `Registered` or `NotRegistered`.
 
 ```azurecli-interactive
-az provider list
+az provider list --output table
 ```
 
-To register a resource provider, use the `az provider register` command, and specify the *namespace* to register.
+You can filter the output by registration state. Replace the query value with `Registered` or `NotRegistered`.
+
+```azurecli-interactive
+az provider list --query "[?registrationState=='Registered']" --output table
+```
+
+To get the registration status for a specific resource provider:
+
+```azurecli-interactive
+az provider list --query "[?namespace=='Microsoft.Compute']" --output table
+```
+
+To register a resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command, and specify the _namespace_ to register.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Cdn
 ```
 
-To see the supported locations and API versions for a resource type, use:
+To get a resource type's supported locations, use [az provider show](/cli/azure/provider#az_provider_show):
 
 ```azurecli-interactive
-az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-## Solution 3 - Azure portal
+To get a resource type's supported API versions:
+
+```azurecli-interactive
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].apiVersions"
+```
+
+# [Portal](#tab/azure-portal)
 
 You can see the registration status and register a resource provider namespace through the portal.
 
-1. From the portal, select **All services**.
+1. Sign in to [Azure portal](https://portal.azure.com/).
 
-   ![Select all services](./media/error-register-resource-provider/select-all-services.png)
+1. In the search box, enter _subscriptions_. Or if you've recently viewed your subscription, select **Subscriptions**.
 
-1. Select **Subscriptions**.
+    :::image type="content" source="media/error-register-resource-provider/select-subscriptions.png" alt-text="Screenshot that shows how to select a subscription.":::
 
-   ![Select subscriptions](./media/error-register-resource-provider/select-subscriptions.png)
 
-1. From the list of subscriptions, select the subscription you want to use for registering the resource provider.
+1. Select the subscription you want to use to register a resource provider.
 
-   ![Select subscription to register resource provider](./media/error-register-resource-provider/select-subscription-to-register.png)
+    :::image type="content" source="media/error-register-resource-provider/select-subscription-to-register.png" alt-text="Screenshot of link to subscription that's used to register a resource provider.":::
 
-1. For your subscription, select **Resource providers**.
+1. To see the list of resource providers, under **Settings** select **Resource providers**.
 
-   ![Select resource providers](./media/error-register-resource-provider/select-resource-provider.png)
+    :::image type="content" source="media/error-register-resource-provider/select-resource-providers.png" alt-text="Screenshot of a subscription's list of resource providers.":::
 
-1. Look at the list of resource providers, and if necessary, select the **Register** link to register the resource provider of the type you're trying to deploy.
+1. To register a resource provider, select the resource provider and then select **Register** .
 
-   ![List resource providers](./media/error-register-resource-provider/list-resource-providers.png)
+    :::image type="content" source="media/error-register-resource-provider/select-register.png" alt-text="Screenshot of button that registers a selected resource provider.":::
+
+---
