@@ -47,10 +47,12 @@ Install-Module -Name Az.Network -AllowPrerelease
 1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope).
 
     ```azurepowershell-interactive
+    Import-Module -Name Az.Network -RequiredVersion "4.12.1"
+    
     [System.Collections.Generic.List[string]]$subGroup = @()  
-    $group.Add("/subscriptions/abcdef12-3456-7890-abcd-ef1234567890")
+    $subGroup.Add("/subscriptions/abcdef12-3456-7890-abcd-ef1234567890")
     [System.Collections.Generic.List[string]]$mgGroup = @()  
-    $group.Add("/managementGroups/abcdef12-3456-7890-abcd-ef1234567890")
+    $mgGroup.Add("/managementGroups/abcdef12-3456-7890-abcd-ef1234567890")
     
     [System.Collections.Generic.List[String]]$access = @()  
     $access.Add("Connectivity");  
