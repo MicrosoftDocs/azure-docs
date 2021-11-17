@@ -159,8 +159,3 @@ connection.closeConnection();
 
 > [!div class="nextstepaction"]
 > [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
-
-## See also
-
-- [Customize acoustic models](./how-to-custom-speech-train-model.md)
-- [Customize language models](./how-to-custom-speech-train-model.md)
