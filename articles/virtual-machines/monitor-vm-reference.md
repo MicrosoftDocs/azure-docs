@@ -13,7 +13,7 @@ See [Monitoring Azure virtual machines](monitor-vm.md) for details on collecting
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for AKS.  
+This section lists all the automatically collected platform metrics collected for Azure virtual machines.  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -25,8 +25,9 @@ This section lists all the automatically collected platform metrics collected fo
 | Namespace | Description | Requirement |
 |:---|:---|:---|
 | Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
-| Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features such as metric alerts.  | [Diagnostic extension](../azure-monitor/agents/diagnostics-extension-overview.md) installed. Data is read from Azure storage.  |
 | Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | For Windows, [diagnostic extension installed](../azure-monitor/agents/diagnostics-extension-overview.md) installed with Azure Monitor sink enabled. For Linux, [Telegraf agent installed](../azure-monitor/essentials/collect-custom-metrics-linux-telegraf.md). |
+| Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features such as metric alerts.  | [Diagnostic extension](../azure-monitor/agents/diagnostics-extension-overview.md) installed. Data is read from Azure storage.  |
+
 
 
 
@@ -36,22 +37,13 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-<!-- listed here /azure/azure-monitor/essentials/metrics-supported#microsoftcontainerservicemanagedclusters-->
 
-AKS has the following dimensions associated with its metrics.
+Azure virtual machines have the following dimensions associated with its metrics.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
 | LUN | Logical Unit Number |
-| VMName | Used by metrics such as *Statuses for various node conditions*, *Number of pods in Ready state* to split by condition type. |
-| status | Used by metrics such as *Statuses for various node conditions* to split by status of the condition. |
-| status2 | Used by metrics such as *Statuses for various node conditions* to split by status of the condition.  |
-| node | Used by metrics such as *CPU Usage Millicores* to split by the name of the node. |
-| phase | Used by metrics such as *Number of pods by phase* to split by the phase of the pod. |
-| namespace | Used by metrics such as *Number of pods by phase* to split by the namespace of the pod. |
-| pod | Used by metrics such as *Number of pods by phase* to split by the name of the pod. |
-| nodepool | Used by metrics such as *Disk Used Bytes* to split by the name of the nodepool. |
-| device | Used by metrics such as *Disk Used Bytes* to split by the name of the device. |
+| VMName | Used with virtual machine scale sets. |
 
 ## Azure Monitor Logs tables
 
@@ -70,26 +62,22 @@ The following table lists a few example operations related to virtual machines t
 
 | Operation | Description |
 |:---|:---|
-| Microsoft.ContainerService/managedClusters/write | Create or Update Managed Cluster |
-| Microsoft.ContainerService/managedClusters/delete | Delete Managed Cluster |
-| Microsoft.ContainerService/managedClusters/listClusterMonitoringUserCredential/action | List clusterMonitoringUser credential |
-| Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | List clusterAdmin credential |
-| Microsoft.ContainerService/managedClusters/agentpools/write | Create or Update Agent Pool |
+| Microsoft.Compute/virtualMachines/start/action | Starts the virtual machine |
+| Microsoft.Compute/virtualMachines/restart/action | Delete Managed Cluster |
+| Microsoft.Compute/virtualMachines/write | Creates a new virtual machine or updates an existing virtual machine |
+| Microsoft.Compute/virtualMachines/deallocate/action | Powers off the virtual machine and releases the compute resources |
+| Microsoft.Compute/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
+| Microsoft.Compute/virtualMachines/start/action | Starts the virtual machine |
+| Microsoft.Compute/virtualMachines/restart/action | Delete Managed Cluster |
+| Microsoft.Compute/virtualMachineScaleSets/write | Starts the instances of the Virtual Machine Scale Set |
+| Microsoft.Compute/virtualMachines/deallocate/action | Powers off the virtual machine and releases the compute resources |
+| Microsoft.Compute/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
 
 For a complete list of possible log entires, see [Microsoft.ContainerService Resource Provider options](/azure/role-based-access-control/resource-provider-operations#microsoftcontainerservice).
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
-## Schemas
-<!-- REQUIRED. Please keep heading in this order -->
-
-The following schemas are in use by AKS
-
-resource log schemas
-
-<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
 
 ## See Also
 
-- See [Monitoring Azure AKS](../aks/monitor-aks.md) for a description of monitoring Azure AKS.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure virtual machines](../virtual-machines/monitor-vm.md) for a description of monitoring Azure virtual machines.

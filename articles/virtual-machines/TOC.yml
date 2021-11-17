@@ -858,7 +858,7 @@
         - name: Windows
           displayName: Log Analytics, extension
           href: ./extensions/oms-windows.md
-      - name: Azure Monitor for VMs
+      - name: VM insights
         items:
         - name: Linux Dependency agent
           displayName: Azure Monitor
@@ -1695,9 +1695,9 @@
     displayName: Monitoring Overview, monitoring
     href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Monitor virtual machines
-    href: monitor-vm.md
+    href: monitor-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Monitor virtual machine reference
-    href: monitor-vm-reference.md
+    href: monitor-vm-reference.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Tutorials
     items:
     - name: Enable monitoring
@@ -1775,16 +1775,16 @@
         href: ../azure-monitor/visualize/vmext-troubleshoot.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Log Analytics Linux agent
         href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
-    - name: Azure Monitor for VMs
+    - name: VM insights
       items:
       - name: Overview
-        displayName: Azure monitor for VMs
+        displayName: VM insights
         href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: General Availability FAQ
-        displayName: Azure monitor for VMs
+        displayName: VM insights
         href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
-        displayName: Azure monitor for VMs
+        displayName: VM insights
         href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Enable monitoring
         items:
