@@ -102,9 +102,10 @@ This is a known issue.  To resolve this, restart your PowerShell session after i
  
  1.  Open Windows PowerShell with administrative privileges
  2.  Type or copy and paste the following: 
-    ``` powershell
-              Import-module -Name "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync"
-    ```
+ 
+```PowerShell
+Import-module -Name "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync"
+```
  
 
 ## License requirements for using Azure AD Connect V2.0
