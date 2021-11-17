@@ -29,5 +29,5 @@ On the **Resell through CSPs** page of your offer, you can expand the reach of y
 
 ## Next steps
 
-- [Configure a test drive](azure-resource-manager-test-drive.md)
-- After setting up a test drive (optional), [review and publish your offer](review-publish-offer.md)
+- [Configure a VM test drive](azure-vm-test-drive.md). This optional feature is only available if you selected the **Test drive** check box on the [Offer setup](azure-vm-offer-setup.md#test-drive-optional) page.
+- If you don't want to set up a test drive, it's time to [review and publish your offer](review-publish-offer.md).

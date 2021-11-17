@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

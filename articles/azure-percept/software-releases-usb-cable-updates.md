@@ -33,8 +33,8 @@ Feature Update (2104): [Azure-Percept-DK-1.0.20210409.2055.zip](https://download
 |---|---|:---:|
 |September Service Release (2109)|[Azure-Percept-DK-1.0.20210929.1747-public_preview_1.0.zip](https://go.microsoft.com/fwlink/?linkid=2174462)||
 |July Service Release (2107)|[Azure-Percept-DK-1.0.20210729.0957-public_preview_1.0.zip](https://download.microsoft.com/download/f/a/9/fa95d9d9-a739-493c-8fad-bccf839072c9/Azure-Percept-DK-1.0.20210729.0957-public_preview_1.0.zip)||
-|June Service Release (2106)|[Azure-Percept-DK-1.0.20210511.1825.zip](https://download.microsoft.com/download/e/0/1/e01b6f7e-04f7-45ee-8933-8514c2fdbe6a/Azure-Percept-DK-1.0.20210511.1825.zip)||
-|May Service Release (2105)|[Azure-Percept-DK-1.0.20210611.0952-public_preview_1.0.zip](https://download.microsoft.com/download/1/5/8/1588f7e3-f8ae-4c06-baa2-c559364daae5/Azure-Percept-DK-1.0.20210611.0952-public_preview_1.0.zip)||
+|June Service Release (2106)|[Azure-Percept-DK-1.0.20210611.0952-public_preview_1.0.zip](https://download.microsoft.com/download/1/5/8/1588f7e3-f8ae-4c06-baa2-c559364daae5/Azure-Percept-DK-1.0.20210611.0952-public_preview_1.0.zip)||
+|May Service Release (2105)|[Azure-Percept-DK-1.0.20210511.1825.zip](https://download.microsoft.com/download/e/0/1/e01b6f7e-04f7-45ee-8933-8514c2fdbe6a/Azure-Percept-DK-1.0.20210511.1825.zip)||
 |Feature Update (2104) |[Azure-Percept-DK-1.0.20210409.2055.zip](https://download.microsoft.com/download/6/4/d/64d53e60-f702-432d-a446-007920a4612c/Azure-Percept-DK-1.0.20210409.2055.zip)||
 
 ## Next steps
