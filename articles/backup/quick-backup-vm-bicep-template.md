@@ -3,7 +3,7 @@ title: Quickstart - Bicep template VM Backup
 description: Learn how to back up your virtual machines with a Bicep template
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/28/2021
+ms.date: 11/17/2021
 ms.custom: mvc,subject-armqs, devx-track-azurepowershell
 author: v-amallick
 ms.service: backup
@@ -27,7 +27,7 @@ To set up your environment for Bicep development, see [Install Bicep tools](../a
 
 ## Review the template
 
-The template used below is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services vault configured with the default policy for Protection.
+The template used below is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services vault configured with _DefaultPolicy_ for _Protection_.
 
 ```json
 @description('Specifies a name for generating resource names.')
@@ -251,7 +251,7 @@ The resources defined in the above template are:
 
 ## Deploy the template
 
-To deploy the template, select _Try it_ to open the Azure Cloud Shell, and then paste the following PowerShell script in the shell window. To paste the code, right-click the shell window and then select Paste.
+To deploy the template, select _Try it_ to open the Azure Cloud Shell, and then paste the following PowerShell script in the shell window. To paste the code, right-click the shell window and then select **Paste**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"
@@ -261,7 +261,7 @@ $adminPassword = Read-Host -Prompt "Enter the administrator password for the vir
 $dnsPrefix = Read-Host -Prompt "Enter the unique DNS Name for the Public IP used to access the virtual machine"
 
 $resourceGroupName = "${projectName}rg"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.recoveryservices/recovery-services-create-vm-and-configure-backup/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.recoveryservices/recovery-services-create-vm-and-configure-backup/main.bicep"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix 
