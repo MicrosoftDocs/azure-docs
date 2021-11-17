@@ -136,13 +136,15 @@ Before you can navigate to your new static site, the deployment build must first
 
     The output of this command returns the URL to your GitHub repository.
 
-1. Copy the repository URL and paste it into the browser.
+1. Copy the **repository URL** and paste it into the browser.
 
 1. Select the **Actions** tab.
 
+    At this point, Azure is creating the resources to support your static web app.
+
     Wait until the icon next to the running workflow turns into a check mark with green background (:::image type="icon" source="media/get-started-cli/checkmark-green-circle.png" border="false":::).
 
-    Once the work flow is successfully complete, indicated by the green icon, return back to your console window.
+    Once the success icon appears, the workflow is complete and you can return back to your console window.
 
 1. Run the following command to query for your website's URL.
 
