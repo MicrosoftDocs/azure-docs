@@ -4,7 +4,7 @@ description: Learn how to run web apps in Azure App Service by deploying your fi
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 11/08/2021
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, mode-portal"
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -192,47 +192,55 @@ If you've already installed Visual Studio 2022:
 
 :::zone target="docs" pivot="development-environment-vscode"
 
-Create a new folder named _MyFirstAzureWebApp_, and open it in Visual Studio Code. Open the <a href="https://code.visualstudio.com/docs/editor/integrated-terminal" target="_blank">Terminal</a> window, and create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command.
+1. In the terminal window, create a new folder named _MyFirstAzureWebApp_, and open it in Visual Studio Code. 
 
-### [.NET 6.0](#tab/net60)
+    ```terminal
+    mkdir MyFirstAzureWebApp
+    code MyFirstAzureWebApp
+    ```
 
-```dotnetcli
-dotnet new webapp -f net6.0
-```
+1. In Visual Studio Code, open the <a href="https://code.visualstudio.com/docs/editor/integrated-terminal" target="_blank">Terminal</a> window by typing `Ctrl` + `` ` ``.
 
-### [.NET Framework 4.8](#tab/netframework48)
+1. In the terminal in Visual Studio Code, create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command.
 
-```dotnetcli
-dotnet new webapp --target-framework-override net48
-```
+    ### [.NET 6.0](#tab/net60)
+    
+    ```dotnetcli
+    dotnet new webapp -f net6.0
+    ```
+    
+    ### [.NET Framework 4.8](#tab/netframework48)
+    
+    ```dotnetcli
+    dotnet new webapp --target-framework-override net48
+    ```
+    
+    > [!IMPORTANT]
+    > The `--target-framework-override` flag is a free-form text replacement of the target framework moniker (TFM) for the project, and makes *no guarantees* that the supporting template exists or compiles. You can only build and run .NET Framework apps on Windows.
+    
+    ---
 
-> [!IMPORTANT]
-> The `--target-framework-override` flag is a free-form text replacement of the target framework moniker (TFM) for the project, and makes *no guarantees* that the supporting template exists or compiles. You can only build and run .NET Framework apps on Windows.
+1. From the **Terminal** in Visual Studio Code, run the application locally using the [`dotnet run`](/dotnet/core/tools/dotnet-run) command.
 
----
+    ```dotnetcli
+    dotnet run --urls=https://localhost:5001/
+    ```
 
-From the **Terminal** in Visual Studio Code, run the application locally using the [`dotnet run`](/dotnet/core/tools/dotnet-run) command.
+1. Open a web browser, and navigate to the app at `https://localhost:5001`.
 
-```dotnetcli
-dotnet run
-```
-
-Open a web browser, and navigate to the app at `https://localhost:5001`.
-
-
-### [.NET 6.0](#tab/net60)
-
-You'll see the template ASP.NET Core 6.0 web app displayed in the page.
-
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio Code - run .NET 6.0 in browser locally." lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
-
-### [.NET Framework 4.8](#tab/netframework48)
-
-You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
-
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="Visual Studio Code - run .NET 4.8 in browser locally." lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
-
----
+    ### [.NET 6.0](#tab/net60)
+    
+    You'll see the template ASP.NET Core 6.0 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio Code - run .NET 6.0 in browser locally." lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
+    
+    ### [.NET Framework 4.8](#tab/netframework48)
+    
+    You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="Visual Studio Code - run .NET 4.8 in browser locally." lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
+    
+    ---
 
 :::zone-end
 
@@ -240,50 +248,50 @@ You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
 :::zone target="docs" pivot="development-environment-cli,development-environment-ps"
 <!-- markdownlint-enable MD044 -->
 
-Open a terminal window on your machine to a working directory. Create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command, and then change directories into the newly created app.
+1. Open a terminal window on your machine to a working directory. Create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command, and then change directories into the newly created app.
 
-<!-- Please keep the following commands in two lines instead of one && separated line. The latter doesn't work in PowerShell -->
+    <!-- Please keep the following commands in two lines instead of one && separated line. The latter doesn't work in PowerShell -->
+    
+    ### [.NET 6.0](#tab/net60)
+    
+    ```dotnetcli
+    dotnet new webapp -n MyFirstAzureWebApp --framework net6.0
+    cd MyFirstAzureWebApp
+    ```
+    
+    ### [.NET Framework 4.8](#tab/netframework48)
+    
+    ```dotnetcli
+    dotnet new webapp -n MyFirstAzureWebApp --target-framework-override net48
+    cd MyFirstAzureWebApp
+    ```
+    
+    > [!IMPORTANT]
+    > The `--target-framework-override` flag is a free-form text replacement of the target framework moniker (TFM) for the project, and makes *no guarantees* that the supporting template exists or compiles. You can only build .NET Framework apps on Windows.
+    
+    ---
 
-### [.NET 6.0](#tab/net60)
+1. From the same terminal session, run the application locally using the [`dotnet run`](/dotnet/core/tools/dotnet-run) command.
 
-```dotnetcli
-dotnet new webapp -n MyFirstAzureWebApp --framework net6.0
-cd MyFirstAzureWebApp
-```
+    ```dotnetcli
+    dotnet run --urls=https://localhost:5001/
+    ```
 
-### [.NET Framework 4.8](#tab/netframework48)
+1. Open a web browser, and navigate to the app at `https://localhost:5001`.
 
-```dotnetcli
-dotnet new webapp -n MyFirstAzureWebApp --target-framework-override net48
-cd MyFirstAzureWebApp
-```
-
-> [!IMPORTANT]
-> The `--target-framework-override` flag is a free-form text replacement of the target framework moniker (TFM) for the project, and makes *no guarantees* that the supporting template exists or compiles. You can only build .NET Framework apps on Windows.
-
----
-
-From the same terminal session, run the application locally using the [`dotnet run`](/dotnet/core/tools/dotnet-run) command.
-
-```dotnetcli
-dotnet run
-```
-
-Open a web browser, and navigate to the app at `https://localhost:5001`.
-
-### [.NET 6.0](#tab/net60)
-
-You'll see the template ASP.NET Core 6.0 web app displayed in the page.
-
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio Code - ASP.NET Core 6.0 in local browser." lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
-
-### [.NET Framework 4.8](#tab/netframework48)
-
-You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
-
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="Visual Studio Code - ASP.NET Framework 4.8 in local browser." lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
-
----
+    ### [.NET 6.0](#tab/net60)
+    
+    You'll see the template ASP.NET Core 6.0 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio Code - ASP.NET Core 6.0 in local browser." lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
+    
+    ### [.NET Framework 4.8](#tab/netframework48)
+    
+    You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="Visual Studio Code - ASP.NET Framework 4.8 in local browser." lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
+    
+    ---
 
 :::zone-end
 
@@ -296,7 +304,7 @@ As part of setting up the App Service, you'll create:
 - A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
 - A new [Hosting Plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
 
-Follow these steps to create your App Service and publish your web app:
+Follow these steps to create your App Service resources and publish your project:
 
 :::zone target="docs" pivot="development-environment-vs"
 
@@ -336,7 +344,7 @@ Follow these steps to create your App Service and publish your web app:
 
     :::image type="content" source="media/quickstart-dotnet/web-app-name.png" border="true" alt-text="Visual Studio - Create app resources dialog." lightbox="media/quickstart-dotnet/web-app-name.png" :::
 
-   Once the wizard completes, the Azure resources are created for you and you are ready to publish.
+   Once the wizard completes, the Azure resources are created for you and you are ready to publish your ASP.NET Core project.
 
 1. In the **Publish** dialog, make sure your new App Service app is selected in **App Service instance**, then select **Finish**. Visual Studio creates a publish profile for you for the selected App Service app.
 1. In the **Publish** page, select **Publish**. If you see a warning message, click **Continue**.
@@ -361,31 +369,29 @@ Follow these steps to create your App Service and publish your web app:
 
 :::zone target="docs" pivot="development-environment-vscode"
 
-To deploy your web app using the Visual Studio Azure Tools extension:
+<!-- :::image type="content" source="media/quickstart-dotnet/vscode-sign-in-to-Azure.png" alt-text="Visual Studio Code - Sign in to Azure." border="true"::: -->
 
 1. In Visual Studio Code, open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
 1. Search for and select "Azure App Service: Deploy to Web App".
 1. Respond to the prompts as follows:
 
-    - Select *MyFirstAzureWebApp* as the folder to deploy.
-    - Select **Add Config** when prompted.
-    - If prompted, sign in to your existing Azure account.
-
-    :::image type="content" source="media/quickstart-dotnet/vscode-sign-in-to-Azure.png" alt-text="Visual Studio Code - Sign in to Azure." border="true":::
-
-    - Select your **Subscription**.
-    - Select **Create new Web App... Advanced**.
-    - For **Enter a globally unique name**, use a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
-    - Select **Create new resource group** and provide a name like `myResourceGroup`.
-    - When prompted to **Select a runtime stack**:
-      - For *.NET 6.0*, select **.NET 5**
+    1. Select *MyFirstAzureWebApp* as the folder to deploy.
+    1. Select **Add Config** when prompted.
+    1. If prompted, sign in to your Azure account.
+    1. Select your **Subscription**.
+    1. Select **Create new Web App... Advanced**.
+    1. For **Enter a globally unique name**, use a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+    1. Select **Create new resource group** and provide a name like `myResourceGroup`.
+    1. When prompted to **Select a runtime stack**:
+      - For *.NET 6.0*, select **.NET 6**
       - For *.NET Framework 4.8*, select **ASP.NET V4.8**
-    - Select an operating system (Windows or Linux).
+    1. Select an operating system (Windows or Linux).
         - For *.NET Framework 4.8*, Windows will be selected implicitly.
-    - Select **Create a new App Service plan**, provide a name, and select the **F1 Free** [pricing tier][app-service-pricing-tier].
-    - Select **Skip for now** for the Application Insights resource.
-    - Select a location near you.
+    1. Select a location near you.
+    1. Select **Create a new App Service plan**, provide a name, and select the **F1 Free** [pricing tier][app-service-pricing-tier].
+    1. Select **Skip for now** for the Application Insights resource.
 
+1. In the popup **Always deploy the workspace "MyFirstAzureWebApp" to \<app-name>"**, select **Yes**. This way, as long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
     ### [.NET 6.0](#tab/net60)
@@ -599,9 +605,8 @@ Follow these steps to update and redeploy your web app:
 
    Save your changes.
 
-1. Open the Visual Studio Code **Side Bar**, select the **Azure** icon to expand its options.
-1. Under the **APP SERVICE** node, expand your subscription and right-click on the **MyFirstAzureWebApp**.
-1. Select the **Deploy to Web App...**.
+1. In Visual Studio Code, open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
+1. Search for and select "Azure App Service: Deploy to Web App". Remember that your told Visual Studio Code to remember the app to deploy your workspace to in an earlier step.
 1. Select **Deploy** when prompted.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 

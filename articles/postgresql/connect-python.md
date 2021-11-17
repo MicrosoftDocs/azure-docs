@@ -34,7 +34,7 @@ For this quickstart you need:
 - [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 
 - Latest [pip](https://pip.pypa.io/en/stable/installing/) package installer.
-- Install [psycopg2](https://pypi.python.org/pypi/psycopg2/) using `pip install psycopg2` in a terminal or command prompt window. For more information, see [how to install `psycopg2`](http://initd.org/psycopg/docs/install.html).
+- Install [psycopg2](https://pypi.python.org/pypi/psycopg2-binary/) using `pip install psycopg2-binary` in a terminal or command prompt window. For more information, see [how to install `psycopg2`](https://www.psycopg.org/docs/install.html).
 
 ## Get database connection information
 Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can get this information from the Azure portal.
@@ -50,12 +50,12 @@ Connecting to an Azure Database for PostgreSQL database requires the fully quali
 >  Replace the following values:
 >   - `<server-name>` and `<admin-username>` with the values you copied from the Azure portal.
 >   - `<admin-password>` with your server password.
->   - `<database-name>` a default database named *postgres* was automatically created when you created your server. You can rename that database or [create a new database](https://www.postgresql.org/docs/9.0/sql-createdatabase.html) by using SQL commands.
+>   - `<database-name>` a default database named *postgres* was automatically created when you created your server. You can rename that database or [create a new database](https://www.postgresql.org/docs/current/sql-createdatabase.html) by using SQL commands.
 
 ## Step 1: Connect and insert data
 The following code example connects to your Azure Database for PostgreSQL database using
--  [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function, and loads data with a SQL **INSERT** statement.
-- [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function executes the SQL query against the database.
+-  [psycopg2.connect](https://www.psycopg.org/docs/connection.html) function, and loads data with a SQL **INSERT** statement.
+- [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) function executes the SQL query against the database.
 
 ```Python
 import psycopg2
@@ -103,8 +103,8 @@ When the code runs successfully, it produces the following output:
 
 ## Step 2: Read data
 The following code example connects to your Azure Database for PostgreSQL database and uses
-- [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **SELECT** statement to read data.
-- [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall) accepts a query and returns a result set to iterate over by using
+- [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL **SELECT** statement to read data.
+- [cursor.fetchall()](https://www.psycopg.org/docs/cursor.html#cursor.fetchall) accepts a query and returns a result set to iterate over by using
 
 ```Python
 
@@ -121,7 +121,7 @@ for row in rows:
 [Having issues? Let us know](https://aka.ms/postgres-doc-feedback)
 
 ## Step 3: Update data
-The following code example uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **UPDATE** statement to update data.
+The following code example uses [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL **UPDATE** statement to update data.
 
 ```Python
 
@@ -133,7 +133,7 @@ print("Updated 1 row of data")
 [Having issues? Let us know](https://aka.ms/postgres-doc-feedback)
 
 ## Step 5: Delete data
-The following code example runs [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **DELETE** statement to delete an inventory item that you previously inserted.
+The following code example runs [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL **DELETE** statement to delete an inventory item that you previously inserted.
 
 ```Python
 

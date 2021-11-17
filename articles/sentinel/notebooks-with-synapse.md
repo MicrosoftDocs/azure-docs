@@ -1,26 +1,26 @@
 ---
-title: Large-scale security analytics using Azure Sentinel notebooks and Azure Synapse integration
-description: This article describes how run big data queries in Azure Synapse Analytics with Azure Sentinel notebooks.
+title: Large-scale security analytics using Microsoft Sentinel notebooks and Azure Synapse integration
+description: This article describes how run big data queries in Azure Synapse Analytics with Microsoft Sentinel notebooks.
 services: sentinel
 author: batamig
 ms.author: bagol
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 10/06/2021
+ms.date: 11/09/2021
 ---
 
-# Large-scale security analytics using Azure Sentinel notebooks and Azure Synapse integration (Public preview)
+# Large-scale security analytics using Microsoft Sentinel notebooks and Azure Synapse integration (Public preview)
 
 > [!IMPORTANT]
-> Azure Sentinel notebook integration with Azure Synapse Analytics is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Sentinel notebook integration with Azure Synapse Analytics is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-Integrating Azure Sentinel notebooks with Azure Synapse Analytics enables large-scale security analytics.
+Integrating Microsoft Sentinel notebooks with Azure Synapse Analytics enables large-scale security analytics.
 
-While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Azure Synapse provides extra features for big data analysis, with built-in data lake access and the Apache Spark distributed processing engine.
+While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Microsoft Sentinel, Azure Synapse provides extra features for big data analysis, with built-in data lake access and the Apache Spark distributed processing engine.
 
 Integrating with Azure Synapse provides:
 
@@ -36,56 +36,56 @@ For example, you may want to use notebooks with Azure Synapse to hunt for anomal
 
 ## Prerequisites
 
-### Understand Azure Sentinel notebooks
+### Understand Microsoft Sentinel notebooks
 
-We recommend that you learn about Azure Sentinel notebooks in general before performing the procedures in this article.
+We recommend that you learn about Microsoft Sentinel notebooks in general before performing the procedures in this article.
 
-To get started, see and [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md).
+To get started, see and [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
 
 ### Required roles and permissions
 
-To use Azure Synapse with Azure Sentinel notebooks, you must have the following roles and permissions:
+To use Azure Synapse with Microsoft Sentinel notebooks, you must have the following roles and permissions:
 
 |Type  |Details  |
 |---------|---------|
-|**Azure Sentinel**     |- The **Azure Sentinel Contributor** role, in order to save and launch notebooks from Azure Sentinel         |
-|**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your Azure Sentinel notebooks.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](/azure/machine-learning/how-to-assign-roles).     |
-|**Azure Synapse Analytics**     | - A resource group-level **Owner** role, to create a new Azure Synapse workspace.<br>- A **Contributor** role on the Azure Synapse workspace to run your queries. <br>- An Azure Synapse Analytics **Contributor** role on Synapse Studio   <br><br>For more information, see [Understand the roles required to perform common tasks in Synapse](/azure/synapse-analytics/security/synapse-workspace-understand-what-role-you-need).     |
-|**Azure Data Lake Storage Gen2**     | - An Azure Log Analytics **Contributor** role, to export data from a Log Analytics workspace<br>- An Azure Blob Storage Contributor role, to query data from a data lake  <br><br>For more information, see [Assign an Azure role](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).|
+|**Microsoft Sentinel**     |- The **Microsoft Sentinel Contributor** role, in order to save and launch notebooks from Microsoft Sentinel         |
+|**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your Microsoft Sentinel notebooks.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     |
+|**Azure Synapse Analytics**     | - A resource group-level **Owner** role, to create a new Azure Synapse workspace.<br>- A **Contributor** role on the Azure Synapse workspace to run your queries. <br>- An Azure Synapse Analytics **Contributor** role on Synapse Studio   <br><br>For more information, see [Understand the roles required to perform common tasks in Synapse](../synapse-analytics/security/synapse-workspace-understand-what-role-you-need.md).     |
+|**Azure Data Lake Storage Gen2**     | - An Azure Log Analytics **Contributor** role, to export data from a Log Analytics workspace<br>- An Azure Blob Storage Contributor role, to query data from a data lake  <br><br>For more information, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal).|
 |     |         |
 
 ### Connect to Azure ML and Synapse workspaces
 
-To use Azure Sentinel notebooks with Azure Synapse, you must first connect to both an Azure Machine Learning Workspace and an Azure Synapse workspace.
+To use Microsoft Sentinel notebooks with Azure Synapse, you must first connect to both an Azure Machine Learning Workspace and an Azure Synapse workspace.
 
 **To create or connect to an Azure Machine Learning workspace**:
 
-Azure Machine learning workspaces are a basic requirement for using notebooks in Azure Sentinel.
+Azure Machine learning workspaces are a basic requirement for using notebooks in Microsoft Sentinel.
 
 If you aren't already connected, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
 **To create a new Azure Synapse workspace**:
 
-At the top of the Azure Sentinel **Notebooks** page, select **Configure Azure Synapse**, and then select **Create new Azure Synapse workspace**.
+At the top of the Microsoft Sentinel **Notebooks** page, select **Configure Azure Synapse**, and then select **Create new Azure Synapse workspace**.
 
 > [!NOTE]
-> An Azure Data Lake Storage Gen2 is a built-in Data Lake that comes with every Azure Synapse workspace. Make sure to select or create a new Data Lake that is in the same region with your Azure Sentinel workspace. This is required for when you export your data, as described later in this article.
+> An Azure Data Lake Storage Gen2 is a built-in Data Lake that comes with every Azure Synapse workspace. Make sure to select or create a new Data Lake that is in the same region with your Microsoft Sentinel workspace. This is required for when you export your data, as described later in this article.
 >
 
-For more information, see the [Azure Synapse documentation](/azure/synapse-analytics/quickstart-create-workspace).
+For more information, see the [Azure Synapse documentation](../synapse-analytics/quickstart-create-workspace.md).
 
 
 ## Configure your Azure Synapse Analytics integration
 
-Azure Sentinel provides the built-in, **Azure Synapse - Configure Azure ML and Azure Synapse Analytics** notebook to guide you through the configurations required to integrate with Azure Synapse.
+Microsoft Sentinel provides the built-in, **Azure Synapse - Configure Azure ML and Azure Synapse Analytics** notebook to guide you through the configurations required to integrate with Azure Synapse.
 
 > [!NOTE]
-> Configuring your Azure Synapse integration is a one-time procedure, and you only need to run this notebook once for your Azure Sentinel workspace.
+> Configuring your Azure Synapse integration is a one-time procedure, and you only need to run this notebook once for your Microsoft Sentinel workspace.
 >
 
 **To run the Azure Synapse - Configure Azure ML and Azure Synapse Analytics notebook**:
 
-1. In Azure Sentinel **Notebooks** page, select the **Templates** tab, and enter **Synapse** in the search bar to find the notebook.
+1. In Microsoft Sentinel **Notebooks** page, select the **Templates** tab, and enter **Synapse** in the search bar to find the notebook.
 
 1. Locate and select the **Azure Synapse - Configure Azure ML and Azure Synapse Analytics** notebook, and then select **Clone notebook template** at the bottom right.
 
@@ -93,25 +93,25 @@ Azure Sentinel provides the built-in, **Azure Synapse - Configure Azure ML and A
 
 1. After your notebook is deployed, select **Launch Notebook** to open it.
 
-    The notebook opens in your Azure ML workspace, inside Azure Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks.md#launch-a-notebook-in-your-azure-ml-workspace).
+    The notebook opens in your Azure ML workspace, inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks.md#launch-a-notebook-in-your-azure-ml-workspace).
 
 1. Run the cells in the notebook's initial steps to load the required Python libraries and functions and to authenticate to Azure resources.
 
-1. Run the cells in step 4, **Configure Azure Synapse Spark Pool**, to create a new [Azure Synapse Apache Spark Pool](/azure/synapse-analytics/spark/apache-spark-pool-configurations) to use when running your big data queries.
+1. Run the cells in step 4, **Configure Azure Synapse Spark Pool**, to create a new [Azure Synapse Apache Spark Pool](../synapse-analytics/spark/apache-spark-pool-configurations.md) to use when running your big data queries.
 
-1. Run the cells in step 5, **Configure Azure ML Workspace and Linked Services** to ensure that your Azure ML workspace can communicate with your Azure Synapse workspace. For more information, see [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools](/azure/machine-learning/how-to-link-synapse-ml-workspaces).
+1. Run the cells in step 5, **Configure Azure ML Workspace and Linked Services** to ensure that your Azure ML workspace can communicate with your Azure Synapse workspace. For more information, see [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools](../machine-learning/how-to-link-synapse-ml-workspaces.md).
 
 1. Run the cells in step 6, **Export Data from Azure Log Analytics to Azure Data Lake Storage Gen2**, to export your data you want to use for your queries from Azure Log Analytics to Azure Data Lake Storage.
 
-After your data is in Azure Data Lake Storage, you're ready to start running big data queries with Azure Synapse. For more information, see [Log Analytics data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal).
+After your data is in Azure Data Lake Storage, you're ready to start running big data queries with Azure Synapse. For more information, see [Log Analytics data export in Azure Monitor](../azure-monitor/logs/logs-data-export.md?tabs=portal).
 
 ## Hunt on historical data at scale
 
-Azure Sentinel provides the built-in **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook. Use this notebook as a template for a real-world, sample security scenario to get started with big data hunting with Azure Sentinel and Azure Synapse.
+Microsoft Sentinel provides the built-in **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook. Use this notebook as a template for a real-world, sample security scenario to get started with big data hunting with Microsoft Sentinel and Azure Synapse.
 
-**To detect potential network beaconing using Azure Sentinel and Azure Synapse**:
+**To detect potential network beaconing using Microsoft Sentinel and Azure Synapse**:
 
-1. In Azure Sentinel **Notebooks** page, select the **Templates** tab, and enter **Synapse** in the search bar to find the notebook.
+1. In Microsoft Sentinel **Notebooks** page, select the **Templates** tab, and enter **Synapse** in the search bar to find the notebook.
 
 1. Locate and select the **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook, and then select **Clone notebook template** at the bottom right.
 
@@ -119,7 +119,7 @@ Azure Sentinel provides the built-in **Azure Synapse - Detect potential network 
 
 1. After your notebook is deployed, select **Launch Notebook** to open it.
 
-    The notebook opens in your Azure ML workspace, from inside Azure Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks.md#launch-a-notebook-in-your-azure-ml-workspace).
+    The notebook opens in your Azure ML workspace, from inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks.md#launch-a-notebook-in-your-azure-ml-workspace).
 
 1. Run the cells in the notebook's initial steps to load the required Python libraries and functions and to authenticate to Azure resources.
 
@@ -155,19 +155,19 @@ Azure Sentinel provides the built-in **Azure Synapse - Detect potential network 
     - Enrich results with IP address GeoLocation, WhoIs, and other threat intelligence data, to have a more complete picture of the anomalous network behaviors.
     - Run MSTICPy visualizations to map locations while looking at the distribution of remote network connections or other events.
 
-    The results can be written back to Azure Sentinel for further investigation. For example, you can create custom incidents, watchlists, or hunting bookmarks from the results.
+    The results can be written back to Microsoft Sentinel for further investigation. For example, you can create custom incidents, watchlists, or hunting bookmarks from the results.
 
     > [!TIP]
     > Use these steps as they are to detect potential network beaconing, or use them as a template and modify them for your organization's needs.
     >
 
-## Manage your Azure Synapse session from Azure Sentinel
+## Manage your Azure Synapse session from Microsoft Sentinel
 
-When not in an Azure Synapse session, Azure Sentinel defaults to the Azure ML compute selected in the **Compute** field at the top of the **Notebooks** page.
+When not in an Azure Synapse session, Microsoft Sentinel defaults to the Azure ML compute selected in the **Compute** field at the top of the **Notebooks** page.
 
 Use the following code, which you can copy from here or the **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook, to start and stop your Azure Synapse session.
 
-### Start an Azure Synapse session from within Azure Sentinel
+### Start an Azure Synapse session from within Microsoft Sentinel
 
 Run the following code:
 
@@ -187,7 +187,7 @@ account_name = '<storage account name>' # fill in your primary account name
 container_name = '<container name>' # fill in your container name
 subscription_id = '<subscription if>' # fill in your subscription id
 resource_group = '<resource group>' # fill in your resource groups for ADLS
-workspace_name = '<azure sentinel/log analytics workspace name>' # fill in your workspace name
+workspace_name = '<Microsoft Sentinel/log analytics workspace name>' # fill in your workspace name
 device_vendor = "Fortinet"  # Replace your desired network vendor from commonsecuritylogs
 
 # Datetime and lookback parameters
@@ -217,7 +217,7 @@ lookback_days = "21" # fill in lookback days if you want to run it on historical
 
 In the example above, the queries will run on data between October 28 - November 17, 2021.
 
-### Stop an Azure Synapse session from within Azure Sentinel
+### Stop an Azure Synapse session from within Microsoft Sentinel
 
 Run the following code:
 
@@ -225,7 +225,7 @@ Run the following code:
 %synapse stop
 ```
 
-### Switch Azure Synapse workspaces in Azure Sentinel
+### Switch Azure Synapse workspaces in Microsoft Sentinel
 
 To manage or select a different Synapse workspace than the one you're currently signed in to, use one of the following methods:
 
@@ -253,5 +253,5 @@ To manage or select a different Synapse workspace than the one you're currently 
 For more information, see:
 
 - [Use Jupyter notebooks to hunt for security threats](notebooks.md)
-- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md)
-- [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools(preview)](/azure/machine-learning/how-to-link-synapse-ml-workspaces)
+- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
+- [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools(preview)](../machine-learning/how-to-link-synapse-ml-workspaces.md)

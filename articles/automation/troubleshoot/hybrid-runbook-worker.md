@@ -2,9 +2,6 @@
 title: Troubleshoot agent-based Hybrid Runbook Worker issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation agent-based Hybrid Runbook Workers.
 services: automation
-ms.subservice:
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/18/2021
 ms.topic: troubleshooting 
 ms.custom: devx-track-azurepowershell

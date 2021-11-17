@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/25/2021
+ms.date: 11/10/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -56,6 +56,8 @@ dotnet add package Microsoft.Identity.Web.UI
 Install-Package Microsoft.Identity.Web
 Install-Package Microsoft.Identity.Web.UI
 ```
+
+---
 
 ## Step 3: Initiate the authentication libraries
 
