@@ -1,12 +1,12 @@
 ---
 title: Azure Service Bus messaging overview | Microsoft Docs
-description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration message broker. 
+description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration message broker. It also explains concepts such as namespaces, queues, and topics in Service Bus. 
 ms.topic: overview
 ms.date: 11/11/2021
 ---
 
 # What is Azure Service Bus?
-Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other, providing the following benefits:
+Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics (in a namespace). Service Bus is used to decouple applications and services from each other, providing the following benefits:
 
 - Load-balancing work across competing workers
 - Safely routing and transferring data and control across service and application boundaries

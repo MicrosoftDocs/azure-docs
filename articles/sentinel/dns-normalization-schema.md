@@ -1,22 +1,11 @@
 ---
 title: Microsoft Sentinel DNS normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel DNS normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-
-ms.assetid:
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-
-
 ---
 
 # Microsoft Sentinel DNS normalization schema reference (Public preview)

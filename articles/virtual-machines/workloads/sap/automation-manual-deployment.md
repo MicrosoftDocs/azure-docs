@@ -84,18 +84,18 @@ Download Terraform to your environment:
 
 ## Set up repository
 
-Clone and configure the [automation framework repository](https://github.com/Azure/sap-hana).
+Clone and configure the [automation framework repository](https://github.com/Azure/sap-automation).
 
 1. Clone the repository from GitHub:
 
     ```azurecli-interactive
-    git clone https://github.com/Azure/sap-hana.git
+    git clone https://github.com/Azure/sap-automation.git
     ```
 
-1. Navigate to the `sap-hana` folder.
+1. Navigate to the `sap-automation` folder.
 
     ```azurecli-interactive
-    cd  ~/Azure_SAP_Automated_Deployment/sap-hana
+    cd  ~/Azure_SAP_Automated_Deployment/sap-automation
     ```
 
 1. Optionally, check out a different branch than the main branch. The main branch for the repository is the default.
@@ -152,7 +152,7 @@ Clone and configure the [automation framework repository](https://github.com/Azu
 1. Initialize Terraform.
 
     ```azurecli-interactive
-    terraform init  ../../../sap-hana/deploy/terraform/bootstrap/sap_deployer/
+    terraform init  ../../../sap-automation/deploy/terraform/bootstrap/sap_deployer/
     ```
 
 1. Create a Terraform execution plan that follows the default naming convention.
@@ -160,7 +160,7 @@ Clone and configure the [automation framework repository](https://github.com/Azu
     ```azurecli-interactive
     terraform plan                                                                    \
                     --var-file=DEMO-EUS2-DEP00-INFRASTRUCTURE.json                    \
-                    ../../../sap-hana/deploy/terraform/bootstrap/sap_deployer/
+                    ../../../sap-automation/deploy/terraform/bootstrap/sap_deployer/
     ```
 
 1. Apply your Terraform execution plan to deploy the resources.
@@ -168,7 +168,7 @@ Clone and configure the [automation framework repository](https://github.com/Azu
     ```azurecli-interactive
     terraform apply --auto-approve                                                    \
                     --var-file=DEMO-EUS2-DEP00-INFRASTRUCTURE.json                    \
-                    ../../../sap-hana/deploy/terraform/bootstrap/sap_deployer/
+                    ../../../sap-automation/deploy/terraform/bootstrap/sap_deployer/
     ```
 
 1. Note the output.
@@ -261,7 +261,7 @@ The deployer uses a service principal to deploy resources into a subscription.
 1. Navigate to where you cloned the automation framework repository.
 
     ```bash
-    cd  ~/Azure_SAP_Automated_Deployment/sap-hana
+    cd  ~/Azure_SAP_Automated_Deployment/sap-automation
     ```
 
 1. Optionally, check out a different branch than the main branch. The main branch for the repository is the default.

@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 # Enterprise Scale for SAP Automation Framework Deployment - Hands-on Lab
 
 
-This tutorial shows how to do enterprise scaling for deployments using the [SAP deployment automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. There's a feature-locked branch in the [GitHub repository for the automation framework](https://github.com/Azure/sap-hana/), named `sap-level-up`, for use with this tutorial.
+This tutorial shows how to do enterprise scaling for deployments using the [SAP deployment automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. 
 
 During this lab, you will perform the following tasks
 
@@ -37,7 +37,7 @@ There are three main steps of an SAP deployment on Azure with the automation fra
 
 3. Deploying the system. This step includes the infrastructure for the SAP system.
 
-There are several workflows in the deployment automation process. However, this tutorial focuses on one workflow for ease of deployment. You can deploy this workflow,  the SAP-S4HANA standalone environment, using Bash. The tutorial describes the general hierarchy and different phases of the deployment.
+There are several workflows in the deployment automation process. However, this tutorial focuses on one workflow for ease of deployment. You can deploy this workflow,  the SAP S4 HANA standalone environment, using Bash. The tutorial describes the general hierarchy and different phases of the deployment.
 ### Environment Overview
 
 The SAP on Azure deployment automation framework has two main components:
@@ -79,7 +79,7 @@ The system deployment consists of the virtual machines that will be running the 
 
 ### Prerequisites
 
-The [SAP deployment automation framework repository](https://github.com/Azure/sap-hana) is available on GitHub.
+The [SAP deployment automation framework repository](https://github.com/Azure/sap-automation) is available on GitHub.
 
 > [!IMPORTANT]
 > Before you begin, make sure to change from the default branch to **sap-level-up**.
@@ -120,7 +120,7 @@ az account list --query "[?isDefault]"
 **or**
 
 ```cloudshell-interactive
-az  account list -o table | grep True
+az account list -o table | grep True
 ```
 
 Create the deployment folder and clone the repository.
@@ -130,16 +130,15 @@ mkdir -p ~/Azure_SAP_Automated_Deployment
 
 cd ~/Azure_SAP_Automated_Deployment
 
-git clone https://github.com/Azure/sap-hana.git \
-    --single-branch --branch=sap-level-up
+git clone https://github.com/Azure/sap-automation.git
 
-cd ~/Azure_SAP_Automated_Deployment/sap-hana
+cd ~/Azure_SAP_Automated_Deployment/sap-automation
 ```
 
 Optionally, validate the version of Terraform, and the Azure Command-Line Interface (Azure CLI) available on your instance of the Cloud Shell.
 
 ```bash
-./util/check_workstation.sh
+deploy/scripts/check_workstation.sh
 ```
 
 To run the automation framework, update to the following versions.
@@ -147,7 +146,6 @@ To run the automation framework, update to the following versions.
 1. `az` version 2.28.0 or higher
 
 1. `terraform` version 1.0.8 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
-
 
 ## Create service principal
 
@@ -171,7 +169,7 @@ Review the output. For example:
 {
     "appId": "<AppID>",
     "displayName": "<environment>-Deployment-Account ",
-    "name": "<AppID>,
+    "name": "<AppID>",
     "password": "<AppSecret>",
     "tenant": "<Tenant ID>"
 }
@@ -204,7 +202,7 @@ Copy the sample configurations to a local workspace directory:
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp ./sap-hana/deploy/samples/WORKSPACES ./
+cp -Rp ./sap-automation/training_materials/WORKSPACES ./
 ```
 
 Open VS Code from Cloud Shell 
@@ -266,12 +264,12 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret="<password>"
-tenant_id=<tenant>
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret="<password>"
+export tenant_id=<tenant>
 
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-hana"
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                     \
@@ -373,7 +371,7 @@ A sample extract of a BOM file looks like:
 ```yaml
 
 ---
-name:    'S41909SPS03_v0005ms'
+name:    'S41909SPS03_v0006ms'
 target:  'S/4 HANA 1909 SPS 03'
 version: 6
 
@@ -443,7 +441,7 @@ kv_name:                       MGMTNOEUDEP00user99F
 Execute the Ansible playbooks. One way you can execute the playbooks is to use the validator test menu. Run the validator test menu script.
   
 ```bash
-~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/validator_test_menu.sh
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/validator_test_menu.sh
 ```
   
 Select which playbooks to execute.
@@ -484,12 +482,12 @@ Go into the *Azure_SAP_Automated_Deployment* folder in your home directory. Remo
 rm -rf WORKSPACES
 ```
 
-Go to the **sap-hana** folder. Check out the **sap-level-up** branch.
+Go to the **sap-automation** folder. 
   
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/sap-hana/
+cd ~/Azure_SAP_Automated_Deployment/sap-automation/
 
-git checkout sap-level-up
+git pull
 ```
 
 Copy the sample configuration files from the repository.
@@ -497,7 +495,7 @@ Copy the sample configuration files from the repository.
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/
 
-cp -Rp ./sap-hana/deploy/samples/WORKSPACES ./
+cp -Rp ./sap-automation/training_materials/WORKSPACES ./
 ```
 
 ## Deploy the Workload Zone
@@ -529,12 +527,12 @@ Start deployment of the workload zone:
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTRUCTURE
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret="<password>"
-tenant_id=<tenant>
-storageaccount=<storageaccountName>
-statefile_subscription=<subscriptionID>
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret="<password>"
+export tenant_id=<tenant>
+export storage_account=<storageaccountName>
+export statefile_subscription=<subscriptionID>
 key_vault=<vaultID>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh              \
@@ -542,7 +540,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh              \
     --deployer_environment MGMT                                             \
     --deployer_tfstate_key MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate \
     --keyvault $key_vault                                                   \
-    --storageaccountname $storageaccount                                    \
+    --storageaccountname $storage_account                                   \
     --state_subscription $statefile_subscription                            \
     --subscription $subscriptionID                                          \
     --spn_id $appID                                                         \
@@ -557,7 +555,7 @@ Wait for the deployment to finish. The new resource group appears in the Azure p
 ## Deploy SAP system infrastructure
 
 Once the Workload zone is complete, you can deploy the SAP system infrastructure resources. The SAP system creates your VMs and supporting components for your SAP application.
-Use the [installler.sh](bash/automation-installer.md) script to deploy the SAP system. 
+Use the [installer.sh](bash/automation-installer.md) script to deploy the SAP system. 
 
 The SAP system deploys:
 
@@ -583,7 +581,7 @@ The deployment command for the `northeurope` example will look like:
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
-  --parameter_file DEV-NOEU-SAP01-X00.tfvars         \
+  --parameterfile DEV-NOEU-SAP01-X00.tfvars         \
   --type sap_system                                  \
   --auto-approve
 ```
@@ -697,7 +695,7 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/
 Export the following two environment variables.
 
 ```bash
-export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-hana
+export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-automation
 
 export ARM_SUBSCRIPTION_ID=<subscriptionID>
 ```
