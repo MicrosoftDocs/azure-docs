@@ -38,7 +38,7 @@ The process of designing, building, and testing offers takes time and requires e
 VM offers have the following technical requirements:
 
 - You must prepare one operating system virtual hard disk (VHD). Data disk VHDs are optional. This is explained in more detail below.
-- You must create at least one plan for your offer. Your plan is priced based on the [licensing option](#licensing-models) you select.
+- You must create at least one plan for your offer. Your plan is priced based on the [licensing model](#licensing-models) you select.
    > [!IMPORTANT]
    > Every VM image in a plan must have the same number of data disks.
 
@@ -85,10 +85,10 @@ These are the available licensing options for VM offers:
 | Licensing model | Transaction process |
 | --- | --- |
 | Usage-based | Also known as pay-as-you-go. This licensing model lets you bill your customers per hour through various pricing options. |
-| BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
+| BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure. * |
 |
 
-* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
+`*` As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
 The following example shows a VM offer in Azure Marketplace that has usage-based pricing.
 
@@ -129,5 +129,5 @@ When creating your offer in Partner Center, you will see the **Resell through CS
 
 ## Next steps
 
-- •	If you do not yet have an image created for your offer, see [Create a virtual machine using an approved base](azure-vm-use-approved-base.md) or [create a virtual machine using your own image](azure-vm-use-own-image.md).
+- If you do not yet have an image created for your offer, see [Create a virtual machine using an approved base](azure-vm-use-approved-base.md) or [Create a virtual machine using your own image](azure-vm-use-own-image.md).
 - Once you have an image ready, see [Create a virtual machine offer on Azure Marketplace](azure-vm-offer-setup.md)
