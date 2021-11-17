@@ -128,25 +128,25 @@ Next, you'll create a new load test by using an existing Apache JMeter script.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab when creating a new test." :::
 
-1. In the **Test plan** tab, select the **JMeter script** test method and select your JMeter script. Then, select **Upload** to upload the file to Azure.
+1. In the **Test plan** tab, select the **JMeter script** test method and select your Apache JMeter script. Then, select **Upload** to upload the file to Azure.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab when creating a new test." :::
     
-    Optionally, you can select and upload more JMeter configuration files.
+    Optionally, you can select and upload more Apache JMeter configuration files.
 
-1. In the **Parameters** tab, you can configure input parameters for your JMeter script. You can skip this tab for now, as you won't be using parameters in this quickstart.
+1. In the **Parameters** tab, you can configure input parameters for your Apache JMeter script. You can skip this tab for now, as you won't be using parameters in this quickstart.
 
 1. In the **Load** tab, configure the following settings. You can leave the default values in this quickstart:
 
     |Field  |Default value  |Description  |
     |---------|---------|---------|
-    |Engine instances     |1         |The number of parallel test engines that execute the JMeter script. |
+    |Engine instances     |1         |The number of parallel test engines that execute the Apache JMeter script. |
     
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-load.png" alt-text="Screenshot that shows the Load tab when creating a new test." :::
 
 1. In the **Test criteria** tab, you can configure criteria to determine when your load test should fail. You can skip this tab for now.
 
-1. In the **Monitoring** tab, you can specify the Azure application components for which to monitor the resource metrics. You can skip this tab for now, because we're testing an external website.
+1. In the **Monitoring** tab, you can specify the Azure application components to monitor for resource metrics. You can skip this tab for now, because we're testing an external website.
     
 1. Select **Review + create**, review all settings, and then select **Create** to create the load test.
 
@@ -156,7 +156,7 @@ In the next section, you'll run the load test. If you've checked the **Run test 
 
 ## <a name="run"></a> Run the load test
 
-In this section, you will run the load test that you created in the previous section.
+In this section, you will run the load test you created in the previous section.
 
 If you checked the **Run test after creation** box when creating the load test, you can skip to [View the load test results](#view).
 
@@ -186,9 +186,9 @@ While the load test is running, Azure Load Testing captures both client-side and
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows the load test results.":::
         
     > [!NOTE]
-    > In this quickstart, you've run a load tested for an external website. Azure Load Testing captures server-side metrics only for Azure-hosted applications. You can try the [tutorial on how to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for an end-to-end example.
+    > In this quickstart, you've run a load test for an external website. Azure Load Testing captures server-side metrics only for Azure-hosted applications. You can try the [tutorial on how to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for an end-to-end example.
 
-1. Optionally, you can change the display filters to view a specific time range, result percentile, or error type.
+1. You can also change the display filters to view a specific time range, result percentile, or error type.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/test-result-filters.png" alt-text="Screenshot that shows the filter criteria for a load test result.":::
  
