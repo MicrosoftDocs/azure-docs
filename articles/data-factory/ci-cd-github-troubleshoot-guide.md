@@ -326,7 +326,7 @@ ARM template deployment fails with an error such as DataFactoryPropertyUpdateNot
 The ARM template deployment is attempting to change the type of an existing integration runtime. This is not allowed and will cause a deployment failure because data factory requires the same name and type of integration runtime across all stages of CI/CD.
 
 ##### Resolution
-If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type. For more information, refer to [Continuous integration and delivery - Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-delivery#best-practices-for-cicd)
+If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type. For more information, refer to [Continuous integration and delivery - Azure Data Factory](./continuous-integration-delivery.md#best-practices-for-cicd)
 
 ## Next steps
 

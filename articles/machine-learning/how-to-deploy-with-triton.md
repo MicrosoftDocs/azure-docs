@@ -35,7 +35,7 @@ In this article, you will learn how to deploy Triton and a model to a managed on
 * Access to NCv3-series VMs for your Azure subscription.
 
     > [!IMPORTANT]
-    > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](/azure/virtual-machines/ncv3-series).
+    > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
@@ -84,7 +84,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
     > [!IMPORTANT]
     > For Triton no-code-deployment (NCD) to work, setting **`model_format`** to **`Triton`** is required. For more information, [check CLI (v2) model YAML schema](reference-yaml-model.md).
     >
-    > This deployment uses a Standard_NC6s_v3 VM. You may need to request a quota increase for your subscription before you can use this VM. For more information, see [NCv3-series](/azure/virtual-machines/ncv3-series).
+    > This deployment uses a Standard_NC6s_v3 VM. You may need to request a quota increase for your subscription before you can use this VM. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
 

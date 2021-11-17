@@ -34,7 +34,7 @@ This article assumes that you have [configured hybrid Azure AD-joined devices](h
 
 
 > [!NOTE] 
-> To troubleshoot the common device registration issues, use [Device Registration Troubleshooter Tool](https://aka.ms/DSRegTool).
+> To troubleshoot the common device registration issues, use [Device Registration Troubleshooter Tool](/samples/azure-samples/dsregtool/dsregtool/).
 
 
 ## Troubleshoot join failures

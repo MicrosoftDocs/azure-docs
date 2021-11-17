@@ -31,7 +31,7 @@ Defender for Cloud detects anomalous activities indicating unusual and potential
 | Protected versions of PostgreSQL:  | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL pricing tiers](../postgresql/concepts-pricing-tiers.md).   |
 | Protected versions of MySQL:       | Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md).                        |
 | Protected versions of MariaDB:     | General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md).                      |
-| Clouds:                            | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet) |
+| Clouds:                            | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 |                                    |                                                                                                                                            |
 
 ## What are the benefits of Microsoft Defender for open-source relational databases?
