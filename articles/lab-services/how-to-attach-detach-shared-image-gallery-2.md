@@ -23,7 +23,8 @@ Here are the couple of scenarios supported by this feature:
 
     When an image is saved to a shared image gallery, Azure Lab Services replicates the saved image to other regions available in the same [geography](https://azure.microsoft.com/global-infrastructure/geographies/). It ensures that the image is available for labs created in other regions in the same geography. Saving images to a shared image gallery incurs an additional cost, which includes cost for all replicated images. This cost is separate from the Azure Lab Services usage cost. For more information about Shared Image Gallery pricing, see [Shared Image Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
 
-    In the November 2021 Update, users must manually choose what regions the shared images are replicated to.
+    >[!NOTE]
+    > Users must manually choose what regions the shared images are replicated to.
 
 > [!IMPORTANT]
 > While using a Shared Image Gallery, Azure Lab Services supports only images with less than 128 GB of OS Disk Space. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.

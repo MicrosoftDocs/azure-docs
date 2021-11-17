@@ -2,7 +2,7 @@
 title: What's New in Azure Lab Services | Microsoft Docs
 description: Learn what's new in the Azure Lab Services November 2021 Updates. 
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 11/16/2021
 ---
 
 # What's new in Azure Lab Services November 2021 Updates
