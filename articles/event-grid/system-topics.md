@@ -39,7 +39,7 @@ In the past, a system topic was implicit and wasn't exposed for simplicity. Syst
 
 - [View system topics in the Azure portal](create-view-manage-system-topics.md#view-all-system-topics)
 - Export Resource Manager templates for system topics and event subscriptions in the Azure portal
-- [Set up diagnostic logs for system topics](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-system-topic)
+- [Set up diagnostic logs for system topics](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-system-topics)
 - Set up alerts on publish and delivery failures 
 
 ## Lifecycle of system topics

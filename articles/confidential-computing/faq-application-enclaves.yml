@@ -2,13 +2,13 @@
 metadata:
   title: Azure Confidential Computing FAQ
   description: Answers to frequently asked questions about Azure confidential computing.
-  author: JBCook
+  author: stempesta
   ms.topic: troubleshooting
   ms.workload: infrastructure
   ms.service: virtual-machines
   ms.subservice: confidential-computing
   ms.date: 11/1/2021
-  ms.author: jencook
+  ms.author: stempesta
     
 title: Frequently asked questions for application enclaves on Intel SGX confidential VMs
 summary: |

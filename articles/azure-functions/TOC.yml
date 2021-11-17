@@ -403,6 +403,8 @@
           href: configure-networking-how-to.md
         - name: Geo-disaster recovery
           href: functions-geo-disaster-recovery.md
+        - name: Move across regions
+          href: functions-move-across-regions.md          
     - name: Monitor
       items:
         - name: Configure monitoring
@@ -573,6 +575,17 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Azure SQL
+          items:
+            - name: Overview
+              href: functions-bindings-azure-sql.md
+              displayName: Azure SQL
+            - name: Input
+              href: functions-bindings-azure-sql-input.md
+              displayName: Azure SQL
+            - name: Output
+              href: functions-bindings-azure-sql-output.md
+              displayName: Azure SQL
         - name: Dapr
           href: https://github.com/dapr/azure-functions-extension
         - name: Event Grid

@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 11/05/2021
 ms.author: ginle
 ---
 
@@ -44,20 +44,20 @@ Please refer to the [Products by region](https://azure.microsoft.com/global-infr
 #### Workspace (logical container):
 * 200 instances per Subscription (not adjustable)
 
-#### DICOM Server:
+#### DICOM service:
 * 800 instances per Subscription (not adjustable)
 * 10 DICOM instances per Workspace (not adjustable)
 
-#### FHIR Server:
+#### FHIR service:
 * 25 instances per Subscription (not adjustable)
 * 10 FHIR instances per Workspace (not adjustable)
 
 #### IoT connector:
-* 25 IoT connectors per Subscription (adjustable with an Azure support request)
-* 10 IoT connectors per Workspace (adjustable with an Azure support request)
+* 25 IoT connectors per Subscription (not adjustable)
+* 10 IoT connectors per Workspace (not adjustable)
 * One FHIR Destination* per IoT connector (not adjustable)
 
-(* - FHIR Destination is a child resource of IoT connector)
+(* - FHIR destination is a child resource of IoT connector)
 
 ## More frequently asked questions
 [FAQs about Azure Healthcare APIs FHIR service](./fhir/fhir-faq.md)

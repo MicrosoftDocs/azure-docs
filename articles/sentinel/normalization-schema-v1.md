@@ -1,29 +1,27 @@
 ---
-title: Azure Sentinel network normalization schema (Legacy version - Public preview)| Microsoft Docs
-description: This article displays the Azure Sentinel data normalization schema.
+title: Microsoft Sentinel network normalization schema (Legacy version - Public preview)| Microsoft Docs
+description: This article displays the Microsoft Sentinel data normalization schema.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/15/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel network normalization schema (Legacy version - Public preview)
+# Microsoft Sentinel network normalization schema (Legacy version - Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The network normalization schema is used to describe reported network events, and is used by Azure Sentinel to enable source-agnostic analytics.
+The network normalization schema is used to describe reported network events, and is used by Microsoft Sentinel to enable source-agnostic analytics.
 
-For more information, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+For more information, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > This article relates to version 0.1 of the network normalization schema, which was released as a preview before ASIM was available. [Version 0.2](network-normalization-schema.md) of the network normalization schema aligns with ASIM and provides other enhancements.
@@ -33,11 +31,11 @@ For more information, see [Normalization and the Azure Sentinel Information Mode
 
 ## Terminology
 
-The following terminology is used in Azure Sentinel schemas:
+The following terminology is used in Microsoft Sentinel schemas:
 
 | Term | Definition |
 | ---- | ---------- |
-| **Reporting device** | The system sending the records to Azure Sentinel. It may not be the subject system of the record. |
+| **Reporting device** | The system sending the records to Microsoft Sentinel. It may not be the subject system of the record. |
 | **Record** | A unit of data sent from the reporting device. This unit of data is often referred to as `log`, `event`, or `alert`, but can also have other types.|
 |
 
@@ -83,13 +81,13 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **EventVendor** | String | Microsoft | The vendor of the product generating the event. | Event |
 | **EventResult** | Multivalue: Success, Partial, Failure, [Empty] (String) | Success | The result reported for the activity. Empty value when not applicable. | Event |
 | **EventResultDetails** | String | Wrong Password | Reason or details for the result reported in EventResult | Event |
-| **EventSchemaVersion** | Real | 0.1 | Azure Sentinel Schema Version. Currently 0.1. | Event |
+| **EventSchemaVersion** | Real | 0.1 | Microsoft Sentinel Schema Version. Currently 0.1. | Event |
 | **EventSeverity** | String | Low | If the activity reported has a security impact, denotes the severity of the impact. | Event |
 | **EventOriginalUid** | String | af6ae8fe-ff43-4a4c-b537-8635976a2b51 | The record ID from the reporting device. | Event |
 | **EventStartTime** | Date/Time | See “data types” | The time in which the event stated | Event |
 | **TimeGenerated** | Date/Time | See “data types” | The time the event occurred, as reported by reporting source. | Custom field |
-| **EventTimeIngested** | Date/Time | See “data types” | The time the event was ingested to Azure Sentinel. Will be added by Azure Sentinel. | Event |
-| **EventUid** | Guid (String) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Unique identifier used by Azure Sentinel to mark a row. | Event |
+| **EventTimeIngested** | Date/Time | See “data types” | The time the event was ingested to Microsoft Sentinel. Will be added by Microsoft Sentinel. | Event |
+| **EventUid** | Guid (String) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Unique identifier used by Microsoft Sentinel to mark a row. | Event |
 | **NetworkApplicationProtocol** | String | HTTPS | The application layer protocol used by the connection or session. | Network |
 | **DstBytes** | int | 32455 | The number of bytes sent from the destination to the source for the connection or session. | Destination |
 | **SrcBytes** | int | 46536 | The number of bytes sent from the source to the destination for the connection or session. | Source |
@@ -195,7 +193,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 
 ## <a name="changes"></a>Differences between the version 0.1 and version 0.2
 
-The original version of the Azure Sentinel Network session normalization schema, version 0.1, was released as a preview before ASIM was available.
+The original version of the Microsoft Sentinel Network session normalization schema, version 0.1, was released as a preview before ASIM was available.
 
 Differences between version 0.1, documented in this article, and [version 0.2](network-normalization-schema.md) include:
 
@@ -361,9 +359,9 @@ The following fields exist in version 0.1 only, and were removed in [version 0.2
 
 For more information, see:
 
-- [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Azure Sentinel process event normalization schema reference](process-events-normalization-schema.md)
-- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Normalization in Microsoft Sentinel](normalization.md)
+- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Microsoft Sentinel process event normalization schema reference](process-events-normalization-schema.md)
+- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

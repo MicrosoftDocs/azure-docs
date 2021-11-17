@@ -120,7 +120,7 @@
     - name: Deploy to an IoT Edge device
       href: edge/deploy-iot-edge-device.md
     - name: Deploy to a Windows device
-      href: edge/deploy-iot-edge-linux-on-windows.md  #??
+      href: edge/deploy-iot-edge-linux-on-windows.md  
     - name: Deploy on Azure Stack Edge
       href: edge/deploy-on-stack-edge.md
   - name: Playback
@@ -182,7 +182,7 @@
   - name: Developer SDKs
     href: sdk.md
   - name: REST APIs
-    href: https://docs.microsoft.com/rest/api/videoanalyzer/
+    href: /rest/api/videoanalyzer/
   - name: Spatial Analysis operations
     href: spatial-analysis-operations.md    
   - name: Visual Studio Code extension
@@ -205,19 +205,23 @@
       href: edge/production-readiness.md
 - name: Resources
   items:
-  - name: Azure service updates
-    href: https://azure.microsoft.com/updates/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/video-analyzer/
   - name: Available regions
     href: https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all
+  - name: Azure service updates
+    href: https://azure.microsoft.com/updates/
   - name: FAQ
     items:
     - name: Edge module FAQ
       href: edge/faq.yml 
     - name: Service FAQ
       href: cloud/faq.yml     
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/video-analyzer/
   - name: Quotas and limitations
     href: quotas-limitations.md
   - name: Terraform resource
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer
+  - name: Video Analyzer edge
+    href: https://aka.ms/ava-marketplace
+  - name: Video Analyzer service
+    href: https://aka.ms/ava-service
