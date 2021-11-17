@@ -8,14 +8,16 @@ ms.date: 09/10/2021
 ms.author: zxue
 ---
 
-# Configure Azure RBAC for the FHIR service
+# Configure Azure RBAC for Healthcare APIs
 
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the Healthcare APIs data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription. 
+In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the Healthcare APIs data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription.
 
-## Assign roles
+You can complete role assignments through the Azure portal. Note that the FHIR service and the DICOM service have defined different application roles. Add or remove one or more roles to manage user access controls.
+
+## Assign roles for the FHIR service
 
 To grant users, service principals, or groups access to the FHIR data plane, select the FHIR service from the Azure portal. Select **Access control (IAM)**, and then select the **Role assignments** tab. Select **+Add**, and then select **Add role assignment**.
  
@@ -40,9 +42,28 @@ If the client application is not found, check your application registration, to 
 
 You can verify the role assignment by selecting the **Role assignments** tab from the **Access control (IAM)** menu option.
  
+## Assign roles for the DICOM service
+
+To grant users, service principals, or groups access to the DICOM data plane, select the **Access control (IAM)** blade. Select the**Role assignments** tab, and select **+ Add**.
+
+[ ![dicom access control.](media/dicom-access-control.png) ](media/dicom-access-control.png#lightbox)
+
+
+In the **Role** selection, search for one of the built-in roles for the DICOM data plane:
+
+[ ![Add RBAC role assignment.](media/rbac-add-role-assignment.png) ](media/rbac-add-role-assignment.png#lightbox)
+
+You can choose between:
+
+* DICOM Data Owner:  Full access to DICOM data.
+* DICOM Data Reader: Read and search DICOM data.
+
+If these roles are not sufficient for your need, you can use PowerShell to create custom roles.  For information about creating custom roles, see [Create a custom role using Azure PowerShell](../../role-based-access-control/tutorial-custom-role-powershell.md).
+
+In the **Select** box, search for a user, service principal, or group that you want to assign the role to.
 
 > [!NOTE]
-> The role assignment may take a few minutes to propagate in the system. If you can't access the FHIR service in your application or other testing tools, you may wait for a few minutes. Also, check that you’ve granted the user_impersonation permissions to the Azure Healthcare APIs in your application registration.
+> The role assignment may take a few minutes to propagate in the system. If you can't access the FHIR or DICOM service in your application or other testing tools, you may wait for a few minutes.
 
 ## Next steps
 
