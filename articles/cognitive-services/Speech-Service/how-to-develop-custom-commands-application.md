@@ -352,7 +352,15 @@ The Custom Commands feature allows you to configure string-type parameters to re
 
 Reuse the `SubjectDevice` parameter from the `TurnOnOff` command. The current configuration for this parameter is **Accept predefined inputs from internal catalog**. This configuration refers to a static list of devices in the parameter configuration. Move out this content to an external data source that can be updated independently.
 
-To move the content, start by adding a new web endpoint. In the pane on the left, go to the **Web endpoints** section. There, add a new web endpoint URL. Please configure and host a web endpoint that returns a JSON file that consists of the list of the devices that can be controlled. The web endpoint should return a JSON file formatted as follows:
+To move the content, start by adding a new web endpoint. In the pane on the left, go to the **Web endpoints** section. There, add a new web endpoint URL. Use the following configuration.
+
+| Setting | Suggested value |
+|----|----|
+| **Name** | `getDevices` |
+| **URL** | `<Your endpoint of getDevices.json>` |
+| **Method** | **GET** |
+
+Please configure and host a web endpoint that returns a JSON file that consists of the list of the devices that can be controlled. The web endpoint should return a JSON file formatted as follows:
 
 ```json
 {
