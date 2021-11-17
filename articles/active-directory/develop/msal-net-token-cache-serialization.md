@@ -32,7 +32,7 @@ The recommendation is:
   -	Otherwise, if you want to use an in-memory cache
     -	If you're only using `AcquireTokenForClient`:
       - Either reuse the confidential client application instance and don’t add a serializer,
-      - Or new-up a new confidential client application and enable the [shared cache option](msal-net-token-cache-serialization.md?tabs=aspnet#no-token-cache-serialization) . This cache is faster as it's not serialized, however, the memory will grow as tokens are cached. The number of tokens is equal to the number of tenants times the number of downstream APIs. An app token is about 2KB in size. It's great for development, or if you have few users. If you need eviction, see next bullet point.
+      - Or new-up a new confidential client application and enable the [shared cache option](msal-net-token-cache-serialization.md?tabs=aspnet#no-token-cache-serialization). This cache is faster as it's not serialized, however, the memory will grow as tokens are cached. The number of tokens is equal to the number of tenants times the number of downstream APIs. An app token is about 2KB in size. It's great for development, or if you have few users. If you need eviction, see next bullet point.
       -	If you  want to use an in-memory token cache and control its size and eviction policies, use the [Microsoft.Identity.Web in memory cache option](msal-net-token-cache-serialization.md?tabs=aspnet#in-memory-token-cache-1)
 -	If you build an SDK and want to write your own token cache serializer for confidential client applications, inherit from [Microsoft.Identity.Web.MsalAsbtractTokenCacheProvider](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.TokenCache/MsalAbstractTokenCacheProvider.cs) and override the `WriteCacheBytesAsync` and `ReadCacheBytesAsync` methods.
 
@@ -230,10 +230,10 @@ public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X5
 
 Instead of `app.AddInMemoryTokenCache();` you can use different caching serialization technologies, including no serialization, in memory, and distributed token cache storage provided by .NET.
 
-<a id='no-token-cache-serialization' />
-#### Token Cache without serialization
+<a id="no-token-cache-serialization"></a>
+#### Token cache without serialization
 
-You can specify that you don't want to have any token cache serialization and rely on MSAL.NET internal cache:
+You can specify that you don't want to have any token cache serialization and instead rely on the MSAL.NET internal cache:
 - Use `.WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` when you build the application.
 - Don't add any serializer.
 
@@ -248,7 +248,7 @@ You can specify that you don't want to have any token cache serialization and re
        .Build();
 ```
 
-`WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` makes the internal MSAL token cache to be shared between different MSAL client application instances. This is faster than using any token cache serialization, however, the internal in-memory token cache does not have eviction policies. Existing tokens will be refreshed in-place, but fetching tokens for different resources, users, tenants, etc. will make the cache grow accordingly. If you use this approach and have a lot of users/tenants, make to sure to monitor the memory footprint and if it becomes an issue, consider enabling token cache serialization which can reduce the internal cache size. Additionally, be aware that these two features, shared cache and cache serialization, are not currently supported toghter.
+`WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` makes the internal MSAL token cache shared between different MSAL client application instances. Sharing a token cache is faster than using any token cache serialization, but the internal in-memory token cache doesn't have eviction policies. Existing tokens will be refreshed in place, but fetching tokens for different users, tenants, and resources makes the cache grow accordingly. If you use this approach and have a large number of users or tenants, make sure you monitor the memory footprint. If the memory footprint becomes an issue, consider enabling token cache serialization, which might reduce the internal cache size. Also be aware that currently, you can't use shared cache and cache serialization together.
 
 #### In memory token cache
 
