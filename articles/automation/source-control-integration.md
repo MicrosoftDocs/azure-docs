@@ -20,7 +20,7 @@ Azure Automation supports three types of source control:
 
 * GitHub
 * Azure Repos (Git)
-* Azure Repos (TFVC)
+* Azure DevOps
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Use this procedure to configure source control using the Azure portal.
     |Property  |Description  |
     |---------|---------|
     |Source control name     | A friendly name for the source control. This name must contain only letters and numbers.        |
-    |Source control type     | Type of source control mechanism. Available options are:</br> * GitHub</br>* Azure Repos (Git)</br> * Azure Repos (TFVC)        |
+    |Source control type     | Type of source control mechanism. Available options are:</br> * GitHub</br>* Azure Repos (Git)</br> * Azure DevOps        |
     |Repository     | Name of the repository or project. The first 200 repositories are retrieved. To search for a repository, type the name in the field and click **Search on GitHub**.|
     |Branch     | Branch from which to pull the source files. Branch targeting isn't available for the TFVC source control type.          |
     |Folder path     | Folder that contains the runbooks to synchronize, for example, **/Runbooks**. Only runbooks in the specified folder are synchronized. Recursion isn't supported.        |
@@ -89,7 +89,7 @@ Use this procedure to configure source control using the Azure portal.
 
 You can also use PowerShell to configure source control in Azure Automation. To use the PowerShell cmdlets for this operation, you need a personal access token (PAT). Use the [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol) cmdlet to create the source control connection. This cmdlet requires a secure string for the PAT. To learn how to create a secure string, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
-The following subsections illustrate PowerShell creation of the source control connection for GitHub, Azure Repos (Git), and Azure Repos (TFVC).
+The following subsections illustrate PowerShell creation of the source control connection for GitHub, Azure Repos (Git), and Azure DevOps.
 
 #### Create source control connection for GitHub
 
@@ -106,10 +106,10 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
 ```
 
-#### Create source control connection for Azure Repos (TFVC)
+#### Create source control connection for Azure DevOps
 
 > [!NOTE]
-> Azure Repos (TFVC) uses a URL that accesses **dev.azure.com** instead of **visualstudio.com**, used in earlier formats. The older URL format `https://<accountname>.visualstudio.com/<projectname>/_versionControl` is deprecated but still supported. The new format is preferred.
+> Azure DevOps uses a URL that accesses **dev.azure.com** instead of **visualstudio.com**, used in earlier formats. The older URL format `https://<accountname>.visualstudio.com/<projectname>/_versionControl` is deprecated but still supported. The new format is preferred.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
