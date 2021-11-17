@@ -722,6 +722,8 @@
         href: ./linux/create-ssh-keys-detailed.md
       - name: Create and manage SSH keys in the portal
         href: ssh-keys-portal.md
+      - name: Create and manage SSH keys with the Azure CLI
+        href: ssh-keys-azure-cli.md
       - name: SSH on Linux or macOS
         href: ./linux/mac-create-ssh-keys.md
       - name: SSH on Windows
