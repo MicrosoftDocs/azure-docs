@@ -16,9 +16,9 @@ The Azure Maps iOS SDK allows you to render indoor maps created in Azure Maps Cr
 
 ## Prerequisites
 
+1. Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md). Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
 1. [Create a Creator resource](how-to-manage-creator.md)
-2. Get a `tilesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md). You'll need to use this identifier to render indoor maps with the Azure Maps iOS SDK.
-3. Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md). Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
+1. Get a `tilesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md). You'll need to use this identifier to render indoor maps with the Azure Maps iOS SDK.
 
 ## Instantiate the Indoor Manager
 
@@ -46,7 +46,7 @@ self.indoorManager.setOptions([.levelControl(levelControl)])
 ```
 
 > [!TIP]
-> The *level picker* appears when you select the stairwell feature.
+> The *level picker* appears when you tap on a facility.
 
 ## Indoor events
 
