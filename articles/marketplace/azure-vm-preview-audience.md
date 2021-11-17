@@ -30,4 +30,4 @@ After configuring the preview audience, select **Save draft** before continuing 
 
 ## Next steps
 
-- [Create plans](azure-vm-create-plans.md)
+- [Create plans](azure-vm-plan-overview.md)

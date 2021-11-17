@@ -118,4 +118,4 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Create a preview audience](azure-vm-create-preview.md)
+- [Create a preview audience](azure-vm-preview-audience.md)
