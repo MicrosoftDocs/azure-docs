@@ -2,7 +2,7 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 11/17/2021
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -140,7 +140,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
 
 For more information, see [Variables in Bicep](./variables.md).
 
-## Resource
+## Resources
 
 Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file to get a value from the resource.
 
@@ -161,6 +161,18 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 ```
 
 For more information, see [Resource declaration in Bicep](resource-declaration.md).
+
+Some resources have a parent/child relationship. You can define a child resource either inside the parent resource or outside of it.
+
+The following example shows how to define a child resource within a parent resource. It contains a storage account with a child resource (file service) that is defined within the storage account. The file service also has a child resource (share) that is defined within it.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/insidedeclaration.bicep" highlight="9,12":::
+
+The next example shows how to define a child resource outside of the parent resource. You use the parent property to identify a parent/child relationship. The same three resources are defined.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/outsidedeclaration.bicep" highlight="10,12,15,17":::
+
+For more information, see [Set name and type for child resources in Bicep](child-resource-name-type.md).
 
 ## Modules
 

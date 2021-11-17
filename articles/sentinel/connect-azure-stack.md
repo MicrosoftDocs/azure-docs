@@ -4,8 +4,6 @@ description: This article shows you how to provision the Azure Monitor, Update, 
 services: sentinel
 documentationcenter: na
 author: yelevin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
