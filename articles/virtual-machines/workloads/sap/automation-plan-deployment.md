@@ -67,7 +67,7 @@ For your own parameter files, it's a best practice to keep these files in a sour
 
 ### Folder structure
 
-The following sample folder hierarchy shows how to structure your configuration files along with the automation framework files. The first top-level folder, called **sap-hana**, has the automation framework files that you don't need to change in most use cases. The second top-level folder, called **WORKSPACES**, contains subfolders with configuration files for your deployment settings.
+The following sample folder hierarchy shows how to structure your configuration files along with the automation framework files. The first top-level folder, called **sap-automation**, has the automation framework files that you don't need to change in most use cases. The second top-level folder, called **WORKSPACES**, contains subfolders with configuration files for your deployment settings.
 
 | Folder name | Contents | Description |
 | ----------- | -------- | ----------- |
