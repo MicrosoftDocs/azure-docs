@@ -6,7 +6,7 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/15/2021
+ms.date: 11/18/2021
 
 ---
 
@@ -30,6 +30,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 *   Support for [Ddsv4 and Edsv4 SKUs](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/flexible-server-now-supports-v4-compute-series-in-postgresql-on/ba-p/2815092). 
 *   Ability to choose local disk for temporary tablespace using `azure.enable_temp_tablespaces_on_local_ssd` server parameter.
+*   Server parameters page in Azure Portal shows unit of measurement and the PostgreSQL doc link for most parameters.
 *   Several bug fixes, stability, and performance improvements.
 
 ## Release: September 2021
@@ -79,6 +80,13 @@ This page provides latest news and updates regarding feature additions, engine v
 <!--- * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2. -->
 * [Intelligent performance](concepts-query-store.md) in public preview.
 * Several bug fixes, stability and performance improvements.
+
+## Release: October 2020 - March 2021
+
+*  Improved experience to [connect](connect-azure-cli.md) to the Flexible server using Azure CLI with the `az postgres flexible- server connect` command.
+*  Support for [new regions](overview.md#azure-regions).
+*  Several portal improvements, including display of minor versions, summary of metrics on the overview blade.
+*  Several bug fixes, stability, and performance improvements.
 
 ## Contacts
 

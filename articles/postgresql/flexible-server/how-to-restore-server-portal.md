@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/15/2021
+ms.date: 11/18/2021
 ---
 
 # Point-in-time restore of a Flexible Server

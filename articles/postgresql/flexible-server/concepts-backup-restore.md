@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 11/18/2021
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
