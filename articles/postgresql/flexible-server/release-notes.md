@@ -30,7 +30,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 *   Support for [Ddsv4 and Edsv4 SKUs](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/flexible-server-now-supports-v4-compute-series-in-postgresql-on/ba-p/2815092). 
 *   Ability to choose local disk for temporary tablespace using `azure.enable_temp_tablespaces_on_local_ssd` server parameter.
-*   Server parameters page in Azure Portal shows unit of measurement and the PostgreSQL doc link for most parameters.
+*   Server parameters page in Azure portal shows unit of measurement and the PostgreSQL doc link for most parameters.
 *   Several bug fixes, stability, and performance improvements.
 
 ## Release: September 2021
