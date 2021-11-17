@@ -12,7 +12,7 @@ ms.author: pgibson
 
 This article will discuss how to deploy the OSM add-on to AKS using a [Bicep](../azure-resource-manager/bicep/index.yml) template.
 
-[Bicep](/azure/azure-resource-manager/bicep/overview) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep can be used in place of creating Azure [ARM](/azure/azure-resource-manager/templates/overview) templates for deploying your infrastructure-as-code Azure resources.
+[Bicep](../azure-resource-manager/bicep/overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep can be used in place of creating Azure [ARM](../azure-resource-manager/templates/overview.md) templates for deploying your infrastructure-as-code Azure resources.
 
 ## Prerequisites
 
