@@ -41,7 +41,7 @@ To request a quota increase for a spot vCPU quota:
 
    The example below requests a new quota limit of 103 for the Spot vCPUs across all VM-family vCPUs in the West US region.
 
-   :::image type="content" source="media/resource-manager-core-quotas-request/spot-quota.png" alt-text="Screenshot of a spot vCPU quota increase request in the Azure portal.":::
+   :::image type="content" source="media/resource-manager-core-quotas-request/spot-quota.png" alt-text="Screenshot of a spot vCPU quota increase request in the Azure portal." lightbox="spot-quota.png":::
 
 1. Select **Save and continue**.
 
