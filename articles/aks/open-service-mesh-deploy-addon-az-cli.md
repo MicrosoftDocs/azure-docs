@@ -69,7 +69,7 @@ To verify the version of the OSM mesh running on your cluster, use `kubectl` to 
 kubectl get deployment -n kube-system osm-controller -o=jsonpath='{$.spec.template.spec.containers[:1].image}'
 ```
 
-The follow example output shows version *0.11.1* of the OSM mesh:
+The following example output shows version *0.11.1* of the OSM mesh:
 
 ```output
 $ kubectl get deployment -n kube-system osm-controller -o=jsonpath='{$.spec.template.spec.containers[:1].image}'
