@@ -4,7 +4,7 @@ description: Learn about specific configuration steps for Microsoft Sentinel dat
 services: sentinel
 documentationcenter: na
 author: batamig
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol

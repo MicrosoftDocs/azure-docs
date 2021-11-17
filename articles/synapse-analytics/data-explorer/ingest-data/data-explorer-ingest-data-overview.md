@@ -52,7 +52,7 @@ For organizations who wish to have management (throttling, retries, monitors, al
 
 <!-- * **[IoT Hub](https://azure.microsoft.com/services/iot-hub/)**: A pipeline that is used for the transfer of data from supported IoT devices to Azure Synapse Data Explorer. For more information, see [Ingest from IoT Hub](ingest-data-iot-hub.md). -->
 
-* **Synapse pipelines**: A fully managed data integration service for analytic workloads in [Synapse pipelines](/azure/data-factory/copy-activity-overview?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) connects with over 90 supported sources to provide efficient and resilient data transfer. Synapse pipelines prepares, transforms, and enriches data to give insights that can be monitored in different kinds of ways. This service can be used as a one-time solution, on a periodic timeline, or triggered by specific events.
+* **Synapse pipelines**: A fully managed data integration service for analytic workloads in [Synapse pipelines](../../../data-factory/copy-activity-overview.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext&tabs=synapse-analytics) connects with over 90 supported sources to provide efficient and resilient data transfer. Synapse pipelines prepares, transforms, and enriches data to give insights that can be monitored in different kinds of ways. This service can be used as a one-time solution, on a periodic timeline, or triggered by specific events.
 
 <!-- ### Ingestion using connectors and plugins
 
@@ -113,7 +113,7 @@ For an example of using ingest control commands, see [Analyze with Data Explorer
 | [**ADX Kafka**](ingest-data-kafka.md) | | | | |
 | [**ADX to Apache Spark**](spark-connector.md) | | | | |
 | [**LogStash**](ingest-data-logstash.md) | | | | |
-| [**Azure Data Factory (ADF)**](./data-factory-integration.md) | [Supported data formats](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | unlimited *(per ADF restrictions) | Batching or per ADF trigger | Supports formats that are usually unsupported, large files, can copy from over 90 sources, from on perm to cloud | This method takes relatively more time until data is ingested. ADF uploads all data to memory and then begins ingestion. |
+| [**Azure Data Factory (ADF)**](./data-factory-integration.md) | [Supported data formats](../../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats) | unlimited *(per ADF restrictions) | Batching or per ADF trigger | Supports formats that are usually unsupported, large files, can copy from over 90 sources, from on perm to cloud | This method takes relatively more time until data is ingested. ADF uploads all data to memory and then begins ingestion. |
 |[ **Power Automate**](./flow.md) | | | | Ingestion commands as part of flow| Must have high-performing response time |
 | [**IoT Hub**](ingest-data-iot-hub-overview.md) | [Supported data formats](ingest-data-iot-hub-overview.md#data-format)  | N/A | Batching, streaming | IoT messages, IoT events, IoT properties | |
 | [**Event Hub**](ingest-data-event-hub-overview.md) | [Supported data formats](ingest-data-event-hub-overview.md#data-format) | N/A | Batching, streaming | Messages, events | |

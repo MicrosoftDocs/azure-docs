@@ -77,19 +77,19 @@ Next, set the following environment variables:
 # [Bash](#tab/bash)
 
 ```azurecli
-RESOURCE_GROUP="my-containerapps"
+RESOURCE_GROUP="my-container-apps"
 LOCATION="canadacentral"
-LOG_ANALYTICS_WORKSPACE="containerapps-logs"
-CONTAINERAPPS_ENVIRONMENT="containerapps-env"
+LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
+CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$RESOURCE_GROUP="my-containerapps"
+$RESOURCE_GROUP="my-container-apps"
 $LOCATION="canadacentral"
-$LOG_ANALYTICS_WORKSPACE="containerapps-logs"
-$CONTAINERAPPS_ENVIRONMENT="containerapps-env"
+$LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
+$CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
 ---
@@ -198,7 +198,7 @@ az containerapp env create `
 
 ## Create a container app
 
-Now that you have an environment created, you can deploy you first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
+Now that you have an environment created, you can deploy your first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
 
 # [Bash](#tab/bash)
 
