@@ -36,12 +36,12 @@ To request a quota increase for a spot vCPU quota:
 1. In the Azure portal, search for and select **Subscriptions**.
 1. Select the subscription whose quota you want to increase.
 1. In the left pane, select **Usage + quotas**.
-1.	In the main pane, search for spot and select **Total Regional Spot vCPUs** for the region you want to increase. 
+1. In the main pane, search for spot and select **Total Regional Spot vCPUs** for the region you want to increase.
 1. In **Quota details**, enter your new quota limit.
 
-   The example below requests a new quota limit of 200 for the Spot vCPUs across all VM-family vCPUs in the South Central US region.
+   The example below requests a new quota limit of 103 for the Spot vCPUs across all VM-family vCPUs in the West US region.
 
-   :::image type="content" source="media/resource-manager-core-quotas-request/spot-quota.png" alt-text="Screenshot of the Quota details for a spot vCPU quota increase request.":::
+   :::image type="content" source="media/resource-manager-core-quotas-request/spot-quota.png" alt-text="Screenshot of a spot vCPU quota increase request in the Azure portal.":::
 
 1. Select **Save and continue**.
 
