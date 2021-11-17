@@ -8,7 +8,7 @@ ms.author: helohr
 manager: femila
 ---
 
-# Comparing Azure Virtual Desktop and Microsoft 365
+# Comparing Azure Virtual Desktop and Microsoft 365 features
 
 Intro text goes here!
 
@@ -40,45 +40,34 @@ Intro text goes here!
 |Image management|Custom images and Microsoft-managed image management|Custom images and Microsoft-managed image management|Custom images and Microsoft-managed image management| Microsoft-managed image management only|
 |Screen capture protection|Yes (feature currently in preview)|Yes (feature currently in preview)|Yes (feature currently in preview)|Yes (feature currently in preview)|
 |Patches|Other Microsoft solutions|Other Microsoft solutions|Microsoft Endpoint Manager|Microsoft Endpoint Manager|
-|Autoscaling|||||
-|Application delivery|||||
-|Monitoring|||||
-|Environment validation|||||
-|App lifecycle management|||||
-
-| Feature | Windows 365 Enterprise | Windows 365 Business | Azure Virtual Desktop (personal) | Azure Virtual Desktop (pooled) |
-|-------|--------|--------|--------|---------|
-
-
-
-
-
-Not required due to fixed monthly cost|Not required due to fixed monthly cost|Supported with Azure Logic Apps|Supported with Azure Logic Apps|
-Microsoft Endpoint Manager or custom images|Microsoft Endpoint Manager or custom images|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|
-Endpoint Analytics|Endpoint Analytics|Azure Monitor|Azure Monitor|
-Built-in network configuration watchdog service|Built-in network configuration watchdog service|Configured manually with Azure Advisor|Configured manually with Azure Advisor|
-Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|Same as physical PC (MEM, SCCM, MSI, EXE, MSIX, App-V, and so on) with MSIX app attach or partner solutions|Same as physical PC (MEM, SCCM, MSI, EXE, MSIX, App-V, and so on) with MSIX app attach or partner solutions|
+|Autoscaling|Supported with Azure Logic Apps|Supported with Azure Logic Apps|Not required due to fixed monthly cost|Not required due to fixed monthly cost|
+|Application delivery|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Microsoft Endpoint Manager or custom images|Microsoft Endpoint Manager or custom images|
+|Monitoring|Azure Monitor|Azure Monitor|Endpoint Analytics|Endpoint Analytics|
+|Environment validation|Configured manually with Azure Advisor|Configured manually with Azure Advisor|Built-in network configuration watchdog service|Built-in network configuration watchdog service|
+|App lifecycle management|Same as physical PC (MEM, SCCM, MSI, EXE, MSIX, App-V, and so on) with MSIX app attach or partner solutions|Same as physical PC (MEM, SCCM, MSI, EXE, MSIX, App-V, and so on) with MSIX app attach or partner solutions|Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|
 
 ## User experience
 
 Intro text goes here.
 
-| Feature | Windows 365 Enterprise | Windows 365 Business | Azure Virtual Desktop (personal) | Azure Virtual Desktop (pooled) |
+| Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
 |Client|Windows, Mac, iOS, Android, HTML, Linux SDK|Windows, Mac, iOS, Android, HTML, Linux SDK|Windows, Mac, iOS, Android, HTML, Linux SDK|Windows, Mac, iOS, Android, HTML, Linux SDK|
-|Printing|Universal print and print redirection support|Universal print and print redirection support|Universal print and print redirection support|Print redirection only|
+|Printing|Universal print and print redirection support|Print redirection only|Universal print and print redirection support|Universal print and print redirection support|
 |Protocol|RDP|RDP|RDP|RDP|
-|End-user portal capabilities|User sign in, start VM, troubleshooting, restart, rename and profile reset, VM and disk resizing, OS choice|User sign in, start VM, troubleshooting, restart, rename and profile reset, VM and disk resizing, OS choice|IT uses the Azure portal to manage deployments|IT uses the Azure portal to manage deployments|
+|End-user portal capabilities|IT uses the Azure portal to manage deployments|IT uses the Azure portal to manage deployments|User sign in, start VM, troubleshooting, restart, rename and profile reset, VM and disk resizing, OS choice|User sign in, start VM, troubleshooting, restart, rename and profile reset, VM and disk resizing, OS choice|
 
 ## Licensing and pricing
 
 Intro text goes here.
 
-| Feature | Windows 365 Enterprise | Windows 365 Business | Azure Virtual Desktop (personal) | Azure Virtual Desktop (pooled) |
+| Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
-|License costs|Monthly per-user pricing|Monthly per-user pricing|Use existing internal license (internal users only) or use monthly per-user access pricing (for commercial remote app streaming to external users only)|Use existing internal license (internal users only) or use monthly per-user access pricing (for commercial remote app streaming to external users only)|
-|Infrastructure costs|Included except for egress charges over base quota|Included|Based on consumption|Based on consumption|
-|Microsoft Endpoint Manager|Required|Optional|Optional|Optional|
+|License costs|Use existing internal license (internal users only) or use monthly per-user access pricing (for commercial remote app streaming to external users only)|Use existing internal license (internal users only) or use monthly per-user access pricing (for commercial remote app streaming to external users only)|Monthly per-user pricing|Monthly per-user pricing|
+|Infrastructure costs|Based on consumption|Based on consumption|Included except for egress charges over base quota|Included|
+|Microsoft Endpoint Manager|Optional|Optional|Required|Optional|
 
-- For more Azure Virtual Desktop pricing details, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-- For more Windows 365 pricing details, see [Windows 365 plans and pricing](https://www.microsoft.com/windows-365/all-pricing).
+## Next steps
+
+- To learn more about Azure Virtual Desktop pricing, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+- To learn more about Windows 365 pricing, see [Windows 365 plans and pricing](https://www.microsoft.com/windows-365/all-pricing).
