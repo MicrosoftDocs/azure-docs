@@ -1,32 +1,22 @@
 ---
-title: Get access token using Azure CLI or Azure PowerShell - FHIR service
-description: This article explains how to obtain an access token for FHIR service using the Azure CLI or Azure PowerShell.
+title: Get access token using Azure CLI or Azure PowerShell
+description: This article explains how to obtain an access token for the Healthcare APIs using the Azure CLI or Azure PowerShell.
 services: healthcare-apis
-author: matjazl
+author: SteveWohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/17/2021
 ms.author: zxue
 ms.custom: devx-track-azurepowershell
 ---
 
-# Get access token for FHIR service using Azure CLI or Azure PowerShell
+# Get access token using Azure CLI or Azure PowerShell
 
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-### [Azure CLI](#tab/azure-cli)
-
-In this article, you'll learn how to obtain an access token for the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) using the Azure CLI. When you [provision the FHIR service](fhir-portal-quickstart.md), you configure a set of users or service principals that have access to the service. If your user object ID is in the list of allowed object IDs, you can access the service using a token obtained using the Azure CLI.
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-In this article, you'll learn how to obtain an access token for the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) using Azure PowerShell. When you [provision the FHIR service](fhir-portal-quickstart.md), you configure a set of users or service principals that have access to the service. If your user object ID is in the list of allowed object IDs, you can access the service using a token obtained using Azure PowerShell.
-
-[!INCLUDE [azure-powershell-requirements.md](../../../includes/azure-powershell-requirements.md)]
+In this article, you'll learn how to obtain an access token for the FHIR service and the DICOM service using PowerShell and the Azure CLI. For more details on how to get started with the Healthcare APIs, see [How to get started with FHIR]() or [How to get started with DICOM](). 
 
 ---
 ## Obtain a token for the FHIR service
