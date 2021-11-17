@@ -107,17 +107,6 @@ landingContent:
           - text: Scoping extension resource
             url: scope-extension-resources.md
   # Card
-  - title: Explore reference content
-    linkLists:
-      - linkListType: reference
-        links:
-        - text: Bicep resource reference
-          url: /azure/templates/
-        - text: Azure PowerShell
-          url: /powershell/module/az.resources
-        - text: Azure CLI
-          url: /cli/azure/resource
-  # Card
   - title: Guidance & patterns
     linkLists:
       - linkListType: how-to-guide
@@ -128,3 +117,15 @@ landingContent:
           url: patterns-configuration-set.md
         - text: Shared variable file pattern
           url: patterns-shared-variable-file.md
+  # Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: Bicep resource reference
+          url: /azure/templates/
+        - text: Azure PowerShell
+          url: /powershell/module/az.resources
+        - text: Azure CLI
+          url: /cli/azure/resource
+  
