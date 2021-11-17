@@ -70,7 +70,7 @@ In this tutorial, you learn how to:
 
 6. Select **Create**.
 
-The virtual machine takes a few minutes to create. Don't continue with remaining steps until the VM has finished creating. While the portal creates the virtual machine, it also creates a network security group with the name **myVm-nsg**, and associates it to the network interface for the VM.
+The virtual machine takes a few minutes to create. Don't continue with remaining steps until the VM has finished creating. While the portal creates the virtual machine, it also creates a network security group with the name **myVM-nsg**, and associates it to the network interface for the VM.
 
 ## Enable Network Watcher
 
@@ -118,7 +118,7 @@ NSG flow log data is written to an Azure Storage account. Complete the following
 | Resource group | Select **myResourceGroup**. |
 | **Instance details** |   |
 | Storage account name | Enter a name for your storage account. </br> Must be 3-24 characters in length, can only contain lowercase letters and numbers, and must be unique across all Azure Storage. |
-| Region | Select (US)East US. |
+| Region | Select **(US)East US**. |
 | Performance | Leave the default of **Standard**. |
 | Redundancy | Leave the default of **Geo-redundant storage (GRS)**. |
 
@@ -156,19 +156,21 @@ The storage account may take around minute to create. Don't continue with remain
 
 ## Download flow log
 
-1. From Network Watcher, in the portal, select **NSG flow logs** under **LOGS**.
-2. Select **You can download flow logs from configured storage accounts**, as shown in the following picture:
+1. In the search box at the top of the portal, enter **Storage account*. Select **Storage accounts** in the search results.
 
-   ![Download flow logs](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
+2. Select the storage account you created in the previous steps in **Storage accounts**.
 
-3. Select the storage account that you configured in step 2 of [Enable NSG flow log](#enable-nsg-flow-log).
-4. Under **Blob service**, select **Containers**, and then select the **insights-logs-networksecuritygroupflowevent** container.
-5. In the container, navigate the folder hierarchy until you get to a PT1H.json file, as shown in the picture that follows. Log files are written to a folder hierarchy that follows the following naming convention:
-   https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+3. In **Data storage**, select **Containers**.
 
-   ![Flow log](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
+4. Select the **insights-logs-networksecuritygroupflowevent** container.
 
-6. Select **...** to the right of the PT1H.json file and select **Download**.
+5. In the container, navigate the folder hierarchy until you get to a PT1H.json file. Log files are written to a folder hierarchy that follows the following naming convention:
+
+   **https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json**
+
+6. Select **...** to the right of the PT1H.json file, then select **Download**.
+
+   :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/log-file.png" alt-text="Screenshot of download NSG flow log.":::
 
 ## View flow log
 
@@ -263,4 +265,16 @@ The value for **mac** in the previous output is the MAC address of the network i
 
 ## Next steps
 
-In this tutorial, you learned how to enable NSG flow logging for an NSG. You also learned how to download and view data logged in a file. The raw data in the json file can be difficult to interpret. To visualize Flow Logs data, you can use [Azure Traffic Analytics](traffic-analytics.md), [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md), and other tools. You can try alternate methods of enabling NSG Flow Logs like [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md) and [ARM templates](network-watcher-nsg-flow-logging-azure-resource-manager.md).
+In this tutorial, you learned how to:
+
+* Enable NSG flow logging for an NSG
+* Download and view data logged in a file. 
+
+The raw data in the json file can be difficult to interpret. To visualize Flow Logs data, you can use [Azure Traffic Analytics](traffic-analytics.md) and  [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+
+For alternate methods of enabling NSG Flow Logs, see [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md) and [ARM templates](network-watcher-nsg-flow-logging-azure-resource-manager.md).
+
+Advance to the next article to learn how to monitor network communication between two virtual machines:
+
+> [!div class="nextstepaction"]
+> [Monitor network communication between two virtual machines using the Azure portal](connection-monitor.md)
