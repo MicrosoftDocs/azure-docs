@@ -164,15 +164,15 @@ For more information, see [Resource declaration in Bicep](resource-declaration.m
 
 Some resources have a parent/child relationship. You can define a child resource either inside the parent resource or outside of it.
 
-The following example shows a storage account. The File service is a child resource defined within the storage account. The file share is a child resource or the file service.
+The following example shows how to define a child resource within a parent resource. It contains a storage account with a child resource (file service) that is defined within the storage account. The file service also has a child resource (share) that is defined within it.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/insidedeclaration.bicep" highlight="9,12":::
 
-Instead of embedding resource definition, you can use the parent property to identify a parent/child relationship. The same three resources can be defined with:
+The next example shows how to define a child resource outside of the parent resource. You use the parent property to identify a parent/child relationship. The same three resources are defined.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/outsidedeclaration.bicep" highlight="10,12,15,17":::
 
-For more information, see [Set name and type for child resources in Bicep](child-resource-type.md).
+For more information, see [Set name and type for child resources in Bicep](child-resource-name-type.md).
 
 ## Modules
 
