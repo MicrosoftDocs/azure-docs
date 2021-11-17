@@ -201,7 +201,7 @@ Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you 
 Indexers leverage a conservative buffering strategy to ensure that every new and changed document in the data source is picked up during indexing. In certain situations, these buffers can overlap, causing an indexer to index a document two or more times resulting in the processed documents count to be more than actual number of documents in the data source. This behavior does **not** affect the data stored in the index, such as duplicating documents, only that it may take longer to reach eventual consistency. This can be especially prevelent if any of the following conditions are true:
 
 - On-demand indexer requests are issued in quick succession
-- The data source's topology includes multiple replicas and partitions (one such example is discussed [here](https://docs.microsoft.com/azure/cosmos-db/consistency-levels))
+- The data source's topology includes multiple replicas and partitions (one such example is discussed [here](../cosmos-db/consistency-levels.md))
 
 Indexers are not intended to be invoked multiple times in quick succession. If you need updates quickly, the supported approach is to push updates to the index while simultaneously updating the data source. For on-demand processing, we recommend that you pace your requests in five-minute intervals or more, and run the indexer on a schedule.
 

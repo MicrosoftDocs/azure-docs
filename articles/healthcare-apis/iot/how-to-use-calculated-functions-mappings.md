@@ -103,7 +103,7 @@ When specifying the language to use for the expression, the below values are val
 
 ### Custom Functions
 
-A set of IoT connector Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JmesPath specification. For more information on Custom Functions, see [IoT connector customer functions](./iot-connector-custom-functions.md).
+A set of IoT connector Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JmesPath specification. For more information on Custom Functions, see [IoT connector Custom Functions](./how-to-use-custom-functions.md).
 
 ### Matched Token
 
