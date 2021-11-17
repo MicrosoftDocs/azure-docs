@@ -4,10 +4,6 @@ For important details on what this service does, how it works, and frequently as
 
 ## Prerequisites for provisioning to a SQL Database
 
->[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability.
-
-
 ### On-premises prerequisites
 
  - A target system, such as a SQL database, in which users can be created, updated, and deleted.
