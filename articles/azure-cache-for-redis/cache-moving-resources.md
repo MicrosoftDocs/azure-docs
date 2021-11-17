@@ -189,7 +189,7 @@ General steps to implement this option are:
 Once your new cache in the targeted region is running, delete the original instance.
 
 
-## Migrate programmatically
+## Migrate programmatically (All tiers)
 You can create a custom migration process by programmatically reading data from an existing cache and writing them into Azure Cache for Redis. This [open-source tool](https://github.com/deepakverma/redis-copy) can be used to copy data from one Azure Cache for Redis instance to an another instance in a different Azure Cache region. A [compiled version](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip) is available as well. You may also find the source code to be a useful guide for writing your own migration tool.
 
 > [!NOTE]
