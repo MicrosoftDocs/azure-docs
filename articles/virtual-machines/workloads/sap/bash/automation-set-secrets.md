@@ -1,5 +1,5 @@
 ---
-online version: https://github.com/Azure/sap-hana
+online version: https://github.com/Azure/sap-automation
 schema: 2.0.0
 author: kimforss
 ms.author: kimforss
@@ -32,14 +32,19 @@ Sets the secrets in Key Vault that the deployment automation requires.
 ### EXAMPLE 1
 
 ```bash
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret="<password>"
+export tenant_id=<tenant>
+export keyvault=<keyvault>
 
-set_secrets.sh --environment DEV                        \
-    --region weeu                                       \
-    --vault MGMTWEEUDEP00userABC                        \
-    --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
-    --spn_id yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy       \
-    --spn_secret ************************               \
-    --tenant_id zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz     
+set_secrets.sh --environment DEV   \
+    --region weeu                  \
+    --vault $keyvault              \
+    --subscription $subscriptionID \
+    --spn_id $appId                \
+    --spn_secret $spn_secret       \
+    --tenant_id $tenant_id
 ```
 
 ## Parameters
@@ -114,4 +119,4 @@ Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.
 ## Related links
 
-[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-automation)
