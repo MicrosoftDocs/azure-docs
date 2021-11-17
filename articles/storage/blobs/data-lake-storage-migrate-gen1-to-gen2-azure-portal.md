@@ -62,6 +62,9 @@ As you create the account, make sure to configure settings with the following va
 > [!NOTE]
 > The migration tool in the Azure portal doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection.
 
+> [!IMPORTANT]
+> Please ensure that you use a newly created Gen2 account that is empty. Please don’t migrate to a previously used Gen2 account.
+
 ## Verify RBAC role assignments
 
 For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role has been assigned to your Azure Active Directory (Azure AD) user identity in the scope of the storage account, parent resource group, or subscription.
@@ -100,7 +103,8 @@ If you perform a complete migration, data is copied from Gen1 to Gen2. Then, you
    > [!div class="mx-imgBorder"]
    > ![Checkbox to provide consent](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   While your data is being migrated, your Gen1 account becomes read-only, and your Gen2-enabled account is disabled. After the migration completes, you can read and write to both accounts.
+   > [!IMPORTANT] 
+   > While your data is being migrated, your Gen1 account becomes read-only, and your Gen2-enabled account is disabled. After the migration completes, you can read and write to both accounts.
 
    You can stop the migration at any time by selecting the **Stop migration** button.
 
@@ -128,9 +132,10 @@ If you perform a complete migration, data is copied from Gen1 to Gen2. Then, you
    > [!div class="mx-imgBorder"]
    > ![Consent checkbox](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   - While your data is being migrated, your Gen1 account becomes read-only, and the Gen2-enabled account is disabled.
-   - While the Gen1 URI is being redirected, both accounts are disabled.
-   - After the migration completes, your Gen1 account is disabled, and you can read and write to your Gen2-enabled account.
+   > [!IMPORTANT] 
+   > While your data is being migrated, your Gen1 account becomes read-only, and the Gen2-enabled account is disabled.
+   > While the Gen1 URI is being redirected, both accounts are disabled.
+   > After the migration completes, your Gen1 account is disabled, and you can read and write to your Gen2-enabled account.
 
    You can stop the migration at any time before the URI is redirected by selecting the **Stop migration** button.
 
@@ -200,6 +205,10 @@ Once the migration is complete, both in "Copy data" and "Complete migration" opt
 #### Gen1 doesn't have containers and Gen2 has them - what should I expect?
 
 When we copy the data over to your Gen2-enabled account, we automatically create a container named `Gen1`. If you choose to copy only data, then you can rename that container after the data copy is complete. If you perform a complete migration, and you plan to use the application compatibility layer, then you should avoid changing the container name. When you no longer want to use the compatibility layer, you can change the name of the container.
+
+#### What should I consider in terms of migration performance?
+
+When you copy the data over to your Gen2-enabled account two factors that can affect performance are the number of files and the amount of metadata that you have. For example, lots of small files can affect the performance of the migration.
 
 ## Next steps
 
