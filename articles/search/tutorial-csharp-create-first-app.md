@@ -10,6 +10,7 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2021
 ms.custom: devx-track-csharp
+
 ---
 
 # Tutorial: Create your first search app using the .NET SDK
