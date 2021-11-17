@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 11/17/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -75,10 +75,10 @@ The following sections describe current support for administrative unit scenario
 
 | Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
 | --- | --- | --- | --- |
-| Creating and deleting administrative units   |    Supported    |   Supported   |    Not supported |
-| Adding and removing administrative unit members individually    |   Supported    |   Supported   |    Not supported |
-| Adding and removing administrative unit members in bulk by using CSV files   |    Not supported     |  Supported   |    No plan to support |
-| Assigning administrative unit-scoped administrators  |     Supported    |   Supported    |   Not supported |
+| Creating and deleting administrative units   |    Supported    |   Supported   |    Supported |
+| Adding and removing administrative unit members individually    |   Supported    |   Supported   |    Supported |
+| Adding and removing administrative unit members in bulk   |    Not supported     |  Supported   |    Supported |
+| Assigning administrative unit-scoped administrators  |     Supported    |   Supported    |   Supported |
 | Adding and removing administrative unit members dynamically based on attributes | Not supported | Not supported | Not supported
 
 ### User management
@@ -93,7 +93,8 @@ The following sections describe current support for administrative unit scenario
 
 | Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
 | --- | --- | --- | --- |
-| Administrative unit-scoped management of group properties and members     |  Supported   |    Supported    |  Not supported |
+| Administrative unit-scoped creation and deletion of groups | Supported | Supported | Supported |
+| Administrative unit-scoped management of group properties and members     |  Supported   |    Supported    |  Supported |
 | Administrative unit-scoped management of group licensing   |    Supported  |    Supported   |   Not supported |
 
 Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure portal, PowerShell, and other Microsoft services.
