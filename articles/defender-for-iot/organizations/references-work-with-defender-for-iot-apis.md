@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 11/10/2021
+ms.date: 11/17/2021
 ms.topic: reference
 ---
 
