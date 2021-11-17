@@ -74,3 +74,8 @@ Details about the feature availability in the [UI Library is available here](mob
 > [!div class="nextstepaction"]
 
 For more information about how to start with the UI Mobile library composites, please follow [our Quickstart guide](../../quickstarts/ui-library/get-started-call.md).
+
+## Know issues
+
+- [iOS know issues](https://github.com/Azure/communication-ui-toolkit-ios-pr/wiki/Known-Issues)
+- [Android know issues](https://github.com/Azure/communication-ui-toolkit-android-pr/wiki/Known-Issues)

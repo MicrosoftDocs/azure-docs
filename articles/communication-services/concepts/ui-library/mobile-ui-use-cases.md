@@ -54,7 +54,7 @@ To enable Teams Interop, developers can use the calling composite, which will ta
 
 ## Theming
 
-The UI Library Calling Composite for iOS and Android provides interfaces for developers change the theme of the experience by passing in a primary color. The Composite uses that primary color to provide appropriate theming across the experience.
+The UI Library Calling Composite for iOS and Android provides the capability for developers to update the theme of the all experience by passing a primary color. The Composite uses that primary color to provide appropriate theming across the experience.
 
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
@@ -68,6 +68,7 @@ The calling composite offers to adapt to any screen size that would bring suppor
 |Split mode | Tablet mode|
 |---------|---------|
 | :::image type="content" source="../media/mobile-ui/meet-splitscreen.png" alt-text="split screen"::: |  :::image type="content" source="../media/mobile-ui/tablet-landscape.png" alt-text="tablet mode"::: |
+
 
 ## Recommended Architecture
 
