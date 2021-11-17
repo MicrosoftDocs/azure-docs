@@ -230,6 +230,7 @@ public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X5
 
 Instead of `app.AddInMemoryTokenCache();` you can use different caching serialization technologies, including no serialization, in memory, and distributed token cache storage provided by .NET.
 
+<a id='no-token-cache-serialization' />
 #### Token Cache without serialization
 
 You can specify that you don't want to have any token cache serialization and rely on MSAL.NET internal cache, if you:
