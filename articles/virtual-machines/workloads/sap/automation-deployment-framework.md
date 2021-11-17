@@ -10,10 +10,10 @@ ms.topic: conceptual
 ---
 # SAP deployment automation framework on Azure
 
-The [SAP deployment automation framework on Azure](https://github.com/Azure/sap-hana) is an open-source orchestration tool for
+The [SAP deployment automation framework on Azure](https://github.com/Azure/sap-automation) is an open-source orchestration tool for
 deploying, installing and maintaining SAP environments. You can create infrastructure for SAP landscapes based on SAP HANA and NetWeaver with AnyDB on any of the SAP-supported operating system versions and deploy them into any Azure region.
 
-The [automation framework](https://github.com/Azure/sap-hana) has two main components:
+The [automation framework](https://github.com/Azure/sap-automation) has two main components:
 -	Deployment infrastructure (control plane) 
 -	SAP Infrastructure (SAP Workload)
 
