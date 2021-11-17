@@ -9,12 +9,19 @@ ms.topic: how-to
 ms.date: 03/24/2021
 ms.custom: devx-track-java
 ---
+# Overview
+
+This article describes what the secure communication of Azure Spring Cloud like and the following picture shows the overall secure communication support in Azure Spring Cloud.
+
+![Graph of communications secured by TLS.](media/enable-end-to-end-tls/secured-tls.png)
 
 # Enable end-to-end TLS for an application
 
-This topic shows you how to enable end-to-end SSL/TLS to secure traffic from an ingress controller to applications that support HTTPS. After you enable end-to-end TLS and load a cert from keyvault, all communications within Azure Spring Cloud are secured with TLS.
+This topic shows you how to enable end-to-end SSL/TLS to secure traffic from an ingress controller to applications that support HTTPS.
 
-![Graph of communications secured by TLS.](media/enable-end-to-end-tls/secured-tls.png)
+After you enable end-to-end TLS, when external app (Mobile or Browser and so on) communicate with Azure Spring Cloud using TLS (label 1 in overview), the communication between your application and ingress controller are secured with TLS(label 2 in overview), too. 
+ 
+And under this condition, External app would receive the certificate return from your application towards the forwarding of ingress controller(spring cloud gateway in overview). 
 
 ## Prerequisites
 
@@ -57,6 +64,27 @@ Use the command `az spring-cloud app show` to check the value of `enableEndToEnd
 ```azurecli
 az spring-cloud app show -n app_name -s service_name -g resource_group_name
 ```
+
+# TLS communications between your application and external services
+
+The communication between your application and external service(label 5 in overview) could be fully managed by users.
+
+To reduce developers' effort, Azure Spring Cloud provides a convenient way to help users manage their public certificates and load them into  application's trust store. 
+
+You could follow [Use TLS/SSL certificates in an application](./how-to-use-tls-certificate.md) to use this feature.
+
+# TLS communications between Azure Spring Cloud components
+
+## TLS communications between applications and Azure Spring Cloud service runtime
+
+TLS communication between your application and Azure Spring Cloud service runtime like config server, service registry and eureka server (label 3 in overview) is fully took care of by Azure Spring Cloud and users do not need to concern about them.
+
+Additionally, instead of using simple TLS for communications between applications, Azure Spring Cloud uses mutual TLS. 
+
+## TLS communications between applications
+
+The communication between your applications (label 4 in overview) is fully managed by users and users could also take the convenience of Azure Spring Cloud provided feature to load certificates into application's trust store.
+
 
 ## Next steps
 
