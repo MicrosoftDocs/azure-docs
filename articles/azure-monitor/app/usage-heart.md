@@ -85,7 +85,7 @@ HEART Framework measures engagement using the concept of activity (intentional u
 2. **Activity Breadth** – Measures the number of features users interact with over a given time period. For example, users interacted with a total of 5 features in June 2021.
 3. **Activity Depth** – Measures the number of features users interact with each time they launch the product. For example, users interacted with 2 features on every launch.
 
-Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, making it an important metric to track. Wheareas for a product like a 'Paycheck portal', measurement would make more sense at a monthly level.  
+Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, making it an important metric to track. Wheareas for a product like a 'Paycheck Portal', measurement would make more sense at a monthly or weekly level.  
 
 ### Defining Active Users	
 Any user who performs an intentional action such as clicking a button or typing an input is counted as an active user. **For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
