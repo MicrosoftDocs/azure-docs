@@ -70,7 +70,25 @@ Optionally, you can upload a certificate (public key) and use the Certificate ID
 
 ## API permissions
 
-Permissions for the Healthcare APIs are managed through RBAC. For more details, visit [Configure Azure RBAC for the FHIR service](./fhir/configure-azure-rbac-for-fhir.md).
+The following steps are required for the DICOM service, but optional for the FHIR service. In addition, user access permissions or role assignments for the Healthcare APIs are managed through RBAC. For more details, visit [Configure Azure RBAC for the Healthcare APIs](./fhir/configure-azure-rbac.md).
+
+1. Select the **API permissions** blade.
+
+   [ ![Add API permissions](media/dicom-add-api-permissions.png) ](media/dicom-add-api-permissions.png#lightbox)
+
+2. Select **Add a permission**.
+
+   If you're using the Azure Healthcare APIs, you'll add a permission to the DICOM service by searching for **Azure API for DICOM** under **APIs my organization** uses. 
+
+   [ ![Search API permissions](media/dicom-search-apis-permissions.png) ](media/dicom-search-apis-permissions.png#lightbox)
+
+   The search result for Azure API for DICOM will only return if you've already deployed the DICOM service in the workspace.
+
+   If you're referencing a different resource application, select your DICOM API Resource Application Registration that you created previously under **APIs my organization**.
+
+3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
+
+   [ ![Select permissions scopes.](media/dicom-select-scopes.png) ](media/dicom-select-scopes.png#lightbox)
 
 >[!NOTE]
 >Use  grant_type of client_credentials when trying to otain an access token for the FHIR service using tools such as Postman or Rest Client. For more details, visit [Access using Postman](use-postman.md) and [Accessing the Healthcare APIs using the REST Client Extension in Visual Studio Code](using-rest-client.md).
