@@ -116,11 +116,11 @@ For more information, see [Data collection best practices](best-practices-data.m
 
 For more information, see:
 
-- **Alternate deployment options**:
+- **Alternate deployment / management options**:
 
-    - [Deploy Microsoft Sentinel via API](/rest/api/securityinsights/)
-    - [Deploy Microsoft Sentinel via PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
     - [Deploy Microsoft Sentinel via ARM template](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+    - [Manage Microsoft Sentinel via API](/rest/api/securityinsights/)
+    - [Manage Microsoft Sentinel via PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
 
 - **Get started**:
     - [Get started with Microsoft Sentinel](get-visibility.md)
