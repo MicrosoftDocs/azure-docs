@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 11/16/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
@@ -17,11 +17,72 @@ ms.custom: ignite-fall-2021
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## November 2021
+
+ The next beta.2 version of  the Azure Form Recognizer SDKs have been released. The new beta release that incorporates bug fixes and minor feature updates.
+
+### Form Recognizer v3.0 preview release (beta.2)
+
+### [**C#**](#tab/csharp)
+
+| [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.2) | [**Changelog**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md) | [**API reference documentation**](dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview)
+
+#### Bugs Fixed
+
+`BuildModelOperation` and `CopyModelOperation`  now populate the `PercentCompleted` property, instead returning a constant value of 0.
+
+### [**Java**](#tab/java)
+
+ | [**Package (Maven)**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.2) | [**Changelog**](https://oss.sonatype.org/service/local/repositories/releases/content/com/azure/azure-ai-formrecognizer/4.0.0-beta.2/azure-ai-formrecognizer-4.0.0-beta.2-changelog.md) | [**API reference documentation**](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.2/index.html)
+
+#### Feature updates
+
+* `HttpResponseException`  updated to use azure-core `ResponseError`.
+
+* Added client validation to check for empty `modelId` passed by the user for `beginAnalyzeDocument` methods.
+
+#### Breaking changes
+
+* `DocumentAnalysisException`  renamed to `DocumentModelOperationException`.
+
+* `FormRecognizerError`  renamed to `DocumentModelOperationError`.
+
+* `InnerError` renamed to `DocumentModelOperationInnerError`.
+
+### [**JavaScript**](#tab/javascript)
+
+| [**Package (NPM)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.2) | [**Changelog**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md) | [**API reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview) |
+
+#### Feature updates
+
+* Added `words` method to `DocumentLine` interface.
+
+* Added `createdOn`  (date created) and `lastUpdatedOn`  (time last modified) properties to `DocumentAnalysisPollOperationState` and `TrainingPollOperationState`.
+
+#### Bugs fixed
+
+* Improved the handling of long-running operations (analysis and model creation operations). Clients will no longer attempt to parse model IDs and accept operation-location fields verbatim.
+
+#### Breaking changes
+
+* The `operationId` field for `DocumentAnalysisPollOperationState` has been replaced with the `operationLocation` field which contains the full operation URL not the operation GUID.
+
+### [**Python**](#tab/python)
+
+| [**Package (PyPI)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b2/) | [**Changelog**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b2/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md) | [**API reference documentation**](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/latest/azure.ai.formrecognizer.html)
+
+#### Feature updates
+
+* Added `get_words()` method to `DocumentLine` model. *See* our [How to get words contained in a Document line](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_get_words_on_document_line.py) sample on Github.
+
+
+---
+
 ## October 2021
 
-### Form Recognizer new preview release
+### Form Recognizer v3.0 preview release (beta.1)
 
- Form Recognizer new preview release introduces several new features and capabilities:
+ Form Recognizer v3.0 preview release introduces several new features and capabilities:
 
 * [**General document**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Hotel receipt**](concept-receipt.md) model added to prebuilt receipt processing.
