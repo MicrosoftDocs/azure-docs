@@ -1,7 +1,7 @@
 ---
 external help file: SAPDeploymentUtilities-help.xml
 Module Name: SAPDeploymentUtilities
-online version: https://github.com/Azure/sap-hana
+online version: https://github.com/Azure/sap-automation
 schema: 2.0.0
 author: kimforss
 ms.author: kimforss
@@ -285,4 +285,4 @@ Licensed under the MIT license.
 
 ## Related links
 
-[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-automation)

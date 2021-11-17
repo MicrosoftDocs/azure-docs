@@ -35,13 +35,13 @@ Clone the repository and prepare the execution environment by using the followin
 
 ```bash
 mkdir ~/Azure_SAP_Automated_Deployment; cd $_
-git clone https://github.com/Azure/sap-hana.git 
+git clone https://github.com/Azure/sap-automation.git 
 ```
 
 Prepare the environment using the following steps:
 
 ```bash
-export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-hana
+export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-automation
 export ARM_SUBSCRIPTION_ID=<subscriptionID>
 ```
 > [!NOTE]
@@ -52,7 +52,7 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
 
 ```
 
@@ -64,19 +64,19 @@ mkdir C:\Azure_SAP_Automated_Deployment
     
 cd Azure_SAP_Automated_Deployment
     
-git clone https://github.com/Azure/sap-hana.git 
+git clone https://github.com/Azure/sap-automation.git 
 ```
 
 Import the PowerShell module
 
 ```powershell
-Import-Module             C:\Azure_SAP_Automated_Deployment\sap-hana\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilitiespsd1
+Import-Module             C:\Azure_SAP_Automated_Deployment\sap-automation\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilitiespsd1
 ```
 
 ---
 
 > [!TIP]
-> The deployer already clones [SAP deployment automation framework repository](https://github.com/Azure/sap-hana). 
+> The deployer already clones [SAP deployment automation framework repository](https://github.com/Azure/sap-automation). 
 
 ## Copy the samples
 
@@ -87,7 +87,7 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
 ```
 # [Windows](#tab/windows)
 
@@ -95,7 +95,7 @@ cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
 cd C:\Azure_SAP_Automated_Deployment
 mkdir WORKSPACES
 
-xcopy sap-hana\deploy\samples\WORKSPACES WORKSPACES
+xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
 ```
 
 ---

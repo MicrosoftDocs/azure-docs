@@ -1,15 +1,8 @@
 ---
 title: Use entities to classify and analyze data in Microsoft Sentinel | Microsoft Docs
 description: Assign entity classifications (users, hostnames, IP addresses) to data items in Microsoft Sentinel, and use them to compare, analyze, and correlate data from multiple sources.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
