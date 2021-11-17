@@ -6,7 +6,7 @@ author: luisquintanilla
 ms.author: luquinta
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/21/2021
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.custom: ignite-fall-2021
 ---
@@ -248,9 +248,11 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
 1. Enter a compute name and select your Azure Arc-enabled Kubernetes cluster from the dropdown.
 
-   **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) for more information.
+    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified kubernetes namespace in the cluster.
 
-   ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png)
+    * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) for more information.
+
+    ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png)
 
 1. Select **Attach**
 
