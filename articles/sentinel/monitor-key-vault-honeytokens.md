@@ -7,8 +7,6 @@ author: batamig
 manager: rkarlin
 editor: ''
 
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -24,7 +22,7 @@ ms.author: bagol
 > The Microsoft Sentinel Deception (Honey Tokens) solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-This article describes how to use the **Microsoft Sentinel Deception (Honey Tokens)** solution to plant decoy [Azure Key Vault](/azure/key-vault/) keys and secrets, called *honeytokens*, into existing workloads.
+This article describes how to use the **Microsoft Sentinel Deception (Honey Tokens)** solution to plant decoy [Azure Key Vault](../key-vault/index.yml) keys and secrets, called *honeytokens*, into existing workloads.
 
 Use the [analytics rules](detect-threats-built-in.md), [watchlists](watchlists.md), and [workbooks](monitor-your-data.md) provided by the solution to monitor access to the deployed honeytokens.
 
@@ -63,7 +61,7 @@ The following steps describe specific actions required for the **Microsoft Senti
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/prerequisites.png" alt-text="Screenshot of the prerequisites tab showing the updated curl command.":::
 
-1. Select **Click here to open a cloud shell** to open a Cloud Shell tab. Sign in if prompted, and then run the command displayed.
+1. <a name="secret"></a>Select **Click here to open a cloud shell** to open a Cloud Shell tab. Sign in if prompted, and then run the command displayed.
 
     The script you run creates an Azure AD (AAD) function app, which will deploy your honeytokens.    For example:
 
@@ -99,7 +97,7 @@ The following steps describe specific actions required for the **Microsoft Senti
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/grant-admin-access.png" alt-text="Screenshot of the grant admin consent for your directory button.":::
 
-    For more information, see [Grant admin consent in App registrations](/azure/active-directory/manage-apps/grant-admin-consent).
+    For more information, see [Grant admin consent in App registrations](../active-directory/manage-apps/grant-admin-consent.md).
 
 1. Back in Microsoft Sentinel again, on the **Workbooks**, **Analytics**, **Watchlists**, and **Playbooks** tabs, note the security content that will be created, and modify the names as needed.
 
@@ -112,12 +110,12 @@ The following steps describe specific actions required for the **Microsoft Senti
 
     |Field  |Description  |
     |---------|---------|
-    | **Service plan**     |   Select whether you want to use a **Premium** or **Consumption** plan for your function app. For more information, see [Azure Functions Consumption plan hosting](/azure/azure-functions/consumption-plan) and [Azure Functions Premium plan](/azure/azure-functions/functions-premium-plan).      |
+    | **Service plan**     |   Select whether you want to use a **Premium** or **Consumption** plan for your function app. For more information, see [Azure Functions Consumption plan hosting](../azure-functions/consumption-plan.md) and [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md).      |
     | **Should a new KeyVault be created**     |    Select **new** to create a new key vault for your app's secret, or **existing** to use an already existing key vault.   |
     | **KeyVault name**     | Displayed only when you've selected to create a new key vault. <br><br>Enter the name of the key vault you want to use to store your app's secret. This name must be globally unique.     |
     | **KeyVault resource group**     |Displayed only when you've selected to create a new key vault. <br><br> Select the name of the resource group where you want to store the key vault for your application key.      |
     | **Existing key vaults** | Displayed only when you've selected to use an existing key vault. Select the key vault you want to use. |
-    | **KeyVault secret name**     |   Enter the name of the secret used to store the  client secret.      |
+    | **KeyVault secret name**     |  Enter a name for the secret where you want to store your AAD app's secret. You'd created this AAP app back in [step 3](#secret). |
 
     **Honeytoken configuration**: The following fields define settings used for the keys and secrets used in your honeytokens. Use naming conventions that will blend in with your organization's naming requirements so that attackers will not be able to tell the difference.
 
@@ -205,7 +203,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
         - Select **Click to add a honeytoken to the key-vault** to open Azure Key Vault. Add a new honeytoken, like a new secret, to the configured key vault.
         - Select **Click to add monitoring in the SOC**. If successful, a confirmation message is displayed on a new tab: `Honey-token was successfully added to monitored list`.
 
-        For more information, see the [Azure Key Vault documentation](/azure/key-vault/secrets/about-secrets).
+        For more information, see the [Azure Key Vault documentation](../key-vault/secrets/about-secrets.md).
 
     > [!NOTE]
     > Make sure to select the **Disable back your user in the key-vault's policy if needed** link to remove the access policy created grant rights to create the honeytokens.
@@ -248,7 +246,7 @@ You may need to wait a few minutes as the data is populated and permissions are 
 
     For example, select your honeytoken and then select **Download public key**. This action creates a `KeyGet` or `SecretGet` log that triggers an alert in Microsoft Sentinel.
 
-    For more information, see the [Key Vault documentation](/azure/key-vault/).
+    For more information, see the [Key Vault documentation](../key-vault/index.yml).
 
 1. Back in Microsoft Sentinel, go to the **Incidents** page. You might need to wait five minutes or so, but you should should see a new incident, named for example **HoneyTokens: KeyVault HoneyTokens key accessed**.
 
@@ -312,9 +310,9 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
         On the **Remediation** tab, make sure to select the **Create a remediation task** option to apply the tag to existing key vaults.
 
-    For more information, see the [Azure Policy documentation](/azure/governance/policy/assign-policy-portal).
+    For more information, see the [Azure Policy documentation](../governance/policy/assign-policy-portal.md).
 
-1. In Azure **Security Center**, add an audit recommendation to all key vaults in the selected scope:
+1. In **Microsoft Defender for Cloud**, add an audit recommendation to all key vaults in the selected scope:
 
     1. Select **Regulatory compliance > Manage compliance policies**, and then select your scope.
 

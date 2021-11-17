@@ -46,7 +46,7 @@ Once your model has been published, you can retrieve the required information by
 
 ## Submit data to the service
 
-This guide assumes that you already constructed a **[CustomVisionPredictionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)** object, named `predictionClient`, with your Custom Vision prediction key and endpoint URL. For instructions on how to set up this feature, follow one of the [quickstarts](quickstarts/image-classification.md).
+This guide assumes that you already constructed a **[CustomVisionPredictionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)** object, named `predictionClient`, with your Custom Vision prediction key and endpoint URL. For instructions on how to set up this feature, follow one of the [quickstarts](quickstarts/image-classification.md).
 
 In this guide, you'll use a local image, so download an image you'd like to submit to your trained model. The following code prompts the user to specify a local path and gets the bytestream of the file at that path.
 
@@ -67,7 +67,7 @@ private static byte[] GetImageAsByteArray(string imageFilePath)
 }
 ```
 
-The **[ClassifyImageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclientextensions.classifyimageasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_CustomVisionPredictionClientExtensions_ClassifyImageAsync_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_ICustomVisionPredictionClient_System_Guid_System_String_System_IO_Stream_System_String_System_Threading_CancellationToken_)** method takes the project ID and the locally stored image, and scores the image against the given model.
+The **[ClassifyImageAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclientextensions.classifyimageasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_CustomVisionPredictionClientExtensions_ClassifyImageAsync_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_ICustomVisionPredictionClient_System_Guid_System_String_System_IO_Stream_System_String_System_Threading_CancellationToken_)** method takes the project ID and the locally stored image, and scores the image against the given model.
 
 ```csharp
 // Make a prediction against the new project
@@ -77,7 +77,7 @@ var result = predictionApi.ClassifyImageAsync(project.Id, publishedModelName, by
 
 ## Determine how to process the data
 
-You can optionally configure how the service does the scoring operation by choosing alternate methods (see the methods of the **[CustomVisionPredictionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet)** class). 
+You can optionally configure how the service does the scoring operation by choosing alternate methods (see the methods of the **[CustomVisionPredictionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet)** class). 
 
 You can use a non-async version of the method above for simplicity, but it may cause the program to lock up for a noticeable amount of time.
 
@@ -87,7 +87,7 @@ The **-WithHttpMessages** methods return the raw HTTP response of the API call.
 
 ## Get results from the service
 
-The service returns results in the form of an **[ImagePrediction](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-dotnet)** object. The **Predictions** property contains a list of **[PredictionModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel?view=azure-dotnet)** objects, which each represents a single object prediction. They include the name of the label and the bounding box coordinates where the object was detected in the image. Your app can then parse this data to, for example, display the image with labeled object fields on a screen. 
+The service returns results in the form of an **[ImagePrediction](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-dotnet)** object. The **Predictions** property contains a list of **[PredictionModel](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel?view=azure-dotnet)** objects, which each represents a single object prediction. They include the name of the label and the bounding box coordinates where the object was detected in the image. Your app can then parse this data to, for example, display the image with labeled object fields on a screen. 
 
 ## Next steps
 
