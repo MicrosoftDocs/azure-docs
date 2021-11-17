@@ -168,6 +168,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, a user called B.Simon is created in Dropbox Business. Dropbox Business supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Dropbox Business, a new one is created after authentication.
 
+This application also supports automatic user provisioning. See how to enable auto provisioning for [Dropbox Business](dropboxforbusiness-provisioning-tutorial.md).
+
 >[!Note]
 >If you need to create a user manually, Contact [Dropbox Business Client support team](https://www.dropbox.com/business/contact)
 
