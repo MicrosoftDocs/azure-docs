@@ -68,7 +68,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
         --subscription $subscriptionID                                                                           \
         --spn_id $appID                                                                                          \
         --spn_secret  $spn_secret                                                                                \ 
-        --tenant_id $tenant
+        --tenant_id $tenant_id
 ```
 
 # [Windows](#tab/windows)
