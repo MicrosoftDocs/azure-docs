@@ -42,7 +42,7 @@ The following table describes the recommended sizing for your virtual machine, d
 The following SAP log change requests are required for the SAP solution, depending on your SAP Basis version:
 
 - **SAP Basis versions 7.50 and higher**,  install NPLK900144
-- **For lower versions**,  install NPLK900146
+- **For lower versions**,  install NPLK900169
 - **To create an SAP role with the required authorizations**, for any supported SAP Basis version, install NPLK900163. For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system) and [Required ABAP authorizations](#required-abap-authorizations).
 
 > [!NOTE]
