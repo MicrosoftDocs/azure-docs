@@ -71,5 +71,5 @@ curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dico
 
 - [Access FHIR using Postman](use-postman.md)
 - [Access FHIR sing Rest Client](using-rest-client.md)
-- [Access DICOM using cUrl](../dicom/dicomweb-standard-apis-curl.md)
+- [Access DICOM using cUrl](dicom/dicomweb-standard-apis-curl.md)
 
