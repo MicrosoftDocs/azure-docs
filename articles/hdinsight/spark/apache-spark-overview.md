@@ -13,18 +13,24 @@ ms.date: 11/15/2020
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure HDInsight is the Microsoft implementation of Apache Spark in the cloud, and is one of several Spark offerings in Azure.
 
-* Apache Spark in Azure HDInsight makes it easy to create and configure a full Spark cluster in Azure. Allowing you to customize and leverage a full Spark environment within Azure.
+* Apache Spark in Azure HDInsight makes it easy to create and configure Spark clusters, allowing you to customize and leverage a full Spark environment within Azure.
 
-* [Spark pools in Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) allow data to be loaded, modeled, processed, and distributed for faster analytic insight on a managed Spark pool.
+* [Spark pools in Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) use managed Spark pools to allow data to be loaded, modeled, processed, and distributed for analytic insights within Azure.
 
-* [Apache Spark on Azure Databricks](/databricks/getting-started/spark.md) provides an interactive workspace that enables collaboration between your users to read data from multiple data sources and turn it into breakthrough insights using Spark.
+* [Apache Spark on Azure Databricks](/databricks/getting-started/spark.md) uses Spark clusters to provide an interactive workspace that enables collaboration between your users to read data from multiple data sources and turn it into breakthrough insights.
 
-* [Spark Activies in Azure Data Factory](../../data-factory/tutorial-transform-data-spark-powershell.md) allow you to leverage Spark analytics in your data pipeline, using on-demand or prexisting Spark clusters.
+* [Spark Activities in Azure Data Factory](../../data-factory/transform-data-using-spark.md) allow you to leverage Spark analytics in your data pipeline, using on-demand or prexisting Spark clusters.
 
 
-With Apache Spark in Azure HDInsight, you can store and work with data all in Azure. Spark clusters in HDInsight are compatible with [Azure Blob storage](../../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md). So you can use HDInsight Spark clusters to process your data stored in Azure. For the components and the versioning information, see [Apache Hadoop components and versions in Azure HDInsight](../hdinsight-component-versioning.md).
+With Apache Spark in Azure HDInsight, you can store and process your data all within Azure. Spark clusters in HDInsight are compatible with [Azure Blob storage](../../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md), allowing you to leverage Spark processing on your existing data stores.
 
 :::image type="content" source="./media/apache-spark-overview/hdinsight-spark-overview.svg" alt-text="Spark: a unified framework" lightbox="./media/apache-spark-overview/hdinsight-spark-overview.svg":::
+
+To get started with Apache Spark in Azure HDInsight, follow our [tutorial to create HDInsight Spark clusters](apache-spark-jupyter-spark-sql-use-portal.md)
+
+For information about Apache Spark and how it interacts with Azure, continue reading the article below.
+
+For the components and the versioning information, see [Apache Hadoop components and versions in Azure HDInsight](../hdinsight-component-versioning.md).
 
 ## What is Apache Spark?
 
