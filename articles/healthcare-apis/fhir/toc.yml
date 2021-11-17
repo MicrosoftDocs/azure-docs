@@ -66,16 +66,6 @@ items:
       href: configure-azure-rbac-for-fhir.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
-  
-  - name: Using Azure Active Directory (AAD) for FHIR service
-    expanded: true
-    items:
-    - name: AAD for FHIR service
-      href: azure-active-directory-identity-configuration.md
-    - name: Access token validation
-      href: fhir-service-access-token-validation.md
-    - name: Get access token using CLI
-      href: get-healthcare-apis-access-token-cli.md
 
   - name: Diagnostic logging
     expanded: true
