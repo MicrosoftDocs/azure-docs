@@ -9843,7 +9843,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-supportability/low-priority-quota.md",
-      "redirect_url": "/azure/azure-portal/supportability/low-priority-quota",
+      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
       "redirect_document_id": true
     },
     {
@@ -9875,6 +9875,11 @@
       "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md",
       "redirect_url": "/azure/azure-portal/supportability/sku-series-unavailable",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/low-priority-quota.md",
+      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/managed-applications/concepts-custom-providers-built-in-policy.md",
