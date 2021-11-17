@@ -218,7 +218,7 @@ In this tutorial, you learn how to:
    ```
 
    > [!NOTE]
-   > This function is actually using `WebPubSubTrigger`. However, since the service is still in preview, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to initialize the function template and change trigger type in code.
+   > This function is actually using `WebPubSubTrigger`. However, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to initialize the function template and change trigger type in code.
 
    # [JavaScript](#tab/javascript)
    - Update `message/function.json` and copy following json codes.
