@@ -16,7 +16,7 @@ HEART is an acronym standing for Happiness, Engagement, Adoption, Retention, and
  
 
 - **Happiness**: Measure of user attitude  
-- **Engagement**: Level of user involvement 
+- **Engagement**: Level of active user involvement 
 - **Adoption**: Target audience penetration
 - **Retention**: Rate at which users return  
 - **Task Success**: Productivity empowerment 
@@ -61,32 +61,34 @@ We recommend reading through the content in each tab to get a detailed understan
 - **Engagement** -  Frequency, depth and breadth of usage. 
 - **Retention** - Repeat usage 
 - **Task Success** - Enabling understanding of user flows and their time distributions. 
-- **Happiness** -  We recommend using a survey tool to measure CSAT/NSAT over a 5 point scale. In this tab, we have provided the likelihood of happiness by using usage and performance metrics. 
+- **Happiness** -  We recommend using a survey tool to measure customer satisfaction score (CSAT) over a 5 point scale. In this tab, we have provided the likelihood of happiness by using usage and performance metrics. 
 - **Feature Metrics** - Enables understanding of HEART metrics at feature granularity. 
 
 The below section describes these five dimensions in detail:
 
 ## Happiness
 ### Defining Happiness	
-Happiness is a user-reported dimension that measures how users feel about the experience offered to them. 
+Happiness is a user-reported dimension that measures how users feel about the product offered to them. 
 
 ### Measuring Happiness
-A common approach to measure this dimension is to ask users a Net Promoter Score (NPS) question such as “Would you recommend this experience to a coworker?”. Users' responses on a 3 or a 5-point scale (for example, no, maybe and yes) are aggregated to create an experience-level score ranging from 1-5 (with 5 being the highest). As user-initiated feedback tends to be negatively biased, HEART tracks happiness from surveys displayed to users at pre-defined intervals.
+A common approach to measure this dimension is to ask users a Customer Satisfaction (CSAT) question such as “How satisfied are you with this product?”. Users' responses on a 3 or a 5-point scale (for example, no, maybe and yes) are aggregated to create an product-level score ranging from 1-5 (with 5 being the highest). As user-initiated feedback tends to be negatively biased, HEART tracks happiness from surveys displayed to users at pre-defined intervals.
 
 ### User Sentiment Data
-Refer to the [Azure Monitor documentation regarding custom sources](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources#custom-sources) to upload user sentiment data to calculate happiness metrics. Common happiness metrics include "Average Star Rating", "Net Promoter Score", etc.
+Refer to the [Azure Monitor documentation regarding custom sources](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources#custom-sources) to upload user sentiment data to calculate happiness metrics. Common happiness metrics include "Average Star Rating", "Customer Satisfaction Score", etc.
 
 
 
 ## Engagement
 ### Measuring Engagement
-It is challenging to measure engagement generically because engagement is driven both by expected usage and actual usage. While an experience such as Microsoft Teams would have high daily usage as employees rely on Teams for daily communication, other experiences might expect usage at a weekly or even monthly cadence (such as a rent payment portal). For this reason, the HEART Framework measures engagement using the concept of active users (users who voluntarily interact with the experiences) and will be assessing engagement by breaking down active usage into three sub-dimensions: 
-1. Activity Depth – How many features are users leveraging each time the user interacts with the experience?
-2. Activity Breadth – Over a given time period, how many features of the experience is a user leveraging?
-3. Activity Frequency – How often does a user interact with the experience – daily, weekly, monthly?
+HEART Framework measures engagement using the concept of activity (intentional user actions such as clicks). Active usage can be broken down into three sub-dimensions: 
+1. **Activity Frequency** – Measures how often a user interacts with the product (daily, weekly, monthly).
+2. **Activity Breadth** – Measures the number of features users interact with over a given time period. For example, users interacted with a total of 5 features in June 2021.
+3. **Activity Depth** – Measures the number of features users interact with each time they launch the product. For example, users interacted with 2 features on every launch.
+
+Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, making it an important metric to track. Wheareas for a product like a 'Paycheck portal', measurement would make more sense at a monthly level.  
 
 ### Defining Active Users	
-Any user who performs a user-initiated action like clicking a button, typing an input, etc. is counted as an active user. While aware users includes all users who have loaded the experience, active users must have performed an intentional action. This workbook considers any telemetry event with an actionType as an "intentional action". **For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
+Any user who performs an intentional action such as clicking a button or typing an input is counted as an active user. **For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
 
 
 
@@ -106,20 +108,20 @@ A Retained User is an active user who was active both this reporting period and 
 
 | Metric         | Definition                                                                          | Question Answered                                              |
 |----------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| Retained users | Count of active users who were also Active the previous period                      | How many users are staying engaged with the experience?        |
-| Retention      | Proportion of active users from the previous period who are also Active this period | What percent of users are staying engaged with the experience? |
+| Retained users | Count of active users who were also Active the previous period                      | How many users are staying engaged with the product?        |
+| Retention      | Proportion of active users from the previous period who are also Active this period | What percent of users are staying engaged with the product? |
 
 
 
 
 ## Task Success
 ### Defining Task Success
-Many experiences include structures designed to funnel users through completing a task. Some examples include the following: 
+Many products include structures designed to funnel users through completing a task. Some examples include the following: 
 * *Adding items to a cart* -> *purchasing items from the cart*
 * *Searching a keyword* -> *clicking on a result*
 * *Initiating a new account* -> *completing account registration* 
 
-Task Success tracks whether users can perform a task efficiently and effectively using the capabilities provided by the experience. 
+Task Success tracks whether users can perform a task efficiently and effectively using the capabilities provided by the product. 
 
 ### Measuring Task Success
 A successful task meets 3 requirements:
