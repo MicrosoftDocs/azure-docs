@@ -42,7 +42,7 @@ If you keep this default value, the application registration is a **confidential
 
 [ ![Screenshot of confidential client application.](media/register-application-five.png) ](media/register-application-five.png#lightbox)
 
-If you change the default value to "Yes", the application registration is a **public client application** and a certificate or secret is not required. The "Yes" value is useful when you want to use the client application in your mobile app or a JavaScript app where you do not want to store any secrets.
+If you change the default value to "Yes" for the "Allow public client flows" option in the advanced setting, the application registration is a **public client application** and a certificate or secret is not required. The "Yes" value is useful when you want to use the client application in your mobile app or a JavaScript app where you do not want to store any secrets.
 
 For tools that require a redirect URL, select **Add a platform** to configure the platform.
 
