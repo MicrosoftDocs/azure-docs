@@ -5,7 +5,7 @@ services: load-balancer
 author: anavinahar
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 11/17/2021
 ms.author: anavin
 ---
 # What's new in Azure Load Balancer?
