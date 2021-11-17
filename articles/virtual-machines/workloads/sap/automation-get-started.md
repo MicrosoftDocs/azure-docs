@@ -35,7 +35,7 @@ Clone the repository and prepare the execution environment by using the followin
 
 ```bash
 mkdir ~/Azure_SAP_Automated_Deployment; cd $_
-git clone https://github.com/Azure/sap-hana.git 
+git clone https://github.com/Azure/sap-automation.git 
 ```
 
 Prepare the environment using the following steps:
@@ -64,7 +64,7 @@ mkdir C:\Azure_SAP_Automated_Deployment
     
 cd Azure_SAP_Automated_Deployment
     
-git clone https://github.com/Azure/sap-hana.git 
+git clone https://github.com/Azure/sap-automation.git 
 ```
 
 Import the PowerShell module

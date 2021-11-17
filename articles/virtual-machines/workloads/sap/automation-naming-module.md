@@ -81,7 +81,8 @@ module "sap_namegenerator" {
   db_server_count  = var.database_server_count
   app_server_count = try(local.application.application_server_count, 0)
   web_server_count = try(local.application.webdispatcher_count, 0)
-  scs_server_count = local.application.scs_high_availability ? 2 * local.application.scs_server_count : local.application.scs_server_count  app_zones        = local.app_zones
+  scs_server_count = local.application.scs_high_availability ? 2 * local.application.scs_server_count : local.application.scs_server_count  
+  app_zones        = local.app_zones
   scs_zones        = local.scs_zones
   web_zones        = local.web_zones
   db_zones         = local.db_zones
@@ -98,13 +99,15 @@ Next, you need to point your other Terraform module files to your custom naming 
 - `deploy\terraform\run\sap_library\module.tf`
 - `deploy\terraform\run\sap_deployer\module.tf`
 
-For each file, change the source for the module `sap_namegenerator` to point to your new naming module's location. For example `module "sap_namegenerator" { source = "../../terraform-units/modules/sap_namegenerator"` becomes `module "sap_namegenerator" { source = "../../../../Contoso_naming"`.
+For each file, change the source for the module `sap_namegenerator` to point to your new naming module's location. For example:
+
+`module "sap_namegenerator" { source = "../../terraform-units/modules/sap_namegenerator"` becomes `module "sap_namegenerator" { source = "../../../../Contoso_naming"`.
 
 ## Change resource group naming logic
 
 To change your resource group's naming logic, navigate to your custom naming module folder (for example, `Workspaces\Contoso_naming`). Then, edit the file `resourcegroup.tf`. Modify the following code with your own naming logic.
 
-```json
+```terraform
 locals {
 
   // Resource group naming
@@ -135,7 +138,7 @@ To change your resource suffixes, navigate to your custom naming module folder (
 > Only change the map **values**. Don't change the map **key**, which the Terraform code uses.
 > For example, if you want to rename the administrator network interface component, change `"admin-nic"           = "-admin-nic"` to `"admin-nic"           = "yourNICname"`.
 
-```json
+```terraform
 variable resource_suffixes {
   type        = map(string)
   description = "Extension of resource name"
