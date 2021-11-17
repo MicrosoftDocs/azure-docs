@@ -102,7 +102,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 <a name="dependencies"></a>
-## Configure third-party firewall with your ASE
+## Configuring third-party firewall with your ASE
 
 The following information is only required if you wish to configure a firewall appliance other than Azure Firewall. For Azure Firewall see [the section above](#configuring-azure-firewall-with-your-ase).
 
@@ -279,7 +279,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## Configure a firewall with ASE in US Gov regions
+## Configuring a firewall with ASE in US Gov regions
 
 For ASEs in US Gov regions, follow the instructions in the [Configuring Azure Firewall with your ASE](#configuring-azure-firewall-with-your-ase) section of this document to configure an Azure Firewall with your ASE.
 
