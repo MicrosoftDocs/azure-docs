@@ -169,7 +169,7 @@ If you checked the **Run test after creation** box when creating the load test, 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/run-test.png" alt-text="Screenshot that shows how to run a load test." :::
 
     > [!TIP]
-    > You can stop a load test at any time from the Azure Portal UI.
+    > You can stop a load test at any time from the Azure portal UI.
 
 In the next section, you'll look at the test run details and monitor the load test execution.
 
