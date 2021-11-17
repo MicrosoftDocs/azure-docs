@@ -10,7 +10,7 @@ ROBOTS: NOINDEX
 
 # How to integrate Service Bus with RabbitMQ
 
-In this guide, we're going to learn how to send messages from RabbitMQ to Azure Service Bus.
+In this guide, we're going to learn how to send messages from RabbitMQ to Service Bus.
 
 Here's a few scenarios in which we can make use of these capabilities:
 
