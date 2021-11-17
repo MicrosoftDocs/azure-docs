@@ -59,7 +59,7 @@ The search suggester, `sg`, is defined in the [schema file](https://github.com/A
 
 Routing for the Suggest API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website/api/Suggest/function.json) bindings.
 
-:::code language="python" source="~/azure-search-python-samples/search-website/api/Suggest/__init__.py" highlight="8-23, 35" :::
+:::code language="python" source="~/azure-search-python-samples/search-website/api/Suggest/__init__.py" highlight="8-24, 36" :::
 
 ## Client: Suggestions from the catalog
 
