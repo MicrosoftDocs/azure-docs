@@ -144,6 +144,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click **SAVE**.
 
+> [!NOTE]
+> Please follow [this](https://cobaltio.zendesk.com/hc/articles/360058406992-Setting-up-SAML-for-Azure-AD) article for more information on how to configure Cobalt.
+
 ### Create Cobalt test user
 
 In this section, you create a user called B.Simon in Cobalt. Work with [Cobalt support team](https://www.cobalt.net/support/) to add the users in the Cobalt platform. Users must be created and activated before you use single sign-on.
