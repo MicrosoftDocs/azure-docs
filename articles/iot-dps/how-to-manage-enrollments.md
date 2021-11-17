@@ -1,8 +1,8 @@
 ---
 title: Manage device enrollments for Azure IoT Hub Device Provisioning Service in the Azure portal 
 description: How to manage device enrollments for your Device Provisioning Service (DPS) in the Azure portal
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 10/25/2021
 ms.topic: how-to
 ms.service: iot-dps
