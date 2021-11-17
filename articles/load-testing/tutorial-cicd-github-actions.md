@@ -24,8 +24,8 @@ You'll learn how to:
 > * Set up your repository with files required for load testing.  
 > * Set up a GitHub workflow to integrate with Azure Load testing.  
 > * Run the load test and view results in the workflow.  
-> * Define test criteria for load test to pass or fail based on thresholds.  
-> * Parameterize load test using GitHub secrets.  
+> * Define test criteria for the load test to pass or fail based on thresholds.  
+> * Parameterize a load test using GitHub secrets.  
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in PREVIEW.
@@ -140,7 +140,7 @@ To access Azure resources, you'll create an Azure Active Directory service princ
 
 In this section, you'll set up a GitHub Actions workflow that triggers the load test. 
 
-To run test with Azure Load Testing from a CI/CD workflow, you need a load test YAML configuration file. The sample application repository contains the *SampleApp.yaml* file that contains the parameters for running the test.
+To run a test with Azure Load Testing from a CI/CD workflow, you need a load test YAML configuration file. The sample application repository contains the *SampleApp.yaml* file that contains the parameters for running the test.
 
 1. Open the *.github/workflows/workflow.yml* GitHub Actions workflow file in your sample application repository.
  
@@ -167,10 +167,10 @@ To run test with Azure Load Testing from a CI/CD workflow, you need a load test 
 
 ## View results in GitHub
 
-The GitHub Actions workflow executes the following steps, for every push of code to the main branch:
+The GitHub Actions workflow executes the following steps for every push of code to the main branch:
 
 - Deploy the sample Node.js application to an Azure App Services web app. The name of the web app is configured in the workflow file.
-- Trigger Azure Load Testing to create and run the load test, based on the JMeter script and the test configuration YAML file in the repository.
+- Trigger Azure Load Testing to create and run the load test based on the Apache JMeter script and the test configuration YAML file in the repository.
 
 In this section, you'll view the load test results in the GitHub Actions workflow log.
 
@@ -199,7 +199,7 @@ You can specify these criteria in the test configuration YAML file.
     You've now specified failure criteria for your load test. The test will fail if at least one of these conditions is met:
     
     - The aggregate average response time is greater than 100 ms.    
-    - The aggregate percentage of error is greater than 20%.
+    - The aggregate percentage of errors is greater than 20%.
 
 1. Commit and push the changes to the main branch of the repository.
     
@@ -225,7 +225,7 @@ You can specify these criteria in the test configuration YAML file.
 
 ## Pass parameters to your load tests from the workflow
 
-Next, you'll parameterize your load test using workflow variables. These parameters can be secrets, such as passwords, or non-secrets.
+Next, you'll parameterize your load test using workflow variables. These parameters can be secrets such as passwords or non-secrets.
 
 1. Edit the *SampleApp.yaml* file in your GitHub repository.
 
@@ -260,7 +260,7 @@ Next, you'll parameterize your load test using workflow variables. These paramet
     > [!IMPORTANT]
     > Don't include `https` or `http` in the sample application's URL.
 
-1. Save and commit the JMeter script.
+1. Save and commit the Apache JMeter script.
 
 1. Add a new secret to your GitHub repository by selecting **Settings** > **Secrets** > **New repository secret**.
 
@@ -297,8 +297,8 @@ You can use the following parameters to configure the GitHub action.
 |loadTestConfigFile    | **Required** Path of the YAML file. Should be a fully qualified path or a relative path to the default working directory.        |
 |resourceGroup     |  **Required** Name of the Azure Load Testing resource group.       |
 |loadTestResource     |   **Required** Name of an existing Azure Load Testing resource.      |
-|secrets   |   Array of JSON objects that consist of the **name** and **value** for each secret. The name should match the secret name used in the JMeter test script. |
-|env     |   Array of JSON objects that consist of the **name** and **value** for each environment variable. The name should match the variable name used in the JMeter test script. |
+|secrets   |   Array of JSON objects that consist of the **name** and **value** for each secret. The name should match the secret name used in the Apache JMeter test script. |
+|env     |   Array of JSON objects that consist of the **name** and **value** for each environment variable. The name should match the variable name used in the Apache JMeter test script. |
 
 The following YAML code snippet describes how to use the action in a GitHub Actions workflow. 
 
