@@ -32,7 +32,8 @@ ms.author: victorh
 | Number of conditions per rewrite rule set|40| |
 | Concurrent WebSocket connections |Medium gateways 20k<sup>2</sup><br> Large gateways 50k<sup>2</sup>| |
 | Maximum URL length|32KB| |
-| Maximum header size for HTTP/2 |16KB| |
+| Maximum header size|32KB| |
+| Maximum header size for HTTP/2|16KB| |
 | Maximum file upload size (Standard SKU) |V2 - 4 GB<br>V1 - 2GB | |
 | Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4GB| |
 | WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128KB<br>V2 (with CRS 3.2 or newer) - 2MB| |
