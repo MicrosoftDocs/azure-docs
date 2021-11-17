@@ -20,7 +20,7 @@ This article shows you how to create and manage log alerts. Azure Monitor log al
 You can also [create log alert rules using Azure Resource Manager templates](../alerts/alerts-log-create-templates.md).
 
 > [!NOTE]
-> [This page](alerts-unified-log.md) explains all of the parts of a log alert and the settings used when configuring a rule.
+> [This page](alerts-unified-log.md) explains all of the settings used to set up a log alert rule.
 ## Create a log alert rule in the Azure portal
 > [!NOTE]
 > This article describes creating alert rules using the new alert rule wizard. Please note these changes in the new alert rule experience:
