@@ -1,10 +1,8 @@
 ---
 title: 'Quickstart: Onboard in Microsoft Sentinel'
 description: In this quickstart, learn how to on-board Microsoft Sentinel by first enabling it, and then connecting data sources.
-services: sentinel
 author: yelevin
 ms.author: yelevin
-ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.custom: references_regions, ignite-fall-2021
