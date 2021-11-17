@@ -219,4 +219,4 @@ To remove an enrollment entry:
 
 7. When prompted to confirm, select **Yes**.
 
-8. Once the action is completed, you'll see that your entry havs been removed from the list of device enrollments.
+8. Once the action is completed, you'll see that your entry has been removed from the list of device enrollments.
