@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Desktop and Microsoft 365 comparison - Azure
-description: A comparison between Microsoft 365 and Azure Virtual Desktop.
+title: Comparing Azure Virtual Desktop and Microsoft 365 comparison - Azure
+description: A comparison of the technical features in Microsoft 365 and Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -8,43 +8,56 @@ ms.author: helohr
 manager: femila
 ---
 
-# Azure Virtual Desktop vs. Microsoft 365
+# Comparing Azure Virtual Desktop and Microsoft 365
 
 Intro text goes here!
 
 ## Technical architecture
 
-| Feature | Windows 365 Enterprise | Windows 365 Business | Azure Virtual Desktop (personal) | Azure Virtual Desktop (pooled) |
+| Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
-|Design|Designed to be simple and easy to use.|Designed to be simple and easy to use.|Designed to be flexible.|Designed to be flexible.|
-|Type of desktop|Personal desktop|Personal desktop|Pooled (single and multi-session) desktop|Pooled (single and multi-session) desktop|
-|Management|Microsoft-managed (except networking)|Fully Microsoft-managed|Customer-managed|Customer-managed|
-|VM SKUs|Multiple optimized options for a range of use cases|Multiple optimized options for a range of use cases|Any Azure virtual machine (VM)|Any Azure VM|
-|Backup|Local redundant storage for DR (what is this?)|Local redundant storage for DR (what is this?)|Azure backup services|Azure backup services|
+|Design|Designed to be flexible.|Designed to be flexible.|Designed to be simple and easy to use.|Designed to be simple and easy to use.|
+|Type of desktop||Pooled (single and multi-session) desktop|Pooled (single and multi-session) desktop|Personal desktop|Personal desktop|
+|Management|Customer-managed|Customer-managed|Microsoft-managed (except networking)|Fully Microsoft-managed|
+|VM SKUs|Any Azure virtual machine (VM)|Any Azure VM|Multiple optimized options for a range of use cases|Multiple optimized options for a range of use cases|
+|Backup|Azure backup services|Azure backup services|Local redundant storage for disaster recovery|Local redundant storage for disaster recovery|
 |Networking|Customer-managed|Microsoft-managed|Customer-managed|Customer-managed|
 |Identity|Hybrid join, Azure Active Directory (AD) join (preview)|Azure AD join (preview)|Domain join with Active Directory Domain Services (AD DS) or Azure AD DS, Hybrid Azure AD join or Azure AD join (preview)|Domain join (AD DS or Azure AD DS), Hybrid Azure AD join or Azure AD join (preview)|
 |User profiles|Local redundant storage for user profiles|Local redundant storage for user profiles|Local redundant storage for user profiles, or FSLogix profiles that can be stored locally in Azure Files or Azure NetApp Files|Local redundant storage for user profiles, or FSLogix profiles that can be stored locally in Azure Files or Azure NetApp Files|
-|Operating systems|Windows 10 Enterprise (single session)|Windows 10 Enterprise (single session)|Windows 10 Enterprise (single session and multi-session) <br>Windows Server 2012 R2, 2016, 2019 (single session and multi-session)<br>Windows 7 Enterprise (single session)|Windows 10 Enterprise (single session and multi-session) <br>Windows Server 2012 R2, 2016, 2019 (single session and multi-session)<br>Windows 7 Enterprise (single session)|
-|Base image|Custom and Microsoft-provided|Microsoft-provided only|Custom and Microsoft-provided|Custom and Microsoft-provided|
-|VM location|Most geographies|Most geographies|[Any Azure region](data-locations.md)|[Any Azure region](data-locations.md)|
-|Remote app streaming|Not supported|Not supported|Supported|Supported|
+|Operating systems|Windows 10 Enterprise (single session and multi-session) <br>Windows Server 2012 R2, 2016, 2019 (single session and multi-session)<br>Windows 7 Enterprise (single session)|Windows 10 Enterprise (single session and multi-session) <br>Windows Server 2012 R2, 2016, 2019 (single session and multi-session)<br>Windows 7 Enterprise (single session)|Windows 10 Enterprise (single session)|Windows 10 Enterprise (single session)|
+|Base image|Custom and Microsoft-provided|Custom and Microsoft-provided|Custom and Microsoft-provided|Microsoft-provided only|
+|VM location|[Any Azure region](data-locations.md)|[Any Azure region](data-locations.md)|Most geographies|Most geographies|
+|Remote app streaming|Supported|Supported|Not supported|Not supported|
 
 ## Deployment and management
 
 Intro text goes here!
 
+| Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
+|-------|--------|--------|--------|---------|
+|Hybrid (on-premises) or multi-cloud support|Supported with Citrix and VMware cloud integration|Supported with Citrix and VMware cloud integration|Not supported|Not supported|
+|Management portal|Azure portal (deploy and manage), Microsoft Endpoint Manager (manage only)|Azure portal (deploy and manage), Microsoft Endpoint Manager (manage only)|Microsoft Endpoint Manager|End-user portal|
+|Image management|Custom images and Microsoft-managed image management|Custom images and Microsoft-managed image management|Custom images and Microsoft-managed image management| Microsoft-managed image management only|
+|Screen capture protection|Yes (feature currently in preview)|Yes (feature currently in preview)|Yes (feature currently in preview)|Yes (feature currently in preview)|
+|Patches|Other Microsoft solutions|Other Microsoft solutions|Microsoft Endpoint Manager|Microsoft Endpoint Manager|
+|Autoscaling|||||
+|Application delivery|||||
+|Monitoring|||||
+|Environment validation|||||
+|App lifecycle management|||||
+
 | Feature | Windows 365 Enterprise | Windows 365 Business | Azure Virtual Desktop (personal) | Azure Virtual Desktop (pooled) |
 |-------|--------|--------|--------|---------|
-|Hybrid (on-premises) or multi-cloud support|Not supported|Not supported|Supported with Citrix and VMware cloud integration|Supported with Citrix and VMware cloud integration|
-|Management portal|Microsoft Endpoint Manager|End-user portal|Azure portal (deploy and manage), Microsoft Endpoint Manager (manage only)|Azure portal (deploy and manage), Microsoft Endpoint Manager (manage only)|
-|Image management|Custom images and Microsoft-managed image management| Microsoft-managed image management only|Custom images and Microsoft-managed image management|Custom images and Microsoft-managed image management|
-|Screen capture protection|Yes (feature currently in preview)|Yes (feature currently in preview)|Yes (feature currently in preview)|Yes (feature currently in preview)|
-|Patches|Microsoft Endpoint Manager|Microsoft Endpoint Manager|Other Microsoft solutions|Other Microsoft solutions|
-|Autoscaling|Not required due to fixed monthly cost|Not required due to fixed monthly cost|Supported with Azure Logic Apps|Supported with Azure Logic Apps|
-|Application delivery|Microsoft Endpoint Manager or custom images|Microsoft Endpoint Manager or custom images|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|
-|Monitoring|Endpoint Analytics|Endpoint Analytics|Azure Monitor|Azure Monitor|
-|Environment validation|Built-in network configuration watchdog service|Built-in network configuration watchdog service|Configured manually with Azure Advisor|Configured manually with Azure Advisor|
-|App lifecycle management|Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|Same as physical PC (MEM, SCCM, MSI, EXE, MSIX, App-V, and so on) with MSIX app attach or partner solutions|Same as physical PC (MEM, SCCM, MSI, EXE, MSIX, App-V, and so on) with MSIX app attach or partner solutions|
+
+
+
+
+
+Not required due to fixed monthly cost|Not required due to fixed monthly cost|Supported with Azure Logic Apps|Supported with Azure Logic Apps|
+Microsoft Endpoint Manager or custom images|Microsoft Endpoint Manager or custom images|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|
+Endpoint Analytics|Endpoint Analytics|Azure Monitor|Azure Monitor|
+Built-in network configuration watchdog service|Built-in network configuration watchdog service|Configured manually with Azure Advisor|Configured manually with Azure Advisor|
+Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|Same as physical PC (MEM, SCCM, MSI, EXE, MSIX, App-V, and so on) with MSIX app attach or partner solutions|Same as physical PC (MEM, SCCM, MSI, EXE, MSIX, App-V, and so on) with MSIX app attach or partner solutions|
 
 ## User experience
 
