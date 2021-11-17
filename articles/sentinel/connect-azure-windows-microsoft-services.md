@@ -27,7 +27,7 @@ This article presents information that is common to groups of connectors. See th
 The following integrations are both more unique and more popular, and are treated individually, with their own articles:
 
 - [Microsoft 365 Defender](connect-microsoft-365-defender.md)
-- [Microsoft Defender for Cloud](connect-azure-security-center.md)
+- [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
 - [Azure Active Directory](connect-azure-active-directory.md)
 - [Windows Security Events](connect-windows-security-events.md)
 - [Amazon Web Services (AWS) CloudTrail](connect-aws.md)

@@ -24,7 +24,7 @@ Now you can identify and address gaps in MITRE ATT&CK technique coverage, across
 >
 > The mapping of MITRE ATT&CK techniques to bookmarks is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You can also investigate more types of entities while hunting with bookmarks, by mapping the full set of entity types and identifiers supported by Microsoft Sentinel Analytics in your custom queries. This enables you to use bookmarks to explore the entities returned in hunting query results using [entity pages](entities-in-azure-sentinel.md#entity-pages), [incidents](investigate-cases.md) and the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive). If a bookmark captures results from a hunting query, it automatically inherits the query's MITRE ATT&CK technique and entity mappings.
+You can also investigate more types of entities while hunting with bookmarks, by mapping the full set of entity types and identifiers supported by Microsoft Sentinel Analytics in your custom queries. This enables you to use bookmarks to explore the entities returned in hunting query results using [entity pages](entities.md#entity-pages), [incidents](investigate-cases.md) and the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive). If a bookmark captures results from a hunting query, it automatically inherits the query's MITRE ATT&CK technique and entity mappings.
 
 > [!IMPORTANT]
 >

@@ -31,7 +31,7 @@ While fewer workspaces are simpler to manage, you may have specific needs for mu
 When determining how many tenants and workspaces to use, consider that most Microsoft Sentinel features operate by using a single workspace or Microsoft Sentinel instance, and Microsoft Sentinel ingests all logs housed within the workspace.
 
 > [!IMPORTANT]
-> Costs are one of the main considerations when determining Microsoft Sentinel architecture. For more information, see [Microsoft Sentinel costs and billing](azure-sentinel-billing.md).
+> Costs are one of the main considerations when determining Microsoft Sentinel architecture. For more information, see [Microsoft Sentinel costs and billing](billing.md).
 >
 ### Working with multiple tenants
 

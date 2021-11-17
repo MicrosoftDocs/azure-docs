@@ -88,7 +88,7 @@ Enrich your alerts in two new ways to make them more usable and more informative
 
 Start by taking your entity mapping to the next level. You can now map almost 20 kinds of entities, from users, hosts, and IP addresses, to files and processes, to mailboxes, Azure resources, and IoT devices. You can also use multiple identifiers for each entity, to strengthen their unique identification. This gives you a much richer data set in your incidents, providing for broader correlation and more powerful investigation. [Learn the new way to map entities](map-data-fields-to-entities.md) in your alerts.
 
-[Read more about entities](entities-in-azure-sentinel.md) and see the [full list of available entities and their identifiers](entities-reference.md).
+[Read more about entities](entities.md) and see the [full list of available entities and their identifiers](entities-reference.md).
 
 Give your investigative and response capabilities an even greater boost by customizing your alerts to surface details from your raw events. Bring event content visibility into your incidents, giving you ever greater power and flexibility in responding to and investigating security threats. [Learn how to surface custom details](surface-custom-details-in-alerts.md) in your alerts.
 

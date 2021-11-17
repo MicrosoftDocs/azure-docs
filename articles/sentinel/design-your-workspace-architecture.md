@@ -80,13 +80,13 @@ If you need to split your billing or charge-back, consider whether the usage rep
 
 - **If you *do not* need to split your billing or charge-back**, continue with [step 5](#step-5-collecting-any-non-soc-data).
 
-- **If you *do* need to split your billing or charge-back**, consider whether [usage reporting or manual cross-charge](azure-sentinel-billing.md) will work for you.
+- **If you *do* need to split your billing or charge-back**, consider whether [usage reporting or manual cross-charge](billing.md) will work for you.
 
   - **If usage reporting or manual cross-charging works for you**, continue with [step 5](#step-5-collecting-any-non-soc-data).
 
   - **If *neither* usage reporting or manual cross-charging will work for you**, use a separate Microsoft Sentinel workspace for each cost owner.
 
-  <a name="note2"></a>[Decision tree note #2](#decision-tree): For more information, see [Microsoft Sentinel costs and billing](azure-sentinel-billing.md).
+  <a name="note2"></a>[Decision tree note #2](#decision-tree): For more information, see [Microsoft Sentinel costs and billing](billing.md).
 
 ### Step 5: Collecting any non-SOC data?
 
@@ -144,7 +144,7 @@ However, this recommendation for separate workspaces for non-SOC data comes from
 
   - If the data egress cost is enough of a concern to make maintaining separate workspaces worthwhile, use a separate Microsoft Sentinel workspace for each region where you need reduce the data egress cost.
 
-    <a name="note5"></a>[Decision tree note #5](#decision-tree): We recommend that you have as few workspaces as possible. Use the [Azure pricing calculator](azure-sentinel-billing.md#estimate-microsoft-sentinel-costs) to estimate the cost and determine which regions you actually need, and combine workspaces for regions with low egress costs. Bandwidth costs may be only a small part of your Azure bill when compared with separate Microsoft Sentinel and Log Analytics ingestion costs.
+    <a name="note5"></a>[Decision tree note #5](#decision-tree): We recommend that you have as few workspaces as possible. Use the [Azure pricing calculator](billing.md#estimate-microsoft-sentinel-costs) to estimate the cost and determine which regions you actually need, and combine workspaces for regions with low egress costs. Bandwidth costs may be only a small part of your Azure bill when compared with separate Microsoft Sentinel and Log Analytics ingestion costs.
 
     For example, your cost might be estimated as follows:
 

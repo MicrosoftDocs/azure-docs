@@ -40,7 +40,7 @@ The following feature enhancements are available with version 10.5.3 of Microsof
 
 - Performance, and network traffic analysis improvements were made.
 
-- A new ServiceNow integration API has been added to the on-premise management console.
+- A new [ServiceNow integration API](references-work-with-defender-for-iot-apis.md#service-now-integration-api---externalv3integration) has been added to the on-premise management console.
 
 ## October 2021
 
