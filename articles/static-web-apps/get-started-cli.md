@@ -106,15 +106,15 @@ Now that the repository is created, you can create a static web app from the Azu
     ---
 
     > [!IMPORTANT]
-    > The URL passed to the `s` parameter must not include the `.git` suffix.
+    > The URL passed to the `--source` parameter must not include the `.git` suffix.
 
     As you execute this command, the CLI starts GitHub interactive login experience. Look for a line in your console that resembles the following message.
 
-    > Please navigate to `https://github.com/login/device` and enter the user code **329B-3945** to activate and retrieve your github personal access token.
+    > Please navigate to `https://github.com/login/device` and enter the user code 329B-3945 to activate and retrieve your github personal access token.
 
 1. Navigate to **https://github.com/login/device**.
 
-1. Enter the user code as displayed in the console message.
+1. Enter the user code as displayed your console's message.
 
 1. Select the **Continue** button.
 
@@ -140,9 +140,7 @@ Before you can navigate to your new static site, the deployment build must first
 
 1. Select the **Actions** tab.
 
-    At this point, Azure is creating the resources to support your static web app.
-
-    Wait until the icon next to the running workflow turns into a check mark with green background (:::image type="icon" source="media/get-started-cli/checkmark-green-circle.png" border="false":::).
+    At this point, Azure is creating the resources to support your static web app. Wait until the icon next to the running workflow turns into a check mark with green background (:::image type="icon" source="media/get-started-cli/checkmark-green-circle.png" border="false":::). This operation may take a few minutes to complete.
 
     Once the success icon appears, the workflow is complete and you can return back to your console window.
 
