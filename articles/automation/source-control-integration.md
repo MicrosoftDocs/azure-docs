@@ -80,7 +80,8 @@ Use this procedure to configure source control using the Azure portal.
 
     <sup>1</sup> To enable Auto Sync when configuring source control integration with Azure Repos, you must be a Project Administrator.
 
-   :::image type="content" source="./media/source-control-integration/source-control-summary.png" alt-text="Screenshot that describes the Source control summary.":::
+   :::image type="content" source="./media/source-control-integration/source-control-summary-inline.png" alt-text="Screenshot that describes the Source control summary." lightbox="./media/source-control-integration/source-control-summary-expanded.png":::
+
    
 > [!NOTE]
 > The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **dev.azure.com**, **visualstudio.com**, or **github.com**, and try reconnecting to source control.
