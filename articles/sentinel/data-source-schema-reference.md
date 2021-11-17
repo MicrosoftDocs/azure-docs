@@ -5,8 +5,6 @@ author: batamig
 ms.author: bagol
 manager: rkarlin
 ms.assetid: 
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: reference
 ms.custom: ignite-fall-2021
 ms.date: 11/09/2021

@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Back up a VM - Portal
+  - name: Back up a VM - Azure portal
     href: quick-backup-vm-portal.md
   - name: Back up a VM - PowerShell
     href: quick-backup-vm-powershell.md
@@ -20,6 +20,8 @@
   - name: Back up a VM - ARM template
     displayName: Resource Manager
     href: quick-backup-vm-template.md
+  - name: Back up a VM - Bicep template
+    href: quick-backup-vm-bicep-template.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -102,7 +104,7 @@
     href: guidance-best-practices.md
   - name: Glossary of terms
     href: azure-backup-glossary.md
-- name: How to guides
+- name: How-to guides
   items:
   - name: Vaults
     items:
