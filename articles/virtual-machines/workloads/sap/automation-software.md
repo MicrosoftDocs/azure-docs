@@ -103,7 +103,7 @@ Then, execute the Ansible playbooks. One way you can execute the playbooks is to
 1. Run the validator test menu script:
 
     ```bash
-    ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/validator_test_menu.sh
+    ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/validator_test_menu.sh
     ```
 
 1. Select the playbook to execute. For example:
@@ -121,7 +121,7 @@ Another option is to execute the Ansible playbooks using the command `ansible-pl
 ansible-playbook                                                                                   \
   --user        azureadm                                                                           \
   --extra-vars="@sap-parameters.yaml"                                                              \
-  ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/playbook_bom_downloader.yaml
+  ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
 ```
 
 ## Next steps
