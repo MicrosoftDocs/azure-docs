@@ -1,7 +1,6 @@
 ---
 title: Best practices for Microsoft Sentinel
 description: Learn about best practices to employ when managing your Microsoft Sentinel workspace.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: conceptual

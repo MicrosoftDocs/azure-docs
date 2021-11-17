@@ -16,7 +16,7 @@ There are multiple considerations for running the [SAP deployment automation fra
 For generic SAP on Azure design considerations please visit [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap)
 
 > [!NOTE]
-> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP deployment automation framework repository](https://github.com/Azure/sap-hana/). The templates use parameter files with your system-specific information to perform the deployment.
+> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/). The templates use parameter files with your system-specific information to perform the deployment.
 
 ## Credentials management
 
@@ -58,16 +58,16 @@ For more information, see [the Azure CLI documentation for creating a service pr
 
 ## DevOps structure
 
-The Terraform automation templates are in the [SAP deployment automation framework repository](https://github.com/Azure/sap-hana/). For most use cases, consider this repository as read-only and don't modify its Terraform templates.
+The Terraform automation templates are in the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify its Terraform templates.
 
-For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. Clone the [SAP deployment automation framework repository](https://github.com/Azure/sap-hana/) and your repository into the same root folder. Then, [create an appropriate folder structure](#folder-structure).
+For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. Clone the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/) and your repository into the same root folder. Then, [create an appropriate folder structure](#folder-structure).
 
 > [!IMPORTANT]
 > Your parameter file's name becomes the name of the Terraform state file. Make sure to use a unique parameter file name for this reason.
 
 ### Folder structure
 
-The following sample folder hierarchy shows how to structure your configuration files along with the automation framework files. The first top-level folder, called **sap-hana**, has the automation framework files that you don't need to change in most use cases. The second top-level folder, called **WORKSPACES**, contains subfolders with configuration files for your deployment settings.
+The following sample folder hierarchy shows how to structure your configuration files along with the automation framework files. The first top-level folder, called **sap-automation**, has the automation framework files that you don't need to change in most use cases. The second top-level folder, called **WORKSPACES**, contains subfolders with configuration files for your deployment settings.
 
 | Folder name | Contents | Description |
 | ----------- | -------- | ----------- |
