@@ -1,14 +1,15 @@
 ---
-title: How to integrate RabbitMQ with Azure Service Bus
-description: Step-by-step guide on how to integrate RabbitMQ with Azure Service Bus
+title: How to integrate Azure Service Bus with RabbitMQ
+description: Step-by-step guide on how to integrate Azure Service Bus with RabbitMQ
 services: Azure Service Bus
 author: videlalvaro
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 11/17/2021
 ms.author: alvidela
+ROBOTS: NOINDEX
 ---
 
-# How to integrate RabbitMQ with Azure Service Bus
+# How to integrate Service Bus with RabbitMQ
 
 In this guide, we're going to learn how to send messages from RabbitMQ to Azure Service Bus.
 
