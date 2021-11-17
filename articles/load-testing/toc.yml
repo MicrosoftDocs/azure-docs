@@ -1,6 +1,7 @@
 - name: Azure Load Testing docs
   href: index.yml
 - name: Overview
+  expanded: true
   items: 
     - name: What is Azure Load Testing?
       displayName: ALT, load, MALT
@@ -15,7 +16,7 @@
   items: 
     - name: Load test in Azure portal
       href: tutorial-identify-bottlenecks-azure-portal.md
-    - name: Continuous regression testing
+    - name: Continuous regression testing (CI/CD)
       items:
       - name: Automate with GitHub Actions
         href: tutorial-cicd-github-actions.md
@@ -36,13 +37,13 @@
       href: how-to-define-test-criteria.md
     - name: Parameterize load tests
       href: how-to-parameterize-load-tests.md
-    - name: Get insights from App Service workload tests
+    - name: Get insights from App Service Diagnostics
       href: how-to-appservice-insights.md
-    - name: Export your load testing results
+    - name: Export test results
       href: how-to-export-test-results.md
 - name: Reference
   items:
-      - name: Test configuration YAML reference
+      - name: Test configuration YAML
         href: reference-test-config-yaml.md
 - name: Resources
   items: 
