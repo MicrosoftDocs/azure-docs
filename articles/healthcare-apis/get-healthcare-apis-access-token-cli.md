@@ -29,7 +29,7 @@ In this article, you'll learn how to obtain an access token for the FHIR service
 [!INCLUDE [azure-powershell-requirements.md](../../../includes/azure-powershell-requirements.md)]
 
 ---
-## Obtain a token
+## Obtain a token for the FHIR service
 
 The FHIR service uses a `resource`  or `Audience` with URI equal to the URI of the FHIR server `https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com`. You can obtain a token and store it in a variable (named `$token`) with the following command:
 
@@ -47,7 +47,7 @@ $token = (Get-AzAccessToken -ResourceUrl 'https://<FHIR ACCOUNT NAME>.azurehealt
 
 ---
 
-## Use with FHIR service
+## Use the token with FHIR service
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -62,7 +62,24 @@ $headers = @{Authorization="Bearer $token"}
 Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com/Patient'
 ```
 
----
+## Obtain a token for the DICOM service
+
+The DICOM service uses a `resource` or `Audience` with URI equal to the URI of the DICOM server  `https://dicom.healthcareapis.azure.com`. You can obtain a token and store it in a variable (named `$token`) with the following command:
+
+
+```Azure CLICopy
+Try It
+$token=$(az account get-access-token --resource=https://dicom.healthcareapis.azure.com --query accessToken --output tsv)
+```
+
+## Use with the DICOM service
+
+```Azure CLICopy
+Try It
+curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed
+```
+
+## Next Steps
 
 >[!div class="nextstepaction"]
 >[Access FHIR API using Postman](../use-postman.md)
