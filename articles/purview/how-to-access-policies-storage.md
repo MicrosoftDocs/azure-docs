@@ -86,9 +86,9 @@ Execute this step only if the Storage account you want to manage access to is in
 [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
 
 #### Configure permissions for policy management actions
-- User needs to be both Data source owner AND Purview Data source admin to register a source for Data use governance. However, any of those roles independently can de-register the source for Data use governance.
-- User needs to be part of Purview Policy Author role at root collection level to perform policy authoring/management actions.
-- User needs to be part of Purview data source admin role at the root collection level to publish the policy.
+- User needs to be both *Data source owner* AND *Purview Data source admins* to register a source for Data use governance. However, any of those roles independently can de-register the source for Data use governance.
+- User needs to be part of Purview *Policy authors* role at root collection level to perform policy authoring/management actions.
+- User needs to be part of Purview *Data source admin* role at the root collection level to publish the policy.
 
 See the section on managing role assignments in this guide: [How to create and manage collections](how-to-create-and-manage-collections.md)
 
@@ -212,8 +212,8 @@ This section contains a reference of how actions in Azure Purview data policies 
 
 ## Known issues
 These are known issues in the current release
-1. In addition to Policy author role, user requires Directory reader permission in Azure Active Directory (AAD) to create data owner policy.
-1. Policy author role is not sufficient to create policies. It also requires Purview Data source admin role as well.
+1. In addition to *Policy authors* role, user requires directory *Reader* permission in Azure Active Directory (AAD) to create data owner policy.
+1. *Policy author* role is not sufficient to create policies. It also requires Purview *Data source admin* role as well.
 
 ## Next steps
 Check the blog and demo related to the capabilities mentioned in this how-to guide
