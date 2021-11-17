@@ -25,7 +25,7 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 >
 > Shrinking an existing disk isn’t supported, and can potentially result in data loss.
 > 
-> After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
+> After expanding the disks, you need to [Expand the volume in the operating system](#expand-the-volume-in-the-operating-system) to take advantage of the larger disk.
 
 ## Resize without downtime (preview)
 
