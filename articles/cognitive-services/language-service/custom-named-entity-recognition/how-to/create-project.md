@@ -141,8 +141,6 @@ To set proper roles on your storage account:
 
 ## Create a custom named entity recognition project
 
-[!INCLUDE [SDK limitations](../includes/sdk-limitations.md)]
-
 [!INCLUDE [Create custom NER project](../includes/create-project.md)]
 
 ## Next steps
