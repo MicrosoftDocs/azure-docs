@@ -23,7 +23,7 @@ Recommendations are available from the **Overview** navigation sidebar in the Az
 :::image type="content" source="../media/concepts-azure-advisor-recommendations/advisor-example.png" alt-text="Screenshot of the Azure portal showing an Azure Advisor recommendation.":::
 ## Recommendation types
 Azure Database for PostgreSQL prioritize the following types of recommendations:
-* **Performance**: To improve the speed of your PostgreSQL server. This includes CPU usage, memory pressure, connection pooling, disk utilization, and product-specific server parameters. For more information, see [Advisor Performance recommendations](../../articles/advisor/advisor-performance-recommendations.md).
+* **Performance**: To improve the speed of your PostgreSQL server. This includes CPU usage, memory pressure, connection pooling, disk utilization, and product-specific server parameters. For more information, see [Advisor Performance recommendations](../../advisor-performance-recommendations.md).
 * **Reliability**: To ensure and improve the continuity of your business-critical databases. This includes storage limits, connection limits, and hyperscale data distribution recommendations. For more information, see [Advisor Reliability recommendations](../articles/advisor/advisor-high-availability-recommendations.md).
 * **Cost**: To optimize and reduce your overall Azure spending. This includes server right-sizing recommendations. For more information, see [Advisor Cost recommendations](../articles/advisor/advisor-cost-recommendations.md).
 
