@@ -58,14 +58,12 @@ The DICOM service uses a `resource` or `Audience` with URI equal to the URI of t
 
 
 ```Azure CLICopy
-Try It
 $token=$(az account get-access-token --resource=https://dicom.healthcareapis.azure.com --query accessToken --output tsv)
 ```
 
 ## Use the tokenb with the DICOM service
 
 ```Azure CLICopy
-Try It
 curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed
 ```
 
