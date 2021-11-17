@@ -211,6 +211,9 @@ While parallelism can be great for performance, be careful about using unbounded
 
 For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally.
 
+> [!TIP]
+> The [ABFS driver](data-lake-storage-abfs-driver.md) was designed to overcome the inherent deficiencies of WASB. Favor using the ABFS driver over the WASB driver as the ABFS driver is optimized specifically for big data analytics.
+
 ## Handle service errors
 
 Azure Storage returns an error when the service cannot process a request. Understanding the errors that may be returned by Azure Storage in a given scenario is helpful for optimizing performance.
