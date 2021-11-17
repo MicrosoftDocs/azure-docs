@@ -1,23 +1,14 @@
 ---
-title: Log network traffic flow to and from a VM - tutorial - Azure portal | Microsoft Docs
-description: Learn how to log network traffic flow to and from a VM using Network Watcher's NSG flow logs capability.
+title: 'Tutorial: Log network traffic flow to and from a virtual machine - Azure portal'
+description: Learn how to log network traffic flow to and from a virtual machine using Network Watcher's NSG flow logs capability.
 services: network-watcher
-documentationcenter: na
 author: damendo
-
-tags: azure-resource-manager
-# Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
-
-ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 04/30/2018
+ms.date: 11/16/2021
 ms.author: damendo
 ms.custom: mvc
-
+# Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ---
 
 # Tutorial: Log network traffic to and from a virtual machine using the Azure portal
@@ -31,87 +22,137 @@ ms.custom: mvc
 
 A network security group (NSG) enables you to filter inbound traffic to, and outbound traffic from, a virtual machine (VM). You can log network traffic that flows through an NSG with Network Watcher's NSG flow log capability. In this tutorial, you learn how to:
 
+In this tutorial, you learn how to:
+
 > [!div class="checklist"]
 > * Create a VM with a network security group
 > * Enable Network Watcher and register the Microsoft.Insights provider
 > * Enable a traffic flow log for an NSG, using Network Watcher's NSG flow log capability
 > * Download logged data
 > * View logged data
+## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a VM
+## Create a virtual machine
 
-1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter** or a version of **Ubuntu Server**.
-3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**:
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-    |Setting|Value|
-    |---|---|
-    |Name|myVm|
-    |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
-    |Subscription| Select your subscription.|
-    |Resource group| Select **Create new** and enter **myResourceGroup**.|
-    |Location| Select **East US**|
+2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
 
-4. Select a size for the VM and then select **Select**.
-5. Under **Settings**, accept all the defaults, and select **OK**.
-6. Under **Create** of the **Summary**, select **Create** to start VM deployment. The VM takes a few minutes to deploy. Wait for the VM to finish deploying before continuing with the remaining steps.
+3. In **Virtual machines**, select **+ Create** then **+ Virtual machine**.
 
-The VM takes a few minutes to create. Don't continue with remaining steps until the VM has finished creating. While the portal creates the VM, it also creates a network security group with the name **myVm-nsg**, and associates it to the network interface for the VM.
+4. Enter or select the following information in **Create a virtual machine**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. | 
+    | **Instance details** |   |
+    | Virtual machine name | Enter **myVM**. |
+    | Region | Select **(US) East US**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Security type | Leave the default of **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - Gen2**. |
+    | Azure Spot instance | Leave the default. |
+    | Size | Select a size. |
+    | **Administrator account** |   |
+    | Authentication type | Select **SSH public key**. |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Confirm password. |
+    | **Inbound port rules** |   |
+    | Public inbound ports | Leave the default of **Allow selected ports**. |
+    | Select inbound ports | Leave the default of **RDP (3389)**. |
+
+5. Select **Review + create**. 
+
+6. Select **Create**.
+
+The virtual machine takes a few minutes to create. Don't continue with remaining steps until the VM has finished creating. While the portal creates the virtual machine, it also creates a network security group with the name **myVm-nsg**, and associates it to the network interface for the VM.
 
 ## Enable Network Watcher
 
 If you already have a network watcher enabled in the East US region, skip to [Register Insights provider](#register-insights-provider).
 
-1. In the portal, select **All services**. In the **Filter box**, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
-2. Select **Regions**, to expand it, and then select **...** to the right of **East US**, as shown in the following picture:
+1. In the search box at the top of the portal, enter **Network Watcher**. Select **Network Watcher** in the search results.
 
-    ![Enable Network Watcher](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
+2. In the **Overview** page of **Network Watcher**, select **+ Add**.
 
-3. Select **Enable Network Watcher**.
+    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png" alt-text="Screenshot of enable network watcher.":::
+
+3. Select your subscription in **Add network watcher**. Select **(US) East US** in **Region**.
+
+4. Select **Add**.
 
 ## Register Insights provider
 
 NSG flow logging requires the **Microsoft.Insights** provider. To register the provider, complete the following steps:
 
-1. In the top, left corner of portal, select **All services**. In the Filter box, type *Subscriptions*. When **Subscriptions** appear in the search results, select it.
-2. From the list of subscriptions, select the subscription you want to enable the provider for.
-3. Select **Resource providers**, under **SETTINGS**.
-4. Confirm that the **STATUS** for the **microsoft.insights** provider is **Registered**, as shown in the picture that follows. If the status is **Unregistered**, then select **Register**, to the right of the provider.
+1. In the search box at the top of the portal, enter **Subscriptions**. Select **Subscriptions** in the search results.
 
-    ![Register provider](./media/network-watcher-nsg-flow-logging-portal/register-provider.png)
+2. Select the subscription you want to enable the provider for in **Subscriptions**.
+
+3. Select **Resource providers** in **Settings** of your subscription.
+
+4. Enter **Microsoft.Insights** in the filter box.
+
+5. Confirm the status of the provider is **Registered**. If the status is **Unregistered**, select the provider then select **Register**.
+
 
 ## Enable NSG flow log
 
-1. NSG flow log data is written to an Azure Storage account. To create an Azure Storage account, select **+ Create a resource** at the top, left corner of the portal.
-2. Select **Storage**, then select **Storage account - blob, file, table, queue**.
-3. Enter, or select the following information, accept the remaining defaults, and then select **Create**.
+NSG flow log data is written to an Azure Storage account. Complete the following steps to create a storage account for the log data.
 
-    | Setting        | Value                                                        |
-    | ---            | ---   |
-    | Name           | 3-24 characters in length, can only contain lowercase letters and numbers, and must be unique across all Azure Storage accounts.                                                               |
-    | Location       | Select **East US**                                           |
-    | Resource group | Select **Use existing**, and then select **myResourceGroup** |
+1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
 
-    The storage account may take around minute to create. Don't continue with remaining steps until the storage account is created. In all cases, the storage account must be in the same region as the NSG.
-4. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
-5. Under **LOGS**, select **NSG flow logs**, as shown in the following picture:
+2. In **Storage accounts**, select **+ Create**.
 
-    ![Screenshot shows the Network Watcher NSG flow logs.](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
+3. Enter or select the following information in **Create a storage account**.
 
-6. From the list of NSGs, select the NSG named **myVm-nsg**.
-7. Under **Flow logs settings**, select **On**.
-8. Select the flow logging version. Version 2 contains flow-session statistics (Bytes and Packets)
+| Setting | Value |
+| ------- | ----- |
+| **Project details** |   |
+| Subscription | Select your subscription. |
+| Resource group | Select **myResourceGroup**. |
+| **Instance details** |   |
+| Storage account name | Enter a name for your storage account. </br> Must be 3-24 characters in length, can only contain lowercase letters and numbers, and must be unique across all Azure Storage. |
+| Region | Select (US)East US. |
+| Performance | Leave the default of **Standard**. |
+| Redundancy | Leave the default of **Geo-redundant storage (GRS)**. |
 
-   ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+4. Select **Review + create**.
 
-9. Select the storage account that you created in step 3.
-   > [!NOTE]
-   > NSG Flow Logs do not work with storage accounts that have [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md) enabled.
-1. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
-10. Set **Retention (days)** to 5, and then select **Save**.
+5. Select **Create**.
+
+The storage account may take around minute to create. Don't continue with remaining steps until the storage account is created. In all cases, the storage account must be in the same region as the NSG.
+
+1. In the search box at the top of the portal, enter **Network Watcher**. Select **Network Watcher** in the search results.
+
+2. Select **NSG flow logs** in **Logs** in **Network Watcher**.
+
+3. In **Network Watcher | NSG flow logs**, select **+ Create**.
+
+    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/create-nsg-flow-log.png" alt-text="Screenshot of create NSG flow log.":::
+
+4. Enter or select the following information in **Create a flow log**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Network Security Group | Select **myVM-nsg**. |
+    | Flow Log Name | Leave the default of **myVM-nsg-myResourceGroup-flowlog**.
+    | **Instance details** |   |
+    | Select storage account |   |
+    | Subscription | Select your subscription. |
+    | Storage Accounts | Select the storage account you created in the previous steps. |
+    | Retention (days) | Enter a retention time for the logs. |
+
+5. Select **Review + create**.
+
+6. Select **Create**.
 
 ## Download flow log
 
