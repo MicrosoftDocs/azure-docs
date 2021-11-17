@@ -42,7 +42,7 @@ To request a regional vCPU quota from **Usage + quotas**:
 
 1. In the main pane, select **Total Regional vCPUs**, then select the pencil icon. The example below shows the regional vCPU quota for the NorthEast US region.
 
-   :::image type="content" source="media/resource-manager-core-quotas-request/regional-quota-total.png" alt-text="Screenshot of the Usage + quotas screen showing Total Regional vCPUs in the Azure portal." lightbox="regional-quota-total.png":::
+   :::image type="content" source="media/resource-manager-core-quotas-request/regional-quota-total.png" alt-text="Screenshot of the Usage + quotas screen showing Total Regional vCPUs in the Azure portal." lightbox="media/resource-manager-core-quotas-request/regional-quota-total.png":::
 
 1. In **Quota details**, enter your new quota limit, then select **Save and continue**.
 

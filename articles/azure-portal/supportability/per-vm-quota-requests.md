@@ -29,7 +29,7 @@ To request a standard vCPU quota increase per VM-family from **Usage + quotas**:
 1. In the main pane, find the VM-family vCPU quota you want to increase, then select the pencil icon. The example below shows Standard DSv3 Family vCPUs deployed in the East US region. The **Usage** column displays the current quota usage and the current quota limit.
 1. In **Quota details**, enter your new quota limit, then select **Save and continue**.
 
-   :::image type="content" source="media/resource-manager-core-quotas-request/quota-increase-example.png" alt-text="Screenshot of the Usage + quotas pane." lightbox="quota-increase-example.png":::
+   :::image type="content" source="media/resource-manager-core-quotas-request/quota-increase-example.png" alt-text="Screenshot of the Usage + quotas pane." lightbox="media/resource-manager-core-quotas-request/quota-increase-example.png":::
 
 Your request will be reviewed, and you'll be notified whether the request is approved or rejected. This usually happens within a few minutes. If your request is rejected, you'll see a link where you can open a support request so that a support engineer can assist you with the increase.
 
