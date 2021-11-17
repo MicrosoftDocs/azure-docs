@@ -34,7 +34,7 @@ Azure ABAC builds on Azure RBAC by adding role assignment conditions based on at
 There are three primary benefits for using role assignment conditions:
 
 - **Provide more fine-grained access control** - A role assignment uses a role definition with actions and data actions to grant a security principal permissions. You can write conditions to filter down those permissions for more fine-grained access control. You can also add conditions to specific actions. For example, you can grant John read access to blobs in your subscription only if the blobs are tagged as Project=Blue. 
-- **Help reduce the number of role assignments** - Each Azure subscription currently has a 2000 role assignment limit. There are scenarios that would require thousands of role assignments. All of those role assignments would have to be managed. In these scenarios, you could potentially add conditions to use significantly fewer role assignments. 
+- **Help reduce the number of role assignments** - Each Azure subscription currently has a role assignment limit. There are scenarios that would require thousands of role assignments. All of those role assignments would have to be managed. In these scenarios, you could potentially add conditions to use significantly fewer role assignments. 
 - **Use attributes that have specific business meaning** - Conditions allow you to use attributes that have specific business meaning to you in access control. Some examples of attributes are project name, software development stage, and classification levels. The values of these resource attributes are dynamic and change as users move across teams and projects.
 
 ## Example scenarios for conditions

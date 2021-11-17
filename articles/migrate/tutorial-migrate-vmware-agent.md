@@ -112,7 +112,7 @@ The appliance is used to replication machines to Azure. The appliance is single,
 
 Prepare for the appliance as follows:
 
-- [Review appliance requirements](migrate-replication-appliance.md#appliance-requirements). Generally, you set up the replication appliance a a VMware VM using a downloaded OVA file. The template creates a appliance that complies with all requirements.
+- [Review appliance requirements](migrate-replication-appliance.md#appliance-requirements). Generally, you set up the replication appliance a VMware VM using a downloaded OVA file. The template creates a appliance that complies with all requirements.
 - MySQL must be installed on the appliance. [Review](migrate-replication-appliance.md#mysql-installation) installation methods.
 - Review the [public cloud URLs](migrate-replication-appliance.md#url-access), and [Azure Government URLs](migrate-replication-appliance.md#azure-government-url-access) that the appliance machine needs to access.
 - [Review the ports](migrate-replication-appliance.md#port-access) that the replication appliance machine needs to access.
@@ -380,10 +380,10 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
-    - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
+    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
-    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
+    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
 

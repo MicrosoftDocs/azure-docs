@@ -232,6 +232,8 @@
       href: high-availability-guide-rhel-ibm-db2-luw.md          
   - name: SAP Application Layer - SLES
     items: 
+    - name: Install HA SAP NetWeaver with NFS on Azure Files
+      href: high-availability-guide-suse-nfs-azure-files.md
     - name: Install HA SAP NetWeaver with Azure NetApp Files
       href: high-availability-guide-suse-netapp-files.md
     - name: Install HA SAP NetWeaver
@@ -244,7 +246,9 @@
       href: high-availability-guide-suse-pacemaker.md
   - name: SAP Application Layer - RHEL
     items:        
-    - name: Install HA SAP NetWeaver system with Azure NetApp Files 
+    - name: Install HA SAP NetWeaver with NFS on Azure Files 
+      href: high-availability-guide-rhel-nfs-azure-files.md
+    - name: Install HA SAP NetWeaver with Azure NetApp Files 
       href: high-availability-guide-rhel-netapp-files.md
     - name: Install HA SAP NetWeaver
       href: high-availability-guide-rhel.md
@@ -352,9 +356,9 @@
       href: /power-bi/desktop-sap-bw-connector
     - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
       href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
-  - name: Azure Sentinel threat monitoring
+  - name: Microsoft Sentinel threat monitoring
     items:
-      - name: Deploy the Azure Sentinel solution for SAP
+      - name: Deploy the Microsoft Sentinel solution for SAP
         href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
       - name: Detailed requirements
         href: ../../../sentinel/sap-solution-detailed-requirements.md
