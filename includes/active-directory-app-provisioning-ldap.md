@@ -69,7 +69,7 @@ Now that the role has been installed, you need to create an instance of AD LDS. 
 
 Copy the contents of [Appendix B](#appendix-b---answer-file) in to notepad and save it as **answer.txt** in **"C:\Windows\ADAM"**.
 
-Now open a cmd prompt with administrative privileges and run the following exectuable:
+Now open a cmd prompt with administrative privileges and run the following executable:
 
 ```
 C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
@@ -86,7 +86,7 @@ The use the PowerShell script from [Appendix C](#appendix-c---populate-ad-lds-po
 On the Windows Server virtual machine, you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
 
 ## Grant the NETWORK SERVICE read permissions to the SSL cert
-In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To grant persmissions, use the following steps.
+In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To grant permissions, use the following steps.
 
  1. Navigate to **C:\Program Data\Microsoft\Crypto\Keys**.
  2. Right-click on the system file located here.  It will be a guid.  This container is storing our certificate.
