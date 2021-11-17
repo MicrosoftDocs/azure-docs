@@ -13,9 +13,11 @@ Follow the steps in this tutorial to:
 
 > [!div class="checklist"]
 >
-> - Learn how the tutorial app works
-> - Create application project
-> - Install the auth library
+> - Overview of web app
+> - Register a web app
+> - Create application project (optional)
+> - Sign in users
+> - Call an API (Microsoft Graph API)
 
 > [!div class="nextstepaction"] 
 > [Tutorial: $TITLE](../../web-app-asp-net-tutorial-02-prepare-azure-ad.md)

@@ -7,6 +7,10 @@ ms.subservice: develop
 ms.topic: include
 ---
 
+> [!div class="checklist"]
+>
+> - Call an API (Microsoft Graph API)
+
 ## Next steps
 
 In this tutorial, you acquired an access token and called the Microsoft Graph API using a ASP.NET web application.
