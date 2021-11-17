@@ -111,10 +111,10 @@ To learn more about how to assign and manage Azure role assignments, see these a
 
 We officially support 4 programming languages:
 
-- [C#](./howto-use-aad-in-csharp.md)
-- [Python](./howto-use-aad-in-python.md)
-- [Java](./howto-use-aad-in-java.md)
-- [JavaScript](./howto-use-aad-in-javascript.md)
+- [C#](./howto-create-serviceclient-with-net-and-azure-identity.md)
+- [Python](./howto-create-serviceclient-with-python-and-azure-identity.md)
+- [Java](./howto-create-serviceclient-with-java-and-azure-identity.md)
+- [JavaScript](./howto-create-serviceclient-with-javascript-and-azure-identity.md)
 
 ## Next steps
 
