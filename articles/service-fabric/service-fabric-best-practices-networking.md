@@ -61,8 +61,8 @@ These rules are mandatory for a proper operational cluster. Described is the min
 ### Inbound 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action        | Mandatory
 |---        |---                |---         |---       |---                |---               |---           |---
-|3900       |SFX + Client API   |19080       |TCP       |Internet           |Any               |Allow         | No
-|3910       |Azure portal       |19080       |TCP       |ServiceFabric      |Any               |Allow         | No
+|3900       |Azure portal       |19080       |TCP       |ServiceFabric      |Any               |Allow         | No
+|3910       |SFX + Client API   |19080       |TCP       |Internet           |Any               |Allow         | No
 |3920       |Client API         |19000       |TCP       |Internet           |Any               |Allow         | No
 |3930       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |Any               |Allow         | Yes
 |3940       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |Any               |Allow         | Yes
