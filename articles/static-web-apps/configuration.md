@@ -210,6 +210,8 @@ Some common use cases for global headers include:
 - Encoding settings
 - Configuring cross-origin resource sharing ([CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS))
 
+The following is an example of how to implement a custom CORS configuration.
+
 ```json
 {
   "globalHeaders": {
