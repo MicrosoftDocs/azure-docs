@@ -78,8 +78,6 @@ items:
           href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
         - name: Python
           href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
-        - name: Java
-          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
         - name: Node.js
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
 - name: Custom Named Entity Recognition (NER) (preview)
