@@ -6,8 +6,8 @@ ms.date: 11/16/2021
 
 ---
 
-# Azure Monitor Service Bus insights
-Service Bus insights provide a view of the overall performance, failures, capacity, and operational health of all your Azure Service resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
+# Azure Monitor - Service Bus insights
+Azure Service Bus insights provide a view of the overall performance, failures, capacity, and operational health of all your Service Bus resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.
 
 ## Introduction
 
@@ -15,13 +15,13 @@ Before diving into the experience, you should understand how it presents and vis
 
 It delivers:
 
-* **At scale perspective** of your Azure Service Bus resources across all your subscriptions in a single location, with the ability to selectively scope to only those subscriptions and resources you're interested in evaluating.
+* **At scale perspective** of your Service Bus resources across all your subscriptions in a single location, with the ability to selectively scope to only those subscriptions and resources you're interested in evaluating.
 
-* **Drill down analysis** of a particular Azure Service Bus resource to help diagnose issues or perform detailed analysis by category - utilization, failures, capacity, and operations. Selecting any one of those options provides an in-depth view of the relevant Azure Service Bus metrics.  
+* **Drill down analysis** of a particular Service Bus resource to help diagnose issues or perform detailed analysis by category - utilization, failures, capacity, and operations. Selecting any one of those options provides an in-depth view of the relevant information.
 
 * **Customizable** - This experience is built on top of Azure Monitor workbook templates allowing you to change what metrics are displayed, modify or set thresholds that align with your limits, and then save into a custom workbook. Charts in the workbooks can then be pinned to Azure dashboards.  
 
-This feature doesn't require you to enable or configure anything, these Azure Service Bus metrics are collected by default.
+This feature doesn't require you to enable or configure anything, these Service Bus metrics are collected by default.
 
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
@@ -42,15 +42,15 @@ To view the utilization and performance of your Service Bus resources across all
 
 ### Overview
 
-On **Overview**, the table displays interactive Azure Service Bus metrics. You can filter the results based on the options you select from the following drop-down lists:
+On **Overview**, the table displays interactive Service Bus metrics. You can filter the results based on the options you select from the following drop-down lists:
 
-* **Subscriptions** - only subscriptions that have an Azure Service Bus resource are listed.  
+* **Subscriptions** - only subscriptions that have a Service Bus resource are listed.  
 
 * **Service Bus** - You can select all, a subset, or single Service Bus resource.
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
-The counter tile under the drop-down lists rolls-up the total number of Azure Service Bus resources are in the selected subscriptions. There's conditional color-coding or heatmaps for columns in the workbook that report transaction metrics. The deepest color has the highest value and a lighter color is based on the lowest values. 
+The counter tile under the drop-down lists rolls-up the total number of Service Bus resources are in the selected subscriptions. There's conditional color-coding or heatmaps for columns in the workbook that report transaction metrics. The deepest color has the highest value and a lighter color is based on the lowest values. 
 
 The **Overview** page shows you the following values and also the timeline for active connections.
 
@@ -62,7 +62,7 @@ The **Overview** page shows you the following values and also the timeline for a
 |Successful Requests| The number of successful requests made to the Service Bus service over a specified period. |
 |Throttled Requests| The number of requests that were throttled because the usage was exceeded. |  
 
-For more information about these metrics, see [Service Bus - Request metrics](../../service-bus-messaging/monitor-service-bus-reference.md).
+For more information about these metrics, see [Service Bus metrics](../../service-bus-messaging/monitor-service-bus-reference.md).
 
 Selecting the Service Bus resource name highlighted in blue will take you to the default **Overview** for that resource. 
 
@@ -71,7 +71,8 @@ Selecting the Service Bus resource name highlighted in blue will take you to the
 Select **Requests** at the top of the page and the **Requests** portion of the workbook template opens. 
 
 :::image type="content" source="./media/service-bus-insights/service-bus-requests.png" lightbox="./media/service-bus-insights/service-bus-requests.png" alt-text="Screenshot of the Requests tab of Service Bus Insights page.":::
-It shows you the following values and also the timeline for incoming requests. 
+
+This page shows you the following values and also the timeline for incoming requests. 
 
 | Metric Name |  Description |
 | ---------- | ---------- |
@@ -81,59 +82,66 @@ It shows you the following values and also the timeline for incoming requests.
 |Server Errors| The number of requests not processed because of an error in the Service Bus service over a specified period. |
 |User Errors | The number of requests not processed because of user errors over a specified period. |
 
-For more information about these metrics, see [Service Bus - Request metrics](../../service-bus-messaging/monitor-service-bus-reference.md#request-metrics).
+For more information about these metrics, see [Service Bus - request metrics](../../service-bus-messaging/monitor-service-bus-reference.md#request-metrics).
 
 
 ### Messages
 
-Select **Messages** at the top of the page and the **Messages** portion of the workbook template opens. It shows you the following values and also the timeline for incoming messages. 
+Select **Messages** at the top of the page and the **Messages** portion of the workbook template opens. 
 
 :::image type="content" source="./media/service-bus-insights/service-bus-messages.png" lightbox="./media/service-bus-insights/service-bus-messages.png" alt-text="Screenshot of the Messages tab of Service Bus Insights page.":::
 
+This page shows you the following values and also the timeline for incoming messages. 
+
 | Metric Name |  Description | 
 | ---------- | ---------- | 
-|Incoming Messages| The number of events or messages sent to Service Bus over a specified period. This metric doesn't include messages that are auto forwarded. | 
-|Outgoing Messages| The number of events or messages received from Service Bus over a specified period. |
+|Incoming Messages| The number of messages sent to Service Bus over a specified period. This metric doesn't include messages that are auto forwarded. | 
+|Outgoing Messages| The number of messages received from Service Bus over a specified period. |
 | Messages| Count of messages in a queue/topic. | 
 | Scheduled messages| Count of scheduled messages in a queue/topic. |
 
-For more information about these metrics, see [Service Bus - Request metrics](../../service-bus-messaging/monitor-service-bus-reference.md#message-metrics).
+For more information about these metrics, see [Service Bus - message metrics](../../service-bus-messaging/monitor-service-bus-reference.md#message-metrics).
 
 
 ## View from a Service Bus resource
 
 1. In the Azure portal, search for **Service Bus**, and select any of your existing Service Bus namespaces.
-2. Once you've navigated to your Service Bus resource, in the Monitoring section select **Insights (preview)** or **Workbooks** to do further analysis on throughput, requests, storage, availability, latency, system, and account management. In the following example shows the **Insights (preview)** page for a namespace.
+2. On the **Service Bus Namespace** page, in the **Monitoring** section on the left menu, select **Insights (preview)** or **Workbooks** to do further analysis. You see the following page when you select **Insights (preview)**. 
 
     :::image type="content" source="./media/service-bus-insights/service-bus-overview.png" lightbox="./media/service-bus-insights/service-bus-overview.png" alt-text="Screenshot of Service Bus Insights Overview.":::
 
-You see the same tabs (**Overview**, **Requests**, and **Messages**) on this page, similar to the ones in the **Azure Monitor - Service Bus (Preview)** page. You'll see more information on these tabs compared to the ones on the Azure Monitor page though. 
+You see the same tabs (**Overview**, **Requests**, and **Messages**) on this page, similar to the ones you see on the **Azure Monitor - Service Bus (Preview)** page. You'll see more information on these tabs compared to the ones on the Azure Monitor page though. 
+
+> [!NOTE]
+> For more information about metrics you see on this page, see [Service Bus metrics](../../service-bus-messaging/monitor-service-bus-reference.md).
 
 ### Overview tab
 You see the following information for the Service Bus **namespace** for the selected **time range**: number of active connections, connections opened, successful requests, throttled requests, and incoming messages.
 
-You also see charts with the following information for the namespace over time in the selected time range: active connections, connections opened and closed, successful requests, throttled requests, and incoming & outgoing messages. For example, in the image in the previous section, the **Active Connections** chart shows the number of active connections in the last 4 hours (selected time range).
+You also see charts with the following information for the namespace over time in the selected time range: active connections, connections opened and closed, successful requests, throttled requests, and incoming & outgoing messages. For example, the **Active Connections** chart shows the number of active connections in the last 4 hours (selected time range).
+
+:::image type="content" source="./media/service-bus-insights/service-bus-overview.png" lightbox="./media/service-bus-insights/service-bus-overview.png" alt-text="Screenshot of Service Bus Insights Overview.":::
 
 ### Requests tab
 You see the following information for the Service Bus **namespace** for the selected **time range**: number of incoming requests, successful requests, server errors, user errors, and throttled requests.
 
 The table that follows this section shows break down of these values for each resource (queue or topic) in the Service Bus namespace.
 
-It also has charts showing the following information for the namespace over time in the selected time range:
+This page also has charts showing the following information for the namespace over time in the selected time range:
 
-- Incoming, successful, and throttled requests for all entities in the namespace and for each entity in the namespace
-- Server and user errors for all entities in the namespace and for each entity (segment) in the namespace. 
-
+- Incoming, successful, and throttled requests for all queues and topics in the namespace, and for each queue or topic (segment) in the namespace
+- Server and user errors for all queues and topics in the namespace, and for each queue or topic (segment) in the namespace. 
+ 
 
 ### Messages tab
 You see the following information for the Service Bus **namespace** for the selected **time range**: 
 
-- Number of incoming, outgoing, and dead-lettered messages
-- Average number of messages, active messages, and scheduled messages in queues and topics
+- Number of incoming, outgoing, and dead-lettered messages for all queues and topics in the namespace.
+- Average number of messages, active messages, and scheduled messages for all queues and topics in the namespace.
 
 The table that follows this section shows break down of these values for each resource (queue or topic) in the Service Bus namespace.
 
-It also has charts showing the following information for the namespace over time in the selected time range: 
+This page also has charts showing the following information for the namespace over time in the selected time range: 
 
 - Incoming, outgoing, all, active, scheduled, and dead-lettered messages for all entities (queues and topics) in the namespace. 
 - Breakdown of above metrics by segment or entity (queue or topic in the namespace)
@@ -145,7 +153,7 @@ By default, the **Time Range** field displays data from the **Last 4 hours**. Yo
 
 :::image type="content" source="./media/service-bus-insights/service-bus-time-range.png" alt-text="Screenshot showing selection of time range.":::
 
-## Pin, export, and expand
+## Pin and export
 
 You can pin any one of the metric sections to an [Azure Dashboard](../../azure-portal/azure-portal-dashboards.md) by selecting the pushpin icon at the top right of the section.
 
@@ -158,11 +166,11 @@ To export your data into the Excel format, select the down arrow icon to the lef
 
 ## Customize Service Bus insights
 
-Since this experience is built on top of Azure Monitor workbook templates, you can customize by selecting **Customize** > **Edit** and **Save** a copy of your modified version into a custom workbook. 
+Since this experience is built on top of Azure Monitor workbook templates, you can customize it by selecting **Customize** on the toolbar. 
 
 :::image type="content" source="./media/service-bus-insights/customize.png" alt-text="Screenshot showing the selection of the Customize button on the toolbar.":::
 
-After you save the custom workbook, you need to go to the workbook gallery to launch it.
+On the **Service Bus Overview - Azure Monitor** page, select **Edit** to make modifications, and **Save** a copy of your modified version into a custom workbook. Select **Workbooks** on the toolbar to see the gallery of workbooks including the one you saved.
 
 :::image type="content" source="./media/service-bus-insights/workbooks.png" alt-text="Screenshot showing the selection of Workbooks toolbar button.":::
 
