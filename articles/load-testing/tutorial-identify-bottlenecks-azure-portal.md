@@ -80,7 +80,7 @@ Now that you have the application deployed and running, go ahead and get started
 
 ## Configure and create the load test
 
-In this section, you'll create a load test by using an existing JMeter test script.
+In this section, you'll create a load test by using an existing Apache JMeter test script.
 
 ### Configure the Apache JMeter script
 
@@ -141,19 +141,19 @@ In the next section, you create a new load test for the sample app in the Azure 
 
 1. In the **Test plan** tab, select the **JMeter script** test method and select the *SampleApp.jmx* test script from the cloned sample application directory. Select **Upload** to upload the file to Azure and configure the load test.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload a JMeter script." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
 
-    Optionally, you can select and upload more JMeter configuration files.
+    Optionally, you can select and upload more Apache JMeter configuration files.
 
 1. In the **Load** tab, configure the following details. You can leave the default values for this tutorial:
 
     |Setting  |Value  |Description  |
     |---------|---------|---------|
-    |Engine instances     |1         |The number of parallel test engines that execute the JMeter script. |
+    |Engine instances     |1         |The number of parallel test engines that execute the Apache JMeter script. |
     
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/load.png" alt-text="Screenshot that shows the Load tab when creating a new test." :::
 
-1. In the **Monitoring** tab, specify the application components for which to monitor the resource metrics. Select **add/modify** to manage the list of application components.
+1. In the **Monitoring** tab, specify the application components you want to monitor the resource metrics. Select **add/modify** to manage the list of application components.
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/monitoring.png" alt-text="Screenshot that shows the Monitoring tab when creating a new test." :::
 
@@ -167,7 +167,7 @@ In the next section, you create a new load test for the sample app in the Azure 
 
 ## Run the load test
 
-In this section, you'll run the load test that you created in the previous section. If checked the **Run test after creation** box, the load test will start automatically.
+In this section, you'll run the load test you created in the previous section. If checked the **Run test after creation** box, the load test will start automatically.
 
 1. On the Azure Load Testing resource page, select the test created previously to navigate to test page.
 
@@ -205,7 +205,7 @@ In this section, you'll analyze the load test results to identify performance bo
 
     :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/client-side-metrics.png" alt-text="Screenshot that shows the client-side metrics.":::
     
-    The issue might be database-related, because the `add` and `get` APIs interact with Azure Cosmos DB. You can see a similar pattern for **Errors**, where the `lasttimestamp` API has much fewer errors than the other APIs.
+    The issue might be database-related, because the `add` and `get` APIs interact with Azure Cosmos DB. You can see a similar pattern for **Errors**, where the `lasttimestamp` API has fewer errors than the other APIs.
     
     :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/client-side-metrics-errors.png" alt-text="Screenshot that shows the errors chart.":::
 
@@ -221,7 +221,7 @@ In this section, you'll analyze the load test results to identify performance bo
     
     You notice that the **Normalized RU Consumption** metric shows that the database was running at 100% utilization soon after the load test began. The high resource usage would have caused database throttling errors, and increased response times for the `add` and `get` web APIs.
     
-    In the previous chart, you can see from the **Provisioned Throughput** metric for the Azure Cosmos DB instance has a maximum throughput of 400 RUs. In the next section, you'll increase the throughput and verify if it fixes the performance bottleneck.
+    In the previous chart, you can see the **Provisioned Throughput** metric for the Azure Cosmos DB instance has a maximum throughput of 400 RUs. In the next section, you'll increase the throughput and verify if it fixes the performance bottleneck.
 
 ## Remove performance bottlenecks
 
@@ -247,7 +247,7 @@ Now that you've increased the database throughput, you'll rerun the load test an
  
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/rerun-test.png" alt-text="Screenshot that shows how to run the load test.":::
 
-   You'll see a new test run entry, with the status column that cycles through the **Provisioning**, **Executing**, and **Done** state. At any time, select the test run item to monitor how the load test is progressing.
+   You'll see a new test run entry with the status column that cycles through the **Provisioning**, **Executing**, and **Done** state. At any time, select the test run item to monitor how the load test is progressing.
 
 1. Once the load test finishes, check the **Response time** and the **Errors** of the client-side metrics.
 
