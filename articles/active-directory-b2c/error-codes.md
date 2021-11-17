@@ -21,7 +21,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | Error code | Message | Notes |
 | ---------- | ------- | ----- |
 | `AADB2C90002` | The CORS resource '{0}' returned a 404 not found. | [Hosting the page content](customize-ui-with-html.md#hosting-the-page-content) |
-| `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client id '{1}'. |
+| `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client id '{1}'. | [Register a web application](tutorial-register-applications.md) and [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90007` | The application associated with client id '{0}' has no registered redirect URIs. |
 | `AADB2C90008` | The request does not contain a client id parameter. |
 | `AADB2C90010` | The request does not contain a scope parameter. |
