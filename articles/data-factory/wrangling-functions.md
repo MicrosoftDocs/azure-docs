@@ -4,8 +4,9 @@ description: An overview of available Data Wrangling functions in Azure Data Fac
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 10/06/2021
 ---
 
 # Transformation functions in Power Query for data wrangling
@@ -13,9 +14,6 @@ ms.date: 01/19/2021
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Data Wrangling in Azure Data Factory allows you to do code-free agile data preparation and wrangling at cloud scale by translating Power Query ```M``` scripts into Data Flow script. ADF integrates with [Power Query Online](/powerquery-m/power-query-m-reference) and makes Power Query ```M``` functions available for data wrangling via Spark execution using the data flow Spark infrastructure. 
-
-> [!NOTE]
-> Power Query in ADF is currently avilable in public preview
 
 Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your mash-ups, you'll be prompted with the following error message if a function isn't supported:
 
@@ -47,7 +45,7 @@ The following M functions add or transform columns: [Table.AddColumn](/powerquer
 
 * Numeric arithmetic
 * Text concatenation
-* Date andTime Arithmetic (Arithmetic operators, [Date.AddDays](/powerquery-m/date-adddays), [Date.AddMonths](/powerquery-m/date-addmonths), [Date.AddQuarters](/powerquery-m/date-addquarters), [Date.AddWeeks](/powerquery-m/date-addweeks), [Date.AddYears](/powerquery-m/date-addyears))
+* Date and Time Arithmetic (Arithmetic operators, [Date.AddDays](/powerquery-m/date-adddays), [Date.AddMonths](/powerquery-m/date-addmonths), [Date.AddQuarters](/powerquery-m/date-addquarters), [Date.AddWeeks](/powerquery-m/date-addweeks), [Date.AddYears](/powerquery-m/date-addyears))
 * Durations can be used for date and time arithmetic, but must be transformed into another type before written to a sink (Arithmetic operators, [#duration](/powerquery-m/sharpduration), [Duration.Days](/powerquery-m/duration-days), [Duration.Hours](/powerquery-m/duration-hours), [Duration.Minutes](/powerquery-m/duration-minutes), [Duration.Seconds](/powerquery-m/duration-seconds), [Duration.TotalDays](/powerquery-m/duration-totaldays), [Duration.TotalHours](/powerquery-m/duration-totalhours), [Duration.TotalMinutes](/powerquery-m/duration-totalminutes), [Duration.TotalSeconds](/powerquery-m/duration-totalseconds))    
 * Most standard, scientific, and trigonometric numeric functions (All functions under [Operations](/powerquery-m/number-functions#operations), [Rounding](/powerquery-m/number-functions#rounding), and [Trigonometry](/powerquery-m/number-functions#trigonometry) *except* Number.Factorial, Number.Permutations, and Number.Combinations)
 * Replacement ([Replacer.ReplaceText](/powerquery-m/replacer-replacetext), [Replacer.ReplaceValue](/powerquery-m/replacer-replacevalue), [Text.Replace](/powerquery-m/text-replace), [Text.Remove](/powerquery-m/text-remove))
@@ -59,8 +57,8 @@ The following M functions add or transform columns: [Table.AddColumn](/powerquer
 * Row filters as a logical column
 * Number, text, logical, date, and datetime constants
 
-Merging/Joining tables
-----------------------
+## Merging/Joining tables
+
 * Power Query will generate a nested join (Table.NestedJoin; users can also
     manually write
     [Table.AddJoinColumn](/powerquery-m/table-addjoincolumn)).
@@ -125,6 +123,66 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in scaled-out M. |
 | Table.Transpose | Not supported |
 | Table.Pivot | Not supported |
+| Table.SplitColumn | Partially supported |
+
+## M script workarounds
+
+### ```SplitColumn```
+
+An alternate for split by length and by position is listed below
+
+* Table.AddColumn(Source, "First characters", each Text.Start([Email], 7), type text)
+* Table.AddColumn(#"Inserted first characters", "Text range", each Text.Middle([Email], 4, 9), type text)
+
+This option is accessible from the Extract option in the ribbon
+
+:::image type="content" source="media/wrangling-data-flow/power-query-split.png" alt-text="Power Query Add Column":::
+
+### ```Table.CombineColumns```
+
+* Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName])
+
+### Pivots
+
+* Select Pivot transformation from the PQ editor and select your pivot column
+
+![Power Query Pivot Common](media/wrangling-data-flow/power-query-pivot-1.png)
+
+* Next, select the value column and the aggregate function
+
+![Power Query Pivot Selector](media/wrangling-data-flow/power-query-pivot-2.png)
+
+* When you click OK, you will see the data in the editor updated with the pivoted values
+* You will also see a warning message that the transformation may be unsupported
+* To fix this warning, expand the pivoted list manually using the PQ editor
+* Select Advanced Editor option from the ribbon
+* Expand the list of pivoted values manually
+* Replace List.Distinct() with the list of values like this:
+```
+#"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)
+in
+  #"Pivoted column"
+```
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNbBf]
+
+### Formatting date/time columns
+
+To set the date/time format when using Power Query ADF, please follow these sets to set the format.
+
+![Power Query Change Type](media/data-flow/power-query-date-2.png)
+
+1. Select the column in the Power Query UI and choose Change Type > Date/Time
+2. You will see a warning message
+3. Open Advanced Editor and change ```TransformColumnTypes``` to ```TransformColumns```. Specify the format and culture based on the input data.
+
+![Power Query Editor](media/data-flow/power-query-date-3.png)
+
+```
+#"Changed column type 1" = Table.TransformColumns(#"Duplicated column", {{"start - Copy", each DateTime.FromText(_, [Format = "yyyy-MM-dd HH:mm:ss", Culture = "en-us"]), type datetime}})
+```
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNdQg]
 
 ## Next steps
 

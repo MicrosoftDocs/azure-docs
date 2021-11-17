@@ -5,13 +5,13 @@ description: Learn how to connect to SQL Database, SQL Managed Instance, and Azu
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
+ms.custom: azure-synapse, has-adal-ref, sqldbrb=2, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, sstein
-ms.date: 08/17/2020
+ms.reviewer: vanto
+ms.date: 08/11/2021
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -19,6 +19,9 @@ ms.date: 08/17/2020
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 This article shows you how to create and populate an Azure Active Directory (Azure AD) instance, and then use Azure AD with [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory authentication](authentication-aad-overview.md).
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## Azure AD authentication methods
 
@@ -43,7 +46,13 @@ For more information on Azure AD hybrid identities, setup, and synchronization, 
 
 Create an Azure AD instance and populate it with users and groups. Azure AD can be the initial Azure AD managed domain. Azure AD can also be an on-premises Active Directory Domain Services that is federated with the Azure AD.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md), [Manage Azure AD using Windows PowerShell](/powershell/azure/), and [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md).
+For more information, see:
+- [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
+- [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Manage Azure AD using Windows PowerShell](/powershell/module/azuread)
+- [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md).
 
 ## Associate or add an Azure subscription to Azure Active Directory
 
@@ -215,10 +224,10 @@ You can also provision an Azure AD admin for the SQL Managed Instance by calling
 
 | Command | Description |
 | --- | --- |
-|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | Provisions an Azure Active Directory administrator for the SQL Managed Instance (must be from the current subscription). |
-|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | Removes an Azure Active Directory administrator for the SQL Managed Instance. |
-|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-list) | Returns information about an Azure Active Directory administrator currently configured for the SQL Managed Instance. |
-|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-update) | Updates the Active Directory administrator for the SQL Managed Instance. |
+|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_create) | Provisions an Azure Active Directory administrator for the SQL Managed Instance (must be from the current subscription). |
+|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_delete) | Removes an Azure Active Directory administrator for the SQL Managed Instance. |
+|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_list) | Returns information about an Azure Active Directory administrator currently configured for the SQL Managed Instance. |
+|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_update) | Updates the Active Directory administrator for the SQL Managed Instance. |
 
 For more information about CLI commands, see [az sql mi](/cli/azure/sql/mi).
 
@@ -291,7 +300,7 @@ Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Serve
 The **DisplayName** input parameter accepts either the Azure AD display name or the User Principal Name. For example, ``DisplayName="John Smith"`` and ``DisplayName="johns@contoso.com"``. For Azure AD groups only the Azure AD display name is supported.
 
 > [!NOTE]
-> The Azure PowerShell  command ```Set-AzSqlServerActiveDirectoryAdministrator``` does not prevent you from provisioning Azure AD admins for unsupported users. An unsupported user can be provisioned, but can not connect to a database.
+> The Azure PowerShell  command `Set-AzSqlServerActiveDirectoryAdministrator` does not prevent you from provisioning Azure AD admins for unsupported users. An unsupported user can be provisioned, but can not connect to a database.
 
 The following example uses the optional **ObjectID**:
 
@@ -321,10 +330,10 @@ You can provision an Azure AD admin by calling the following CLI commands:
 
 | Command | Description |
 | --- | --- |
-|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Provisions an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. (Must be from the current subscription) |
-|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Removes an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
-|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | Returns information about an Azure Active Directory administrator currently configured for the server hosting SQL Database or Azure Synapse. |
-|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | Updates the Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
+|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) | Provisions an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. (Must be from the current subscription) |
+|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) | Removes an Azure Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
+|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) | Returns information about an Azure Active Directory administrator currently configured for the server hosting SQL Database or Azure Synapse. |
+|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) | Updates the Active Directory administrator for the server hosting SQL Database or Azure Synapse. |
 
 For more information about CLI commands, see [az sql server](/cli/azure/sql/server).
 
@@ -332,6 +341,19 @@ For more information about CLI commands, see [az sql server](/cli/azure/sql/serv
 
 > [!NOTE]
 > You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Database Operations for Azure SQL Database](/rest/api/sql/)
+
+## Set or unset the Azure AD admin using service principals
+
+If you are planning to have the service principal set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
+
+> [!NOTE]
+> This section on setting the Azure AD admin only applies to using PowerShell or CLI commands, as you cannot use the Azure portal as an Azure AD service principal.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All permissions in Azure AD":::
+
+The service principal will also need the [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role for SQL Database, or the [**SQL Managed Instance Contributor**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role for SQL Managed Instance.
+
+For more information, see [service principals (Azure AD applications)](authentication-aad-service-principal.md).
 
 ## Configure your client computers
 
@@ -362,10 +384,14 @@ However, using Azure Active Directory authentication with SQL Database and Azure
 > [!WARNING]
 > Special characters like  colon `:` or ampersand `&` when included as user names in the T-SQL `CREATE LOGIN` and `CREATE USER` statements are not supported.
 
+> [!IMPORTANT]
+> Azure AD users and service principals (Azure AD applications) that are members of more than 2048 Azure AD security groups are not supported to login into the database in SQL Database, Managed Instance, or Azure Synapse.
+
+
 To create an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity, as a user with at least the **ALTER ANY USER** permission. Then use the following Transact-SQL syntax:
 
 ```sql
-CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
+CREATE USER [<Azure_AD_principal_name>] FROM EXTERNAL PROVIDER;
 ```
 
 *Azure_AD_principal_name* can be the user principal name of an Azure AD user or the display name for an Azure AD group.
@@ -417,7 +443,7 @@ To confirm the Azure AD administrator is properly set up, connect to the **maste
 To provision an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity that has access to the database.
 
 > [!IMPORTANT]
-> Support for Azure Active Directory authentication is available with [SQL Server 2016 Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) in Visual Studio 2015. The August 2016 release of SSMS also includes support for Active Directory Universal Authentication, which allows administrators to require Multi-Factor Authentication using a phone call, text message, smart cards with pin, or mobile app notification.
+> Support for Azure Active Directory authentication is available with [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) starting in 2016 and [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) starting in 2015. The August 2016 release of SSMS also includes support for Active Directory Universal Authentication, which allows administrators to require Multi-Factor Authentication using a phone call, text message, smart cards with pin, or mobile app notification.
 
 ## Using an Azure AD identity to connect using SSMS or SSDT
 
@@ -505,9 +531,9 @@ This authentication method allows middle-tier services to obtain [JSON Web Token
 Sample connection string:
 
 ```csharp
-string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
+string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;";
 SqlConnection conn = new SqlConnection(ConnectionString);
-conn.AccessToken = "Your JWT token"
+conn.AccessToken = "Your JWT token";
 conn.Open();
 ```
 

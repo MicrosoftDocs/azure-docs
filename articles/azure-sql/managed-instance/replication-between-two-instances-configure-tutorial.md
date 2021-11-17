@@ -4,11 +4,11 @@ titleSuffix: Azure SQL Managed Instance
 description: This tutorial teaches you to configure transactional replication between an Azure SQL Managed Instance publisher/distributor and a SQL Managed Instance subscriber. 
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: data-movement
+ms.subservice: replication
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: MashaMSFT
+author: ferno-ms
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020

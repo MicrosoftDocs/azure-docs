@@ -7,7 +7,7 @@ manager: ankita
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/11/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
@@ -17,9 +17,8 @@ Get started with Azure Communication Services by using the Communication Service
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-<!--**TODO: update all these reference links as the resources go live**
-
-[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)-->
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-sms-quickstart)
 
 ## Prerequisites
 
@@ -81,8 +80,7 @@ Instantiate an **SmsClient** with your connection string. Learn how to [manage y
 # Create the SmsClient object which will be used to send SMS messages
 sms_client = SmsClient.from_connection_string(<connection_string>)
 ```
-For simplicity we are using connection strings in this quickstart, but in production environments we recommend using [managed identities](../../../quickstarts/managed-identity.md) because they are more secure and manageable at scale.
-
+For simplicity we are using connection strings in this quickstart, but in production environments we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
 ## Send a 1:1 SMS Message
 
@@ -103,7 +101,7 @@ sms_responses = sms_client.send(
 You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number>` with the phone number you wish to send a message to.
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
+> Note that phone numbers should be provided in E.164 international standard format (e.g.: +14255550123). The **From** phone number may be a Short Code as well (e.g.: 23456).
 
 ## Send a 1:N SMS Message
 
@@ -124,7 +122,7 @@ sms_responses = sms_client.send(
 You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number-1>` `<to-phone-number-2>` with phone number(s) you wish to send a message to.
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
+> Note that phone numbers should be provided in E.164 international standard format (e.g.: +14255550123). The **From** phone number may be a Short Code as well (e.g.: 23456).
 
 ## Optional Parameters
 

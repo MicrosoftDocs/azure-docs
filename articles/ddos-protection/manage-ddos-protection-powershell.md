@@ -10,7 +10,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
-ms.author: yitoh
+ms.author: yitoh 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Quickstart: Create and configure Azure DDoS Protection Standard using Azure PowerShell

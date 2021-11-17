@@ -1,7 +1,7 @@
 ---
 title: "Face detection and attributes concepts"
 titleSuffix: Azure Cognitive Services
-description: Face detection is the action of locating human faces in an image and optionally returning different kinds of face-related data.
+description: Learn more about face detection; face detection is the action of locating human faces in an image and optionally returning different kinds of face-related data.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -9,7 +9,7 @@ manager: nitime
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ---
 
@@ -31,10 +31,13 @@ Face landmarks are a set of easy-to-find points on a face, such as the pupils or
 
 The coordinates of the points are returned in units of pixels.
 
+The Detection_03 model currently has the most accurate landmark detection. The eye and pupil landmarks it returns are precise enough to enable gaze tracking of the face.
+
 ## Attributes
 
 Attributes are a set of features that can optionally be detected by the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. The following attributes can be detected:
 
+* **Accessories**. Whether the given face has accessories. This attribute returns possible accessories including headwear, glasses, and mask, with confidence score between zero and one for each accessory.
 * **Age**. The estimated age in years of a particular face.
 * **Blur**. The blurriness of the face in the image. This attribute returns a value between zero and one and an informal rating of low, medium, or high.
 * **Emotion**. A list of emotions with their detection confidence for the given face. Confidence scores are normalized, and the scores across all emotions add up to one. The emotions returned are happiness, sadness, neutral, anger, contempt, disgust, surprise, and fear.
@@ -43,13 +46,17 @@ Attributes are a set of features that can optionally be detected by the [Face - 
 * **Gender**. The estimated gender of the given face. Possible values are male, female, and genderless.
 * **Glasses**. Whether the given face has eyeglasses. Possible values are NoGlasses, ReadingGlasses, Sunglasses, and Swimming Goggles.
 * **Hair**. The hair type of the face. This attribute shows whether the hair is visible, whether baldness is detected, and what hair colors are detected.
-* **Head pose**. The face's orientation in 3D space. This attribute is described by the pitch, roll, and yaw angles in degrees. The value ranges are -90 degrees to 90 degrees, -90 degrees to 90 degrees, and -90 degrees to 90 degrees, respectively. See the following diagram for angle mappings:
+* **Head pose**. The face's orientation in 3D space. This attribute is described by the roll, yaw, and pitch angles in degrees, which are defined according to the [right-hand rule](https://en.wikipedia.org/wiki/Right-hand_rule). The order of three angles is roll-yaw-pitch, and each angle's value range is from -180 degrees to 180 degrees. 3D orientation of the face is estimated by the roll, yaw, and pitch angles in order. See the following diagram for angle mappings:
 
     ![A head with the pitch, roll, and yaw axes labeled](../Images/headpose.1.jpg)
 * **Makeup**. Whether the face has makeup. This attribute returns a Boolean value for eyeMakeup and lipMakeup.
+* **Mask**.  Whether the face is wearing a mask. This attribute returns a possible mask type, and a Boolean value to indicate whether nose and mouth are covered.
 * **Noise**. The visual noise detected in the face image. This attribute returns a value between zero and one and an informal rating of low, medium, or high.
 * **Occlusion**. Whether there are objects blocking parts of the face. This attribute returns a Boolean value for eyeOccluded, foreheadOccluded, and mouthOccluded.
 * **Smile**. The smile expression of the given face. This value is between zero for no smile and one for a clear smile.
+* **QualityForRecognition** The overall image quality regarding whether the image being used in the detection is of sufficient quality to attempt face recognition on. The value is an informal rating of low, medium, or high. Only "high" quality images are recommended for person enrollment, and quality at or above "medium" is recommended for identification scenarios.
+    >[!NOTE]
+    > The availability of each attribute depends on the detection model specified. QualityForRecognition attribute also depends on the recognition model, as it is currently only available when using a combination of detection model detection_01 or detection_03, and recognition model recognition_03 or recognition_04.
 
 > [!IMPORTANT]
 > Face attributes are predicted through the use of statistical algorithms. They might not always be accurate. Use caution when you make decisions based on attribute data.
@@ -58,12 +65,27 @@ Attributes are a set of features that can optionally be detected by the [Face - 
 
 Use the following tips to make sure that your input images give the most accurate detection results:
 
-* The supported input image formats are JPEG, PNG, GIF for the first frame, and BMP.
+* The supported input image formats are JPEG, PNG, GIF (the first frame), BMP. 
 * The image file size should be no larger than 6 MB.
 * The minimum detectable face size is 36 x 36 pixels in an image that is no larger than 1920 x 1080 pixels. Images with larger than 1920 x 1080 pixels have a proportionally larger minimum face size. Reducing the face size might cause some faces not to be detected, even if they are larger than the minimum detectable face size.
 * The maximum detectable face size is 4096 x 4096 pixels.
 * Faces outside the size range of 36 x 36 to 4096 x 4096 pixels will not be detected.
-* Some faces might not be detected because of technical challenges. Extreme face angles (head pose) or face occlusion (objects such as sunglasses or hands that block part of the face) can affect detection. Frontal and near-frontal faces give the best results.
+* Some faces might not be recognized because of technical challenges, such as:
+  * Images with extreme lighting, for example, severe backlighting.
+  * Obstructions that block one or both eyes.
+  * Differences in hair type or facial hair.
+  * Changes in facial appearance because of age.
+  * Extreme facial expressions.
+
+### Input data with orientation information:
+
+Some input images with JPEG format might contain orientation information in Exchangeable image file format (Exif) metadata. If Exif orientation is available, images will be automatically rotated to the correct orientation before sending for face detection. The face rectangle, landmarks, and head pose for each detected face will be estimated based on the rotated image.
+
+To properly display the face rectangle and landmarks, you need to make sure the image is rotated correctly. Most of image visualization tools will auto-rotate the image according to its Exif orientation by default. For other tools, you might need to apply the rotation using your own code. The following examples show a face rectangle on a rotated image (left) and a non-rotated image (right).
+
+![Two face images with and without rotation](../Images/image-rotation.png)
+
+### Video input
 
 If you're detecting faces from a video feed, you may be able to improve performance by adjusting certain settings on your video camera:
 
@@ -78,4 +100,4 @@ If you're detecting faces from a video feed, you may be able to improve performa
 
 Now that you're familiar with face detection concepts, learn how to write a script that detects faces in a given image.
 
-* [Detect faces in an image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+* [Call the detect API](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

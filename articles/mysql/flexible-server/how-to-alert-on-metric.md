@@ -8,26 +8,28 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ---
 
-# Use the Azure portal to set up alerts on metrics for Azure Database for MySQL - Flexible Server 
+# Set up alerts on metrics for Azure Database for MySQL - Flexible Server
 
-> [!IMPORTANT] 
-> Azure Database for MySQL - Flexible Server is currently in public preview.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article shows you how to set up Azure Database for MySQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 
 The alert triggers when the value of a specified metric crosses a threshold you assign. The alert triggers both when the condition is first met, and then afterwards when that condition is no longer being met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
 
 You can configure an alert to do the following actions when it triggers:
+
 * Send email notifications to the service administrator and co-administrators
 * Send email to additional emails that you specify.
 * Call a webhook
 
 You can configure and get information about alert rules using:
+
 * [Azure portal](../../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
+
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for MySQL flexible server you want to monitor.
 2. Under the **Monitoring** section of the sidebar, select **Alerts**.
 3. Select **+ New alert rule**.
@@ -44,14 +46,14 @@ You can configure and get information about alert rules using:
 12. You can also create a new action group to receive notifications on the alert. Refer to [create and manage action group](../../azure-monitor/alerts/action-groups.md) for more information.
 13. To create a new action group, choose **+ Create action group**. Fill out the "Create action group" form with a **Subscription**, **Resource group**, **Action group name** and **Display Name**.
 14. Configure **Notifications** for action group.
-    
+
     In **Notification type**, choose "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers to receive notifications. Choose the **Azure Resource Manager Role** for sending the email.
     You can also choose **Email/SMS message/Push/Voice** to send notifications to specific recipients.
 
     Provide **Name** to the notification type and select **Review + Create** when completed.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::-->
-    
+
 15. Fill in **Alert rule details** like **Alert rule name**, **Description**, **Save alert rule to resource group** and **Severity**.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group":::-->

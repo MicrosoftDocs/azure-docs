@@ -1,21 +1,26 @@
+items:
 - name: Translator Service Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
+  - name: What is Translator?
+    href: translator-overview.md
   - name: Language Support
     href: language-support.md
-  - name: Pricing and limits
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator 
+  - name: Pricing
+    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
+  - name: What's new?
+    href: whats-new.md
+  - name: Translator FAQ
+    href: translator-faq.md
 - name: Text Translation
   expanded: true
   items:
-  - name: What is Translator?
-    href: translator-info-overview.md
-  - name: Translator FAQ
-    href: https://www.microsoft.com/translator/faq.aspx    
+  - name: What is Text Translation?
+    href: text-translation-overview.md
   - name: Quickstart
-    href: quickstart-translator.md  
+    href: quickstart-translator.md
   - name: Samples
     items:
     - name: Code Sample page
@@ -50,26 +55,28 @@
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
       href: firewalls.md
-  - name: Concepts
-    items:
-    - name: How the API counts characters
-      href: character-counts.md
+    - name: Use the Translator container
+      items:
+      - name: Install and run containers
+        href: containers/translator-how-to-install-container.md
+      - name: Configure containers
+        href: containers/translator-container-configuration.md
+      - name: "Container: Translate"
+        href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
     - name: Create a WPF app for Translator, C#
       href: tutorial-wpf-translation-csharp.md
     - name: Create a Flask translation app, Python
-      href: tutorial-build-flask-app-translation-synthesis.md 
+      href: tutorial-build-flask-app-translation-synthesis.md
   - name: Reference
     items:
     - name: v3 Translator reference
       href: reference/v3-0-reference.md
+    - name: Text Translator REST APIs
+      href:  reference/rest-api-guide.md
     - name: Languages
       href: reference/v3-0-languages.md
-    - name: Regional availability
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-    - name: Request limits
-      href: request-limits.md
     - name: Translate
       href: reference/v3-0-translate.md
     - name: Transliterate
@@ -81,15 +88,55 @@
     - name: Dictionary Lookup
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
-      href: reference/v3-0-dictionary-examples.md      
-- name: Custom Translation
+      href: reference/v3-0-dictionary-examples.md
+    - name: Request limits
+      href: request-limits.md
+- name: Document Translation
+  items:
+    - name: What is Document Translation?
+      href: document-translation/overview.md
+    - name: Client-library SDKs
+      href: document-translation/client-sdks.md
+    - name: Quickstart
+      href: document-translation/get-started-with-document-translation.md
+    - name: How-to guides
+      items:
+      - name: Generate SAS tokens for Document Translation
+        href: document-translation/create-sas-tokens.md
+      - name: Create and use managed identity
+        href: document-translation/managed-identity.md
+    - name: Reference
+      items:
+      - name:  Document Translation REST APIs
+        href: document-translation/reference/rest-api-guide.md
+      - name: Get supported document formats
+        href: document-translation/reference/get-supported-document-formats.md
+      - name: Get supported glossary formats
+        href: document-translation/reference/get-supported-glossary-formats.md
+      - name: Get supported storage sources
+        href: document-translation/reference/get-supported-storage-sources.md
+      - name: Start translation
+        href: document-translation/reference/start-translation.md
+      - name: Get documents status
+        href: document-translation/reference/get-documents-status.md
+      - name: Get document status
+        href: document-translation/reference/get-document-status.md
+      - name: Get translations status
+        href: document-translation/reference/get-translations-status.md
+      - name: Get translation status
+        href: document-translation/reference/get-translation-status.md
+      - name: Cancel translation
+        href: document-translation/reference/cancel-translation.md
+    - name: FAQ
+      href: document-translation/faq.md   
+- name: Custom Translator
   items:
   - name: What is the Custom Translator?
     href: custom-translator/overview.md
   - name: FAQ
     href: custom-translator/faq.md
   - name: Quickstart
-    href: custom-translator/quickstart-build-deploy-custom-model.md  
+    href: custom-translator/quickstart-build-deploy-custom-model.md
   - name: How-to guides
     items:
     - name: Create a project
@@ -108,16 +155,14 @@
       href: custom-translator/how-to-view-system-test-results.md
     - name: Manage settings
       href: custom-translator/how-to-manage-settings.md
-    - name: Migrate from Hub
-      href: custom-translator/how-to-migrate.md
     - name: Unsupported language deployments
       href: custom-translator/unsupported-language-deployments.md
   - name: Concepts
     items:
     - name: Key terms
-      href: custom-translator/terminology.md    
+      href: custom-translator/terminology.md
     - name: Customize and improve text translation
-      href: customization.md  
+      href: customization.md
     - name: Workspaces and projects
       href: custom-translator/workspace-and-project.md
     - name: Parallel documents
@@ -134,44 +179,15 @@
       href: custom-translator/training-and-model.md
     - name: BLEU Score
       href: custom-translator/what-is-bleu-score.md
-- name: Document Translation
-  items:
-    - name: What is Document Translation?
-      href: document-translation/overview.md
-    - name: Quickstart
-      href: document-translation/get-started-with-document-translation.md
-    - name: How-to guides
-      items:
-      - name: Create SAS tokens for Document Translation 
-        href: document-translation/create-sas-tokens.md 
-    - name: Reference
-      items:     
-      - name: Get document formats
-        href: document-translation/reference/get-document-formats.md
-      - name: Get glossary formats
-        href: document-translation/reference/get-glossary-formats.md
-      - name: Get document storage source
-        href: document-translation/reference/get-document-storage-source.md 
-      - name: Submit batch request
-        href: document-translation/reference/submit-batch-request.md
-      - name: Get operation documents status
-        href: document-translation/reference/get-operation-documents-status.md 
-      - name: Get documents status
-        href: document-translation/reference/get-document-status.md
-      - name: Get operations
-        href: document-translation/reference/get-operations.md
-      - name: Cancel operation
-        href: document-translation/reference/cancel-operation.md      
+    - name: Customer-managed keys
+      href: encrypt-data-at-rest.md
+  - name: Reference
+    items:
+    - name: Release notes
+      href: custom-translator/release-notes.md
 - name: Resources
   items:
-  - name: Support & help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
-  - name: Compliance
-    href: https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy
-  - name:  Encryption
-    href:  encrypt-data-at-rest.md   
+  - name: Compliance and certification
+    href: https://www.microsoft.com/translator/business/notrace/
   - name: Code samples on GitHub
     href: https://aka.ms/TranslatorGitHub
-  - name: Privacy and cookies 
-    href: https://privacy.microsoft.com/en-US/privacystatement    
-

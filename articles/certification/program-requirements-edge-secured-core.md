@@ -1,21 +1,19 @@
 ---
 title: Edge Secured-core Certification Requirements
-description: Edge Secured-core Certification program requirements
+description: Edge Secured-core Certification Requirements
 author: cbroad
 ms.author: cbroad
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 ---
 
-# Azure Certified Device - Edge Secured-core (Preview) #
-
-## Edge Secured-Core Certification Requirements ##
+# Edge Secured-Core Certification Requirements (Preview) #
 
 This document outlines the device specific capabilities and requirements that will be met in order to complete certification and list a device in the Azure IoT Device catalog with the Edge Secured-core label.
 
-### Program Purpose ###
+## Program Purpose ##
 Edge Secured-core is an incremental certification in the Azure Certified Device program for IoT devices running a full operating system, such as Linux or Windows 10 IoT.This program enables device partners to differentiate their devices by meeting an additional set of security criteria. Devices meeting this criteria enable these promises:
 1. Hardware-based device identity 
 2. Capable of enforcing system integrity 
@@ -23,18 +21,18 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 4. Provides data at-rest protection
 5. Provides data in-transit protection
 6. Built in security agent and hardening
-### Requirements ###
+## Requirements ##
 
 ---
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to make sure devices can report security information and events by sending data to Azure Defender for IoT.|
+|Description|The purpose of the test is to make sure devices can report security information and events by sending data to Microsoft Defender for IoT.|
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
-|Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Download and deploy security agent from GitHub</li><li>Validate alert message from Azure Defender for IoT.</li></ol>|
+|Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Microsoft Defender for Cloud.<ol><li>Download and deploy security agent from GitHub</li><li>Validate alert message from Microsoft Defender for IoT.</li></ol>|
 |Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
 
 ---
@@ -46,7 +44,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |Applies To|Any device|
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure storage encryption is enabled and default algorithm is XTS-AES, with key length 128 bits or higher.|
+|Validation|Device to be validated through toolset to ensure storage encryption is enabled and default algorithm is XTS-AES, with key length 128 bits or higher. </br></br>Note: Preview release June 2021 only verifies device has DM-Crypt installed and has an encrypted partition.|
 |Resources||
 
 ---
@@ -82,7 +80,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |Applies To|Any device|
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
-|Validation|Partner confirmation that they were able to send an update to the device through Microsoft update, Azure Device update, or other approved services.|
+|Validation|Partner confirmation that they were able to send an update to the device through Microsoft update, [Device Update for IoT Hub (ADU)](../iot-hub-device-update/understand-device-update.md). For Linux devices using Device Update for IoT Hub, certification will require providing a .swu update file during the Secured Core test process and device specific information for Certification Service to generate a [update manifest](../iot-hub-device-update/update-manifest.md) file.|
 |Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
 
 ---
@@ -94,7 +92,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |Applies To|Any device|
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure the device supports the ability to be remotely manageable and specifically security configurations. And the status is reported back to IoT Hub/Azure Defender for IoT.|
+|Validation|Device to be validated through toolset to ensure the device supports the ability to be remotely manageable and specifically security configurations. And the status is reported back to IoT Hub/Microsoft Defender for IoT.|
 |Resources||
 
 ---
@@ -156,7 +154,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [TLS Cipher suites in Windows 10](https://docs.microsoft.com/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
+|Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [TLS Cipher suites in Windows 10](/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
 
 ---
 |Name|SecuredCore.Protection.SignedUpdates|
@@ -179,7 +177,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Applies To|Any device|
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul>|
+|Validation|Device to be validated through toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul> </br> </br>Note: Preview release June 2021 only verifies UEFI existence.|
 |Resources||
 
 ---
@@ -215,7 +213,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Applies To|Any device|
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that Defender IOT system configurations benchmarks have been run.|
+|Validation|Device to be validated through toolset to ensure that Defender for Cloud IOT system configurations benchmarks have been run.|
 |Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/ |
 
 ---

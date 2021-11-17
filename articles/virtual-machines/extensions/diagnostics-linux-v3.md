@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: linux
-ms.date: 12/13/2018 
+ms.date: 12/13/2018  
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use Linux diagnostic extension 3.0 to monitor metrics and logs
@@ -15,7 +16,7 @@ ms.date: 12/13/2018
 This document describes version 3.0 and newer of the Linux diagnostic extension (LAD).
 
 > [!IMPORTANT]
-> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## Introduction
 
@@ -37,7 +38,7 @@ You can enable the extension by using Azure PowerShell cmdlets, Azure CLI script
 >[!NOTE]
 >Some components of the LAD VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Because of this architecture, conflicts can arise if both extensions are instantiated in the same ARM template. 
 >
->To avoid install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) to ensure the extensions are installed sequentially. The extensions can be installed in either order.
+>To avoid install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/resource-dependency.md#dependson) to ensure the extensions are installed sequentially. The extensions can be installed in either order.
 
 These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) to configure LAD 3.0 to:
 
@@ -56,7 +57,7 @@ A distribution that lists only major versions, like Debian 7, is also supported 
 
 Supported distributions and versions:
 
-- Ubuntu 18.04, 16.04, 14.04
+- Ubuntu 20.04, 18.04, 16.04, 14.04
 - CentOS 7, 6.5+
 - Oracle Linux 7, 6.4+
 - OpenSUSE 13.1+

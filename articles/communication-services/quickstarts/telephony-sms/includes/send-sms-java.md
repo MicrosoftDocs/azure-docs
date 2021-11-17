@@ -7,7 +7,7 @@ manager: ankita
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/12/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
@@ -16,6 +16,9 @@ ms.author: pvicencio
 Get started with Azure Communication Services by using the Communication Services Java SMS SDK to send SMS messages.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-sms-quickstart)
 
 ## Prerequisites
 
@@ -50,19 +53,11 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
 ### Set up the app framework
-
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-core</artifactId>
-    <version>1.13.0</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
-</dependency>
-```
 
 Open **/src/main/java/com/communication/quickstart/App.java** in a text editor, add import directives and remove the `System.out.println("Hello world!");` statement:
 
@@ -116,7 +111,7 @@ SmsClient smsClient = new SmsClientBuilder()
 You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key.
 ```java
 // You can find your connection string from your resource in the Azure portal
-String connectionString = "https://<resource-name>.communication.azure.com/;<access-key>";
+String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
 
 SmsClient smsClient = new SmsClientBuilder()
             .connectionString(connectionString)
@@ -141,7 +136,7 @@ System.out.println("Send Result Successful:" + sendResult.isSuccessful());
 You should replace `<from-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with a phone number you wish to send a message to.
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
+> Note that phone numbers should be provided in E.164 international standard format (e.g.: +14255550123). The **From** phone number may be a Short Code as well (e.g.: 23456).
 
 ## Send a 1:N SMS message with options
 To send an SMS message to a list of recipients, call the `send` method with a list of recipient phone numbers. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.
@@ -167,7 +162,7 @@ for (SmsSendResult result : sendResults) {
 You should replace `<from-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number-1>` and `<to-phone-number-2>` with phone number(s) you wish to send a message to.
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
+> Note that phone numbers should be provided in E.164 international standard format (e.g.: +14255550123). The **From** phone number may be a Short Code as well (e.g.: 23456).
 
 The `setDeliveryReportEnabled` method is used to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 

@@ -5,7 +5,7 @@
  author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 03/31/2021
+ ms.date: 06/29/2021
  ms.author: jlian
 ---
 
@@ -19,13 +19,9 @@ TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more 
 
 During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients. Its root is the Baltimore Cybertrust Root CA. Recently, we rolled out a change to our TLS server certificate so that it is now issued by new intermediate certificate authorities (ICA). For more information, see [IoT Hub TLS certificate update](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/).
 
-### 4KB size limit on renewal
-
-During renewal of IoT Hub server side certificates, a check is made on IoT Hub service side to prevent `Server Hello` exceeding 4KB in size. A client should have at least 4KB of RAM set for incoming TLS max content length buffer, so that existing devices which are set for 4KB limit continue to work as before after certificate renewals. For constrained devices, IoT Hub supports [TLS maximum fragment length negotiation in preview](#tls-maximum-fragment-length-negotiation-preview). 
-
 ### Elliptic Curve Cryptography (ECC) server TLS certificate (preview)
 
-IoT Hub ECC server TLS certificate is available for public preview. While offering similar security to RSA certificates, ECC certificate validation (with ECC-only cipher suites) uses up to 40% less compute, memory, and bandwidth. These savings are important for IoT devices because of their smaller profiles and memory, and to support use cases in network bandwidth limited environments. 
+IoT Hub ECC server TLS certificate is available for public preview. While offering similar security to RSA certificates, ECC certificate validation (with ECC-only cipher suites) uses up to 40% less compute, memory, and bandwidth. These savings are important for IoT devices because of their smaller profiles and memory, and to support use cases in network bandwidth limited environments. The ECC server certificate's root is DigiCert Global Root G3.
 
 To preview IoT Hub's ECC server certificate:
 
@@ -128,7 +124,7 @@ IoT Edge devices can be configured to use TLS 1.2 when communicating with IoT Hu
 
 ## Device authentication
 
-After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, this can be any X.509 certificate, including ECC. IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-devguide-security.md#supported-x509-certificates).
+After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, this can be any X.509 certificate, including ECC. IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-dev-guide-sas.md#supported-x509-certificates).
 
 ## TLS maximum fragment length negotiation (preview)
 

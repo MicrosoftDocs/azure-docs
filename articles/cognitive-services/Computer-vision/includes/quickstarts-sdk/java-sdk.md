@@ -49,7 +49,7 @@ When prompted to choose a **DSL**, select **Kotlin**.
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
 
-Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ComputerVisionQuickstarts**. It imports the Computer Vision library.
+Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ComputerVisionQuickstart**. It imports the Computer Vision library.
 
 ```kotlin
 plugins {
@@ -57,13 +57,13 @@ plugins {
     application
 }
 application { 
-    mainClassName = "ComputerVisionQuickstarts"
+    mainClass.set("ComputerVisionQuickstart")
 }
 repositories {
     mavenCentral()
 }
 dependencies {
-    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
+    implementation(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.6-beta")
 }
 ```
 
@@ -78,13 +78,13 @@ mkdir -p src/main/java
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java), which contains the code examples in this quickstart.
 
-Navigate to the new folder and create a file called *ComputerVisionQuickstarts.java*. Open it in your preferred editor or IDE.
+Navigate to the new folder and create a file called *ComputerVisionQuickstart.java*. Open it in your preferred editor or IDE.
 
 ### Find the subscription key and endpoint
 
 Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 
-Define the class **ComputerVisionQuickstarts**. Create variables for your Computer Vision subscription key and endpoint. Paste your subscription key and endpoint into the following code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
+Define the class **ComputerVisionQuickstart**. Create variables for your Computer Vision subscription key and endpoint. Paste your subscription key and endpoint into the following code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imports_and_vars)]
 
@@ -93,15 +93,11 @@ Define the class **ComputerVisionQuickstarts**. Create variables for your Comput
 
 In the application's **main** method, add calls for the methods used in this quickstart. You'll define these later.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_beginmain)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_main)]
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_authinmain)]
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_readinmain)]
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_endmain)]
 > [!div class="nextstepaction"]
-> [I set up the client](?success=set-up-client#object-model) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=set-up-client)
+> [I set up the client](?success=set-up-client#object-model) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=set-up-client&product=computer-vision&page=java-sdk)
 
 ## Object model
 
@@ -125,7 +121,7 @@ In a new method, instantiate a [ComputerVisionClient](/java/api/com.microsoft.az
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [I authenticated the client](?success=authenticate-client#read-printed-and-handwritten-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
+> [I authenticated the client](?success=authenticate-client#read-printed-and-handwritten-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client&product=computer-vision&page=java-sdk)
 
 
 
@@ -140,7 +136,7 @@ The OCR service can read visible text in an image and convert it to a character 
 
 Create a **resources/** folder in the **src/main/** folder of your project, and add an image you'd like to read text from. You can download a [sample image](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) to use here.
 
-Then add the following method definition to your **ComputerVisionQuickstarts** class. Change the value of the `localFilePath` to match your image file. 
+Then add the following method definition to your **ComputerVisionQuickstart** class. Change the value of the `localFilePath` to match your image file. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_setup)]
 
@@ -173,7 +169,7 @@ Finally, add the other helper method used above, which extracts the operation ID
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
 > [!div class="nextstepaction"]
-> [I read text](?success=read-printed-handwritten-text#run-the-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=read-printed-handwritten-text)
+> [I read text](?success=read-printed-handwritten-text#run-the-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=read-printed-handwritten-text&product=computer-vision&page=java-sdk)
 
 ## Run the application
 
@@ -190,7 +186,7 @@ gradle run
 ```
 
 > [!div class="nextstepaction"]
-> [I ran the application](?success=run-the-application#clean-up-resources) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=run-the-application)
+> [I ran the application](?success=run-the-application#clean-up-resources) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=run-the-application&product=computer-vision&page=java-sdk)
 
 ## Clean up resources
 
@@ -200,7 +196,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [I cleaned up resources](?success=clean-up-resources#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=clean-up-resources)
+> [I cleaned up resources](?success=clean-up-resources#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=clean-up-resources&product=computer-vision&page=java-sdk)
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial to configure Nevis with Azure Active Directory B2C for passwordless authentication
 
-In this sample tutorial, learn how to extend Azure AD B2C with  [Nevis](https://www.nevis.net/solution/authentication-cloud) to enable passwordless authentication. Nevis provides a mobile-first, fully branded end-user experience with Nevis Access app to provide strong customer authentication and comply with Payment Services Directive 2 (PSD2) transaction requirements.
+In this sample tutorial, learn how to extend Azure AD B2C with  [Nevis](https://www.nevis.net/en/solution/authentication-cloud) to enable passwordless authentication. Nevis provides a mobile-first, fully branded end-user experience with Nevis Access app to provide strong customer authentication and comply with Payment Services Directive 2 (PSD2) transaction requirements.
 
 ## Prerequisites
 
@@ -215,7 +215,7 @@ You'll receive two emails:
 
 4. Select **Run now**.
 
-5. In the popup window, select **Sign up now**.
+5. In the pop-up window, select **Sign up now**.
 
 6. Add your email address.
 
@@ -247,7 +247,7 @@ You'll receive two emails:
 
 2. Select **Run now**.
 
-3. On the popup window, select **Passwordless Authentication**.
+3. In the pop-up window, select **Passwordless Authentication**.
 
 4. Enter your email address.
 

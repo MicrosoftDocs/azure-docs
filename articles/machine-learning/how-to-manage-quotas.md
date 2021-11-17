@@ -5,11 +5,10 @@ description: Learn about the quotas and limits on resources for Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: jmartens
 author: SimranArora904
 ms.author: siarora
-ms.date: 12/1/2020
-ms.topic: conceptual
+ms.date: 10/21/2021
+ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ---
 
@@ -18,11 +17,10 @@ ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 Azure uses limits and quotas to prevent budget overruns due to fraud, and to honor Azure capacity constraints. Consider these limits as you scale for production workloads. In this article, you learn about:
 
 > [!div class="checklist"]
-> + Default limits on Azure resources related to [Azure Machine Learning](overview-what-is-azure-ml.md).
+> + Default limits on Azure resources related to [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
 > + Creating workspace-level quotas.
 > + Viewing your quotas and limits.
 > + Requesting quota increases.
-> + Private endpoint and DNS quotas.
 
 Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md) or learn about the [service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
 
@@ -96,9 +94,35 @@ The following table shows additional limits in the platform. Please reach out to
 | Parameter servers per node | 1 |
 
 <sup>1</sup> Maximum lifetime is the duration between when a run starts and when it finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
+
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
-#### Azure Machine Learning pipelines
+### Azure Machine Learning managed online endpoints (preview)
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Azure Machine Learning managed online endpoints have limits described in the following table. 
+
+To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#view-metrics). To request an exception from the Azure Machine Learning product team, please open a technical support ticket.
+
+| **Resource** | **Limit** |
+| --- | --- |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> |
+| Number of endpoints per subscription | 50 |
+| Number of deployments per subscription | 200 |
+| Number of deployments per endpoint | 20 |
+| Number of instances per deployment | 20 |
+| Max request time out at endpoint level  | 90 seconds |
+| Total requests per second at endpoint level for all deployments  | 500 <sup>2</sup> |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>2</sup> |
+| Total connections active at endpoint level for all deployments  | 500 <sup>2</sup> |
+| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>2</sup> |
+
+<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
+
+<sup>2</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
+
+### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
 
 | **Resource** | **Limit** |
@@ -175,35 +199,8 @@ When you're requesting a quota increase, select the service that you have in min
 > [!NOTE]
 > [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../cost-management-billing/manage/upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
 
-## Private endpoint and private DNS quota increases
-
-There are limits on the number of private endpoints and private DNS zones that you can create in a subscription.
-
-Azure Machine Learning creates resources in your (customer) subscription, but some scenarios create resources in a Microsoft-owned subscription.
-
- In the following scenarios, you might need to request a quota allowance in the Microsoft-owned subscription:
-
-* Azure Private Link enabled workspace with a customer-managed key (CMK)
-* Attaching a Private Link enabled Azure Kubernetes Service cluster to your workspace
-
-To request an allowance for these scenarios, use the following steps:
-
-1. [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) and select the following options in the __Basics__ section:
-
-    | Field | Selection |
-    | ----- | ----- |
-    | Issue type | **Technical** |
-    | Service | **My services**. Then select __Machine Learning__ in the drop-down list. |
-    | Problem type | **Workspace Configuration and Security** |
-    | Problem subtype | **Private Endpoint and Private DNS Zone allowance request** |
-
-2. In the __Details__ section, use the __Description__ field to provide the Azure region and the scenario that you plan to use. If you need to request quota increases for multiple subscriptions, list the subscription IDs in this field.
-
-3. Select __Create__ to create the request.
-
-:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Screenshot of a private endpoint and private DNS quota increase request.":::
-
 ## Next steps
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
 + [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)
++ [Troubleshooting managed online endpoints deployment and scoring (preview)](./how-to-troubleshoot-online-endpoints.md)

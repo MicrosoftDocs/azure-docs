@@ -4,13 +4,12 @@ description: Learn how to configure streaming export of metrics and resource log
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: performance
-ms.custom: seoapril2019
-ms.devlang: sqldbrb=2
+ms.custom: seoapril2019, devx-track-azurepowershell
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
-ms.date: 04/06/2020
+author: AlainDormehlMSFT
+ms.author: aldorme
+ms.reviewer: mathoma, wiassaf
+ms.date: 10/13/2021
 ---
 
 # Configure streaming export of Azure SQL Database and SQL Managed Instance diagnostic telemetry
@@ -43,9 +42,10 @@ In addition to streaming the export of the Intelligent Insights log, you can als
 | [Deadlocks](#deadlocks-dataset): Contains information about deadlock events on a database. | Yes | No |
 | [AutomaticTuning](#automatic-tuning-dataset): Contains information about automatic tuning recommendations for a database. | Yes | No |
 | [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance for a database. To learn more, see [Intelligent Insights](intelligent-insights-overview.md). | Yes | Yes |
+| Workload Management: *Available for Azure Synapse only* For more information, see [Azure Synapse Analytics – Workload Management Portal Monitoring](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md)| No | No | 
 
 > [!NOTE]
-> Diagnostic settings cannot be configured for the **system databases**, such are master, msdb, model, resource and tempdb databases.
+> Diagnostic settings cannot be configured for the **system databases**, such as `master`, `msdb`, `model`, resource and `tempdb` databases.
 
 ## Streaming export destinations
 
@@ -458,7 +458,10 @@ Refer to the following table for details about advanced metrics.
 
 <sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models.
 
-<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.
+<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Synapse Analytics SQL pools.
+
+> [!NOTE]
+> Both Basic and Advanced metrics may be unavailable for databases that have been inactive for 7 days or longer.
 
 ### Basic logs
 

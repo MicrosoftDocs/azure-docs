@@ -5,7 +5,8 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
 ---
 
@@ -99,11 +100,11 @@ No mandatory properties. It's up to the publishing entity to determine the paylo
 
 ## CloudEvent schema
 
-In addition to the above schemas, Event Grid natively supports events in the [CloudEvents JSON schema](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents is an open specification for describing event data. It simplifies interoperability by providing a common event schema for publishing, and consuming events. It is part of [CNCF](https://www.cncf.io/) and currently available version is 1.0-rc1.
+In addition to the above schemas, Event Grid natively supports events in the [CloudEvents JSON schema](https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md). CloudEvents is an open specification for describing event data. It simplifies interoperability by providing a common event schema for publishing, and consuming events. It is part of [CNCF](https://www.cncf.io/) and currently available version is 1.0-rc1.
 
 ### CloudEvent schema properties
 
-Refer to [CloudEvents specification](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) on the mandatory envelope properties.
+Refer to [CloudEvents specification](https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md#3-envelope) on the mandatory envelope properties.
 
 ### Example — cloud event
 ```json

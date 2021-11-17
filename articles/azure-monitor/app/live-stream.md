@@ -2,7 +2,7 @@
 title: Diagnose with Live Metrics Stream - Azure Application Insights
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 10/12/2021
 
 ms.reviewer: sdash
 ---
@@ -157,7 +157,7 @@ If you want to monitor a particular server role instance, you can filter by serv
 ## Secure the control channel
 
 > [!NOTE]
-> Currently, you can only set up an authenticated channel using code based monitoring and cannot authenticate servers using codeless attach.
+> Currently, you can only set up an authenticated channel using manual instrumentation (SDK) and cannot authenticate servers using Azure service integration (or auto instrumentation).
 
 The custom filters criteria you specify in Live Metrics portal are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 
@@ -172,7 +172,7 @@ The custom filters criteria you specify in Live Metrics portal are sent back to 
 
 In the applicationinsights.config file, add the AuthenticationApiKey to the QuickPulseTelemetryModule:
 
-```XML
+```xml
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
 </Add>
@@ -230,8 +230,8 @@ However, if you recognize and trust all the connected servers, you can try the c
 
 ![Live Metrics Auth options](./media/live-stream/live-stream-auth.png)
 
->[!NOTE]
->We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
+> [!NOTE]
+> We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
 >
 
 ## Supported features table
@@ -242,7 +242,7 @@ However, if you recognize and trust all the connected servers, you can try the c
 | .NET Core (target=.NET Framework)| Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+)  |
 | .NET Core (target=.NET Core)     | Supported (V2.4.1+) | Supported*          | Supported (V2.4.1+) | Supported (V2.4.1+) | **Not Supported**    |
 | Azure Functions v2               | Supported           | Supported           | Supported           | Supported           | **Not Supported**    |
-| Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not Supported**   | **Not Supported**   | **Not Supported**    |
+| Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not Supported**   | Supported (V3.2.0+) | **Not Supported**    |
 | Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**   | Supported (V1.3.0+) | **Not Supported**    |
 
 Basic metrics include request, dependency, and exception rate. Performance metrics (performance counters) include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.

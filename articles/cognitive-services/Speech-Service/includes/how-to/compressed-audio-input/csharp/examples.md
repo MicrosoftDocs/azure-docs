@@ -1,15 +1,15 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: trbye
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
-To configure Speech SDK to accept compressed audio input, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
+To configure Speech SDK to accept compressed audio input, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream. Find related sample code snippets in [About the Speech SDK audio input stream API](../../../../how-to-use-audio-input-streams.md).
 
-Let's assume that you have an input stream class called `pushStream` and are using OPUS/OGG. Your code may look like this:
+Let's assume that you have an input stream class called `pullStream` and are using OPUS/OGG. Your code may look like this:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -29,7 +29,7 @@ var audioFormat =
         AudioStreamContainerFormat.OGG_OPUS);
 var audioConfig =
     AudioConfig.FromStreamInput(
-        pushStream,
+        pullStream,
         audioFormat);
 
 using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);

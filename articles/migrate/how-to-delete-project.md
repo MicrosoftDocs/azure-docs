@@ -45,7 +45,9 @@ These tables summarize the resources created for discovery, assessment, and migr
 > [!NOTE]
 > Delete the key vault with caution because it might contain security keys.
 
-### VMware/physical server
+### Projects with public endpoint connectivity
+
+#### VMware/physical server
 
 **Resource** | **Type**
 --- | ---
@@ -59,9 +61,9 @@ migrateappligwsa* | Storage account
 migrateapplilsa* | Storage account
 migrateapplicsa* | Storage account
 migrateapplikv* | Key vault
-migrateapplisbns16041 | Service Bus Namespace
+migrateapplisbns* | Service Bus Namespace
 
-### Hyper-V VM 
+#### Hyper-V VM
 
 **Resource** | **Type**
 --- | ---
@@ -70,6 +72,50 @@ migrateapplisbns16041 | Service Bus Namespace
 HyperV*kv | Key vault
 HyperV*Site | Microsoft.OffAzure/HyperVSites
 "ProjectName"-MigrateVault-* | Recovery Services vault
+
+<br/>
+The following tables summarize the resources created by Azure Migrate to discover, assess, and migrate servers over a private network using [Azure private link](./how-to-use-azure-migrate-with-private-endpoints.md).
+
+### Projects with private endpoint connectivity
+
+#### VMware VMs - agentless migrations
+
+**Type** | **Resource** | **Private endpoint <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+Discovery site (master site) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+Key vault | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/VMwareSites | "ApplianceName"*site | NA
+Recovery Services vault | "ApplianceName"*vault | NA
+Storage account | "ApplianceName"*usa | "ApplianceName"\*usa\*pe
+Recovery Services vault | "ProjectName"-MigrateVault-* | NA
+Storage account | migrateappligwsa* | NA
+Storage account | migrateapplilsa* | NA
+Key vault | migrateapplikv* | NA
+Service Bus Namespace | migrateapplisbns* | NA
+
+#### Hyper-V VMs 
+
+**Type** | **Resource** | **Private endpoint <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+Discovery site (master site) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+Key vault | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/HyperVSites | "ApplianceName"*site | NA
+Recovery Services vault | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVault-*pe
+
+#### Physical servers / AWS VMs / GCP VMs 
+
+**Type** | **Resource** | **Private endpoint <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+Discovery site (master site) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+Key vault | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/serversites | "ApplianceName"*site | NA
+Recovery Services vault | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVault-*pe
 
 
 ## Next steps

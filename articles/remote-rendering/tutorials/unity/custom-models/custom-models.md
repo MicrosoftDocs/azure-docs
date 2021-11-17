@@ -72,13 +72,17 @@ You can now add the prefab **AppMenu** to the scene, for visual feedback of the 
 1. Drag the **AppMenu** prefab into the scene.
 1. You'll likely see a dialog for **TMP Importer**, since this is the first time we're including *Text Mesh Pro* assets in the scene. Follow the prompts to **Import TMP Essentials**. Then close the importer dialog, the examples and extras are not needed.
 1. The **AppMenu** is configured to automatically hook up and provide the modal for consenting to connecting to a Session, so we can remove the bypass placed earlier. On the **RemoteRenderingCoordinator** GameObject, remove the bypass for authorization we implemented previously, by pressing the '-' button on the **On Requesting Authorization** event.
- ![Remove bypass](./media/remove-bypass-event.png).
+
+    ![Remove bypass](./media/remove-bypass-event.png).
+
 1. Test the view controller by pressing **Play** in the Unity Editor.
 1. In the Editor, now that MRTK is configured, you can use the WASD keys to change the position your view and holding the right mouse button + moving the mouse to change your view direction. Try "driving" around the scene a bit to get a feel for the controls.
 1. On device, you can raise your palm up to summon the **AppMenu**, in the Unity Editor, use the hotkey 'M'.
 1. If you've lost sight of the menu, press the 'M' key to summon the menu. The menu will be placed near the camera for easy interaction.
 1. The authorization will now show as a request to the right of the **AppMenu**, from now on, you'll use this to authorize the app to manage remote rendering sessions.
- ![UI authorize](./media/authorize-request-ui.png)
+
+    ![UI authorize](./media/authorize-request-ui.png)
+
 1. Stop Unity from playing to continue with the tutorial.
 
 ## Manage model state
@@ -252,15 +256,26 @@ In the most basic terms, **RemoteRenderedModel** holds the data needed to load a
 
 ## Load the Test Model
 
-Let's test the new script by loading the test model again. We'll create a Game Object to contain the script and be a parent to the test model.
+Let's test the new script by loading the test model again. We'll add a Game Object to contain the script and be a parent to the test model. We'll also create a virtual stage that contains the model. The stage will stay fixed relative to the real world using a [WorldAnchor](/windows/mixed-reality/develop/unity/spatial-anchors-in-unity?tabs=worldanchor). We use a fixed stage so that the model itself can still be moved around later on.
 
-1. Create a new empty Game Object in the scene and name it **TestModel**.
+1. Create a new empty Game Object in the scene and name it **ModelStage**.
+1. Add a World Anchor component to **ModelStage**
+
+    ![Add WorldAnchor component](./media/add-world-anchor-component.png)
+
+1. Create a new empty Game Object as a child of **ModelStage** and name it **TestModel**.
 1. Add the *RemoteRenderedModel* script to **TestModel**.
-![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
+
+    ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
+
 1. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively.
-![Specify model details](./media/add-model-script.png)
+
+    ![Specify model details](./media/add-model-script.png)
+
 1. Position the **TestModel** object in front of the camera, at position **x = 0, y = 0, z = 3**.
-![Position object](./media/test-model-position.png)
+
+    ![Position object](./media/test-model-position.png)
+
 1. Ensure **AutomaticallyLoad** is turned on.
 1. Press **Play** in the Unity Editor to test the application.
 1. Grant authorization by clicking the *Connect* button to allow the app to create a session and it will connect to a Session and automatically load the model.
@@ -281,7 +296,9 @@ Follow the steps specified in the [Quickstart: Convert a model for rendering](..
 
 1. Create a new empty GameObject in the scene and name it similar to your custom model.
 1. Add the *RemoteRenderedModel* script to the newly created GameObject.
- ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
+
+    ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
+
 1. Fill in the `Model Display Name` with an appropriate name for your model.
 1. Fill in the `Model Path` with the model's *Shared Access Signature (SAS)* URI you created in the ingestion steps above.
 1. Position the GameObject in front of the camera, at position **x = 0, y = 0, z = 3.**

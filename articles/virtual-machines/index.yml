@@ -30,7 +30,9 @@ landingContent:
           - text: Proximity placement groups
             url: co-location.md
           - text: Virtual Machine Scale Sets Orchestration modes 
-            url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md
+            url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+          - text: Flexible orchestration for virtual machine scale sets 
+            url: flexible-virtual-machine-scale-sets.md
 
   # Card (optional)
   - title: Linux quickstarts
@@ -61,9 +63,9 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text:  Create a Linux virtual machine in Azure
+          - text:  Create a Linux virtual machine in Azure
             url: /learn/modules/create-linux-virtual-machine-in-azure/
-          - text:  Create a Windows virtual machine in Azure
+          - text:  Create a Windows virtual machine in Azure
             url: /learn/modules/create-windows-virtual-machine-in-azure/         
 
   # Card
@@ -71,14 +73,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoot SSH issues
-            url: /troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
-          - text: Troubleshoot RDP issues
-            url: /troubleshoot/azure/virtual-machines/rdp
-          - text: Linux VM not booting 
-            url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot-linux
-          - text: Windows VM not booting
-            url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot
+          - text: Troubleshooting Guides 
+            url: /troubleshoot/azure/virtual-machines/welcome-virtual-machines
+          - text: Troubleshoot deployment issues
+            url: /troubleshoot/azure/virtual-machines/welcome-deployment-troubleshooting
+          - text: Troubleshoot allocation failures
+            url: /troubleshoot/azure/virtual-machines/allocation-failure
+          - text: Troubleshoot unexpected reboots
+            url: /troubleshoot/azure/virtual-machines/understand-vm-reboot
           - text: Microsoft Q&A
             url: /answers/topics/azure-virtual-machines.html
 
@@ -97,3 +99,5 @@ landingContent:
             url: https://azure.microsoft.com/pricing/details/#Linux
           - text: Regional availability
             url: https://azure.microsoft.com/regions/services/
+          - text: Virtual machines selector tool
+            url: https://aka.ms/vm-selector

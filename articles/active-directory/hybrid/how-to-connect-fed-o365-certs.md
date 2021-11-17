@@ -33,7 +33,7 @@ This article provides you additional information to manage your token signing ce
 
 > [!IMPORTANT]
 > Microsoft highly recommends using a Hardware Security Module (HSM) to protect and secure certificates.
-> For more information see [Hardware Security Module](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
+> For more information see [Hardware Security Module](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
 
 ## Default configuration of AD FS for token signing certificates
 The token signing and token decrypting certificates are usually self-signed certificates, and are good for one year. By default, AD FS includes an auto-renewal process called **AutoCertificateRollover**. If you are using AD FS 2.0 or later, Microsoft 365 and Azure AD automatically update your certificate before it expires.

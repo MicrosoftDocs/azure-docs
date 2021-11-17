@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: fasttrack-edit, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 03/10/2020
 ---
 # Database Advisor performance recommendations for Azure SQL Database

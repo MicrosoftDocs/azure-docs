@@ -10,9 +10,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 04/06/2021
+ms.date: 11/12/2021
 ms.author: rolyon
-ms.custom: seohack1, devx-track-azurecli
+ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Troubleshoot Azure RBAC
 
@@ -20,10 +20,10 @@ This article answers some common questions about Azure role-based access control
 
 ## Azure role assignments limit
 
-Azure supports up to **2000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments in the subscription.
+Azure supports up to **2000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
-> The **2000** role assignments limit per subscription is fixed and cannot be increased.
+> Starting November 2021, the role assignments limit for a subscription is being increased from **2000** to **4000** over the next several months. Subscriptions that are near the limit will be prioritized first. The limit for the remaining subscriptions will be increased over time.
 
 If you are getting close to this limit, here are some ways that you can reduce the number of role assignments:
 
@@ -40,6 +40,13 @@ $scope = "/subscriptions/<subscriptionId>"
 $ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($scope)}
 $ras.Count
 ```
+
+## Azure role assignments limit for management groups
+
+Azure supports up to **500** role assignments per management group. This limit is different than the role assignments limit per subscription.
+
+> [!NOTE]
+> The **500** role assignments limit per management group is fixed and cannot be increased.
 
 ## Problems with Azure role assignments
 
@@ -132,7 +139,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following output:
+Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) returns a role assignment that is similar to the following output:
 
 ```
 {

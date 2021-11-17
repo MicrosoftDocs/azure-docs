@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 11/08/2021
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Single Server
@@ -29,13 +29,16 @@ For servers which support up to 4-TB maximum storage, full backups occur once ev
 
 In a subset of [Azure regions](./concepts-pricing-tiers.md#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. Differential snapshot backups do not occur on a fixed schedule. In a day, three differential snapshot backups are performed. Transaction log backups occur every five minutes. 
 
+> [!NOTE]
+> Automatic backups are performed for [replica servers](./concepts-read-replicas.md) that are configured with up to 4TB storage configuration.
+
 ### Backup retention
 
 Backups are retained based on the backup retention period setting on the server. You can select a retention period of 7 to 35 days. The default retention period is 7 days. You can set the retention period during server creation or later by updating the backup configuration using [Azure portal](./howto-restore-server-portal.md#set-backup-configuration) or [Azure CLI](./howto-restore-server-cli.md#set-backup-configuration). 
 
 The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in backup storage. For example - if the backup retention period is set to 7 days, the recovery window is considered last 7 days. In this scenario, all the backups required to restore the server in last 7 days are retained. With a backup retention window of seven days:
 - Servers with up to 4-TB storage will retain up to 2 full database backups, all the differential backups, and transaction log backups performed since the earliest full database backup.
--	Servers with up to 16-TB storage will retain the full database snapshot, all the differential snapshots and transaction log backups in last 8 days.
+- Servers with up to 16-TB storage will retain the full database snapshot, all the differential snapshots and transaction log backups in last 8 days.
 
 ### Backup redundancy options
 
@@ -102,7 +105,8 @@ During geo-restore, the server configurations that can be changed include comput
 
 After a restore from either recovery mechanism, you should perform the following tasks to get your users and applications back up and running:
 
-- If the new server is meant to replace the original server, redirect clients and client applications to the new server. Also change the user name also to `username@new-restored-server-name`.
+- To access the restored server, since it has a different name than the original server, please change the servername to the restored server name and the user name to `username@new-restored-server-name` in your connection string.
+- If the new server is meant to replace the original server, redirect clients and client applications to the new server. 
 - Ensure appropriate server-level firewall and VNet rules are in place for users to connect. These rules are not copied over from the original server.
 - Ensure appropriate logins and database level permissions are in place
 - Configure alerts, as appropriate

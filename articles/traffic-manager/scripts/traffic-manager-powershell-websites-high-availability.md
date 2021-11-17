@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Route traffic for high availability of applications using Azure PowerShell

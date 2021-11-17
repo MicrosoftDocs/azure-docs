@@ -15,7 +15,7 @@ ms.author: yitoh
 ---
 # Azure DDoS Rapid Response
 
-During an active access, Azure DDoS Protection Standard customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis.
+During an active attack, Azure DDoS Protection Standard customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ You should only engage DRR if:
 
 5. Complete additional details and submit the support request.
 
-DRR follows the Azure Rapid Response support model. Refer to [Support scope and responsiveness](https://azure.microsoft.com/en-us/support/plans/response/) for more information on Rapid Response.
+DRR follows the Azure Rapid Response support model. Refer to [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/) for more information on Rapid Response.
 
 To learn more, read the [DDoS Protection Standard documentation](./ddos-protection-overview.md).
 

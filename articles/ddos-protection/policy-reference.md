@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/14/2021
+ms.date: 10/11/2021
 ms.author: yitoh
 ms.custom: subject-policy-reference
 ms.topic: include
@@ -28,7 +28,7 @@ the link in the **Version** column to view the source on the
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Virtual networks should be protected by Azure DDoS Protection Standard](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d)|Protect your virtual networks against volumetric and protocol attacks with Azure DDoS Protection Standard. For more information, visit [https://aka.ms/ddosprotectiondocs](https://aka.ms/ddosprotectiondocs).|Modify, Audit, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkDdosStandard_Audit.json)|
+|[Virtual networks should be protected by Azure DDoS Protection Standard](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d)|Protect your virtual networks against volumetric and protocol attacks with Azure DDoS Protection Standard. For more information, visit [https://aka.ms/ddosprotectiondocs](./ddos-protection-overview.md).|Modify, Audit, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkDdosStandard_Audit.json)|
 |[Public IP addresses should have resource logs enabled for Azure DDoS Protection Standard](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F752154a7-1e0f-45c6-a880-ac75a7e4f648)|Enable resource logs for public IP addresses in diagnostic settings to stream to a Log Analytics workspace. Get detailed visibility into attack traffic and actions taken to mitigate DDoS attacks via notifications, reports and flow logs.|AuditIfNotExists, DeployIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/PublicIpDdosLogging_Audit.json)|
 
 

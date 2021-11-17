@@ -1,7 +1,7 @@
 ---
 title: Connect to a Linux VM in Azure Lab Services | Microsoft Docs
 description: Learn how to use remote desktop for Linux virtual machines in a lab in Azure Lab Services.  
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -36,22 +36,34 @@ This article shows how students can connect to a Linux virtual machine (VM) in a
 ## Connect to the student VM using GUI remote desktop
 The instructor may choose to configure VMs so that students can also connect using a GUI remote desktop.  In this case, students need to find out from their instructor whether to connect to their VMs using the **Microsoft Remote Desktop (RDP)** or **X2Go** client application.  Both of these applications allow a student to connect remotely to their VM and display the Linux graphical desktop on their local computer.
 
+> [!WARNING]
+>  If you need to use [GNOME](https://www.gnome.org/) or [MATE](https://mate-desktop.org/) you should coordinate with your instructor to ensure your lab VM can be properly configured.  There is a known networking conflict that can occur with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  Instead, we recommend using a different graphical desktop environment, such as [XFCE](https://www.xfce.org/).
+
 ### Connect to the student VM using Microsoft Remote Desktop (RDP)
-Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs after their instructor sets up their lab with RDP and GUI packages for a Linux graphical desktop environment (such as MATE, XFCE, and so on). Here are the steps to connect: 
+Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs after their instructor sets up their lab with RDP and GUI packages for a Linux graphical desktop environment, such as XFCE. Here are the steps to connect: 
 
 1. On the tile for your VM, ensure the VM is running and click **Connect**. You see two options to connect to the VM: **SSH** and **RDP**.
 
     ![Student VM - connection options](./media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 2. Select the **RDP** option.  When the RDP file is downloaded onto your machine, save it to your VM.
 
-3. If you are connecting from a Windows computer, typically, the Microsoft Remote Desktop (RDP) client is already installed and configured.  As a result, all you need to do is click on the RDP file to open it and start the remote session.
+3. If you are connecting from a Windows computer, typically, the RDP client is already installed and configured.  As a result, all you need to do is click on the RDP file to open it and start the remote session.
 
     Instead, if you are connecting from either a Mac or Chromebook, refer to the following steps:
    - [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md).
-   - [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).  
+   - [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).
+
+The RDP client includes various settings that can be adjusted to optimize the user's connection experience.  Typically, these settings don't need to be changed.  By default, the settings are already configured to choose the right experience based on your network connection.  For more information on these settings, [read the article about the RDP client's **Experience** settings](/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings).
+
+If your instructor has configured the GNOME graphical desktop with the RDP client, we recommend the following settings to optimize performance:
+- Under the **Display** tab, set the color depth to **High Color (15 bit)**.
+    ![Change RDP Display Settings](./media/how-to-enable-remote-desktop-linux/rdp-display-settings.png)
+
+- Under the **Experience** tab, set the connection speed to **Modem (56 kbps)**.
+    ![Change RDP Experience Settings](./media/how-to-enable-remote-desktop-linux/rdp-experience-settings.png)
 
 ### Connect to the student VM using X2Go
-Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment (such as MATE, XFCE, and so on).
+Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment, such as XFCE.
 
 Students need to find out from their instructor which Linux graphical desktop environment their instructor has installed.  This information is needed in the next steps to connect using the X2Go client.
 
@@ -74,7 +86,8 @@ Students need to find out from their instructor which Linux graphical desktop en
    - **Host** - The ID of your VM; for example, **`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`**.
    - **Login** - The username for your VM; for example, **student**.
    - **SSH port** - The unique port assigned to your VM; for example, **12345**.
-   - **Session type** - Select the Linux graphical desktop environment that your instructor configured your VM.  You need to get this information from your instructor.
+   - **Session type** - Select the Linux graphical desktop environment that your instructor configured your VM.  You  need to get this information from your instructor.  For example, select `XFCE` if you are using either XFCE or Xubuntu graphical desktop environments.
+        
 
     Finally, click **OK** to create the session.
 

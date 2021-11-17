@@ -14,12 +14,15 @@ ms.reviewer: cynthn
 
 # Add Custom Domain to Azure VM or resource
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
+
 In Azure there are multiple ways to connect a custom domain to your VM or resource. For any resource with a public IP (Virtual Machine, Load Balancer, Application Gateway) the most straight-forward way is to create an A record set in your corresponding domain registrar. 
 
 ## Prerequisites 
 - You need a VM with a web server running. You can use the [Quickstart](./linux/quick-create-cli.md) to create a VM and add NGINX.
 
-- The VM must be accessible to the web (open port 80, or 443 ). For a more secure deployment place your VM behind a load balancer or Application Gateway first. For more information, see [Quickstart: Load Balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal?tabs=option-1-create-load-balancer-standard).
+- The VM must be accessible to the web (open port 80, or 443 ). For a more secure deployment place your VM behind a load balancer or Application Gateway first. For more information, see [Quickstart: Load Balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard).
 
 - Have an existing domain and access to DNS settings. For more information, see [Buy a custom domain for Azure App Service](../app-service/manage-custom-dns-buy-domain.md).
 
@@ -69,4 +72,3 @@ After the record is created it usually takes about an hour for DNS propagate, bu
 ## Next steps
 [Overview of TLS termination and end to end TLS with Application Gateway](../application-gateway/ssl-overview.md).
 
- 

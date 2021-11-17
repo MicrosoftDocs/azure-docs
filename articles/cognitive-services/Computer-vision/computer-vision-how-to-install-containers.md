@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 10/14/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
@@ -21,6 +21,9 @@ keywords: on-premises, OCR, Docker, container
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Computer Vision containers.
 
 The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md).
+
+## What's new
+For existing users of the Read containers, a new `3.2-model-2021-09-30-preview` version of the Read container is available with support for 122 languages and general performance and AI enhancements. Please follow the [download instructions](#docker-pull-for-the-read-ocr-container) to get started.
 
 ## Read 3.2 container
 
@@ -44,7 +47,7 @@ You must meet the following prerequisites before using the containers:
 
 |Required|Purpose|
 |--|--|
-|Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
+|Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/install/#server). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
@@ -83,12 +86,19 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
+| Read 3.2 model-2021-09-30-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview` |
 | Read 3.2 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2` |
+| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 ### Docker pull for the Read OCR container
+
+For the latest preview:
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
+```
 
 # [Version 3.2](#tab/version-3-2)
 
@@ -119,6 +129,12 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
+For the latest preview, replace 3.2 path with:
+
+```
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
+```
+
 # [Version 3.2](#tab/version-3-2)
 
 ```bash
@@ -135,6 +151,16 @@ This command:
 * Allocates 8 CPU core and 18 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
+
+You can alternatively run the container using environment variables:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
+```
 
 # [Version 2.0-preview](#tab/version-2)
 
@@ -153,6 +179,15 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
+You can alternatively run the container using environment variables:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
+```
 ---
 
 
@@ -175,11 +210,15 @@ To find your connection string:
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
+
+For the latest preview:
+
+Use the same Swagger path as 3.2 but a different port  if you have already deployed 3.2 at the 5000 port.
 
 # [Version 3.2](#tab/version-3-2)
 
@@ -191,8 +230,9 @@ Use the host, `http://localhost:5000`, for container APIs. You can view the Swag
 
 ---
 
-### Asynchronous read
+### Asynchronous Read
 
+For the latest preview, everything is the same as 3.2 except for the additional `"modelVersion": "2021-09-30-preview"`.
 
 # [Version 3.2](#tab/version-3-2)
 
@@ -422,6 +462,8 @@ If you run the container with an output [mount](./computer-vision-resource-conta
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
 ## Billing
 
 The Cognitive Services containers send billing information to Azure, using the corresponding resource on your Azure account.
@@ -447,6 +489,6 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
 * Review the [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
-* Refer to the [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) for details about the methods supported by the container.
-* Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
+* Refer to the [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) for details about the methods supported by the container.
+* Refer to [Frequently asked questions (FAQ)](FAQ.yml) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

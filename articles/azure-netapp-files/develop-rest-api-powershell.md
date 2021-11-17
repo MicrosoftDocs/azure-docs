@@ -35,7 +35,7 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 
    2. Enter the following command in the Azure CLI:  
 
-      ```azurepowershell
+      ```azurecli
       $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> | ConvertFrom-Json         
       ```
 

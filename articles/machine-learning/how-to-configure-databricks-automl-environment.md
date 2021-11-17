@@ -6,11 +6,11 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.reviewer: larryfr
-ms.date: 10/21/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.date: 10/21/2021
+ms.topic: how-to
+ms.custom: devx-track-python
 ---
 
 # Set up a development environment with Azure Databricks and AutoML in Azure Machine Learning 
@@ -48,7 +48,7 @@ Use these settings:
 | Setting |Applies to| Value |
 |----|---|---|
 | Cluster Name |always| yourclustername |
-| Databricks Runtime Version |always| Runtime 7.1 (scala 2.21, spark 3.0.0) - Not ML|
+| Databricks Runtime Version |always| Runtime 7.3 LTS - Not ML|
 | Python version |always| 3 |
 | Worker Type <br>(determines max # of concurrent iterations) |Automated ML<br>only| Memory optimized VM preferred |
 | Workers |always| 2 or higher |
@@ -92,12 +92,11 @@ To use automated ML, skip to [Add the Azure ML SDK with AutoML](#add-the-azure-m
   ![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg) 
 
 ## Add the Azure ML SDK with AutoML to Databricks
-If the cluster was created with Databricks Runtime 7.1 or above (*not* ML), run the following command in the first cell of your notebook to install the AML SDK.
+If the cluster was created with Databricks Runtime 7.3 LTS (*not* ML), run the following command in the first cell of your notebook to install the AML SDK.
 
 ```
 %pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
 ```
-For Databricks Runtime 7.0 and lower, install the Azure Machine Learning SDK using the [init script](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
 
 ### AutoML config settings
 

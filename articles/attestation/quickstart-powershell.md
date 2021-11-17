@@ -6,7 +6,8 @@ author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 
 
 ---
@@ -70,7 +71,7 @@ Close the elevated PowerShell console.
 Minimum version of Az modules required to support attestation operations:
 - Az 4.5.0
 - Az.Accounts 1.9.2
-- Az.Attestation 0.1.8
+- Az.Attestation 1.0.0
 
 Run the below command to verify the installed version of all Az modules 
 
@@ -117,7 +118,7 @@ New-AzResourceGroup -Name $attestationResourceGroup -Location $location
 ```
 
  > [!NOTE]
-   > Once an attestation provider is created in this resource group, an Azure AD user must have "Attestation Contributor" role on the provider to perform operations like policy configuration/ policy signer certificates management. These permissions can be also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
+   > Once an attestation provider is created in this resource group, an Azure AD user must have **Attestation Contributor** role on the provider to perform operations like policy configuration/ policy signer certificates management. These permissions can be also be inherited with roles such as **Owner** (wildcard permissions)/ **Contributor** (wildcard permissions) on  the subscription/ resource group.  
 
 
 ## Create and manage an attestation provider
@@ -170,12 +171,12 @@ In order to manage policies, an Azure AD user requires the following permissions
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
- To perform these actions, an Azure AD user must have "Attestation Contributor" role on the attestation provider. These permissions can be also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
+ To perform these actions, an Azure AD user must have **Attestation Contributor** role on the attestation provider. These permissions can be also be inherited with roles such as **Owner** (wildcard permissions)/ **Contributor** (wildcard permissions) on  the subscription/ resource group.  
 
 In order to read policies, an Azure AD user requires the following permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
- To perform this action, an Azure AD user must have "Attestation Reader" role on the attestation provider. The read permission can be also be inherited with roles such as "Reader" (wildcard permissions) on  the subscription/ resource group.  
+ To perform this action, an Azure AD user must have **Attestation Reader** role on the attestation provider. The read permission can be also be inherited with roles such as **Reader** (wildcard permissions) on  the subscription/ resource group.  
 
 Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
 

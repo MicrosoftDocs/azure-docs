@@ -1,18 +1,29 @@
 ---
-title: Using Azure Import/Export to transfer data to Azure Blobs | Microsoft Docs
+title: Tutorial to import data to Azure Blob Storage with Azure Import/Export service | Microsoft Docs
 description: Learn how to create import and export jobs in Azure portal to transfer data to and from Azure Blobs.
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: how-to
-ms.date: 03/15/2021
+ms.topic: tutorial
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
+ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
-# Use the Azure Import/Export service to import data to Azure Blob Storage
+# Tutorial: Import data to Blob Storage with Azure Import/Export service
 
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data to Azure Blob storage. To import data into Azure Blobs, the service requires you to ship encrypted disk drives containing your data to an Azure datacenter.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Prerequisites to import data to Azure Blob storage
+> * Step 1: Prepare the drives
+> * Step 2: Create an import job
+> * Step 3: Configure customer managed key (Optional)
+> * Step 4: Ship the drives
+> * Step 5: Update job with tracking information
+> * Step 6: Verify data upload to Azure
 
 ## Prerequisites
 
@@ -22,13 +33,13 @@ You must:
 * Have an active Azure subscription that can be used for the Import/Export service.
 * Have at least one Azure Storage account with a storage container. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md).
   * For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
-  * For information on storage container, go to [Create a storage container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
-* Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
-* Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
+  * For information on creating storage containers, go to [Create a storage container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
+* Have adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
+* Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 * Enable BitLocker on the Windows system. See [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-* [Download the latest WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) on the Windows system. The latest version of the tool has security updates to allow an external protector for the BitLocker key, and the updated unlock mode feature.
-
-  * Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
+* Download the current release of the Azure Import/Export version 1 tool, for blobs, on the Windows system:
+  1. [Download WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659). The current version is 1.5.0.300.
+  1. Unzip to the default folder `WaImportExportV1`. For example, `C:\WaImportExportV1`.
 * Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
   * The account must be valid, should have balance, and must have return shipping capabilities.
   * Generate a tracking number for the export job.
@@ -67,7 +78,7 @@ Perform the following steps to prepare the drives.
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
-
+    
     A journal file is created in the same folder where you ran the tool. Two other files are also created - an *.xml* file (folder where you run the tool) and a *drive-manifest.xml* file (folder where data resides).
 
     The parameters used are described in the following table:
@@ -83,11 +94,19 @@ Perform the following steps to prepare the drives.
     |/blobtype:     |This option specifies the type of blobs you want to import the data to. For block blobs, the blob type is `BlockBlob` and for page blobs, it is `PageBlob`.         |
     |/skipwrite:     | Specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
     |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
-8. Repeat the previous step for each disk that needs to be shipped. A journal file with the provided name is created for every run of the command line.
 
-    > [!IMPORTANT]
-    > * Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of the journal file when creating a job if the journal file is too big.
-   > * The maximum size of the journal file that the portal allows is 2 MB. If the journal file exceeds that limit, an error is returned.
+    > [!NOTE]
+    > If you import a blob with the same name as an existing blob in the destination container, the imported blob will overwrite the existing blob. In earlier tool versions (before 1.5.0.300), the imported blob was renamed by default, and a \Disposition parameter let you specify whether to rename, overwrite, or disregard the blob in the import.
+
+8. Repeat the previous step for each disk that needs to be shipped. 
+
+   A journal file with the provided name is created for every run of the command line. 
+
+   Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of the journal file when creating a job if the journal file is too big.
+
+> [!IMPORTANT]
+> * Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
+> * The maximum size of the journal file that the portal allows is 2 MB. If the journal file exceeds that limit, an error is returned.
 
 ## Step 2: Create an import job
 
@@ -160,7 +179,7 @@ Use the following steps to create an import job in the Azure CLI.
 
 ### Create a job
 
-1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension:
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/import-export) extension:
 
     ```azurecli
     az extension add --name import-export
@@ -178,19 +197,19 @@ Use the following steps to create an import job in the Azure CLI.
     az storage account create --resource-group myierg --name myssdocsstorage --https-only
     ```
 
-1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command:
+1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/import-export/location#az_import_export_location_list) command:
 
     ```azurecli
     az import-export location list
     ```
 
-1. Use the [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) command to get locations for your region:
+1. Use the [az import-export location show](/cli/azure/import-export/location#az_import_export_location_show) command to get locations for your region:
 
     ```azurecli
     az import-export location show --location "West US"
     ```
 
-1. Run the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an import job:
+1. Run the following [az import-export create](/cli/azure/import-export#az_import_export_create) command to create an import job:
 
     ```azurecli
     az import-export create \
@@ -217,13 +236,13 @@ Use the following steps to create an import job in the Azure CLI.
    > [!TIP]
    > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the myierg resource group:
+1. Use the [az import-export list](/cli/azure/import-export#az_import_export_list) command to see all the jobs for the myierg resource group:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. To update your job or cancel your job, run the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command:
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/import-export#az_import_export_update) command:
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
@@ -344,9 +363,9 @@ Skip this step and go to the next step if you want to use the Microsoft managed 
 
 ## Step 6: Verify data upload to Azure
 
-Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Delete the on-premises data only after you have verified that upload was successful.
+Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Delete the on-premises data only after you have verified that the upload was successful. For more information, see [Review Import/Export copy logs](storage-import-export-tool-reviewing-job-status-v1.md).
 
 ## Next steps
 
 * [View the job and drive status](storage-import-export-view-drive-status.md)
-* [Review Import/Export requirements](storage-import-export-requirements.md)
+* [Review Import/Export copy logs](storage-import-export-tool-reviewing-job-status-v1.md)

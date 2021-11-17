@@ -34,11 +34,11 @@ This script uses the following commands to create a resource group, App Service 
 
 | Command | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Creates an App Service app. |
-| [`az webapp log config`](/cli/azure/webapp/log#az-webapp-log-config) | Configures which logs an App Service app persists. |
-| [`az webapp log download`](/cli/azure/webapp/log#az-webapp-log-download) | Downloads the logs of an App Service app to your local machine. |
+| [`az group create`](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Creates an App Service app. |
+| [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) | Configures which logs an App Service app persists. |
+| [`az webapp log download`](/cli/azure/webapp/log#az_webapp_log_download) | Downloads the logs of an App Service app to your local machine. |
 
 ## Next steps
 

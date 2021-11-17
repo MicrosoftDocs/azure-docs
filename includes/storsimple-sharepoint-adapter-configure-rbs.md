@@ -27,7 +27,7 @@ ms.author: alkohli
    3. Click the **Enable** button below each of the content databases that you want to configure for remote storage.
       
       > [!NOTE]
-      > The BLOB store must be shared and reachable by all web front-end (WFE) servers, and the user account that is configured for the SharePoint server farm must have access to the share.
+      > The BLOB store must be shared and reachable by all web front-end (WFE) servers, and the user account that is configured for the SharePoint Server farm must have access to the share.
       
       ![Enable the RBS provider](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
       

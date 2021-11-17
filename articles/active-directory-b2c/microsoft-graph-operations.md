@@ -3,26 +3,35 @@ title: Manage resources with Microsoft Graph
 titleSuffix: Azure AD B2C
 description: How to manage resources in an Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
 services: B2C
-author: msmimart
-manager: celestedg
-
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.custom: project-no-code
-ms.author: mimart
+ms.date: 10/08/2021
+ms.custom: "project-no-code, ignite-fall-2021, b2c-support"
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 # Manage Azure AD B2C with Microsoft Graph
 
 Microsoft Graph allows you to manage resources in your Azure AD B2C directory. The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation. 
 
+> [!NOTE]
+> You can also programmatically create an Azure AD B2C directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [B2C Tenants - Create](/rest/api/activedirectory/b2c-tenants/create).
+
+Watch this video to learn about Azure AD B2C user migration using Microsoft Graph API.
+
+>[!Video https://www.youtube.com/embed/9BRXBtkBzL4]
+
 ## Prerequisites
 
 To use MS Graph API, and interact with resources in your Azure AD B2C tenant, you need an application registration that grants the permissions to do so. Follow the steps in the [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md) article to create an application registration that your management application can use. 
 
 ## User management
+> [!NOTE]
+> Azure AD B2C currently does not support advanced query capabilities on directory objects. This means that there is no support for `$count`, `$search` query parameters and Not (`not`), Not equals (`ne`), and Ends with (`endsWith`) operators in `$filter` query parameter. For more information, see [query parameters in Microsoft Graph](/graph/query-parameters) and [advanced query capabilities in Microsoft Graph](/graph/aad-advanced-queries).
+
 
 - [List users](/graph/api/user-list)
 - [Create a consumer user](/graph/api/user-post-users)
@@ -32,7 +41,7 @@ To use MS Graph API, and interact with resources in your Azure AD B2C tenant, yo
 
 ## User phone number management (beta)
 
-A phone number that can be used by a user to sign-in using [SMS or voice calls](identity-provider-local.md#phone-sign-in-preview), or [multi-factor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
+A phone number that can be used by a user to sign-in using [SMS or voice calls](sign-in-options.md#phone-sign-in), or [multi-factor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add](/graph/api/authentication-post-phonemethods)
 - [List](/graph/api/authentication-list-phonemethods)
@@ -44,9 +53,12 @@ Note, the [list](/graph/api/authentication-list-phonemethods) operation returns 
 
 ![Enable phone sign-in](./media/microsoft-graph-operations/enable-phone-sign-in.png)
 
+> [!NOTE]
+> In the current beta version, this API works only if the phone number is stored with a space between the country code and the phone number. The Azure AD B2C service doesn't currently add this space by default.
+
 ## Self-service password reset email address (beta)
 
-An email address that can be used by a [username sign-in account](identity-provider-local.md#username-sign-in) to reset the password. For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
+An email address that can be used by a [username sign-in account](sign-in-options.md#username-sign-in) to reset the password. For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
 
 - [Add](/graph/api/emailauthenticationmethod-post)
 - [List](/graph/api/emailauthenticationmethod-list)
@@ -124,6 +136,7 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 ## Application extension properties
 
 - [List extension properties](/graph/api/application-list-extensionproperty)
+- [Delete extension property](/graph/api/application-delete-extensionproperty)
 
 Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](user-flow-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
 
@@ -135,12 +148,18 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 
 ## Conditional Access
 
-- [List all of the Conditional Access policies](/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http)
+- [List all of the Conditional Access policies](/graph/api/conditionalaccessroot-list-policies?tabs=http)
 - [Read properties and relationships of a Conditional Access policy](/graph/api/conditionalaccesspolicy-get)
 - [Create a new Conditional Access policy](/graph/api/resources/application)
 - [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)
 - [Delete a Conditional Access policy](/graph/api/conditionalaccesspolicy-delete)
 
+## How to programmatically manage Microsoft Graph
+
+When you want to manage Microsoft Graph, you can either do it as the application using the application permissions, or you can use delegated permissions. For delegated permissions, either the user or an administrator consents to the permissions that the app requests. The app is delegated with the permission to act as a signed-in user when it makes calls to the target resource. Application permissions are used by apps that do not require a signed in user present and thus require application permissions. Because of this, only administrators can consent to application permissions.
+
+> [!NOTE]
+> Delegated permissions for users signing in through user flows or custom policies cannot be used against delegated permissions for Microsoft Graph.
 ## Code sample: How to programmatically manage user accounts
 
 This code sample is a .NET Core console application that uses the [Microsoft Graph SDK](/graph/sdks/sdks-overview) to interact with Microsoft Graph API. Its code demonstrates how to call the API to programmatically manage users in an Azure AD B2C tenant.
@@ -170,6 +189,9 @@ After you've obtained the code sample, configure it for your environment and the
 
 The application displays a list of commands you can execute. For example, get all users, get a single user, delete a user, update a user's password, and bulk import.
 
+> [!NOTE]
+> For the application to update user account passwords, you'll need to [grant the user administrator role](microsoft-graph-get-started.md#optional-grant-user-administrator-role) to the application.
+ 
 ### Code discussion
 
 The sample code uses the [Microsoft Graph SDK](/graph/sdks/sdks-overview), which is designed to simplify building high-quality, efficient, and resilient applications that access Microsoft Graph.
@@ -228,4 +250,4 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 <!-- LINK -->
 
 [graph-objectIdentity]: /graph/api/resources/objectidentity
-[graph-user]: (https://docs.microsoft.com/graph/api/resources/user)
+[graph-user]: /graph/api/resources/user

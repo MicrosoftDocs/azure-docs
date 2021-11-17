@@ -1,7 +1,7 @@
 ---
 title: Evaluate the impact of a new Azure Policy definition
 description: Understand the process to follow when introducing a new policy definition into your Azure environment.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Evaluate the impact of a new Azure Policy definition
@@ -67,14 +67,14 @@ _DeployIfNotExists_.
 Once you've validated your new policy definition is reporting correctly on existing resources, it's
 time to look at the impact of the policy when resources get created or updated. If the policy
 definition supports effect parameterization, use [Audit](./effects.md#audit). This configuration
-allows you to monitor the creation and updating of resources to see if the new policy definition
-triggers an entry in Azure Activity log for a resource that is non-compliant without impacting
-existing work or requests.
+allows you to monitor the creation and updating of resources to see whether the new policy
+definition triggers an entry in Azure Activity log for a resource that is non-compliant without
+impacting existing work or requests.
 
 It's recommended to both update and create new resources that match your policy definition to see
 that the _Audit_ effect is correctly being triggered when expected. Be on the lookout for resource
-requests that shouldn't be impacted by the new policy definition that trigger the _Audit_ effect.
-These impacted resources are another example of _false positives_ and must be fixed in the policy
+requests that shouldn't be affected by the new policy definition that trigger the _Audit_ effect.
+These affected resources are another example of _false positives_ and must be fixed in the policy
 definition before full implementation.
 
 In the event the policy definition is changed at this stage of testing, it's recommended to begin

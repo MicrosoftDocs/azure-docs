@@ -67,7 +67,7 @@ The resource tenant is always responsible for Azure AD Multi-Factor Authenticati
 6. Fabrikam must have sufficient premium Azure AD licenses that support Azure AD Multi-Factor Authentication. The user from Contoso then consumes this license from Fabrikam. See [billing model for Azure AD external identities](./external-identities-pricing.md) for information on the B2B licensing.
 
 >[!NOTE]
->Azure AD Multi-Factor Authentication is done at resource tenancy to ensure predictability.
+>Azure AD Multi-Factor Authentication is done at resource tenancy to ensure predictability. When the guest user signs in, they'll see the resource tenant sign-in page displayed in the background, and their own home tenant sign-in page and company logo in the foreground.
 
 ### Set up Azure AD Multi-Factor Authentication for B2B users
 
@@ -115,14 +115,14 @@ There are various factors that influence CA policies for B2B guest users.
 
 ### Device-based Conditional Access
 
-In CA, there's an option to require a user’s [device to be Compliant or Hybrid Azure AD joined](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). B2B guest users can only satisfy compliance if the resource tenant can manage their device. Devices cannot be managed by more than one organization at a time. B2B guest users can't satisfy the Hybrid Azure AD join because they don't have an on-premises AD account. Only if the guest user’s device is unmanaged, they can register or enroll their device in the resource tenant and then make the device compliant. The user can then satisfy the grant control.
+In CA, there's an option to require a user’s [device to be Compliant or Hybrid Azure AD joined](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). B2B guest users can only satisfy compliance if the resource tenant can manage their device. Devices cannot be managed by more than one organization at a time. B2B guest users can't satisfy the Hybrid Azure AD join because they don't have an on-premises AD account. 
 
 >[!Note]
 >It is not recommended to require a managed device for external users.
 
 ### Mobile application management policies
 
-The CA grant controls such as **Require approved client apps** and **Require app protection policies** need the device to be registered in the tenant. These controls can only be applied to [iOS and Android devices](../conditional-access/concept-conditional-access-conditions.md#device-platforms). However, neither of these controls can be applied to B2B guest users if the user’s device is already being managed by another organization. A mobile device cannot be registered in more than one tenant at a time. If the mobile device is managed by another organization, the user will be blocked. Only if the guest user’s device is unmanaged, they can register their device in the resource tenant. The user can then satisfy the grant control.  
+The CA grant controls such as **Require approved client apps** and **Require app protection policies** need the device to be registered in the tenant. These controls can only be applied to [iOS and Android devices](../conditional-access/concept-conditional-access-conditions.md#device-platforms). However, neither of these controls can be applied to B2B guest users if the user’s device is already being managed by another organization. A mobile device cannot be registered in more than one tenant at a time. If the mobile device is managed by another organization, the user will be blocked. 
 
 >[!NOTE]
 >It is not recommended to require an app protection policy for external users.
@@ -153,5 +153,5 @@ For more information, see the following articles on Azure AD B2B collaboration:
 
 - [What is Azure AD B2B collaboration?](./what-is-b2b.md)
 - [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md)
-- [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/)
-- [Frequently Asked Questions (FAQs)](./faq.md)
+- [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/)
+- [Frequently Asked Questions (FAQs)](./faq.yml)

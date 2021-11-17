@@ -6,7 +6,7 @@ ms.date: 03/29/2021
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurepowershell
 ---
 
 # Migrate database resources to global Azure
@@ -43,6 +43,9 @@ For databases that are too large for BACPAC files, or to migrate from one cloud 
 
 > [!IMPORTANT]
 > Configuring active geo-replication to migrate databases to global Azure is only supported using Transact-SQL (T-SQL), and prior to migrating you must request enablement of your subscription to support migrating to global Azure. To submit a request, you must use [this support request link](#requesting-access). 
+
+> [!Note]
+> Azure global cloud regions, Germany West Central and Germany North, are the supported regions for active geo-replication with the Azure Germany cloud. If an alternative global Azure region is desired as the final database(s) destination, the recommendation after completion of the migration to global Azure is to configure an additional geo-replication link from Germany West Central or Germany North to the required Azure global cloud region.
 
 For details about active geo-replication costs, see the section titled **Active geo-replication** in [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
@@ -91,13 +94,17 @@ Its fully qualified domain name (FQDN) is `globalazureserver.database.windows.ne
     ALTER DATABASE [azuregermanydb] FAILOVER;
     ```
 
-5.	Use the following T-SQL to stop active geo-replication. If this command is run after the planned failover, it will terminate the geo-link with the database in global Azure being the read-write copy. This will complete the migration process. However, if the command is executed before the planned failover, it will stop the migration process and the database in Azure Germany will remain the read-write copy. This T-SQL command should be run on the current geo-primary database's logical server, for example, on the Azure Germany server before planned failover and the global Azure server after planned failover.
+5.	The active geo-replication link can be terminated before or after the failover process. Executing the following T-SQL command after the planned failover removes the geo-replication link with the database in global Azure being the read-write copy. It should be run on the current geo-primary database's logical server (i.e. on the global Azure server). This will complete the migration process.
 
+    ```sql
+    ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [azuregermanyserver];
+    ```
 
-    `ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [azuregermanyserver];`
-    or
-    `ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [globalazureserver];`
+    The following T-SQL command when executed before the planned failover also stops the migration process, but in this situation the database in Azure Germany will remain the read-write copy. This T-SQL command should also be run on the current geo-primary database's logical server, in this case on the Azure Germany server.
 
+    ```sql
+    ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [globalazureserver];
+    ```
 
 These steps to migrate Azure SQL databases from Azure Germany to global Azure can also be followed using active geo-replication.
 
@@ -132,7 +139,7 @@ Migrating a database with geo-replication or BACPAC file does not copy over the 
 
 1. Target database where you are copying the LTR backups, in global Azure must exist before you start the copying the backups. It is recommended that you first migrate the source database using [active geo-replication](#migrate-sql-database-using-active-geo-replication) and then initiate the LTR backup copy. This will ensure that the database backups are copied to the correct destination database. This step is not required, if you are copying over LTR backups of a dropped database. When copying LTR backups of a dropped database, a dummy DatabaseID will be created in the target region. 
 2. Install this [PowerShell Az Module](https://www.powershellgallery.com/packages/Az.Sql/3.0.0-preview)
-3. Before you begin, ensure that required [Azure RBAC roles](https://docs.microsoft.com/azure/azure-sql/database/long-term-backup-retention-configure#azure-roles-to-manage-long-term-retention) are granted at either **subscription** or **resource group** scope. Note: To access LTR backups that belong to a dropped server, the permission must be granted in the subscription scope of that server. . 
+3. Before you begin, ensure that required [Azure RBAC roles](../azure-sql/database/long-term-backup-retention-configure.md#prerequisites) are granted at either **subscription** or **resource group** scope. Note: To access LTR backups that belong to a dropped server, the permission must be granted in the subscription scope of that server. . 
 
 
 ### Limitations  
@@ -150,7 +157,7 @@ Migrating a database with geo-replication or BACPAC file does not copy over the 
 A new PowerShell command **Copy-AzSqlDatabaseLongTermRetentionBackup** has been introduced, which can be used to copy the long-term retention backups from Azure Germany to Azure global regions. 
 
 1. **Copy LTR backup using backup name**
-Following example shows how you can copy a LTR backup from Azure Germany to Azure global region, using the backupname.
+Following example shows how you can copy a LTR backup from Azure Germany to Azure global region, using the backupname.  
 
 ```powershell
 # Source database and target database info
@@ -173,44 +180,33 @@ Copy-AzSqlDatabaseLongTermRetentionBackup
     -TargetDatabaseName $targetDatabaseName 
     -TargetSubscriptionId $targetSubscriptionId
     -TargetResourceGroupName $targetRGName
-    - TargetServerFullyQualifiedDomainName $targetServerFQDN 
+    -TargetServerFullyQualifiedDomainName $targetServerFQDN 
 ```
 
 2. **Copy LTR backup using backup resourceID**
-Following example shows how you can copy LTR backup from Azure Germany to Azure global region, using a backup resourceID.
+Following example shows how you can copy LTR backup from Azure Germany to Azure global region, using a backup resourceID. This example can be used to copy backups of a deleted database as well. 
 
 ```powershell
+$location = "<location>"
+# list LTR backups for All databases (you have option to choose All/Live/Deleted)
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $location -DatabaseState All
+
+# select the LTR backup you want to copy
+$ltrBackup = $ltrBackups[0]
+$resourceID = $ltrBackup.ResourceId
+
 # Source Database and target database info
-$resourceID = "/subscriptions/000000000-eeee-4444-9999-e9999a5555ab/resourceGroups/mysourcergname/providers/Microsoft.Sql/locations/germanynorth/longTermRetentionServers/mysourceserver/longTermRetentionDatabases/mysourcedb/longTermRetentionBackups/0e848ed8-c229-444c-a3ba-75ac0507dd31;132567894740000000"
 $targetDatabaseName = "<target database name>"
 $targetSubscriptionId = "<target subscriptionID>"
 $targetRGName = "<target resource group name>"
 $targetServerFQDN = "<targetservername.database.windows.net>"
 
-
 Copy-AzSqlDatabaseLongTermRetentionBackup 
-    -ResourceId $sourceRGName 
+    -ResourceId $resourceID 
     -TargetDatabaseName $targetDatabaseName 
     -TargetSubscriptionId $targetSubscriptionId
     -TargetResourceGroupName $targetRGName
-    - TargetServerFullyQualifiedDomainName $targetServerFQDN
-```
-
-3. **Copy LTR backup of a deleted database**
-Following example shows how to copy LTR backup of a deleted or dropped database from Azure Germany to Azure global. Note that, since this is a backup of a dropped database, the database should exist on the target server when starting the copy operation. 
-
-```powershell
-# Source Database and target database info
-$targetDatabaseName = "<target database name>"
-$targetSubscriptionId = "<target subscriptionID>"
-$targetRGName = "<target resource group name>"
-$targetServerFQDN = "<targetservername.database.windows.net>"
-
-Copy-AzSqlDatabaseLongTermRetentionBackup 
--TargetDatabaseName $targetDatabaseName 
--TargetSubscriptionId $targetSubscriptionId
--TargetResourceGroupName $targetRGName
-- TargetServerFullyQualifiedDomainName $targetServerFQDN 
+    -TargetServerFullyQualifiedDomainName $targetServerFQDN
 ```
 
 

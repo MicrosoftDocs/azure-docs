@@ -48,7 +48,7 @@ event.
 >| Description |The media description information was not received before the actual media data was delivered. |
 >| Suggested solution|The LiveEvent does not receive the stream description (header or FLV tag) from the encoder. This is a protocol violation. Contact encoder vendor. |
 >|**MPE_INGEST_MEDIA_QUALITIES_EXCEEDED** ||
->| Description|The count of qualities for audio or video type exceeded the maximum allowed limit. |
+>| Description| The count of quality levels for audio or video type exceeded the maximum allowed limit. Quality levels beyond the limit were ignored by the service.|
 >| Suggested solution|When Live Event mode is Live Encoding, the encoder should push a single bitrate of video and audio.  Note that a redundant push from the same bitrate is allowed. Check the encoder preset or output settings to make sure it outputs a single bitrate stream. |
 >|**MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED** ||
 >| Description|The total incoming bitrate in a live event or channel service exceeded the maximum allowed limit. |
@@ -60,7 +60,7 @@ event.
 >| Description|The incoming encoder ingested streams with frame rates exceeded the maximum allowed 30 fps for encoding live events/channels. |
 >| Suggested solution|Check encoder preset to lower frame rate to under 36 fps. |
 >|**MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED** ||
->| Description|The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for pass-through live events/channels. |
+>| Description|The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for basic and standard pass-through live events/channels. |
 >| Suggested solution|Check encoder preset to lower video resolution so it doesn't exceed the limit. |
 >|**MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV** |
 >| Description|The live event has received a large amount of audio data at once, or a large amount of video data without any key frames. We have disconnected the encoder to give it a chance to retry with correct data. |

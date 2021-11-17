@@ -6,7 +6,6 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 01/22/2021 
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Get started with Azure Monitor Application Insights Agent for on-premises servers
@@ -23,12 +22,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Install prerequisites
 
-- To enable monitoring you will require a connection string. A connection string is displayed on the Overview blade of your Application Insights resource. For more information, see page [Connection Strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#finding-my-connection-string).
+- To enable monitoring you will require a connection string. A connection string is displayed on the Overview blade of your Application Insights resource. For more information, see page [Connection Strings](./sdk-connection-string.md?tabs=net#finding-my-connection-string).
 
 > [!NOTE]
 > As of April 2020, PowerShell Gallery has deprecated TLS 1.1 and 1.0.
 >
-> For additionnal prerequisites that you might need, see [PowerShell Gallery TLS Support](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
+> For additional prerequisites that you might need, see [PowerShell Gallery TLS Support](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
 >
 
 Run PowerShell as Admin.
@@ -37,24 +36,30 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Install-Module -Name PowerShellGet -Force
-```	
+```    
 Close PowerShell.
 
 ### Install Application Insights Agent
 Run PowerShell as Admin.
-```powershell	
+```powershell    
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
-```	
+```    
+
+> [!NOTE]
+> `AllowPrerelease` switch in `Install-Module` cmdlet allows installation of beta release. 
+>
+> For additional information, see [Install-Module](/powershell/module/powershellget/install-module#parameters).
+>
 
 ### Enable monitoring
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
-	
-		
+    
+        
 ## Download and install manually (offline option)
 ### Download the module
 Manually download the latest version of the module from [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
@@ -70,7 +75,7 @@ Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ### Enable monitoring
 
 ```powershell
-Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 
 
@@ -95,4 +100,3 @@ Do more with Application Insights Agent:
 
 - Review the [detailed instructions](status-monitor-v2-detailed-instructions.md) for an explanation of the commands found here.
 - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
-

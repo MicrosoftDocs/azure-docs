@@ -22,6 +22,30 @@ This article shows the Azure Cosmos DB Emulator release notes with a list of fea
 
 ## Release notes
 
+### 2.14.4 (25 October 2021)
+
+ - This release updates the Cosmos Emulator background services to match the latest online functionality of the Azure Cosmos DB services.
+
+### 2.14.3 (8 September 2021)
+
+ - This release updates the Cosmos Emulator background services to match the latest online functionality of the Azure Cosmos DB, fixes couple issues with telemetry data that is collected and resets the base image for the Linux Cosmos emulator Docker image.
+
+### 2.14.2 (12 August 2021)
+
+ - This release updates the local Data Explorer content to latest Azure Portal version and resets the base for the Linux Cosmos emulator Docker image.
+
+### 2.14.1 (18 June 2021)
+
+ - This release improves the start-up time for the emulator while reducing the footprint of its data on the disk. This new optimization is activated by "/EnablePreview" argument.
+
+### 2.14.0 (15 June 2021)
+
+ - This release updates the local Data Explorer content to latest Azure Portal version; in this release we addresses a known issue when importing multiple document items by using the JSON file uploading feature.
+
+### 2.11.13 (21 April 2021)
+
+ - This release updates the local Data Explorer content to latest Azure Portal version and adds a new MongoDB endpoint configuration, "4.0".
+
 ### 2.11.11 (22 February 2021)
 
  - This release updates the local Data Explorer content to latest Azure portal version.

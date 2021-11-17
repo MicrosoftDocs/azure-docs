@@ -53,7 +53,7 @@ Before you begin, make sure you have:
     - [Visual Studio Code](https://code.visualstudio.com/).
     - [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
     - [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
-    - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+    - [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). You may have to create an account to download and install the software.
 
 ## Create a container registry

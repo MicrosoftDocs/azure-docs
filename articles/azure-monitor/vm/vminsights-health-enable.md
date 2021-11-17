@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/05/2021
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 
 ---
 
@@ -34,6 +34,7 @@ Virtual machine must be located in one of the following regions:
 - Australia Central
 - Australia East
 - Australia Southeast
+- Brazil South
 - Canada Central
 - Central India
 - Central US
@@ -44,13 +45,16 @@ Virtual machine must be located in one of the following regions:
 - France Central
 - Germany West Central
 - Japan East
+- Japan West
 - Korea Central
 - North Central US
 - North Europe
+- Norway East
 - South Central US
 - South Africa North
 - Southeast Asia
 - Switzerland North
+- UAE North
 - UK South
 - UK West
 - West Central US
@@ -64,6 +68,8 @@ Log Analytics workspace must be located in one of the following regions:
 - Australia Central
 - Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
 - Canada Central
 - Canada India
 - Central US
@@ -73,11 +79,15 @@ Log Analytics workspace must be located in one of the following regions:
 - East US 2 EUAP
 - France Central
 - Japan East
+- Japan West
 - North Central US
 - North Europe
+- Norway East
 - South Central US
 - Southeast Asia
 - Switzerland North
+- Switzerland West
+- UAE North
 - UK South
 - West Europe region
 - West US
@@ -351,13 +361,13 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorWindowsAgent", 
         "typeHandlerVersion": "1.0", 
-        "autoUpgradeMinorVersion": false 
+        "autoUpgradeMinorVersion": true 
       },
       "linux": {
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorLinuxAgent", 
-        "typeHandlerVersion": "1.5", 
-        "autoUpgradeMinorVersion": false 
+        "typeHandlerVersion": "1.0", 
+        "autoUpgradeMinorVersion": true 
       }
     }
   },

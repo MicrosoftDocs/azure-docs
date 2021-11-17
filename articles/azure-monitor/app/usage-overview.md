@@ -1,22 +1,21 @@
 ---
-title: Usage analysis with Azure Application Insights | Microsoft docs
+title: Usage analysis with Application Insights | Azure Monitor
 description: Understand your users and what they do with your app.
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 07/30/2021
 
 ---
 
 # Usage analysis with Application Insights
 
-Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](./app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
+Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Application Insights](./app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Cijb]
 
 ## Send telemetry from your app
 
 The best experience is obtained by installing Application Insights both in your app server code, and in your web pages. The client and server components of your app send telemetry back to the Azure portal for analysis.
 
-1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-get-started.md), [Node.js](./nodejs.md), or [other](./platforms.md) app.
+1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-in-process-agent.md), [Node.js](./nodejs.md), or [other](./platforms.md) app.
 
     * *Don't want to install server code? Just [create an Azure Application Insights resource](./create-new-resource.md).*
 
@@ -43,7 +42,7 @@ The best experience is obtained by installing Application Insights both in your 
 
 3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../app/mobile-center-quickstart.md).
 
-4. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
+4. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview pane in Application Insights.
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
@@ -52,7 +51,7 @@ Find out when people use your app, what pages they're most interested in, where 
 
 The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment, and page. You can also add your own filters.
 
-![Screen capture shows the Users Overview page for a fictitious company.](./media/usage-overview/users.png)  
+:::image type="content" source="./media/usage-overview/users.png" alt-text="Screen capture shows the Users tab with a bar chart." lightbox="./media/usage-overview/users.png":::
 
 Insights on the right point out interesting patterns in the set of data.  
 
@@ -69,11 +68,11 @@ Retention helps you understand how often your users return to use their app, bas
 - Form hypotheses based on real user data 
 - Determine whether retention is a problem in your product 
 
-![Screen capture shows the Retention Overview page which displays information about how often users return to use their app.](./media/usage-overview/retention.png) 
+:::image type="content" source="./media/usage-overview/retention.png" alt-text="Screen capture shows the Retention workbook which displays information about how often users return to use their app." lightbox="./media/usage-overview/retention.png":::
 
 The retention controls on top allow you to define specific events and time range to calculate retention. The graph in the middle gives a visual representation of the overall retention percentage by the time range specified. The graph on the bottom represents individual retention in a given time period. This level of detail allows you to understand what your users are doing and what might affect returning users on a more detailed granularity.  
 
-[More about the Retention tool](usage-retention.md)
+[More about the Retention workbook](usage-retention.md)
 
 ## Custom business events
 
@@ -83,12 +82,11 @@ You can also use the [Click Analytics Auto-collection Plugin](javascript-click-a
 
 Although in some cases, page views can represent useful events, it isn't true in general. A user can open a product page without buying the product. 
 
-With specific business events, you can chart your users' progress through your site. You can find out their preferences for different options, and where they drop out or have difficulties. With this knowledge, you can make informed decisions about the priorities in your development backlog.
+With specific business events, you can chart your users' progress through your site. Find out their preferences for different options, and where they drop out or have difficulties. With this knowledge, you can make informed decisions about the priorities in your development backlog.
 
 Events can be logged from the client side of the app:
 
 ```JavaScript
-
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
@@ -103,18 +101,19 @@ Or from the server side:
     tc.TrackEvent("CompletedPurchase");
 ```
 
-You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. In addition, a standard set of properties is attached to each event, such as anonymous user ID, which allows you to trace the sequence of activities of an individual user.
+You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. A standard set of properties is also attached to each event, such as anonymous user ID, which allows you to trace the sequence of activities of an individual user.
 
 Learn more about [custom events](./api-custom-events-metrics.md#trackevent) and [properties](./api-custom-events-metrics.md#properties).
 
 ### Slice and dice events
 
 In the Users, Sessions, and Events tools, you can slice and dice custom events by user, event name, and properties.
-![Screen capture shows the Users Overview page for a fictitious company.](./media/usage-overview/users.png)  
+
+:::image type="content" source="./media/usage-overview/events.png" alt-text="Screen capture shows the Events tab filtered by AnalyticsItemsOperation and split by AppID." lightbox="./media/usage-overview/events.png":::
   
 ## Design the telemetry with the app
 
-When you are designing each feature of your app, consider how you are going to measure its success with your users. Decide what business events you need to record, and code the tracking calls for those events into your app from the start.
+When you're designing each feature of your app, consider how you're going to measure its success with your users. Decide what business events you need to record, and code the tracking calls for those events into your app from the start.
 
 ## A | B Testing
 If you don't know which variant of a feature will be more successful, release both of them, making each accessible to different users. Measure the success of each, and then move to a unified version.

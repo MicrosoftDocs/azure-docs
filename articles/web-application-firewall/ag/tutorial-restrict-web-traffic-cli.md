@@ -33,7 +33,7 @@ If you prefer, you can complete this procedure using [Azure PowerShell](tutorial
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create an Azure resource group named *myResourceGroupAG* with [az group create](/cli/azure/group#az-group-create).
+A resource group is a logical container into which Azure resources are deployed and managed. Create an Azure resource group named *myResourceGroupAG* with [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
@@ -103,7 +103,7 @@ It may take several minutes for the application gateway to be created. After the
 
 ## Create a virtual machine scale set
 
-In this example, you create a virtual machine scale set that provides two servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with the *myBackendSubnet* subnet. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az-vmss-create).
+In this example, you create a virtual machine scale set that provides two servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with the *myBackendSubnet* subnet. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 Replace \<username> and \<password> with your values before you run this.
 
@@ -141,7 +141,7 @@ In this article, the application gateway uses a storage account to store data fo
 
 ### Create a storage account
 
-Create a storage account named *myagstore1* with [az storage account create](/cli/azure/storage/account#az-storage-account-create).
+Create a storage account named *myagstore1* with [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
@@ -154,7 +154,7 @@ az storage account create \
 
 ### Configure diagnostics
 
-Configure diagnostics to record data into the ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, and ApplicationGatewayFirewallLog logs. Replace `<subscriptionId>` with your subscription identifier and then configure diagnostics with [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Configure diagnostics to record data into the ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, and ApplicationGatewayFirewallLog logs. Replace `<subscriptionId>` with your subscription identifier and then configure diagnostics with [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -168,7 +168,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copy the public IP address, and then paste it into the address bar of your browser.
+To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser.
 
 ```azurecli-interactive
 az network public-ip show \

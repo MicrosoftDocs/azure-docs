@@ -3,13 +3,13 @@ title: Telemetry and logging for Spatial Analysis containers
 titleSuffix: Azure Cognitive Services
 description: Spatial Analysis provides each container with a common configuration framework insights, logging, and security settings.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 # Telemetry and troubleshooting
@@ -18,19 +18,49 @@ Spatial Analysis includes a set of features to monitor the health of the system 
 
 ## Enable visualizations
 
-To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [Spatial Analysis operation](spatial-analysis-operations.md) on a desktop machine. The visualization is not possible on Azure Stack Edge devices. There are four debug operations available.
+To enable a visualization of AI Insight events in a video frame, you need to use the `.debug` version of a [Spatial Analysis operation](spatial-analysis-operations.md) on a desktop machine or Azure VM. The visualization is not possible on Azure Stack Edge devices. There are four debug operations available.
 
-If your device is not an Azure Stack Edge device, edit the deployment manifest file for [desktop machines](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
+If your device is a local desktop machine or Azure GPU VM (with remote desktop enabled), then then you can switch to `.debug` version of any operation and visualize the output.
 
-After the deployment has completed, you might have to copy the `.Xauthority` file from the host computer to the container, and restart it. In the sample below, `peopleanalytics` is the name of the container on the host computer.
+1.  Open the desktop either locally or by using a remote desktop client on the host computer running Spatial Analysis. 
+2.  In the terminal run `xhost +`
+3.  Update the [deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) under the `spaceanalytics` module with the value of the `DISPLAY` environment variable. You can find its value by running `echo $DISPLAY` in the terminal on the host computer.
+    ```
+    "env": {        
+        "DISPLAY": {
+            "value": ":11"
+            }
+    }
+    ```
+4. Update the graph in the deployment manifest you want to run in debug mode. In the example below, we update the operationId  to cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug. A new parameter `VISUALIZER_NODE_CONFIG` is required to enable the visualizer window. All operations are available in debug flavor. When using shared nodes, use the cognitiveservices.vision.spatialanalysis.debug operation and add `VISUALIZER_NODE_CONFIG` to the instance parameters. 
 
-```bash
-sudo docker cp $XAUTHORITY peopleanalytics:/root/.Xauthority
-sudo docker stop peopleanalytics
-sudo docker start peopleanalytics
-xhost +
-```
+    ```
+    "zonecrossing": {
+	    "operationId" : "cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug",
+	    "version": 1,
+	    "enabled": true,
+	    "parameters": {
+	        "VIDEO_URL": "Replace http url here",
+	        "VIDEO_SOURCE_ID": "zonecrossingcamera",
+	        "VIDEO_IS_LIVE": false,
+            "VIDEO_DECODE_GPU_INDEX": 0,
+	        "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0 }",
+            "CAMERACALIBRATOR_NODE_CONFIG": "{ \"gpu_index\": 0}",
+            "VISUALIZER_NODE_CONFIG": "{ \"show_debug_video\": true }",
+	        "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"queue\",\"polygon\":[[0.3,0.3],[0.3,0.9],[0.6,0.9],[0.6,0.3],[0.3,0.3]], \"threshold\":35.0}]}"
+	    }
+    }
+    ```
+    
+5. Redeploy and you will see the visualizer window on the host computer
+6. After the deployment has completed, you might have to copy the `.Xauthority` file from the host computer to the container and restart it. In the sample below, `peopleanalytics` is the name of the container on the host computer.
 
+    ```bash
+    sudo docker cp $XAUTHORITY peopleanalytics:/root/.Xauthority
+    sudo docker stop peopleanalytics
+    sudo docker start peopleanalytics
+    xhost +
+    ```
 
 ## Collect system health telemetry
 
@@ -156,7 +186,7 @@ To optimize logs uploaded to a remote endpoint, such as Azure Blob Storage, we r
 Log level configuration allows you to control the verbosity of the generated logs. Supported log levels are: `none`, `verbose`, `info`, `warning`,  and `error`. The default log verbose level for both nodes and platform is `info`. 
 
 Log levels can be modified globally by setting the `ARCHON_LOG_LEVEL` environment variable to one of the allowed values.
-It can also be set through the IoT Edge Module Twin document either globally, for all deployed skills, or for every specific skill by setting the values for `platformLogLevel` and `nodeLogLevel` as shown below.
+It can also be set through the IoT Edge Module Twin document either globally, for all deployed skills, or for every specific skill by setting the values for `platformLogLevel` and `nodesLogLevel` as shown below.
 
 ```json
 {
@@ -168,7 +198,7 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
             },
             "graphs": {
                 "samplegraph": {
-                    "nodeLogLevel": "verbose",
+                    "nodesLogLevel": "verbose",
                     "platformLogLevel": "verbose"
                 }
             }
@@ -296,14 +326,6 @@ The following table lists the attributes in the query response.
 Check fetch log's lines, times, and sizes, if those settings look good replace ***DoPost*** to `true` and that will push the logs with same filters to destinations. 
 
 You can export logs from the Azure Blob Storage when troubleshooting issues. 
-
-## Common issues
-
-If you see the following message in the module logs, it might mean your Azure subscription needs to be approved: 
-
-"Container is not in a valid state. Subscription validation failed with status 'Mismatch'. Api Key is not intended for the given container type."
-
-For more information, see [Request approval to run the container](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## Troubleshooting the Azure Stack Edge device
 

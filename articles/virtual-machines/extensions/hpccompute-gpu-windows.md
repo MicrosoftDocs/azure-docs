@@ -4,17 +4,15 @@ description: Microsoft Azure extension for installing NVIDIA GPU Drivers on N-se
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-ms.assetid: 
 ms.service: virtual-machines
-ms.subservice: extensions
+ms.subservice: hpc
 ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
-ms.author: akjosh
+ms.date: 10/14/2021
+ms.author: amverma 
+ms.custom: devx-track-azurepowershell
 
 ---
 # NVIDIA GPU Driver Extension for Windows
@@ -23,7 +21,7 @@ ms.author: akjosh
 
 This extension installs NVIDIA GPU drivers on Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330). During the installation process, the VM may reboot to complete the driver setup.
 
-Instructions on manual installation of the drivers and the current supported versions are available [here](../windows/n-series-driver-setup.md).
+Instructions on manual installation of the drivers and the current supported versions are available. For more information, see [Azure N-series NVIDIA GPU driver setup for Windows](../windows/n-series-driver-setup.md).
 An extension is also available to install NVIDIA GPU drivers on [Linux N-series VMs](hpccompute-gpu-linux.md).
 
 ## Prerequisites
@@ -35,6 +33,7 @@ This extension supports the following OSs:
 | Distribution | Version |
 |---|---|
 | Windows 10 | Core |
+| Windows Server 2019 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012 R2 | Core |
 
@@ -58,7 +57,7 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -73,10 +72,38 @@ The following JSON shows the schema for the extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.3 | int |
+| typeHandlerVersion | 1.4 | int |
 
 
 ## Deployment
+
+### Azure portal
+
+You can deploy Azure Nvidia VM extensions in the Azure portal.
+
+1. In a browser, go to the [Azure portal](https://portal.azure.com).
+
+2. Go to the virtual machine on which you want to install the driver.
+
+3. In the left menu, select **Extensions**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/extensions-menu.png" alt-text="Screenshot that shows selecting Extensions in the Azure portal menu.":::
+
+4. Select **Add**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/add-extension.png" alt-text="Screenshot that shows adding a V M extension for the selected V M.":::
+
+5. Scroll to find and select **NVIDIA GPU Driver Extension**, and then select **Next**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension.png" alt-text="Screenshot that shows selecting NVIDIA G P U driver.":::
+
+6. Select **Review + create**, and then wait a few minutes for the driver to be deployed.
+
+    :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension.png" alt-text="Screenshot that shows selecting the review and create button.":::
+  
+7. Verify that the extension is added to the list of installed extensions.
+
+    :::image type="content" source="./media/nvidia-ext-portal/verify-extension.png" alt-text="Screenshot that shows the new extension in the list of extensions for the V M.":::
 
 ### Azure Resource Manager Template 
 
@@ -98,7 +125,7 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -116,7 +143,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.3 `
+    -TypeHandlerVersion 1.4 `
     -SettingString '{ `
 	}'
 ```
@@ -129,7 +156,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverWindows \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
+  --version 1.4 \
   --settings '{ \
   }'
 ```

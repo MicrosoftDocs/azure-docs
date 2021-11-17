@@ -1,5 +1,6 @@
 ---
-title: 'BGP and Azure VPN Gateway: Overview'
+title: 'About BGP with VPN Gateway'
+titleSuffix: Azure VPN Gateway
 description: Learn about Border Gateway Protocol (BGP) in Azure VPN, the standard internet protocol to exchange routing and reachability information between networks.
 services: vpn-gateway
 author: yushwang

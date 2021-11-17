@@ -2,10 +2,10 @@
 title: Manage an Azure Kubernetes Service cluster with the web dashboard
 description: Learn how to use the built-in Kubernetes web UI dashboard to manage an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: mlearned
+author: georgewallace
 ms.topic: article
 ms.date: 06/03/2020
-ms.author: mlearned
+ms.author: gwallace
 ---
 
 # Access the Kubernetes web dashboard in Azure Kubernetes Service (AKS)
@@ -16,10 +16,9 @@ For more information on the Kubernetes dashboard, see [Kubernetes Web UI Dashboa
 
 > [!WARNING]
 > **The AKS dashboard add-on is set for deprecation. Use the [Kubernetes resource view in the Azure portal (preview)][kubernetes-portal] instead.** 
-> * The Kubernetes dashboard is enabled by default for clusters running a Kubernetes version less than 1.18.
-> * The dashboard add-on will be disabled by default for all new clusters created on Kubernetes 1.18 or greater. 
- > * Starting with Kubernetes 1.19 in preview, AKS will no longer support installation of the managed kube-dashboard addon. 
- > * Existing clusters with the add-on enabled will not be impacted. Users will continue to be able to manually install the open-source dashboard as user-installed software.
+> * The dashboard add-on will be disabled by default for all new clusters.
+> * Starting with Kubernetes 1.19 in preview, AKS will no longer support installation of the managed kube-dashboard addon. 
+> * Existing clusters with the add-on enabled will not be impacted. Users will continue to be able to manually install the open-source dashboard as user-installed software.
 
 ## Before you begin
 
@@ -29,32 +28,11 @@ You also need the Azure CLI version 2.6.0 or later installed and configured. Run
 
 ## Disable the Kubernetes dashboard
 
-The kube-dashboard addon is **enabled by default on clusters older than K8s 1.18**. The addon can be disabled by running the following command.
+The addon can be disabled by running the following command.
 
 ``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
-
-## Start the Kubernetes dashboard
-
-> [!WARNING]
-> The AKS dashboard add-on is deprecated for versions 1.19+. Please use the [Kubernetes resource view in the Azure portal (preview)][kubernetes-portal] instead. 
-> * The following command will now open the Azure Portal resource view instead of the kubernetes dashboard for versions 1.19 and above.
-
-To start the Kubernetes dashboard on a cluster, use the [az aks browse][az-aks-browse] command. This command requires the installation of the kube-dashboard addon on the cluster, which is included by default on clusters running any version older than Kubernetes 1.18.
-
-The following example opens the dashboard for the cluster named *myAKSCluster* in the resource group named *myResourceGroup*:
-
-```azurecli
-az aks browse --resource-group myResourceGroup --name myAKSCluster
-```
-
-This command creates a proxy between your development system and the Kubernetes API, and opens a web browser to the Kubernetes dashboard. If a web browser doesn't open to the Kubernetes dashboard, copy and paste the URL address noted in the Azure CLI, typically `http://127.0.0.1:8001`.
-
-> [!NOTE]
-> If you do not see the dashboard at `http://127.0.0.1:8001` you can manually route to the following addresses. Clusters on 1.16 or greater use https and require a separate endpoint.
-> * K8s 1.16 or greater: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
-> * K8s 1.15 and below: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -204,8 +182,8 @@ For more information about the Kubernetes dashboard, see the [Kubernetes Web UI 
 [aad-cluster]: ./azure-ad-integration-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [aks-service-accounts]: ./concepts-identity.md#kubernetes-service-accounts
-[az-account-get-access-token]: /cli/azure/account#az-account-get-access-token
-[az-aks-browse]: /cli/azure/aks#az-aks-browse
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-account-get-access-token]: /cli/azure/account#az_account_get-access-token
+[az-aks-browse]: /cli/azure/aks#az_aks_browse
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
 [kubernetes-portal]: ./kubernetes-portal.md

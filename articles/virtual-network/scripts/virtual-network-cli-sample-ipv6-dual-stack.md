@@ -274,19 +274,19 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Creates an Azure virtual network and subnet. |
-| [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) | Creates a public IP address with a static IP address and an associated DNS name. |
-| [az network lb create](/cli/azure/network/lb#az-network-lb-create) | Creates an Azure load balancer. |
-| [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create) | Creates a load balancer probe. A load balancer probe is used to monitor each VM in the load balancer set. If any VM becomes inaccessible, traffic is not routed to the VM. |
-| [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) | Creates a load balancer rule. In this sample, a rule is created for port 80. As HTTP traffic arrives at the load balancer, it is routed to port 80 one of the VMs in the LB set. |
-| [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) | Creates load balancer Network Address Translation (NAT) rule.  NAT rules map a port of the load balancer to a port on a VM. In this sample, a NAT rule is created for SSH traffic to each VM in the load balancer set.  |
-| [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) | Creates a network security group (NSG), which is a security boundary between the internet and the virtual machine. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) | Creates an NSG rule to allow inbound traffic. In this sample, port 22 is opened for SSH traffic. |
-| [az network nic create](/cli/azure/network/nic#az-network-nic-create) | Creates a virtual network card and attaches it to the virtual network, subnet, and NSG. |
-| [az vm availability-set create](/cli/azure/network/lb/rule#az-network-lb-rule-create) | Creates an availability set. Availability sets ensure application uptime by spreading the virtual machines across physical resources such that if failure occurs, the entire set is not effected. |
-| [az vm create](/cli/azure/vm#az-vm-create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used and administrative credentials.  |
-| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Creates an Azure virtual network and subnet. |
+| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Creates a public IP address with a static IP address and an associated DNS name. |
+| [az network lb create](/cli/azure/network/lb#az_network_lb_create) | Creates an Azure load balancer. |
+| [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create) | Creates a load balancer probe. A load balancer probe is used to monitor each VM in the load balancer set. If any VM becomes inaccessible, traffic is not routed to the VM. |
+| [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) | Creates a load balancer rule. In this sample, a rule is created for port 80. As HTTP traffic arrives at the load balancer, it is routed to port 80 one of the VMs in the LB set. |
+| [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az_network_lb_inbound_nat_rule_create) | Creates load balancer Network Address Translation (NAT) rule.  NAT rules map a port of the load balancer to a port on a VM. In this sample, a NAT rule is created for SSH traffic to each VM in the load balancer set.  |
+| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Creates a network security group (NSG), which is a security boundary between the internet and the virtual machine. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Creates an NSG rule to allow inbound traffic. In this sample, port 22 is opened for SSH traffic. |
+| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Creates a virtual network card and attaches it to the virtual network, subnet, and NSG. |
+| [az vm availability-set create](/cli/azure/network/lb/rule#az_network_lb_rule_create) | Creates an availability set. Availability sets ensure application uptime by spreading the virtual machines across physical resources such that if failure occurs, the entire set is not effected. |
+| [az vm create](/cli/azure/vm#az_vm_create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used and administrative credentials.  |
+| [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

@@ -5,8 +5,9 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 08/25/2021
 ms.author: jgao
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use deployment scripts in ARM templates
@@ -32,43 +33,49 @@ The deployment script resource is only available in the regions where Azure Cont
 > [!IMPORTANT]
 > A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The two automatically created resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
 
-> [!IMPORTANT]
-> The deploymentScripts resource API version 2020-10-01 supports [OnBehalfofTokens(OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). By using OBO, the deployment script service uses the deployment principal's token to create the underlying resources for running deployment scripts, which include Azure Container instance,  Azure storage account, and role assignments for the managed identity. In older API version, the managed identity is used to create these resources.
-> Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template where you run deployment scripts. The deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
+> [!NOTE]
+> Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
+
+### Microsoft Learn
+
+To learn more about the ARM template test toolkit, and for hands-on guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
 
 ## Configure the minimum permissions
 
-For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources required for the deployment script resource to execute—a storage account and an Azure container instance. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access to complete the operation in the script.
+For deployment script API version 2020-10-01 or later, there are two principals involved in deployment script execution:
 
-To configure the least-privilege permissions, you need:
+- **Deployment principal** (the principal used to deploy the template): this principal is used to create underlying resources required for the deployment script resource to execute — a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
 
-- Assign a custom role with the following properties to the deployment principal:
+    ```json
+    {
+      "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
+      "description": "Configure least privilege for the deployment principal in deployment script",
+      "type": "customRole",
+      "IsCustom": true,
+      "permissions": [
+        {
+          "actions": [
+            "Microsoft.Storage/storageAccounts/*",
+            "Microsoft.ContainerInstance/containerGroups/*",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Resources/deploymentScripts/*"
+          ],
+        }
+      ],
+      "assignableScopes": [
+        "[subscription().id]"
+      ]
+    }
+    ```
 
-  ```json
-  {
-    "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
-    "description": "Configure least privilege for the deployment principal in deployment script",
-    "type": "customRole",
-    "IsCustom": true,
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Storage/storageAccounts/*",
-          "Microsoft.ContainerInstance/containerGroups/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/deploymentScripts/*"
-        ],
-      }
-    ],
-    "assignableScopes": [
-      "[subscription().id]"
-    ]
-  }
-  ```
+    If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add `Microsoft.Storage/register/action` and `Microsoft.ContainerInstance/register/action`.
 
-  If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add `Microsoft.Storage/register/action` and `Microsoft.ContainerInstance/register/action`.
+- **Deployment script principal**: This principal is only required if the deployment script needs to authenticate to Azure and call Azure CLI/PowerShell. There are two ways to specify the deployment script principal:
 
-- If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
+  - Specify a user-assigned managed identity in the `identity` property (see [Sample templates](#sample-templates)). When specified, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. Currently, only user-assigned managed identity is supported for the `identity` property. To login with a different identity, use the second method in this list.
+  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true) in the deployment script.
+
+  If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
 
 ## Sample templates
 
@@ -131,7 +138,7 @@ The following JSON is an example. For more information, see the latest [template
 
 Property value details:
 
-- `identity`: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script.  For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. Currently, only user-assigned managed identity is supported.
+- `identity`: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script.  For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To login with a different identity, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) in the script.
 - `kind`: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are supported. The values are **AzurePowerShell** and **AzureCLI**.
 - `forceUpdateTag`: Changing this value between template deployments forces the deployment script to re-execute. If you use the `newGuid()` or the `utcNow()` functions, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - `containerSettings`: Specify the settings to customize Azure Container Instance. Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated.
@@ -246,7 +253,7 @@ reference('<ResourceName>').outputs.text
 
 ## Work with outputs from CLI script
 
-Different from the PowerShell deployment script, CLI/bash support doesn't expose a common variable to store script outputs, instead, there's an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` that stores the location where the script outputs file resides. If a deployment script is run from a Resource Manager template, this environment variable is set automatically for you by the Bash shell.
+Different from the PowerShell deployment script, CLI/bash support doesn't expose a common variable to store script outputs, instead, there's an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` that stores the location where the script outputs file resides. If a deployment script is run from a Resource Manager template, this environment variable is set automatically for you by the Bash shell. The value of `AZ_SCRIPTS_OUTPUT_PATH` is */mnt/azscripts/azscriptoutput/scriptoutputs.json*.
 
 Deployment script outputs must be saved in the `AZ_SCRIPTS_OUTPUT_PATH` location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as `{ "MyResult": [ "foo", "bar"] }`.  Storing just the array results, for example `[ "foo", "bar" ]`, is invalid.
 
@@ -306,6 +313,26 @@ When an existing storage account is used, the script service creates a file shar
 You can control how PowerShell responds to non-terminating errors by using the `$ErrorActionPreference` variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
 
 The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`.
+
+### Use environment variables
+
+Deployment script uses these environment variables:
+
+|Environment variable|Default value|System reserved|
+|--------------------|-------------|---------------|
+|AZ_SCRIPTS_AZURE_ENVIRONMENT|AzureCloud|N|
+|AZ_SCRIPTS_CLEANUP_PREFERENCE|OnExpiration|N|
+|AZ_SCRIPTS_OUTPUT_PATH|<AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY>/<AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME>|Y|
+|AZ_SCRIPTS_PATH_INPUT_DIRECTORY|/mnt/azscripts/azscriptinput|Y|
+|AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY|/mnt/azscripts/azscriptoutput|Y|
+|AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME|Azure PowerShell: userscript.ps1; Azure CLI: userscript.sh|Y|
+|AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME|primaryscripturi.config|Y|
+|AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME|supportingscripturi.config|Y|
+|AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME|scriptoutputs.json|Y|
+|AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME|executionresult.json|Y|
+|AZ_SCRIPTS_USER_ASSIGNED_IDENTITY|/subscriptions/|N|
+
+For more information about using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with outputs from CLI script](#work-with-outputs-from-cli-script).
 
 ### Pass secured strings to deployment script
 
@@ -373,10 +400,10 @@ Timeout             : PT1H
 
 Using Azure CLI, you can manage deployment scripts at subscription or resource group scope:
 
-- [az deployment-scripts delete](/cli/azure/deployment-scripts#az-deployment-scripts-delete): Delete a deployment script.
-- [az deployment-scripts list](/cli/azure/deployment-scripts#az-deployment-scripts-list): List all deployment scripts.
-- [az deployment-scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): Retrieve a deployment script.
-- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): Show deployment script logs.
+- [az deployment-scripts delete](/cli/azure/deployment-scripts#az_deployment_scripts_delete): Delete a deployment script.
+- [az deployment-scripts list](/cli/azure/deployment-scripts#az_deployment_scripts_list): List all deployment scripts.
+- [az deployment-scripts show](/cli/azure/deployment-scripts#az_deployment_scripts_show): Retrieve a deployment script.
+- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az_deployment_scripts_show_log): Show deployment script logs.
 
 The list command output is similar to:
 

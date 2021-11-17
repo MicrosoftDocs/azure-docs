@@ -24,7 +24,7 @@ You'll learn:
 If you have Visual Studio Ultimate, you can also use [IntelliTrace](/visualstudio/debugger/intellitrace) for debugging. IntelliTrace is not covered in this tutorial.
 
 ## <a name="prerequisites"></a>Prerequisites
-This tutorial works with the development environment, web project, and App Service app that you set up in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md). For the WebJobs sections, you'll need the application that you create in [Get Started with the Azure WebJobs SDK][GetStartedWJ].
+This tutorial works with the development environment, web project, and App Service app that you set up in [Create an ASP.NET app in Azure App Service](./quickstart-dotnetcore.md?tabs=netframework48). For the WebJobs sections, you'll need the application that you create in [Get Started with the Azure WebJobs SDK][GetStartedWJ].
 
 The code samples shown in this tutorial are for a C# MVC web application, but the troubleshooting procedures are the same for Visual Basic and Web Forms applications.
 
@@ -46,7 +46,7 @@ Visual Studio provides access to a subset of the app management functions and co
 
     For more information about connecting to Azure resources from Visual Studio, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 2. In **Server Explorer**, expand **Azure** and expand **App Service**.
-3. Expand the resource group that includes the app that you created in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md), and then right-click the app node and click **View Settings**.
+3. Expand the resource group that includes the app that you created in [Create an ASP.NET app in Azure App Service](./quickstart-dotnetcore.md?tabs=netframework48), and then right-click the app node and click **View Settings**.
 
     ![View Settings in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -73,9 +73,9 @@ You typically deploy a web project with the `customErrors` flag in the Web.confi
 
 **The website cannot display the page**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Screenshot showing a The website cannot display the page error in a web browser.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Screenshot showing a message that reads **The website cannot display the page error in a web browser**.":::
 
-Frequently the easiest way to find the cause of the error is to enable detailed error messages, which the first of the preceding screenshots explains how to do. That requires a change in the deployed Web.config file. You could edit the *Web.config* file in the project and redeploy the project, or create a [Web.config transform](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) and deploy a debug build, but there's a quicker way: in **Solution Explorer**, you can directly view and edit files in the remote app by using the *remote view* feature.
+Frequently the easiest way to find the cause of the error is to enable detailed error messages, which the first of the preceding screenshots explains how to do. That requires a change in the deployed Web.config file. You could edit the *Web.config* file in the project and redeploy the project, or create a [`Web.config` transform](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) and deploy a debug build, but there's a quicker way: in **Solution Explorer**, you can directly view and edit files in the remote app by using the *remote view* feature.
 
 1. In **Server Explorer**, expand **Azure**, expand **App Service**, expand the resource group that your app is located in, and then expand the node for your app.
 
@@ -103,9 +103,9 @@ If the detailed error message doesn't provide enough information, and you can't 
 
 Remote debugging does not work in Express editions of Visual Studio.
 
-This section shows how to debug remotely using the project you create in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md).
+This section shows how to debug remotely using the project you create in [Create an ASP.NET app in Azure App Service](./quickstart-dotnetcore.md?tabs=netframework48).
 
-1. Open the web project that you created in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md).
+1. Open the web project that you created in [Create an ASP.NET app in Azure App Service](./quickstart-dotnetcore.md?tabs=netframework48).
 
 1. Open *Controllers\HomeController.cs*.
 
@@ -124,7 +124,7 @@ This section shows how to debug remotely using the project you create in [Create
 
 1. In **Solution Explorer**, right-click the project, and click **Publish**.
 
-1. In the **Profile** drop-down list, select the same profile that you used in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md). Then, click Settings.
+1. In the **Profile** drop-down list, select the same profile that you used in [Create an ASP.NET app in Azure App Service](./quickstart-dotnetcore.md?tabs=netframework48). Then, click Settings.
 
 1. In the **Publish** dialog, click the **Settings** tab, and then change **Configuration** to **Debug**, and then click **Save**.
 
@@ -259,7 +259,7 @@ Logs are written to files in a *LogFiles* folder in the file system of your app 
 ## <a name="apptracelogs"></a>Create and view application trace logs
 In this section, you do the following tasks:
 
-* Add tracing statements to the web project that you created in [Get started with Azure and ASP.NET](quickstart-dotnet-framework.md).
+* Add tracing statements to the web project that you created in [Get started with Azure and ASP.NET](./quickstart-dotnetcore.md?tabs=netframework48).
 * View the logs when you run the project locally.
 * View the logs as they are generated by the application running in Azure.
 

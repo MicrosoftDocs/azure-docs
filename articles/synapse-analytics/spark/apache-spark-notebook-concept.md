@@ -15,7 +15,7 @@ ms.subservice: spark
 
 A Synapse Studio notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. 
 
-With an Azure Synapse Studio notebook, you can:
+With an Synapse Studio notebook, you can:
 
 * Get started with zero setup effort.
 * Keep data secure with built-in enterprise security features.

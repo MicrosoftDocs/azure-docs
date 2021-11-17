@@ -3,14 +3,14 @@ title: How to configure JMX metrics - Azure Monitor application insights for Jav
 description: Configure additional JMX metrics collection for Azure Monitor application insights Java agent
 ms.topic: conceptual
 ms.date: 03/16/2021
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
+author: mattmccleary
+ms.author: mmcc
 ---
 
 # Configuring JMX metrics
 
-Application insights Java 3.0 agent collects some of the JMX metrics by default, but in many cases this is not enough. This document describes the JMX configuration option in details.
+Application Insights Java 3.x collects some of the JMX metrics by default, but in many cases this is not enough. This document describes the JMX configuration option in details.
 
 ## How do I collect additional JMX metrics?
 

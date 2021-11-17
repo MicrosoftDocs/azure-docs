@@ -4,7 +4,7 @@ description: This article helps you troubleshoot subscription access after you s
 author: bandersmsft
 tags: billing
 ms.service: cost-management-billing
-ms.subservice: billing
+ms.subservice: microsoft-customer-agreement
 ms.topic: troubleshooting
 ms.date: 04/07/2021
 ms.author: banders
@@ -38,4 +38,4 @@ You could have multiple accounts with Microsoft that use the same email address.
 
 ## Next steps
 
-- Read the [Microsoft Customer Agreement documentation](https://docs.microsoft.com/azure/cost-management-billing/microsoft-customer-agreement/). 
+- Read the [Microsoft Customer Agreement documentation](./index.yml).

@@ -42,16 +42,16 @@ To establish a direct interconnect using Azure Internet peering please follow th
 
 In case Peer already associated public ASN to Azure subscription, please ignore this step.
 
-[Associate peer ASN to Azure subscription using the portal - Azure | Microsoft Docs](https://docs.microsoft.com/azure/internet-peering/howto-subscription-association-portal)
+[Associate peer ASN to Azure subscription using the portal - Azure | Microsoft Docs](./howto-subscription-association-portal.md)
 
 The next step is to create a Direct peering connection for Peering Service.
 
 > [!NOTE]
-> Once ASN association is approved, email us at peeringservices@microsoft.com with your ASN and subscription ID to associate your subscription with Communications services. 
+> Once ASN association is approved, email us at peeringservice@microsoft.com with your ASN and subscription ID to associate your subscription with Communications services. 
 
 **2.	Create Direct peering connection for Peering Service:**
 
-Follow the instructions to [Create or modify a Direct peering using the portal](https://docs.microsoft.com/azure/internet-peering/howto-direct-portal)
+Follow the instructions to [Create or modify a Direct peering using the portal](./howto-direct-portal.md)
 
 Ensure it meets high-availability requirement.
 
@@ -59,7 +59,7 @@ Please ensure you are selecting following options on “Create a Peering” Page
 
 Peering Type:	**Direct**
 
-Microsoft Network:	**8075**
+Microsoft Network:	**8075 (with Voice)**
 
 SKU: 		**Premium Free**
 
@@ -78,10 +78,10 @@ Use for Peering Services: 	**Enabled**
   **2a. Use Existing Direct peering connection for Peering Services**
 
 If you have an existing Direct peering that you want to use to support Peering Service, you can activate on Azure portal.
-1.	Follow the instructions to [Convert a legacy Direct peering to Azure resource using the portal](https://docs.microsoft.com/azure/internet-peering/howto-legacy-direct-portal).
+1.	Follow the instructions to [Convert a legacy Direct peering to Azure resource using the portal](./howto-legacy-direct-portal.md).
 As required, order additional circuits to meet high-availability requirement.
 
-2.	Follow steps to [Enable Peering Service](https://docs.microsoft.com/azure/internet-peering/howto-peering-service-portal) on a Direct peering using the portal.
+2.	Follow steps to [Enable Peering Service](./howto-peering-service-portal.md) on a Direct peering using the portal.
 
 
 
@@ -89,7 +89,7 @@ As required, order additional circuits to meet high-availability requirement.
 **3.	Register your prefixes for Optimized Routing**
 
 For optimized routing for your Communication services infrastructure prefixes, you should register all your prefixes with your peering interconnects.
-[Register Azure Peering Service - Azure portal | Microsoft Docs](https://docs.microsoft.com/azure/peering-service/azure-portal)
+[Register Azure Peering Service - Azure portal | Microsoft Docs](../peering-service/azure-portal.md)
 
 The Prefix key is auto populated for Communications Service Partners, so the partner need not use any prefix key to register. 
 
@@ -136,4 +136,4 @@ Please ensure that the prefixes being registered are being announced over the di
 
 **Q.** Can we use APIs for onboarding?
 
-**A.** Currently there is no API support, and configuration must be performed via web portal. 
+**A.** Currently there is no API support, and configuration must be performed via web portal.

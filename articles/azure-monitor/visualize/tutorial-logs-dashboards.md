@@ -19,7 +19,7 @@ Log Analytics dashboards can visualize all of your saved log queries, giving you
 > * Add a log query to a shared dashboard 
 > * Customize a tile in a shared dashboard
 
-To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](../vm/quick-collect-azurevm.md).  
+To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](../vm/monitor-virtual-machine.md).  
  
 ## Sign in to Azure portal
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
@@ -82,7 +82,7 @@ Now that we have a query pinned to the dashboard, you will notice it has a gener
 ![Completed configuration of sample dashboard](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 
 ## Next steps
-In this tutorial, you learned how to create a dashboard in the Azure portal and add a log query to it.  Advance to the next tutorial to learn the different responses you can implement based on log query results.  
+In this tutorial, you learned how to create a dashboard in the Azure portal and add a log query to it.  Follow this link to see pre-built Log Analytics script samples.
 
 > [!div class="nextstepaction"]
-> [Respond to events with Log Analytics Alerts](../alerts/tutorial-response.md)
+> [Log Analytics script samples](../powershell-samples.md)

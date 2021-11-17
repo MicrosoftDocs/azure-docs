@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 04/08/2021
+ms.date: 10/20/2021
 ms.author: barclayn
 ---
 
@@ -33,11 +33,12 @@ You can find the list of resources that have a system-assigned managed identity 
 az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
 ```
 
+### Which Azure RBAC permissions are required to use a managed identity on a resource?
 
-### What Azure RBAC permissions are required to managed identity on a resource? 
-
-- System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
-- User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignment over the managed identity.
+- System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need `Microsoft.Compute/virtualMachines/write`. This action is included in resource specific built-in roles like [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- Assigning user-assigned managed identities to resources: You need write permissions over the resource. For example, for virtual machines you need `Microsoft.Compute/virtualMachines/write`. You will also need the `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` action over the user-assigned identity. This action is included in the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) built-in role.
+- Managing user-assigned identities: To create or delete user-assigned managed identities, you need the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
+- Managing role assignments for managed identities: You need the [Owner](../../role-based-access-control/built-in-roles.md#all) or [User Access Administrator](../../role-based-access-control/built-in-roles.md#all) role assignment over the resource to which you're granting access. You will need the [Reader](../../role-based-access-control/built-in-roles.md#all) role assignment to the resource with a system-assigned identity, or to the user-assigned identity that is being given the role assignment. If you do not have read access, you can search by "User, group, or service principal" to find the identity's backing service principal, instead of searching by managed identity while adding the role assignment. [Read more about assigning Azure roles](../../role-based-access-control/role-assignments-portal.md).
 
 ### How do I prevent the creation of user-assigned managed identities?
 
@@ -134,7 +135,7 @@ No. Managed identities do not currently support cross-directory scenarios.
 Managed identities limits have dependencies on Azure service limits, Azure Instance Metadata Service (IMDS) limits, and Azure Active Directory service limits.
 
 - **Azure service limits** define the number of create operations that can be performed at the tenant and subscription levels. User assigned managed identities also have [limitations](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits) around how they may be named.
-- **IMDS** In general, requests to IMDS are limited to five requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Serice (Windows)](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity) article.
+- **IMDS** In general, requests to IMDS are limited to five requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Service (Windows)](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity) article.
 - **Azure Active Directory service** Each managed identity counts towards the object quota limit in an Azure AD tenant as described in Azure [AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 

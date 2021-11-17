@@ -55,6 +55,14 @@
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
+        - name: Azure Arc (preview)
+          items:
+          - name: Publish code project
+            displayName: Arc, container, Kubernetes
+            href: create-first-function-arc-cli.md
+          - name: Publish Linux container
+            displayName: Arc, container, Kubernetes
+            href: create-first-function-arc-custom-container.md
     - name: Connect to a database
       items:
         - name: Visual Studio Code
@@ -73,17 +81,24 @@
       href: functions-twitter-email.md
     - name: Develop Python functions with VS Code
       href: /azure/python/tutorial-vs-code-serverless-python-01
-    - name: OpenAPI definition for serverless APIs
-      href: functions-openapi-definition.md
+    - name: Create serverless APIs using Visual Studio
+      href: openapi-apim-integrate-visual-studio.md
+      displayName: OpenAPI, Swagger
     - name: Networking
-      items:  
+      items:
         - name: Connect to a Virtual Network
           href: functions-create-vnet.md
-          displayName: vnet 
+          displayName: vnet
         - name: Establish private site access
           href: functions-create-private-site-access.md
         - name: Use an outbound NAT gateway
-          href: functions-how-to-use-nat-gateway.md  
+          href: functions-how-to-use-nat-gateway.md
+    - name: Identity-based connections
+      items:
+        - name: Use identity for host connections
+          href: functions-identity-based-connections-tutorial.md
+        - name: Use identity for triggers and bindings
+          href: functions-identity-based-connections-tutorial-2.md
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Create a serverless web app
@@ -129,13 +144,13 @@
               href: ./scripts/functions-cli-create-serverless-python.md
             - name: Scalable Premium plan app
               href: ./scripts/functions-cli-create-premium-plan.md
-            - name: Dedicated (App Service) plan app  
+            - name: Dedicated (App Service) plan app
               href: ./scripts/functions-cli-create-app-service-plan.md
         - name: Integrate services
           items:
             - name: Connect Azure Storage
               href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
-            - name: Connect Azure Cosmos DB  
+            - name: Connect Azure Cosmos DB
               href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
             - name: Python mount Files share
               href: ./scripts/functions-cli-mount-files-storage-linux.md
@@ -149,8 +164,10 @@
   items:
     - name: Best practices
       items:
-        - name: Performance and reliability
+        - name: General best practices
           href: functions-best-practices.md
+        - name: Performance and reliability
+          href: performance-reliability.md
           displayName: best practices
         - name: Manage connections
           href: manage-connections.md
@@ -175,14 +192,16 @@
           href: functions-premium-plan.md
         - name: Dedicated plan
           href: dedicated-plan.md
-        - name: Event-driven scaling
-          href: event-driven-scaling.md  
     - name: Deployments
       href: functions-deployment-technologies.md
     - name: Events and messaging
       items:
+        - name: Event-driven scaling
+          href: event-driven-scaling.md
         - name: Reliable event processing
           href: functions-reliable-event-processing.md
+        - name: Concurrency
+          href: functions-concurrency.md
         - name: Designing for identical input
           href: functions-idempotent.md
     - name: Triggers and bindings
@@ -208,7 +227,7 @@
           href: functions-dotnet-class-library.md
         - name: C# (isolated process)
           displayName: .NET isolated, .NET 5
-          href: dotnet-isolated-process-guide.md  
+          href: dotnet-isolated-process-guide.md
         - name: C# script (.csx)
           href: functions-reference-csharp.md
         - name: F#
@@ -233,7 +252,7 @@
           href: security-concepts.md
           displayName: secure, ssl
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/TOC.json
     - name: Monitoring
       href: functions-monitoring.md
       displayName: App Insights, Application Insights, logs, logging
@@ -250,6 +269,8 @@
       href: ip-addresses.md
     - name: Custom handlers
       href: functions-custom-handlers.md
+    - name: High availability 
+      href: azure-functions-az-redundancy.md
 - name: How-to guides
   items:
     - name: Develop
@@ -267,6 +288,8 @@
             - name: Core Tools development
               href: functions-run-local.md
               displayName: local, runtime
+            - name: Event Grid Blob Trigger local development
+              href: functions-event-grid-blob-trigger.md
         - name: Create functions
           items:
             - name: HTTP trigger
@@ -279,8 +302,6 @@
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
                   href: ./create-first-function-vs-code-csharp.md
-                - name: C# isolated (.NET 5)
-                  href: dotnet-isolated-process-developer-howtos.md  
                 - name: Java using Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java using Eclipse
@@ -341,6 +362,10 @@
           href: functions-bindings-error-pages.md
         - name: Manually run a non HTTP-triggered function
           href: functions-manually-run-non-http.md
+        - name: Bring dependencies to function apps
+          href: bring-dependency-to-functions.md
+        - name: Develop Python worker extensions
+          href: develop-python-worker-extensions.md
     - name: Deploy
       items:
         - name: Continuous deployment
@@ -376,25 +401,27 @@
           href: configure-networking-how-to.md
         - name: Geo-disaster recovery
           href: functions-geo-disaster-recovery.md
+        - name: Move across regions
+          href: functions-move-across-regions.md          
     - name: Monitor
       items:
         - name: Configure monitoring
           href: configure-monitoring.md
           displayName: App Insights, Application Insights, logs, logging
         - name: Analyze telemetry data
-          href: analyze-telemetry-data.md  
+          href: analyze-telemetry-data.md
           displayName: App Insights, Application Insights, Kusto
+        - name: Monitor metrics
+          href: monitor-metrics.md  
         - name: Streaming logs
           href: streaming-logs.md
           displayName: monitoring
         - name: Diagnostic logs
           href: functions-monitor-log-analytics.md
           displayName: Azure Monitor, Kusto, Log Analytics, metrics
-    - name: Secure
+    - name: Authenticate
       items:
-        - name: Add SSL cert
-          href: ../app-service/configure-ssl-certificate.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Authenticate users
+        - name: Configure auth providers
           items:
             - name: Authenticate with Azure AD
               href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
@@ -408,8 +435,20 @@
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Authenticate using Sign in with Apple (Preview)
               href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Advanced auth
-          href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Customize sign-ins/outs
+          href: ../app-service/configure-authentication-customize-sign-in-out.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Access user identities
+          href: ../app-service/configure-authentication-user-identities.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Work with tokens
+          href: ../app-service/configure-authentication-oauth-tokens.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Manage API versions
+          href: ../app-service/configure-authentication-api-version.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: File-based configuration
+          href: ../app-service/configure-authentication-file-based.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Secure
+      items:
+        - name: Add SSL cert
+          href: ../app-service/configure-ssl-certificate.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Restrict IPs
           href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Use a managed identity
@@ -448,8 +487,14 @@
           href: functions-scenario-database-table-cleanup.md
         - name: Connect to a virtual Network
           href: ./functions-create-vnet.md
-        - name: Create an Open API 2.0 definition
-          href: ./functions-openapi-definition.md
+        - name: Create OpenAPI definitions
+          items:
+            - name: API Management integration (portal)
+              href: ./functions-openapi-definition.md
+              displayName: OpenAPI, Swagger
+            - name: Visual Studio with API Management (C#)
+              href: openapi-apim-integrate-visual-studio.md
+              displayName: OpenAPI, Swagger
         - name: Use a managed identity
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Customize HTTP function endpoint
@@ -458,8 +503,12 @@
           href: functions-hybrid-powershell.md
     - name: Troubleshoot
       items:
-        - name: Troubleshoot storage
+        - name: Storage connections
           href: functions-recover-storage-account.md
+          displayName: troubleshoot
+        - name: Azure Cosmos DB bindings
+          href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          displayName: troubleshoot 
         - name: Python functions
           items:
             - name: General troubleshooting
@@ -476,6 +525,8 @@
           href: /azure/templates/microsoft.web/2018-11-01/sites/functions
         - name: Azure CLI
           href: /cli/azure/functionapp
+        - name: Azure Functions Core Tools 
+          href: functions-core-tools-reference.md
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
@@ -520,6 +571,17 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Azure SQL
+          items:
+            - name: Overview
+              href: functions-bindings-azure-sql.md
+              displayName: Azure SQL
+            - name: Input
+              href: functions-bindings-azure-sql-input.md
+              displayName: Azure SQL
+            - name: Output
+              href: functions-bindings-azure-sql-output.md
+              displayName: Azure SQL
         - name: Dapr
           href: https://github.com/dapr/azure-functions-extension
         - name: Event Grid
@@ -564,7 +626,7 @@
               displayName: HTTP
             - name: Trigger
               href: functions-bindings-http-webhook-trigger.md
-              displayName: HTTP
+              displayName: HTTP, keys, authorization keys, function keys, access keys
             - name: Output
               href: functions-bindings-http-webhook-output.md
               displayName: HTTP
@@ -622,7 +684,7 @@
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: Table storage
-          items: 
+          items:
             - name: Overview
               href: functions-bindings-storage-table.md
               displayName: Table storage
@@ -638,14 +700,24 @@
           href: functions-bindings-twilio.md
         - name: Warmup
           href: functions-bindings-warmup.md
+    - name: Errors and diagnostics
+      items:
+        - name: .NET worker rules
+          items:
+          - name: AZFW0001
+            href: errors-diagnostics/net-worker-rules/azfw0001.md
+        - name: SDK rules
+          items:
+          - name: AZF0001
+            href: errors-diagnostics/sdk-rules/azf0001.md
+          - name: AZF0002
+            href: errors-diagnostics/sdk-rules/azf0002.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
       href: functions-host-json-v1.md
     - name: Networking FAQ
-      href: functions-networking-faq.md
-    - name: OpenAPI reference
-      href: functions-api-definition.md
+      href: functions-networking-faq.yml
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn
@@ -656,6 +728,8 @@
       href: https://azure.microsoft.com/roadmap/?category=compute
     - name: Pricing
       href: pricing.md
+    - name: Language support policy
+      href: language-support-policy.md
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Quota information
@@ -671,7 +745,7 @@
     - name: Twitter
       href: https://twitter.com/azurefunctions
     - name: Provide product feedback
-      href: https://feedback.azure.com/forums/355860-azure-functions
+      href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
     - name: Azure Functions GitHub repository
       href: https://github.com/Azure/Azure-Functions/
     - name: Azure updates

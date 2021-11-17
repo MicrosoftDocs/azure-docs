@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *canadacentral* location (region). 
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *canadacentral* location (region). 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -47,7 +47,7 @@ In the following example, you'll be deploying a new AKS cluster named *myCluster
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-To configure additional parameters for the `az aks create` command, visit references [here](/cli/azure/aks#az-aks-create). 
+To configure additional parameters for the `az aks create` command, visit references [here](/cli/azure/aks#az_aks_create). 
 
 ## Deploy a new Application Gateway 
 

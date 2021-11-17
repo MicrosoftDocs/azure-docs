@@ -85,7 +85,7 @@ In this article, you manually scaled an AKS cluster to increase or decrease the 
 
 <!-- LINKS - internal -->
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-aks-scale]: /cli/azure/aks#az_aks_scale
 [cluster-autoscaler]: cluster-autoscaler.md
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az_aks_nodepool_scale

@@ -1,21 +1,23 @@
 ---
 title: Past due balance email from Azure
-description: Describes how to make payment if your Azure subscription has a past due balance
-author: genlin
-ms.reviewer: dcscontentpm
+description: Describes how to make payment if your Azure subscription has a past due balance.
+author: bandersmsft
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 10/27/2021
 ms.author: banders
 ---
 
 # Resolve past due balance for your Azure subscription
 
-This article applies to customers who signed up for Azure online with a credit card and have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If you have a Microsoft Customer Agreement billing account, see [pay your bill for Microsoft Azure](../understand/pay-bill.md) instead.
+This article applies to customers who signed up for Azure online with a credit card and have a Microsoft Online Services Program billing account, also called pay-as-you go. Learn how to [check your billing account type](#check-the-type-of-your-account). If you have a Microsoft Customer Agreement billing account, see [pay your bill for Microsoft Azure](../understand/pay-bill.md) instead.
 
-If your payment isn't received or if we can't process your payment, you will get an email and see an alert in the Azure portal telling you that your subscription is past due. If your default payment method is credit card, the [Account Administrator](../understand/subscription-transfer.md#whoisaa) can settle the outstanding charges in the Azure portal. If you pay by invoice (check/wire transfer), send your payment to the location listed at the bottom of your invoice.
+If your payment isn't received or if we can't process your payment, you will get an email and see an alert in the Azure portal telling you that your subscription is past due. The email contains a link that takes you to the Settle balance page.
+
+If your default payment method is credit card, the [Account Administrator](add-change-subscription-administrator.md#whoisaa) can settle the outstanding charges in the Azure portal. If you pay by invoice (check/wire transfer), send your payment to the location listed at the bottom of your invoice.
 
 > [!IMPORTANT]
 > * If you have multiple subscriptions using the same credit card and they are all past due, you must pay the entire outstanding balance at once.
@@ -29,9 +31,10 @@ If your payment isn't received or if we can't process your payment, you will get
 1. In the **Subscription overview** page, click the red past due banner to settle the balance.
     > [!NOTE]
     > If you are not the Account Administrator, you will not be able to settle the balance.
+    - If your account is in good standing, you won’t see any banners.
+    - If your account has a bill ready to be paid, you’ll see a blue banner that takes you to the Settle balance page. You’ll also receive an email that has a link to the Settle balance page.
+    - If your account is past due, you’ll see a red banner that says your account is past due that takes you to the Settle balance page. You’ll also receive an email that has a link to the Settle balance page.
 1. In the new **Settle balance** page, click **Select payment method**.
-    ![Screenshot that shows select payment method link](./media/resolve-past-due-balance/settle-balance-screen.png)
-
 1. In the new blade on the right, select a credit card from the drop-down or add a new one by clicking the blue **Add new payment method** link. This credit card will become the active payment method for all subscriptions currently using the failed payment method.
      > [!NOTE]
      > * The total outstanding balance reflects outstanding charges across all Microsoft services using the failed payment method.

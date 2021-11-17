@@ -9,7 +9,7 @@ ms.service: azure-cdn
 ms.topic: tutorial
 ms.date: 04/12/2021
 ms.author: yuajia
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As a website owner, I want to add a custom domain to my CDN endpoint so that my users can use my custom domain to access my content.
 ---
 
@@ -19,7 +19,7 @@ This tutorial shows how to add a custom domain to an Azure Content Delivery Netw
 
 The endpoint name in your CDN profile is a subdomain of azureedge.net. By default when delivering content, the CDN profile domain is included within the URL.
 
-For example, **https://contoso.azureedge.net/photo.png**.
+For example, `https://contoso.azureedge.net/photo.png`.
 
 Azure CDN provides the option of associating a custom domain with a CDN endpoint. This option delivers content with a custom domain in your URL instead of the default domain.
 
@@ -62,7 +62,9 @@ Use multiple CNAME records for different subdomains from the same custom domain 
 You can map a custom domain with different subdomains to the same CDN endpoint.
 
 > [!NOTE]
-> This tutorial uses the CNAME record type. If you're using A or AAAA record types, follow the same steps below and replace CNAME with the record type of your choice.
+> - This tutorial uses the CNAME record type for multiple purposes:
+>   - *Traffic routing* can be accomplished with a CNAME record as well as A or AAAA record types in Azure DNS. To apply, follow the steps below and replace the CNAME record with the record type of your choice.  
+>   - A CNAME record is **required** for custom domain *ownership validation* and must be available when adding the custom domain to a CDN Endpoint.  More details below.
 
 ---
 # [**Azure DNS**](#tab/azure-dns)

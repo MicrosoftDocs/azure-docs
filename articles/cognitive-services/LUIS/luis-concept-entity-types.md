@@ -4,7 +4,7 @@ description: An entity extracts data from a user utterance at prediction runtime
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/13/2021
+ms.date: 04/26/2021
 ---
 
 # Entities in LUIS
@@ -28,7 +28,7 @@ Entities are optional but recommended. You don't need to create entities for eve
 
 To create an entity, you have to give it a name and a type. There are several types of entities in LUIS. 
 
-### List Entity
+## List entity
 
 A list entity represents a fixed, closed set of related words along with their synonyms. You can use list entities to recognize multiple synonyms or variations and extract a normalized output for them. Use the *recommend* option to see suggestions for new words based on the current list. 
 
@@ -44,7 +44,7 @@ Matching in list entities is both case sensitive and it has to be an exact match
 
 See the [list entities reference article](reference-entity-list.md) for more information.
 
-### Regex Entity
+## Regex entity
 
 A regular expression entity extracts an entity based on a regular expression pattern you provide. It ignores case and ignores cultural variant. Regular expression is best for structured text or a predefined sequence of alphanumeric values that are expected in a certain format. For example:
 
@@ -55,7 +55,7 @@ A regular expression entity extracts an entity based on a regular expression pat
 
 See the [regex entities reference article](reference-entity-regular-expression.md) for more information.
 
-### Prebuilt Entity
+## Prebuilt entity
 
 LUIS offers a set of prebuilt entities for recognizing common types of data like name, date, number, and currency.  The behavior of prebuilt entities is fixed. Prebuilt entity support varies according to the culture of the LUIS app. For example:
 
@@ -66,7 +66,7 @@ LUIS offers a set of prebuilt entities for recognizing common types of data like
 
 See the [prebuilt entities reference article](./luis-reference-prebuilt-entities.md) for more information.
 
-### Pattern.Any Entity
+## Pattern.Any entity
 
 A pattern.Any entity is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends. It follows a specific rule or pattern and best used for sentences with fixed lexical structure. For example:
 
@@ -78,7 +78,7 @@ A pattern.Any entity is a variable-length placeholder used only in a pattern's t
 
 See the [Pattern.Any entities reference article](./reference-entity-pattern-any.md) for more information.
 
-### Machine learned (ML) Entity
+## Machine learned (ML) entity
 
 Machine learned entity uses context to extract entities based on labeled examples. It is the preferred entity for building LUIS applications. It relies on machine learning algorithms and requires labeling to be tailored to your application successfully. Use an ML entity to identify data that is not always well formatted but have the same meaning. 
 
@@ -90,7 +90,7 @@ Machine learned entity uses context to extract entities based on labeled example
 
 You can learn more about Machine learned entities [here](./reference-entity-machine-learned-entity.md).
 
-See the [machine learned entities reference article](./reference-entity-pattern-any.md) for more information.
+See the [machine learned entities reference article](./reference-entity-machine-learned-entity.md) for more information.
 
 #### ML Entity with Structure
 
@@ -104,7 +104,7 @@ An ML entity can be composed of smaller sub-entities, each of which can have its
     * Country: USA
 
 
-### Building effective ML entities
+## Building effective ML entities
 
 To build machine learned entities effectively, follow these best practices:
 
@@ -118,7 +118,7 @@ To build machine learned entities effectively, follow these best practices:
 
 Another important function of entities is to use them as features or distinguishing traits for another intents or entities so that your system observes and learns through them.
 
-### Entities as features for intents
+## Entities as features for intents
 
 You can use entities as a signal for an intent. For example, the presence of a certain entity in the utterance can distinguish which intent does it fall under.
 
@@ -127,7 +127,7 @@ You can use entities as a signal for an intent. For example, the presence of a c
 |Book me a *fight to New York*.|City|Book Flight|
 |Book me the *main conference room*.|Room|Reserve Room|
 
-### Entities as Feature for Entities
+## Entities as Feature for entities
 
 You can also use entities as an indicator of the presence of other entities. A common example of this is using a prebuilt entity as a feature for another ML entity.
 If you are  building a flight booking system and your utterance looks like "Book me a flight from Cairo to Seattle", you will have *Origin City* and *Destination City* as ML entities. A good practice would be to use the prebuilt `GeographyV2` entity as a feature for both entities.

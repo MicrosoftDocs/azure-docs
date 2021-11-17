@@ -4,7 +4,8 @@ description: This article tells how to send job status and runbook job streams t
 services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Forward Azure Automation job data to Azure Monitor logs

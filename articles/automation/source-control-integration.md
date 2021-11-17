@@ -1,10 +1,11 @@
 ---
 title: Use source control integration in Azure Automation
-description: This article tells how to synchronize Azure Automation source control with other repositories.
+description: This article tells you how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/10/2021
-ms.topic: conceptual
+ms.date: 11/02/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use source control integration
@@ -24,8 +25,8 @@ Azure Automation supports three types of source control:
 ## Prerequisites
 
 * A source control repository (GitHub or Azure Repos)
-* A [Run As account](automation-security-overview.md#run-as-accounts)
-* The [`AzureRM.Profile` module](/powershell/module/azurerm.profile/) must be imported into your Automation account. Note that the equivalent Az module (`Az.Accounts`) will not work with Automation source control.
+* A system-assigned [managed identity](automation-security-overview.md#managed-identities) is required. If you have not configured a system-assigned managed identity with your Automation account, see [Enable managed identity](enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) to create it.
+* Assign the system-assigned managed identity to the [Contributor](automation-role-based-access-control.md#contributor) role in the Automation account.
 
 > [!NOTE]
 > Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs.
@@ -33,6 +34,24 @@ Azure Automation supports three types of source control:
 ## Configure source control
 
 This section tells how to configure source control for your Automation account. You can use either the Azure portal or PowerShell.
+
+> [!NOTE]
+> Azure Automation only supports the system-assigned managed identity with source control integration. If you have both a Run As account and system-assigned managed identity enabled, the managed identity is given preference. If you want to use a Run As account instead, you can [create an Automation variable](./shared-resources/variables.md) of BOOLEAN type named `AUTOMATION_SC_USE_RUNAS` with a value of `true`.
+
+### Assign system-assigned identity to Contributor role
+
+This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the Azure Automation account resource.
+
+1. Open a PowerShell console with elevated privileges.
+1. Sign in to Azure by running the command `Connect-AzAccount`.
+1. To assign the managed identity to the **Contributor** role, run the following command.
+
+    ```powershell
+    New-AzRoleAssignment `
+        -ObjectId <automation-Identity-object-id> `
+        -Scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}" `
+        -RoleDefinitionName "Contributor"
+    ```
 
 ### Configure source control in Azure portal
 
@@ -82,7 +101,6 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 
 > [!NOTE]
 > Azure Repos (Git) uses a URL that accesses **dev.azure.com** instead of **visualstudio.com**, used in earlier formats. The older URL format `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` is deprecated but still supported. The new format is preferred.
-
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"

@@ -130,7 +130,7 @@ Using SAP HANA as DBMS the following sections you should follow the consideratio
 
 For high availability and disaster recovery configurations around SAP HANA as database for Business One in Azure, you should read the documentation [SAP HANA high availability for Azure virtual machines](./sap-hana-availability-overview.md) and the documentation pointed to from that document.
 
-For SAP HANA backup and restore strategies, you should read the document [Backup guide for SAP HANA on Azure Virtual Machines](./sap-hana-backup-guide.md) and the documentation pointed to from that document.
+For SAP HANA backup and restore strategies, you should read the document [Backup guide for SAP HANA on Azure Virtual Machines](../../../backup/sap-hana-db-about.md) and the documentation pointed to from that document.
 
  
 ### Business One client server

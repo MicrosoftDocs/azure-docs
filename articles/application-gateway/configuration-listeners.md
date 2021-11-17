@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.author: surmb
+ms.author: surmb 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Application Gateway listener configuration
@@ -48,7 +49,7 @@ Choose HTTP or HTTPS:
 - Choose HTTPS if you want [TLS termination](features.md#secure-sockets-layer-ssltls-termination) or [end-to-end TLS encryption](./ssl-overview.md). The traffic between the client and the application gateway is encrypted. And the TLS connection terminates at the application gateway. If you want end-to-end TLS encryption, you must choose HTTPS and configure the **back-end HTTP** setting. This ensures that traffic is re-encrypted when it travels from the application gateway to the back end.
 
 
-To configure TLS termination and end-to-end TLS encryption, you must add a certificate to the listener to enable the application gateway to derive a symmetric key. This is dictated by the TLS protocol specification. The symmetric key is used to encrypt and decrypt the traffic that's sent to the gateway. The gateway certificate must be in Personal Information Exchange (PFX) format. This format lets you export the private key that the gateway uses to encrypt and decrypt traffic.
+To configure TLS termination, a TLS/SSL certificate must be added to the listener. This allows the Application Gateway to decrypt incoming traffic and encrypt response traffic to the client. The certificate provided to the Application Gateway must be in Personal Information Exchange (PFX) format, which contains both the private and public keys.
 
 ## Supported certificates
 

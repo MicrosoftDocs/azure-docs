@@ -3,14 +3,14 @@ title: Technical profiles
 titleSuffix: Azure AD B2C
 description: Specify the TechnicalProfiles element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
-ms.author: mimart
+ms.date: 05/10/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -479,10 +479,10 @@ The following example illustrates the use of the inclusion:
     </TechnicalProfile>
 
     <TechnicalProfile Id="REST-UpdateProfile">
-       <Metadata>
+      <DisplayName>Update the user profile</DisplayName>  
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/update</Item>
       </Metadata>
-      <DisplayName>Update the user profile</DisplayName>
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="objectId" />
         <InputClaim ClaimTypeReferenceId="email" />

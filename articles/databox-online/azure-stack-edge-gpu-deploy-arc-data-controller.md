@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/15/2021
 ms.author: alkohli
 ---
 # Deploy Azure Data Services on your Azure Stack Edge Pro GPU device
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 This article describes the process of creating an Azure Arc Data Controller and then deploying Azure Data Services on your Azure Stack Edge Pro GPU device. 
 
-Azure Arc Data Controller is the local control plane that enables Azure Data Services in customer-managed environments. Once you have created the Azure Arc Data Controller on the Kubernetes cluster that runs on your Azure Stack Edge Pro device, you can deploy Azure Data Services such as SQL Managed Instance (Preview) on that data controller.
+Azure Arc Data Controller is the local control plane that enables Azure Data Services in customer-managed environments. Once you have created the Azure Arc Data Controller on the Kubernetes cluster that runs on your Azure Stack Edge Pro GPU device, you can deploy Azure Data Services such as SQL Managed Instance on that data controller.
 
 The procedure to create Data Controller and then deploy an SQL Managed Instance involves the use of PowerShell and `kubectl` - a native tool that provides command-line access to the Kubernetes cluster on the device.
 
@@ -25,9 +25,9 @@ The procedure to create Data Controller and then deploy an SQL Managed Instance 
 
 Before you begin, make sure that:
 
-1. You've access to an Azure Stack Edge Pro device and you've activated your device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
+1. You've access to an Azure Stack Edge Pro GPU device and you've activated your device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
-1. You've enabled the compute role on the device. A Kubernetes cluster was also created on the device when you configured compute on the device as per the instructions in [Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md).
+1. You've enabled the compute role on the device. A Kubernetes cluster was also created on the device when you configured compute on the device as per the instructions in [Configure compute on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 1. You have the Kubernetes API endpoint from the **Device** page of your local web UI. For more information, see the instructions in [Get Kubernetes API endpoint](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints).
 
@@ -37,8 +37,8 @@ Before you begin, make sure that:
         1. Identify the Kubernetes server version installed on the device. In the local UI of the device, go to **Software updates** page. Note the **Kubernetes server version** in this page.
         1. Download a client that is skewed no more than one minor version from the master. The client version but may lead the master by up to one minor version. For example, a v1.3 master should work with v1.1, v1.2, and v1.3 nodes, and should work with v1.2, v1.3, and v1.4 clients. For more information on Kubernetes client version, see [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew).
     
-1. Optionally, [Install client tools for deploying and managing Azure Arc enabled data services](../azure-arc/data/install-client-tools.md). These tools are not required but recommended.  
-1. Make sure you have enough resources available on your device to provision a data controller and one SQL Managed Instance. For data controller and one SQL Managed Instance, you will need a minimum of 16 GB of RAM and 4 CPU cores. For detailed guidance, go to [Minimum requirements for Azure Arc enabled data services deployment](../azure-arc/data/sizing-guidance.md#minimum-deployment-requirements).
+1. Optionally, [Install client tools for deploying and managing Azure Arc-enabled data services](../azure-arc/data/install-client-tools.md). These tools are not required but recommended.  
+1. Make sure you have enough resources available on your device to provision a data controller and one SQL Managed Instance. For data controller and one SQL Managed Instance, you will need a minimum of 16 GB of RAM and 4 CPU cores. For detailed guidance, go to [Minimum requirements for Azure Arc-enabled data services deployment](../azure-arc/data/sizing-guidance.md#minimum-deployment-requirements).
 
 
 ## Configure Kubernetes external service IPs
@@ -166,7 +166,7 @@ The data controller is a collection of pods that are deployed to your Kubernetes
     The deployment may take approximately 5 minutes to complete.
 
     > [!NOTE]
-    > The data controller created on Kubernetes cluster on your Azure Stack Edge Pro device works only in the disconnected mode in the current release.
+    > The data controller created on Kubernetes cluster on your Azure Stack Edge Pro GPU device works only in the disconnected mode in the current release. The disconnected mode is for the Data Controller and not for your device.
 
 ### Monitor data creation status
 

@@ -1,7 +1,7 @@
 ---
 title: Device Update for Azure Real-time-operating-system | Microsoft Docs
 description: Get started with Device Update for Azure Real-time-operating-system
-author: valls
+author: ValOlson
 ms.author: valls
 ms.date: 3/18/2021
 ms.topic: tutorial
@@ -24,7 +24,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 * Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
-* A Device Update instance and account linked to your IoT Hub. Follow the guide to [create and link](http://create-device-update-account.md/) a device update account if you have not done so previously.
+* A Device Update instance and account linked to your IoT Hub. Follow the guide to [create and link](./create-device-update-account.md) a device update account if you have not done so previously.
 
 ## Get started
 
@@ -36,7 +36,7 @@ Each board-specific sample Azure RTOS project contains code and documentation on
 6. Next publish firmware image and manifest to Device Update for IoT Hub.
 7. Finally download and run the project on your device.
 
-Learn more about [Azure RTOS](https://docs.microsoft.com/azure/rtos/).  
+Learn more about [Azure RTOS](/azure/rtos/).  
 
 ## Tag your device
 

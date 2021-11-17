@@ -26,7 +26,7 @@ In this tutorial, you convert MP4 media files in parallel to MP3 format using th
 
 ## Prerequisites
 
-* [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) for Linux, macOS, or Windows.
+* [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) for Linux, macOS, or Windows.
 
 * A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 

@@ -2,7 +2,8 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 09/14/2021
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Tenant deployments with ARM templates
@@ -12,12 +13,6 @@ As your organization matures, you may need to define and assign [policies](../..
 ## Supported resources
 
 Not all resource types can be deployed to the tenant level. This section lists which resource types are supported.
-
-For Azure Policies, use:
-
-* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
-* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
-* [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
 For Azure role-based access control (Azure RBAC), use:
 
@@ -45,6 +40,8 @@ For configuring the portal, use:
 
 * [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
 
+Built-in policy definitions are tenant-level resources, but you can't deploy custom policy definitions at the tenant. For an example of assigning a built-in policy definition to a resource, see [tenantResourceId example](./template-functions-resource.md#tenantresourceid-example).
+
 ## Schema
 
 The schema you use for tenant deployments is different than the schema for resource group deployments.
@@ -53,8 +50,8 @@ For templates, use:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  ...
 }
 ```
 
@@ -62,8 +59,8 @@ The schema for a parameter file is the same for all deployment scopes. For param
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  ...
 }
 ```
 
@@ -93,7 +90,7 @@ The commands for tenant deployments are different than the commands for resource
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -191,5 +188,5 @@ The following template assigns a role at the tenant scope.
 
 ## Next steps
 
-* To learn about assigning roles, see [Add Azure role assignments using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+* To learn about assigning roles, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * You can also deploy templates at [subscription level](deploy-to-subscription.md) or [management group level](deploy-to-management-group.md).

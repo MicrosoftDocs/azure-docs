@@ -4,9 +4,9 @@ description: This article provides conceptual details about supported data sourc
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 09/27/2021
 ms.custom: references_regions 
 ---
 # Supported data sources and file types in Azure Purview
@@ -15,34 +15,21 @@ This article discusses supported data sources, file types and scanning concepts 
 
 ## Supported data sources
 
-Azure Purview supports the following sources:
-
-| Store type | Supported auth type | Set up scans via UX/PowerShell |
-| ---------- | ------------------- | ------------------------------ |
-| On-premises SQL Server                   | SQL Auth                        | UX                                |
-| Azure Synapse Analytics (formerly SQL DW)            | SQL Auth, Service Principal, MSI               | UX                             |
-| Azure SQL Database (DB)                  | SQL Auth, Service Principal, MSI               | UX |
-| Azure SQL Database Managed Instance      | SQL Auth, Service Principal, MSI               | UX    |
-| Azure Blob Storage                       | Account Key, Service Principal, MSI | UX            |
-| Azure Data Explorer                      | Service Principal                              | UX            |
-| Azure Data Lake Storage Gen1 (ADLS Gen1) | Service Principal, MSI                              | UX            |
-| Azure Data Lake Storage Gen2 (ADLS Gen2) | Account Key, Service Principal, MSI            | UX            |
-| Azure Cosmos DB                          | Account Key                                    | UX            |
-
-
-> [!Note]
-> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+Purview supports all the data sources listed [here](purview-connector-overview.md).
 
 ## File types supported for scanning
 
 The following file types are supported for scanning, for schema extraction and classification where applicable:
 
 - Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
+ > [!Note]
+ > * Purview scanner only supports schema extraction for the structured file types listed above.
+ > * For AVRO, ORC, and PARQUET file types, Purview scanner does not support schema extraction for files that contain complex data types (for example, MAP, LIST, STRUCT). 
+ > * Purview scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
+ > * For GZIP file types, the GZIP must be mapped to a single csv file within. 
+ > Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - Purview also supports custom file extensions and custom parsers.
- 
-> [!Note]
-> Every Gzip file must be mapped to a single csv file within. Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
 
 ## Sampling within a file
 
@@ -53,9 +40,10 @@ In Purview terminology,
 
 For all structured file formats, Purview scanner samples files in the following way:
 
-- For structured file types, it samples 128 rows in each column or 1 MB, whichever is lower.
-- For document file formats, it samples 20 MB of each file.
+- For structured file types, it samples the top 128 rows in each column or the first 1 MB, whichever is lower.
+- For document file formats, it samples the first 20 MB of each file.
     - If a document file is larger than 20 MB, then it is not subject to a deep scan (subject to classification). In that case, Purview captures only basic meta data like file name and fully qualified name.
+- For **tabular data sources(SQL, CosmosDB)**, it samples the top 128 rows. 
 
 ## Resource set file sampling
 
@@ -69,33 +57,11 @@ File sampling for resource sets by file types:
 - **SQL objects and CosmosDB entities** - Each file is L3 scanned.
 - **Document file types** - Each file is L3 scanned. Resource set patterns don't apply to these file types.
 
-## Scan regions
-The following is a list of all the Azure data source (data center) regions where the Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Purview instance.
- 
-### Purview scanner regions
-
-- EastUs
-- EastUs2 
-- SouthCentralUS
-- WestUs
-- WestUs2
-- SoutheastAsia
-- WestEurope
-- NorthEurope
-- UkSouth
-- AustraliaEast
-- CanadaCentral
-- BrazilSouth
-- CentralIndia
-- JapanEast
-- SouthAfricaNorth
-- FranceCentral
-
 ## Classification
 
-All 105 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in Azure Purview](supported-classifications.md).
+All 206 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in Azure Purview](supported-classifications.md).
 
 ## Next steps
 
-- [Tutorial: Run the starter kit and scan data](tutorial-scan-data.md)
-- [Manage data sources in Azure Purview (Preview)](manage-data-sources.md)
+- [Scans and ingestion in Purview](concept-scans-and-ingestion.md)
+- [Manage data sources in Azure Purview](manage-data-sources.md)

@@ -7,11 +7,11 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
-ms.date: 10/06/2020
+ms.date: 09/01/2021
 ---
 # Tutorial: Create a video analytics - object and motion detection application in Azure IoT Central (OpenVINO&trade;)
 
-As a solution builder, learn how to create a video analytics application with the IoT Central *video analytics - object and motion detection* application template, Azure IoT Edge devices, Azure Media Services, and Intel's hardware-optimized OpenVINO&trade; for object and motion detection. The solution uses a retail store to show how to meet the common business need to monitor security cameras. The solution uses automatic object detection in a video feed to quickly identify and locate interesting events.
+Learn how to create a video analytics application with the IoT Central *video analytics - object and motion detection* application template, Azure IoT Edge devices, Azure Media Services, and Intel's hardware-optimized OpenVINO&trade; for object and motion detection. The solution uses a retail store to show how to meet the common business need to monitor security cameras. The solution uses automatic object detection in a video feed to quickly identify and locate interesting events.
 
 > [!TIP]
 > To use YOLO v3 instead of OpenVINO&trade; for object an motion detection, see [Tutorial: Create a video analytics - object and motion detection application in Azure IoT Central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md).
@@ -19,7 +19,7 @@ As a solution builder, learn how to create a video analytics application with th
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
 - [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) - this file helps you record the various configuration options you need as you work through these tutorials.
-- [deployment.openvino.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.openvino.amd64.json)
+- [deployment.openvino.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deploymentManifests/deployment.openvino.amd64.json)
 - [LvaEdgeGatewayDcm.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
 - [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json) - you only need to download this file if you plan to use the Intel NUC device in the second tutorial.
 
@@ -110,13 +110,13 @@ This tutorial configures your solution to use the OpenVINO&trade; module for obj
 
 [!INCLUDE [iot-central-video-analytics-part3](../../../includes/iot-central-video-analytics-part3.md)]
 
-### Replace the manifest
+### Edit the manifest
 
-On the **LVA Edge Gateway v2** page, select **+ Replace manifest**.
+On the **LVA Edge Gateway v2** page, select **Edit manifest**.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-openvino/replace-manifest.png" alt-text="Replace Manifest":::
 
-Navigate to the *lva-configuration* folder and select the *deployment.openvino.amd64.json* manifest file you edited previously. Select **Upload**. When the validation is complete, select **Replace**.
+Select **replace it with a new file** navigate to the *lva-configuration* folder and select the *deployment.openvino.amd64.json* manifest file you edited previously and select **Save**.
 
 [!INCLUDE [iot-central-video-analytics-part4](../../../includes/iot-central-video-analytics-part4.md)]
 

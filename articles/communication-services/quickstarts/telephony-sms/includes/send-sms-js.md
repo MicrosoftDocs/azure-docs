@@ -7,7 +7,7 @@ manager: ankita
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/11/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: bertong
@@ -17,9 +17,8 @@ Get started with Azure Communication Services by using the Communication Service
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-<!--**TODO: update all these reference links as the resources go live**
-
-[API reference documentation](../../../references/overview.md) | [Library source code](https://github.com/Azure/azure-sdk-for-js-pr/tree/feature/communication/sdk/communication/communication-sms) | [Package (NPM)](https://www.npmjs.com/package/@azure/communication-sms) | [Samples](#todo-samples)-->
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-sms)
 
 ## Prerequisites
 
@@ -117,7 +116,7 @@ main();
 You should replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number-1>` and `<to-phone-number-2>` with the phone number(s) you wish to send a message to.
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
+> Note that phone numbers should be provided in E.164 international standard format (e.g.: +14255550123). The **From** phone number may be a Short Code as well (e.g.: 23456).
 
 ## Send a 1:N SMS message with options
 
@@ -153,7 +152,7 @@ main();
 You should replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number-1>` and `<to-phone-number-2>` with phone number(s) you wish to send a message to.
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
+> Note that phone numbers should be provided in E.164 international standard format (e.g.: +14255550123). The **From** phone number may be a Short Code as well (e.g.: 23456).
 
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 `tag` is an optional parameter that you can use to apply a tag to the Delivery Report.

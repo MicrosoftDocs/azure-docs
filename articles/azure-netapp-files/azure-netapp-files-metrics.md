@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 09/29/2021
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
@@ -55,6 +55,9 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 
 ## Performance metrics for volumes
 
+> [!NOTE] 
+> Volume latency for *Average Read Latency* and *Average Write Latency* is measured within the storage service and does not include network latency.
+
 - *Average Read Latency*   
     The average time for reads from the volume in milliseconds.
 - *Average Write Latency*   
@@ -63,24 +66,6 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
     The number of reads to the volume per second.
 - *Write IOPS*   
     The number of writes to the volume per second.
-<!-- These two metrics are not yet available, until ~ 2020.09
-- *Read MiB/s*   
-    Read throughput in bytes per second.
-- *Write MiB/s*   
-    Write throughput in bytes per second.
---> 
-<!-- ANF-4128; 2020.07
-- *Pool Provisioned Throughput*	  
-    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
-- *Pool Allocated to Volume Throughput*   
-    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
--->
-
-<!-- ANF-6443; 2020.11
-- *Pool Consumed Throughput*	
-    The total throughput being consumed by volumes in a given capacity pool.
--->
-
 
 ## <a name="replication"></a>Volume replication metrics
 
@@ -93,9 +78,6 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 
 - *Is volume replication transferring*    
     Whether the status of the volume replication is ‘transferring’. 
- 
-- *Volume replication lag time*   
-    The amount of time in seconds by which the data on the mirror lags behind the source. 
 
 - *Volume replication last transfer duration*   
     The amount of time in seconds it took for the last transfer to complete. 
@@ -109,8 +91,48 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 - *Volume replication total transfer*   
     The cumulative bytes transferred for the relationship. 
 
+## Throughput metrics for capacity pools   
+
+* *Pool allocated throughput*    
+    Sum of the throughput of all the volumes belonging to the pool.
+    
+* *Provisioned throughput for the pool*   
+    Provisioned throughput of this pool.
+
+
+## Throughput metrics for volumes   
+
+* *Read throughput*   
+    Read throughput in bytes per second.
+    
+* *Total throughput*   
+    Sum of all throughput in bytes per second.
+
+* *Write throughput*    
+    Write throughput in bytes per second.
+
+* *Other throughput*   
+    Other throughput (that is not read or write) in bytes per second.
+
+## Volume backup metrics  
+
+* *Is Volume Backup Enabled*   
+    Shows whether backup is enabled for the volume. `1` is enabled. `0` is disabled.
+
+* *Is Volume Backup Operation Complete*   
+    Shows whether the last volume backup or restore operation is successfully completed.  `1` is successful. `0` is unsuccessful.
+
+* *Is Volume Backup Suspended*   
+    Shows whether the backup policy is suspended for the volume.  `1` is not suspended. `0` is suspended.
+
+* *Volume Backup Bytes*   
+    The total bytes backed up for this volume.
+
+* *Volume Backup Last Transferred Bytes*   
+    The total bytes transferred for the last backup or restore operation.  
+
 ## Next steps
 
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)

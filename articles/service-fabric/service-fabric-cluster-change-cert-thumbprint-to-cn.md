@@ -3,7 +3,8 @@ title: Update a cluster to use certificate common name
 description: Learn how to convert an Azure Service Fabric cluster certificate from thumbprint-based declarations to common names.
 
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/06/2019 
+ms.custom: devx-track-azurepowershell
 ---
 # Convert cluster certificates from thumbprint-based declarations to common names
 

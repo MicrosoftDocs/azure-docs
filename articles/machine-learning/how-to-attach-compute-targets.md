@@ -1,16 +1,16 @@
 ---
 title: Set up training & inference compute targets
 titleSuffix: Azure Machine Learning
-description: Add  compute resources (compute targets) to your workspace to use for machine learning training and inference
+description: Add compute resources (compute targets) to your workspace to use for machine learning training and inference.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/02/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.date: 10/21/2021
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021
 ---
 # Set up compute targets for model training and deployment
 
@@ -20,14 +20,15 @@ In this article, learn how to set up your workspace to use these compute resourc
 
 * Your local computer
 * Remote virtual machines
+* Apache Spark pools (powered by Azure Synapse Analytics)
 * Azure HDInsight
 * Azure Batch
-* Azure Databricks
+* Azure Databricks - used as a training compute target only in [machine learning pipelines](how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
+* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
 
 To use compute targets managed by Azure Machine Learning, see:
-
 
 * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
 * [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)
@@ -37,7 +38,7 @@ To use compute targets managed by Azure Machine Learning, see:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 ## Limitations
 
@@ -118,9 +119,13 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
    ```
 
 > [!TIP]
-> If you want to __remove__ (detach) a VM from your workspace, use the [RemoteCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remotecompute#detach--) method.
+> If you want to __remove__ (detach) a VM from your workspace, use the [RemoteCompute.detach()](/python/api/azureml-core/azureml.core.compute.remotecompute#detach--) method.
 >
 > Azure Machine Learning does not delete the VM for you. You must manually delete the VM using the Azure portal, CLI, or the SDK for Azure VM.
+
+## <a id="synapse"></a>Apache Spark pools
+
+The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data wrangling at scale. For more information, see [How to attach Apache Spark pools powered by Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
 
 ## <a id="hdinsight"></a>Azure HDInsight 
 
@@ -168,7 +173,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 > [!TIP]
-> If you want to __remove__ (detach) an HDInsight cluster from the workspace, use the [HDInsightCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.hdinsight.hdinsightcompute#detach--) method.
+> If you want to __remove__ (detach) an HDInsight cluster from the workspace, use the [HDInsightCompute.detach()](/python/api/azureml-core/azureml.core.compute.hdinsight.hdinsightcompute#detach--) method.
 >
 > Azure Machine Learning does not delete the HDInsight cluster for you. You must manually delete it using the Azure portal, CLI, or the SDK for Azure HDInsight.
 
@@ -215,12 +220,14 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 > [!WARNING]
 > Do not create multiple, simultaneous attachments to the same Azure Batch from your workspace. Each new attachment will break the previous existing attachment(s).
 
-### <a id="databricks"></a>Azure Databricks
+## <a id="databricks"></a>Azure Databricks
 
 Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
 
-> [!IMPORTANT}
-> Azure Machine Learning cannot create an Azure Databricks compute target. Instead, you must create an Azure Databricks workspace, and then attach it to your Azure Machine Learning workspacee. To create a workspace resource, see the [Run a Spark job on Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) document.
+> [!IMPORTANT]
+> Azure Machine Learning cannot create an Azure Databricks compute target. Instead, you must create an Azure Databricks workspace, and then attach it to your Azure Machine Learning workspace. To create a workspace resource, see the [Run a Spark job on Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) document.
+> 
+> To attach an Azure Databricks workspace from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the Azure Databricks workspace. Check your access in the [Azure portal](https://ms.portal.azure.com/).
 
 To attach Azure Databricks as a compute target, provide the following information:
 
@@ -228,7 +235,7 @@ To attach Azure Databricks as a compute target, provide the following informatio
 * __Databricks workspace name__: The name of the Azure Databricks workspace.
 * __Databricks access token__: The access token used to authenticate to Azure Databricks. To generate an access token, see the [Authentication](/azure/databricks/dev-tools/api/latest/authentication) document.
 
-The following code demonstrates how to attach Azure Databricks as a compute target with the Azure Machine Learning SDK (__The Databricks workspace need to be present in the same subscription as your AML workspace__):
+The following code demonstrates how to attach Azure Databricks as a compute target with the Azure Machine Learning SDK:
 
 ```python
 import os
@@ -272,7 +279,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-databri
 > [!WARNING]
 > Do not create multiple, simultaneous attachments to the same Azure Databricks from your workspace. Each new attachment will break the previous existing attachment(s).
 
-### <a id="adla"></a>Azure Data Lake Analytics
+## <a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics is a big data analytics platform in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
 
@@ -332,9 +339,23 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## Azure Kubernetes Service
+## <a id="kubernetes"></a>Kubernetes (preview)
 
-Azure Kubernetes Service (AKS) allows for various configuration options when used with Azure Machine Learning. For more information, see [How to create and attach Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
+Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training and inferencing:
+
+* [Azure Kubernetes Service](../aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
+* [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use Azure Arc-enabled Kubernetes clusters if your cluster is hosted outside of Azure.
+
+[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+
+To detach a Kubernetes cluster from your workspace, use the following method:
+
+```python
+compute_target.detach()
+```
+
+> [!WARNING]
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc-enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources).
 
 ## Notebook examples
 

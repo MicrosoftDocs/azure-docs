@@ -15,7 +15,7 @@ To manage an Azure Red Hat OpenShift cluster, you use [oc](https://docs.openshif
 > [!NOTE]
 > We recommend you [install the OpenShift command line](../tutorial-connect-cluster.md) on [Azure Cloud Shell](https://shell.azure.com/) and using it for all command-line operations below. Launch your shell from shell.azure.com or by clicking the link:
 >
-> [![Embed launch](https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com/bash)
+> [![Embed launch](/azure/includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com/bash)
 
 Follow the tutorial to install the CLI, retrieve the cluster credentials and [connect to the cluster](../tutorial-connect-cluster.md) using the web console and the OpenShift CLI.
 

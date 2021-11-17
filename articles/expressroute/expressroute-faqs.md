@@ -56,7 +56,9 @@ The ExpressRoute gateway will advertise the *Address Space(s)* of the Azure VNet
 
 ### How many prefixes can be advertised from a VNet to on-premises on ExpressRoute Private Peering?
 
-There is a maximum of 1000 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 999 address spaces on a single VNet connected to an ExpressRoute circuit, all 999 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 500 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 501 prefixes to on-premises.
+There is a maximum of 1000 IPv4 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 999 address spaces on a single VNet connected to an ExpressRoute circuit, all 999 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 500 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 501 prefixes to on-premises.
+
+If you are using a dual-stack circuit, there is a maximum of 100 IPv6 prefixes on a single ExpressRoute connection, or through VNet peering using gateway transit. This in addition to the limits described above.
 
 ### What happens if I exceed the prefix limit on an ExpressRoute connection?
 
@@ -78,11 +80,11 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 **Supported:**
 
-* Virtual networks, including all virtual machines and cloud services
+* Virtual networks, including all virtual machines and cloud services like [Azure Virtual Desktop RDP Shortpath](../virtual-desktop/shortpath.md)
 
 ### Microsoft peering
 
-If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can access the [public IP address ranges](../virtual-network/public-ip-addresses.md#public-ip-addresses) used in Azure over the circuit. Azure Microsoft peering will provide access to services currently hosted on Azure (with geo-restrictions depending on your circuit's SKU). To validate availability for a specific service, you can check the documentation for that service to see if there is a reserved range published for that service. Then, look up the IP ranges of the target service and compare with the ranges listed in the [Azure IP Ranges and Service Tags – Public Cloud XML file](https://www.microsoft.com/download/details.aspx?id=56519). Alternatively, you can open a support ticket for the service in question for clarification.
+If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can access the [public IP address ranges](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses) used in Azure over the circuit. Azure Microsoft peering will provide access to services currently hosted on Azure (with geo-restrictions depending on your circuit's SKU). To validate availability for a specific service, you can check the documentation for that service to see if there is a reserved range published for that service. Then, look up the IP ranges of the target service and compare with the ranges listed in the [Azure IP Ranges and Service Tags – Public Cloud XML file](https://www.microsoft.com/download/details.aspx?id=56519). Alternatively, you can open a support ticket for the service in question for clarification.
 
 **Supported:**
 
@@ -97,14 +99,13 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 * CDN
 * Azure Front Door
-* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Multi-factor Authentication Server (legacy)
 * Traffic Manager
 * Logic Apps
 
 ### Public peering
 
-Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you a circuit that was created before public peering was deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
+Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you have a circuit that was created before public peering was deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
 
 For more information and configuration steps for public peering, see [ExpressRoute public peering](about-public-peering.md).
 
@@ -167,7 +168,7 @@ See [here](./designing-for-high-availability-with-expressroute.md) for designing
 
 ### How do I ensure high availability on a virtual network connected to ExpressRoute?
 
-You can achieve high availability by connecting up to 16 ExpressRoute circuits in the same peering location to your virtual network, or by connecting ExpressRoute circuits in different peering locations (for example, Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
+You can achieve high availability by connecting up to 4 ExpressRoute circuits in the same peering location to your virtual network, or by connecting up to 16 ExpressRoute circuits in different peering locations (for example, Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
 
 ### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
 
@@ -236,7 +237,7 @@ No. From a routing perspective, all virtual networks linked to the same ExpressR
 
 ### Can I have one virtual network connected to more than one ExpressRoute circuit?
 
-Yes. You can link a single virtual network with up to four ExpressRoute circuits in either the same or different peering locations. 
+Yes. You can link a single virtual network with up to four ExpressRoute circuits in the same location or up to 16 ExpressRoute circuits in different peering locations. 
 
 ### Can I access the Internet from my virtual networks connected to ExpressRoute circuits?
 
@@ -293,11 +294,11 @@ You will also have to follow up with your connectivity provider to ensure that t
 
 ### How do I change the bandwidth of an ExpressRoute circuit?
 
-You can update the bandwidth of the ExpressRoute circuit using the REST API or PowerShell cmdlet.
+You can update the bandwidth of the ExpressRoute circuit using the Azure Portal, REST API, PowerShell, or Azure CLI.
 
 ### I received a notification about maintenance on my ExpressRoute circuit. What is the technical impact of this maintenance?
 
-You should experience minimal to no impact during maintenance if you operate your circuit in [active-active mode](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections). We perform maintenance on the primary and secondary connections of your circuit separately. Scheduled maintenance will usually be performed outside of business hours in the time zone of the peering location, and you cannot select a maintenance time.
+You should experience minimal to no impact during maintenance if you operate your circuit in [active-active mode](./designing-for-high-availability-with-expressroute.md#active-active-connections). We perform maintenance on the primary and secondary connections of your circuit separately. Scheduled maintenance will usually be performed outside of business hours in the time zone of the peering location, and you cannot select a maintenance time.
 
 ### I received a notification about a software upgrade or maintenance on my ExpressRoute gateway. What is the technical impact of this maintenance?
 

@@ -51,8 +51,6 @@ For more information about control and data planes, see [Control plane and data 
 
 All Azure services will eventually support managed identities. For more information, see [Services that support managed identities for Azure resources](../managed-identities-azure-resources/services-support-managed-identities.md).
 
-##  
-
 ## Types of managed identities
 
 There are two types of managed identities—system-assigned and user-assigned.

@@ -8,7 +8,8 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/15/2021
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Remove Azure role assignments
@@ -33,7 +34,7 @@ To remove role assignments, you must have:
 
 1. Click **Remove**.
 
-   ![Remove role assignment message](./media/role-assignments-remove/remove-role-assignment.png)
+   ![Remove role assignment message](./media/shared/remove-role-assignment.png)
 
 1. In the remove role assignment message that appears, click **Yes**.
 

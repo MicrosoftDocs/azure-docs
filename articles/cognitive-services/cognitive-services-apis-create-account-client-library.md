@@ -8,7 +8,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 03/15/2021
+ms.date: 06/04/2021
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
 ---

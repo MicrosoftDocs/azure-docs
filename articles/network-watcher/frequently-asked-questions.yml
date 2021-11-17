@@ -1,0 +1,156 @@
+### YamlMime:FAQ
+metadata:
+  title: "Frequently asked questions (FAQ) about Azure Network Watcher | Microsoft Docs"
+  description: "This article answers frequently asked questions about the Azure Network Watcher service."
+  services: network-watcher
+  documentationcenter: na
+  author: damendo
+  manager:
+  editor:
+  ms.service: network-watcher
+  ms.devlang: na
+  ms.topic: article
+  ms.tgt_pltfrm: na
+  ms.workload:  infrastructure-services
+  ms.date: 01/07/2021
+  ms.author: damendo
+  
+    
+title: "Frequently asked questions (FAQ) about Azure Network Watcher"
+summary: |
+  The [Azure Network Watcher](./network-watcher-monitoring-overview.md) service provides a suite of tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. This article answers common questions about the service.
+  
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          What is Network Watcher?
+        answer: |
+          Network Watcher is designed to monitor and repair the network health of IaaS (Infrastructure-as-a-Service) components, which includes Virtual Machines, Virtual Networks, Application Gateways, Load balancers, and other resources in an Azure virtual network. It is not a solution for monitoring PaaS (Platform-as-a-Service) infrastructure or getting web/mobile analytics.
+
+      - question: |
+          What tools does Network Watcher provide?
+        answer: |
+          Network Watcher provides three major sets of capabilities
+          * Monitoring
+            * [Topology view](./view-network-topology.md) shows you the resources in your virtual network and the relationships between them.
+            * [Connection Monitor](./connection-monitor.md) allows you to monitor connectivity and latency between a VM and another network resource.
+            * [Network performance monitor](../azure-monitor/insights/network-performance-monitor.md) allows you to monitor connectivity and latencies across hybrid network architectures, Expressroute circuits, and service/application endpoints.  
+          * Diagnostics
+            * [IP Flow Verify](./network-watcher-ip-flow-verify-overview.md) allows you to detect traffic filtering issues at a VM level.
+            * [Next Hop](./network-watcher-next-hop-overview.md) helps you verify traffic routes and detect routing issues.
+            * [Connection Troubleshoot](./network-watcher-connectivity-portal.md) enables a one-time connectivity and latency check between a VM and another network resource.
+            * [Packet Capture](./network-watcher-packet-capture-overview.md) enables you to capture all traffic on a VM in your virtual network.
+            * [VPN Troubleshoot](./network-watcher-troubleshoot-overview.md) runs multiple diagnostics checks on your VPN gateways and connections to help debug issues.
+          * Logging
+            * [NSG Flow Logs](./network-watcher-nsg-flow-logging-overview.md) allows you to log all traffic in your [Network Security Groups (NSGs)](../virtual-network/network-security-groups-overview.md)
+            * [Traffic Analytics](./traffic-analytics.md) processes your NSG Flow Log data enabling you to visualize, query, analyze, and understand your network traffic.
+          
+          
+          For more detailed information, see the [Network Watcher overview page](./network-watcher-monitoring-overview.md).
+          
+          
+      - question: |
+          How does Network Watcher pricing work?
+        answer: |
+          Visit the [Pricing page](https://azure.microsoft.com/pricing/details/network-watcher/) for Network Watcher components and their pricing.
+          
+      - question: |
+          Which regions is Network Watcher supported/available in?
+        answer: |
+          You can view the latest regional availability on the [Azure Service availability page](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
+          
+      - question: |
+          Which permissions are needed to use Network Watcher?
+        answer: |
+          See the list of [Azure RBAC permissions required to use Network Watcher](./required-rbac-permissions.md). For deploying resources, you need contributor permissions to the NetworkWatcherRG (see below).
+          
+      - question: |
+          How do I enable Network Watcher?
+        answer: |
+          The Network Watcher service is [enabled automatically](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) for every subscription.
+          
+      - question: |
+          What is the Network Watcher deployment model?
+        answer: |
+          The Network Watcher parent resource is deployed with a unique instance in every region. Naming format: NetworkWatcher_RegionName. Example: NetworkWatcher_centralus is the Network Watcher resource for the "Central US" region.
+          
+      - question: |
+          What is the NetworkWatcherRG?
+        answer: |
+          Network Watcher resources are located in the hidden **NetworkWatcherRG** resource group which is created automatically. For example, the NSG Flow Logs resource is a child resource of Network Watcher and is enabled in the NetworkWatcherRG.
+
+      - question: |
+          Why do I need to install the Network Watcher extension? 
+        answer: |
+          The Network Watcher extension is required for any feature that needs to generate or intercept traffic from a VM. 
+
+      - question: |
+          Which features require the Network Watcher extension?
+        answer: |
+          The Packet Capture, Connection Troubleshoot and Connection Monitor features need the Network Watcher extension to be present.
+
+      - question: |
+          What are resource limits on Network Watcher?
+        answer: |
+          See the [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits) page for all limits.  
+          
+      - question: |
+          Why is only one instance of Network Watcher allowed per region? 
+        answer: |
+          Network Watcher just needs to be enabled once for a subscription for it's features to work, this is a not a service limit.
+
+      - question: |
+          How can I manage the Network Watcher Resource? 
+        answer: |
+          The Network Watcher resource represents the backend service for Network Watcher and is fully managed by Azure. Customers do no need to manage it. Operations like move are not supported on the resource. However, [the resource can be deleted](./network-watcher-create.md#delete-a-network-watcher-in-the-portal). 
+          
+  - name: Service availability and redundancy 
+    questions:
+      - question: |
+          Is the Network Watcher service zone resilient? 
+        answer: |
+          Yes. The the Network Watcher service is zone-resilient by default. 
+
+      - question: |
+          How do I configure the Network Watcher service to be zone-resilient? 
+        answer: |
+          No customer configuration is necessary to enable zone-resiliency. Zone-resiliency for Network Watcher resources is available by default and managed by the service itself. 
+
+  - name: NSG Flow Logs
+    questions:
+      - question: |
+          What does NSG Flow Logs do?
+        answer: |
+          Azure network resources can be combined and managed through [Network Security Groups (NSGs)](../virtual-network/network-security-groups-overview.md). NSG Flow Logs enable you to log 5-tuple flow information about all traffic through your NSGs. The raw flow logs are written to an Azure Storage account from where they can be further processed, analyzed, queried, or exported as needed.
+          
+      - question: |
+          How do I use NSG Flow Logs with a Storage account behind a firewall?
+        answer: |
+          To use a Storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
+          
+          * Navigate to the storage account by typing the storage account's name in the global search on the portal or from the [Storage Accounts page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
+          * Under the **SETTINGS** section, select **Firewalls and virtual networks**
+          * In "Allow access from", select **Selected networks**. Then under **Exceptions**, tick the box next to **"Allow trusted Microsoft services to access this storage account"** 
+          * If it is already selected, no change is needed.  
+          * Locate your target NSG on the [NSG Flow Logs overview page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) and enable NSG Flow Logs with the above storage account selected.
+          
+          You can check the storage logs after a few minutes, you should see an updated TimeStamp or a new JSON file created.
+          
+      - question: |
+          How do I use NSG Flow Logs with a Storage account behind a Service Endpoint?
+        answer: |
+          NSG Flow Logs are compatible with Service Endpoints without requiring any extra configuration. Please see the [tutorial on enabling Service Endpoints](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint) in your virtual network.
+          
+          
+      - question: |
+          What is the difference between flow logs versions 1 & 2?
+        answer: |
+          Flow Logs version 2 introduces the concept of *Flow State* & stores information about bytes and packets transmitted. [Read more](./network-watcher-nsg-flow-logging-overview.md#log-format).
+
+additionalContent: |
+
+  ## Next steps
+  
+   - Head over to our [documentation overview page](./index.yml) for some tutorials to get you started with Network Watcher.

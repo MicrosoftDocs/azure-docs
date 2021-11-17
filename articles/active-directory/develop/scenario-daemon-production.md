@@ -39,7 +39,7 @@ You'll need to explain to your customers how to perform these operations. For mo
 
 - Reference documentation for:
   - Instantiating [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
-  - Calling [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
+  - Calling [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder?view=azure-dotnet&preserve-view=true).
 - Other samples/tutorials:
   - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) features a small .NET Core daemon console application that displays the users of a tenant querying Microsoft Graph.
 

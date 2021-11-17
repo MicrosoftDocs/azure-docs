@@ -71,7 +71,7 @@ This step will add the following components to your subscription:
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md)
 - [Application Gateway](./overview.md) v2
 - [Virtual Network](../virtual-network/virtual-networks-overview.md) with 2 [subnets](../virtual-network/virtual-networks-overview.md)
-- [Public IP Address](../virtual-network/virtual-network-public-ip-address.md)
+- [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 - [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [AAD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
 
 1. Download the Azure Resource Manager template and modify the template as needed.

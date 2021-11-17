@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
-ms.date: 03/10/2020
+ms.reviewer: mathoma
+ms.date: 07/26/2021
 ---
 # Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -258,6 +258,12 @@ Some applications are write-intensive. Sometimes you can reduce the total IO loa
 ### Application-tier caching
 
 Some database applications have read-heavy workloads. Caching layers might reduce the load on the database and might potentially reduce the compute size required to support a database by using Azure SQL Database and Azure SQL Managed Instance. With [Azure Cache for Redis](https://azure.microsoft.com/services/cache/), if you have a read-heavy workload, you can read the data once (or perhaps once per application-tier machine, depending on how it is configured), and then store that data outside of your database. This is a way to reduce database load (CPU and read IO), but there is an effect on transactional consistency because the data being read from the cache might be out of sync with the data in the database. Although in many applications some level of inconsistency is acceptable, that's not true for all workloads. You should fully understand any application requirements before you implement an application-tier caching strategy.
+
+## Get configuration and design tips
+
+If you use Azure SQL Database, you can execute an open-source T-SQL [script](https://aka.ms/sqldbtips) to analyze your database on demand and provide tips to improve database performance and health. Some tips suggest configuration and operational changes based on best practices, while other tips recommend design changes suitable for your workload, such as enabling advanced database engine features.
+
+To learn more about the script and get started, visit the [wiki](https://aka.ms/sqldbtipswiki) page.
 
 ## Next steps
 

@@ -1,9 +1,10 @@
+items:
 - name: Language Understanding (LUIS) documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: Overview of LUIS
+  - name: What is Language Understanding (LUIS)?
     href: what-is-luis.md
   - name: Language support
     href: luis-language-support.md
@@ -12,26 +13,28 @@
   - name: What's new
     href: whats-new.md
   - name: LUIS FAQ
-    href: troubleshooting.md
+    href: troubleshooting.yml
     displayName: Troubleshooting, import
 - name: LUIS quickstarts
   items:
-  - name: Build prebuilt domain app
+  - name: Use the LUIS portal
     href: luis-get-started-create-app.md
-  - name: Use LUIS portal
-    items:
-    - name: Create an app
-      href: get-started-portal-build-app.md
-      displayName: intent, entity, create app, test, example utterance
-    - name: Deploy an app
-      href: get-started-portal-deploy-app.md
-      displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
-  - name: Use browser
-    href: luis-get-started-get-intent-from-browser.md
   - name: Use the client libraries and REST API
     href: client-libraries-rest-api.md
 - name: Samples
   href: https://github.com/Azure-Samples/cognitive-services-language-understanding
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: LUIS use cases
+      href: /legal/cognitive-services/luis/luis-transparency-note?context=/azure/cognitive-services/LUIS/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/luis/characteristics-and-limitations?context=/azure/cognitive-services/LUIS/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/luis/guidance-integration-responsible-use?context=/azure/cognitive-services/LUIS/context/context
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/luis/data-privacy-security?context=/azure/cognitive-services/LUIS/context/context
 - name: How-to guides
   items:
   - name: Sign in to LUIS portal
@@ -76,32 +79,28 @@
       href: luis-how-to-model-intent-pattern.md
   - name: Train and test your app
     items:
-      - name: Train your app
-        href: luis-how-to-train.md
-        displayName: negative sampling, nondeterministic, non-deterministic, UseAllTrainingData
-      - name: Interactive testing
-        href: luis-interactive-test.md
-      - name: Batch testing
-        href: luis-how-to-batch-test.md
-        displayName: import, export
+    - name: Train your app
+      href: luis-how-to-train.md
+      displayName: negative sampling, nondeterministic, non-deterministic, UseAllTrainingData
+    - name: Interactive testing
+      href: luis-interactive-test.md
+    - name: Batch testing
+      href: luis-how-to-batch-test.md
+      displayName: import, export
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Query prediction runtime
     href: luis-get-started-get-intent-from-browser.md
   - name: Migrate
     items:
-    - name: Overview
-      href: migration.md
-    - name: Migrate from composite entity
-      href: migrate-from-composite-entity.md
-    - name: Migrate to authoring resource
-      href: luis-migration-authoring.md
-    - name: Migrate to V3 API
-      href: luis-migration-api-v3.md
     - name: Migrate to V3 Authoring APIs
       href: luis-migration-authoring-entities.md
     - name: Migrate to V3 Prediction APIs
       href: luis-migration-api-v3.md
+    - name: Migrate from composite entity
+      href: migrate-from-composite-entity.md
+    - name: Migrate to authoring resource
+      href: luis-migration-authoring.md
     - name: Migrate to V2 API
       href: luis-migration-api-v1-to-v2.md
   - name: Manage app
@@ -119,22 +118,27 @@
       diplayName: import, export, container
     - name: With Traffic Manager
       href: luis-traffic-manager.md
-  - name: Deploy LUIS
+  - name: Use containers
     items:
-    - name: Use containers
-      items:
-      - name: Install and run containers
-        displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container
-        href: luis-container-howto.md
-      - name: Configure containers
-        href: luis-container-configuration.md
-      - name: Use container instances
-        href: ../containers/azure-container-instance-recipe.md
-      - name: Container limitations
-        href: luis-container-limitations.md
-        displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
-      - name: Cognitive Services containers documentation
-        href: ../containers/index.yml
+    - name: Install and run containers
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container
+      href: luis-container-howto.md
+    - name: Configure containers
+      href: luis-container-configuration.md
+    - name: Use container instances
+      href: ../containers/azure-container-instance-recipe.md
+    - name: Container limitations
+      href: luis-container-limitations.md
+      displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+    - name: All Cognitive Services containers documentation
+      href: ../containers/index.yml
+      maintainContext: true
+  - name: Enterprise readiness
+    items:
+    - name: Set up Virtual Networks
+      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/luis/context/context
+    - name: Use customer-managed keys
+      href: encrypt-data-at-rest.md
 - name: Concepts
   items:
   - name: Artificial intelligence
@@ -174,10 +178,6 @@
     items:
     - name: Review endpoint utterances
       href: luis-concept-review-endpoint-utterances.md
-  - name: Test
-    items:
-    - name: Interactive testing
-      href: luis-concept-test.md
   - name: Data management
     items:
     - name: Data collection
@@ -191,6 +191,12 @@
       displayName: roles
     - name: Data Storage
       href: luis-concept-data-storage.md
+  - name: Security
+    items:
+    - name: Role-based access control
+      href: role-based-access-control.md
+    - name: Authentication with Azure Active Directory
+      href: ../authentication.md#authenticate-with-azure-active-directory
   - name: Using LUIS and QnA Maker
     href: choose-natural-language-processing-service.md
     displayName: nlp, qna maker
@@ -199,14 +205,12 @@
     displayName: import
   - name: Applying DevOps practices with LUIS
     items:
-    - name: Use DevOps
-      href: luis-how-to-devops-with-github.md
+    - name: Continuous Integration and Continuous Delivery (CI/CD) workflows
+      href: luis-concept-devops-automation.md 
     - name: Source control and branch strategies for LUIS
       href: luis-concept-devops-sourcecontrol.md
     - name: Testing for DevOps
       href: luis-concept-devops-testing.md
-    - name: CI/CD workflows
-      href: luis-concept-devops-automation.md 
 - name: Tutorials
   items:
   - name: Build decomposable app
@@ -313,7 +317,6 @@
     href: luis-limits.md
   - name: App and version settings
     href: luis-reference-application-settings.md
-
   - name: Entity reference
     items:
     - name: Prebuilt
@@ -360,8 +363,6 @@
       items:
       - name: Machine-learning entity
         href: reference-entity-machine-learned-entity.md
-      - name: Composite entity
-        href: reference-entity-composite.md
       - name: List entity
         href: reference-entity-list.md
       - name: Pattern.any entity
@@ -376,24 +377,21 @@
     href: luis-reference-prebuilt-sentiment.md
 - name: Resources
   items:
+  - name: Enterprise readiness
+    items:
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+      displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
   - name: LUIS portal
     href: https://www.luis.ai
-  - name: Support & help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092089
   - name: Glossary
     href: luis-glossary.md
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Encryption
-    href: encrypt-data-at-rest.md
-  - name: Configure virtual networks
-    maintainContext: true
-    href: ../cognitive-services-virtual-networks.md
   - name: Search
     href: /search/index?search=LUIS
   - name: Blog
@@ -410,7 +408,7 @@
       href: https://azure.microsoft.com/services/cognitive-services/speech/
     - name: Bing Spell Check API
       href: https://azure.microsoft.com/services/cognitive-services/spell-check/
-    - name: Text Analytics
+    - name: Language service
       href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
     - name: Recognizers-Text
       href: https://github.com/Microsoft/Recognizers-Text

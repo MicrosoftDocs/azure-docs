@@ -2,13 +2,13 @@
 title: Instead of ETL, design ELT 
 description: Implement flexible data loading strategies for dedicated SQL pools within Azure Synapse Analytics.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
@@ -56,7 +56,7 @@ To land the data in Azure storage, you can move it to [Azure Blob storage](../..
 Tools and services you can use to move data to Azure Storage:
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
-- [AZCopy utility](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable.
+- [AzCopy utility](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AzCopy, test the network speed to see if it is acceptable.
 - [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with dedicated SQL pools, see [Loading data for dedicated SQL pools](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## 3. Prepare the data for loading
@@ -138,8 +138,8 @@ It is best practice to load data into a staging table. Staging tables allow you 
 
 To load data, you can use any of these loading options:
 
-- The [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) is the recommended loading utility as it enables you to seamlessly and flexibly load data. The statement has many additional loading capabilities that PolyBase does not provide. 
-- [PolyBase with T-SQL](./load-data-from-azure-blob-storage-using-copy.md) requires you to define external data objects.
+- The [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) is the recommended loading utility as it enables you to seamlessly and flexibly load data. The statement has many additional loading capabilities that PolyBase does not provide. See the [NY taxi cab COPY tutorial](./load-data-from-azure-blob-storage-using-copy.md) to run through a sample tutorial.  
+- [PolyBase with T-SQL](./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) requires you to define external data objects.
 - [PolyBase and COPY statement with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs.
 - [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) works well when your source data is in SQL Server. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination.
 - [PolyBase with Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) transfers data from a table to a Databricks dataframe and/or writes data from a Databricks dataframe to a table using PolyBase.
@@ -167,4 +167,4 @@ Many of our partners have loading solutions. To find out more, see a list of our
 
 ## Next steps
 
-For loading guidance, see [Guidance for loading data](guidance-for-loading-data.md).
+For loading guidance, see [Data loading best practices](../sql/data-loading-best-practices.md).

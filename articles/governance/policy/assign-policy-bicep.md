@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with Bicep (Preview) file"
 description: In this quickstart, you use a Bicep (Preview) file to create a policy assignment to identify non-compliant resources.
-ms.date: 04/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: subject-bicepqs
 ---
@@ -19,14 +19,14 @@ machines that aren't using managed disks. They're _non-compliant_ with the polic
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the
 **Deploy to Azure** button. The template opens in the Azure portal.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template for assigning an Azure Policy to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template for assigning an Azure Policy to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.authorization%2Fazurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 - Bicep version `0.3` or higher installed. If you don't yet have Bicep CLI or need to update, see
-  [Install Bicep (Preview)](../../azure-resource-manager/templates/bicep-install.md).
+  [Install Bicep (Preview)](../../azure-resource-manager/bicep/install.md).
 
 ## Review the Bicep file
 
@@ -40,10 +40,10 @@ Create the following Bicep file as `assignment.bicep`:
 param policyAssignmentName string = 'audit-vm-manageddisks'
 param policyDefinitionID string = '/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d'
 
-resource assignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource assignment 'Microsoft.Authorization/policyAssignments@2021-09-01' = {
     name: policyAssignmentName
+    scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
     properties: {
-        scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
         policyDefinitionId: policyDefinitionID
     }
 }
@@ -83,7 +83,7 @@ az deployment group create \
 
 ---
 
-Some additional resources:
+Some other resources:
 
 - To find more samples templates, see
   [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).

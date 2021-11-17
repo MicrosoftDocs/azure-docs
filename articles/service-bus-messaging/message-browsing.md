@@ -37,14 +37,15 @@ When called repeatedly, the peek operation enumerates all messages in the queue 
 You can also pass a SequenceNumber to a peek operation. It will be used to determine where to start peeking from. You can make subsequent calls to the peek operation without specifying the parameter to enumerate further.
 
 ## Next steps
-Try the samples in the language of your choice to explore the peek or message browsing feature:
+Try the samples in the language of your choice to explore Azure Service Bus features. 
 
-- [Azure Service Bus client library samples for Java](/samples/azure/azure-sdk-for-java/servicebus-samples/) - **Peek at a message** sample
-- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/) - **receive_peek.py** sample
-- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/) - **browseMessages.js** sample
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) - - **Sending and receiving messages** sample.
+- [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/) - **Peek at a message** sample
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)  - **receive_peek.py** sample
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)  - **browseMessages.js** sample
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/) - **browseMessages.ts** sample
-- [Azure.Messaging.ServiceBus samples for .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) - See peek methods on receiver classes in the [reference documentation](/dotnet/api/azure.messaging.servicebus).
 
 Find samples for the older .NET and Java client libraries below:
-- [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - **Message Browsing (Peek)** sample 
-- [azure-servicebus samples for Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse) - **Message Browse** sample. 
+- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - **Message Browsing (Peek)** sample
+- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus) - **Message Browse** sample. 
+

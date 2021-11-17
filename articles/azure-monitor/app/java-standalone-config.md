@@ -3,9 +3,9 @@ title: Configuration options - Azure Monitor Application Insights for Java
 description: How to configure Azure Monitor Application Insights for Java
 ms.topic: conceptual
 ms.date: 11/04/2020
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
+author: mattmccleary
+ms.author: mmcc
 ---
 
 # Configuration options - Azure Monitor Application Insights for Java
@@ -36,14 +36,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.3.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.3.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.3.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.3.jar` is located.
 
 ## Connection string
 
@@ -184,9 +184,22 @@ If you want to add custom dimensions to all of your telemetry:
 > Starting from version 3.0.2, if you add a custom dimension named `service.version`, the value will be stored
 > in the `application_Version` column in the Application Insights Logs table instead of as a custom dimension.
 
-## Telemetry processors (preview)
+## Inherited attribute (preview)
 
-This feature is in preview.
+Starting from version 3.2.0, if you want to set a custom dimension programmatically on your request telemetry, and have it inherited by dependency telemetry that follows:
+
+```json
+{
+  "inheritedAttributes": [
+    {
+      "key": "mycustomer",
+      "type": "string"
+    }
+  ]
+}
+```
+
+## Telemetry processors (preview)
 
 It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
  * Mask sensitive data
@@ -270,30 +283,6 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 }
 ```
 
-## Auto-collected Azure SDK telemetry
-
-This feature is in preview.
-
-Many of the latest Azure SDK libraries emit telemetry.
-
-Starting from version 3.0.3, you can enable collection of this telemetry:
-
-```json
-{
-  "preview": {
-    "instrumentation": {
-      "azureSdk": {
-        "enabled": true
-      }
-    }
-  }
-}
-```
-
-You can also enable this feature using the environment variable 
-`APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
-(which will then take precedence over enabled specified in the json configuration).
-
 ## Suppressing specific auto-collected telemetry
 
 Starting from version 3.0.3, specific auto-collected telemetry can be suppressed using these configuration options:
@@ -301,6 +290,9 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 ```json
 {
   "instrumentation": {
+    "azureSdk": {
+      "enabled": false
+    },
     "cassandra": {
       "enabled": false
     },
@@ -319,6 +311,9 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
     "mongo": {
       "enabled": false
     },
+    "rabbitmq": {
+      "enabled": false
+    },
     "redis": {
       "enabled": false
     },
@@ -329,26 +324,59 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 }
 ```
 
-You can also suppress these instrumentations using these environment variables:
+You can also suppress these instrumentations by setting these environment variables to `false`:
 
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_AZURE_SDK_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_RABBITMQ_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
 
 (which will then take precedence over enabled specified in the json configuration).
 
-> NOTE
+> [!NOTE]
 > If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
 > see [sampling overrides](./java-standalone-sampling-overrides.md).
 
+## Preview instrumentations
+
+Starting from version 3.2.0, the following preview instrumentations can be enabled:
+
+```
+{
+  "preview": {
+    "instrumentation": {
+      "apacheCamel": {
+        "enabled": true
+      },
+      "grizzly": {
+        "enabled": true
+      },
+      "quartz": {
+        "enabled": true
+      },
+      "springIntegration": {
+        "enabled": true
+      },
+      "akka": { 
+        "enabled": true
+      },
+    }
+  }
+}
+```
+> [!NOTE]
+> Akka instrumentation is available starting from version 3.2.2
+
 ## Heartbeat
 
-By default, Application Insights Java 3.0 sends a heartbeat metric once every 15 minutes. If you are using the heartbeat metric to trigger alerts, you can increase the frequency of this heartbeat:
+By default, Application Insights Java 3.x sends a heartbeat metric once every 15 minutes.
+If you are using the heartbeat metric to trigger alerts, you can increase the frequency of this heartbeat:
 
 ```json
 {
@@ -364,7 +392,9 @@ By default, Application Insights Java 3.0 sends a heartbeat metric once every 15
 
 ## HTTP Proxy
 
-If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](./ip-addresses.md)), you can configure Application Insights Java 3.0 to use an HTTP proxy:
+If your application is behind a firewall and cannot connect directly to Application Insights
+(see [IP addresses used by Application Insights](./ip-addresses.md)),
+you can configure Application Insights Java 3.x to use an HTTP proxy:
 
 ```json
 {
@@ -375,7 +405,8 @@ If your application is behind a firewall and cannot connect directly to Applicat
 }
 ```
 
-Application Insights Java 3.0 also respects the global `-Dhttps.proxyHost` and `-Dhttps.proxyPort` if those are set.
+Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties
+if those are set (and `http.nonProxyHosts` if needed).
 
 ## Metric interval
 
@@ -417,13 +448,45 @@ The setting applies to all of these metrics:
 [//]: # "}"
 [//]: # "```"
 
+## Authentication (preview)
+> [!NOTE]
+> Authentication feature is available starting from version 3.2.0-BETA
+
+It allows you to configure agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Azure Active Directory Authentication.
+For more information, check out the [Authentication](./azure-ad-authentication.md) documentation.
+
+## Instrumentation keys overrides (preview)
+
+This feature is in preview, starting from 3.2.3.
+
+Instrumentation key overrides allow you to override the [default instrumentation key](#connection-string), for example:
+* Set one instrumentation key for one http path prefix `/myapp1`.
+* Set another instrumentation key for another http path prefix `/myapp2/`.
+
+```json
+{
+  "preview": {
+    "instrumentationKeyOverrides": [
+      {
+        "httpPathPrefix": "/myapp1",
+        "instrumentationKey": "12345678-0000-0000-0000-0FEEDDADBEEF"
+      },
+      {
+        "httpPathPrefix": "/myapp2",
+        "instrumentationKey": "87654321-0000-0000-0000-0FEEDDADBEEF"
+      }
+    ]
+  }
+}
+```
+
 ## Self-diagnostics
 
-"Self-diagnostics" refers to internal logging from Application Insights Java 3.0.
+"Self-diagnostics" refers to internal logging from Application Insights Java 3.x.
 
 This functionality can be helpful for spotting and diagnosing issues with Application Insights itself.
 
-By default, Application Insights Java 3.0 logs at level `INFO` to both the file `applicationinsights.log`
+By default, Application Insights Java 3.x logs at level `INFO` to both the file `applicationinsights.log`
 and the console, corresponding to this configuration:
 
 ```json
@@ -445,7 +508,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.0.3.jar` is located.
+`applicationinsights-agent-3.2.3.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 

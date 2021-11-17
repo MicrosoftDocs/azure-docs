@@ -4,19 +4,19 @@ description: This topic shows you how to use .NET Core to create a program that 
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: "sqldbrb=2, devx-track-csharp"
 ms.devlang: dotnet
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 05/29/2020
 ---
 # Quickstart: Use .NET Core (C#) to query a database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to a database. You'll then run a Transact-SQL statement to query data.
+In this quickstart, you'll use [.NET Core](https://dotnet.microsoft.com) and C# code to connect to a database. You'll then run a Transact-SQL statement to query data.
 
 > [!TIP]
 > The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries a database in Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/)
@@ -26,7 +26,7 @@ In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [.NET Core for your operating system](https://www.microsoft.com/net/core) installed.
+- [.NET Core SDK for your operating system](https://dotnet.microsoft.com/download) installed.
 - A database where you can run your query. 
 
   [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]

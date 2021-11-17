@@ -1,16 +1,16 @@
 ---
-title: Configure session behavior - Azure Active Directory B2C | Microsoft Docs
+title: Configure session behavior - Azure Active Directory B2C  
 description: Learn how to configure session behavior in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 10/05/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -60,7 +60,7 @@ Consider the following scenario:
 
 ### Application session
 
-A web, mobile, or single page application can be protected by OAuth access, ID tokens, or SAML tokens. When a user tries to access a protected resource on the app, the app checks whether there is an active session on the application side. If there is no app session or the session has expired, the app will take the user to Azure AD B2C to sign-in page.
+A web, mobile, or single page application can be protected by an OAuth2 access token, ID token, or SAML token. When a user tries to access a protected resource on the app, the app checks whether there is an active session on the application side. If there is no app session or the session has expired, the app will take the user to the Azure AD B2C sign-in page.
 
 The application session can be a cookie-based session stored under the application domain name, such as `https://contoso.com`. Mobile applications might store the session in a different way but using a similar approach.
 
@@ -86,7 +86,8 @@ You can configure the Azure AD B2C session behavior, including:
 To configure the session behavior:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Open the user flow that you previously created.
@@ -111,7 +112,7 @@ To change your session behavior and SSO configurations, you add a **UserJourneyB
 
 ## Enable Keep me signed in (KMSI)
 
-You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. Then they can reopen the browser without being prompted to reenter their username and password. This access is revoked when a user signs out.
+You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. The session is maintained by setting a [persistent cookie](cookie-definitions.md). Users who select KMSI, can reopen the browser without being prompted to reenter their username and password. This access (persistent cookie) is revoked when a user signs out. 
 
 ![Example sign-up sign-in page showing a Keep me signed in checkbox](./media/session-behavior/keep-me-signed-in.png)
 
@@ -120,7 +121,7 @@ You can enable the KMSI feature for users of your web and native applications wh
 
 KMSI is configurable at the individual user flow level. Before enabling KMSI for your user flows, consider the following:
 
-- KMSI is supported only for the **Recommended** versions of sign-up and sign-in (SUSI), sign-in, and profile editing user flows. If you currently have **Standard** or **Legacy preview - v2** versions of these user flows and want to enable KMSI, you'll need to create new, **Recommended** versions of these user flows.
+- KMSI is supported only for the **Recommended** versions of sign-up and sign-in (SUSI), sign-in, and profile editing user flows. If you currently have **Standard (Legacy)** or **Legacy preview - v2** versions of these user flows and want to enable KMSI, you'll need to create new, **Recommended** versions of these user flows.
 - KMSI is not supported with password reset or sign-up user flows.
 - If you want to enable KMSI for all applications in your tenant, we recommend that you enable KMSI for all user flows in your tenant. Because a user can be presented with multiple policies during a session, it's possible they could encounter one that doesn't have KMSI enabled, which would remove the KMSI cookie from the session.
 - KMSI should not be enabled on public computers.
@@ -130,14 +131,14 @@ KMSI is configurable at the individual user flow level. Before enabling KMSI for
 To enable KMSI for your user flow:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **User flows (policies)**.
-5. Open the user flow that you previously created.
-6. Select **Properties**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **User flows (policies)**.
+1. Open the user flow that you previously created.
+1. Select **Properties**.
 
-7. Under **Session behavior**, select **Enable keep me signed in session**. Next to **Keep me signed in session (days)**, enter a value from 1 to 90 to specify the number of days a session can remain open.
-
+1. Under **Session behavior**, select **Enable keep me signed in session**. Next to **Keep me signed in session (days)**, enter a value from 1 to 90 to specify the number of days a session can remain open.
 
    ![Enable keep me signed in session](media/session-behavior/enable-keep-me-signed-in.png)
 
@@ -191,7 +192,7 @@ To add the KMSI checkbox to the sign-up and sign-in page, set the `setting.enabl
 
 ### Configure a relying party file
 
-Update the relying party (RP) file that initiates the user journey that you created. The keepAliveInDays parameter allows you to configure how the long the keep me signed in (KMSI) session cookie should persist. For example, if you set the value to 30, then KMSI session cookie will persist for 30 days. The range for the value is from 1 to 90 days.
+Update the relying party (RP) file that initiates the user journey that you created. The keepAliveInDays parameter allows you to configure how the long the keep me signed in (KMSI) session cookie should persist. For example, if you set the value to 30, then KMSI session cookie will persist for 30 days. The range for the value is from 1 to 90 days. Setting the value to 0 turns off KMSI functionality.
 
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
 1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="User journey Id" />`, for example: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
@@ -240,16 +241,18 @@ When you want to sign the user out of the application, it isn't enough to clear 
 
 Upon a sign-out request, Azure AD B2C:
 
-1. Invalidates the Azure AD B2C cookie-based session.
 ::: zone pivot="b2c-user-flow"
-2. Attempts to sign out from federated identity providers
+1. Invalidates the Azure AD B2C cookie-based session.
+1. Attempts to sign out from federated identity providers.
 ::: zone-end
+
 ::: zone pivot="b2c-custom-policy"
-3. Attempts to sign out from federated identity providers:
+1. Invalidates the Azure AD B2C cookie-based session.
+1. Attempts to sign out from federated identity providers:
    - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location. The sign-out request doesn't pass the `id_token_hint` parameter. If the federated identity provider requires this parameter, the sign-out request will fail.
    - OAuth2 - If the [identity provider metadata](oauth2-technical-profile.md#metadata) contains the `end_session_endpoint` location.
    - SAML - If the [identity provider metadata](identity-provider-generic-saml.md) contains the `SingleLogoutService` location.
-4. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
+1. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
 
 > [!NOTE]
 > You can disable the sign out from federated identity providers, by setting the identity provider technical profile metadata `SingleLogoutEnabled` to `false`.
@@ -259,11 +262,13 @@ The sign-out clears the user's single sign-on state with Azure AD B2C, but it mi
 
 ::: zone pivot="b2c-custom-policy"
 
-### Single sign-out 
+## Single sign-out 
 
-When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth2 and SAML protocols), Azure AD B2C clears the user's session from the browser. However, the user might still be signed in to other applications that use Azure AD B2C for authentication. To enable those applications to sign the user out simultaneously, Azure AD B2C sends an HTTP GET request to the registered `LogoutUrl` of all the applications that the user is currently signed in to.
+When you redirect the user to the [Azure AD B2C sign-out endpoint](openid-connect.md#send-a-sign-out-request) (for both OAuth2 and OpenID Connect) or send a `LogoutRequest` (for SAML), Azure AD B2C clears the user's session from the browser. However, the user might still be signed in to other applications that use Azure AD B2C for authentication. To sign the user out of all applications which have an active session, Azure AD B2C supports *single sign-out*, also known as *Single Log-Out (SLO)*.
 
-Applications must respond to this request by clearing any session that identifies the user and returning a `200` response. If you want to support single sign-out in your application, you must implement a `LogoutUrl` in your application's code. 
+During the sign-out, Azure AD B2C simultaneously sends an HTTP request to the registered logout URL of all the applications that the user is currently signed in to.
+
+### Configure your custom policy
 
 To support single sign-out, the token issuer technical profiles for both JWT and SAML must specify:
 
@@ -309,6 +314,29 @@ The following example illustrates the JWT and SAML token issuers with single sig
 </ClaimsProvider>
 ```
 
+### Configure your application
+
+In order for an application to participate in single sign-out:
+
+- For [SAML service providers](saml-service-provider.md), configure the application with the [SingleLogoutService location in its SAML metadata document](saml-service-provider.md#override-or-set-the-logout-url-optional). You can also configure the app registration `logoutUrl`. For more information, see [set the logout URL](saml-service-provider.md#override-or-set-the-logout-url-optional).
+- For OpenID Connect or OAuth2 applications, set the `logoutUrl` attribute of your app registration manifest. To configure the logout URL:
+    1. From the Azure AD B2C menu, select **App registrations**.
+    1. Select your application registration.
+    1. Under **Manage**, select **Authentication**.
+    1. Under the **Front-channel logout URL**, configure your logout URL.
+
+### Handling single sign-out requests
+
+When Azure AD B2C receives the logout request, it uses a front-channel HTML iframe to send an HTTP request to the registered logout URL of each participating application that the user is currently signed in to. Note, the application that triggers the sign-out request will not get this log-out message. Your applications must respond to the sign-out request by clearing the application session that identifies the user.
+
+- For OpenID Connect and OAuth2 applications, Azure AD B2C sends an HTTP GET request to the registered logout URL.
+- For SAML applications, Azure AD B2C sends a SAML logout request to the registered logout URL.
+
+When all applications have been notified of the log-out, Azure AD B2C will do one of the following:
+
+- For OpenID Connect or OAuth2 applications, the user is redirected to the requested `post_logout_redirect_uri` including the (optional) `state` parameter specified in the initial request. For example `https://contoso.com/logout?state=foo`.
+- For SAML applications, a SAML logout response is sent via HTTP POST to the application that initially sent the logout request.
+
 ::: zone-end
 
 ### Secure your logout redirect
@@ -320,7 +348,8 @@ After logout, the user is redirected to the URI specified in the `post_logout_re
 To require an ID Token in logout requests:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Open the user flow that you previously created.
@@ -348,7 +377,8 @@ To require an ID Token in logout requests, add a **UserJourneyBehaviors** elemen
 To configure your application Logout URL:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select your application.
 1. Select **Authentication**.
