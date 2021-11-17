@@ -9,7 +9,7 @@ ms.author: mmcc
 
 # Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)
 
-This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you'll be able to send OpenTelemetry traces to Azure Monitor Application Insights. To learn more about OpenTelemetry, check out the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
+This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces to Azure Monitor Application Insights. To learn more about OpenTelemetry, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
 
 > [!IMPORTANT]
 > Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications is currently in preview.
@@ -19,16 +19,16 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 
 ### [.NET](#tab/net)
 
-Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_ the following:
+Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_:
 
- - Metrics API (such as custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
+ - Metrics API (like custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [Live Metrics](live-stream.md)
- - Logging API (such as console logs and logging libraries)
+ - Logging API (like console logs and logging libraries)
  - Autocapture of unhandled exceptions
  - [Profiler](profiler-overview.md)
  - [Snapshot Debugger](snapshot-debugger.md)
  - [Offline disk storage and retry logic](telemetry-channels.md#built-in-telemetry-channels)
- - [Azure Active Directory Authentication](azure-ad-authentication.md)
+ - [Azure Active Directory authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
  - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
@@ -42,13 +42,13 @@ If you require a full-feature experience, use the existing Application Insights 
 
 ### [Node.js](#tab/nodejs)
 
-Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_ the following:
+Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_:
 
- - Metrics API (such as custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
+ - Metrics API (like custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [Live Metrics](live-stream.md)
- - Logging API (such as console logs and logging libraries)
+ - Logging API (like console logs and logging libraries)
  - Autocapture of unhandled exceptions
- - [Azure Active Directory Authentication](azure-ad-authentication.md)
+ - [Azure Active Directory authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
  - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
@@ -64,14 +64,14 @@ If you require a full-feature experience, use the existing [Application Insights
 
 ### [Python](#tab/python)
 
-Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_ the following:
+Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_:
 
- - Metrics API (such as custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
+ - Metrics API (like custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [Live Metrics](live-stream.md)
- - Logging API (such as console logs and logging libraries)
+ - Logging API (like console logs and logging libraries)
  - Autocapture of unhandled exceptions
  - Offline disk storage and retry logic
- - [Azure Active Directory Authentication](azure-ad-authentication.md)
+ - [Azure Active Directory authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
  - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
@@ -96,8 +96,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [.NET](#tab/net)
 
-- Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) >= `.NET Framework 4.6.1`.
-
+- Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.1
 
 ### [Node.js](#tab/nodejs)
 
@@ -108,7 +107,6 @@ Follow the steps in this section to instrument your application with OpenTelemet
 ### [Python](#tab/python)
 
 - Python Application using version 3.6+
-
 
 ---
 
@@ -169,7 +167,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ### Enable Azure Monitor Application Insights
 
-Code samples demonstrate how to enable OpenTelemetry.
+This section provides code samples that demonstrate how to enable OpenTelemetry.
 
 #### Add OpenTelemetry instrumentation code
 
@@ -212,7 +210,7 @@ public class Program
 ```
 
 > [!NOTE]
-> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. [Learn more](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Metrics API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ##### [Node.js](#tab/nodejs)
 
@@ -310,9 +308,9 @@ Run your application and open your **Application Insights Resource** tab in the 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of the Application Insights Overview tab with server requests and server response time highlighted.":::
 
 > [!IMPORTANT]
-> If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set cloud role names](#set-cloud-role-name-and-cloud-role-instance) to represent them properly on the Application Map.
+> If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](#set-cloud-role-name-and-cloud-role-instance) to represent them properly on the Application Map.
 
-As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable non-essential data collection. [Learn more](./statsbeat.md).
+As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
 ## Set the Cloud Role Name and the Cloud Role Instance
 
@@ -470,18 +468,18 @@ To span attributes, use either of the following two ways:
 * Use options provided by [instrumentation libraries](#instrumentation-libraries).
 * Add a custom span processor.
 
-These attributes might include adding a custom property to your telemetry. You might also use attributes to set optional fields in the Application Insights Schema, such as Client IP.
+These attributes might include adding a custom property to your telemetry. You might also use attributes to set optional fields in the Application Insights schema, like Client IP.
 
 > [!TIP]
-> The advantage of using "options provided by instrumentation libraries" (when available) is that the entire context is available, which means users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library includes giving users access to the httpRequestMessage itself, to select anything from it and store it as an attribute.
+> The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
 
 #### Add a custom property
 
-Any [attributes](#add-span-attributes) you add to activity/span are exported as custom properties. They populate the _customDimensions_ field in the requests or the dependencies tables in Application Insights.
+Any [attributes](#add-span-attributes) you add to activity or span are exported as custom properties. They populate the _customDimensions_ field in the requests or the dependencies tables in Application Insights.
 
 ##### [.NET](#tab/net)
 
-1. Many instrumentation libraries provide an enrich option. For guidance, see the readme file of individual instrumentation libraries:
+1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
     - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
@@ -591,7 +589,7 @@ class SpanEnrichingProcessor(SpanProcessor):
 
 #### Set the user IP
 
-You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on activity/span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on the activity or span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
 ##### [.NET](#tab/net)
 
@@ -630,9 +628,9 @@ span._attributes["http.client_ip"] = "<IP Address>"
 ---
 <!--
 
-#### Set user ID or authenticated user ID
+#### Set the user ID or authenticated user ID
 
-You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by setting the `xyz` or `xyz` attribute on activity/span. User ID is an anonymous user identifier, and Authenticated User ID is a known user identifier.
+You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by setting the `xyz` or `xyz` attribute on activity or span. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
 
 > [!IMPORTANT]
 > Consult applicable privacy laws before you set the Authenticated User ID.
@@ -679,7 +677,7 @@ You might use the following ways to filter out telemetry before you leave your a
 
 #### [.NET](#tab/net)
 
-1. Many instrumentation libraries provide a filter option. For guidance, see the readme file of individual instrumentation libraries:
+1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
     - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
@@ -720,8 +718,8 @@ You might use the following ways to filter out telemetry before you leave your a
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
 
     <!---
-    ### Get Trace ID or Span ID
-    You might use X or Y to get trace ID or span ID. Adding trace ID or span ID to existing logging telemetry enables better correlation when debugging and diagnosing issues.
+    ### Get the trace ID or span ID
+    You might use X or Y to get the trace ID or span ID. Adding a trace ID or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
     
     > [!NOTE]
     > If you manually create spans for log-based metrics and alerting, you'll need to update them to use the metrics API (after it's released) to ensure accuracy.
@@ -779,7 +777,7 @@ Use the add [custom property example](#add-custom-property), but replace the fol
 
 1. Exclude the URL option provided by many HTTP instrumentation libraries.
 
-    The following example shows how to exclude a certain URL from being tracked by using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation.
+    The following example shows how to exclude a certain URL from being tracked by using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation:
     
     ```python
     ...
@@ -834,8 +832,8 @@ Use the add [custom property example](#add-custom-property), but replace the fol
     
     <!-- For more information, see [GitHub Repo](link). -->
     <!---
-    ### Get Trace ID or Span ID
-    You might use X or Y to get trace ID and/or span ID. Adding trace ID and/or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
+    ### Get the trace ID or span ID
+    You might use X or Y to get the trace ID or span ID. Adding a trace ID or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
     
     > [!NOTE]
     > If you manually create spans for log-based metrics and alerting, you need to update them to use the metrics API (after it's released) to ensure accuracy.
@@ -854,7 +852,7 @@ Use the add [custom property example](#add-custom-property), but replace the fol
 You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
 
 > [!NOTE]
-> The OTLP Exporter is shown for convenience only. We don't officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector) for OpenTelemetry issues outside the Azure Support Boundary.
+> The OTLP Exporter is shown for convenience only. We don't officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector) for OpenTelemetry issues outside the Azure support boundary.
 
 #### [.NET](#tab/net)
 
@@ -883,7 +881,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
         npm install @azure/monitor-opentelemetry-exporter
     ```
 
-1. Add the following code snippet. This example assumes you have a OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
+1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
 
     ```typescript
     const { BasicTracerProvider, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
@@ -932,17 +930,17 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
 
 ## Troubleshooting
 
-This section helps you with troubleshooting.
+This section provides help with troubleshooting.
 
 ### Enable diagnostic logging
 
 #### [.NET](#tab/net)
 
-The Azure Monitor Exporter uses EventSource for its own internal logging. The exporter logs are available to any EventListener by opting into the source named "OpenTelemetry-AzureMonitor-Exporter." For troubleshooting steps, see [OpenTelemetry Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting).
+The Azure Monitor Exporter uses EventSource for its own internal logging. The exporter logs are available to any EventListener by opting into the source named OpenTelemetry-AzureMonitor-Exporter. For troubleshooting steps, see [OpenTelemetry Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting).
 
 #### [Node.js](#tab/nodejs)
 
-Azure Monitor Exporter uses the OpenTelemetry API Logger for internal logs. It can be enabled by using the following code:
+Azure Monitor Exporter uses the OpenTelemetry API Logger for internal logs. To enable it, use the following code:
 
 ```typescript
 const { diag, DiagConsoleLogger, DiagLogLevel } = require("@opentelemetry/api");
@@ -955,7 +953,7 @@ provider.register();
 
 #### [Python](#tab/python)
 
-The Azure Monitor Exporter uses the Python standard logging [library](https://docs.python.org/3/library/logging.html) for its own internal logging. OpenTelemetry API and Azure Monitor Exporter logs are usually logged at the severity level of WARNING or ERROR for irregular activity. The severity level of INFO is used for regular or successful activity. The default Python logging library defaults the severity level to WARNING, so you must change the severity level to see logs under this severity. The following example shows how to output logs of *all* severity levels to the console *and* a file:
+The Azure Monitor Exporter uses the Python standard logging [library](https://docs.python.org/3/library/logging.html) for its own internal logging. OpenTelemetry API and Azure Monitor Exporter logs are usually logged at the severity level of WARNING or ERROR for irregular activity. The INFO severity level is used for regular or successful activity. By default, the Python logging library sets the severity level to WARNING, so you must change the severity level to see logs under this severity setting. The following example shows how to output logs of *all* severity levels to the console *and* a file:
 
 ```python
 ...
@@ -1031,7 +1029,7 @@ To provide feedback:
 ### [Python](#tab/python)
 
 - To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md).
-- To install the PyPI package, check for updates, or view release notes, see the [Azure Monitor Exporter  PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) page.
+- To install the PyPi package, check for updates, or view release notes, see the [Azure Monitor Exporter  PyPi Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
