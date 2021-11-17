@@ -94,13 +94,6 @@ Local context is turned on. Its information is saved in working directory C:\sun
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
 ```
 
-## Run Single Query
-You can execute a single query with the command using ```--querytext``` argument, ```-q```.
-
-```azurecli
-az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> -q "<query-text>"
-```
-
 **Example:** 
 ```azurecli
 az postgres flexible-server execute -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -q "select * from table1;" --output table
