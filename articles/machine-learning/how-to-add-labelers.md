@@ -24,10 +24,11 @@ You'll need certain permission levels to follow the steps in this article. If yo
 
 * To add a guest user, your organization's external collaboration settings must be configured to allow you to invite guests.
 * To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner).
-* To add users to your workspace, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your workspace, such as [Owner](../../articles/role-based-access-control/built-in-roles.md#owner).
-
+* To add users to your workspace, you must be an owner of the workspace.
 
 ## Add custom role
+
+To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com)
 1. Open the menu on the top right and select **View all properties in Azure Portal**.  You'll use Azure portal for all the rest of the steps in this article.
@@ -89,6 +90,8 @@ You may want to create a second role for a labeling team lead.  A labeling team 
 
 If your labelers are outside of your organization, you'll now add them so that they can access your workspace.  If labelers are already inside your organization, skip this step.  
 
+To add a guest user, your organization's external collaboration settings must be configured to allow you to invite guests.
+
 1. In [Azure portal](https::/portal.azure.com), in the top-left corner, expand the menu and select **Azure Active Directory**.
 
     :::image type="content" source="media/how-to-add-labeler/menu-active-directory.png" alt-text="Select Azure Active Directory from the menu.":::
@@ -109,6 +112,8 @@ Repeat for each of your labelers.  Or use the link at the bottom of the **Invite
 ## Add users to your workspace
 
 Now that you have your labelers added to the system, you're ready to add them to your workspace.  
+
+To add users to your workspace, you must be an owner of the workspace.
 
 1. In [Azure portal](https::/portal.azure.com), in the top search field, type **Machine Learning**.  
 1. Select **Machine Learning**.
