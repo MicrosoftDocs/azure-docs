@@ -1,39 +1,25 @@
 ---
-title: Delete a VM and attached resources
+title: Delete a VM and attached resources (preview)
 description: Learn how to delete a VM and the resources attached to the VM.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: 
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/04/2021
+ms.date: 11/16/2021
 ms.author: cynthn
 ms.custom: template-how-to 
 
 ---
 
-# Delete a VM and attached resources
+# Delete a VM and attached resources (preview)
 
-By default, when you delete a VM it only deletes the VM resource, not the networking and disk resources. You can change this default behavior when you create a VM, or update an existing VM, to delete specific resources along with the VM.
+By default, when you delete a VM it only deletes the VM resource, not the networking and disk resources. You can change this default behavior when you create a VM, or update an existing VM, to delete specific resources along with the VM. 
+
+
 
 
 ## Set delete options when creating a VM
-
-### [Portal](#tab/portal2)
-
-
-1. Open the [portal](https://portal.azure.com).
-1. Select **+ Create a resource**.
-1. On the **Create a resource** page, under **Virtual machines**, select **Create**.
-1. Make your choices on the **Basics**, then select **Next : Disks >**. The **Disks** tab will open.
-1. Under **Disk options**, select **Delete with VM** to delete the OS disk when you delete the VM.
-1. Under **Data disks**, you can choose which data disks, if any, to delete when you delete the VM.
-1. When you are done adding your disk information, select **Next : Networking >**. The **Networking** tab will open.
-1. Towards the bottom of the page, select **Delete public IP and NIC when VM is deleted**.
-1. When you are done making selections, select **Review + create**. The **Review + create** page will open.
-1. You can verify which resources you have chosen to delete when you delete the VM.
-1. When you are satisfied with your selections, and validation passes, select **Create** to deploy the VM. 
-
 
 ### [CLI](#tab/cli2)
 
@@ -159,90 +145,134 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 ---
 
 
-## Update the default delete behavior on an existing VM
+## Update the delete behavior on an existing VM
 
-To specify what happens to the attached resources when you delete a VM, use the `deleteOption` parameters. Each can be set to either `delete`, which permanently deletes the resource when you delete the VM, or `detach` which only detaches the resource and leaves it in Azure so it can be reused later. Resources that you `detach`, like disks, will continue to incur charges as applicable.
+You can use the Azure REST API to patch a VM to change the behavior when you delete a VM. The following example updates the VM to delete the NIC, OS  disk, and data disk when the VM is deleted.
 
-The `DeleteOption` parameters are:
-- `StorageProfile.dataDisks` - OS disk.
-- `StorageProfile.dataDisks` - data disk.
-- `-NetworkInterfaceDeleteOption` - NIC.
-
-In this example, we create a VM and set the data disk and NIC to be deleted when we delete the VM.
 
 ```rest
-PUT 
-https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/myVM?api-version=xx  
+PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/virtualMachines/testvm?api-version=2021-07-01 
+
+
 { 
-"storageProfile": { 
-    "dataDisks": [ 
-        { "diskSizeGB": 1023, 
-          "name": "myVMdatadisk", 
-          "createOption": "Empty", 
-          "lun": 0, 
-          "deleteOption": “Delete” 
-       }    ] 
-},  
-"networkProfile": { 
-      "networkInterfaces": [ 
-        { "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC", 
-          "properties": { 
-            "primary": true, 
-  	    "deleteOption": “Delete” 
-          }        } 
-      ]  
+    "properties": {        
+        "hardwareProfile": { 
+            "vmSize": "Standard_D2s_v3" 
+        }, 
+        "storageProfile": { 
+            "imageReference": { 
+                "publisher": "MicrosoftWindowsServer", 
+                "offer": "WindowsServer", 
+                "sku": "2019-Datacenter", 
+                "version": "latest", 
+                "exactVersion": "17763.3124.2111130129" 
+            }, 
+            "osDisk": { 
+                "osType": "Windows", 
+                "name": "OsDisk_1", 
+                "createOption": "FromImage", 
+                "caching": "ReadWrite", 
+                "managedDisk": { 
+                    "storageAccountType": "Premium_LRS", 
+                    "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/disks/OsDisk_1" 
+                }, 
+                "deleteOption": "Delete", 
+                "diskSizeGB": 127 
+            }, 
+            "dataDisks": [ 
+                { 
+                    "lun": 0, 
+                    "name": "DataDisk_0", 
+                    "createOption": "Attach", 
+                    "caching": "None", 
+                    "writeAcceleratorEnabled": false, 
+                    "managedDisk": { 
+                        "storageAccountType": "Premium_LRS", 
+                        "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/disks/DataDisk_0" 
+                    }, 
+                    "deleteOption": "Delete", 
+                    "diskSizeGB": 1024, 
+                    "toBeDetached": false 
+                }, 
+                { 
+                    "lun": 1, 
+                    "name": "DataDisk_1", 
+                    "createOption": "Attach", 
+                    "caching": "None", 
+                    "writeAcceleratorEnabled": false, 
+                    "managedDisk": { 
+                        "storageAccountType": "Premium_LRS", 
+                        "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/disks/DataDisk_1" 
+                    }, 
+                    "deleteOption": "Delete", 
+                    "diskSizeGB": 1024, 
+                    "toBeDetached": false 
+                } 
+            ] 
+        }, 
+        "osProfile": { 
+            "computerName": "testvm", 
+            "adminUsername": "azureuser", 
+            "windowsConfiguration": { 
+                "provisionVMAgent": true, 
+                "enableAutomaticUpdates": true, 
+                "patchSettings": { 
+                    "patchMode": "AutomaticByOS", 
+                    "assessmentMode": "ImageDefault", 
+                    "enableHotpatching": false 
+                } 
+            }, 
+            "secrets": [], 
+            "allowExtensionOperations": true, 
+            "requireGuestProvisionSignal": true 
+        }, 
+        "networkProfile": { 
+            "networkInterfaces": [ 
+                { 
+                    "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Network/networkInterfaces/nic336" 
+                , 
+                   "properties": { 
+                   "deleteOption": "Delete" 
+} 
+} 
+            ] 
+        } 
+} 
 } 
 ```
 
-You can also set the public IP address to be deleted when the NIC is deleted.
+## FAQ
 
-```rest
-PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic?api-version=xx 
-{ 
+### Q: Does this feature work with shared disks?
 
-  "properties": { 
+A: For shared disks, you cannot set the ‘deleteOption’ property to ‘Delete’. You can leave it blank or set it to ‘Detach’
 
-    "enableAcceleratedNetworking": true, 
 
-    "ipConfigurations": [ 
+### Q: Which Azure resources support this feature?
 
-      { 
+A: This feature is supported on all managed disk types used as OS disks and Data disks, NICs, and Public IPs
 
-        "name": "ipconfig1", 
 
-        "properties": { 
+### Q: Can I use this feature on disks and NICs that are not associated with a VM?
 
-          "publicIPAddress": { 
+A: No, this feature is only available on disks and NICs associated with a VM.
 
-            "id": "/subscriptions/../publicIPAddresses/test-ip", 
 
-          "properties": { 
-            “deleteOption”: “Delete” 
-            } 
-          }, 
+### Q:	How does this feature work with Flexible virtual machine scale sets?
 
-          "subnet": { 
+A: For Flexible virtual machine scale sets the disks, NICs, and PublicIPs have `deleteOption` set to `Delete` by default so these resources are automatically cleaned up when the VMs are deleted. 
 
-            "id": "/subscriptions/../virtualNetworks/rg1-vnet/subnets/default" 
+For data disks that were explicitly created and attached to the VMs, you can modify this property to ‘Detach’ instead of ‘Delete’ if you want the disks to persist after the VM is deleted.
 
-          } 
 
-        } 
+### Q: Do Spot VMs support this feature?
 
-      } 
+A: Yes, you can use this feature for Spot VMs just the way you would for on-demand VMs.
 
-    ] 
 
-  }, 
+### Q: How do I persist the disks, NIC, and Public IPs associated with a VM? 
 
-  "location": "eastus" 
-
-}
-```
----
-
-# FAQ
-
+A: By default, disks, NICs, and Public IPs associated with a VM are persisted when the VM is deleted. If you configure these resources to be automatically deleted, you have the option to revert so that these resources are persisted after the VM is deleted. To persist these resources, set the `deleteOption` property to `Detach` and then these resources will then be persisted when the VM is deleted.
 
 
 ## Next steps
