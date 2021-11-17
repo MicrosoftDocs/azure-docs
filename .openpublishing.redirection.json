@@ -46337,6 +46337,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/azure-sentinel-billing.md",
+      "redirect_url": "/azure/sentinel/billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/automation-in-azure-sentinel.md",
+      "redirect_url": "/azure/sentinel/automation",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-desktop/connect-android.md",
       "redirect_url": "/azure/virtual-desktop/user-documentation/connect-android",
       "redirect_document_id": true

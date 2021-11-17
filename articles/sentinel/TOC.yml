@@ -42,7 +42,7 @@
     - name: Roles and permissions
       href: roles.md
     - name: Costs and billing
-      href: azure-sentinel-billing.md
+      href: billing.md
     - name: Extend Microsoft Sentinel across workspaces and tenants
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Security baseline
@@ -92,7 +92,7 @@
   - name: SOAR
     items:
     - name: Orchestration, automation, and response
-      href: automation-in-azure-sentinel.md
+      href: automation.md
     - name: Automation rules
       href: automate-incident-handling-with-automation-rules.md
     - name: Playbooks
@@ -110,7 +110,7 @@
     - name: Sample workspace designs
       href: sample-workspace-designs.md
     - name: Plan and manage costs
-      href: azure-sentinel-billing.md
+      href: billing.md
     - name: Manage workspace access
       href: resource-context-rbac.md
   - name: Migrate to Microsoft Sentinel

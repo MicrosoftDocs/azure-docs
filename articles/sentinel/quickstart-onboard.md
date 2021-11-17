@@ -24,7 +24,7 @@ Microsoft Sentinel comes with a number of connectors for Microsoft solutions, av
 After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
 >[!IMPORTANT]
-> For information about the charges incurred when using Microsoft Sentinel, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Microsoft Sentinel costs and billing](azure-sentinel-billing.md).
+> For information about the charges incurred when using Microsoft Sentinel, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Microsoft Sentinel costs and billing](billing.md).
 
 ## Global prerequisites
 
