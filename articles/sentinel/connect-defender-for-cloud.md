@@ -4,8 +4,6 @@ description: Learn how to connect security alerts from Microsoft Defender for Cl
 author: yelevin
 manager: rkarlin
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin

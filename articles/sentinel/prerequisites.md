@@ -4,8 +4,6 @@ description: Learn about pre-deployment activities and prerequisites for deployi
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
