@@ -107,11 +107,11 @@ Now that we have configured the certificate and granted the network service acco
  3. At the top of ldp.exe, select **Connection** and **Connect**.
  4. Enter the following information and click **OK**.
     - Server:  APP3
-    - Port: 636
+    - Port: 51301
     - Place a check in the SSL box
-   [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
+   [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)](media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
  5.  You should see a response similar to the screenshot below.
-   ![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
+   [![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
  6.  At the top, under **Connection** select **Bind**.
  7. Leave the defaults and click **OK**.
    [![Ldp bind](media/active-directory-app-provisioning-ldap/ldp-4.png)](media/active-directory-app-provisioning-ldap/ldp-4.png#lightbox)</br>
@@ -178,7 +178,7 @@ Now that we have configured the certificate and granted the network service acco
      |Property|Value|
      |-----|-----|
      |Host|APP3|
-     |Port|636|
+     |Port|51301|
      |Connection Timeout|180|
      |Binding|SSL|
      |User Name|CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab|
@@ -314,7 +314,7 @@ After waiting, check AD LDS to ensure users are being provisioned.
  3. At the top of ldp.exe, select **Connection** and **Connect**.
  4. Enter the following information and click **OK**.
    - Server:  APP3
-   - Port: 636
+   - Port: 51301
    - Place a check in the SSL box
    [![Ldp connection for checking users](media/active-directory-app-provisioning-ldap/ldp-2.png)](media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
  5. At the top, under **Connection** select **Bind**.
@@ -419,23 +419,23 @@ PowerShell script to populate AD LDS with containers and a service account.
 #
 #
 # Create service accounts container
-New-ADObject -Name "ServiceAccounts" -Type "container" -Path "CN=App,DC=contoso,DC=lab" -Server "APP3:389"
+New-ADObject -Name "ServiceAccounts" -Type "container" -Path "CN=App,DC=contoso,DC=lab" -Server "APP3:51300"
 Write-Output "Creating ServiceAccounts container"
 
 # Create cloud users container
-New-ADObject -Name "CloudUsers" -Type "container" -Path "CN=App,DC=contoso,DC=lab" -Server "APP3:389"
+New-ADObject -Name "CloudUsers" -Type "container" -Path "CN=App,DC=contoso,DC=lab" -Server "APP3:51300"
 Write-Output "Creating CloudUsers container"
 
 # Create a new service account
-New-ADUser -name "svcAccountLDAP" -accountpassword  (ConvertTo-SecureString -AsPlainText 'Pa$$1Word' -Force) -Displayname "LDAP Service Account" -server 'APP3:389' -path "CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
+New-ADUser -name "svcAccountLDAP" -accountpassword  (ConvertTo-SecureString -AsPlainText 'Pa$$1Word' -Force) -Displayname "LDAP Service Account" -server 'APP3:51300' -path "CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
 Write-Output "Creating service account"
 
 # Enable the new service account
-Enable-ADAccount -Identity "CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab" -Server "APP3:389"
+Enable-ADAccount -Identity "CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab" -Server "APP3:51300"
 Write-Output "Enabling service account"
 
 # Add the service account to the Administrators role
-Get-ADGroup -Server "APP3:389" -SearchBase "CN=Administrators,CN=Roles,CN=App,DC=contoso,DC=lab" -Filter "name -like 'Administrators'" | Add-ADGroupMember -Members "CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
+Get-ADGroup -Server "APP3:51300" -SearchBase "CN=Administrators,CN=Roles,CN=App,DC=contoso,DC=lab" -Filter "name -like 'Administrators'" | Add-ADGroupMember -Members "CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
 Write-Output "Adding service accounnt to Administrators role"
 
 
