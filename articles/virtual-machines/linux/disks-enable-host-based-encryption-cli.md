@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 11/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell

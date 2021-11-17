@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 11/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -25,7 +25,7 @@ Temporary disks and ephemeral OS disks are encrypted at rest with platform-manag
 
 ### Supported VM sizes
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
+Legacy VM Sizes are not supported. You can find the list of supported VM sizes by either using the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) or [Azure CLI](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes).
 
 ## Prerequisites
 
