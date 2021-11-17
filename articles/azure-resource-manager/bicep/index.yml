@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 08/18/2021
+  ms.date: 11/17/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -50,29 +50,37 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use functions
-            url: ./bicep-functions.md
-          - text: Use operators
-            url: ./operators.md
-          - text: Use data types
-            url: ./data-types.md
+          - text: Bicep file structure & syntax
+            url: ./file.md
           - text: Define parameters
             url: ./parameters.md
           - text: Define variables
             url: ./variables.md
           - text: Define resources
             url: ./resource-declaration.md
+          - text: Define modules
+            url: ./modules.md
           - text: Define outputs
             url: outputs.md
       - linkListType: reference
         links:
-          - text: Bicep file structure
-            url: ./file.md
+          - text: Functions
+            url: ./bicep-functions.md
+          - text: Operators
+            url: ./operators.md
+          - text: Data types
+            url: ./data-types.md
           - text: Azure Quickstart templates
             url: https://azure.microsoft.com/resources/templates/
   # Card
   - title: Deploy Bicep files
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Bicep with pipelines
+            url: add-template-to-azure-pipelines.md
+          - text: Bicep with GitHub Actions
+            url: deploy-github-actions.md
       - linkListType: how-to-guide
         links:
           - text: PowerShell
@@ -109,3 +117,14 @@ landingContent:
           url: /powershell/module/az.resources
         - text: Azure CLI
           url: /cli/azure/resource
+  # Card
+  - title: Guidance & patterns
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Best practices
+          url: best-practices.md
+        - text: Configuration set pattern
+          url: patterns-configuration-set.md
+        - text: Shared variable file pattern
+          url: patterns-shared-variable-file.md
