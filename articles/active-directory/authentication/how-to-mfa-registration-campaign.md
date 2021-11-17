@@ -1,12 +1,12 @@
 ---
-title: Nudge users to set up Microsoft Authenticator app (Preview) - Azure Active Directory
+title: Nudge users to set up Microsoft Authenticator app - Azure Active Directory
 description: Learn how to move your organization away from less secure authentication methods to the Microsoft Authenticator app
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 11/12/2021
 
 ms.author: justinha
 author: mjsantani
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to nudge users to set up Microsoft Authenticator (Preview) - Microsoft Authenticator app
+# How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator app
 
 You can nudge users to set up Microsoft Authenticator during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up Microsoft Authenticator. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to Microsoft Authenticator.  
 
@@ -67,9 +67,18 @@ In addition to choosing who can be nudged, you can define how many days a user c
  
    ![Snooze installation](./media/how-to-nudge-authenticator-app/snooze.png)
 
-## Enable the nudge policy
+## Enable the registration campaign policy using the portal
 
-To enable the nudge, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
+To enable a registration campaign in the Azure AD portal, complete the following steps:
+
+1. In the Azure AD portal, click **Security** > **Authentication methods** > **Registration campaign**.
+1. For **State**, click **Enabled**, select any users or groups to exclude from the registration campaign, and then click **Save**.
+   
+   ![Screenshot of enabling a registration campaign.](./media/how-to-nudge-authenticator-app/registration-campaign.png)
+
+## Enable the registration campaign policy using Graph Explorer
+
+To enable the the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 
