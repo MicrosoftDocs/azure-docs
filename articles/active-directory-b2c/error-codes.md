@@ -18,8 +18,8 @@ ms.subservice: B2C
 
 The following errors can be returned by the Azure Active Directory B2C service.
 
-| Error code | Message |
-| ---------- | ------- |
+| Error code | Message | Notes |
+| ---------- | ------- | -------- |
 | `AADB2C90002` | The CORS resource '{0}' returned a 404 not found. |
 | `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client id '{1}'. |
 | `AADB2C90007` | The application associated with client id '{0}' has no registered redirect URIs. |
