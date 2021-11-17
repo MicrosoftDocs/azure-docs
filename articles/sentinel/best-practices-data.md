@@ -4,8 +4,6 @@ description: Learn about best practices to employ when connecting data sources t
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
@@ -19,7 +17,7 @@ This section reviews best practices for collecting data using Microsoft Sentinel
 
 ## Prioritize your data connectors
 
-If it's unclear to you which data connectors will best serve your environment, start by enabling all [free data connectors](azure-sentinel-billing.md#free-data-sources).
+If it's unclear to you which data connectors will best serve your environment, start by enabling all [free data connectors](billing.md#free-data-sources).
 
 The free data connectors will start showing value from Microsoft Sentinel as soon as possible, while you continue to plan other data connectors and budgets.
 
@@ -42,7 +40,7 @@ Filter your logs using one of the following methods:
 - **Logstash**. Supports filtering message content, including making changes to the log messages. For more information, see [Connect with Logstash](create-custom-connector.md#connect-with-logstash).
 
 > [!IMPORTANT]
-> Using Logstash to filter your message content will cause your logs to be ingested as custom logs, causing any [free-tier logs](azure-sentinel-billing.md#free-data-sources) to become paid-tier logs.
+> Using Logstash to filter your message content will cause your logs to be ingested as custom logs, causing any [free-tier logs](billing.md#free-data-sources) to become paid-tier logs.
 >
 > Custom logs also need to be worked into [analytics rules](automate-incident-handling-with-automation-rules.md), [threat hunting](hunting.md), and [workbooks](get-visibility.md), as they aren't automatically added. Custom logs are also not currently supported for [Machine Learning](bring-your-own-ml.md) capabilities.
 >
