@@ -20,7 +20,6 @@ If you're using GitHub Actions for your CI/CD workflows, see the corresponding [
 You'll learn how to:
 
 > [!div class="checklist"]
-
 > * Set up your repository with files required for load testing.
 > * Set up Azure Pipelines to integrate with Azure Load testing.
 > * Run the load test and view results in the pipeline logs.
