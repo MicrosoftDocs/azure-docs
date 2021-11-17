@@ -37,7 +37,7 @@ To create the keys, a preferred command is `ssh-keygen`, which is available with
 SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions.
 
 > [!NOTE]
-> You can also create keys with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az_sshkey_create) command, as described in [Generate and store SSH keys](../ssh-keys-portal).
+> You can also create keys with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az_sshkey_create) command, as described in [Generate and store SSH keys](../ssh-keys-portal-azure-cli.md).
 
 ### Basic example
 
