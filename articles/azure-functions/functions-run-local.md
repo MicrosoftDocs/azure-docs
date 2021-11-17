@@ -218,7 +218,7 @@ The following considerations apply to project initialization:
 
 + When you don't provide a project name, the current folder is initialized. 
 
-+ If you plan to publish your project to a custom Linux container, use the `--dockerfile` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
++ If you plan to publish your project to a custom Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
 
 Certain languages may have additional considerations:
 
