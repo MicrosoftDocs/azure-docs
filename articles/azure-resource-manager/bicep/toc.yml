@@ -106,10 +106,10 @@
       items:
       - name: Configuration set
         href: patterns-configuration-set.md
+      - name: Name generation
+        href: patterns-name-generation.md
       - name: Shared variable file
         href: patterns-shared-variable-file.md
-      - name: Unique name generation
-        href: patterns-unique-name-generation.md
   - name: Deploy
     items:
     - name: Predeployment checks

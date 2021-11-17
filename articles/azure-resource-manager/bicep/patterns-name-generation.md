@@ -1,14 +1,14 @@
 ---
-title: Unique name generation pattern
-description: Describes the unique name generation pattern.
+title: Name generation pattern
+description: Describes the name generation pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.date: 11/16/2021
 ---
-# Unique name generation pattern
+# Name generation pattern
 
-Within your Bicep files, create resource names that are unique, deterministic, meaningful, and different for each environment that you deploy to.
+Within your Bicep files, use string interpolation and Bicep functions to create resource names that are unique, deterministic, meaningful, and different for each environment that you deploy to.
 
 ## Context and problem
 
