@@ -57,10 +57,10 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 az logout
 az login
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret=<password>
-tenant_id=<tenant>
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret=<password>
+export tenant_id=<tenant>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
         --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
@@ -68,7 +68,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
         --subscription $subscriptionID                                                                           \
         --spn_id $appID                                                                                          \
         --spn_secret  $spn_secret                                                                                \ 
-        --tenant_id $tenant
+        --tenant_id $tenant_id
 ```
 
 # [Windows](#tab/windows)
