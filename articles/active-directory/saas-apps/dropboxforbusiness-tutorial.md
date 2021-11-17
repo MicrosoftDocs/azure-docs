@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/17/2021
+ms.date: 11/17/2021
 ms.author: jeedes
 ---
 # Tutorial: Integrate Dropbox Business with Azure Active Directory
@@ -34,7 +34,7 @@ To get started, you need the following items:
 
 * In this tutorial, you configure and test Azure AD SSO in a test environment. Dropbox Business supports **SP** initiated SSO.
 
-* Dropbox Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-tutorial.md).
+* Dropbox Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
