@@ -208,6 +208,16 @@ Some common use cases for global headers include:
 - Custom caching rules
 - Enforcing security policies
 - Encoding settings
+- Configuring cross-origin resource sharing ([CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS))
+
+```json
+{
+  "globalHeaders": {
+    "Access-Control-Allow-Origin": "https://example.com",
+    "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
+  }
+}
+```
 
 ## Response overrides
 
