@@ -1,10 +1,10 @@
 ---
 title: Configure Azure RBAC for FHIR service - Azure Healthcare APIs
 description: This article describes how to configure Azure RBAC for FHIR.
-author: ginalee-dotcom
+author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 09/10/2021
+ms.date: 11/17/2021
 ms.author: zxue
 ---
 
