@@ -19,7 +19,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 - [GitHub](https://github.com) account
 - [Azure](https://portal.azure.com) account
-- [Azure CLI](/cli/azure/install-azure-cli) installed (version 2.8.0 or higher)
+- [Azure CLI](/cli/azure/install-azure-cli) installed (version 2.29.0 or higher)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
@@ -73,7 +73,8 @@ Now that the repository is created, you can create a static web app from the Azu
         --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
         --location "eastus2" \
         --branch main \
-        --app-location "dist/angular-basic" \
+        --app-location "/" \
+        --output-location "dist/angular-basic" \
         --login-with-github
     ```
 
@@ -86,7 +87,8 @@ Now that the repository is created, you can create a static web app from the Azu
         --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
         --location "eastus2" \
         --branch main \
-        --app-location "build" \
+        --app-location "/"  \
+        --output-location "build"  \
         --login-with-github
     ```
 
@@ -99,7 +101,8 @@ Now that the repository is created, you can create a static web app from the Azu
         --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
         --location "eastus2" \
         --branch main \
-        --app-location "dist" \
+        --app-location "/" \
+        --output-location "dist"  \
         --login-with-github
     ```
 
@@ -129,9 +132,9 @@ Before you can navigate to your new static site, the deployment build must first
 1. Return to your console window and run the following command to list the URLs associated with your app.
 
     ```bash
-    az staticwebapp list \
-      --resource-group my-swa-group \
-      --query "[].repositoryUrl"
+    az staticwebapp show \
+      --name  my-first-static-web-app \
+      --query "repositoryUrl"
     ```
 
     The output of this command returns the URL to your GitHub repository.
@@ -147,9 +150,9 @@ Before you can navigate to your new static site, the deployment build must first
 1. Run the following command to query for your website's URL.
 
     ```bash
-    az staticwebapp list \
-      --resource-group my-swa-group \
-      --query "[].defaultHostname"
+    az staticwebapp show \
+      --name my-first-static-web-app \
+      --query "defaultHostname"
     ```
 
     Copy the URL into the browser and navigate to your website.
