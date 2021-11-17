@@ -1,3 +1,4 @@
+
 ---
 title: Getting started with Azure Cosmos DB Partial Document Update
 description: This article provides example for how to use Partial Document Update with .NET, Java, Node SDKs
@@ -22,10 +23,10 @@ This article provides examples for how to use Partial Document Update with .NET,
 
 ## .NET
 
-You can download the *3.22.1-preview* version of Azure Cosmos DB .NET SDK v3 from the [NuGet Gallery](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.22.1-preview)
+Support for Partial document update (Patch API) in the [Azure Cosmos DB .NET v3 SDK](sql/sql-api-sdk-dotnet-standard.md) is available from version *3.23.0* onwards. You can download it from the [NuGet Gallery](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.23.0)
 
 > [!NOTE]
-> A complete partial document update sample can be found in the [.NET v3 samples repository](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/3fa885fdd84e2f8852d2a1d5c75c56b642b5bba3/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs) on GitHub.
+> A complete partial document update sample can be found in the [.NET v3 samples repository](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs) on GitHub.
 
 **Executing a single patch operation**
 
@@ -94,18 +95,18 @@ transactionalBatchInternalFalse.ExecuteAsync());
 
 ## Java
 
-Patch API is currently in preview in the 4.20.0 version of the Java SDK. When GA'ed, it will be available in the 4.21.0 version. To use patch operations, add the *4.20.0* version of the [Azure Cosmos DB Java v4 SDK](sql-api-sdk-java-v4.md) to the list of dependencies in your `pom.xml` or download it directly from [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos).
+Support for Partial document update (Patch API) in the [Azure Cosmos DB Java v4 SDK](sql/sql-api-sdk-java-v4.md) is available from version *4.21.0* onwards. You can either add it to the list of dependencies in your `pom.xml` or download it directly from [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos).
 
 ```xml
 <dependency>
 	<groupId>com.azure</groupId>
 	<artifactId>azure-cosmos</artifactId>
-	<version>4.20.0</version>
+	<version>4.21.0</version>
 </dependency>
 ```
 
 > [!NOTE]
-> The full sample can be found in the [Java SDK v4 samples repository](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/) on GitHub
+> The full sample can be found in the [Java SDK v4 samples repository](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/patch/sync) on GitHub
 
 **Executing a single patch operation**
 
