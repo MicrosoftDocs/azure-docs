@@ -25,7 +25,7 @@ zone_pivot_groups: b2c-policy-type
 The sign-in policy lets users:
 
 * Users can sign in with an Azure AD B2C Local Account
-* Sign-up or sign-in with a social account
+* Users can sign-in with a social account
 * Password reset
 * Users cannot sign up for an Azure AD B2C Local Account. To create an account, an administrator can use [Azure portal](manage-users-portal.md#create-a-consumer-user), or [MS Graph API](microsoft-graph-operations.md).
 
