@@ -106,6 +106,9 @@ Advisor identifies resources where reducing the table cache policy will free up 
 ## Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container
 Based on your usage in the past 7 days, you can save by using manual throughput instead of autoscale. Manual throughput is more cost-effective when average utilization of your max throughput (RU/s) is greater than 66% or less than or equal to 10%. Cost savings amount represents potential savings from using the recommended manual throughput, based on usage in the past 7 days. Your actual savings may vary depending on the manual throughput you set and whether your average utilization of throughput continues to be similar to the time period analyzed. The estimated savings does not account for any discount that may apply to your account.
 
+## Enable autoscale on your Azure Cosmos DB database or container
+Based on your usage in the past 7 days, you can save by enabling autoscale. For each hour, we compared the RU/s provisioned to the actual utilization of the RU/s (what autoscale would have scaled to) and calculated the cost savings across the time period. Autoscale helps optimize your cost by scaling down RU/s when not in use.
+
 ## Next steps
 
 To learn more about Advisor recommendations, see:
