@@ -473,8 +473,9 @@ sections:
               Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
 
           - Reset the password using the VM access extensions. Make sure to follow the password requirements as described [here](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+          - Using VMAccess extension doesn't require re-imaging because it doesn't update the password in the model. It simply runs a script to append the password to the password or ssh key file. Doing so also doesn't remove the original ssh key.
 
-              Use the following PowerShell example:
+              Use the following PowerShell example for Windows VMSS:
 
               ```powershell
               $vmssName = "myvmss"
@@ -486,6 +487,20 @@ sections:
               $publisher = "Microsoft.Compute"
               $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
               $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+              Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+              ```
+              Use the following PowerShell example for Linux VMSS:
+
+              ```powershell
+              $vmssName = "myvmss"
+              $vmssResourceGroup = "myvmssrg"
+              $publicConfig = @{"UserName" = "newuser"}
+              $privateConfig = @{"Password" = "********"}
+
+              $extName = "VMAccessForAgent"
+              $publisher = "Microsoft.OSTCExtensions"
+              $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+              $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "1.4" -AutoUpgradeMinorVersion $true
               Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
               ```
 
