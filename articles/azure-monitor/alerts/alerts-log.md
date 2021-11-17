@@ -11,15 +11,16 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ## Overview
 
-This article shows you how to create and manage log alerts. Azure Monitor log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resource logs at a set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
+This article shows you how to create and manage log alerts. Azure Monitor log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resource logs at a set frequency and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
 
  Alert rules are defined by three components:
 - Target: A specific Azure resource to monitor.
 - Criteria: Logic to evaluate. If met, the alert fires.  
 - Action: Notifications or automation - email, SMS, webhook, and so on.
 You can also [create log alert rules using Azure Resource Manager templates](../alerts/alerts-log-create-templates.md).
+
 > [!NOTE]
-> [This page](alerts-unified-log.md) explains all of the settings used when configuring a rule.
+> [This page](alerts-unified-log.md) explains all of the parts of a log alert and the settings used when configuring a rule.
 ## Create a log alert rule in the Azure portal
 > [!NOTE]
 > This article describes creating alert rules using the new alert rule wizard. Please note these changes in the new alert rule experience:
@@ -92,7 +93,6 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 
 > [!NOTE]
 > We recommend that you create alerts at scale when using resource access mode for log running on multiple resources using a resource group or subscription scope. Alerting at scale reduces rule management overhead. To be able to target the resources, include the resource ID column in the results. [Learn more about splitting alerts by dimensions](./alerts-unified-log.md#split-by-alert-dimensions).
-
 ## Manage alert rules in the Alerts portal
 
 > [!NOTE]
@@ -101,11 +101,8 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 1. In the [portal](https://portal.azure.com/), select the relevant resource.
 1. Under **Monitoring**, select **Alerts**.
 1. From the top command bar, select **Alert rules**.
-    > [!NOTE]
-    > Log alert rules are currently [stateless and do not resolve](./alerts-unified-log.md#state-and-resolving-alerts).
 1. Select the alert rule that you want to edit.
 1. Edit any fields necessary, then select **Save** on the top command bar.
-
 ## Manage log alerts using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
