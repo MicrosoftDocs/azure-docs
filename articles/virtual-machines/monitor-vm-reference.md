@@ -3,7 +3,7 @@ title: Monitoring Azure virtual machines data reference
 description: Important reference material needed when you monitor Azure virtual machines 
 ms.service: virtual-machines
 ms.custom: subject-monitoring
-ms.date: 11/15/2021
+ms.date: 11/17/2021
 ms.topic: reference
 ---
 
@@ -13,23 +13,13 @@ See [Monitoring Azure virtual machines](monitor-vm.md) for details on collecting
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for Azure virtual machines.  
+This section lists all the automatically collected platform metrics collected for Azure virtual machines and virtual machine scale sets.  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
 | Virtual Machines| [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
 | Virtual Machine ScaleSets | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
 | Virtual Machine ScaleSets Virtual Machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
-
-
-| Namespace | Description | Requirement |
-|:---|:---|:---|
-| Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
-| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | For Windows, [diagnostic extension installed](../azure-monitor/agents/diagnostics-extension-overview.md) installed with Azure Monitor sink enabled. For Linux, [Telegraf agent installed](../azure-monitor/essentials/collect-custom-metrics-linux-telegraf.md). |
-| Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features such as metric alerts.  | [Diagnostic extension](../azure-monitor/agents/diagnostics-extension-overview.md) installed. Data is read from Azure storage.  |
-
-
-
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -38,7 +28,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
 
-Azure virtual machines have the following dimensions associated with its metrics.
+Azure virtual machines and virtual machine scale sets have the following dimensions associated with its metrics.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
@@ -47,7 +37,7 @@ Azure virtual machines have the following dimensions associated with its metrics
 
 ## Azure Monitor Logs tables
 
-This section refers to all of the Azure Monitor Logs tables relevant to virtual machines and available for query by Log Analytics. 
+This section refers to all of the Azure Monitor Logs tables relevant to virtual machines and virtual machine scale sets and available for query by Log Analytics. 
 
 |Resource Type | Notes |
 |-------|-----|
@@ -58,7 +48,7 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 
 ## Activity log
 
-The following table lists a few example operations related to virtual machines that may be created in the Activity log.
+The following table lists a few example operations related to virtual machines that may be created in the Activity log. For a complete list of possible log entires, see [Microsoft.Compute Resource Provider options](/azure/role-based-access-control/resource-provider-operations#compute).
 
 | Operation | Description |
 |:---|:---|
@@ -72,8 +62,6 @@ The following table lists a few example operations related to virtual machines t
 | Microsoft.Compute/virtualMachineScaleSets/write | Starts the instances of the Virtual Machine Scale Set |
 | Microsoft.Compute/virtualMachines/deallocate/action | Powers off the virtual machine and releases the compute resources |
 | Microsoft.Compute/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
-
-For a complete list of possible log entires, see [Microsoft.ContainerService Resource Provider options](/azure/role-based-access-control/resource-provider-operations#microsoftcontainerservice).
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 

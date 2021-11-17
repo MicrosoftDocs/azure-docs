@@ -1691,9 +1691,6 @@
         href: ./windows/tutorial-config-management.md
 - name: Monitoring
   items:
-  - name: Overview
-    displayName: Monitoring Overview, monitoring
-    href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Monitor virtual machines
     href: monitor-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Monitor virtual machine reference
