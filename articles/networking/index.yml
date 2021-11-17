@@ -113,7 +113,6 @@ additionalContent:
             - text: See more
               url: ../virtual-network/nat-gateway/index.yml
    
-   
     - title: Application delivery services  # < 60 chars (optional)
       items:
         # Card
