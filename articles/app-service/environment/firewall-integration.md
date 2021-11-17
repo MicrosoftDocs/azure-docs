@@ -15,9 +15,9 @@ ms.custom: seodec18, references_regions
 > [!NOTE]
 > This article is about the App Service Environment v2, which is used with Isolated App Service plans.
 
-The App Service Environment (ASE) has a number of external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network. Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their virtual network.
+The App Service Environment (ASE) has many external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network. Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their virtual network.
 
-There are a number of inbound endpoints that are used to manage an ASE. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in the [App Service Environment management addresses](./management-addresses.md) document. There is also a Service Tag named AppServiceManagement which can be used with Network Security Groups (NSGs) to secure inbound traffic.
+There are many inbound endpoints that are used to manage an ASE. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in the [App Service Environment management addresses](./management-addresses.md) document. There is also a Service Tag named AppServiceManagement, which can be used with Network Security Groups (NSGs) to secure inbound traffic.
 
 The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs.
 
@@ -87,7 +87,7 @@ The above steps will allow your ASE to operate without problems. You still need 
 
 If your applications have dependencies, they need to be added to your Azure Firewall. Create Application rules to allow HTTP/HTTPS traffic and Network rules for everything else.
 
-If you know the address range that your application request traffic will come from, you can add that to the route table that is assigned to your ASE subnet. If the address range is large or unspecified, then you can use a network appliance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, read [Integrating your ILB ASE with an Application Gateway](./integrate-with-application-gateway.md)
+When you know the address range that your application request traffic will come from, you can add that to the route table that is assigned to your ASE subnet. If the address range is large or unspecified, then you can use a network appliance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, read [Integrating your ILB ASE with an Application Gateway](./integrate-with-application-gateway.md)
 
 This use of the Application Gateway is just one example of how to configure your system. If you did follow this path, then you would need to add a route to the ASE subnet route table so the reply traffic sent to the Application Gateway would go there directly.
 
@@ -101,16 +101,17 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
-## Configure 3rd party firewall with your ASE
+<a name="dependencies"></a>
+## Configure third-party firewall with your ASE
 
 The following information is only required if you wish to configure a firewall appliance other than Azure Firewall. For Azure Firewall see [the section above](#configuring-azure-firewall-with-your-ase).
 
-Consider the following when deploying a 3rd party firewall with your ASE:
+Consider the following dependencies when deploying a third-party firewall with your ASE:
 
 - Service Endpoint capable services should be configured with service endpoints.
 - IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic)
 - FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
-- Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers.
+- Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on many qualifiers.
 - Linux dependencies are only a concern if you are deploying Linux apps into your ASE. If you are not deploying Linux apps into your ASE, then these addresses do not need to be added to your firewall.
 
 ### Service Endpoint capable dependencies
@@ -282,11 +283,11 @@ With an Azure Firewall, you automatically get everything below configured with t
 
 For ASEs in US Gov regions, follow the instructions in the [Configuring Azure Firewall with your ASE](#configuring-azure-firewall-with-your-ase) section of this document to configure an Azure Firewall with your ASE.
 
-If you want to use a 3rd party firewall in US Gov you need to consider the following:
+When you want to use a third-party firewall in US Gov you need to consider the following dependencies:
 
 - Service Endpoint capable services should be configured with service endpoints.
 - FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
-- Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers.
+- Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on many qualifiers.
 
 Linux is not available in US Gov regions and is thus not listed as an optional configuration.
 
