@@ -41,7 +41,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md#create-the-workspace) if you don't already have an Azure Machine Learning workspace.
 
-* Download the [**odFridgeObjects.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file.
+* Download the [**odFridgeObjects.zip**](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) data file.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). To get the required packages,
 * Run `pip install azureml`
@@ -61,7 +61,7 @@ The following code creates a GPU compute of size Standard _NC24s_v3 with four no
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
 
-cluster_name = "gpu-cluster-nc24s_v3"
+cluster_name = "gpu-nc24sv3"
 
 try:
     compute_target = ws.compute_targets[cluster_name]
