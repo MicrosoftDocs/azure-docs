@@ -66,6 +66,12 @@ Once you delegate a subnet for use with Azure Lab Services, the subnet is locked
 
 So, if you need to make changes to the subnet, first delete the lab, then delete the subnet. Create a new subnet with the desired properties.
 
+## Known issues
+
+- Deleting your virtual network or subnet will cause the lab to stop working
+- Changing the DNS label on the public IP will cause the **Connect** button for VMs to stop working
+- Azure Firewall isn’t currently supported
+
 ## Next steps
 
 See the following articles:
