@@ -4,7 +4,7 @@ description: Deploy your first Node.js Hello World to Azure App Service in minut
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 09/14/2021
-ms.custom: mvc, devcenter, seodec18
+ms.custom: mvc, devcenter, seodec18, mode-portal
 #zone_pivot_groups: app-service-platform-windows-linux
 #zone_pivot_groups: app-service-ide-oss
 zone_pivot_groups: app-service-vscode-cli-portal
@@ -240,7 +240,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="./media/quickstart-nodejs/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size":::
 
-1. Under **App Service Plan**, choose to **Create new** App Service Plan. Type *myAppServicePlan* for the name.
+1. Under **App Service Plan**, choose to **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, click **Change size**, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
     :::image type="content" source="./media/quickstart-nodejs/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password":::
 

@@ -1,8 +1,8 @@
 ---
 title: Connect to and manage Hive Metastore databases
 description: This guide describes how to connect to Hive Metastore databases in Azure Purview, and use Purview's features to scan and manage your Hive Metastore database source.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
@@ -18,7 +18,9 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes |
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes** |
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 > [!Important]
 > The supported platforms are Apache Hadoop, Cloudera, Hortonworks and Databricks.

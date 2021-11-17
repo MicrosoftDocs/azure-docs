@@ -52,7 +52,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Install <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
-1. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.18.0 or higher, with which you run commands in any shell to provision and configure Azure resources.
+1. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.30.0 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
 Open a terminal window and check your Python version is 3.6 or higher:
 
@@ -76,13 +76,13 @@ py -3 --version
 
 ---
 
-Check that your Azure CLI version is 2.18.0 or higher:
+Check that your Azure CLI version is 2.30.0 or higher:
 
 ```azurecli
 az --version
 ```
 
-If you need to upgrade, try the `az upgrade` command (requires version 2.11+) or see <a href="/cli/azure/install-azure-cli" target="_blank">Install the Azure CLI</a>.
+If you need to upgrade, try the `az upgrade` command (requires version 2.30.0+) or see <a href="/cli/azure/install-azure-cli" target="_blank">Install the Azure CLI</a>.
 
 Then sign in to Azure through the CLI:
 
@@ -325,6 +325,7 @@ The resource group, app name, db name are drawn from the cached values. You need
 - The command creates settings named "AZURE_POSTGRESQL_HOST", "AZURE_POSTGRESQL_NAME", "AZURE_POSTGRESQL_USER", "AZURE_POSTGRESQL_PASS" as expected by the app code.
 - If you forgot your admin credentials, the command would guide you to reset it.
 
+
 ::: zone-end
 
 ::: zone pivot="postgres-flexible-server"
@@ -338,6 +339,9 @@ The resource group, app name, db name are drawn from the cached values. You need
 - If you forgot your admin credentials, the command would guide you to reset it.
 
 ::: zone-end
+
+> [!NOTE]
+> If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again. 
 
 In your Python code, you access these settings as environment variables with statements like `os.environ.get('AZURE_POSTGRESQL_HOST')`. For more information, see [Access environment variables](../app-service/configure-language-python.md#access-environment-variables).
 

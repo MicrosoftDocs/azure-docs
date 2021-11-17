@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 10/23/2021
 ms.custom: devx-track-azurecli
 ---
 

@@ -76,15 +76,9 @@ items:
       href: concept-asset-normalization.md
   - name: Data insights
     href: concept-insights.md
-  - name: Upgraded Azure Purview accounts
-    href: concept-account-upgrade.md
-  - name: Access policies
-    href: concept-data-policies.md
-  - name: Self-Service access
-    href: concept-self-service.md
 - name: How-to guides
   items:
-  - name: Create and manage collections
+  - name: Manage collections
     href: how-to-create-and-manage-collections.md
   - name: Manage sources
     items: 
@@ -145,13 +139,19 @@ items:
       href: register-scan-hive-metastore-source.md
     - name: Looker
       href: register-scan-looker-source.md
+    - name: MySQL
+      href: register-scan-mysql.md
     - name: On-premises SQL Server
       href: register-scan-on-premises-sql-server.md
     - name: Oracle
       href: register-scan-oracle-source.md
+    - name: PostgreSQL
+      href: register-scan-postgresql.md
     - name: Power BI tenant - Portal
       href: register-scan-power-bi-tenant.md
-    - name: SAP ECC 
+    - name: Salesforce
+      href: register-scan-salesforce.md
+    - name: SAP ECC
       href: register-scan-sapecc-source.md
     - name: SAP S/4HANA 
       href: register-scan-saps4hana-source.md
@@ -269,6 +269,8 @@ items:
     href: disaster-recovery.md
   - name: Monitor with Azure Monitor
     href: how-to-monitor-with-azure-monitor.md
+  - name: Integrate with Azure security products
+    href: how-to-integrate-with-azure-security-products.md
   - name: Data owner access policies
     items:
     - name: Data access policy Azure Storage

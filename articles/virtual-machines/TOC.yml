@@ -601,6 +601,9 @@
     - name: How-to
       displayName: dedicated adh 
       href: dedicated-hosts-how-to.md
+    - name: VM Packing
+      displayName: dedicated, packing, dedicated host
+      href: dedicated-host-packing.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview
@@ -1488,8 +1491,9 @@
   - name: Overview
     displayName: Security Overview
     href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
-  - name: Azure Security center
+  - name: Microsoft Defender for Cloud
     href: ../security-center/security-center-introduction.md
+    maintainContext: true
   - name: Security baselines
     items:
     - name: Linux

@@ -162,8 +162,14 @@
       href: howto-password-ban-bad-on-premises-faq.yml
     - name: Agent version history
       href: howto-password-ban-bad-on-premises-agent-versions.md
-  - name: Nudge Microsoft Authenticator setup (Preview)
-    href: how-to-nudge-authenticator-app.md
+  - name: Run a registration campaign
+    href: how-to-mfa-registration-campaign.md
+  - name: Use number matching (Preview)
+    href: how-to-mfa-number-match.md
+  - name: Use additional context (Preview)
+    href: how-to-mfa-additional-context.md
+  - name: Use Microsoft managed settings 
+    href: how-to-mfa-microsoft-managed.md
   - name: Use a Temporary Access Pass (Preview)
     href: howto-authentication-temporary-access-pass.md
   - name: Use SMS-based authentication

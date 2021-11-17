@@ -29,6 +29,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [A Peakon tenant](https://peakon.com/us/pricing/).
 * A user account in Peakon  with Admin permissions.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Assigning users to Peakon
 
 Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.

@@ -84,15 +84,36 @@ You can view Azure Virtual Network Manager settings under **Network Manager** fo
 
 Yes, you can choose to override or delete an existing peering already created.
 
+### How can I explicitly allow SQLMI traffic before having deny rules?
+
+Azure SQL Managed Instance has some network requirements. If your security admin rules can block the network requirements, you can use the below sample rules to allow SQLMI traffic with higher priority than the deny rules that can block the traffic of SQL Managed Instance.
+
+#### Inbound rules
+
+| Port | Protocol | Source | Destination | Action |
+| ---- | -------- | ------ | ----------- | ------ |
+| 9000, 9003, 1438, 1440, 1452 | TCP | SqlManagement | **VirtualNetwork** | Allow |
+| 9000, 9003 | TCP | CorpnetSaw | **VirtualNetwork** | Allow |
+| 9000, 9003 | TCP | CorpnetPublic | **VirtualNetwork** | Allow |
+| Any | Any | **VirtualNetwork** | **VirtualNetwork** | Allow |
+| Any | Any | **AzureLoadBalancer** | **VirtualNetwork** | Allow |
+
+#### Outbound rules
+
+| Port | Protocol | Source | Destination | Action |
+| ---- | -------- | ------ | ----------- | ------ |
+| 443, 12000 | TCP	| **VirtualNetwork** | AzureCloud | Allow |
+| Any | Any | **VirtualNetwork** | **VirtualNetwork** | Allow |
+
 ## Limits
 
 ### What are the service limitation of Azure Virtual Network Manager?
 
-* A hub in a hub-and-spoke topology can be peered up to 500 spokes. 
+* A hub in a hub-and-spoke topology can be peered up to 250 spokes. 
+
+* A mesh topology can have up to 250 virtual networks.
 
 * The subnets in a virtual network can't talk to each other if they have the same address space in a mesh configuration. 
-
-* Azure Virtual Network Manager allows only 500 virtual network peering connections across all connectivity configuration for a given virtual network. You can also manage legacy peering on their own. 
 
 * The maximum number of IP prefixes in all admin rules combined is 1000. 
 
@@ -100,7 +121,7 @@ Yes, you can choose to override or delete an existing peering already created.
 
 * Azure Virtual Network Manager doesn't have cross-tenant support in the public preview.
 
-* A virtual network can be part of up to five mesh configurations. 
+* A virtual network can be part of up to two mesh configurations. 
 
 ## Next steps
 

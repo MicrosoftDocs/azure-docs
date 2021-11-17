@@ -4,6 +4,7 @@ description: Learn about the lake database concept and how it helps structure da
 author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
+ms.subservice: database-editor
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
@@ -23,7 +24,7 @@ The new database designer gives you the possibility to create a data model for y
 
 ## Data storage 
 
-Lake databases use a data lake on the Azure Storage account to store the data of the database. The data can be stored in the Parquet of CSV format and different settings can be used to optimize the storage. Every lake database uses a linked service to define the location of the root data folder. For every entity, separate folders are created by default within this database folder on the data lake. By default all tables within a lake database use the same format but the formats and location of the data can be changed per entity if that is requested. 
+Lake databases use a data lake on the Azure Storage account to store the data of the database. The data can be stored in Parquet or CSV format and different settings can be used to optimize the storage. Every lake database uses a linked service to define the location of the root data folder. For every entity, separate folders are created by default within this database folder on the data lake. By default all tables within a lake database use the same format but the formats and location of the data can be changed per entity if that is requested. 
 
 
 ## Database compute

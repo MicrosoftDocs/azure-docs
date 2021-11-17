@@ -108,7 +108,7 @@ After your application is successfully processing reads and writes, you have com
 
 ## Global transaction identifier (GTID)
 
-Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL Flexible serever. GTID is supported on versions 5.7 and 8.0. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
+Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL Flexible server. GTID is supported on versions 5.7 and 8.0. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
 
 The following server parameters are available for configuring GTID:
 

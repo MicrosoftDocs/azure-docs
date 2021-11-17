@@ -18,8 +18,6 @@ keywords: computer vision, computer vision applications, computer vision service
 
 # What is Computer Vision?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
-
 Azure's Computer Vision service gives you access to advanced algorithms that process images and return information based on the visual features you're interested in. 
 
 | Service|Description|

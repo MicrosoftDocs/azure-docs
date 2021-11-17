@@ -13,6 +13,68 @@ ms.custom: ignite-fall-2021
 
 # Speech Service release notes
 
+## Speech SDK 1.19.0: 2021-Nov release  
+
+ 
+
+**Note**: Get started with the Speech SDK [here](speech-sdk.md#get-the-speech-sdk). The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).  
+  
+
+#### Highlights 
+
+- Speaker Recognition service is generally available (GA) now. Speech SDK APIs are available on C++, C#, Java and Javascript. With Speaker recognition you can accurately verify and identify speakers by their unique voice characteristics. See the [documentation](speaker-recognition-overview.md) for more details. 
+
+- We have dropped support for Ubuntu 16.04 in conjunction with Azure DevOps and Github. Ubuntu 16.04 reached end of life back in April of 2021. Please migrate Ubuntu 16.04 workflows to Ubuntu 18.04 or newer.   
+
+- OpenSSL linking in Linux binaries changed to dynamic. Linux binary size has been reduced by about 50%. 
+
+- Mac M1 ARM based silicon support added. 
+
+ 
+
+#### New features 
+
+- **C++/C#/Java**: New APIs added to enable audio processing support for speech input with Microsoft Audio Stack. Documentation [here](audio-processing-overview.md).
+
+- **C++**: New APIs for intent recognition to facilitate more advanced pattern matching. This includes List and Prebuilt Integer entities as well as support for grouping intents and entities as models (Documentation, updates, and samples are under development and will be published in the near future). 
+
+- **Mac**: Support for ARM64 (M1) based silicon for Cocoapod, Python, Java, and NuGet packages related to [GitHub issue 1244](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1244).
+
+- **iOS/Mac**: iOS and MacOS binaries are now packaged into xcframework related to [GitHub issue 919](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/919).
+
+- **iOS/Mac**: Support for Mac catalyst related to [GitHub issue 1171](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1171). 
+
+- **Linux**: New tar package added for CentOS7 [About the Speech SDK](speech-sdk.md).
+
+- **Javascript**: VoiceProfile & SpeakerRecognizer APIs made async/awaitable. 
+
+- **Javascript**: Support added for US government Azure regions. 
+
+- **Windows**: Support added for playback on Universal Windows Platform (UWP). 
+
+  
+
+#### Bug fixes 
+
+- **Android**: OpenSSL security update (updated to version 1.1.1l) for Android packages. 
+
+- **Python**: Resolved bug where selecting speaker device on Python fails. 
+
+- **Core**: Automatically reconnect when a connection attempt fails. 
+
+- **iOS**: Audio compression disabled on iOS packages due instability and bitcode build problems when using Gstreamer. Details are available via [GitHub issue 1209](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1209).
+
+ 
+
+#### Samples [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+- **Mac/iOS**: Updated samples and quickstarts to use xcframework package. 
+
+- **.NET**: Samples updated to use .NET core 3.1 version. 
+
+- **Javascript**: Added sample for voice assistants. 
+
+ 
 ## Text-to-speech 2021-October release
 **New languages and voices addes for Neural TTS**
 - **49 new languages and variants introduced** - 98 new voices in 49 new locales are added into the neural TTS languages list: Adri in `af-ZA` Afrikaans (South Africa), Willem in `af-ZA` Afrikaans (South Africa), Mekdes in `am-ET` Amharic (Ethiopia), Ameha in `am-ET` Amharic (Ethiopia), Fatima in `ar-AE` Arabic (United Arab Emirates), Hamdan in `ar-AE` Arabic (United Arab Emirates), Laila in `ar-BH` Arabic (Bahrain), Ali in `ar-BH` Arabic (Bahrain), Amina in `ar-DZ` Arabic (Algeria), Ismael in `ar-DZ` Arabic (Algeria), Rana in `ar-IQ` Arabic (Iraq), Bassel in `ar-IQ` Arabic (Iraq), Sana  in `ar-JO` Arabic (Jordan), Taim  in `ar-JO` Arabic (Jordan), Noura in `ar-KW` Arabic (Kuwait), Fahed in `ar-KW` Arabic (Kuwait), Iman in `ar-LY` Arabic (Libya), Omar in `ar-LY` Arabic (Libya), Mouna in `ar-MA` Arabic (Morocco), Jamal in `ar-MA` Arabic (Morocco), Amal in `ar-QA` Arabic (Qatar), Moaz in `ar-QA` Arabic (Qatar), Amany in `ar-SY` Arabic (Syria), Laith in `ar-SY` Arabic (Syria), Reem in `ar-TN` Arabic (Tunisia), Hedi in `ar-TN` Arabic (Tunisia), Maryam in `ar-YE` Arabic (Yemen), Saleh in `ar-YE` Arabic (Yemen), Nabanita in `bn-BD` Bangla (Bangladesh), Pradeep in `bn-BD` Bangla (Bangladesh), Asilia in `en-KE` English (Kenya), Chilemba in `en-KE` English (Kenya), Ezinne in `en-NG` English (Nigeria), Abeo in `en-NG` English (Nigeria), Imani in `en-TZ` English (Tanzania), Elimu in `en-TZ` English (Tanzania), Sofia in `es-BO` Spanish (Bolivia), Marcelo in `es-BO` Spanish (Bolivia), Catalina in `es-CL` Spanish (Chile), Lorenzo in `es-CL` Spanish (Chile), Maria in `es-CR` Spanish (Costa Rica), Juan in `es-CR` Spanish (Costa Rica), Belkys in `es-CU` Spanish (Cuba), Manuel in `es-CU` Spanish (Cuba), Ramona in `es-DO` Spanish (Dominican Republic), Emilio in `es-DO` Spanish (Dominican Republic), Andrea in `es-EC` Spanish (Ecuador), Luis in `es-EC` Spanish (Ecuador), Teresa in `es-GQ` Spanish (Equatorial Guinea), Javier in `es-GQ` Spanish (Equatorial Guinea), Marta in `es-GT` Spanish (Guatemala), Andres in `es-GT` Spanish (Guatemala), Karla in `es-HN` Spanish (Honduras), Carlos in `es-HN` Spanish (Honduras), Yolanda in `es-NI` Spanish (Nicaragua), Federico in `es-NI` Spanish (Nicaragua), Margarita in `es-PA` Spanish (Panama), Roberto in `es-PA` Spanish (Panama), Camila in `es-PE` Spanish (Peru), Alex in `es-PE` Spanish (Peru), Karina  in `es-PR` Spanish (Puerto Rico), Victor  in `es-PR` Spanish (Puerto Rico), Tania in `es-PY` Spanish (Paraguay), Mario in `es-PY` Spanish (Paraguay), Lorena in `es-SV` Spanish (El Salvador), Rodrigo in `es-SV` Spanish (El Salvador), Valentina in `es-UY` Spanish (Uruguay), Mateo in `es-UY` Spanish (Uruguay), Paola in `es-VE` Spanish (Venezuela), Sebastian in `es-VE` Spanish (Venezuela), Dilara in `fa-IR` Persian (Iran), Farid in `fa-IR` Persian (Iran), Blessica in `fil-PH` Filipino (Philippines), Angelo in `fil-PH` Filipino (Philippines), Sabela in `gl-ES` Galician (Spain), Roi in `gl-ES` Galician (Spain), Siti in `jv-ID` Javanese (Indonesia), Dimas in `jv-ID` Javanese (Indonesia), Sreymom in `km-KH` Khmer (Cambodia), Piseth in `km-KH` Khmer (Cambodia), Nilar in `my-MM` Burmese (Myanmar), Thiha in `my-MM` Burmese (Myanmar), Ubax in `so-SO` Somali (Somalia), Muuse in `so-SO` Somali (Somalia), Tuti in `su-ID` Sundanese (Indonesia), Jajang in `su-ID` Sundanese (Indonesia), Rehema in `sw-TZ` Swahili (Tanzania), Daudi in `sw-TZ` Swahili (Tanzania), Saranya in `ta-LK` Tamil (Sri Lanka), Kumar in `ta-LK` Tamil (Sri Lanka), Venba in `ta-SG` Tamil (Singapore), Anbu in `ta-SG` Tamil (Singapore), Gul in `ur-IN` Urdu (India), Salman in `ur-IN` Urdu (India), Madina in `uz-UZ` Uzbek (Uzbekistan), Sardor in `uz-UZ` Uzbek (Uzbekistan), Thando in `zu-ZA` Zulu (South Africa), Themba in `zu-ZA` Zulu (South Africa).
@@ -100,8 +162,8 @@ ms.custom: ignite-fall-2021
 
 #### New features
 
-- **C++/C#**: New stand-alone Single-Shot/At-Start and Continuous Language Identification via the `SourceLanguageRecognizer` API. If you only want to detect the language(s) spoken in audio content, this is the API to do that.
-- **C++/C#**: Speech Recognition and Translation Recognition now support both single-shot and continuous Language Identification so you can programmatically determine which language(s) are being spoken before they are transcribed or translated. See documentation [here for Speech Recognition](how-to-automatic-language-detection.md) and [here for Speech Translation](get-started-speech-translation.md).
+- **C++/C#**: New stand-alone At-Start and Continuous Language Identification via the `SourceLanguageRecognizer` API. If you only want to detect the language(s) spoken in audio content, this is the API to do that.
+- **C++/C#**: Speech Recognition and Translation Recognition now support both at-start and continuous Language Identification so you can programmatically determine which language(s) are being spoken before they are transcribed or translated. See documentation [here for Speech Recognition](how-to-automatic-language-detection.md) and [here for Speech Translation](get-started-speech-translation.md).
 - **C#**:  Added support Unity support to macOS (x64). This unlocks speech recognition and speech synthesis use cases in mixed reality and gaming!
 - **Go**: We added support for speech synthesis/text-to-speech to the Go programming language to make speech synthesis available in even more use cases. See our [quickstart](get-started-text-to-speech.md?tabs=windowsinstall&pivots=programming-language-go) or our [reference documentation](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go).
 - **C++/C#/Java/Python/Objective-C/Go**: The speech synthesizer now supports the `connection` object. This helps you manage and monitor the connection to the speech service, and is especially helpful to pre-connect to reduce latency. See documentation [here](how-to-lower-speech-synthesis-latency.md).

@@ -3,7 +3,7 @@ title: Use source control integration in Azure Automation
 description: This article tells you how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2021
+ms.date: 11/02/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -27,7 +27,6 @@ Azure Automation supports three types of source control:
 * A source control repository (GitHub or Azure Repos)
 * A system-assigned [managed identity](automation-security-overview.md#managed-identities) is required. If you have not configured a system-assigned managed identity with your Automation account, see [Enable managed identity](enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) to create it.
 * Assign the system-assigned managed identity to the [Contributor](automation-role-based-access-control.md#contributor) role in the Automation account.
-* The [`AzureRM.Profile` module](/powershell/module/azurerm.profile/) must be imported into your Automation account. Note that the equivalent Az module (`Az.Accounts`) will not work with Automation source control.
 
 > [!NOTE]
 > Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs.

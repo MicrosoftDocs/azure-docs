@@ -32,6 +32,10 @@ Once Dapr is installed on your AKS cluster, your application services now have t
 > [!WARNING]
 > If you install Dapr through the AKS extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
+## Supported Kubernetes versions
+
+The Dapr extension uses the same support window as AKS. For more, see the [Kubernetes version support policy][k8s-version-support-policy].
+
 ## Prerequisites 
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -39,16 +43,15 @@ Once Dapr is installed on your AKS cluster, your application services now have t
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster].
 
 
-### Register the `Extensions`, `AKS-ExtensionManager` and `AKS-Dapr` preview features
+### Register the `AKS-ExtensionManager` and `AKS-Dapr` preview features
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-To create an AKS cluster that can use the Dapr extension, you must enable the `Extensions`, `AKS-ExtensionManager`, and `AKS-Dapr` feature flags on your subscription.
+To create an AKS cluster that can use the Dapr extension, you must enable the `AKS-ExtensionManager` and `AKS-Dapr` feature flags on your subscription.
 
-Register the `Extensions`, `AKS-ExtensionManager`, and `AKS-Dapr` feature flags by using the [az feature register][az-feature-register] command, as shown in the following example:
+Register the `AKS-ExtensionManager` and `AKS-Dapr` feature flags by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.KubernetesConfiguration" --name "Extensions"
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager"
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-Dapr"
 ```
@@ -56,7 +59,6 @@ az feature register --namespace "Microsoft.ContainerService" --name "AKS-Dapr"
 It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.KubernetesConfiguration/Extensions')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ExtensionManager')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-Dapr')].{Name:name,State:properties.state}"
 ```
@@ -91,7 +93,7 @@ az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
 --name myDaprExtension \
---extension-type Microsoft.Dapr \
+--extension-type Microsoft.Dapr
 ```
 
 You have the option of allowing Dapr to auto-update its minor version by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `true`:
@@ -110,9 +112,9 @@ az k8s-extension create --cluster-type managedClusters \
 --resource-group myResourceGroup \
 --name myDaprExtension \
 --extension-type Microsoft.Dapr \
---auto-upgrade-minor-version true \  
+--auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
---configuration-settings "dapr_operator.replicaCount=2" \
+--configuration-settings "dapr_operator.replicaCount=2"
 ```
 
 > [!NOTE]
@@ -148,11 +150,27 @@ The same command-line argument is used for installing a specific version of Dapr
 ```azure-cli-interactive
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
---resource-group myResourceGroup 
+--resource-group myResourceGroup \
 --name myDaprExtension \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version false \
---version X.X.X \
+--version X.X.X
+```
+
+## Limiting the extension to certain nodes (`nodeSelector`)
+
+In some configurations you may only want to run Dapr on certain nodes. This can be accomplished by passing a `nodeSelector` in the extension configuration. Note that if the desired `nodeSelector` contains `.`, you must escape them from the shell and the extension. For example, the following configuration will install Dapr to only nodes with `kubernetes.io/os=linux`:
+
+```azure-cli-interactive
+az k8s-extension create --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name myDaprExtension \
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version true \
+--configuration-settings "global.ha.enabled=true" \
+--configuration-settings "dapr_operator.replicaCount=2" \
+--configuration-settings "global.nodeSelector.kubernetes\.io/os=linux"
 ```
 
 ## Show current configuration settings
@@ -167,6 +185,11 @@ az k8s-extension show --cluster-type managedClusters \
 ```
 
 ## Update configuration settings
+
+> [!IMPORTANT]
+> Some configuration options cannot be modified post-creation. Adjustments to these options require deletion and recreation of the extension. This is applicable to the following settings:
+> * `global.ha.*`
+> * `dapr_placement.*`
 
 > [!NOTE]
 > High availability (HA) can be enabled at any time. However, once enabled, disabling it requires deletion and recreation of the extension. If you aren't sure if high availability is necessary for your use case, we recommend starting with it disabled to minimize disruption.
@@ -192,9 +215,9 @@ az k8s-extension create --cluster-type managedClusters \
 --resource-group myResourceGroup \
 --name myDaprExtension \
 --extension-type Microsoft.Dapr \
---auto-upgrade-minor-version true \  
+--auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
---configuration-settings "dapr_operator.replicaCount=3" 
+--configuration-settings "dapr_operator.replicaCount=3"
 ```
 
 ## Troubleshooting extension errors
@@ -229,13 +252,15 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 
 ## Next Steps
 
-- Once you have successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application]
+- Once you have successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application].
 
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[sample-application]: ./quickstart-dapr.md
+[k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production

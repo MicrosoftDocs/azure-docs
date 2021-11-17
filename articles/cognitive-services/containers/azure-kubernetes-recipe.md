@@ -1,7 +1,7 @@
 ---
 title: Run Language Detection container in Kubernetes Service
-titleSuffix: Text Analytics -  Azure Cognitive Services
-description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser.
+titleSuffix: Azure Cognitive Services
+description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser. 
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-# Deploy the Text Analytics language detection container to Azure Kubernetes Service
+# Deploy a language detection container to Azure Kubernetes Service
 
 Learn how to deploy the language detection container. This procedure shows you how create the local Docker containers, push the containers to your own private container registry, run the container in a Kubernetes cluster, and test it in a web browser.
 
@@ -27,7 +27,7 @@ This procedure requires several tools that must be installed and run locally. Do
 * [Docker engine](https://www.docker.com/products/docker-engine) and validate that the Docker CLI works in a console window.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
-  * **Text Analytics** resource with F0 or Standard pricing tiers only.
+  * **Language** resource with F0 or Standard pricing tiers only.
   * **Cognitive Services** resource with the S0 pricing tier.
 
 ## Running the sample
@@ -305,21 +305,21 @@ This section uses the **kubectl** CLI to talk with the Azure Kubernetes Service.
 
     [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
 
-1. Change the language-frontend deployment lines of `language.yml` based on the following table to add your own container registry image names, client secret, and text analytics settings.
+1. Change the language-frontend deployment lines of `language.yml` based on the following table to add your own container registry image names, client secret, and Language service settings.
 
     Language-frontend deployment settings|Purpose|
     |--|--|
     |Line 32<br> `image` property|Image location for the frontend image in your Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |Line 44<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
 
-1. Change the language deployment lines of `language.yml` based on the following table to add your own container registry image names, client secret, and text analytics settings.
+1. Change the language deployment lines of `language.yml` based on the following table to add your own container registry image names, client secret, and Language service settings.
 
     |Language deployment settings|Purpose|
     |--|--|
     |Line 78<br> `image` property|Image location for the language image in your Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Line 95<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
-    |Line 91<br> `apiKey` property|Your text analytics resource key|
-    |Line 92<br> `billing` property|The billing endpoint for your text analytics resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+    |Line 91<br> `apiKey` property|Your Language service resource key|
+    |Line 92<br> `billing` property|The billing endpoint for your Language service resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     Because the **apiKey** and **billing endpoint** are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. The website container refers to the language detection container by its orchestrator name `language`.
 

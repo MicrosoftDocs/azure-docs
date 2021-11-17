@@ -65,6 +65,10 @@ The primary means of controlling the backup storage cost is by setting the appro
 > [!IMPORTANT]
 > Backups from a database server configured in a zone redundant high availability configuration happens from the primary database server as the overhead is minimal with snapshot backups.
 
+## View Available Full Backups
+
+The Backup and Restore blade in the Azure portal lists the automated full backups taken daily once. One can use this blade to view the completion timestamps for all available full backups within the server’s retention period and to perform restore operations using these full backups. The list of available backups includes all full automated backups within the retention period, a timestamp showing the successful completion, a timestamp indicating how long a backup will be retained, and a restore action.
+
 ## Restore
 
 In Azure Database for MySQL, performing a restore creates a new server from the original server's backups. There are two types of restore available: 
@@ -99,10 +103,11 @@ Point-in-time restore is useful in multiple scenarios. Some of the use cases tha
 -   User drops an important table or database
 -   User application accidentally overwrites good data with bad data due to an application defect.
 
-You can choose between a latest restore point and a custom restore point via [Azure portal](how-to-restore-server-portal.md).
+You can choose between latest restore point, custom restore point and fastest restore point (restore using full backup) via [Azure portal](how-to-restore-server-portal.md).
 
 -   **Latest restore point**: The latest restore point option helps you to restore the server to the timestamp when the restore operation was triggered. This option is useful to quickly restore the server to the most updated state.
 -   **Custom restore point**: This will allow you to choose any point-in-time within the retention period defined for this flexible server. This option is useful to restore the server at the precise point in time to recover from a user error.
+-   **Fastest restore point**: This option allows users to restore the server in the fastest time possible for a given day within the retention period defined for their flexible server. Fastest restore is possible by choosing the restore point-in-time at which the full backup is completed. This restore operation simply restores the full snapshot backup and doesn't warrant restore or recovery of logs which makes it fast. We recommend you select a full backup timestamp which is greater than the earliest restore point in time for a successful restore operation.
 
 The estimated time of recovery depends on several factors including the database sizes, the transaction log backup size, the compute size of the SKU, and the time of the restore as well. The transaction log recovery is the most time consuming part of the restore process. If the restore time is chosen closer to the snapshot backup schedule, the restore operations are faster since transaction log application is minimal. To estimate the accurate recovery time for your server, we highly recommend testing it in your environment as it has too many environment specific variables.
 
@@ -110,7 +115,7 @@ The estimated time of recovery depends on several factors including the database
 > If you are restoring a flexible server configured with zone redundant high availability, the restored server will be configured in the same region and zone as your primary server, and deployed as a single flexible server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
 
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
+> You can recover a deleted MySQL flexible server resource within 5 days from the time of server deletion. For a detailed guide on how to restore a deleted server, [refer documented steps](../flexible-server/how-to-restore-dropped-server.md). To protect server resources post deployment from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
 
 ## Geo-restore
 
@@ -167,7 +172,7 @@ No, backups are triggered internally as part of the managed service and have no 
 Azure Database for MySQL automatically creates server backups and stores them in user-configured, locally redundant storage or in geo-redundant storage. These backup files can't be exported. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days.
 
 - **How can I validate my backups?**
-The best way to validate availability of valid backups is performing periodic point in time restores and ensuring backups are valid and restorable. Backup operations or files are not exposed to the end users.
+The best way to validate availability of successfully completed backups is to view the full automated backups taken within the retention period in the Backup and Restore blade. If a backup fails it will not be listed in the available backups list and our backup service will try every 20 mins to take a backup until a successful backup is taken. These backup failures are due to heavy transactional production loads on the server.
 
 - **Where can I see the backup usage?**
 In the Azure portal, under Monitoring tab - Metrics section, you can find the [Backup Storage Used](./concepts-monitoring.md) metric which can help you monitor the total backup usage.

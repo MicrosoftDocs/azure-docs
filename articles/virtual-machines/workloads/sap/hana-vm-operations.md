@@ -139,7 +139,7 @@ The basic configuration of a VM node for SAP HANA scale-out looks like:
 - All other disk volumes are not shared among the different nodes and are not based on NFS. Installation configurations and steps for scale-out HANA installations with non-shared **/hana/data** and **/hana/log** is provided further later in this document. For HANA certified storage that can be used, check the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
 
-Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
+Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://archive.sap.com/kmuuid2/70c8e423-c8aa-3210-3fae-e043f5c1ca92/SAP%20HANA%20TDI%20-%20Storage%20Requirements.pdf), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
 
 The other design criteria that is displayed in the graphics of the single node configuration for a scale-out SAP HANA VM is the VNet, or better the subnet configuration. SAP highly recommends a separation of the client/application facing traffic from the communications between the HANA nodes. As shown in the graphics, this goal is achieved by having two different vNICs attached to the VM. Both vNICs are in different subnets, have two different IP addresses. You then control the flow of traffic with routing rules using NSGs or user-defined routes.
 

@@ -47,8 +47,6 @@ The following things affect how much it costs to run Azure Virtual Desktop for A
 
 We're aware of the following issues affecting the public preview version of Azure Virtual Desktop for Azure Stack HCI:
 
-- Azure Virtual Desktop deployments using [RDP Shortpath](shortpath.md) currently can't connect to session hosts running on Azure Stack HCI.
-
 - Azure Stack HCI host pools don't currently support the following Azure Virtual Desktop features:
     
     - [Azure Monitor for Azure Virtual Desktop](azure-monitor.md)
@@ -60,7 +58,7 @@ We're aware of the following issues affecting the public preview version of Azur
 
 - The Azure Virtual Desktop tab in the Azure portal can't create new virtual machines directly on Azure Stack HCI infrastructure. Instead, admins must create on-premises virtual machines separately, then register them with an Azure Virtual Desktop host pool.
 
-- When connecting to a Windows 10 or 11 Enterprise multi-session virtual desktop, users may see a message that says "activation needed," even if they have an eligible license.
+- When connecting to a Windows 10 or 11 Enterprise multi-session virtual desktop, users may see activation issues, such as a desktop watermark saying "Activate Windows," even if they have an eligible license.
 
 - Azure Virtual Desktop for Azure Stack HCI doesn't currently support host pools containing both cloud and on-premises session hosts. Each host pool in the deployment must have only one type of host pool.
 

@@ -3,13 +3,16 @@ title: Get started with Azure Video Analyzer live pipelines - Azure portal
 description: This quickstart walks you through the steps to capture and record video from an RTSP camera using live pipelines in Azure Video Analyzer service.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 10/16/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Get started with Video Analyzer live pipelines in the Azure portal
 
-[!INCLUDE [header](includes/cloud-env.md)]
+![cloud icon](media/env-icon/cloud.png)  
+Alternatively, check out [get started with Video Analyzer on the edge using portal](../edge/get-started-detect-motion-emit-events-portal.md).
+
+---
 
 This quickstart walks you through the steps to capture and record video from a Real Time Streaming Protocol (RTSP) camera using live pipelines in Azure Video Analyzer service.
 You will create a Video Analyzer account and its accompanying resources by using the Azure portal. You will deploy an RTSP camera simulator, if you don’t have access to an actual RTSP camera (that can be made accessible over the internet). You’ll then deploy the relevant Video Analyzer resources to record video to your Video Analyzer account.
@@ -45,28 +48,28 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
 > Please note that this RTSP camera simulator endpoint is exposed over the internet and hence will be accessible to anyone who knows the RTSP URL.
 
 **Deployment steps:**
-1. Deploy a standard_D2s_v3 series Azure Linux VM running 'Ubuntu Server 18.04' operating system, [see here](../../../virtual-machines/linux/quick-create-portal.md) for VM creation steps, don't have to install web server in linked article. Also allow SSH port in deployment wizard so that you could connect to VM using SSH connection.
+1. Deploy a standard_D2s_v3 series Azure Linux VM running 'Ubuntu Server 18.04' operating system, [see here](../../../virtual-machines/linux/quick-create-portal.md) for VM creation steps, don't have to install web server mentioned in the linked article. Also allow SSH port in deployment wizard so that you could connect to VM using SSH connection.
 1. Enable inbound connections for RTSP protocol. In the Azure portal, open the management pane for the Linux VM you created above.
 
     1. Click on Networking - you will see the blade open to the inbound port rules for the network security group (NSG) that was created for you to support inbound SSH connections.
     1. Click on Add inbound port rule to add a new one
     1. In the pane that opens up, change Destination port ranges to 554. Choose a Name for the rule, such as "RTSP". Keep all other values as default. See [here](../../../virtual-machines/windows/nsg-quickstart-portal.md) for more details.
-1. Install docker on the VM using instructions [here](https://docs.docker.com/engine/install/ubuntu/), only follow the steps till verifying the Docker installation by running the ‘hello-world’ image.
+1. Install Docker on the VM using instructions [here](https://docs.docker.com/engine/install/ubuntu/), only follow the steps till verifying the Docker installation by running the ‘hello-world’ image.
 1. Connect to your VM, for example using SSH. From the terminal window, create a local folder such as 'localmedia' to host media files, this VM local folder will be used to map to RTSP mediaserver container.
 1. Copy an MKV file used to simulate the camera feed as follows:
 
     ```
     cd localmedia
-    wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
+    wget https://avamedia.blob.core.windows.net/public/camera-1800s.mkv
     ```
-1. From the root directory, start the RTSP server on the VM using the pre-built container image as follow
+1. Start the RTSP server on the VM using the pre-built container image as follow
 
     ```    
-    sudo docker run -d -p 554:554 -v ${PWD}/localmedia:/live/mediaServer/media mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2
+    sudo docker run -d -p 554:554 -v ${PWD}:/live/mediaServer/media mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2
     ```
 1. Once the RTSP server is running, clients can now connect to it via an RTSP URL:
 
-    - Go the 'Overview' page of your VM in Azure portal and note down the value of 'Public IP address'
+    - Go to 'Overview' page of your VM in Azure portal and note down the value of 'Public IP address'
     
         - The RTSP URL is rtsp://{Public IP address}:554/media/camera-1800s.mkv, can be tested with a player from desktop e.g. VLC
 
@@ -98,13 +101,13 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 
     - **Create a pipeline topology** wizard will appear on the portal
     - Select **Try sample topologies**-> select **Live capture, record, and stream from RTSP camera** topology-> Select 'Proceed' on **Load sample topology** dialog box.
-    - The wizard to edit the 'RTSP source to Video sink' live pipeline topology will be displayed.
+    - The wizard to create the live pipeline topology will be displayed, showing RTSP source node connected to a Video sink node.
     - Enter the required fields to create topology: 
     
         - **Topology name** – Enter the name for the topology 
         - **Description** (optional) – Brief description about the topology 
         - **Kind** (prepopulated ‘Live’)
-        - For **Rtsp source** node: Set **Transport** property value as TCP
+        - Select the **RTSP source** node, then set **Transport** property value as TCP
         - Select **Save** with default configuration for rest of the properties
 1. Next step is to create a live pipeline using the topology created in previous step. 
 
@@ -118,7 +121,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
         - **videoNameParameter** - Unique name for the target video resource to be recorded. Note: use a unique video resource for each camera (or MKV file)
     - Select **Create** and you will see a pipeline is created in the pipeline grid on the portal.
     - Select the live pipeline created in the grid, select **Activate** option available towards the right of the pane to activate the live pipeline. This will start your live pipeline and start recording the video
-1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. Its status will indicate **Is in use** as pipeline is active and recording.
+1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. Its status will indicate **Recording** as pipeline is active and recording the live video stream.
 1. After a few seconds, select the video and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
 
     > [!div class="mx-imgBorder"]
@@ -126,9 +129,9 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 
     > [!NOTE]
     > If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency. Further, after the RTSP camera simulator reaches the end of the MKV file, it will stop. The live pipeline will attempt to reconnect and after a while, the simulator will restart the stream from the beginning of the file. If you let this live pipeline run for many hours, you will see gaps in the video recording whenever the simulator stops and restarts.
-* If necessary, refer Activity log to quickly verify your deployment operations. Refer [here](./monitor-log-cloud.md) for monitoring and event logs.
-* To deactivate the pipeline recording go to your Video Analyzer account, on the left panel select **Live**-> **Pipelines**-> select the pipeline to be deactivated then select **Deactivate** in pipeline grid, it will stop the recording. 
-* You can also continue to delete the pipeline & topology if they are not needed.
+1. If necessary, refer Activity log to quickly verify your deployment operations. Refer [here](./monitor-log-cloud.md) for monitoring and event logs.
+1. To deactivate the pipeline recording go to your Video Analyzer account, on the left panel select **Live**-> **Pipelines**-> select the pipeline to be deactivated then select **Deactivate** in pipeline grid, it will stop the recording. 
+1. You can also continue to delete the pipeline & topology if they are not needed.
 
 ## Clean up resources
 

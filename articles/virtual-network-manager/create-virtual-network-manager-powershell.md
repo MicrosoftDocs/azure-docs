@@ -26,6 +26,22 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 * Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
+## Register subscription for public preview
+
+Use the following command to register your Azure subscription for Public Preview of Azure Virtual Network Manager:
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName AllowAzureNetworkManager -ProviderNamespace Microsoft.Network
+```
+
+## Install Azure PowerShell module
+
+Install the latest *Az.Network* Azure PowerShell module using this command:
+
+```azurepowershell-interactive
+Install-Module -Name Az.Network -AllowPrerelease
+```
+
 ## Create Virtual Network Manager
 
 1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope).

@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/27/2021
+ms.date: 11/02/2021
 ms.reviewer: amjads
 ms.custom: 
 
@@ -48,7 +48,7 @@ if ($remainder -ne 0){
     }
 ```
 
-You need to make sure the files are publicly available, or you will need the SAS URI for the files in your storage account. You can use [Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs) to quickly created a SAS URI if you don't already have one.
+You need to make sure the files are publicly available, or you will need the SAS URI for the files in your storage account. You can use [Storage Explorer](../vs-azure-tools-storage-explorer-blobs.md) to quickly created a SAS URI if you don't already have one.
 
 ## Create the VM application
 
@@ -84,25 +84,27 @@ If you have more than one VM application to install, you can set the install ord
 
 ### [CLI](#tab/cli)
 
+VM applications requires [Azure CLI](/cli/azure/install-azure-cli) version 2.30.0 or later.
+
 Crate the VM application definition using [az sig gallery-application create](/cli/azure/sig/gallery-application#az_sig_gallery_application_create). In this example we are creating a VM application definition named *myApp* for Linux-based VMs.
 
 ```azurecli-interactive
 az sig gallery-application create \
-    --gallery-application-name myApp \
+    --application-name myApp \
     --gallery-name myGallery \
     --resource-group myResourceGroup \
     --os-type Linux \
     --location "East US"
 ```
 
-Create a VM application version using [az sig gallery-application-version create](/cli/azure/sig/gallery-application#az_sig_gallery_application_version_create). Allowed characters for version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+Create a VM application version using [az sig gallery-application version create](/cli/azure/sig/gallery-application/version#az_sig_gallery_application_version_create). Allowed characters for version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Replace the values of the parameters with your own.
 
 ```azurecli-interactive
-az sig gallery-application-version create \
-   --gallery-application-version 1.0.0 \
-   --gallery-application-name myApp \
+az sig gallery-application version create \
+   --version-name 1.0.0 \
+   --application-name myApp \
    --gallery-name myGallery \
    --location "East US" \
    --resource-group myResourceGroup \
@@ -110,10 +112,7 @@ az sig gallery-application-version create \
    --install-command "mv myApp .\myApp\myApp" \
    --remove-command "rm .\myApp\myApp" \
    --update-command  "mv myApp .\myApp\myApp \
-   --target-regions "westcentralus" "southcentralus=1" \
    --default-configuration-file-link "https://<storage account name>.blob.core.windows.net/<container name>/<filename>"\
-   --publishing-profile-end-of-life-date "01/01/2023" \
-   --description "Initial version of the Linux application."
 ```
 
 

@@ -4,7 +4,7 @@ description: Learn how to create an empty lake database in Azure Synapse Analyti
 author: aamerril
 ms.author: aamerril
 ms.service: synapse-analytics
-ms: 'subservice:'
+ms.subservice: database-editor
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
@@ -22,7 +22,7 @@ In this article, you'll learn how to create an empty [lake database](./concepts-
 - Storage Blob Data Contributor permissions are required on data lake.
 
 ## Create lake database from database template
-1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. The **Data** tab will open and yo will see the list of databases that already exist in your workspace.
+1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. The **Data** tab will open and you will see the list of databases that already exist in your workspace.
 2. Hover over the **+** button and select, then choose **Lake database (preview)**.
 ![Screenshot showing create empty lake database](./media/create-empty-lake-database/create-empty-lakedb.png)
 3. The database designer tab will open with an empty database.
@@ -58,7 +58,7 @@ In this article, you'll learn how to create an empty [lake database](./concepts-
     - Your database will be validated for errors before it's published. Any errors found will be showing in the notifications tab with instructions on how to remedy the error.
     
        ![Screenshot of the validation pane showing validation errors in the database](./media/create-empty-lake-database/validation-error.png)
-    - Publishing will create your database schema in the Azure Synapse Metastore. Publishing will create your database schema in the Azure Synapse Metastore. After publishing, the database and table objects will be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
+    - Publishing will create your database schema in the Azure Synapse Metastore. After publishing, the database and table objects will be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
 
 11. You've now created an empty lake database in Azure Synapse, and added tables to it using the **Custom** and **From data lake** options.
 
