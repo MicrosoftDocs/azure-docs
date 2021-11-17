@@ -68,7 +68,7 @@
       - name: ASIM content
         href: normalization-content.md
     - name: Classifying data with entities
-      href: entities-in-azure-sentinel.md
+      href: entities.md
   - name: Threat intelligence
     items:
     - name: Understand threat intelligence in Microsoft Sentinel
@@ -133,7 +133,7 @@
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Microsoft Defender for Cloud
-        href: connect-azure-security-center.md
+        href: connect-defender-for-cloud.md
       - name: Microsoft 365 Defender
         href: connect-microsoft-365-defender.md
       - name: Windows security events

@@ -345,7 +345,7 @@ Incidents are generated for alerts that are possibly associated with Ransomware 
 
 Supported data connectors include:
 
-- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
+- [Azure Defender (Azure Security Center)](connect-defender-for-cloud.md)
 - [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
 - [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
 - [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
@@ -435,7 +435,7 @@ For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-
 
 Azure Sentinel now offers an API to enrich your data with geolocation information. Geolocation data can then be used to analyze and investigate security incidents.
 
-For more information, see [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md) and [Classify and analyze data using entities in Azure Sentinel](entities-in-azure-sentinel.md).
+For more information, see [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md) and [Classify and analyze data using entities in Azure Sentinel](entities.md).
 
 
 ### Support for ADX cross-resource queries (Public preview)
@@ -465,7 +465,7 @@ See the [complete list of supported geos](quickstart-onboard.md#geographical-ava
 
 The Azure Defender connector now supports bi-directional syncing of alerts' status between Defender and Azure Sentinel. When you close a Sentinel incident containing a Defender alert, the alert will automatically be closed in the Defender portal as well.
 
-See this [complete description of the updated Azure Defender connector](connect-azure-security-center.md).
+See this [complete description of the updated Azure Defender connector](connect-defender-for-cloud.md).
 
 ## June 2021
 

@@ -70,7 +70,7 @@ See how behavior analytics is used in [Microsoft Defender for Cloud Apps](https:
 
 ## Entity Pages
 
-Learn more about [entities in Microsoft Sentinel](entities-in-azure-sentinel.md) and see the full list of [supported entities and identifiers](entities-reference.md).
+Learn more about [entities in Microsoft Sentinel](entities.md) and see the full list of [supported entities and identifiers](entities-reference.md).
 
 When you encounter a user or host entity (IP address entities are in preview) in an entity search, an alert, or an investigation, you can select the entity and be taken to an **entity page**, a datasheet full of useful information about that entity. The types of information you will find on this page include basic facts about the entity, a timeline of notable events related to this entity and insights about the entity's behavior.
  

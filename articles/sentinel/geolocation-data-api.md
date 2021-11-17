@@ -123,7 +123,7 @@ To learn more about Microsoft Sentinel, see the following articles:
 - Learn more about entities:
 
     - [Microsoft Sentinel entity types reference](entities-reference.md)
-    - [Classify and analyze data using entities in Microsoft Sentinel](entities-in-azure-sentinel.md)
+    - [Classify and analyze data using entities in Microsoft Sentinel](entities.md)
     - [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md)
 
 - Explore other uses of the [Microsoft Sentinel API](/rest/api/securityinsights/)
