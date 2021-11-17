@@ -4,10 +4,6 @@ For important details on what this service does, how it works, and frequently as
 
 ## Prerequisites for provisioning users into an LDAP directory
 
->[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability. Provisioning users into Active Directory Domain Services is not supported through this preview. 
-
-
 ### On-premises prerequisites
 
  - A target system, such as Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This AD LDS instance should not be used to provision users into Azure AD because it may create a loop with Azure AD Connect. 
