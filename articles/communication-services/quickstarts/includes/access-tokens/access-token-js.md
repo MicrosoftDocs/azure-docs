@@ -12,14 +12,14 @@ ms.custom: include file
 ms.author: tchladek
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart)
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+
+## Final Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart).
 
 ## Setting Up
 
@@ -31,7 +31,7 @@ Open your terminal or command window create a new directory for your app, and na
 mkdir access-tokens-quickstart && cd access-tokens-quickstart
 ```
 
-Run `npm init -y` to create a **package.json** file with default settings.
+Run `npm init -y` to create a `package.json` file with default settings.
 
 ```console
 npm init -y
@@ -42,16 +42,14 @@ npm init -y
 Use the `npm install` command to install the Azure Communication Services Identity SDK for JavaScript.
 
 ```console
-
 npm install @azure/communication-identity --save
-
 ```
 
-The `--save` option lists the library as a dependency in your **package.json** file.
+The `--save` option lists the library as a dependency in your `package.json` file.
 
 ## Set up the app framework
 
-From the project directory:
+Within the project directory:
 
 1. Open a new text file in your code editor
 1. Add a `require` call to load the `CommunicationIdentityClient`
@@ -74,7 +72,7 @@ main().catch((error) => {
 })
 ```
 
-1. Save the new file as **issue-access-token.js** in the *access-tokens-quickstart* directory.
+1. Save the new file as `issue-access-token.js` in the project directory.
 
 ## Authenticate the client
 
@@ -91,18 +89,21 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
-Alternatively, you can separate endpoint and access key.
+Alternatively, you can separate the endpoint and access key.
 ```javascript
 // This code demonstrates how to fetch your endpoint and access key
 // from an environment variable.
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
 const accessKey = process.env["COMMUNICATION_SERVICES_ACCESSKEY"];
+
+// Create the credential
 const tokenCredential = new AzureKeyCredential(accessKey);
+
 // Instantiate the identity client
 const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
 ```
 
-If you have an Azure Active Directory Application setup, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
+If you have an Azure Active Directory(AD) Application setup, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
 ```javascript
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
 const tokenCredential = new DefaultAzureCredential();
@@ -111,35 +112,44 @@ const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential
 
 ## Create an identity
 
-Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
+Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. The created identity is required later to issue access tokens.
 
 ```javascript
 let identityResponse = await identityClient.createUser();
 console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
 ```
+You should store received identities with a mapping to your application's users. For example, in your application server's database. 
 
 ## Issue access tokens
 
-Use the `getToken` method to issue an access token for an already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed based on string representation of Azure Communication Service identity.
+Use the `getToken` method to issue an access token for an already existing Communication Services identity. The `scopes` parameter defines a list of permissions/roles, that this token can perform/use. See the [list of supported actions](../../concepts/authentication.md). A new instance of parameter `communicationUser` can be constructed based on string representation of an Azure Communication Service identity.
 
 ```javascript
 // Issue an access token with the "voip" scope for an identity
 let tokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
+
+// retrieve the token and its expiry date from the response
 const { token, expiresOn } = tokenResponse;
+
+// Print the expiry date and token to the screen
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
 ```
 
-Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresOn` response property indicates the lifetime of the access token.
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresOn` property indicates the lifetime of the access token.
 
-## Create an identity and issue an access token within the same request
+## Create an identity and issue an access token within one method call
 
-Use the `createUserAndToken` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
+You can use the `createUserAndToken` method to create a Communication Services identity and issue an access token for it in one go. The `scopes` parameter, is the same as above. We'll once again just create one with the `voip` scope.
 
 ```javascript
 // Issue an identity and an access token with the "voip" scope for the new identity
 let identityTokenResponse = await identityClient.createUserAndToken(["voip"]);
+
+// retrieve the token, its expiry date and user from the response
 const { token, expiresOn, user } = identityTokenResponse;
+
+// print these details to the screen
 console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
@@ -147,20 +157,20 @@ console.log(token);
 
 ## Refresh access tokens
 
-Refreshing access tokens is as easy as calling `getToken` with the same identity that was used to issue the tokens. You also need to provide the `scopes` of the refreshed tokens.
+As tokens expire, you'll periodically need to refresh them. Refreshing is easy just call `getToken` again with the same identity that was used to issue the tokens. You'll also need to provide the `scopes` of the refreshed tokens.
 
 ```javascript
 // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
 let refreshedTokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 ```
 
-
 ## Revoke access tokens
 
-In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revokeTokens` invalidate all active access tokens, that were issued to the identity.
+In some cases, you may want to revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. The `revokeTokens` method invalidates all active access tokens, that were issued to the identity.
 
 ```javascript
 await identityClient.revokeTokens(identityResponse);
+
 console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
@@ -170,12 +180,13 @@ Deleting an identity revokes all active access tokens and prevents you from issu
 
 ```javascript
 await identityClient.deleteUser(identityResponse);
+
 console.log(`\nDeleted the identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
 ## Run the code
 
-From a console prompt, navigate to the directory containing the *issue-access-token.js* file, then execute the following `node` command to run the app.
+From a console prompt, navigate to the directory containing the `issue-access-token.js` file, then execute the following `node` command to run the app.
 
 ```console
 node ./issue-access-token.js
