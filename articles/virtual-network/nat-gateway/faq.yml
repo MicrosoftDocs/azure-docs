@@ -6,8 +6,6 @@ metadata:
 title: Frequently asked questions for Azure Virtual Network NAT
 summary: |
   Here are some answers to common questions about using Azure Virtual Network NAT.
-  
-  This is a second paragraph to ensure this section has the proper styles applied (there should be a space between this paragraph and the one directly above).
 
 sections:
   - name: Single section - ignored
@@ -22,11 +20,11 @@ sections:
 
       - question: Can IPs of existing Virtual Network NAT be changed? 
         answer: |
-          No, an existing IP attached to the Virtual Network NAT can't be changed. A different IP can be attached to Virtual Network NAT by first removing the old IP, then adding a new IP and then attaching the new IP to the Virtual Network NAT.  
+          No, an existing IP attached to the Virtual Network NAT can't be changed. A different IP can be attached to Virtual Network NAT by creating a new public IP address.  Associate the new public IP address with the NAT gateway resource.  Disassociate the old IP address.
 
-      - question: If multiple public IP addresses are assigned to a NAT gateway resource, will there be a disruption of traffic if one of the IP addresses is removed?
+      - question: If multiple public IP addresses are assigned to a NAT gateway resource, is there a disruption of traffic if one of the IP addresses is removed?
         answer: |
-          No. If the Virtual Network NAT gateway resource has multiple public IPs, it will load balance traffic between the assigned IPs. Removing one of the IPs won't cause any downtime. It is advised that if you decide to remove one of the public IP addresses from the NAT gateway resource, use a maintenance window for the removal.
+          No. If the Virtual Network NAT gateway resource has multiple public IPs, it will load balance traffic between the assigned IPs. Removing one of the IPs won't cause any downtime. It's advised that if you decide to remove one of the public IP addresses from the NAT gateway resource, use a maintenance window for the removal.
 
       - question: I see a message saying I have no internet connection.
         answer: |
@@ -48,15 +46,15 @@ sections:
         answer: |
           Virtual Network NAT can be non-zonal or zonal only.  
 
-          A non-zonal Virtual Network NAT is one that has not been specified to a specific zone. A non-zonal Virtual Network NAT is still assigned to one zone within the virtual network but in this instance, Azure decides which zone to designate for the Virtual Network NAT. 
+          A non-zonal Virtual Network NAT is one that hasn't been associated to a specific zone. A non-zonal Virtual Network NAT is still assigned to one zone within the virtual network. In this instance, Azure decides which zone to choose for the Virtual Network NAT. 
 
-          A zonal Virtual Network NAT is one that has been designated to a specific zone by the user when the Virtual Network NAT is being configured.  
+          A zonal Virtual Network NAT is associated to a specific zone by the user when the Virtual Network NAT is created. 
 
       - question: How can I obtain logs for my Virtual Network NAT resource?  
         answer: |
           Network security groups (NSG) can be configured to outbound traffic sent from a resource in a subnet/virtual network through a virtual network NAT gateway resource. 
 
-          Network security group flow logs can then be used to monitor outbound traffic flowing through a Virtual Network NAT resource.  
+          Network security group flow logs can be used to monitor outbound traffic through a Virtual Network NAT gateway resource.  
 
           Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
       
