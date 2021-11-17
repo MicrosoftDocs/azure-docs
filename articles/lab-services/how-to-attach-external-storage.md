@@ -166,7 +166,7 @@ To create an Azure Files share that's enabled for Active Directory authenticatio
     1. Find the share that you want to connect to, select the ellipses button on the far right, and choose **Connect**.
     1. You'll see instructions for Windows, Linux, and macOS. If you're using Windows, set **Authentication method** to **Active Directory**.
     1. Copy the code in the example, and save it on the template machine in a `.ps1` file for Windows, or an `.sh` file for Linux.
-10. On the template machine, download and run the script to [join student machines to the domain](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Scripts/ActiveDirectoryJoin/README.md#usage). The `Join-AzLabADTemplate` script [publishes the template VM](how-to-create-manage-template.md#publish-the-template-vm) automatically.  
+10. On the template machine, download and run the script to [join student machines to the domain](https://aka.ms/azlabs/scripts/ActiveDirectoryJoin). The `Join-AzLabADTemplate` script [publishes the template VM](how-to-create-manage-template.md#publish-the-template-vm) automatically.  
     > [!NOTE]
     > The template machine isn't domain-joined. To view files on the share, instructors need to use a student VM for themselves.
 11. Students using Windows can connect to the Azure Files share by using [File Explorer](../storage/files/storage-how-to-use-files-windows.md) with their credentials, after they've been given the path to the file share. Alternately, students can run the preceding script to connect to the network drive. For students who are using Linux, run the preceding script.

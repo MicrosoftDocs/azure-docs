@@ -31,16 +31,16 @@ You'll need permission to create an Azure VM in your school's Azure subscription
      - Choose **Gen 1** for the **VM generation**.
      - Choose whether you're creating a **specialized** or **generalized** image for the **Operating system state**.
 
-    For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions). 
-    
+    For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions).
+
     You can also choose to use an existing image definition and create a new version for your custom image.
-    
+
 1. [Create an image version](../virtual-machines/image-version.md).
-    - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*.   
+    - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*.
     - For the **Source**, select **Disks and/or snapshots** from the dropdown list.
     - For the **OS disk** property, choose your Azure VM's disk that you created in previous steps.
 
-    You can also import your custom image from an Azure VM to a shared image gallery by using PowerShell. For more information, see the script and ReadMe in [Bring image to shared image gallery script](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/BringImageToSharedImageGallery/).
+    You can also import your custom image from an Azure VM to a shared image gallery by using PowerShell. For more information, see the script and ReadMe in [Bring image to shared image gallery script](https://aka.ms/azlabs/scripts/BringImageToSharedImageGallery).
 
 ## Create a lab
 
@@ -48,6 +48,6 @@ You'll need permission to create an Azure VM in your school's Azure subscription
 
 ## Next steps
 
-* [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
-* [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
-* [Use a shared image gallery](how-to-use-shared-image-gallery.md)
+- [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
+- [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
+- [Use a shared image gallery](how-to-use-shared-image-gallery.md)

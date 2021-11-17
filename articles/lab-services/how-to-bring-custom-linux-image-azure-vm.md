@@ -42,7 +42,7 @@ You'll need permission to create an Azure VM in your school's Azure subscription
     - For the **Source**, select **Disks and/or snapshots** from the dropdown list.
     - For the **OS disk** property, choose your Azure VM's disk that you created in previous steps.
 
-You can also automate the preceding steps by using PowerShell. For more information, see the script and ReadMe in [Bring image to a shared image gallery script](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/BringImageToSharedImageGallery/).
+You can also automate the preceding steps by using PowerShell. For more information, see the script and ReadMe in [Bring image to a shared image gallery script](https://aka.ms/azlabs/scripts/BringImageToSharedImageGallery).
 
 ## Create a lab
 
@@ -50,6 +50,6 @@ You can also automate the preceding steps by using PowerShell. For more informat
 
 ## Next steps
 
-* [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
-* [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
-* [Use a shared image gallery](how-to-use-shared-image-gallery.md)
+- [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
+- [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
+- [Use a shared image gallery](how-to-use-shared-image-gallery.md)

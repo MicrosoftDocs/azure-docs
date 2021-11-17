@@ -31,7 +31,7 @@ After the template machine is created, start the machine and connect to it to co
 2. Set up the [Kali](https://www.kali.org/) Linux image. Kali is a Linux distribution that includes tools for penetration testing and security auditing.
 3. Set up the Metasploitable image. For this example, the [Metasploitable3](https://github.com/rapid7/metasploitable3) image will be used. This image is created to purposely have security vulnerabilities.
 
-The rest of this article will cover the manual steps to completing the tasks above.  Alternatively, you can run the [Lab Services Hyper-V Scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV) and [Lab Services Ethical Hacking Scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/EthicalHacking).
+The rest of this article will cover the manual steps to completing the tasks above.  Alternatively, you can run the [Lab Services Hyper-V Scripts](https://aka.ms/azlabs/scripts/hyperV) and [Lab Services Ethical Hacking Scripts](https://aka.ms/azlabs/classtypes/EthicalHacking).
 
 ### Prepare template machine for nested virtualization
 

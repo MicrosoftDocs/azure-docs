@@ -52,7 +52,7 @@ Accomplishing the tasks listed above can be done using a script or using Windows
 
 ### Using script to enable nested virtualization
 
-To use the automated setup for nested virtualization with Windows Server 2016 or Windows Server 2019, see [Enable nested virtualization on a template virtual machine in Azure Lab Services using a script](how-to-enable-nested-virtualization-template-vm-using-script.md). You will use scripts from [Lab Services Hyper-V scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV) to install the Hyper-V role.  The scripts will also set up networking so the Hyper-V virtual machines can have internet access.
+To use the automated setup for nested virtualization with Windows Server 2016 or Windows Server 2019, see [Enable nested virtualization on a template virtual machine in Azure Lab Services using a script](how-to-enable-nested-virtualization-template-vm-using-script.md). You will use scripts from [Lab Services Hyper-V scripts](https://aka.ms/azlabs/scripts/hyperV) to install the Hyper-V role.  The scripts will also set up networking so the Hyper-V virtual machines can have internet access.
 
 ### Using Windows tools to enable nested virtualization
 

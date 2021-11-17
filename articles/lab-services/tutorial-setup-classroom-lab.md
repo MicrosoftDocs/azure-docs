@@ -2,10 +2,11 @@
 title: Set up a classroom lab using Azure Lab Services | Microsoft Docs
 description: In this tutorial, you use Azure Lab Services to set up a classroom lab with virtual machines that are used by students in your class. 
 ms.topic: tutorial
-ms.date: 12/03/2020
+ms.date: 11/12/2021
 ---
 
-# Tutorial: Set up a classroom lab 
+# Tutorial: Set up a classroom lab
+
 In this tutorial, you set up a classroom lab with virtual machines that are used by students in the classroom.  
 
 In this tutorial, you do the following actions:
@@ -17,53 +18,60 @@ In this tutorial, you do the following actions:
 > * Send invitation email to students
 
 ## Prerequisites
-In this tutorial, you set up a lab with virtual machines for your class. To set up a classroom lab in a lab account, you must be a member of one of these roles in the lab account: Owner, Lab Creator, or Contributor. The account you used to create a lab account is automatically added to the owner role. So, you can use the user account that you used to create a lab account to create a classroom lab. 
+
+In this tutorial, you set up a lab with virtual machines for your class. To set up a classroom lab in a lab plan, you must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor. The account you used to create a lab plan is automatically added to the owner role. So, you can use the user account that you used to create a lab plan to create a classroom lab. 
 
 Here is the typical workflow when using Azure Lab Services:
 
-1. A lab account creator adds other users to the **Lab Creator** role. For example, the lab account creator/admin adds educators to the **Lab Creator** role so that they can create labs for their classes. 
+1. A lab plan creator adds other users to the **Lab Creator** role. For example, the lab plan creator/admin adds educators to the **Lab Creator** role so that they can create labs for their classes.
 2. Then, the educators create labs with VMs for their classes and send registration links to students in the class. 
-3. Students use the registration link that they receive from educators to register to the lab. Once they are registered, they can use VMs in the labs to do the class work and home work. 
+3. Students use the registration link that they receive from educators to register to the lab. Once they are registered, they can use VMs in the labs to do the class work and home work.
 
 ## Create a classroom lab
+
 In this step, you create a lab for your class in Azure. 
 
 1. Navigate to [Azure Lab Services website](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. Select **New lab**. 
     
-    ![Screenshot that shows "Azure Lab Services" with the "New lab" button selected.](./media/tutorial-setup-classroom-lab/new-lab-button.png)
+    :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-button.png" alt-text="Create a classroom lab":::
 4. In the **New Lab** window, do the following actions: 
-    1. Specify a **name** for your lab, and select **Next**.  
+    1. Specify a **name**, **lab plan**, **virtual machine image**, **size**, and **region** for your lab, and select **Next**.  
 
-        ![Create a classroom lab](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-window.png" alt-text="Screenshot that shows the New lab window.":::
     2. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab. Specify the **name** and the **password** for the user, and then select **Next**.  
 
-        ![New lab window](./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
+        :::image type="content" source="./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png" alt-text="New lab window":::
 
         > [!IMPORTANT]
         > Make a note of user name and password. They won't be shown again.
-    3. On the **Lab policies** page, select **Finish**. 
+    3. On the **Lab policies** page, select **Next**.
 
-        ![Quota for each user](./media/tutorial-setup-classroom-lab/quota-for-each-user.png)
-5. You should see the following screen that shows the status of the template VM creation. This operation takes up to 20 minutes. 
+        :::image type="content" source="./media/tutorial-setup-classroom-lab/quota-for-each-user.png" alt-text="Quota for each user":::
 
-    ![Status of the template VM creation](./media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
-8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
+    4. In the **Template Virtual Machine Settings** window, select **Finish**.
 
-    1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
-    3. Install and configure software required for your class on the template VM. 
-    4. **Stop** the template VM.  
+        :::image type="content" source="./media/tutorial-setup-classroom-lab/template-virtual-machine-settings.png" alt-text="Template virtual machine settings":::
+5. You should see the following screen that shows the status of the template VM creation. This operation takes up to 15 minutes.
+
+    :::image type="content" source="./media/tutorial-setup-classroom-lab/create-template-vm-progress.png" alt-text="Status of the template VM creation":::
+6. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
+
+    1. Connect to the template VM by selecting **Start**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
+    2. Install and configure software required for your class on the template VM. 
+    3. **Stop** the template VM.  
 
     > [!NOTE]
     > Template VMs incur **cost** when running, so ensure that the template VM is shutdown when you don’t need it to be running. 
 
 ## Publish the template VM
+
 In this step, you publish the template VM. When you publish the template VM, Azure Lab Services creates VMs in the lab by using the template. All virtual machines have the same configuration as the template.
 
 1. On the **Template** page, select **Publish** on the toolbar. 
 
-    ![Publish template button](./media/tutorial-setup-classroom-lab/template-page-publish-button.png)
+    :::image type="content" source="./media/tutorial-setup-classroom-lab/template-page-publish-button.png" alt-text="Publish template button":::
 
     > [!WARNING]
     > Once you publish, you can't unpublish. 
@@ -81,6 +89,7 @@ In this step, you publish the template VM. When you publish the template VM, Azu
     > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to the user outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## Set a schedule for the lab
+
 Create a scheduled event for the lab so that VMs in the lab are automatically started/stopped at specific times. The user quota (default: 10 hours) you specified earlier is the additional time assigned to each user outside this scheduled time. 
 
 1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar. 
@@ -112,7 +121,6 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
     ![Schedule in the calendar](./media/how-to-create-schedules/schedule-calendar.png)
 
     For more information about creating and managing schedules for a class, see [Create and manage schedule for labs](how-to-create-schedules.md).
-
 
 ## Add users to the lab
 

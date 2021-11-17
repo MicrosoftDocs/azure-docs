@@ -10,14 +10,18 @@
       href: get-started-manage-labs.md
 - name: Tutorials
   items:
-  - name: Set up a lab account
-    href: tutorial-setup-lab-account.md
+  - name: Set up a lab plan
+    href: tutorial-setup-lab-plan.md
   - name: Set up a classroom lab
     href: tutorial-setup-classroom-lab.md 
   - name: Access a classroom lab
     href: tutorial-connect-virtual-machine-classroom-lab.md
   - name: Track usage of a classroom lab
-    href: tutorial-track-usage.md            
+    href: tutorial-track-usage.md
+  - name: (deprecated)
+    items:
+    - name: Set up a lab account
+      href: tutorial-setup-lab-account.md
 - name: Concepts
   items:
   - name: Labs overview
@@ -83,6 +87,11 @@
         href: class-type-solidworks.md
       - name: Sql database management and development
         href: class-type-sql-server.md
+    - name: Use Azure Lab Services within Canvas
+      items:
+        - name: Overview 
+          displayName: labs within Canvas
+          href: lab-services-within-canvas-overview.md
     - name: Use Azure Lab Services within Teams
       items:
         - name: Overview 
@@ -96,7 +105,21 @@
     href: account-setup-guide.md
   - name: Accelerated lab setup guide
     href: setup-guide.md
-  - name: Create and configure lab accounts (lab account owner)
+  - name: Create and configure lab plans
+    items:
+    - name: Create and manage lab plans
+      href: how-to-manage-lab-plans.md
+    - name: Manage labs
+      href: manage-labs-2.md
+    - name: Configure auto-shutdown of VMs for a lab plan
+      href: how-to-configure-lab-plan.md
+    - name: Connect to a virtual network
+      href: how-to-connect-vnet-injection.md
+    - name: Use shared image gallery for custom images
+      items:
+      - name: Attach or detach a shared image gallery
+        href: how-to-attach-detach-shared-image-gallery-2.md
+  - name: Create and configure lab accounts (deprecated)
     items:
     - name: Create and manage lab accounts
       href: how-to-manage-lab-accounts.md
@@ -142,7 +165,7 @@
   - name: Create and configure labs (educator)
     items:        
     - name: Create and manage labs
-      href: how-to-manage-classroom-labs.md
+      href: how-to-manage-classroom-labs-2.md
     - name: Use dashboard
       href: use-dashboard.md
     - name: Set up, customize, and publish templates
@@ -178,7 +201,11 @@
     - name: View support information (educator)
       href: lab-creator-support-information.md
     - name: Access student VMs from educator view
-      href: instructor-access-virtual-machines.md      
+      href: instructor-access-virtual-machines.md
+    - name: (deprecated)
+      items:
+      - name: Create and manage labs
+        href: how-to-manage-classroom-labs.md        
   - name: Connect to VMs in labs (student)
     items:        
     - name: Access labs
@@ -192,7 +219,21 @@
     - name: Set or reset passwords for virtual machines 
       href: how-to-set-virtual-machine-passwords-student.md 
     - name: View support information (student)
-      href: lab-user-support-information.md        
+      href: lab-user-support-information.md   
+  - name: Use labs within Canvas
+    items:
+      - name: Create a lab from Canvas
+        href: how-to-get-started-create-lab-within-canvas.md
+      - name: Manage user lists
+        href: how-to-manage-user-lists-within-canvas.md
+      - name: Manage VM pool
+        href: how-to-manage-vm-pool-within-canvas.md
+      - name: Delete labs
+        href: how-to-delete-lab-within-canvas.md
+      - name: Schedules and settings
+        href: how-to-create-schedules-within-canvas.md
+      - name: Access a VM (student view)
+        href: how-to-access-vm-for-students-within-canvas.md     
   - name: Use labs within Teams
     items:
       - name: Create a lab from Teams

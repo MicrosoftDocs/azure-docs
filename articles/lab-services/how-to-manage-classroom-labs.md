@@ -1,11 +1,12 @@
 ---
-title: Manage labs in Azure Lab Services | Microsoft Docs
-description: Learn how to create and configure a classroom lab, view all the labs, share the registration link with a lab user, or delete a lab. 
+title: Manage labs in Azure Lab Services (deprecated) | Microsoft Docs
+description: Learn how to create and configure a classroom lab, view all the labs, share the registration link with a lab user, or delete a lab. (deprecated)
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 11/12/2021
 ---
 
-# Manage labs in Azure Lab Services 
+# Manage labs in Azure Lab Services (deprecated)
+
 This article describes how to create and delete a classroom lab. It also shows you how to view all the labs in a lab account. 
 
 ## Prerequisites
@@ -14,11 +15,11 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 ## Create a classroom lab
 
 1. Navigate to [Azure Lab Services website](https://labs.azure.com).
-1. Select **Sign in** and enter your credentials. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
-1. Select **New lab**. 
+2. Select **Sign in** and enter your credentials. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
+3. Select **New lab**. 
     
     ![Create a classroom lab](./media/tutorial-setup-classroom-lab/new-lab-button.png)
-1. In the **New Lab** window, do the following actions: 
+4. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
     1. Select the **size of the virtual machines** you need for the class. For the list of sizes available, see the [VM Sizes](#vm-sizes) section. 
     1. Select the **virtual machine image** that you want to use for the classroom lab. If you select a Linux image, you see an option to **enable remote desktop connection**. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
@@ -27,11 +28,11 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     1. Review the **total price per hour** displayed on the page. 
     1. Select **Save**.
 
-        ![Screenshot that shows the "New lab" window.](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Screenshot that shows the New lab window.](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         > [!NOTE]
         > You see an option to select a location for your lab if the lab account was configured to [allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md) option. 
-4. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab.
+5. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab.
     1. Specify the **name of the user** for all VMs in the lab.
     2. Specify the **password** for the user. 
 
@@ -43,14 +44,14 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
         ![New lab window](./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
     4. Then, select **Next** on the **Virtual machine credentials** page. 
-5. On the **Lab policies** page, do the following steps:
+6. On the **Lab policies** page, do the following steps:
     1. Enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab. 
     2. For the **Auto-shutdown of virtual machines** option, specify whether you want the VM to be automatically shutdown when user disconnects. You can also specify how long the VM should wait for the user to reconnect before automatically shutting down.. For more information, see [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md).
     3. Then, select **Finish**. 
 
         ![Quota for each user](./media/tutorial-setup-classroom-lab/quota-for-each-user.png)
-    
-5. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes. 
+
+7. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes. 
 
     ![Status of the template VM creation](./media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
@@ -60,7 +61,8 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     1. Install and configure software on your template VM. 
     1. **Stop** the VM.  
     1. Enter a **description** for the template
-9.  On **Template** page, select **Publish** on the toolbar. 
+
+9. On **Template** page, select **Publish** on the toolbar. 
 
     ![Publish template button](./media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
@@ -111,10 +113,10 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
 ## Delete a classroom lab
 
-1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**. 
+1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
 
     ![Delete button](./media/how-to-manage-classroom-labs/delete-button.png)
-1. On the **Delete lab** dialog box, select **Delete** to continue with the deletion. 
+1. On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
 ## Switch to another classroom lab
 
@@ -122,17 +124,17 @@ To switch to another classroom lab from the current, select the drop-down list o
 
 ![Select the lab from drop-down list at the top](./media/how-to-manage-classroom-labs/switch-lab.png)
 
-You can also create a new lab using the **New lab** in this drop-down list. 
+You can also create a new lab using the **New lab** in this drop-down list.
 
 > [!NOTE]
-> You can also use the Az.LabServices PowerShell module (preview) to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+> You can also use the Az.LabServices PowerShell module (preview) to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://aka.ms/azlabs/samples/PowerShellModule).
 
-To switch to a different lab account, select the drop-down next to the lab account and select the other lab account. 
+To switch to a different lab account, select the drop-down next to the lab account and select the other lab account.
 
 ## Next steps
+
 See the following articles:
 
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
 - [As a lab user, access labs](how-to-use-classroom-lab.md)
-
