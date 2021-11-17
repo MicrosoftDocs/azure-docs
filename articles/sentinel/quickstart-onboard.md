@@ -1,10 +1,8 @@
 ---
 title: 'Quickstart: Onboard in Microsoft Sentinel'
 description: In this quickstart, learn how to on-board Microsoft Sentinel by first enabling it, and then connecting data sources.
-services: sentinel
 author: yelevin
 ms.author: yelevin
-ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.custom: references_regions, ignite-fall-2021
@@ -26,14 +24,19 @@ After you connect your data sources, choose from a gallery of expertly created w
 
 ## Global prerequisites
 
-- Active Azure Subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- **Active Azure Subscription**. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Log Analytics workspace. Learn how to [create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md).
+- **Log Analytics workspace**. Learn how to [create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md).
 
-- To enable Microsoft Sentinel, you need contributor permissions to the subscription in which the Microsoft Sentinel workspace resides. 
-- To use Microsoft Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
-- Additional permissions may be needed to connect specific data sources.
-- Microsoft Sentinel is a paid service. For more information, see [About Microsoft Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
+    By default, you may have a default of [30 days retention](/azure/azure-monitor/logs/manage-cost-storage#legacy-pricing-tiers) in the Log Analytics workspace used for Microsoft Sentinel. To make sure that you can use the full extent of Microsoft Sentinel functionality, raise this to 90 days. For more information, see [Change the retention period](/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period).
+
+- **Permissions**:
+
+    - To enable Microsoft Sentinel, you need contributor permissions to the subscription in which the Microsoft Sentinel workspace resides. 
+    - To use Microsoft Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
+    - Additional permissions may be needed to connect specific data sources.
+
+- **Microsoft Sentinel is a paid service**. For more information, see [About Microsoft Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058) and the [Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/)
 
 For more information, see [Pre-deployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md).
 

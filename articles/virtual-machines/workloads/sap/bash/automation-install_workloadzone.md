@@ -47,13 +47,13 @@ This example deploys the workload zone, as defined by the parameter files. The p
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret=<password>
-tenant_id=<tenant>
-keyvault=<keyvaultName>
-storageaccount=<storageaccountName>
-statefile_subscription=<statefile_subscription>
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret="<password>"
+export tenant_id=<tenant>
+export keyvault=<keyvaultName>
+export storageaccount=<storageaccountName>
+export statefile_subscription=<statefile_subscription>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --parameter_file DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars  \
@@ -61,7 +61,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --state_subscription $statefile_subscription           \
         --subscription $subscriptionID                         \
         --spn_id $appID                                        \
-        --spn_secret "$spn_secret"                             \ 
+        --spn_secret $spn_secret                               \ 
         --tenant_id $tenant
 ```
 ## Parameters
@@ -205,4 +205,4 @@ Licensed under the MIT license.
 
 ## Related links
 
-[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-automation)

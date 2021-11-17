@@ -1,14 +1,7 @@
 ---
 title: Normalization and the Advanced SIEM Information Model (ASIM) | Microsoft Docs
 description: This article explains how Microsoft Sentinel normalizes data from many different sources using the Advanced SIEM Information Model (ASIM)
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
