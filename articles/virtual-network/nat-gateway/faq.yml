@@ -26,10 +26,6 @@ sections:
         answer: |
           No. If the Virtual Network NAT gateway resource has multiple public IPs, it will load balance traffic between the assigned IPs. Removing one of the IPs won't cause any downtime. It's advised that if you decide to remove one of the public IP addresses from the NAT gateway resource, use a maintenance window for the removal.
 
-      - question: I see a message saying I have no internet connection.
-        answer: |
-          To use Dynamics 365 Remote Assist, you need an internet connection. For more information about connecting to the internet on your HoloLens, visit [this support article](https://support.microsoft.com/help/12629).
-
       - question: Can Virtual Network NAT be attached to multiple virtual networks?  
         answer: |
           No. Virtual Network NAT cannot be attached to multiple virtual networks.  
