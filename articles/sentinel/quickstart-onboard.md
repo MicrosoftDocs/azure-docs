@@ -110,6 +110,12 @@ After your data sources are connected, your data starts streaming into Microsoft
 
 For more information, see [Data collection best practices](best-practices-data.md).
 
+## Enable 90-day retention
+
+By default, you may have a default of [30 days retention](/azure/azure-monitor/logs/manage-cost-storage#legacy-pricing-tiers) in the Log Analytics workspace used for Microsoft Sentinel. To make sure that you can use the full extent of Microsoft Sentinel functionality, raise this to 90 days. 
+
+For more information, see [Change the retention period](/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period).
+
 ## Next steps
 
 For more information, see:
