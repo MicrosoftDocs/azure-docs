@@ -403,7 +403,7 @@ If you have not deployed Windows Hello for Business and if that is not an option
 > [!NOTE]
 > Windows Hello for Business PIN authentication with RDP has been supported by Windows 10 for several versions, however support for Biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is only available for deployments that use cert trust model and currently not available for key trust model.
  
-Share your feedback about this feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+Share your feedback about this feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## Next steps
 

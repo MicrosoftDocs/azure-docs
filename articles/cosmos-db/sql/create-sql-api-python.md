@@ -69,8 +69,9 @@ Now let's clone a SQL API app from GitHub, set the connection string, and run it
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
     ```cmd
-    md "git-samples"
+    md git-samples
     ```
+
    If you are using a bash prompt, you should instead use the following command:
 
    ```bash

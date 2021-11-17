@@ -30,8 +30,7 @@ Name the project `UILibraryQuickStart` and select `Storyboard` under the `Interf
 ### Install the package and dependencies with CocoaPods
 
 1. Create a Podfile in your project root directory by running `pod init`.
-1. 
-1. Add the following to your Podfile:
+2. Add the following to your Podfile:
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
@@ -41,7 +40,15 @@ platform :ios, '13.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'AzureCommunicationUI', '1.0.0-alpha.1'
+    pod 'AzureCommunicationUI', '1.0.0-alpha.2'
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
 end
 ```
 
@@ -61,6 +68,10 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 <string></string>
 ```
 
+To verify requesting the permission is added correctly, view the `Info.plist` as **Open As** > **Property List** and should expect to see the following:
+
+![Screenshot showing the Camera and Microphone privacy in Xcode.](../../media/xcode-info-plist.png)
+
 ### Turn off `Bitcode`
 Set `Enable Bitcode` option to `No` in the project `Build Settings`. To find the setting, you have to change the filter from `Basic` to `All`, you can also use the search bar on the right.
 
@@ -73,7 +84,7 @@ Go to 'ViewController'. Here we'll drop the following code to initialize our Com
 ```swift
 import UIKit
 import AzureCommunicationCalling
-import CallingComposite
+import CallComposite
 
 class ViewController: UIViewController {
 
@@ -103,8 +114,8 @@ class ViewController: UIViewController {
         let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 
         let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                                       displayName: "<DISPLAY_NAME>",
-                                       groupId: "<GROUP_CALL_ID>")
+                                       groupId: UUID(uuidString: "<GROUP_CALL_ID>")!,
+                                       displayName: "<DISPLAY_NAME>")
         callComposite?.launch(with: options)
     }
 }
@@ -168,9 +179,11 @@ Depending on what type of Call/Meeting you would like to setup, use the appropri
 Initialize a `GroupCallOptions` instance inside the `startCallComposite` function. Replace `<GROUP_CALL_ID>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
+// let uuid = UUID() to create a new call
+let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
 let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                               displayName: displayName,
-                               groupId: uuid)
+                               groupId: uuid,
+                               displayName: "<DISPLAY_NAME>")
 ```
 
 #### Teams meeting
@@ -179,8 +192,8 @@ Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` func
 
 ```swift
 let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
-                                  displayName: displayName,
-                                  meetingLink: link)
+                                  meetingLink: "<TEAMS_MEETING_LINK>",
+                                  displayName: "<DISPLAY_NAME>")
 ```
 
 #### Get a Microsoft Teams meeting link

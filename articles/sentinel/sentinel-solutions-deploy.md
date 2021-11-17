@@ -1,89 +1,91 @@
 ---
-title: Deploy Azure Sentinel solutions | Microsoft Docs
-description: This article shows how customers can easily find and deploy data analysis tools packaged together with data connectors.
+title: Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions
+description: This article shows how customers can easily find and deploy data analysis tools, packaged together with data connectors and other content.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 11/09/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
-# Discover and deploy Azure Sentinel solutions
+# Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
-> The Azure Sentinel solutions experience is currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Sentinel solutions and the Microsoft Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Sentinel solutions provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Azure Sentinel. This experience is powered by [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) for solutions’ discoverability, deployment, and enablement, and by [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
+The Microsoft Sentinel Content hub provides access to Microsoft Sentinel out-of-the-box (built-in) content and solutions, which are packed with content for end-to-end product, domain, or industry needs.
 
-Solutions can consist of any or all of the following components:
+This article describes how to install solutions in your Microsoft Sentinel workspace, making the content inside them available for your use.
 
-- **Data connectors**, some with accompanying **parsers**
-- **Workbooks**
-- **Analytics rules**
-- **Hunting queries**
-- **Playbooks**
+- Find your solutions in the Content hub based on their statuses, the content included, support, and more.
 
-## Find your solution
+- Install the solution in your workspace when you find one that fits your organization's needs. Make sure to keep it updated with the latest changes.
 
-1. From the Azure Sentinel navigation menu, select **Solutions (Preview)**.
+> [!TIP]
+> If you are a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
+>
+## Find a solution
 
-1. The **Solutions** blade displays a searchable list of solutions.
+1. From the Microsoft Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Solutions list":::
+1. The **Content hub** page displays a searchable and filterable grid of solutions.
 
-    - If you scroll to the bottom of the list but don't find what you're looking for, select the **Load more** link at the bottom to expand the list.
+    Filter the list displayed, either by selecting specific values from the filters, or entering any part of a solution name or description in the **Search** field.
 
-        :::image type="content" source="./media/sentinel-solutions-deploy/load-more.png" alt-text="Load more solutions":::
+    For more information, see [Microsoft Sentinel out-of-the-box content and solution categories](sentinel-solutions.md#microsoft-sentinel-out-of-the-box-content-and-solution-categories).
 
-1. To narrow down your choices and find the solution you want more easily, type any part of the solution's name in the **Search** field at the top of the list. (The search engine will only recognize whole words.)
+    > [!TIP]
+    > If a solution that you've deployed has updates since you deployed it, an orange triangle will indicate that you have updates to deploy, and it'll be indicated in the blue triangle at the top of the page.
+    >
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-search-1.png" alt-text="Search solutions":::
+Each solution in the grid shows the categories applied to the solution, and types of content included in the solution.
 
-1. Select your desired solution from the list to deploy it. The solution's details page will open on the **Overview** tab, which displays essential and important information about the solution.
+For example, in the following image, the **Cisco Umbrella** solution shows a category of **Security - Others**, and that this solution includes 10 analytics rules, 11 hunting queries, a parser, three playbooks, and more.
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/proofpoint-tap-solution.png" alt-text="Proofpoint Tap solution":::
+:::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub." lightbox="./media/sentinel-solutions-deploy/solutions-list.png":::
 
-1. You can view other useful information about your solution in the **Plans** and **Usage Information + Support** tabs, and you can get other customers' impressions in the **Reviews** tab.
+## Install or update a solution
 
-## Deploy your solution
+1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**, if you need updates. For example:
 
-1. Select the **Create** button to launch the solution deployment wizard, which will open on the **Basics** tab.
+1. On the solution details page, select **Create** or **Update** to start the solution wizard. On the wizard's **Basics** tab, enter the subscription, resource group, and workspace to which you want to deploy the solution. For example:
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/wizard-basics.png" alt-text="deployment wizard basics tab":::
+    :::image type="content" source="media/sentinel-solutions-deploy/wizard-basics.png" alt-text="Screenshot of a solution installation wizard, showing the Basics tab.":::
 
-1. Enter the subscription, resource group, and workspace to which you want to deploy the solution. 
-
-1. Select **Next** to cycle through the remaining tabs (corresponding to the components included in the solution), where you can learn about, and in some cases configure, each of the components.
+1. Select **Next** to cycle through the remaining tabs (corresponding to the components included in the solution), where you can learn about, and in some cases configure, each of the content components.
 
     > [!NOTE]
-    > The tabs listed below correspond with the components offered by the solution shown in the accompanying screenshots. Different solutions may have different types of components, so you may not see all the same tabs in every solution, and you may see tabs not shown below.
+    > The tabs displayed for you correspond with the content offered by the solution. Different solutions may have different types of content, so you may not see all the same tabs in every solution.
+    >
+    > You may also be prompted to enter credentials to a third party service so that Microsoft Sentinel can authenticate to your systems. For example, with playbooks, you may want to take response actions as prescribed in your system.
+    >
 
-    1. **Analytics** tab
-        :::image type="content" source="./media/sentinel-solutions-deploy/wizard-analytics.png" alt-text="deployment wizard analytics tab":::
+1. Finally, in the **Review + create** tab, wait for the `Validation Passed` message, then select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
-    1. **Workbooks** tab
-        :::image type="content" source="./media/sentinel-solutions-deploy/wizard-workbooks.png" alt-text="deployment wizard workbooks tab":::
+For more information, see [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md) and [Find your Microsoft Sentinel data connector](data-connectors-reference.md).
 
-    1. **Playbooks** tab - you'll need to enter valid Proofpoint TAP credentials here, so that the playbook can authenticate to your Proofpoint system to take any prescribed response actions.
-        :::image type="content" source="./media/sentinel-solutions-deploy/wizard-playbooks.png" alt-text="deployment wizard playbooks tab":::
+## Find the support model for your solution
 
-1. Finally, in the **Review + create** tab, wait for the "Validation Passed" message, then select **Create** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
+Each solution lists details about its support model on the solution's details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
 
-    :::image type="content" source="./media/sentinel-solutions-deploy/wizard-create.png" alt-text="deployment wizard review and create tab":::
+:::image type="content" source="media/sentinel-solutions-deploy/find-support-details.png" alt-text="Screenshot of where you can find your support model for your solution." lightbox="media/sentinel-solutions-deploy/find-support-details.png":::
+
+When contacting support, you may need other details about your solution, such as a publisher, provider, and plan ID values. You can find each of these on the solution's details page, on the **Usage information & support** tab. For example:
+
+:::image type="content" source="media/sentinel-solutions-deploy/usage-support.png" alt-text="Screenshot of usage and support details for a solution.":::
 
 ## Next steps
 
-In this document, you learned about Azure Sentinel solutions and how to find and deploy them.
+In this document, you learned about Microsoft Sentinel solutions and how to find and deploy built-in content.
 
-- Learn more about [Azure Sentinel solutions](sentinel-solutions.md).
-- See the full [Sentinel solutions catalog](sentinel-solutions-catalog.md).
+- Learn more about [Microsoft Sentinel solutions](sentinel-solutions.md).
+- See the full [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).

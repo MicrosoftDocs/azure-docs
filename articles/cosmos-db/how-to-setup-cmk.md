@@ -358,7 +358,7 @@ When using customer-managed keys, [Request Units](./request-units.md) consumed b
 | Operation type | Request Unit increase |
 |---|---|
 | Point-reads (fetching items by their ID) | + 5% per operation |
-| Any write operation | + 6% per operation<br/>approx. + 0.06 RU per indexed property |
+| Any write operation | + 6% per operation <br/> Approximately + 0.06 RU per indexed property |
 | Queries, reading change feed, or conflict feed | + 15% per operation |
 
 ### What data gets encrypted with the customer-managed keys?

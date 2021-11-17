@@ -1,9 +1,9 @@
 ---
 title: Create an image definition and image version
-description: Learn how to create an image in a Shared Image Gallery in Azure.
+description: Learn how to create an image in a Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/31/2021
@@ -16,18 +16,18 @@ ms.custom:
 
 # Create an image definition and an image version 
 
-A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
+A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery)simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 
-The Shared Image Gallery lets you share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group shared images. 
+The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images. 
 
-The Shared Image Gallery feature has multiple resource types:
+The Azure Compute Gallery feature has multiple resource types:
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](./includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## Before you begin
 
-To complete this article, you must have an existing Shared Image Gallery, and a source for your image available in Azure. Image sources can be:
+To complete this article, you must have an existing Azure Compute Gallery, and a source for your image available in Azure. Image sources can be:
 - A VM in your subscription. You can capture an image from both [specialized and generalized](shared-image-galleries.md#generalized-and-specialized-images) VMs. 
 - A Managed image,
 - Managed OS and data disks.
@@ -52,10 +52,10 @@ To create an image from a VM in the portal, see [Capture an image of a VM](captu
 
 To create an image using a source other than a VM, follow these steps.
 
-1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Shared Image Gallery**.
+1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Azure Compute Gallery**.
 1. Select the gallery you want to use from the list.
-1. On the page for your image gallery, select **Add a new image definition** from the top of the page. 
-1. on the **Add new image definition to shared image gallery** page, in the **Basics** tab, select a **Region**. 
+1. On the page for your gallery, select **Add** from the top of the page and then select **VM image definition** from the drop-down. 
+1. on the **Add new image definition to Azure Compute Gallery** page, in the **Basics** tab, select a **Region**. 
 1. For **Image definition name**, type a name like *myImageDefinition*.
 1. For **Operating system**, select the correct option based on your source.  
 1. For **VM generation**, select the option based on your source. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](generation-2.md).

@@ -97,9 +97,9 @@ The application needs a client secret to prove its identity when requesting a to
     ![Client secret](./media/authenticate-application/client-secret.png)
 
 ### Permissions for the Service Bus API
-If your application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the **required permissions** set. Native applications also need a **redirect-URI** in Azure AD, which serves as an identifier; the URI does not need to be a network destination. Use `https://servicebus.microsoft.com` for this example, because the sample code already uses that URI.
+If your application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the **required permissions** set. Native applications also need a **redirect-uri** in Azure AD, which serves as an identifier; the URI does not need to be a network destination. Use `https://servicebus.microsoft.com` for this example, because the sample code already uses that URI.
 
-### Authenticating the Service Bus client   
+### Authenticating the Service Bus client
 Once you've registered your application and granted it permissions to send/receive data in Azure Service Bus, you can authenticate your client with the client secret credential, which will enable you to make requests against Azure Service Bus.
 
 For a list of scenarios for which acquiring tokens is supported, see the [Scenarios](https://aka.ms/msal-net-scenarios) section of the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub repository.

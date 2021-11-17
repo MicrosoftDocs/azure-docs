@@ -1,29 +1,27 @@
 ---
-title: Azure Sentinel Network Session normalization schema reference (Public preview) | Microsoft Docs
-description: This article displays the Azure Sentinel Network Session normalization schema.
+title: Microsoft Sentinel Network Session normalization schema reference (Public preview) | Microsoft Docs
+description: This article displays the Microsoft Sentinel Network Session normalization schema.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/17/2021
+ms.date: 11/09/2021
 ms.author: ofshezaf
-
+ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel Network Session normalization schema reference (Public preview)
+# Microsoft Sentinel Network Session normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Network Session normalization schema is used to describe an IP network activity. This includes network connections and network sessions. Such events are reported, for example, by operating systems, routers, firewalls, intrusion prevention systems and web security gateways.
 
-For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > This article describes version 0.2 of the network normalization schema, where [version 0.1](normalization-schema-v1.md) was released before ASIM was available and does not align with ASIM in several places. For more information, see [Differences between network normalization schema versions](normalization-schema-v1.md#changes). 
@@ -100,19 +98,19 @@ To use a source-agnostic parser that unifies all built-in parsers, and ensure th
 - **imWebSession**, for HTTP sessions, typically reported by web servers, web proxies, and web security gateways
 - **inNetworkNotables**, for sessions detected by a detection engine, usually as suspicious. Notable events are typically reported by intrusion prevention systems, firewalls, and web security gateways.
 
-Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelNetworkSession).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelNetworkSession).
 
 ### Built-in source-specific parsers
 
-Azure Sentinel provides the following built-in, product-specific Network Session parsers:
+Microsoft Sentinel provides the following built-in, product-specific Network Session parsers:
 
 - Source specific parsers:
-  - **Microsoft 365 Defender for Endpoints** - vimNetworkSessionMicrosoft365Defender
+  - **Microsoft 365 Defender for Endpoint** - vimNetworkSessionMicrosoft365Defender
   - **Microsoft Defender for IoT - Endpoint (MD4IoT)** - vimNetworkSessionMD4IoT
   - **Microsoft Sysmon for Linux** - vimNetworkSessionSysmonLinux
   - **Windows Events Firewall** - Windows firewall activity as collected using Windows Events 515x, collected using either the Log Analytics Agent or the Azure Monitor Agent into either the Event or the WindowsEvent table, vimNetworkSessionMicrosoftWindowsEventFirewall 
 
-The parsers can be deployed from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelNetworkSession).
+The parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelNetworkSession).
 
 ### Add your own normalized parsers
 
@@ -347,10 +345,9 @@ If the event is reported by one of the endpoints of the network session, it may 
 
 For more information, see:
 
-- [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Azure Sentinel process event normalization schema reference](process-events-normalization-schema.md)
-- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
-
+- [Normalization in Microsoft Sentinel](normalization.md)
+- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Microsoft Sentinel process event normalization schema reference](process-events-normalization-schema.md)
+- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

@@ -1,23 +1,23 @@
 ---
-title: Work with anomaly detection analytics rules in Azure Sentinel | Microsoft Docs
-description: This article explains how to view, create, manage, assess, and fine-tune anomaly detection analytics rules in Azure Sentinel.
+title: Work with anomaly detection analytics rules in Microsoft Sentinel | Microsoft Docs
+description: This article explains how to view, create, manage, assess, and fine-tune anomaly detection analytics rules in Microsoft Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 11/09/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
-# Work with anomaly detection analytics rules in Azure Sentinel
+
+# Work with anomaly detection analytics rules in Microsoft Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -25,9 +25,9 @@ ms.author: yelevin
 
 ## View SOC-ML anomaly rule templates
 
-Azure Sentinel’s [SOC-ML anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules must be activated before they will generate anomalies, which you can find in the **Anomalies** table in the **Logs** section.
+Microsoft Sentinel’s [SOC-ML anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules must be activated before they will generate anomalies, which you can find in the **Anomalies** table in the **Logs** section.
 
-1. From the Azure Sentinel navigation menu, select **Analytics**.
+1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
 1. In the **Analytics** blade, select the **Rule templates** tab.
 
@@ -74,7 +74,7 @@ Complete the following steps to activate a rule:
     > [!NOTE]
     > Assuming the required data is available, the new rule may still take up to 24 hours to appear in the **Active rules** tab. To view the new rules, select the Active rules tab and filter it the same way you filtered the Rule templates list above.
 
-Once the anomaly rule is activated, detected anomalies will be stored in the **Anomalies** table in the **Logs** section of your Azure Sentinel workspace.
+Once the anomaly rule is activated, detected anomalies will be stored in the **Anomalies** table in the **Logs** section of your Microsoft Sentinel workspace.
 
 Each anomaly rule has a training period, and anomalies will not appear in the table until after that training period. You can find the training period in the description of each anomaly rule.
 
@@ -82,7 +82,7 @@ Each anomaly rule has a training period, and anomalies will not appear in the ta
 
 You can see how well an anomaly rule is performing by reviewing a sample of the anomalies created by a rule over the last 24-hour period. 
 
-1. From the Azure Sentinel navigation menu, select **Analytics**.
+1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
 1. In the **Analytics** blade, check that the **Active rules** tab is selected.
 
@@ -90,7 +90,7 @@ You can see how well an anomaly rule is performing by reviewing a sample of the 
 
 1. Select the rule you want to assess, and copy its name from the top of the details pane to the right.
 
-1. From the Azure Sentinel navigation menu, select **Logs**.
+1. From the Microsoft Sentinel navigation menu, select **Logs**.
 
 1. If a **Queries** gallery pops up over the top, close it.
 
@@ -142,7 +142,7 @@ This is by design, to give you the opportunity to compare the results generated 
 
 ## Next steps
 
-In this document, you learned how to work with SOC-ML anomaly detection analytics rules in Azure Sentinel.
+In this document, you learned how to work with SOC-ML anomaly detection analytics rules in Microsoft Sentinel.
 
 - Get some background information about [SOC-ML](soc-ml-anomalies.md).
 - Explore other [analytics rule types](detect-threats-built-in.md).

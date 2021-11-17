@@ -78,5 +78,5 @@ Therefore, Private Links created starting September 2021 have new mandatory AMPL
 ## Next steps
 - [Design your Private Link setup](private-link-design.md)
 - Learn how to [configure your Private Link](private-link-configure.md)
-
+- Learn about [private storage](private-storage.md) for Custom Logs and Customer managed keys (CMK)
 <h3><a id="connect-to-a-private-endpoint"></a></h3>

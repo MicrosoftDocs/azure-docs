@@ -12,15 +12,13 @@ ms.author: pgibson
 
 Both Azure Monitor and Azure Application Insights assist with maximizing the availability and performance of your applications and services. These services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-The OSM AKS add-on will have deep integrations into both of these Azure services, and provide a seamless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. 
+The OSM AKS add-on will have deep integrations into both of these Azure services, and provide a seamless Azure experience for viewing and responding to critical KPIs provided by OSM metrics.
 
 ## Enable Azure Monitor
 
-Once the OSM AKS add-on has been enabled on the AKS cluster, Azure Monitor needs to be enabled in the cluster via Azure portal. Click on the AKS cluster, navigate to the "Insights" tab under "Monitoring," and select "Enable." 
+Once the OSM AKS add-on has been enabled on the AKS cluster, Azure Monitor needs to be enabled in the cluster via Azure portal. Click on the AKS cluster, navigate to the "Insights" tab under "Monitoring," and select "Enable."
 
-Once Azure Monitor has been enabled, you should be able to see the following pods in the kube-system namespace: 
+Once Azure Monitor has been enabled, you should be able to see the following pods in the kube-system namespace:
 
 ```
 kube-system     omsagent-5pn4c                        1/1     Running   0          24m
@@ -45,9 +43,10 @@ osm metrics enable --namespace bookstore
 osm metrics enable --namespace bookthief
 osm metrics enable --namespace bookwarehouse
 ```
+
 ## Apply ConfigMap
 
-Create the following ConfigMap in `kube-system`, which will tell AzMon what namespaces should be monitored. For instance, for the bookbuyer / bookstore demo, the ConfigMap would look as follows: 
+Create the following ConfigMap in `kube-system`, which will tell AzMon what namespaces should be monitored. For instance, for the bookbuyer / bookstore demo, the ConfigMap would look as follows:
 
 ```yaml
 kind: ConfigMap
@@ -64,7 +63,6 @@ data:
 metadata:
   name: container-azm-ms-osmconfig
   namespace: kube-system
-
 ```
 
 ## View metrics in the Azure portal

@@ -57,6 +57,7 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and select *myVMSSResourceGroup* from resource group list. 
 1. Type *myScaleSet* as the name for your scale set.
 1. In **Region**, select a region that is close to your area.
+1. Under **Orchestration**, ensure the *Uniform* option is selected for **Orchestration mode**. 
 1. Select a marketplace image for **Image**. In this example, we have chosen *Ubuntu Server 18.04 LTS*.
 1. Enter your desired username, and select which authentication type you prefer.
    - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).

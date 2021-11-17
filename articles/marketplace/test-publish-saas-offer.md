@@ -78,7 +78,7 @@ Use the following steps to preview your offer.
 
 1. If your SaaS offer supports [metered billing using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md), review and follow the testing best practices detailed in [Marketplace metered billing APIs](marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
-1. Review and follow the testing instructions in [SaaS fulfillment APIs version 2 in the Microsoft commercial marketplace](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) to ensure your offer is successfully integrated with the APIs before you publish your offer live.
+1. Review and follow the testing instructions in [SaaS fulfillment APIs version 2 in the Microsoft commercial marketplace](./partner-center-portal/pc-saas-fulfillment-webhook.md#development-and-testing) to ensure your offer is successfully integrated with the APIs before you publish your offer live.
 
 1. If the Offer validation step resulted in warnings, a **View validation report** link appears on the **Offer overview** page. Be sure to review the report and address the issues before you select the **Go live** button. Otherwise certification will most likely fail and delay your offer from going Live.
 

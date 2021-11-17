@@ -10,20 +10,17 @@ ms.author: pgibson
 
 # Deploy Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on using Bicep
 
-This article will discuss how to deploy the OSM add-on to AKS using a [Bicep](/azure/azure-resource-manager/bicep/) template.
+This article will discuss how to deploy the OSM add-on to AKS using a [Bicep](../azure-resource-manager/bicep/index.yml) template.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-[Bicep](/azure/azure-resource-manager/bicep/overview) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep can be used in place of creating Azure [ARM](/azure/azure-resource-manager/templates/overview) templates for deploying your infrastructure-as-code Azure resources.
+[Bicep](../azure-resource-manager/bicep/overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep can be used in place of creating Azure [ARM](../azure-resource-manager/templates/overview.md) templates for deploying your infrastructure-as-code Azure resources.
 
 ## Prerequisites
 
 - The Azure CLI, version 2.20.0 or later
-- The `aks-preview` extension version 0.5.5 or later
-- OSM version v0.9.1 or later
+- OSM version v0.11.1 or later
 - An SSH Public Key used for deploying AKS
 - [Visual Studio Code](https://code.visualstudio.com/) utilizing a Bash terminal
-- Visual Studio Code [Bicep extension](/azure/azure-resource-manager/bicep/install)
+- Visual Studio Code [Bicep extension](../azure-resource-manager/bicep/install.md)
 
 ## Install the aks-preview extension
 
@@ -61,7 +58,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Install the OSM AKS add-on for a new AKS cluster using Bicep
 
-For a new AKS cluster deployment scenario, start with a brand new deployment of an AKS cluster with the OSM add-on enabled at the cluster create operation. The following set of directions will use a generic Bicep template that deploys an AKS cluster using ephemeral disks, using the [`kubenet`](/azure/aks/configure-kubenet) CNI, and enabling the AKS OSM add-on. For more advanced deployment scenarios visit the [Bicep](/azure/azure-resource-manager/bicep/overview) documentation.
+For a new AKS cluster deployment scenario, start with a brand new deployment of an AKS cluster with the OSM add-on enabled at the cluster create operation. The following set of directions will use a generic Bicep template that deploys an AKS cluster using ephemeral disks, using the [`kubenet`](./configure-kubenet.md) CNI, and enabling the AKS OSM add-on. For more advanced deployment scenarios visit the [Bicep](../azure-resource-manager/bicep/overview.md) documentation.
 
 ### Create a resource group
 

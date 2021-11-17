@@ -310,8 +310,8 @@ To learn where you can run the IoT Edge runtime, see [Azure IoT Edge supported s
 
 You can also install the IoT Edge runtime in the following environments:
 
-* [Install or uninstall Azure IoT Edge for Linux](../../iot-edge/how-to-install-iot-edge.md)
-* [Install and provision Azure IoT Edge for Linux on a Windows device (Preview)](../../iot-edge/how-to-install-iot-edge-on-windows.md)
+* [Install or uninstall Azure IoT Edge for Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)
+* [Install and provision Azure IoT Edge for Linux on a Windows device (Preview)](../../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md)
 * [Run Azure IoT Edge on Ubuntu Virtual Machines in Azure](../../iot-edge/how-to-install-iot-edge-ubuntuvm.md)
 
 ## IoT Edge gateway devices

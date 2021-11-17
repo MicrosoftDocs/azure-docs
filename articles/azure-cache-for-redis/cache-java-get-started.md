@@ -7,12 +7,7 @@ ms.date: 05/22/2020
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
-ms.custom:
-  - mvc
-  - seo-java-august2019
-  - seo-java-september2019
-  - devx-track-java
-  - mode-api
+ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis.
 ---
 

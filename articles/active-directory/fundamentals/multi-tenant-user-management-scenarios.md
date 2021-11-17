@@ -29,7 +29,7 @@ There are many ways end users can get invited to access resource tenant resource
 
 * [MyApps]../user-help/my-apps-portal-end-user-access). Users invite and assign a guest user to an application using MyApps. The user account must have [application self-service sign up](../manage-apps/manage-self-service-access.md) approver permissions. They can invite guest users to a group if they're a group owner.
 
-* [Entitlement Management](../governance/entitlement-management-overview.md): Enables admins or resource owners to tie resources, allowed external organizations, guest user expiration, and access policies together in access packages. Access packages can be published to enable self-service signup for resource access by guest users.
+* [Entitlement Management](../governance/entitlement-management-overview.md): Enables admins or resource owners to tie resources, allowed external organizations, guest user expiration, and access policies together in access packages. Access packages can be published to enable self-service sign-up for resource access by guest users.
 
 * [Azure portal ](../external-identities/add-users-administrator.md) End users given the [Guest Inviter role](../external-identities/delegate-invitations.md) can sign in to the Azure portal and invite guest users from the Users menu in Azure Active Directory.
 

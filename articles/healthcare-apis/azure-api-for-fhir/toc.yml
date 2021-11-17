@@ -4,13 +4,14 @@ items:
 - name: Azure API for FHIR documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: About Azure API for FHIR
     href: overview.md
   - name: About Azure IoT Connector for FHIR (preview)
     href: overview.md#azure-iot-connector-for-fhir-preview
 - name: Quickstarts
-  expanded: false
+  expanded: true
   items:
   - name: Deploy Azure API for FHIR
     expanded: false
@@ -32,7 +33,7 @@ items:
     - name: Using ARM template
       href: iot-azure-resource-manager-template-quickstart.md 
 - name: Tutorials
-  expanded: false
+  expanded: true
   items:
   - name: Deploy JavaScript application
     expanded: false
@@ -66,7 +67,7 @@ items:
     - name: Da Vinci Plan Net
       href: ../fhir/davinci-plan-net.md
 - name: How-to guides
-  expanded: false
+  expanded: true
   items:
   - name: Registering applications
     expanded: false
@@ -152,7 +153,7 @@ items:
   - name: Disaster recovery for Azure API for FHIR
     href: disaster-recovery.md
 - name: Concepts
-  expanded: false
+  expanded: true
   items:
   - name: Azure AD and Azure API for FHIR Overview
     href: azure-active-directory-identity-configuration.md
@@ -174,14 +175,19 @@ items:
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
 - name: Resources
+  expanded: true
   items:
-  - name: FAQ
-    href: fhir-faq.yml
   - name: Supported features
-    href: fhir-features-supported.md
+    href: fhir-features-supported.md 
+  - name: Release notes
+    href: release-notes.md 
+  - name: FAQs
+    href: fhir-faq.yml
   - name: GitHub Projects
     href: fhir-github-projects.md
+   
 - name: Reference
+  expanded: true
   items:
   - name: Azure CLI
     href: /cli/azure/healthcareapis

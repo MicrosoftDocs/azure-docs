@@ -4,15 +4,16 @@ description: A description of what's new and changed in Azure Sentinel from six 
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 11/09/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Archive for What's new in Azure Sentinel
 
-The primary [What's new in Azure Sentinel](whats-new.md) release notes page contains updates for the last six months, while this page contains older items.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+The primary [What's new in Sentinel](whats-new.md) release notes page contains updates for the last six months, while this page contains older items.
 
 For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 

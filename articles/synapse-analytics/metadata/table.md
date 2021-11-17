@@ -64,7 +64,7 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 |---|---|---|
 | `LongType`, `long`, `bigint`                | `bigint`              | **Spark**: *LongType* represents 8-byte signed integer numbers.<BR>**SQL**: See [int, bigint, smallint, and tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
 | `BooleanType`, `boolean`                    | `bit` (Parquet), `varchar(6)` (CSV)  | **Spark**: Boolean.<BR>**SQL**: See [/sql/t-sql/data-types/bit-transact-sql).|
-| `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark**: *DecimalType* represents arbitrary-precision signed decimal numbers. Backed internally by java.math.BigDecimal. A BigDecimal consists of an arbitrary precision integer unscaled value and a 32-bit integer scale. <br> **SQL**: Fixed precision and scale numbers. When maximum precision is used, valid values are from - 10^38 +1 through 10^38 - 1. The ISO synonyms for decimal are dec and dec(p, s). numeric is functionally identical to decimal. See [decimal and numeric](/sql/t-sql/data-types/decimal-and-numeric-transact-sql]). |
+| `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark**: *DecimalType* represents arbitrary-precision signed decimal numbers. Backed internally by java.math.BigDecimal. A BigDecimal consists of an arbitrary precision integer unscaled value and a 32-bit integer scale. <br> **SQL**: Fixed precision and scale numbers. When maximum precision is used, valid values are from - 10^38 +1 through 10^38 - 1. The ISO synonyms for decimal are dec and dec(p, s). numeric is functionally identical to decimal. See [decimal and numeric](/sql/t-sql/data-types/decimal-and-numeric-transact-sql). |
 | `IntegerType`, `Integer`, `int`             | `int`                 | **Spark** *IntegerType* represents 4-byte signed integer numbers. <BR>**SQL**: See [int, bigint, smallint, and tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
 | `ByteType`, `Byte`, `tinyint`               | `smallint`            | **Spark**: *ByteType* represents 1-byte signed integer numbers [-128 to 127] and ShortType represents 2-byte signed integer numbers [-32768 to 32767]. <br> **SQL**: Tinyint represents 1-byte signed integer numbers [0, 255] and smallint represents 2-byte signed integer numbers [-32768, 32767]. See [int, bigint, smallint, and tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
 | `ShortType`, `Short`, `smallint`            | `smallint`            | Same as above. |
@@ -192,5 +192,3 @@ id | name | birthdate
 
 - [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
 - [Learn more about Azure Synapse Analytics' shared metadata database](database.md)
-
-
