@@ -233,10 +233,9 @@ Instead of `app.AddInMemoryTokenCache();` you can use different caching serializ
 <a id='no-token-cache-serialization' />
 #### Token Cache without serialization
 
-You can specify that you don't want to have any token cache serialization and rely on MSAL.NET internal cache. :
+You can specify that you don't want to have any token cache serialization and rely on MSAL.NET internal cache:
 - Use `.WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` when you build the application.
 - Don't add any serializer.
-
 
 
 ```CSharp
@@ -249,7 +248,7 @@ You can specify that you don't want to have any token cache serialization and re
        .WithAuthority(authority)
        .Build();
 ```
-\
+
 `WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` makes the internal MSAL token cache to be shared between different MSAL client application instances. This is faster than using any token cache serialization, however, the internal in-memory token cache does not have eviction policies. Existing tokens will be refreshed in-place, but fetching tokens for different resources, users, tenants, etc. will make the cache grow accordingly. If you use this approach and have a lot of users/tenants, make to sure to monitor the memory footprint and if it becomes an issue, consider enabling token cache serialization which can reduce the internal cache size. Additionally, be aware that these two features, shared cache and cache serialization, are not currently supported toghter.
 
 #### In memory token cache
