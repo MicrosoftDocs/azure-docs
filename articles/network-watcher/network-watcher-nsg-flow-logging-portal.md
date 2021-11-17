@@ -20,7 +20,7 @@ ms.custom: mvc
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-A network security group (NSG) enables you to filter inbound traffic to, and outbound traffic from, a virtual machine (VM). You can log network traffic that flows through an NSG with Network Watcher's NSG flow log capability. In this tutorial, you learn how to:
+A network security group (NSG) enables you to filter inbound traffic to, and outbound traffic from, a virtual machine (VM). You can log network traffic that flows through an NSG with Network Watcher's NSG flow log capability.
 
 In this tutorial, you learn how to:
 
@@ -129,7 +129,7 @@ The storage account may take around minute to create. Don't continue with remain
 
 1. In the search box at the top of the portal, enter **Network Watcher**. Select **Network Watcher** in the search results.
 
-2. Select **NSG flow logs** in **Logs** in **Network Watcher**.
+2. Select **NSG flow logs** in **Logs**.
 
 3. In **Network Watcher | NSG flow logs**, select **+ Create**.
 
@@ -155,9 +155,9 @@ The storage account may take around minute to create. Don't continue with remain
 
 ## Download flow log
 
-1. In the search box at the top of the portal, enter **Storage account*. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
 
-2. Select the storage account you created in the previous steps in **Storage accounts**.
+2. Select the storage account you created in the previous steps.
 
 3. In **Data storage**, select **Containers**.
 
@@ -249,7 +249,7 @@ The value for **mac** in the previous output is the MAC address of the network i
 | Example data | What data represents   | Explanation                                                                              |
 | ---          | ---                    | ---                                                                                      |
 | 1542110377   | Time stamp             | The time stamp of when the flow occurred, in UNIX EPOCH format. In the previous example, the date converts to May 1, 2018 at 2:59:05 PM GMT.                                                                                    |
-| 10.0.0.4  | Source IP address      | The source IP address that the flow originated from. 10.0.0.4 is the private IP address of the VM you created in [Create a VM](#create-a-virtual-machine).
+| 10.0.0.4  | Source IP address      | The source IP address that the flow originated from. 10.0.0.4 is the private IP address of the VM you created in [Create a virtual machine](#create-a-virtual-machine).
 | 13.67.143.118     | Destination IP address | The destination IP address that the flow was destined to.                                                                                  |
 | 44931        | Source port            | The source port that the flow originated from.                                           |
 | 443         | Destination port       | The destination port that the flow was destined to. Since the traffic was destined to port 443, the rule named **UserRule_default-allow-rdp**, in the log file processed the flow.                                                |
