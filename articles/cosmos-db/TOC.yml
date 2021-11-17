@@ -167,8 +167,6 @@
               href: sql/create-sql-api-nodejs.md
             - name: Python app
               href: sql/create-sql-api-python.md
-            - name: Xamarin app
-              href: sql/create-sql-api-xamarin-dotnet.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
