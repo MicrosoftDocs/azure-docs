@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2021
+ms.date: 11/17/2021
 ms.author: alkohli 
 ---
 # Deployment checklist for your Azure Stack Edge Pro GPU device  
