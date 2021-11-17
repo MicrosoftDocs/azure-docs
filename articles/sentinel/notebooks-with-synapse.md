@@ -49,9 +49,9 @@ To use Azure Synapse with Microsoft Sentinel notebooks, you must have the follow
 |Type  |Details  |
 |---------|---------|
 |**Microsoft Sentinel**     |- The **Microsoft Sentinel Contributor** role, in order to save and launch notebooks from Microsoft Sentinel         |
-|**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your Microsoft Sentinel notebooks.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](/azure/machine-learning/how-to-assign-roles).     |
-|**Azure Synapse Analytics**     | - A resource group-level **Owner** role, to create a new Azure Synapse workspace.<br>- A **Contributor** role on the Azure Synapse workspace to run your queries. <br>- An Azure Synapse Analytics **Contributor** role on Synapse Studio   <br><br>For more information, see [Understand the roles required to perform common tasks in Synapse](/azure/synapse-analytics/security/synapse-workspace-understand-what-role-you-need).     |
-|**Azure Data Lake Storage Gen2**     | - An Azure Log Analytics **Contributor** role, to export data from a Log Analytics workspace<br>- An Azure Blob Storage Contributor role, to query data from a data lake  <br><br>For more information, see [Assign an Azure role](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).|
+|**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your Microsoft Sentinel notebooks.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     |
+|**Azure Synapse Analytics**     | - A resource group-level **Owner** role, to create a new Azure Synapse workspace.<br>- A **Contributor** role on the Azure Synapse workspace to run your queries. <br>- An Azure Synapse Analytics **Contributor** role on Synapse Studio   <br><br>For more information, see [Understand the roles required to perform common tasks in Synapse](../synapse-analytics/security/synapse-workspace-understand-what-role-you-need.md).     |
+|**Azure Data Lake Storage Gen2**     | - An Azure Log Analytics **Contributor** role, to export data from a Log Analytics workspace<br>- An Azure Blob Storage Contributor role, to query data from a data lake  <br><br>For more information, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal).|
 |     |         |
 
 ### Connect to Azure ML and Synapse workspaces
@@ -72,7 +72,7 @@ At the top of the Microsoft Sentinel **Notebooks** page, select **Configure Azur
 > An Azure Data Lake Storage Gen2 is a built-in Data Lake that comes with every Azure Synapse workspace. Make sure to select or create a new Data Lake that is in the same region with your Microsoft Sentinel workspace. This is required for when you export your data, as described later in this article.
 >
 
-For more information, see the [Azure Synapse documentation](/azure/synapse-analytics/quickstart-create-workspace).
+For more information, see the [Azure Synapse documentation](../synapse-analytics/quickstart-create-workspace.md).
 
 
 ## Configure your Azure Synapse Analytics integration
@@ -97,13 +97,13 @@ Microsoft Sentinel provides the built-in, **Azure Synapse - Configure Azure ML a
 
 1. Run the cells in the notebook's initial steps to load the required Python libraries and functions and to authenticate to Azure resources.
 
-1. Run the cells in step 4, **Configure Azure Synapse Spark Pool**, to create a new [Azure Synapse Apache Spark Pool](/azure/synapse-analytics/spark/apache-spark-pool-configurations) to use when running your big data queries.
+1. Run the cells in step 4, **Configure Azure Synapse Spark Pool**, to create a new [Azure Synapse Apache Spark Pool](../synapse-analytics/spark/apache-spark-pool-configurations.md) to use when running your big data queries.
 
-1. Run the cells in step 5, **Configure Azure ML Workspace and Linked Services** to ensure that your Azure ML workspace can communicate with your Azure Synapse workspace. For more information, see [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools](/azure/machine-learning/how-to-link-synapse-ml-workspaces).
+1. Run the cells in step 5, **Configure Azure ML Workspace and Linked Services** to ensure that your Azure ML workspace can communicate with your Azure Synapse workspace. For more information, see [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools](../machine-learning/how-to-link-synapse-ml-workspaces.md).
 
 1. Run the cells in step 6, **Export Data from Azure Log Analytics to Azure Data Lake Storage Gen2**, to export your data you want to use for your queries from Azure Log Analytics to Azure Data Lake Storage.
 
-After your data is in Azure Data Lake Storage, you're ready to start running big data queries with Azure Synapse. For more information, see [Log Analytics data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal).
+After your data is in Azure Data Lake Storage, you're ready to start running big data queries with Azure Synapse. For more information, see [Log Analytics data export in Azure Monitor](../azure-monitor/logs/logs-data-export.md?tabs=portal).
 
 ## Hunt on historical data at scale
 
@@ -254,4 +254,4 @@ For more information, see:
 
 - [Use Jupyter notebooks to hunt for security threats](notebooks.md)
 - [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
-- [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools(preview)](/azure/machine-learning/how-to-link-synapse-ml-workspaces)
+- [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools(preview)](../machine-learning/how-to-link-synapse-ml-workspaces.md)
