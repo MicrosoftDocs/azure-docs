@@ -10,6 +10,7 @@
   expanded: true
   items: 
     - name: Deploy your first container app
+      expanded: true
       items:
         - name: Azure portal
           href: quickstart-portal.md

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 11/16/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -63,7 +63,7 @@ Previously, we announced that starting October 31, 2021, Microsoft Azure Active 
 **Service category:** Conditional Access  
 **Product capability:** End User Experiences
  
-If there's no trust relation between a home and resource tenant, a guest user would have previously been asked to re-register their device, which would break the previous registration. However, the user would end up in a registration loop because only home tenant device registration is supported. In this specific scenario, instead of this loop, we have created a new conditional access blocking page. The page tells the end user that they can't get access to conditional access protected resources as a guest user. [Learn more](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal#prerequisites).
+If there's no trust relation between a home and resource tenant, a guest user would have previously been asked to re-register their device, which would break the previous registration. However, the user would end up in a registration loop because only home tenant device registration is supported. In this specific scenario, instead of this loop, we have created a new conditional access blocking page. The page tells the end user that they can't get access to conditional access protected resources as a guest user. [Learn more](../external-identities/b2b-quickstart-add-guest-users-portal.md#prerequisites).
  
 ---
 
@@ -111,7 +111,7 @@ Flagged sign-ins is a feature that will increase the signal to noise ratio for u
 **Service category:** Device Registration and Management  
 **Product capability:** Device Lifecycle Management
  
-The new Device Overview feature provides actionable insights about devices in your tenant. [Learn more](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal).
+The new Device Overview feature provides actionable insights about devices in your tenant. [Learn more](../devices/device-management-azure-portal.md).
  
 ---
 
@@ -170,7 +170,7 @@ We now support native single sign-on (SSO) support and device-based Conditional 
 **Service category:** My Apps  
 **Product capability:** End User Experiences
  
-Apps that have been recently assigned to the user show up with a "new" indicator. When the app is launched or the page is refreshed, this indicator disappears. [Learn more](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+Apps that have been recently assigned to the user show up with a "new" indicator. When the app is launched or the page is refreshed, this indicator disappears. [Learn more](/azure/active-directory/user-help/my-apps-portal-end-user-access).
  
 ---
 
@@ -180,7 +180,7 @@ Apps that have been recently assigned to the user show up with a "new" indicator
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-Azure AD B2C customers can now enable custom domains so their end-users are redirected to a custom URL domain for authentication. This is done via integration with Azure Front Door's custom domains capability. [Learn more](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).
+Azure AD B2C customers can now enable custom domains so their end-users are redirected to a custom URL domain for authentication. This is done via integration with Azure Front Door's custom domains capability. [Learn more](../../active-directory-b2c/custom-domain.md?pivots=b2c-user-flow).
  
 ---
 
@@ -191,7 +191,7 @@ Azure AD B2C customers can now enable custom domains so their end-users are redi
 **Product capability:** Access Control
  
 
-Users in this role can create and manage the enterprise site list required for Internet Explorer mode on Microsoft Edge. This role grants permissions to create, edit, and publish the site list and additionally allows access to manage support tickets. [Learn more](https://docs.microsoft.com/deployedge/edge-ie-mode-cloud-site-list-mgmt)
+Users in this role can create and manage the enterprise site list required for Internet Explorer mode on Microsoft Edge. This role grants permissions to create, edit, and publish the site list and additionally allows access to manage support tickets. [Learn more](/deployedge/edge-ie-mode-cloud-site-list-mgmt)
  
 ---
 
@@ -650,15 +650,15 @@ Application authentication method policies in MS Graph which allow IT admins to 
  
 ---
 
-### Public preview -  Authentication Methods nudge to download Microsoft Authenticator
+### Public preview -  Authentication Methods registration campaign to download Microsoft Authenticator
 
 **Type:** New feature  
 **Service category:** Microsoft Authenticator App  
 **Product capability:** User Authentication
  
-The Authenticator nudge policy helps admins to move their organizations to a more secure posture by prompting users to adopt the Microsoft Authenticator app. Prior to this feature, there was no way for an admin to push their users to set up the Authenticator app. 
+The Authenticator registration campaign helps admins to move their organizations to a more secure posture by prompting users to adopt the Microsoft Authenticator app. Prior to this feature, there was no way for an admin to push their users to set up the Authenticator app. 
 
-The Nudge comes with the ability for an admin to scope users and groups by including and excluding them from the Nudge to ensure a smooth adoption across the organization. [Learn more](../authentication/how-to-nudge-authenticator-app.md)
+The registration campaign comes with the ability for an admin to scope users and groups by including and excluding them from the registration campaign to ensure a smooth adoption across the organization. [Learn more](../authentication/how-to-mfa-registration-campaign.md)
  
 ---
 
@@ -1269,4 +1269,3 @@ A previous version of the PIM API under `/privilegedaccess` will continue to fun
 A new role, Identity Governance Administrator, has recently been introduced. This role will be the replacement for the User Administrator role in managing catalogs and access packages in Azure AD entitlement management. If you have assigned administrators to the User Administrator role or have them activate this role to manage access packages in Azure AD entitlement management, switch to the Identity Governance Administrator role instead. The User Administrator role will no longer be providing administrative rights to catalogs or access packages. [Learn more](../governance/identity-governance-overview.md#appendix---least-privileged-roles-for-managing-in-identity-governance-features).
 
 ---
-
