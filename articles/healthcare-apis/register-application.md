@@ -2,11 +2,11 @@
 title: Register a client application in Azure Active Directory for the Azure Healthcare APIs
 description: How to register a client application in the Azure AD and how to add a secret and API permissions to the Azure Healthcare APIs
 services: healthcare-apis
-author: ginalee-dotcom
+author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 08/25/2021
-ms.author: ginle
+ms.date: 11/17/2021
+ms.author: zxue
 ---
 
 # Register a client application in Azure Active Directory
