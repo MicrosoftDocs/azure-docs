@@ -1,6 +1,6 @@
 ---
-title: Enterprise scaling with the SAP deployment automation framework
-description: How to do enterprise scaling for deployments using the SAP deployment automation framework on Azure.
+title: SAP deployment automation framework hands-on lab
+description: Hands-on lab for the SAP deployment automation framework on Azure.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
@@ -14,7 +14,7 @@ ms.service: virtual-machines-sap
 
 This tutorial shows how to do enterprise scaling for deployments using the [SAP deployment automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. 
 
-During this lab, you will perform the following tasks
+You will perform the following tasks during this lab:
 
 > [!div class="checklist"]
 > * Deploy the Control Plane (Deployer Infrastructure & Library)
@@ -281,7 +281,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
     --tenant_id $tenant_id
 ```
 
-If you run into authentication issues,  run `az logout` to logout. Clear `token-cache`, then run `az login` to reauthenticate.
+If you run into authentication issues,  run `az logout` to log out. Clear `token-cache`, then run `az login` to reauthenticate.
 
 Wait for the automation framework to run the Terraform operations `plan`, and `apply`.
 
@@ -297,7 +297,7 @@ The contents of the Deployer and SAP Library resource group are shown below.
     
 :::image type="content" source="media/automation-tutorial/sap-library-resource-group.png" alt-text="Library resources":::
 
-The Terraform state file is now in the storage account whose name contains 'tfstate'. The storage account has a container named 'tfstate' with the deployer and library state files. Below is a listing of the contents of the 'tfstate' container after a successful control plane deployment.
+The Terraform state file is now in the storage account whose name contains 'tfstate'. The storage account has a container named 'tfstate' with the deployer and library state files. The contents of the 'tfstate' container after a successful control plane deployment can be seen below.
     
 :::image type="content" source="media/automation-tutorial/terraform-state-files.png" alt-text="Control plane tfstate files":::
 
@@ -606,15 +606,15 @@ Trigger the playbooks to execute.
 
 ### Playbook: OS Config
 
-Selecting this playbook performs the generic OS configuration setup on all the machines, which includes configuring of software repositories, packages, services, and so on.
+This playbook does the generic OS configuration setup on all the machines, which includes configuring of software repositories, packages, services, and so on.
 
 ### Playbook: SAP-Specific OS config
 
-Selecting this playbook performs the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, and services.
+This playbook does the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, and services.
 
 ### Playbook: BOM Processing
 
-Selecting this playbook, downloads the SAP software to the SCS virtual machine. 
+This playbook downloads the SAP software to the SCS virtual machine. 
     
 ### Playbook: HANA DB Install
 
