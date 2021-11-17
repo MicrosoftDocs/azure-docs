@@ -38,7 +38,7 @@ After you connect your data sources, choose from a gallery of expertly created w
     - To use Microsoft Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
     - Additional permissions may be needed to connect specific data sources.
 
-- **Microsoft Sentinel is a paid service**. For more information, see [About Microsoft Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058) and the [Microsoft Sentinel pricing page](https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/)
+- **Microsoft Sentinel is a paid service**. For more information, see [About Microsoft Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058) and the [Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/)
 
 For more information, see [Pre-deployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md).
 
