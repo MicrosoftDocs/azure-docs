@@ -61,10 +61,10 @@ The following code creates a GPU compute of size Standard _NC24s_v3 with four no
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
 
-cluster_name = "gpu-cluster-nc24s_v3"
+cluster_name = "gpu-cluster"
 
 try:
-    compute_target = ws.compute_targets[cluster_name]
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
     print('Found existing compute target.')
 except KeyError:
     print('Creating a new compute target...')
