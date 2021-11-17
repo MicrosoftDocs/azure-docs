@@ -6,20 +6,23 @@ services: storage
 
 ms.service: storage
 ms.topic: include
-ms.date: 11/16/2021
+ms.date: 11/17/2021
 ms.author: alkohli
 ms.custom: include file
 
 ---
 
-After shipping the disks, return to the job in the Azure portal and fill in the tracking information. The Preview experience differs slightly from the Classic experience.
+After you ship the disks, return to the job in the Azure portal and fill in the tracking information.
 
 > [!IMPORTANT]
 > If the tracking number is not updated within 2 weeks of creating the job, the job expires. 
 
-#### Enter tracking in Preview portal
+> [!NOTE]
+> You can only cancel a job while it's in Creating state. After you provide tracking details, the job status changes to Shipping, and the job can't be canceled.
 
-To complete the tracking information for a job in the Preview portal, perform the following steps.
+### [Portal (Preview)](#tab/azure-portal-preview)
+
+To complete the tracking information for your job in the Preview portal, do these steps:
  
 1. Open the job in the [Azure portal/](https://portal.azure.com/).
 1. On the **Overview** pane, scroll down to **Tracking information** and complete the entries: 
@@ -35,9 +38,9 @@ You can track the job progress on the **Overview** pane. For a description of ea
 ![Screenshot showing status tracking on the Overview pane for an Azure Import Export job in the Preview portal.](./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-02.png)
 
 
-#### Enter tracking in Classic portal
+### [Portal (Classic)](#tab/azure-portal-classic)
 
-To complete the tracking information for a job in the Classic portal, perform the following steps.
+To complete the tracking information for your job in the Classic portal, do these steps.
  
 1. Open the job in the [Azure portal/](https://portal.azure.com/).
 1. At the top of the ****For job to progress, provide the tracking information** to open the **Update status** pane. Then complete the entries: 
@@ -50,5 +53,13 @@ To complete the tracking information for a job in the Classic portal, perform th
 
 You can track the job progress on the **Overview** pane. For a description of each job state, go to [View your job status](../articles/import-export/storage-import-export-view-drive-status.md).
 
-> [!NOTE]
-> You can only cancel a job while it's in Creating state. After you provide tracking details, the job status changes to Shipping, and the job can't be canceled.
+
+### [Azure CLI](#tab/azure-cli)
+
+If you created your Azure Import/Export job using Azure CLI, open the job in the Azure portal to update tracking information.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+If you created your Azure Import/Export job using Azure PowerShell, open the job in the Azure portal to update tracking information.
+
+---

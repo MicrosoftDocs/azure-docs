@@ -47,7 +47,7 @@ Perform the following steps to order an import job in Azure Import/Export via th
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 1. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](../../includes/media/storage-import-export-preview-import-steps/import-export-order-preview-01.png)
+   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](../../includes/media/storage-import-export-preview-import-steps/import-export-order-preview-01.png)<!--Border fixed manually. Check for issues.-->
 
 1. Select **Create**.  
 
@@ -55,11 +55,11 @@ Perform the following steps to order an import job in Azure Import/Export via th
 
 1. To get started with the import order, select the following options:
  
-    1. Select the **Export to Azure** transfer type.
+    1. Select the **Export from Azure** transfer type.
     1. Select the subscription to use for the Import/Export job.
     1. Select a resource group.
-    1. Select the **Source country/region** for the job.
-    1. Select the **Destination Azure region** for the job.
+    1. Select the **Source Azure region** for the job.
+    1. Select the **Destination country/region** for the job.
     1. Then select **Apply**.
 
     [ ![Screenshot of Get Started options for a new export order in Azure Import/Export's Preview portal. The Export From Azure transfer type and the Apply button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-03-export-job.png) ](./media/storage-import-export-data-from-blobs/import-export-order-preview-03-export-job.png#lightbox)
@@ -70,33 +70,34 @@ Perform the following steps to order an import job in Azure Import/Export via th
 
 1. In **Basics**:
 
-    - Enter a descriptive name for the import job. Use the name to track the progress of your jobs.<!--Test name requirements. They appear to be out of date.-->
-      * The name may contain only lowercase letters, numbers, and hyphens.
-      * The name must start with a letter, and may not contain spaces.
+    - Enter a descriptive name for the job. Use the name to track the progress of your job.
+      * The name must have from 3 to 24 characters.
+      * The name must include only letters, numbers, and hyphens.
+      * The name must start and end with a letter or number.
 
-    ![Screenshot showing the Basics tab for an import job in Azure Data Box. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-05-export-job.png)
+    ![Screenshot showing the Basics tab for an export job in Azure Import/Export. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-05-export-job.png)
 
     Select **Next: Job details >** to proceed.
 
 5. In **Job details**:
 
-   1. Select the Azure region where your data currently is.
+   1. Select the **Source Azure region** where your data currently is.
    1. Select the storage account from which you want to export data. Use a storage account close to your location.
 
-      The drop-off location is automatically populated based on the region of the storage account selected.
+      The drop-off location is automatically populated based on the region of the storage account that you select.
 
-   1. Specify the blob data to export from your storage account to your blank drive or drives. Choose one of the three following methods.
+   1. Specify the blob data to export from your storage account to your blank drive or drives. For **Blobs to export**, choose one of the three following methods.
 
-      - Choose to **Export all** blob data in the storage account.
+      - Choose to export **All objects** in the storage account.
 
         ![Screenshot of the Job Details tab for a new export job in the Azure Import Export Jobs Preview portal. Export All is highlighted beside Blobs To Export.](./media/storage-import-export-data-from-blobs/import-export-order-preview-06-a-export-job.png)
 
       - Choose **Selected containers and blobs**, and specify containers and blobs to export. You can use more than one of the selection methods. Selecting an **Add** option opens a panel on the right where you can add your selection strings.
 
         |Option|Description|
-        |------|-----------|      
+        |------|-----------|
         |**Add containers**|Export all blobs in a container.<br>Select **Add containers**, and enter each container name.|
-        |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
+        |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format, as shown in this screenshot, to avoid errors during processing. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
         |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
 
         :::image type="complex" source="./media/storage-import-export-data-from-blobs/import-export-order-preview-06-b-export-job.png" alt-text="Screenshot showing selected containers and blobs for a new Azure Import/Export export job in the Preview portal.":::
@@ -415,7 +416,7 @@ If you do not know the number of drives you need, see [Determine how many drives
 
 ## Step 4: Receive the disks
 
-When the dashboard reports the job is complete, the disks are shipped to you and the tracking number for the shipment is available on the portal.
+When the dashboard reports the job is complete, the disks are shipped to you and the tracking number for the shipment is available in the portal.
 
 1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Click **Import/Export** tab.
 2. Select and click your export job from the list. Go to **Encryption** and copy the keys.

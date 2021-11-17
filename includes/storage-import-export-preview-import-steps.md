@@ -6,7 +6,7 @@ services: storage
 
 ms.service: storage
 ms.topic: include
-ms.date: 11/16/2021
+ms.date: 11/17/2021
 ms.author: alkohli
 ms.custom: include file
 
@@ -40,9 +40,10 @@ Perform the following steps to order an import job in Azure Import/Export job vi
 
 1. In **Basics**:
 
-    - Enter a descriptive name for the import job. Use the name to track the progress of your jobs.<!--Test name requirememts. They appear to be out of date.-->
-      * The name may contain only lowercase letters, numbers, and hyphens.
-      * The name must start with a letter, and may not contain spaces.
+    - Enter a descriptive name for the job. Use the name to track the progress of your jobs.
+      * The name must have from 3 to 24 characters.
+      * The name must include only letters, numbers, and hyphens.
+      * The name must start and end with a letter or number.
 
     ![Screenshot showing the Basics tab for an import job in Azure Data Box. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-05.png)
 
@@ -66,7 +67,7 @@ Perform the following steps to order an import job in Azure Import/Export job vi
 storage-import-export-preview-import-steps
    ![Screenshot of completed Job Details tab for an import job in Azure Data Box. The Job Detail tab and Next: Return Shipping button are highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-06.png)
 
-1. In **Return shipping**:storage-import-export-preview-import-steps
+1. In **Return shipping**:
 
    1. Select a shipping carrier from the drop-down list for **Carrier**. The location of the Microsoft datacenter for the selected region determines which carriers are available.
    1. Enter a **Carrier account number**. The account number for an valid carrier account is required.

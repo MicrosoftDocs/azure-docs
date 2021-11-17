@@ -125,9 +125,10 @@ Perform the following steps to create an import job in the Azure portal.
 
    1. Select a subscription.
    1. Select a resource group, or select **Create new** and create a new one.
-   1. Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
-      * The name may contain only lowercase letters, numbers, and hyphens.
-      * The name must start with a letter, and may not contain spaces.
+   1. Enter a descriptive name for the job. Use the name to track the progress of your jobs.
+      * The name must have from 3 to 24 characters.
+      * The name must include only letters, numbers, and hyphens.
+      * The name must start and end with a letter or number
 
    1. Select **Import into Azure**.
 
