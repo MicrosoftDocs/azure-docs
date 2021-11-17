@@ -29,8 +29,9 @@ Name the project `UILibraryQuickStart` and select `Storyboard` under the `Interf
 
 ### Install the package and dependencies with CocoaPods
 
-1. Create a Podfile in your project root directory by running `pod init`.
-2. Add the following to your Podfile:
+1. Run `pod --version` to check CocoaPods version (needs to be >=1.11.2), install or update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html)
+2. Create a Podfile in your project root directory by running `pod init`.
+3. Add the following to your Podfile:
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
@@ -52,8 +53,8 @@ post_install do |installer|
 end
 ```
 
-3. Run `pod install --repo-update`. (This process may take 10-15 min.)
-4. Open the generated `.xcworkspace` with Xcode.
+4. Run `pod install --repo-update`. (This process may take 10-15 min.)
+5. Open the generated `.xcworkspace` with Xcode.
 
 ### Request access to the microphone, camera, etc.
 
