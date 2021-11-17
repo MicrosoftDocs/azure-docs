@@ -314,7 +314,7 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
     For more information, see the [Azure Policy documentation](../governance/policy/assign-policy-portal.md).
 
-1. In Azure **Security Center**, add an audit recommendation to all key vaults in the selected scope:
+1. In **Microsoft Defender for Cloud**, add an audit recommendation to all key vaults in the selected scope:
 
     1. Select **Regulatory compliance > Manage compliance policies**, and then select your scope.
 
