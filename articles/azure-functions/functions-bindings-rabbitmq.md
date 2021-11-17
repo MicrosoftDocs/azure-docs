@@ -31,7 +31,21 @@ To get started with developing with this extension, make sure you first [set up 
 
 ## Install extension
 
-<!--[!INCLUDE [functions-extension-packages-nuget-tabs](../../includes/functions-extension-packages-nuget-tabs.md)]-->
+The extension NuGet package you install depends on the C# mode you're using in your function app: 
+
+# [In-process](#tab/in-process)
+
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md).
+
+# [Isolated process](#tab/isolated-process)
+
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](../articles/azure-functions/dotnet-isolated-process-guide.md).
+
+# [C# script](#tab/csharp-script)
+
+Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+
+---
 
 The functionality of the extension varies depending on the extension version:
 
@@ -40,7 +54,12 @@ The first set of 2-way tabs are displayed when the In-process tab is selected (i
 
 # [Extension v3.x](#tab/extensionv3/in-process)
 
-Add this extension by installing the [NuGet package], version 4.x
+<!-- An example of a preview NuGet package for WebJobs might look like the following: 
+
+Preview version of the extension that supports new Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Azure.Messaging.EventGrid.EventGridEvent](/dotnet/api/azure.messaging.eventgrid.eventgridevent).
+
+Add the preview extension to your project by installing the [NuGet package], version 3.x. 
+-->
 
 # [Extension v2.x](#tab/extensionv2/in-process)
 
@@ -87,7 +106,7 @@ Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJob
 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell,programming-language-typescript"  
 
-## Install bundle
+## Install bundle    
 
 The <!--{Extension name}--> is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
