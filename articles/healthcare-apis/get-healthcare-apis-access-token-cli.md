@@ -47,7 +47,7 @@ $token = (Get-AzAccessToken -ResourceUrl 'https://<FHIR ACCOUNT NAME>.azurehealt
 
 ---
 
-## Use the token with FHIR service
+## Use the token with the FHIR service
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -72,7 +72,7 @@ Try It
 $token=$(az account get-access-token --resource=https://dicom.healthcareapis.azure.com --query accessToken --output tsv)
 ```
 
-## Use with the DICOM service
+## Use the tokenb with the DICOM service
 
 ```Azure CLICopy
 Try It
