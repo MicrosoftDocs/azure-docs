@@ -6,9 +6,11 @@ author: jaesoni
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/18/2021
-ms.author: jaesoni
+ms.author: jaysoni
 #Customer intent: As a user, I want to know how can I disable/enable proxy buffers.
 ---
+
+# Configure Request and Response Proxy Buffers
 
 Azure Application Gateway supports buffering the Requests (from clients) or Responses (from the backend servers). Based on the processing capabilities of the clients that interact with your Application Gateway, you can use these buffers to configure the speed of packet delivery.
  
