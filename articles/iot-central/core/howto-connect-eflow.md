@@ -12,13 +12,9 @@ services: iot-central
 
 # Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central
 
-Azure IoT Edge for Linux on Windows allows you to run containerized Linux workloads alongside Windows applications in Windows IoT deployments. Businesses that rely on Windows IoT to power their edge devices can now take advantage of the cloud-native analytics solutions being built in Linux.
+Azure IoT Edge for Linux on Windows (EFLOW) lets you run Azure IoT Edge in a Linux container on your Windows device. In this article, you learn how to provision an [EFLOW](https://docs.microsoft.com/windows/iot/iot-enterprise/eflow) device and manage it from your IoT Central application.
 
-:::image type="content" source="media/howto-connect-eflow/centos-edge-central.png" alt-text="Screenshot that shows the architecture."::: 
-
-In this article, learn how to provision [Azure IoT Edge for Linux on Windows EFLOW](https://docs.microsoft.com/windows/iot/iot-enterprise/eflow) device and manage it from IoT Central application. 
-
-In this tutorial, you learn how to:
+In this how-to article, you learn how to:
 
 * Create a device template for an IoT Edge device.
 * Create an IoT Edge device in IoT Central.
@@ -51,7 +47,7 @@ In this section, you will create an IoT Central device template for an IoT Edge 
 
 1. On the **Review** page, select **Create**.
 
-1. Select the **Manage** interface in the **SimulatedTemperatureSensor** module to view the two properties defined in the manifest:
+1. Select the **management** interface in the **SimulatedTemperatureSensor** module to view the two properties defined in the manifest:
 
 :::image type="content" source="media/howto-connect-eflow/imported-manifest.png" alt-text="Device template created from IoT Edge manifest.":::
 
@@ -103,7 +99,7 @@ The **Manage** interface now includes the **machine**, **ambient**, and **timeCr
 
 1. Change the view name to *View IoT Edge device telemetry*.
 
-1. Under **Start with devices**, select the **ambient** and **timeCreated** telemetry types. Then select **Add tile**.
+1. Under **Start with devices**, select the **ambient**, **humidity** and **temperature** telemetry types. Then select **Add tile**.
 
 1. Select **Save** to save the **View IoT Edge device telemetry** view.
 
@@ -148,10 +144,10 @@ To install and provision Edge for Linux on a windows device see [Install and pro
 > [!NOTE]
 > You are not required to create an IoTHub with this tutorial. You can skip the step of creating IoT Hub since you will connecting to IoT Central. 
 
-For this tutorial pick **option 2** to provision your device, Provisioning via DPS using symmetric keys. Provide the **scope ID**, **registration ID** and the **primary key** you captured in previous steps. 
+Use the **ID scope**, **Device ID** and the **Primary Key** you made a note of previously. 
 
  ```azurepowershell-interactive
-   Provision-EflowVm -provisioningType symmetric -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -symmKey <PRIMARY_KEY_HERE>
+   Provision-EflowVm -provisioningType DpsSymmetricKey -​scopeId <ID_SCOPE_HERE> -registrationId <DEVCIE_ID_HERE> -symmKey <PRIMARY_KEY_HERE>
    ```
 
 Go To Device Details page on IoT Central and you can see telemetry flowing from your device
