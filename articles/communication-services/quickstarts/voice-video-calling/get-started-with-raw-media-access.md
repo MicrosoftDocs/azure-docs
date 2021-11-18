@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 
-zone_pivot_groups: acs-plat-web-ios-android-windows
+zone_pivot_groups: acs-plat-android
 ---
 
 # Raw Media Access
@@ -21,7 +21,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 The ACS Calling SDK offers APIs allowing apps to generate their own video frames to send to remote participants.
 
-This quick start builds upon [QuickStart: Add 1:1 video calling to your app](./get-started-with-video-calling?pivots=platform-android) for Android.
+This quick start builds upon [QuickStart: Add 1:1 video calling to your app](./get-started-with-video-calling.md?pivots=platform-android) for Android.
 
 
 ## Overview
