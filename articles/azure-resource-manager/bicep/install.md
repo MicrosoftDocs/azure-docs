@@ -27,7 +27,7 @@ To verify you've installed the extension, open any file with the `.bicep` file e
 
 :::image type="content" source="./media/install/language-mode.png" alt-text="Bicep language mode":::
 
-If you get an error during installation, see [Troubleshoot Bicep installation](install-troubleshooting.md).
+If you get an error during installation, see [Troubleshoot Bicep installation](installation-troubleshooting.md).
 
 ## Deployment environment
 
@@ -214,3 +214,5 @@ If you'd like to try the latest pre-release bits of Bicep before they're release
 ## Next steps
 
 For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+
+If you have problems with your Bicep installation, see [Troubleshoot Bicep installation](installation-troubleshooting.md).

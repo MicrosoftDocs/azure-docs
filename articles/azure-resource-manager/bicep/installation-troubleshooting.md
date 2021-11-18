@@ -1,9 +1,8 @@
 ---
-title: Set up Bicep development and deployment environments
-description: How to configure Bicep development and deployment environments
+title: Troubleshoot problems with Bicep installation
+description: How to resolve errors and problems with your Bicep installation.
 ms.topic: conceptual
-ms.date: 10/20/2021
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 11/18/2021
 ---
 
 # Troubleshoot Bicep installation
@@ -22,7 +21,7 @@ Failed to install .NET runtime v5.0
 Failed to download .NET 5.0.x ....... Error!
 ```
 
-To solve the problem, you can manually install .NET from the [.NET website](https://aka.ms/dotnet-core-download), and then configure Visual Studio Code to reuse an existing installation of .NET. with the following settings:
+To solve the problem, you can manually install .NET from the [.NET website](https://aka.ms/dotnet-core-download), and then configure Visual Studio Code to reuse an existing installation of .NET with the following settings:
 
 **Windows**
 
@@ -62,7 +61,7 @@ To **keep only one installation location**, use the following steps:
 1. Open your command prompt (not PowerShell), and run `where bicep`. This command returns the location of the Bicep installation.
 1. Delete the installation that was returned in the previous step.
 1. Remove the location from your **PATH** environment variable.
-1. Add your other installation location to the **PATH** variable. Use the location maintained by Azure CLI. For Windows, the location is `%USERPROFILE%\.Azure\bin`.
+1. Add your other installation location to the **PATH** variable. For Windows, the location maintained by Azure CLI is `%USERPROFILE%\.Azure\bin`.
 
 ## Next steps
 
