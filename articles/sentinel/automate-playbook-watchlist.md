@@ -75,15 +75,15 @@ The playbook runs the following steps:
 
       `string(body('Parse_JSON_to_get_subscriptionId')?['properties']?['effectiveSubscriptionId'])`
 
-      ![Image that shows the filter array playbook task.](media/inform-owner-playbook/filter-array.png)
+      ![Image that shows the filter array playbook task.](media/automate-playbook-watchlist/filter-array.png)
 
    1. **Post a message as the flow bot to a user**. This step sends a message to the subscription owner in Microsoft Teams with any details you want to share about the new alert.
 
-      ![Image that shows creating the Teams message in the playbook step.](media/inform-owner-playbook/create-message.png)
+      ![Image that shows creating the Teams message in the playbook step.](media/automate-playbook-watchlist/create-message.png)
 
    1. **Send an Email**. This step sends a message to the subscription owner in Outlook with any details you want to share about the new alert.
 
-      ![Image that shows creating the email message in the playbook step.](media/inform-owner-playbook/create-email.png)
+      ![Image that shows creating the email message in the playbook step.](media/automate-playbook-watchlist/create-email.png)
 
 ### Set up your watchlist and deploy the playbook
 
