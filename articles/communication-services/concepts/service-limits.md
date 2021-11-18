@@ -117,6 +117,6 @@ In general, responses will contain a
 You can find more information on Microsoft Graph [throttling](https://docs.microsoft.com/graph/throttling) limits in the [Microsoft Graph](https://docs.microsoft.com/graph/overview) documentation.
 
 ## Still need help?
-
+See the [help and support](../support.md) options available to you.
 
 ## Next steps
