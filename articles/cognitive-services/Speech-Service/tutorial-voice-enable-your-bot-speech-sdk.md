@@ -450,7 +450,7 @@ You can select the text-to-speech voice and control pronunciation if the bot spe
 The following example adds SSML to the echo bot reply so that the German voice Stefan Apollo (a male voice) is used instead of the default female voice. See the [list of standard voices](language-support.md#standard-voices) and [list of neural voices](language-support.md#neural-voices) that are supported for your language.
 
 1. Open **samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs**.
-1. Find these two lines:
+1. Find these lines:
 
     ```csharp
     var replyText = $"Echo: {turnContext.Activity.Text}";
