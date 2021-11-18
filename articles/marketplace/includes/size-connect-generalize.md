@@ -34,7 +34,7 @@ Windows OS disks are generalized with the [sysprep](/windows-hardware/manufactur
 ### Capture image
 
 > [!NOTE]
-> The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have at least Contributor access to the subscription containing SIG.
+> The Azure subscription containing the Azure Compute Gallery must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have at least Contributor access to the subscription containing Azure Compute Gallery.
 
 Once your VM is ready, you can capture it in an Azure Compute Gallery (formerly know as Shared Image Gallery). Follow the below steps to capture:
 
@@ -83,4 +83,4 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
 > [!NOTE]
-> You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](../azure-vm-get-sas-uri.md).
+> You don’t need to generate SAS URIs as you can now publish an Azure Compute Gallery Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](../azure-vm-get-sas-uri.md).

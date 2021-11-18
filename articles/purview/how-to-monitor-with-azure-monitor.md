@@ -57,6 +57,8 @@ The following table contains the list of metrics available to explore in the Azu
 
 | Metric Name | Metric Namespace | Aggregation type | Description |
 | ------------------- | ------------------- | ------------------- | ----------------- |
+| Data Map Capacity Units | Elastic data map | Sum <br> Count | Aggregate the elastic data map capacity units over time period |
+| Data Map Storage Size | Elastic data map | Sum <br> Avg | Aggregate the elastic data map storage size over time period |
 | Scan Canceled | Automated scan | Sum <br> Count | Aggregate the canceled data source scans over time period |
 | Scan Completed | Automated scan | Sum <br> Count | Aggregate the completed data source scans over time period |
 | Scan Failed | Automated scan | Sum <br> Count | Aggregate the failed data source scans over time period |

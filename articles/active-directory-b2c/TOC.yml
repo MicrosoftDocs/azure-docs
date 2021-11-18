@@ -49,10 +49,11 @@
       href: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Tokens
       href: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-    - name: Protocols
+    - name: Application authentication request
       href: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Authentication library
       href: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      displayName: MSAL, client library, Microsoft Authentication Library
   - name: Azure AD B2C best practices
     href: best-practices.md
   - name: Application types
@@ -595,6 +596,7 @@
     href: app-registrations-training-guide.md
   - name: Billing model
     href: billing.md
+    displayName: pricing model
   - name: Code samples
     href: /samples/browse/?terms=b2c
   - name: Cookie definitions

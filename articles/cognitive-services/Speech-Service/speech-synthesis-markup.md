@@ -752,7 +752,7 @@ Pitch changes can be applied at the sentence level.
 **Syntax**
 
 ```xml
-<say-as interpret-as="string" format="digit string" detail="string"> <say-as>
+<say-as interpret-as="string" format="digit string" detail="string"> </say-as>
 ```
 
 **Attributes**
