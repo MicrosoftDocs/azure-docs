@@ -114,7 +114,7 @@ The following example shows a JSON index schema with simple fields, collections,
 }
 ```
 
-### [**C#*](#tab/complex-type-csharp)
+### [**C#**](#tab/complex-type-csharp)
 
 Use the [Search Index class](/dotnet/api/azure.search.documents.indexes.models.searchindex) to define the index schema.
 

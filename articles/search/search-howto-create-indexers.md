@@ -107,7 +107,7 @@ Start with either of these articles to learn about each client:
 
 Refer to the [Indexer operations (REST)](/rest/api/searchservice/Indexer-operations) for help with formulating indexer requests.
 
-### [**C#**](#tab/kstore-csharp)
+### [**.NET SDK**](#tab/kstore-csharp)
 
 For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create indexer-related objects. All of them provide a **SearchIndexerClient** that has methods for creating indexers and related objects, including skillsets.
 
