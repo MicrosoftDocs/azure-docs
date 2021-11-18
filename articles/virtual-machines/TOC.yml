@@ -1294,6 +1294,8 @@
     - name: Windows
       displayName: Expand a disk - Windows
       href: ./windows/expand-os-disk.md
+    - name: Unmanaged disks
+      href: expand-unmanaged-disks.md
   - name: Manage storage
     items:
     - name: Deploy disks with ARM template

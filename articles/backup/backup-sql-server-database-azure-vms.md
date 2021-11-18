@@ -93,6 +93,9 @@ You can also use the following FQDNs to allow access to the required services fr
 
 When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
 
+> [!NOTE]
+> Disable proxy for localhost communications within the VM. Proxy will be honored for outbound communications from the SQL VM.
+
 ### Database naming guidelines for Azure Backup
 
 - Avoid using the following elements in database names:

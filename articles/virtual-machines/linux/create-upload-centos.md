@@ -215,7 +215,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
 	logout
 	```
 
-17. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [uploaded to Azure](/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd).
+17. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [uploaded to Azure](./upload-vhd.md#option-1-upload-a-vhd).
 
 
 ## CentOS 7.0+
@@ -450,7 +450,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 	# logout
 	```
 
-15. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [uploaded to Azure](/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd).
+15. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [uploaded to Azure](./upload-vhd.md#option-1-upload-a-vhd).
 
 ## Next steps
 

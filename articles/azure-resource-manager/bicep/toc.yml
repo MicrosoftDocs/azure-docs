@@ -12,10 +12,18 @@
   - name: Install Bicep tools
     href: install.md
     displayName: nightly
+  - name: Troubleshoot installation
+    href: installation-troubleshoot.md
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
+  - name: CI/CD
+    items:
+    - name: Bicep with pipelines
+      href: add-template-to-azure-pipelines.md
+    - name: Bicep with GitHub Actions
+      href: deploy-github-actions.md
 - name: Tutorials
   items:
   - name: Microsoft Learn - Bicep
@@ -124,12 +132,14 @@
       - name: Pass sensitive values
         displayName: key vault
         href: key-vault-parameter.md
-    - name: CI/CD
-      items:
-      - name: Bicep with pipelines
-        href: add-template-to-azure-pipelines.md
-      - name: Bicep with GitHub Actions
-        href: deploy-github-actions.md
+  - name: Configure settings
+    items:
+    - name: Bicep config file
+      href: bicep-config.md
+    - name: Linter settings
+      href: bicep-config-linter.md
+    - name: Module settings
+      href: bicep-config-modules.md
   - name: Migrate to Bicep
     items:
     - name: Recommended workflow
@@ -144,8 +154,6 @@
   - name: Data types
     href: data-types.md
     displayName: supported types,arrays,booleans,integers,objects,strings,secure
-  - name: Configuration file
-    href: bicep-config.md
   - name: Functions
     items:
     - name: All functions
