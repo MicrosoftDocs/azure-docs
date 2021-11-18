@@ -17,7 +17,7 @@ ms.author: tchladek
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
 ## Final Code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/AccessTokensQuickstart).
@@ -79,7 +79,7 @@ namespace AccessTokensQuickstart
 ```
 ## Authenticate the client
 
-Now we'll, initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
+Now we'll, initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `Main` method:
 
@@ -99,7 +99,7 @@ string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_AC
 var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
 ```
 
-If you have an Azure Active Directory(AD) application set up, see [Use Service Principals](../identity/service-principal.md), you may also authenticate with AD.
+If you have an Azure Active Directory(AD) application set up, see [Use Service Principals](../../identity/service-principal.md), you may also authenticate with AD.
 ```csharp
 TokenCredential tokenCredential = new DefaultAzureCredential();
 var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential);
@@ -118,7 +118,7 @@ You should store the received identity with a mapping to your application's user
 
 ## Issue identity access tokens
 
-Once you have an identity, use the `GetToken` method to issue an access token for the identity. The `scopes` parameter defines set of permissions/abilities, that this access token can perform. See the [list of supported actions](../../concepts/authentication.md). A new instance of a `communicationUser` can also be constructed based on string representation of an Azure Communication Service identity.
+Once you have an identity, use the `GetToken` method to issue an access token for the identity. The `scopes` parameter defines set of permissions/abilities, that this access token can perform. See the [list of supported actions](../../../concepts/authentication.md). A new instance of a `communicationUser` can also be constructed based on string representation of an Azure Communication Service identity.
 
 ```csharp
 // Issue an access token with the "voip" scope for an identity
@@ -137,7 +137,7 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Create an identity and issue an access token within the same request
 
-You can use the `CreateUserAndTokenAsync` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines set of permissions/abilities, that this access token can perform. See the [list of supported actions](../../concepts/authentication.md).
+You can use the `CreateUserAndTokenAsync` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines set of permissions/abilities, that this access token can perform. See the [list of supported actions](../../../concepts/authentication.md).
 
 ```csharp
 // Issue an identity and an access token with the "voip" scope for the new identity

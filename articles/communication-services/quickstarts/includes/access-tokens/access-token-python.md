@@ -16,7 +16,7 @@ ms.author: tchladek
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
 ## Final Code
 
@@ -56,7 +56,7 @@ pip install azure-communication-identity
 
 ## Authenticate the client
 
-Next we'll instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
+Next we'll instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add this code inside the `try` block:
 
@@ -69,7 +69,7 @@ connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-Alternatively, if you have an Azure Active Directory(AD) application set up, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
+Alternatively, if you have an Azure Active Directory(AD) application set up, see [Use service principals](../../identity/service-principal.md), you may also authenticate with AD.
 ```python
 endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
 client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
@@ -88,7 +88,7 @@ You should store the received identity with a mapping to your application's user
 
 ## Issue access tokens
 
-Use the `get_token` method to issue an access token for already existing Communication Services identity. The `scopes` parameter defines set of permissions/abilities, that this access token can perform. See the [list of supported actions](../../concepts/authentication.md). a new instance of parameter `CommunicationUserIdentifier` can also be constructed based on string representation of Azure Communication Service identity.
+Use the `get_token` method to issue an access token for already existing Communication Services identity. The `scopes` parameter defines set of permissions/abilities, that this access token can perform. See the [list of supported actions](../../../concepts/authentication.md). a new instance of parameter `CommunicationUserIdentifier` can also be constructed based on string representation of Azure Communication Service identity.
 
 ```python
 # Issue an access token with the "voip" scope for an identity
@@ -104,7 +104,7 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Create an identity and issue an access token within the same request
 
-You can use the `create_user_and_token` method to create a Communication Services identity and issue an access token for it. The `scopes` parameter defines set of permissions/abilities, that this access token can perform.. See the [list of supported actions](../../concepts/authentication.md).
+You can use the `create_user_and_token` method to create a Communication Services identity and issue an access token for it. The `scopes` parameter defines set of permissions/abilities, that this access token can perform.. See the [list of supported actions](../../../concepts/authentication.md).
 
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity

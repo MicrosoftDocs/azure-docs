@@ -17,7 +17,7 @@ ms.author: tchladek
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
 ## Final Code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/access-token-quickstart).
@@ -83,7 +83,7 @@ public class App
 
 ## Authenticate the client
 
-Instantiate a `CommunicationIdentityClient` with your resource's access key and endpoint. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string). In addition, you can initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
+Instantiate a `CommunicationIdentityClient` with your resource's access key and endpoint. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string). In addition, you can initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
 Add the following code to the `main` method inside `App.java`:
 
@@ -108,7 +108,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .buildClient();
 ```
 
-If you have an Azure Active Directory(AD) application set up, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
+If you have an Azure Active Directory(AD) application set up, see [Use service principals](../../identity/service-principal.md), you may also authenticate with AD.
 ```java
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 TokenCredential credential = new DefaultAzureCredentialBuilder().build();
@@ -131,7 +131,7 @@ The created identity is required later to issue access tokens. You should theref
 
 ## Issue access tokens
 
-Use the `getToken` method to issue an access token for already existing Communication Services identity. The `scopes` parameter defines set of permissions and abilities that this token will be able to perform. See the [list of supported actions](../../concepts/authentication.md) for valid values. In this case we'll use our user variable created in the previous step to get a token.
+Use the `getToken` method to issue an access token for already existing Communication Services identity. The `scopes` parameter defines set of permissions and abilities that this token will be able to perform. See the [list of supported actions](../../../concepts/authentication.md) for valid values. In this case we'll use our user variable created in the previous step to get a token.
 
 ```java
 // Issue an access token with the "voip" scope for a user identity
