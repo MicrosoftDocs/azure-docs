@@ -24,7 +24,45 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 * An existing Azure Storage Account and a pre-created Azure File Share. If you need to create a storage account and file share in Azure, see [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md).
 * The [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
-## Use the Azure CLI to enable your own extra persistent storage
+## Mount your own extra persistent storage to Applications
+
+#### [Portal](#tab/Azure-portal)
+The following procedures bind an Azure Storage account as a storage resource in your Azure Spring Cloud and create an app with your own persistent storage.
+
+1. Go to the service Overview page and select Storage.
+
+   ![Navigate to storage blade](media/spring-cloud-byos/select-storage-blade.png)
+
+1. On the Storage page, select **Add storage**, fill out the form on the **Add storage** page and select **Apply**.
+
+   ![Add storage resource](media/spring-cloud-byos/add-storage-resource.png)
+
+1. Go the **Apps** page and select an application to mount the persistent storage.
+   ![Add storage resource](media/spring-cloud-byos/select-an-app-to-mount-persistent-storage.png)
+
+1. Select **Configuration** and then select **Persistent Storage**. 
+   ![Add storage resource](media/spring-cloud-byos/go-to-persistent-storage-blade.png)
+
+1. Select **Add persistent storage** and enter or select this information:
+
+
+    |Setting     |Value                                                                      |
+    |------------|---------------------------------------------------------------------------|
+    |Storage name       |Enter *\<storage-resource-name>*                                                            |
+    |Persistent storage type        |Select **AzureFileVolume**                                                               |
+    |Share name         |Enter *\<azure-file-share-name>*                                                                   |
+    |Mount path    |Enter *\<unique-mount-path>*                                                            |
+    |Mount options  |Optional property   |
+    |Read only |Optional property   |
+    Then select **Apply**.
+
+   ![Add persistent storage](media/spring-cloud-byos/add-persistent-storage.png)
+
+1. Select **Save** to apply all the configuration changes.
+   ![Save configuration changes](media/spring-cloud-byos/save-persistent-storage-changes.png)
+
+
+#### [CLI](#tab/Azure-CLI)
 
 You can enable your own storage with the Azure CLI by using the following steps.
 
