@@ -299,6 +299,8 @@
                 href: how-to-manage-rest.md
               - name: Link to Azure Synapse Analytics workspace
                 href: how-to-link-synapse-ml-workspaces.md
+              - name: Workspace Diagnostics
+                href: how-to-workspace-diagnostic-api.md
           - name: Create & manage compute resources
             items:
               - name: Compute instance
@@ -563,7 +565,7 @@
               href: how-to-use-managed-online-endpoint-studio.md
             - name: High-performance serving with Triton
               href: how-to-deploy-with-triton.md
-            - name: Access storage with managed online endpoint and managed identity
+            - name: Access Azure resources from managed online endpoint
               href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md

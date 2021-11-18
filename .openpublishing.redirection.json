@@ -44772,6 +44772,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/vm/monitor-vm-azure.md",
+      "redirect_url": "/azure/virtual-machines/monitor-vm",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -47313,7 +47318,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-disable-add-on.md",
-      "redirect_url": "/azure/aks/open-service-mesh-deploy-addon-az-cli",
+      "redirect_url": "/azure/aks/oopen-service-mesh-uninstall-add-on",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
+      "redirect_url": "/azure/aks/open-service-mesh-azure-monitor",
       "redirect_document_id": false
     },
     {

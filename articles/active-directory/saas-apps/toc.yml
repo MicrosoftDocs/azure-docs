@@ -997,7 +997,7 @@
       - name: IMAGE WORKS
         href: imageworks-tutorial.md
       - name: Imagineer WebVision
-        href: imagineerwebVision-tutorial.md
+        href: imagineerwebvision-tutorial.md
       - name: IMPAC Risk Manager
         href: impacriskmanager-tutorial.md
       - name: Imperva Data Security
@@ -2668,7 +2668,7 @@
       - name: Promapp
         href: promapp-provisioning-tutorial.md     
       - name: Proxyclick
-        href: Proxyclick-provisioning-tutorial.md
+        href: proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
       - name: Proware
