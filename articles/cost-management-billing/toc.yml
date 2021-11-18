@@ -248,7 +248,7 @@
         href: manage/azurestudents-subscription-disabled.md
       - name: Set up and configure AWS integration
         href: costs/aws-integration-set-up-configure.md
-      - name: Set up pay by invoice
+      - name: Pay by check or wire transfer
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
@@ -513,7 +513,7 @@
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-cost-management
   - name: Cost Management feedback forum
-    href: https://feedback.azure.com/forums/906772-cost-management
+    href: https://feedback.azure.com/d365community/forum/748a4eaa-0e25-ec11-b6e6-000d3a4f07b8
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

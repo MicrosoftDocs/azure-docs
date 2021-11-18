@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Group enrollment to the Azure Device Provisioning Service using X.509 certificate attestation 
 description: This quickstart shows you how to programmatically enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 08/17/2021
 ms.topic: quickstart
 ms.service: iot-dps

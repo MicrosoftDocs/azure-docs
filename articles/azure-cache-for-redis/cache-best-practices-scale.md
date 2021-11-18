@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
 ---
- 
+
 # Scaling
 
 ## Scaling under load

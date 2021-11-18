@@ -8,7 +8,7 @@ ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 10/13/2021
 ms.author: jianleishen
-ms.custom: has-adal-ref, synapse
+ms.custom: synapse
 ---
 
 # Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors

@@ -24,7 +24,7 @@ This article shows you how to create a Azure Virtual Desktop image with these cu
 * [Restart](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
 * Run [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 
-We will show you how to automate this using the Azure VM Image Builder, and distribute the image to a [Shared Image Gallery](../shared-image-galleries.md), where you can replicate to other regions, control the scale, and share the image inside and outside your organizations.
+We will show you how to automate this using the Azure VM Image Builder, and distribute the image to an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), where you can replicate to other regions, control the scale, and share the image inside and outside your organizations.
 
 
 To simplify deploying an Image Builder configuration, this example uses an Azure Resource Manager template with the Image Builder template nested inside. This gives you some other benefits, like variables and parameter inputs. You can also pass parameters from the command line.
@@ -162,9 +162,9 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 > If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
 
-## Create the Shared Image Gallery 
+## Create the Azure Compute Gallery 
 
-If you don't already have a Shared Image Gallery, you need to create one.
+If you don't already have an Azure Compute Gallery, you need to create one.
 
 ```azurepowershell-interactive
 $sigGalleryName= "myaibsig01"

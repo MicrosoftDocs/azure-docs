@@ -2,7 +2,7 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/12/2021
 ---
 
 # What is Bicep?
@@ -105,27 +105,9 @@ They continue to function exactly as they always have. You don't need to make an
 
 When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
 
-## Known limitations
+**Can I use Bicep to deploy to Azure Stack Hub?**
 
-- Bicep is newline sensitive. For example:
-
-    ```bicep
-    resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
-      ...
-    }
-    ```
-
-    Can't be written as:
-
-    ```bicep
-    resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' =
-        if (newOrExisting == 'new') {
-          ...
-        }
-    ```
-
-- No support for the concept of apiProfile, which is used to map a single apiProfile to a set apiVersion for each resource type.
-- No support for user-defined functions.
+Yes, you can use Bicep for your Azure Stack Hub deployments, but note that Bicep may show types that are not yet available in Azure Stack Hub. You can view a set of examples in the [Azure Stack Hub QuickStart Template GitHub repo](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep). 
 
 ## Next steps
 

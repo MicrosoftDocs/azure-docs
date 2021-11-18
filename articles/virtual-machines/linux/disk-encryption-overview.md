@@ -20,9 +20,9 @@ Azure Disk Encryption helps protect and safeguard your data to meet your organiz
 
 Azure Disk Encryption is zone resilient, the same way as Virtual Machines. For details, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
-If you use [Azure Security Center](../../security-center/index.yml), you're alerted if you have VMs that aren't encrypted. The alerts show as High Severity and the recommendation is to encrypt these VMs.
+If you use [Microsoft Defender for Cloud](../../security-center/index.yml), you're alerted if you have VMs that aren't encrypted. The alerts show as High Severity and the recommendation is to encrypt these VMs.
 
-![Azure Security Center disk encryption alert](media/disk-encryption/security-center-disk-encryption-fig1.png)
+![Microsoft Defender for Cloud disk encryption alert](media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue to use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
