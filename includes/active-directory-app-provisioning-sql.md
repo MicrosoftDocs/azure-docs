@@ -67,18 +67,18 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
  1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or server that has connectivity to your SQL server.
      >[!NOTE]
      >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
- 4. Open the provisioning agent installer, agree to the terms of service, and select **next**.
- 5. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
- 6. Provide credentials for an Azure AD administrator when you're prompted to authorize. Hybrid administrator or global administrator is required.
- 7. Select **Confirm** to confirm the installation was successful.
- 8. Sign in to the Azure portal.
- 9. Go to **Enterprise applications** > **Add a new application**.
- 10. Search for the **On-premises ECMA app** application, and add it to your tenant.
- 11. Navigate to the provisioning page of your application.
- 12. Select **Get started**.
- 16. On the **Provisioning** page, change the mode to **Automatic**.
+ 1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
+ 1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
+ 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. Hybrid administrator or global administrator is required.
+ 1. Select **Confirm** to confirm the installation was successful.
+ 1. Sign in to the Azure portal.
+ 1. Go to **Enterprise applications** > **Add a new application**.
+ 1. Search for the **On-premises ECMA app** application, and add it to your tenant.
+ 1. Navigate to the provisioning page of your application.
+ 1. Select **Get started**.
+ 1. On the **Provisioning** page, change the mode to **Automatic**.
      ![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)</br>
- 17. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
+ 1. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
 
   
  ## Configure the Azure AD ECMA Connector Host certificate
