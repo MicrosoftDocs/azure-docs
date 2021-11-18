@@ -216,7 +216,7 @@ The `RabbitMQTrigger` annotation allows you to create a function that runs when 
 See the trigger [example](#example) for more detail.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-java,programming-language-csharp,programming-language-python,programming-language-typescript,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-typescript,programming-language-powershell"  
 
 ## Configuration
 
