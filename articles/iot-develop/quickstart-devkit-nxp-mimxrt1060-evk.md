@@ -6,7 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 11/10/2021
+ms.date: 11/16/2021
+zone_pivot_groups: iot-develop-nxp-toolset
 
 # Owner: timlt
 # - id: iot-develop-nxp-toolset
