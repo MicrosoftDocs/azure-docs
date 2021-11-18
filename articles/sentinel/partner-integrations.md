@@ -1,12 +1,8 @@
 ---
 title: Partner integrations with Microsoft Sentinel
 description: This article describes best practices for creating your own integrations with Microsoft Sentinel.
-services: sentinel
 author: batamig
 ms.author: bagol
-ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
-ms.service: sentinel
-ms.subservice: sentinel
 ms.topic: conceptual
 ms.date: 11/15/2021
 ---
@@ -193,7 +189,7 @@ Microsoft offers a number of programs to help partners approach Microsoft custom
 
 - [Microsoft Partner Network](https://partner.microsoft.com/) (MPN). The primary program for partnering with Microsoft is the Microsoft Partner Network.  Membership in MPN is required to become an Azure Marketplace publisher, which is where all Microsoft Sentinel solutions are published.
 
-- [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/). Microsoft Sentinel solutions are delivered via the Azure Marketplace, which is where customers go to discover and deploy both Microsoft- and partner-supplied general Azure integrations.
+- [Azure Marketplace](https://azure.microsoft.com/marketplace/). Microsoft Sentinel solutions are delivered via the Azure Marketplace, which is where customers go to discover and deploy both Microsoft- and partner-supplied general Azure integrations.
 
     Microsoft Sentinel solutions are one of many types of offers found in the Marketplace. You can also find the solution offerings embedded in the Microsoft Sentinel [content hub](sentinel-solutions-catalog.md)
 
