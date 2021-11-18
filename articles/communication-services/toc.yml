@@ -190,6 +190,8 @@ items:
     href: concepts/metrics.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
+  - name: Service limits
+    href: concepts/service-limits.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
 - name: How-to guides
