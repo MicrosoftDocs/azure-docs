@@ -19,25 +19,25 @@ In this article, learn how to configure a high-scale load test with Azure Load T
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 
-- An existing Azure Load Testing resource. To create a Load Test resource, see [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).
+- An existing Azure Load Testing resource. To create a Load Test resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
 ## Requests per second (RPS)
 
-The maximum number of *requests per second* (RPS) that Azure Load Testing can generate, depends on the application's latency and the number of *virtual users* (VUs). 
+The maximum number of *requests per second* (RPS) that Azure Load Testing can generate depends on the application's latency and the number of *virtual users* (VUs). 
 
 You can apply the following formula: RPS = (# of VUs) * (1/latency).
 
-For example, if the application latency is 20 ms, and you're generating a load of 2000 VUs, the RPS that you can achieve is around 100,000.
+For example, if the application latency is 20 ms, and you're generating a load of 2000 VUs, the RPS that you can achieve are around 100,000.
 
 ## Test engine instances
 
-In Azure Load Testing, *test engine* instances are responsible for executing the test plan. If you used an Apache JMeter script to create the test plan, each test engine executes the JMeter script.
+In Azure Load Testing, *test engine* instances are responsible for executing the test plan. If you used an Apache JMeter script to create the test plan, each test engine executes the Apache JMeter script.
 
 The test engine instances run in parallel, and they allow you to define how you want to scale out the load test execution for your application.
 
 In the Apache JMeter script, you define the number of parallel threads. This number indicates how many threads each test engine instance executes in parallel. Each thread represents a virtual user. The recommendation is to keep the number of threads below a maximum of 250.
 
-For example, to simulate 1000 threads (or virtual users), you set the number of threads in the JMeter script to 250, and then configure the test with four test engine instances (4 x 250 threads).
+For example, to simulate 1000 threads (or virtual users), you set the number of threads in the Apache JMeter script to 250, and then configure the test with four test engine instances (4 x 250 threads).
 
 ## Configure your test plan
 
@@ -63,4 +63,4 @@ In this section, you'll configure the scaling settings of your load test.
 
 - For information about how to compare test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
 
-- To learn how to configure automated regression testing, see [Configure automated load testing with Azure Pipelines](./tutorial-cicd-azure-pipelines.md)
+- To learn how to configure automated regression testing, see [Configure automated load testing with Azure Pipelines](./tutorial-cicd-azure-pipelines.md).
