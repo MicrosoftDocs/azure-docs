@@ -106,14 +106,14 @@ The table describes the attributes of a `deployment`:
 | `code_configuration.scoring_script` | The Python file that's in the `code_configuration.code.local_path` scoring directory. This Python code must have an `init()` function and a `run()` function. The function `init()` will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
 | `environment` | Contains the details of the environment to host the model and code. In this example, we have inline definitions that include the`path`. We'll use `environment.docker.image` for the image. The `conda_file` dependencies will be installed on top of the image. For more information, see the tip in the next section. |
 | `instance_type` | The VM SKU that will host your deployment instances. For more information, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). |
-| `instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `scale_settings.instance_count` to at least `3`. |
+| `instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `instance_count` to at least `3`. |
 
 For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md).
 
 > [!NOTE]
 > To use Kubernetes instead of managed endpoints as a compute target:
 > 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster).
-> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target.
+> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/amlarc/endpoint.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/amlarc/blue-deployment.yml) that has additional properties applicable to Kubernetes deployment.
 >
 > All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
 
@@ -150,7 +150,7 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 
 > [!IMPORTANT]
 > The goal of a local endpoint deployment is to validate and debug your code and configuration before you deploy to Azure. Local deployment has the following limitations:
-> - Local endpoints do *not* support traffic rules, authentication, scale settings, or probe settings. 
+> - Local endpoints do *not* support traffic rules, authentication, or probe settings. 
 > - Local endpoints support only one deployment per endpoint. 
 
 ### Deploy the model locally
@@ -268,7 +268,7 @@ To see the invocation logs, run `get-logs` again.
 
 ### (Optional) Update the deployment
 
-If you want to update the code, model, environment, or your scale settings, update the YAML file, and then run the `az ml online-endpoint update` command. 
+If you want to update the code, model, or environment, update the YAML file, and then run the `az ml online-endpoint update` command. 
 
 > [!Note]
 > If you update instance count and along with other model settings (code, model, or environment) in a single `update` command: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.

@@ -247,8 +247,8 @@ After installing the Connected Machine agent for Windows, the following system-w
 
     |Name |Default value |Description |
     |-----|--------------|------------|
-    |IDENTITY_ENDPOINT |<http://localhost:40342/metadata/identity/oauth2/token> ||
-    |IMDS_ENDPOINT |<http://localhost:40342> ||
+    |IDENTITY_ENDPOINT |<`http://localhost:40342/metadata/identity/oauth2/token`> ||
+    |IMDS_ENDPOINT |<`http://localhost:40342`> ||
 
 * There are several log files available for troubleshooting. They are described in the following table.
 
@@ -306,8 +306,8 @@ After installing the Connected Machine agent for Linux, the following system-wid
 
     |Name |Default value |Description |
     |-----|--------------|------------|
-    |IDENTITY_ENDPOINT |<http://localhost:40342/metadata/identity/oauth2/token> ||
-    |IMDS_ENDPOINT |<http://localhost:40342> ||
+    |IDENTITY_ENDPOINT |<`http://localhost:40342/metadata/identity/oauth2/token`> ||
+    |IMDS_ENDPOINT |<`http://localhost:40342`> ||
 
 * During uninstall of the agent, the following artifacts are not removed.
 

@@ -124,7 +124,7 @@ You must complete specific configuration steps in the operating system for the v
     # logout
     ```
 
-14. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+14. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ---
 ## Oracle Linux 7.0 and later
@@ -293,10 +293,10 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
+    **Note:** if you are migrating a specific virtual machine and do not wish to create a generalized image,skip the deprovision step
+    
 	```console
-	# Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
-    # skip the deprovision step
-    # sudo rm -rf /var/lib/waagent/
+    # sudo cloud-init clean
     # sudo rm -f /var/log/waagent.log
 
     # waagent -force -deprovision+user
@@ -308,7 +308,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
     # logout
 	```
 
-16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ## Next steps
 You're now ready to use your Oracle Linux .vhd to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).

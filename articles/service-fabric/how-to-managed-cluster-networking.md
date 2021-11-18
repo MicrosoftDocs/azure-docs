@@ -458,12 +458,15 @@ Managed clusters create an Azure public Standard Load Balancer and fully qualifi
 Here are a couple example scenarios customers may use this for:
 
 In this example, a customer wants to route traffic through an existing Azure Load Balancer configured with an existing static ip address to two node types.
+
 ![Bring your own Load Balancer example 1][sfmc-byolb-example-1]
 
 In this example, a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind its own managed NSG.
+
 ![Bring your own Load Balancer example 2][sfmc-byolb-example-2]
 
 In this example, a customer wants to route traffic through existing internal Azure Load Balancers. This helps them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind its own managed NSG and use the default load balancer for external traffic.
+
 ![Bring your own Load Balancer example 3][sfmc-byolb-example-3]
 
 To configure bring your own load balancer:
@@ -646,4 +649,5 @@ See [full list of parameters available](/azure/templates/microsoft.servicefabric
 [sfmc-rdp-connect]: ./media/how-to-managed-cluster-networking/sfmc-rdp-connect.png
 [sfmc-byolb-example-1]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-1.png
 [sfmc-byolb-example-2]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-2.png
+[sfmc-byolb-example-3]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-3.png
 

@@ -23,6 +23,10 @@ When you create a new server in Azure SQL Database or Azure Synapse Analytics na
 >
 > Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
 ## How the firewall works
 
 Connection attempts from the internet and Azure must pass through the firewall before they reach your server or database, as the following diagram shows.

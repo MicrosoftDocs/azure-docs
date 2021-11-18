@@ -147,7 +147,7 @@ Specify the DNS server that the cluster uses in the **Cluster** > **Administrati
 * DNS domain name
 * DNS search domains
 
-For more details, read [DNS Settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) in the Cluster Configuration Guide.
+For more details, read [DNS Settings](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns) in the Cluster Configuration Guide.
 
 ## Next steps
 

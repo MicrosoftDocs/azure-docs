@@ -109,5 +109,5 @@ Set-AzDataFactoryV2 -InputObject $dataFactory -Force
 
 ## Next steps
 
-* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-integration-delivery.md)
+* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-integration-delivery-improvements.md)
 * Learn how to use the [control flow expression language](control-flow-expression-language-functions.md)
