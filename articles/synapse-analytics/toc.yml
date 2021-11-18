@@ -1484,6 +1484,8 @@ items:
     href: /rest/api/synapse/
   - name: Microsoft Spark Utilities
     href: ./spark/microsoft-spark-utilities.md
+  - name: How to play with file mount/unmount API in Synapse
+    href: ./spark/synapse-file-mount-api.md
   - name: Samples
     href: https://github.com/Azure-Samples/Synapse
   - name: System views

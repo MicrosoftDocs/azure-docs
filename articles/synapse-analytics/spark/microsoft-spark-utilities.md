@@ -1122,3 +1122,5 @@ mssparkutils.runtime.context
 - [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Azure Synapse Analytics](../index.yml)
+- [How to play with file mount/unmount API in Synapse](./synapse-file-mount-api.md)
+
