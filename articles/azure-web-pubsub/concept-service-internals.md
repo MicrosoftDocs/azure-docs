@@ -244,7 +244,7 @@ For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents
 #### Authentication between service and webhook
 - Anonymous mode
 - Simple Auth that `code` is provided through the configured Webhook URL.
-- Use AAD Auth:
+- Use AAD Auth, check [here](howto-use-managed-identity.md) for details.
    - Step1: Enable Identity for the Web PubSub service
    - Step2: Select from existing AAD application that stands for your webhook web app
 
