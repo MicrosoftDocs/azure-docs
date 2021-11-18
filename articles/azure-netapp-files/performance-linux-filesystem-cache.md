@@ -57,7 +57,7 @@ The kernel flusher thread is responsible for asynchronously flushing dirty buffe
 
 Considering the default virtual memory tunables and the amount of RAM in modern systems, write-back potentially slows down other storage-bound operations from the perspective of the specific client driving this mixed workload.  The following symptoms may be expected from an untuned, write-heavy, cache-laden Linux machine.  
 
-* Directory lists `ls` take long enough as to appear hung.
+* Directory lists `ls` take long enough as to appear unresponsive.
 * Read throughput against the filesystem decreases significantly in comparison to write throughput.
 * `nfsiostat` reports write latencies **in seconds or higher**.
 

@@ -3,8 +3,8 @@ title: Pipeline extension - Azure Video Analyzer
 description: Azure Video Analyzer allows you to extend the pipeline processing capabilities through a pipeline extension node. This article describes the pipeline extension node.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 03/30/2021
-
+ms.date: 11/04/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Pipeline extension
@@ -15,9 +15,11 @@ Video Analyzer supports the following pipeline extension processors:
 
 * [HTTP extension processor](pipeline.md#http-extension-processor) 
 * [gRPC extension processor](pipeline.md#grpc-extension-processor)
-* [Cognitive Services extension processor](pipeline.md#cognitive-services-extension-processor) 
-	
-The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md)
+* [Cognitive Services extension processor](pipeline.md#cognitive-services-extension-processor)
+
+The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md).
+
+[!INCLUDE [available-features](./includes/available-features.md)]
 
 ## HTTP extension processor
 
@@ -45,12 +47,12 @@ The gRPC extension processor can be used for sending properties along with excha
 
 ## Cognitive Services extension processor
 
-Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis]../../cognitive-services/computer-vision/) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
+Cognitive Services extension processor (Microsoft built & supported AI) is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis](../../cognitive-services/computer-vision/overview.md) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
 
 Use Cognitive Services extension processor node when:
 
 * You want better interoperability with existing [Spatial Analysis operations](../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md).
-* Want to use all the benefits of gRPC protocol, accuracy, and performance of Microsoft built and supported AI.
+* Want to use all the benefits of gRPC protocol, accuracy, and performance of **Microsoft built and supported AI**.
 * Analyze multiple camera feeds at low latency and high throughput.
 
 ## Use your inferencing model
@@ -66,8 +68,6 @@ The diagram below depicts the high-level data flow:
 
 You can get started with one of our quickstarts that illustrate Video Analyzer with pre-built extension service at low frame rates with [HTTP extension processor](pipeline.md#http-extension-processor) or at high frame rates with [gRPC extension processor](pipeline.md#grpc-extension-processor).
 
-
 ## Next steps 
 
-Concept: [Event-based video recording](event-based-video-recording-concept.md)
-
+Concept: [Video recording](video-recording.md)

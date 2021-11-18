@@ -6,8 +6,8 @@ metadata:
   description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: cache
   ms.topic: landing-page
-  author: yegu-ms
-  ms.author: yegu
+  author: curib
+  ms.author: cauribeg
   ms.date: 12/16/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -22,8 +22,8 @@ landingContent:
             url: cache-overview.md
       - linkListType: video
         links:
-          - text: Best practices
-            url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
+         # - text: Best practices
+         #   url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
           - text: Improve performance
             url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
           - text: Security caching
@@ -34,8 +34,6 @@ landingContent:
         links:
           - text: Create an Enterprise tier cache
             url: quickstart-create-redis-enterprise.md
-          - text: Best practices for Azure Cache for Redis
-            url: cache-best-practices.md
           - text: Frequently asked questions
             url: cache-faq.yml
   - title: 'Quickstarts: Azure Cache for Redis'
@@ -66,6 +64,24 @@ landingContent:
         links:
           - text: Samples
             url: cache-redis-samples.md
+  - title: Best Practices
+    linkLists:
+      - linkListType: learn
+        links:
+         - text: Connection resilience
+           url: cache-best-practices-connection.md
+         - text: Server load management
+           url: cache-best-practices-server-load.md
+         - text: Memory management
+           url: cache-best-practices-memory-management.md
+         - text: Development
+           url: cache-best-practices-development.md
+         - text: Scaling
+           url: cache-best-practices-scale.md
+         - text: Kubernetes-hosted client applications
+           url: cache-best-practices-kubernetes.md
+         - text:  Performance testing
+           url: cache-best-practices-performance.md  
   - title: SDKs and command-lines
     linkLists:
       - linkListType: reference
@@ -97,4 +113,4 @@ landingContent:
           - text: Troubleshoot timeouts
             url: cache-troubleshoot-timeouts.md
           - text: Troubleshoot data loss issues
-            url: cache-troubleshoot-data-loss.md            
+            url: cache-troubleshoot-data-loss.md

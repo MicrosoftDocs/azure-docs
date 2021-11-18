@@ -91,7 +91,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 For modern customers with a Microsoft Customer Agreement, use the following call:
 
 ```http
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=&2020-08-05$top=1000&api-version=2019-10-01
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=2020-08-05&$top=1000&api-version=2019-10-01
 ```
 
 ### Get amortized cost details

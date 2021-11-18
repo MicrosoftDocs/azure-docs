@@ -8,7 +8,6 @@
   items:
   - name: Create JSON templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
-
   - name: Create JSON templates - portal
     href: quickstart-create-templates-use-the-portal.md
   - name: Create template specs
@@ -54,6 +53,9 @@
     - name: Deploy as linked template
       displayName: template specs
       href: template-specs-deploy-linked-template.md
+    - name: Create portal form
+      href: template-specs-create-portal-forms.md
+      displayName: UI,form,blade
   - name: Advanced templates
     items:
     - name: Use template reference
@@ -77,8 +79,6 @@
       href: template-tutorial-deploy-vm-extensions.md
     - name: Deploy SQL extensions
       href: template-tutorial-deploy-sql-extensions-bacpac.md
-    - name: Troubleshoot template deployment
-      href: template-tutorial-troubleshoot.md
   - name: Microsoft Learn path about templates
     href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Samples - Azure services
@@ -122,7 +122,7 @@
   - name: Blockchain
     items:
     - name: Blockchain
-      href: ../../blockchain/service/create-member-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: https://azure.microsoft.com/solutions/blockchain/?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
   - name: Compute
     items:
     - name: Batch
@@ -182,7 +182,7 @@
   - name: Integration
     items:
     - name: API for FHIR
-      href: ../../healthcare-apis/fhir/fhir-paas-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../healthcare-apis/fhir/fhir-service-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Logic Apps
@@ -252,7 +252,7 @@
     - name: Load Balancer - public
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: NAT gateway
-      href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Private Endpoint
       href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Private Link service
@@ -269,7 +269,7 @@
       href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault - secret
       href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Security Center
+    - name: Defender for Cloud
       href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Storage
     items:
@@ -347,16 +347,16 @@
     - name: Create multiple instances
       items:
       - name: Resources
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-resources.md
       - name: Properties
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-properties.md
       - name: Variables
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-variables.md
       - name: Outputs
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-outputs.md
   - name: Deploy templates
     items:
@@ -408,12 +408,26 @@
     - name: Pass sensitive values
       displayname: key vault
       href: key-vault-parameter.md
+  - name: Export templates
+    items:
+    - name: Azure CLI
+      href: export-template-cli.md
+    - name: Portal
+      href: export-template-portal.md
+    - name: PowerShell
+      href: export-template-powershell.md
   - name: Test templates
     items:
     - name: Test toolkit
       href: test-toolkit.md
-    - name: Test cases
-      href: test-cases.md
+    - name: Template test cases
+      href: template-test-cases.md
+    - name: Parameter file test cases
+      href: parameter-file-test-cases.md
+    - name: CreateUiDefinition test cases
+      href: createuidefinition-test-cases.md
+    - name: All files test cases
+      href: all-files-test-cases.md
   - name: Template specs
     items:
     - name: Create & deploy template specs
@@ -426,12 +440,6 @@
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
       href: deploy-github-actions.md
-  - name: Discover template properties
-    items:
-    - name: Export template
-      href: export-template-portal.md
-    - name: Discover resources
-      href: view-resources.md
   - name: Use authoring tools
     items:
     - name: Visual Studio
@@ -440,40 +448,6 @@
       href: update-visual-studio-deployment-script.md
     - name: IntelliJ IDEA
       href: create-templates-use-intellij.md
-  - name: Troubleshoot deployments
-    items:
-    - name: Troubleshoot deployment errors
-      href: common-deployment-errors.md
-    - name: AccountNameInvalid
-      href: error-storage-account-name.md
-    - name: DeploymentQuotaExceeded
-      href: deployment-quota-exceeded.md
-    - name: InvalidTemplate
-      href: error-invalid-template.md
-    - name: JobSizeExceeded
-      href: error-job-size-exceeded.md
-    - name: Linux deployment issues
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-linux
-    - name: NoRegisteredProviderFound
-      href: error-register-resource-provider.md
-    - name: NotFound
-      href: error-not-found.md
-    - name: ParentResourceNotFound
-      href: error-parent-resource.md
-    - name: Provisioning and allocation issues for Linux
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
-    - name: Provisioning and allocation issues for Windows
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
-    - name: RequestDisallowedByPolicy
-      href: error-policy-requestdisallowedbypolicy.md
-    - name: ReservedResourceName
-      href: error-reserved-resource-name.md
-    - name: ResourceQuotaExceeded
-      href: error-resource-quota.md
-    - name: SkuNotAvailable
-      href: error-sku-not-available.md
-    - name: Windows deployment issues
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-windows
 - name: Reference
   items:
   - name: Template reference

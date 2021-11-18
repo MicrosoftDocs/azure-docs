@@ -4,7 +4,7 @@ description: Overview of the sign-in logs in Azure Active Directory including ne
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -173,7 +173,7 @@ Non-interactive user sign-ins are sign-ins that were performed by a client app o
 
 - A client uses an OAuth 2.0 authorization code to get an access token and refresh token.
 
-- A user performs single sign-on (SSO) to a web or Windows app on an Azure AD joined PC.
+- A user performs single sign-on (SSO) to a web or Windows app on an Azure AD joined PC (without providing an authentication factor or interacting with an Azure AD prompt).
 
 - A user signs in to a second Microsoft Office app while they have a session on a mobile device using FOCI (Family of Client IDs).
 

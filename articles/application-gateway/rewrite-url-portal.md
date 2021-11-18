@@ -92,7 +92,7 @@ In the below example whenever the request URL contains */article*, the URL path 
 
    e. In the **URL query       string value**, enter the new value of the URL query string. In this       example, we will use **id={var_uri_path_1}&title={var_uri_path_2}**
     
-    `{var_uri_path_1}` and `{var_uri_path_1}` are used to fetch the substrings captured while evaluating the   condition in this expression `.*article/(.*)/(.*)`
+    `{var_uri_path_1}` and `{var_uri_path_2}` are used to fetch the substrings captured while evaluating the   condition in this expression `.*article/(.*)/(.*)`
     
    f. Select **OK**.
 

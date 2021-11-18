@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 09/02/2020
+  ms.date: 06/30/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -39,6 +39,10 @@ landingContent:
             url: ./afds/waf-faq.yml
           - text: What's new
             url: https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Web Application Firewall
+            url: /learn/modules/introduction-azure-web-application-firewall/
 
 
   # Card

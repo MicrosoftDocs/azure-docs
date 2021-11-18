@@ -1,24 +1,23 @@
 ---
-title: Quickstart – Microsoft Azure Confidential Ledger Python client library
-description: Learn to use the Microsoft Azure Confidential Ledger client library for Python
+title: Quickstart – Microsoft Azure confidential ledger Python client library
+description: Learn to use the Microsoft Azure confidential ledger client library for Python
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: "devx-track-python, devx-track-azurepowershell"
-
 ---
 
-# Quickstart: Microsoft Azure Confidential Ledger client library for Python
+# Quickstart: Microsoft Azure confidential ledger client library for Python
 
-Get started with the Microsoft Azure Confidential Ledger client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
+Get started with the Microsoft Azure confidential ledger client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
 
-Microsoft Azure Confidential Ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Confidential Ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamperproofing (to ensure all records are kept intact).
+Microsoft Azure confidential ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Azure confidential ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamperproofing (to ensure all records are kept intact).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-secrets/)
+[API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Package (Python Package Index) Client Library](https://pypi.org/project/azure-confidentialledger/)
 
 ## Prerequisites
 
@@ -44,13 +43,13 @@ Install the Azure Active Directory identity client library:
 pip install azure-identity
 ```
 
-Install the Confidential Ledger control plane client library.
+Install the Azure confidential ledger control plane client library.
 
 ```terminal
 pip install azure.mgmt.confidentialledger
 ```
 
-Install the Confidential Ledger data plane client library.
+Install the Azure confidential ledger data plane client library.
 
 ```terminal
 pip install azure.confidentialledger 
@@ -95,7 +94,7 @@ credential = DefaultAzureCredential()
 We'll finish setup by setting some variables for use in your application: the resource group (myResourceGroup), the name of ledger you want to create, and two urls to be used by the data plane client library.
 
   > [!Important]
-  > Each ledger must have a globally unique name. Replace <your-unique-keyvault-name> with the name of your ledger in the following example.
+  > Each ledger must have a globally unique name. Replace \<your-unique-keyvault-name\> with the name of your ledger in the following example.
 
 ```python
 resource_group = "myResourceGroup"
@@ -103,7 +102,7 @@ ledger_name = "<your-unique-ledger-name>"
 subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
-ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
+ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com"
 ```
 
 ### Use the control plane client library
@@ -144,7 +143,7 @@ confidential_ledger_mgmt.ledger.begin_create(resource_group, ledger_name, ledger
 To verify that your ledger was successfully created, view its details using the `get` function.
 
 ```python
-myledger = ledger = confidential_ledger_mgmt.ledger.get(resource_group, ledger_name)
+myledger = confidential_ledger_mgmt.ledger.get(resource_group, ledger_name)
 
 print("Here are the details of your newly created ledger:")
 print (f"- Name: {myledger.name}")
@@ -157,7 +156,7 @@ print (f"- ID: {myledger.id}")
 
 Now that we have a ledger, we'll interact with it using the data plane client library (azure.confidentialledger). 
 
-First, we will generate and save a Confidential Ledger certificate.  
+First, we will generate and save a confidential ledger certificate.  
 
 ```python
 identity_client = ConfidentialLedgerIdentityServiceClient(identity_url)
@@ -170,7 +169,7 @@ with open(ledger_tls_cert_file_name, "w") as cert_file:
     cert_file.write(network_identity.ledger_tls_certificate)
 ```
 
-Now we can use the network certificate, along with the ledger URL and our credentials, to create a Confidential Ledger client.
+Now we can use the network certificate, along with the ledger URL and our credentials, to create a confidential ledger client.
 
 ```python
 ledger_client = ConfidentialLedgerClient(
@@ -293,7 +292,7 @@ print(entry.contents)
 
 ## Clean up resources
 
-Other Microsoft Azure Confidential Ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
+Other Azure confidential ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
 Otherwise, when you're finished with the resources created in this article, use the Azure CLI [az group delete](/cli/azure/group?#az_group_delete) command to delete the resource group and all its contained resources:
 
@@ -303,4 +302,4 @@ az group delete --resource-group myResourceGroup
 
 ## Next steps
 
-- [Overview of Microsoft Azure Confidential Ledger](overview.md)
+- [Overview of Microsoft Azure confidential ledger](overview.md)

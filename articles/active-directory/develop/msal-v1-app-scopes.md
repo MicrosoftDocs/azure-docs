@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to learn scopes for a v1.0 application so I can decide if this platform meets my application development needs and requirements.
 ---
 
@@ -62,7 +62,7 @@ The logic used by Azure AD is the following:
 
 - For ADAL (Azure AD v1.0) endpoint with a v1.0 access token (the only possible), aud=resource
 - For MSAL (Microsoft identity platform) asking an access token for a resource accepting v2.0 tokens, `aud=resource.AppId`
-- For MSAL (v2.0 endpoint) asking an access token for a resource that accepts a v1.0 access token (which is the case above), Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier. Therefore, if https:\//database.windows.net expects an audience of "https:\//database.windows.net/", you'll need to request a scope of "https:\//database.windows.net//.default". See also GitHub issue [#747: Resource url's trailing slash is omitted, which caused sql auth failure](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+- For MSAL (v2.0 endpoint) asking an access token for a resource that accepts a v1.0 access token (which is the case above), Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier. Therefore, if `https://database.windows.net` expects an audience of `https://database.windows.net`, you'll need to request a scope of `https://database.windows.net//.default`. See also GitHub issue [#747: `Resource url's trailing slash is omitted, which caused sql auth failure`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## Scopes to request access to all the permissions of a v1.0 application
 
@@ -80,4 +80,6 @@ var scopes = [ ResourceId + "/.default"];
 
 ## Scopes to request for a client credential flow/daemon app
 
-In the case of client credential flow, the scope to pass would also be `/.default`. This tells to Azure AD: "all the app-level permissions that the admin has consented to in the application registration.
+For the standard client credentials flow, use `/.default`. For example, `https://graph.microsoft.com/.default`.
+
+Azure AD will automatically include all the app-level permissions the admin has consented to in the access token for the client credentials flow.

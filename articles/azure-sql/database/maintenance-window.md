@@ -7,9 +7,9 @@ ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 05/02/2021
+ms.date: 11/12/2021
 ---
 
 # Maintenance window (Preview)
@@ -33,12 +33,14 @@ The maintenance window can be configured on creation or for existing Azure SQL r
 
 ### Gain more predictability with maintenance window
 
-By default, Azure SQL maintenance policy blocks impactful updates during the period **8AM to 5PM local time every day** to avoid any disruptions during typical peak business hours. Local time is determined by the location of [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource and may observe daylight saving time in accordance with local time zone definition. 
+By default, Azure SQL maintenance policy blocks most impactful updates during the period **8AM to 5PM local time every day** to avoid any disruptions during typical peak business hours. Local time is determined by the location of [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource and may observe daylight saving time in accordance with local time zone definition. 
 
 You can further adjust the maintenance updates to a time suitable to your Azure SQL resources by choosing from two additional maintenance window slots:
  
-* Weekday window, 10PM to 6AM local time Monday - Thursday
-* Weekend window, 10PM to 6AM local time Friday - Sunday
+* **Weekday** window: 10:00 PM to 6:00 AM local time, Monday - Thursday
+* **Weekend** window: 10:00 PM to 6:00 AM local time, Friday - Sunday
+
+Maintenance window days listed indicate the starting day of each eight-hour maintenance window. For example, "10:00 PM to 6:00 AM local time, Monday – Thursday" means that the maintenance windows start at 10:00 PM local time on each day (Monday through Thursday) and complete at 6:00 AM local time the following day (Tuesday through Friday).
 
 Once the maintenance window selection is made and service configuration completed, planned maintenance will occur only during the window of your choice. While maintenance events typically complete within a single window, some of them may span two or more adjacent windows.   
 
@@ -61,7 +63,6 @@ Maintenance notifications can be configured to alert you on upcoming planned mai
 ### Supported service level objectives
 
 Choosing a maintenance window other than the default is available on all SLOs **except for**:
-* Hyperscale 
 * Instance pools
 * Legacy Gen4 vCore
 * Basic, S0 and S1 
@@ -71,25 +72,49 @@ Choosing a maintenance window other than the default is available on all SLOs **
 
 Choosing a maintenance window other than the default is currently available in the following regions:
 
-- Australia East
-- Australia SouthEast
-- Brazil South
-- Canada Central
-- Central US
-- East US
-- East US2
-- East Asia
-- Germany West Central
-- Japan East
-- NorthCentral US
-- North Europe
-- SouthCentral US
-- SouthEast Asia
-- UK South
-- UK West
-- West Europe
-- West US
-- West US2
+| Azure Region | SQL Managed Instance | SQL Database | SQL Database in an [Azure Availability Zone](high-availability-sla.md) | 
+|:---|:---|:---|:---|
+| Australia Central 1 | Yes | | |
+| Australia Central 2 | Yes | | |
+| Australia East | Yes | Yes | Yes |
+| Australia Southeast | Yes | Yes | |
+| Brazil South | Yes | Yes |  |
+| Canada Central | Yes | Yes | Yes |
+| Canada East | Yes | Yes | |
+| Central India | Yes | Yes | |
+| Central US | Yes | Yes | Yes |
+| China East 2 |Yes | Yes ||
+| China North 2 |Yes|Yes ||
+| East US | Yes | Yes | Yes |
+| East US 2 | Yes | Yes | Yes |
+| East Asia | Yes | Yes | |
+| France Central | Yes | Yes | |
+| France South | Yes | Yes | |
+| Germany West Central | Yes | Yes |  |
+| Germany North | Yes |  |  |
+| Japan East | Yes | Yes | Yes |
+| Japan West | Yes | Yes | |
+| Korea Central | Yes | | |
+| Korea South | Yes | | |
+| North Central US | Yes | Yes | |
+| North Europe | Yes | Yes | Yes |
+| South Africa North | Yes | | | 
+| South Africa West | Yes | | | 
+| South Central US | Yes | Yes | Yes |
+| South India | Yes | Yes | |
+| Southeast Asia | Yes | Yes | Yes |
+| Switzerland North | Yes | Yes | |
+| Switzerland West | Yes | | |
+| UAE Central | Yes | | |
+| UAE North | Yes | | |
+| UK South | Yes | Yes | Yes |
+| UK West | Yes | Yes | |
+| West Central US | Yes | Yes | |
+| West Europe | Yes | Yes | Yes |
+| West India | Yes | | |
+| West US | Yes | Yes |  |
+| West US 2 | Yes | Yes | Yes |
+| | | | | 
 
 ## Gateway maintenance for Azure SQL Database
 
@@ -101,7 +126,7 @@ To get the maximum benefit from maintenance windows, make sure your client appli
 
 For more on the client connection policy in Azure SQL Database, see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy). 
 
-For more on the client connection policy in Azure SQL Managed Instance see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
+For more on the client connection policy in Azure SQL Managed Instance, see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
 
 ## Considerations for Azure SQL Managed Instance
 
@@ -115,7 +140,7 @@ Expected duration of configuring maintenance window on managed instance can be c
 > A short reconfiguration happens at the end of the maintenance operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of the reconfiguration you should schedule the operation outside of the peak hours.
 
 ### IP address space requirements
-Each new virtual cluster in subnet requires additional IP addresses according to the [virtual cluster IP address allocation](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). Changing maintenance window for existing managed instance also requires [temporary additional IP capacity](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios) as in scaling vCores scenario for corresponding service tier.
+Each new virtual cluster in subnet requires additional IP addresses according to the [virtual cluster IP address allocation](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). Changing maintenance window for existing managed instance also requires [temporary additional IP capacity](../managed-instance/vnet-subnet-determine-size.md#update-scenarios) as in scaling vCores scenario for corresponding service tier.
 
 ### IP address change
 Configuring and changing maintenance window causes change of the IP address of the instance, within the IP address range of the subnet.
@@ -124,13 +149,15 @@ Configuring and changing maintenance window causes change of the IP address of t
 >  Make sure that NSG and firewall rules won't block data traffic after IP address change. 
 
 ### Serialization of virtual cluster management operations
+
 Operations affecting the virtual cluster, like service upgrades and virtual cluster resize (adding new or removing unneeded compute nodes) are serialized. In other words, a new virtual cluster management operation cannot start until the previous one is completed. In case that maintenance window closes before the ongoing service upgrade or maintenance operation is completed, any other virtual cluster management operations submitted in the meantime will be put on hold until next maintenance window opens and service upgrade or maintenance operation completes. It is not common for a maintenance operation to take longer than a single window per virtual cluster, but it can happen in case of very complex maintenance operations.
+
 The serialization of virtual cluster management operations is general behavior that applies to the default maintenance policy as well. With a maintenance window schedule configured, the period between two adjacent windows can be few days long. Submitted operations can also be on hold for few days if the maintenance operation spans two windows. That is very rare case, but creation of new instances or resize of the existing instances (if additional compute nodes are needed) may be blocked during this period.
 
 ## Next steps
 
-* [Advance notifications](advance-notifications.md)
 * [Configure maintenance window](maintenance-window-configure.md)
+* [Advance notifications](advance-notifications.md)
 
 ## Learn more
 

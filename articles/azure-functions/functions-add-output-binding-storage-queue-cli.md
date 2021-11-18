@@ -34,6 +34,10 @@ Before you begin, you must complete the article, [Quickstart: Create an Azure Fu
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 
+::: zone pivot="programming-language-csharp"  
+## Register binding extensions
+::: zone-end 
+
 [!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
 [!INCLUDE [functions-add-output-binding-cli](../../includes/functions-add-output-binding-cli.md)]

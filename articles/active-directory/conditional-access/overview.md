@@ -10,7 +10,7 @@ ms.date: 01/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -55,7 +55,7 @@ Common signals that Conditional Access can take in to account when making a poli
    - Users attempting to access specific applications can trigger different Conditional Access policies. 
 - Real-time and calculated risk detection
    - Signals integration with Azure AD Identity Protection allows Conditional Access policies to identify risky sign-in behavior. Policies can then force users to perform password changes or multi-factor authentication to reduce their risk level or be blocked from access until an administrator takes manual action.
-- Microsoft Cloud App Security (MCAS)
+- Microsoft Defender for Cloud Apps
    - Enables user application access and sessions to be monitored and controlled in real time, increasing visibility and control over access to and activities performed within your cloud environment.
 
 ## Common decisions
@@ -95,5 +95,5 @@ Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescr
 - [Building a Conditional Access policy piece by piece](concept-conditional-access-policies.md)
 - [Plan your Conditional Access deployment](plan-conditional-access.md)
 - [Learn about Identity Protection](../identity-protection/overview-identity-protection.md)
-- [Learn about Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
+- [Learn about Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)
 - [Learn about Microsoft Intune](/intune/index)

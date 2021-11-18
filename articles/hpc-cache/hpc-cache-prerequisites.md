@@ -4,8 +4,8 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/06/2021
-ms.author: v-erkel
+ms.date: 11/03/2021
+ms.author: rohogue
 ---
 
 # Prerequisites for Azure HPC Cache
@@ -75,6 +75,26 @@ A simple DNS server also can be used to load balance client connections among al
 
 Learn more about Azure virtual networks and DNS server configurations in [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
+### NTP access
+
+The HPC Cache needs access to an NTP server for regular operation. If you restrict outbound traffic from your virtual networks, make sure to allow traffic to at least one NTP server. The default server is time.windows.com, and the cache contacts this server on UDP port 123.
+
+Create a rule in your cache network's [network security group](../virtual-network/network-security-groups-overview.md) that allows outbound traffic to your NTP server. The rule can simply allow all outbound traffic on UDP port 123, or have more restrictions.
+
+This example explicitly opens outbound traffic to the IP address 168.61.215.74, which is the address used by time.windows.com.
+
+| Priority | Name | Port | Protocol | Source | Destination   | Action |
+|----------|------|------|----------|--------|---------------|--------|
+| 200      | NTP  | Any  | UDP      | Any    | 168.61.215.74 | Allow  |
+
+Make sure that the NTP rule has a higher priority than any rules that broadly deny outbound access.
+
+Additional tips for NTP access:
+
+* If you have firewalls between your HPC Cache and the NTP server, make sure these firewalls also allow NTP access.
+
+* You can configure which NTP server your HPC Cache uses on the **Networking** page. Read [Configure additional settings](configuration.md#customize-ntp) for more information.
+
 ## Permissions
 
 Check these permission-related prerequisites before starting to create your cache.
@@ -88,7 +108,7 @@ Check these permission-related prerequisites before starting to create your cach
 ## Storage infrastructure
 <!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-The cache supports Azure Blob containers, NFS hardware storage exports, and NFS-mounted ADLS blob containers (currently in preview). Add storage targets after you create the cache.
+The cache supports Azure Blob containers, NFS hardware storage exports, and NFS-mounted ADLS blob containers. Add storage targets after you create the cache.
 
 The size of your cache determines how many storage targets it can support - up to 10 storage targets for most caches, or up to 20 for the largest sizes. Read [Size your cache correctly to support your storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) for details.
 
@@ -99,7 +119,7 @@ Each storage type has specific prerequisites.
 If you want to use Azure Blob storage with your cache, you need a compatible storage account and either an empty Blob container or a container that is populated with Azure HPC Cache formatted data as described in [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
 > [!NOTE]
-> Different requirements apply to NFS-mounted blob storage. Read [ADLS-NFS storage requirements](#nfs-mounted-blob-adls-nfs-storage-requirements-preview) for details.
+> Different requirements apply to NFS-mounted blob storage. Read [ADLS-NFS storage requirements](#nfs-mounted-blob-adls-nfs-storage-requirements) for details.
 
 Create the account before attempting to add a storage target. You can create a new container when you add the target.
 
@@ -117,7 +137,7 @@ It's a good practice to use a storage account in the same Azure region as your c
 You also must give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
 
 ### NFS storage requirements
-<!-- linked from configuration.md -->
+<!-- linked from configuration.md and add storage -->
 
 If using an NFS storage system (for example, an on-premises hardware NAS system), make sure it meets these requirements. You might need to work with the network administrators or firewall managers for your storage system (or data center) to verify these settings.
 
@@ -166,14 +186,11 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
 * NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
 
-### NFS-mounted blob (ADLS-NFS) storage requirements (PREVIEW)
+### NFS-mounted blob (ADLS-NFS) storage requirements
 
 Azure HPC Cache also can use a blob container mounted with the NFS protocol as a storage target.
 
-> [!NOTE]
-> NFS 3.0 protocol support for Azure Blob storage is in public preview. Availability is restricted, and features might change between now and when the feature becomes generally available. Do not use preview technology in production systems.
->
-> Read more about this preview feature in [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support.md).
+Read more about this feature in [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support.md).
 
 The storage account requirements are different for an ADLS-NFS blob storage target and for a standard blob storage target. Follow the instructions in [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md) carefully to create and configure the NFS-enabled storage account.
 

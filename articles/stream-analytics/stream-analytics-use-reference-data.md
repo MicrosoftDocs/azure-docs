@@ -113,7 +113,7 @@ It is recommended to use reference datasets which are less than 300 MB for best 
 |3   |150 MB or lower   |
 |6 and beyond   |5 GB or lower.    |
 
-Support for compression is not available for reference data. For reference datasets larger than 300 MB, it is recommended to use Azure SQL Database as the source with [delta query](https://docs.microsoft.com/azure/stream-analytics/sql-reference-data#delta-query) option for optimal performance. If delta query is not used in such scenarios, you will see in spikes in watermark delay metric every time the reference dataset is refreshed. 
+Support for compression is not available for reference data. For reference datasets larger than 300 MB, it is recommended to use Azure SQL Database as the source with [delta query](./sql-reference-data.md#delta-query) option for optimal performance. If delta query is not used in such scenarios, you will see in spikes in watermark delay metric every time the reference dataset is refreshed. 
 
 ## Joining multiple reference datasets in a job
 You can join only one stream input with one reference data input in a single step of your query. However, you can join multiple reference datasets by breaking down your query into multiple steps. An example is shown below.

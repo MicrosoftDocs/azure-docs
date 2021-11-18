@@ -3,7 +3,7 @@ title: How to connect to an Azure Lab Services VM from Chromebook | Microsoft Do
 description: Learn how to connect from a Chromebook to a virtual machine in Azure Lab Services.
 services: devtest-lab, lab-services, virtual-machines
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: nicolela
 ---

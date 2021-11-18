@@ -239,7 +239,7 @@ az login
 
 ## 5. Deploy the app
 
-1. **Run** `az webapp up` in your local folder. **Replace** <app-name> with a globally unique name.
+1. **Run** `az webapp up` in your local folder. **Replace** \<app-name\> with a globally unique name.
 
     ```azurecli
     az webapp up --sku F1 --name <app-name> --os-type linux

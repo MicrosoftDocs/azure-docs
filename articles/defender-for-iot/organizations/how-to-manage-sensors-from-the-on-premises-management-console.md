@@ -1,7 +1,7 @@
 ---
 title: Manage sensors from the on-premises management console 
-description: Learn how to manage sensors from the management console, including updating sensor versions, pushing system settings to sensors, and enabling and disabling engines on sensors.
-ms.date: 04/22/2021
+description: Learn how to manage sensors from the management console, including updating sensor versions, pushing system settings to sensors, managing certificates, and enabling and disabling engines on sensors.
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -33,7 +33,7 @@ You can define the following sensor system settings from the management console:
 
 - Port aliases
 
-To apply system settings:
+**To apply system settings**:
 
 1. On the console's left pane, select **System Settings**.
 
@@ -57,15 +57,21 @@ To apply system settings:
 
 1. Select **Save**.
 
-## Update versions
+## Update sensor versions
 
 You can update several sensors simultaneously from the on-premises management console.
 
-To update several sensors:
+### Update sequence
+
+When upgrading an on-premises management console and managed sensors, first update the management console, and then update the sensors. The sensor update process will not succeed if you do not update the on-premises management console first.
+
+**To update several sensors**:
+
+1. Verify that you have already updated the on-premises management console to the version that you are updating the sensors. For more information on-premises management console update see, [Update the software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to Azure Defender for IoT.
+1. Navigate to Microsoft Defender for IoT.
 
 1. Go to the **Updates** page.
 
@@ -73,7 +79,7 @@ To update several sensors:
 
 1. Select **Download** from the **Sensors** section and save the file.
 
-1. Sign in to the management console and select **System Settings**.
+1. Sign in to the management console, and select **System Settings**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/admin-system-settings.png" alt-text="Screenshot of the Administration menu to select System Settings.":::
 
@@ -83,9 +89,10 @@ To update several sensors:
 
 1. Select **Save Changes**.
 
-1. On the sensor, select **System Settings**, and then select **Update**.
+1. On the management console, select **System Settings**.
+1. Under the Sensor version update section, select the :::image type="icon" source="../media/how-to-manage-sensors-from-the-on-premises-management-console/add-icon.png" border="false"::: button.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the update pane.":::
+    :::image type="content" source="../media/how-to-manage-sensors-from-the-on-premises-management-console/sendor-version-update-window.png" alt-text="In the Sensor version update window select the + icon to update all of the sensors connected to the management console.":::
 
 9. An **Upload File** dialog box opens. Upload the file that you downloaded from the **Updates** page.
 
@@ -99,7 +106,7 @@ You can monitor the update status of each sensor in the **Site Management** wind
 
 You can view the update status of your sensors from the management console. If the update failed, you can reattempt to update the sensor from the on-premises management console (versions 2.3.5 and on).
 
-To update the sensor from on-premises management console:
+**To update the sensor from on-premises management console:**
 
 1. Sign in to the on-premises management console, and navigate to the **Sites Management** page.
 
@@ -117,9 +124,9 @@ If you are unable to update the sensor, contact customer support for assistance.
 
 The data package for threat intelligence is provided with each new Defender for IoT version, or if needed between releases. The package contains signatures (including malware signatures), CVEs, and other security content. 
 
-You can manually upload this file from the Defender for IoT portal's **Updates** page and automatically update it to sensors. 
+You can manually upload this file in the Azure portal and automatically update it to sensors. 
 
-To update the threat intelligence data: 
+**To update the threat intelligence data:**
 
 1. Go to the Defender for IoT **Updates** page. 
 
@@ -162,7 +169,7 @@ Sensors are protected by five Defender for IoT engines. You can enable or disabl
 | Operational engine | This engine detects operational incidents or malfunctioning entities. | `Device is Suspected to be Disconnected (Unresponsive)` alert. This alert triggered when a device is not responding to any requests for a predefined period. It might indicate a device shutdown, disconnection, or malfunction.
 |
 
-To enable or disable engines for connected sensors:
+**To enable or disable engines for connected sensors:**
 
 1. In the console's left pane, select **System Settings**.
 
@@ -226,7 +233,7 @@ When you exceed the retained number of backups defined, the oldest backed-up fil
 
 Sensor backup files are automatically named in the following format: `<sensor name>-backup-version-<version>-<date>.tar`. For example: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`. 
 
-To back up sensors:
+**To back up sensors:**
 
 1. Select **Schedule Sensor Backup** from the **System Settings** window. Sensors that your on-premises management console manages appear in the **Sensor Backup Schedule** dialog box.  
 
@@ -246,7 +253,7 @@ To back up sensors:
 
 1. Select **Save**. 
 
-To back up immediately: 
+**To back up immediately:**
 
 - Select **Back Up Now**. The on-premises management console creates and collects sensor backup files. 
 
@@ -272,7 +279,7 @@ You can send an email notification, syslog updates, and system notifications whe
 
 You can restore backups from the on-premises management console and by using the CLI.  
 
-To restore from the console: 
+**To restore from the console:**
 
 - Select **Restore Image** from the **Sensor System** setting window.
 
@@ -286,7 +293,7 @@ To restore by using the CLI:
 
 ### Save a sensor backup to an external SMB server
 
-To set up an SMB server so you can save a sensor backup to an external drive: 
+**To set up an SMB server so you can save a sensor backup to an external drive:**
 
 1. Create a shared folder in the external SMB server. 
 

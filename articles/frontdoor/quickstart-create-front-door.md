@@ -12,8 +12,7 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom:
-  - mode-portal
+ms.custom: mode-portal
 # Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
@@ -131,7 +130,7 @@ Finally, add a routing rule. A routing rule maps your frontend host to the backe
     :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Add a rule to your Front Door":::
 
    >[!WARNING]
-   > You **must** ensure that each of the frontend hosts in your Front Door has a routing rule with a default path (`\*`) associated with it. That is, across all of your routing rules there must be at least one routing rule for each of your frontend hosts defined at the default path (`\*`). Failing to do so may result in your end-user traffic not getting routed correctly.
+   > You **must** ensure that each of the frontend hosts in your Front Door has a routing rule with a default path (`/*`) associated with it. That is, across all of your routing rules there must be at least one routing rule for each of your frontend hosts defined at the default path (`/*`). Failing to do so may result in your end-user traffic not getting routed correctly.
 
 1. Select **Review + Create**, and then **Create**.
 

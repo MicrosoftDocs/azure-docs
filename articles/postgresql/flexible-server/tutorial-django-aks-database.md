@@ -27,7 +27,7 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *django-project* using the [az-group-create](/cli/azure/groupt#az_group_create) command  in the *eastus* location.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *django-project* using the [az-group-create](/cli/azure/group#az_group_create) command  in the *eastus* location.
 
 ```azurecli-interactive
 az group create --name django-project --location eastus
@@ -54,7 +54,7 @@ The following example output shows the resource group created successfully:
 
 ## Create AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *djangoappcluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
 az aks create --resource-group django-project --name djangoappcluster --node-count 1 --generate-ssh-keys
@@ -106,9 +106,11 @@ The server created has the below attributes:
 
 
 ## Build your Django docker image
-To use the sample docker image with this tutorial, please go to [**Create Kubernetes manifest file**](./tutorial-django-aks-database.md#create-kubernetes-manifest-file) section. If using an existing [Django application](https://docs.djangoproject.com/en/3.1/intro/), follow the steps described in this section.
 
-Here is sample django project folder structure:
+Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) or use your existing Django project. Make sure your code is in this folder structure. 
+
+> [!NOTE] 
+> If you don't have an application you can go directly to [**Create Kubernetes manifest file**](./tutorial-django-aks-database.md#create-kubernetes-manifest-file) to use our sample image, [mksuni/django-aks-app:latest](https://hub.docker.com/r/mksuni/django-aks-app). 
 
 ```
 └───my-djangoapp
@@ -200,7 +202,7 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 >If you are using Azure container regdistry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
 >
 >```azurecli-interactive
->az aks update -n myAKSCluster -g django-project --attach-acr <your-acr-name>
+>az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
 > ```
 >
 
@@ -208,9 +210,9 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. Let's create a manifest file named ```djangoapp.yaml``` and copy in the following YAML definition. 
 
-### Update the sample manifest file 
--  Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with the demo sample app ```mksuni/django-aks-app:latest``` in the manifest file. You can see the code of this file [here](https://github.com/mksuni/django-aks-app).If using a different docker image for a custom application, please use provide the correct docker image name and tag. 
-- Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USER```, ```YOUR-DATABASE-PASSWORD``` of your postgres flexible server.
+>[!IMPORTANT]
+> - Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with your actual Django docker image name and tag, for example ```docker-hub-user/myblog:latest```.  You can use the demo sample app ```mksuni/django-aks-app:latest``` in the manifest file.
+> - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your postgres flexible server.
 
 ```yaml
 apiVersion: apps/v1
@@ -236,7 +238,7 @@ spec:
         - name: DATABASE_HOST
           value: "SERVERNAME.postgres.database.azure.com"
         - name: DATABASE_USER
-          value: "YOUR-DATABASE-USER"
+          value: "YOUR-DATABASE-USERNAME"
         - name: DATABASE_PASSWORD
           value: "YOUR-DATABASE-PASSWORD"
         - name: DATABASE_NAME

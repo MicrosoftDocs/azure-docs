@@ -7,7 +7,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 6/23/2021
+ms.date: 08/03/2021
 ---
 
 # Troubleshoot read-only access to Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -45,11 +45,9 @@ continue to work.
   on the worker nodes, and/or
 * [Rebalance data](howto-hyperscale-scale-rebalance.md) to other nodes, or drop
   some data.
-	* You'll need to set the worker node as read-write temporarily. Submit a
-	  support request to do this. Alternately, if you're running a preview
-	  Hyperscale (Citus) server group you can connect directly to worker nodes
-	  and use `SET SESSION CHARACTERISTICS` as described above for the
-	  coordinator node.
+	* You'll need to set the worker node as read-write temporarily. You can
+	  connect directly to worker nodes and use `SET SESSION CHARACTERISTICS` as
+	  described above for the coordinator node.
 
 ## Prevention
 

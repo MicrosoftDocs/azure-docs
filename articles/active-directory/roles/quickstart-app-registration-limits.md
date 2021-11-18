@@ -34,8 +34,9 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Create a custom role
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
-1. Select **Azure Active Directory**, select **Roles and administrators**, and then select **New custom role**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Roles and administrators** and then select **New custom role**.
 
     ![Create or edit roles from the Roles and administrators page](./media/quickstart-app-registration-limits/new-custom-role.png)
 
@@ -51,9 +52,12 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Assign the role
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
-1. Select **Azure Active Directory** and then select **Roles and administrators**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Roles and administrators**.
+
 1. Select the Application Registration Creator role and select **Add assignment**.
+
 1. Select the desired user and click **Select** to add the user to the role.
 
 Done! In this quickstart, you successfully created a custom role with permission to create an unlimited number of app registrations, and then assign that role to a user.
@@ -171,6 +175,6 @@ Body
 
 ## Next steps
 
-- Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+- Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 - For more about Azure AD roles, see [Azure AD built-in roles](permissions-reference.md).
 - For more about default user permissions, see [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md).

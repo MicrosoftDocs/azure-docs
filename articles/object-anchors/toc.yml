@@ -22,6 +22,8 @@
       href: quickstarts/get-started-unity-hololens.md
     - name: HoloLens with MRTK
       href: quickstarts/get-started-unity-hololens-mrtk.md
+    - name: In-depth MRTK walkthrough
+      href: quickstarts/in-depth-mrtk-walkthrough.md
     - name: Upgrade to Unity 2020
       href: quickstarts/upgrade-unity-quickstart-to-2020.md
     - name: Starting a new Unity HoloLens app
@@ -44,8 +46,6 @@
   items:
   - name: Azure Mixed Reality Resource Management REST API
     href: /rest/api/mixedreality/
-  - name: Detect a difficult object
-    href: detect-difficult-object.md
   - name: FAQ
     href: faq.md
   - name: Model conversion error codes
@@ -56,3 +56,9 @@
     href: https://stackoverflow.com/questions/tagged/azure-object-anchors
   - name: Visualize a converted model
     href: visualize-converted-model.md
+- name: Troubleshooting
+  items:
+  - name: Detect a difficult object
+    href: detect-difficult-object.md
+  - name: Troubleshooting object detection
+    href: troubleshoot/object-detection.md

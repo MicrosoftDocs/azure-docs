@@ -129,7 +129,7 @@ The following steps show how to prepare the public IP for the configuration move
                     },
          ```
 
-         For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](./virtual-network-public-ip-address.md).
+         For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](./ip-services/virtual-network-public-ip-address.md).
 
     * **Public IP allocation method** and **Idle timeout** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle timeout can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**:
 
@@ -156,7 +156,7 @@ The following steps show how to prepare the public IP for the configuration move
                 }            
          ```
 
-        For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](./virtual-network-public-ip-address.md).
+        For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](./ip-services/virtual-network-public-ip-address.md).
 
 
 9. Save the **\<resource-group-name>.json** file.

@@ -21,7 +21,7 @@ You can view and manage query packs in the Azure portal from the **Log Analytics
 You can set the permissions on a query pack when you view it in the Azure portal. Users require the following permissions to use query packs:
 
 - **Reader** - User can see and run all queries in the query pack.
-- **Contributer** - User can modify existing queries and add new queries to the query pack.
+- **Contributor** - User can modify existing queries and add new queries to the query pack.
 
 ## Default query pack
 A query pack, called **DefaultQueryPack** is automatically created in each subscription in a resource group called **LogAnalyticsDefaultResources** when the first query is saved. You can create queries in this query pack or create additional query packs depending on your requirements.
@@ -75,11 +75,8 @@ Each query in the query pack has the following properties.
 | related     | Related categories, resource types, and solutions for the query. Used for grouping and filtering in Log Analytics by the user to help locate their query. Each query can have up to ten of each type. Retrieve allowed values from  https://api.loganalytics.io/v1/metadata?select=resourceTypes,solutions,categories. |
 | tags        | Additional tags used by the user for sorting and filtering in Log Analytics. Each tag will be added to Category, Resource Type, and Solution when [grouping and filtering queries](queries.md#finding-and-filtering-queries). |
 
-
-
-
 ## Create a query pack
-The only way to currently install a query pack is with the REST API. 
+You can create a query pack in the Azure portal on the Log Analytics query packs blade or by using the REST API. 
 
 ### Create token
 You require a token for authentication of the API request. There are multiple methods to get a token including using **armclient**.

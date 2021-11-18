@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure RingCentral for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to RingCentral.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure RingCentral for automatic user provisioning
@@ -34,6 +34,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [A RingCentral tenant](https://www.ringcentral.com/office/plansandpricing.html)
 * A user account in RingCentral with Admin permissions.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
+
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -42,6 +46,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure RingCentral to support provisioning with Azure AD
 
 A [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) admin account is required to Authorize in the Admin Credentials section in Step 5.
+
+In the RingCentral admin portal, under Account Settings -> Directory Integrations, set the *Directory Provider* setting to *SCIM*
+![image](https://user-images.githubusercontent.com/49566142/134523440-20320d8e-3c25-4358-9ace-d4888ce8e4ea.png)
+
 
 > [!NOTE]
 > To assign licenses to users, refer to the video link [here](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language).
@@ -143,6 +151,8 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * 09/10/2020 - Removed support for "displayName" and "manager" attributes.
 * 03/15/2021 - Updated authorization method from permanent bearer token to OAuth code grant flow.
+* 10/28/2021 - Updated default mapping to **mail-> emails[type eq “work”].value**.
+* 10/28/2021 - Rate limiting updated to 300/min for read, 1000/min for write.
 
 ## Additional resources
 

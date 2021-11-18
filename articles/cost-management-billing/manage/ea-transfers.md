@@ -6,7 +6,7 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 08/02/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -54,6 +54,9 @@ This section is for informational purposes only as the action cannot be performe
 
 When you request to transfer an entire enterprise enrollment to an enrollment, the following actions occur:
 
+- Usage transferred may take up to 72 hours to be reflected in the new enrollment.
+- If DA or AO view charges were enabled on the transferred enrollment, they must be enabled on the new enrollment.
+- If you are using API reports or Power BI, please generate a new API key under your new enrollment.
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
 - The enrollment status is set to _Transferred_. The transferred enrollment is available for historic usage reporting purposes only.
 - You can't add roles or subscriptions to a transferred enrollment. Transferred status prevents more usage against the enrollment.
@@ -80,6 +83,17 @@ Other points to keep in mind before an enrollment transfer:
 - Approval from both target and source enrollment EA Administrators is required.
 - If an enrollment transfer doesn't meet your requirements, consider an account transfer.
 - The source enrollment status will be updated to transferred and will only be available for historic usage reporting purposes.
+- There's no downtime during an enrollment transfer.
+- Usage may take up to 24 - 48 hours to be reflected in the target enrollment.
+- Cost view settings for Department Administrators or Account Owners don't carry over.
+  - If previously enabled, settings must be enabled for the target enrollment.
+- Any API keys used in the source enrollment must be regenerated for the target enrollment.
+- If the source and destination enrollments are on different cloud instances, the transfer will fail. Azure Support can transfer only within the same cloud instance.
+- For reservations (reserved instances):
+  - The enrollment or account transfer between different currencies affects monthly reservation purchases.
+  - Whenever there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. This is intentional and affects only the monthly reservation purchases.
+  - You may have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency.
+
 
 ### Auto enrollment transfer
 

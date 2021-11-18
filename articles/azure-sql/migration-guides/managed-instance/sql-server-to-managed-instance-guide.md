@@ -165,7 +165,7 @@ This guide describe the two most popular options - Azure Database Migration Serv
 
 To perform migrations using DMS, follow the steps below:
 
-1. Register the **Microsoft.DataMigration** resource provider in your subscription if you are performing this for the first time.
+1. [Register the **Microsoft.DataMigration** resource provider](../../../dms/quickstart-create-data-migration-service-portal.md#register-the-resource-provider) in your subscription if you are performing this for the first time.
 1. Create an Azure Database Migration Service Instance in a desired location of your choice (preferably in the same region as your target Azure SQL Managed Instance) and select an existing virtual network or create a new one to host your DMS instance.
 1. After creating your DMS instance, create a new migration project and specify the source server type as **SQL Server** and the target server type as **Azure SQL Database Managed Instance**. Choose the type of activity in the project creation blade - online or offline data migration. 
 1.  Specify the source SQL Server details on the **Migration source** details page and the target Azure SQL Managed Instance details on the **Migration target** details page. Select **Next**.
@@ -195,8 +195,8 @@ source SQL Server version you are running:
 |Step|SQL Engine and version|Backup/restore method|
 |---|---|---|
 |Put backup to Azure Storage|Prior to 2012 SP1 CU2|Upload .bak file directly to Azure Storage|
-| |2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql.md) syntax|
-| |2016 and above|Direct backup using [WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url.md)|
+| |2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql) syntax|
+| |2016 and above|Direct backup using [WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
 |Restore from Azure Storage to a managed instance| |[RESTORE FROM URL with SAS CREDENTIAL](../../managed-instance/restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
@@ -221,7 +221,7 @@ To migrate using backup and restore, follow these steps:
    ```
 1. Restore the backup from the Azure storage blob container. For example: 
 
-	```sql
+   ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
@@ -270,7 +270,7 @@ The test approach for database migration consists of the following activities:
 
 Be sure to take advantage of the advanced cloud-based features offered by SQL Managed Instance, such as [built-in high availability](../../database/high-availability-sla.md), [threat detection](../../database/azure-defender-for-sql.md), and [monitoring and tuning your workload](../../database/monitor-tune-overview.md). 
 
-[Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) allows you to monitor a large set of managed instances in a centralized manner.
+[Azure SQL Analytics](../../../azure-sql/database/monitor-tune-overview.md) allows you to monitor a large set of managed instances in a centralized manner.
 
 Some SQL Server features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
 

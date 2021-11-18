@@ -5,8 +5,6 @@
   items:
   - name: What are Cognitive Services?
     href: what-are-cognitive-services.md
-  - name: What's new in Cognitive Services docs?
-    href: whats-new-docs.md
   - name: Language support
     href: language-support.md
   - name: Pricing
@@ -22,6 +20,8 @@
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
     href: create-account-resource-manager-template.md  
+  - name: Create a new resource with commitment tier pricing 
+    href: commitment-tier.md  
 - name: How-To
   items:
   - name: Plan and manage costs 
@@ -70,6 +70,8 @@
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Authenticate requests to Cognitive Services
       href: authentication.md
+    - name: Configure data loss prevention
+      href: cognitive-services-data-loss-prevention.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json
     - name: Security controls by Azure Policy

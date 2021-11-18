@@ -3,7 +3,8 @@ metadata:
   title: Windows 10 Enterprise multi-session FAQ - Azure
   description: Frequently asked questions and best practices for using Windows 10 Enterprise multi-session for Azure Virtual Desktop.
   author: Heidilohr
-  ms.topic: conceptual
+  ms.topic: article
+  ms.prod: windows
   ms.date: 02/19/2020
   ms.author: helohr
   manager: femila
@@ -90,6 +91,11 @@ sections:
           4. Select **Store Application**.
           5. Select **Disabled**, then select **OK**.
           6. Select **Apply**.
+          
+      - question: Can Windows 10 or 11 Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
+        answer: |
+          Currently, WSUS can't provide feature updates to Windows 10 or 11 Enterprise multi-session.
+                   
           
 additionalContent: |
 

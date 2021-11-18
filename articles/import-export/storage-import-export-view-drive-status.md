@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 09/28/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
@@ -36,8 +36,8 @@ You see one of the following job statuses depending on where your drive is in th
 | Job Status | Description |
 |:--- |:--- |
 | Creating | After a job is created, its state is set to **Creating**. While the job is in the **Creating** state, the Import/Export service assumes the drives haven't been shipped to the data center. A job may remain in this state for up to two weeks, after which it's automatically deleted by the service. |
-| Shipping | After you ship your package, you should update the tracking information in the Azure portal.  Doing so turns the job into **Shipping** state. The job remains in the **Shipping** state for up to two weeks. 
-| Received | After all drives are received at the data center, the job state is set to **Received**. |
+| Shipping | After you ship your package, you should update the tracking information in the Azure portal. Doing so turns the job into **Shipping** state. The job remains in the **Shipping** state for up to two weeks.<br>When a job reaches Shipping state, it can no longer be canceled.
+| Received | After all drives are received at the data center, the job state is set to **Received**.</br>The job status may change 1 to 3 business days after the carrier delivers the device, when order processing completes in the datacenter. |
 | Transferring | Once at least one drive has begun processing, the job state is set to **Transferring**. For more information, go to [Drive States](#view-drive-status). |
 | Packaging | After all drives have completed processing, the job is placed in **Packaging** state until the drives are shipped back to you. |
 | Completed | After all drives are shipped back to you, if the job has completed without errors, then the job is set to **Completed**. The job is automatically deleted after 90 days in the **Completed** state. |

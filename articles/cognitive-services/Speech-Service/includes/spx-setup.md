@@ -1,10 +1,11 @@
 ---
-author: v-demjoh
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
-ms.author: v-demjoh
+ms.author: eric-urban
+ms.custom: ignite-fall-2021
 ---
 
 ## Download and install
@@ -28,7 +29,7 @@ Type `spx` to see help for the Speech CLI.
 ### Font limitations
 
 On Windows, the Speech CLI can only show fonts available to the command prompt on the local computer.
-[Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) supports all fonts produced interactively by the Speech CLI.
+[Windows Terminal](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701) supports all fonts produced interactively by the Speech CLI.
 
 If you output to a file, a text editor like Notepad or a web browser like Microsoft Edge can also show all fonts.
 
@@ -39,7 +40,7 @@ The following Linux distributions are supported for x64 architectures using the 
 * CentOS 7/8
 * Debian 9/10 
 * Red Hat Enterprise Linux (RHEL) 7/8
-* Ubuntu 16.04/18.04/20.04
+* Ubuntu 16.04 (until September), Ubuntu 18.04/20.04
 
 > [!NOTE]
 > Additional architectures are supported by the Speech SDK (not the Speech CLI). For more information, see [About the Speech SDK](../speech-sdk.md).
@@ -65,8 +66,11 @@ Type `spx` to see help for the Speech CLI.
 
 #### [Docker Install (Windows, Linux, macOS)](#tab/dockerinstall)
 
-> [!WARNING]
+> [!IMPORTANT]
 > You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
+
+> [!NOTE]
+> The following example pulls a public container image from Docker Hub. We recommend that you authenticate with your Docker Hub account (`docker login`) first instead of making an anonymous pull request. To improve reliability when using public content, import and manage the image in a private Azure container registry. [Learn more about working with public images](../../../container-registry/buffer-gate-public-content.md).
 
 Follow these steps to install the Speech CLI in a Docker container:
 
@@ -166,16 +170,3 @@ Follow these instructions to create a shortcut:
 > If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
 --->
 ***
-
-## Create subscription config
-
-To start using the Speech CLI, you need to enter your Speech subscription key and region identifier. 
-Get these credentials by following steps in [Try the Speech service for free](../overview.md#try-the-speech-service-for-free).
-Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
-
-```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
-```
-
-Your subscription authentication is now stored for future SPX requests. If you need to remove either of these stored values, run `spx config @region --clear` or `spx config @key --clear`.

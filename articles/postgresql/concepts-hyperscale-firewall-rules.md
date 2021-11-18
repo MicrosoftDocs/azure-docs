@@ -1,20 +1,28 @@
 ---
-title: Firewall rules - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: This article describes firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus).
+title: Public access - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: This article describes public access for Azure Database for PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 9/12/2019
+ms.date: 10/15/2021
 ---
-# Firewall rules in Azure Database for PostgreSQL - Hyperscale (Citus)
+
+# Public access in Azure Database for PostgreSQL - Hyperscale (Citus)
+
+[!INCLUDE [azure-postgresql-hyperscale-access](../../includes/azure-postgresql-hyperscale-access.md)]
+
+This page describes the public access option. For private access, see
+[here](concepts-hyperscale-private-access.md).
+
+## Firewall overview
+
 Azure Database for PostgreSQL server firewall prevents all access to your Hyperscale (Citus) coordinator node until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.
 To configure your firewall, you create firewall rules that specify ranges of acceptable IP addresses. You can create firewall rules at the server level.
 
 **Firewall rules:** These rules enable clients to access your Hyperscale (Citus) coordinator node, that is, all the databases within the same logical server. Server-level firewall rules can be configured by using the Azure portal. To create server-level firewall rules, you must be the subscription owner or a subscription contributor.
 
-## Firewall overview
 All database access to your coordinator node is blocked by the firewall by default. To begin using your server from another computer, you need to specify one or more server-level firewall rules to enable access to your server. Use the firewall rules to specify which IP address ranges from the Internet to allow. Access to the Azure portal website itself is not impacted by the firewall rules.
 Connection attempts from the Internet and Azure must first pass through the firewall before they can reach your PostgreSQL Database, as shown in the following diagram:
 

@@ -13,6 +13,8 @@ ms.author: cynthn
 ---
 # Install and configure xrdp to use Remote Desktop with Ubuntu
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://xrdp.org)) for your Linux VM running Ubuntu.
 
 The article was writen and tested using an Ubuntu 18.04 VM. 
@@ -44,6 +46,7 @@ Next, install xfce using `apt` as follows:
 ```bash
 sudo apt-get update
 sudo apt-get -y install xfce4
+sudo apt install xfce4-session
 ```
 
 ## Install and configure a remote desktop server

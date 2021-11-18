@@ -3,7 +3,7 @@ title: How to use Azure Storage for SQL Server backup and restore | Microsoft Do
 description: Learn how to back up SQL Server to Azure Storage. Explains the benefits of backing up SQL databases to Azure Storage.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
+author: rajeshsetlem
 tags: azure-service-management
 
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
-ms.author: mathoma
-
+ms.author: rsetlem
+ms.reviewer: mathoma
 ---
 # Use Azure Storage for SQL Server backup and restore
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,7 +47,7 @@ The following Azure components are used when backing up to Azure Blob storage.
 
 | Component | Description |
 | --- | --- |
-| **Storage account** |The storage account is the starting point for all storage services. To access Azure Blob storage, first create an Azure Storage account. For more information about Azure Blob storage, see [How to use Azure Blob storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
+| **Storage account** |The storage account is the starting point for all storage services. To access Azure Blob storage, first create an Azure Storage account. SQL Server is agnostic to the type of storage redundancy used. Backup to Page blobs and block blobs is supported for every storage redundancy (LRS\ZRS\GRS\RA-GRS\RA-GZRS\etc.). For more information about Azure Blob storage, see [How to use Azure Blob storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Container** |A container provides a grouping of a set of blobs, and can store an unlimited number of Blobs. To write a SQL Server backup to Azure Blob storage, you must have at least the root container created. |
 | **Blob** |A file of any type and size. Blobs are addressable using the following URL format: `https://<storageaccount>.blob.core.windows.net/<container>/<blob>`. For more information about page Blobs, see [Understanding Block and Page Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
 

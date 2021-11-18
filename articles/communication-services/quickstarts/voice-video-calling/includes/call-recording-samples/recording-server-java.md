@@ -19,12 +19,12 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 and above)](https://nodejs.org/en/download/)
-- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 11 or above.
+- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 11 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - [Spring boot framework v- 2.5.0](https://spring.io/projects/spring-boot)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to record your resource **connection string** for this quickstart.
-- An Azure storage account and container, for details, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). You'll need to record your **connection string** and **container name** for this quickstart.
-- An [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) Web hook.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- An Azure storage account and container, for details, see [Create a storage account](../../../../../storage/common/storage-account-create.md?tabs=azure-portal). You'll need to record your **connection string** and **container name** for this quickstart.
+- An [Azure Event Grid](../../../../../event-grid/overview.md) Web hook.
 
 ## Object model
 
@@ -96,9 +96,27 @@ Use the server call ID received during initiation of the call.
 URI recordingStateCallbackUri = new URI("<CallbackUri>");
 
 Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
-.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri),null);
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), null, null);
 ```
 The `startRecordingWithResponse` API response contains the recording ID of the recording session.
+
+## Start recording session with StartRecordingOptions using 'startRecordingWithResponse' server API
+
+Use the server call ID received during initiation of the call.
+
+- RecordingContent is used to pass the recording content type. Ex: AUDIO/AUDIO_VIDEO.
+- RecordingChannel is used to pass the recording channel type. Ex: MIXED/UNMIXED.
+- RecordingFormat is used to pass the format of the recording. Ex: MP4/MP3/WAV.
+
+```java
+URI recordingStateCallbackUri = new URI("<CallbackUri>");
+StartRecordingOptions recordingOptions = new StartRecordingOptions();
+recordingOptions.setRecordingContent(RecordingContent.AUDIO_VIDEO);
+recordingOptions.setRecordingChannel(RecordingChannel.MIXED);
+recordingOptions.setRecordingFormat(RecordingFormat.MP4);
+Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), recordingOptions, null);
+```
 
 ## Stop recording session using 'stopRecordingWithResponse' server API
 
@@ -129,7 +147,7 @@ Response<Void> response = this.callingServerClient.initializeServerCall(serverCa
 
 ## Download recording File using 'downloadToWithResponse' server API
 
-Use an [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
+Use an [Azure Event Grid](../../../../../event-grid/overview.md) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
 Below is an example of the event schema.
 

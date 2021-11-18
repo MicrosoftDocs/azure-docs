@@ -52,11 +52,11 @@ For more information on secrets attributes, see [About Azure Key Vault secrets](
 
 If you click on the current version, you can see the value you specified in the previous step.
 
-![Secret properties](../media/quick-create-portal/current-version-hidden.png)
+:::image type="content" source="../media/quick-create-portal/current-version-hidden.png" alt-text="Secret properties":::
 
 By clicking "Show Secret Value" button in the right pane, you can see the hidden value. 
 
-![Secret value appeared](../media/quick-create-portal/current-version-shown.png)
+:::image type="content" source="../media/quick-create-portal/current-version-shown.png" alt-text="Secret value appeared":::
 
 You can also use [Azure CLI](), or [Azure PowerShell]() to retrieve previously created secret.
 

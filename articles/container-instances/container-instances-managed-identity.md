@@ -273,13 +273,13 @@ az container exec \
 
 Run the following commands in the bash shell in the container. First log in to the Azure CLI using the managed identity:
 
-```bash
+```azurecli
 az login --identity
 ```
 
 From the running container, retrieve the secret from the key vault:
 
-```bash
+```azurecli
 az keyvault secret show \
   --name SampleSecret \
   --vault-name mykeyvault --query value
@@ -287,7 +287,7 @@ az keyvault secret show \
 
 The value of the secret is retrieved:
 
-```bash
+```output
 "Hello Container Instances"
 ```
 
@@ -353,7 +353,7 @@ A user-assigned identity is a resource ID of the form
 
 You can enable one or more user-assigned identities.
 
-```YAML
+```yaml
 identity:
   type: UserAssigned
   userAssignedIdentities:
@@ -362,7 +362,7 @@ identity:
 
 ### System-assigned identity
 
-```YAML
+```yaml
 identity:
   type: SystemAssigned
 ```
@@ -371,7 +371,7 @@ identity:
 
 On a container group, you can enable both a system-assigned identity and one or more user-assigned identities.
 
-```YAML
+```yml
 identity:
   type: SystemAssigned, UserAssigned
   userAssignedIdentities:

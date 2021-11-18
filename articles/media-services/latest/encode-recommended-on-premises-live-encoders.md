@@ -23,6 +23,8 @@ In Azure Media Services, a [Live Event](/rest/api/media/liveevents) (channel) re
 
   > [!TIP]
   > Using a pass-through method is the most economical way to do live streaming.
+  > The service supports a basic and standard pass-through mode depending on your ingest requirements. 
+  > The basic pass-through is the most economical, but is limited in capabilities. 
  
 * An on-premises live encoder sends a single-bitrate stream to the Live Event that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The Live Event then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream.
 

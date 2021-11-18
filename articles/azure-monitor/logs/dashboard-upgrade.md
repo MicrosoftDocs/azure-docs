@@ -4,7 +4,7 @@ description: Learn how to upgrade your Log Analytics Dashboard visualizations wi
 ms.topic: article
 author: rboucher
 ms.author: robb
-ms.date: 07/01/2020
+ms.date: 10/27/2021
 ---
 
 # Upgrading your Log Analytics Dashboard visualizations

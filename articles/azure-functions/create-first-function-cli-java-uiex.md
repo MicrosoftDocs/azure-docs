@@ -106,7 +106,7 @@ In Azure Functions, a function project is a container for one or more individual
 <summary><strong>What's created in the LocalFunctionProj folder?</strong></summary>
 
 This folder contains various files for the project, such as *Function.java*, *FunctionTest.java*, and *pom.xml*. There are also configurations files named
-[local.settings.json](functions-run-local.md#local-settings-file) and
+[local.settings.json](functions-develop-local.md#local-settings-file) and
 [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets
 downloaded from Azure, the file is excluded from source control by default in the *.gitignore*
 file.

@@ -32,7 +32,16 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 1. Make sure the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
+    Linux applications attempting to use private endpoints additionally require that the app be explicitly configured to have all traffic route through the virtual network. This requirement will be removed in a forthcoming update. To set this, use the following CLI command:
+
+    ```azurecli
+    az webapp config set --subscription <sub> -g <rg> -n <appname> --generic-configurations '{"vnetRouteAllEnabled": true}'
+    ```
+
 2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
+
+> [!NOTE]
+> Windows container currently does not support Key Vault references over VNet Integration.
 
 ### Access vaults with a user-assigned identity
 
@@ -76,7 +85,7 @@ Alternatively:
 
 ## Rotation
 
-If a version is not specified in the reference, then the app will use the latest version that exists in Key Vault. When newer versions become available, such as with a rotation event, the app will automatically update and begin using the latest version within one day. Any configuration changes made to the app will cause an immediate update to the latest versions of all referenced secrets.
+If a version is not specified in the reference, then the app will use the latest version that exists in the key vault. When newer versions become available, such as with a rotation event, the app will automatically update and begin using the latest version within 24 hours. The delay is because App Service caches the values of the key vault references and refetches it every 24 hours. Any configuration changes to the app causes an immediate refetch of all referenced secrets.
 
 ## Source Application Settings from Key Vault
 
@@ -206,7 +215,7 @@ An example pseudo-template for a function app might look like the following:
 ```
 
 > [!NOTE] 
-> In this example, the source control deployment depends on the application settings. This is normally unsafe behavior, as the app setting update behaves asynchronously. However, because we have included the `WEBSITE_ENABLE_SYNC_UPDATE_SITE` application setting, the update is synchronous. This means that the source control deployment will only begin once the application settings have been fully updated.
+> In this example, the source control deployment depends on the application settings. This is normally unsafe behavior, as the app setting update behaves asynchronously. However, because we have included the `WEBSITE_ENABLE_SYNC_UPDATE_SITE` application setting, the update is synchronous. This means that the source control deployment will only begin once the application settings have been fully updated. For more app settings, see [Environment variables and app settings in Azure App Service](reference-app-settings.md).
 
 ## Troubleshooting Key Vault References
 

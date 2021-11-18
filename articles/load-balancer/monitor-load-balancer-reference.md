@@ -33,7 +33,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 ## Metric dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 Load Balancer has the following dimensions associated with its metrics.
 
@@ -85,7 +85,7 @@ The following table lists the operations related to Load Balancer that may be cr
 | Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of virtual machine scale set can reference the probe. Not alertable. |
 | Microsoft.Network/loadBalancers/virtualMachines/read | Gets references to all the virtual machines under a load balancer |
 
-For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
+For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md). 
 
 ## See Also
 

@@ -49,8 +49,9 @@ Granting the update permission is done in two steps:
 >[!NOTE]
 > Custom roles are created and managed at an organization-wide level and are available only from the organization's Overview page.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
-1. Select **Azure Active Directory**, select **Roles and administrators**, and then select **New custom role**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Roles and administrators** and then select **New custom role**.
 
     ![Add a new custom role from the roles list in Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
@@ -68,8 +69,10 @@ Granting the update permission is done in two steps:
 
 ### Assign the role to a user using the Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
-1. Select **Azure Active Directory** and then select **Roles and administrators**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Roles and administrators**.
+
 1. Select the **Grant permissions to manage user and group assignments** role.
 
     ![Open Roles and Administrators and search for the custom role](./media/custom-enterprise-apps/select-custom-role.png)

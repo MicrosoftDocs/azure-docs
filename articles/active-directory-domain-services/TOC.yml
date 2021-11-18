@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Create a replica set
       href: tutorial-create-replica-set.md
+    - name: Perform a disaster recovery drill
+      href: tutorial-perform-disaster-recovery-drill.md
     - name: Create a customized managed domain
       href: tutorial-create-instance-advanced.md
     - name: Create a forest trust
@@ -165,6 +167,6 @@
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/active-directory-ds/
     - name: Azure AD feedback forum
-      href: https://feedback.azure.com/forums/169401-azure-active-directory
+      href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
     - name: Use Azure AD Domain Services in Azure CSP subscriptions
       href: csp.md
