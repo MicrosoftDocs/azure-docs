@@ -135,7 +135,7 @@ POST https://[servicename].search.windows.net/indexes?api-version=[api-version]
 }
 ```
 
-### [**.NET SDK**](#tab/index-dotnet)
+### [**.C#**](#tab/index-csharp)
 
 The Azure SDK for .NET has [**SearchIndexClient**](/dotnet/api/azure.search.documents.indexes.searchindexclient) with methods for creating and updating indexes.
 
