@@ -4,11 +4,18 @@
   items:
     - name: About Azure Container Apps
       href: overview.md
+    - name: Compare container options in Azure
+      href: compare-options.md
 - name: Quickstarts
   expanded: true
-  items:
+  items: 
     - name: Deploy your first container app
-      href: get-started.md
+      expanded: true
+      items:
+        - name: Azure portal
+          href: quickstart-portal.md
+        - name: Azure CLI
+          href: get-started.md  
 - name: Concepts
   items:
     - name: Environment

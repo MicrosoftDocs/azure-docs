@@ -3,7 +3,7 @@ title: Viewing of videos - Azure Video Analyzer
 description: You can use Azure Video Analyzer for continuous video recording, whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via event-based recording. In addition, when using Video Analyzer service to capture videos from cameras, you can stream the video as it is being captured. This article talks about how to view such videos.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 09/30/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Viewing of videos

@@ -1,5 +1,5 @@
 ---
-title: Playbook for addressing common security requirements 
+title: Playbook for addressing common security requirements
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: This article provides common security requirements and best practices in Azure SQL Database and Azure SQL Managed Instance.
 ms.service: sql-db-mi
@@ -620,7 +620,7 @@ DDoS protection is automatically enabled as part of the Azure Platform. It inclu
 - The Advanced Threat Protection **Brute force SQL credentials** alert helps to detect brute force attacks. In some cases, the alert can even distinguish penetration testing workloads.
 
 - For Azure VM hosting applications connecting to SQL Database:
-  - Follow recommendation to Restrict access through Internet-facing endpoints in Azure Security Center.
+  - Follow recommendation to Restrict access through Internet-facing endpoints in Microsoft Defender for Cloud.
   - Use virtual machine scale sets to run multiple instances of your application on Azure VMs.
   - Disable RDP and SSH from Internet to prevent brute force attack.
 
@@ -642,7 +642,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **Best practices**:
 
-- Configure [Azure Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Azure Defender for SQL for all servers and managed instances in a subscription by enabling [Azure Defender](../../security-center/security-center-pricing.md).
+- Configure [Microsoft Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Microsoft Defender for SQL for all servers and managed instances in a subscription by enabling [Microsoft Defender for Cloud](../../security-center/security-center-pricing.md).
 
 - For a full investigation experience, it's recommended to enable [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
 
@@ -729,7 +729,7 @@ Discover columns that potentially contain sensitive data. What is considered sen
 
 - Continuously monitor the status of recommended sensitive data in SQL Vulnerability Assessment. Track the sensitive data discovery rule and identify any drift in the recommended columns for classification.  
 
-- Use classification in a way that is tailored to the specific needs of your organization. Customize your Information Protection policy (sensitivity labels, information types, discovery logic) in the [SQL Information Protection](../../security-center/security-center-info-protection-policy.md) policy in Azure Security Center.
+- Use classification in a way that is tailored to the specific needs of your organization. Customize your Information Protection policy (sensitivity labels, information types, discovery logic) in the [SQL Information Protection](../../security-center/security-center-info-protection-policy.md) policy in Microsoft Defender for Cloud.
 
 ### Track access to sensitive data
 
@@ -752,7 +752,7 @@ Use a unified infrastructure security management system that strengthens the sec
 
 **How to implement**:
 
-- Monitor SQL-related security recommendations and active threats in [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/).
+- Monitor SQL-related security recommendations and active threats in [Microsoft Defender for Cloud](https://azure.microsoft.com/documentation/services/security-center/).
 
 ## Common security threats and potential mitigations
 

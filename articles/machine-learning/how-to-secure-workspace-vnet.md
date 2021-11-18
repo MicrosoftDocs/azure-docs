@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 09/22/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
 
@@ -217,7 +217,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 1. Create an Azure Machine Learning compute cluster. This is used to build Docker images when ACR is behind a VNet. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
 
-1. Use the Azure Machine Learning Python SDK to configure the workspace to build Docker images using the compute instance. The following code snippet demonstrates how to update the workspace to set a build compute. Replace `mycomputecluster` with the name of the cluster to use:
+1. Use the Azure Machine Learning Python SDK to configure the workspace to build Docker images using the compute cluster. The following code snippet demonstrates how to update the workspace to set a build compute. Replace `mycomputecluster` with the name of the cluster to use:
 
     ```python
     from azureml.core import Workspace
@@ -230,6 +230,8 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     ```
 
     > [!IMPORTANT]
+    > Only AzureML Compute cluster of CPU SKU is supported for the image build on compute.
+    > 
     > Your storage account, compute cluster, and Azure Container Registry must all be in the same subnet of the virtual network.
     
     For more information, see the [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.

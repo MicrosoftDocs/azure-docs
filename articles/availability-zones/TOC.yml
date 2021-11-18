@@ -1,7 +1,9 @@
 - name: Azure Resiliency
   items:
   - name: Azure Resiliency feature page
-    href: https://azure.microsoft.com/features/resiliency
+    href: https://azure.microsoft.com/features/
+  - name: Resiliency in Azure
+    href: overview.md   
   - name: Design resilient applications for Azure
     href: /azure/architecture/framework/resiliency/app-design
 - name: Availability Zones fundamentals
@@ -97,21 +99,26 @@
       items:
       - name: Create an Azure Active Directory Domain Services instance
         href: ../active-directory-domain-services/tutorial-create-instance.md
-  - name: Azure Orbital Documentation
-    items:
-    - name: What is Azure Orbital?
-      href: ../networking/azure-orbital-overview.md
+
 - name: Disaster Recovery
-  items:
+  items:  
+  - name: Business continuity management in Azure
+    href: business-continuity-management-program.md
+  - name: Cross-region replication in Azure
+    href: cross-region-replication-azure.md
   - name: Use Azure Site Recovery
     href: ../site-recovery/index.yml
-- name: Azure Backup
-  items:
   - name: Use Azure Backup
     href: ../backup/index.yml
+  - name: Microsoft Azure Well-Architected Framework
+    href: /azure/architecture/framework/  
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Azure Regions
     href: https://azure.microsoft.com/regions/
+- name: Azure Orbital Documentation
+  items:
+  - name: What is Azure Orbital?
+    href: ../networking/azure-orbital-overview.md

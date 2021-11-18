@@ -97,8 +97,6 @@
       - name: Compute platform
         href: compute-infrastructure.md
 
-
-
 - name: How-to guides
   items:
       - name: Define APIs
@@ -115,9 +113,11 @@
               href: websocket-api.md
             - name: Import a GraphQL API
               href: graphql-api.md
-            - name: Import a Web App
+            - name: Import an App Service web API
               href: import-app-service-as-api.md
-            - name: Import a Function App
+            - name: Import a Container App web API
+              href: import-container-app-with-oas.md
+            - name: Import a Function App web API
               href: import-function-app-as-api.md
             - name: Import a Logic App
               href: import-logic-app-as-api.md

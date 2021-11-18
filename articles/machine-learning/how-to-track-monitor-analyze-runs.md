@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
-ms.date: 04/19/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
 ---
