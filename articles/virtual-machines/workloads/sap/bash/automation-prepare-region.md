@@ -51,17 +51,17 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 az logout
 az login
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret=<password>
-tenant_id=<tenant>
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret="<password>"
+export tenant_id=<tenant>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
         --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
         --subscription $subscriptionID                                                                           \
         --spn_id $appID                                                                                          \
-        --spn_secret "$spn_secret"                                                                               \ 
+        --spn_secret $spn_secret                                                                                 \ 
         --tenant_id $tenant
 ```
 
@@ -176,4 +176,4 @@ Licensed under the MIT license.
 
 ## Related Links
 
-+[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-hana)
++[GitHub repository: SAP deployment automation framework](https://github.com/Azure/sap-automation)

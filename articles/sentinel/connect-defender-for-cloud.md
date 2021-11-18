@@ -2,8 +2,6 @@
 title: Connect security alerts to Microsoft Sentinel
 description: Learn how to connect security alerts from Microsoft Defender for Cloud and stream them into Microsoft Sentinel.
 author: yelevin
-manager: rkarlin
-ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin

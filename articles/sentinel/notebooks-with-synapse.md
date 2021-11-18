@@ -1,10 +1,8 @@
 ---
 title: Large-scale security analytics using Microsoft Sentinel notebooks and Azure Synapse integration
 description: This article describes how run big data queries in Azure Synapse Analytics with Microsoft Sentinel notebooks.
-services: sentinel
 author: batamig
 ms.author: bagol
-ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021

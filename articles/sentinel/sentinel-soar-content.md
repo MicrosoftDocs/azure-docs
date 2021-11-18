@@ -1,16 +1,7 @@
 ---
 title: Azure Sentinel SOAR content catalog | Microsoft Docs
 description: This article displays and details the content provided by Azure Sentinel for security orchestration, automation, and response (SOAR), including playbooks and Logic Apps connectors.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-
-ms.assetid:
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2021
 ms.author: yelevin

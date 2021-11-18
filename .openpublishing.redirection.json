@@ -47313,7 +47313,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-disable-add-on.md",
-      "redirect_url": "/azure/aks/open-service-mesh-deploy-addon-az-cli",
+      "redirect_url": "/azure/aks/oopen-service-mesh-uninstall-add-on",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
+      "redirect_url": "/azure/aks/open-service-mesh-azure-monitor",
       "redirect_document_id": false
     },
     {
