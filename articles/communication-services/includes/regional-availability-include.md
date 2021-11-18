@@ -7,4 +7,4 @@ ms.author: rifox
 ms.custom: references_regions
 ---
 > [!IMPORTANT]
-> Phone number availability is currently restricted to Azure subscriptions that have a billing address in the United States. For more information, visit the [Phone number types](../concepts/telephony-sms/plan-solution.md) documentation.
+> Phone number availability is currently restricted to Azure subscriptions that have a billing address in the United States (incluing Puerto Rico), United Kingdom or Ireland. For more information, visit the [Phone number types](../concepts/telephony-sms/plan-solution.md) documentation.
