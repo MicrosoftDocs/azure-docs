@@ -61,7 +61,7 @@ This table summarizes the availability of the sensor data on supported platforms
 | **BLE beacons** | Yes<sup>6</sup> | Yes<sup>6</sup> | Yes<sup>6</sup>|
 
 
-<sup>1</sup> An external GPS device can be associated with HoloLens. Contact [our support](../spatial-anchor-support.md) if you'd be willing to use HoloLens with a GPS tracker.<br/>
+<sup>1</sup> An external GPS device can be associated with HoloLens. Handle the [UpdatedSensorFingerprintRequired](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updatedsensorfingerprintrequired) event to submit [GeoLocation](/dotnet/api/microsoft.azure.spatialanchors.geolocation) readings if you are using HoloLens with an external GPS tracker.<br/>
 <sup>2</sup> Supported through [LocationManager][3] APIs (both GPS and NETWORK).<br/>
 <sup>3</sup> Supported through [CLLocationManager][4] APIs.<br/>
 <sup>4</sup> Supported at a rate of approximately one scan every 3 seconds. <br/>

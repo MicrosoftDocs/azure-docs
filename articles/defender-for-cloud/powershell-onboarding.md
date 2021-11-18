@@ -3,7 +3,7 @@ title: Onboard to Microsoft Defender for Cloud with PowerShell
 description: This document walks you through the process of enabling Microsoft Defender for Cloud with PowerShell cmdlets.
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.author: memildin
