@@ -37,6 +37,13 @@ items:
 - name: How-to guides
   expanded: true
   items:
+    - name: Access using Postman
+      href: ../use-postman.md  
+    - name: Access using cURL
+      href: ../using-curl.md
+    - name: Access using REST Client
+      href: ../using-rest-client.md
+      
   - name: Search
     expanded: true
     items:
