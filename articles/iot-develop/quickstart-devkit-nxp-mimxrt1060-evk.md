@@ -204,7 +204,7 @@ Keep Termite open to monitor device output in the following steps.
 
 * Hardware
 
-  * The [Microchip ATSAME54-XPro](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
+  * The [NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK) (NXP EVK)
   * USB 2.0 A male to Micro USB male cable
   * Wired Ethernet access
   * Ethernet cable
