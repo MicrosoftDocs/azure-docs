@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Find and download logs for your load test  
 
-In this article, you'll learn how to find and download logs for your load test on **Azure Portal**.  
+In this article, you'll learn how to find and download logs for your load test on **Azure portal**.  
 
 In this article you'll learn how to:  
 
@@ -24,7 +24,7 @@ In this article you'll learn how to:
 ## Prerequisites  
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-- You need an Azure Load Testing Resource already created. If you need to create a Load Test Resource, see [How to create the Load Test Resource](./quickstart-create-and-run-load-test.md).  
+- You need an Azure Load Testing Resource already created. If you need to create a Load Test Resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).  
 - You must have a valid test created with at least one test run completed. You can also use the sample test plan and the app in our tutorial. See [how-to-identify-bottlenecks-azure-portal](./tutorial-identify-bottlenecks-azure-portal.md).  
 
 ## Access and download logs for your load test  
