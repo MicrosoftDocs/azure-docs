@@ -74,7 +74,7 @@ func indoorManager(
 
 The screenshot below shows the above code displaying an indoor map.
 
-![Indoor map example](/media/ios-sdk/indoor-maps/indoor.png)
+![A screenshot that displays an indoor map created using the above sample code.](./media/ios-sdk/indoor-maps/indoor.png)
 
 ## Additional information
 
