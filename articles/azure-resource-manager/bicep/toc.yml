@@ -106,6 +106,8 @@
       items:
       - name: Configuration set
         href: patterns-configuration-set.md
+      - name: Logical parameter
+        href: patterns-logical-parameter.md
       - name: Name generation
         href: patterns-name-generation.md
       - name: Shared variable file

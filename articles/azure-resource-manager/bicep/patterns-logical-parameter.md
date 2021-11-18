@@ -34,7 +34,7 @@ In this example, you define a parameter that specifies the list of subnets that 
 
 ::: code language="bicep" source="code/patterns-logical-parameter/virtual-network.bicep" range="4-15" :::
 
-The Bicep file then defines a variable to convert each of the logical subnet definitions to the subnet definition required by Azure:
+The Bicep file then defines a variable to convert each of the logical subnet definitions to the subnet definition required by Azure. The network security group is assigned to the subnet when the `allowRdp` property is set to `true`.
 
 ::: code language="bicep" source="code/patterns-logical-parameter/virtual-network.bicep" range="17-25" :::
 
@@ -76,7 +76,7 @@ Within the module, the tenant-specific resources are deployed.
 
 ## Considerations
 
-<!-- TODO -->
+<!-- TODO -->   
 Be careful with which properties you expose vs. assume
 Can test by just creating the variable (without the resource) and exposing as an output
 Particularly helpful with modules
