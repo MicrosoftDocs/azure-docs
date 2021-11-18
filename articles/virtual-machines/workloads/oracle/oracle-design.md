@@ -16,45 +16,36 @@ ms.reviewer: tigorman
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-## Assumptions
+Suppose you're planning to migrate an Oracle database from an on-premises location to Azure. You have the [Diagnostics Pack](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) or the [Automatic Workload Repository](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) for the Oracle Database you're looking to migrate. Further, you have an understanding of the various metrics in Oracle, and you have a baseline understanding of application performance and platform utilization.
 
-- You're planning to migrate an Oracle database from on-premises to Azure.
-- You have the [Diagnostics Pack](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) or the [Automatic Workload Repository](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) for the Oracle Database you're looking to migrate
-- You have an understanding of the various metrics in Oracle.
-- You have a baseline understanding of application performance and platform utilization.
+This article helps you understand how to optimize your Oracle deployment in Azure. You explore performance tuning options for an Oracle database in an Azure environment. And you develop clear expectations about the limits of physical tuning through architecture, the advantages of logical tuning of database code, and the overall database design.
 
-## Goals
+## Differences between the two environments 
 
-- Understand how to optimize your Oracle deployment in Azure.
-- Explore performance tuning options for an Oracle database in an Azure environment.
-- Have clear expectations between the limits of physical tuning through architecture and advantages or logical tuning of database code, (SQL) and the overall database design.
+When you're migrating on-premises applications to Azure, keep in mind a few important differences between the two environments. 
 
-## The differences between an on-premises and Azure implementation 
-
-Following are some important things to keep in mind when you're migrating on-premises applications to Azure. 
-
-One important difference is that in an Azure implementation, resources such as VMs, disks, and virtual networks are shared among other clients. In addition, resources can be throttled based on the requirements. Instead of focusing on avoiding failing (MTBF), Azure is more focused on surviving the failure (MTTR).
+One important difference is that in an Azure implementation, resources such as VMs, disks, and virtual networks are shared among other clients. In addition, resources can be throttled based on the requirements. Instead of focusing on avoiding failing (sometimes referred to as *mean time between failures*, or MTBF), Azure is more focused on surviving the failure (sometimes referred to as *mean time to recovery*, or MTTR).
 
 The following table lists some of the differences between an on-premises implementation and an Azure implementation of an Oracle database.
-
 
 |  | On-premises implementation | Azure implementation |
 | --- | --- | --- |
 | **Networking** |LAN/WAN  |SDN (software-defined networking)|
-| **Security group** |IP/port restriction tools |[Network Security Group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-| **Resilience** |MTBF (mean time between failures) |MTTR (mean time to recovery)|
+| **Security group** |IP/port restriction tools |[Network security group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
+| **Resilience** |MTBF |MTTR |
 | **Planned maintenance** |Patching/upgrades|[Availability sets](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (patching/upgrades managed by Azure) |
 | **Resource** |Dedicated  |Shared with other clients|
 | **Regions** |Datacenters |[Region pairs](../../regions.md#region-pairs)|
 | **Storage** |SAN/physical disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 | **Scale** |Vertical scale |Horizontal scale|
 
-
 ### Requirements
 
-- Determine the real CPU usage, as Oracle is licensed by core, sizing the vCPU needs can be an essential exercise to cost savings. 
+It's a good idea to consider the following requirements before you start your migration:
+
+- Determine the real CPU usage. Oracle is licensed by core, which means that sizing the vCPU needs can be an essential exercise to help you reduce costs. 
 - Determine the database size, backup storage, and growth rate.
-- Determine the IO requirements, which you can estimate based on Oracle Statspack and AWR reports or from OS level storage monitoring tools.
+- Determine the IO requirements, which you can estimate based on Oracle Statspack and Automatic Workload Repository (AWR) reports. You can also estimate the requirements from storage monitoring tools available from the operating system.
 
 ## Configuration options
 
@@ -67,11 +58,13 @@ There are four potential areas that you can tune to improve performance in an Az
 
 ### Generate an AWR report
 
-If you have an existing an Oracle Enterprise Edition database and are planning to migrate to Azure, you have several options. If you have the [Diagnostics Pack](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) for your Oracle instances, you can run the Oracle AWR report to get the metrics (IOPS, Mbps, GiBs, and so on). For those databases without the Diagnostics Pack license or for a Standard Edition database, the same important metrics can be collected with a Statspack report after manual snapshots have been collected.  The main difference between these two reporting methods is that AWR is automatically collected and provides more information about the database than it's predecessor reporting option of Statspack.
+If you have an existing an Oracle Enterprise Edition database and are planning to migrate to Azure, you have several options. If you have the [Diagnostics Pack](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) for your Oracle instances, you can run the Oracle AWR report to get the metrics (such as IOPS, Mbps, and GiBs). For those databases without the Diagnostics Pack license, or for a Standard Edition database, you can collect the same important metrics with a Statspack report after manual snapshots have been collected. The main differences between these two reporting methods are that AWR is automatically collected, and that it provides more information about the database than does Statspack.
 
-You might consider running your AWR report during both regular and peak workloads, so you can compare. To collect the more accurate workload, consider an extended window report of one week, vs. a 24-hr run, and realize that AWR does provide averages as part of its calculations in the report.  For a datacenter migration, we recommend gathering reports for sizing on the production systems and estimate remaining database copies used for user testing, test, development, etc. by percentages (UAT equal to production, test, and development 50% of production sizing, etc.)
+You might consider running your AWR report during both regular and peak workloads, so you can compare. To collect the more accurate workload, consider an extended window report of one week, as opposed to one day. AWR does provide averages as part of its calculations in the report.
 
-By default, the AWR repository retains 8 days of data and takes snapshots on hourly intervals.  To run an AWR report from the command line, the following can be performed from a terminal:
+For a datacenter migration, it's a good idea to gather reports for sizing on the production systems. Estimate remaining database copies used for user testing, test, and development by percentages (for example, 50 percent of production sizing).
+
+By default, the AWR repository retains 8 days of data and takes snapshots at hourly intervals. To run an AWR report from the command line, use the following command:
 
 ```bash
 $ sqlplus / as sysdba
@@ -80,31 +73,32 @@ SQL> @$ORACLE_HOME/rdbms/admin/awrrpt.sql;
 
 ### Key metrics
 
-The report will prompt for the following information:
-- Report type: HTML or TEXT, (HTML in 12.1 and provides additional information than the TEXT format.)
-- The number of days of snapshots to display, (for one hour intervals, a one week report would be a 168 different in snapshot IDs)
-- The beginning SnapshotID for the report window.
-- The ending SnapshotId for the report window.
+The report prompts you for the following information:
+
+- Report type: HTML or TEXT. The HTML type provides more information.
+- The number of days of snapshots to display. For example, for one-hour intervals, a one-week report produces 168 snapshot IDs.
+- The beginning `SnapshotID` for the report window.
+- The ending `SnapshotID` for the report window.
 - The name of the report to be created by the AWR script.
 
-If running the AWR on a Real Application Cluster, (RAC)  the command line report is the awrgrpt.sql instead of awrrpt.sql.  The "g" report will create a report for all nodes in the RAC database in a single report vs. having to run one on each RAC node.
+If you're running the AWR report on a Real Application Cluster (RAC), the command line report is the *awrgrpt.sql* file, instead of *awrrpt.sql*. The `g` report creates a report for all nodes in the RAC database, in a single report. This report eliminates the need to run one report on each RAC node.
 
-Following are the metrics that you can obtain from the AWR report:
+You can obtain the following metrics from the AWR report:
 
-- Database Name, Instance Name and Host Name
-- Database Version, (supportability by Oracle)
+- Database name, instance name, and host name
+- Database version (supportability by Oracle)
 - CPU/Cores
-- SGA/PGA, (and advisors to let you know if undersized)
+- SGA/PGA (and advisors to let you know if undersized)
 - Total memory in GB
-- CPU % Busy
+- CPU percentage busy
 - DB CPUs
 - IOPs (read/write)
 - MBPs (read/write)
 - Network throughput
 - Network latency rate (low/high)
-- Top Wait Events 
-- Parameter settings for Database
-- Is database RAC, Exadata, using advanced features or configurations
+- Top wait events 
+- Parameter settings for database
+- Is the database RAC, Exadata, or using advanced features or configurations
 
 ### Virtual machine size
 
