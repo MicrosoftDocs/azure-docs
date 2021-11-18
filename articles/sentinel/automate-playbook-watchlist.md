@@ -4,7 +4,7 @@ description: Learn how to create a Microsoft Sentinel watchlist and playbook bas
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 11/18/2021
 ---
 
 # Use Microsoft Sentinel watchlists and playbooks together to automate activity
