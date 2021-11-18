@@ -82,7 +82,7 @@ az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGE
 
 ```azurepowershell
 $RegistryName = "<REGISTRY_NAME>"
-$ResourceGroup = (Get-AzContainerRegistry | where { $_.name -eq $RegistryName} ).ResourceGroupName
+$ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
 $ControllerRegistry = "k8s.gcr.io"
 $ControllerImage = "ingress-nginx/controller"
 $ControllerTag = "v1.0.4"
@@ -98,12 +98,12 @@ $CertManagerImageController = "jetstack/cert-manager-controller"
 $CertManagerImageWebhook = "jetstack/cert-manager-webhook"
 $CertManagerImageCaInjector = "jetstack/cert-manager-cainjector"
 
-Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $ControllerRegistry -SourceImage "${ControllerImage}:${ControllerTag}"
-Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $PatchRegistry -SourceImage "${PatchImage}:${PatchTag}"
-Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $DefaultBackendRegistry -SourceImage "${DefaultBackendImage}:${DefaultBackendTag}"
-Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageController}:${CertManagerTag}"
-Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageWebhook}:${CertManagerTag}"
-Import-AzContainerRegistryImage -ResourceGroup $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageCaInjector}:${CertManagerTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $ControllerRegistry -SourceImage "${ControllerImage}:${ControllerTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $PatchRegistry -SourceImage "${PatchImage}:${PatchTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $DefaultBackendRegistry -SourceImage "${DefaultBackendImage}:${DefaultBackendTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageController}:${CertManagerTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageWebhook}:${CertManagerTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageCaInjector}:${CertManagerTag}"
 
 ```
 
@@ -277,7 +277,7 @@ $PublicIp.DnsSettings = @{"DomainNameLabel" = "demo-aks-ingress"}
 $UpdatedPublicIp = Set-AzPublicIpAddress -PublicIpAddress $publicIp
 
 # Display the FQDN
-Write-Host $UpdatedPublicIp.DnsSettings.Fqdn
+Write-Output $UpdatedPublicIp.DnsSettings.Fqdn
 ```
 
 ---
@@ -708,4 +708,5 @@ You can also:
 [aks-supported versions]: supported-kubernetes-versions.md
 [aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
 [aks-integrated-acr-ps]: cluster-container-registry-integration.md?tabs=azure-powershell#create-a-new-aks-cluster-with-acr-integration
+[azure-powershell-install]: /powershell/azure/install-az-ps
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
