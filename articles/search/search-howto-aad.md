@@ -98,7 +98,7 @@ To assign a role to your app registration:
 1. On the next page, select **Select members** and find the application you created previously. 
 1. Finally, select **Review + assign**.
 
-![screenshot of how too add role assignment in the azure portal](media/search-howto-aad/role-assignment.png)
+![screenshot of how to add role assignment in the azure portal](media/search-howto-aad/role-assignment.png)
 
 You can also [assign roles using PowerShell](./search-security-rbac.md?tabs=config-svc-rest%2croles-powershell%2ctest-rest#step-3-assign-roles).
 
