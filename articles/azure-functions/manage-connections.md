@@ -81,7 +81,7 @@ http.request(options, onResponseCallback);
 
 # [C#](#tab/csharp)
 
-[CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](../cosmos-db/performance-tips-v3.md#sdk-usage). The following example shows one pattern for doing that in a function:
+[CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](../cosmos-db/performance-tips-dotnet-sdk-v3-sql.md#sdk-usage). The following example shows one pattern for doing that in a function:
 
 ```cs
 #r "Microsoft.Azure.Cosmos"
