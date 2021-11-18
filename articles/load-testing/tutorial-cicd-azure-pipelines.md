@@ -63,7 +63,7 @@ Before you start, make sure you have the directory of the cloned sample app open
  
 1. In your sample application repository, open *SampleApp.jmx* for editing.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/edit-jmx.png" alt-text="Screenshot that shows how to edit the JMeter test script.":::
+    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/edit-jmx.png" alt-text="Screenshot that shows how to edit the Apache JMeter test script.":::
 
 1. Search for `<stringProp name="HTTPSampler.domain">`.
 
@@ -179,7 +179,7 @@ First, you'll create a new pipeline and connect it to the sample application's f
 The Azure pipeline executes the following steps, for every update to the main branch:
 
 - Deploy the sample Node.js application to an Azure App Services web app. The name of the web app is configured in the pipeline definition.
-- Trigger Azure Load Testing to create and run the load test, based on the JMeter script and the test configuration YAML file in the repository.
+- Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration YAML file in the repository.
 
 In this section, you'll view the load test results in the pipeline log information.
 
@@ -262,7 +262,7 @@ Next, you'll parameterize your load test using pipeline variables. These variabl
     engineInstances: 1
     ```
 
-    The *SampleApp_Secrets.jmx* JMeter script uses a user-defined variable that contains a secret value. The value is defined with a custom function `{{__GetSecret(secretName)}}`.
+    The *SampleApp_Secrets.jmx* Apache JMeter script uses a user-defined variable that contains a secret value. The value is defined with a custom function `{{__GetSecret(secretName)}}`.
 
 1. Commit the changes to the YAML file.
 
@@ -283,7 +283,7 @@ Next, you'll parameterize your load test using pipeline variables. These variabl
     > [!IMPORTANT]
     > Don't include `https` or `http` in the sample application's URL.
 
-1. Save and commit the JMeter script.
+1. Save and commit the Apache JMeter script.
 
 1. Go to the **Pipelines** page, select your pipeline definition, and then select **Edit**.
 
@@ -329,8 +329,8 @@ You can use the following parameters to configure the Azure Load Testing task.
 |`loadTestConfigFile`     | **Required** Path to the load test YAML configuration file. The path is fully qualified or relative to the default working directory.        |
 |`resourceGroup`     |  **Required** Name of the resource group that contains the Azure Load Testing resource.       |
 |`loadTestResource`     |   **Required** Name of an existing Azure Load Testing resource.      |
-|`secrets`     |   Array of JSON objects that consist of the **name** and **value** for each secret. The name should match the secret name used in the JMeter test script. |
-|`env`     |   Array of JSON objects that consist of the **name** and **value** for each environment variable. The name should match the variable name used in the JMeter test script. |
+|`secrets`     |   Array of JSON objects that consist of the **name** and **value** for each secret. The name should match the secret name used in the Apache JMeter test script. |
+|`env`     |   Array of JSON objects that consist of the **name** and **value** for each environment variable. The name should match the variable name used in the Apache JMeter test script. |
 
 The following YAML code snippet describes how to use the task in an Azure Pipelines CI/CD workflow.
 

@@ -270,7 +270,7 @@ Next, you'll parameterize your load test using workflow variables. These paramet
 
 1. Edit the *.github/workflows/workflow.yml* file to pass the secret to the load test.
 
-    Edit the Azure Load Testing task and add the following YAML snippet.
+    Edit the Azure Load Testing action by adding the following YAML snippet.
 
     ```yaml
     secrets: |
@@ -294,11 +294,11 @@ You can use the following parameters to configure the GitHub action.
 
 |Parameter  |Description  |
 |---------|---------|
-|loadTestConfigFile    | **Required** Path of the YAML file. Should be a fully qualified path or a relative path to the default working directory.        |
-|resourceGroup     |  **Required** Name of the Azure Load Testing resource group.       |
-|loadTestResource     |   **Required** Name of an existing Azure Load Testing resource.      |
-|secrets   |   Array of JSON objects that consist of the **name** and **value** for each secret. The name should match the secret name used in the Apache JMeter test script. |
-|env     |   Array of JSON objects that consist of the **name** and **value** for each environment variable. The name should match the variable name used in the Apache JMeter test script. |
+|`loadTestConfigFile`    | **Required** Path to the load test YAML configuration file. The path is fully qualified or relative to the default working directory.        |
+|`resourceGroup`     |  **Required** Name of the resource group that contains the Azure Load Testing resource.       |
+|`loadTestResource`     |   **Required** Name of an existing Azure Load Testing resource.      |
+|`secrets`   |   Array of JSON objects that consist of the **name** and **value** for each secret. The name should match the secret name used in the Apache JMeter test script. |
+|`env`     |   Array of JSON objects that consist of the **name** and **value** for each environment variable. The name should match the variable name used in the Apache JMeter test script. |
 
 The following YAML code snippet describes how to use the action in a GitHub Actions workflow. 
 
