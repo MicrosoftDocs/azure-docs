@@ -137,7 +137,7 @@ cd ~/Azure_SAP_Automated_Deployment/sap-automation
 Optionally, validate the version of Terraform, and the Azure Command-Line Interface (Azure CLI) available on your instance of the Cloud Shell.
 
 ```bash
-deploy/scripts/check_workstation.sh
+deploy/scripts/helpers/check_workstation.sh
 ```
 
 To run the automation framework, update to the following versions.
@@ -201,7 +201,7 @@ Copy the sample configurations to a local workspace directory:
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp ./sap-automation/training_materials/WORKSPACES ./
+cp -Rp ./sap-automation/training-materials/WORKSPACES ./
 ```
 
 Open VS Code from Cloud Shell 
@@ -228,7 +228,7 @@ Find the appropriate four-character code that corresponds to the Azure region yo
 
 Find the Terraform variable files in the appropriate subfolder. For example, the **DEPLOYER** terraform variable file might look like:
 
-```bash
+```terraform
 # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
 environment="MGMT"
 # The location/region value is a mandatory field, it is used to control where the resources are deployed
@@ -267,17 +267,18 @@ export subscriptionID=<subscriptionID>
 export appId=<appID>
 export spn_secret="<password>"
 export tenant_id=<tenant>
+export region_code=NOEU
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                     \
-    --deployer_parameter_file DEPLOYER/MGMT-NOEU-DEP00-INFRASTRUCTURE/MGMT-NOEU-DEP00-INFRASTRUCTURE.tfvars  \
-    --library_parameter_file LIBRARY/MGMT-NOEU-SAP_LIBRARY/MGMT-NOEU-SAP_LIBRARY.tfvars                      \
-    --subscription $subscriptionID                                                                           \
-    --spn_id $appID                                                                                          \
-    --spn_secret $spn_secret                                                                                 \
-    --tenant_id $tenant_id
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                         \
+    --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
+    --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                      \
+    --subscription $subscriptionID                                                                                               \
+    --spn_id $appID                                                                                                              \
+    --spn_secret $spn_secret                                                                                                     \
+    --tenant_id $tenant_id --force
 ```
 
 If you run into authentication issues,  run `az logout` to log out. Clear `token-cache`, then run `az login` to reauthenticate.
@@ -532,18 +533,19 @@ export spn_secret="<password>"
 export tenant_id=<tenant>
 export storage_account=<storageaccountName>
 export statefile_subscription=<subscriptionID>
+export region_code=NOEU
 key_vault=<vaultID>
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh              \
-    --parameterfile ./DEV-NOEU-SAP01-INFRASTRUCTURE.tfvars                  \
-    --deployer_environment MGMT                                             \
-    --deployer_tfstate_key MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate \
-    --keyvault $key_vault                                                   \
-    --storageaccountname $storage_account                                   \
-    --state_subscription $statefile_subscription                            \
-    --subscription $subscriptionID                                          \
-    --spn_id $appID                                                         \
-    --spn_secret $spn_secret                                                \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                        \
+    --parameterfile ./DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars                  \
+    --deployer_environment MGMT                                                       \
+    --deployer_tfstate_key MGMT-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate \
+    --keyvault $key_vault                                                             \
+    --storageaccountname $storage_account                                             \
+    --state_subscription $statefile_subscription                                      \
+    --subscription $subscriptionID                                                    \
+    --spn_id $appID                                                                   \
+    --spn_secret $spn_secret                                                          \
     --tenant_id $tenant_id
 ```
 
@@ -567,10 +569,11 @@ Deploy the SAP system.
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-XXXX-SAP01-X00
+export region_code=NOEU
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh \
-  --parameterfile DEV-XXXX-SAP01-X00.tfvars         \
-  --type sap_system                                 \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh           \
+  --parameterfile DEV-${region_code}-SAP01-X00.tfvars         \
+  --type sap_system                                           \
   --auto-approve
 ```
   
@@ -580,7 +583,7 @@ The deployment command for the `northeurope` example will look like:
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
-  --parameterfile DEV-NOEU-SAP01-X00.tfvars         \
+  --parameterfile DEV-NOEU-SAP01-X00.tfvars          \
   --type sap_system                                  \
   --auto-approve
 ```
