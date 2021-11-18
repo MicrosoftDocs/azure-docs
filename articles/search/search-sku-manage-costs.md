@@ -32,7 +32,9 @@ The amount of resources used by your search service, multiplied by the billing r
 
 ### SU minimum and maximum values
 
-Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs. This maximum can be reached in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, for example. It's common to use less than total capacity (for example, a 3-replica, 3-partition service billed as 9 SUs). See the [Partition and replica combinations](search-capacity-planning.md#chart) chart for valid combinations.
+Every service starts with one SU (one replica multiplied by one partition) as the minimum, and this is the fixed cost of running the service.
+
+The maximum capacity for any service is 36 SUs. This maximum can be reached in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, for example. It's common to use less than total capacity (for example, a 3-replica, 3-partition service billed as 9 SUs). See the [Partition and replica combinations](search-capacity-planning.md#chart) chart for valid combinations.
 
 ### Billing rate
 
@@ -48,7 +50,7 @@ The following table lists the billable events in an Azure Cognitive Search solut
 |-------|-------------|
 | Service creation | The fixed cost of the service itself, running 24x7, at minimum configuration (one partition and replica), at the base rate. |
 | [Bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/)  | Applicable to [indexers](search-indexer-overview.md) and skills that extract content from resources in remote regions. There is no data egress charge for same-region data access, or for pushing data into a search source. Cognitive Search does not have a meter for outbound query responses. |
-| Add capacity | Adding either replicas or partitions an incremental increase at the billable rate. If high availability is a business requirement, you'll need 3 replicas to meet the Service Level Agreement (SLA) requirement for Azure Cognitive Search.|
+| Add capacity | Adding either replicas or partitions is an incremental increase at the billable rate. If high availability is a business requirement, you'll need three replicas to meet the Service Level Agreement (SLA) requirement for Azure Cognitive Search.|
 | Add premium features | Some features have dependencies on other billable Azure resources, or require additional infrastructure to support larger workloads. The following list identifies premium features. |
 
 ### Add-on services required for premium features
@@ -57,7 +59,7 @@ The following table lists the billable events in an Azure Cognitive Search solut
 |---------|-------------|
 | [AI enrichment](cognitive-search-concept-intro.md) | Using billable skills (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)). Image extraction is also billable. More details are in the following section. |
 | [Knowledge store](knowledge-store-concept-intro.md) | Stores output from AI enrichment. It requires a billable [Azure Storage](https://azure.microsoft.com/pricing/details/storage/)) account. |
-| [Enrichment cache (preview)](cognitive-search-incremental-indexing-conceptual.md) | Applies to AI enrichment. It requires a billable [Azure Storage](https://azure.microsoft.com/pricing/details/storage/)) account. <br/>Caching can significantly lower the cost of skillset processing by caching and reusing enrichments that are unaffected by changes made to a skillset. Caching requires a billable Azure Storage, but the cumulative cost of skillset execution is typically lower if existing enrichments can be reused.|
+| [Enrichment cache (preview)](cognitive-search-incremental-indexing-conceptual.md) | Applies to AI enrichment. It requires a billable [Azure Storage](https://azure.microsoft.com/pricing/details/storage/)) account. </br></br>Caching can significantly lower the cost of skillset processing by caching and reusing enrichments that are unaffected by changes made to a skillset. Caching requires a billable Azure Storage, but the cumulative cost of skillset execution is typically lower if existing enrichments can be reused.|
 | [Customer-managed keys](search-security-manage-encryption-keys.md)| Provides double encryption of sensitive content. It requires a billable [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)). |
 | [Private endpoints](service-create-private-endpoint.md) | Used for a no-internet data access model. It requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/)). |
 | [Semantic search](semantic-search-overview.md) |This is a metered, premium feature on Standard tiers (see the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) for costs). You can [disable semantic search](semantic-search-overview.md#disable-semantic-search) to prevent accidental usage.|
@@ -93,7 +95,7 @@ Cost management is built into the Azure infrastructure. Review [Billing and cost
 
 Search runs as a continuous service. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. To stop billing entirely, you must delete the service. Deleting a service is permanent and also deletes its associated data.
 
-**Can I change the tier of an existing search service?**
+**Can I change the billing rate (tier) of an existing search service?**
 
 In-place upgrade or downgrade is not supported. Changing a service tier requires provisioning a new service at the desired tier.
 
