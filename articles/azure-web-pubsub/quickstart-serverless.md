@@ -69,7 +69,7 @@ In this tutorial, you learn how to:
 2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
 
     > [!NOTE]
-    > The step will be optional when [Extension bundles](/azure/azure-functions/functions-bindings-register#extension-bundles) are supported.
+    > The step will be optional when [Extension bundles](../azure-functions/functions-bindings-register.md#extension-bundles) are supported.
 
    a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
     ```json
@@ -218,7 +218,7 @@ In this tutorial, you learn how to:
    ```
 
    > [!NOTE]
-   > This function is actually using `WebPubSubTrigger`. However, since the service is still in preview, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to initialize the function template and change trigger type in code.
+   > This function is actually using `WebPubSubTrigger`. However, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to initialize the function template and change trigger type in code.
 
    # [JavaScript](#tab/javascript)
    - Update `message/function.json` and copy following json codes.

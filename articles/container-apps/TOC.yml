@@ -10,6 +10,7 @@
   expanded: true
   items: 
     - name: Deploy your first container app
+      expanded: true
       items:
         - name: Azure portal
           href: quickstart-portal.md
@@ -61,3 +62,5 @@
       href: https://azure.microsoft.com/pricing/details/container-apps/
     - name: Quotas
       href: quotas.md
+    - name: Frequently asked questions
+      href: https://github.com/microsoft/azure-container-apps/wiki/FAQs

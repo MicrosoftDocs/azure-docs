@@ -69,12 +69,14 @@
       href: concepts-scale.md
     - name: Node auto-repair
       href: node-auto-repair.md
+    - name: Service meshes
+      href: servicemesh-about.md
     - name: Best practices
       items:
         - name: Overview
           href: best-practices.md
         - name: Baseline architecture for an AKS cluster
-          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks
           maintainContext: True
         - name: For cluster operators
           items:
@@ -362,9 +364,9 @@
     - name: Develop and run applications
       items:
         - name: Use Bridge to Kubernetes with Visual Studio Code
-          href: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          href: /visualstudio/bridge/bridge-to-kubernetes-vs-code
         - name: Use Bridge to Kubernetes with Visual Studio
-          href: /visualstudio/containers/bridge-to-kubernetes
+          href: /visualstudio/bridge/bridge-to-kubernetes-vs
         - name: Install existing applications with Helm
           href: kubernetes-helm.md
         - name: Use OpenFaaS
@@ -385,42 +387,32 @@
         - name: Use Dapr (preview)
           href: dapr.md
           maintainContext: true
-    - name: Deploy a service mesh
+    - name: Deploy the Open Service Mesh AKS add-on
       items:
-        - name: About Service Meshes
-          href: servicemesh-about.md
-        - name: Open Service Mesh AKS add-on
-          items:
-            - name: OSM overview
-              href: open-service-mesh-about.md
-            - name: Deploy the OSM AKS add-on
-              items:
-                - name: Use the Azure CLI
-                  href: open-service-mesh-deploy-addon-az-cli.md
-                - name: Use Bicep template
-                  href: open-service-mesh-deploy-addon-bicep.md
-            - name: Download and configure the OSM client binary
-              href: open-service-mesh-binary.md
-            - name: OSM Tutorials
-              items:
-                - name: Manage a new application deployment
-                  href: open-service-mesh-deploy-new-application.md
-                - name: Onboard applications to the mesh
-                  href: open-service-mesh-deploy-existing-application.md
-                - name: Using Azure Application Gateway Ingress
-                  href: open-service-mesh-azure-application-gateway-ingress.md
-                - name: Using Kubernetes Nginx Ingress Controller
-                  href: open-service-mesh-nginx-ingress.md
-                - name: Configure observability using Prometheus, Grafana, and Jaeger
-                  href: open-service-mesh-open-source-observability.md
-                - name: IP and port range exclusion
-                  href: open-service-mesh-ip-port-exclusion.md
-            - name: Configure Azure Monitor
-              href: open-service-mesh-azure-monitor.md
-            - name: Troubleshoot OSM
-              href: open-service-mesh-troubleshoot.md
-            - name: Disable OSM
-              href: open-service-mesh-disable-add-on.md
+        - name: About Open Service Mesh
+          href: open-service-mesh-about.md
+        - name: Use the Azure CLI
+          href: open-service-mesh-deploy-addon-az-cli.md
+        - name: Use Bicep template
+          href: open-service-mesh-deploy-addon-bicep.md
+        - name: Install the OSM CLI
+          href: open-service-mesh-binary.md
+        - name: Manage a new application
+          href: open-service-mesh-deploy-new-application.md          
+        - name: Onboard existing applications
+          href: open-service-mesh-deploy-existing-application.md
+        - name: Configure IP address and port range exclusion
+          href: open-service-mesh-ip-port-exclusion.md
+        - name: Configure Azure Monitor
+          href: open-service-mesh-azure-monitor.md
+        - name: Integrate with Azure Application Gateway Ingress
+          href: open-service-mesh-azure-application-gateway-ingress.md
+        - name: Integrate with NGINX Ingress Controller
+          href: open-service-mesh-nginx-ingress.md
+        - name: Troubleshoot Open Service Mesh
+          href: open-service-mesh-troubleshoot.md
+        - name: Uninstall the Open Service Mesh AKS add-on
+          href: open-service-mesh-uninstall-add-on.md
     - name: Use cluster extensions (preview)
       href: cluster-extensions.md
     - name: DevOps
@@ -452,9 +444,9 @@
     - name: Azure CLI
       href: /cli/azure/aks
     - name: REST
-      href: /rest/api/aks
+      href: /rest/api/aks/
     - name: PowerShell
-      href: /powershell/module/az.aks#aks
+      href: /powershell/module/az.aks/#aks
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python
@@ -473,9 +465,9 @@
     - name: Build your skill with Microsoft Learn
       href: /learn/browse/?products=azure-container-instances&azure-container-registry
     - name: Region availability
-      href: https://azure.microsoft.com/regions/services/
+      href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/container-service/
+      href: https://azure.microsoft.com/pricing/details/kubernetes-service/
     - name: Support policies
       href: support-policies.md
     - name: Azure Roadmap
