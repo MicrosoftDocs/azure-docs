@@ -88,8 +88,8 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
 |||manage.microsoft.com|\manage.microsoft.us|Enterprise enrollment|
 |**Migration**|Azure Site Recovery|hypervrecoverymanager.windowsazure.com|hypervrecoverymanager.windowsazure.us|Site Recovery service|
-|||backup.windowsazure.com/|backup.windowsazure.us/|Protection service|
-|||blob.core.windows.net/|blob.core.usgovcloudapi.net/|Storing VM snapshots|
+|||backup.windowsazure.com|backup.windowsazure.us|Protection service|
+|||blob.core.windows.net|blob.core.usgovcloudapi.net|Storing VM snapshots|
 |**Networking**|Traffic Manager|trafficmanager.net|usgovtrafficmanager.net||
 |**Security**|Key Vault|vault.azure.net|vault.usgovcloudapi.net||
 |**Storage**|Azure Backup|backup.windowsazure.com|backup.windowsazure.us||
