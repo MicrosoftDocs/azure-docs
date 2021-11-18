@@ -13,7 +13,7 @@
     href: install.md
     displayName: nightly
   - name: Troubleshoot installation
-    href: installation-troubleshooting.md
+    href: installation-troubleshoot.md
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
