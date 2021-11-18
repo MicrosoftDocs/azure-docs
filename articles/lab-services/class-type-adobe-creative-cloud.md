@@ -8,17 +8,23 @@ ms.author: nicolela
 ---
 
 # Set up a lab for Adobe Creative Cloud
+
 [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) is a collection of desktop applications and web services used for photography, design, video, web, user experience (UX), and more.  Universities and K-12 schools use Creative Cloud in digital arts and media classes.  Some of Creative Cloud’s media processes may require more computational and visualization (GPU) power than a typical tablet, laptop, or workstation support.  With Azure Lab Services, you have flexibility to choose from various virtual machine (VM) sizes, including GPU sizes.
 
 In this article, we’ll show how to set up a class that uses Creative Cloud.
 
 ## Licensing
+
 To use Creative Cloud on a lab VM, you must use [Named User Licensing](https://helpx.adobe.com/enterprise/kb/technical-support-boundaries-virtualized-server-based.html#main_Licensing_considerations), which is the only type of licensing that supports deployment on a virtual machine.  Each lab VM has internet access so that your students can activate Creative Cloud apps by signing into the software.  Once a student signs in, their authentication token is cached in the user profile so that they don’t have to sign in again on their VM.  Read [Adobe’s article on licensing](https://helpx.adobe.com/enterprise/using/licensing.html) for more details.
 
 ## Lab configuration
+
 To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to set up a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
 
 ### Lab account settings
+
+>[!NOTE]
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
 
 Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see the article on [how to specify Marketplace images available to lab creators](./specify-marketplace-images.md).
 
@@ -55,6 +61,7 @@ If you use a managed deployment package with self-service disabled, students won
 Read [Adobe’s steps to create a package](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/create-nul-packages.ug.html) for more information.
 
 ### Install Creative Cloud
+
 After the template machine is created, follow the steps below to set up your lab’s template virtual machine (VM) with Creative Cloud.
 1. Start the template VM and connect using RDP.
 1. To install Creative Cloud, download the deployment package given to you by IT or directly from [Adobe’s Admin Console](https://adminconsole.adobe.com/).
@@ -63,11 +70,13 @@ Read [Adobe’s deployment steps](https://helpx.adobe.com/enterprise/admin-guide
 1. Once the template VM is set up, [publish the template VM’s image](how-to-create-manage-template.md) which is used to create all of the students’ VMs in the lab.
 
 ### Storage
+
 As mentioned earlier, Azure Lab VMs have a disk size of 128 GB.  If your students need additional storage for saving large media assets or they need to access shared media assets, you should consider using external file storage.  For more information, read the following articles:
 -    [Using external file storage in Lab Services](how-to-attach-external-storage.md)
 -    [Install and configure OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive)
 
 ### Save template VM image
+
 Consider saving your template VM for future use.  To save the template VM, see [save an image to Shared Image Gallery](./how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery).
 - When self-service is *enabled*, the template VM’s image will have Creative Cloud desktop installed.  Teachers can then reuse this image to create labs and to choose which Creative Cloud apps to install.  This helps reduce IT overhead since teachers can independently set up labs and have full control over installing the Creative Cloud apps required for their classes.
 - When self-service is *disabled*, the template VM’s image will already have the specified Creative Cloud apps installed.  Teachers can reuse this image to create labs; however, they won’t be able to install additional Creative Cloud apps.
@@ -85,7 +94,7 @@ In this section, we’ll look at a possible cost estimate for this class.  We’
 
 Next steps are common to setting up any lab.
 
-- [Create and manage a template](how-to-create-manage-template.md)
+- [Publish a lab](tutorial-setup-classroom-lab.md#)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

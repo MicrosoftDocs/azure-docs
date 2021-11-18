@@ -53,6 +53,9 @@ In this step, you create a lab for your class in Azure.
     4. In the **Template Virtual Machine Settings** window, select **Finish**.
 
         :::image type="content" source="./media/tutorial-setup-classroom-lab/template-virtual-machine-settings.png" alt-text="Template virtual machine settings":::
+
+        >[!NOTE]
+        > For information on using a non-customized VM instead, see [Manage labs in Azure Lab Services](hot-to-manage-classroom-labs-2.md).
 5. You should see the following screen that shows the status of the template VM creation. This operation takes up to 15 minutes.
 
     :::image type="content" source="./media/tutorial-setup-classroom-lab/create-template-vm-progress.png" alt-text="Status of the template VM creation":::

@@ -34,7 +34,7 @@ A Canvas URL
    3. Click **View App Configurations** and then the blue **+ App** button at the top right of the page.
    4. In the Configuration Type dropdown, choose **By Client ID** and enter Azure Lab Services client ID, which is **170000000000711**, into the field.
 
-   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/enable-lab-services.png" alt-text="Canvas -> Add App":::
+       :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/enable-lab-services.png" alt-text="Canvas -> Add App":::
 
 4. Use Azure Lab Services in your course.
 
@@ -82,11 +82,11 @@ This section outlines common error messages that you may see, along with the ste
 
 * Your admin needs to request a limit increase.
 
-  In Canvas, you will see a message saying that you need to request a limit increase for the VM cores if you haven’t requested the product team increase this for the private preview.
+  In Canvas, you will see a message saying that you need to request a limit increase for the VM cores. This message might appear if you haven’t requested the product team increase this for a preview.
 
-  To fix this, follow the steps in bullet #1 at the beginning of this document, which has you email the number of VMs you plan to use in private preview and your subscription ID to the product team so that they can increase the limit.
+  To fix this, follow the steps in bullet #1 at the beginning of this document, which has you email the number of VMs you plan to use and your subscription ID to the product team so that they can increase the limit.
 
-* Subscription not enabled for private preview.
+* Subscription not enabled for preview.
 
   Creating the lab plan will fail with an error:
 
