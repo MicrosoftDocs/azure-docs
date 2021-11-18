@@ -119,7 +119,7 @@ When creating a new topic, you can disable local authentication on the **Advance
 
 For an existing topic, following these steps to disable local authentication:
 
-1. Navigate to the Event Grid Topic page for the topic, and select **Enabled** under **Local Authentication**
+1. Navigate to the **Event Grid Topic** page for the topic, and select **Enabled** under **Local Authentication**
 
     :::image type="content" source="./media/authenticate-with-active-directory/existing-topic-local-auth.png" alt-text="Screenshot showing the Overview page of an existing topic.":::
 2. In the **Local Authentication** popup window, select **Disabled**, and select **OK**.
