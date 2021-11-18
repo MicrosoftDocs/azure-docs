@@ -44,7 +44,7 @@
     - name: FAQ for AMD confidential VMs
       href: confidential-vm-faq-amd.yml
     - name: AMD processor options for confidential VMs
-      href: virtual-macchine-solutions-amd.md
+      href: virtual-machine-solutions-amd.md
     - name: DCasv5 and DCadsv5-series
       href: ../virtual-machines/dcasv5-dcadsv5-series.md
     - name: ECasv5 and ECadsv5-series
