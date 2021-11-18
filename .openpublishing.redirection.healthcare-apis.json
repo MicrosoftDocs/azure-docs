@@ -465,17 +465,17 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/azure-active-directory-identity-configuration.md",
         "redirect_url": "/azure/healthcare-apis/healthcare-apis-overview",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-service-access-token-validation.md",
         "redirect_url": "/azure/healthcare-apis/healthcare-apis-overview",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/get-healthcare-apis-access-token-cli.md",
         "redirect_url": "/azure/healthcare-apis/healthcare-apis-overview",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
   ]
 }
