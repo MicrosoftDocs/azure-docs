@@ -52,11 +52,12 @@ Follow these steps:
    
      :::image type="content" source="./media/backup-azure-vms-enhanced-policy/select-enhanced-backup-policy-sub-type.png" alt-text="Screenshot showing to select backup policies sub-type as enhanced.":::
 	 
-	- **Backup schedule**: You can select frequency as **Hourly**/**Daily**/**Weekly**. 
+   - **Backup schedule**: You can select frequency as **Hourly**/**Daily**/**Weekly**. 
 	  
      By default, the enhanced backup schedule is set to **Hourly**, with **8 AM** as the start time, **Every 4 hours** as the schedule, and **24 Hours** as duration. You can choose to modify the settings as needed.
 
-      Note that the Hourly backup frequency is in preview. To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
+     Note that the Hourly backup frequency is in preview. To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
+   
    - **Instant Restore**: You can set the retention of recovery snapshot from 1 to 30 days. The default value is set to 7.
    - **Retention range**: The retention of daily backup point is set to 180 days. You can modify the retention period as required.
    
