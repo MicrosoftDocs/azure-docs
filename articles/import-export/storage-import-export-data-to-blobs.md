@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/04/2021
+ms.date: 11/17/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -40,13 +40,8 @@ You must:
 * Download the current release of the Azure Import/Export version 1 tool, for blobs, on the Windows system:
   1. [Download WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659). The current version is 1.5.0.300.
   1. Unzip to the default folder `WaImportExportV1`. For example, `C:\WaImportExportV1`.
-* Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
-  * The account must be valid, should have balance, and must have return shipping capabilities.
-  * Generate a tracking number for the export job.
-  * Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
-  * If you do not have a carrier account, go to:
-    * [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
-    * [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+- [!INCLUDE [storage-import-export-shipping-prerequisites.md](../../includes/storage-import-export-shipping-prerequisites.md)]
+
 
 ## Step 1: Prepare the drives
 
@@ -108,32 +103,39 @@ Perform the following steps to prepare the drives.
 > * Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
 > * The maximum size of the journal file that the portal allows is 2 MB. If the journal file exceeds that limit, an error is returned.
 
+
 ## Step 2: Create an import job
 
-### [Portal](#tab/azure-portal)
+# [Portal (Preview)](#tab/azure-portal-preview)
+
+[!INCLUDE [storage-import-export-preview-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
+
+
+# [Portal (Classic)](#tab/azure-portal)
 
 Perform the following steps to create an import job in the Azure portal.
 
 1. Log on to https://portal.azure.com/.
 2. Search for **import/export jobs**.
 
-   ![Search on import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+    ![Screenshot of the Search box at the top of the Azure Portal home page. A search key for the Import Export Jobs Service is entered in the Search box.](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Select **+ New**.
+3. Select **+ Create**.
 
-   ![Select New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+    ![Screenshot of the command menu at the top of the Azure Import Export Jobs home page in the Azure portal. The Plus Create command is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Basics**:
 
    1. Select a subscription.
    1. Select a resource group, or select **Create new** and create a new one.
-   1. Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
-      * The name may contain only lowercase letters, numbers, and hyphens.
-      * The name must start with a letter, and may not contain spaces.
+   1. Enter a descriptive name for the job. Use the name to track the progress of your jobs.
+      * The name must have from 3 to 24 characters.
+      * The name must include only letters, numbers, and hyphens.
+      * The name must start and end with a letter or number
 
    1. Select **Import into Azure**.
 
-    ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+    ![Screenshot of the Basics tab for Create Import Export Job in Azure Import Export. Import To Azure is selected. Next: Job Details button is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
     Select **Next: Job details >** to proceed.
 
@@ -146,22 +148,11 @@ Perform the following steps to create an import job in the Azure portal.
       The dropoff location is automatically populated based on the region of the storage account selected.
    1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
 
-   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png).
+   ![Screenshot of the Job Details tab for an import job in Azure Import Export Jobs. A journal file, destination region, and storage account are selected.](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
    Select **Next: Shipping >** to proceed.
 
-6. In **Shipping**:
-
-   1. Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
-   1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](https://www.dhl.com/) carrier account.
-   1.  Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
-
-       > [!TIP]
-       > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
-
-   ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
-
-   Select **Review + create** to proceed.
+6. [!INCLUDE [storage-import-export-shipping-step.md](../../includes/storage-import-export-shipping-step.md)]
 
 7. In the order summary:
 
@@ -169,9 +160,10 @@ Perform the following steps to create an import job in the Azure portal.
    1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
    1. Select **Create**.
 
-     ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
+     ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
-### [Azure CLI](#tab/azure-cli)
+
+# [Azure CLI](#tab/azure-cli)
 
 Use the following steps to create an import job in the Azure CLI.
 
@@ -248,7 +240,8 @@ Use the following steps to create an import job in the Azure CLI.
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+
+# [Azure PowerShell](#tab/azure-powershell)
 
 Use the following steps to create an import job in Azure PowerShell.
 
