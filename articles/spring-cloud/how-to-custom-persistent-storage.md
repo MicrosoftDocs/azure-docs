@@ -31,17 +31,17 @@ The following procedures bind an Azure Storage account as a storage resource in 
 
 1. Go to the service Overview page and select Storage.
 
-   ![Navigate to storage blade](media/spring-cloud-byos/select-storage-blade.png)
+   ![Navigate to storage blade](./media/spring-cloud-byos/select-storage-blade.png)
 
 1. On the Storage page, select **Add storage**, fill out the form on the **Add storage** page and select **Apply**.
 
-   ![Add storage resource](media/spring-cloud-byos/add-storage-resource.png)
+   ![Add storage resource](./media/spring-cloud-byos/add-storage-resource.png)
 
 1. Go the **Apps** page and select an application to mount the persistent storage.
-   ![Add storage resource](media/spring-cloud-byos/select-an-app-to-mount-persistent-storage.png)
+   ![Select app to add persistent storage](./media/spring-cloud-byos/select-an-app-to-mount-persistent-storage.png)
 
 1. Select **Configuration** and then select **Persistent Storage**. 
-   ![Add storage resource](media/spring-cloud-byos/go-to-persistent-storage-blade.png)
+   ![Navigate to configuration blade](./media/spring-cloud-byos/go-to-persistent-storage-blade.png)
 
 1. Select **Add persistent storage** and enter or select this information:
 
@@ -54,12 +54,13 @@ The following procedures bind an Azure Storage account as a storage resource in 
     |Mount path    |Enter *\<unique-mount-path>*                                                            |
     |Mount options  |Optional property   |
     |Read only |Optional property   |
-    Then select **Apply**.
+    
+   Then select **Apply**.
 
-   ![Add persistent storage](media/spring-cloud-byos/add-persistent-storage.png)
+   ![Add persistent storage](./media/spring-cloud-byos/add-persistent-storage.png)
 
 1. Select **Save** to apply all the configuration changes.
-   ![Save configuration changes](media/spring-cloud-byos/save-persistent-storage-changes.png)
+   ![Save configuration changes](./media/spring-cloud-byos/save-persistent-storage-changes.png)
 
 
 #### [CLI](#tab/Azure-CLI)
