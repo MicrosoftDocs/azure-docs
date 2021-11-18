@@ -32,7 +32,7 @@ kubectl logs -l app=secrets-store-csi-driver -n kube-system --since=1h | grep ^E
 
 ## Common issues
 
-### Failed to get key vault token: nmi response failed with status code: 404 
+### Failed to get key vault token: nmi response failed with status code: 404
 
 Error message in logs/events:
 
@@ -45,7 +45,7 @@ Description: The Node Managed Identity (NMI) component in aad-pod-identity retur
 > [!NOTE]
 > Azure Active Directory (Azure AD) is shortened to *aad* in the *aad-pod-identity* string.
 
-### keyvault.BaseClient#GetSecret: Failure sending request: StatusCode=0 – Original Error: context canceled” 
+### keyvault.BaseClient#GetSecret: Failure sending request: StatusCode=0 – Original Error: context canceled
 
 Error message in logs/events:
 
@@ -53,6 +53,7 @@ Error message in logs/events:
 E1029 17:37:42.461313       1 server.go:54] failed to process mount request, error: keyvault.BaseClient#GetSecret: Failure sending request: StatusCode=0 -- Original Error: context deadline exceeded
 ```
 
+<<<<<<< HEAD
 Description: The provider pod is unable to access the key vault instance for either of the following reasons:
 - A firewall rule is blocking egress traffic from the provider.
 - Network policies that are configured in the AKS cluster are blocking egress traffic.
@@ -100,6 +101,55 @@ You can test the connectivity to your Azure key vault from the pod that's runnin
     ```bash
     curl -X GET 'https://<KEY_VAULT_NAME>.vault.azure.net/secrets/<SECRET_NAME>?api-version=7.2' -H "Authorization: Bearer <ACCESS_TOKEN_ACQUIRED_ABOVE>"
     ```
+=======
+It means the provider pod is unable to access the AKV instance because:
+
+- There is a firewall rule blocking egress traffic from the provider.
+- Network policies configured in the cluster that’s blocking egress traffic.
+- The provider pods run on hostNetwork. So if there is a policy blocking this traffic or there are network jitters on the node it could result in the above failure. Check for policies configured to block traffic and allowlist the provider pods. Also, ensure there is connectivity to Azure AD and Key Vault from the node.
+
+You can test Key Vault connectivity from pod running on host network as follows:
+
+- Create Pod
+
+  ```bash
+  cat <<EOF | kubectl apply -f -
+  apiVersion: v1
+  kind: Pod
+  metadata:
+    name: curl
+  spec:
+    hostNetwork: true
+    containers:
+    - args:
+      - tail
+      - -f
+      - /dev/null
+      image: curlimages/curl:7.75.0
+      name: curl
+    dnsPolicy: ClusterFirst
+    restartPolicy: Always
+  EOF
+  ```
+
+- Exec into the Pod created above
+
+  ```bash
+  kubectl exec -it curl -- sh
+  ```
+
+- Authenticate with AKV
+
+  ```bash
+  curl -X POST 'https://login.microsoftonline.com/<AAD_TENANT_ID>/oauth2/v2.0/token' -d 'grant_type=client_credentials&client_id=<AZURE_CLIENT_ID>&client_secret=<AZURE_CLIENT_SECRET>&scope=https://vault.azure.net/.default'
+  ```
+
+- Try getting a secret already created in AKV
+
+  ```bash
+  curl -X GET 'https://<KEY_VAULT_NAME>.vault.azure.net/secrets/<SECRET_NAME>?api-version=7.2' -H "Authorization: Bearer <ACCESS_TOKEN_ACQUIRED_ABOVE>"
+  ```
+>>>>>>> b90873b7593e0a387bf1a446e73da21779059895
 
 <!-- LINKS EXTERNAL -->
 [aad-troubleshooting]: https://azure.github.io/aad-pod-identity/docs/troubleshooting/

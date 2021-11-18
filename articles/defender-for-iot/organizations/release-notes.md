@@ -1,11 +1,11 @@
 ---
-title: What's new in Azure Defender for IoT
+title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 11/07/2021
+ms.date: 11/18/2021
 ---
 
-# What's new in Azure Defender for IoT?  
+# What's new in Microsoft Defender for IoT?
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -13,13 +13,13 @@ This article lists new features and feature enhancements for Defender for IoT.
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support for Azure Defender for IoT
+## Versioning and support for Defender for IoT
 
-Listed below are the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available.
+Listed below are the support, breaking change policies for Defender for IoT, and the versions of Defender for IoT that are currently available.
 
 ### Servicing information and timelines
 
-Microsoft plans to release updates for Azure Defender for IoT no less than once per quarter. Each general availability (GA) version of the Azure Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+Microsoft plans to release updates for Defender for IoT no less than once per quarter. Each general availability (GA) version of the Defender for IoT sensor, and on-premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
 
 ### Versions and support dates
 
@@ -27,7 +27,20 @@ Microsoft plans to release updates for Azure Defender for IoT no less than once 
 |--|--|--|
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 01/2022 |
-| 10.5.2 | 11/2021 | 07/2022 |
+| 10.5.2 | 10/2021 | 07/2022 |
+| 10.5.3 | 10/2021 | 07/2022 |
+
+## November 2021
+
+The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
+
+- The sensors will now automatically delete archived alerts that are over 90 days old.
+
+- Improvements were made to alert exports, based on customer feedback.
+
+- Performance, and network traffic analysis improvements were made.
+
+- A new [ServiceNow integration API](references-work-with-defender-for-iot-apis.md#service-now-integration-api---externalv3integration) has been added to the on-premise management console.
 
 ## October 2021
 
@@ -41,11 +54,12 @@ The following feature enhancements are available with version 10.5.2 of Azure De
 
 - [Webhook Extended](#webhook-extended)
 
-- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases) 
+- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases)
 
 ### PLC operating mode detections (Public Preview)
 
 Users can now view PLC operating mode states, changes, and risks. The PLC Operating mode consists of the PLC logical Run state and the physical Key state, if a physical key switch exists on the PLC.
+
 This new capability helps improve security by detecting *unsecure* PLCs, and as a result prevents malicious attacks such as PLC Program Downloads. The 2017 Triton attack on a petrochemical plant illustrates the impact of such risks.
 This information also provides operational engineers with critical visibility into the operational mode of enterprise PLCs.
 

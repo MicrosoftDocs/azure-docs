@@ -36,6 +36,12 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
+- Version 1.0.3719.1700: This update was released November 2021 and has the following changes:
+    - Updated agent error messages.
+    - Fixes an issue with the agent restarting every time the side-by-side stack was updated.
+    - General agent improvements.
+- Version 1.0.3583.2600: This update was released October 2021 and it fixes an issue where upgrading from Windows 10 to Windows 11 disabled the side-by-side stack.
+- Version 1.0.3373.2605: This update was released September 2021 and it fixes an issue with package deregistration getting stuck when using MSIX App Attach.
 - Version 1.0.3373.2600: This update was released September 2021 and has the following changes:
     - General agent improvements.
     - Fixes issues with restarting the agent on Windows 7 VMs.

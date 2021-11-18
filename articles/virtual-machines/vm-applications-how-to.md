@@ -48,7 +48,7 @@ if ($remainder -ne 0){
     }
 ```
 
-You need to make sure the files are publicly available, or you will need the SAS URI for the files in your storage account. You can use [Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs) to quickly created a SAS URI if you don't already have one.
+You need to make sure the files are publicly available, or you will need the SAS URI for the files in your storage account. You can use [Storage Explorer](../vs-azure-tools-storage-explorer-blobs.md) to quickly created a SAS URI if you don't already have one.
 
 ## Create the VM application
 

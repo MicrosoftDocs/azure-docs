@@ -206,7 +206,7 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 
 ##### /Users:
 * The entitlements attribute is not supported.
-* Any attributes that are considered for user uniqueness must be usable as part of a filtered query. (e.g. if user uniqueness is evaluated for both userName and emails[type eq "work"], a GET to /Users with a filter must allow for both _userName eq "user@contoso.com"_ and _emails[type eq "work"] eq "user@contoso.com"_ queries.
+* Any attributes that are considered for user uniqueness must be usable as part of a filtered query. (e.g. if user uniqueness is evaluated for both userName and emails[type eq "work"], a GET to /Users with a filter must allow for both _userName eq "user@contoso.com"_ and _emails[type eq "work"].value eq "user@contoso.com"_ queries.
 
 ##### /Groups:
 * Groups are optional, but only supported if the SCIM implementation supports **PATCH** requests.

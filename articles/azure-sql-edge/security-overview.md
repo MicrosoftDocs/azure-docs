@@ -106,4 +106,4 @@ Azure SQL Edge provides the same Auditing mechanisms as SQL Server. For more inf
 
 - [Getting Started with security features](/sql/linux/sql-server-linux-security-get-started)
 - [Running Azure SQL Edge as a non-root user](configure.md#run-azure-sql-edge-as-non-root-user)
-- [Azure Security Center for IoT](../defender-for-iot/overview.md)
+- [Microsoft Defender for IoT](../defender-for-iot/overview.md)
