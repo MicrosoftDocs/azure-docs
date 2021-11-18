@@ -9,13 +9,10 @@ ms.subservice: spark
 ms.date: 11/18/2021
 ms.author: ruxu
 ms.reviewer: 
-zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.custom: subject-rbac-steps
 ---
 
 # How to play with file mount/unmount API in Synapse 
-
-## Introduction of file mount/unmount 
 
 Synapse studio team built two new mount/unmount APIs in mssparkutils package, you can use mount to attach remote storage (Blob, Gen2, Azure File Share) to a synapse spark pool in all nodes (**driver node and worker nodes**), after that, you can access data in storage as if they were one the local file system with local file API. 
 
@@ -59,7 +56,7 @@ You can create linked service for ADLS gen2 or blob storage. Currently, two auth
 
 After you create linked service successfully, you can easily mount the container to your spark pool with below code. 
 
-``` 
+```python
 mssparkutils.fs.mount( 
     "abfss://mycontainer@<accountname>.dfs.core.windows.net", 
     "/test", 
@@ -71,7 +68,7 @@ mssparkutils.fs.mount(
 
 + You may need to import mssparkutils if it not available. 
 
-    ``` 
+    ```python
     From notebookutils import mssparkutils 
     ``` 
 + It’s not recommended to mount a root folder, no matter which authentication methods is used. 
@@ -86,7 +83,7 @@ If you want to use account key or SAS token directly to mount container. A more 
  
 Here is the sample code. 
 
-``` 
+```python 
 from notebookutils import mssparkutils  
 
 accountKey = mssparkutils.credentials.getSecret("MountKV","mySecret")  
@@ -108,7 +105,7 @@ Assuming you have a gen2 storage account named **storegen2** and the account has
  
 Mount azure file share only support the account key authentication method, below is the code sample to mount **myfileshare/test** and we reuse the Azure Key Value settings of `MountKV` here: 
 
-``` 
+```python 
 from notebookutils import mssparkutils  
 
 accountKey = mssparkutils.credentials.getSecret("MountKV","mySecret")  
@@ -131,7 +128,7 @@ So, for example if you want to mount **mycontainer**, the created local mount po
 
 Below is an example to show how it works. 
 
-``` 
+```python 
 jobId = mssparkutils.env.getJobId() 
 f = open(f"/synfs/{jobId}/myFile.txt", "a") 
 f.write("Hello world.") 
@@ -158,19 +155,19 @@ Below are three examples to show how to access file with mount point path using 
 
 + List dirs:  
 
-    ``` 
+    ```python 
     mssparkutils.fs.ls("synfs:/49/") 
     ``` 
 
 + Read file content: 
 
-    ``` 
+    ```python 
     mssparkutils.fs.head("synfs:/49/myFile.txt") 
     ``` 
 
 + Create directory: 
 
-    ``` 
+    ```python 
     mssparkutils.fs.mkdirs("synfs:/49/mydir") 
     ``` 
 
@@ -186,7 +183,7 @@ Below are 2 code examples, one is for a mounted gen2 storage, another is for a m
 
 ### Read file from a mounted gen2 storage account 
 
-``` 
+```python 
 %%pyspark 
 
 # Assume a gen2 storage was already mounted then read file using mount path 
@@ -201,7 +198,7 @@ Notice that if you mounted a blob storage account then want to access it using *
 
 1. Create link service **myblobstorageaccount**, Mount blob storage account with link service 
 
-    ``` 
+    ```python 
     %%spark 
 
     mssparkutils.fs.mount( 
@@ -212,14 +209,14 @@ Notice that if you mounted a blob storage account then want to access it using *
     ``` 
 
 2. Update spark configuration and access the data using spark APIs, this step is necessary. 
-    ``` 
+    ```python 
     blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds("myblobstorageaccount") 
 
     spark.conf.set('fs.azure.sas.mycontainer.<blobStorageAccountName>.blob.core.windows.net', blob_sas_token) 
     ``` 
 
 3. Read data from mounted blob storage through spark read API. 
-    ```
+    ```python
     %%spark
     // mount blob storage container and then read file using mount path
     val df = spark.read.text("synfs:/49/test/myFile.txt")
@@ -229,7 +226,7 @@ Notice that if you mounted a blob storage account then want to access it using *
 ### How to unmount the mount point 
 
 Just call: 
-``` 
+```python 
 mssparkutils.fs.unmount("/your_mount_point") 
 ``` 
 
