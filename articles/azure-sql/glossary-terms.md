@@ -13,7 +13,7 @@ ms.author: mathoma
 ms.reviewer: 
 ms.date: 5/18/2021
 ---
-# Azure SQL Database glossary of terms
+# Azure SQL glossary of terms
 [!INCLUDE[appliesto-sqldb-sqlmi](./includes/appliesto-sqldb-sqlmi.md)]
 
 ## Azure SQL Database
