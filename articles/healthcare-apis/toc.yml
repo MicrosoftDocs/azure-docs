@@ -40,7 +40,7 @@ items:
           href: configure-azure-rbac.md
         - name: Get an Access Token
           href: get-access-token.md
-    - name: Access FHIR service with Postman
+    - name: Access using Postman
       href: use-postman.md  
     - name: Access using cURL
       href: using-curl.md
