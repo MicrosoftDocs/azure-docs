@@ -34,7 +34,7 @@ Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Mic
 TAXII 2.x servers advertise API Roots, which are URLs that host Collections of threat intelligence. You can usually find the API Root and the Collection ID in the documentation pages of the threat intelligence provider hosting the TAXII server. 
 
 > [!NOTE]
-> In some cases, the provider will only advertise a URL called a Discovery Endpoint. You can use the cURL utility to browse the discovery endpoint and request the API Root, as [detailed below](#find-the-api-root).
+> In some cases, the provider will only advertise a URL called a Discovery Endpoint. You can use the cURL utility to browse the discovery endpoint and request the API Root, as [detailed below](#find-the-api-root-using-curl).
 
 ## Enable the Threat Intelligence - TAXII data connector in Microsoft Sentinel
 
