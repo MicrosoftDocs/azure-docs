@@ -80,7 +80,7 @@ The script takes the following actions:
 
 You must have PowerShell and the AWS CLI on your machine.
 
-   - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7.1)
+   - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell)
    - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 
 ### Instructions
