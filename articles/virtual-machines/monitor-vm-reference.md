@@ -19,11 +19,11 @@ This section lists all the automatically collected platform metrics collected fo
 |-------|-----|
 | Virtual machine | [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
 | Virtual machine scale set | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
-| Virtual machine Scale set virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
+| Virtual machine scale set virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
-## Metric Dimensions
+## Metric dimensions
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
@@ -66,6 +66,6 @@ The following table lists a few example operations related to virtual machines t
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
 
-## See Also
+## See also
 
 - See [Monitoring Azure Virtual Machines](../virtual-machines/monitor-vm.md) for a description of monitoring Azure virtual machines.
