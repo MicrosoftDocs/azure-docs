@@ -32,21 +32,27 @@ For more information, see the [phone number types](../../concepts/telephony-sms/
 | **Delete identity** | 30 | 500|
 | **Issue access token** | 30 | 500|
 | **Revoke access token**  | 1 | 100|
-| **createUserAndToken, exchangeTokens**|30|5000|
-| **Global limit per request** |30|5000|
+| **createUserAndToken**| 30 | 1000 |
+| **exchangeTokens**| 30 | 500 |
 
 ### Action to take
-our recommendation is that they are getting the token in advance, not at the time of starting the interaction (i.e. time of call or chat thread start). Grab tokens when webpage is loaded or app is starting up. 
+We always recommend you acquire identities and tokens in advance of starting other transactions like creating chat threads or starting calls, for example, right when your webpage is initially loaded or when the app is starting up. 
 
 For more information, see the [identity concept overview](../../concepts/authentication.md) page.
 
 ## SMS
-When sending or receiving a high volume of messages, you might receive a ```429``` error. This indicates you are hitting the service limitations and your messages will be queueud to be sent once you are no longer at the throttling limit. 
+When sending or receiving a high volume of messages, you might receive a ```429``` error. This indicates you are hitting the service limitations and your messages will be queueud to be sent once the number of requests is below the threshold.
+
+Rate Limits for SMS:
+
+|Operation|Scope|Timeframe (s)| Limit (request #) | Message units per minute|
+|---------|-----|-------------|-------------------|-------------------------|
+|Send Message|Per Number|60|200|200|
 
 ### Action to take
+If your company has requirements that exceed the rate-limits, please email us at phone@microsoft.com.
 
-
-For more information on the SMS SDK and service, see the [SMS SDK overview](../../concepts/telephony-sms/sdk-features.md) page.
+For more information on the SMS SDK and service, see the [SMS SDK overview](../../concepts/telephony-sms/sdk-features.md) page or the [SMS FAQ](../../concepts/telephony-sms/sms-faw.md) page.
 
 ## Chat
 
