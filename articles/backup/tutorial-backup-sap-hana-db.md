@@ -122,13 +122,13 @@ Here's a summary of steps required for completing the pre-registration script ru
 | `<sid>`adm (OS)   |  HANA OS    |   Run the command:<br> `hdbuserstore List`   |  Check if the result includes the default store as below: <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
 | Root (OS)   |   HANA OS    |    Run the [Azure Backup HANA pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610).     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
 | `<sid>`adm (OS)   |   HANA OS   |    Run the command: <br> `hdbuserstore List`   |   Check if result includes new lines as below: <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
-| Azure Contributor     |    Azure portal    |   Configure NSG, NVA, Azure Firewall, and so on to allow outbound traffic to Azure Backup service, Azure AD, and Azure Storage.     |    [Set up network connectivity](#set-up-network-connectivity)    |
+| Azure Contributor     |    Azure portal    |   Configure NSG, NVA, Azure Firewall, and so on to allow outbound traffic to Azure Backup service, Azure AD, and Azure Storage.     |    [Set up network connectivity](backup-azure-sap-hana-database.md#establish-network-connectivity)    |
 | Azure Contributor |   Azure portal    |   Create or open a Recovery Services vault and then select HANA backup.   |   Find all the target HANA VMs to back up.   |
 | Azure Contributor    |   Azure portal    |   Discover HANA databases and configure backup policy.   |  For example: <br><br>  Weekly backup: Every Sunday 2:00 AM, retention of weekly 12 weeks, monthly 12 months, yearly 3 years   <br>   Differential or incremental: Every day, except for Sunday    <br>   Log: every 15 minutes retained for 35 days    |
 | Azure Contributor  |   Azure portal    |    Recovery Service vault – Backup Items – SAP HANA     |   Check backup jobs (Azure Workload).    |
 | HANA Admin    | HANA Studio   | Check Backup Console, Backup catalog, backup.log, backint.log, and globa.ini   |    Both SYSTEMDB and Tenant database.   |
 
-After running the pre-registration script successfully and verifying, you can then proceed to check [the connectivity requirements](#set-up-network-connectivity) and then [configure backup](#discover-the-databases) from Recovery services vault
+After running the pre-registration script successfully and verifying, you can then proceed to check [the connectivity requirements](backup-azure-sap-hana-database.md#establish-network-connectivity) and then [configure backup](#discover-the-databases) from Recovery services vault
 
 ## Create a Recovery Services vault
 
