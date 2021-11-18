@@ -7,7 +7,7 @@
   - name: Migrate to Azure SQL 
     href: migration-guides/index.yml
 
-- name: Shared SQL DB & SQL MI docs 
+- name: Shared SQL DB & SQL MI docs
   items:
   - name: Purchasing models
     items:
@@ -1022,9 +1022,9 @@
         - name: Deploy
           items:
           - name: Operationalize using stored procedures
-            href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?viewFallbackFrom=azuresqldb-mi-current&preserve-view=true&view=sql-server-ver15&context=%2Fazure%2Fazure-sql%2Fmanaged-instance%2Fcontext%2Fml-context
+            href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?view=azuresqldb-mi-current&preserve-view=true
           - name: Convert R code for SQL Server
-            href: /sql/machine-learning/deploy/modify-r-python-code-to-run-in-sql-server?viewFallbackFrom=azuresqldb-mi-current&preserve-view=true&view=sql-server-ver15&context=%2Fazure%2Fazure-sql%2Fmanaged-instance%2Fcontext%2Fml-context
+            href: /sql/machine-learning/deploy/modify-r-python-code-to-run-in-sql-server?view=azuresqldb-mi-current&preserve-view=true
           - name: Create a stored procedure using sqlrutils 
             href: /sql/machine-learning/r/reference/sqlrutils/how-to-create-stored-procedure-from-r
         - name: Predictions
