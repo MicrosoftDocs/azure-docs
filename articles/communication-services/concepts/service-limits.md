@@ -20,7 +20,7 @@ This document explains some of the limitations of Azure Communication Services a
 
 ### Action to take
 
-For more information, see the [phone number types](../../concepts/telephony-sms/plan-solution.md) concept page.
+For more information, see the [phone number types](./telephony-sms/plan-solution.md) concept page.
 
 ## Identity
 
@@ -38,7 +38,7 @@ For more information, see the [phone number types](../../concepts/telephony-sms/
 ### Action to take
 We always recommend you acquire identities and tokens in advance of starting other transactions like creating chat threads or starting calls, for example, right when your webpage is initially loaded or when the app is starting up. 
 
-For more information, see the [identity concept overview](../../concepts/authentication.md) page.
+For more information, see the [identity concept overview](./authentication.md) page.
 
 ## SMS
 When sending or receiving a high volume of messages, you might receive a ```429``` error. This indicates you are hitting the service limitations and your messages will be queueud to be sent once the number of requests is below the threshold.
@@ -52,7 +52,7 @@ Rate Limits for SMS:
 ### Action to take
 If your company has requirements that exceed the rate-limits, please email us at phone@microsoft.com.
 
-For more information on the SMS SDK and service, see the [SMS SDK overview](../../concepts/telephony-sms/sdk-features.md) page or the [SMS FAQ](../../concepts/telephony-sms/sms-faw.md) page.
+For more information on the SMS SDK and service, see the [SMS SDK overview](./telephony-sms/sdk-features.md) page or the [SMS FAQ](./telephony-sms/sms-faq.md) page.
 
 ## Chat
 
@@ -85,13 +85,13 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](../.
 
 ### Action to take
 
-For more information about the chat SDK and service, see the [chat SDK overview](../../concepts/chat/sdk-features.md) page.
+For more information about the chat SDK and service, see the [chat SDK overview](./chat/sdk-features.md) page.
 
 ## Voice and video calling
 
 ### Action to take
 
-For more information about the voice and video calling SDK and service, see the [calling SDK overview](../../concepts/voice-video-calling/calling-sdk-features.md) page.
+For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page.
 
 ## Teams Interoperability and Microsoft Graph
 
