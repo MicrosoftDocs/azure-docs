@@ -1,6 +1,6 @@
 ---
-title: Enterprise scaling with the SAP deployment automation framework
-description: How to do enterprise scaling for deployments using the SAP deployment automation framework on Azure.
+title: SAP deployment automation framework hands-on lab
+description: Hands-on lab for the SAP deployment automation framework on Azure.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
@@ -9,12 +9,11 @@ ms.topic: tutorial
 ms.service: virtual-machines-sap
 ---
 
-# Enterprise Scale for SAP Automation Framework Deployment - Hands-on Lab
-
+# Enterprise Scale for SAP deployment automation framework - Hands-on Lab
 
 This tutorial shows how to do enterprise scaling for deployments using the [SAP deployment automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. 
 
-During this lab, you will perform the following tasks
+You will perform the following tasks during this lab:
 
 > [!div class="checklist"]
 > * Deploy the Control Plane (Deployer Infrastructure & Library)
@@ -138,7 +137,7 @@ cd ~/Azure_SAP_Automated_Deployment/sap-automation
 Optionally, validate the version of Terraform, and the Azure Command-Line Interface (Azure CLI) available on your instance of the Cloud Shell.
 
 ```bash
-deploy/scripts/check_workstation.sh
+deploy/scripts/helpers/check_workstation.sh
 ```
 
 To run the automation framework, update to the following versions.
@@ -202,7 +201,7 @@ Copy the sample configurations to a local workspace directory:
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp ./sap-automation/training_materials/WORKSPACES ./
+cp -Rp ./sap-automation/training-materials/WORKSPACES ./
 ```
 
 Open VS Code from Cloud Shell 
@@ -229,7 +228,7 @@ Find the appropriate four-character code that corresponds to the Azure region yo
 
 Find the Terraform variable files in the appropriate subfolder. For example, the **DEPLOYER** terraform variable file might look like:
 
-```bash
+```terraform
 # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
 environment="MGMT"
 # The location/region value is a mandatory field, it is used to control where the resources are deployed
@@ -268,20 +267,21 @@ export subscriptionID=<subscriptionID>
 export appId=<appID>
 export spn_secret="<password>"
 export tenant_id=<tenant>
+export region_code=NOEU
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                     \
-    --deployer_parameter_file DEPLOYER/MGMT-NOEU-DEP00-INFRASTRUCTURE/MGMT-NOEU-DEP00-INFRASTRUCTURE.tfvars  \
-    --library_parameter_file LIBRARY/MGMT-NOEU-SAP_LIBRARY/MGMT-NOEU-SAP_LIBRARY.tfvars                      \
-    --subscription $subscriptionID                                                                           \
-    --spn_id $appID                                                                                          \
-    --spn_secret $spn_secret                                                                                 \
-    --tenant_id $tenant_id
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                         \
+    --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
+    --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                      \
+    --subscription $subscriptionID                                                                                               \
+    --spn_id $appID                                                                                                              \
+    --spn_secret $spn_secret                                                                                                     \
+    --tenant_id $tenant_id --force
 ```
 
-If you run into authentication issues,  run `az logout` to logout. Clear `token-cache`, then run `az login` to reauthenticate.
+If you run into authentication issues,  run `az logout` to log out. Clear `token-cache`, then run `az login` to reauthenticate.
 
 Wait for the automation framework to run the Terraform operations `plan`, and `apply`.
 
@@ -297,7 +297,7 @@ The contents of the Deployer and SAP Library resource group are shown below.
     
 :::image type="content" source="media/automation-tutorial/sap-library-resource-group.png" alt-text="Library resources":::
 
-The Terraform state file is now in the storage account whose name contains 'tfstate'. The storage account has a container named 'tfstate' with the deployer and library state files. Below is a listing of the contents of the 'tfstate' container after a successful control plane deployment.
+The Terraform state file is now in the storage account whose name contains 'tfstate'. The storage account has a container named 'tfstate' with the deployer and library state files. The contents of the 'tfstate' container after a successful control plane deployment can be seen below.
     
 :::image type="content" source="media/automation-tutorial/terraform-state-files.png" alt-text="Control plane tfstate files":::
 
@@ -533,18 +533,19 @@ export spn_secret="<password>"
 export tenant_id=<tenant>
 export storage_account=<storageaccountName>
 export statefile_subscription=<subscriptionID>
+export region_code=NOEU
 key_vault=<vaultID>
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh              \
-    --parameterfile ./DEV-NOEU-SAP01-INFRASTRUCTURE.tfvars                  \
-    --deployer_environment MGMT                                             \
-    --deployer_tfstate_key MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate \
-    --keyvault $key_vault                                                   \
-    --storageaccountname $storage_account                                   \
-    --state_subscription $statefile_subscription                            \
-    --subscription $subscriptionID                                          \
-    --spn_id $appID                                                         \
-    --spn_secret $spn_secret                                                \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                        \
+    --parameterfile ./DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars                  \
+    --deployer_environment MGMT                                                       \
+    --deployer_tfstate_key MGMT-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate \
+    --keyvault $key_vault                                                             \
+    --storageaccountname $storage_account                                             \
+    --state_subscription $statefile_subscription                                      \
+    --subscription $subscriptionID                                                    \
+    --spn_id $appID                                                                   \
+    --spn_secret $spn_secret                                                          \
     --tenant_id $tenant_id
 ```
 
@@ -568,10 +569,11 @@ Deploy the SAP system.
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-XXXX-SAP01-X00
+export region_code=NOEU
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh \
-  --parameterfile DEV-XXXX-SAP01-X00.tfvars         \
-  --type sap_system                                 \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh           \
+  --parameterfile DEV-${region_code}-SAP01-X00.tfvars         \
+  --type sap_system                                           \
   --auto-approve
 ```
   
@@ -581,7 +583,7 @@ The deployment command for the `northeurope` example will look like:
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
-  --parameterfile DEV-NOEU-SAP01-X00.tfvars         \
+  --parameterfile DEV-NOEU-SAP01-X00.tfvars          \
   --type sap_system                                  \
   --auto-approve
 ```
@@ -606,15 +608,15 @@ Trigger the playbooks to execute.
 
 ### Playbook: OS Config
 
-Selecting this playbook performs the generic OS configuration setup on all the machines, which includes configuring of software repositories, packages, services, and so on.
+This playbook does the generic OS configuration setup on all the machines, which includes configuring of software repositories, packages, services, and so on.
 
 ### Playbook: SAP-Specific OS config
 
-Selecting this playbook performs the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, and services.
+This playbook does the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, and services.
 
 ### Playbook: BOM Processing
 
-Selecting this playbook, downloads the SAP software to the SCS virtual machine. 
+This playbook downloads the SAP software to the SCS virtual machine. 
     
 ### Playbook: HANA DB Install
 

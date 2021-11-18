@@ -305,7 +305,7 @@ The deployer uses a service principal to deploy resources into a subscription.
 1. Initialize Terraform.
 
     ```bash
-    terraform init  ../../../sap-hana/deploy/terraform/bootstrap/sap_library/
+    terraform init  ../../../sap-automation/deploy/terraform/bootstrap/sap_library/
     ```
 
 1. Create a Terraform execution plan that follows the default naming convention.
@@ -313,7 +313,7 @@ The deployer uses a service principal to deploy resources into a subscription.
     ```bash
     terraform plan                                                                  \
                 --var-file=DEMO-EUS2-SAP_LIBRARY.json                           \
-                ../../../sap-hana/deploy/terraform/bootstrap/sap_library
+                ../../../sap-automation/deploy/terraform/bootstrap/sap_library
 
     ```
 
@@ -322,7 +322,7 @@ The deployer uses a service principal to deploy resources into a subscription.
     ```bash
     terraform apply --auto-approve                                                  \
                 --var-file=DEMO-EUS2-SAP_LIBRARY.json                           \
-                ../../../sap-hana/deploy/terraform/bootstrap/sap_library/
+                ../../../sap-automation/deploy/terraform/bootstrap/sap_library/
 
     ```
 
@@ -355,7 +355,7 @@ Reinitialize both the [deployer](#reinitialize-deployer) and the [SAP library](#
 
     ```bash
     terraform init  --backend-config backend                                        \
-                    ../../../sap-hana/deploy/terraform/run/sap_deployer/
+                    ../../../sap-automation/deploy/terraform/run/sap_deployer/
     ```
 
 1. When prompted **Do you want to copy existing state to the new backend?**, enter `yes`.
@@ -371,7 +371,7 @@ Reinitialize both the [deployer](#reinitialize-deployer) and the [SAP library](#
     ```bash
     terraform plan                                                                  \
                     --var-file=DEMO-EUS2-DEP00-INFRASTRUCTURE.json                  \
-                    ../../../sap-hana/deploy/terraform/run/sap_deployer/
+                    ../../../sap-automation/deploy/terraform/run/sap_deployer/
     ```
     
 1. Apply the Terraform execution plan. For example:
@@ -379,7 +379,7 @@ Reinitialize both the [deployer](#reinitialize-deployer) and the [SAP library](#
     ```bash
     terraform apply --auto-approve                                                  \
                     --var-file=DEMO-EUS2-DEP00-INFRASTRUCTURE.json                  \
-                    ../../../sap-hana/deploy/terraform/run/sap_deployer/
+                    ../../../sap-automation/deploy/terraform/run/sap_deployer/
     ```
 
 ### Reinitialize SAP Library
@@ -418,7 +418,7 @@ Reinitialize both the [deployer](#reinitialize-deployer) and the [SAP library](#
 
     ```bash
     terraform init  --backend-config backend                                          \
-                    ../../../sap-hana/deploy/terraform/run/sap_library/
+                    ../../../sap-automation/deploy/terraform/run/sap_library/
     ```
 
 1. When prompted **Do you want to copy existing state to the new backend?**, enter `yes`.
@@ -434,7 +434,7 @@ Reinitialize both the [deployer](#reinitialize-deployer) and the [SAP library](#
     ```bash
     terraform plan                                                                    \
                     --var-file=DEMO-EUS2-SAP_LIBRARY.json                             \
-                    ../../../sap-hana/deploy/terraform/run/sap_library/
+                    ../../../sap-automation/deploy/terraform/run/sap_library/
     ```
 
 1. Apply the Terraform execution plan. For example:
@@ -442,7 +442,7 @@ Reinitialize both the [deployer](#reinitialize-deployer) and the [SAP library](#
     ```bash
     terraform apply --auto-approve                                                    \
                     --var-file=DEMO-EUS2-SAP_LIBRARY.json                             \
-                    ../../../sap-hana/deploy/terraform/run/sap_library/
+                    ../../../sap-automation/deploy/terraform/run/sap_library/
     ```
 
 ## Deploy workload virtual network
@@ -472,7 +472,7 @@ Next, deploy the SAP workload virtual network.
 
     ```bash
     terraform init  --backend-config backend                                        \
-                    ../../../sap-hana/deploy/terraform/run/sap_landscape/
+                    ../../../sap-automation/deploy/terraform/run/sap_landscape/
     ```
 
 1. Create a Terraform execution plan. Again, follow the default naming conventions. For example:
@@ -480,7 +480,7 @@ Next, deploy the SAP workload virtual network.
     ```bash
     terraform plan                                                                  \
                 --var-file=DEMO-EUS2-SAP00-INFRASTRUCTURE.json                  \
-                ../../../sap-hana/deploy/terraform/run/sap_landscape/
+                ../../../sap-automation/deploy/terraform/run/sap_landscape/
     ```
 
 1. Apply the Terraform execution plan. For example:
@@ -488,7 +488,7 @@ Next, deploy the SAP workload virtual network.
     ```bash
     terraform apply --auto-approve                                                  \
                     --var-file=DEMO-EUS2-SAP00-INFRASTRUCTURE.json                  \
-                    ../../../sap-hana/deploy/terraform/run/sap_landscape/
+                    ../../../sap-automation/deploy/terraform/run/sap_landscape/
     ```
 
 ## SAP deployment unit
@@ -577,7 +577,7 @@ Next, set up the SAP deployment unit.
 
     ```bash
     terraform init  --backend-config backend                                        \
-                    ../../../sap-hana/deploy/terraform/run/sap_system/
+                    ../../../sap-automation/deploy/terraform/run/sap_system/
   
     ```
 
@@ -586,7 +586,7 @@ Next, set up the SAP deployment unit.
     ```bash
     terraform plan                                                                  \
                     --var-file=DEMO-EUS2-SAP00-X00.json                             \
-                    ../../../sap-hana/deploy/terraform/run/sap_system/
+                    ../../../sap-automation/deploy/terraform/run/sap_system/
     ```
 
 1. Apply the Terraform execution plan. For example:
@@ -594,12 +594,12 @@ Next, set up the SAP deployment unit.
     ```bash
     terraform apply --auto-approve                                                  \
                     --var-file=DEMO-EUS2-SAP00-X00.json                             \
-                    ../../../sap-hana/deploy/terraform/run/sap_system/
+                    ../../../sap-automation/deploy/terraform/run/sap_system/
     ```
 
 ## Ansible configuration
 
-Configure your setup by executing Ansible playbooks. These playbooks are located in the automation framework repository in `/sap-hana/deploy/ansible`.
+Configure your setup by executing Ansible playbooks. These playbooks are located in the automation framework repository in `/sap-automation/deploy/ansible`.
 
 | Filename          | Description                        |
 | ----------------- | ---------------------------------- |
@@ -643,16 +643,16 @@ ansible-playbook                                                                
                   \"sap_sid\":                      \"X00\",                                                          \
                   \"hdb_sid\":                      \"HDB\"                                                           \
                 }"                                                                                                    \
-~/Azure_SAP_Automated_Deployment/centiq-sap-hana/deploy/ansible/playbook_00_transition_start_for_sap_install_refactor.yaml     \
-~/Azure_SAP_Automated_Deployment/centiq-sap-hana/deploy/ansible/playbook_01_os_base_config.yaml                       \
-~/Azure_SAP_Automated_Deployment/centiq-sap-hana/deploy/ansible/playbook_02_os_sap_specific_config.yaml               \
-~/Azure_SAP_Automated_Deployment/centiq-sap-hana/deploy/ansible/playbook_03_bom_processing.yaml                       \
-~/Azure_SAP_Automated_Deployment/centiq-sap-hana/deploy/ansible/playbook_04a_sap_scs_install.yaml                     \
-~/Azure_SAP_Automated_Deployment/centiq-sap-hana/deploy/ansible/playbook_05a_hana_db_install.yaml                     \
-~/Azure_SAP_Automated_Deployment/centiq-sap-hana/deploy/ansible/playbook_06a_sap_dbload.yaml                          \
-~/Azure_SAP_Automated_Deployment/centiq-sap-hana/deploy/ansible/playbook_06b_sap_pas_install.yaml                     \
-~/Azure_SAP_Automated_Deployment/centiq-sap-hana/deploy/ansible/playbook_06c_sap_app_install.yaml                     \
-~/Azure_SAP_Automated_Deployment/centiq-sap-hana/deploy/ansible/playbook_06d_sap_web_install.yaml
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_00_transition_start_for_sap_install_refactor.yaml     \
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_01_os_base_config.yaml                       \
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_02_os_sap_specific_config.yaml               \
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_03_bom_processing.yaml                       \
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_04a_sap_scs_install.yaml                     \
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05a_hana_db_install.yaml                     \
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_06a_sap_dbload.yaml                          \
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_06b_sap_pas_install.yaml                     \
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_06c_sap_app_install.yaml                     \
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_06d_sap_web_install.yaml
 
 ```
 
