@@ -1,7 +1,5 @@
 param location string = resourceGroup().location
-
 param environmentName string
-
 param appServiceAppName string = 'app-contoso-${environmentName}-${uniqueString(resourceGroup().id)}'
 param appServicePlanName string = 'plan-contoso-${environmentName}-${uniqueString(resourceGroup().id)}'
 

@@ -40,7 +40,7 @@ The following example generates the names for an App Service app and plan. It fo
 
 Although App Service plans don't require globally unique names, the plan name is constructed using the same format to ensure compliance with the organization's policy.
 
-::: code language="bicep" source="code/patterns-name-generation/app-service.bicep" range="3-10, 15-19, 25" highlight="3-5" ::: <!-- TODO move to correct repo -->
+::: code language="bicep" source="code/patterns-name-generation/app-service.bicep" range="1-8, 13-17, 23" highlight="3-4" ::: <!-- TODO move to correct repo -->
 
 ## Example 2
 

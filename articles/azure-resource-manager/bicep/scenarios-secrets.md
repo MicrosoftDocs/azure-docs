@@ -4,7 +4,7 @@ description: Describes how to manage secrets by using Bicep and Azure Key Vault.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 11/18/2021
 ---
 # Manage secrets by using Bicep
 
@@ -75,18 +75,33 @@ module exampleModule 'module.bicep' = {
 }
 ```
 
+## Work with secrets in pipelines
+
+When you deploy your Azure resources by using a pipeline, you need to take care to handle your secrets appropriately.
+
+- Avoid storing secrets in your code repository. For example, don't add secrets to parameter files, or to your pipeline definition files (e.g. YAML files).
+- In GitHub Actions, use [encrypted secrets](https://docs.github.com/actions/security-guides/encrypted-secrets) to store secure data. Use [secret scanning](https://docs.github.com/code-security/secret-scanning/about-secret-scanning) to detect any accidental commits of secrets.
+- In Azure Pipelines, use [secret variables](/azure/devops/pipelines/process/variables#secret-variables) to store secure data.
+
 ## Related resources
 
 - Resource documentation
   - [`Microsoft.KeyVault/vaults`](/azure/templates/microsoft.keyvault/vaults?tabs=bicep)
   - [`Microsoft.KeyVault/vaults/secrets`](/azure/templates/microsoft.keyvault/vaults/secrets?tabs=bicep)
-- [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md)
-- [Secure parameters](parameters.md#secure-parameters)
-- [Referencing existing resources](resource-declaration.md#existing-resources)
-- [Azure Key Vault](../../key-vault/general/overview.md)
-- [`getSecret` function](bicep-functions-resource.md#getsecret)
+- Azure features
+  - [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md)
+  - [Azure Key Vault](../../key-vault/general/overview.md)
+- Bicep features
+  - [Secure parameters](parameters.md#secure-parameters)
+  - [Referencing existing resources](resource-declaration.md#existing-resources)
+  - [`getSecret` function](bicep-functions-resource.md#getsecret)
 - Quickstart templates
   - [Create a user-assigned managed identity and role assignments](https://github.com/Azure/azure-quickstart-templates/tree/master/modules/Microsoft.ManagedIdentity/user-assigned-identity-role-assignment/1.0)
   - [Create an Azure Key Vault and a secret](https://azure.microsoft.com/resources/templates/key-vault-create/)
   - [Create a Key Vault and a list of secrets](https://azure.microsoft.com/resources/templates/key-vault-secret-create/)
   - [Onboard a custom domain and managed TLS certificate with Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-custom-domain)
+- Azure Pipelines
+  - [Secret variables](/azure/devops/pipelines/process/variables#secret-variables)
+- GitHub Actions
+  - [Encrypted secrets](https://docs.github.com/actions/security-guides/encrypted-secrets)
+  - [Secret scanning](https://docs.github.com/code-security/secret-scanning/about-secret-scanning)
