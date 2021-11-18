@@ -81,6 +81,11 @@ sections:
           Can I use PowerShell to configure/manage/restore backups of Azure File shares?
         answer: |
           Yes. Refer to the detailed documentation [here](backup-azure-afs-automation.md).
+          
+      - question: |
+          Why data transferred in MB is 0 for the backup jobs?
+        answer: |
+           In the current backup solution for Azure Files, no data is transferred to the vault, and snapshots are retained in the same storage account as the backed-up file share. So, the data transferred in MB is 0.
        
       - question: |
           Why Azure Files backups doesn't replicate based on the Storage Replication Type setting of the vault?

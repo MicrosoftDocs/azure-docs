@@ -50,29 +50,26 @@
       href: supportability/how-to-create-azure-support-request.md
     - name: Manage an Azure support request
       href: supportability/how-to-manage-azure-support-request.md
-    - name: Request quota increases
+  - name: Request quota increases
+    items:
+    - name: Increase vCPU quotas
       items:
-      - name: Increase compute vCPU limits
-        items:
-        - name: Resource Manager deployment model
-          items:
-          - name: Increase VM series vCPU limit
-            href: supportability/per-vm-quota-requests.md
-          - name: Increase total regional vCPU limit
-            href: supportability/regional-quota-requests.md
-          - name: Increase spot quota limit
-            href: supportability/low-priority-quota.md
-        - name: Classic deployment model
-          href: supportability/classic-deployment-model-quota-increase-requests.md
-      - name: Increase networking limits
-        href: supportability/networking-quota-requests.md
+      - name: Increase VM-family vCPU quotas
+        href: supportability/per-vm-quota-requests.md
+      - name: Increase regional vCPU quotas
+        href: supportability/regional-quota-requests.md
+      - name: Increase spot vCPU quotas
+        href: supportability/spot-quota.md
+    - name: Increase vCPU quotas for classic deployment
+      href: supportability/classic-deployment-model-quota-increase-requests.md
+    - name: Increase networking quotas
+      href: supportability/networking-quota-requests.md
   - name: Troubleshoot Azure portal issues
     items:
     - name: Recover a deleted dashboard
       href: recover-shared-deleted-dashboard.md
     - name: Capture a browser trace for troubleshooting
       href: capture-browser-trace.md
-
 - name: Reference
   items:
   - name: Keyboard shortcuts

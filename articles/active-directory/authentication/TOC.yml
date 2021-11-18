@@ -57,7 +57,7 @@
     - name: Licenses
       href: concept-mfa-licensing.md
     - name: MFA for Office 365
-      href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
+      href: /microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication
     - name: FAQ
       href: multi-factor-authentication-faq.yml
     - name: Operator assistance
@@ -162,8 +162,12 @@
       href: howto-password-ban-bad-on-premises-faq.yml
     - name: Agent version history
       href: howto-password-ban-bad-on-premises-agent-versions.md
-  - name: Nudge Microsoft Authenticator setup (Preview)
-    href: how-to-nudge-authenticator-app.md
+  - name: Run a registration campaign
+    href: how-to-mfa-registration-campaign.md
+  - name: Use number matching (Preview)
+    href: how-to-mfa-number-match.md
+  - name: Use additional context (Preview)
+    href: how-to-mfa-additional-context.md
   - name: Use Microsoft managed settings 
     href: how-to-mfa-microsoft-managed.md
   - name: Use a Temporary Access Pass (Preview)
@@ -264,7 +268,7 @@
   - name: MFA user guide
     href: https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+    href: /samples/browse/?products=azure
   - name: Azure PowerShell cmdlets
     href: /powershell/azure/
   - name: Microsoft Graph REST API beta

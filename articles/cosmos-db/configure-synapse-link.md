@@ -191,17 +191,21 @@ The following options create a container with analytical store by using PowerShe
 
 ## <a id="update-analytical-ttl"></a> Enable analytical store on an existing container
 
-Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Instructions to check the request status are provided below. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com). This step is required once per subscription, and all new database accounts will also have this capability enabled.
+> [!NOTE]
+> Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Instructions to check the request status are provided below. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com). This step is required once per subscription, and all new database accounts will also have this capability enabled.
 
-You can turn on analytical store on existing Azure Cosmos DB SQL API containers. This capability is general available and can be used for production workloads. Please note the following details about the initial sync process:
+> [!NOTE]
+> You can turn on analytical store on existing Azure Cosmos DB SQL API containers. This capability is general available and can be used for production workloads.
+
+ Please note the following details when enabling Synapse Link on your existing containers:
 
 * The same performance isolation of the analytical store auto-sync process applies to the initial sync and there is no performance impact on your OLTP workload.
 
 * A container's initial sync with analytical store total time will vary depending on the data volume and on the documents complexity. This process can take anywhere from a few seconds to multiple days. Please use the Azure portal to monitor the migration progress.
 
-* The throughput of your container, or database account, also influences the total initial sync time. Although RU/s are not used in this migration, the total RU/s available influences the performance of the process. You can temporarily increase your environment's throughput to speed up the process.
+* The throughput of your container, or database account, also influences the total initial sync time. Although RU/s are not used in this migration, the total RU/s available influences the performance of the process. You can temporarily increase your environment's available RUs to speed up the process.
 
-* You won't be able to query analytical store of an existing container until the end of the initial sync process. Your OLTP workload isn't impacted and you can keep on reading data normally. Data ingested after the start of the initial sync will be merged into analytical store by the regular analytical store auto-sync process.
+* You won't be able to query analytical store of an existing container while Synapse Link is being enabled on that container. Your OLTP workload isn't impacted and you can keep on reading data normally. Data ingested after the start of the initial sync will be merged into analytical store by the regular analytical store auto-sync process.
 
 * Currently existing MongoDB API collections are not supported. The alternative is to migrate the data into a new collection, created with analytical store turned on.
  

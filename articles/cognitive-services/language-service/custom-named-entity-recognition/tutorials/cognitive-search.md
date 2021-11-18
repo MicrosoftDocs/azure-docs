@@ -15,7 +15,7 @@ ms.custom: language-service-custom-ner, ignite-fall-2021
 
 # Tutorial: Enrich a Cognitive Search index with custom entities from your data
 
-In enterprise, having an abundance of electronic documents can mean that searching through them is a time-consuming and expensive task. [Azure Cognitive Search](/azure/search/search-create-service-portal) can help with searching through your files, based on their indices. Custom NER can help by extracting relevant entities from your files, and enriching the process of indexing these files.
+In enterprise, having an abundance of electronic documents can mean that searching through them is a time-consuming and expensive task. [Azure Cognitive Search](../../../../search/search-create-service-portal.md) can help with searching through your files, based on their indices. Custom NER can help by extracting relevant entities from your files, and enriching the process of indexing these files.
 
 In this tutorial, you learn how to:
 
@@ -27,9 +27,9 @@ In this tutorial, you learn how to:
 
 * [An Azure Language resource connected to an Azure blob storage account](../how-to/create-project.md).
     * We recommend following the instructions for creating a resource using the Azure portal, for easier setup. 
-* [An Azure Cognitive Search service](/azure/search/search-create-service-portal) in your current subscription
+* [An Azure Cognitive Search service](../../../../search/search-create-service-portal.md) in your current subscription
     * You can use any tier, and any region for this service.
-* An [Azure function app](/azure/azure-functions/functions-create-function-app-portal)
+* An [Azure function app](../../../../azure-functions/functions-create-function-app-portal.md)
 * Download this [sample data](https://go.microsoft.com/fwlink/?linkid=2175226).
 
 ## Create a custom NER project through Language studio
@@ -102,7 +102,7 @@ Next you will need to prepare your secrets for your Azure function. Your project
 
 2. After you download the sample function, open the *program.cs* file and enter your app secrets.
 
-3. [Publish the function to Azure](/azure/azure-functions/functions-develop-vs?tabs=in-process#publish-to-azure).
+3. [Publish the function to Azure](../../../../azure-functions/functions-develop-vs.md?tabs=in-process#publish-to-azure).
 
 ## Use the integration tool
 
@@ -110,7 +110,7 @@ In the following sections, you will use the [Cognitive Search Integration tool](
 
 ### Prepare configuration file
 
-1. In the folder you just download, and find the [sample configuration file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/configs.json). Open it in a text editor. 
+1. In the folder you just download, and find the [sample configuration file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Samples/configs.json). Open it in a text editor. 
 
 2. Get your storage account connection string by:
     1. Navigating to your storage account overview page in the [Azure portal](https://ms.portal.azure.com/#home).
@@ -132,7 +132,7 @@ In the following sections, you will use the [Cognitive Search Integration tool](
 
 ### Prepare schema file
 
-In the folder you downloaded earlier, find the [sample schema file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/app-schema.json). Open it in a text editor. 
+In the folder you downloaded earlier, find the [sample schema file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Samples/app-schema.json). Open it in a text editor. 
 
 The entries in the `entityNames` array will be the entity names you have assigned while creating your project. You can copy and paste them from your project in [Language Studio](https://aka.ms/custom-extraction), or 
 
@@ -148,4 +148,4 @@ Replace `name-your-index-here` with the index name that appears in your Cognitiv
 
 ## Next steps
 
-* [Search your app with with the Cognitive Search SDK](/azure/search/search-howto-dotnet-sdk#run-queries)
+* [Search your app with with the Cognitive Search SDK](../../../../search/search-howto-dotnet-sdk.md#run-queries)

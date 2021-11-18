@@ -50,7 +50,7 @@ The following architecture diagram shows the implementation.
 
 ## Onboard to BlokSec
 
-Request a demo tenant with BlokSec by filling out [the form](https://bloksec.com/request-a-demo/). In the message field indicates that you would like to onboard with Azure AD B2C. Download and install the free BlokSec yuID mobile app from the app store. Once your demo tenant has been prepared, you'll receive an email. On your mobile device where the BlokSec application is installed, select the link to register your admin account with your yuID app.
+Request a demo tenant with BlokSec by filling out [the form](https://bloksec.com/). In the message field indicates that you would like to onboard with Azure AD B2C. Download and install the free BlokSec yuID mobile app from the app store. Once your demo tenant has been prepared, you'll receive an email. On your mobile device where the BlokSec application is installed, select the link to register your admin account with your yuID app.
 
 ::: zone pivot="b2c-user-flow"
 

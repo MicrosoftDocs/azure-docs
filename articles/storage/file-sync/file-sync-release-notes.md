@@ -57,10 +57,11 @@ The following release notes are for version 14.0.0.0 of the Azure File Sync agen
 	- When removing a server endpoint via the portal, we now provide step by step guidance based on the reason behind deleting the server endpoint, so that you can avoid data loss and ensure your data is where it needs to be (server or Azure file share). This feature also includes new PowerShell cmdlets (Get-StorageSyncStatus & New-StorageSyncUploadSession) that you can use on your local server to aid you through the deprovisioning process.
 
 - Invoke-AzStorageSyncChangeDetection cmdlet improvements
-	- Prior to the v14 release, if you made changes directly in the Azure file share, you could use the Invoke-AzStorageSyncChangeDetection cmdlet to detect the changes and sync them to the servers in your sync group. However, the cmdlet would fail to run if the path specified contained more than 10,000 items. We have improved the Invoke-AzStorageSyncChangeDetection cmdlet and the 10,000 item limit no longer applies when scanning the entire share. To learn more, see the [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) documentation.
+	- Prior to the v14 release, if you made changes directly in the Azure file share, you could use the Invoke-AzStorageSyncChangeDetection cmdlet to detect the changes and sync them to the servers in your sync group. However, the cmdlet would fail to run if the path specified contained more than 10,000 items. We have improved the Invoke-AzStorageSyncChangeDetection cmdlet and the 10,000 item limit no longer applies when scanning the entire share. To learn more, see the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) documentation.
 
 - Miscellaneous improvements
 	- Azure File Sync is now supported in West US 3 region.
+	- Fixed a bug that caused the FileSyncErrorsReport.ps1 script to not provide the list of all per-item errors.
 	- Reduced transactions when a file consistently fails to upload due to a per-item sync error.
 	- Reliability and telemetry improvements for cloud tiering and sync. 
 

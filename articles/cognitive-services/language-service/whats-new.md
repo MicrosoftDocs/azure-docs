@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -23,7 +23,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Question Answering (now Generally Available)](question-answering/overview.md) 
     * [Sentiment Analysis and opinion mining](sentiment-opinion-mining/overview.md)
     * [Key Phrase Extraction](key-phrase-extraction/overview.md)
-    * [Named Entity Recognition (NER), Personally Identifying Information (PII)](/azure/cognitive-services/named-entity-recognition/overview.md)
+    * [Named Entity Recognition (NER), Personally Identifying Information (PII)](named-entity-recognition/overview.md)
     * [Language Detection](language-detection/overview.md)
     * [Text Analytics for health](text-analytics-for-health/overview.md)
     * [Text summarization preview](text-summarization/overview.md)
@@ -35,8 +35,12 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * Improved prediction quality.
     * [Additional language support](sentiment-opinion-mining/language-support.md?tabs=sentiment-analysis) for the opinion mining feature.
     * For more information, see the [project z-code site](https://www.microsoft.com/research/project/project-zcode/).
-    > [!NOTE]
-    > To use this [model version](sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model), you must specify it in your API calls, using the model version parameter. 
+    * To use this [model version](sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model), you must specify it in your API calls, using the model version parameter. 
+
+* SDK support for sending requests to custom models:
+    * [Custom Named Entity Recognition](custom-named-entity-recognition/how-to/call-api.md?tabs=client#use-the-client-libraries)
+    * [Custom text classification](custom-classification/how-to/call-api.md?tabs=api#use-the-client-libraries)
+    * [Custom language understanding](conversational-language-understanding/how-to/deploy-query-model.md#use-the-client-libraries)
  
 ## Next steps
 

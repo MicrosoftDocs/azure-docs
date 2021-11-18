@@ -3,7 +3,7 @@ title: Manage an Azure support request
 description: Learn about viewing support requests and how to send messages, upload files, and manage options.
 tags: billing
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/10/2021
 # To add: close and reopen, review request status, update contact info
 ---
 
@@ -50,7 +50,7 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
 ## Allow collection of advanced diagnostic information
 
-When you create a support request, you can select **Yes** or **No** in the **Advanced diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) such as [log files](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) from your Azure resources that can potentially help resolve your issue.
+When you create a support request, you can select **Yes** or **No** in the **Advanced diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) such as [log files](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) from your Azure resources that can potentially help resolve your issue. Azure support can only access advanced diagnostic information if your case was created through the Azure portal and you've granted permission to allow it.
 
 To change your **Advanced diagnostic information** selection after the request has been created:
 

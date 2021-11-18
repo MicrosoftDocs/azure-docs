@@ -89,7 +89,7 @@ When you deploy an Azure Machine Learning workspace, various other services are 
 > * Hierarchical Namespace (ADLS Gen 2) is disabled
 > These requirements are only for the _default_ storage account used by the workspace.
 >
-> When attaching Azure container registry, you must have the the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
+> When attaching Azure container registry, you must have the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
 
 # [Create with new resources](#tab/createnewresources)
 
@@ -178,7 +178,7 @@ The output of the workspace creation command is similar to the following JSON. Y
 ## Advanced configurations
 ### Configure workspace for private network connectivity
 
-Dependent on your use case and organizational requirements, you can choose to configure Azure Machine Learning using private network connectivity. You can use the Azure CLI to deploy a workspace and a Private link endpoint for the workspace resource. For more information on using a private endpoint and virtual network with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md). For complex resource configurations, also refer to template based deployment options including [Azure Resource Manager](how-to-create-workspace-template.md).
+Dependent on your use case and organizational requirements, you can choose to configure Azure Machine Learning using private network connectivity. You can use the Azure CLI to deploy a workspace and a Private link endpoint for the workspace resource. For more information on using a private endpoint and virtual network (VNet) with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md). For complex resource configurations, also refer to template based deployment options including [Azure Resource Manager](how-to-create-workspace-template.md).
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
@@ -222,6 +222,48 @@ az network private-endpoint create \
     --private-connection-resource-id "/subscriptions/<subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>" \
     --group-id amlworkspace \
     --connection-name workspace -l <location>
+```
+
+To create the private DNS zone entries for the workspace, use the following commands:
+
+```azurecli-interactive
+# Add privatelink.api.azureml.ms
+az network private-dns zone create \
+    -g <resource-group-name> \
+    --name 'privatelink.api.azureml.ms'
+
+az network private-dns link vnet create \
+    -g <resource-group-name> \
+    --zone-name 'privatelink.api.azureml.ms' \
+    --name <link-name> \
+    --virtual-network <vnet-name> \
+    --registration-enabled false
+
+az network private-endpoint dns-zone-group create \
+    -g <resource-group-name> \
+    --endpoint-name <private-endpoint-name> \
+    --name myzonegroup \
+    --private-dns-zone 'privatelink.api.azureml.ms' \
+    --zone-name 'privatelink.api.azureml.ms'
+
+# Add privatelink.notebooks.azure.net
+az network private-dns zone create \
+    -g <resource-group-name> \
+    --name 'privatelink.notebooks.azure.net'
+
+az network private-dns link vnet create \
+    -g <resource-group-name> \
+    --zone-name 'privatelink.notebooks.azure.net' \
+    --name <link-name> \
+    --virtual-network <vnet-name> \
+    --registration-enabled false
+
+az network private-endpoint dns-zone-group add \
+    -g <resource-group-name> \
+    --endpoint-name <private-endpoint-name> \
+    --name myzonegroup \
+    --private-dns-zone 'privatelink.notebooks.azure.net' \
+    --zone-name 'privatelink.notebooks.azure.net'
 ```
 
 ---
@@ -329,7 +371,7 @@ az group delete -g <resource-group-name>
 
 For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) documentation.
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. Please refer to [this documentation](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion).
+If you accidentally deleted your workspace, are still able to retrieve your notebooks. Please refer to [this documentation](./how-to-high-availability-machine-learning.md#workspace-deletion).
 
 ## Troubleshooting
 
@@ -351,3 +393,5 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 ## Next steps
 
 For more information on the Azure CLI extension for machine learning, see the [az ml](/cli/azure/ml) documentation.
+
+To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
