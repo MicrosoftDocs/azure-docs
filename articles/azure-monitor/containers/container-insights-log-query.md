@@ -45,12 +45,6 @@ KubeEvents
 | sort by TimeGenerated desc
 | render table
 ```
-### Image inventory
-
-``` kusto
-ContainerImageInventory
-| summarize AggregatedValue = count() by Image, ImageTag, Running
-```
 
 ### Container CPU
 

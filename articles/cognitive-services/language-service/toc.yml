@@ -72,6 +72,16 @@ items:
         href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-swagger
+    - name: SDKs (v3.2-preview.2)
+      items:
+        - name: .NET
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        - name: Python
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+        - name: Node.js
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
 - name: Custom Named Entity Recognition (NER) (preview)
   items:
   - name: Overview
@@ -120,6 +130,16 @@ items:
         href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-swagger
+    - name: SDKs (v3.2-preview.2)
+      items:
+        - name: .NET
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        - name: Python
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+        - name: Node.js
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
 - name: Conversational language understanding (preview)
   items:
   - name: Overview
@@ -162,6 +182,12 @@ items:
       items:
       - name: Authoring
         href: https://aka.ms/clu-authoring-apis
+    - name: SDKs
+      items:
+      - name: .NET
+        href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+      - name: Python
+        href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
 - name: Entity linking
   items:
   - name: Overview
@@ -505,6 +531,8 @@ items:
       href: question-answering/how-to/manage-knowledge-base.md
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md
+    - name: Prebuilt API
+      href: question-answering/how-to/prebuilt.md
     - name: Troubleshooting
       href: question-answering/how-to/troubleshooting.md
   - name: Concepts
@@ -573,9 +601,9 @@ items:
   - name: Tutorials
     items:
     - name: Sentiment Analysis on streaming data using Azure Databricks
-      href: /databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
+      href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: /translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
+      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
   - name: Reference
     items:
     - name: REST API

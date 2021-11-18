@@ -57,13 +57,13 @@ The log files you use for investigation and monitoring are:
 
 In the Azure portal you can view the Azure AD Audit logs and download them as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* [**Azure Sentinel**](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
+* [**Microsoft Sentinel**](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
 
 * [**Azure Monitor**](../../azure-monitor/overview.md) – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
 * [**Azure Event Hubs**](../../event-hubs/event-hubs-about.md) **integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
 
-* [**Microsoft Cloud App Security (MCAS)**](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* [**Microsoft Defender for Cloud Apps**](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
 The rest of this article provides recommendations for setting a baseline to monitor and alert on, organized using a tier model. Links to pre-built solutions are listed following the table. You can also build alerts using the preceding tools. The content is organized into the following topic areas of PIM:
 
