@@ -94,7 +94,15 @@
       - name: Import container images
         href: container-registry-import-images.md
       - name: Transfer artifacts (preview)
-        href: container-registry-transfer-images.md
+        items:
+        - name: Overview and Prerequisites
+          href: container-registry-transfer-prereqs.md
+        - name: ACR Transfer with Az CLI
+          href: container-registry-transfer-cli.md
+        - name: ACR Transfer with ARM Templates
+          href: container-registry-transfer-arm.md
+        - name: Troubleshooting
+          href: container-registry-transfer-troubleshooting.md
       - name: Protect registry data
         items:
         - name: Lock container images
