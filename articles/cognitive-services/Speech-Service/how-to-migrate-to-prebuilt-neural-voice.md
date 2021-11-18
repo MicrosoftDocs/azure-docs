@@ -14,18 +14,28 @@ ms.author: v-baolianzou
 
 # Migrate from prebuilt standard voice to prebuilt neural voice
 
-We are retiring the standard voices on **31st August 2024** and they will no longer be supported after that date.  The announcement has been sent out to all existing Speech subscriptions before **31st August 2021**. During the retiring period (**31st August 2021- 31st August 2024**), existing standard voice users can continue to use their standard voices, all new users/new speech resources should move to the neural voices.
+> [!IMPORTANT]
+> The prebuilt standard voice is deprecated. Existing standard tier non-neural models can be used through the end of August 2024. Starting in September 2024 we will only support prebuilt neural voice. Please make plans to use prebuilt neural voices right away. 
 
-**Action required**
+The prebuilt neural voice provides more natural sounding speech output, and thus, a better end-user experience. 
 
-1. Review the [price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) structure and listen to the neural voice [samples](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) at the bottom of the page to determine the right voice for your business needs.
-1. To make the change, [follow the sample code](speech-synthesis-markup.md#choose-a-voice-for-text-to-speech) to update the voice name in your speech synthesis request to the supported neural voice names in chosen languages by 31 August 2024. **Starting 1st September 2024**, standard voices will no longer be supported, please use neural voices for your speech synthesis request, on cloud or on prem. For on-prem container, please use the [neural voice containers](../containers/container-image-tags.md) and follow the [instructions](speech-container-howto.md).
+|Prebuilt standard voice  | Prebuilt neural voice | 
+|--|--|
+| Noticeably robotic  | Natural sounding, closer to human-parity|
+| Limited capabilities in voice tuning |Advanced capabilities in voice tuning   |
+| No new investment in future voice fonts  |On-going investment in future voice fonts |
+
+## Action required
+
+> [!TIP]
+> Even without an Azure account, you can listen to voice samples at this [Azure website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs.
+
+1. Review the [price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) structure and listen to the neural voice [samples](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) at the bottom of that page to determine the right voice for your business needs.
+1. To make the change, [follow the sample code](speech-synthesis-markup.md#choose-a-voice-for-text-to-speech) to update the voice name in your speech synthesis request to the supported neural voice names in chosen languages. Please use neural voices for your speech synthesis request, on cloud or on prem. For on-prem container, please use the [neural voice containers](../containers/container-image-tags.md) and follow the [instructions](speech-container-howto.md).
 
 ## Adjust prosody for standard voices
 
 Each SSML document is created with SSML elements (or tags). These elements are used to adjust pitch, prosody, volume, and more. The following table lists some of the `prosody` elements which are applied to different levels for standard voices or neural voices. The `prosody` element is used to specify changes to pitch, contour, range, rate, duration, and volume for the Text-to-Speech output. 
-
-**Attributes**
 
 | Attribute | Support level                                                |
 | --------- | ------------------------------------------------------------ |
@@ -36,12 +46,10 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 > [!NOTE]
 > To learn more about details on how each element is used, see [Improve synthesis with SSML](speech-synthesis-markup.md).
 
-## Language support for standard voices
 
-More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech.
+### Language support for prebuilt standard voices (deprecated)
 
-> [!IMPORTANT]
-> We are retiring the standard voices on **31st August 2024** and they will no longer be supported after that date. We announced this in emails sent to all existing Speech subscriptions created before **31st August 2021**. During the retiring period (**31st August 2021** - **31st August 2024**), existing standard voice users can continue to use standard voices, but all new users/new speech resources must choose neural voices.
+More than 75 prebuilt standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech.
 
 > [!NOTE]
 > With two exceptions, standard voices are created from samples that use a 16 khz sample rate.
@@ -130,11 +138,10 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 > [!IMPORTANT]
 > The `en-US-Jessa` voice has changed to `en-US-Aria`. If you were using "Jessa" before, convert over to "Aria".
-
-> [!TIP]
+> 
 > You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)" in your speech synthesis requests.
 
-## Regional support for standard voices
+### Regional support for standard voices (deprecated)
 
 Use this table to determine **availability of standard voices** by region/endpoint:
 
@@ -165,4 +172,5 @@ Use this table to determine **availability of standard voices** by region/endpoi
 
 ## Next steps
 
-- [Try out prebuilt neural voice](text-to-speech.md)
+> [!div class="nextstepaction"]
+> [Try out prebuilt neural voice](text-to-speech.md)

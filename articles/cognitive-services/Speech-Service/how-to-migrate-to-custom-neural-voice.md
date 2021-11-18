@@ -14,20 +14,35 @@ ms.author: v-baolianzou
 
 # Migrate from custom voice to custom neural voice
 
-The standard/non-neural training tier (statistical parametric, concacenative) of custom voice is being deprecated. The announcement has been sent out to all existing Speech subscriptions before 2/28/2021. During the deprecation period (3/1/2021 - 2/29/2024), existing standard tier users can continue to use their non-neural models created. All new users/new speech resources should move to the neural tier/custom neural voice. After 2/29/2024, all standard/non-neural custom voices will no longer be supported. 
+> [!IMPORTANT]
+> The standard/non-neural training tier of custom voice is deprecated. Existing standard tier non-neural models can be used through the end of February 2024. Starting in March 2024 we will only support custom neural voice. 
 
-If you are using non-neural/standard custom voice,  migrate to custom neural voice immediately following the steps below. Moving to custom neural voice will help you develop more realistic voices for even more natural conversational interfaces and enable your customers and end users to benefit from the latest Text-to-Speech technology, in a responsible way. 
+The custom neural voice lets you build higher-quality voice models while requiring less data. You can develop more realistic, natural, and conversational voices. Your customers and end users will benefit from the latest Text-to-Speech technology, in a responsible way. 
 
-1. Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply here](https://aka.ms/customneural). Note that the access to the custom neural voice service is subject to Microsoft’s sole discretion based on our eligibility criteria. Customers may gain access to the technology only after their application is reviewed and they have committed to using it in alignment with our [Responsible AI principles](https://microsoft.com/ai/responsible-ai) and the [code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
+|Custom voice  |Custom neural voice | 
+|--|--|
+| The standard, or "traditional," method of custom voice breaks down spoken language into phonetic snippets that can be remixed and matched using classical programming or statistical methods.  | Custom neural voice synthesizes speech using deep neural networks that have "learned" the way phonetics are combined in natural human speech rather than using classical programming or statistical methods.|
+| Custom voice requires a large volume of voice data to produce a more human-like voice model. With fewer recorded lines, a standard custom voice model will tend to sound more obviously robotic. |The custom neural voice capability enables you to create a unique brand voice in multiple languages and styles by using a small set of recordings.|
+
+## Action required
+
+Before you can migrate to custom neural voice, your [application](https://aka.ms/customneural) must be accepted. Access to the custom neural voice service is subject to Microsoft's sole discretion based on our eligibility criteria. You must commit to using custom neural voice in alignment with our [Responsible AI principles](https://microsoft.com/ai/responsible-ai) and the [code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
+
+> [!TIP]
+> Even without an Azure account, you can listen to voice samples in [Speech Studio](https://aka.ms/customvoice) and determine the right voice for your business needs.
+
+1. Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and then [apply here](https://aka.ms/customneural).  
 2. Once your application is approved, you will be provided with the access to the "neural" training feature. Make sure you log in to [Speech Studio](https://speech.microsoft.com) using the same Azure subscription that you provide in your application. 
     > [!IMPORTANT]
-    > To protect voice talent and prevent training of voice models with unauthorized recording or without the acknowledgement from the voice talent, we require the customer to upload a recorded statement of the voice talent giving their consent. When preparing your recording script, make sure you include this sentence. 
+    > You must create a voice talent profile with an audio recording of the voice talent consenting to their voice being used to train a custom neural voice model. You upload this in the **Set up voice talent** tab. When preparing your recording script, make sure you include the below sentence. 
+    >
     > “I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice.”
-    > This sentence must be uploaded to the **Set up voice talent** tab as a verbal consent file. It will be used to verify if the recordings in your training datasets are done by the same person that makes the consent.
+    >
+    > Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
 3. After the custom neural voice model is created, deploy the voice model to a new endpoint. To create a new custom voice endpoint with your neural voice model, go to **Text-to-Speech > Custom Voice > Deploy model**. Select **Deploy models** and enter a **Name** and **Description** for your custom endpoint. Then select the custom neural voice model you would like to associate with this endpoint and confirm the deployment.  
 4. Update your code in your apps if you have created a new endpoint with a new model. 
 
-## Regional support for custom voices
+### Regional support for custom voices
 
 If you've created a custom voice font, use the endpoint that you've created. You can also use the endpoints listed below, replacing the `{deploymentId}` with the deployment ID for your voice model.
 
@@ -55,32 +70,7 @@ If you've created a custom voice font, use the endpoint that you've created. You
 | West US | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 
-## Custom voice and custom neural voice quotas and limits per speech resource
-
-| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
-|--|--|--|
-| Max number of Transactions per Second (TPS) per Speech resource</br>Real-time API. prebuilt standard voice, prebuilt neural voice, custom voice, and custom neural voice | 200<sup>2</sup>| 200<sup>2</sup>|
-| Max number of data sets per Speech resource | 10 | 500 |
-| Max number of simultaneous dataset upload per Speech resource | 2 | 5 |
-| Max data file size for data import per dataset | 2 GB | 2 GB |
-| Upload of long audios or audios without script | No | Yes |
-| Max number of simultaneous model trainings per Speech resource | 1 (custom voice only) | 3 |
-| Max number of custom endpoints per Speech resource | 1 (custom voice only) | 50 |
-| **Concurrent Request limit for custom neural voice** |  |  |
-| Default value | N/A | 10 |
-| Adjustable | N/A | Yes<sup>3</sup> |
-| **Concurrent Request limit for custom voice** |  |  |
-| Default value | 10 | 10 |
-| Adjustable | No<sup>3</sup> | Yes<sup>3</sup> |
-
-<sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
-<sup>2</sup> See [additional explanations](speech-services-quotas-and-limits.md#detailed-description-quota-adjustment-and-best-practices) and [best practices](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling).<br/>
-<sup>3</sup> See [additional explanations](speech-services-quotas-and-limits.md#detailed-description-quota-adjustment-and-best-practices), [best practices](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#increasing-concurrent-request-limit-for-custom-neural-voice-and-custom-voice).<br/>
-
-## Increasing concurrent request limit for custom neural voice and custom voice
-
-By default the number of concurrent requests for custom neural voice and custom voice endpoints is limited to 10. For the Standard pricing tier, this amount can be increased. For more details, read the [speech service quotas and limits](speech-services-quotas-and-limits.md)
-
 ## Next steps
 
-- [Try out custom neural voice](custom-neural-voice.md)
+> [!div class="nextstepaction"]
+> [Try out custom neural voice](custom-neural-voice.md)
