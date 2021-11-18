@@ -16,6 +16,15 @@ ms.subservice: data
 
 This document explains some of the limitations of Azure Communication Services and what to do if you are running into these limitations. 
 
+## Throttling patterns and architecture
+When you hit service limitations you will generally receive an HTTP status code 429 (Too many requests). In general, the following are best practices for handling throttling:
+
+- Reduce the number of operations per request.
+- Reduce the frequency of calls.
+- Avoid immediate retries, because all requests accrue against your usage limits.
+
+You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](https://docs.microsoft.com/azure/architecture/) documentation for [Throttling patterns](https://docs.microsoft.com/azure/architecture/patterns/throttling).
+
 ## Acquiring phone numbers
 Before trying to acquire a phone number, make sure your sbuscription meets the [geographic and subscription](./telephony-sms/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
 
@@ -98,8 +107,16 @@ For more information about the chat SDK and service, see the [chat SDK overview]
 For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page.
 
 ## Teams Interoperability and Microsoft Graph
+If you are using a Teams interoperability scenario, you will likely end up using some Microsoft Graph APIs to create [meetings](https://docs.microsoft.com/graph/cloud-communications-online-meetings).  
+
+Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](https://docs.microsoft.com/graph/throttling#service-specific-limits) in more detail.
+
+In general, responses will contain a 
 
 ### Action to take
+You can find more information on Microsoft Graph [throttling](https://docs.microsoft.com/graph/throttling) limits in the [Microsoft Graph](https://docs.microsoft.com/graph/overview) documentation.
+
+## Still need help?
 
 
 ## Next steps
