@@ -29,8 +29,8 @@ Azure Lab Services integration with Microsoft Teams will help educators set up a
 
 See the following articles:
 
-- [Get started and create a lab within Teams](how-to-get-started-create-lab-within-teams.md)
-- [Manage lab user lists within Teams](how-to-manage-user-lists-within-teams.md)
-- [Manage lab's VM pool within Teams](how-to-manage-vm-pool-within-teams.md)
-- [Create and manage lab schedules within Teams](how-to-create-schedules-within-teams.md)
-- [Access a VM within Teams – Student view](how-to-access-vm-for-students-within-teams.md)
+* [Get started and create a lab within Teams](how-to-get-started-create-lab-within-teams.md)
+* [Manage lab user lists within Teams](how-to-manage-user-lists-within-teams.md)
+* [Manage lab's VM pool within Teams](how-to-manage-vm-pool-within-teams.md)
+* [Create and manage lab schedules within Teams](how-to-create-schedules-within-teams.md)
+* [Access a VM within Teams – Student view](how-to-access-vm-for-students-within-teams.md)

@@ -11,6 +11,8 @@ When a lab is created within Canvas, users can view and access all the VMs provi
 
 Users must be authenticated to Azure Lab Services as well as Canvas to access the lab. If students are signed into Canvas, they get a single sign-on experience to Azure Lab Services.
 
+## Lab unavailable
+
 If the lab is yet to be published or a sync is yet to be triggered after they are added to the team, similar messaging will be shown to the students.
 
 :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
