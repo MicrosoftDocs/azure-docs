@@ -24,7 +24,7 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 * An existing Azure Storage Account and a pre-created Azure File Share. If you need to create a storage account and file share in Azure, see [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md).
 * The [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
-## Mount your own extra persistent storage to Applications
+## Mount your own extra persistent storage to applications
 
 #### [Portal](#tab/Azure-portal)
 The following procedures bind an Azure Storage account as a storage resource in your Azure Spring Cloud and create an app with your own persistent storage.
