@@ -69,7 +69,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
     - West US 2
 
 ## Data completeness
-Data export will continue to retry sending data for up to 30 minutes if the destination is unavailable. If it's still unavailable after 30 minutes, data will be discarded until the destination becomes available.
+Data export is optimized for moving large data volume to your destinations and in certain retry conditions, can include a fraction of duplicated records. The export operation to your destination could fail when ingress limits are reached, see details under [Create or update data export rule](#create-or-update-data-export-rule). Export continues to retry for up to 30 minutes and if destination is unavailable to accept data, data will be discarded until the destination becomes available.
 
 ## Cost
 Currently, there are no additional charges for the data export feature. Pricing for data export will be announced in the future and a notice period provided prior to the start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.

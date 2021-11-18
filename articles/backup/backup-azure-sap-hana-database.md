@@ -85,10 +85,8 @@ You can also use the following FQDNs to allow access to the required services fr
 
 #### Use an HTTP proxy server to route traffic
 
-When you back up an SAP HANA database running on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
-
 > [!NOTE]
-> There is no service level proxy support. That is, traffic via the proxy from only a few or selected services (Azure backup services) isn't supported. The entire data or traffic can either be routed by proxy or not.
+> Currently, there is no proxy support for SAP HANA. Please consider other options such as private end points if you wish to remove outbound connectivity requirements for database backups via Azure backup in HANA VMs.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

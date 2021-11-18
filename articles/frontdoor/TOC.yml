@@ -55,7 +55,7 @@
     - name: Rules Match Conditions
       href: rules-match-conditions.md
     - name: Rules Actions
-      href: front-door-rules-engine-actions.md
+      href: rules-actions.md
   - name: URL rewrite
     href: front-door-url-rewrite.md
   - name: URL redirect
@@ -118,8 +118,8 @@
     href: front-door-diagnostics.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot routing issues
-      href: front-door-troubleshoot-routing.md
+    - name: Troubleshooting Front Door issues
+      href: troubleshoot-issues.md
     - name: Allowed certificate authorities
       href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
 - name: Reference
@@ -131,7 +131,7 @@
     - name: Edge locations by region
       href: edge-locations-by-region.md
     - name: Edge locations by abbreviation
-      href: edge-locations-abbreviation.md
+      href: edge-locations-by-abbreviation.md
   - name: Azure CLI
     href: /cli/azure/afd/
   - name: Azure PowerShell

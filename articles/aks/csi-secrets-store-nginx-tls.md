@@ -25,7 +25,6 @@ Importing the ingress TLS certificate to the cluster can be accomplished using o
 - An AKS cluster with the Secrets Store CSI Driver configured.
 - An Azure Key Vault instance.
 
-
 ## Generate a TLS certificate
 
 ```bash
@@ -61,7 +60,8 @@ kubectl create ns $NAMESPACE
 ```
 
 Select a [method to provide an access identity][csi-ss-identity-access] and configure your SecretProviderClass YAML accordingly. Additionally:
-- Be sure to use `objectType=secret`, as this is the only way to obtain the private key and the certificate from AKV.
+
+- Be sure to use `objectType=secret`, which is the only way to obtain the private key and the certificate from AKV.
 - Set `kubernetes.io/tls` as the `type` in your `secretObjects` section.
 
 See the following for an example of what your SecretProviderClass might look like:
@@ -347,6 +347,6 @@ curl -v -k --resolve demo.test.com:443:52.xx.xx.xx https://demo.test.com
 ```
 
 <!-- LINKS INTERNAL -->
-[csi-ss-identity-access]: ./csi-secrets-store-identity-access.md 
+[csi-ss-identity-access]: ./csi-secrets-store-identity-access.md
 <!-- LINKS EXTERNAL -->
 [kubernetes-ingress-tls]: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls

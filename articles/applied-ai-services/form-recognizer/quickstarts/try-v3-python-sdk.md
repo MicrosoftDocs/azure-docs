@@ -318,7 +318,7 @@ def analyze_invoice():
     )
 
     poller = document_analysis_client.begin_analyze_document_from_url(
-            "prebuilt-document", formUrl)
+            "prebuilt-invoice", formUrl)
     invoices = poller.result()
 
     for idx, invoice in enumerate(invoices.documents):

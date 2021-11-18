@@ -120,7 +120,7 @@ To configure this policy, set the effect parameter to __Modify__ or __Disabled__
 
 * [Azure Policy documentation](../governance/policy/overview.md)
 * [Built-in policies for Azure Machine Learning](policy-reference.md)
-* [Working with security policies with Azure Security Center](../security-center/tutorial-security-policy.md)
+* [Working with security policies with Microsoft Defender for Cloud](../security-center/tutorial-security-policy.md)
 * The [Cloud Adoption Framework scenario for data management and analytics](/azure/cloud-adoption-framework/scenarios/data-management/) outlines considerations in running data and analytics workloads in the cloud.
 * [Cloud Adoption Framework data landing zones](https://github.com/Azure/data-landing-zone) provide a reference implementation for managing data and analytics workloads in Azure.
 * [Learn how to use policy to integrate Azure Private Link with Azure Private DNS zones](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale), to manage private link configuration for the workspace and dependent resources.

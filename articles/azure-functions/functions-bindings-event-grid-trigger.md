@@ -179,10 +179,10 @@ The following examples show trigger binding in [Java](functions-reference-java.m
   public void logEvent(
     @EventGridTrigger(
       name = "event"
-    ) 
-    String content, 
+    )
+    String content,
     final ExecutionContext context) {
-      context.getLogger().info("Event content: " + content);      
+      context.getLogger().info("Event content: " + content);
   }
 ```
 
@@ -215,8 +215,8 @@ Upon arrival, the event's JSON payload is de-serialized into the ```EventSchema`
   public void logEvent(
     @EventGridTrigger(
       name = "event"
-    ) 
-    EventSchema event, 
+    )
+    EventSchema event,
     final ExecutionContext context) {
       context.getLogger().info("Event content: ");
       context.getLogger().info("Subject: " + event.subject);

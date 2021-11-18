@@ -35,5 +35,5 @@ During the public preview of Azure Chaos Studio, there are a few limitations and
 
 ## Next steps
 Get started creating and running chaos experiments to improve application resilience with Chaos Studio using the links below.
-- [Create and run your first experiment](chaos-studio-tutorial-service-direct.md)
+- [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)
 - [Learn more about chaos engineering](chaos-studio-chaos-engineering-overview.md)

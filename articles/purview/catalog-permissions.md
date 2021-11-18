@@ -17,7 +17,7 @@ Azure Purview uses **Collections** to organize and manage access across its sour
 A collection is a tool Azure Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All access to Purview's resources are managed from collections in the Purview account itself.
 
 > [!NOTE]
-> As of November 8th, 2021, ***Insights*** is accessible to Data Curators and higher roles. Data Readers do not have access to Insights.
+> As of November 8th, 2021, ***Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
 >
 >
 ## Roles
@@ -38,7 +38,7 @@ Azure Purview uses a set of predefined roles to control who can access what with
 |I need to edit the glossary or set up new classification definitions|Data Curator|
 |I need to view Insights to understand the governance posture of my data estate|Data Curator|
 |My application's Service Principal needs to push data to Azure Purview|Data Curator|
-|I need to set up scans via the Purview Studio|Data Source Admin, plus at least Data Reader **or** Data Curator on the collection where the source is registered.|
+|I need to set up scans via the Purview Studio|Data Curator on the collection **or** Data Curator **And** Data Source Administrator where the source is registered|
 |I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data Source Admin|
 |I need to put users into roles in Azure Purview | Collection Admin |
 
@@ -55,6 +55,8 @@ Sources, assets, and objects can be added directly to this root collection, but 
 All other users can only access information within the Azure Purview account if they, or a group they're in, are given one of the above roles. This means, when you create an Azure Purview account, no one but the creator can access or use its APIs until they are [added to one or more of the above roles in a collection](how-to-create-and-manage-collections.md#add-role-assignments).
 
 Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent and will need to be added directly, though collection admins that are automatically inherited from a parent collection can't be removed.
+
+You can assign Purview roles to users, security groups and service principals from your Azure Active Directory which is associated with your purview account's subscription.
 
 ## Assign permissions to your users
 
