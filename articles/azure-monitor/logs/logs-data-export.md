@@ -34,7 +34,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 - The existing custom log tables won’t be supported in export. A new custom log version available in March 2022 will be supported.
 - If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table becomes supported. 
 - If the data export rule includes a table that doesn't exist, it will fail with error `Table <tableName> does not exist in the workspace`.
-- You can define up to 10 enabled rules in your workspace. Additional rules are allowed when disabled. 
+- You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
 - Destination must be unique across all export rules in your workspace.
 - Destinations must be in the same region as the Log Analytics workspace.
 - Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
@@ -69,7 +69,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
     - West US 2
 
 ## Data completeness
-Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.
+Data export is optimized for moving large data volume to your destinations and in certain retry conditions, can include a fraction of duplicated records. The export operation to your destination could fail when ingress limits are reached, see details under [Create or update data export rule](#create-or-update-data-export-rule). Export continues to retry for up to 30 minutes and if destination is unavailable to accept data, data will be discarded until the destination becomes available.
 
 ## Cost
 Currently, there are no additional charges for the data export feature. Pricing for data export will be announced in the future and a notice period provided prior to the start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
@@ -80,7 +80,7 @@ Data export destination must be created before creating the export rule in your 
 
 ### Storage account
 
-You need to have 'write' permissions to both workspace and destination to configure data export rule. You shouldn't use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data and prevent reaching storage ingestion rate limit and throttling. 
+You need to have 'write' permissions to both workspace and destination to configure data export rule. Don't use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data and prevent reaching storage ingestion rate limit and throttling. 
 
 To send data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this article including enabling protected append blobs writes.
 
@@ -91,7 +91,7 @@ Data is sent to storage accounts as it reaches Azure Monitor and stored in hourl
 > [!NOTE]
 > It's recommended to use separate storage account for proper ingress rate allocation and reducing throttling, failures and latency events.
 
-Starting 15-October 2021, blobs are stored in 5 minutes folders in the following path structure: *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Since append blobs are limited to 50K writes in storage, the number of exported blobs may extend if the number of appends is high. The naming pattern for blobs in such case would be PT05M_#.json*, where # is the incremental blob count.
+Starting 15-October 2021, blobs are stored in 5-minutes folders in the following path structure: *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Since append blobs are limited to 50 K writes in storage, the number of exported blobs may extend if the number of appends is high. The naming pattern for blobs in such case would be PT05M_#.json*, where # is the incremental blob count.
 
 The storage account data format is in [JSON lines](../essentials/resource-logs-blob-format.md). This means that each record is delimited by a newline, with no outer records array and no commas between JSON records. 
 
@@ -140,38 +140,38 @@ If you have configured your Storage Account to allow access from selected networ
 [![Storage account firewalls and virtual networks](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 ### Create or update data export rule
-Data export rule defines the tables for which data is exported and destination. You can have 10 enabled rules in your workspace, additional rules can be added, but in 'disable' state. Destinations must be unique across all export rules in workspace.
+Data export rule defines the tables for which data is exported and destination. You can have 10 enabled rules in your workspace, more rules can be added, but in 'disable' state. Destinations must be unique across all export rules in workspace.
 
-Data export destinations have limits and they should be monitored to minimize export throttling, failures and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
+Data export destinations have limits and should be monitored to minimize export throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
 
-#### Recommendations for storage account 
+#### Monitoring storage account
 
 1. Use separate storage account for export
-1. Configure alert on the metric below with the following settings: 
+1. Configure alert on the metric below: 
 
     | Scope | Metric Namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | storage-name | Account | Ingress | Sum | 80% of max storage ingress rate. For example: it's 60Gbps for general-purpose v2 in West US |
+    | storage-name | Account | Ingress | Sum | 80% of max ingress per alert evaluation period . For example: limit is 60 Gbps for general-purpose v2 in West US. Threshold is 14400 Gb per 5-minutes evaluation period |
   
 1. Alert remediation actions
     - Use separate storage account for export
     - Azure Storage standard accounts support higher ingress limit by request. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/)
     - Split tables between additional storage accounts
 
-#### Recommendations for event hub
+#### Monitoring event hub
 
-1. Configure [metric alerts](../../event-hubs/monitor-event-hubs-reference.md):
+1. Configure alerts on the [metrics](../../event-hubs/monitor-event-hubs-reference.md) below:
   
     | Scope | Metric Namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | namespaces-name | Event Hub standard metrics | Incoming bytes | Sum | 80% of max ingress per 5 minutes. For example, it's 1MB/s per unit (TU or PU) |
-    | namespaces-name | Event Hub standard metrics | Incoming requests | Count | 80% of max events per 5 minutes. For example, it's 1000/s per unit (TU or PU) |
-    | namespaces-name | Event Hub standard metrics | Quota Exceeded Errors | Count | Between 1% to 5% of request |
+    | namespaces-name | Event Hub standard metrics | Incoming bytes | Sum | 80% of max ingress per alert evaluation period. For example, limit is 1 MB/s per unit (TU or PU) and 5 units used. Threshold is 1200 MB per 5-minutes evaluation period |
+    | namespaces-name | Event Hub standard metrics | Incoming requests | Count | 80% of max events per alert evaluation period. For example, limit is 1000/s per unit (TU or PU) and 5 units used. Threshold is 1200000 per 5-minutes evaluation period |
+    | namespaces-name | Event Hub standard metrics | Quota Exceeded Errors | Count | Between 1% of request. For example, requests per 5 minutes is 600000. Threshold is 6000 per 5-minutes evaluation period |
 
 1. Alert remediation actions
    - Configure [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) feature to automatically scale up and increase the number of throughput units to meet usage needs
    - Verify increase of throughput units to acommodate the load
-   - Split tables between additional namespaces
+   - Split tables between other namespaces
    - Use 'Premium' or 'Dedicated' tiers for higher throughput
 
 Export rule should include tables that you have in your workspace. Run this query for a list of available tables in your workspace.
@@ -629,7 +629,7 @@ If the data export rule includes a table that doesn't exist, it will fail with t
 
 
 ## Supported tables
-Supported tables are currently limited to those specified below. All data from the table will be exported unless limitations are specified. This list is updated as support for additional tables added.
+Supported tables are currently limited to those specified below. All data from the table will be exported unless limitations are specified. This list is updated as more tables are added.
 
 | Table | Limitations |
 |:---|:---|
@@ -650,6 +650,10 @@ Supported tables are currently limited to those specified below. All data from t
 | ABSBotRequests |  |
 | ACSAuthIncomingOperations |  |
 | ACSBillingUsage |  |
+| ACRConnectedClientList |  |
+| ACRConnectedClientList |  |
+| ACSCallDiagnostics |  |
+| ACSCallSummary |  |
 | ACSChatIncomingOperations |  |
 | ACSSMSIncomingOperations |  |
 | ADAssessmentRecommendation |  |
@@ -671,7 +675,19 @@ Supported tables are currently limited to those specified below. All data from t
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
 | AEWAuditLogs |  |
+| AgriFoodApplicationAuditLogs |  |
+| AgriFoodApplicationAuditLogs |  |
+| AgriFoodFarmManagementLogs |  |
+| AgriFoodFarmManagementLogs |  |
+| AgriFoodFarmOperationLogs |  |
+| AgriFoodInsightLogs |  |
+| AgriFoodJobProcessedLogs |  |
+| AgriFoodModelInferenceLogs |  |
+| AgriFoodProviderAuthLogs |  |
+| AgriFoodSatelliteLogs |  |
+| AgriFoodWeatherLogs |  |
 | Alert |  |
+| AlertEvidence |  |
 | AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
 | AppCenterError |  |
@@ -682,6 +698,7 @@ Supported tables are currently limited to those specified below. All data from t
 | AppServiceFileAuditLogs |  |
 | AppServiceHTTPLogs |  |
 | AppServicePlatformLogs |  |
+| ATCExpressRouteCircuitIpfix |  |
 | AuditLogs |  |
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
@@ -701,9 +718,10 @@ Supported tables are currently limited to those specified below. All data from t
 | CDBPartitionKeyRUConsumption |  |
 | CDBPartitionKeyStatistics |  |
 | CDBQueryRuntimeStatistics |  |
+| CloudAppEvents |  |
 | CommonSecurityLog |  |
 | ComputerGroup |  |
-| ConfigurationData | Partial support – some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| ConfigurationData | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | ContainerImageInventory |  |
 | ContainerInventory |  |
 | ContainerLog |  |
@@ -744,9 +762,9 @@ Supported tables are currently limited to those specified below. All data from t
 | HDInsightHiveAndLLAPMetrics |  |
 | HDInsightHiveTezAppStats |  |
 | HDInsightJupyterNotebookEvents |  |
-| HDInsightKafkaLogs |  |
 | HDInsightKafkaMetrics |  |
 | HDInsightOozieLogs |  |
+| HDInsightRangerAuditLogs |  |
 | HDInsightSecurityLogs |  |
 | HDInsightSparkApplicationEvents |  |
 | HDInsightSparkBlockManagerEvents |  |
@@ -760,7 +778,7 @@ Supported tables are currently limited to those specified below. All data from t
 | HDInsightSparkTaskEvents |  |
 | Heartbeat |  |
 | HuntingBookmark |  |
-| InsightsMetrics | Partial support – some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| InsightsMetrics | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | IntuneAuditLogs |  |
 | IntuneDevices |  |
 | IntuneOperationalLogs |  |
@@ -781,18 +799,18 @@ Supported tables are currently limited to those specified below. All data from t
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | Partial support in government clouds – some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
-| Operation | Partial support – some of the data is ingested through internal services that aren't supported for export. This portion is missing in export currently. |
-| Perf | Partial support – only Windows perf data is currently supported. The Linux perf data is missing in export currently. |
+| Operation | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| Perf | Partial support – only windows perf data is currently supported. The Linux perf data is missing in export currently. |
 | PowerBIDatasetsWorkspace |  |
+| HDInsightRangerAuditLogs |  |
 | PurviewScanStatusLogs |  |
 | SCCMAssessmentRecommendation |  |
 | SCOMAssessmentRecommendation |  |
 | SecurityAlert |  |
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
-| SecurityCef |  |
 | SecurityDetection |  |
-| SecurityEvent | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected through storage while this path isn’t supported in export.2 |
+| SecurityEvent | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export. |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -819,9 +837,9 @@ Supported tables are currently limited to those specified below. All data from t
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected through storage while this path isn’t supported in export.2 |
+| Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export. |
 | ThreatIntelligenceIndicator |  |
-| Update | Partial support – some of the data is ingested through internal services that aren't supported for export. This portion is missing in export currently. |
+| Update | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | Usage |  |
@@ -830,7 +848,7 @@ Supported tables are currently limited to those specified below. All data from t
 | Watchlist |  |
 | WindowsEvent |  |
 | WindowsFirewall |  |
-| WireData | Partial support – some of the data is ingested through internal services that aren't supported for export. This portion is missing in export currently. |
+| WireData | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | WorkloadDiagnosticLogs |  |
 | WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |

@@ -5,7 +5,7 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang 
 ms.custom: devx-track-azurepowershell
 robots: noindex
@@ -307,24 +307,28 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 
 ## Create data factory
 1. Start **Azure PowerShell** and run the following command:
+
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
    
-    ```PowerShell
-    Connect-AzAccount       
-    ```  
+     ```powershell
+     Connect-AzAccount
+     ```
+
    * Run the following command to view all the subscriptions for this account.
    
-    ```PowerShell
-    Get-AzSubscription
-    ```   
+     ```powershell
+     Get-AzSubscription
+     ```
+
    * Run the following command to select the subscription that you want to work with.
     
-    ```PowerShell
-    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-    ```    
+     ```powershell
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```
+
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1.
 
-    ```PowerShell   
+    ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
     ```
 
@@ -576,17 +580,19 @@ You define a pipeline that copies data from the Azure blob dataset to the Azure 
 ```
 
 ## Reuse the template
-In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. The pipeline copies data from an Azure Storage account to Azure SQL Database specified via parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it when deploying to that environment.     
+In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. The pipeline copies data from an Azure Storage account to Azure SQL Database specified via parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it when deploying to that environment.
 
-Example:  
+Example:
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
 ```
-```PowerShell
+
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
 ```
-```PowerShell
+
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
 ```
 

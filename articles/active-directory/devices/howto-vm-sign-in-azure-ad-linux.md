@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 10/21/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 To improve the security of Linux virtual machines (VMs) in Azure, you can integrate with Azure Active Directory (Azure AD) authentication. You can now use Azure AD as a core authentication platform and a certificate authority to SSH into a Linux VM with AD and SSH certificate-based authentication. This functionality allows organizations to centrally control and enforce Azure role-based access control (RBAC) and Conditional Access policies that manage access to the VMs. This article shows you how to create and configure a Linux VM and login with Azure AD using SSH certificate-based authentication.
 
 > [!IMPORTANT]
-> This capability is currently in public preview. [The previous version that made use of device code flow will be deprecated August 15, 2021](../../virtual-machines/linux/login-using-aad.md). To migrate from the old version to this version, see the section, [Migration from previous preview](#migration-from-previous-preview).
+> This capability is currently in public preview. [The previous version that made use of device code flow has been deprecated as of August 15, 2021](../../virtual-machines/linux/login-using-aad.md). To migrate from the old version to this version, see the section, [Migration from previous preview](#migration-from-previous-preview).
 > This preview is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. Use this feature on a test virtual machine that you expect to discard after testing. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 There are many security benefits of using Azure AD with SSH certificate-based authentication to log in to Linux VMs in Azure, including:
@@ -40,19 +40,17 @@ The following Linux distributions are currently supported during the preview of 
 
 | Distribution | Version |
 | --- | --- |
-| CentOS | CentOS 7, CentOS 8.3 |
+| CentOS | CentOS 7, CentOS 8 |
 | Debian | Debian 9, Debian 10 |
-| openSUSE | openSUSE Leap 42.3 |
-| RedHat Enterprise Linux | RHEL 7.4 to RHEL 7.10, RHEL 8.3 |
-| SUSE Linux Enterprise Server | SLES 12 |
+| openSUSE | openSUSE Leap 42.3, openSUSE Leap 15.1+ |
+| RedHat Enterprise Linux | RHEL 7.4 to RHEL 7.10, RHEL 8.3+ |
+| SUSE Linux Enterprise Server | SLES 12, SLES 15.1+ |
 | Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 20.04 |
 
 The following Azure regions are currently supported during the preview of this feature:
 
 - Azure Global
 
-> [!Note]
-> The preview of this feature will be supported in Azure Government and Azure China by June of 2021.
  
 It's not supported to use this extension on Azure Kubernetes Service (AKS) clusters. For more information, see [Support policies for AKS](../../aks/support-policies.md).
 
@@ -92,13 +90,13 @@ For Azure China
 Ensure your VM is configured with the following functionality:
 
 - System assigned managed identity. This option gets automatically selected when you use Azure portal to create VM and select Azure AD login option. You can also enable System assigned managed identity on a new or an existing VM using the Azure CLI.
-- aadsshlogin and aadsshlogin-selinux (as appropriate). These packages get installed with the AADSSHLoginForLinux VM extension. The extension is installed when you use Azure portal to create VM and enable Azure AD login (Management tab) or via the Azure CLI.
+- `aadsshlogin` and `aadsshlogin-selinux` (as appropriate). These packages get installed with the AADSSHLoginForLinux VM extension. The extension is installed when you use Azure portal to create VM and enable Azure AD login (Management tab) or via the Azure CLI.
 
 ### Client
 
 Ensure your client meets the following requirements:
 
-- SSH client must support OpenSSH based certificates for authentication. You can use Az CLI (2.21.1 or higher) with OpenSSH (included in Windows 10 version 1803 or hiher) or Azure Cloud Shell to meet this requirement. 
+- SSH client must support OpenSSH based certificates for authentication. You can use Az CLI (2.21.1 or higher) with OpenSSH (included in Windows 10 version 1803 or higher) or Azure Cloud Shell to meet this requirement. 
 - SSH extension for Az CLI. You can install this using `az extension add --name ssh`. You do not need to install this extension when using Azure Cloud Shell as it comes pre-installed.
 - If you are using any other SSH client other than Az CLI or Azure Cloud Shell that supports OpenSSH certificates, you will still need to use Az CLI with SSH extension to retrieve ephemeral SSH cert and optionally a config file and then use the config file with your SSH client.
 - TCP connectivity from the client to either the public or private IP of the VM (ProxyCommand or SSH forwarding to a machine with connectivity also works).
@@ -336,19 +334,19 @@ Once, users assigned the VM Administrator role successfully SSH into a Linux VM,
 
 Virtual machine scale sets are supported, but the steps are slightly different for enabling and connecting to virtual machine scale set VMs.
 
-First, create a virtual machine scale set or choose one that already exists. Enable a system assigned managed identity for your virtual machine scale set.
+1. Create a virtual machine scale set or choose one that already exists. Enable a system assigned managed identity for your virtual machine scale set.
 
 ```azurecli
 az vmss identity assign --vmss-name myVMSS --resource-group AzureADLinuxVMPreview
 ```
 
-Install the Azure AD extension on your virtual machine scale set.
+2. Install the Azure AD extension on your virtual machine scale set.
 
 ```azurecli
 az vmss extension set --publisher Microsoft.Azure.ActiveDirectory --name Azure ADSSHLoginForLinux --resource-group AzureADLinuxVMPreview --vmss-name myVMSS
 ```
 
-Virtual machine scale set usually do not have public IP addresses, so you must have connectivity to them from another machine that can reach their Azure Virtual Network. This example shows how to use the private IP of a virtual machine scale set VM to connect from a machine in the same virtual network. 
+Virtual machine scale sets usually don't have public IP addresses, so you must have connectivity to them from another machine that can reach their Azure virtual network. This example shows how to use the private IP of a virtual machine scale set VM to connect from a machine in the same virtual network. 
 
 ```azurecli
 az ssh vm --ip 10.11.123.456
@@ -359,21 +357,30 @@ az ssh vm --ip 10.11.123.456
 
 ## Migration from previous preview
 
-For customers who are using previous version of Azure AD login for Linux that was based on device code flow, complete the following steps.
+For customers who are using previous version of Azure AD login for Linux that was based on device code flow, complete the following steps using Azure CLI.
 
 1. Uninstall the AADLoginForLinux extension on the VM.
-   1. Using Azure CLI: `az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux`
-1. Enable System assigned managed identity on your VM.
-   1. Using Azure CLI: `az vm identity assign -g myResourceGroup -n myVm`
+   
+   ```azurecli
+   az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux
+   ```
+
+1. Enable system-assigned managed identity on your VM.
+
+   ```azurecli
+   az vm identity assign -g myResourceGroup -n myVm
+   ```
+
 1. Install the AADSSHLoginForLinux extension on the VM
-   1. Using Azure CLI:
-      ```azurecli
-      az vm extension set \
-                --publisher Microsoft.Azure.ActiveDirectory \
-                --name AADSSHLoginForLinux \
-                --resource-group myResourceGroup \
-                --vm-name myVM
-      ```
+
+    ```azurecli
+    az vm extension set \
+        --publisher Microsoft.Azure.ActiveDirectory \
+        --name AADSSHLoginForLinux \
+        --resource-group myResourceGroup \
+        --vm-name myVM
+    ```
+
 ## Using Azure Policy to ensure standards and assess compliance
 
 Use Azure Policy to ensure Azure AD login is enabled for your new and existing Linux virtual machines and assess compliance of your environment at scale on your Azure Policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Linux VMs within your environment that do not have Azure AD login enabled. You can also use Azure Policy to deploy the Azure AD extension on new Linux VMs that do not have Azure AD login enabled, as well as remediate existing Linux VMs to the same standard. In addition to these capabilities, you can also use Azure Policy to detect and flag Linux VMs that have non-approved local accounts created on their machines. To learn more, review [Azure Policy](../../governance/policy/overview.md).
@@ -443,6 +450,6 @@ Virtual machine scale set VM connections may fail if the virtual machine scale s
 
 ## Preview feedback
 
-Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## Next steps

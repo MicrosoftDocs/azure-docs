@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 09/30/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
 ---
 
@@ -31,7 +31,7 @@ In this article, you'll learn how to export IoT connector Metrics logs. The feat
 5. Select the method you want to use to access your diagnostic logs:
 
     1. **Archive to a storage account** for auditing or manual inspection. The storage account you want to use needs to be already created.
-    2. **Stream to event hub** for ingestion by a third-party service or custom analytic solution. You'll need to create an event hub namespace and event hub policy before you can configure this step.
+    2. **Stream to Event Hub** for ingestion by a third-party service or custom analytic solution. You'll need to create an Event Hub namespace and Event Hub policy before you can configure this step.
     3. **Stream to the Log Analytics** workspace in Azure Monitor. You'll need to create your Logs Analytics Workspace before you can select this option.
 
 6. Select **Errors, Traffic, and Latency** for IoT connector.  Select any extra metric categories you want to capture for the FHIR service.
@@ -50,9 +50,9 @@ Having access to Metrics logs is essential for monitoring and troubleshooting.  
 
 ## Next steps
 
-Check out frequently asked questions about the IoT connector.
+Check out frequently asked questions about IoT connector.
 
 >[!div class="nextstepaction"]
->[IoT connector FAQs](../fhir/fhir-faq.md)
+>[IoT connector FAQs](iot-connector-faqs.md)
 
 (FHIR&#174;) is a registered trademark of HL7 and is used with the permission of HL7.

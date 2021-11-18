@@ -2,7 +2,7 @@
 title: Install & deploy Linux C agent
 description: Learn how to install and deploy the Defender for IoT C-based security agent on Linux
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 11/09/2021
 ---
 
 # Deploy Defender for IoT C based security agent for Linux
@@ -75,5 +75,5 @@ Check the deployment status by running:
 - Read the Defender for IoT service [Overview](overview.md)
 - Learn more about Defender for IoT [What is agent-based solution for device builders](architecture-agent-based.md)
 - Enable the [service](quickstart-onboard-iot-hub.md)
-- Read the [Azure Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md)
+- Read the [Microsoft Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md)
 - Understand [security alerts](concept-security-alerts.md)

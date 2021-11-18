@@ -1,7 +1,7 @@
 ---
 title: Enhance port and VLAN name resolution
 description: Customize port and VLAN names on your sensors to enrich device resolution.
-ms.date: 12/13/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -11,7 +11,7 @@ You can customize port and VLAN names on your sensors to enrich device resolutio
 
 ## Customize port names
 
-Azure Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. You can customize port names for other ports that Defender for IoT detects. For example, assign a name to a non-reserved port because that port shows unusually high activity.
+Microsoft Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. You can customize port names for other ports that Defender for IoT detects. For example, assign a name to a non-reserved port because that port shows unusually high activity.
 
 These names appear when:
 

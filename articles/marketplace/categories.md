@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
+ms.date: 10/29/2021
 ---
 
 # Categories and subcategories in the commercial marketplace

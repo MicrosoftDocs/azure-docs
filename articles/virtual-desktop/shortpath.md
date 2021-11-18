@@ -53,7 +53,7 @@ To support RDP Shortpath, the Azure Virtual Desktop client needs a direct line o
 - Use [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md)
 - Use a [Site-to-Site virtual private network (VPN) (IPsec-based)](../vpn-gateway/tutorial-site-to-site-portal.md)
 - Use a [Point-to-Site VPN (IPsec-based)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-- Use a [public IP address assignment](../virtual-network/virtual-network-public-ip-address.md)
+- Use a [public IP address assignment](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 
 If you're using other VPN types to connect to the Azure, we recommend using a User Datagram Protocol (UDP)-based VPN. While most Transmission Control Protocol (TCP)-based VPN solutions support nested UDP, they add inherited overhead of TCP congestion control, which slows down RDP performance.
 
@@ -88,7 +88,7 @@ To allow inbound network traffic for RDP Shortpath, use the Windows Defender Fir
 2. In the navigation pane, select **Inbound Rules**.
 3. Select **Action**, and then select **New rule**.
 4. On the **Rule Type** page of the New Inbound Rule Wizard, select **Custom**, and then select **Next**.
-5. On the **Program** page, select **This program path**, and type "%SystemRoot%\s ystem32\svchost.exe' then select **Next**.
+5. On the **Program** page, select **This program path**, and type "%SystemRoot%\system32\svchost.exe" then select **Next**.
 6. On the **Protocol and Ports** page, select the UDP protocol type. In the **Local port**, select "Specific ports" and enter the configured UDP port. If you've left the default settings on, the port number will be 3390.
 7. On the **Scope** page, you can specify that the rule applies only to network traffic to or from the IP addresses entered on this page. Configure as appropriate for your design, and then select **Next**.
 8. On the **Action** page, select **Allow the connection**, and then select **Next**.
@@ -225,7 +225,7 @@ To disable RDP Shortpath for a specific client, you can use the following Group 
 To disable RDP Shortpath for a specific session host, you can use the following Group Policy to disable the UDP support:
 
 1. On the Session Host Run **gpedit.msc**.
-2. Go to **Computer Configuration > Administration Templates > Windows Components > Remote Desktop Services > Remote Desktop Connection Host > Connections**.
+2. Go to **Computer Configuration > Administration Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Connections**.
 3. Set the **"Select RDP Transport Protocols"** setting to **TCP Only**.
 
 ## Next steps

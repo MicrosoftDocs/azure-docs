@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Healthcare APIs (preview) documentation
-summary: Documentation for all of Azure Healthcare APIs (preview) services, including FHIR, DICOM, and Data Transformation.
+summary: Documentation for all of Azure Healthcare APIs (preview) capabilities, including features from FHIR, DICOM, and IoT connector.
 
 metadata:
   title: Azure Healthcare APIs documentation
-  description: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and Data Transformation
+  description: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and IoT connector
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.topic: landing-page 

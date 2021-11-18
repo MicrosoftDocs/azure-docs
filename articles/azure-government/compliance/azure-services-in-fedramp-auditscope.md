@@ -94,7 +94,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) | &#x2705; | &#x2705; | |
 | [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | &#x2705; | &#x2705; | |
-| [Azure Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | |
+| [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | |
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) | &#x2705; | &#x2705; | |
 | [Azure DNS](https://azure.microsoft.com/services/dns/) | &#x2705; | &#x2705; | |
 | [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) | &#x2705; | &#x2705; | |
@@ -131,13 +131,13 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Peering Service](../../peering-service/about.md) | &#x2705; | &#x2705; | |
 | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | &#x2705; | &#x2705; | |
 | [Azure Policy's guest configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | |
-| [Azure Public IP](../../virtual-network/public-ip-addresses.md) | &#x2705; | &#x2705; | |
+| [Azure Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; | |
 | [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/) | &#x2705; | &#x2705; | |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | |
 | [Azure Scheduler](../../scheduler/scheduler-intro.md) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; | |
-| [Azure Security Center](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | |
-| [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (incl. [UEBA](../../sentinel/identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba)) | &#x2705; | &#x2705; | |
+| [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | |
+| [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (incl. [UEBA](../../sentinel/identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba)) | &#x2705; | &#x2705; | |
 | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | |
@@ -197,7 +197,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Azure Attestation](https://azure.microsoft.com/services/azure-attestation/)| &#x2705; | &#x2705; | |
 | [Microsoft Azure Marketplace portal](https://azuremarketplace.microsoft.com/marketplace/)| &#x2705; | &#x2705; | |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)| &#x2705; | &#x2705; | |
-| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) | &#x2705; | &#x2705; | |
+| [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Identity](/defender-for-identity/what-is) (formerly Azure Advanced Threat Protection) | &#x2705; | &#x2705; | |
 | [Microsoft Graph](/graph/overview) | &#x2705; | &#x2705; | |
@@ -292,7 +292,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure DNS](https://azure.microsoft.com/services/dns/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -322,13 +322,13 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Peering Service](../../peering-service/about.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy's guest configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Public IP](../../virtual-network/public-ip-addresses.md) | &#x2705; | &#x2705; | | | |
+| [Azure Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; | | | |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Scheduler](../../scheduler/scheduler-intro.md) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Security Center](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -380,7 +380,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; | | | |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
 | [Microsoft Azure Government portal](../documentation-government-get-started-connect-with-portal.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
-| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Identity](/defender-for-identity/what-is) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Graph](/graph/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

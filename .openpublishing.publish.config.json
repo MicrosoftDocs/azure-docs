@@ -46,6 +46,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_arc_sample",
+      "url": "https://github.com/microsoft/azure_arc",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "resourcemanager-templates",
       "url": "https://github.com/Azure/azure-docs-json-samples",
       "branch": "master",
@@ -424,12 +430,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-cli-preview",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "cli-preview",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "terraform",
       "url": "https://github.com/Azure/terraform",
       "branch": "master",
@@ -592,12 +592,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "samples-cosmosdb-dotnet-v2",
-      "url": "https://github.com/Azure/azure-cosmos-dotnet-v2",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "samples-cosmosdb-java-v4-web-app",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app",
       "branch": "main",
@@ -718,12 +712,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-cosmosdb-java-v2",
-      "url": "https://github.com/Azure/azure-cosmosdb-java",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azure-cosmosdb-graph-dotnet",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
       "branch": "main",
@@ -825,6 +813,7 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
     ".openpublishing.redirection.data-factory.json",
+    ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.iot-hub.json",
@@ -832,6 +821,7 @@
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.synapse-analytics.json",
+    ".openpublishing.redirection.azure-web-pubsub.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",   
     "articles/azure-relay/.openpublishing.redirection.relay.json",
@@ -853,6 +843,7 @@
     "articles/purview/.openpublishing.redirection.purview.json",
     "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
     "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
+    "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
     "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
     "articles/mysql/.openpublishing.redirection.mysql.json"
   ]

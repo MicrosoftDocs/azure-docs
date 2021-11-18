@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 robots: noindex
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ---
 
 # Azure Data Factory - .NET API change log
@@ -140,7 +140,9 @@ The following classes have been renamed. The new names were the original names o
 | SqlServerDataset |[SqlServerTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.sqlservertabledataset) |
 
 ## Version 4.0.0
+
 ### Breaking changes
+
 * The Following classes/interfaces have been renamed.
 
 | Old name | New name |
@@ -157,7 +159,7 @@ The following classes have been renamed. The new names were the original names o
 
 * The **List** methods return paged results now. If the response contains a non-empty **NextLink** property, the client application needs to continue fetching the next page until all pages are returned.  Here is an example:
 
-	```csharp
+  ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
     var pipelines = new List<Pipeline>(response.Pipelines);
 
@@ -169,7 +171,8 @@ The following classes have been renamed. The new names were the original names o
 
         nextLink = nextResponse.NextLink;
     }
-	```
+  ```
+
 * **List** pipeline API returns only the summary of a pipeline instead of full details. For instance, activities in a pipeline summary only contain name and type.
 
 ### Feature additions

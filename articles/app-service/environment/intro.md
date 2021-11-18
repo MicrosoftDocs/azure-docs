@@ -1,24 +1,20 @@
 ---
-title: Introduction
-description: Learn how Azure App Service Environments help you scale, secure, and optimize your apps in a fully isolated and dedicated environment.
-author: ccompy
-
-ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
+title: Introduction to ASEv2
+description: Learn how Azure App Service Environments v2 help you scale, secure, and optimize your apps in a fully isolated and dedicated environment.
+author: madsd
 ms.topic: overview
-ms.date: 07/28/2021
-ms.author: ccompy
-ms.custom: mvc, seodec18
+ms.date: 11/15/2021
+ms.author: madsd
 ---
 
-# Introduction to the App Service Environments #
+# Introduction to App Service Environment v2
 > [!NOTE]
-> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans. There is a newer version of the App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App Service Environment](overview.md).
 > 
 
+## Overview
 
-## Overview ##
-
-The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
+The Azure App Service Environment v2 is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
 
 * Windows web apps
 * Linux web apps 
@@ -43,7 +39,7 @@ ASEs host applications from only one customer and do so in one of their VNets. C
 * Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Web application firewall (WAF)][AppGW].
 * App Service Environments can be deployed into Availability Zones (AZ) using zone pinning.  See [App Service Environment Support for Availability Zones][ASEAZ] for more details.
 
-## Dedicated environment ##
+## Dedicated environment
 
 An ASE is dedicated environment that is exclusive to a single customer and can host 200 App Service plan total instances. A single Isolated SKU App Service plan can have up to 100 instances in it. When you add up all the instances from all of the App Service plans in that ASE, the total must be less than or equal to 200.
 
@@ -59,7 +55,7 @@ Customers do not need to manage front ends and workers. All infrastructure is au
 
 There is a flat monthly rate for an ASE that pays for the infrastructure and doesn't change with the size of the ASE. In addition, there is a cost per App Service plan vCPU. All apps hosted in an ASE are in the Isolated pricing SKU. For information on pricing for an ASE, see the [App Service pricing][Pricing] page and review the available options for ASEs.
 
-## Virtual network support ##
+## Virtual network support
 
 The ASE feature is a deployment of the Azure App Service directly into a customer's Azure Resource Manager virtual network. To learn more about Azure virtual networks, see the [Azure virtual networks FAQ](../../virtual-network/virtual-networks-faq.md). An ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
 
@@ -73,9 +69,9 @@ For more information on how ASEs work with virtual networks and on-premises netw
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
 
-## App Service Environment v1 ##
+## App Service Environment v1
 
-App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2. 
+App Service Environment has three versions: ASEv1, ASEv2, and ASEv3. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2. To learn more about, see [App Service Environment v3 introduction](./overview.md)
 
 In ASEv1, you need to manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based TLS/SSL bindings. Before you can scale out your App Service plan, you need to first scale out the worker pool where you want to host it.
 
@@ -101,6 +97,6 @@ ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[ASEWAF]: app-service-app-service-environment-web-application-firewall.md
+[ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

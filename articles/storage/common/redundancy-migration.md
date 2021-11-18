@@ -147,7 +147,7 @@ Follow these steps to request a live migration:
 > [!NOTE]
 > Premium file shares are available only for LRS and ZRS.
 >
-> GZRS storage accounts do not currently support the archive tier. See [Hot, cool, and archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details.
+> GZRS storage accounts do not currently support the archive tier. See [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details.
 >
 > Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).
 

@@ -223,7 +223,7 @@ Once you've configured company branding, enable it in your user flows.
 
 If you'd like to brand all pages in the user flow, set the page layout version for each page layout in the user flow.
 
-![Page layout selection in Azure AD B2C in the Azure portal](media/customize-ui/portal-02-page-layout-select.png)
+:::image type="content" source="media/customize-ui/portal-02-page-layout-select.png" alt-text="Page layout selection in Azure AD B2C in the Azure portal.":::
 
 ::: zone-end
 
@@ -292,7 +292,8 @@ To re-order the input fields on the sign-up page for local accounts form, follow
 1. In the table, select the row **Local account sign up page**.
 1. Under **User attributes**, select the input field you want to re-order, and drag (up or down) and drop or use use the **Move Up** or **Move down** controls to achieve the desired order. 
 1. At the top of the page, select **Save**.
-![Page layout field order in Azure AD B2C in the Azure portal](media/customize-ui/portal-02-page-layout-fields.png)
+
+  :::image type="content" source="media/customize-ui/portal-02-page-layout-fields.png" alt-text="Template selection drop-down in user flow page of Azure portal.":::
 
 ::: zone-end
 

@@ -1,17 +1,13 @@
 ---
-title: Deploy disaster recovery using JetStream DR (Preview)
+title: Deploy disaster recovery using JetStream DR
 description: Learn how to implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads. 
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 11/17/2021
 ms.custom: references_regions
 ---
 
-# Deploy disaster recovery using JetStream DR (Preview)
+# Deploy disaster recovery using JetStream DR
 
->[!IMPORTANT]
->JetStream DR on Azure VMware Solution (Preview) is currently in public preview.
->This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
->For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [JetStream DR](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is a cloud-native disaster recovery solution designed to minimize downtime of virtual machines (VMs) if there was a disaster. Instances of JetStream DR are deployed at both the protected and recovery sites. 
 
@@ -283,33 +279,6 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
    | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Uninstall-JetDR-Exec1**.   It's used to verify if the cmdlet ran successfully.  |
 
  1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
-
-
-## Region availability
-
-JetStream DR for Azure VMware Solutions is available in the following regions: 
-
-- East US 
-
-- North Europe 
-
-- US South 
-
-- West Europe 
-
-- Central US 
-
-- West US 
-
-- East Asia 
-
-- Japan East 
-
-- Brazil South 
-
-- Canada East 
-
-- UK West 
 
 
  
