@@ -34,7 +34,7 @@ MapControl(options: [
 
 The following screenshot shows the above code displaying a road map with the grayscale dark style.
 
-:::image type="content" source="./media/ios-sdk/set-map-style-ios/ios-grayscale-dark.png" alt-text="Map with grayscale dark road map style.":::
+:::image type="content" source="./media/ios-sdk/set-map-style-ios/ios-grayscale-dark.png" alt-text="Screenshot of a map with the grayscale dark road map style.":::
 
 ## Set map style via `setStyleOptions` method
 
@@ -56,9 +56,9 @@ mapControl.onReady { map in
 
 The following screenshot shows the above code displaying a map with the satellite road labels style.
 
-:::image type="content" source="./media/ios-sdk/set-map-style-ios/ios-satellite-road-labels.png" alt-text="Map with satellite road labels style.":::
+:::image type="content" source="./media/ios-sdk/set-map-style-ios/ios-satellite-road-labels.png" alt-text="Screenshot of a map with the satellite road labels style.":::
 
-## Setting the map camera
+## Set the map camera
 
 The map camera controls which part of the world is displayed in the map viewport. There are two main methods for setting the position of the map; using center and zoom, or passing in a bounding box. The following code shows how to set all optional camera options when using `center` and `zoom`.
 
@@ -120,6 +120,5 @@ The following demonstrates the above code animating the map view from New York t
 
 See the following articles for more code samples to add to your maps:
 
-> [Add a symbol layer](add-symbol-layer-ios.md)
-
-> [Add a bubble layer](add-bubble-layer-to-map-ios.md)
+- [Add a symbol layer](add-symbol-layer-ios.md)
+- [Add a bubble layer](add-bubble-layer-to-map-ios.md)

@@ -371,9 +371,9 @@ let layer = LineLayer(
 map.layers.insertLayer(layer, below: "labels")
 ```
 
-:::image type="content" source="./media/ios-sdk/Create-data-source-ios/ios-vector-tile-source-line-layer.png" alt-text="Map with color coded road lines showing traffic flow levels.":::
+:::image type="content" source="./media/ios-sdk/Create-data-source-ios/ios-vector-tile-source-line-layer.png" alt-text="Screenshot of a map with color coded road lines showing traffic flow levels.":::
 
-## Connecting a data source to a layer
+## Connect a data source to a layer
 
 Data is rendered on the map using rendering layers. A single data source can be referenced by one or more rendering layers. The following rendering layers require a data source:
 
@@ -414,7 +414,7 @@ There are additional rendering layers that don't connect to these data sources, 
 
 Multiple layers can be connected to a single data source. There are many different scenarios in which this option is useful. For example, consider the scenario in which a user draws a polygon. We should render and fill the polygon area as the user adds points to the map. Adding a styled line to outline the polygon makes it easier see the edges of the polygon, as the user draws. To conveniently edit an individual position in the polygon, we may add a handle, like a pin or a marker, above each position.
 
-:::image type="content" source="./media/ios-sdk/Create-data-source-ios/multiple-layers-one-datasource.png" alt-text="Map showing multiple layers rendering data from a single data source.":::
+:::image type="content" source="./media/ios-sdk/Create-data-source-ios/multiple-layers-one-datasource.png" alt-text="Screenshot of a map showing multiple layers rendering data from a single data source.":::
 
 In most mapping platforms, you would need a polygon object, a line object, and a pin for each position in the polygon. As the polygon is modified, you would need to manually update the line and pins, which can quickly become complex.
 
@@ -471,16 +471,10 @@ map.layers.addLayers([polygonLayer, lineLayer, bubbleLayer])
 
 See the following articles for more code samples to add to your maps:
 
-> [Cluster point data](clustering-point-data-in-the-ios-sdk.md)
-
-> [Add a symbol layer](Add-symbol-layer-ios.md)
-
-> [Add a bubble layer](add-bubble-layer-to-map-ios.md)
-
-> [Add a line layer](Add-line-layer-to-map-ios.md)
-
-> [Add a polygon layer](Add-polygon-layer-map-ios.md)
-
-> [Add a heat map](Add-heat-map-layer-ios.md)
-
-> [Web SDK Code samples](/samples/browse/?products=azure-maps)
+- [Cluster point data](clustering-point-data-in-the-ios-sdk.md)
+- [Add a symbol layer](Add-symbol-layer-ios.md)
+- [Add a bubble layer](add-bubble-layer-to-map-ios.md)
+- [Add a line layer](Add-line-layer-to-map-ios.md)
+- [Add a polygon layer](Add-polygon-layer-map-ios.md)
+- [Add a heat map](Add-heat-map-layer-ios.md)
+- [Web SDK Code samples](/samples/browse/?products=azure-maps)

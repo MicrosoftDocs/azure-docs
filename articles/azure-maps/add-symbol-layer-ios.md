@@ -83,7 +83,7 @@ map.layers.addLayer(layer)
 
 The following screenshot shows the above code rendering a point feature using an icon and text label with a symbol layer.
 
-:::image type="content" source="./media/ios-sdk/add-symbol-layer-ios/ios-map-pin.png" alt-text="Zoom control added to map.":::
+:::image type="content" source="./media/ios-sdk/add-symbol-layer-ios/ios-map-pin.png" alt-text="Screenshot showing the zoom control that has been added to map.":::
 
 > [!TIP]
 > By default, symbol layers optimize the rendering of symbols by hiding symbols that overlap. As you zoom in, the hidden symbols become visible. To disable this feature and render all symbols at all times, set the `iconAllowOverlap` and `textAllowOverlap` options to `true`.
@@ -143,13 +143,13 @@ map.layers.addLayer(layer)
 
 For this sample, the following image is loaded into the assets folder of the app.
 
-| :::image type="content" source="./media/ios-sdk/add-symbol-layer-ios/showers.png" alt-text="Weather icon image of rain showers." border="false"::: |
+| :::image type="content" source="./media/ios-sdk/add-symbol-layer-ios/showers.png" alt-text="Screenshot showing the Weather icon that shows rain showers." border="false"::: |
 |:-----------------------------------------------------------------------:|
 | showers.png                                                  |
 
 The following screenshot shows the above code rendering a point feature using a custom icon and formatted text label with a symbol layer.
 
-:::image type="content" source="./media/ios-sdk/add-symbol-layer-ios/ios-custom-symbol-layer.png" alt-text="Map with point rendered using a symbol layer displaying a custom icon and formatted text label for a point feature.":::
+:::image type="content" source="./media/ios-sdk/add-symbol-layer-ios/ios-custom-symbol-layer.png" alt-text="Screenshot showing a Map with points rendered, using a symbol layer displaying a custom icon and a formatted text label for a point feature.":::
 
 > [!TIP]
 > When you want to render only text with a symbol layer, you can hide the icon by setting the `iconImage` property of the icon options to `nil`.
@@ -188,12 +188,8 @@ UIImage.azm_markerYellow
 
 See the following articles for more code samples to add to your maps:
 
-> [Create a data source](Create-data-source-ios-sdk.md)
-
-> [Cluster point data](Clustering-point-data-in-the-iOS-SDK.md)
-
-> [Add a bubble layer](add-bubble-layer-to-map-ios.md)
-
-> [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
-
-> [Display feature information](display-feature-information-ios-sdk.md)
+- [Create a data source](Create-data-source-ios-sdk.md)
+- [Cluster point data](Clustering-point-data-in-the-iOS-SDK.md)
+- [Add a bubble layer](add-bubble-layer-to-map-ios.md)
+- [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
+- [Display feature information](display-feature-information-ios-sdk.md)

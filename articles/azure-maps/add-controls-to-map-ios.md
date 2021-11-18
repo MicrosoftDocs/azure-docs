@@ -24,7 +24,7 @@ map.controls.add(ZoomControl())
 
 The screenshot below is of a zoom control loaded on a map.
 
-:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/zoom.png" alt-text="Zoom control added to map." lightbox="./media/ios-sdk/add-controls-to-map-ios/zoom.png":::
+:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/zoom.png" alt-text="Screenshot showing the zoom control on a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/zoom.png":::
 
 ## Add pitch control
 
@@ -37,7 +37,7 @@ map.controls.add(PitchControl())
 
 The screenshot below is of a pitch control loaded on a map.
 
-:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/pitch.png" alt-text="Pitch control added to map." lightbox="./media/ios-sdk/add-controls-to-map-ios/pitch.png":::
+:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/pitch.png" alt-text="Screenshot showing the pitch control on a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/pitch.png":::
 
 ## Add rotation control
 
@@ -50,7 +50,7 @@ map.controls.add(RotationControl())
 
 The screenshot below is of a rotation control loaded on a map.
 
-:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/rotation.png" alt-text="Add rotation controls to a map" lightbox="./media/ios-sdk/add-controls-to-map-ios/rotation.png":::
+:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/rotation.png" alt-text="Screenshot showing the rotation control on a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/rotation.png":::
 
 ## Add traffic control
 
@@ -63,7 +63,7 @@ map.controls.add(TrafficControl())
 
 The screenshot below is of a traffic control loaded on a map.
 
-:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/traffic.png" alt-text="Add traffic controls to a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/traffic.png":::
+:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/traffic.png" alt-text="Screenshot showing the traffic control on a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/traffic.png":::
 
 ## A map with all controls
 
@@ -80,16 +80,13 @@ map.controls.add([
 
 The screenshot below shows all controls loaded on a map. The order they are added to the map, is the order they will appear.
 
-:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/all.png" alt-text="Adding all controls to a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/all.png":::
+:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/all.png" alt-text="Screenshot showing a map with all controls added to it." lightbox="./media/ios-sdk/add-controls-to-map-ios/all.png":::
 
 ## Additional information
 
 The following articles show how to add other available layers to your maps:
 
-> [Add a symbol layer](add-symbol-layer-ios.md)
-
-> [Add a bubble layer](add-bubble-layer-to-map-ios.md)
-
-> [Add a line layer](add-line-layer-to-map-ios.md)
-
-> [Add a polygon layer](add-polygon-layer-map-ios.md)
+- [Add a symbol layer](add-symbol-layer-ios.md)
+- [Add a bubble layer](add-bubble-layer-to-map-ios.md)
+- [Add a line layer](add-line-layer-to-map-ios.md)
+- [Add a polygon layer](add-polygon-layer-map-ios.md)
