@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault Secrets Provider extension (Preview)
-description: Tutorial for setting up Azure Key Vault provider for secrets store CSI driver interface as an extension on Azure Arc enabled Kubernetes cluster
+description: Tutorial for setting up Azure Key Vault provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 services: azure-arc
 ms.service: azure-arc
 ms.date: 11/15/2021
@@ -31,13 +31,11 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 
 ## Features
 
-- Mount secrets, keys, and/or certs to a pod using a CSI volume
-- Supports CSI Inline volumes
-- Supports mounting multiple secrets store objects as a single volume
+- Mounts secrets/keys/certs to pod using a CSI Inline volume
 - Supports pod portability with the SecretProviderClass CRD
-- Supports Windows containers
-- Sync with Kubernetes Secrets
-- Supports auto rotation of mounted contents and synced Kubernetes secrets
+- Supports Linux and Windows containers
+- Supports sync with Kubernetes Secrets
+- Supports auto rotation of secrets
 
 
 ## Install AKV secrets provider extension on an Arc enabled Kubernetes cluster
@@ -54,28 +52,30 @@ export $AZUREKEYVAULT_LOCATION=<AKV-location>
 While AKV secrets provider extension is in preview, the `az k8s-extension create` command only accepts `preview` for the `--release-train` flag.
 
 ```azurecli-interactive
-az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --scope cluster --release-train preview --name akvprovider
+az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --release-train preview --name akvsecretsprovider
 ```
 
-The above will install the Secrets Store CSI Driver and the Azure Key Vault Provider on your cluster nodes. You should see output similar to the output shown below. It may take 3-5 minutes for the actual AKV secrets provider helm chart to get deployed to the cluster. Until this deployment happens, you will continue to see installState as Pending.
+The above will install the Secrets Store CSI Driver and the Azure Key Vault Provider on your cluster nodes. You should see output similar to the output shown below. It may take 3-5 minutes for the actual AKV secrets provider helm chart to get deployed to the cluster.
 
 ```json
 {
+  "aksAssignedIdentity": null,
   "autoUpgradeMinorVersion": true,
+  "configurationProtectedSettings": {},
   "configurationSettings": {},
-  "creationTime": "2021-11-08T17:50:11.4116524+00:00",
-  "errorInfo": {
-    "code": null,
-    "message": null
-  },
+  "customLocationSettings": null,
+  "errorInfo": null,
   "extensionType": "microsoft.azurekeyvaultsecretsprovider",
-  "id": "/subscriptions/<subscription-id>/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Kubernetes/connectedClusters/$CLUSTER_NAME/providers/Microsoft.KubernetesConfiguration/extensions/akvprovider",
-  "identity": null,
-  "installState": "Pending",
-  "lastModifiedTime": "2021-11-08T17:50:11.4116525+00:00",
-  "lastStatusTime": null,
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/$CLUSTER_NAME/providers/Microsoft.Kubernetes/connectedClusters/ext-test/providers/Microsoft.KubernetesConfiguration/extensions/akvsecretsprovider",
+  "identity": {
+    "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "tenantId": null,
+    "type": "SystemAssigned"
+  },
   "location": null,
-  "name": "akvprovider",
+  "name": "sscsi",
+  "packageUri": null,
+  "provisioningState": "Succeeded",
   "releaseTrain": "preview",
   "resourceGroup": "$RESOURCE_GROUP",
   "scope": {
@@ -85,10 +85,17 @@ The above will install the Secrets Store CSI Driver and the Azure Key Vault Prov
     "namespace": null
   },
   "statuses": [],
+  "systemData": {
+    "createdAt": "2021-11-15T18:55:33.952130+00:00",
+    "createdBy": null,
+    "createdByType": null,
+    "lastModifiedAt": "2021-11-15T18:55:33.952130+00:00",
+    "lastModifiedBy": null,
+    "lastModifiedByType": null
+  },
   "type": "Microsoft.KubernetesConfiguration/extensions",
   "version": "1.0.0"
 }
-```
 
 
 ### Install AKV secrets provider extension using ARM template
@@ -107,14 +114,14 @@ After connecting your cluster to Azure Arc, create a json file with the followin
             }
         },
         "ExtensionInstanceName": {
-            "defaultValue": "akvprovider",
+            "defaultValue": "akvsecretsprovider",
             "type": "String",
             "metadata": {
                 "description": "The extension instance name."
             }
         },
         "ExtensionVersion": {
-            "defaultValue": "1.0.0",
+            "defaultValue": "",
             "type": "String",
             "metadata": {
                 "description": "The version of the extension type."
@@ -169,27 +176,29 @@ Now, you should be able to view the AKV provider resources and use the extension
 Run the following command.
 
 ```azurecli-interactive
-az k8s-extension show --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name akvprovider
+az k8s-extension show --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name akvsecretsprovider
 ```
 
 You should see a JSON output similar to the output below:
 ```json
 {
+  "aksAssignedIdentity": null,
   "autoUpgradeMinorVersion": true,
+  "configurationProtectedSettings": {},
   "configurationSettings": {},
-  "creationTime": "2021-11-08T19:22:00.7649729+00:00",
-  "errorInfo": {
-    "code": null,
-    "message": null
-  },
+  "customLocationSettings": null,
+  "errorInfo": null,
   "extensionType": "microsoft.azurekeyvaultsecretsprovider",
-  "id": "/subscriptions/<subscription-id>/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Kubernetes/connectedClusters/$CLUSTER_NAME/providers/Microsoft.KubernetesConfiguration/extensions/akvprovider",
-  "identity": null,
-  "installState": "Installed",
-  "lastModifiedTime": "2021-11-08T19:22:00.7649731+00:00",
-  "lastStatusTime": "2021-11-08T19:23:27.642+00:00",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Kubernetes/connectedClusters/$CLUSTER_NAME/providers/Microsoft.KubernetesConfiguration/extensions/akvsecretsprovider",
+  "identity": {
+    "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "tenantId": null,
+    "type": "SystemAssigned"
+  },
   "location": null,
-  "name": "akvprovider",
+  "name": "akvsecretsprovider",
+  "packageUri": null,
+  "provisioningState": "Succeeded",
   "releaseTrain": "preview",
   "resourceGroup": "$RESOURCE_GROUP",
   "scope": {
@@ -199,10 +208,17 @@ You should see a JSON output similar to the output below:
     "namespace": null
   },
   "statuses": [],
+  "systemData": {
+    "createdAt": "2021-11-15T21:17:52.751916+00:00",
+    "createdBy": null,
+    "createdByType": null,
+    "lastModifiedAt": "2021-11-15T21:17:52.751916+00:00",
+    "lastModifiedBy": null,
+    "lastModifiedByType": null
+  },
   "type": "Microsoft.KubernetesConfiguration/extensions",
   "version": "1.0.0"
 }
-```
 
 ## Create or use an existing Azure Key Vault
 
@@ -233,7 +249,7 @@ The Secrets Store CSI Driver on Arc connected clusters currently allows for the 
 Follow the steps below to provide identity to access Azure Key Vault
 
 1. Follow the steps [here](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) to create a service principal in Azure. Take note of the Client ID and Client Secret generated in this step.
-2.  Provide Azure Key Vault GET permission to the created service principal by following the steps [here](../../key-vault/general/assign-access-policy.md).
+2. Provide Azure Key Vault GET permission to the created service principal by following the steps [here](../../key-vault/general/assign-access-policy.md).
 3. Use the client ID and Client Secret from step 1 to create a Kubernetes secret on the Arc connected cluster:
 ```bash
 kubectl create secret generic secrets-store-creds --from-literal clientid="<client-id>" --from-literal clientsecret="<client-secret>"
@@ -278,7 +294,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
+      image: k8s.gcr.io/e2e-test-images/busybox:1.29
       command:
         - "/bin/sleep"
         - "10000"
@@ -318,15 +334,15 @@ Following configuration settings are available for Azure Key Vault secrets provi
 | Configuration Setting | Default | Description |
 | --------- | ----------- | ----------- |
 | enableSecretRotation | true | Boolean type; Periodically update the pod mount and Kubernetes Secret with the latest content from external secrets store |
-| rotationPollInterval | 2m | Time duration inputs (for example 2m). The rotation poll interval can be tuned based on how frequently the mounted contents for all pods and Kubernetes secrets need to be resynced to the latest |
+| rotationPollInterval | 2m | Secret rotation poll interval duration if `enableSecretRotation` is `true`. This can be tuned based on how frequently the mounted contents for all pods and Kubernetes secrets need to be resynced to the latest |
 | enableSyncSecret | false | Boolean input; In some cases, you may want to create a Kubernetes Secret to mirror the mounted content. This configuration setting allows SecretProviderClass to allow secretObjects field to define the desired state of the synced Kubernetes secret objects |
 
-These settings can be changed either at the time of extension installation using az k8s-extension create command or post installation using az k8s-extension patch command. 
+These settings can be changed either at the time of extension installation using `az k8s-extension create` command or post installation using `az k8s-extension update` command. 
 
 ## Uninstall Azure Key Vault secrets provider extension
 Use the below command
 ```azurecli-interactive
-az k8s-extension delete --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name akvprovider -y
+az k8s-extension delete --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name akvsecretsprovider
 ```
 
 Verify that the extension instance has been deleted.
