@@ -100,7 +100,7 @@
           href: app-service-sql-github-actions.md
         - name: ASP.NET
           href: app-service-sql-asp-github-actions.md
-    - name: App Service outbound traffic control with Azure Firewall
+    - name: Control outbound traffic with Azure Firewall
       href: tutorial-outbound-traffic-control-azfw.md
 - name: Samples
   items:
