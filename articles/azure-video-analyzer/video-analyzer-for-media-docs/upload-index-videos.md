@@ -24,7 +24,7 @@ When you're uploading videos by using the API, you have the following options:
 * Send the video file as a byte array in the request body.
 * Use existing an Azure Media Services asset by providing the [asset ID](../../media-services/latest/assets-concept.md). This option is supported in paid accounts only.
 
-## Supported file formats for Video Analyzer for Media
+## Supported file formats
 
 For a list of file formats that you can use with Video Analyzer for Media, see [Standard Encoder formats and codecs](../../media-services/latest/encode-media-encoder-standard-formats-reference.md).
 
@@ -38,11 +38,10 @@ The persistence of a video is identical whether you upload by using the Video An
    
 ## Upload and index a video by using the website
 
-1. Sign in on the [Video Analyzer for Media](https://www.videoindexer.ai/) website.
-1. Select **Upload**.
+Sign in on the [Video Analyzer for Media](https://www.videoindexer.ai/) website, and then select **Upload**.
 
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Screenshot that shows the Upload button.":::
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Screenshot that shows the Upload button.":::
 
 After your video is uploaded, Video Analyzer for Media starts indexing and analyzing the video.
 
@@ -65,7 +64,9 @@ Use this parameter to specify an ID that will be associated with the video. The 
 
 #### callbackUrl
 
-Use this parameter to specify a callback URL. [!INCLUDE [callback url](./includes/callback-url.md)]
+Use this parameter to specify a callback URL. 
+
+[!INCLUDE [callback url](./includes/callback-url.md)]
 
 Video Analyzer for Media returns any existing parameters provided in the original URL. The URL must be encoded.
 
@@ -643,7 +644,7 @@ The upload operation might return the following status codes:
 |Status code|ErrorType (in response body)|Description|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|The same video is already being processed in this account.|
-|400|VIDEO_ALREADY_FAILED|The same video failed to process in this account less than 2 hours ago. API clients should wait at least 2 hours before re-uploading a video.|
+|400|VIDEO_ALREADY_FAILED|The same video failed to process in this account less than 2 hours ago. API clients should wait at least 2 hours before reuploading a video.|
 |429||Trial accounts are allowed 5 uploads per minute. Paid accounts are allowed 50 uploads per minute.|
 
 ## Uploading considerations and limitations
