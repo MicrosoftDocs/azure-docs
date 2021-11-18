@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/18/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -95,7 +95,7 @@ When using this feature asynchronously, the API results are available for 24 hou
 
 If a document exceeds the character limit, the API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
 
-When you send a document larger than 5,120 characters, it will be split by Text Analytics for health into chunks of 5,120 characters. If two entities are present on either side of a split that are related, the model will not be able to detect the relation.
+When you send a document larger than 5,120 characters, it will be split by Text Analytics for health into chunks of 5,120 characters. If two entities are present on either side of a split that are related, the model will not be able to detect the relation. To prevent potential relations from being undetected, consider splitting your text into documents of 5,120 characters or less, consisting only of full sentences.
 
 ### Rate limits
 
