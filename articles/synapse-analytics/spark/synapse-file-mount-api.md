@@ -34,7 +34,7 @@ Assuming you have one gen2 storage account named **storegen2** and the account h
 
 ![Screenshot of gen2 storage account](./media/synapse-file-mount-api/gen2-storage-account.png)
 
-To mount container **mycontainer** to your spark pool, mssparkutils need to check whether you have the permission to access the container at first, currently we support three authentication methods to trigger mount operation, **LinkeService**, **accountKey** and **sastoken**. 
+To mount container **mycontainer** to your spark pool, mssparkutils need to check whether you have the permission to access the container at first, currently we support three authentication methods to trigger mount operation, **LinkeService**, **accountKey**, and **sastoken**. 
 
 ### Via Linked Service (recommend):   
 
@@ -71,7 +71,7 @@ mssparkutils.fs.mount(
     ```python
     From notebookutils import mssparkutils 
     ``` 
-+ It’s not recommended to mount a root folder, no matter which authentication methods is used. 
++ It’s not recommended to mount a root folder, no matter which authentication method is used. 
 
 
 ### Via Shared Access Signature Token or Account Key  
@@ -179,7 +179,7 @@ You can also use spark read API with mounted path as parameter to access the dat
 
 `synfs:/{jobId}/{filename} `
 
-Below are 2 code examples, one is for a mounted gen2 storage, another is for a mounted blob storage. 
+Below are two code examples, one is for a mounted gen2 storage, another is for a mounted blob storage. 
 
 ### Read file from a mounted gen2 storage account 
 
