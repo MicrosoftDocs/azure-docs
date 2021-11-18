@@ -858,7 +858,7 @@
         - name: Windows
           displayName: Log Analytics, extension
           href: ./extensions/oms-windows.md
-      - name: Azure Monitor for VMs
+      - name: VM insights
         items:
         - name: Linux Dependency agent
           displayName: Azure Monitor
@@ -1294,6 +1294,8 @@
     - name: Windows
       displayName: Expand a disk - Windows
       href: ./windows/expand-os-disk.md
+    - name: Unmanaged disks
+      href: expand-unmanaged-disks.md
   - name: Manage storage
     items:
     - name: Deploy disks with ARM template
@@ -1692,23 +1694,18 @@
         href: ./windows/tutorial-config-management.md
 - name: Monitoring
   items:
-  - name: Overview
-    displayName: Monitoring Overview, monitoring
-    href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-  - name: Monitoring VMs
+  - name: Monitor virtual machines
+    href: monitor-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+  - name: Monitor virtual machine reference
+    href: monitor-vm-reference.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+  - name: Tutorials
     items:
-    - name: Overview
-      href: ../azure-monitor/vm/monitor-virtual-machine.md?context=/azure/virtual-machines/context/context
-    - name: Configure monitoring
-      href: ../azure-monitor/vm/monitor-virtual-machine-configure.md?context=/azure/virtual-machines/context/context
-    - name: Analyze data
-      href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md?context=/azure/virtual-machines/context/context
-    - name: Monitor security
-      href: ../azure-monitor/vm/monitor-virtual-machine-security.md?context=/azure/virtual-machines/context/context
-    - name: Create alerts
-      href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=/azure/virtual-machines/context/context
-    - name: Monitor workloads
-      href: ../azure-monitor/vm/monitor-virtual-machine-workloads.md?context=/azure/virtual-machines/context/context
+    - name: Enable monitoring
+      href: ../azure-monitor/vm/tutorial-monitor-vm-enable.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+    - name: Alert on machine down
+      href: ../azure-monitor/vm/tutorial-monitor-vm-alert.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+    - name: Collect guest logs and metrics
+      href: ../azure-monitor/vm/tutorial-monitor-vm-guest.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Agents
     items:
     - name: Agents overview
@@ -1716,23 +1713,23 @@
     - name: FAQ
       displayName: Agents
       href: ../azure-monitor/faq.yml
-    - name: Azure Diagnostics extension
+    - name: Azure Monitor Agent
       items:
       - name: Overview
-        displayName: Azure Diagnostics extension
-        href: ../azure-monitor/agents/diagnostics-extension-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-      - name: Linux diagnostics extension
-        items:
-        - name: Version 4.0
-          displayName: Linux diagnostics extension
-          href: ../virtual-machines/extensions/diagnostics-linux.md?context=/azure/virtual-machines/context/context
-        - name: Version 3.0
-          displayName: Linux diagnostics extension
-          href: ../virtual-machines/extensions/diagnostics-linux-v3.md?context=/azure/virtual-machines/context/context
-        - name: Collect metrics with Telegraf
-          displayName: Linux diagnostics extension
-          href: ../azure-monitor/essentials/collect-custom-metrics-linux-telegraf.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-          displayname: diagnostics extension
+        displayname: Azure Monitor agent
+        href: ../azure-monitor/agents/azure-monitor-agent-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+      - name: Install
+        displayname: Azure Monitor agent
+        href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+      - name: Data collection
+        displayname: data collection rule,Azure Monitor agent
+        href: ../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+      - name: Migrate from legacy agents
+        displayname: Migrate to Azure Monitor agent
+        href: ../azure-monitor/agents/azure-monitor-agent-migration.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+      - name: FAQ
+        displayname: Azure Monitor agent FAQ
+        href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -1778,16 +1775,16 @@
         href: ../azure-monitor/visualize/vmext-troubleshoot.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Log Analytics Linux agent
         href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
-    - name: Azure Monitor for VMs
+    - name: VM insights
       items:
       - name: Overview
-        displayName: Azure monitor for VMs
+        displayName: VM insights
         href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: General Availability FAQ
-        displayName: Azure monitor for VMs
+        displayName: VM insights
         href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
-        displayName: Azure monitor for VMs
+        displayName: VM insights
         href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Enable monitoring
         items:
