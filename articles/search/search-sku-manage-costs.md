@@ -15,13 +15,13 @@ ms.date: 11/18/2021
 
 This article explains the billing model and billable events of Azure Cognitive Search, and provides direction for managing the costs.
 
-As a first step, estimate baseline costs by using the Azure pricing calculator. Alternatively, estimated costs and tier comparisons can also be found in the [**Select a pricing tier**](search-create-service-portal.md#choose-a-pricing-tier) page when creating a service.
+As a first step, estimate baseline costs by using the Azure pricing calculator. Alternatively, estimated costs and tier comparisons can also be found in the [Select a pricing tier](search-create-service-portal.md#choose-a-pricing-tier) page when creating a service.
 
 Azure provides built-in cost management that cuts across service boundaries to provide inclusive cost monitoring and the ability to set budgets and define alerts. The costs of running a search service will vary depending on capacity and which features you use. After you create your search service, optimize capacity so that you pay only for what you need. 
 
-## Understand the billing model for Azure Cognitive Search
+## Understand the billing model
 
-Capacity is a primary determinant of billing. In Azure Cognitive Search, the scalability architecture is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, or less. 
+Capacity is a primary determinant of billing. In Azure Cognitive Search, there is a fixed component, but the scalability architecture is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, or less.
 
 The amount of resources used by your search service, multiplied by the billing rate established by the service tier, determines the baseline cost of running the service. For billing purposes, there are two simple formulas to be aware of:
 
@@ -83,7 +83,7 @@ Cost management is built into the Azure infrastructure. Review [Billing and cost
 
 1. Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. If there are predictable patterns to your workloads, you might be able to synchronize scale with activity (you would need to write code to automate this).
 
-  When estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear (doubling capacity more than doubles the cost on the same tier). Also, at some point, switching up to a higher tier can give you better and faster performance at roughly the same price point. For more information and an example, see [Upgrade to a Standard S2 tier](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
+   When estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear (doubling capacity more than doubles the cost on the same tier). Also, at some point, switching up to a higher tier can give you better and faster performance at roughly the same price point. For more information and an example, see [Upgrade to a Standard S2 tier](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
 
 1. Consider Azure Web App for your front-end application so that requests and responses stay within the data center boundary.
 
@@ -101,7 +101,7 @@ In-place upgrade or downgrade is not supported. Changing a service tier requires
 
 + Learn more on how pricing works with Azure Cognitive Search. See [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 + Learn more about [replicas and partitions](search-sku-tier.md).
-+ Learn [how to optimize your cloud investment with Azure Cost Management](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-+ Learn more about managing costs with [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-+ Learn about how to [prevent unexpected costs](../../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 + Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
