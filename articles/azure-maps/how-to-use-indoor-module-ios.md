@@ -1,9 +1,9 @@
 ---
-title: Use the Azure Maps Indoor Maps module to develop iOS applications with Microsoft Creator services
-description: Learn how to use the Microsoft Azure Maps Indoor Maps module for the iOS SDK to render maps by embedding the module's JavaScript libraries.
+title: Use the Azure Maps indoor maps module to develop iOS applications with Microsoft Creator services
+description: Learn how to use the Microsoft Azure Maps indoor maps module for the iOS SDK to render maps by embedding the module's JavaScript libraries.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/15/2021
+ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -20,7 +20,7 @@ The Azure Maps iOS SDK allows you to render indoor maps created in Azure Maps Cr
 1. [Create a Creator resource](how-to-manage-creator.md)
 1. Get a `tilesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md). You'll need to use this identifier to render indoor maps with the Azure Maps iOS SDK.
 
-## Instantiate the Indoor Manager
+## Instantiate the indoor manager
 
 To load the indoor tilesets and map style of the tiles, you must instantiate an `IndoorManager` and keep a strong reference to it.
 
@@ -36,7 +36,7 @@ self.indoorManager = indoor
 > self.indoorManager.setOptions([.geography(.eu)])
 > ```
 
-## Indoor Level Picker control
+## Indoor level picker control
 
 The *Indoor Level Picker* control allows you to change the level of the rendered map. You can optionally initialize an `IndoorControl` and set to the appropriate option on the `IndoorManager` as in the following code:
 
