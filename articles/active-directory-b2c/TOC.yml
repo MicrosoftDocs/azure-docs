@@ -639,7 +639,7 @@
   - name: Getting help
     href: ../active-directory/develop/developer-support-help-options.md
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/active-directory-b2c/
+    href: https://azure.microsoft.com/pricing/details/active-directory/external-identities/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
