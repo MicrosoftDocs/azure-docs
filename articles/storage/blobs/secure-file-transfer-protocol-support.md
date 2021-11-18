@@ -12,9 +12,9 @@ ms.reviewer: ylunagaria
 
 ---
 
-# Secure File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
+# SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
 
-Blob storage now supports the Secure File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage accounts via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management.  
+Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage accounts via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management.  
 
 > [!IMPORTANT]
 > SFTP support is currently in PREVIEW and is available in [these regions](secure-file-transfer-protocol-support.md#regional-availability).
@@ -42,7 +42,7 @@ Different protocols extend from the hierarchical namespace. The SFTP is one of t
 
 ## SFTP Permissions model
 
-Azure Storage does not support shared access signature (SAS), or Azure Active directory (Azure AD) authentication for connecting SFTP clients. Instead, SFTP clients must use either a password or a secure shell (SSH) private key credential.
+Azure Storage does not support shared access signature (SAS), or Azure Active directory (Azure AD) authentication for connecting SFTP clients. Instead, SFTP clients must use either a password or a Secure Shell (SSH) private key credential.
 
 To grant access to a connecting client, the storage account must have an identity associated with that credential. That identity is called a local user. Local Users are a new form of identity management provided with SFTP support. You can add up 1000 local users to a storage account.
 
@@ -55,7 +55,7 @@ To set up access permissions, you will create a local user, and choose authentic
 
 ## Authentication methods
 
-You can authenticate a connecting SFTP client by using a password or a secure shell (SSH) public/private keypair. You can configure both forms of authentication and let connecting clients choose which one to use. However, multifactor authentication, whereby both a valid password and a valid public/private key pair are required for successful authentication is not supported. 
+You can authenticate a connecting SFTP client by using a password or a Secure Shell (SSH) public-private keypair. You can configure both forms of authentication and let connecting clients choose which one to use. However, multifactor authentication, whereby both a valid password and a valid public-private key pair are required for successful authentication is not supported. 
 
 #### Passwords
 
@@ -63,7 +63,7 @@ Passwords are generated for you. If you choose password authentication, then you
 
 #### SSH key pairs
 
-A public-private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret and is known only to you. The public key is stored in Azure. When an SSH client connects to the storage account, it sends a message with the private key and signature. Azure validates the message and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](/azure/virtual-machines/linux/ssh-from-windows##overview-of-ssh-and-keys).
+A public-private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret and is known only to you. The public key is stored in Azure. When an SSH client connects to the storage account, it sends a message with the private key and signature. Azure validates the message and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](../../virtual-machines/linux/ssh-from-windows.md#).
 
 If you choose to authenticate with private-public key pair, you can either generate one, use one already stored in Azure, or provide Azure the public key of an existing public-private key pair. 
 
@@ -110,7 +110,6 @@ SFTP support is available in the following regions:
 - Central US EUAP
 - Canada East
 - Canada Central
-- West Europe
 - North Europe
 - Australia East
 - Switzerland North

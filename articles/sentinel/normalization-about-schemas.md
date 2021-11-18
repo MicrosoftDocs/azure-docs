@@ -1,22 +1,11 @@
 ---
 title: Advanced SIEM Information Model (ASIM) Schemas | Microsoft Docs
 description: This article explains Advanced SIEM Information Model (ASIM) schemas, and how they help ASIM normalizes data from many different sources to a uniform presentation
-services: sentinel
-cloud: na
-documentationcenter: na
 author: oshezaf
-manager: rkarlin
-
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-
 --- 
 
 # Advanced SIEM Information Model (ASIM) schemas (Public preview)

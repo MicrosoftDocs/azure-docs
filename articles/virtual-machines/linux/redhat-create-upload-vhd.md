@@ -156,7 +156,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     # logout
     ```
 
-1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 
 ### RHEL 7 using Hyper-V Manager
@@ -356,7 +356,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 	```
     
 
-1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ### RHEL 8 using Hyper-V Manager
 
@@ -545,7 +545,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step. Running the command `waagent -force -deprovision+user` will render the source machine unusable, this step is intended only to create a generalized image.
 
 
-1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 
 ## KVM

@@ -55,7 +55,7 @@ The following table helps in determining the advantages and disadvantages of eac
 ### Client experience
 The strategy that you use will dictate the user sign-in experience.  The following tables provide you with information on what the users should expect their sign-in experience to be.  Not all federated identity providers support SSO in all scenarios.
 
-**Doman-joined and private network applications**:
+**Domain-joined and private network applications**:
 
 | Application | Synchronized Identity | Federated Identity |
 | --- | --- | --- |
