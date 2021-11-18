@@ -112,14 +112,14 @@
         href: patterns-name-generation.md
       - name: Shared variable file
         href: patterns-shared-variable-file.md
-    - name: Scenarios
-      items:
-      - name: Access control
-        href: scenarios-rbac.md
-      - name: Secrets
-        href: scenarios-secrets.md
-      - name: Virtual networks
-        href: scenarios-virtual-networks.md
+  - name: Scenarios
+    items:
+    - name: Access control
+      href: scenarios-rbac.md
+    - name: Secrets
+      href: scenarios-secrets.md
+    - name: Virtual networks
+      href: scenarios-virtual-networks.md
   - name: Deploy
     items:
     - name: Predeployment checks
