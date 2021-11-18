@@ -100,7 +100,7 @@
         - name: ACR Transfer with Az CLI
           href: container-registry-transfer-cli.md
         - name: ACR Transfer with ARM Templates
-          href: container-registry-transfer-arm.md
+          href: container-registry-transfer-images.md
         - name: Troubleshooting
           href: container-registry-transfer-troubleshooting.md
       - name: Protect registry data
