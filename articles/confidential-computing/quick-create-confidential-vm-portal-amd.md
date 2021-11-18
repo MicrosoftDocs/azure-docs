@@ -16,7 +16,7 @@ ms.author: RunCai
 > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](confidential-vm-solutions-amd.md) with AMD SEV-SNP technology.
+You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](irtual-machine-solutions-amd.md) with AMD SEV-SNP technology.
 
 
 ## Prerequisites
@@ -56,7 +56,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 
-    1. For **Size**, select a VM size. For more information, see [supported confidential VM families](confidential-vm-solutions-amd.md#sizes).
+    1. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-solutions-amd.md#sizes).
 
 
     1. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md).
