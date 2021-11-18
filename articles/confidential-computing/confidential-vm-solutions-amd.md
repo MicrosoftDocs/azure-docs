@@ -36,7 +36,7 @@ You can create confidential VMs that run on AMD processors in the following size
 
 You can use the [Azure Command-Line Interface (Azure CLI)](/cli/azure/install-azure-cli) with your confidential VMs.
 
-To a list of confidential VM sizes, run the following command. Replace `<vm-series>` with the series you want to use. For example, `DCASv5`, `ECASv5`, `DCADSv5`, or `ECADSv5`. The output shows information about available regions and availability zones.
+To see a list of confidential VM sizes, run the following command. Replace `<vm-series>` with the series you want to use. For example, `DCASv5`, `ECASv5`, `DCADSv5`, or `ECADSv5`. The output shows information about available regions and availability zones.
 
 ```azurecli-interactive
 az vm list-skus `
@@ -64,7 +64,7 @@ To deploy a confidential VM instance, consider a pay-as-you-go subscription or o
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 
-To request a quota increase, [open an online customer support request](../azure-portal/supportability/per-vm-quota-requests.md) at no charge. 
+To request a quota increase, [open an online customer support request](../azure-portal/supportability/per-vm-quota-requests.md). 
 
 If you have large-scale capacity needs, contact Azure Support. Azure quotas are credit limits, not capacity guarantees. You only incur charges for cores that you use.
 
@@ -94,7 +94,7 @@ For more information about supported and unsupported VM scenarios, see [support 
 
 ### High availability and disaster recovery
 
-You're responsible for creating high availability and disaster recovery solutions for your confidential VMs. Planning for these scenarios helps avoid and minimize downtime.
+You're responsible for creating high availability and disaster recovery solutions for your confidential VMs. Planning for these scenarios helps minimize avoid prolonged downtime.
 
 ### Deployment with ARM templates
 
