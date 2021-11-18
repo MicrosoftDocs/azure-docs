@@ -12,7 +12,7 @@ services: iot-central
 
 # Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central
 
-Azure IoT Edge for Linux on Windows (EFLOW) lets you run Azure IoT Edge in a Linux container on your Windows device. In this article, you learn how to provision an [EFLOW](https://docs.microsoft.com/windows/iot/iot-enterprise/eflow) device and manage it from your IoT Central application.
+Azure IoT Edge for Linux on Windows (EFLOW) lets you run Azure IoT Edge in a Linux container on your Windows device. In this article, you learn how to provision an [EFLOW](https://docs.microsoft.com/windows/iot/iot-enterprise/azure-iot-edge-for-linux-on-windows) device and manage it from your IoT Central application.
 
 In this how-to article, you learn how to:
 
@@ -139,7 +139,7 @@ You've now finished configuring your IoT Central application to enable an IoT Ed
 
 ## Install and provision Azure IoT Edge for Linux on a Windows device
 
-To install and provision Edge for Linux on a windows device see [Install and provision Azure IoT Edge for Linux on a Windows device](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-on-windows?view=iotedge-2018-06&tabs=windowsadmincenter)
+To install and provision Edge for Linux on a windows device see [Install and provision Azure IoT Edge for Linux on a Windows device](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-on-windows)
 
 > [!NOTE]
 > You are not required to create an IoTHub with this tutorial. You can skip the step of creating IoT Hub since you will connecting to IoT Central. 
