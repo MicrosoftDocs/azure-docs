@@ -79,7 +79,7 @@ mssparkutils.fs.mount(
 
 ### Via Shared Access Signature Token or Account Key  
 
-In addition to mount with linked Service, mssparkutils also support explicitly passing account key or [SAS (shared access signature)](https://docs.microsoft.com/en-us/samples/azure-samples/storage-dotnet-sas-getting-started/storage-dotnet-sas-getting-started/) token as parameter to mount the target. 
+In addition to mount with linked Service, mssparkutils also support explicitly passing account key or [SAS (shared access signature)](/samples/azure-samples/storage-dotnet-sas-getting-started/storage-dotnet-sas-getting-started/) token as parameter to mount the target. 
 
 If you want to use account key or SAS token directly to mount container. A more secure way is to store account key or SAS token in Azure Key Vaults (as the below example figure shows), then retrieving them with `mssparkutil.credentials.getSecret` API. 
 ![Screenshot of key vaults](./media/synapse-file-mount-api/key-vaults.png)
