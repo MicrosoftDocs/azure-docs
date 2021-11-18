@@ -27,7 +27,7 @@ Learn more about [event handling in Azure Communication Services](../../event-gr
 
 ## Deliver push notifications via Azure Notification Hubs
 
-You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call or a chat event. You should use these push notifications to wake up your application from the background and display UI that lets the user accept or decline the call, or handling the chat event.
+You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call or to notify them about missed chat activity. You should use these push notifications to wake up your application from the background and display UI that lets the user accept or decline the call or read the newly received chat message. 
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram showing how communication services integrates with Azure Notification Hubs.":::
 
