@@ -62,12 +62,12 @@ If these roles are not sufficient for your need, you can use PowerShell to creat
 In the **Select** box, search for a user, service principal, or group that you want to assign the role to.
 
 > [!NOTE]
-> The role assignment may take a few minutes to propagate in the system. If you can't access the FHIR or DICOM service in your application or other testing tools, you may wait for a few minutes.
+> If you can't access the FHIR or DICOM service in your application or other tools, you might need to wait a few more minutes for the role assignment to finish propagating in the system.
 
 ## Next steps
 
 In this article, you've learned how to assign Azure roles for the FHIR service and DICOM service. To learn how to access the Healthcare APIs using Postman, see
 
 - [Access using Postman](use-postman.md)
-- [Access using cURL](using-curl.md)
 - [Access using the REST Client](using-rest-client.md)
+- [Access using cURL](using-curl.md)
