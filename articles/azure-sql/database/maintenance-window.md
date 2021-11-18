@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 09/14/2021
+ms.date: 11/12/2021
 ---
 
 # Maintenance window (Preview)
@@ -33,12 +33,14 @@ The maintenance window can be configured on creation or for existing Azure SQL r
 
 ### Gain more predictability with maintenance window
 
-By default, Azure SQL maintenance policy blocks impactful updates during the period **8AM to 5PM local time every day** to avoid any disruptions during typical peak business hours. Local time is determined by the location of [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource and may observe daylight saving time in accordance with local time zone definition. 
+By default, Azure SQL maintenance policy blocks most impactful updates during the period **8AM to 5PM local time every day** to avoid any disruptions during typical peak business hours. Local time is determined by the location of [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource and may observe daylight saving time in accordance with local time zone definition. 
 
 You can further adjust the maintenance updates to a time suitable to your Azure SQL resources by choosing from two additional maintenance window slots:
  
-* Weekday window, 10PM to 6AM local time Monday - Thursday
-* Weekend window, 10PM to 6AM local time Friday - Sunday
+* **Weekday** window: 10:00 PM to 6:00 AM local time, Monday - Thursday
+* **Weekend** window: 10:00 PM to 6:00 AM local time, Friday - Sunday
+
+Maintenance window days listed indicate the starting day of each eight-hour maintenance window. For example, "10:00 PM to 6:00 AM local time, Monday – Thursday" means that the maintenance windows start at 10:00 PM local time on each day (Monday through Thursday) and complete at 6:00 AM local time the following day (Tuesday through Friday).
 
 Once the maintenance window selection is made and service configuration completed, planned maintenance will occur only during the window of your choice. While maintenance events typically complete within a single window, some of them may span two or more adjacent windows.   
 
@@ -61,7 +63,6 @@ Maintenance notifications can be configured to alert you on upcoming planned mai
 ### Supported service level objectives
 
 Choosing a maintenance window other than the default is available on all SLOs **except for**:
-* Hyperscale 
 * Instance pools
 * Legacy Gen4 vCore
 * Basic, S0 and S1 
@@ -73,6 +74,8 @@ Choosing a maintenance window other than the default is currently available in t
 
 | Azure Region | SQL Managed Instance | SQL Database | SQL Database in an [Azure Availability Zone](high-availability-sla.md) | 
 |:---|:---|:---|:---|
+| Australia Central 1 | Yes | | |
+| Australia Central 2 | Yes | | |
 | Australia East | Yes | Yes | Yes |
 | Australia Southeast | Yes | Yes | |
 | Brazil South | Yes | Yes |  |
@@ -88,6 +91,7 @@ Choosing a maintenance window other than the default is currently available in t
 | France Central | Yes | Yes | |
 | France South | Yes | Yes | |
 | Germany West Central | Yes | Yes |  |
+| Germany North | Yes |  |  |
 | Japan East | Yes | Yes | Yes |
 | Japan West | Yes | Yes | |
 | Korea Central | Yes | | |
@@ -95,15 +99,19 @@ Choosing a maintenance window other than the default is currently available in t
 | North Central US | Yes | Yes | |
 | North Europe | Yes | Yes | Yes |
 | South Africa North | Yes | | | 
+| South Africa West | Yes | | | 
 | South Central US | Yes | Yes | Yes |
 | South India | Yes | Yes | |
 | Southeast Asia | Yes | Yes | Yes |
 | Switzerland North | Yes | Yes | |
+| Switzerland West | Yes | | |
 | UAE Central | Yes | | |
+| UAE North | Yes | | |
 | UK South | Yes | Yes | Yes |
 | UK West | Yes | Yes | |
 | West Central US | Yes | Yes | |
 | West Europe | Yes | Yes | Yes |
+| West India | Yes | | |
 | West US | Yes | Yes |  |
 | West US 2 | Yes | Yes | Yes |
 | | | | | 

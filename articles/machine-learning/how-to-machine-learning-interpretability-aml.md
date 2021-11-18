@@ -1,19 +1,19 @@
 ---
-title: Interpret & explain ML models in Python (preview)
+title: Use Python to interpret & explain models (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your machine learning model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 07/09/2020
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, responsible-ml
+ms.custom: devx-track-python, responsible-ml, mktng-kw-nov2021
 ---
 
-# Use the interpretability package to explain ML models & predictions in Python (preview)
+# Use the Python interpretability package to explain ML models & predictions (preview)
 
 In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 
@@ -560,6 +560,15 @@ You can deploy the explainer along with the original model and use it at inferen
 ## Troubleshooting
 
 * **Sparse data not supported**: The model explanation dashboard breaks/slows down substantially with a large number of features, therefore we currently do not support sparse data format. Additionally, general memory issues will arise with large datasets and large number of features. 
+* **Supported explanations features matrix**
+
+Supported explanation tab | Raw features (dense) | Raw features (sparse) | Engineered features (dense) | Engineered features (sparse)
+:----- | :--- | :--- | :---- | :---- |
+Model performance   | Supported (not forecasting) | Supported (not forecasting)  | Supported | Supported |
+Dataset explorer  | Supported (not forecasting)   | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | 
+ Aggregate feature importance | Supported | Supported | Supported | Supported |
+ Individual feature importance| Supported (not forecasting)   | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | 
+
 
 * **Forecasting models not supported with model explanations**: Interpretability, best model explanation, is not available for AutoML forecasting experiments that recommend the following algorithms as the best model: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average, and Seasonal Naive. AutoML Forecasting regression models support explanations. However, in the explanation dashboard, the "Individual feature importance" tab is not supported for forecasting because of complexity in their data pipelines.
 
@@ -570,6 +579,6 @@ You can deploy the explainer along with the original model and use it at inferen
 
 ## Next steps
 
-[Learn more about model interpretability](how-to-machine-learning-interpretability.md)
+[Techniques for model interpretability in Azure ML](how-to-machine-learning-interpretability.md)
 
-[Check out Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+[Check out Azure Machine Learning interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)

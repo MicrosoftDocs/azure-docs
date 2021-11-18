@@ -6,14 +6,14 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/19/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
 # Use private endpoints for your Azure Purview account
 
 > [!IMPORTANT]
-> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before October 11, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
+> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before November 12, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
 
 
 This article describes how to configure private endpoints for Azure Purview.
@@ -69,44 +69,87 @@ For scenarios where _ingestion_ private endpoint is used in your Azure Purview a
 
 If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, take the required actions as detailed in this section.
 
-- If you are **using custom DNS or added required DNS A records directly** to your machines' host file, **no action is required**. 
+### Review your current DNS settings
 
-- If you have **configured Azure Private DNS Zone integration** for your Purview account, follow these steps to redeploy private endpoints to reconfigure DNS settings: 
+1. From Azure portal, locate your Purview account. From left hand menu click on **Networking**, select **Private Endpoint connections**. Click on each private endpoint in the list and follow the steps below.
 
-    1. Deploy a new portal private endpoint:
-       
-        1. Go to the [Azure portal](https://portal.azure.com), and then click on to your Azure Purview account, and under **Settings** select **Networking**, and then select **Private endpoint connections**.
+    :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-1.png" alt-text="Screenshot that shows purview private endpoint."lightbox="media/catalog-private-link/purview-pe-dns-updates-1.png":::
 
-            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal.png" alt-text="Screenshot that shows creating a portal private endpoint.":::
+2. If target sub-resource is _portal_, review **DNS configuration**, otherwise go back to previous step, and select the next private endpoint until you reviewed all of the private endpoints and have validated all of the private endpoints associated with the portal.
 
-        2. Select **+ Private endpoint** to create a new private endpoint.
+    :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-2.png" alt-text="Screenshot that shows portal purview private endpoint."lightbox="media/catalog-private-link/purview-pe-dns-updates-2.png":::
 
-        3. Fill in the basic information.
-
-        4. On the **Resource** tab, for **Resource type**, select **Microsoft.Purview/portal**.
-
-        5. For **Resource**, select the Azure Purview account, and for **Target sub-resource**, select **portal**.
-
-        6. On the **Configuration** tab, select the virtual network and then, select Azure Private DNS zone to create a new Azure DNS Zone.
-            
-            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png" alt-text="Screenshot that shows creating a portal private endpoint and DNS settings.":::
-
-        7. Go to the summary page, and select **Create** to create the portal private endpoint.
-
-    2. Delete the previous portal private endpoint associated with the Purview account. 
-
-    3. Ensure that a new Azure Private DNS Zone (privatelink.purviewstudio.azure.com) is created during the deployment of the portal private endpoint, and that a corresponding A record (web) exists in the the Private DNS Zone. 
+3. In the **DNS configuration** window verify the current settings:
+   
+    - If there are any records in the **Custom DNS records** section, follow steps in [Remediation scenarios 1](#scenario-1) and [Remediation scenario 2](#scenario-2).
     
-    4. Ensure you are able to successfully load Azure Purview Studio. It might take a few minutes (about 10 minutes) for the new DNS routing to take effect after reconfiguring DNS. You can wait a few minutes and try again, if it doesn't load immediately.
-    
-    5. If navigation fails, perform nslookup web.purview.azure.com, which should resolve to a private IP address that's associated to the portal private endpoint.
+        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-3.png" alt-text="Screenshot that shows portal purview private endpoint custom DNS configuration."lightbox="media/catalog-private-link/purview-pe-dns-updates-3.png":::
+
+    - If there are any records in the **Configuration name** section and If the DNS zone is `privatelink.purviewstudio.azure.com`, no action is required for this private endpoint. Go back to **step 1** and review remaining portal private endpoints.
   
-    6. Repeat steps 1 through 3 above for all existing portal private endpoints that you have. 
+        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-4.png" alt-text="Screenshot that shows portal purview private endpoint with new DNS zone."lightbox="media/catalog-private-link/purview-pe-dns-updates-4.png":::
+    
+    - If there are any records in the **Configuration name** section and If the DNS zone is `privatelink.purview.azure.com`, follow steps in [Remediation scenario 3](#scenario-3).
 
-- If you have **configured on-premises or custom DNS resolution** (e.g. you are using your own DNS servers or have configured host files), take the following actions: 
+        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-5.png" alt-text="Screenshot that shows portal purview private endpoint with old DNS zone."lightbox="media/catalog-private-link/purview-pe-dns-updates-5.png":::
 
-  - If your DNS record is `web.purview.azure.com`, **no action is required**.  
-  - If your DNS record is `web.privatelink.purview.azure.com`, update the record to `web.privatelink.purviewstudio.azure.com`. 
+### Remediation scenarios
+
+#### Scenario 1
+
+If you **have added required DNS A records directly to your DNS or machines' host file**, **no action is required**.
+    
+:::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-host.png" alt-text="Screenshot that shows host file with A records."lightbox="media/catalog-private-link/purview-pe-dns-updates-host.png":::
+
+#### Scenario 2
+
+If you **have configured on-premises DNS Servers**, **DNS Forwarders or custom DNS resolution**, review your DNS settings and take proper actions:
+
+1. Review your DNS Server. if your DNS record is `web.purview.azure.com`, or if your conditional forwarder is `purview.azure.com`, **no action is required**. 
+
+2. If your DNS record is `web.privatelink.purview.azure.com`, update the record to `web.privatelink.purviewstudio.azure.com`.
+
+3. If your conditional forwarder is `privatelink.purview.azure.com`, DO NOT REMOVE the zone. You are required to add a new conditional forwarder to `privatelink.purviewstudio.azure.com`.
+
+#### Scenario 3
+
+If you have configured **Azure Private DNS Zone integration for your Purview account**, follow these steps to redeploy private endpoints to reconfigure DNS settings:
+
+1. Deploy a new portal private endpoint:
+       
+    1. Go to the [Azure portal](https://portal.azure.com), and then click on to your Azure Purview account, and under **Settings** select **Networking**, and then select **Private endpoint connections**.
+
+        :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal.png" alt-text="Screenshot that shows creating a portal private endpoint."lightbox="media/catalog-private-link/purview-pe-reconfigure-portal.png":::
+
+    2. Select **+ Private endpoint** to create a new private endpoint.
+
+    3. Fill in the basic information.
+
+    4. On the **Resource** tab, for **Resource type**, select **Microsoft.Purview/account**.
+
+    5. For **Resource**, select the Azure Purview account, and for **Target sub-resource**, select **portal**.
+
+    6. On the **Configuration** tab, select the virtual network and then, select Azure Private DNS zone to create a new Azure DNS Zone.
+            
+        :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png" alt-text="Screenshot that shows creating a portal private endpoint and DNS settings."lightbox="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png":::
+
+    7. Go to the summary page, and select **Create** to create the portal private endpoint.
+
+2. Delete the previous portal private endpoint associated with the Purview account. 
+
+3. Ensure that a new Azure Private DNS Zone `privatelink.purviewstudio.azure.com` is created during the deployment of the portal private endpoint, and that a corresponding A record (web) exists in the Private DNS Zone. 
+    
+4. Ensure you are able to successfully load Azure Purview Studio. It might take a few minutes (about 10 minutes) for the new DNS routing to take effect after reconfiguring DNS. You can wait a few minutes and try again, if it doesn't load immediately.
+    
+5. If navigation fails, perform nslookup web.purview.azure.com, which should resolve to a private IP address that's associated to the portal private endpoint.
+  
+6. Repeat steps 1 through 3 above for all existing portal private endpoints that you have. 
+
+### Validation steps
+
+1. Ensure you are able to successfully load Azure Purview Studio. It might take a few minutes (about 10 minutes) for the new DNS routing to take effect after reconfiguring DNS. You can wait a few minutes and try again, if it doesn't load immediately.
+
+2. If navigation fails, perform nslookup `web.purview.azure.com`, which should resolve to a private IP address that's associated to the portal private endpoint.
 
 ## Frequently Asked Questions  
 

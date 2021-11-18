@@ -7,7 +7,7 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 07/13/2021
+ms.date: 10/21/2021
 ---
 
 # Co-sell requirements
@@ -73,7 +73,7 @@ After achieving Co-sell ready status, there are three additional requirements to
 
 Requirement 1- achieve the following:
 
-- At the _organization level_, generate at least $100,000 USD of Azure Consumed Revenue threshold over the trailing 12-month period. This can be obtained through a combination of Azure solutions. If the offer is transactable in the commercial marketplace, you can meet this requirement by meeting a billed revenue threshold of $100,000 USD.
+- At the _organization level_, generate at least $100,000 USD of Azure Consumed Revenue threshold over the trailing 12-month period. This can be obtained through a combination of Azure solutions. If the offer is transactable in the commercial marketplace, you can meet this requirement by meeting a billed revenue threshold of $100,000 USD over the trailing 12-month period.
 
 Requirement 2 - Pass the Microsoft technical validation for an Azure-based solution:
 - The technical validation must confirm that more than 50% of your offer’s infrastructure uses repeatable IP code on Azure. Note that transactable Azure VMs and Azure Application solutions on the commercial marketplace will meet this requirement by default.

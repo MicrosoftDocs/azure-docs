@@ -8,15 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
+ms.date: 11/03/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Azure AD-only authentication with Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
-> [!NOTE]
-> The **Azure AD-only authentication** feature discussed in this article is in **public preview**. 
 
 Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) that allows the service to only support Azure AD authentication, and is supported for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). SQL authentication is disabled when enabling Azure AD-only authentication in the Azure SQL environment, including connections from SQL server administrators, logins, and users. Only users using [Azure AD authentication](authentication-aad-overview.md) are authorized to connect to the server or database.
 
@@ -24,12 +22,9 @@ Azure AD-only authentication can be enabled or disabled using the Azure portal, 
 
 For more information on Azure SQL authentication, see [Authentication and authorization](logins-create-manage.md#authentication-and-authorization).
 
-> [!IMPORTANT]
-> Currently, you cannot manage Azure AD-only authentication in the Azure portal for Azure SQL Managed Instance. For a tutorial on different methods to enable Azure AD-only authentication, see [Tutorial: Enable Azure Active Directory only authentication with Azure SQL](authentication-azure-ad-only-authentication-tutorial.md).
-
 ## Feature description
 
-When enabling Azure AD-only authentication, [SQL authentication](logins-create-manage.md#authentication-and-authorization) is disabled at the server level and prevents any authentication based on any SQL authentication credentials. SQL authentication users won't be able to connect to the [logical server](logical-servers.md) for Azure SQL Database, including all of its databases. Although SQL authentication is disabled, new SQL authentication logins and users can still be created by Azure AD accounts with proper permissions. Newly created SQL authentication accounts won't be allowed to connect to the server. Enabling Azure AD-only authentication doesn't remove existing SQL authentication login and user accounts. The feature only prevents these accounts from connecting to the server, and any database created for this server.
+When enabling Azure AD-only authentication, [SQL authentication](logins-create-manage.md#authentication-and-authorization) is disabled at the server or managed instance level and prevents any authentication based on any SQL authentication credentials. SQL authentication users won't be able to connect to the [logical server](logical-servers.md) for Azure SQL Database or managed instance, including all of its databases. Although SQL authentication is disabled, new SQL authentication logins and users can still be created by Azure AD accounts with proper permissions. Newly created SQL authentication accounts won't be allowed to connect to the server. Enabling Azure AD-only authentication doesn't remove existing SQL authentication login and user accounts. The feature only prevents these accounts from connecting to the server, and any database created for this server.
 
 You can also force servers to be created with Azure AD-only authentication enabled using Azure Policy. For more information, see [Azure Policy for Azure AD-only authentication](authentication-azure-ad-only-authentication-policy.md).
 
@@ -395,10 +390,28 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 - Azure AD users with proper permissions can impersonate existing SQL users.
     - Impersonation continues working between SQL authentication users even when the Azure AD-only authentication feature is enabled.
 
-## Known issues
+### Limitations for Azure AD-only authentication in SQL Database
 
-- When Azure AD-only authentication is enabled, the server administrator password cannot be reset. Currently, the password resent operation succeeds in portal but fails in the SQL engine. The failure is indicated in the server activity log. In order to reset the server admin password, the Azure AD-only authentication feature must be disabled.
+When Azure AD-only authentication is enabled for SQL Database, the following features aren't supported:
 
+- [Azure SQL Database server roles](security-server-roles.md)
+- [Elastic jobs](job-automation-overview.md)
+- [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
+- [Change data capture (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) - If you create a database in Azure SQL Database as an Azure AD user and enable change data capture on it, a SQL user will not be able to disable or make changes to CDC artifacts. However, another Azure AD user will be able to enable or disable CDC on the same database. Similarly, if you create an Azure SQL Database as a SQL user, enabling or disabling CDC as an Azure AD user won't work
+- [Transactional replication](../managed-instance/replication-transactional-overview.md) - Since SQL authentication is required for connectivity between replication participants, when Azure AD-only authentication is enabled, transactional replication is not supported for SQL Database for scenarios where transactional replication is used to push changes made in an Azure SQL Managed Instance, on-premises SQL Server, or an Azure VM SQL Server instance to a database in Azure SQL Database
+- [SQL insights](../../azure-monitor/insights/sql-insights-overview.md)
+- EXEC AS statement for Azure AD group member accounts
+
+### Limitations for Azure AD-only authentication in Managed Instance
+
+When Azure AD-only authentication is enabled for Managed Instance, the following features aren't supported:
+
+- [Transactional replication](../managed-instance/replication-transactional-overview.md) 
+- [SQL Agent Jobs in Managed Instance](../managed-instance/job-automation-managed-instance.md) supports Azure AD-only authentication. However, the Azure AD user who is a member of an Azure AD group that has access to the managed instance cannot own SQL Agent Jobs
+- [SQL insights](../../azure-monitor/insights/sql-insights-overview.md)
+- EXEC AS statement for Azure AD group member accounts
+
+For more limitations, see [T-SQL differences between SQL Server & Azure SQL Managed Instance](../managed-instance/transact-sql-tsql-differences-sql-server.md#logins-and-users).
 
 ## Next steps
 

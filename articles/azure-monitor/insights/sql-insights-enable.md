@@ -4,7 +4,7 @@ description: Enable SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/15/2021
+ms.date: 11/5/2021
 ---
 
 # Enable SQL insights (preview)
@@ -17,13 +17,12 @@ To learn how to enable SQL Insights, you can also refer to this Data Exposed epi
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/How-to-Set-up-Azure-Monitor-for-SQL-Insights/player?format=ny]
 
 ## Create Log Analytics workspace
-SQL insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-and-workspaces).  Before you can enable  SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
+SQL insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-and-workspaces). Before you can enable SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
 
 ## Create monitoring user 
-You need a user on the SQL deployments that you want to monitor. Follow the procedures below for different types of SQL deployments.
+You need a user (login) on the SQL deployments that you want to monitor. Follow the procedures below for different types of SQL deployments.
 
-The instructions below cover the process per type of SQL that you can monitor.  To accomplish this with a script on several SQL resouces at once, please refer to the following [README file](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) and [example script](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1).
-
+The instructions below cover the process per type of SQL that you can monitor. To accomplish this with a script on several SQL resources at once, please refer to the following [README file](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) and [example script](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1).
 
 ### Azure SQL Database
 
@@ -33,11 +32,11 @@ The instructions below cover the process per type of SQL that you can monitor.  
 > - **Low service tiers**: Metrics cannot be gathered for databases on Basic, S0, S1, and S2 [service tiers](../../azure-sql/database/resource-limits-dtu-single-databases.md)
 > 
 > SQL insights has limited support for the following Azure SQL Database scenarios:
-> - **Serverless tier**: Metrics can be gathered for databases using the [serverless compute tier](../../azure-sql/database/serverless-tier-overview.md). However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state
+> - **Serverless tier**: Metrics can be gathered for databases using the [serverless compute tier](../../azure-sql/database/serverless-tier-overview.md). However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state.
 
-Open Azure SQL Database with [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or [Query Editor (preview)](../../azure-sql/database/connect-query-portal.md) in the Azure portal.
+Connect to an Azure SQL database with [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md), [Query Editor (preview)](../../azure-sql/database/connect-query-portal.md) in the Azure portal, or any other SQL client tool.
 
-Run the following script to create a user with the required permissions. Replace *user* with a username and *mystrongpassword* with a password.
+Run the following script to create a user with the required permissions. Replace *user* with a username and *mystrongpassword* with a strong password.
 
 ```sql
 CREATE USER [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -65,7 +64,7 @@ order by username
 ```
 
 ### Azure SQL Managed Instance
-Log into your Azure SQL Managed Instance and use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a password.
+Connect to your Azure SQL Managed Instance using [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or a similar tool, and execute the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a strong password.
 
  
 ```sql
@@ -80,8 +79,7 @@ GO
 ```
 
 ### SQL Server
-Log into your Azure virtual machine running SQL Server and use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a password.
-
+Connect to SQL Server on your Azure virtual machine and use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or a similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a strong password.
  
 ```sql
 USE master; 
@@ -117,46 +115,46 @@ You will need to create one or more Azure virtual machines that will be used to 
 The Azure virtual machines has the following requirements.
 
 - Operating system: Ubuntu 18.04 
-- Recommended Azure virtual machine sizes: Standard_B2s (2 cpus, 4 GiB memory) 
+- Recommended minimum Azure virtual machine sizes: Standard_B2s (2 cpus, 4 GiB memory) 
 - Supported regions: Any [region supported by the Azure Monitor agent](../agents/azure-monitor-agent-overview.md#supported-regions)
 
 > [!NOTE]
 > The Standard_B2s (2 cpus, 4 GiB memory) virtual machine size will support up to 100 connection strings. You shouldn't allocate more than 100 connections to a single virtual machine.
 
-Depending upon the network settings of your SQL resources, the virtual machines may need to be placed in the same virtual network as your SQL resources so they can make network connections to collect monitoring data.  
+Depending upon the network settings of your SQL resources, the virtual machines may need to be placed in the same virtual network as your SQL resources so they can make network connections to collect monitoring data.
 
 ## Configure network settings
-Each type of SQL offers methods for your monitoring virtual machine to securely access SQL.  The sections below cover the options based upon the type of SQL.
+Each type of SQL offers methods for your monitoring virtual machine to securely access SQL. The sections below cover the options based upon the SQL deployment type.
 
 ### Azure SQL Database
 
-SQL insights supports accessing your Azure SQL Database via it's public endpoint as well as from it's virtual network.
+SQL Insights supports accessing your Azure SQL Database via its public endpoint as well as from its virtual network.
 
-For access via the public endpoint, you would add a rule under the **Firewall settings** page and the [IP firewall settings](../../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules) section.  For specifying access from a virtual network, you can set [virtual network firewall rules](../../azure-sql/database/network-access-controls-overview.md#virtual-network-firewall-rules) and set the [service tags required by the Azure Monitor agent](../agents/azure-monitor-agent-overview.md#networking).  [This article](../../azure-sql/database/network-access-controls-overview.md#ip-vs-virtual-network-firewall-rules) describes the differences between these two types of firewall rules.
+For access via the public endpoint, you would add a rule under the **Firewall settings** page and the [IP firewall settings](../../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules) section. For specifying access from a virtual network, you can set [virtual network firewall rules](../../azure-sql/database/network-access-controls-overview.md#virtual-network-firewall-rules) and set the [service tags required by the Azure Monitor agent](../agents/azure-monitor-agent-overview.md#networking). [This article](../../azure-sql/database/network-access-controls-overview.md#ip-vs-virtual-network-firewall-rules) describes the differences between these two types of firewall rules.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Set server firewall" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Firewall settings." lightbox="media/sql-insights-enable/firewall-settings.png":::
 
-
 ### Azure SQL Managed Instance
 
 If your monitoring virtual machine will be in the same VNet as your SQL MI resources, then see [Connect inside the same VNet](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-the-same-vnet). If your monitoring virtual machine will be in the different VNet than your SQL MI resources, then see [Connect inside a different VNet](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-a-different-vnet).
-
 
 ### SQL Server 
 If your monitoring virtual machine is in the same VNet as your SQL virtual machine resources, then see [Connect to SQL Server within a virtual network](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-within-a-virtual-network). If your monitoring virtual machine will be in the different VNet than your SQL virtual machine resources, then see  [Connect to SQL Server over the internet](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-over-the-internet).
 
 ## Store monitoring password in Key Vault
-You should store your SQL user connection passwords in a Key Vault rather than entering them directly into your monitoring profile connection strings.
+As a security best practice, we strongly recommend that you store your SQL user (login) passwords in a Key Vault, rather than entering them directly into your monitoring profile connection strings.
 
 When settings up your profile for SQL monitoring, you will need one of the following permissions on the Key Vault resource you intend to use:
 
 - Microsoft.Authorization/roleAssignments/write 
-- Microsoft.Authorization/roleAssignments/delete permissions such as User Access Administrator or Owner 
+- Microsoft.Authorization/roleAssignments/delete
 
-A new access policy will be automatically created as part of creating your SQL Monitoring profile that uses the Key Vault you specified. Use *Allow access from All networks* for Key Vault Networking settings.
+If you have these permissions, a new Key Vault access policy will be automatically created as part of creating your SQL Monitoring profile that uses the Key Vault you specified. 
 
+> [!IMPORTANT]
+> You need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](/key-vault/general/access-behind-firewall.md) and [Configure Azure Key Vault networking settings](/key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ## Create SQL monitoring profile
 Open SQL insights by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click **Create new profile**. 
@@ -181,7 +179,6 @@ The profile is stored as a [data collection rule](../agents/data-collection-rule
 > [!NOTE]
 > The location of the profile should be in the same location as the Log Analytics workspace you plan to send the monitoring data to.
 
-
 :::image type="content" source="media/sql-insights-enable/profile-details.png" alt-text="Profile details." lightbox="media/sql-insights-enable/profile-details.png":::
 
 Click **Create monitoring profile** once you've entered the details for your monitoring profile. It can take up to a minute for the profile to be deployed.  If you don't see the new profile listed in **Monitoring profile** combo box, click the refresh button and it should appear once the deployment is completed.  Once you've selected the new profile, select the **Manage profile** tab to add a monitoring machine that will be associated with the profile.
@@ -189,14 +186,12 @@ Click **Create monitoring profile** once you've entered the details for your mon
 ### Add monitoring machine
 Select **Add monitoring machine** to open a context panel to choose the virtual machine to setup to monitor your SQL instances and provide the connection strings.
 
-Select the subscription and name of your monitoring virtual machine. If you're using Key Vault to store your password for the monitoring user,  select the Key Vault resources with these secrets and enter the URL and secret name to be used in the connection strings. See the next section for details on identifying the connection string for different SQL deployments.
-
+Select the subscription and name of your monitoring virtual machine. If you're using Key Vault to store your password for the monitoring user, select the Key Vault resources with these secrets and enter the URI and secret name for the password to be used in the connection strings. See the next section for details on identifying the connection string for different SQL deployments.
 
 :::image type="content" source="media/sql-insights-enable/add-monitoring-machine.png" alt-text="Add monitoring machine." lightbox="media/sql-insights-enable/add-monitoring-machine.png":::
 
-
 ### Add connection strings 
-The connection string specifies the username that SQL insights should use when logging into SQL to run the Dynamic Management Views. If you're using a Key Vault to store the password for your monitoring user,  provide the URL and name of the secret to use. 
+The connection string specifies the login name that SQL insights should use when logging into SQL to collect monitoring data. If you're using a Key Vault to store the password for your monitoring user, provide the Key Vault URI and name of the secret that contains the password.
 
 The connections string will vary for each type of SQL resource:
 
@@ -204,9 +199,9 @@ The connections string will vary for each type of SQL resource:
 Enter the connection string in the form:
 
 ```
-sqlAzureConnections": [ 
+sqlAzureConnections": [
    "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
-}
+]
 ```
 
 Get the details from the **Connection strings** menu item for the database.
@@ -219,22 +214,22 @@ To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOn
 Enter the connection string in the form:
 
 ```
-"sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
-    ] 
+"sqlManagedInstanceConnections": [
+   "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
+] 
 ```
 Get the details from the **Connection strings** menu item for the managed instance.
 
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="SQL Managed Instance connection string" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
-To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring of a single secondary and the collected data will be tagged to reflect Primary or Secondary. 
+To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring of a single secondary. Collected data will be tagged to reflect Primary or Secondary. 
 
 #### SQL Server 
 Enter the connection string in the form:
 
 ```
-"sqlVmConnections": [ 
+"sqlVmConnections": [
    "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```

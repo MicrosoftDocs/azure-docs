@@ -4,9 +4,7 @@ description: In this Quickstart, learn how to create a Recovery Services vault, 
 ms.date: 05/12/2020
 ms.topic: quickstart
 ms.devlang: azurecli
-ms.custom:
-  - mvc
-  - mode-portal
+ms.custom: mvc, mode-portal
 ---
 
 # Back up a virtual machine in Azure

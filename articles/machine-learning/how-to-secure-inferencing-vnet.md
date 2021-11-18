@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning inferencing environment.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/13/2021
+ms.date: 11/05/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---
@@ -59,6 +59,7 @@ In this article you learn how to secure the following inferencing resources in a
 ### Azure Kubernetes Service
 
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
+* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../aks/private-clusters.md#create-a-private-aks-cluster-with-a-public-fqdn) is __not supported__ with Azure Machine learning.
 
 <a id="aksvnet"></a>
 

@@ -41,10 +41,6 @@
   - name: Concepts
     expanded: true
     items: 
-    - name: App management best practices
-      href: application-management-fundamentals.md
-    - name: App management common scenarios
-      href: common-scenarios.md
     - name: Home realm discovery policy
       href: home-realm-discovery-policy.md
     - name: Planning a cloud app integration
@@ -55,10 +51,10 @@
         href: my-apps-deployment-plan.md
     - name: Single sign-on
       items:
-      - name: Plan for deployment
-        href: plan-sso-deployment.md
       - name: What is single sign-on?
         href: what-is-single-sign-on.md
+      - name: Plan for deployment
+        href: plan-sso-deployment.md
     - name: Application security
       items:
       - name: App access options
@@ -104,6 +100,8 @@
           href: manage-application-permissions.md
       - name: Manage user assignment
         href: assign-user-or-group-access-portal.md
+      - name: Assign custom security attributes
+        href: custom-security-attributes-apps.md
       - name: Create collections on My Apps
         href: access-panel-collections.md
       - name: Enable self-service app access
@@ -118,14 +116,14 @@
         href: prevent-domain-hints-with-home-realm-discovery.md
     - name: Migrate applications
       items:
-      - name: Migration resources
-        href: migration-resources.md
       - name: Migrate an AD FS app to Azure
         href: migrate-adfs-apps-to-azure.md
       - name: Migrate application authentication to Azure Active Directory
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
+      - name: Migration resources
+        href: migration-resources.md
       - name: Migrate applications from Okta to Azure AD 
         items:
         - name: Migrate applications from Okta to Azure AD
@@ -140,12 +138,24 @@
       items:
       - name: Secure hybrid access with Azure AD 
         href: secure-hybrid-access.md
-      - name: F5 and Azure AD integration
-        href: f5-aad-integration.md
-      - name: F5 BIG-IP VE deployment in Azure IaaS
-        href: f5-bigip-deployment-guide.md
-      - name: F5 Big-IP with Azure AD for passwordless VPN
-        href: f5-aad-password-less-vpn.md
+      - name: Secure hybrid access partner integrations
+        href: secure-hybrid-access-integrations.md
+      - name: Datawiza
+        href: datawiza-with-azure-ad.md 
+      - name: F5
+        items:
+        - name: F5 BIG-IP and Azure AD integration
+          href: f5-aad-integration.md
+        - name: F5 BIG-IP VE deployment in Azure IaaS
+          href: f5-bigip-deployment-guide.md
+        - name: F5 BIG-IP with Azure AD for passwordless VPN
+          href: f5-aad-password-less-vpn.md
+        - name: F5 BIG-IP with Azure AD for forms-based authentication SSO
+          href: f5-big-ip-forms-advanced.md
+        - name: F5 BIG-IP with Azure AD SSO for header based authentication
+          href: f5-big-ip-header-advanced.md
+      - name: Silverfort
+        href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
       - name: Linked
@@ -187,7 +197,7 @@
         - name: Support and help options for developers
           href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Azure feedback forum
-          href: https://feedback.azure.com/forums/169401-azure-active-directory
+          href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
         - name: Microsoft Q&A question page
           href: /answers/topics/azure-active-directory.html
         - name: Pricing

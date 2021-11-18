@@ -2,10 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-    - name: What is Azure IoT Hub?
-      href: about-iot-hub.md
-    - name: IoT concepts
-      href: iot-concepts.md 
+    - name: IoT concepts and Azure IoT Hub
+      href: iot-concepts-and-iot-hub.md
 - name: Quickstarts
   expanded: true
   items:
@@ -42,8 +40,8 @@
       href: tutorial-manual-failover.md
     - name: Configure your devices
       href: tutorial-device-twins.md
-    - name: Manage firmware updates
-      href: tutorial-firmware-update.md
+    - name: Manage device updates
+      href: ../iot-hub-device-update/device-update-raspberry-pi.md
     - name: Test device connectivity
       href: tutorial-connectivity.md
     - name: Data visualization in Power BI
@@ -493,8 +491,6 @@
         href: ../iot-edge/index.yml
       - name: IoT Plug and Play
         href: ../iot-develop/index.yml
-      - name: IoT solution accelerators
-        href: ../iot-accelerators/index.yml
       - name: Azure Maps
         href: ../azure-maps/index.yml
       - name: Time Series Insights

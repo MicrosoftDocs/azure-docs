@@ -33,6 +33,10 @@ This article assumes that you have [configured hybrid Azure AD-joined devices](h
 - [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 
+> [!NOTE] 
+> To troubleshoot the common device registration issues, use [Device Registration Troubleshooter Tool](/samples/azure-samples/dsregtool/dsregtool/).
+
+
 ## Troubleshoot join failures
 
 ### Step 1: Retrieve the join status
@@ -232,7 +236,7 @@ This content applies only to federated domain accounts.
 Reasons for failure:
 
 - Unable to get an access token silently for the DRS resource.
-   - Windows&nbsp;10 devices acquire the authentication token from the Federation Service by using Integrated Windows Authentication to an active WS-Trust endpoint. For more information, see [Federation Service configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
+   - Windows&nbsp;10 devices acquire the authentication token from the Federation Service by using integrated Windows authentication to an active WS-Trust endpoint. For more information, see [Federation Service configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
 
 **Common error codes**:
 
@@ -442,7 +446,7 @@ The "Attempt Status" field under the "AzureAdPrt" field will provide the status 
 
 Use Event Viewer to look for the log entries that are logged by the Azure AD CloudAP plug-in during PRT acquisition. 
 
-1. In Event Viewer, open the Azure AD event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**. 
+1. In Event Viewer, open the Azure AD Operational event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **AAD**. 
 
    > [!NOTE]
    > The CloudAP plug-in logs error events in the operational logs, and it logs the info events in the analytics logs. The analytics and operational log events are both required to troubleshoot issues. 
@@ -473,7 +477,7 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **AADSTS50155: Device authentication failed** | <li>Azure AD is unable to authenticate the device to issue a PRT.<li>Confirm that the device hasn't been deleted or disabled in the Azure portal. For more information about this issue, see [Azure Active Directory device management FAQ](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices). | Follow the instructions for this issue in [Azure Active Directory device management FAQ](faq.yml#i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do) to re-register the device based on the device join type. |
+| **AADSTS50155: Device authentication failed** | <li>Azure AD is unable to authenticate the device to issue a PRT.<li>Confirm that the device hasn't been deleted or disabled in the Azure portal. For more information about this issue, see [Azure Active Directory device management FAQ](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices). | Follow the instructions for this issue in [Azure Active Directory device management FAQ](faq.yml#i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do) to re-register the device based on the device join type. |
 | **AADSTS50034: The user account `Account` does not exist in the `tenant id` directory** | Azure AD is unable to find the user account in the tenant. | <li>Ensure that the user is typing the correct UPN.<li>Ensure that the on-premises user account is being synced with Azure AD.<li>Event 1144 (Azure AD analytics logs) will contain the UPN provided. |
 | **AADSTS50126: Error validating credentials due to invalid username or password.** | <li>The username and password entered by the user in the Windows LoginUI are incorrect.<li>If the tenant has password hash sync enabled, the device is hybrid-joined, and the user just changed the password, it's likely that the new password hasn’t synced with Azure AD. | To acquire a fresh PRT with the new credentials, wait for the Azure AD password sync to finish. |
 | | |

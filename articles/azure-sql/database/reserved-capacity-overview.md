@@ -8,8 +8,8 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang:
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 10/13/2020
 ---

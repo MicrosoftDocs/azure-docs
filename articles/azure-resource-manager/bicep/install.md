@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 10/20/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -27,6 +27,45 @@ To verify you've installed the extension, open any file with the `.bicep` file e
 
 :::image type="content" source="./media/install/language-mode.png" alt-text="Bicep language mode":::
 
+### Troubleshoot
+
+When installing the Bicep extension for Visual Studio Code, you may run into the following error messages:
+
+```error
+Failed to install .NET runtime v5.0
+```
+
+```error
+Failed to download .NET 5.0.x ....... Error!
+```
+
+To solve the problem, you can manually install .NET from the [.NET website](https://aka.ms/dotnet-core-download), and then configure Visual Studio Code to reuse an existing installation of .NET. with the following settings:
+
+**Windows**
+
+```json
+"dotnetAcquisitionExtension.existingDotnetPath": [
+  {
+    "extensionId": "ms-azuretools.vscode-bicep",
+    "path": "C:\\Program Files\\dotnet\\dotnet.exe"
+  }
+]
+
+```
+
+**macOS**
+
+```json
+"dotnetAcquisitionExtension.existingDotnetPath": [
+  {
+    "extensionId": "ms-azuretools.vscode-bicep",
+    "path": "/usr/local/share/dotnet/dotnet"
+  }
+]
+```
+
+See [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings) for configuring Visual Studio Code settings.
+
 ## Deployment environment
 
 After setting up your development environment, you need to install the tools for your deployment environment. To set up a local deployment environment, install the Bicep CLI with [Azure CLI](#azure-cli) or [Azure PowerShell](#azure-powershell). Those steps are shown in the next sections.
@@ -35,7 +74,7 @@ To deploy Bicep files from an Azure Pipeline, see [Integrate Bicep with Azure Pi
 
 ## Azure CLI
 
-You must have Azure CLI version 2.20.0 or later installed. To install or update Azure CLI, see:
+You must have Azure CLI version **2.20.0 or later** installed. To install or update Azure CLI, see:
 
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
 - [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
@@ -47,7 +86,7 @@ To verify your current version, run:
 az --version
 ```
 
-You now have everything you need to [deploy](deploy-cli.md) and [decompile](decompile.md) Bicep files. You have everything because Azure CLI 2.20.0 or later automatically installs the Bicep CLI when a command is executed that needs it.
+You now have everything you need to [deploy](deploy-cli.md) and [decompile](decompile.md) Bicep files. You have everything because Azure CLI automatically installs the Bicep CLI when a command is executed that needs it.
 
 To manually start the Bicep CLI installation, use:
 
@@ -74,7 +113,7 @@ For more commands, see [Bicep CLI](bicep-cli.md).
 
 ## Azure PowerShell
 
-You must have Azure PowerShell version 5.6.0 or later installed. To update or install, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+You must have Azure PowerShell version **5.6.0 or later** installed. To update or install, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 Azure PowerShell doesn't automatically install the Bicep CLI. Instead, you must [manually install the Bicep CLI](#install-manually).
 
@@ -83,7 +122,7 @@ Azure PowerShell doesn't automatically install the Bicep CLI. Instead, you must 
 
 When you manually install the Bicep CLI, run the Bicep commands with the `bicep` syntax, instead of the `az bicep` syntax for Azure CLI.
 
-To deploy Bicep files, use Bicep CLI version 0.3.1 or later. To check your Bicep CLI version, run:
+To check your Bicep CLI version, run:
 
 ```cmd
 bicep --version
@@ -116,7 +155,7 @@ bicep --help
 
 ### macOS
 
-#### via homebrew
+#### Via homebrew
 
 ```sh
 # Add the tap for bicep
@@ -126,7 +165,7 @@ brew tap azure/bicep
 brew install bicep
 ```
 
-#### via BASH
+#### Via BASH
 
 ```sh
 # Fetch the latest Bicep CLI binary

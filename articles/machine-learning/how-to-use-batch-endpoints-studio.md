@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: In this article, learn how to create a batch endpoint in Azure Machine Learning studio. Batch endpoints are used to continuously batch score large data.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: shivanissambare
 ms.author: ssambare
 ms.reviewer: larryfr
-ms.date: 08/16/2021
+ms.date: 10/21/2021
 ms.custom: how-to, studio, managed-batch-endpoints
 ---
 
@@ -80,7 +80,7 @@ A batch scoring workload runs as an offline job. By default, batch scoring store
 
 ### Overwrite settings
 
-Some settings can be overwritten when you start a batch scoring job. For example, you might overwrite settings to make better use of the compute resource, or to improve performance. To override settings, select __Override deployment settings__ and provide the settings. For more information, see [Use batch endpoints](how-to-use-batch-endpoint.md#overwrite-settings).
+Some settings can be overwritten when you start a batch scoring job. For example, you might overwrite settings to make better use of the compute resource, or to improve performance. To override settings, select __Override deployment settings__ and provide the settings. For more information, see [Use batch endpoints](how-to-use-batch-endpoint.md#configure-the-output-location-and-overwrite-settings).
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job":::
 

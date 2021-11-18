@@ -1,15 +1,15 @@
 ---
 title: Token enrichment  - Azure Active Directory B2C
-description: Enrich tokens with claims from external sources using APIs.
+description: Enrich tokens with claims from external identity data sources using APIs or outbound webhooks.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/29/2021
-ms.author: mimart
+ms.date: 11/09/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -18,7 +18,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API into their user flow using [API connectors](api-connectors-overview.md). At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with APIs to enrich tokens with information from external sources.
+Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API into their user flow using [API connectors](api-connectors-overview.md). It enables developers to dynamically retrieve data from external identity sources. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with APIs to enrich tokens with information from external sources.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -247,12 +247,12 @@ After you deploy your REST API, set the metadata of the `REST-GetProfile` techni
 
 - **ServiceUrl**. Set the URL of the REST API endpoint.
 - **SendClaimsIn**. Specify how the input claims are sent to the RESTful claims provider.
-- **AuthenticationType**. Set the type of authentication being performed by the RESTful claims provider. 
-- **AllowInsecureAuthInProduction**. In a production environment, make sure to set this metadata to `true`
+- **AuthenticationType**. Set the type of authentication being performed by the RESTful claims provider such as `Basic` or `ClientCertificate` 
+- **AllowInsecureAuthInProduction**. In a production environment, make sure to set this metadata to `false`.
 	
 See the [RESTful technical profile metadata](restful-technical-profile.md#metadata) for more configurations.
 
-The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful API](secure-rest-api.md).
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure your RESTful API](secure-rest-api.md).
 
 ## Add an orchestration step
 
@@ -412,5 +412,3 @@ To learn how to secure your APIs, see the following articles:
 - [Reference: RESTful technical profile](restful-technical-profile.md)
 
 ::: zone-end
-
-

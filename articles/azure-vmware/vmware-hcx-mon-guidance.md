@@ -2,10 +2,23 @@
 title: VMware HCX Mobility Optimized Networking (MON) guidance
 description: Learn about Azure VMware Solution-specific use cases for Mobility Optimized Networking (MON).  
 ms.topic: reference
-ms.date: 09/07/2021
+ms.date: 10/04/2021
 ---
 
 # VMware HCX Mobility Optimized Networking (MON) guidance
+
+>[!NOTE]
+>
+>HCX Mobility Optimized Networking is officially supported by VMware and Azure VMware Solutions from HCX version 4.1.0. 
+
+>[!IMPORTANT] 
+>
+>Before you enable HCX MON, please read the below limitations and unsupported configurations:
+>
+>[Unsupported source configurations for HCX NE](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-DBDB4D1B-60B6-4D16-936B-4AC632606909.html)
+> 
+>[Limitations for any HCX deployment including MON](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-BEC26054-D560-46D0-98B4-7FF09501F801.html)
+
 
 [HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) is an optional feature to enable when using [HCX Network Extensions (NE)](configure-hcx-network-extension.md). MON provides optimal traffic routing under certain scenarios to prevent network tromboning between the on-premises and cloud-based resources on extended networks. 
 

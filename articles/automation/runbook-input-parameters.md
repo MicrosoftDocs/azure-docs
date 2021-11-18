@@ -3,7 +3,7 @@ title: Configure runbook input parameters in Azure Automation
 description: This article tells how to configure runbook input parameters, which allow data to be passed to a runbook when it's started.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/13/2021
+ms.date: 09/22/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -160,56 +160,56 @@ In the label beneath the input box, you can see the properties that have been se
 
 * **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs).
 
-   ```csharp
-   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
+  ```csharp
+  public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
+  {
+    var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
+    {
+      Properties = new JobCreateProperties
       {
-        var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
-         {
-            Properties = new JobCreateProperties
-             {
-                Runbook = new RunbookAssociationProperty
-                 {
-                   Name = runbookName
-                 },
-                   Parameters = parameters
-             }
-         });
-      return response.Job;
+        Runbook = new RunbookAssociationProperty
+        {
+          Name = runbookName
+        },
+        Parameters = parameters
       }
-   ```
+    });
+    return response.Job;
+  }
+  ```
 
 * **Azure classic deployment model method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs).
 
-   ```csharp
+  ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
-    {
-      var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
+  {
+    var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
     {
       Properties = new JobCreateProperties
-         {
-           Runbook = new RunbookAssociationProperty
-         {
-           Name = runbookName
-              },
-                Parameters = parameters
-              }
-       });
-      return response.Job;
-    }
-   ```
+      {
+        Runbook = new RunbookAssociationProperty
+        {
+          Name = runbookName
+        },
+        Parameters = parameters
+      }
+    });
+    return response.Job;
+  }
+  ```
 
-   To start this method, create a dictionary to store the runbook parameters `VMName` and  `resourceGroupName` and their values. Then start the runbook. Below is the C# code snippet for calling the method that's defined above.
+  To start this method, create a dictionary to store the runbook parameters `VMName` and  `resourceGroupName` and their values. Then start the runbook. Below is the C# code snippet for calling the method that's defined above.
 
-   ```csharp
-   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
+  ```csharp
+  IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
-   // Add parameters to the dictionary.
+  // Add parameters to the dictionary.
   RunbookParameters.Add("VMName", "WSVMClassic");
-   RunbookParameters.Add("resourceGroupName", "WSSC1");
+  RunbookParameters.Add("resourceGroupName", "WSSC1");
   
-   //Call the StartRunbook method with parameters
-   StartRunbook("Get-AzureVMGraphical", RunbookParameters);
-   ```
+  //Call the StartRunbook method with parameters
+  StartRunbook("Get-AzureVMGraphical", RunbookParameters);
+  ```
 
 #### Start a runbook using the REST API and assign parameters
 
@@ -296,17 +296,26 @@ Param(
      [object]$json
 )
 
-# Connect to Azure with user-assigned managed identity
-Connect-AzAccount -Identity
-$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
-Connect-AzAccount -Identity -AccountId $identity.ClientId
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
 # Convert object to actual JSON
 $json = $json | ConvertFrom-Json
 
 # Use the values from the JSON object as the parameters for your command
-Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
+Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup -DefaultProfile $AzureContext
 ```
+
+If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+1. From line 10, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
+1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
+1. Enter the Client ID.
 
 Save and publish this runbook in your Automation account.
 

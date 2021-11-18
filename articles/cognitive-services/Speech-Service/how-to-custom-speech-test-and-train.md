@@ -3,13 +3,14 @@ title: "Prepare data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them."
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/16/2021
-ms.author: pafarley
+ms.date: 11/09/2021
+ms.author: eur
+ms.custom: ignite-fall-2021
 ---
 
 # Prepare data for Custom Speech
@@ -43,15 +44,16 @@ This table lists accepted data types, when each data type should be used, and th
 
 | Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
+| [Audio only](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-trainingtesting) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
+| [Structured text](#structured-text-data-for-training-public-preview) (Public Preview) | No | N/a | Yes | Up to 10 classes with up to 4000 items and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | N/a | Yes | 1 KB - 1 MB of pronunciation text |
 
 Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
 
 > [!TIP]
-> When you train a new model, start with plain text. This data will already improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes vs. days).
+> When you train a new model, start with plain text data or structured text data. This data will improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes vs. days).
 
 > [!NOTE]
 > Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data. Even if a base model supports training with audio data, the service might use only part of the audio. Still it will use all the transcripts.
@@ -62,9 +64,17 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 >
 > In regions with dedicated hardware for training, the Speech service will use up to 20 hours of audio for training. In other regions, it will only use up to 8 hours of audio.
 
+> [!NOTE]
+> Training with structured text is only supported for these locales: en-US, en-UK, en-IN, de-DE, fr-FR, fr-CA, es-ES, es-MX and you must use the latest base model for these locales. 
+>
+> For locales that don’t support training with structured text the service will take any training sentences that don’t reference any classes as part of training with plain text data.
+
 ## Upload data
 
-To upload your data, navigate to <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal</a>. After creating a project, navigate to **Speech datasets** tab, and click **Upload data** to launch the wizard and create your first dataset. Select a speech data type for your dataset, and upload your data.
+To upload your data, navigate to [Speech Studio](https://aka.ms/speechstudio/customspeech). After creating a project, navigate to **Speech datasets** tab, and click **Upload data** to launch the wizard and create your first dataset. Select a speech data type for your dataset, and upload your data.
+
+> [!NOTE]
+> If your dataset file size exceeds 128 MB, you can only upload it using *Azure Blob or shared location* option. You can also use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to upload a dataset of [any allowed size](speech-services-quotas-and-limits.md#model-customization). See [the next section](#upload-data-using-speech-to-text-rest-api-v30) for details.
 
 First, you need to specify whether the dataset is to be used for **Training** or **Testing**. There are many types of data that can be uploaded and used for **Training** or **Testing**. Each dataset you upload must be correctly formatted before uploading, and must meet the requirements for the data type that you choose. Requirements are listed in the following sections.
 
@@ -73,6 +83,33 @@ After your dataset is uploaded, you have a few options:
 * You can navigate to the **Train custom models** tab to train a custom model.
 * You can navigate to the **Test models** tab to visually inspect quality with audio only data or evaluate accuracy with audio + human-labeled transcription data.
 
+### Upload data using Speech-to-text REST API v3.0
+
+You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to automate any operations related to your custom models. In particular, you can use it to upload a dataset. This is particularly useful when your dataset file exceeds 128 MB, because files that large cannot be uploaded using *Local file* option in Speech Studio. (You can also use *Azure Blob or shared location* option in Speech Studio for the same purpose as described in the previous section.)
+
+To create and upload a dataset use [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
+
+**REST API created datasets and Speech Studio projects**
+
+A dataset created with the Speech-to-text REST API v3.0 will *not* be connected to any of the Speech Studio projects, unless a special parameter is specified in the request body (see below). Connection with a Speech Studio project is *not* required for any model customization operations, if they are performed via the REST API.
+
+When you log on to the Speech Studio, its user interface will notify you when any unconnected object is found (like datasets uploaded through the REST API without any project reference) and offer to connect such objects to an existing project. 
+
+To connect the new dataset to an existing project in the Speech Studio during its upload, use [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) and fill out the request body according to the following format:
+```json
+{
+  "kind": "Acoustic",
+  "contentUrl": "https://contoso.com/mydatasetlocation",
+  "locale": "en-US",
+  "displayName": "My speech dataset name",
+  "description": "My speech dataset description",
+  "project": {
+    "self": "https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/projects/c1c643ae-7da5-4e38-9853-e56e840efcb2"
+  }
+}
+```
+
+The Project URL required for the `project` element can be obtained with the [Get Projects](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
 
 ## Audio + human-labeled transcript data for training/testing
 
@@ -146,6 +183,70 @@ Additionally, you'll want to account for the following restrictions:
 * URIs will be rejected.
 * For some languages (for example Japanese or Korean), importing large amounts of text data can take very long or time out. Please consider to divide the uploaded data into text files of up to 20.000 lines each.
 
+## Structured text data for training (Public Preview)
+
+Often the expected utterances follow a certain pattern. One common pattern is that utterances only differ by words or phrases from a list. Examples of this could be “I have a question about `product`,” where `product` is a list of possible products. Or, “Make that `object` `color`,” where `object` is a list of geometric shapes and `color` is a list of colors. To simplify the creation of training data and to enable better modeling inside the Custom Language Model, you can use a structured text in markdown format to define lists of items and then reference these inside your training utterances. Additionally, the markdown format also supports specifying the phonetic pronunciation of words. The markdown file should have a `.md` extension. The syntax of the markdown is the same as that from the Language Understanding models, in particular list entities and example utterances. For more information about the complete markdown syntax, see the <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> Language Understanding markdown</a>.
+
+Here is an example of the markdown format:
+
+```markdown
+// This is a comment
+
+// Here are three separate lists of items that can be referenced in an example sentence. You can have up to 10 of these
+@ list food =
+- pizza
+- burger
+- ice cream
+- soda
+
+@ list pet =
+- cat
+- dog
+
+@ list sports =
+- soccer
+- tennis
+- cricket
+- basketball
+- baseball
+- football
+
+// This is a list of phonetic pronunciations. 
+// This adjusts the pronunciation of every instance of these word in both a list or example training sentences 
+@ speech:phoneticlexicon
+- cat/k ae t
+- cat/f i l ai n
+
+// Here are example training sentences. They are grouped into two sections to help organize the example training sentences.
+// You can refer to one of the lists we declared above by using {@listname} and you can refer to multiple lists in the same training sentence
+// A training sentence does not have to refer to a list.
+# SomeTrainingSentence
+- you can include sentences without a class reference
+- what {@pet} do you have
+- I like eating {@food} and playing {@sports}
+- my {@pet} likes {@food}
+
+# SomeMoreSentence
+- you can include more sentences without a class reference
+- or more sentences that have a class reference like {@pet} 
+```
+
+Like plain text, training with structured text typically takes a few minutes. Also, your example sentences and lists should reflect the type of spoken input you expect in production.
+For pronunciation entries see the description of the [Universal Phone Set](phone-sets.md).
+
+The table below specifies the limits and other properties for the markdown format:
+
+| Property | Value |
+|----------|-------|
+| Text encoding | UTF-8 BOM |
+| Maximum file size | 200 MB |
+| Maximum number of example sentences | 50,000 |
+| Maximum number of list classes | 10 |
+| Maximum number of items in a list class | 4,000 |
+| Maximum number of speech:phoneticlexicon entries | 15000 |
+| Maximum number of pronunciations per word | 2 |
+
+
 ## Pronunciation data for training
 
 If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. For a list of languages that support custom pronunciation,
@@ -153,6 +254,9 @@ see **Pronunciation** in the **Customizations** column in [the Speech-to-text ta
 
 > [!IMPORTANT]
 > It is not recommended to use custom pronunciation files to alter the pronunciation of common words.
+
+> [!NOTE]
+> You cannot combine this type of pronunciation file with structured text training data. For structured text data use the phonetic pronunciation capability that is included in the structured text markdown format.
 
 Provide pronunciations in a single text file. This includes examples of a spoken utterance, and a custom pronunciation for each:
 

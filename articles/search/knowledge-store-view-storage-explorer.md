@@ -1,47 +1,39 @@
 ---
-title: View a knowledge store with Storage Explorer
+title: View a knowledge store
 titleSuffix: Azure Cognitive Search
-description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer.
+description: View a knowledge store using the Storage Browser in the Azure portal.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 11/03/2021
 ---
 
-# View a knowledge store with Storage Explorer
+# View a knowledge store with Storage Browser
 
-A [knowledge store](knowledge-store-concept-intro.md) is content created by an Azure Cognitive Search skillset and saved to Azure Storage. In this article, you'll learn how to view the contents of a knowledge store using Storage Explorer in the Azure portal.
-
-## Prerequisites
+A [knowledge store](knowledge-store-concept-intro.md) is content created by an Azure Cognitive Search skillset and saved to Azure Storage. In this article, you'll learn how to view the contents of a knowledge store using Storage Browser in the Azure portal.
 
 Start with an existing knowledge store created in the [Azure portal](knowledge-store-create-portal.md) or using the [REST APIs](knowledge-store-create-rest.md). Both the portal and REST walkthroughs create a knowledge store in Azure Table Storage.
 
-## Start Storage Explorer
+## Start Storage Browser
 
 1. In the Azure portal, [open the Storage account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) that you used to create the knowledge store.
 
-1. In the storage account's left navigation pane, select **Storage Explorer**.
+1. In the storage account's left navigation pane, select **Storage Browser**.
 
-## Edit and query tables
+## View and edit tables
 
-1. Expand the **TABLES** list to show a list of Azure table projections that were created when you created the knowledge store. If you used the quickstart or REST article to create the knowledge store, the tables will contain content related to customer reviews of a European hotel.
+1. Expand **Tables** to find the table projections of your knowledge store. If you used the quickstart or REST article to create the knowledge store, the tables will contain content related to customer reviews of a European hotel.
 
-1. Select a table from the list.
+   :::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Screenshot of Storage Browser" border="true":::
 
-   ![View tables in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "View tables in Storage Explorer")
+1. Select a table from the list to views it's contents.
 
-1. To change the data type, property name, or individual data values in your table, click **Edit**.
+1. To rearrange column order or delete a column, select **Edit columns** at the top of the page.
 
-   ![Edit table in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Edit table in Storage Explorer")
-
-1. To run queries, select **Query** on the command bar and enter your conditions.
-
-   ![Query table in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Query table in Storage Explorer")
-
-In Storage Explorer, you can only query one table at time using [supported query syntax](/rest/api/storageservices/Querying-Tables-and-Entities). To query across tables, consider using Power BI instead.
+In Storage Browser, you can only query one table at time using [supported query syntax](/rest/api/storageservices/Querying-Tables-and-Entities). To query across tables, consider using Power BI instead.
 
 ## Next steps
 

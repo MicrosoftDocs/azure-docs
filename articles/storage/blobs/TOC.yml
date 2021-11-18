@@ -129,7 +129,11 @@ items:
   - name: Concepts
     items:
     - name: Storage accounts
-      href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      items:
+      - name: Overview
+        href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Premium performance 
+        href: storage-blob-block-blob-premium.md
     - name: Authorization
       items:
       - name: Authorizing data operations
@@ -202,14 +206,12 @@ items:
         href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Customer-managed failover for disaster recovery
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Access and performance tiers
+    - name: Blob access tiers and lifecycle management
       items:
-      - name: Access tiers
-        href: storage-blob-storage-tiers.md
-      - name: Rehydrate data from archive tier
+      - name: Overview
+        href: access-tiers-overview.md
+      - name: Blob rehydration from Archive tier
         href: archive-rehydrate-overview.md
-      - name: Performance tiers
-        href: storage-blob-performance-tiers.md
       - name: Lifecycle management policies
         href: lifecycle-management-overview.md
     - name: Object replication
@@ -277,20 +279,30 @@ items:
           href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Monitor, diagnose, and troubleshoot
           href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: NFS 3.0 protocol support
+    - name: Protocol support
       items:
-      - name: Overview
-        href: network-file-system-protocol-support.md
-      - name: Performance considerations
-        href: network-file-system-protocol-support-performance.md
-      - name: Known issues
-        href: network-file-system-protocol-known-issues.md
+      - name: NFS 3.0
+        items:
+        - name: Overview
+          href: network-file-system-protocol-support.md
+        - name: Performance considerations
+          href: network-file-system-protocol-support-performance.md
+        - name: Known issues
+          href: network-file-system-protocol-known-issues.md
+      - name: SFTP
+        items:
+        - name: Overview
+          href: secure-file-transfer-protocol-support.md
+        - name: Known issues
+          href: secure-file-transfer-protocol-known-issues.md
     - name: Event handling
       href: storage-blob-event-overview.md
     - name: Page blob features
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
+    - name: Upgrading to Data Lake Storage Gen2
+      href: upgrade-to-data-lake-storage-gen2.md
     - name: Blob Storage feature support
       href: storage-feature-support-in-storage-accounts.md
   - name: How to
@@ -306,8 +318,6 @@ items:
         href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Get account configuration properties
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Manage the default access tier of a storage account
-        href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
       - name: Create or delete a container (.NET)
@@ -322,8 +332,6 @@ items:
         href: storage-blobs-list.md
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md
-      - name: Manage the access tier of a blob
-        href: manage-access-tier.md
       - name: Copy a blob (SDK)
         href: storage-blob-copy.md
       - name: Use blob index tags
@@ -346,9 +354,11 @@ items:
         href: assign-azure-role-data-access.md
       - name: Authenticate and authorize with Azure AD
         items:
-        - name: Authorize with a managed identity
-          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Authorize from an application
+        - name: Get an access token for authorization with Azure AD
+          href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Authorize from an application running in Azure
+          href: authorize-managed-identity.md
+        - name: Authorize from a native or web application
           href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Authorize with Shared Key
         items:
@@ -430,7 +440,7 @@ items:
             href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Configure network routing preference
           href: ../common/configure-network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Configure Azure Defender for threat protection
+      - name: Enable threat protection with Microsoft Defender for Storage
         href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Protect blob data
       items:
@@ -470,14 +480,18 @@ items:
         href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage blob tiering and lifecycle
       items:
-      - name: Configure lifecycle management policies
-        href: lifecycle-management-policy-configure.md
-      - name: Manage data in the archive tier
+      - name: Change a blob's access tier
+        href: access-tiers-online-manage.md
+      - name: Manage data archiving
         items:
+        - name: Archive a blob
+          href: archive-blob.md
         - name: Rehydrate an archived blob
           href: archive-rehydrate-to-online-tier.md
         - name: Handle an event on blob rehydration
           href: archive-rehydrate-handle-event.md
+      - name: Configure lifecycle management policies
+        href: lifecycle-management-policy-configure.md
     - name: Manage object replication
       items:
       - name: Configure object replication policies
@@ -532,6 +546,8 @@ items:
           href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Transfer data by using SFTP
+        href: secure-file-transfer-protocol-support-how-to.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
       - name: Mount storage from Linux using blobfuse
@@ -548,6 +564,8 @@ items:
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Upgrade to Data Lake Storage Gen2
+      href: upgrade-to-data-lake-storage-gen2-how-to.md
     - name: Monitor
       items:
       - name: Scenarios and best practices
@@ -615,6 +633,8 @@ items:
       href: /azure/templates/microsoft.storage/allversions
     - name: Monitoring data
       href: monitor-blob-storage-reference.md
+    - name: Host keys (SFTP) support
+      href: secure-file-transfer-protocol-host-keys.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -738,8 +758,6 @@ items:
       href: data-lake-storage-integrate-with-services-tutorials.md
   - name: Concepts
     items:
-    - name: Processing big data
-      href: data-lake-storage-data-scenarios.md
     - name: Best practices
       href: data-lake-storage-best-practices.md
     - name: Query acceleration
@@ -876,14 +894,12 @@ items:
         href: data-lake-storage-use-hdfs-data-lake-storage.md
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
-    - name: Optimize performance
-      href: data-lake-storage-performance-tuning-guidance.md
   - name: Reference
     items:
     - name: .NET
       href: /dotnet/api/azure.storage.files.datalake
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme
+      href: /java/api/overview/azure/storage-file-datalake-readme
     - name: Python
       href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html
     - name: JavaScript

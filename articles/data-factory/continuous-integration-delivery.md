@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/24/2021 
+ms.date: 09/29/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible.Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
+Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible. Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
 In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory utilizes [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to store the configuration of your various ADF entities (pipelines, datasets, data flows, and so on). There are two suggested methods to promote a data factory to another environment:
 
@@ -83,6 +83,14 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 -   You can't currently host projects on Bitbucket.
 
 -   You can't currently export and import alerts and matrices as parameters. 
+
+- In the code repository under the *adf_publish* branch, a folder named 'PartialArmTemplates' is currently added beside the 'linkedTemplates' folder, 'ARMTemplateForFactory.json' and 'ARMTemplateParametersForFactory.json' files as part of publishing with source control. 
+
+    :::image type="content" source="media/continuous-integration-delivery/partial-arm-templates-folder.png" alt-text="Diagram of 'PartialArmTemplates' folder.":::
+
+    We will no longer be publishing 'PartialArmTemplates' to the *adf_publish* branch starting 1-November 2021.    
+
+    **No action is required unless you are using 'PartialArmTemplates'. Otherwise, switch to any supported mechanism for deployments using: 'ARMTemplateForFactory.json' or 'linkedTemplates' files.**
 
 ## Next steps
 

@@ -62,13 +62,25 @@ you get a combined string, for example, "SophiaOwen":
 
 Either way, both examples assign the result to the `customerName` property.
 
-## Considerations for using functions
+<a name="function-considerations"></a>
 
-* Function parameters are evaluated from left to right.
+## Considerations for using functions
 
 * The designer doesn't evaluate runtime expressions that are used as function parameters at design time. The designer requires that all expressions can be fully evaluated at design time.
 
+* Function parameters are evaluated from left to right.
+ 
 * In the syntax for parameter definitions, a question mark (?) that appears after a parameter means the parameter is optional. For example, see [getFutureTime()](#getFutureTime).
+
+* Function expressions that appear inline with plain text require enclosing curly braces ({}) to use the expression's interpolated format instead. This format helps avoid parsing problems. If your function expression doesn't appear inline with plain text, no curly braces are necessary.
+
+  The following example shows the correct and incorrect syntax:
+
+  **Correct**: `"<text>/@{<function-name>('<parameter-name>')}/<text>"`
+ 
+  **Incorrect**: `"<text>/@<function-name>('<parameter-name>')/<text>"`
+ 
+  **OK**: `"@<function-name>('<parameter-name>')"`
 
 The following sections organize functions based on their general purpose, or you can browse these functions in [alphabetical order](#alphabetical-list).
 
@@ -1046,9 +1058,7 @@ This example converts the "aGVsbG8=" base64-encoded string to a binary string:
 base64ToBinary('aGVsbG8=')
 ```
 
-And returns this result:
-
-`"0110000101000111010101100111001101100010010001110011100000111101"`
+For example, suppose you're using an HTTP action to send a request. You can use `base64ToBinary()` to convert a base64-encoded string to binary data and send that data using the `application/octet-stream` content type in the request.
 
 <a name="base64ToString"></a>
 
@@ -1109,6 +1119,7 @@ binary('<value>')
 *Example*
 
 For example, you're using an HTTP action that returns an image or video file. You can use `binary()` to convert the value to a base-64 encoded content envelope model. Then, you can reuse the content envelope in other actions, such as `Compose`.
+You can use this function expression to send the string bytes with the `application/octet-stream` content type in the request.
 
 <a name="body"></a>
 
@@ -1328,7 +1339,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, please review: [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -3818,7 +3829,7 @@ split('<text>', '<delimiter>')
 | [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings from the original string, separated by commas |
 ||||
 
-*Example*
+*Example 1*
 
 This example creates an array with substrings from the specified
 string based on the specified character as the delimiter:
@@ -3828,6 +3839,16 @@ split('a_b_c', '_')
 ```
 
 And returns this array as the result: `["a","b","c"]`
+
+*Example 2*
+  
+This example creates an array with a single element when no delimiter exists in the string:
+
+```
+split('a_b_c', ' ')
+```
+
+And returns this array as the result: `["a_b_c"]`
 
 <a name="startOfDay"></a>
 

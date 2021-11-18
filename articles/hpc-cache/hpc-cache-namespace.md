@@ -1,11 +1,11 @@
 ---
 title: Understand the Azure HPC Cache aggregated namespace
 description: How to plan the virtual namespace for your Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Plan the aggregated namespace
