@@ -17,7 +17,7 @@ ms.author: edcohen
 > Confidential virtual machines (confidential VMs) in Azure confidential computing is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure confidential computing offers confidential VMs based on [AMD processors with SEV-SNP technology](confidential-vm-solutions-amd.md). Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code.  The platform protects your VM's state from being read or modified, including by Microsoft.
+Azure confidential computing offers confidential VMs based on [AMD processors with SEV-SNP technology](confidential-vm-solutions-amd.md). Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code, with the platform protecting your VM's state from being read or modified.
 
 > [!IMPORTANT]
 > Protection levels differ based on your configuration and preferences. For example, Microsoft can own or manage encryption keys for increased convenience at no additional cost.
@@ -29,14 +29,14 @@ Some of the benefits of confidential VMs include:
 - Robust hardware-based isolation between virtual machines, hypervisor, and host management code.
 - Customizable attestation policies to ensure the host's compliance before deployment.
 - Cloud-based full-disk encryption before the first boot.
-- (Optional) VM encryption keys that you or the platform own and manage.
+- VM encryption keys that the platform or the customer (optionally) owns and manages.
 - Secure key release with cryptographic binding between the platform's successful attestation and the VM's encryption keys.
 - Dedicated virtual [Trusted Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) instance for attestation and protection of keys and secrets in the virtual machine.
 - Secure boot capability similar to [Trusted launch for Azure VMs](../virtual-machines/trusted-launch.md)
 
 ## Full-disk encryption
 
-Confidential VMs offer a new and enhanced disk encryption scheme. This optional scheme protects all critical partitions of the disk, including `root` and `boot`. The scheme binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. These encryption keys can securely bypass Azure components, including the hypervisor and host operating system. To minimize the attack potential, a dedicated and separate cloud service also encrypts the disk during the initial creation of the VM.
+Confidential VMs offer a new and enhanced disk encryption scheme. This optional scheme protects critical partitions of the disk, including `root` and `boot`. The scheme binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. These encryption keys can securely bypass Azure components, including the hypervisor and host operating system. To minimize the attack potential, a dedicated and separate cloud service also encrypts the disk during the initial creation of the VM.
 
 If the compute platform is missing critical settings for your VM's isolation then during boot [Azure Attestation](https://azure.microsoft.com/en-us/services/azure-attestation/) will not attest to the platform's health. This will prevent the VM from starting. For example, this scenario happens if you haven't enabled SEV-SNP. 
 
@@ -46,7 +46,7 @@ Full-disk encryption is optional, because this process can lengthen the initial 
  - A confidential VM without OS disk encryption before VM deployment.
 
 For further integrity and protection, confidential VMs offer [Secure Boot](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot) by default. 
-With Secure Boot, trusted publishers must sign all OS boot components (boot loader, kernel, kernel drivers). All compatible confidential VM images support Secure Boot. 
+With Secure Boot, trusted publishers must sign OS boot components (including the boot loader, kernel, and kernel drivers). All compatible confidential VM images support Secure Boot. 
 
 ### Encryption pricing differences
 
