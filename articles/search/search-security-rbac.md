@@ -17,16 +17,14 @@ Azure provides a global [role-based access control (RBAC) authorization system](
 
 + Use generally available roles for service administration.
 
-+ Use new preview roles for content management (creating and managing indexes and other top-level objects), [**available by request**](https://aka.ms/azure-cognitive-search/rbac-preview).
++ Use new preview roles for content management (creating and managing indexes and other top-level objects), [**available in preview**](#step-1-preview-sign-up).
 
-> [!NOTe]
-> Search Service Contributor is a "generally available" role that has "preview" capabilities. It's the only role that supports a true hybrid of service and content management tasks, allowing all operations on a given search service. To get the preview capabilities of content management on this role, [**sign up for the preview**](https://aka.ms/azure-cognitive-search/rbac-preview).
+> [!NOTE]
+> Search Service Contributor is a "generally available" role that has "preview" capabilities. It's the only role that supports a true hybrid of service and content management tasks, allowing all operations on a given search service. To get the preview capabilities of content management on this role, [**sign up for the preview**](#step-1-preview-sign-up).
 
 A few RBAC scenarios are **not** supported, or not covered in this article:
 
 + Outbound indexer connections are documented in ["Set up an indexer connection to a data source using a managed identity"](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that allow external data services, such as Azure Blob Storage, read-access on blobs by your trusted search service.
-
-+ [Custom roles](../role-based-access-control/custom-roles.md) are not supported.
 
 + User identity access over search results (sometimes referred to as row-level security or document-level security) is not supported. For document-level security, a workaround is to use [security filters](search-security-trimming-for-azure-search.md) to trim results by user identity, removing documents for which the requestor should not have access.
 
@@ -45,7 +43,7 @@ There are no regional, tier, or pricing restrictions for using RBAC on Azure Cog
 | [Owner](../role-based-access-control/built-in-roles.md#owner) | Service ops (generally available) | Full access to the search resource, including the ability to assign Azure roles. Subscription administrators are members by default. |
 | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Service ops (generally available) | Same level of access as Owner, minus the ability to assign roles or change authorization options. |
 | [Reader](../role-based-access-control/built-in-roles.md#reader) | Service ops (generally available) | Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. </br></br>This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to API keys, role assignments, content (indexes or synonym maps), or content metrics (storage consumed, number of objects). |
-| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | Service ops (generally available), and top-level objects (preview) | This role is a combination of Contributor at the service-level, but with full access to all actions on indexes, synonym maps, indexers, data sources, and skillsets through [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch). This role is for search service administrators who need to fully manage the service. </br></br>Like Contributor, members of this role cannot make or manage role assignments or change authorization options. |
+| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | Service ops (generally available), and top-level objects (preview) | This role is a combination of Contributor at the service-level, but with full access to all actions on indexes, synonym maps, indexers, data sources, and skillsets through [`Microsoft.Search/searchServices/*`](../role-based-access-control/resource-provider-operations.md#microsoftsearch). This role is for search service administrators who need to fully manage the service. </br></br>Like Contributor, members of this role cannot make or manage role assignments or change authorization options. |
 | [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Documents collection (preview) | Provides full access to content in all indexes on the search service. This role is for developers or index owners who need to import, refresh, or query the documents collection of an index. |
 | [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Documents collection (preview) | Provides read-only access to search indexes on the search service. This role is for apps and users who run queries. |
 
@@ -60,11 +58,18 @@ Skip this step if you are using generally available roles (Owner, Contributor, R
 
 New built-in preview roles provide a granular set of permissions over content on the search service. Although built-in roles are always visible in the Azure portal, service enrollment is required to make them operational.
 
-For enrollment into the preview program:
+To add your subscription to the preview:
 
-+ [Fill out this form](https://aka.ms/azure-cognitive-search/rbac-preview)
+1. Navigate to your search service in the [Azure portal](https://portal.azure.com/).
+1. On the left-hand side of the page, select **Keys**.
+1. In the blue banner that mentions the preview, select **Register** to add the feature to your subscription.
 
-It can take up to two business days to process enrollment requests. You'll receive an email when your service is ready.
+![screenshot of how to sign up for the rbac preview in the portal](media/search-howto-aad/rbac-signup-portal.png)
+
+You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
+
+> [!NOTE]
+> Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as shown in the next step.
 
 ## Step 2: Preview configuration
 
@@ -76,7 +81,7 @@ In this step, configure your search service to recognize an **authorization** he
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
-1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true).
+1. Open the [Azure portal](https://ms.portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -139,10 +144,7 @@ You must be an **Owner** or have [Microsoft.Authorization/roleAssignments/write]
 
 ### [**Azure portal**](#tab/roles-portal)
 
-1. For preview roles, open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). You should see `feature.enableRbac=true` in the URL.
-
-   > [!NOTE]
-   > For users and groups assigned to a preview role, portal content such as indexes and indexers will only be visible if you open the portal with the feature flag. 
+1. Open the [Azure portal](https://ms.portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -195,10 +197,7 @@ Recall that you can only scope access to top-level resources, such as indexes, s
 
 ### [**Azure portal**](#tab/test-portal)
 
-1. For preview roles, open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). 
-
-   > [!NOTE]
-   > For users and groups assigned to a preview role, portal content such as indexes and indexers will only be visible if you open the portal with the feature flag. 
+1. Open the [Azure portal](https://ms.portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -216,7 +215,7 @@ Recall that you can only scope access to top-level resources, such as indexes, s
 
   :::image type="content" source="media/search-security-rbac/rest-authorization-header.png" alt-text="Screenshot of an HTTP request with an Authorization header" border="true":::
 
-For more information on how to acquire a token for a specific environment, see [Microsoft identity platform authentication libraries](/azure/active-directory/develop/reference-v2-libraries).
+For more information on how to acquire a token for a specific environment, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 ### [**.NET SDK**](#tab/test-dotnet)
 

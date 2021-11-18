@@ -222,5 +222,5 @@ Check out our sample code for the bidirectional sync pattern in our [Bidirection
 ## Next steps
 
 - Learn about the various parts of setting up security for a storage account. For more information, see [Azure Storage security guide](./security-recommendations.md).
-- Optimize the performance for your Data Lake Store. See [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md)
+- Optimize the performance for your Data Lake Store. See [Optimize Azure Data Lake Storage Gen2 for performance](./data-lake-storage-best-practices.md)
 - Review the best practices for managing your Data Lake Store. See [Best practices for using Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)

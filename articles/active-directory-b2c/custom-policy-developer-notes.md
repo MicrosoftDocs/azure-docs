@@ -3,15 +3,15 @@ title: Developer notes for user flows and custom policies
 titleSuffix: Azure AD B2C
 description: Notes for developers on configuring and maintaining Azure AD B2C with user flows and custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/22/2021
+ms.date: 11/02/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -99,13 +99,13 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |---------|:---------:|:---------:|---------|
 |[AD FS](identity-provider-adfs.md) | NA | GA | |
 |[Amazon](identity-provider-amazon.md) | GA | GA | |
-|[Apple](identity-provider-apple-id.md) | Preview | Preview | |
+|[Apple](identity-provider-apple-id.md) | GA | GA | |
 |[Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
 |[Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md) | NA  | GA | |
 |[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
 |[eBay](identity-provider-ebay.md) | NA | Preview | |
 |[Facebook](identity-provider-facebook.md) | GA | GA | |
-|[GitHub](identity-provider-github.md) | GA | GA | |
+|[GitHub](identity-provider-github.md) | Preview | GA | |
 |[Google](identity-provider-google.md) | GA | GA | |
 |[ID.me](identity-provider-id-me.md) | GA | GA | |
 |[LinkedIn](identity-provider-linkedin.md) | GA | GA | |

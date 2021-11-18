@@ -364,7 +364,7 @@ More information about onboarding services can be found [here](https://docs.open
 
 ### Configure OSM with Service Mesh Interface (SMI) policies
 
-You can start with a [demo application](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) or use your test environment to try out SMI policies.
+You can start with a [demo application](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) or use your test environment to try out SMI policies.
 
 > [!NOTE] 
 > Ensure that the version of the bookstore application you run matches the version of the OSM extension installed on your cluster. Ex: if you are using v0.8.4 of the OSM extension, use the bookstore demo from release-v0.8 branch of OSM upstream repository.

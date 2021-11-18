@@ -165,9 +165,6 @@ For information about developing with Windows containers, refer to the [IoT Edge
 :::moniker-end
 <!-- end 1.2 -->
 
-<!--1.2-->
-:::moniker range="iotedge-2020-11"
-
 ## Module security
 
 You should develop your modules with security in mind. To learn more about securing your modules, see [Docker security](https://docs.docker.com/engine/security/).
@@ -176,7 +173,7 @@ To help improve module security, IoT Edge disables some container features by de
 
 ### Allow elevated Docker permissions
 
-In the config.toml file on an IoT Edge device, there's a parameter called `allow_elevated_docker_permissions`. When set to **true**, this flag allows the `--privileged` flag as well as any additional capabilities that you define in the `CapAdd` field of the Docker HostConfig in the [container create options](how-to-use-create-options.md).
+In the config file on an IoT Edge device, there's a parameter called `allow_elevated_docker_permissions`. When set to **true**, this flag allows the `--privileged` flag as well as any additional capabilities that you define in the `CapAdd` field of the Docker HostConfig in the [container create options](how-to-use-create-options.md).
 
 >[!NOTE]
 >Currently, this flag is **true** by default, which allows deployments to grant privileged permissions to modules. We recommend that you set this flag to false to improve device security. In the future, this flag will be set to **false** by default.
@@ -186,9 +183,6 @@ In the config.toml file on an IoT Edge device, there's a parameter called `allow
 The Docker capabilities **CAP_CHOWN** and **CAP_SETUID** are disabled by default. These capabilities can be used to write to secure files on the host device and potentially gain root access.
 
 If you need these capabilities, you can manually re-enable them using CapADD in the container create options.
-
-:::moniker-end
-<!-- end 1.2 -->
 
 ## Next steps
 

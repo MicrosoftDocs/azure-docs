@@ -23,6 +23,11 @@ There are several different ways to install and run Azurite on your local system
 
 ### [Visual Studio](#tab/visual-studio)
 
+> [!TIP]
+> Azurite is automatically available with [Visual Studio 2022 preview](https://visualstudio.microsoft.com/vs/preview/), so if you install the preview, you won't have to manually install Azurite. 
+
+The instructions in this section assume that you have not yet installed Visual Studio 2022 preview.
+
 In Visual Studio, create an Azure project such as an **Azure Functions** project.
 
 ![New Azure Function project](media/storage-use-azurite/visual-studio-azure-function-project.png)

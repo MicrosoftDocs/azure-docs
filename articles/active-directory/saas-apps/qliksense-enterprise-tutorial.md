@@ -164,11 +164,11 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     ![Screenshot shows Edit virtual proxy Authentication section where you can enter the values described.][qs10]
 
-    a. The **Anonymous access mode** drop down determines if anonymous users may access Qlik Sense through the virtual proxy.  The default option is No anonymous user.
+    a. The **Anonymous access mode** dropdown list determines if anonymous users may access Qlik Sense through the virtual proxy. The default option is **No anonymous user**.
 
-    b. The **Authentication method** drop-down determines the authentication scheme the virtual proxy will use.  Select SAML from the drop-down list.  More options appear as a result.
+    b. The **Authentication method** dropdown list determines the authentication scheme the virtual proxy will use. Select SAML from the dropdown list. More options appear as a result.
 
-    c. In the **SAML host URI field**, input the hostname users enter to access Qlik Sense through this SAML virtual proxy.  The hostname is the uri of the Qlik Sense server.
+    c. In the **SAML host URI field**, input the host name that users enter to access Qlik Sense through this SAML virtual proxy. The host name is the URI of the Qlik Sense server.
 
     d. In the **SAML entity ID**, enter the same value entered for the SAML host URI field.
 
@@ -194,7 +194,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     ![Screenshot shows the Edit virtual proxy Advanced screen.][qs13]
 
-    The Host allow list identifies hostnames that are accepted when connecting to the Qlik Sense server.  **Enter the hostname users will specify when connecting to Qlik Sense server.** The hostname is the same value as the SAML host uri without the https://.
+    The Host allow list identifies host names that are accepted when connecting to the Qlik Sense server. **Enter the host name that users will specify when connecting to Qlik Sense server.** The host name is the same value as the SAML host URI without the `https://`.
 
 11. Click the **Apply** button.
 
@@ -248,10 +248,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * You can use Microsoft My Apps. When you click the Qlik Sense Enterprise tile in the My Apps, this will redirect to Qlik Sense Enterprise Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-
 ## Next steps
 
-Once you configure Qlik Sense Enterprise you can enforce Session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Once you configure Qlik Sense Enterprise you can enforce Session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
 
 <!--Image references-->
 

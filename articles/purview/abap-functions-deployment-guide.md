@@ -1,12 +1,12 @@
 ---
 title: Metadata extraction ABAP function module in SAP R3 - Azure Purview
 description: This article outlines the steps to deploy ABAP function module in SAP Server
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 11/07/2021
 ---
 
 # Deploy the metadata extraction ABAP function module for the SAP R3 family of bridges
@@ -15,8 +15,7 @@ This article outlines the steps to deploy the ABAP function module in SAP Server
 
 ## Overview
 
-The SAP Business Suite 4 HANA (S/4HANA), ECC, and R/3 ERP bridge can be used to extract metadata from the SAP Server. This is achieved by placing ABAP function module on the SAP server. This
-function module is remotely accessible by the bridge to query and download (as a text file) the metadata containing within the SAP server.
+The SAP Business Suite 4 HANA (S/4HANA), ECC, and R/3 ERP bridge can be used to extract metadata from the SAP Server. This is achieved by placing ABAP function module on the SAP server. This function module is remotely accessible by the bridge to query and download (as a text file) the metadata containing within the SAP server.
 
 When executed, the bridge then either:
 
@@ -28,6 +27,12 @@ This document details the steps required to deploy this module.
 
 > [!Note]
 > The following instructions were compiled based on the SAP GUI v.7.2
+
+## Prerequisites
+
+Download the ABAP function module source code from Purview Studio. When you register a source then new a scan for [SAP ECC](register-scan-sapecc-source.md) or [SAP S/4HANA](register-scan-saps4hana-source.md), you can find a download link on top as follows. 
+
+:::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="Download ABAP function module source code from Purview Studio" border="true":::
 
 ## Deployment of the Module
 
@@ -75,7 +80,7 @@ When the module has been created, specify the following information:
 
 3. Navigate to the **Source code** tab. There are two ways how to deploy code for the function:
 
-   a. From the main menu, upload the text file [Z\_MITI\_DOWNLOAD](https://github.com/Azure/Purview-Samples/tree/master/connectors/sap) file. To do so, select **Utilities**, **More Utilities**, then **Upload/Download**, then **Upload**.
+   a. From the main menu, upload the text file you downloaded from Purview Studio as described in [Prerequisites](#prerequisites). To do so, select **Utilities**, **More Utilities**, then **Upload/Download**, then **Upload**.
 
    b. Alternatively, open the file, copy its content and paste into **Source code** area.
 

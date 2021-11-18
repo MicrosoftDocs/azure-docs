@@ -1,73 +1,75 @@
 ---
-title: 'Register and scan an on-premises SQL server'
-description: This tutorial describes how to scan on-prem SQL server using a self-hosted IR in Azure Purview.
+title: Connect to and manage on-premises SQL server instances
+description: This guide describes how to connect to on-premises SQL server instances in Azure Purview, and use Purview's features to scan and manage your on-premises SQL server source.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
-# Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Register and scan an on-premises SQL server
+# Connect to and manage an on-premises SQL server instance in Azure Purview
 
-This article outlines how to register a SQL server data source in Purview and set up a scan on it.
+This article outlines how to register on-premises SQL server instances, and how to authenticate and interact with an on-premises SQL server instance in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-## Supported Capabilities
+## Supported capabilities
 
-The SQL server on-premises data source supports the following functionality:
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No| No** |
 
-- **Full and incremental scans** to capture metadata and classification in an on-premises network or a SQL server installed on an Azure VM.
-
-- **Lineage** between data assets for ADF copy/dataflow activities
-
-SQL server on-premises data source supports:
-
-- every version of SQL from SQL server 2019 back to SQL server 2000
-
-- Authentication method: SQL authentication
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 ## Prerequisites
 
-- Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Set up a [self-hosted integration runtime](manage-integration-runtimes.md) to scan the data source.
+* An active [Purview resource](create-catalog-portal.md).
 
-## Setting up authentication for a scan
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+
+## Register
+
+This section describes how to register an on-premises SQL server instance in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+
+### Authentication for registration
 
 There is only one way to set up authentication for SQL server on-premises:
 
 - SQL Authentication
 
-### SQL authentication
+#### SQL Authentication to register
 
 The SQL account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
-#### Creating a new login and user
+##### Creating a new login and user
 
 If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
 
 > [!Note]
-   > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
+> All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
 
 1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, select and hold (or right-click) on login and create New login. Make sure to select SQL authentication.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Create new login and user.":::
 
-2. Select Server roles on the left navigation and ensure that public role is assigned.
+1. Select Server roles on the left navigation and ensure that public role is assigned.
 
-3. Select User mapping on the left navigation, select all the databases in the map and select the Database role: **db_datareader**.
+1. Select User mapping on the left navigation, select all the databases in the map and select the Database role: **db_datareader**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="user mapping.":::
 
-4. Select OK to save.
+1. Select OK to save.
 
-5. Navigate again to the user you created, by selecting and holding (or right-clicking) and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
+1. Navigate again to the user you created, by selecting and holding (or right-clicking) and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="change password.":::
 
-#### Storing your SQL login password in a key vault and creating a credential in Purview
+##### Storing your SQL login password in a key vault and creating a credential in Purview
 
 1. Navigate to your key vault in the Azure portal1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your SQL server login
@@ -75,7 +77,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to setup your scan
 
-## Register a SQL server data source
+### Steps to register
 
 1. Navigate to your Purview account
 
@@ -89,9 +91,15 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/set-up-sql-data-source.png" alt-text="Set up the SQL data source.":::
 
-5. Provide a friendly name and server endpoint and then select **Finish** to register the data source. If, for example, your SQL server FQDN is **foobar.database.windows.net**, then enter *foobar* as the server endpoint.
+1. Provide a friendly name, which will be a short name you can use to identify your server, and the server endpoint.
 
-## Creating and running a scan
+1. Select **Finish** to register the data source.
+
+## Scan
+
+Follow the steps below to scan on-premises SQL server instances to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
+
+### Create and run scan
 
 To create and run a new scan, do the following:
 
@@ -123,5 +131,8 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
+Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+
+- [Data insights in Azure Purview](concept-insights.md)
+- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Search Data Catalog](how-to-search-catalog.md)

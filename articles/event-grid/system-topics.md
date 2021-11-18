@@ -39,7 +39,7 @@ In the past, a system topic was implicit and wasn't exposed for simplicity. Syst
 
 - [View system topics in the Azure portal](create-view-manage-system-topics.md#view-all-system-topics)
 - Export Resource Manager templates for system topics and event subscriptions in the Azure portal
-- [Set up diagnostic logs for system topics](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-system-topic)
+- [Set up diagnostic logs for system topics](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-system-topics)
 - Set up alerts on publish and delivery failures 
 
 ## Lifecycle of system topics
@@ -52,7 +52,12 @@ You can create a system topic in two ways:
 
 When you use [CLI](create-view-manage-system-topics-cli.md), [REST](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate), or [Azure Resource Manager template](create-view-manage-system-topics-arm.md), you can choose either of the above methods. We recommend that you create a system topic first and then create a subscription on the topic, as this is the latest way of creating system topics.
 
+### Failure to create system topics
 The system topic creation fails if you have set up Azure policies in such a way that the Event Grid service can't create it. For example, you may have a policy that allows creation of only certain types of resources (for example: Azure Storage, Azure Event Hubs, etc.) in the subscription. 
+
+In such cases, event flow functionality is preserved. However, metrics and diagnostic functionalities of system topics will be unavailable.
+
+If you require this functionality, allow creation of resources of the system topic type, and create the missing system topic as described in the [Lifecycle of system topics](#lifecycle-of-system-topics) section.
 
 ## Location and resource group for a system topic
 For Azure event sources that are in a specific region/location, system topic is created in the same location as the Azure event source. For example, if you create an event subscription for an Azure blob storage in East US, the system topic is created in East US. For global Azure event sources such as Azure subscriptions, resource groups, or Azure Maps, Event Grid creates the system topic in **global** location. 

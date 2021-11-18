@@ -226,7 +226,7 @@ To convert this sample to work as an IoT Plug and Play IoT Edge module, you must
 To learn how to deploy your containerized module, see:
 
 * [Run Azure IoT Edge on Ubuntu Virtual Machines](../iot-edge/how-to-install-iot-edge-ubuntuvm.md).
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-install-iot-edge.md).
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 You can use the Azure IoT Explorer tool to see:
 

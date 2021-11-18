@@ -94,7 +94,7 @@ In this example, users and or groups are created in an HR database connected to 
 
 In this example, user creation occurs in Azure AD and the  Azure AD provisioning service manages automatic user provisioning to the target (SaaS) applications.
 
-![Diagram that shows the user/group creation process from an on-premises H R application through the Azure A D Provisioning Service to the target S a a S applications.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagram that shows the user/group creation process from an on-premises H R application through the Azure A D Provisioning Service to the target S A A S applications.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Description of workflow:**
 
@@ -313,7 +313,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 #### Resources
 
-* [Provide product feedback](https://feedback.azure.com/forums/169401-azure-active-directory)
+* [Provide product feedback](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
 * [Keep up to date on what's new with Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 

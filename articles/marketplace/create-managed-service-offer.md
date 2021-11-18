@@ -1,5 +1,5 @@
 ---
-title: Create a Managed Service offer in Azure Marketplace 
+title: Create a Managed Service offer for the commercial marketplace
 description: Create a new Managed Service offer for Azure Marketplace. 
 author: Microsoft-BradleyWright
 ms.author: brwrigh

@@ -215,5 +215,5 @@ If you want to clean up and remove a Communication Services subscription, you ca
 For more information, see the following articles:
 
 - Check out our [web calling sample](../../samples/web-calling-sample.md)
-- Learn about [Calling SDK capabilities](./calling-client-samples.md?pivots=platform-web)
+- Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

@@ -22,7 +22,7 @@ Review the following required permissions and the supported scenarios and tools.
 
 ### Supported geographies
 
-The functionality is now in preview in supported [public cloud](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) and [government cloud geographies.](/azure/migrate/migrate-support-matrix#supported-geographies-azure-government)
+The functionality is now in preview in supported [public cloud](./migrate-support-matrix.md#supported-geographies-public-cloud) and [government cloud geographies.](./migrate-support-matrix.md#supported-geographies-azure-government)
 
 ### Required permissions
 
@@ -116,7 +116,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2160648) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2160648) | 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 > [!NOTE]
 > The same script can be used to set up an appliance with private endpoint connectivity for any of the chosen scenarios, such as VMware, Hyper-V, physical or other to deploy an appliance with the desired configuration.

@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 09/10/2021
-ms.custom: references_regions 
+ms.custom: references_regions, ignite-fall-2021
 ---
 # vCore purchase model overview - Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -158,7 +158,7 @@ Follow the steps to change configuration, and select the hardware generation as 
 
 #### <a id="gen4gen5-1"></a> Gen4/Gen5
 
-Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) and is no longer available for new deployments. All new databases must be deployed on Gen5 hardware.
+Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) and is no longer available for new deployments. All new databases must be deployed on later hardware generations.
 
 Gen5 is available in all public regions worldwide.
 

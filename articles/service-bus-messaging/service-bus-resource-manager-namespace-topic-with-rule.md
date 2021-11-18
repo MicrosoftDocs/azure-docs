@@ -171,9 +171,7 @@ New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<
 ## Azure CLI
 
 ```azurecli-interactive
-azure config mode arm
-
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/quickstarts/microsoft.servicebus/servicebus-create-topic-subscription-rule/azuredeploy.json>
+az deployment group create -g \<my-resource-group\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/quickstarts/microsoft.servicebus/servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
 ## Next steps

@@ -8,8 +8,9 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
+ms.date: 10/21/2021
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
+ms.custom: ignite-fall-2021
 ---
 
 # What are compute targets in Azure Machine Learning?
@@ -95,7 +96,7 @@ See the following table to learn more about supported series and restrictions.
 | [HBv2](../virtual-machines/hbv2-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
 | [HBv3](../virtual-machines/hbv3-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
 | [HC](../virtual-machines/hc-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
-| [LSv2](../virtual-machines/lsv2-series.md) | None. |  Storage oprimized | Compute clusters and instance |
+| [LSv2](../virtual-machines/lsv2-series.md) | None. |  Storage optimized | Compute clusters and instance |
 | [M](../virtual-machines/m-series.md) | Requires approval. | Memory optimized | Compute clusters and instance |
 | [NC](../virtual-machines/nc-series.md) | None. |  GPU | Compute clusters and instance |
 | [NC Promo](../virtual-machines/nc-series.md) | None. | GPU | Compute clusters and instance |

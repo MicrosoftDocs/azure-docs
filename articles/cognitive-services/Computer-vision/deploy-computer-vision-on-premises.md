@@ -353,7 +353,7 @@ replicaset.apps/read-6cbbb6678   3         3         3       3s
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Next steps
 

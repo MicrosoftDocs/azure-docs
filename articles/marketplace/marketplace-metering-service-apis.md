@@ -4,7 +4,7 @@ description: The usage event API allows you to emit usage events for SaaS offers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/15/2021
 author: saasguide
 ms.author: souchak
 ---
@@ -12,6 +12,9 @@ ms.author: souchak
 # Marketplace metered billing APIs
 
 The metered billing APIs should be used when the publisher creates custom metering dimensions for an offer to be published in Partner Center. Integration with the metered billing APIs is required for any purchased offer that has one or more plans with custom dimensions to emit usage events.
+
+> [!IMPORTANT]
+> You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
 
 For more information on creating custom metering dimensions for SaaS, see [SaaS metered billing](partner-center-portal/saas-metered-billing.md).
 
@@ -33,7 +36,7 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 
 *Query parameters:*
 
-| Paramter | Recommendation          |
+| Parameter | Recommendation          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Use 2018-08-31. |
 | | |
@@ -64,7 +67,7 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 
 For Azure Application Managed Apps plans, the `resourceId` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
-For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions).
 
 ### Responses
 
@@ -162,7 +165,7 @@ The batch usage event API allows you to emit usage events for more than one purc
 >[!NOTE]
 >In the request body, the resource identifier has different meanings for SaaS app and for Azure Managed app emitting custom meter. The resource identifier for SaaS App is `resourceID`. The resource identifier for Azure Application Managed Apps plans is `resourceUri`.
 
-For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions).
 
 *Request body example for SaaS apps:*
 
