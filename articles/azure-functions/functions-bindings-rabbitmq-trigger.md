@@ -207,20 +207,6 @@ Attributes are not supported by C# Script.
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
-
-## Annotations
-
-Attributes are not supported by JavaScript.
-
-::: zone-end  
-::: zone pivot="programming-language-python"  
-
-## Annotations
-
-Attributes are not supported by Python.
-
-::: zone-end  
 ::: zone pivot="programming-language-java"  
 
 ## Annotations

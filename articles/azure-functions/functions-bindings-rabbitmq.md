@@ -23,9 +23,9 @@ Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [trigg
 | Run a function when a RabbitMQ message comes through the queue | [Trigger](./functions-bindings-rabbitmq-trigger.md) |
 | Send RabbitMQ messages |[Output binding](./functions-bindings-rabbitmq-output.md) |
 
-## Add to your Functions app
+## Prerequisites
 
-To get started with developing with this extension, make sure you first [set up a RabbitMQ endpoint](https://github.com/Azure/azure-functions-rabbitmq-extension/wiki/Setting-up-a-RabbitMQ-Endpoint). To learn more about RabbitMQ, check out their [getting started page](https://www.rabbitmq.com/getstarted.html).
+Before working with the RabbitMQ extension, you must [set up your RabbitMQ endpoint](https://github.com/Azure/azure-functions-rabbitmq-extension/wiki/Setting-up-a-RabbitMQ-Endpoint). To learn more about RabbitMQ, see the [getting started page](https://www.rabbitmq.com/getstarted.html).
 
 ::: zone pivot="programming-language-csharp"
 
@@ -35,11 +35,11 @@ The extension NuGet package you install depends on the C# mode you're using in y
 
 # [In-process](#tab/in-process)
 
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md).
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](../articles/azure-functions/dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -118,8 +118,8 @@ You can add this version of the extension from the preview extension bundle v3 b
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
   }
 }
 ```
