@@ -384,12 +384,10 @@
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr
           items:
-          - name: Dapr overview
-            href: dapr-overview.md
-          - name: How to use Dapr (preview)
-            href: dapr.md
-          -
-          maintainContext: true
+            - name: Dapr overview
+              href: dapr-overview.md
+            - name: How to use Dapr (preview)
+              href: dapr.md
     - name: Deploy a service mesh
       items:
         - name: About Service Meshes
