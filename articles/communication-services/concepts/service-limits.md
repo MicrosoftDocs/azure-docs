@@ -116,6 +116,18 @@ When you implement error handling, use the HTTP error code 429 to detect throttl
 
 You can find more information on Microsoft Graph [throttling](https://docs.microsoft.com/graph/throttling) limits in the [Microsoft Graph](https://docs.microsoft.com/graph/overview) documentation.
 
+## Network Traversal
+
+| Operation | Timeframes (seconds) | Limit (number of requests) |
+|---|--|--|
+| **Issue TURN Credentials** | 5 | 30000|
+| **Issue Relay Configuration** | 5 | 30000|
+
+### Action to take
+We always recommend you acquire tokens in advance of starting other transactions like creating a relay connection. 
+
+For more information, see the [network traversal concept overview](./network-traversal.md) page.
+
 ## Still need help?
 See the [help and support](../support.md) options available to you.
 
