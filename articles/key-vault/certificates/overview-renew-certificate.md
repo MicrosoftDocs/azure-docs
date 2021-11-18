@@ -41,7 +41,7 @@ In Key Vault, there are three categories of certificates:
 -    Self-signed certificates
 
 ## Renew an integrated CA certificate 
-Azure Key Vault handles the end-to-end maintenance of certificates that are issued by trusted Microsoft certificate authorities DigiCert and GlobalSign. Learn how to [integrate a trusted CA with Key Vault](./how-to-integrate-certificate-authority.md).
+Azure Key Vault handles the end-to-end maintenance of certificates that are issued by trusted Microsoft certificate authorities DigiCert and GlobalSign. Learn how to [integrate a trusted CA with Key Vault](./how-to-integrate-certificate-authority.md). When a certificate is renewed a new secret version is created with a new Key Vault identifier.
 
 ## Renew a nonintegrated CA certificate 
 By using Azure Key Vault, you can import certificates from any CA, a benefit that lets you integrate with several Azure resources and make deployment easy. If you're worried about losing track of your certificate expiration dates or, worse, you've discovered that a certificate has already expired, your key vault can help keep you up to date. For nonintegrated CA certificates, the key vault lets you set up near-expiration email notifications. Such notifications can be set for multiple users as well.
