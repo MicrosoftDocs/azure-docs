@@ -330,7 +330,7 @@ In this quickstart, you learned how to deploy a connected registry to a nested I
 
 <!-- LINKS - internal -->
 [az-acr-connected-registry-get-settings]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_get_settings
-[az-acr-connected-registry-show]: /cli/azure/acr/connected-registr#az_acr_connected_registry_show
+[az-acr-connected-registry-show]: /cli/azure/acr/connected-registry#az_acr_connected_registry_show
 [az-acr-import]: /cli/azure/acr#az-acr-import
 [az-acr-token-credential-generate]: /cli/azure/acr/credential#az-acr-token-credential-generate
 [container-registry-intro]: container-registry-intro.md

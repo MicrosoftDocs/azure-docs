@@ -1,16 +1,8 @@
 ---
 title: Threat intelligence integration in Microsoft Sentinel | Microsoft Docs
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

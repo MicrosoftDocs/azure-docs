@@ -1,11 +1,8 @@
 ---
 title: What's new in Microsoft Sentinel
 description: This article describes new features in Microsoft Sentinel from the past few months.
-services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
@@ -85,13 +82,13 @@ We are evolving our current free trial experience to include the following updat
 
    Only the Microsoft Sentinel charges are waived during the 31-day trial period.
 
-Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to additional capabilities for [automation](automation-in-azure-sentinel.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
+Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to additional capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
 
 > [!TIP]
 > During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel. This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
 >
 
-For more information, see [Plan and manage costs for Microsoft Sentinel](azure-sentinel-billing.md).
+For more information, see [Plan and manage costs for Microsoft Sentinel](billing.md).
 
 ### Content hub and new solutions (Public preview)
 
@@ -212,7 +209,7 @@ For example:
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
-## Microsoft Sentinel renaming
+### Microsoft Sentinel renaming
 
 Starting in November 2021, Azure Sentinel is being renamed to Microsoft Sentinel, and you'll see upcoming updates in the portal, documentation, and other resources in parallel.
 
@@ -345,7 +342,7 @@ Incidents are generated for alerts that are possibly associated with Ransomware 
 
 Supported data connectors include:
 
-- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
+- [Azure Defender (Azure Security Center)](connect-defender-for-cloud.md)
 - [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
 - [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
 - [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
@@ -435,7 +432,7 @@ For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-
 
 Azure Sentinel now offers an API to enrich your data with geolocation information. Geolocation data can then be used to analyze and investigate security incidents.
 
-For more information, see [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md) and [Classify and analyze data using entities in Azure Sentinel](entities-in-azure-sentinel.md).
+For more information, see [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md) and [Classify and analyze data using entities in Azure Sentinel](entities.md).
 
 
 ### Support for ADX cross-resource queries (Public preview)
@@ -465,7 +462,7 @@ See the [complete list of supported geos](quickstart-onboard.md#geographical-ava
 
 The Azure Defender connector now supports bi-directional syncing of alerts' status between Defender and Azure Sentinel. When you close a Sentinel incident containing a Defender alert, the alert will automatically be closed in the Defender portal as well.
 
-See this [complete description of the updated Azure Defender connector](connect-azure-security-center.md).
+See this [complete description of the updated Azure Defender connector](connect-defender-for-cloud.md).
 
 ## June 2021
 

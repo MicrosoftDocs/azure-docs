@@ -40,7 +40,7 @@ SAP systems often contain sensitive business data. It is rarely acceptable for V
 
 Examples of scenarios, requiring access to Azure public end point are:  
 - Azure Fence Agent requires access to **management.azure.com** and **login.microsoftonline.com**  
-- [Azure Backup](../../../backup/tutorial-backup-sap-hana-db.md#set-up-network-connectivity)
+- [Azure Backup](../../../backup/backup-azure-sap-hana-database.md#establish-network-connectivity)
 - [Azure Site Recovery](../../../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-for-urls)  
 - Using public repository for patching the Operating system
 - The SAP application data flow may require outbound connectivity to public end point
