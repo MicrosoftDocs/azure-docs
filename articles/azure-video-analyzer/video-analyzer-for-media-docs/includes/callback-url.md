@@ -8,13 +8,15 @@ ms.author: juliako
 A callback URL is used to notify the customer (through a POST request) about the following events:
 
 - Indexing state change: 
-    - Properties:    
+   - Properties:    
     
-        |Name|Description|
-        |---|---|
-        |id|The video ID|
-        |state|The video state|  
-    - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+      |Name|Description|
+      |---|---|
+      |id|The video ID|
+      |state|The video state|  
+
+   - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+
 - Person identified in video:
   - Properties
     

@@ -326,8 +326,8 @@ After you copy this C# project into your development platform, you need to take 
    - ```ResourceGroup``` with your resource group.
    - ```AccountName``` with your account name.
    - ```VideoUrl``` with your video URL.
-1. Make sure that .NET 6.0 is installed. If not, [install it](https://dotnet.microsoft.com/download/dotnet/6.0).
-1. Make sure that Azure CLI is installed. If not, [install it](/cli/azure/install-azure-cli).
+1. Make sure that .NET 6.0 is installed. If it isn't, [install it](https://dotnet.microsoft.com/download/dotnet/6.0).
+1. Make sure that the Azure CLI is installed. If it isn't, [install it](/cli/azure/install-azure-cli).
 1. Open your terminal and go to the *VideoIndexerArm* folder.
 1. Log in to Azure: ```az login --use-device```.
 1. Build the project: ```dotnet build```.
@@ -374,7 +374,7 @@ namespace VideoIndexerArm
 
         public static async Task Main(string[] args)
         {
-            // Build Azure Video Analyzer for Media resource provider client that has access token through Resource Manager
+            // Build Azure Video Analyzer for Media resource provider client that has access token through Azure Resource Manager
             var videoIndexerResourceProviderClient = await VideoIndexerResourceProviderClient.BuildVideoIndexerResourceProviderClient();
 
             // Get account details
@@ -667,7 +667,9 @@ The upload operation might return the following status codes:
 > [!Tip]
 > We recommend that you use .NET Framework version 4.6.2. or later, because older .NET Framework versions don't default to TLS 1.2.
 >
-> If you must use an older .NET Framework version, add one line to your code before making the REST API call:  <br/> `System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;`
+> If you must use an older .NET Framework version, add one line to your code before making the REST API call:  
+>
+> `System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;`
 
 ## Firewall
 
