@@ -217,7 +217,7 @@
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
-        "articles/app-service/environment/*.md": "ccompy",
+        "articles/app-service/environment/*.md": "madsd",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/automanage/*md": "daberry",
@@ -572,7 +572,7 @@
         "articles/ansible/**/*.md": "tarcher",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
-        "articles/app-service/environment/*.md": "ccompy",
+        "articles/app-service/environment/*.md": "madsd",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-service-mobile/**/*.md": "emalani",
         "articles/automanage/*md": "daberry",
@@ -777,6 +777,7 @@
         "articles/notebooks/*.md": "azure-notebooks",
         "acticles/object-anchors/**/*.md": "azure-object-anchors",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
+        "articles/sentinel/**/*.md": "microsoft-sentinel",
         "articles/service-bus-messaging/*.md": "service-bus-messaging",
         "articles/service-fabric/*.md": "service-fabric",
         "articles/service-health/**/*.md": "service-health",
@@ -847,7 +848,8 @@
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
         "articles/cosmos-db/table/*.md": "cosmosdb-table",
-        "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
+        "articles/cosmos-db/sql/*.md": "cosmosdb-sql",
+        "articles/sentinel/**/*.md": "microsoft-sentinel"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"

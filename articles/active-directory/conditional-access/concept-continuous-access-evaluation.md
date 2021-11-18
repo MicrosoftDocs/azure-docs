@@ -147,16 +147,6 @@ Customers who have configured CAE settings under Security before have to migrate
 
 More information about continuous access evaluation as a session control can be found in the section, [Customize continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation).
 
-> [!NOTE] 
-> CAE migration will create a new Conditional Acces policy with session control, which will block legacy authentication protocols clients in your tenant.
-
-If you want your clients with legacy authentication protocols to continue to work, you should edit the policy named **CA policy created from CAE settings**.
-1. Browse to Azure Active Directory > Security > Conditional Access.
-2. Open policy **CA policy created from CAE settings**
-3. Under **Conditions** > **Client apps**, set **Configure** to **Yes**.
-   1. Uncheck the boxes **Exchange ActiveSync clients** and **Other clients**.
-   1. Select **Done**.
-
 ### Strict enforcement 
 
 With the latest CAE setting under Conditional Access, strict enforcement is a new feature that allows for enhanced security based on two factors: IP address variation and client capability. This functionality can be enabled while customizing CAE options for a given policy. By turning on strict enforcement, CAE will revoke access upon detecting any instances of either [IP address variation](#ip-address-variation) or a lack of CAE [client capability](#client-capabilities).
@@ -195,7 +185,7 @@ To avoid infinite loops because of these scenarios, Azure AD issues a one hour C
 CAE only has insight into [IP-based named locations](../conditional-access/location-condition.md#ip-address-ranges). CAE doesn't have insight into other location conditions like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When a user comes from an MFA trusted IP, trusted location that includes MFA Trusted IPs, or country location, CAE won't be enforced after that user moves to a different location. In those cases, Azure AD will issue a one-hour access token without instant IP enforcement check. 
 
 > [!IMPORTANT]
-> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
+> If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
 
 ### Office and Web Account Manager settings
 

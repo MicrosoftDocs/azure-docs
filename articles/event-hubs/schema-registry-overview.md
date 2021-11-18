@@ -7,29 +7,27 @@ ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Azure Schema Registry in Azure Event Hubs
-In many event streaming and messaging scenarios, the event or message payload contains structured data. Schema-driven format such as [Apache Avro](https://avro.apache.org/) are often used to serialized or deserialize such structured data. 
+In many event streaming and messaging scenarios, the event or message payload contains structured data. Schema-driven formats such as [Apache Avro](https://avro.apache.org/) are often used to serialize or deserialize such structured data. 
+
+An event producer uses a schema to serialize event payload and publish it to an event broker such as Event Hubs. Event consumers read event payload from the broker and de-serialize it using the same schema. So, both producers and consumers can validate the integrity of the data with the same schema. 
 
 :::image type="content" source="./media/schema-registry-overview/schema-driven-ser-de.svg" alt-text="Schema driven serialization/de-serialization":::
 
-The producer applications use schema document to serialize the event payload and publish it to an  event broker such as Event Hubs. Similarly the consumer applications read event payload from the broker and de-serialize it using the same schema document. So, both the producers and the consumers can validate the integrity of the data with a schema document. 
-
-
-## Why we need a Schema Registry? 
-When you use schema driven formats, the producer applications want the schemas of the events published make available to the consumers. It's possible to share the corresponding schema with each and every event data but that inefficient. When the new consumers want to consume event data, they should have a way to understand the format of data that is being published. We also need to make sure that we support schema evolution so that both producers and consumers can evolve at different rates. 
-
-
-## Azure Schema Registry
-The **Azure Schema Registry** is a feature of Event Hubs, which provides a central repository for schema documents for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to exchange data without having to manage and share the schema. The Schema Registry also provides a simple governance framework for reusable schemas and defines the relationship between schemas through a grouping construct (schema groups).
+## What is Azure Schema Registry?
+**Azure Schema Registry** is a feature of Event Hubs, which provides a central repository for schemas for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to **exchange data without having to manage and share the schema**. It also provides a simple governance framework for reusable schemas and defines relationship between schemas through a grouping construct (schema groups).
 
 :::image type="content" source="./media/schema-registry-overview/schema-registry.svg" alt-text="Schema Registry":::
 
-With schema-driven serialization frameworks like Apache Avro, externalizing serialization metadata into shared schemas can also help with dramatically reducing the per-message overhead of type information and field names included with every data set as it's the case with tagged formats such as JSON. Having schemas stored alongside the events and inside the eventing infrastructure ensures that the metadata required for serialization/de-serialization is always in reach and schemas can't be misplaced. 
+With schema-driven serialization frameworks like Apache Avro, moving serialization metadata into shared schemas can also help with **reducing the per-message overhead**. That's because each message won't need to have the metadata (type information and field names) as it's the case with tagged formats such as JSON. 
+
+Having schemas stored alongside the events and inside the eventing infrastructure ensures that the metadata that's required for serialization or de-serialization is always in reach and schemas can't be misplaced. 
 
 > [!NOTE]
 > The feature isn't available in the **basic** tier.
 
 ## Schema Registry information flow 
 The information flow when you use schema registry is the same for all the protocol that you use to publish or consume events from Azure Event Hubs. 
+
 The following diagram shows the information flow of a Kafka event producer and consumer scenario that users Schema Registry. 
 
 :::image type="content" source="./media/schema-registry-overview/information-flow.svg" lightbox="./media/schema-registry-overview/information-flow.svg" alt-text="Image showing the Schema Registry information flow.":::
@@ -39,7 +37,7 @@ The information flow starts from the producer side where Kafka producers seriali
 - The Kafka producer application uses ``KafkaAvroSerializer`` to serialize event data using the schema specified at the client side. 
 - Producer application must provide the details of the schema registry endpoint and other optional parameters that are required for schema validation. 
 - The serializer does a lookup in the schema registry using the schema content that producer uses to serialize event data. 
-- If it finds such a schema, then the corresponding schema ID is returned. You can configure the producer application to If the schema does not exist, the producer application can configure schema registry client to auto register the schema. 
+- If it finds such a schema, then the corresponding schema ID is returned. You can configure the producer application to If the schema doesn't exist, the producer application can configure schema registry client to auto register the schema. 
 - Then the serializer uses that schema ID and prepends that to the serialized data that is published to the Event Hubs. 
 - At the consumer side, ``KafkaAvroDeserializer`` uses the schema ID to retrieve the schema content from Schema Registry. 
 - The de-serializer then uses the schema content to deserialize event data that it read from the Event Hub. 
