@@ -29,7 +29,7 @@ This article shows how to use Azure DevTest Labs Tasks to create and deploy a VM
   1. Select **Get it free**.
   1. Select your Azure DevOps Services organization from the dropdown list, and then select **Install**. 
 
-## Create a template to create a lab VM 
+## Create a template to build a lab VM 
 
 First, construct an Azure Resource Manager (ARM) template that creates a lab VM on demand.
 
@@ -49,7 +49,7 @@ For more information and details, see [Use a Resource Manager template](devtest-
 
 ## Create a script to get VM properties
 
-Also create a script to collect the values that task steps like **Azure File Copy** and **PowerShell on Target Machines** use to deploy apps to VMs. You'd ordinarily use these tasks to deploy your own apps to your Azure VMs. The tasks require values such as the VM resource group name, IP address, and FQDN.
+Next, create a script to collect the values that task steps like **Azure File Copy** and **PowerShell on Target Machines** use to deploy apps to VMs. You'd ordinarily use these tasks to deploy your own apps to your Azure VMs. The tasks require values such as the VM resource group name, IP address, and FQDN.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -98,7 +98,7 @@ Next, create the release pipeline in Azure Pipelines. The pipeline tasks use the
 
 ### Create a DevTest Labs VM
 
-The next step creates a golden image VM to use for future deployments. This step uses the *Azure DevTest Labs Create VM* task.
+The next step creates a golden image VM to use for future deployments. This step uses the **Azure DevTest Labs Create VM** task.
 
 1. On the new release pipeline page, on the **Pipeline** tab, select the hyperlinked text in **Stage 1**.
 1. In the left pane, select the plus sign **+** next to **Agent job**.
@@ -112,8 +112,8 @@ The next step creates a golden image VM to use for future deployments. This step
    - **Lab**: Select your DevTest Labs lab name.
    - **Template**: Browse to and select the template file you checked in to your project repository.
    - **Parameters File**: Browse to and select the parameters file you checked in to your repository.
-   - **Parameter Overrides**: Enter `-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`
-   - Drop down **Output Variables**, and under **Reference name**, enter the variable for the created lab VM ID. If you use the default *labVmId*, you can refer to the variable in subsequent tasks as *$(labVmId)*.
+   - **Parameter Overrides**: Enter `-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`.
+   - Drop down **Output Variables**, and under **Reference name**, enter the variable for the created lab VM ID. If you use the default *labVmId*, you can refer to the variable in subsequent tasks as **$(labVmId)**.
 
      You can create a name other than the default, but remember to use the correct name in subsequent tasks. You can write the Lab VM ID in the following form: `/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`.
 
@@ -128,9 +128,9 @@ Next, the pipeline runs the script you created to collect the details of the Dev
    - **Azure Subscription**: Select your service connection or subscription.
    - **Script Type**: Select **Script File Path**.
    - **Script Path**: Browse to and select the PowerShell script that you checked in to your source code repository. You can use built-in properties to simplify the path, for example: `$(System.DefaultWorkingDirectory/Scripts/GetLabVMParams.ps1`.
-   - **Script Arguments**: Enter the name of the *labVmId* variable you populated in the previous task, for example `-labVmId '$(labVmId)'`.
+   - **Script Arguments**: Enter the name of the **labVmId** variable you populated in the previous task, for example *-labVmId '$(labVmId)'*.
 
-The script collects the required values and stores them in environment variables within the release pipeline, so you can easily refer to them in later steps.
+The script collects the required values and stores them in environment variables within the release pipeline, so you can refer to them in later steps.
 
 ### Create a VM image from the DevTest Labs VM
 
@@ -144,8 +144,8 @@ The next task creates an image of the newly deployed VM in your lab. You can use
    - **Lab**: Select your lab.
    - **Custom Image Name**: Enter a name for the custom image.
    - **Description**: Enter an optional description to make it easy to select the correct image.
-   - **Source Lab VM**: The source labVmId. If you changed the default name of the LabVmId variable, enter it here. The default value is **$(labVmId)**.|
-   - **Output Variables**: You can edit the name of the default Custom Image ID variable if necessary.|
+   - **Source Lab VM**: The source **labVmId**. If you changed the default name of the **labVmId** variable, enter it here. The default value is **$(labVmId)**.
+   - **Output Variables**: You can edit the name of the default Custom Image ID variable if necessary.
    
 ### Deploy your app to the DevTest Labs VM (optional)
 
@@ -155,7 +155,7 @@ The tasks you usually use to deploy apps are **Azure File Copy** and **PowerShel
 
 ### Delete the VM
 
-The final task is to delete the VM that you deployed in your lab. You'd ordinarily delete the VM after you execute the dev tasks or run the tests that you need on the deployed VM.
+The final task is to delete the VM that you deployed in your lab. You'd ordinarily delete the VM after you do the developer tasks or run the tests that you need on the deployed VM.
 
 1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1**, and then select the plus sign **+** next to **Agent job**.
 1. Under **Add tasks**, select **Azure DevTest Labs Delete VM**, and select **Add**. 
@@ -163,7 +163,7 @@ The final task is to delete the VM that you deployed in your lab. You'd ordinari
    - **Azure RM Subscription**: Select your service connection or subscription.
    - **Lab**: Select your lab.
    - **Virtual Machine**: Select the VM you want to delete.
-   - **Output Variables**: Under **Reference name**, if you changed the default name of the LabVmId variable, enter it here. The default value is **$(labVMId)**.
+   - **Output Variables**: Under **Reference name**, if you changed the default name of the **labVmId** variable, enter it here. The default value is **$(labVmId)**.
    
 ### Save the release pipeline
 

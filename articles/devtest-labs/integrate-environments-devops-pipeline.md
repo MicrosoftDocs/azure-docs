@@ -14,30 +14,17 @@ The Azure DevTest Labs Tasks extension adds the following tasks to Azure Pipelin
 - Create an Environment
 - Delete an Environment
 
-These tasks make it easy to quickly deploy an [environment](devtest-lab-test-env.md) for a specific test, and then delete the environment when you finish the test. You'd ordinarily perform the environment creation and deletion separately in your own pipelines.
+These tasks make it easy to quickly deploy an [environment](devtest-lab-test-env.md) for a specific test, and then delete the environment when you finish the test. You'd ordinarily do the environment creation and deletion separately in your own pipelines.
 
 For information about other extension tasks like Create a VM and Create a Custom Image from a VM, see [Integrate DevTest Labs into CI/CD pipelines](devtest-lab-integrate-ci-cd.md).
 
 ## Prerequisites
 
-## Prerequisites
-
-- In the Azure portal, [create a DevTest Labs lab](devtest-lab-create-lab.md), or use an existing one. Make sure your lab is configured to use **Public Environment**, which is turned on by default.
+- In the Azure portal, [create a DevTest Labs lab](devtest-lab-create-lab.md), or use an existing lab. Make sure your lab is configured to use **Public Environment**, which is turned on by default.
 - Register or sign into your [Azure DevOps Services](https://dev.azure.com) organization, and [create a project](/vsts/organizations/projects/create-project), or use an existing project.
-- Install the [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) extension from Visual Studio Marketplace.
+- Install the [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) extension from Visual Studio Marketplace into your Azure DevOps Services organization.
 
 ## Create a release pipeline and environment
-
-To create the release definition, follow these steps:
-
-1. From your Azure DevOps Services project page, select **Pipelines** > **Releases** from the left navigation.
-1. Select **Create release**.
-1. On the **New release pipeline** page, select the **Variables** tab.
-1. Select **Add**, and enter the following **Name** and **Value** pairs, selecting **Add** after adding each one.
-   - *vmName*: The VM name you assigned in the ARM template.
-   - *userName*: The username to access the VM.
-   - *password*: Password for the username. Select the lock icon to hide and secure the password.
-
 
 1. In your Azure DevOps project, select **Releases** under the **Pipelines** section.
 1. Select **New pipeline**.
@@ -50,20 +37,28 @@ To create the release definition, follow these steps:
 1. In the **Add tasks** window, search for and select **Azure DevTest Labs Create Environment**, and select **Add**.
 1. On the left, select the **Azure DevTest Labs Create Environment** task.
 1. Fill out the **Azure DevTest Labs Create Environment (Preview)** form as follows:
-   
-   :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-environment.png" alt-text="Screenshot shows the fields needed for Azure Pipelines environment for Azure DevTest Labs." border="false":::
-
    - **Azure RM Subscription**: Select your connection or Azure subscription from the dropdown list.
      > [!NOTE]
      > For information about creating a more restricted permissions connection to your Azure subscription, see [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
+
    - **Lab**: Select the lab name you want to deploy against. You can also use a variable, `$(labName)`. Manually entering the name causes failure. Select the name from the dropdown list.
+
    - **Environment Name**: Enter the name of the environment to create in the lab.
-   - **Repository**: Select the source code repository that contains the template. You can choose the default repository, **Public Environment Repo**, or another repository that contains the template you want to use. Repositories are designated in the lab policies. Manually entering the friendly name causes failures. Select the name from the dropdown list.
+
+   - **Repository**: Select the source code repository that contains the template.
+
+     You can choose the default repository, **Public Environment Repo**, or another repository that contains the template you want to use. Repositories are designated in the lab policies. Manually entering the friendly name causes failures. Select the name from the dropdown list.
+
    - **Template**: Select the template to use to create the environment. Manually entering the friendly name cause failures. Select the name from the dropdown list.
+
    - **Parameters File**: Browse to the location of a saved parameters file.
+
    - **Parameter Overrides**: Pass custom parameters to the environment.
 
-   You can use either **Parameters File**, **Parameter Overrides**, or both to set parameter values. For example, you can use these fields to pass the encrypted password. You can also use variables to avoid passing secret information in the logs and even connect to Azure Key Vault.
+   You can use either **Parameters File**, **Parameter Overrides**, or both to set parameter values. For example, you can use these fields to pass the encrypted password. You can also use variables to avoid passing secret information in the logs, and even connect to Azure Key Vault.
+
+   
+   :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-environment.png" alt-text="Screenshot shows the fields needed for Azure Pipelines environment for Azure DevTest Labs." border="false":::
 
 ## Delete the environment
 

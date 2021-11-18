@@ -1,11 +1,11 @@
 ---
-title: Integrate Azure DevTest Labs with DevOps pipelines
+title: Integrate Azure DevTest Labs with Azure pipelines
 description: Learn how to use Azure DevTest Labs with a continuous integration (CI) and continuous delivery (CD) pipeline in an enterprise environment.
 ms.topic: conceptual
 ms.date: 11/16/2021
 ---
 
-# Integrate Azure DevTest Labs and DevOps pipelines
+# Integrate DevTest Labs and Azure Pipelines
 
 DevOps is a software development methodology that integrates software development (Dev) with system operations (Ops). The system delivers new software features, updates, and fixes that align with business goals.
 
@@ -16,15 +16,15 @@ DevOps methodology also covers:
 
 One component of DevOps methodology is the continuous integration (CI) and continuous delivery (CD) pipeline. A CI/CD pipeline moves information, code, and resources from a source control commit through a series of steps to produce the system. Steps include build, test, and release.
 
-You can use Azure DevTest Labs in DevOps CI/CD pipelines. This article discusses using DevTest Labs with DevOps pipelines in an enterprise environment.
+You can use Azure DevTest Labs in Azure Pipelines CI/CD pipelines. This article discusses using DevTest Labs with Azure Pipelines in an enterprise environment.
 
 ## Benefits of DevTest Labs in DevOps workflows
 
 A lab should be focused on a team that's working in a feature area. This common focus allows faster changes, while limiting any negative effects to a smaller group. Changes or destructive work happen against the lab environment, without affecting anything else.
 
-The common focus allows for sharing area-specific resources, like tools, scripts, and Azure Resource Manager (ARM) templates. By using shared resources, developers can create development virtual machines (VMs) with all the needed code, tools, and configuration. Developers can create resources dynamically, or in a system that creates base images with customizations. ARM templates can create lab VMs and lab environments based on the appropriate Azure resources.
+The common focus allows for sharing area-specific resources, like tools, scripts, and Azure Resource Manager (ARM) templates. By using shared resources, developers create development virtual machines (VMs) with all the needed code, tools, and configuration. Developers can create resources dynamically, or in a system that creates base images with customizations. ARM templates create lab VMs and lab environments based on the appropriate Azure resources.
 
-For example, consider a scenario where the product is a standalone system installed on a customer's machine. In this scenario, DevTest Labs VM creation can include installing customer software and using customer artifacts and configurations, for quicker inner loop code testing.
+For example, consider a scenario where the product is a standalone system installed on a customer's machine. DevTest Labs VM creation can include installing customer software and using customer artifacts and configurations, for quicker inner loop code testing.
 
 Here are some benefits of using labs in DevOps workflows:
 
