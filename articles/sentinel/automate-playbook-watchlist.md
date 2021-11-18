@@ -130,7 +130,7 @@ This section describes how to use a watchlist and a playbook to automatically cl
 
 To use the process described in this section, you must have a user or registered application with [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role to use with the Microsoft Sentinel connector to Azure Logic Apps.
 
-## Process summary and playbook steps
+### Process summary and playbook steps
 
 The process described in this article includes the following steps:
 
