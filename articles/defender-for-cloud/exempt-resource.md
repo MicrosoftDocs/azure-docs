@@ -3,7 +3,7 @@ title: Exempt a Microsoft Defender for Cloud recommendation from a resource, sub
 description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
 author: memildin
 ms.author: memildin
-ms.date: 11/09/2021
+ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: defender-for-cloud
 manager: rkarlin
@@ -194,21 +194,34 @@ If you try to create an exemption for this recommendation, you'll see one of the
 
 ### Are there any recommendations that don't support exemption?
 
-These recommendations don't support exemption:
+These generally available recommendations don't support exemption:
 
+- All advanced threat protection types should be enabled in SQL managed instance advanced data security settings
+- All advanced threat protection types should be enabled in SQL server advanced data security settings
+- An Azure Active Directory administrator should be provisioned for SQL servers
+- Azure Defender for Key Vault should be enabled
 - Container CPU and memory limits should be enforced
-- Privileged containers should be avoided
 - Container images should be deployed from trusted registries only
-- Containers should listen on allowed ports only
-- Services should listen on allowed ports only
-- Least privileged Linux capabilities should be enforced for container
-- Immutable (read-only) root filesystem should be enforced for containers
 - Container with privilege escalation should be avoided
-- Running containers as root user should be avoided
-- Usage of host networking and ports should be restricted
 - Containers sharing sensitive host namespaces should be avoided
-- Usage of pod HostPath volume mounts should be restricted to a known list to restrict node access from compromised containers
+- Containers should listen on allowed ports only
+- CORS should not allow every resource to access your Web Applications
+- Default IP Filter Policy should be Deny
+- Immutable (read-only) root filesystem should be enforced for containers
+- Install endpoint protection solution on your machines
+- IoT Devices - Open Ports On Device
+- IoT Devices - Permissive firewall policy in one of the chains was found
+- IoT Devices - Permissive firewall rule in the input chain was found
+- IoT Devices - Permissive firewall rule in the output chain was found
+- IP Filter rule large IP range
+- Least privileged Linux capabilities should be enforced for containers
 - Overriding or disabling of containers AppArmor profile should be restricted
+- Privileged containers should be avoided
+- Running containers as root user should be avoided
+- Services should listen on allowed ports only
+- System updates should be installed on your machines
+- Usage of host networking and ports should be restricted
+- Usage of pod HostPath volume mounts should be restricted to a known list to restrict node access from compromised containers
 
 
 ## Next steps
