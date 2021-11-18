@@ -44753,7 +44753,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/vm/monitor-vm-azure.md",
-      "redirect_url": "/azure/virtual-machines/monitor-vm.md",
+      "redirect_url": "/azure/virtual-machines/monitor-vm",
       "redirect_document_id": false
     },
     {

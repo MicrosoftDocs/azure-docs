@@ -1,25 +1,25 @@
 ---
-title: Monitoring Azure virtual machines data reference
-description: Important reference material needed when you monitor Azure virtual machines 
+title: Monitoring Azure Virtual Machines data reference
+description: Important reference material needed when you monitor Azure virtual machines.
 ms.service: virtual-machines
 ms.custom: subject-monitoring
 ms.date: 11/17/2021
 ms.topic: reference
 ---
 
-# Monitoring Azure virtual machines data reference
+# Monitoring Azure Virtual Machines data reference
 
-See [Monitoring Azure virtual machines](monitor-vm.md) for details on collecting and analyzing monitoring data for virtual machines.
+See [Monitoring Azure Virtual Machines](monitor-vm.md) for details on collecting and analyzing monitoring data for virtual machines.
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for Azure virtual machines and virtual machine scale sets.  
+This section lists all the automatically collected platform metrics collected for Azure Virtual Machines and virtual machine scale sets.  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Virtual Machines| [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
-| Virtual Machine ScaleSets | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
-| Virtual Machine ScaleSets Virtual Machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
+| Virtual machine | [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
+| Virtual machine scale set | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
+| Virtual machine Scale set virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -28,7 +28,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
 
-Azure virtual machines and virtual machine scale sets have the following dimensions associated with its metrics.
+Azure Virtual Machines and virtual machine scale sets have the following dimensions associated with its metrics.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
@@ -68,4 +68,4 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 
 ## See Also
 
-- See [Monitoring Azure virtual machines](../virtual-machines/monitor-vm.md) for a description of monitoring Azure virtual machines.
+- See [Monitoring Azure Virtual Machines](../virtual-machines/monitor-vm.md) for a description of monitoring Azure virtual machines.
