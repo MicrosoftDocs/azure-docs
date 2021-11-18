@@ -63,7 +63,7 @@ You can also upload a public SSH key to store in Azure. For information about ho
 
 Use the [az sshkey ???](/cli/azure/sshkey#az_sshkey_???) command to upload an SSH public key:
 
-Use the [az storage file upload](/cli/azure/storage/file?view=azure-cli-latest#az_storage_file_upload) command to upload an SSH public key:
+Use the [az storage file upload](/cli/azure/storage/file#az_storage_file_upload) command to upload an SSH public key:
 
 ```azurecli
 az sshkey ??? --name "mySSHKey" --resource-group "myResourceGroup"
