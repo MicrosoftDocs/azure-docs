@@ -13,7 +13,7 @@ adobe-target: true
 
 # Configure load tests in YAML
 
-Learn how to configure your load test in [YAML](https://yaml.org/). You will create a YAML test configuration to add a load test to your CI/CD workflow.
+Learn how to configure your load test in [YAML](https://yaml.org/). You'll create a YAML test configuration to add a load test to your CI/CD workflow.
 
 
 ## Load Test definition
