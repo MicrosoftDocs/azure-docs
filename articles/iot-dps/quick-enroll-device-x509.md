@@ -636,6 +636,6 @@ In this quickstart, you created an enrollment group for an X.509 intermediate or
 :::zone pivot="programming-language-nodejs"
 
 > [!div class="nextstepaction"]
->[Node.js device provisioning sample](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
+>[Node.js device provisioning sample](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples).
 
 :::zone-end

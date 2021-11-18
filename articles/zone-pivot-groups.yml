@@ -1464,3 +1464,12 @@ groups:
     title: CLI
   - id: client-portaltier
     title: Azure portal
+# Owner: timlt
+- id: iot-develop-nxp-toolset
+  title: IoT Devices
+  prompt: Choose a build environment
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
+    title: IAR EWARM

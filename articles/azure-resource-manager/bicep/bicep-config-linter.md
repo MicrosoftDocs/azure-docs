@@ -2,7 +2,7 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 11/18/2021
 ---
 
 # Add linter settings in the Bicep config file
@@ -24,6 +24,9 @@ The following example shows the rules that are available for configuration.
       "enabled": true,
       "verbose": true,
       "rules": {
+        "adminusername-should-not-be-literal": {
+          "level": "error"
+        },
         "no-hardcoded-env-urls": {
           "level": "warning"
         },
