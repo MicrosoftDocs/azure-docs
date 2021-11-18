@@ -68,7 +68,7 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 ### Sectrio
 
 - [Learn more about Sectrio integration](https://sectrio.com/threat-intelligence/)
-- [Step by step process of how to bring in Sectrio feed into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-bring-threat-intelligence-from-sectrio-using/ba-p/2964648)
+- [Step by step process for integrating Sectrio's TI feed into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-bring-threat-intelligence-from-sectrio-using/ba-p/2964648)
 
 ## Integrated threat intelligence platform products
 
