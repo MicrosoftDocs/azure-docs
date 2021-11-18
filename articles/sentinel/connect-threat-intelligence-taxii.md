@@ -36,25 +36,7 @@ TAXII 2.x servers advertise API Roots, which are URLs that host Collections of t
 > [!NOTE]
 > In some cases, the provider will only advertise a URL called a Discovery Endpoint. You can use the cURL utility to browse the discovery endpoint and request the API Root, as [detailed below](#find-the-api-root-using-curl).
 
-## Enable the Threat Intelligence - TAXII data connector in Microsoft Sentinel
-
-To import threat indicators into Microsoft Sentinel from a TAXII server, follow these steps:
-
-1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
-
-1. Choose the **workspace** to which you want to import threat indicators from the TAXII server.
-
-1. Select **Data connectors** from the menu, select **Threat Intelligence - TAXII** from the connectors gallery, and select the **Open connector page** button.
-
-1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Select the **Add** button.
-
-    :::image type="content" source="media/connect-threat-intelligence-taxii/threat-intel-configure-taxii-servers.png" alt-text="Configure TAXII servers":::
- 
-You should receive confirmation that a connection to the TAXII server was established successfully, and you may repeat the last step above as many times as you want, to connect to multiple Collections from one or more TAXII servers.
-
-Within a few minutes, threat indicators should begin flowing into this Microsoft Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade, accessible from the Microsoft Sentinel navigation menu.
-
-## Find the API Root using cURL
+### Find the API Root using cURL
 
 Here's an example of how to use the [cURL](https://en.wikipedia.org/wiki/CURL) command line utility, which is provided in Windows and most Linux distributions, to discover the API Root and browse the Collections of a TAXII server, given only the discovery endpoint. Using the discovery endpoint of the [Anomali Limo](https://www.anomali.com/community/limo) ThreatStream TAXII 2.0 server, you can request the API Root URI and then the Collections.
 
@@ -178,30 +160,60 @@ You now have all the information you need to connect Microsoft Sentinel to one o
 | **Emerging Threats - Compromised**                           |  68           |
 |
 
+## Enable the Threat Intelligence - TAXII data connector in Microsoft Sentinel
+
+To import threat indicators into Microsoft Sentinel from a TAXII server, follow these steps:
+
+1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
+
+1. Choose the **workspace** to which you want to import threat indicators from the TAXII server.
+
+1. Select **Data connectors** from the menu, select **Threat Intelligence - TAXII** from the connectors gallery, and select the **Open connector page** button.
+
+1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Select the **Add** button.
+
+    :::image type="content" source="media/connect-threat-intelligence-taxii/threat-intel-configure-taxii-servers.png" alt-text="Configure TAXII servers":::
+ 
+You should receive confirmation that a connection to the TAXII server was established successfully, and you may repeat the last step above as many times as you want, to connect to multiple Collections from one or more TAXII servers.
+
+Within a few minutes, threat indicators should begin flowing into this Microsoft Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade, accessible from the Microsoft Sentinel navigation menu.
+
+
+
 ## IP allow listing for the Microsoft Sentinel TAXII client
 
 Some TAXII servers, like like FS-ISAC, have a requirement to allow list the IP addresses of the Microsoft Sentinel TAXII client. This allow listing is not required for most TAXII servers.
 
 When relevant, the following IP addresses are those to include in your allow list:
 
-- 20.193.17.32
-- 20.197.219.106
-- 20.48.128.36
-- 20.199.186.58
-- 40.80.86.109
-- 52.158.170.36
-- 20.52.212.85
-- 52.251.70.29
-- 20.74.12.78
-- 20.194.150.139
-- 20.194.17.254
-- 51.13.75.153
-- 102.133.139.160
-- 20.197.113.87
-- 40.123.207.43
-- 51.11.168.197
-- 20.71.8.176
-- 40.64.106.65
+
+:::row:::
+   :::column span="":::
+      - 20.193.17.32
+      - 20.197.219.106
+      - 20.48.128.36
+      - 20.199.186.58
+      - 40.80.86.109
+      - 52.158.170.36
+   :::column-end:::
+   :::column span="":::
+      - 20.52.212.85
+      - 52.251.70.29
+      - 20.74.12.78
+      - 20.194.150.139
+      - 20.194.17.254
+      - 51.13.75.153
+   :::column-end:::
+   :::column span="":::
+      - 102.133.139.160
+      - 20.197.113.87
+      - 40.123.207.43
+      - 51.11.168.197
+      - 20.71.8.176
+      - 40.64.106.65
+   :::column-end:::
+:::row-end:::
+
 
 ## Next steps
 
