@@ -299,6 +299,8 @@
                 href: how-to-manage-rest.md
               - name: Link to Azure Synapse Analytics workspace
                 href: how-to-link-synapse-ml-workspaces.md
+              - name: Workspace Diagnostics
+                href: how-to-workspace-diagnostic-api.mdz
           - name: Create & manage compute resources
             items:
               - name: Compute instance

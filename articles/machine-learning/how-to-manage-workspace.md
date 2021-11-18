@@ -400,3 +400,5 @@ Examples of creating a workspace:
 Once you have a workspace, learn how to [Train and deploy a model](tutorial-train-models-with-aml.md).
 
 To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
+
+To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
