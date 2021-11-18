@@ -6,10 +6,10 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: seoapril2019, devx-track-azurepowershell
 ms.topic: how-to
-author: AlainDormehlMSFT
-ms.author: aldorme
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: mathoma, wiassaf
-ms.date: 10/13/2021
+ms.date: 11/17/2021
 ---
 
 # Configure streaming export of Azure SQL Database and SQL Managed Instance diagnostic telemetry
@@ -25,7 +25,7 @@ You will also learn about the destinations to which you can stream this diagnost
 
 ## Diagnostic telemetry for export
 
-Most important among the diagnostic telemetry that you can export is the Intelligent Insights (SQLInsights) log. [Intelligent Insights](intelligent-insights-overview.md) uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates a Intelligent Insights log with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements. You need to configure the streaming export of this log to view its contents.
+Most important among the diagnostic telemetry that you can export is the Intelligent Insights (SQLInsights) log. [Intelligent Insights](intelligent-insights-overview.md) uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates an Intelligent Insights log with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements. You need to configure the streaming export of this log to view its contents.
 
 In addition to streaming the export of the Intelligent Insights log, you can also export a variety of performance metrics and additional database logs. The following table describes the performance metrics and resources logs that you can configure for streaming export to one of several destinations. This diagnostic telemetry can be configured for single databases, elastic pools and pooled databases, and managed instances and instance databases.
 
@@ -59,7 +59,7 @@ This diagnostic telemetry can be streamed to one of the following Azure resource
   Data streamed to an [Azure Event Hub](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)provides the following functionality:
 
   - **Stream logs to 3rd party logging and telemetry systems**: Stream all of your metrics and resource logs to a single event hub to pipe log data to a third-party SIEM or log analytics tool.
-  - **Build a custom telemetry and logging platform**: The highly scalable publish-subscribe nature of event hubs allows you to flexibly ingest metrics and resource logs into a custom telemetry platform. See [Designing and Sizing a Global Scale Telemetry Platform on Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) for details.
+  - **Build a custom telemetry and logging platform**: The highly scalable publish-subscribe nature of Azure Event Hubs allows you to flexibly ingest metrics and resource logs into a custom telemetry platform. See [Designing and Sizing a Global Scale Telemetry Platform on Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) for details.
   - **View service health by streaming data to Power BI**: Use Event Hubs, Stream Analytics, and Power BI to transform your diagnostics data into near real-time insights on your Azure services. See [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md) for details on this solution.
 - **[Azure Storage](#stream-into-azure-storage)**:
 
@@ -348,7 +348,7 @@ You can configure the streaming export of this diagnostic telemetry by using the
 
 ### Configure the resource to record metrics and resource logs
 
-You need to separately configure diagnostic telemetry streaming for single and pooled databases, elastic pools, managed instances, and instance databases. The easiest way to configure where a resource records metrics is by using the Azure portal. For detailed steps, see [Configure the streaming export of diagnostic telemetry](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal#configure-the-streaming-export-of-diagnostic-telemetry).
+You need to separately configure diagnostic telemetry streaming for single and pooled databases, elastic pools, managed instances, and instance databases. The easiest way to configure where a resource records its metrics is by using the Azure portal. For detailed steps, see [Configure the streaming export of diagnostic telemetry](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal#configure-the-streaming-export-of-diagnostic-telemetry).
 
 ### Use Azure SQL Analytics for monitoring and alerting
 
@@ -423,7 +423,7 @@ If you are using Azure SQL Analytics, you can monitor your data ingestion consum
 
 ## Metrics and logs available
 
-Monitoring telemetry available for single databases, pooled databases, elastic pools, managed instance, and instance databases is documented in this section of the article. Collected monitoring telemetry inside SQL Analytics can be used for your own custom analysis and application development using [Azure Monitor log queries](../../azure-monitor/logs/get-started-queries.md) language.
+The monitoring telemetry available for single databases, pooled databases, elastic pools, managed instance, and instance databases is documented in this section of the article. Collected monitoring telemetry inside SQL Analytics can be used for your own custom analysis and application development using [Azure Monitor log queries](../../azure-monitor/logs/get-started-queries.md) language.
 
 ### Basic metrics
 
