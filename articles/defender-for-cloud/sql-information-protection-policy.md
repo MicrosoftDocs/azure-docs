@@ -6,7 +6,7 @@ documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -37,7 +37,7 @@ The information protection policy options within Defender for Cloud provide a pr
 
 There are three ways to access the information protection policy:
 
-- **(Recommended)** From the pricing and settings page of Defender for Cloud
+- **(Recommended)** From the **Environment settings** page of Defender for Cloud
 - From the security recommendation "Sensitive data in your SQL databases should be classified"
 - From the Azure SQL DB data discovery page
 
@@ -47,14 +47,14 @@ Each of these is shown in the relevant tab below.
 
 ### [**From Defender for Cloud's settings**](#tab/sqlip-tenant)
 
-### Access the policy from Defender for Cloud's pricing and settings page <a name="sqlip-tenant"></a>
+### Access the policy from Defender for Cloud's environment settings page <a name="sqlip-tenant"></a>
 
-From Defender for Cloud's **pricing and settings** page, select **SQL information protection**.
+From Defender for Cloud's **Environment settings** page, select **SQL information protection**.
 
 > [!NOTE]
 > This option only appears for users with tenant-level permissions. [Grant tenant-wide permissions to yourself](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
-:::image type="content" source="./media/sql-information-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the pricing and settings page of Microsoft Defender for Cloud.":::
+:::image type="content" source="./media/sql-information-protection-policy/environment-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the environment settings page of Microsoft Defender for Cloud.":::
 
 
 

@@ -5,7 +5,7 @@ author: memildin
 ms.author: memildin
 ms.date: 11/09/2021
 ms.topic: quickstart
-ms.service: security-center
+ms.service: defender-for-cloud
 manager: rkarlin
 ---
 
@@ -36,7 +36,7 @@ Adding a GCP account to an Azure subscription connects Defender for Cloud with G
 |Release state:|General availability (GA)|
 |Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Owner** or **Contributor** on the relevant Azure Subscription|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
 
 ## Connect your GCP account

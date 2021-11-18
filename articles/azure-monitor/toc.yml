@@ -708,7 +708,7 @@
       href: app/app-insights-overview.md
     - name: FAQ
 
-      href: /azure/azure-monitor/faq#application-insights
+      href: ./faq.yml
     - name: Application Insights SDKs
       items:
       - name: .NET
