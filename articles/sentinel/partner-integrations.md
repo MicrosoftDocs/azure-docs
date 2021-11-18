@@ -95,7 +95,7 @@ Include automation playbooks in your integration solution to support workflows w
 - Integrating alert lifecycle management across partner solutions
 
 
-## What to include in your integration?
+### What to include in your integration?
 
 The following sections describe common partner integration scenarios, and recommendations for what to include in a solution for each scenario.
 
