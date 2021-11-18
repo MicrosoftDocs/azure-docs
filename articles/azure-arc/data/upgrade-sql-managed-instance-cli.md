@@ -13,6 +13,15 @@ ms.topic: how-to
 
 # Upgrade an indirect mode Azure Arc-enabled Managed Instance using the CLI
 
+This article describes how to upgrade an Arc-enabled SQL Managed Instance
+that is created on an indirectly connected data controller using the Azure CLI (```az```).
+
+> [!IMPORTANT]
+> This article does not apply to an Arc-enabled SQL Managed Instance on a 
+>directly connected Azure Arc-enabled data controller.
+> For the latest information about how to upgrade a directly connected data controller,
+> see the [release notes](./release-notes.md#data-controller-upgrade).
+
 ## Prerequisites
 
 ### Install tools
