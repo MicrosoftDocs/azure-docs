@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/15/2021
+ms.date: 11/18/2021
 ms.custom: "mvc, references_regions"
 ---
 
@@ -83,7 +83,7 @@ The flexible server service is equipped with built-in performance monitoring and
 
 ## Built-in PgBouncer
 
-The flexible server comes with a built-in PgBouncer, a connection pooler. You can optionally enable it and connect your applications to your database server via PgBouncer using the same host name and the port 6432.
+The flexible server comes with a [built-in PgBouncer](concepts-pgbouncer.md), a connection pooler. You can optionally enable it and connect your applications to your database server via PgBouncer using the same host name and the port 6432.
 
 ## Azure regions
 

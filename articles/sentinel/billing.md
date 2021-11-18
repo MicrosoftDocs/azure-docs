@@ -1,7 +1,6 @@
 ---
 title: Plan and manage costs for Microsoft Sentinel
 description: Learn how to plan, understand, and manage costs and billing for Microsoft Sentinel by using cost analysis in the Azure portal and other methods.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.custom: subject-cost-optimization, ignite-fall-2021
