@@ -1,81 +1,68 @@
 ---
-title: Estimate costs
+title: Plan and manage costs
 titleSuffix: Azure Cognitive Search
-description: 'Learn about billable events, the pricing model, and tips for managing the cost of running a Cognitive Search service.'
+description: 'Learn about billable events, the billing model, and tips for cost control when running a Cognitive Search service.'
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 11/18/2021
 ---
 
-# Estimate and manage costs of an Azure Cognitive Search service
+# Plan and manage costs of an Azure Cognitive Search service
 
-In this article, learn about the pricing model, billable events, and tips for managing the cost of running an Azure Cognitive Search service.
+This article explains the billing model and billable events of Azure Cognitive Search, and provides direction for managing the costs.
 
-## Pricing model
+As a first step, estimate baseline costs by using the Azure pricing calculator. Alternatively, estimated costs and tier comparisons can also be found in the [**Select a pricing tier**](search-create-service-portal.md#choose-a-pricing-tier) page when creating a service.
 
-The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, and pay only for what you need.
+Azure provides built-in cost management that cuts across service boundaries to provide inclusive cost monitoring and the ability to set budgets and define alerts. The costs of running a search service will vary depending on capacity and which features you use. After you create your search service, optimize capacity so that you pay only for what you need. 
 
-The amount of resources used by your search service, multiplied by the billing rate established by the service tier, determines the cost of running the service. Costs and capacity are tightly bound. When estimating costs, understanding the capacity required to run your indexing and query workloads gives you the best idea as to what projected costs will be.
+## Understand the billing model for Azure Cognitive Search
 
-For billing purposes, there are two simple formulas to be aware of:
+Capacity is a primary determinant of billing. In Azure Cognitive Search, the scalability architecture is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, or less. 
+
+The amount of resources used by your search service, multiplied by the billing rate established by the service tier, determines the baseline cost of running the service. For billing purposes, there are two simple formulas to be aware of:
 
 | Formula | Description |
 |---------|-------------|
-| **R x P = SU** | Number of replicas used, multiplied by the number of partitions used, equals the quantity of *search units* (SU)  used by a service. An SU is a unit of resource, and it can be either a partition or a replica. |
+| **R x P = SU** | System capacity, defined as the number of replicas used, multiplied by the number of partitions used, equals the quantity of *search units* (SU)  used by a service. An SU is a unit of resource, and it can be either a partition or a replica. |
 | **SU * billing rate = monthly spend** | The number of SUs multiplied by the billing rate of the tier at which you provisioned the service is the primary determinant of your overall monthly bill. Some features or workloads have dependencies on other Azure services, which can increase the cost of your solution at the subscription level. The billable events section below identifies features that can add to your bill. |
+
+### SU minimum and maximum values
 
 Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs. This maximum can be reached in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, for example. It's common to use less than total capacity (for example, a 3-replica, 3-partition service billed as 9 SUs). See the [Partition and replica combinations](search-capacity-planning.md#chart) chart for valid combinations.
 
-The billing rate is hourly per SU. Each tier has a progressively higher rate. Higher tiers come with larger and speedier partitions, and this contributes to an overall higher hourly rate for that tier. You can view the rates for each tier on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page.
+### Billing rate
 
-Most customers bring just a portion of total capacity online, holding the rest in reserve. For billing, the number of partitions and replicas that you bring online, calculated by the SU formula, determines what you pay on an hourly basis. 
+The billing rate is hourly per SU. Each tier has a progressively higher rate. Higher tiers come with larger and faster partitions, and this contributes to an overall higher hourly rate for that tier. You can view the rates for each tier on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page.
+
+Most customers bring just a portion of total capacity online, holding the rest in reserve. For billing, the number of partitions and replicas that you bring online, calculated by the SU formula, determines the hourly rate. 
 
 ## Billable events
 
-A solution built on Azure Cognitive Search can incur costs in the following ways:
+The following table lists the billable events in an Azure Cognitive Search solution.
 
-+ [Cost of the service](#service-costs) itself, running 24x7, at minimum configuration (one partition and replica), at the base rate. You can think of this as the fixed cost of running the service.
+| Event | Description |
+|-------|-------------|
+| Service creation | The fixed cost of the service itself, running 24x7, at minimum configuration (one partition and replica), at the base rate. |
+| [Bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/)  | Applicable to [indexers](search-indexer-overview.md) and skills that extract content from resources in remote regions. There is no data egress charge for same-region data access, or for pushing data into a search source. Cognitive Search does not have a meter for outbound query responses. |
+| Add capacity | Adding either replicas or partitions an incremental increase at the billable rate. If high availability is a business requirement, you'll need 3 replicas to meet the Service Level Agreement (SLA) requirement for Azure Cognitive Search.|
+| Add premium features | Some features have dependencies on other billable Azure resources, or require additional infrastructure to support larger workloads. The following list identifies premium features. |
 
-+ Adding capacity (replicas or partitions), where costs increase at increments of the billable rate. If high availability is a business requirement, you'll need 3 replicas.
+### Add-on services required for premium features
 
-+ Bandwidth charges (outbound data transfer)
+| Feature | Description |
+|---------|-------------|
+| [AI enrichment](cognitive-search-concept-intro.md) | Using billable skills (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)). Image extraction is also billable. More details are in the following section. |
+| [Knowledge store](knowledge-store-concept-intro.md) | Stores output from AI enrichment. It requires a billable [Azure Storage](https://azure.microsoft.com/pricing/details/storage/)) account. |
+| [Enrichment cache (preview)](cognitive-search-incremental-indexing-conceptual.md) | Applies to AI enrichment. It requires a billable [Azure Storage](https://azure.microsoft.com/pricing/details/storage/)) account. <br/>Caching can significantly lower the cost of skillset processing by caching and reusing enrichments that are unaffected by changes made to a skillset. Caching requires a billable Azure Storage, but the cumulative cost of skillset execution is typically lower if existing enrichments can be reused.|
+| [Customer-managed keys](search-security-manage-encryption-keys.md)| Provides double encryption of sensitive content. It requires a billable [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)). |
+| [Private endpoints](service-create-private-endpoint.md) | Used for a no-internet data access model. It requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/)). |
+| [Semantic search](semantic-search-overview.md) |This is a metered, premium feature on Standard tiers (see the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) for costs). You can [disable semantic search](semantic-search-overview.md#disable-semantic-search) to prevent accidental usage.|
 
-+ Add-on services required for specific capabilities or premium features:
-
-  + AI enrichment using billable skills (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)). Image extraction is also billable.
-  + Knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/)). Operations to storage by indexer will be billable.
-  + Incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
-  + Customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
-  + Private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
-  + Semantic search is a premium feature on Standard tiers (see the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) for costs). You can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) to prevent accidental usage.
-
-### Service costs
-
-Unlike virtual machines or other resources that can be "paused" to avoid charges, an Azure Cognitive Search service is always available on hardware dedicated for your exclusive use. As such, creating a service is a billable event that starts when you create the service, and ends when you delete the service. 
-
-The minimum charge is the first search unit (one replica x one partition) at the billable rate. This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration. 
-
-Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: **(replicas x partitions x billing rate)**, where the rate you're charged depends on the pricing tier you select.
-
-When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear (doubling capacity more than doubles the cost on the same tier). Also, at some point, switching up to a higher tier can give you better and faster performance at roughly the same price point. For more information and an example, see [Upgrade to a Standard S2 tier](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
-
-### Bandwidth charges
-
-Using [indexers](search-indexer-overview.md) can affect billing if the Azure data source is in a different region from Azure Cognitive Search. In this scenario, there could be a cost for moving outbound data from the Azure data source to Azure Cognitive Search. For details, refer to the pricing pages of the Azure data platform in question.
-
-You can eliminate data egress charges entirely if you create the Azure Cognitive Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
-
-+ Inbound data: Microsoft doesn't charge for any inbound data to any service on Azure. 
-
-+ Outbound data:  Outbound data refers to query results. Cognitive Search does not charge for outbound data, but outbound charges from Azure are possible if services are in different regions.
-
-  These charges aren't actually part of your Azure Cognitive Search bill. They're mentioned here because if you're sending results to other regions or non-Azure apps, you could see those costs reflected in your overall bill.
-
-### AI enrichment with Cognitive Services
+### Drill-down into AI enrichment billing
 
 For [AI enrichment](cognitive-search-concept-intro.md) using billable skills, you should plan to [attach a billable Azure Cognitive Services resource](cognitive-search-attach-cognitive-services.md), in the same region as Azure Cognitive Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
 
@@ -88,30 +75,33 @@ For [AI enrichment](cognitive-search-concept-intro.md) using billable skills, yo
 | Custom skills | A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services.  There is no Cognitive Services key requirement and no 20 document limit on custom skills.|
 | [Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) | Metered by Azure Cognitive Search. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing) for details. |
 
-> [!TIP]
-> [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) lowers the cost of skillset processing by caching and reusing enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused.
+## Manage costs
 
-## Tips for managing costs
+Cost management is built into the Azure infrastructure. Review [Billing and cost management](../cost-management-billing/cost-management-billing-overview.md) for more information about tracking costs, tools, and APIs.
 
-The following guidance can help you lower costs or manage costs more effectively:
+1. Create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
 
-+ Create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
+1. Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. If there are predictable patterns to your workloads, you might be able to synchronize scale with activity (you would need to write code to automate this).
 
-+ Consolidate all services into one resource group, such as Azure Cognitive Search, Cognitive Services, and any other Azure services used in your solution. In the Azure portal, find the resource group and use the **Cost Management** commands for insight into actual and projected spending.
+  When estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear (doubling capacity more than doubles the cost on the same tier). Also, at some point, switching up to a higher tier can give you better and faster performance at roughly the same price point. For more information and an example, see [Upgrade to a Standard S2 tier](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
 
-+ Consider Azure Web App for your front-end application so that requests and responses stay within the data center boundary.
+1. Consider Azure Web App for your front-end application so that requests and responses stay within the data center boundary.
 
-+ Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Cognitive Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
+## FAQ
 
-+ Cost management is built into the Azure infrastructure. Review [Billing and cost management](../cost-management-billing/cost-management-billing-overview.md) for more information about tracking costs, tools, and APIs.
+**Can I temporarily shut down a search service to save on costs?**
 
-Shutting down a search service on a temporary basis is not possible. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. Deleting a service is permanent and also deletes its associated data.
+Search runs as a continuous service. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. To stop billing entirely, you must delete the service. Deleting a service is permanent and also deletes its associated data.
 
-In terms of the service itself, the only way to lower your bill is to reduce replicas and partitions to a level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/), or create a service at a lower tier (S1 hourly rates are lower than S2 or S3 rates). Assuming you provision your service at the lower end of your load projections, if you outgrow the service, you can create a second larger-tiered service, rebuild your indexes on the second service, and then delete the first one.
+**Can I change the tier of an existing search service?**
+
+In-place upgrade or downgrade is not supported. Changing a service tier requires provisioning a new service at the desired tier.
 
 ## Next steps
 
-Want to optimize and save on your cloud spending?
-
-> [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
++ Learn more on how pricing works with Azure Cognitive Search. See [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
++ Learn more about [replicas and partitions](search-sku-tier.md).
++ Learn [how to optimize your cloud investment with Azure Cost Management](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ Learn more about managing costs with [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ Learn about how to [prevent unexpected costs](../../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
