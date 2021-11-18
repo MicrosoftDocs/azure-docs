@@ -84,7 +84,7 @@ When you're ready to create the index, there are several ways to move forward. W
 
 During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and re-creating indexes](search-howto-reindex.md) is necessary for many modifications. You might consider working with a subset of your data to make rebuilds go faster.
 
-### [**Azure portal**](#tab/indexer-portal)
+### [**Azure portal**](#tab/index-portal)
 
 Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. In the portal, there are two options for creating a search index: 
 
@@ -100,7 +100,7 @@ The following screenshot shows where you can find **Add index** and **Import dat
 > [!Tip]
 > After creating an index in the portal, you can copy the JSON representation and add it to your application code.
 
-### [**REST**](#tab/kstore-rest)
+### [**REST**](#tab/index-rest)
 
 [**Create Index (REST)**](/rest/api/searchservice/create-index) is used to create an index. Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as a search index client. Using either tool, you can connect to your search service and send requests:
 
@@ -135,7 +135,7 @@ POST https://[servicename].search.windows.net/indexes?api-version=[api-version]
 }
 ```
 
-### [**.NET SDK**](#tab/kstore-dotnet)
+### [**.NET SDK**](#tab/index-dotnet)
 
 The Azure SDK for .NET has [**SearchIndexClient**](/dotnet/api/azure.search.documents.indexes.searchindexclient) with methods for creating and updating indexes.
 
@@ -169,7 +169,7 @@ await indexClient.CreateIndexAsync(index);
 
 For more examples, see[azure-search-dotnet-samples/quickstart/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11).
 
-### [**Other SDKs**](#tab/other-sdks)
+### [**Other SDKs**](#tab/index-other-sdks)
 
 For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create a search index. All of them provide a **SearchIndexClient** that has methods for creating and updating indexes.
 
