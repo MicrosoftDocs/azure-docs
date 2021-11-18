@@ -45,7 +45,7 @@ Full-disk encryption is optional, because this process can lengthen the initial 
  - A confidential VM with full OS disk encryption before VM deployment that uses platform-managed keys (PMK).
  - A confidential VM without OS disk encryption before VM deployment.
 
-For further integrity and protection, confidential VMs offer [Secure Boot](../windows-hardware/design/device-experiences/oem-secure-boot.md) by default. 
+For further integrity and protection, confidential VMs offer [Secure Boot](./windows-hardware/design/device-experiences/oem-secure-boot.md) by default. 
 With Secure Boot, trusted publishers must sign OS boot components (including the boot loader, kernel, and kernel drivers). All compatible confidential VM images support Secure Boot. 
 
 ### Encryption pricing differences
@@ -63,7 +63,7 @@ Confidential VMs boot only after successful attestation of the platform's critic
 - Platform firmware measurements
 - OS measurements
 
-Confidential VMs feature a virtual TPM (vTPM) for Azure VMs. The vTPM is a virtualized version of a hardware TPM, and complies with the TPM2.0 spec. You can use a vTPM as a dedicated, secure vault for keys and measurements. Confidential VMs have their own dedicated vTPM instance, which runs in a secure environment outside the reach of any VM. The [vTPM enables attestation](../windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation.md) by measuring the entire boot chain of your VM, including the UEFI, OS, system, and drivers. 
+Confidential VMs feature a virtual TPM (vTPM) for Azure VMs. The vTPM is a virtualized version of a hardware TPM, and complies with the TPM2.0 spec. You can use a vTPM as a dedicated, secure vault for keys and measurements. Confidential VMs have their own dedicated vTPM instance, which runs in a secure environment outside the reach of any VM. The [vTPM enables attestation](./windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation.md) by measuring the entire boot chain of your VM, including the UEFI, OS, system, and drivers. 
 
 ## Limitations
 
