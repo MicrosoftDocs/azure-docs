@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/30/2021
+ms.date: 11/17/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -121,7 +121,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 
 ## Create an identity
 
-Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`.
+To create access tokens, you'll need an identity. Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`.
 ```java
 CommunicationUserIdentifier user = communicationIdentityClient.createUser();
 System.out.println("\nCreated an identity with ID: " + user.getId());

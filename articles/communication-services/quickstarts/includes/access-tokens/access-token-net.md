@@ -7,14 +7,11 @@ manager: nmurav
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/30/2021
+ms.date: 11/17/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
 ---
-
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/AccessTokensQuickstart)
 
 ## Prerequisites
 
@@ -22,11 +19,14 @@ ms.author: tchladek
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
+## Final Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/AccessTokensQuickstart).
+
 ## Setting Up
 
 ### Create a new C# application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `AccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `AccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
 
 ```console
 dotnet new console -o AccessTokensQuickstart
@@ -38,6 +38,7 @@ Change your directory to the newly created app folder and use the `dotnet build`
 cd AccessTokensQuickstart
 dotnet build
 ```
+You should see a simple "Hello World" output. If everything works, it means that your setup is working correctly and that we can get started writing our ACS specific code.
 
 ### Install the package
 
@@ -51,7 +52,7 @@ dotnet add package Azure.Communication.Identity --version 1.0.0
 
 From the project directory:
 
-1. Open **Program.cs** file in a text editor
+1. Open `Program.cs` file in a text editor
 1. Add a `using` directive to include the `Azure.Communication.Identity` namespace
 1. Update the `Main` method declaration to support async code
 
@@ -78,7 +79,7 @@ namespace AccessTokensQuickstart
 ```
 ## Authenticate the client
 
-Initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
+Now we'll, initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `Main` method:
 
@@ -106,23 +107,28 @@ var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential)
 
 ## Create an identity
 
-Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`.Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
+To create access tokens, you'll need an identity. Azure Communication Services maintains a lightweight identity directory for this purpose. Use the `createUser` method to create a new entry in the directory with a unique `Id`. The identity is required later to issue access tokens.
 
 ```csharp
 var identityResponse = await client.CreateUserAsync();
 var identity = identityResponse.Value;
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 ```
+You should store the received identity with a mapping to your application's users. For example, by storing them in your application server's database.
 
 ## Issue identity access tokens
 
-Use the `GetToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed based on string representation of Azure Communication Service identity.
+Once you have an identity, use the `GetToken` method to issue an access token for the identity. The `scopes` parameter defines set of permissions/abilities, that this access token can perform. See the [list of supported actions](../../concepts/authentication.md). A new instance of a `communicationUser` can also be constructed based on string representation of an Azure Communication Service identity.
 
 ```csharp
 // Issue an access token with the "voip" scope for an identity
 var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+
+// Get the token from the response
 var token =  tokenResponse.Value.Token;
 var expiresOn = tokenResponse.Value.ExpiresOn;
+
+// Writ the token details to the screen
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
@@ -131,21 +137,24 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Create an identity and issue an access token within the same request
 
-Use the `CreateUserAndTokenAsync` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
+You can use the `CreateUserAndTokenAsync` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines set of permissions/abilities, that this access token can perform. See the [list of supported actions](../../concepts/authentication.md).
 
 ```csharp
 // Issue an identity and an access token with the "voip" scope for the new identity
 var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
+
+// Retrieve the identity, token and expiry date from the response
 var identity = identityAndTokenResponse.Value.User;
 var token = identityAndTokenResponse.Value.AccessToken.Token;
 var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
 
+// Print these details to the screen
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
 
-## Refresh access tokens
+## Refresh an access tokens
 
 To refresh an access token, pass an instance of the `CommunicationUserIdentifier` object into `GetTokenAsync`. If you've stored this `Id` and need to create a new `CommunicationUserIdentifier`, you can do so by passing your stored `Id` into the `CommunicationUserIdentifier` constructor as follows:
 
@@ -156,7 +165,7 @@ var tokenResponse = await client.GetTokenAsync(identityToRefresh, scopes: new []
 
 ## Revoke access tokens
 
-In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `RevokeTokensAsync` invalidates all active access tokens, that were issued to the identity.
+In some cases, you may need to explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. The `RevokeTokensAsync` method invalidates all active access tokens, that were issued to the identity.
 
 ```csharp
 await client.RevokeTokensAsync(identity);
@@ -174,7 +183,7 @@ Console.WriteLine($"\nDeleted the identity with ID: {identity.Id}");
 
 ## Run the code
 
-Run the application from your application directory with the `dotnet run` command.
+Once complete you can run the application from your application directory with the `dotnet run` command.
 
 ```console
 dotnet run

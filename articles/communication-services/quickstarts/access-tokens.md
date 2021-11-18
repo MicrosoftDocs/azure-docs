@@ -7,7 +7,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: tchladek
-ms.date: 06/30/2021
+ms.date: 11/17/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
