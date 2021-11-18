@@ -97,7 +97,7 @@ Include automation playbooks in your integration solution to support workflows w
 
 ## What to include in your integration?
 
-The following sections describes common partner integration scenarios, and recommendations for what to include in a solution for each scenario.
+The following sections describe common partner integration scenarios, and recommendations for what to include in a solution for each scenario.
 
 ### Your product generates data that is important to security investigations
 
@@ -113,7 +113,7 @@ The following sections describes common partner integration scenarios, and recom
 |---------|---------|
 |**Required**     |  - A Microsoft Sentinel data connector to deliver the data and link other customizations in the portal.  <br><br>Sample data queries     |
 |**Recommended**     | - Workbooks <br><br>- Analytics rules, to build detections based your data in Microsoft Sentinel       |
-|**Optional**     |  - Hunting queries, to provide hunters with out-of-the-box queries to use when hunting <br><br>- Notebooks, to deliver a fully-guided, repeatable hunting experience       |
+|**Optional**     |  - Hunting queries, to provide hunters with out-of-the-box queries to use when hunting <br><br>- Notebooks, to deliver a fully guided, repeatable hunting experience       |
 |     |         |
 
 ### Your product provides detections
@@ -140,7 +140,7 @@ The following sections describes common partner integration scenarios, and recom
 **Examples**: TIP platforms, STIX/TAXII collections, and public or licensed threat intelligence sources. Reference data, such as WhoIS, GeoIP, or newly observed domains.
 
 
-**How to use your data in Microsoft Sentinel**: Deliver current indicators to Microsoft Sentinel for use across Microsoft detection platforms. Use very large scale or historical datasets for enrichment scenarios, via remote access.
+**How to use your data in Microsoft Sentinel**: Deliver current indicators to Microsoft Sentinel for use across Microsoft detection platforms. Use large scale or historical datasets for enrichment scenarios, via remote access.
 
 **What to build**: For this scenario, include the following elements in your solution:
 
@@ -179,13 +179,13 @@ The following sections describes common partner integration scenarios, and recom
 
 ## References for getting started
 
-All Azure Sentinel Technical integrations begin with the [Microsoft Sentinel Github Repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions) and [Contribution Guidance](https://github.com/Azure/Azure-Sentinel#contributing).
+All Azure Sentinel Technical integrations begin with the [Microsoft Sentinel GitHub Repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions) and [Contribution Guidance](https://github.com/Azure/Azure-Sentinel#contributing).
 
-When you are ready to beging work on your Microsoft Sentinel solution, find instructions for submitting, packaging, and publishing in the [Guide to Building Microsoft Sentinel Solutions](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions#guide-to-building-azure-sentinel-solutions).
+When you are ready to begin work on your Microsoft Sentinel solution, find instructions for submitting, packaging, and publishing in the [Guide to Building Microsoft Sentinel Solutions](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions#guide-to-building-azure-sentinel-solutions).
 
 ### Getting to market
 
-Microsoft offers a number of programs to help partners approach Microsoft customers:
+Microsoft offers the programs to help partners approach Microsoft customers:
 
 - [Microsoft Partner Network](https://partner.microsoft.com/) (MPN). The primary program for partnering with Microsoft is the Microsoft Partner Network.  Membership in MPN is required to become an Azure Marketplace publisher, which is where all Microsoft Sentinel solutions are published.
 
@@ -201,7 +201,7 @@ Microsoft offers a number of programs to help partners approach Microsoft custom
     - Published Logic Apps connector and Microsoft Sentinel playbooks.
     - API integrations, on a case-by-case basis
 
-    To request a MISA nomination review or for questions, contact: MicrosoftSentinelPartner@microsoft.com. <!--changed from azure sentinel>
+    To request a MISA nomination review or for questions, contact: MicrosoftSentinelPartner@microsoft.com. <!--changed from Azure sentinel>
 
 ## Next steps
 
