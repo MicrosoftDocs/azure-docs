@@ -15,6 +15,8 @@ ms.custom: mvc
 
 # Tutorial: Set up disaster recovery for Linux virtual machines
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This tutorial shows you how to set up disaster recovery for Azure VMs running Linux. In this article, learn how to:
 
 > [!div class="checklist"]

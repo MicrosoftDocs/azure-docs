@@ -32,14 +32,13 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |List jobs and view job entities     |Yes         |Yes        |Yes         |
 |Export a job to a local project     |No         |Yes         |Yes         |
 |Submit, start, and stop jobs     |Yes         |Yes         |Yes         |
-|View job metrics and diagram     |Yes         |Yes         |Open in portal         |
-|View job runtime errors     |Yes         |Yes         |No         |
-|Resource logs     |Yes         |No         |No         |
-|Custom message properties     |Yes         |Yes         |No       |
-|C# custom code function and Deserializer|Read-only mode|Yes|No|
+|View job metrics and diagram     |Yes         |Yes         |Yes         |
+|View job runtime errors     |Yes         |Yes         |Yes         |
+|Resource logs     |Yes         |No         |Yes         |
+|Custom message properties     |Yes         |Yes         |Yes       |
+|C# custom code function and Deserializer|Read-only mode|Yes|Yes|
 |JavaScript UDF and UDA     |Yes         |Yes         |Windows only         |
-|Machine Learning Service     |Yes        |Yes         |No         |
-|Azure Machine Learning Studio (classic)|Yes, but the query cannot be tested        |Yes |No         |
+|Azure Machine Learning      |Yes        |Yes         |Yes         |
 |Compatibility level     |1.0</br>1.1</br>1.2  (default)         |1.0</br>1.1</br>1.2 (default)           |1.0</br>1.1</br>1.2 (default)           |
 |Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
 |Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |

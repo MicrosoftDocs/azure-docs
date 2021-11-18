@@ -2,7 +2,7 @@
 title: Azure Event Grid event schema
 description: Describes the properties and schema that are present for all events. Events consist of a set of four required string properties.
 ms.topic: reference
-ms.date: 07/07/2020
+ms.date: 09/15/2021
 ---
 
 # Azure Event Grid event schema

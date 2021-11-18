@@ -1,44 +1,53 @@
 ---
-title: Use an Azure file share with Windows | Microsoft Docs
+title: Mount SMB Azure file share on Windows | Microsoft Docs
 description: Learn to use Azure file shares with Windows and Windows Server. Use Azure file shares with SMB 3.x on Windows installations running on-premises or on Azure VMs.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 09/10/2021
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Use an Azure file share with Windows
+# Mount SMB Azure file share on Windows
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be seamlessly used in Windows and Windows Server. This article discusses the considerations for using an Azure file share with Windows and Windows Server.
 
-In order to use an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. 
+In order to use an Azure file share via the public endpoint outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. Older versions of Windows that support only SMB 2.1 cannot mount Azure file shares via the public endpoint.
 
-You can use Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support accessing file shares in which environment:
+| Windows version | SMB version | Azure Files SMB Multichannel | Maximum SMB channel encryption |
+|-|-|-|-|
+| Windows Server 2022 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 11 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 10, version 21H1 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
+| Windows Server, version 20H2 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
+| Windows 10, version 20H2 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
+| Windows Server, version 2004 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
+| Windows 10, version 2004 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
+| Windows Server 2019 | SMB 3.1.1 | Yes, with KB5003703 or newer | AES-128-GCM |
+| Windows 10, version 1809 | SMB 3.1.1 | Yes, with KB5003703 or newer | AES-128-GCM |
+| Windows Server 2016 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
+| Windows 10, version 1607 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
+| Windows 10, version 1507 | SMB 3.1.1 | Yes, with KB5004249 or newer and [applied registry key](#windows-10-version-1507) | AES-128-GCM |
+| Windows Server 2012 R2 | SMB 3.0 | No | AES-128-CCM |
+| Windows 8.1 | SMB 3.0 | No | AES-128-CCM |
+| Windows Server 2012 | SMB 3.0 | No | AES-128-CCM |
+| Windows Server 2008 R2<sup>1</sup> | SMB 2.1 | No | Not supported |
+| Windows 7<sup>1</sup> | SMB 2.1 | No | Not supported |
 
-| Windows version        | SMB version | Mountable in Azure VM | Mountable on-premises |
-|------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.1.1 | Yes | Yes |
-| Windows 10<sup>1</sup> | SMB 3.1.1 | Yes | Yes |
-| Windows Server semi-annual channel<sup>2</sup> | SMB 3.1.1 | Yes | Yes |
-| Windows Server 2016 | SMB 3.1.1 | Yes | Yes |
-| Windows 10, version 1507 | SMB 3.0 | Yes | Yes |
-| Windows 8.1 | SMB 3.0 | Yes | Yes |
-| Windows Server 2012 R2 | SMB 3.0 | Yes | Yes |
-| Windows Server 2012 | SMB 3.0 | Yes | Yes |
-| Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
-
-<sup>1</sup>Windows 10, versions 1607, 1809, 1909, 2004, and 20H2  
-<sup>2</sup>Windows Server, versions 2004 and 20H2.  
-<sup>3</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It is possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
+<sup>1</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It is possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
 
-## Prerequisites 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
+## Prerequisites 
 Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. To learn about ways to work around a blocked 445 port, see the [Cause 1: Port 445 is blocked](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) section of our Windows troubleshooting guide.
 
 ## Using an Azure file share with Windows
@@ -99,7 +108,7 @@ You have now mounted your Azure file share.
 1. When you are ready to dismount the Azure file share, you can do so by right-clicking on the entry for the share under the **Network locations** in File Explorer and selecting **Disconnect**.
 
 ### Accessing share snapshots from Windows
-If you have taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from file share on Windows. You can take a share snapshot using [Azure PowerShell](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md), or the [Azure portal](storage-how-to-use-files-portal.md).
+If you have taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from file share on Windows. You can take a share snapshot using [Azure PowerShell](./storage-how-to-use-files-portal.md), [Azure CLI](./storage-how-to-use-files-portal.md), or the [Azure portal](storage-how-to-use-files-portal.md).
 
 #### List previous versions
 Browse to the item or parent item that needs to be restored. Double-click to go to the desired directory. Right-click and select **Properties** from the menu.
@@ -119,81 +128,30 @@ Select **Restore** to copy the contents of the entire directory recursively at t
 
  ![Restore button in warning message](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
-## Securing Windows/Windows Server
-In order to mount an Azure file share on Windows, port 445 must be accessible. Many organizations block port 445 because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with Windows and Windows Server. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and all supported versions of Windows and Windows Server make it possible to remove or disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) removing or disabling the SMB 1 client and server in Windows before using Azure file shares in production.
+## Enable SMB Multichannel
+Support for SMB Multichannel in Azure Files requires ensuring Windows has all the relevant patches applied to be up-to-date. Several older Windows versions, including Windows Server 2016, Windows 10 version 1607, and Windows 10 version 1507, require additional registry keys to be set for all relevant SMB Multichannel fixes to be applied on fully patched installations. If you are running a version of Windows that is newer than these three versions, no additional action is required.
 
-The following table provides detailed information on the status of SMB 1 each version of Windows:
+### Windows Server 2016 and Windows 10 version 1607
+To enable all SMB Multichannel fixes for Windows Server 2016 and Windows 10 version 1607, run the following PowerShell command:
 
-| Windows version                           | SMB 1 default status | Disable/Remove method       | 
-|-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019                       | Disabled             | Remove with Windows feature |
-| Windows Server, versions 1709+            | Disabled             | Remove with Windows feature |
-| Windows 10, versions 1709+                | Disabled             | Remove with Windows feature |
-| Windows Server 2016                       | Enabled              | Remove with Windows feature |
-| Windows 10, versions 1507, 1607, and 1703 | Enabled              | Remove with Windows feature |
-| Windows Server 2012 R2                    | Enabled              | Remove with Windows feature | 
-| Windows 8.1                               | Enabled              | Remove with Windows feature | 
-| Windows Server 2012                       | Enabled              | Disable with Registry       | 
-| Windows Server 2008 R2                    | Enabled              | Disable with Registry       |
-| Windows 7                                 | Enabled              | Disable with Registry       | 
-
-### Auditing SMB 1 usage
-> Applies to Windows Server 2019, Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows 10 (versions 1507, 1607, 1703, 1709, and 1803), Windows Server 2012 R2, and Windows 8.1
-
-Before removing SMB 1 in your environment, you may wish to audit SMB 1 usage to see if any clients will be broken by the change. If any requests are made against SMB shares with SMB 1, an audit event will be logged in the event log under `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
-
-> [!Note]  
-> To enable auditing support on Windows Server 2012 R2 and Windows 8.1, install at least [KB4022720](https://support.microsoft.com/help/4022720/windows-8-1-windows-server-2012-r2-update-kb4022720).
-
-To enable auditing, execute the following cmdlet from an elevated PowerShell session:
-
-```powershell
-Set-SmbServerConfiguration –AuditSmb1Access $true
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
+    -Name "2291605642" `
+    -Value 1 `
+    -Force
 ```
 
-### Removing SMB 1 from Windows Server
-> Applies to Windows Server 2019, Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows Server 2012 R2
+### Windows 10 version 1507
+To enable all SMB Multichannel fixes for Windows 10 version 1507, run the following PowerShell command:
 
-To remove SMB 1 from a Windows Server instance, execute the following cmdlet from an elevated PowerShell session:
-
-```powershell
-Remove-WindowsFeature -Name FS-SMB1
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:\SYSTEM\CurrentControlSet\Services\MRxSmb\KBSwitch" `
+    -Name "{FFC376AE-A5D2-47DC-A36F-FE9A46D53D75}" `
+    -Value 1 `
+    -Force
 ```
-
-To complete the removal process, restart your server. 
-
-> [!Note]  
-> Starting with Windows 10 and Windows Server version 1709, SMB 1 is not installed by default and has separate Windows features for the SMB 1 client and SMB 1 server. We always recommend leaving both the SMB 1 server (`FS-SMB1-SERVER`) and the SMB 1 client (`FS-SMB1-CLIENT`) uninstalled.
-
-### Removing SMB 1 from Windows client
-> Applies to Windows 10 (versions 1507, 1607, 1703, 1709, and 1803) and Windows 8.1
-
-To remove SMB 1 from your Windows client, execute the following cmdlet from an elevated PowerShell session:
-
-```powershell
-Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
-```
-
-To complete the removal process, restart your PC.
-
-### Disabling SMB 1 on legacy versions of Windows/Windows Server
-> Applies to Windows Server 2012, Windows Server 2008 R2, and Windows 7
-
-SMB 1 cannot be completely removed on legacy versions of Windows/Windows Server, but it can be disabled through the Registry. To disable SMB 1, create a new registry key `SMB1` of type `DWORD` with a value of `0` under `HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Services > LanmanServer > Parameters`.
-
-You can easily accomplish this with the following PowerShell cmdlet as well:
-
-```powershell
-Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
-```
-
-After creating this registry key, you must restart your server to disable SMB 1.
-
-### SMB resources
-- [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [Discover SMB 1 in your environment with DSCEA](/archive/blogs/ralphkyttle/discover-smb1-in-your-environment-with-dscea)
-- [Disabling SMB 1 through Group Policy](/archive/blogs/secguide/disabling-smbv1-through-group-policy)
 
 ## Next steps
 See these links for more information about Azure Files:

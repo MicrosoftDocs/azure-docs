@@ -2,7 +2,7 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 10/18/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -63,7 +63,7 @@ The following recommendations for using shared access signatures can help mitiga
 
 ## Configuration for Shared Access Signature authentication
 
-You can configure the Shared Access Authorization Policy on Service Bus namespaces, queues, or topics. Configuring it on a Service Bus subscription is currently not supported, but you can use rules configured on a namespace or topic to secure access to subscriptions. For a working sample that illustrates this procedure, see the [Using Shared Access Signature (SAS) authentication with Service Bus Subscriptions](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) sample.
+You can configure the Shared Access Authorization Policy on Service Bus namespaces, queues, or topics. Configuring it on a Service Bus subscription is currently not supported, but you can use rules configured on a namespace or topic to secure access to subscriptions. 
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -256,9 +256,9 @@ The following table shows the access rights required for various operations on S
 | Get the state associated with a topic session |Listen |../myTopic/Subscriptions/mySubscription |
 | Set the state associated with a topic session |Listen |../myTopic/Subscriptions/mySubscription |
 | **Rules** | | |
-| Create a rule |Manage |../myTopic/Subscriptions/mySubscription |
-| Delete a rule |Manage |../myTopic/Subscriptions/mySubscription |
-| Enumerate rules |Manage or Listen |../myTopic/Subscriptions/mySubscription/Rules
+| Create a rule | Listen |../myTopic/Subscriptions/mySubscription |
+| Delete a rule | Listen |../myTopic/Subscriptions/mySubscription |
+| Enumerate rules | Manage or Listen |../myTopic/Subscriptions/mySubscription/Rules
 
 ## Next steps
 

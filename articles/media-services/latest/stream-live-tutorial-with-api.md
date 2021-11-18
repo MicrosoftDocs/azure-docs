@@ -65,11 +65,7 @@ git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
 
 The live-streaming sample is in the [Live](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Live) folder.
 
-Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/appsettings.json) in your downloaded project. Replace the values with the credentials that you got from [Access the Azure Media Services API with the Azure CLI](./access-api-howto.md).
-
-Note that you can also use the *.env* file format at the root of the project to set your environment variables only once for all projects in the .NET samples repository. Just copy the *sample.env* file, and then fill out the information that you got from the Media Services **API Access** page in the Azure portal or from the Azure CLI. Rename the *sample.env* file to just *.env* to use it across all projects.
-
-The *.gitignore* file is already configured to prevent publishing this file into your forked repository. 
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 > [!IMPORTANT]
 > This sample uses a unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you'll end up with multiple live events in your account.
@@ -78,14 +74,16 @@ The *.gitignore* file is already configured to prevent publishing this file into
 
 ## Examine the code that performs live streaming
 
-This section examines functions defined in the [Authentication.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Common_Utils/Authentication.cs) file and [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) file of the *LiveEventWithDVR* project.
+This section examines functions defined in the [Authentication.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Common_Utils/Authentication.cs) file (in the Common_Utils folder) and [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) file of the *LiveEventWithDVR* project.
 
 The sample creates a unique suffix for each resource so that you don't have name collisions if you run the sample multiple times without cleaning up.
 
 
 ### Start using Media Services APIs with the .NET SDK
 
-To start using Media Services APIs with .NET, you need to create an `AzureMediaServicesClient` object. To create the object, you need to supply credentials for the client to connect to Azure by using Azure Active Directory. Another option is to use interactive authentication, which is implemented in `GetCredentialsInteractiveAuthAsync`.
+Authentication.cs creates a `AzureMediaServicesClient` object using credentials supplied in the local configuration files (appsettings.json or .env).
+
+An `AzureMediaServicesClient` object allows you to start using Media Services APIs with .NET. To create the object, you need to supply credentials for the client to connect to Azure by using Azure Active Directory, which is implemented in `GetCredentailsAsync`. Another option is to use interactive authentication, which is implemented in `GetCredentialsInteractiveAuthAsync`.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
 
@@ -201,7 +199,7 @@ If you're done streaming events and want to clean up the resources provisioned e
 
 ## Watch the event
 
-To watch the event, copy the streaming URL that you got when you ran the code to create a streaming locator. You can use a media player of your choice. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) is available to test your stream at the [Media Player demo site](https://ampdemo.azureedge.net).
+Press **Ctrl+F5** to run the code. This will output streaming URLs that you can use to watch your live event. Copy the streaming URL that you got to create a streaming locator. You can use a media player of your choice. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) is available to test your stream at the [Media Player demo site](https://ampdemo.azureedge.net).
 
 A live event automatically converts events to on-demand content when it's stopped. Even after you stop and delete the event, users can stream your archived content as a video on demand for as long as you don't delete the asset. An asset can't be deleted if an event is using it; the event must be deleted first.
 

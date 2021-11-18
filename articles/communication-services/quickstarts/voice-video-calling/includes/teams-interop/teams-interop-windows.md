@@ -15,7 +15,6 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 - A working [Communication Services calling Windows app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
-
 ## Add the Teams UI controls and Enable the Teams UI controls
 
 Replace code in MainPage.xaml with following snippet. The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
@@ -65,10 +64,13 @@ namespace CallingQuickstart
         string user_token_ = "<User_Access_Token>";
 
         Call call_;
+        CallClient call_client;
+        CallAgent call_agent;        
 
         public MainPage()
         {
             this.InitializeComponent();
+            call_client = new CallClient();
         }
 
         private async void JoinButton_ClickAsync(object sender, RoutedEventArgs e)
@@ -79,20 +81,12 @@ namespace CallingQuickstart
             }
 
             //
-            //  Create CallClient
-            //
-            CallClient call_client = new CallClient();
-
-            //
             //  Create CallAgent
             //
             CommunicationTokenCredential token_credential;
-            CallAgent call_agent;
-
             try
             {
                 token_credential = new CommunicationTokenCredential(user_token_);
-
                 CallAgentOptions call_agent_options = new CallAgentOptions();
                 call_agent = await call_client.CreateCallAgent(token_credential, call_agent_options);
             }

@@ -79,7 +79,7 @@ The StorSimple devices have a mix of hard disk drives and solid-state drives for
 | Total usable capacity* |~ 15 TB |~ 38 TB |
 | Maximum solution capacity (including cloud) |200 TB |500 TB |
 
-<sup>* </sup>- *The total usable capacity includes the capacity available for data, metadata, and buffers. You can provision locally pinned volumes up to 8.5 TB on the 8100 device or up to 22.5 TB on the larger 8600 device. For more information, go to [StorSimple locally pinned volumes](storsimple-8000-local-volume-faq.md).*
+<sup>* </sup>- *The total usable capacity includes the capacity available for data, metadata, and buffers. You can provision locally pinned volumes up to 8.5 TB on the 8100 device or up to 22.5 TB on the larger 8600 device. For more information, go to [StorSimple locally pinned volumes](storsimple-8000-local-volume-faq.yml).*
 
 ## Enclosure dimensions and weight specifications
 

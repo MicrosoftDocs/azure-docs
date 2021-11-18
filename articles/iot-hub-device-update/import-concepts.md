@@ -11,6 +11,9 @@ ms.service: iot-hub-device-update
 # Importing updates into Device Update for IoT Hub
 In order to deploy an update to devices from Device Update for IoT Hub, you first have to _import_ that update into the Device Update service. Here is an overview of some important concepts to understand when it comes to importing updates.
 
+## Limits on importing updates
+Certain limits are enforced for each Device Update for IoT Hub instance. If you haven't already reviewed them, please see [Device Update limits](./device-update-limits.md).
+
 ## Import manifest
 
 An import manifest is a JSON file that defines important information about the update that you are importing. You will submit both your import manifest and associated update file or files (such as a firmware update package) as part of the import process. The metadata that is defined in the import manifest is used to ingest the update. Some of the metadata is also used at deployment time - for example, to validate if an update was installed correctly.

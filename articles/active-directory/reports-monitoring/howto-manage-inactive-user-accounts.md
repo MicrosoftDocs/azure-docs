@@ -4,7 +4,7 @@ description: Learn about how to detect and handle user accounts in Azure AD that
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -40,7 +40,7 @@ The last successful sign-in provides potential insights into a user's continued 
     
 ## How to detect inactive user accounts
 
-You detect inactive accounts by evaluating the **lastSignInDateTime** property exposed by the **signInActivity** resource type of the **Microsoft Graph** API. Using this property, you can implement a solution for the following scenarios:
+You detect inactive accounts by evaluating the **lastSignInDateTime** property exposed by the **signInActivity** resource type of the **Microsoft Graph** API. The **lastSignInDateTime** property shows the last time a user made a successful interactive sign-in to Azure AD. Using this property, you can implement a solution for the following scenarios:
 
 - **Users by name**: In this scenario, you search for a specific user by name, which enables you to evaluate the lastSignInDateTime: `https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
 
@@ -57,6 +57,9 @@ This section lists what you need to know about the lastSignInDateTime property.
 ### How can I access this property?
 
 The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) of the [Microsoft Graph REST API](/graph/overview#whats-in-microsoft-graph).   
+
+> [!NOTE]
+> The signInActivity Graph API endpoint is not yet supported in US Government GCC High environments.
 
 ### Is the lastSignInDateTime property available through the Get-AzureAdUser cmdlet?
 

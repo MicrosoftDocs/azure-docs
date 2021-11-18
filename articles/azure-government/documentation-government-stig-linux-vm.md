@@ -5,7 +5,7 @@ author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
-ms.date: 04/28/2021
+ms.date: 06/14/2021
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -48,17 +48,19 @@ Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government
 
     a. Enter the *VM name*.
 
-    b. Select the *Linux OS version*.
+    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](../virtual-machines/availability-set-overview.md).
 
-    c. Select the instance *Size*.
+    c. Select the *Linux OS version*.
 
-    d. Enter the administrator account *Username*.
+    d. Select the instance *Size*.
 
-    e. Select the Authentication type by choosing either *Password* or *Public key*.
+    e. Enter the administrator account *Username*.
 
-    f. Enter a *Password* or *Public key*.
+    f. Select the Authentication type by choosing either *Password* or *Public key*.
 
-    g. Confirm *Password* (*Public key* only needs to be input once).
+    g. Enter a *Password* or *Public key*.
+
+    h. Confirm *Password* (*Public key* only needs to be input once).
 
     > [!NOTE]
     > For instructions on creating an SSH RSA public-private key pair for SSH client connections, see **[Create and manage SSH keys for authentication to a Linux VM in Azure](../virtual-machines/linux/create-ssh-keys-detailed.md).**

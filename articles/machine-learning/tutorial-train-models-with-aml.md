@@ -9,9 +9,9 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 04/26/2021
-ms.custom: seodec18, devx-track-python, contperf-fy21q4
-#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
+ms.date: 10/21/2021
+ms.custom: seodec18, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
+#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook. 
 ---
 
 # Tutorial: Train an image classification model with an example Jupyter Notebook 
@@ -30,9 +30,9 @@ Learn how to take the following actions:
 
 You learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md).
 
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
->[!NOTE]
+> [!NOTE]
 > Code in this article was tested with [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) version 1.13.0.
 
 ## Prerequisites
@@ -49,6 +49,9 @@ Azure Machine Learning includes a cloud notebook server in your workspace for an
  Follow along with this video or use the detailed steps to clone and run the tutorial notebook from your workspace.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
+
+> [!NOTE]
+> The video helps you understand the process, but shows opening a different file.  For this tutorial, once you've cloned the **tutorials** folder, open the **img-classification-part1-training.ipynb** file from your **tutorials/image-classification-mnist-data** folder.
 
 ### <a name="clone"></a> Clone a notebook folder
 
@@ -339,12 +342,13 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Notice how the script gets data and saves models:
 
-+ The training script reads an argument to find the directory that contains the data. When you submit the job later, you point to the datastore for this argument:
-```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
+- The training script reads an argument to find the directory that contains the data. When you submit the job later, you point to the datastore for this argument:
 
-+ The training script saves your model into a directory named **outputs**. Anything written in this directory is automatically uploaded into your workspace. You access your model from this directory later in the tutorial. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
+  `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
 
-+ The training script requires the file `utils.py` to load the dataset correctly. The following code copies `utils.py` into `script_folder` so that the file can be accessed along with the training script on the remote resource.
+- The training script saves your model into a directory named **outputs**. Anything written in this directory is automatically uploaded into your workspace. You access your model from this directory later in the tutorial. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
+
+- The training script requires the file `utils.py` to load the dataset correctly. The following code copies `utils.py` into `script_folder` so that the file can be accessed along with the training script on the remote resource.
 
   ```python
   import shutil

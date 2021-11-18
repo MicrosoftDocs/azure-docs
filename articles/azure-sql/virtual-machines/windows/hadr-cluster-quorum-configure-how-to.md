@@ -3,7 +3,7 @@ title: Configure cluster quorum
 description: "Learn how to configure a disk witness, cloud witness, or a file share witness as quorum for a Windows Server Failover Cluster on SQL Server on Azure VMs. " 
 services: virtual-machines
 documentationCenter: na
-author: cawrites
+author: rajeshsetlem
 editor: 
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -11,9 +11,9 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "04/30/2021"
-ms.author: chadam
-
+ms.date: "06/01/2021"
+ms.author: rsetlem
+ms.reviewer: mathoma
 ---
 
 # Configure cluster quorum for SQL Server on Azure VMs

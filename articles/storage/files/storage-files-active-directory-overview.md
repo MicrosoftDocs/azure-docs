@@ -16,6 +16,13 @@ To learn how to enable on-premises Active Directory Domain Services authenticati
 
 To learn how to enable Azure AD DS authentication for Azure file shares, see [Enable Azure Active Directory Domain Services authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Glossary 
 It's helpful to understand some key terms relating to Azure AD Domain Service authentication over SMB for Azure file shares:
 
@@ -73,7 +80,7 @@ The following table summarizes the supported Azure file shares authentication sc
 - Azure AD DS and on-premises AD DS authentication do not support authentication against computer accounts. You can consider using a service logon account instead.
 - Neither Azure AD DS authentication nor on-premises AD DS authentication is supported against Azure AD-joined devices or Azure AD-registered devices.
 - Azure file shares only support identity-based authentication against one of the following domain services, either [Azure Active Directory Domain Services (Azure AD DS)](#azure-ad-ds) or [on-premises Active Directory Domain Services (AD DS)](#ad-ds).
-- Neither identity-based authentication method is supported with Network File System (NFS), which is in preview.
+- Neither identity-based authentication method is supported with Network File System (NFS) shares.
 
 ## Advantages of identity-based authentication
 Identity-based authentication for Azure Files offers several benefits over using Shared Key authentication:
@@ -107,7 +114,7 @@ For Azure AD DS authentication, you should enable Azure AD Domain Services and d
 
 The following diagram represents the workflow for Azure AD DS authentication to Azure file shares over SMB. It follows a similar pattern to on-prem AD DS authentication to Azure file shares. There are two major differences:
 
-- First, you don’t need to create the identity in Azure AD DS to represent the storage account. This is performed by the enablement process in the background.
+- First, you don't need to create the identity in Azure AD DS to represent the storage account. This is performed by the enablement process in the background.
 
 - Second, all users that exist in Azure AD can be authenticated and authorized. The user can be cloud only or hybrid. The sync from Azure AD to Azure AD DS is managed by the platform without requiring any user configuration. However, the client must be domain joined to Azure AD DS, it cannot be Azure AD joined or registered. 
 

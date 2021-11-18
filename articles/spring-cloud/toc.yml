@@ -10,7 +10,7 @@
   items:
     - name: Launch your first app
       href: quickstart.md
-    - name: Build and run microservices
+    - name: Build and run apps
       expanded: true
       items:
       - name: Introduction to the sample app
@@ -25,10 +25,17 @@
         href: quickstart-logs-metrics-tracing.md
       - name: Integrate with Azure Database for MySQL
         href: quickstart-integrate-azure-database-mysql.md
-      - name: Provisioning
-        items:
-        - name: Provision using an ARM template
-          href: quickstart-deploy-infrastructure-vnet.md
+    - name: Provisioning
+      expanded: true
+      items:
+      - name: Provision using an ARM template
+        href: quickstart-deploy-infrastructure-vnet.md
+      - name: Provision using Azure CLI
+        href: quickstart-deploy-infrastructure-vnet-azure-cli.md
+      - name: Provision using Terraform
+        href: quickstart-deploy-infrastructure-vnet-terraform.md
+      - name: Provision using Bicep
+        href: quickstart-deploy-infrastructure-vnet-bicep.md
 - name: Tutorials
   items:
     - name: Alerts and action groups
@@ -57,6 +64,8 @@
   items:
     - name: Security controls
       href: concept-security-controls.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json
     - name: Azure Policy Security controls
       href: ./security-controls-policy.md
     - name: Understand app status
@@ -87,14 +96,18 @@
           href: how-to-deploy-powershell.md
     - name: Manage
       items:
+        - name: Start or stop a service
+          href: how-to-start-stop-service.md
         - name: Start, stop, and delete an app
           href: how-to-start-stop-delete.md
-        - name: Use persistent storage
-          href: how-to-persistent-storage.md
+        - name: Use built-in persistent storage
+          href: how-to-built-in-persistent-storage.md
+        - name: Use custom persistent storage
+          href: how-to-custom-persistent-storage.md
         - name: Identify outbound public IP addresses
           href: how-to-outbound-public-ip.md
     - name: Scale
-      items: 
+      items:
         - name: Manually scale an app
           href: how-to-scale-manual.md
         - name: Autoscale an app
@@ -125,16 +138,26 @@
           href: how-to-circuit-breaker-metrics.md
         - name: Structured application log
           href: structured-app-log.md
+        - name: Use Dynatrace Java OneAgent
+          href: how-to-dynatrace-one-agent-monitor.md
         - name: New Relic Java in-process agent
-          href: how-to-new-relic-monitor.md          
+          href: how-to-new-relic-monitor.md
+        - name: AppDynamics in-process agent
+          href: how-to-appdynamics-java-agent-monitor.md
+        - name: Monitor app lifecycle events
+          href: monitor-app-lifecycle-events.md
+        - name: Logback with custom persistent storage
+          href: how-to-write-log-to-custom-persistent-storage.md
     - name: Network
-      items: 
+      items:
         - name: Deploy Azure Spring Cloud in a virtual network
           href: how-to-deploy-in-azure-virtual-network.md
         - name: Access your application in a private network
           href: access-app-virtual-network.md
-        - name: Expose applications to the Internet
-          href: expose-apps-gateway-azure-firewall.md
+        - name: Expose applications to the internet
+          href: expose-apps-gateway.md
+        - name: Configure Palo Alto
+          href: how-to-configure-palo-alto.md
         - name: Customer responsibilities running Azure Spring Cloud in VNET
           href: vnet-customer-responsibilities.md
         - name: Troubleshooting Azure Spring Cloud in virtual networks
@@ -145,20 +168,12 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Create roles and permissions
           href: how-to-permissions.md
+        - name: Use TLS/SSL certificates
+          href: how-to-use-tls-certificate.md
         - name: Enable end-to-end Transport Layer Security
           href: how-to-enable-end-to-end-tls.md
         - name: Access Config Server and Service Registry
           href: how-to-access-data-plane-azure-ad-rbac.md
-    - name: Integrate
-      items:
-        - name: Bind an app to Azure CosmosDB
-          href: how-to-bind-cosmos.md
-        - name: Bind an app to Azure Cache for Redis
-          href: how-to-bind-redis.md
-        - name: Bind an app to Azure MySQL
-          href: how-to-bind-mysql.md
-        - name: Integrate with Azure Load Balance Solutions
-          href: how-to-integrate-azure-load-balancers.md
     - name: Automate
       items:
         - name: CI/CD with Azure DevOps
@@ -167,8 +182,6 @@
           href: how-to-github-actions.md
         - name: Auth with Key Vault in GitHub Actions
           href: github-actions-key-vault.md
-        - name: Provision an Azure Spring Cloud instance with terraform
-          href: how-to-provision-azure-spring-cloud-instance-terraform.md
     - name: Troubleshoot
       items:
         - name: Self diagnose and solve problems
@@ -177,6 +190,10 @@
           href: how-to-self-diagnose-running-in-vnet.md
         - name: Troubleshooting guide
           href: troubleshoot.md
+        - name: Manually capture heap dump/thread dump/JFR
+          href: how-to-capture-dumps.md
+        - name: JVM option based troubleshooting
+          href: tutorial-dump-jvm-options.md
     - name: Migrate
       items:
         - name: Spring Cloud

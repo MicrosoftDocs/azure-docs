@@ -3,14 +3,14 @@ title: 'How-to: Develop Custom Commands applications - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to develop and customize Custom Commands applications. These voice-command apps are best suited for task completion or command-and-control scenarios.
 services: cognitive-services
-author: trevorbye
 
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.author: trbye
+ms.author: eur
 ---
 
 # Develop Custom Commands applications
@@ -93,7 +93,7 @@ For more information about rules and completion rules, see [Custom Commands conc
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Name**       | `ConfirmationResponse`                  | A name describing the purpose of the rule          |
     | **Conditions** | None                                     | Conditions that determine when the rule can run    |
-    | **Actions**    | **Send speech response** > **Simple editor** > **First variation** > `Ok, turning the tv on` | The action to take when the rule condition is true |
+    | **Actions**    | **Send speech response** > **Simple editor** > `Ok, turning the tv on` | The action to take when the rule condition is true |
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot showing where to create a speech response.](media/custom-commands/create-speech-response-action.png)
@@ -149,7 +149,7 @@ Try out the following utterance examples by using voice or text:
 - Expected response: Ok, setting an alarm for 9 am tomorrow
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot showing the test in a web-chat interface.](media/custom-commands/create-basic-test-chat.png)
+> ![Screenshot showing the test in a web-chat interface.](media/custom-commands/create-basic-test-chat-no-mic.png)
 
 > [!TIP]
 > In the test pane, you can select **Turn details** for information about how this voice input or text input was processed.
@@ -163,9 +163,9 @@ In this section, you learn how to add parameters to your commands. Commands requ
 Start by editing the existing `TurnOn` command to turn on and turn off multiple devices.
 
 1. Now that the command will handle both on and off scenarios, rename the command as *TurnOnOff*.
-   1. In the pane on the left, select the **TurnOn** command. Then next to **New command** at the top of the pane, select the ellipsis (**...**) button.
+   1. In the pane on the left, select the **TurnOn** command. Then next to **New command** at the top of the pane, select the edit button.
 
-   1. Select **Rename**. In the **Rename command** window, change the name to *TurnOnOff*.
+   1. In the **Rename command** window, change the name to *TurnOnOff*.
 
 1. Add a new parameter to the command. The parameter represents whether the user wants to turn the device on or off.
    1. At top of the middle pane, select  **Add**. From the drop-down menu, select **Parameter**.
@@ -182,7 +182,6 @@ Start by editing the existing `TurnOn` command to turn on and turn off multiple 
        | Configuration      | Suggested value     | Description                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | **Name**               | `OnOff`           | A descriptive name for the parameter                                                                           |
-       | **Is Global**          | Unselected       | Check box indicating whether a value for this parameter is globally applied to all commands in the application.|
        | **Required**           | Selected         | Check box indicating whether a value for this parameter is required before the command finishes. |
        | **Response for required parameter**      |**Simple editor** > `On or Off?`      | A prompt asking for the value of this parameter when it isn't known. |
        | **Type**               | **String**          | Parameter type, such as Number, String, Date Time, or Geography.   |
@@ -205,7 +204,6 @@ Start by editing the existing `TurnOn` command to turn on and turn off multiple 
     | Setting            | Suggested value       |
     | ------------------ | --------------------- |
     | **Name**               | `SubjectDevice`         |
-    | **Is Global**          | Unselected             |
     | **Required**           | Selected               |
     | **Response for required parameter**     | **Simple editor** > `Which device do you want to control?`    | 
     | **Type**               | **String**                |     
@@ -272,11 +270,11 @@ When the training finishes, select **Test**. A **Test your application** window 
 
 Modify the `SetTemperature` command to enable it to set the temperature as the user directs.
 
-Add a `Temperature` parameter. Use the following configuration:
+Add a `TemperatureValue` parameter. Use the following configuration:
 
 | Configuration      | Suggested value     |
 | ------------------ | ----------------|
-| **Name**               | `Temperature`           |
+| **Name**               | `TemperatureValue`           |
 | **Required**           | Selected         |
 | **Response for required parameter**      | **Simple editor** > `What temperature would you like?`
 | **Type**               | `Number`          |
@@ -285,8 +283,8 @@ Add a `Temperature` parameter. Use the following configuration:
 Edit the example utterances to use the following values.
 
 ```
-set the temperature to {Temperature} degrees
-change the temperature to {Temperature}
+set the temperature to {TemperatureValue} degrees
+change the temperature to {TemperatureValue}
 set the temperature
 change the temperature
 ```
@@ -295,8 +293,8 @@ Edit the existing completion rules. Use the following configuration.
 
 | Configuration      | Suggested value     |
 | ------------------ | ----------------|
-| **Conditions**         | **Required parameter** > **Temperature**           |
-| **Actions**           | **Send speech response** > `Ok, setting temperature to {Temperature} degrees` |
+| **Conditions**         | **Required parameter** > **TemperatureValue**           |
+| **Actions**           | **Send speech response** > `Ok, setting temperature to {TemperatureValue} degrees` |
 
 ### Configure parameters for a SetAlarm command
 
@@ -354,16 +352,15 @@ The Custom Commands feature allows you to configure string-type parameters to re
 
 Reuse the `SubjectDevice` parameter from the `TurnOnOff` command. The current configuration for this parameter is **Accept predefined inputs from internal catalog**. This configuration refers to a static list of devices in the parameter configuration. Move out this content to an external data source that can be updated independently.
 
-To move the content, start by adding a new web endpoint. In the pane on the left, go to the **Web endpoints** section. There, add a new web endpoint. Use the following configuration.
+To move the content, start by adding a new web endpoint. In the pane on the left, go to the **Web endpoints** section. There, add a new web endpoint URL. Use the following configuration.
 
 | Setting | Suggested value |
 |----|----|
 | **Name** | `getDevices` |
-| **URL** | `https://aka.ms/speech/cc-sampledevices` |
+| **URL** | `<Your endpoint of getDevices.json>` |
 | **Method** | **GET** |
 
-
-If the suggested value for the URL doesn't work for you, configure and host a web endpoint that returns a JSON file that consists of the list of the devices that can be controlled. The web endpoint should return a JSON file formatted as follows:
+Then, configure and host a web endpoint that returns a JSON file that lists the devices that can be controlled. The web endpoint should return a JSON file that's formatted like this example:
 
 ```json
 {
@@ -458,26 +455,26 @@ To add a confirmation, you use the `SetTemperature` command. To achieve confirma
 
     1. Modify the **Confirm command** interaction rule by using the following configuration:
         1. Change the name to **Confirm temperature**.
-        1. Add a new condition: **Required parameters** > **Temperature**.
-        1. Add a new action: **Type** > **Send speech response** > **Are you sure you want to set the temperature as {Temperature} degrees?**
+        1. The condition **All required parameters** has already been added.
+        1. Add a new action: **Type** > **Send speech response** > **Are you sure you want to set the temperature as {TemperatureValue} degrees?**
         1. In the **Expectations** section, leave the default value of **Expecting confirmation from user**.
 
          > [!div class="mx-imgBorder"]
-         > ![Screenshot showing how to create the required parameter response.](media/custom-speech-commands/add-validation-set-temperature.png)
+         > ![Screenshot showing how to create the required parameter response.](media/custom-speech-commands/add-confirmation-set-temperature.png)
 
 
     1. Modify the **Confirmation succeeded** interaction rule to handle a successful confirmation (the user said yes).
 
           1. Change the name to **Confirmation temperature succeeded**.
           1. Leave the existing **Confirmation was successful** condition.
-          1. Add a new condition: **Type** > **Required parameters** > **Temperature**.
+          1. Add a new condition: **Type** > **Required parameters** > **TemperatureValue**.
           1. Leave the default **Post-execution state** value as **Execute completion rules**.
 
     1. Modify the **Confirmation denied** interaction rule to handle scenarios when confirmation is denied (the user said no).
 
           1. Change the name to **Confirmation temperature denied**.
           1. Leave the existing **Confirmation was denied** condition.
-          1. Add a new condition: **Type** > **Required parameters** > **Temperature**.
+          1. Add a new condition: **Type** > **Required parameters** > **TemperatureValue**.
           1. Add a new action: **Type** > **Send speech response** > **No problem. What temperature then?**.
           1. Change the default **Post-execution state** value to **Wait for user's input**.
 
@@ -583,7 +580,6 @@ Modify the `TurnOnOff` command to add a new parameter. Use the following configu
 | Setting            | Suggested value       |
 | ------------------ | --------------------- |
 | **Name**               | `SubjectContext`         |
-| **Is Global**          | Unselected             |
 | **Required**           | Unselected               |
 | **Type**               | **String**                |
 | **Default value**      | `all` |

@@ -144,7 +144,7 @@ Create the virtual network to which the function app integrates:
 
 Azure private endpoints are used to connect to specific Azure resources by using a private IP address. This connection ensures that network traffic remains within the chosen virtual network and access is available only for specific resources. 
 
-Create the private endpoints for Azure Files storage and Azure Blob Storage by using your storage account:
+Create the private endpoints for Azure Files Storage, Azure Blob Storage and Azure Table Storage by using your storage account:
 
 1. In your new storage account, in the menu on the left, select **Networking**.
 
@@ -183,6 +183,15 @@ Create the private endpoints for Azure Files storage and Azure Blob Storage by u
     | **Name** | blob-endpoint | The name of the private endpoint for blobs from your storage account. |
     | **Resource** | mysecurestorage | The storage account you created. |
     | **Target sub-resource** | blob | The private endpoint that will be used for blobs from the storage account. |
+1. Create another private endpoint for tables. On the **Resources** tab, use the settings shown in the following table. For all other settings, use the same values you used to create the private endpoint for files.
+
+    | Setting      | Suggested value  | Description      |
+    | ------------ | ---------------- | ---------------- |
+    | **Subscription** | Your subscription | The subscription under which your resources are created. | 
+    | **Resource type**  | Microsoft.Storage/storageAccounts | The resource type for storage accounts. |
+    | **Name** | table-endpoint | The name of the private endpoint for blobs from your storage account. |
+    | **Resource** | mysecurestorage | The storage account you created. |
+    | **Target sub-resource** | table | The private endpoint that will be used for tables from the storage account. |
 1. After the private endpoints are created, return to the **Firewalls and virtual networks** section of your storage account.  
 1. Ensure **Selected networks** is selected.  It's not necessary to add an existing virtual network.
 
@@ -292,6 +301,8 @@ To use your function app with virtual networks, you need to join it to a subnet.
 
 1. Select the **functions** subnet you created earlier. Select **OK**.  Your function app is now integrated with your virtual network!
 
+    If the virtual network and function app are in different subscriptions, you need to first provide **Contributor** access to the service principal **Microsoft Azure App Service** on the virtual network.
+
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Screenshot of how to connect a function app to a subnet.":::
 
 ## Configure your function app settings
@@ -300,8 +311,6 @@ To use your function app with virtual networks, you need to join it to a subnet.
 
 1. To use your function app with virtual networks, update the app settings shown in the following table. To add or edit a setting, select **+ New application setting** or the **Edit** icon in the rightmost column of the app settings table. When you finish, select **Save**.
 
-    :::image type="content" source="./media/functions-create-vnet/10-configure-app-settings.png" alt-text="Screenshot of how to configure function app settings for private endpoints.":::
-
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **AzureWebJobsStorage** | mysecurestorageConnectionString | The connection string of the storage account you created. This storage connection string is from the [Get the storage account connection string](#get-the-storage-account-connection-string) section. This setting allows your function app to use the secure storage account for normal operations at runtime. | 
@@ -309,8 +318,7 @@ To use your function app with virtual networks, you need to join it to a subnet.
     | **WEBSITE_CONTENTSHARE** | files | The name of the file share you created in the storage account. Use this setting with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. |
     | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Create this app setting for the connection string of your Service Bus. This storage connection string is from the [Get a Service Bus connection string](#get-a-service-bus-connection-string) section.|
     | **WEBSITE_CONTENTOVERVNET** | 1 | Create this app setting. A value of 1 enables your function app to scale when your storage account is restricted to a virtual network. |
-    | **WEBSITE_DNS_SERVER** | 168.63.129.16 | Create this app setting. When your app integrates with a virtual network, it will use the same DNS server as the virtual network. Your function app needs this setting so it can work with Azure DNS private zones. It's required when you use private endpoints. This setting and WEBSITE_VNET_ROUTE_ALL will send all outbound calls from your app into your virtual network. |
-    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Create this app setting. When your app integrates with a virtual network, it uses the same DNS server as the virtual network. Your function app needs this setting so it can work with Azure DNS private zones. It's required when you use private endpoints. This setting and WEBSITE_DNS_SERVER will send all outbound calls from your app into your virtual network. |
+    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Create this app setting. When your app integrates with a virtual network, it uses the same DNS server as the virtual network. Your function app needs this setting so it can work with Azure DNS private zones. It's required when you use private endpoints. |
 
 1. In the **Configuration** view, select the **Function runtime settings** tab.
 

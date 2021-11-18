@@ -4,18 +4,27 @@ description: QnA Maker is a cloud-based NLP service that easily creates a natura
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/22/2021
-ms.custom: cog-serv-seo-aug-2020
+ms.date: 11/02/2021
 keywords: "qna maker, low code chat bots, multi-turn conversations"
+ms.custom: ignite-fall-2021
 ---
 
 # What is QnA Maker?
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 QnA Maker is a cloud-based Natural Language Processing (NLP) service that allows you to create a natural conversational layer over your data. It is  used to find the most appropriate answer for any input from your custom knowledge base (KB) of information.
 
 QnA Maker is commonly used to build conversational client applications, which include social media applications, chat bots, and speech-enabled desktop applications.
 
-QnA Maker doesn't store customer data. All customer data (question answers and chatlogs) is stored in the region the customer deploys the dependent service instances in. For more details on dependent services see [here](../concepts/plan.md?tabs=v1).
+QnA Maker doesn't store customer data. All customer data (question answers and chat logs) is stored in the region the customer deploys the dependent service instances in. For more details on dependent services see [here](../concepts/plan.md?tabs=v1).
+
+This documentation contains the following article types:
+
+* The [quickstarts](../quickstarts/create-publish-knowledge-base.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](../how-to/set-up-qnamaker-service-azure.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](../concepts/plan.md) provide in-depth explanations of the service's functionality and features.
+* [**Tutorials**](../tutorials/create-faq-bot-with-azure-bot-service.md) are longer guides that show you how to use the service as a component in broader business solutions.
 
 ## When to use QnA Maker
 

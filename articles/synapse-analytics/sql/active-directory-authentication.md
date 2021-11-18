@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 ---
 # Use Azure Active Directory Authentication for authentication with Synapse SQL
 
-Azure Active Directory authentication is a mechanism that connects to [Azure Synapse Analytics](../overview-faq.md) by using identities in Azure Active Directory (Azure AD).
+Azure Active Directory authentication is a mechanism that connects to [Azure Synapse Analytics](../overview-faq.yml) by using identities in Azure Active Directory (Azure AD).
 
 With Azure AD authentication, you can centrally manage user identities that have access to Azure Synapse to simplify permission management. Benefits include the following:
 
@@ -56,7 +56,7 @@ It's important to understand that access to a database using Azure AD authentica
 
 ## Administrator structure
 
-When using Azure AD authentication, there are two Administrator accounts for the Synapse SQL; the original SQL Server administrator and the Azure AD administrator. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. 
+When using Azure AD authentication, there are two Administrator accounts for the Synapse SQL; the original SQL administrator (using SQL authentication) and the Azure AD administrator. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. 
 
 The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the Synapse SQL instance. 
 
@@ -66,7 +66,7 @@ Using group account as an administrator enhances manageability by allowing you t
 
 ## Permissions
 
-To create new users, you must have the `ALTER ANY USER` permission in the database. The `ALTER ANY USER` permission can be granted to any database user. The `ALTER ANY USER` permission is also held by the server administrator accounts, and database users with the `CONTROL ON DATABASE` or `ALTER ON DATABASE` permission for that database, and by members of the `db_owner` database role.
+To create new users, you must have the `ALTER ANY USER` permission in the database. The `ALTER ANY USER` permission can be granted to any database user. The `ALTER ANY USER` permission is also held by the SQL administrator and Azure AD administrator accounts, and database users with the `CONTROL ON DATABASE` or `ALTER ON DATABASE` permission for that database, and by members of the `db_owner` database role.
 
 To create a contained database user in Synapse SQL, you must connect to the database or instance using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure AD administrator (who is the owner of the database). 
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: In this tutorial, you build a machine learning pipeline to perform batch scoring. Focus on machine learning instead of infrastructure and automation.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: tutorial
 author: lobrien
 ms.author: laobri
@@ -31,7 +31,7 @@ In this tutorial, you complete the following tasks:
 > * Build, run, and publish a pipeline
 > * Enable a REST endpoint for the pipeline
 
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 ## Prerequisites
 

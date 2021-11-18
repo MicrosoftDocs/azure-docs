@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 07/26/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -55,7 +55,7 @@ You can configure your virtual network to use both Site-to-Site and Point-to-Sit
 
 ## <a name="privacy"></a>Privacy
 
-### Does the VPN service store customer data?
+### Does the VPN service store or process customer data?
 
 No.
 
@@ -72,6 +72,10 @@ Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and
 ### What is a route-based (dynamic-routing) gateway?
 
 Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selectors for route-based VPNs are configured as any-to-any (or wild cards).
+
+### Can I specify my own policy-based traffic selectors?
+
+Yes, traffic selectors can be defined via the *trafficSelectorPolicies* attribute on a connection via the [New-AzIpsecTrafficSelectorPolicy](/powershell/module/az.network/new-azipsectrafficselectorpolicy) PowerShell command. For the specified traffic selector to take effect, ensure the [Use Policy Based Traffic Selectors](vpn-gateway-connect-multiple-policybased-rm-ps.md#enablepolicybased) option is enabled.
 
 ### Can I update my policy-based VPN gateway to route-based?
 
@@ -177,6 +181,10 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
+### Can i connect to Azure Gateway via Point-to-Site when located at a Site that has an active Site-to-Site connection?
+
+Yes, but the Public IP address(es) of the Point-to-Site client need to be different than the Public IP address(es) used by the Site-to-Site VPN device, else the Point-to-Site connection will not work. Point-to-Site connections with IKEv2 cannot be initiated from the same Public IP address(es) where a Site-to-Site VPN connection is configured on the Same Azure VPN Gateway. 
+
 ## <a name="P2S"></a>Point-to-Site - Certificate authentication
 
 This section applies to the Resource Manager deployment model.
@@ -240,6 +248,10 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 ### Can I configure forced tunneling?
 
 Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
+
+## <a name="nat"></a>NAT
+
+[!INCLUDE [vpn-gateway-faq-nat-include](../../includes/vpn-gateway-faq-nat-include.md)]
 
 ## <a name="vms"></a>Cross-premises connectivity and VMs
 

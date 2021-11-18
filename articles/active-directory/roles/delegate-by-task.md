@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/05/2020
+ms.date: 11/16/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -20,6 +20,8 @@ ms.collection: M365-identity-device-management
 # Administrator roles by admin task in Azure Active Directory
 
 In this article, you can find the information needed to restrict a user's administrator permissions by assigning least privileged roles in Azure Active Directory (Azure AD). You will find administrator tasks organized by feature area and the least privileged role required to perform each task, along with additional non-Global Administrator roles that can perform the task.
+
+You can further restrict permissions by assigning roles at smaller scopes or by creating your own custom roles. For more information, see [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md) or [Create and assign a custom role](custom-create.md).
 
 ## Application proxy
 
@@ -51,6 +53,7 @@ In this article, you can find the information needed to restrict a user's admini
 > | Create, read, update, and delete sign-up user flow |External ID User Flow Administrator |  |
 > | Create, read, update, and delete user attributes | External ID User Flow Attribute Administrator |  |
 > | Create, read, update, and delete users | User Administrator |  |
+> | Configure B2B external collaboration settings | Global Administrator |  |
 > | Read all configuration | Global Reader |  |
 > | Read B2C audit logs | Global Reader ([see documentation](../../active-directory-b2c/faq.yml)) |  |
 
@@ -96,17 +99,17 @@ In this article, you can find the information needed to restrict a user's admini
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
 > | Add or delete services | Owner ([see documentation](../hybrid/how-to-connect-health-operations.md)) |  |
-> | Apply fixes to sync error | Contributor ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Owner |
-> | Configure notifications | Contributor ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Owner |
+> | Apply fixes to sync error | Contributor ([see documentation](../fundamentals/users-default-permissions.md)) | Owner |
+> | Configure notifications | Contributor ([see documentation](../fundamentals/users-default-permissions.md)) | Owner |
 > | Configure settings | Owner ([see documentation](../hybrid/how-to-connect-health-operations.md)) |  |
-> | Configure sync notifications | Contributor ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Owner |
+> | Configure sync notifications | Contributor ([see documentation](../fundamentals/users-default-permissions.md)) | Owner |
 > | Read ADFS security reports | Security Reader | Contributor<br/>Owner
-> | Read all configuration | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
-> | Read sync errors | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
-> | Read sync services | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
-> | View metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
-> | View metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
-> | View sync service metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
+> | Read all configuration | Reader ([see documentation](../fundamentals/users-default-permissions.md)) | Contributor<br/>Owner |
+> | Read sync errors | Reader ([see documentation](../fundamentals/users-default-permissions.md)) | Contributor<br/>Owner |
+> | Read sync services | Reader ([see documentation](../fundamentals/users-default-permissions.md)) | Contributor<br/>Owner |
+> | View metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md)) | Contributor<br/>Owner |
+> | View metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md)) | Contributor<br/>Owner |
+> | View sync service metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md)) | Contributor<br/>Owner |
 
 ## Custom domain names
 
@@ -161,8 +164,8 @@ In this article, you can find the information needed to restrict a user's admini
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Add resources to a catalog | User Administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)) |
-> | Add SharePoint Online sites to catalog | Global Administrator |  |
+> | Add resources to a catalog | Identity Governance Administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-more-catalog-owners)) |
+> | Add SharePoint Online sites to catalog | SharePoint Administrator |  |
 
 ## Groups
 
@@ -221,7 +224,7 @@ In this article, you can find the information needed to restrict a user's admini
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Read sign-in logs | Reports Reader | Security Reader<br/>Security Administrator |
+> | Read sign-in logs | Reports Reader | Security Reader<br/>Security Administrator<br/> Global Reader |
 
 ## Multi-factor authentication
 
@@ -361,6 +364,7 @@ In this article, you can find the information needed to restrict a user's admini
 > | Add user to group | User Administrator |  |
 > | Assign license | License Administrator | User Administrator |
 > | Create guest user | Guest inviter | User Administrator |
+> | Reset guest user invite | User Administrator | Global Administrator |
 > | Create user | User Administrator |  |
 > | Delete users | User Administrator |  |
 > | Invalidate refresh tokens of limited admins (see documentation) | User Administrator |  |
@@ -386,5 +390,7 @@ In this article, you can find the information needed to restrict a user's admini
 
 ## Next steps
 
-* [How to assign or remove azure AD administrator roles](manage-roles-portal.md)
-* [Azure AD built-in roles](permissions-reference.md)
+- [Assign Azure AD roles to users](manage-roles-portal.md)
+- [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md)
+- [Create and assign a custom role in Azure Active Directory](custom-create.md)
+- [Azure AD built-in roles](permissions-reference.md)

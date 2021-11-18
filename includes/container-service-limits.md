@@ -1,9 +1,7 @@
 ---
 title: include file
 description: include file
-services: container-service
 author: mlearned
-
 ms.service: container-service
 ms.topic: include
 ms.date: 04/06/2021
@@ -21,7 +19,14 @@ ms.custom: include file
 | Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface        | Maximum: 250 <br /> Default: 30                                                      |
 | Open Service Mesh (OSM) AKS addon preview                                                                          | Kubernetes Cluster Version: 1.19+<sup>1</sup><br />OSM controllers per cluster: 1<sup>1</sup><br />Pods per OSM controller: 500<sup>1</sup><br />Kubernetes service accounts managed by OSM: 50<sup>1</sup> |
 
-<sup>1</sup>The OSM add-on for AKS is in a preview state and will undergo additional enhancements before general availability (GA). During the preview phase, it's recommended to not surpass the limits shown.<br />
+<sup>1</sup> The OSM add-on for AKS is in a preview state and will undergo additional enhancements before general availability (GA). During the preview phase, it's recommended to not surpass the limits shown.<br />
+
+<br />
+
+| Kubernetes Control Plane tier | Limit |  
+| -------------- | :--------------------------------------------- |
+| Paid tier      | Automatically scales out based on the load     |
+| Free tier      | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls   |
 
 <!-- LINKS - Internal -->
 

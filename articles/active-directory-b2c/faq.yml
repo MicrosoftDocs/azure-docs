@@ -3,14 +3,14 @@ metadata:
   title: 'Frequently asked questions (FAQ) for Azure Active Directory B2C'
   description: Answers to frequently asked questions about Azure Active Directory B2C.
   services: active-directory-b2c
-  author: msmimart
-  manager: celestedg
+  author: kengaderdus
+  manager: CelesteDG
   
   ms.service: active-directory
   ms.workload: identity
   ms.topic: conceptual
-  ms.date: 05/14/2021
-  ms.author: mimart
+  ms.date: 10/26/2021
+  ms.author: kengaderdus
   ms.subservice: B2C
     
 title: 'Azure AD B2C: Frequently asked questions (FAQ)'
@@ -149,7 +149,7 @@ sections:
       - question: |
           Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
         answer: |
-          This feature is available in public preview. For details, see [Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).
+          Yes, you can use your own domain. For details, see [Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).
           
       - question: |
           How do I delete my Azure AD B2C tenant?
@@ -161,7 +161,8 @@ sections:
           #### [App registrations](#tab/app-reg-ga/)
           
           1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
-          1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+          1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+          1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
           1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
           1. Delete all **User flows (policies)** in your Azure AD B2C tenant.
           1. Delete all **Identity Providers** in your Azure AD B2C tenant.
@@ -180,7 +181,8 @@ sections:
           #### [Applications (Legacy)](#tab/applications-legacy/)
           
           1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
-          1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+          1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+          1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
           1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
           1. Delete all the **User flows (policies)** in your Azure AD B2C tenant.
           1. Delete all the **Applications (Legacy)** you registered in your Azure AD B2C tenant.
@@ -204,7 +206,15 @@ sections:
           Can I get Azure AD B2C as part of Enterprise Mobility Suite?
         answer: |
           No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise Mobility Suite.
+          
+      - question: |
+          What Azure AD B2C features are unavailable in Microsoft Azure Government?
+        answer: |
+          The following AD B2C features are currently unavailable in Microsoft Azure Government:
 
+          * API connectors
+          * Conditional Access
+          
       - question: |
           How do I report issues with Azure AD B2C?
         answer: |

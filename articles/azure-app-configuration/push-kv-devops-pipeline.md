@@ -19,6 +19,7 @@ The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?it
 - App Configuration resource - create one for free in the [Azure portal](https://portal.azure.com).
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
 - Azure App Configuration Push task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
+- [Node 10](https://nodejs.org/en/blog/release/v10.21.0/) - for users running the task on self-hosted agents.
 
 ## Create a service connection
 
@@ -94,6 +95,10 @@ If an unexpected error occurs, debug logs can be enabled by setting the pipeline
 **How can I upload multiple configuration files?**
 
 Create multiple instances of the Azure App Configuration Push task within the same pipeline to push multiple configuration files to the App Configuration store.
+
+**How can I create Key Vault references using this task?**
+
+To create Key Vault references, set the "Content Type" parameter to *application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8*. If not all key-values in a configuration file are Key Vault references, put Key Vault references and normal key-values in separate configuration files, and push them separately.
 
 **Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
 

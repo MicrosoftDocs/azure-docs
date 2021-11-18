@@ -1,7 +1,7 @@
 ---
-title: 'Install, set up, and use the 2.0 CLI'
+title: 'Install and set up the CLI (v2)'
 titleSuffix: Azure Machine Learning
-description: Learn how to install, set up, and use the Azure CLI extension for Machine Learning.
+description: Learn how to install and set up the Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,12 @@ ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
+ms.custom: devx-track-azurecli, devplatv2
 ---
 
-# Install, set up, and use the 2.0 CLI (preview)
+# Install and set up the CLI (v2)
 
 The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 
@@ -21,23 +22,18 @@ The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced int
 
 ## Prerequisites
 
-- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
-
-    > [!TIP]
-    > If you use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
 ## Installation
 
 The new Machine Learning extension **requires Azure CLI version `>=2.15.0`**. Ensure this requirement is met:
 
-```azurecli
-az version
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_version":::
 
-If it is not, [upgrade your Azure CLI](/cli/azure/update-azure-cli).
+If it isn't, [upgrade your Azure CLI](/cli/azure/update-azure-cli).
 
-Check the Azure CLI extensions you have installed:
+Check the Azure CLI extensions you've installed:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
 
@@ -57,21 +53,38 @@ You can upgrade the extension to the latest version:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_update":::
 
+### Installation on Linux
+
+If you're using Linux, the fastest way to install the necessary CLI version and the Machine Learning extension is:
+
+:::code language="bash" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_install_linux":::
+
+For more, see [Install the Azure CLI for Linux](/cli/azure/install-azure-cli-linux).
+
 ## Set up
 
 Login:
 
-```azurecli
-az login
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
 
 If you have access to multiple Azure subscriptions, you can set your active subscription:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
 
+Optionally, setup common variables in your shell for usage in subsequent commands:
+
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="set_variables":::
+
+> [!WARNING]
+> This uses Bash syntax for setting variables -- adjust as needed for your shell. You can also replace the values in commands below inline rather than using variables.
+
 If it doesn't already exist, you can create the Azure resource group:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_group_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_group_create":::
+
+And create a machine learning workspace:
+
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
 
 Machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters. To avoid typing these repeatedly, configure defaults:
 
@@ -80,35 +93,15 @@ Machine learning subcommands require the `--workspace/-w` and `--resource-group/
 > [!TIP]
 > Most code examples assume you have set a default workspace and resource group. You can override these on the command line.
 
-Now create the machine learning workspace:
+You can show your current defaults using `--list-defaults/-l`:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="list_defaults":::
 
-## Hello world
-
-To follow along, clone the examples repository and change into the `cli` subdirectory:
-
-```azurecli-interactive
-git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli
-```
-
-To run hello world locally via Python, see the example in the `jobs` subdirectory:
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
-
-> [!IMPORTANT]
-> [Docker](https://docker.io) needs to be installed and running locally.
-
-Submit the job, streaming the logs to the console output, and opening the run in the Azure Machine Learning studio:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/hello-world.sh" id="hello_world":::
-
-> [!IMPORTANT]
-> This may take a few minutes to run the first time, as the Docker image is pulled locally and the Azure ML job is run. Subsequent runs will have the image cached locally and complete quicker.
+> [!TIP]
+> Combining with `--output/-o` allows for more readable output formats.
 
 ## Next steps
 
-- [Train models using Machine Learning CLI extension (preview)](how-to-train-cli.md)
+- [Train models using CLI (v2)](how-to-train-cli.md)
 - [Set up the Visual Studio Code Azure Machine Learning extension](how-to-setup-vs-code.md)
 - [Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)

@@ -1,19 +1,20 @@
 ---
-title: Azure AD secure hybrid access with F5 | Microsoft Docs
+title: Secure hybrid access with F5
+titleSuffix: Azure AD
 description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure Hybrid Access
-services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/12/2020
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: miccohen
 ---
 
-# F5 BIG-IP Access Policy Manager and Azure Active Directory integration for secure hybrid access
+# Integrate F5 BIG-IP with Azure Active Directory
 
 The proliferation of mobility and evolving threat landscape is placing extra scrutiny on resource access and governance, putting [Zero Trust](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) front and center of all modernization programs.
 At Microsoft and F5, we realize this digital transformation is typically a multi-year journey for any business, potentially leaving critical resources exposed until modernized. The genesis behind F5 BIG-IP and Azure Active Directory Secure Hybrid Access (SHA) aims not only at improving remote access to on-premises applications, but also at strengthening the overall security posture of these vulnerable services.
@@ -24,14 +25,11 @@ SHA addresses this blind spot by enabling organizations to continue using their 
 
 Having Azure AD pre-authenticate access to BIG-IP published services provides many benefits:
 
-- Password-less authentication through [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview),
-[MS Authenticator](../user-help/user-help-auth-app-download-install.md), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md),
-and [Certificate-based authentication](../authentication/active-directory-certificate-based-authentication-get-started.md)
+- Password-less authentication through [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md), and [Certificate-based authentication](../authentication/active-directory-certificate-based-authentication-get-started.md)
 
-- Preemptive [Conditional Access](../conditional-access/overview.md) and [Multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md)
+- Preemptive [Conditional Access](../conditional-access/overview.md) and [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 
 - [Identity Protection](../identity-protection/overview-identity-protection.md) - Adaptive control through user and session risk profiling
-
 
 - [Leaked credential detection](../identity-protection/concept-identity-protection-risks.md)
 
@@ -39,9 +37,9 @@ and [Certificate-based authentication](../authentication/active-directory-certif
 
 - [Partner collaboration](../governance/entitlement-management-external-users.md) - Entitlement management for governed guest access
 
-- [Cloud App Security (CASB)](/cloud-app-security/what-is-cloud-app-security) - For complete app discovery and  control
+- [Defender for Cloud Apps (CASB)](/cloud-app-security/what-is-cloud-app-security) - For complete app discovery and  control
 
-- Threat monitoring - [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for advanced threat analytics
+- Threat monitoring - [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for advanced threat analytics
 
 - The [Azure AD portal](https://azure.microsoft.com/features/azure-portal/) - A single control plane for governing identity and access
 
@@ -78,7 +76,7 @@ Steps 1-4 in the diagram illustrate the front-end pre-authentication exchange be
 
 Whether a direct employee, affiliate, or consumer, most users are already acquainted with the Office 365 login experience, so accessing BIG-IP services via SHA remains largely familiar.
 
-Users now find their BIG-IP published services consolidated in the  [MyApps](../user-help/my-apps-portal-end-user-access.md) or [O365 launchpads](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) along with self-service capabilities to a broader set of services, no matter the type of device or location. Users can even continue accessing published services directly via the BIG-IPs proprietary Webtop portal, if preferred. When logging off, SHA ensures a users’ session is terminated at both ends, the BIG-IP and Azure AD, ensuring services remain fully protected from unauthorized access.  
+Users now find their BIG-IP published services consolidated in the  [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) or [O365 launchpads](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) along with self-service capabilities to a broader set of services, no matter the type of device or location. Users can even continue accessing published services directly via the BIG-IPs proprietary Webtop portal, if preferred. When logging off, SHA ensures a users’ session is terminated at both ends, the BIG-IP and Azure AD, ensuring services remain fully protected from unauthorized access.  
 
 The screenshots provided are from the Azure AD app portal that users access securely to find their BIG-IP published services and for managing their account properties.  
 
@@ -90,7 +88,7 @@ The screenshots provided are from the Azure AD app portal that users access secu
 
 A BIG-IP’s role is critical to any business, so deployed BIG-IP instances should be monitored to ensure published services are highly available, both at an SHA level and operationally too.
 
-Several options exist for logging events either locally, or remotely through a Security Information and Event Management (SIEM) solution, enabling off-box storage and processing of telemetry. A highly effective solution for monitoring Azure AD and SHA-specific activity, is to use [Azure Monitor](../../azure-monitor/overview.md) and [Azure Sentinel](../../sentinel/overview.md), together offering:
+Several options exist for logging events either locally, or remotely through a Security Information and Event Management (SIEM) solution, enabling off-box storage and processing of telemetry. A highly effective solution for monitoring Azure AD and SHA-specific activity, is to use [Azure Monitor](../../azure-monitor/overview.md) and [Microsoft Sentinel](../../sentinel/overview.md), together offering:
 
 - Detailed overview of your organization, potentially across multiple clouds, and on-premises locations, including BIG-IP infrastructure
 
@@ -114,19 +112,19 @@ Integrating F5 BIG-IP with Azure AD for SHA have the following pre-requisites:
 
 - An active F5 BIG-IP APM license, through one of the following options:
 
-   - F5 BIG-IP® Best bundle (or)
+  - F5 BIG-IP® Best bundle (or)
 
-   - F5 BIG-IP Access Policy Manager™ standalone license
+    - F5 BIG-IP Access Policy Manager™ standalone license
 
-   - F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+    - F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
 
-   - A 90-day BIG-IP Access Policy Manager™ (APM) [trial license](https://www.f5.com/trial/big-ip-trial.php)
+    - A 90-day BIG-IP Access Policy Manager™ (APM) [trial license](https://www.f5.com/trial/big-ip-trial.php)
 
 - Azure AD licensing through either of the following options:
 
-   - An Azure AD [free subscription](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) provides the minimum core requirements for implementing SHA with password-less authentication
+  - An Azure AD [free subscription](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) provides the minimum core requirements for implementing SHA with password-less authentication
 
-   - A [Premium subscription](https://azure.microsoft.com/pricing/details/active-directory/) provides all additional value adds outlined in the preface, including [Conditional Access](../conditional-access/overview.md), [MFA](../authentication/concept-mfa-howitworks.md), and [Identity Protection](../identity-protection/overview-identity-protection.md)
+  - A [Premium subscription](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) provides all additional value adds outlined in the preface, including [Conditional Access](../conditional-access/overview.md), [MFA](../authentication/concept-mfa-howitworks.md), and [Identity Protection](../identity-protection/overview-identity-protection.md)
 
 No previous experience or F5 BIG-IP knowledge is necessary to implement SHA, but we do recommend familiarizing yourself with F5 BIG-IP terminology. F5’s rich [knowledge base](https://www.f5.com/services/resources/glossary) is also a good place to start building BIG-IP knowledge.
 
@@ -142,6 +140,12 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [Securing F5 BIG-IP SSL-VPN with Azure AD SHA](f5-aad-password-less-vpn.md)
 
+- [Configure Azure AD B2C with F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
+
+- [F5 BIG-IP APM and Azure AD SSO to forms-based applications](f5-big-ip-forms-advanced.md)
+
+- [Integrate Azure Active Directory SSO with F5 BIG-IP for header-based authentication](f5-big-ip-header-advanced.md)
+
 ## Additional resources
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
@@ -150,7 +154,7 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
 
-- [Getting started with Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/?&OCID=AID2100131_SEM_XfknpgAAAHoVMTvh:20200922160358:s&msclkid=5e0e022409fc1c94dab85d4e6f4710e3&ef_id=XfknpgAAAHoVMTvh:20200922160358:s&dclid=CJnX6vHU_esCFUq-ZAod1iQF6A)
+- [Getting started with Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/?&OCID=AID2100131_SEM_XfknpgAAAHoVMTvh:20200922160358:s&msclkid=5e0e022409fc1c94dab85d4e6f4710e3&ef_id=XfknpgAAAHoVMTvh:20200922160358:s&dclid=CJnX6vHU_esCFUq-ZAod1iQF6A)
 
 ## Next steps
 

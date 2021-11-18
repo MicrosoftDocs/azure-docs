@@ -12,7 +12,7 @@ ms.service: iot-hub-device-update
 
 Device Update for IoT Hub supports two forms of updates – image-based and package-based.
 
-Package-based updates are targeted updates that alter only a specific component or application on the device. Package-based updates lead to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images.
+Package-based updates are targeted updates that alter only a specific component or application on the device. They lead to lower consumption of bandwidth and helps reduce the time to download and install the update. Package-based updates also typically allow for less downtime of devices when applying an update and avoid the overhead of creating images. They use an [APT manifest](device-update-apt-manifest.md) which provides the Device Update Agent with the information it needs to download and install the packages specified in the APT Manifest file (as well as their dependencies) from a designated repository.
 
 This end-to-end tutorial walks you through updating Azure IoT Edge on Ubuntu Server 18.04 x64 by using the Device Update package agent. Although the tutorial demonstrates updating IoT Edge, using similar steps you could update other packages such as the container engine it uses.
 
@@ -30,7 +30,7 @@ In this tutorial you will learn how to:
 ## Prerequisites
 
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
-* The [connection string for an IoT Edge device](../iot-edge/how-to-register-device.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-connection-strings).
+* The [connection string for an IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-provisioning-information).
 
 ## Prepare a device
 ### Using the Automated Deploy to Azure Button
@@ -54,7 +54,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 
     **Admin Username**: A username, which will be provided root privileges on deployment.
 
-    **Device Connection String**: A [device connection string](../iot-edge/how-to-register-device.md) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md).
+    **Device Connection String**: A [device connection string](../iot-edge/how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md).
 
     **VM Size**: The [size](../cloud-services/cloud-services-sizes-specs.md) of the virtual machine to be deployed
 
@@ -84,7 +84,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 ### (Optional) Manually prepare a device
 Similar to the steps automated by the [cloud-init script](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt), following are manual steps to install and configure the device. These steps can be used to prepare a physical device.
 
-1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true).
+1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
    > The Device Update package agent doesn't depend on IoT Edge. But, it does rely on the IoT Identity Service daemon that is installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub.
    >
@@ -124,7 +124,7 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 3. Download the `Edge.package.update.samples.zip` by clicking on it.
 
-5. Extract the contents of the folder to discover an update sample and its corresponding import manifests. 
+5. Extract the contents of the folder to discover a sample [APT manifest](device-update-apt-manifest.md) and its corresponding [import manifest](import-concepts.md). 
 
 2. In Azure portal, select the Device Updates option under Automatic Device Management from the left-hand navigation bar in your IoT Hub.
 

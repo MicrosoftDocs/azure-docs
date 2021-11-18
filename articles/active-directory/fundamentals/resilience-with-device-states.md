@@ -37,7 +37,7 @@ When a PRT is used to request access to an application, its device, session, and
 
 * Standardize user browser access to use either [Microsoft Edge](/deployedge/microsoft-edge-security-identity) or Google Chrome with [supported](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) [extensions](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) that enabled seamless SSO to web applications using the PRT.
 
-* For personal or company owned iOS and Android devices deploy the [Microsoft Authenticator App](../user-help/user-help-auth-app-overview.md). In addition to the Multi-factor authentication and password-less sign in capabilities, the Microsoft Authenticator app will enable single sign across native application through [brokered authentication](../develop/msal-android-single-sign-on.md) with fewer authentication prompts for end users.
+* For personal or company owned iOS and Android devices deploy the [Microsoft Authenticator App](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc). In addition to the Multi-factor authentication and password-less sign in capabilities, the Microsoft Authenticator app will enable single sign across native application through [brokered authentication](../develop/msal-android-single-sign-on.md) with fewer authentication prompts for end users.
 
 * For personal or company owned iOS and Android devices use [mobile application management](/mem/intune/apps/app-management) to securely access company resources with fewer authentication requests. 
 

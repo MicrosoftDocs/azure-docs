@@ -17,7 +17,7 @@ Fire department calls for service and 311 cases in San Francisco.
 
 Fire Calls-For-Service includes all fire unit responses to calls. Each record includes the call number, incident number, address, unit identifier, call type, and disposition. All relevant time intervals are also included. Because this dataset is based on responses, and since most calls involved multiple units, there are multiple records for each call number. Addresses are associated with a block number, intersection, or call box, not a specific address.
 
-311 Cases include cases associated with a place or thing (for example parks, streets, or buildings) and created after July 1, 2008. Cases that are logged by a user about their own needs are excluded. For example, property or business tax questions, parking permit requests, and so on. For more information, see the [Program Link](http://support.datasf.org/customer/en/portal/articles/2429403-311-case-data---faq?b_id=13410).
+311 Cases include cases associated with a place or thing (for example parks, streets, or buildings) and created after July 1, 2008. Cases that are logged by a user about their own needs are excluded. For example, property or business tax questions, parking permit requests, and so on. For more information, see the [Program Link](https://support.datasf.org/help/311-case-data-faq).
  
 ## Volume and retention
 

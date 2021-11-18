@@ -11,7 +11,7 @@ ms.date: 04/30/2021
 
 # Plan a Microsoft Dynamics 365 offer
 
-This article explains the different options and features of a Dynamics 365 offer in Microsoft AppSource in the commercial marketplace. AppSource includes offers that build on or extend Microsoft 365, Dynamics 365, PowerApps, and Power BI.
+This article explains the different options and features of a Dynamics 365 offer in Microsoft AppSource in the commercial marketplace. AppSource includes offers that build on or extend Microsoft 365, Dynamics 365, Power Apps, and Power BI.
 
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program. Also, review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center).
 
@@ -19,14 +19,23 @@ Before you start, create a commercial marketplace account in [Partner Center](./
 
 As you prepare to publish a new offer, you need to decide which licensing option to choose. This will determine what additional information you'll need to provide later as you create the offer in Partner Center.
 
-These are the available licensing options for Dynamics 365 offers:
+These are the available licensing options for Dynamics 365 offer types:
+
+| Offer type | Listing option |
+| --- | --- |
+| Dynamics 365 for Operations | Contact me |
+| Dynamics 365 Customer Engagement & Power Apps | Get it now<br>Get it now (Free)<br>Free trial (listing)<br>Contact me |
+| Dynamics 365 Business Central | Get it now (Free)<br>Free trial (listing)<br>Contact me |
+|||
+
+The following table describes the transaction process of each listing option.
 
 | Licensing option | Transaction process |
 | --- | --- |
 | Contact me | Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see the **Customer leads** section of your offer type's **Offer setup** page. |
 | Free trial (listing) | Offer your customers a one-, three- or six-month free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft. |
 | Get it now (free) | List your offer to customers for free. |
-| Get it now | Enables you to manage your third-party licenses in Partner Center.<br>Currently available to the following offer type only:<ul><li>Dynamics 365 for Customer Engagement & Power Apps</li></ul><br>For more information about this option, see [Third-party app license management through Microsoft](third-party-license.md). |
+| Get it now | Enables you to manage your ISV app0 licenses in Partner Center.<br>Currently available to the following offer type only:<ul><li>Dynamics 365 for Customer Engagement & Power Apps</li></ul><br>For more information about this option, see [ISV app license management](isv-app-license.md). |
 |||
 
 ## Test drive
@@ -80,8 +89,7 @@ After you've considered the planning items described above, select one of the fo
 
 | Publishing guide    | Notes  |
 | :------------------- | :-------------------|
-| [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) | When you're building for Enterprise Edition, first review these additional [publishing processes and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
-| [Dynamics 365 for Business Central](dynamics-365-business-central-offer-setup.md) |   |
-| [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) | First review these additional [publishing processes and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
-| [Power BI](./power-bi-app-offer-setup.md) | First review these additional [publishing processes and guidelines](/power-bi/developer/office-store). |
-|||
+| [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) | When you're building for Enterprise Edition, first review these additional [publishing processes and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). Product types include Commerce, Finance, Human Resources, Project Operations, and Supply Chain Management. |
+| [Dynamics 365 for Business Central](dynamics-365-business-central-offer-setup.md) | n/a |
+| [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) | First review these additional [publishing processes and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). Product types include Customer Service, Customer Voice, Project Operations, Field Service, Marketing, Mixed Reality, Power Apps, Power Automate, Power Virtual Agents, Project Service Automation, and Sales. |
+|

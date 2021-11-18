@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/15/2021
 ---
 
 # Create plans for a SaaS offer
@@ -68,6 +68,9 @@ This option is available only if you selected flat rate pricing. For more inform
 1. In the **Monthly quantity included in base** box, enter the quantity (as an integer) of the dimension that's included each month for customers who pay the recurring monthly fee. To set an unlimited quantity, select the check box instead.
 1. In the **Annual quantity included in base** box, enter the quantity of the dimension (as an integer) that's included each month for customers who pay the recurring annual fee. To set an unlimited quantity, select the check box instead.
 1. To add another custom meter dimension, select the **Add another Dimension** link, and then repeat steps 1 through 7.
+
+> [!IMPORTANT]
+> You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
 
 ### Configure per user pricing
 
@@ -139,7 +142,7 @@ After you create one or more plans, you'll see your plan name, plan ID, pricing 
 The actions that are available in the **Action** column of the **Plan overview** tab vary depending on the status of your plan, and may include the following:
 
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
-- If the plan status is **Live**, the link in the **Action** column will be either **Stop sell plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
+- If the plan status is **Live**, the link in the **Action** column will be either **Stop distribution of a plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
 
 ## Before you publish your offer
 

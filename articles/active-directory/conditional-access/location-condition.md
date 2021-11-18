@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 10/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: calebb, olhuan
+manager: karenhoran
+ms.reviewer: calebb, mewal
 
 ms.collection: M365-identity-device-management
 
@@ -78,13 +78,16 @@ If you select **Determine location by IP address (IPv4 only)**, the system will 
 > [!NOTE]
 > Sign-ins from IPv6 addresses cannot be mapped to countries or regions, and are considered unknown areas. Only IPv4 addresses can be mapped to countries or regions.
 
-If you select **Determine location by GPS coordinates (Preview)**, the user will need to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system will contact the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
+If you select **Determine location by GPS coordinates**, the user will need to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system will contact the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
 
 The first time the user is required to share their location from the Microsoft Authenticator app, the user will receive a notification in the app. The user will need to open the app and grant location permissions. 
 
 For the next 24 hours, if the user is still accessing the resource and granted the app permission to run in the background, the device's location is shared silently once per hour. After 24 hours, the user must open the app and approve the notification. Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location is not considered valid and the user is not granted access. 
 
 A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they are not blocked from signing in.
+
+> [!IMPORTANT]
+> Users may receive prompts every hour letting them know that Azure AD is checking their location in the Authenticator app. The preview should only be used to protect very sensitive apps where this behavior is acceptable or where access needs to be restricted to a specific country/region.
 
 #### Include unknown countries/regions
 

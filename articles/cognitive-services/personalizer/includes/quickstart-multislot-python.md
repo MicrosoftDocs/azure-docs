@@ -26,6 +26,8 @@ ms.date: 03/23/2021
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
+[!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
+
 ### Create a new python application
 
 Create a new Python file and create variables for your resource's endpoint and subscription key.
@@ -33,22 +35,22 @@ Create a new Python file and create variables for your resource's endpoint and s
 [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
 ```python
-import datetime, json, os, time, uuid, requests
+import json, uuid, requests
 
 # The endpoint specific to your personalization service instance; 
 # e.g. https://<your-resource-name>.cognitiveservices.azure.com
-PERSONALIZATION_BASE_URL = "https://<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>.cognitiveservices.azure.com"
+PERSONALIZATION_BASE_URL = "<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>"
 # The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
 RESOURCE_KEY = "<REPLACE-WITH-YOUR-PERSONALIZER-KEY>"
 ```
 
 ## Object model
 
-To ask for the single best item of the content for each slot, create a [rank_request], then send a post request to the [multislot/rank] endpoint (https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Rank). The response is then parsed into a [rank_response].
+To ask for the single best item of the content for each slot, create a **rank_request**, then send a post request to [multislot/rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Rank). The response is then parsed into a **rank_response**.
 
-To send a reward score to Personalizer, create a [rewards], then send a post request to [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Events_Reward).
+To send a reward score to Personalizer, create a **rewards**, then send a post request to [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Events_Reward).
 
-Determining the reward score, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture.
+In this quickstart, determining the reward score is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture.
 
 ## Code examples
 
@@ -60,17 +62,13 @@ These code snippets show you how to do the following tasks by sending HTTP reque
 
 ## Create base URLs
 
-In this section you'll do two things:
-* Construct the Rank and Reward UR's
-* Construct the rank/reward request headers
-
-Construct the Rank / Reward URLs using the base url and the request headers using the resource key.
+In this section you'll construct the Rank / Reward URLs using the base url and the request headers using the resource key.
 
 ```python
 MULTI_SLOT_RANK_URL = '{0}personalizer/v1.1-preview.1/multislot/rank'.format(PERSONALIZATION_BASE_URL)
 MULTI_SLOT_REWARD_URL_BASE = '{0}personalizer/v1.1-preview.1/multislot/events/'.format(PERSONALIZATION_BASE_URL)
 HEADERS = {
-    'ocp-apim-subscription-key.': RESOURCE_KEY,
+    'ocp-apim-subscription-key': RESOURCE_KEY,
     'Content-Type': 'application/json'
 }
 ```
@@ -196,12 +194,14 @@ def get_slots():
 
 ## Make HTTP requests
 
-Send post requests to the Personalizer endpoint for multi-slot rank and reward calls.
+Add these functions to send post requests to the Personalizer endpoint for multi-slot rank and reward calls.
 
 ```python
 def send_multi_slot_rank(rank_request):
-    multi_slot_response = requests.post(MULTI_SLOT_RANK_URL, data=json.dumps(rank_request), headers=HEADERS )
-    return json.loads(multi_slot_response.text)
+multi_slot_response = requests.post(MULTI_SLOT_RANK_URL, data=json.dumps(rank_request), headers=HEADERS)
+if multi_slot_response.status_code != 201:
+    raise Exception(multi_slot_response.text)
+return json.loads(multi_slot_response.text)
 ```
 
 ```python
@@ -210,7 +210,7 @@ def send_multi_slot_reward(reward_request, event_id):
     requests.post(reward_url, data=json.dumps(reward_request), headers=HEADERS)
 ```
 
-## Get feedback for personalizer decisions
+## Get feedback for Personalizer decisions
 
 Add the following method to the script. You will signal if Personalizer made a good decision for each slot through command-line prompt.
 
@@ -284,7 +284,7 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 ## Request the best action
 
-To complete the Rank request, the program asks the user's preferences to create content choices. The request body contains the context features, actions and their features, slots and their features, and a unique event ID, to receive the response. The `send_multi_slot_rank` method needs the rank_equest to send the multi-slot rank request.
+To complete the Rank request, the program asks the user's preferences to create content choices. The request body contains the context, actions and slots with their respective features. The `send_multi_slot_rank` method takes in a rankRequest and executes the multi-slot rank request.
 
 This quickstart has simple context features of time of day and user device. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
@@ -308,7 +308,7 @@ multi_slot_rank_response = send_multi_slot_rank(rank_request)
 
 ## Send a reward
 
-To get the reward score to send in the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value to the selection, then sends the unique event ID, slot ID, and the reward score for each slot as the numeric value to the `send_multi_slot_reward` method. A reward does not need to be defined for each slot.
+To get the reward score for the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value (reward score) to the selection, then sends the unique event ID, slot ID, and the reward score for each slot to the `send_multi_slot_reward` method. A reward does not need to be defined for each slot.
 
 This quickstart assigns a simple number as a reward score, either a zero or a 1. In production systems, determining when and what to send to the [Reward](../concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
 
@@ -338,4 +338,4 @@ python sample.py
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example-1.png)
 
 
-The [source code for this quickstart](https://aka.ms/personalizer/ms-python) is available.
+The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer/multislot-quickstart) is available.

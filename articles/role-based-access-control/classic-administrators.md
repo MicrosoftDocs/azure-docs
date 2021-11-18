@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/20/2021
+ms.date: 07/17/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -28,7 +28,7 @@ This article describes how to add or change the Co-Administrator and Service Adm
 > [!TIP]
 > You only need to add a Co-Administrator if the user needs to manage Azure classic deployments by using [Azure Service Management PowerShell Module](/powershell/module/servicemanagement/azure.service). If the user only uses the Azure portal to manage the classic resources, you won’t need to add the classic administrator for the user.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Service Administrator or Co-Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Service Administrator or a Co-Administrator.
 
 1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
 
@@ -60,7 +60,7 @@ For more information, about how to add a guest user to your directory, see [Add 
 
 Guest users that have been assigned the Co-Administrator role might see some differences as compared to member users with the Co-Administrator role. Consider the following scenario:
 
-- User A with an Azure AD account (work or school account) is a Service Administrator for an Azure subscription.
+- User A with an Azure AD account (work or school account) is the Service Administrator for an Azure subscription.
 - User B has a Microsoft account.
 - User A assigns the Co-Administrator role to user B.
 - User B can do almost everything, but is unable to register applications or look up users in the Azure AD directory.
@@ -75,7 +75,7 @@ For information that compares member users and guest users, see [What are the de
 
 ## Remove a Co-Administrator
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Service Administrator or Co-Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Service Administrator or a Co-Administrator.
 
 1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
 
@@ -83,7 +83,7 @@ For information that compares member users and guest users, see [What are the de
 
 1. Click the **Classic administrators** tab.
 
-1. Add a checkmark next to the Co-Administrator you want to remove.
+1. Add a check mark next to the Co-Administrator you want to remove.
 
 1. Click **Remove**.
 
@@ -129,6 +129,26 @@ There can only be one Service Administrator per Azure subscription. Changing the
 If the Account Administrator is an Azure AD account, you can change the Service Administrator to an Azure AD account in the same directory, but not in a different directory. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but cannot change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has a presence in the contoso.com directory.
 
 For more information about Microsoft accounts and Azure AD accounts, see [What is Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
+
+## Remove the Service Administrator
+
+You might want to remove the Service Administrator, for example, if they are no longer with the company. If you do remove the Service Administrator, you must have a user who is assigned the [Owner](built-in-roles.md#owner) role at subscription scope to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a subscription Owner or a Co-Administrator.
+
+1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
+
+1. Click **Access control (IAM)**.
+
+1. Click the **Classic administrators** tab.
+
+1. Add a check mark next to the Service Administrator.
+
+1. Click **Remove**.
+
+1. In the message box that appears, click **Yes**.
+
+    ![Screenshot that removes service administrator.](./media/classic-administrators/service-admin-remove.png)
 
 ## View the Account Administrator
 

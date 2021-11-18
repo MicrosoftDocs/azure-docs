@@ -1,14 +1,14 @@
 ---
 title: MLflow Tracking for ML experiments
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from ML models, and deploy your ML models as a web service.
+description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models.
 services: machine-learning
-author: shivp950
-ms.author: shipatel
+author: cjgronlund
+ms.author: cgronlun
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: nibaccam
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -27,6 +27,8 @@ Supported capabilities include:
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally on your computer, on a remote compute target, a virtual machine, or an [Azure Databricks cluster](how-to-use-mlflow-azure-databricks.md). 
 
+See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
+
 The following diagram illustrates that with MLflow Tracking, you track an experiment's run metrics and store model artifacts in your Azure Machine Learning workspace.
 
 ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/mlflow-diagram-track.png)
@@ -36,24 +38,6 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 > [!NOTE] 
 > You can use the [MLflow Skinny client](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments. 
-
-## Compare MLflow and Azure Machine Learning clients
-
- The following table summarizes the different clients that can use Azure Machine Learning, and their respective function capabilities.
-
- MLflow Tracking offers metric logging and artifact storage functionalities that are only otherwise available via the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
-
-| Capability | MLflow Tracking & Deployment | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
-|---|---|---|---|---|
-| Manage workspace |   | ✓ | ✓ | ✓ |
-| Use data stores  |   | ✓ | ✓ | |
-| Log metrics      | ✓ | ✓ |   | |
-| Upload artifacts | ✓ | ✓ |   | |
-| View metrics     | ✓ | ✓ | ✓ | ✓ |
-| Manage compute   |   | ✓ | ✓ | ✓ |
-| Deploy models    | ✓ | ✓ | ✓ | ✓ |
-|Monitor model performance||✓|  |   |
-| Detect data drift |   | ✓ |   | ✓ |
 
 ## Prerequisites
 

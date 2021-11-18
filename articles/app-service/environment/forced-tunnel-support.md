@@ -1,16 +1,19 @@
 ---
 title: Configure forced tunneling
 description: Learn how to enable your App Service Environment to work when outbound traffic is forced tunneled in your virtual network.
-author: ccompy
+author: madsd
 
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
 ms.date: 05/29/2018
-ms.author: ccompy
+ms.author: madsd
 ms.custom: mvc, seodec18
 ---
 
 # Configure your App Service Environment with forced tunneling
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
 The App Service Environment (ASE) is a deployment of Azure App Service in a customer's Azure Virtual Network. Many customers configure their Azure virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Forced tunneling is when you redirect internet bound traffic to your VPN or a virtual appliance instead. Virtual appliances are often used to inspect and audit outbound network traffic. 
 

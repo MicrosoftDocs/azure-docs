@@ -78,7 +78,7 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 	- [Tagging strategy](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
 	- Naming conventions for VMs and other infrastructure components and/or logical names.
 5.	Microsoft Professional or Premier Support contract. Identify your Microsoft Technical Account Manager (TAM) if you have a Premier support contract with Microsoft. For SAP support requirements, see [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553).
-6.	The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](../../../azure-portal/supportability/resource-manager-core-quotas-request.md) as needed.
+6.	The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](../../../azure-portal/supportability/regional-quota-requests.md) as needed.
 7.	Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
 8.	An automated deployment approach. The goal of the automation of infrastructure deployments on Azure is to deploy in a deterministic way and get deterministic results. Many customers use PowerShell or CLI-based scripts. But there are various open-source technologies that you can use to deploy Azure infrastructure for SAP and even install SAP software. You can find examples on GitHub:
 	- [Automated SAP Deployments in Azure Cloud](https://github.com/Azure/sap-hana)
@@ -106,9 +106,9 @@ We recommend that you set up and validate a full HADR solution and security desi
            -  [Sizes for Linux virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). It's important to consider the *max uncached disk throughput* for sizing.
    2. Storage.
         - Check the document [Azure Storage types for SAP workload](./planning-guide-storage.md)
-        - At a minimum, use [Azure Standard SSD storage](../../disks-types.md#standard-ssd) for VMs that represent SAP application layers and for deployment of DBMSs that aren't performance sensitive.
-        - In general, we don't recommend the use of [Azure Standard HDD disks](../../disks-types.md#standard-hdd).
-        - Use [Azure Premium Storage](../../disks-types.md#premium-ssd) for any DBMS VMs that are remotely performance sensitive.
+        - At a minimum, use [Azure Standard SSD storage](../../disks-types.md#standard-ssds) for VMs that represent SAP application layers and for deployment of DBMSs that aren't performance sensitive.
+        - In general, we don't recommend the use of [Azure Standard HDD disks](../../disks-types.md#standard-hdds).
+        - Use [Azure Premium Storage](../../disks-types.md#premium-ssds) for any DBMS VMs that are remotely performance sensitive.
         - Use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/).
         - Use Azure Write Accelerator for DBMS log drives with M-Series. Be aware of Write Accelerator limits and usage, as documented in [Write Accelerator](../../how-to-enable-write-accelerator.md).
         - For the different DBMS types, check the [generic SAP-related DBMS documentation](./dbms_guide_general.md) and the DBMS-specific documentation that the generic document points to.
@@ -192,10 +192,10 @@ During this phase, you usually deploy development systems, unit testing systems,
 
 1.	Before you move systems from the old platform to Azure, collect resource consumption data, like CPU usage, storage throughput, and IOPS data. Especially collect this data from the DBMS layer units, but also collect it from the application layer units. Also measure network and storage latency.
 2.	Record the availability usage time patterns of your systems. The goal is to figure out whether non-production systems need to be available all day, every day or whether there are non-production systems that can be shut down during certain phases of a week or month.
-3.	Test and determine whether you want to create your own OS images for your VMs in Azure or whether you want to use an image from the Azure Shared Image Gallery. If you're using an image from the Shared Image Gallery, make sure to use an image that reflects the support contract with your OS vendor. For some OS vendors, Shared Image Gallery lets you bring your own license images. For other OS images, support is included in the price quoted by Azure. If you decide to create your own OS images, you can find documentation in these articles:
+3.	Test and determine whether you want to create your own OS images for your VMs in Azure or whether you want to use an image from the Azure Azure Compute Gallery (formerly known as Shared Image Gallery). If you're using an image from the Azure Compute Gallery, make sure to use an image that reflects the support contract with your OS vendor. For some OS vendors, Azure Compute Gallery lets you bring your own license images. For other OS images, support is included in the price quoted by Azure. If you decide to create your own OS images, you can find documentation in these articles:
 	-	[Build a generalized image of a Windows VM deployed in Azure](../../windows/capture-image-resource.md)
 	-	[Build a generalized image of a Linux VM deployed in Azure](../../linux/capture-image.md)
-3.	If you use SUSE and Red Hat Linux images from the Shared Image Gallery, you need to use the images for SAP provided by the Linux vendors in the Shared Image Gallery.
+3.	If you use SUSE and Red Hat Linux images from the Azure Compute Gallery, you need to use the images for SAP provided by the Linux vendors in the Azure Compute Gallery.
 4.	Make sure to fulfill the SAP support requirements for Microsoft support agreements. See [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553). For HANA Large Instances, see [Onboarding requirements](./hana-onboarding-requirements.md).
 4.	Make sure the right people get [planned maintenance notifications](https://azure.microsoft.com/blog/a-new-planned-maintenance-experience-for-your-virtual-machines/) so you can choose the best downtimes.
 5.	Frequently check for Azure presentations on channels like [Channel 9](https://channel9.msdn.com/) for new functionality that might apply to your deployments.

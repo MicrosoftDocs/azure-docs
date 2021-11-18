@@ -1,5 +1,5 @@
 ---
-title: 'Virtual WAN and SD-WAN connectivity architectures'
+title: 'Architecture: Virtual WAN and SD-WAN connectivity'
 titleSuffix: Azure Virtual WAN
 description: Learn about interconnecting a private SD-WAN with Azure Virtual WAN.
 services: virtual-wan
@@ -39,7 +39,7 @@ In this model, some vendor proprietary traffic optimization based on real-time t
 
 With Virtual WAN, users can get Azure Path Selection, which is policy-based path selection across multiple ISP links from the branch CPE to Virtual WAN VPN gateways. Virtual WAN allows for the setup of multiple links (paths) from the same SD-WAN branch CPE; each link represents a dual tunnel connection from a unique public IP of the SD-WAN CPE to two different instances of Azure Virtual WAN VPN gateway. SD-WAN vendors can implement the most optimal path to Azure, based on traffic policies set by their policy engine on the CPE links. On the Azure end, all connections coming in are treated equally.
 
-## <a name="direct"></a>Direct Interconnect Model with NVA-in-VWAN-hub
+## <a name="direct-nva"></a>Direct Interconnect Model with NVA-in-VWAN-hub
 
 :::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Direct interconnect model with NVA-in-VWAN-hub":::
 
@@ -68,5 +68,5 @@ In this architecture model, enterprises can leverage a managed SD-WAN service of
 
 ## Additional Information
 
-* [Include FAQ](virtual-wan-faq.md)
+* [Azure Virtual WAN FAQ](virtual-wan-faq.md)
 * [Solving Remote Connectivity](work-remotely-support.md)

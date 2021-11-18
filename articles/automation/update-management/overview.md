@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 09/27/2021
 ms.topic: conceptual
 ---
 
@@ -25,19 +25,21 @@ Before deploying Update Management and enabling your machines for management, ma
 
 The following diagram illustrates how Update Management assesses and applies security updates to all connected Windows Server and Linux servers.
 
-![Update Management workflow](./media/overview/update-mgmt-updateworkflow.png)
+![Update Management workflow](./media/overview/update-mgmt-workflow.png)
 
-Update Management integrates with Azure Monitor Logs to store update assessments and update deployment results as log data, from assigned Azure and non-Azure machines. To collect this data, the Automation Account and Log Analytics workspace are linked together, and the Log Analytics agent for Windows and Linux is required on the machine and configured to report to this workspace. Update Management supports collecting information about system updates from agents in a System Center Operations Manager management group connected to the workspace. Having a machine registered for Update Management in more than one Log Analytics workspace (also referred to as multihoming) isn't supported.
+Update Management integrates with Azure Monitor Logs to store update assessments and update deployment results as log data, from assigned Azure and non-Azure machines. To collect this data, the Automation Account and Log Analytics workspace are linked together, and the Log Analytics agent for Windows and Linux is required on the machine and configured to report to this workspace. 
+
+Update Management supports collecting information about system updates from agents in a System Center Operations Manager management group connected to the workspace. Having a machine registered for Update Management in more than one Log Analytics workspace (also referred to as multihoming) isn't supported.
 
 The following table summarizes the supported connected sources with Update Management.
 
 | Connected source | Supported | Description |
 | --- | --- | --- |
-| Windows |Yes |Update Management collects information about system updates from Windows machines with the Log Analytics agent and installation of required updates. |
-| Linux |Yes |Update Management collects information about system updates from Linux machines with the Log Analytics agent and installation of required updates on supported distributions. |
+| Windows |Yes |Update Management collects information about system updates from Windows machines with the Log Analytics agent and installation of required updates.<br> Machines need to report to Microsoft Update or Windows Server Update Services (WSUS). |
+| Linux |Yes |Update Management collects information about system updates from Linux machines with the Log Analytics agent and installation of required updates on supported distributions.<br> Machines need to report to a local or remote repository. |
 | Operations Manager management group |Yes |Update Management collects information about software updates from agents in a connected management group.<br/><br/>A direct connection from the Operations Manager agent to Azure Monitor logs isn't required. Log data is forwarded from the management group to the Log Analytics workspace. |
 
-The machines assigned to Update Management report how up to date they are based on what source they are configured to synchronize with. Windows machines can be configured to report to Windows Server Update Services or Microsoft Update, and Linux machines can be configured to report to a local or public repo. You can also use Update Management with Microsoft Endpoint Configuration Manager, and to learn more see [Integrate Update Management with Windows Endpoint Configuration Manager](mecmintegration.md). 
+The machines assigned to Update Management report how up to date they are based on what source they are configured to synchronize with. Windows machines need to be configured to report to either [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or [Microsoft Update](https://www.update.microsoft.com), and Linux machines need to be configured to report to a local or public repository. You can also use Update Management with Microsoft Endpoint Configuration Manager, and to learn more see [Integrate Update Management with Windows Endpoint Configuration Manager](mecmintegration.md). 
 
 If the Windows Update Agent (WUA) on the Windows machine is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repo instead of a public repo. On a Windows machine, the compliance scan is run every 12 hours by default. For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes. When a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor Logs. 
 
@@ -72,6 +74,14 @@ After you enable Update Management, any Windows machine that's directly connecte
 Each Windows machine that's managed by Update Management is listed in the Hybrid worker groups pane as a System hybrid worker group for the Automation account. The groups use the `Hostname FQDN_GUID` naming convention. You can't target these groups with runbooks in your account. If you try, the attempt fails. These groups are intended to support only Update Management. To learn more about viewing the list of Windows machines configured as a Hybrid Runbook Worker, see [view Hybrid Runbook Workers](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
 You can add the Windows machine to a user Hybrid Runbook Worker group in your Automation account to support Automation runbooks if you use the same account for Update Management and the Hybrid Runbook Worker group membership. This functionality was added in version 7.2.12024.0 of the Hybrid Runbook Worker.
+
+### External dependencies
+
+Azure Automation Update Management depends on the following external dependencies to deliver software updates.
+
+* Windows Server Update Services (WSUS) or Microsoft Update is needed for software updates packages and for the software updates applicability scan on Windows-based machines.
+* The Windows Update Agent (WUA) client is required on Windows-based machines so that they can connect to the WSUS server or Microsoft Update.
+* A local or remote repository to retrieve and installs OS updates on Linux-based machines.
 
 ### Management packs
 
@@ -144,6 +154,11 @@ To classify updates on Red Hat Enterprise version 6, you need to install the yum
 When you schedule an update to run on a Linux machine, that for example is configured to install only updates matching the **Security** classification, the updates installed might be different from, or are a subset of, the updates matching this classification. When an assessment of OS updates pending for your Linux machine is performed, [Open Vulnerability and Assessment Language](https://oval.mitre.org/) (OVAL) files provided by the Linux distro vendor is used by Update Management for classification.
 
 Categorization is done for Linux updates as **Security** or **Others** based on the OVAL files, which includes updates addressing security issues or vulnerabilities. But when the update schedule is run, it executes on the Linux machine using the appropriate package manager like YUM, APT, or ZYPPER to install them. The package manager for the Linux distro may have a different mechanism to classify updates, where the results may differ from the ones obtained from OVAL files by Update Management. To manually check the machine and understand which updates are security relevant by your package manager, see [Troubleshoot Linux update deployment](../troubleshoot/update-management.md#updates-linux-installed-different).
+
+>[!NOTE]
+> Deploying updates by update classification may not work correctly for Linux distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL file and this prevents Update Management from properly matching classifications based on filtering rules. Because of the different logic used in security update assessments, results may differ from the security updates applied during deployment. If you have classification set as **Critical** and **Security**, the update deployment will work as expected. Only the *classification of updates* during an assessment is affected.
+>
+> Update Management for Windows Server machines is unaffected; update classification and deployments are unchanged.
 
 ## Integrate Update Management with Configuration Manager
 

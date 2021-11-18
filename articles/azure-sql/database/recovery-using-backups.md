@@ -8,9 +8,9 @@ ms.subservice: backup-restore
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: shkale-msft
-ms.author: shkale
-ms.reviewer: mathoma danil
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: mathoma, danil
 ms.date: 11/13/2020
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
@@ -63,6 +63,9 @@ You can restore a standalone, pooled, or instance database to an earlier point i
 When complete, the restore creates a new database on the same server as the original database. The restored database is charged at normal rates, based on its service tier and compute size. You don't incur charges until the database restore is complete.
 
 You generally restore a database to an earlier point for recovery purposes. You can treat the restored database as a replacement for the original database or use it as a data source to update the original database.
+
+> [!IMPORTANT]
+> You can only run restore on the same server, cross-server restoration is not supported by Point-in-time restore.
 
 - **Database replacement**
 
@@ -203,6 +206,9 @@ You can also use Azure PowerShell or the REST API for recovery. The following ta
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by SQL Database and SQL Managed Instance, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Arguments for the commands in the Az module and in Azure Resource Manager modules are to a great extent identical.
+
+> [!NOTE]
+> Restore points represent a period between the earliest restore point and the latest log backup point. Information on latest restore point is currently unavailable on Azure PowerShell.
 
 #### SQL Database
 

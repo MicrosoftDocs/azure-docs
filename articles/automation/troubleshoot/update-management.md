@@ -188,7 +188,7 @@ This issue can be caused by local configuration issues or by improperly configur
    | summarize by Computer, Solutions
    ```
 
-    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/agents/agent-windows.md).
 
     If your machine is listed in the query results, verify under the **Solutions** property that **updates** is listed. This verifies it is registered with Update Management. If it is not, check for scope configuration problems. The [scope configuration](../update-management/scope-configuration.md) determines which machines are configured for Update Management. To configure the scope configuration for the target the machine, see [Enable machines in the workspace](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
@@ -335,7 +335,7 @@ Machines do appear in Azure Resource Graph query results, but still don't show u
 
 5. If the machine is not set up as a system Hybrid Runbook Worker, review the methods to enable using one of the following methods:
 
-   - From your [Automation account](../update-management/enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
+   - From your [Automation account](../update-management/enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Azure Arc-enabled servers.
 
    - Using the **Enable-AutomationSolution** [runbook](../update-management/enable-from-runbook.md) to automate onboarding Azure VMs.
 

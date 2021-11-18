@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 11/08/2021
 ms.author: tisande
 ---
 
@@ -21,6 +21,10 @@ You can provision a dedicated gateway to improve performance at scale. The most 
 The dedicated gateway is built into Azure Cosmos DB. When you [provision a dedicated gateway](how-to-configure-integrated-cache.md), you have a fully-managed node that routes requests to backend partitions. Connecting to Azure Cosmos DB with the dedicated gateway provides lower and more predictable latency than connecting to Azure Cosmos DB with the standard gateway. Even cache misses will see latency improvements when comparing the dedicated gateway and standard gateway.
 
 There are only minimal code changes required in order for your application to use a dedicated gateway. Both new and existing Azure Cosmos DB accounts can provision a dedicated gateway for improved read performance.
+
+> [!NOTE]
+> Do you have any feedback about the dedicated gateway? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team:
+cosmoscachefeedback@microsoft.com
 
 ## Connection modes
 
@@ -59,7 +63,7 @@ Diagram of gateway mode connection with a dedicated gateway:
 
 A dedicated gateway cluster can be provisioned in Core (SQL) API accounts. A dedicated gateway cluster can have up to five nodes and you can add or remove nodes at any time. All dedicated gateway nodes within your account [share the same connection string](how-to-configure-integrated-cache.md#configuring-the-integrated-cache).
 
-Dedicated gateway nodes are independent from one another. When you provision multiple dedicated gateway nodes, any single node can route any given request. In addition, each node has a separate cache from the others. The cached data within each node depends on the data that was recently [written or read](integrated-cache.md#item-cache) through that specific node. In other words, if an item or query is cached on one node, it isn't necessarily cached on the others.
+Dedicated gateway nodes are independent from one another. When you provision multiple dedicated gateway nodes, any single node can route any given request. In addition, each node has a separate integrated cache from the others. The cached data within each node depends on the data that was recently [written or read](integrated-cache.md#item-cache) through that specific node. In other words, if an item or query is cached on one node, it isn't necessarily cached on the others.
 
 For development, we recommend starting with one node but for production, you should provision three or more nodes for high availability. [Learn how to provision a dedicated gateway cluster with an integrated cache](how-to-configure-integrated-cache.md). Provisioning multiple dedicated gateway nodes allows the dedicated gateway cluster to continue to route requests and serve cached data, even when one of the dedicated gateway nodes is unavailable.
 
@@ -91,7 +95,30 @@ The dedicated gateway has the following limitations during the public preview:
 
 - Dedicated gateways are only supported on SQL API accounts.
 - You can't provision a dedicated gateway in Azure Cosmos DB accounts with [IP firewalls](how-to-configure-firewall.md) or [Private Link](how-to-configure-private-endpoints.md) configured.
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support) enabled.
+- You can't provision a dedicated gateway in an Azure Cosmos DB account in a [Virtual Network (Vnet)](how-to-configure-vnet-service-endpoint.md)
+- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support).
+- You can't use [role-based access control (RBAC)](how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
+
+## Supported regions
+
+The dedicated gateway is in public preview and isn't supported in every Azure region yet. Throughout the public preview, we'll be adding new capacity. We won't have region restrictions when the dedicated gateway is generally available.
+
+Current list of supported Azure regions:
+
+| **Americas** | **Europe and Africa**  | **Asia Pacific**  |
+| ------------ | -------- | ----------- | 
+| Brazil South      | France Central    | Australia Central |
+| Canada Central  | France South    | Australia Central 2 |
+| Canada East     | Germany North   | Australia Southeast |
+| Central US     | Germany West Central   | Central India |
+| East US     | North Europe   | East Asia |
+| East US 2     | Switzerland North   | Japan West |
+| North Central US     | UK South   | Korea Central |
+| South Central US     | UK West   | Korea South |
+| West Central US     | West Europe   | Southeast Asia |
+| West US     |   | UAE Central |
+| West US 2     |    | West India |
+
 
 ## Next steps
 
@@ -100,3 +127,6 @@ Read more about dedicated gateway usage in the following articles:
 - [Integrated cache](integrated-cache.md)
 - [Configure the integrated cache](how-to-configure-integrated-cache.md)
 - [Integrated cache FAQ](integrated-cache-faq.md)
+- Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

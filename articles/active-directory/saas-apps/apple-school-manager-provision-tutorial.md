@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Apple School Manager for automatic user provisioning
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Apple School Manager.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: f006c177-7b35-4af1-84f2-db4a4e2bf96a
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.author: Zhchia
+ms.author: thwimmer
 
 ---
 

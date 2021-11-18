@@ -12,6 +12,8 @@ ms.author: cynthn
 
 # Download a Linux VHD from Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 In this article, you learn how to download a Linux virtual hard disk (VHD) file from Azure using the Azure portal. 
 
 ## Stop the VM
@@ -38,10 +40,10 @@ Take a snapshot of the disk to download.
 5. For **Snapshot type**, select **Full** or **Incremental**.
 6. When you are done, select **Review + create**.
 
-Your snapshot will be created shortly, and may then be used to download or create another VM from.
+Your snapshot will be created shortly, and can then be used to download or create another VM.
 
 > [!NOTE]
-> If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been power cycled or crashed at the point in time when the snapshot was made.  While usually safe, it could cause problems if the running applications running a the time were not crash resistant.
+> If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been power cycled or crashed at the point in time when the snapshot was made. While usually safe, it could cause problems if the running applications running at the time were not crash resistant.
 >  
 > This method is only recommended for VMs with a single OS disk. VMs with one or more data disks should be stopped before download or before creating a snapshot for the OS disk and each data disk.
 

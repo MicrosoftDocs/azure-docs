@@ -5,15 +5,15 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: cachai
-ms.custom:
-- references_regions
-- fasttrack-edit
-- devx-track-azurecli
+ms.custom: references_regions, fasttrack-edit, devx-track-azurecli
 ---
 
 # Azure Functions Premium plan
 
-The Azure Functions Premium plan (sometimes referred to as Elastic Premium plan) is a hosting option for function apps. For other hosting plan options, see the [hosting plan article](functions-scale.md).
+The Azure Functions Elastic Premium plan is a dynamic scale hosting option for function apps. For other hosting plan options, see the [hosting plan article](functions-scale.md).
+
+>[!IMPORTANT]
+>Azure Functions runs on the Azure App Service platform. In the App Service platform, plans that host Premium plan function apps are referred to as *Elastic* Premium plans, with SKU names like `EP1`. If you choose to run your function app on a Premium plan, make sure to create a plan with an SKU name that starts with "E", such as `EP1`. App Service plan SKU names that start with "P", such as `P1V2` (Premium V2 Small plan), are actually [Dedicated hosting plans](dedicated-plan.md). Because they are Dedicated and not Elastic Premium, plans with SKU names starting with "P" won't scale dynamically and may increase your costs. 
 
 Premium plan hosting provides the following benefits to your functions:
 
@@ -90,7 +90,7 @@ In addition to the [plan maximum instance count](#plan-and-sku-settings), you ca
 
 ## Private network connectivity
 
-Function apps deployed to a Premium plan can take advantage of [VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md). When configured, your app can communicate with resources within your VNet or secured via service endpoints. IP restrictions are also available on the app to restrict incoming traffic.
+Function apps deployed to a Premium plan can take advantage of [VNet integration for web apps](../app-service/overview-vnet-integration.md). When configured, your app can communicate with resources within your VNet or secured via service endpoints. IP restrictions are also available on the app to restrict incoming traffic.
 
 When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
@@ -153,7 +153,7 @@ And for plans with more than 4GB memory, ensure the Bitness Platform Setting is 
 
 ## Region Max Scale Out
 
-Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration. To request an increase, you can open a support ticket.
+Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration.
 
 See the complete regional availability of Functions on the [Azure web site](https://azure.microsoft.com/global-infrastructure/services/?products=functions).
 
@@ -165,37 +165,41 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Australia Southeast | 100 | 20 |
 |Brazil South| 100 | 20 |
 |Canada Central| 100 | 20 |
+|Central India| 100 | 20 |
 |Central US| 100 | 20 |
 |China East 2| 100 | 20 |
 |China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
-|East US | 100 | 20 |
+|East US | 100 | 40 |
 |East US 2| 100 | 20 |
 |France Central| 100 | 20 |
-|Germany West Central| 100 | Not Available |
+|Germany West Central| 100 | 20 |
 |Japan East| 100 | 20 |
 |Japan West| 100 | 20 |
+|Jio India West| 100 | 20 |
 |Korea Central| 100 | 20 |
 |Korea South| Not Available | 20 |
 |North Central US| 100 | 20 |
 |North Europe| 100 | 20 |
 |Norway East| 100 | 20 |
+|South Africa North| 100 | 20 |
 |South Central US| 100 | 20 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
-|Switzerland North| 100 | Not Available |
-|Switzerland West| 100 | Not Available |
+|Switzerland North| 100 | 20 |
+|Switzerland West| 100 | 20 |
+|UAE North| 100 | 20 |
 |UK South| 100 | 20 |
 |UK West| 100 | 20 |
 |USGov Arizona| 100 | 20 |
+|USGov Texas| 100 | Not Available |
 |USGov Virginia| 100 | 20 |
-|USNat East| 100 | Not Available |
-|USNat West| 100 | Not Available |
+|West Central US| 100 | 20 |
 |West Europe| 100 | 20 |
 |West India| 100 | 20 |
-|West Central US| 100 | 20 |
 |West US| 100 | 20 |
 |West US 2| 100 | 20 |
+|West US 3| 100 | 20 |
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
 title: How to clone an Azure IoT hub
 description: How to clone an Azure IoT hub
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: robinsh
+ms.author: lizross
 # Customer intent: As a customer using IoT Hub, I need to clone my IoT hub to another region. 
 ---
 
@@ -109,25 +109,31 @@ This section provides specific instructions for migrating the hub.
 
 1. Select **Export template** from the list of properties and settings for the hub. 
 
-   ![Screenshot showing the command for exporting the template for the IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-export-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-export-template.png" alt-text="Screenshot showing the command for exporting the template for the IoT Hub." border="true":::
 
 1. Select **Download** to download the template. Save the file somewhere you can find it again. 
 
-   ![Screenshot showing the command for downloading the template for the IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-download-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-download-template.png" alt-text="Screenshot showing the command for downloading the template for the IoT Hub." border="true":::
 
 ### View the template 
 
-1. Go to the Downloads folder (or to whichever folder you used when you exported the template) and find the zip file. Open the zip file and find the file called `template.json`. Select it, then select Ctrl+C to copy the template. Go to a different folder that's not in the zip file and paste the file (Ctrl+V). Now you can edit it.
+1. Go to the Downloads folder (or to whichever folder you used when you exported the template) and find the zip file. Extract the zip file and find the file called `template.json`. Select and copy it. Go to a different folder and paste the template file (Ctrl+V). Now you can edit it.
  
-    The following example is for a generic hub with no routing configuration. It is an S1 tier hub (with 1 unit) called **ContosoTestHub29358** in region **westus**. Here is the exported template.
+    The following example is for a generic hub with no routing configuration. It is an S1 tier hub (with 1 unit) called **ContosoHub** in region **westus**. Here is the exported template.
 
     ``` json
     {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "IotHubs_ContosoTestHub29358_name": {
-                "defaultValue": "ContosoTestHub29358",
+            "IotHubs_ContosoHub_connectionString": {
+                "type": "SecureString"
+            },
+            "IotHubs_ContosoHub_containerName": {
+                "type": "SecureString"
+            },
+            "IotHubs_ContosoHub_name": {
+                "defaultValue": "ContosoHub",
                 "type": "String"
             }
         },
@@ -135,47 +141,23 @@ This section provides specific instructions for migrating the hub.
         "resources": [
             {
                 "type": "Microsoft.Devices/IotHubs",
-                "apiVersion": "2018-04-01",
-                "name": "[parameters('IotHubs_ContosoTestHub29358_name')]",
+                "apiVersion": "2021-07-01",
+                "name": "[parameters('IotHubs_ContosoHub_name')]",
                 "location": "westus",
                 "sku": {
                     "name": "S1",
                     "tier": "Standard",
                     "capacity": 1
                 },
+                "identity": {
+                    "type": "None"
+                },
                 "properties": {
-                    "operationsMonitoringProperties": {
-                        "events": {
-                            "None": "None",
-                            "Connections": "None",
-                            "DeviceTelemetry": "None",
-                            "C2DCommands": "None",
-                            "DeviceIdentityOperations": "None",
-                            "FileUploadOperations": "None",
-                            "Routes": "None"
-                        }
-                    },
                     "ipFilterRules": [],
                     "eventHubEndpoints": {
                         "events": {
                             "retentionTimeInDays": 1,
-                            "partitionCount": 2,
-                            "partitionIds": [
-                                "0",
-                                "1"
-                            ],
-                            "path": "contosotesthub29358",
-                            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-                        },
-                        "operationsMonitoringEvents": {
-                            "retentionTimeInDays": 1,
-                            "partitionCount": 2,
-                            "partitionIds": [
-                                "0",
-                                "1"
-                            ],
-                            "path": "contosotesthub29358-operationmonitoring",
-                            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
+                            "partitionCount": 4
                         }
                     },
                     "routing": {
@@ -199,8 +181,8 @@ This section provides specific instructions for migrating the hub.
                     "storageEndpoints": {
                         "$default": {
                             "sasTtlAsIso8601": "PT1H",
-                            "connectionString": "",
-                            "containerName": ""
+                            "connectionString": "[parameters('IotHubs_ContosoHub_connectionString')]",
+                            "containerName": "[parameters('IotHubs_ContosoHub_containerName')]"
                         }
                     },
                     "messagingEndpoints": {
@@ -220,7 +202,9 @@ This section provides specific instructions for migrating the hub.
                             "maxDeliveryCount": 10
                         }
                     },
-                    "features": "None"
+                    "features": "None",
+                    "disableLocalAuth": false,
+                    "allowedFqdnList": []
                 }
             }
         ]
@@ -233,63 +217,47 @@ You have to make some changes before you can use the template to create the new 
 
 #### Edit the hub name and location
 
-1. Remove the parameters section at the top -- it is much simpler to just use the hub name because we're not going to have multiple parameters. 
+1. Remove the container name parameter section at the top. **ContosoHub** does not have an associated container.
 
     ``` json
-        "parameters": {
-            "IotHubs_ContosoTestHub29358_name": {
-                "defaultValue": "ContosoTestHub29358",
-                "type": "String"
-            }
+    "parameters": {
+      ...
+        "IotHubs_ContosoHub_containerName": {
+            "type": "SecureString"
         },
+      ...
+    },
     ```
 
-1. Change the name to use the actual (new) name rather than retrieving it from a parameter (which you removed in the previous step). 
+1. Remove the **storageEndpoints** property.
 
-    For the new hub, use the name of the original hub plus the string *clone* to make up the new name. Start by cleaning up the hub name and location.
+    ```json
+    "properties": {
+      ...
+        "storageEndpoints": {
+        "$default": {
+            "sasTtlAsIso8601": "PT1H",
+            "connectionString": "[parameters('IotHubs_ContosoHub_connectionString')]",
+            "containerName": "[parameters('IotHubs_ContosoHub_containerName')]"
+        }
+      },
+      ...
     
+    ```
+
+1. Under **resources**, change the location from westus to eastus.
+
     Old version:
 
     ``` json 
-    "name": "[parameters('IotHubs_ContosoTestHub29358_name')]",
     "location": "westus",
     ```
     
     New version: 
 
     ``` json 
-    "name": "ContosoTestHub29358clone",
     "location": "eastus",
     ```
-
-    Next, you'll find that the values for **path** contain the old hub name. Change them to use the new one. These are the path values under **eventHubEndpoints** called **events** and **OperationsMonitoringEvents**.
-
-    When you're done, your event hub endpoints section should look like this:
-
-    ``` json
-    "eventHubEndpoints": {
-        "events": {
-            "retentionTimeInDays": 1,
-            "partitionCount": 2,
-            "partitionIds": [
-                "0",
-                "1"
-            ],
-            "path": "contosotesthub29358clone",
-            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-        },
-        "operationsMonitoringEvents": {
-            "retentionTimeInDays": 1,
-            "partitionCount": 2,
-            "partitionIds": [
-                "0",
-                "1"
-            ],
-            "path": "contosotesthub29358clone-operationmonitoring",
-            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-        }
-    ```
-
 #### Update the keys for the routing resources that are not being moved
 
 When you export the Resource Manager template for a hub that has routing configured, you will see that the keys for those resources are not provided in the exported template -- their placement is denoted by asterisks. You must fill them in by going to those resources in the portal and retrieving the keys **before** you import the new hub's template and create the hub. 
@@ -347,35 +315,41 @@ Create the new hub in the new location using the template. If you have routing r
 
 1. Select **Create a resource**. 
 
-1. In the search box, put in "template deployment" and select Enter.
+1. In the search box, type "template deployment" and select Enter.
 
 1. Select **template deployment (deploy using custom templates)**. This takes you to a screen for the Template deployment. Select **Create**. You see this screen:
 
-   ![Screenshot showing the command for building your own template](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png" alt-text="Screenshot showing the command for building your own template":::
 
 1. Select **Build your own template in the editor**, which enables you to upload your template from a file. 
 
-1. Select **Load file**. 
+1. Select **Load file**.
 
-   ![Screenshot showing the command for uploading a template file](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-upload-file.png" alt-text="Screenshot showing the command for uploading a template file":::
 
 1. Browse for the new template you edited and select it, then select **Open**. It loads your template in the edit window. Select **Save**. 
 
-   ![Screenshot showing loading the template](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-uploaded-file.png" alt-text="Screenshot showing loading the template":::
 
-1. Fill in the following fields.
+1. Fill in the following fields on the custom deployment page.
 
-   **Subscription**: select the subscription to use.
+   **Subscription**: Select the subscription to use.
 
-   **Resource group**: create a new resource group in a new location. If you already have a new one set up, you can select it instead of creating a new one.
+   **Resource group**: Create a new resource group in a new location. If you already have one set up, you can select it instead of creating a new one.
 
-   **Location**: If you selected an existing resource group, this is filled in for you to match the location of the resource group. If you created a new resource group, this will be its location.
+   **Region**: If you selected an existing resource group, the region is filled in for you to match the location of the resource group. If you created a new resource group, this will be its location.
 
-   **I agree checkbox**: this basically says that you agree to pay for the resource(s) you're creating.
+   **Connection string**: Fill in the connection string for your hub.
 
-1. Select the **Purchase** button.
+   **Hub name**: Give the new hub in the new region a name.
 
-The portal now validates your template and deploys your cloned hub. If you have routing configuration data, it will be included in the new hub, but will point at the resources in the prior location.
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-create.png" alt-text="Screenshot showing the custom deployment page":::
+
+1. Select the **Review + create** button.
+
+1. Select the **Create** button. The portal validates your template and deploys your cloned hub. If you have routing configuration data, it will be included in the new hub, but will point at the resources in the prior location.
+
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-final.png" alt-text="Screenshot showing the final custom deployment page":::
 
 ## Managing the devices registered to the IoT hub
 

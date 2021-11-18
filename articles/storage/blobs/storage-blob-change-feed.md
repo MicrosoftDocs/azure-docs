@@ -1,10 +1,11 @@
 ---
-title: Change feed in Azure Blob Storage | Microsoft Docs
+title: Change feed in Blob Storage
+titleSuffix: Azure Storage
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
 author: tamram
 
 ms.author: tamram
-ms.date: 05/17/2021
+ms.date: 10/01/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -15,8 +16,6 @@ ms.custom: devx-track-azurepowershell
 # Change feed support in Azure Blob Storage
 
 The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## How the change feed works
 
@@ -39,7 +38,7 @@ Change feed support is well-suited for scenarios that process data based on obje
 Change feed is a prerequisite feature for [Object Replication](object-replication-overview.md) and [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
 > [!NOTE]
-> Change feed provides a durable, ordered log model of the changes that occur to a blob. Changes are written and made available in your change feed log within an order of a few minutes of the change. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. [Blob Storage Events](storage-blob-event-overview.md) provides real-time one-time events which enable your Azure Functions or applications to quickly react to changes that occur to a blob. 
+> Change feed provides a durable, ordered log model of the changes that occur to a blob. Changes are written and made available in your change feed log within an order of a few minutes of the change. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. [Blob Storage Events](storage-blob-event-overview.md) provides real-time one-time events which enable your Azure Functions or applications to quickly react to changes that occur to a blob.
 
 ## Enable and disable the change feed
 
@@ -53,7 +52,7 @@ Here's a few things to keep in mind when you enable the change feed.
 
 - The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the [conditions](#conditions) of the current release).
 
-- Only general-purpose v2 and Blob storage accounts can enable the change feed. Premium block blob accounts and hierarchical namespace enabled accounts are not currently supported. General-purpose v1 storage accounts are not supported but can be upgraded to general-purpose v2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
+- Only standard general-purpose v2, premium block blob, and Blob storage accounts can enable the change feed. Accounts with a hierarchical namespace enabled are not currently supported. General-purpose v1 storage accounts are not supported but can be upgraded to general-purpose v2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
 
 ### [Portal](#tab/azure-portal)
 
@@ -97,6 +96,7 @@ Enable change feed by using PowerShell:
    ```
 
 ### [Template](#tab/template)
+
 Use an Azure Resource Manager template to enable Change feed on your existing storage account via Azure portal:
 
 1. In the Azure portal, choose **Create a resource**.
@@ -151,7 +151,7 @@ The change feed is a log of changes that are organized into **hourly** *segments
 
 An available hourly segment of the change feed is described in a manifest file that specifies the paths to the change feed files for that segment. The listing of the `$blobchangefeed/idx/segments/` virtual directory shows these segments ordered by time. The path of the segment describes the start of the hourly time-range that the segment represents. You can use that list to filter out the segments of logs that are of interest to you.
 
-```text
+```output
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
 ----------------------------------------------------------------------  -----------  -----------  --------  ----------------
 $blobchangefeed/idx/segments/1601/01/01/0000/meta.json                  BlockBlob                      584  application/json
@@ -161,7 +161,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> The `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` is automatically created when you enable the change feed. You can safely ignore this file. It is an always empty initialization file. 
+> The `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` is automatically created when you enable the change feed. You can safely ignore this file. It is an always empty initialization file.
 
 The segment manifest file (`meta.json`) shows the path of the change feed files for that segment in the `chunkFilePaths` property. Here's an example of a segment manifest file.
 
@@ -194,7 +194,7 @@ The segment manifest file (`meta.json`) shows the path of the change feed files 
 ```
 
 > [!NOTE]
-> The `$blobchangefeed` container appears only after you've enabled the change feed feature on your account. You'll have to wait a few minutes after you enable the change feed before you can list the blobs in the container. 
+> The `$blobchangefeed` container appears only after you've enabled the change feed feature on your account. You'll have to wait a few minutes after you enable the change feed before you can list the blobs in the container.
 
 <a id="log-files"></a>
 
@@ -286,7 +286,7 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 
 ## Conditions and known issues
 
-This section describes known issues and conditions in the current release of the change feed. 
+This section describes known issues and conditions in the current release of the change feed.
 
 - Change event records for any single change might appear more than once in your change feed.
 - You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them and you cannot delete the blobs.
@@ -294,6 +294,17 @@ This section describes known issues and conditions in the current release of the
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
 - Storage accounts that have previously initiated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file.
+
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
+
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | 
+| Premium block blobs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and Secure File Transfer protocol (SFTP) support all require a storage account with a hierarchical namespace enabled
 
 ## FAQ
 

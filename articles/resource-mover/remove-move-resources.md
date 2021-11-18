@@ -56,7 +56,7 @@ Remove multiple resources as follows:
 
 1. Validate dependencies:
 
-    ````azurepowershell-interactive
+    ```azurepowershell-interactive
     $resp = Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('psdemorm-vnet') -ValidateOnly
     ```
 
@@ -66,19 +66,19 @@ Remove multiple resources as follows:
 
 2. Retrieve the dependent resources that need to be removed (along with our example virtual network psdemorm-vnet):
 
-    ````azurepowershell-interactive
+    ```azurepowershell-interactive
     $resp.AdditionalInfo[0].InfoMoveResource
     ```
 
     **Output after running cmdlet**
 
-    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-get-dependencies.png)
+    ![Output text after retrieving dependent resources that need to be removed](./media/remove-move-resources/remove-multiple-get-dependencies.png)
 
 
 3. Remove all resources, along with the virtual network:
 
     
-    ````azurepowershell-interactive
+    ```azurepowershell-interactive
     Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('PSDemoVM','psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg')
     ```
 
@@ -92,7 +92,7 @@ Remove multiple resources as follows:
 Remove an entire move collection from the subscription, as follows:
 
 1. Follow the instructions above to remove resources in the collection using PowerShell.
-2. Run:
+2. Remove a collection as follows:
 
     ```azurepowershell-interactive
     Remove-AzResourceMoverMoveCollection -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"

@@ -1,10 +1,16 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 05/01/2021
+ms.date: 06/21/2021
 ms.topic: overview
 ---
 # What is Azure Blueprints?
+
+> [!IMPORTANT]
+> Azure Blueprints is currently in PREVIEW. The
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> include additional legal terms that apply to Azure features that are in beta, preview, or
+> otherwise not yet released into general availability.
 
 Just as a blueprint allows an engineer or an architect to sketch a project's design parameters,
 Azure Blueprints enables cloud architects and central information technology groups to define a
@@ -36,7 +42,7 @@ each is assigned to a subscription in a single operation that can be audited and
 
 Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished
 with an ARM template. However, an ARM template is a document that doesn't exist natively in Azure -
-each is stored either locally or in source control. The template gets used for deployments of one or
+each is stored either locally or in source control or in [Templates (preview)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). The template gets used for deployments of one or
 more Azure resources, but once those resources deploy there's no active connection or relationship
 to the template.
 

@@ -276,7 +276,7 @@ Running your PHP code should produce now a notification appearing on your target
 
 ## Next Steps
 
-In this topic, we showed how to create a simple Java REST client for Notification Hubs. From here you can:
+In this topic, we showed how to create a simple PHP REST client for Notification Hubs. From here you can:
 
 * Download the full [PHP REST wrapper sample], which contains all the code above.
 * Continue learning about Notification Hubs tagging feature in the [Breaking News tutorial]

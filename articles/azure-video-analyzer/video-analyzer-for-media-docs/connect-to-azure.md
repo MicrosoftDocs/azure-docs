@@ -1,22 +1,32 @@
 ---
-title: Create a Azure Video Analyzer for Media (formerly Video Indexer) account connected to Azure
-titleSuffix: Azure Media Services
+title: Create an Azure Video Analyzer for Media (formerly Video Indexer) account connected to Azure
 description: Learn how to create a Azure Video Analyzer for Media (formerly Video Indexer) account connected to Azure.
-services: media-services
-author: Juliako
-manager: femila
-ms.topic: article 
-ms.date: 01/14/2021
-ms.author: juliako
+ms.topic: tutorial
+ms.date: 10/19/2021
+ms.author: itnorman
+ms.custom: ignite-fall-2021
 ---
  
 # Create a Video Analyzer for Media account
 
-When creating a Azure Video Analyzer for Media (formerly Video Indexer) account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With the paid option, you create a Video Analyzer for Media account that's connected to your Azure subscription. You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+When creating an Azure Video Analyzer for Media (formerly Video Indexer) account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Video Analyzer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Analyzer for Media offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts is built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
 
-This article shows how to create a Video Analyzer for Media account that's linked to an Azure subscription and an Azure Media Services account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
+* You can create a Video Analyzer for Media **classic** account through our [API](https://aka.ms/avam-dev-portal).
 
-If you are moving from a *trial* to *paid* Video Analyzer for Media account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
+* You can create a Video Analyzer for Media **ARM-based** account through one of the following:
+
+  1.  [Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
+
+  2.  [Azure portal](https://ms.portal.azure.com/#home)
+
+  3.  [QuickStart ARM template](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account)
+
+### To read more on how to create a **new ARM-Based** Video Analyzer for Media account, read this [article](create-video-analyzer-for-media-account.md)
+
+## How to create classic accounts
+This article shows how to create a Video Analyzer for Media classic account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
+
+If you are moving from a *trial* to *paid ARM-Based* Video Analyzer for Media account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
 
 The article also covers [Linking a Video Analyzer for Media account to Azure Government](#video-analyzer-for-media-in-azure-government).
 
@@ -54,49 +64,12 @@ The article also covers [Linking a Video Analyzer for Media account to Azure Gov
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## Create a new account on Azure 
-
-> [!NOTE]
-> If your Azure subscription uses certificate-based multi-factor authentication, it's crucial that you perform the following steps on a device that has the required certificates installed.
-
-1. Browse to the [Video Analyzer for Media](https://www.videoindexer.ai/) website and sign in.
-1. Select the **Create unlimited account** button:
-
-    ![Create new Video Analyzer for Media account](./media/create-account/create-unlimited-account.png)
-1. When the subscriptions list appears, select the subscription you want to use.
-
-    ![Connect Video Analyzer for Media to Azure](./media/create-account/new-account-on-azure-subscription.png)
-1. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
-1. Under **Azure Media Services account**, choose one of these options:
-
-    * To create a new Media Services account, select **Create new resource group**. Provide a name for your resource group.
-
-        Azure will create your new account in your subscription, including a new Azure Storage account.  
-    * To use an existing Media Services account, select **Use existing resource**. From the accounts list, select your account.
-
-        Your Media Services account must have the same region as your Video Analyzer for Media account.
-
-        > [!NOTE]
-        > To minimize indexing duration and low throughput, it's highly recommended to adjust the type and number of [Reserved Units](../../media-services/previous/media-services-scale-media-processing-overview.md ) in your Media Services account to **10 S3 Reserved Units**. See [Use portal to change reserved units](../../media-services/previous/media-services-portal-scale-media-processing.md). The reserved units are charged to your account, view [pricing details](https://azure.microsoft.com/pricing/details/media-services/#analytics).
-    * To manually configure your connection, select the **Switch to manual configuration** link.
-
-        For detailed information, see the [Connect to Azure manually](#connect-to-azure-manually-advanced-option) (advanced option) section that follows.
-1. When you're done, choose **Create**. This operation might take up to a few minutes.
-
-    After you're connected to Azure, your new Video Analyzer for Media account appears in the account list:
-
-    ![new account](./media/create-account/new-account.png)
-1. Make sure the Streaming Endpoint of the Media Services account is running before you can play your videos in the Video Analyzer for Media web app (press start if it is the stopped state).
-
-> [!TIP]
-> To give a friendly display hame to your account go to **Settings**.
-
 ## Connect to Azure manually (advanced option)
 
 If the connection to Azure failed, you can attempt to troubleshoot the problem by connecting manually.
 
 > [!NOTE]
-> It's highly recommended to have the following three accounts in the same region: the Video Analyzer for Media account that you're connecting with the Media Services account, as well as the Azure storage account connected to the same Media Services account.
+> It's mandatory to have the following three accounts in the same region: the Video Analyzer for Media account that you're connecting with the Media Services account, as well as the Azure storage account connected to the same Media Services account.
 
 ### Create and configure a Media Services account
 
@@ -113,9 +86,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. You'll need them for the steps in the next section.
-1. Adjust the type and number of [reserved units](../../media-services/previous/media-services-scale-media-processing-overview.md ) to **10 S3 Reserved Units** in the Media Services account you created. See [Use portal to change reserved units](../../media-services/previous/media-services-portal-scale-media-processing.md).
 
-    The reserved units are charged to your account, view [pricing details](https://azure.microsoft.com/pricing/details/media-services/#analytics).s
 1. Before you can play your videos in the Video Analyzer for Media web app, you must start the default **Streaming Endpoint** of the new Media Services account.
 
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
@@ -152,12 +123,27 @@ In the dialog, provide the following information:
 
 ### Import your content from the *trial* account
 
-When creating a new account, you have an option to import your content from the *trial* account into the new account. If you check the *import* option in the **Create a new account on an Azure subscription** dialog, all media and content model customizations will be copied from the *trial* account into the new account.
+When creating a new **ARM-Based** account, you have an option to import your content from the *trial* account into the new **ARM-Based** account free of charge.
+> [!NOTE]
+> * Import from trial can be performed only once per trial account.
+> * The target ARM-Based account needs to be created and available before import is assigned.  
+> * Target ARM-Based account has to be an empty account (never indexed any media files).
 
-The ability to import the content is valid for both automated and manual approaches described above.
+To import your data, follow the steps:
+ 1. Go to [Azure Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
+ 2. Select your trial account and go to the *account settings* page
+ 3. Click the *Import content to an ARM-based account*
+ 4. From the dropdown menu choose the ARM-based account you wish to import the data to.
+   * If the account ID isn't showing, you can copy and paste the account ID from Azure portal or the account list, on the side blade in the Azure Video Analyzer for Media Portal.
+ 5. Click **Import content**  
+
+![import](./media/create-account/import-steps.png)
+
+
+All media and content model customizations will be copied from the *trial* account into the new ARM-Based account.
+
 
 > [!NOTE]
-> The content can only be imported once from each account.
 >
 > The *trial* account is not availagle on the Azure Government cloud.
 
@@ -239,7 +225,7 @@ The account will be permanently deleted in 90 days.
 
 ## Firewall
 
-See [Storage account that is behind a firewall](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
+See [Storage account that is behind a firewall](faq.yml#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
 
 ## Next steps
 

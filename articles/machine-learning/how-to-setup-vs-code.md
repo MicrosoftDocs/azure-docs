@@ -1,14 +1,15 @@
 ---
 title: Set up Visual Studio Code extension (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to set up the Azure Machine Learning Visual Studio Code extension
+description: Learn how to set up the Azure Machine Learning Visual Studio Code extension.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.topic: how-to
+ms.custom: devplatv2
 ---
 
 # Set up the Visual Studio Code Azure Machine Learning extension (preview)
@@ -29,10 +30,10 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 
 ## Prerequisites
 
-- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 - Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
 - [Python](https://www.python.org/downloads/)
-- (Optional) To create resources using the extension, you need to install the 2.0 CLI. For setup instructions, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
+- (Optional) To create resources using the extension, you need to install the CLI (v2). For setup instructions, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
 
 ## Install the extension
 
@@ -50,7 +51,7 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 The rest of the steps in this tutorial have been tested with the latest version of the extension.
 
 > [!NOTE]
-> The Azure Machine Learning VS Code extension uses the 2.0 CLI by default. To switch to the 1.0 CLI, set the `azureML.CLI Compatibility Mode` setting in Visual Studio Code to `1.0`. For more information on modifying your settings in Visual Studio, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
+> The Azure Machine Learning VS Code extension uses the CLI (v2) by default. To switch to the 1.0 CLI, set the `azureML.CLI Compatibility Mode` setting in Visual Studio Code to `1.0`. For more information on modifying your settings in Visual Studio, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
 
 ## Sign in to your Azure Account
 
@@ -65,7 +66,7 @@ Alternatively, use the command palette:
 
 ## Choose your default workspace
 
-Choosing a default Azure Machine Learning workspace enables the following when authoring 2.0 CLI YAML specification files:
+Choosing a default Azure Machine Learning workspace enables the following when authoring CLI (v2) YAML specification files:
 
 - Schema validation
 - Autocompletion

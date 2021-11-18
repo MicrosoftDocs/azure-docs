@@ -29,7 +29,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* The [Java Development Kit (JDK) 7 or 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* The [Java Development Kit (JDK) 7 or 8](/azure/developer/java/fundamentals/java-support-on-azure).
 * The [Gson library](https://github.com/google/gson).
 
 
@@ -117,7 +117,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 3. In the main method of your application, call the search method and display the results.
 
     ```java
-   public static void main (String[] args) {
+    public static void main (String[] args) {
        System.out.println("Searching the Web for: " + searchTerm);
        SearchResults result = SearchNews(searchTerm);
     

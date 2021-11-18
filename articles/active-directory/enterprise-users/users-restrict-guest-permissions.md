@@ -4,8 +4,8 @@ description: Restrict guest user access permissions using the Azure portal, Powe
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: daveba
-ms.date: 06/01/2021
+manager: KarenH444
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -29,7 +29,7 @@ When guest access is restricted, guests can view only their own user profile. Pe
 
 ## Permissions and licenses
 
-You must be in the Global Administrator or Privileged Role Administrator role to configure guest user access. There are no additional licensing requirements to restrict guest access.
+You must be in the Global Administrator role to configure guest user access. There are no additional licensing requirements to restrict guest access.
 
 ## Update in the Azure portal
 

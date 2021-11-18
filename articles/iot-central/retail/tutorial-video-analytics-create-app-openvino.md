@@ -7,7 +7,7 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
-ms.date: 10/06/2020
+ms.date: 09/01/2021
 ---
 # Tutorial: Create a video analytics - object and motion detection application in Azure IoT Central (OpenVINO&trade;)
 
@@ -110,13 +110,13 @@ This tutorial configures your solution to use the OpenVINO&trade; module for obj
 
 [!INCLUDE [iot-central-video-analytics-part3](../../../includes/iot-central-video-analytics-part3.md)]
 
-### Replace the manifest
+### Edit the manifest
 
-On the **LVA Edge Gateway v2** page, select **+ Replace manifest**.
+On the **LVA Edge Gateway v2** page, select **Edit manifest**.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-openvino/replace-manifest.png" alt-text="Replace Manifest":::
 
-Navigate to the *lva-configuration* folder and select the *deployment.openvino.amd64.json* manifest file you edited previously. Select **Upload**. When the validation is complete, select **Replace**.
+Select **replace it with a new file** navigate to the *lva-configuration* folder and select the *deployment.openvino.amd64.json* manifest file you edited previously and select **Save**.
 
 [!INCLUDE [iot-central-video-analytics-part4](../../../includes/iot-central-video-analytics-part4.md)]
 

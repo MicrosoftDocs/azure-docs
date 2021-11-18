@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 08/24/2021
 ---
 
 # Create an Azure Cognitive Search service in the portal
@@ -24,16 +24,20 @@ You can create search service using the [Azure portal](https://portal.azure.com/
 The following service properties are fixed for the lifetime of the service - changing any of them requires a new service. Because they are fixed, consider the usage implications as you fill in each property:
 
 + Service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
-+ [Service tier](search-sku-tier.md) affects billing and sets an upward limit on capacity. Some features are not available on the free tier.
++ [Service tier](search-sku-tier.md) (Basic, Standard, and so forth) determines the characteristics of the underlying physical hardware. As such, your choice of tier affects billing and sets an upward limit on capacity. Some features are not available on the free tier.
 + Service region can determine the availability of certain scenarios. If you need [high security features](search-security-overview.md) or [AI enrichment](cognitive-search-concept-intro.md), you will need to create Azure Cognitive Search in the same region as other services, or in regions that provide the feature in question. 
 
 ## Subscribe (free or paid)
 
-[Open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and use free credits to try out paid Azure services. After credits are used up, keep the account and continue to use free Azure services, such as Websites. Your credit card is never charged unless you explicitly change your settings and ask to be charged.
+To try search for free, you have two options:
 
-Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). An MSDN subscription gives you credits every month you can use for paid Azure services. 
++ [Open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and use free credits to try out paid Azure services. After credits are used up, keep the account and continue to use free Azure services, such as Websites. Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
-## Find Azure Cognitive Search
++ Alternatively, [activate Azure credits in a Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). A Visual Studio subscription gives you credits every month you can use for paid Azure services. 
+
+Paid (or billable) search becomes effective when you choose a billable tier (Basic or above) and create the resource.
+
+## Find the Azure Cognitive Search offering
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -113,11 +117,11 @@ Your service is deployed within minutes. You can monitor progress through Azure 
 
 ## Get a key and URL endpoint
 
-Unless you are using the portal, programmatic access to your new service requires that you provide the URL endpoint and an authentication api-key.
+Unless you are using the portal, programmatic access to your new service requires that you provide the URL endpoint and an authentication API key.
 
 1. On the **Overview** page, locate and copy the URL endpoint on the right side of the page.
 
-1. On the **Keys** page, copy either one of the admin keys (they are equivalent). Admin api-keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
+1. On the **Keys** page, copy either one of the admin keys (they are equivalent). Admin API keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
 
    :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Service overview page with URL endpoint" border="false":::
 

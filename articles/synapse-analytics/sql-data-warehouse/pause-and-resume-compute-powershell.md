@@ -10,11 +10,7 @@ ms.date: 03/20/2019
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom: devx-track-azurepowershell
-  - seo-lt-2019
-  - azure-synapse
-  - devx-track-azurepowershell
-  - mode-api
+ms.custom: devx-track-azurepowershell, seo-lt-2019, azure-synapse, mode-api
 ---
 
 # Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell

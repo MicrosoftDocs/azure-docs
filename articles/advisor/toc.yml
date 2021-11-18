@@ -21,6 +21,10 @@
   items:
   - name: Get started with Advisor
     href: advisor-get-started.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: How-to guides
   items:
   - name: Reliability
@@ -49,7 +53,7 @@
     href: azure-advisor-score.md
 - name: Reference
   items:
-  - name: Security Center
+  - name: Defender for Cloud
     href: https://azure.microsoft.com/services/security-center/
   - name: SQL Database Advisor
     href: ../azure-sql/database/database-advisor-implement-performance-recommendations.md

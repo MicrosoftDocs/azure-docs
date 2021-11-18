@@ -1,3 +1,4 @@
+items:
 - name: Custom Vision Service Documentation
   href: index.yml
 - name: Overview
@@ -23,6 +24,18 @@
       href: get-started-build-detector.md
     - name: Using the Custom Vision SDK
       href: quickstarts/object-detection.md
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: Custom Vision use cases
+      href: /legal/cognitive-services/custom-vision/custom-vision-cvs-transparency-note?context=/azure/cognitive-services/custom-vision-service/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/custom-vision/custom-vision-cvs-characteristics-and-limitations?context=/azure/cognitive-services/custom-vision-service/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/custom-vision/custom-vision-cvs-guidance-integration-responsible-use?context=/azure/cognitive-services/custom-vision-service/context/context
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/custom-vision/custom-vision-cvs-data-privacy-security?context=/azure/cognitive-services/custom-vision-service/context/context
 - name: Tutorials
   items:
   - name: Report visual states on IoT device
@@ -47,6 +60,8 @@
     items:
     - name: Export your model to mobile
       href: export-your-model.md
+    - name: Export a model programmatically
+      href: export-programmatically.md
     - name: Use ONNX model with Windows ML
       href: custom-vision-onnx-windows-ml.md
     - name: Run TensorFlow model in Python
