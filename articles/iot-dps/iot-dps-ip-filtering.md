@@ -1,8 +1,8 @@
 ﻿---
 title: Microsoft Azure IoT DPS IP connection filters
 description: How to use IP filtering to block connections from specific IP addresses to your Azure IoT DPS instance. 
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.service: iot-dps
 services: iot-dps
 ms.topic: how-to

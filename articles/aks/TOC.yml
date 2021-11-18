@@ -76,7 +76,7 @@
         - name: Overview
           href: best-practices.md
         - name: Baseline architecture for an AKS cluster
-          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks
           maintainContext: True
         - name: For cluster operators
           items:
@@ -364,9 +364,9 @@
     - name: Develop and run applications
       items:
         - name: Use Bridge to Kubernetes with Visual Studio Code
-          href: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          href: /visualstudio/bridge/bridge-to-kubernetes-vs-code
         - name: Use Bridge to Kubernetes with Visual Studio
-          href: /visualstudio/containers/bridge-to-kubernetes
+          href: /visualstudio/bridge/bridge-to-kubernetes-vs
         - name: Install existing applications with Helm
           href: kubernetes-helm.md
         - name: Use OpenFaaS
@@ -444,9 +444,9 @@
     - name: Azure CLI
       href: /cli/azure/aks
     - name: REST
-      href: /rest/api/aks
+      href: /rest/api/aks/
     - name: PowerShell
-      href: /powershell/module/az.aks#aks
+      href: /powershell/module/az.aks/#aks
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python
@@ -465,9 +465,9 @@
     - name: Build your skill with Microsoft Learn
       href: /learn/browse/?products=azure-container-instances&azure-container-registry
     - name: Region availability
-      href: https://azure.microsoft.com/regions/services/
+      href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/container-service/
+      href: https://azure.microsoft.com/pricing/details/kubernetes-service/
     - name: Support policies
       href: support-policies.md
     - name: Azure Roadmap
