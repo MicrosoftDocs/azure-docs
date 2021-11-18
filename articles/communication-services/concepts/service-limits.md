@@ -111,7 +111,7 @@ If you are using a Teams interoperability scenario, you will likely end up using
 
 Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](https://docs.microsoft.com/graph/throttling#service-specific-limits) in more detail.
 
-In general, responses will contain a 
+When you implement error handling, use the HTTP error code 429 to detect throttling. The failed response includes the ```Retry-After``` response header. Backing off requests using the ```Retry-After``` delay is the fastest way to recover from throttling because Microsoft Graph continues to log resource usage while a client is being throttled.
 
 ### Action to take
 You can find more information on Microsoft Graph [throttling](https://docs.microsoft.com/graph/throttling) limits in the [Microsoft Graph](https://docs.microsoft.com/graph/overview) documentation.
