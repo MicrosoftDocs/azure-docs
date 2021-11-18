@@ -40,7 +40,8 @@ You must:
 
 ## Step 1: Create an export job
 
-### [Portal (Preview)](#tab/azure-portal-preview)
+
+# [Portal (Preview)](#tab/azure-portal-preview)
 
 Perform the following steps to order an import job in Azure Import/Export via the Preview portal.
 
@@ -155,7 +156,8 @@ Perform the following steps to order an import job in Azure Import/Export via th
 
      [ ![Screenshot showing the Overview pane for an Azure Import Export job in Created state in the Preview portal.](./media/storage-import-export-data-from-blobs/import-export-order-preview-12-export-job.png) ](./media/storage-import-export-data-from-blobs/import-export-order-preview-12-export-job.png#lightbox)
 
-### [Portal (Classic)](#tab/azure-portal-classic)
+
+# [Portal (Classic)](#tab/azure-portal-classic)
 
 Perform the following steps to create an export job in the Azure portal.
 
@@ -180,7 +182,7 @@ Perform the following steps to create an export job in the Azure portal.
 
     ![Screenshot of the Basics tab for Create Import Export Job in Azure Import Export. Export From Azure is selected. Next: Job Details button is highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
-    Select **Next: Job details >** to proceed.
+    Select **Next: Job Details >** to proceed.
 
 5. In **Job details**:
 
@@ -233,11 +235,11 @@ Perform the following steps to create an export job in the Azure portal.
 
    1. Review the **Terms** for your order for privacy and source data deletion. If you agree to the terms, select the check box beneath the terms. Validation of the order begins.
 
-   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)<!--Renumber PNG if we use the Include file for Step 6.-->
+   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
 
  8. After validation passes, select **Create**.
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use the following steps to create an export job in the Azure portal.
 
@@ -312,7 +314,7 @@ Use the following steps to create an export job in the Azure portal.
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Use the following steps to create an export job in Azure PowerShell.
 

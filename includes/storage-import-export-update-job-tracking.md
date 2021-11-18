@@ -9,7 +9,6 @@ ms.topic: include
 ms.date: 11/17/2021
 ms.author: alkohli
 ms.custom: include file
-
 ---
 
 After you ship the disks, return to the job in the Azure portal and fill in the tracking information.
@@ -25,7 +24,7 @@ To complete the tracking information for your job in the Preview portal, do thes
 1. On the **Overview** pane, scroll down to **Tracking information** and complete the entries: 
     1. Provide the **Carrier** and **Tracking number**.
     1. Make sure the **Ship to address** is correct.
-    1. Select the checkbox by **Drives have been shipped to the above mentioned address**.
+    1. Select the checkbox by "Drives have been shipped to the above mentioned address."
     1. When you finish, select **Update**.
 
     [ ![Screenshot of tracking information on the Overview pane for an Azure Import Export job in Completed state as it appears in the Preview portal.](./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-01-inline.png) ](./media/storage-import-export-update-job-tracking/import-export-order-tracking-info-01-expanded.png#lightbox)

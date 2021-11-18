@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/16/2021
+ms.date: 11/17/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -41,7 +41,8 @@ You must:
   1. [Download WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659). The current version is 1.5.0.300.
   1. Unzip to the default folder `WaImportExportV1`. For example, `C:\WaImportExportV1`.
 - [!INCLUDE [storage-import-export-shipping-prerequisites.md](../../includes/storage-import-export-shipping-prerequisites.md)]
- 
+
+
 ## Step 1: Prepare the drives
 
 This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
@@ -102,13 +103,15 @@ Perform the following steps to prepare the drives.
 > * Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
 > * The maximum size of the journal file that the portal allows is 2 MB. If the journal file exceeds that limit, an error is returned.
 
+
 ## Step 2: Create an import job
 
-### [Portal (Preview)](#tab/azure-portal-preview)
+# [Portal (Preview)](#tab/azure-portal-preview)
 
 [!INCLUDE [storage-import-export-preview-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
 
-### [Portal (Classic)](#tab/azure-portal)
+
+# [Portal (Classic)](#tab/azure-portal)
 
 Perform the following steps to create an import job in the Azure portal.
 
@@ -159,7 +162,8 @@ Perform the following steps to create an import job in the Azure portal.
 
      ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
-### [Azure CLI](#tab/azure-cli)
+
+# [Azure CLI](#tab/azure-cli)
 
 Use the following steps to create an import job in the Azure CLI.
 
@@ -236,7 +240,8 @@ Use the following steps to create an import job in the Azure CLI.
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+
+# [Azure PowerShell](#tab/azure-powershell)
 
 Use the following steps to create an import job in Azure PowerShell.
 

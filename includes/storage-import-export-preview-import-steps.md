@@ -9,13 +9,12 @@ ms.topic: include
 ms.date: 11/17/2021
 ms.author: alkohli
 ms.custom: include file
-
 ---
 
 Perform the following steps to order an import job in Azure Import/Export job via the Preview portal.
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
-1. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
+1. Select **+ Create a resource**, and search for *Azure Data Box*. Select **Azure Data Box**.
 
    ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-01.png)
 
@@ -47,35 +46,33 @@ Perform the following steps to order an import job in Azure Import/Export job vi
 
     ![Screenshot showing the Basics tab for an import job in Azure Data Box. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-05.png)
 
-    Select **Next: Job details >** to proceed.
+    Select **Next: Job Details >** to proceed.
 
 1. In **Job Details**:
 
-   1. Before you go further, make sure you're using the latest WAImportExport tool. The tool ise used to read the journal file(s) that you upload. You can use the download link to update the tool.
+   1. Before you go further, make sure you're using the latest WAImportExport tool. The tool is used to read the journal file(s) that you upload. You can use the download link to update the tool.
    
       ![Screenshot showing the link to download the latest WAImportExport tool in Job Details for an Azure Import/Export import job. The tool link is highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-06-tool-link.png)
 
    1. Change the destination Azure region for the job if needed.
    1. Select one or more storage accounts to use for the job. You can create a new storage account if needed.
-   1. Under **Drive information**, use the **Copy** button to upload each journal file that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives).
+   1. Under **Drive information**, use the **Copy** button to upload each journal file that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). When you upload a journal file, the Drive ID is displayed.
       - If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. 
       - If the journal file is larger than 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml`, which was created along with the journal file.
-      When you upload a journal file, the Drive ID is displayed.
 
-      ![Screenshot showing Drive Information on the Job Details tab for an Azure Import Export job. The Copy button and the Drive ID for an uploaded journal file are highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-06-drive-information.png)
+        ![Screenshot showing Drive Information on the Job Details tab for an Azure Import Export job. The Copy button and the Drive ID for an uploaded journal file are highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-06-drive-information.png)
 
-storage-import-export-preview-import-steps
-   ![Screenshot of completed Job Details tab for an import job in Azure Data Box. The Job Detail tab and Next: Return Shipping button are highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-06.png)
+    ![Screenshot of completed Job Details tab for an import job in Azure Data Box. The Job Detail tab and Next: Return Shipping button are highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-06.png)
 
 1. In **Return shipping**:
 
    1. Select a shipping carrier from the drop-down list for **Carrier**. The location of the Microsoft datacenter for the selected region determines which carriers are available.
    1. Enter a **Carrier account number**. The account number for an valid carrier account is required.
-   1. In the **Return address** area, use **+ Address** to add the address to ship to.
+   1. In the **Return address** area, select the **+ Add Address** button, and add the address to ship to.
 
       ![Screenshot of the Return Shipping tab for an import job in Azure Data Box. The Return Shipping tab and the Plus Add Address button are highlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-07.png)
 
-      On the **Add address** blade, you can add an address or use an existing one.
+      On the **Add Address** blade, you can add an address or use an existing one. When you complete the address fields, select **Add shipping address**.
 
       ![Screenshot showing an address on the Add Address blade for an import job in Azure Data Box. The Add Shipping Address button is highlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-08.png)
 
@@ -90,8 +87,8 @@ storage-import-export-preview-import-steps
 
 1. In **Review + Create**:
 
-   1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
-   1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to. This information is used later on the shipping label.
+   1. Review the **Terms** and **Privacy** information, and then select the checkbox by "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
+   1. Review the job information. Make a note of the job name and the Azure datacenter shipping address to ship disks back to. This information is used later on the shipping label.
    1. Select **Create**.
 
    ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-10.png)
