@@ -78,12 +78,10 @@ When an Azure Storage account is behind a virtual network, the storage firewall 
 
 ### Azure Storage endpoint type
 
-There are additional requirements depending on whether the storage account connects to the VNet using a service endpoint or a private endpoint:
+When the workspace uses a private endpoint to connect to a VNet, and the storage account is also in the VNet, there are additional validation requirements when using studio:
 
-* __Service endpoint__ is enabled at the subnet level, and direct access to the storage account will not work from different subnets in the same VNet. 
-* __Private endpoint__ is enabled at the VNet level. So the storage account can be accessed from any subnet within the VNet.
-
-When the client accesses a storage account using studio, in addition to other access checks, we also check whether the client is in the same subnet or VNet, depending on the type of endpoint used by the storage account. If the storage account uses both a service endpoint and private endpoint, OR logic is used. If the client is in the subnets for the service endpoint, or the same VNet as the private endpoint, then access is allowed.
+* If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
+* If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet.
 
 ## Azure Data Lake Storage Gen1
 
