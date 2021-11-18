@@ -47,6 +47,32 @@ Analysis is performed upon receipt of the request. For information on the size a
 
 Using entity linking synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
+## Using this feature asynchronously
+
+Entity linking enables you to send API requests asynchronously as a batch, using either the REST API or client library. You can also include multiple different Language Service features in your request, to be performed on your data at the same time.
+
+### REST API
+
+To create an asynchronous API request, review the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Analyze) for the JSON body you'll send in your request.
+1. Add your documents to the `analysisInput` object.  
+1. Include `entityLinkingTasks` within the `tasks` object. You can optionally:
+    1. Choose a specific version of the model used on your data with the `model-version` value.
+    1. Include additional Language Service features in the `tasks` object, to be performed on your data at the same time.   
+
+Once you've created the JSON body for your request, add your key to the `Ocp-Apim-Subscription-Key` header. Then send your API request to the `/analyze` endpoint:
+
+```http
+https://your-endpoint/text/analytics/v3.1/analyze
+```
+
+A successful call will return a 202 response code. The `operation-location` in the response header will be the URL you will use to retrieve the API results. The value will look similar to the following URL:
+
+```http
+https://your-endpoint.cognitiveservices.azure.com/text/analytics/v3.2-preview.1/analyze/jobs/12345678-1234-1234-1234-12345678
+```
+
+To [retrieve the results](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/AnalyzeStatus) of the request, send a GET request to the URL you received in the `operation-location` header from the previous API response. Remember to include your key in the `Ocp-Apim-Subscription-Key`. The response will include the results of your API call.
+
 When using this feature asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
 ### Getting entity linking results  
