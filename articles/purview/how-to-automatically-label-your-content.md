@@ -102,7 +102,7 @@ For more information, see [Apply a sensitivity label to data automatically](/mic
 
 Define autolabeling rules for schematized data assets when you create or edit your label.
 
-Under the **database columns** option:
+At the **Schematized data assets** option:
 
 1. Select the **Auto-labeling for schematized data assets** slider.
 
