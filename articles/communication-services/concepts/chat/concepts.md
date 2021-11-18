@@ -77,11 +77,10 @@ Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This f
  - `participantsAdded` - when a user is added as a chat thread participant. 	
  - `participantsRemoved` - when an existing participant is removed from the chat thread.
 
-Real-time notifications can be used to provide a real-time chat experience for your users. To send push notifications for messages missed by your users while they were away, Communication Services integrates with Azure Event Grid to publish chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fcommunication-services%2ftoc.json).
-
 ## Push notifications 	
-
-Mobile SDKs (Android Chat SDK) support push notifications. This feature lets clients to be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app is not running in the foreground. The client app can subscribe to following events:
+To send push notifications for messages missed by your users while they were away, Communication Services provides two different ways to integrate: 
+1. Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fcommunication-services%2ftoc.json).
+2. Connect a Notification Hub resource with Communication Services resource to send push notifications and notify your application users about incoming chats and messages when the mobile app is not running in the foreground. The client app can subscribe to following chat events:
  - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.
  - `chatMessageEdited` - when a message is edited in a chat thread.	
  - `chatMessageDeleted` - when a message is deleted in a chat thread.	
@@ -94,7 +93,7 @@ Mobile SDKs (Android Chat SDK) support push notifications. This feature lets cli
 For more details, see [Push Notifications](../notifications.md).
 
 > [!NOTE]
-> Currently chat push notifications are only supported for Android SDK in version 1.1.0-beta.4.
+> Currently sending chat push notifications with Notification Hub is only supported for Android SDK in version 1.1.0-beta.4.
 
 ## Build intelligent, AI powered chat experiences 	
 
