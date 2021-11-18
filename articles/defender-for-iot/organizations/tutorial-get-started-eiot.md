@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to onboard to Microsoft Defend
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 11/11/2021
+ms.date: 11/18/2021
 ms.custom: template-tutorial
 ---
 
@@ -17,11 +17,10 @@ Defender for IoT has extended the agentless capabilities to go beyond operationa
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Onboard an Enterprise IoT sensor
+> * Register an Enterprise IoT sensor
 > * Set up a server or Virtual Machine (VM)
 > * Prepare your environment
 > * Install the sensor
-> * Run the Enterprise IoT sensor installation
 > * Validate your setup
 > * View your enterprise IoT devices in the EIoT device inventory
 
@@ -43,11 +42,11 @@ The following table describes user access permissions to Azure Defender for IoT 
 | Onboard a sensor |  | ✓ | ✓ | ✓ |
 | Update pricing |  |  | ✓ | ✓ |
 
-## Onboard an Enterprise IoT sensor
+## Register an Enterprise IoT sensor
 
 A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will use the Enterprise IoT network, and endpoint sensors to gain comprehensive visibility.
 
-**To onboard an Enterprise IoT sensor**:
+**To register an Enterprise IoT sensor**:
 
 1. Navigate to the [Azure portal](https://portal.azure.com#home).
 
@@ -61,13 +60,13 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
 1. Select a subscription from the drop-down menu.
 
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-subscription.png" alt-text="Screenshot of the onboard subscription button."::: **FIX THIS IMAGE**
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-subscription.png" alt-text="Screenshot of the onboard subscription button.":::
 
 1. Enter a meaningful site name that will assist you in locating where the sensor is located.
 
 1. Enter a display name.
 
-1. Enter a zone name, if no name is entered the name `default` will be applied.
+1. Enter a zone name. If no name is entered, the name `default` will be applied.
 
 1. Select **Setup**.
 
@@ -77,33 +76,33 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
 ## Set up a server or Virtual Machine (VM)
 
-Before you are able to deploy your Enterprise IoT sensor, you will need to configure your server, or VM, and connect a Network Interface Cared (NIC) to a switch monitoring (SPAN) port.
+Before you are able to deploy your Enterprise IoT sensor, you will need to configure your server, or VM, and connect a Network Interface Card (NIC) to a switch monitoring (SPAN) port.
 
 **To set up a server, or VM**:
 
 1. Ensure the minimum resources are set to:
 
-    - 4C CPU
+    * 4C CPU
 
-    - 8-GB ram
+    * 8-GB ram
 
-    - 250 GB HDD
+    * 250 GB HDD
 
-    - 2 Network Adapters
+    * 2 Network Adapters
 
-    - OS: Ubuntu 18.04
+    * OS: Ubuntu 18.04
 
 1. Connect a NIC to a switch.
 
-    - **Physical device** - connect a monitoring network interface (NIC) to a switch monitoring (SPAN) port.
+    * **Physical device** - connect a monitoring network interface (NIC) to a switch monitoring (SPAN) port.
 
-    - **VM** - Connect a vNIC to a vSwitch in promiscuous mode.
+    * **VM** - Connect a vNIC to a vSwitch in promiscuous mode.
 
-1. Run the following command to enable the network adapter in promiscuous mode.
+        * Run the following command to enable the network adapter in promiscuous mode.
 
-    ```bash
-    ifconfig <monitoring port> up promisc
-    ```
+            ```bash
+            ifconfig <monitoring port> up promisc
+            ```
 
 1. Validate incoming traffic to the monitoring port with the following command:
 
@@ -121,19 +120,19 @@ The environment will now have to be prepared.
 
 1. Open the following ports in your firewall:
 
-    - HTTPS - 443 TCP
+    * HTTPS - 443 TCP
 
-    - DNS - 53 TCP
+    * DNS - 53 TCP
 
 1. Hostnames for Azure resources:
 
-    - **EventHub**: *.servicebus.windows.net
+    * **EventHub**: *.servicebus.windows.net
 
-    - **Storage**: *.blob.core.windows.net
+    * **Storage**: *.blob.core.windows.net
 
-    - **IoT Hub**: *.azure-devices.net
+    * **IoT Hub**: *.azure-devices.net
 
-    - **Download Center**: download.microsoft.com
+    * **Download Center**: download.microsoft.com
 
 You can also download, and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) to your firewall will allow the Azure resources that are specified above along with their region.
 
@@ -162,9 +161,9 @@ Run the command that you received, and saved when you registered the Enterprise 
 
 1. `Setup proxy server`.
 
-    - If no, select **No**.
+    * If no, select **No**.
 
-    - If yes, select **Yes**.
+    * If yes, select **Yes**.
 
 1. (Optional) If you are setting up a proxy server.
 
@@ -188,15 +187,15 @@ The installation will now finish.
 
 1. Ensure the following containers are up:
 
-    - compose_statistics-collector_1
+    * compose_statistics-collector_1
 
-    - compose_cloud-communication_1
+    * compose_cloud-communication_1
 
-    - compose_horizon_1
+    * compose_horizon_1
 
-    - compose_attributes-collector_1
+    * compose_attributes-collector_1
 
-    - compose_properties_1
+    * compose_properties_1
 
     :::image type="content" source="media/tutorial-get-started-eiot/up-healthy.png" alt-text="Screenshot showing the containers are up and healthy.":::
 
