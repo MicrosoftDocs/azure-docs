@@ -32,7 +32,7 @@ This example illustrates how you can use the pattern to simplify the definition 
 
 In this example, you define a parameter that specifies the list of subnets that should be created in a virtual network. Each subnet's definition also includes a property called `allowRdp`. This property indicates whether the subnet should be associated with a network security group that allows inbound remote desktop traffic:
 
-::: code language="bicep" source="code/patterns-logical-parameter/virtual-network.bicep" range="4-15" :::
+::: code language="bicep" source="code/patterns-logical-parameter/virtual-network.bicep" range="4-15" ::: <!-- TODO move to correct repo -->
 
 The Bicep file then defines a variable to convert each of the logical subnet definitions to the subnet definition required by Azure. The network security group is assigned to the subnet when the `allowRdp` property is set to `true`.
 
