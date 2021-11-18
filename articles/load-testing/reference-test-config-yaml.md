@@ -13,7 +13,7 @@ adobe-target: true
 
 # Configure load tests in YAML
 
-Learn how to configure your load test in [YAML](https://yaml.org/). You will create a YAML test configuration to add a load test to your CI/CD workflow.
+Learn how to configure your load test in [YAML](https://yaml.org/). You'll create a YAML test configuration to add a load test to your CI/CD workflow.
 
 
 ## Load Test definition
@@ -24,16 +24,16 @@ A test configuration uses the following keys.
 | ----- | ----- | ----- | 
 | `version` | string | The version of the YAML config file used by the service. Currently the only valid value is `v0.1`. |
 | `testName` | string | **Required**. Name of the test to run. The results of different test runs will be collected under this test name in the Azure portal. |
-| `testPlan` | string | **Required**. The relative path to the JMeter test script to run. |
+| `testPlan` | string | **Required**. The relative path to the Apache JMeter test script to run. |
 | `engineInstances` | integer | **Required**. The number of parallel test engine instances to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
-| `configurationFiles` | array | List of relevant configuration files, references from the JMeter script. By default, a wildcard *`*.csv`* is generated to reference all *.csv* files in the test plan's folder. |
+| `configurationFiles` | array | List of relevant configuration files, references from the Apache JMeter script. By default, a wildcard *`*.csv`* is generated to reference all *.csv* files in the test plan's folder. |
 | `description` | string | Short description of the load test run. |
 | `failureCriteria` | object | The criteria that indicate failure of the test. Each criteria is in the form of:<BR>`[Aggregate_function] ([client_metric]) > [value]`<BR><BR>- *`[Aggregate function] ([client_metric])`*: one of `avg(response_time_ms)` or `percentage(error)`<BR>- *`value`*: integer number. |
-| `secrets` | object | List of secrets that the JMeter script references. |
-| `secrets.name` | string | Name of the secret. This name should match the secret name that you use in the JMeter script. |
+| `secrets` | object | List of secrets that the Apache JMeter script references. |
+| `secrets.name` | string | Name of the secret. This name should match the secret name that you use in the Apache JMeter script. |
 | `secrets.value` | string | Azure Key Vault secret URI. |
-| `env` | object | List of environment variables that the JMeter script references. |
-| `env.name` | string | The name of the environment variable. This name should match the secret name that you use in the JMeter script. |
+| `env` | object | List of environment variables that the Apache JMeter script references. |
+| `env.name` | string | The name of the environment variable. This name should match the secret name that you use in the Apache JMeter script. |
 | `env.value` | string | The value of the environment variable. |
 
 The following example contains the configuration for a load test:
