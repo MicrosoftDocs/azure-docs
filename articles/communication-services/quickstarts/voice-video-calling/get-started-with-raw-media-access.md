@@ -14,6 +14,9 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Raw Media Access
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
 ## Outbound Virtual Video Device
 
 The ACS Calling SDK offers APIs allowing apps to generate their own video frames to send to remote participants.
