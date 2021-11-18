@@ -36,16 +36,6 @@ items:
   items:
     - name: Pull DICOM changes using the Change Feed
       href: pull-dicom-changes-from-change-feed.md
-    - name: Register a service client application
-      href: dicom-register-service-client-application.md
-    - name: Register a public client application
-      href: dicom-register-public-application.md
-    - name: Register a confidential client application
-      href: dicom-register-confidential-client-application.md
-    - name: Configure Azure RBAC for the DICOM service 
-      href: dicom-configure-azure-rbac.md
-    - name: Get access token for the DICOM service using Azure CLI
-      href: dicom-get-access-token-azure-cli.md
 - name: Resources
   expanded: true
   items:

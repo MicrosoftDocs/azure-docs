@@ -148,7 +148,7 @@
     - name: Publish to App Source
       href: howto-get-appsource-certified.md
     - name: Publish to the Office 365 Seller Dashboard
-      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+      href: /office/dev/store/add-in-submission-guide
   - name: Azure Access Control Service
     displayName: ACS
     items:
@@ -184,9 +184,9 @@
   - name: Azure AD blog
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
   - name: Microsoft identity platform developer blog
-    href: https://developer.microsoft.com/identity/blogs/
+    href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/
   - name: Try Sign in with Microsoft
-    href: https://azure.microsoft.com/develop/identity/signin/
+    href: https://developer.microsoft.com/identity/add-sign-in-with-microsoft
   - name: Getting help
     displayName: support, help options
     href: ../develop/developer-support-help-options.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
