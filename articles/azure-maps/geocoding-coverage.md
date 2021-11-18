@@ -84,6 +84,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | U.S. Virgin Islands                                 |                 |        ✓       |       ✓      |      ✓     |                   |
 | United States Minor Outlying Islands                |                 |                |              |      ✓     |                    |
 | United States of America                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| United States Minor Outlying Islands                |                 |                |              |      ✓     |                    |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 
@@ -239,6 +240,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Equatorial Guinea                                   |                 |                |              |      ✓     |                   |
 | Eritrea                                             |                 |                |              |      ✓     |                   |
 | Ethiopia                                            |                 |                |       ✓      |      ✓     |                   |
+| French Southern Territories                         |                 |                |              |      ✓     |                   |
 | Gabon                                               |                 |                |       ✓      |      ✓     |                   |
 | Gambia                                              |                 |                |       ✓      |      ✓     |                   |
 | Ghana                                               |                 |                |       ✓      |      ✓     |                   |
@@ -256,6 +258,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Libya                                               |                 |                |             |      ✓     |                   |
 | Madagascar                                          |                 |                |       ✓      |      ✓     |                   |
 | Malawi                                              |                 |                |       ✓      |      ✓     |                   |
+| Maldives                                            |                 |                |              |      ✓     |                   |
 | Mali                                                |                 |                |              |      ✓     |                   |
 | Mauritania                                          |                 |                |              |      ✓     |                   |
 | Mauritius                                           |                 |                |       ✓      |      ✓     |                   |
