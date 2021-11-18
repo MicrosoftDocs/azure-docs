@@ -21,8 +21,8 @@ Application Gateway's Response buffer can collect all or parts of the response p
 
 In a similar way, Application Gateway's Request buffer can temporarily store the entire or parts of the request body, and then forward a larger upload request at once to the backend server. <strong>By default, Request buffering setting is enabled</strong> on Application Gateway and is useful to offload the processing function of re-assembling the smaller packets of data on the backend server.
  
-
-You keep either the Request or Response buffers, enabled or disable, based on your requirements and/or the observed performance of the client systems that communicate with your Application Gateway. 
+</br></br>
+You keep either the Request or Response buffer, enabled or disable, based on your requirements and/or the observed performance of the client systems that communicate with your Application Gateway. 
 
 >[!NOTE]
 >We strongly recommend that you test and evaluate the performance before rolling this out on the production gateways. 
