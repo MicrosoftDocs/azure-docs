@@ -26,7 +26,7 @@ To transition to Container Insights on Azure Arc enabled Kubernetes, we recommen
 
 The following table highlights the key differences between monitoring using the Azure Red Hat OpenShift v4.x script versus through Azure Arc enabled Kubernetes cluster extensions. Container Insights on Azure Arc enabled Kubernetes offers a substantial upgrade to that on Azure Red Hat OpenShift v4.x.
 
-|  | Azure Red Hat OpenShift v.4x monitoring | Azure Arc enabled Kubernetes monitoring |
+| Feature Differences  | Azure Red Hat OpenShift v.4x monitoring | Azure Arc enabled Kubernetes monitoring |
 | ------------------- | ----------------- | ------------------- |
 | Onboarding | Manual script-based installation only | Single click onboarding using Azure Arc cluster extensions via Azure Portal, CLI, or ARM |
 | Alerting | Log based alerts only | Log based alerting and [recommended metric-based](./container-insights-metric-alerts.md) alerts |
