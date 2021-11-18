@@ -263,11 +263,11 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
-export subscriptionID=<subscriptionID>
-export appId=<appID>
+export subscriptionID="<subscriptionID>"
+export appId="<appID>"
 export spn_secret="<password>"
-export tenant_id=<tenant>
-export region_code=NOEU
+export tenant_id="<tenant>"
+export region_code="NOEU"
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
@@ -275,10 +275,10 @@ export ARM_SUBSCRIPTION_ID="${subscriptionID}"
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                         \
     --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
     --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                      \
-    --subscription $subscriptionID                                                                                               \
-    --spn_id $appID                                                                                                              \
-    --spn_secret $spn_secret                                                                                                     \
-    --tenant_id $tenant_id --force
+    --subscription "${subscriptionID}"                                                                                           \
+    --spn_id "${spn_id}"                                                                                                         \
+    --spn_secret "${spn_secret}"                                                                                                 \
+    --tenant_id "${tenant_id}"
 ```
 
 If you run into authentication issues,  run `az logout` to log out. Clear `token-cache`, then run `az login` to reauthenticate.
@@ -525,28 +525,29 @@ The details, which we collected in earlier will be needed here. These details ar
 Start deployment of the workload zone:
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTRUCTURE
 
-export subscriptionID=<subscriptionID>
-export appId=<appID>
+export subscriptionID="<subscriptionID>"
+export appId="<appID>"
 export spn_secret="<password>"
-export tenant_id=<tenant>
-export storage_account=<storageaccountName>
-export statefile_subscription=<subscriptionID>
-export region_code=NOEU
+export tenant_id="<tenant>"
+export storage_account="<storageaccountName>"
+export statefile_subscription="<subscriptionID>"
+export region_code="NOEU"
 key_vault=<vaultID>
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                        \
-    --parameterfile ./DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars                  \
-    --deployer_environment MGMT                                                       \
-    --deployer_tfstate_key MGMT-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate \
-    --keyvault $key_vault                                                             \
-    --storageaccountname $storage_account                                             \
-    --state_subscription $statefile_subscription                                      \
-    --subscription $subscriptionID                                                    \
-    --spn_id $appID                                                                   \
-    --spn_secret $spn_secret                                                          \
-    --tenant_id $tenant_id
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                          \
+    --parameterfile ./DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars                    \
+    --deployer_environment "MGMT"                                                       \
+    --deployer_tfstate_key "MGMT-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate" \
+    --keyvault "${key_vault}"                                                           \
+    --storageaccountname "${storage_account}"                                           \
+    --state_subscription "${statefile_subscription}"                                    \
+    --subscription "${subscriptionID}"                                                  \
+    --spn_id "${spn_id}"                                                                \
+    --spn_secret "${spn_secret}"                                                        \
+    --tenant_id "${tenant_id}"
 ```
 
 The workload zone deployment should start automatically.
@@ -568,11 +569,13 @@ The SAP system deploys:
 Deploy the SAP system.
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-XXXX-SAP01-X00
-export region_code=NOEU
+
+export region_code="NOEU"
+
+cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh           \
-  --parameterfile DEV-${region_code}-SAP01-X00.tfvars         \
+  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"         \
   --type sap_system                                           \
   --auto-approve
 ```
@@ -697,17 +700,22 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/
 Export the following two environment variables.
 
 ```bash
-export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-automation
+export DEPLOYMENT_REPO_PATH="~/Azure_SAP_Automated_Deployment/sap-automation"
 
-export ARM_SUBSCRIPTION_ID=<subscriptionID>
+export ARM_SUBSCRIPTION_ID="<subscriptionID>"
 ```
 
 Run the following command.
 
 ```bash
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                    \
-  --deployer_parameter_file DEPLOYER/MGMT-NOEU-DEP00-INFRASTRUCTURE/MGMT-NOEU-DEP00-INFRASTRUCTURE.tfvars  \
-  --library_parameter_file LIBRARY/MGMT-NOEU-SAP_LIBRARY/MGMT-NOEU-SAP_LIBRARY.tfvars
+export region_code="NOEU"
+
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export ARM_SUBSCRIPTION_ID="${subscriptionID}"
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                                          \
+    --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
+    --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                      \
 ```
 
 Verify that all resources are now cleaned up.
