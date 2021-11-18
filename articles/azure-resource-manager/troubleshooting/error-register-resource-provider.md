@@ -1,6 +1,6 @@
 ---
 title: Resource provider registration errors
-description: Describes how to resolve Azure resource provider registration errors when resources are deployed with Azure Resource Manager.
+description: Describes how to resolve Azure resource provider registration errors for resources deployed with Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 11/18/2021
 ms.custom:  devx-track-azurepowershell
@@ -9,8 +9,6 @@ ms.custom:  devx-track-azurepowershell
 # Resolve errors for resource provider registration
 
 This article describes the errors that might occur when you use a resource provider that you haven't previously used in your subscription.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Symptom
 
@@ -50,6 +48,49 @@ You receive these errors for one of these reasons:
 
 ## Solution
 
+# [Azure CLI](#tab/azure-cli)
+
+You can use Azure CLI to get information about a resource provider's registration status and
+register a resource provider.
+
+Use [az provider list](/cli/azure/provider#az_provider_list) to display the registration status for your subscription's resource providers. The examples use the `--output table` parameter to filter the output for readability. You can omit the parameter to see all properties.
+
+The following command lists all the subscription's resource providers and whether they're `Registered` or `NotRegistered`.
+
+```azurecli-interactive
+az provider list --output table
+```
+
+You can filter the output by registration state. Replace the query value with `Registered` or `NotRegistered`.
+
+```azurecli-interactive
+az provider list --query "[?registrationState=='Registered']" --output table
+```
+
+Get the registration status for a specific resource provider:
+
+```azurecli-interactive
+az provider list --query "[?namespace=='Microsoft.Compute']" --output table
+```
+
+To register a resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command, and specify the _namespace_ to register.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Cdn
+```
+
+To get a resource type's supported locations, use [az provider show](/cli/azure/provider#az_provider_show):
+
+```azurecli-interactive
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
+```
+
+Get a resource type's supported API versions:
+
+```azurecli-interactive
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].apiVersions"
+```
+
 # [PowerShell](#tab/azure-powershell)
 
 You can use Azure PowerShell to get information about a resource provider's registration status and
@@ -70,7 +111,7 @@ Get-AzResourceProvider -ListAvailable |
   Where-Object -Property RegistrationState -EQ -Value "Registered"
 ```
 
-To get the registration status for a specific resource provider:
+Get the registration status for a specific resource provider:
 
 ```azurepowershell-interactive
 Get-AzResourceProvider -ListAvailable |
@@ -83,61 +124,18 @@ To register a provider, use [Register-AzResourceProvider](/powershell/module/az.
 Register-AzResourceProvider -ProviderNamespace "Microsoft.Cdn"
 ```
 
-To get a resource type's supported locations:
+Get a resource type's supported locations:
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes |
   Where-Object -Property ResourceTypeName -EQ -Value "sites").Locations
 ```
 
-To get a resource type's supported API versions:
+Get a resource type's supported API versions:
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes |
   Where-Object -Property ResourceTypeName -EQ -Value "sites").ApiVersions
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-You can use Azure CLI to get information about a resource provider's registration status and
-register a resource provider.
-
-Use [az provider list](/cli/azure/provider#az_provider_list) to display the registration status for your subscription's resource providers. The examples use the `--output table` parameter to filter the output for readability. You can omit the parameter to see all properties.
-
-The following command lists all the subscription's resource providers and whether they're `Registered` or `NotRegistered`.
-
-```azurecli-interactive
-az provider list --output table
-```
-
-You can filter the output by registration state. Replace the query value with `Registered` or `NotRegistered`.
-
-```azurecli-interactive
-az provider list --query "[?registrationState=='Registered']" --output table
-```
-
-To get the registration status for a specific resource provider:
-
-```azurecli-interactive
-az provider list --query "[?namespace=='Microsoft.Compute']" --output table
-```
-
-To register a resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command, and specify the _namespace_ to register.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Cdn
-```
-
-To get a resource type's supported locations, use [az provider show](/cli/azure/provider#az_provider_show):
-
-```azurecli-interactive
-az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
-```
-
-To get a resource type's supported API versions:
-
-```azurecli-interactive
-az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].apiVersions"
 ```
 
 # [Portal](#tab/azure-portal)
