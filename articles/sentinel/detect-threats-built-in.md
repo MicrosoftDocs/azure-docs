@@ -1,17 +1,8 @@
 ---
 title: Detect threats with built-in analytics rules in Microsoft Sentinel | Microsoft Docs
 description: Learn how to use out-of-the-box threat detection rules, based on built-in templates, that notify you when something suspicious happens.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

@@ -4,7 +4,6 @@ description: How to onboard an application to Open Service Mesh
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
-ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
@@ -37,7 +36,7 @@ If the **enablePermissiveTrafficPolicyMode** is configured to **true**, you can 
 
 ## Onboard applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as True
 
-1. Refer to the [application requirements](https://release-v0-11.docs.openservicemesh.io/docs/guides/app_onboarding/prereqs/) guide before onboarding applications.
+1. Refer to the [application requirements](https://docs.openservicemesh.io/docs/guides/app_onboarding/prereqs/) guide before onboarding applications.
 
 1. If an application in the mesh needs to communicate with the Kubernetes API server, the user needs to explicitly allow this either by using IP range exclusion or by creating an egress policy.
 
@@ -52,14 +51,14 @@ If the **enablePermissiveTrafficPolicyMode** is configured to **true**, you can 
     By default, the `osm namespace add` command enables automatic sidecar injection for pods in the namespace.
 
     To disable automatic sidecar injection as a part of enrolling a namespace into the mesh, use `osm namespace add <namespace> --disable-sidecar-injection`.
-    Once a namespace has been onboarded, pods can be enrolled in the mesh by configuring automatic sidecar injection. See the [Sidecar Injection](https://release-v0-11.docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) document for more details.
+    Once a namespace has been onboarded, pods can be enrolled in the mesh by configuring automatic sidecar injection. See the [Sidecar Injection](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) document for more details.
 
 1.  Deploy new applications or redeploy existing applications
 
     By default, new deployments in onboarded namespaces are enabled for automatic sidecar injection. This means that when a new pod is created in a managed namespace, OSM will automatically inject the sidecar proxy to the Pod.
     Existing deployments need to be restarted so that OSM can automatically inject the sidecar proxy upon Pod re-creation. Pods managed by a deployment can be restarted using the `kubectl rollout restart deploy` command.
 
-    In order to route protocol specific traffic correctly to service ports, configure the application protocol to use. Refer to the [application protocol selection guide](https://release-v0-11.docs.openservicemesh.io/docs/guides/app_onboarding/app_protocol_selection/) to learn more.
+    In order to route protocol specific traffic correctly to service ports, configure the application protocol to use. Refer to the [application protocol selection guide](https://docs.openservicemesh.io/docs/guides/app_onboarding/app_protocol_selection/) to learn more.
 
 
 ## Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False

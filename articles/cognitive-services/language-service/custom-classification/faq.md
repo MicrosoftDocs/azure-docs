@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -42,6 +42,7 @@ The training process can take some time. As a rough estimate, the expected train
 
 You can use the [REST APIs](https://aka.ms/ct-authoring-swagger) to build your custom models. Follow this [quickstart](quickstart.md?pivots=rest-api) to get started with creating a project and creating a model through APIs for examples of how to call the Authoring API. 
 
+When you're ready to start [using your model to make predictions](#how-do-i-use-my-trained-model-to-make-predictions), you can use the REST API, or the client library.
 
 ## What is the recommended CI/CD process?
 
@@ -82,7 +83,7 @@ You need to [deploy your model](quickstart.md#deploy-your-model) before you can 
 
 ## How do I use my trained model to make predictions?
 
-After deploying your model, you [call the prediction API](how-to/call-api.md). See the [Prediction API reference](https://aka.ms/ct-runtime-swagger) for more information.
+After deploying your model, you [call the prediction API](how-to/call-api.md), using either the [REST API](how-to/call-api.md?tabs=rest-api) or [client libraries](how-to/call-api.md?tabs=client).
 
 ## Data privacy and security
 

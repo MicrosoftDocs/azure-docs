@@ -76,7 +76,7 @@ There are several resource limitations regarding instance pools and instances in
     - 8 vCores pool supports up to 200 databases,
     - 16 vCores pool supports up to 400 databases,
     - 24 and larger vCores pool supports up to 500 databases.
-- Azure AD authentication can be used after creating or setting a managed instance with the `-AssignIdentity` flag. For more information, see [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) and [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance). Users can then set an Azure AD admin for the instance by following [Provision Azure AD admin (SQL Managed Instance)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
+- Azure AD authentication can be used after creating or setting a managed instance with the `-AssignIdentity` flag. For more information, see [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) and [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance). Users can then set an Azure AD admin for the instance by following [Provision Azure AD admin (SQL Managed Instance)](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 Total storage allocation and number of databases across all instances must be lower than or equal to the limits exposed by instance pools.
 

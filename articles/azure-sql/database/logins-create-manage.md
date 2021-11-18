@@ -28,6 +28,9 @@ In this article, you learn about:
 > [!IMPORTANT]
 > Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](logical-servers.md) that manages databases for Azure SQL Database and Azure Synapse.
 
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
 ## Authentication and authorization
 
 [**Authentication**](security-overview.md#authentication) is the process of proving the user is who they claim to be. A user connects to a database using a user account.
