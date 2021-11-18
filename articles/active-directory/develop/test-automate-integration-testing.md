@@ -82,10 +82,23 @@ client_id={your_client_ID}
 
 Replace *{tenant}* with your tenant ID, *{your_client_ID}* with the client ID of your application, and *{resource_you_want_to_call}* with the identifier URI (for example, "https://graph.microsoft.com") or app ID of the API you are trying to access.
 
-## Configure your tenant
-Your tenant likely has some security settings that require multifactor authentication for all users, as recommended by Microsoft.  Multifactor authentication won't work with ROPC, so you'll need to exempt your test application/test users from this requirement.
+## Exempt test apps and users from your MFA policy
+Your tenant likely has a conditional access policy that [require multifactor authentication (MFA) for all users](/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
 
-Ryan TODO
+To exclude user accounts:
+1. Navigate to the [Azure portal](https://portal.azure.com) and sign in to your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional access**.
+1. In **Policies**, select the conditional access policy that requires MFA.
+1. Select **Users or workload identities**.
+1. Select the **Exclude** tab and then the **Users and groups** checkbox.
+1. Select the user account(s) to exclude in **Select excluded users**.
+1. Click the **Select** button and then **Save**.
+
+To Exclude a test application:
+1. In **Policies**, select the conditional access policy that requires MFA.
+1. Select **Cloud apps or actions**.
+1. Select the **Exclude** tabl and then **Select excluded cloud apps**.
+1. Select the app(s) you want to exclude in **Select excluded cloud apps**.
+1. Click the **Select** button and then **Save**.
 
 ## Write your tests
         
