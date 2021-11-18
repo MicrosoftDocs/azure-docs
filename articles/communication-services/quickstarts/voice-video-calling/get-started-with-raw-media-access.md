@@ -2,9 +2,9 @@
 title: Quickstart - Add RAW media access to your app (Android)
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add raw media access calling capabilities to your app using Azure Communication Services.
-author: Laith Rodan 
+author: LaithRodan 
 
-ms.author: rifox
+ms.author: larodan
 ms.date: 11/18/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
