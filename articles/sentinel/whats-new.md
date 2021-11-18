@@ -1,7 +1,6 @@
 ---
 title: What's new in Microsoft Sentinel
 description: This article describes new features in Microsoft Sentinel from the past few months.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: conceptual

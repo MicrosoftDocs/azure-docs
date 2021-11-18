@@ -2,7 +2,7 @@
 title: Microsoft Sentinel SAP solution deployment troubleshooting | Microsoft Docs
 description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel SAP solution deployment.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.topic: troubleshooting
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021

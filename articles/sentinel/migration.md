@@ -1,8 +1,6 @@
 ---
 title: Migrate to Microsoft Sentinel from an existing SIEM.
 description: Learn how to best migrate from an existing SIEM to Microsoft Sentinel, for scalable, intelligent security analytics across your organization.
-services: sentinel
-documentationcenter: na
 author: batamig
 ms.topic: conceptual
 ms.date: 11/09/2021
