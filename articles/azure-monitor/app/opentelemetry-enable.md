@@ -157,7 +157,7 @@ npm install @opentelemetry/instrumentation-http
 
 #### [Python](#tab/python)
 
-Install the latest [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) PyPi package:
+Install the latest [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) PyPI package:
 
 ```sh
 pip install azure-monitor-opentelemetry-exporter 
@@ -167,7 +167,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ### Enable Azure Monitor Application Insights
 
-This section provides code samples that demonstrate how to enable OpenTelemetry.
+This section provides guidance that shows how to enable OpenTelemetry.
 
 #### Add OpenTelemetry instrumentation code
 
@@ -465,7 +465,7 @@ This section explains how to modify telemetry.
 
 ### Add span attributes
 
-To span attributes, use either of the following two ways:
+To add span attributes, use either of the following two ways:
 
 * Use options provided by [instrumentation libraries](#instrumentation-libraries).
 * Add a custom span processor.
@@ -477,7 +477,7 @@ These attributes might include adding a custom property to your telemetry. You m
 
 #### Add a custom property
 
-Any [attributes](#add-span-attributes) you add to activity or span are exported as custom properties. They populate the _customDimensions_ field in the requests or the dependencies tables in Application Insights.
+Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the _customDimensions_ field in the requests or the dependencies tables in Application Insights.
 
 ##### [.NET](#tab/net)
 
@@ -591,7 +591,7 @@ class SpanEnrichingProcessor(SpanProcessor):
 
 #### Set the user IP
 
-You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on the activity or span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
 ##### [.NET](#tab/net)
 
@@ -632,7 +632,7 @@ span._attributes["http.client_ip"] = "<IP Address>"
 
 #### Set the user ID or authenticated user ID
 
-You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by setting the `xyz` or `xyz` attribute on activity or span. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
+You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by setting the `xyz` or `xyz` attribute on the span. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
 
 > [!IMPORTANT]
 > Consult applicable privacy laws before you set the Authenticated User ID.
@@ -675,7 +675,7 @@ span._attributes["enduser.id"] = "<User ID>"
 
 ### Filter telemetry
 
-You might use the following ways to filter out telemetry before you leave your application.
+You might use the following ways to filter out telemetry before it leaves your application.
 
 #### [.NET](#tab/net)
 
@@ -1031,7 +1031,7 @@ To provide feedback:
 ### [Python](#tab/python)
 
 - To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md).
-- To install the PyPi package, check for updates, or view release notes, see the [Azure Monitor Exporter  PyPi Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) page.
+- To install the PyPI package, check for updates, or view release notes, see the [Azure Monitor Exporter  PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
