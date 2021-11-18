@@ -298,7 +298,7 @@ The output of transcription with diarization enabled contains a `Speaker` entry 
 
 To request diarization, add set the `diarizationEnabled` property to `true` like the HTTP request shows below.
 
- ```json
+```json
 {
   "contentUrls": [
     "<URL to an audio file to transcribe>",

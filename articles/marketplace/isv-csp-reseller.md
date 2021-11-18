@@ -28,7 +28,7 @@ As a CSP partner, you can discover all the margins available to you via Partner 
 :::image type="content" source="media/isv-csp-cloud/csp-private-offer-experience.png" alt-text="Shows the progression of the CSP private offer experience.":::
 
 > [!NOTE]
-> If you only publish your offer to Microsoft AppSource (so it is not available through Azure Marketplace) and opted it in to be sold by partners in the Cloud Solution Provider (CSP) program, there may be a delay with your offer displaying for CSP partners to purchase in their portal. Please contact [support](/azure/marketplace/support) if you believe your offer is not available for your CSP partner to transact.
+> If you only publish your offer to Microsoft AppSource (so it is not available through Azure Marketplace) and opted it in to be sold by partners in the Cloud Solution Provider (CSP) program, there may be a delay with your offer displaying for CSP partners to purchase in their portal. Please contact [support](./support.md) if you believe your offer is not available for your CSP partner to transact.
 
 ## Prerequisites to create a private offer for Cloud Resellers
 
@@ -183,4 +183,4 @@ The payout amount and agency fee that Microsoft charges is based on the price af
 
 ## Next steps
 
-- [Frequently Asked Questions](/azure/marketplace/isv-csp-faq) about configuring ISV to Cloud Reseller private offers
+- [Frequently Asked Questions](./isv-csp-faq.yml) about configuring ISV to Cloud Reseller private offers

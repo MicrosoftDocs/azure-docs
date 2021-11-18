@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure Zero to support provisioning with Azure AD
 
 1. Have your ZERO account administrator contact [Zero support](https://help.teamzero.com/) to get your SCIM secret token This value will be entered in the Secret Token field in the Provisioning tab of your Zero application in the Azure portal.
-1. The tenant url is: `https://api.teamzero.com/scim/v2/`. This value will be entered in the Tenant URL field in the Provisioning tab of your Zero application in the Azure portal.
+1. The tenant URL is: `https://api.teamzero.com/scim/v2/`. This value will be entered in the Tenant URL field in the Provisioning tab of your Zero application in the Azure portal.
 
 ## Step 3. Add Zero from the Azure AD application gallery
 

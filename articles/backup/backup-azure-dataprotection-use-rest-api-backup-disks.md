@@ -46,7 +46,7 @@ The Backup vault requires permissions on the disk to enable backups. The system-
 
 ### Assign permissions
 
-You need to assign a few permissions via RBAC to the vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Azure portal or CLI. To assign related permissions, see the [prerequisites to configure backup of managed disks](/azure/backup/backup-managed-disks-ps#assign-permissions).
+You need to assign a few permissions via RBAC to the vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Azure portal or CLI. To assign related permissions, see the [prerequisites to configure backup of managed disks](./backup-managed-disks-ps.md#assign-permissions).
 
 ### Prepare the request to configure backup
 

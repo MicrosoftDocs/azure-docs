@@ -26,8 +26,8 @@ The goal of Azure AD registered devices is to provide your users with support fo
 |   | Bring your own device |
 |   | Mobile devices |
 | **Device ownership** | User or Organization |
-| **Operating Systems** | Windows 10, iOS, Android, and macOS |
-| **Provisioning** | Windows 10 – Settings |
+| **Operating Systems** | Windows 10 and above, iOS, Android, and macOS |
+| **Provisioning** | Windows 10 and above – Settings |
 |   | iOS/Android – Company Portal or Microsoft Authenticator app |
 |   | macOS – Company Portal |
 | **Device sign in options** | End-user local credentials |
@@ -44,11 +44,11 @@ The goal of Azure AD registered devices is to provide your users with support fo
 
 ![Azure AD registered devices](./media/concept-azure-ad-register/azure-ad-registered-device.png)
 
-Azure AD registered devices are signed in to using a local account like a Microsoft account on a Windows 10 device. These devices have an Azure AD account for access to organizational resources. Access to resources in the organization can be limited based on that Azure AD account and Conditional Access policies applied to the device identity.
+Azure AD registered devices are signed in to using a local account like a Microsoft account on a Windows 10 and above device. These devices have an Azure AD account for access to organizational resources. Access to resources in the organization can be limited based on that Azure AD account and Conditional Access policies applied to the device identity.
 
 Administrators can secure and further control these Azure AD registered devices using Mobile Device Management (MDM) tools like Microsoft Intune. MDM provides a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, and security software kept updated. 
 
-Azure AD registration can be accomplished when accessing a work application for the first time or manually using the Windows 10 Settings menu. 
+Azure AD registration can be accomplished when accessing a work application for the first time or manually using the Windows 10 or Windows 11 Settings menu. 
 
 ## Scenarios
 

@@ -2,7 +2,7 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 11/12/2021
 ---
 
 # Bicep modules
@@ -12,6 +12,10 @@ Bicep enables you to organize deployments into modules. A module is just a Bicep
 To share modules with other people in your organization, [create a private registry](private-module-registry.md). Modules in the registry are only available to users with the correct permissions.
 
 Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template).
+
+### Microsoft Learn
+
+To learn more about modules, and for hands-on guidance, see [Create composable Bicep files by using modules](/learn/modules/create-composable-bicep-files-using-modules/) on **Microsoft Learn**.
 
 ## Definition syntax
 
@@ -30,7 +34,7 @@ So, a simple, real-world example would look like:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" :::
 
-Use the symbolic name to reference the module in another part of the Bicep file. For example, you can use the symbolic name to get the output from a module. The symbolic name may contain a-z, A-Z, 0-9, and '_'. The name can't start with a number. A module can't have the same name as a parameter, variable, or resource.
+Use the symbolic name to reference the module in another part of the Bicep file. For example, you can use the symbolic name to get the output from a module. The symbolic name may contain a-z, A-Z, 0-9, and underscore (`_`). The name can't start with a number. A module can't have the same name as a parameter, variable, or resource.
 
 The path can be either a local file or a file in a registry. For more information, see [Path to module](#path-to-module).
 
@@ -44,7 +48,7 @@ To **conditionally deploy a module**, add an `if` expression. The use is similar
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/conditional-definition.bicep" highlight="2" :::
 
-To deploy **more than one instance** of a module, add the `for` expression. For more information, see [Iterative loops in Bicep](loops.md).
+To deploy **more than one instance** of a module, add the `for` expression. You can use the `batchSize` decorator to specify whether the instances are deployed serially or in parallel. For more information, see [Iterative loops in Bicep](loops.md).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="3" :::
 
@@ -82,7 +86,7 @@ For example:
 
 When you reference a module in a registry, the Bicep extension in Visual Studio Code automatically calls [bicep restore](bicep-cli.md#restore) to copy the external module to the local cache. It takes a few moments to restore the external module. If intellisense for the module doesn't work immediately, wait for the restore to complete.
 
-The full path for a module in a registry can be long. Instead of providing the full path each time you want to use the module, you can [configure aliases in the bicepconfig.json file](bicep-config.md#aliases-for-modules). The aliases make it easier to reference the module. For example, with an alias, you can shorten the path to:
+The full path for a module in a registry can be long. Instead of providing the full path each time you want to use the module, you can [configure aliases in the bicepconfig.json file](bicep-config-modules.md#aliases-for-modules). The aliases make it easier to reference the module. For example, with an alias, you can shorten the path to:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
 

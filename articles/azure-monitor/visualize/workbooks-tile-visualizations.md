@@ -101,7 +101,7 @@ The author has an option to set the tile width in the tile settings.
 
 * `fixed` (default)
 
-    The default behavior of tiles is to be the same fixed width, approx. 160 pixels wide, plus the space around the tiles.
+    The default behavior of tiles is to be the same fixed width, approximately 160 pixels wide, plus the space around the tiles.
 
     ![Screenshot displaying fixed width tiles](./media/workbooks-tile-visualizations/tiles-fixed.png)
 * `auto`

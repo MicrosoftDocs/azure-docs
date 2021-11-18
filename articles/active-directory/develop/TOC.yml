@@ -156,6 +156,8 @@
     href: authentication-flows-app-scenarios.md
   - name: Applications and service principals
     href: app-objects-and-service-principals.md
+  - name: Workload identity federation
+    href: workload-identity-federation.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
   - name: App security
@@ -544,7 +546,11 @@
     - name: Create a service principal using Azure PowerShell
       href: howto-authenticate-service-principal-powershell.md
     - name: Create a service principal using the Azure portal
-      href: howto-create-service-principal-portal.md
+      href: howto-create-service-principal-portal.md   
+    - name: Configure an app to trust a GitHub repo
+      href: workload-identity-federation-create-trust-github.md 
+    - name: Configure an app to trust an external identity provider
+      href: workload-identity-federation-create-trust.md
   - name: Accept sign-ins from multiple tenants
     items:
     - name: Modify accounts supported by an app
@@ -561,7 +567,7 @@
     - name: Add app roles in your application
       href: howto-add-app-roles-in-azure-ad-apps.md
     - name: Implement RBAC in your application
-      href: howto-implement-rbac-for-apps.md
+      href: howto-implement-rbac-for-apps.md      
   - name: Build for resilience
     items:
     - name: Development Overview
@@ -732,9 +738,9 @@
   items:
   - name: Videos
     href: identity-videos.md
-  - name: Microsoft identity platform developer blog
-    href: https://developer.microsoft.com/identity/blogs/
-  - name: Azure AD blog
+  - name: Microsoft identity platform - Microsoft 365 Developer Blog
+    href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/
+  - name: Azure Active Directory Identity Blog
     href: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity

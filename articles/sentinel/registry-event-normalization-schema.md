@@ -1,31 +1,22 @@
 ---
-title: Azure Sentinel Registry Event normalization schema reference | Microsoft Docs
-description: This article describes the Azure Sentinel Registry Event normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: Microsoft Sentinel Registry Event normalization schema reference | Microsoft Docs
+description: This article describes the Microsoft Sentinel Registry Event normalization schema.
 author: batamig
-manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 07/01/2021
+ms.date: 11/09/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel Registry Event normalization schema reference (Public preview)
+# Microsoft Sentinel Registry Event normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Registry Event schema is used to describe the Windows activity of creating, modifying, or deleting Windows Registry entities.
 
 Registry events are specific to Windows systems, but are reported by different systems that monitor Windows, such as EDR (End Point Detection and Response) systems, Sysmon, or Windows itself.
 
-For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Registry Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -35,15 +26,15 @@ For more information about normalization in Azure Sentinel, see [Normalization a
 
 ## Parsers
 
-Azure Sentinel provides the following built-in, product-specific registry event parsers:
+Microsoft Sentinel provides the following built-in, product-specific registry event parsers:
 
 - **Security Events registry update (Event 4657**), collected using the Log Analytics Agent or Azure Monitor Agent
 - **Sysmon registry monitoring events (Events 12, 13, and 14)**, collected using the Log Analytics Agent or Azure Monitor Agent
-- **Microsoft 365 Defender for Endpoints registry events**
+- **Microsoft 365 Defender for Endpoint registry events**
 
 To use the source-agnostic parser that unifies all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use **imRegistry** as the table name in your query.
 
-Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelRegistry).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelRegistry).
 
 ### Add your own normalized parsers
 
@@ -53,9 +44,9 @@ Add your KQL functions to the `imRegistry` source-agnostic parsers to ensure tha
 
 ## Normalized content
 
-Azure Sentinel provides the [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml) hunting query. This query works on any registry activity data normalized using the Azure Sentinel Information Model.
+Microsoft Sentinel provides the [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml) hunting query. This query works on any registry activity data normalized using the Advanced SIEM Information Model.
 
-For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
+For more information, see [Hunt for threats with Microsoft Sentinel](hunting.md).
 
 ## Schema details
 
@@ -169,8 +160,8 @@ Different sources represent registry value types using different representations
 
 For more information, see:
 
-- [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Azure Sentinel network normalization schema reference](normalization-schema.md)
+- [Normalization in Microsoft Sentinel](normalization.md)
+- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Microsoft Sentinel network normalization schema reference](./network-normalization-schema.md)

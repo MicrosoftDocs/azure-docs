@@ -47,10 +47,10 @@ To enable sign-in for users with an Azure AD account from a specific Azure AD or
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso). Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
+1. Under **Azure services**, select **App registrations** or search for and select **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
-1. Accept the default selection of **Accounts in this organizational directory only** for this application.
+1. Accept the default selection of **Accounts in this organizational directory only (Default Directory only - Single tenant)** for this application.
 1. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant.
 
     ```
@@ -76,7 +76,7 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. Select **Add optional claim**.
 1. For the **Token type**, select **ID**.
 1. Select the optional claims to add, `family_name` and `given_name`.
-1. Click **Add**.
+1. Select **Add**. If **Turn on the Microsoft Graph email permission (required for claims to appear in token)** appears, enable it, and then select **Add** again.
 
 ## [Optional] Verify your app authenticity
 
@@ -97,8 +97,7 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
     https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
-    For example, `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
+ For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. If you use a custom domain, replace `contoso.com` with your custom domain in `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. For **Client ID**, enter the application ID that you previously recorded.
 1. For **Client secret**, enter the client secret that you previously recorded.
@@ -121,7 +120,8 @@ At this point, the Azure AD identity provider has been set up, but it's not yet 
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Azure AD identity provider.
-1. Under the **Social identity providers**, select **Contoso Azure AD**.
+1. Under **Settings**, select **Identity providers**
+1. Under **Custom identity providers**, select **Contoso Azure AD**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`. 
