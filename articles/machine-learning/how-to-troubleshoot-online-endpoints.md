@@ -92,87 +92,47 @@ Add `--help` and/or `--debug` to commands to see more information. Include the `
 
 Below is a list of common deployment errors that are reported as part of the deployment operation status.
 
-### ERR_1100: Not enough quota
+* [OutOfQuota](#error-outofquota)
+* [OutOfCapacity](#error-outofcapacity)
+* [BadArgument](#error-badargument)
+* [ResourceNotReady](#error-resourcenotready)
+* [ResourceNotFound](#error-resourcenotfound)
+* [OperationCancelled](#error-operationcancelled)
+* [InternalServerError](#error-internalservererror)
+
+### ERROR: OutOfQuota
+
+Below is a list of common resources that might run out of quota when using Azure services:
+
+* [CPU](#cpu-quota)
+* [Role assignments](#role-assignment-quota)
+* [Endpoints](#endpoint-quota)
+* [Kubernetes](#kubernetes-quota)
+* [Other](#other-quota)
+
+#### CPU Quota
 
 Before deploying a model, you need to have enough compute quota. This quota defines how much virtual cores are available per subscription, per workspace, per SKU, and per region. Each deployment subtracts from available quota and adds it back after deletion, based on type of the SKU.
 
-A possible mitigation is to check if there are unused deployments that can be deleted. Or you can submit a [request for a quota increase](./how-to-manage-quotas.md).
+A possible mitigation is to check if there are unused deployments that can be deleted. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases).
 
-### ERR_1101: Out of capacity
+#### Role assignment quota
 
-The specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region.
+Try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal in the Access Control menu.
 
-### ERR_1102: No more role assignments
+#### Endpoint quota
 
-Delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal in the Access Control menu.
+Try to delete some unused endpoints in this subscription.
 
-### ERR_1103: Endpoint quota reached
+#### Kubernetes quota
 
-Delete some unused endpoints in this subscription.
+The requested CPU or memory couldn't be satisfied. Please adjust your request or the cluster.
 
-### ERR_1200: Unable to download user container image
-
-During deployment creation after the compute provisioning, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR). There could be two possible issues.
-
-- The user container image isn't found.
-
-  Make sure container image is available in workspace ACR.
-For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed011c3c42d35acb:latest` check the repository with
-`az acr repository show-tags -n testacr --repository azureml/azureml_92a029f831ce58d2ed011c3c42d35acb --orderby time_desc --output table`.
-
-- There's a permission issue accessing ACR.
-
-  To pull the image, Azure uses [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to access ACR. 
-
-  - If you created the associated endpoint with SystemAssigned, then Azure role-based access control (RBAC) permission is automatically granted, and no further permissions are needed.
-  - If you created the associated endpoint with UserAssigned, then the user's managed identity must have AcrPull permission for the workspace ACR.
-
-To get more details about this error, run:
-
-```azurecli
-az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
-```
-
-### ERR_1300: Unable to download user model\code artifacts
-
-After provisioning the compute resource, during deployment creation, Azure tries to mount the user model and code artifacts into the user container from the workspace storage account.
-
-- User model\code artifacts not found.
-
-  - Make sure model and code artifacts are registered to the same workspace as the deployment. Use the `show` command to show details for a model or code artifact in a workspace. For example: 
-  
-    ```azurecli
-    az ml model show --name <model-name>
-    az ml code show --name <code-name> --version <version>
-    ```
-
-  - You can also check if the blobs are present in the workspace storage account.
-
-    For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl` you can use this command to check if it exists: `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
-
-- Permission issue accessing ACR.
-
-  To pull blobs, Azure uses [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to access the storage account.
-
-  - If you created the associated endpoint with SystemAssigned, Azure role-based access control (RBAC) permission is automatically granted, and no further permissions are needed.
-
-  - If you created the associated endpoint with UserAssigned, the user's managed identity must have Storage blob data reader permission on the workspace storage account.
-
-To get more details about this error, run:
-
-```azurecli
-az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
-```
-
-### ERR_1350: Unable to download user model, not enough space on the disk
-
-This issue happens when the size of the model is bigger than the available disk space. Try an SKU with more disk space.
-
-### ERR_2100: Unable to start user container
+#### Other quota
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.
 
-This error means that this container couldn't start, which means scoring could not happen. It could be that the container is requesting more resources than what `instance_type` could support. If so, consider updating the `instance_type` of the online deployment.
+If your container could not start, this means scoring could not happen. It might be that the container is requesting more resources than what `instance_type` can support. If so, consider updating the `instance_type` of the online deployment.
 
 To get the exact reason for an error, run: 
 
@@ -180,33 +140,110 @@ To get the exact reason for an error, run:
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
-### ERR_2101: Kubernetes unschedulable
+### ERROR: OutOfCapacity
 
-The requested CPU or memory can't be satisfied. Please adjust your request or the cluster.
+The specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region.
 
-### ERR_2102: Resources requests invalid
+### ERROR: BadArgument
+
+Below is a list of reasons you might run into this error:
+
+* [Resource request was greater than limits](#resource-requests-greater-than-limits)
+* [Unable to download resources](#unable-to-download-resources)
+
+#### Resource requests greater than limits
 
 Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
 
-### ERR_2200: User container has crashed\terminated
+#### Unable to download resources
 
-To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.  The error in this scenario is that this container is crashing when running, which means scoring couldn't happen. This error happens when:
+After provisioning the compute resource, during deployment creation, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
+
+First, check if there is a permissions issue accessing ACR.
+
+To pull blobs, Azure uses [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to access the storage account.
+
+  - If you created the associated endpoint with SystemAssigned, Azure role-based access control (RBAC) permission is automatically granted, and no further permissions are needed.
+
+  - If you created the associated endpoint with UserAssigned, the user's managed identity must have Storage blob data reader permission on the workspace storage account.
+
+During this process, you can run into a few different issues depending on which stage the operation failed at:
+
+* [Unable to download user container image](#unable-to-download-user-container-image)
+* [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
+
+To get more details about these errors, run:
+
+```azurecli
+az ml online-deployment get-logs -n <endpoint-name> --deployment <deployment-name> --l 100
+``` 
+
+#### Unable to download user container image
+
+It is possible that the user container could not be found.
+
+Make sure container image is available in workspace ACR.
+
+For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed011c3c42d35acb:latest` check the repository with
+`az acr repository show-tags -n testacr --repository azureml/azureml_92a029f831ce58d2ed011c3c42d35acb --orderby time_desc --output table`.
+
+#### Unable to download user model or code artifacts
+
+It is possible that the user model or code artifacts can't be found.
+
+Make sure model and code artifacts are registered to the same workspace as the deployment. Use the `show` command to show details for a model or code artifact in a workspace. 
+
+- For example: 
+  
+  ```azurecli
+  az ml model show --name <model-name>
+  az ml code show --name <code-name> --version <version>
+  ```
+ 
+  You can also check if the blobs are present in the workspace storage account.
+
+- For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl`, you can use this command to check if it exists:
+
+  `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+
+### ERROR: ResourceNotReady
+
+To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container. The error in this scenario is that this container is crashing when running, which means scoring can't happen. This error happens when:
 
 - There's an error in `score.py`. Use `get-logs` to help diagnose common problems:
-    - A package that was  imported but is not in the conda environment
-    - A syntax error
-    - A failure in the `init()` method
+    - A package that was  imported but is not in the conda environment.
+    - A syntax error.
+    - A failure in the `init()` method.
 - If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) instead.
 - Readiness or liveness probes are not set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
 
-### ERR_5000: Internal error
+### ERROR: ResourceNotFound
 
-While we do our best to provide a stable and reliable service, sometimes things don't go according to plan. If you get this error, it means something isn't right on our side and we need to fix it. Submit a [customer support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) with all related information and we'll address the issue.  
+This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources which might have been supplied by exact path or the spelling of their names.
+
+For more information, see [Resolve resource not found errors](../azure-resource-manager/troubleshooting/error-not-found.md). 
+
+### ERROR: OperationCancelled
+
+Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation that has a higher priority. Retrying the operation might allow it to be performed without cancellation.
+
+### ERROR: InternalServerError
+
+Although we do our best to provide a stable and reliable service, sometimes things don't go according to plan. If you get this error, it means that something isn't right on our side, and we need to fix it. Submit a [customer support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) with all related information and we'll address the issue. 
 
 ## Autoscaling issues
 
 If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale](../azure-monitor/autoscale/autoscale-troubleshoot.md).
+
+## Bandwidth limit issues
+
+Managed online endpoints have bandwidth limits for each endpoints. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
+
+- Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+- There are two response trailers will be returned if the bandwidth limit enforced: 
+    - `ms-azureml-bandwidth-request-delay-ms`: delay time in milliseconds it took for the request stream transfer.
+    - `ms-azureml-bandwidth-response-delay-ms`: delay time in milliseconds it took for the response stream transfer.
 
 ## HTTP status codes
 
@@ -218,9 +255,7 @@ When you access online endpoints with REST requests, the returned status codes a
 | 401 | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
 | 404 | Not found | Your URL isn't correct. |
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
-| 413 | Payload too large | Your request payload is larger than 1.5 megabytes. |
 | 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
-| 424 | Response payload too large | If your container returns a payload larger than 1.5 megabytes, Azure returns a 424. |
 | 429 | Rate-limiting | You attempted to send more than 100 requests per second to your endpoint. |
 | 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you are using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |

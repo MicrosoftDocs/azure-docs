@@ -6,8 +6,8 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
+author: rothja
+ms.author: jroth
 ---
 
 # Azure SQL Database append-only ledger tables

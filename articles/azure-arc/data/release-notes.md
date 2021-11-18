@@ -36,8 +36,8 @@ The following `sql` commands now support directly connected mode:
    ```console
    az arcdata dc create
    az arcdata dc delete
-   az arcdata sql mi-arc create
-   az arcdata sql mi-arc delete
+   az sql mi-arc create
+   az sql mi-arc delete
    ```
  
 #### Data controller
@@ -63,33 +63,20 @@ The following `sql` commands now support directly connected mode:
 
 You can continue to use `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables as before. If you only provide `AZDATA_USERNAME` and `AZDATA_PASSWORD` then the deployment uses them for both the logs and metrics dashboards.
 
-##### Region Availability
+##### Region availability
 
-- Directly connected mode is only available in the following Azure regions for this release:
+This release introduces directly connected mode availability in the following Azure regions:
 
-   - North Central US *
-   - Central US
-   - East US
-   - East US 2
-   - West US *
-   - West US 2
-   - West US 3 *
-   - UK South
-   - West Europe
-   - North Europe
-   - Australia East
-   - Southeast Asia
-   - Korea Central
-   - France Central
+- North Central US
+- West US
+- West US 3
 
-    \* Newly added for November, 2011
-
+For complete list, see [Supported regions](overview.md#supported-regions).
 
 #### Azure Arc-enabled SQL Managed Instance
 
 - Upgrade instances of Azure Arc-enabled SQL Managed Instance general purpose in-place
 - The SQL binaries are updated to a new version
-- Azure Data Studio provides projected price information
 - Direct connected mode deployment of Azure Arc enabled SQL Managed Instance using Azure CLI
 - Point in time restore for Azure Arc enabled SQL Managed Instance is being made generally available with this release. Currently point in time restore is only supported for the general purpose SQL Managed Instance. Point in time restore for business critical SQL Managed Instance is still under preview.
 - New `--dry-run` option provided for point in time restore

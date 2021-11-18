@@ -1,9 +1,9 @@
 ---
 title: Scaling in Azure Container Apps
 description: Learn how applications scale in and out in Azure Container Apps.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
@@ -26,6 +26,7 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
 - Changes to scaling rules are a [revision-scope](overview.md) change.
+- When using non-HTTP event scale rules, setting the `activeRevisionMode` to `single` is recommended.
 
 > [!IMPORTANT]
 > Replica quantities are a target amount, not a guarantee. Even if you set `maxReplicas` to `1`, there is no assurance of thread safety.
@@ -60,7 +61,7 @@ With an HTTP scaling rule, you have control over the threshold that determines w
             "name": "http-rule",
             "http": {
               "metadata": {
-                  "concurrentRequests": 100
+                  "concurrentRequests": "100"
               }
             }
           }]

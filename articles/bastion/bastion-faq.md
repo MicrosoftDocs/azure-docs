@@ -66,7 +66,7 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
+* Reader Role on the Virtual Network of the target virtual machine (in the case that the Bastion is in a peered Virtual Network).
 
 ### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
 
@@ -161,3 +161,6 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+### What is the maximum screen resolution supported via Bastion?  
+Currently, 1920x1080 (1080p) is the maximum supported resolution. 

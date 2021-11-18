@@ -1,13 +1,13 @@
 ---
 title: IoT remote monitoring and notifications with Azure Logic Apps | Microsoft Docs
 description: Use Azure Logic Apps for IoT temperature monitoring on your IoT hub and automatically send email notifications to your mailbox for any anomalies detected.
-author: robinsh
+author: eross-msft
 keywords: iot monitoring, iot notifications, iot temperature monitoring
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: robinsh
+ms.author: lizross
 #I think this is out of date. I changed 'click' to select. --RobinShahan
 ---
 

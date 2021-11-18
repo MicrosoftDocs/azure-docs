@@ -1294,6 +1294,8 @@
     - name: Windows
       displayName: Expand a disk - Windows
       href: ./windows/expand-os-disk.md
+    - name: Unmanaged disks
+      href: expand-unmanaged-disks.md
   - name: Manage storage
     items:
     - name: Deploy disks with ARM template
@@ -1491,8 +1493,9 @@
   - name: Overview
     displayName: Security Overview
     href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
-  - name: Azure Security center
+  - name: Microsoft Defender for Cloud
     href: ../security-center/security-center-introduction.md
+    maintainContext: true
   - name: Security baselines
     items:
     - name: Linux

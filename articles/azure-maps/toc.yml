@@ -70,10 +70,10 @@ items:
     href: choose-pricing-tier.md
   - name: Creator for Indoor maps
     items:
-    - name: Creator service geographic scope
-      href: creator-geographic-scope.md
     - name: Indoor map concepts
       href: creator-indoor-maps.md
+    - name: Creator service geographic scope
+      href: creator-geographic-scope.md
     - name: Drawing conversion errors and warnings
       href: drawing-conversion-error-codes.md  
   - name: Encryption of data at rest
@@ -280,7 +280,9 @@ items:
   - name: Develop with the iOS SDK
     items:
     - name: Getting started with iOS map control
-      href: how-to-use-ios-map-control-library.md      
+      href: how-to-use-ios-map-control-library.md
+    - name: Use the Azure Maps indoor maps module
+      href: how-to-use-indoor-module-ios.md
   - name: Use Azure Maps in Power BI
     items: 
     - name: Getting started

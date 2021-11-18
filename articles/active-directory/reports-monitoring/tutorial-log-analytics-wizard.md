@@ -10,7 +10,7 @@ ms.date: 08/05/2020
 
 ms.author: markvi
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up log analytics so I can analyze the health of my environment.

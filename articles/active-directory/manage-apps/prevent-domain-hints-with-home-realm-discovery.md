@@ -15,7 +15,7 @@ ms.reviewer: hirsin
 #customer intent: As an admin I want to disable auto-acceleration to federated IDP during sign in using Home Realm Discovery policy
 ---
 
-# Disable auto-acceleration sign-in in Azure Active Directory
+# Disable auto-acceleration sign-in
 
 [Home Realm Discovery Policy](/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) offers administrators multiple ways to control how and where their users authenticate. The `domainHintPolicy` section of the HRD policy is used to help migrate federated users to cloud managed credentials like [FIDO](../authentication/howto-authentication-passwordless-security-key.md), by ensuring that they always visit the Azure AD sign-in page and aren't auto-accelerated to a federated IDP because of domain hints.
 

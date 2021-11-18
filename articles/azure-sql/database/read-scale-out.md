@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
-ms.date: 09/23/2021
+ms.date: 11/5/2021
 ---
 # Use read-only replicas to offload read-only query workloads
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -19,7 +19,7 @@ As part of [High Availability architecture](high-availability-sla.md#premium-and
 
 The *read scale-out* feature is also available in the Hyperscale service tier when at least one [secondary replica](service-tier-hyperscale-replicas.md) is added. Hyperscale secondary [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview) provide independent scaling, access isolation, workload isolation, massive read scale-out, and other benefits. Multiple secondary [HA replicas](service-tier-hyperscale-replicas.md#high-availability-replica) can be used for load-balancing read-only workloads that require more resources than available on one secondary HA replica. 
 
-The High Availability architecture of Basic, Standard, and General Purpose service tiers does not include any replicas. The *read scale-out* feature is not available in these service tiers.
+The High Availability architecture of Basic, Standard, and General Purpose service tiers does not include any replicas. The *read scale-out* feature is not available in these service tiers. However, [geo-replicas](active-geo-replication-overview.md) can provide similar functionality in these service tiers.
 
 The following diagram illustrates the feature for Premium and Business Critical databases and managed instances.
 

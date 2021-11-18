@@ -35,7 +35,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Distributed Tracing context propagation (instrumentation libraries) through Azure Functions Worker
+ - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
 
 Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
@@ -76,7 +76,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
  - Ability to manually set User ID or Authenticated User ID
  - Propagating Operation Name to Dependency Telemetry
- - Distributed Tracing context propagation (instrumentation libraries) through Azure Functions Worker
+ - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
 
 Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
@@ -170,7 +170,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ##### [.NET](#tab/net)
 
-The following code demonstrates enabling OpenTelemetry in a C# console application by setting up OpenTelemetry TracerProvider. This code must be in the application startup. For ASP.NET Core, it is done typically in the `ConfigureServices` method of application `Startup` class. For ASP.NET applications, it is done typically in `Global.aspx.cs`.
+The following code demonstrates enabling OpenTelemetry in a C# console application by setting up OpenTelemetry TracerProvider. This code must be in the application startup. For ASP.NET Core, it is done typically in the `ConfigureServices` method of application `Startup` class. For ASP.NET applications, it is done typically in `Global.asax.cs`.
 
 ```csharp
 using System.Diagnostics;
@@ -465,7 +465,7 @@ Span attributes can be added using either of the following two ways.
 1. Using options provided by [instrumentation libraries](#instrumentation-libraries).
 2. Adding a custom span processor.
 
-These attributes may include adding a custom business property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP.
+These attributes may include adding a custom property to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as Client IP.
 
 > [!TIP]
 > The advantage of using "options provided by instrumentation libraries" (when available) is that the entire context is available, meaning users can select to add or filter additional attributes. For example, the enrich option the HttpClient instrumentation library includes giving users access to the httpRequestMessage itself, to select anything from it and store it as an attribute.
@@ -594,6 +594,7 @@ You can populate the _client_IP_ field for requests by setting `http.client_ip` 
 Use the add [custom property example](#add-custom-property), except change out the following lines of code in `ActivityEnrichingProcessor.cs`:
 
 ```C#
+// only applicable in case of activity.Kind == Server
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
 

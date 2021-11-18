@@ -2,7 +2,7 @@
 author: russell-cooks
 ms.topic: include
 ms.service: azure-video-analyzer
-ms.date: 05/03/2021
+ms.date: 11/04/2021
 ms.author: juliako
 ---
 

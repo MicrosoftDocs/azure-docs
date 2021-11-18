@@ -5,13 +5,13 @@ ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
+author: georgewallace
 manager: gwallace
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
-ms.author: mlearned
+ms.author: gwallace
 ms.custom: mvc
 ---
 

@@ -21,6 +21,8 @@ This article provides end-to-end instructions for registering and provisioning a
 >Azure IoT Edge with Windows containers will not be supported starting with version 1.2 of Azure IoT Edge.
 >
 >Consider using the new method for running IoT Edge on Windows devices, [Azure IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md).
+>
+>If you want to use Azure IoT Edge for Linux on Windows, you can follow the steps in the [equivalent how-to guide](how-to-provision-single-device-linux-on-windows-symmetric.md).
 
 Every device that connects to an IoT hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
 
@@ -149,15 +151,13 @@ If your device will be offline during installation, or if you want to install a 
 6. Run the [Deploy-IoTEdge](reference-windows-scripts.md#deploy-iotedge) command with the `-OfflineInstallationPath` parameter. Provide the absolute path to the file directory. For example,
 
    ```powershell
-   . <path>\IoTEdgeSecurityDaemon.ps1
-   Deploy-IoTEdge -OfflineInstallationPath <path>
+   . path_to_powershell_module_here\IoTEdgeSecurityDaemon.ps1
+   Deploy-IoTEdge -OfflineInstallationPath path_to_file_directory_here
    ```
 
    The deployment command will use any components found in the local file directory provided. If either the .cab file or the Visual C++ installer is missing, it will attempt to download them.
 
 ## Uninstall IoT Edge
-
-If you want to remove the IoT Edge installation from your device, use the following commands.
 
 If you want to remove the IoT Edge installation from your Windows device, use the [Uninstall-IoTEdge](reference-windows-scripts.md#uninstall-iotedge) command from an administrative PowerShell window. This command removes the IoT Edge runtime, along with your existing configuration and the Moby engine data.
 

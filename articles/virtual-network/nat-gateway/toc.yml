@@ -30,7 +30,7 @@ items:
   - name: Security
     items:
     - name: Virtual network NAT security baseline
-      href: nat-security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
 - name: How-to
   items:
   - name: Troubleshoot
@@ -78,3 +78,5 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+  - name: FAQ
+    href: faq.yml

@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Monitoring solutions in Azure Monitor
 
 > [!CAUTION]
-> Monitoring solutions are no longer in active development.  The replacement technology is called [Azure Monitor Insights](/azure/azure-monitor/monitor-reference#insights). We suggest you use the insights and not deploy new instances of solutions.  
+> Monitoring solutions are no longer in active development.  The replacement technology is called [Azure Monitor Insights](../monitor-reference.md). We suggest you use the insights and not deploy new instances of solutions.  
 
 Monitoring solutions in Azure Monitor provide analysis of the operation of an Azure application or service. This article gives a brief overview of monitoring solutions in Azure and details on using and installing them. 
 
