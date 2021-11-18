@@ -3,9 +3,9 @@ title: Working with security policies | Microsoft Docs
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 11/16/2021
 ms.author: memildin
 ---
 
@@ -30,13 +30,11 @@ You can edit security policies through the Azure Policy portal, via REST API or 
 
 To view your security policies in Defender for Cloud:
 
-1. From the **Defender for Cloud** menu, select **Security policy**.
+1. From Defender for Cloud's menu, open the **Environment settings** page. Here, you can see the management groups, subscriptions, and the initiatives applied to each.
 
-    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="The policy management page.":::
+1. Select the relevant subscription or management group whose policies you want to view.
 
-   In the **Policy management** screen, you can see the number of management groups, subscriptions, and workspaces as well as your management group structure.
-
-1. Select the subscription or management group whose policies you want to view.
+1. Open the **Security policy** page.
 
 1. The security policy page for that subscription or management group appears. It shows the available and assigned policies.
 
@@ -51,7 +49,7 @@ To view your security policies in Defender for Cloud:
 
     1. To assign and manage custom initiatives, select **Add custom initiatives**. For more information, see [Using custom security initiatives and policies](custom-security-policies.md).
 
-    1. To view and edit the default initiative, select **View effective policy** and proceed as described below. 
+    1. To view and edit the default initiative, select it and proceed as described below.
 
         :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen.":::
 
@@ -75,14 +73,15 @@ The recommendation you want to disable will still appear if it's required for a 
 
 For more information about recommendations, see [Managing security recommendations](review-security-recommendations.md).
 
-1. From Defender for Cloud's menu, select **Security policy**.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Microsoft Defender for Cloud.":::
+1. From Defender for Cloud's menu, open the **Environment settings** page. Here, you can see the management groups, subscriptions, and the initiatives applied to each.
 
 1. Select the subscription or management group for which you want to disable the recommendation (and policy).
 
    > [!NOTE]
    > Remember that a management group applies its policies to its subscriptions. Therefore, if you disable a subscription's policy, and the subscription belongs to a management group that still uses the same policy, then you will continue to receive the policy recommendations. The policy will still be applied from the management level and the recommendations will still be generated.
+
+1. Open the **Security policy** page.
 
 1. From the **Default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
 
@@ -104,11 +103,11 @@ Some policies in your initiatives might be disabled by default. For example, in 
 
 To enable a disabled policy and ensure it's assessed for your resources:
 
-1. From Defender for Cloud's menu, select **Security policy**.
-
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Microsoft Defender for Cloud.":::
+1. From Defender for Cloud's menu, open the **Environment settings** page. Here, you can see the management groups, subscriptions, and the initiatives applied to each.
 
 1. Select the subscription or management group for which you want to enable the recommendation (and policy).
+
+1. Open the **Security policy** page.
 
 1. From the **Default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
 

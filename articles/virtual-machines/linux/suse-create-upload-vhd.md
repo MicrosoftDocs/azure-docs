@@ -150,7 +150,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
     # logout
     ```
-16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ---
 ## Prepare openSUSE 15.2+
@@ -248,7 +248,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     # sudo systemctl enable waagent.service
     ```
 
-13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ## Next steps
 You're now ready to use your SUSE Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).

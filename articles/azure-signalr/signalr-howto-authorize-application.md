@@ -177,9 +177,9 @@ services.AddSignalR().AddAzureSignalR(option =>
 > [!WARNING]
 > SignalR trigger binding does not support identity-based connection yet and connection strings are still necessary.
 
-Azure Functions SignalR bindings use [application settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) on portal or [`local.settings.json`](/azure/azure-functions/functions-develop-local#local-settings-file) at local to configure Azure application identities to access your SignalR resources.
+Azure Functions SignalR bindings use [application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md) on portal or [`local.settings.json`](../azure-functions/functions-develop-local.md#local-settings-file) at local to configure Azure application identities to access your SignalR resources.
 
-Firstly, you need to specify the service URI of the SignalR Service,  whose key is `serviceUri` starting with a **connection name prefix** (defaults to `AzureSignalRConnectionString`) and a separator (`__` on Azure portal and `:` in the local.settings.json file). The connection name can be customized with the binding property [`ConnectionStringSetting`](/azure/azure-functions/functions-bindings-signalr-service). Continue reading to find the sample.
+Firstly, you need to specify the service URI of the SignalR Service,  whose key is `serviceUri` starting with a **connection name prefix** (defaults to `AzureSignalRConnectionString`) and a separator (`__` on Azure portal and `:` in the local.settings.json file). The connection name can be customized with the binding property [`ConnectionStringSetting`](../azure-functions/functions-bindings-signalr-service.md). Continue reading to find the sample.
 
 Then you choose to configure your Azure application identity in [pre-defined environment variables](#configure-identity-in-pre-defined-environment-variables) or [in SignalR specified variables](#configure-identity-in-signalr-specified-variables).
 
