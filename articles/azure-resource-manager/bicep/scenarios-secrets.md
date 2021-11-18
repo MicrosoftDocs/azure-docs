@@ -8,7 +8,7 @@ ms.date: 11/18/2021
 ---
 # Manage secrets by using Bicep
 
-Deployments often require secrets to be stored and propagated securely throughout your Azure environment. Bicep provides a number of features to assist you with managing secrets in your deployments.
+Deployments often require secrets to be stored and propagated securely throughout your Azure environment. Bicep and Azure provide many features to assist you with managing secrets in your deployments.
 
 ## Avoid secrets where you can
 
@@ -26,7 +26,7 @@ If you need to generate a secret within a Bicep deployment and make it available
 
 ## Look up secrets dynamically
 
-Sometimes, you need to access a secret from one resource to be able to configure another resource.
+Sometimes, you need to access a secret from one resource to configure another resource.
 
 For example, you might have created a storage account in another deployment, and need to access its primary key to configure an Azure Functions app. You can use the `existing` keyword to obtain a strongly typed reference to the pre-created storage account, and then use the storage account's `listKeys()` method to create a connection string with the primary key:
 
@@ -57,7 +57,7 @@ Secrets are a [child resource](child-resource-name-type.md) and can be created b
 
 ### Use a key vault with modules
 
-When you Bicep modules, you can provide secure parameters by using [the `getSecret` function](bicep-functions-resource.md#getsecret).
+When you use Bicep modules, you can provide secure parameters by using [the `getSecret` function](bicep-functions-resource.md#getsecret).
 
 You can also reference a key vault defined in another resource group by using the `existing` and `scope` keywords together. In the following example, the Bicep file is deployed to a resource group named *Networking*. The value for the module's parameter *mySecret* is defined in a key vault named *contosonetworkingsecrets* located in the *Secrets* resource group:
 
@@ -79,7 +79,7 @@ module exampleModule 'module.bicep' = {
 
 When you deploy your Azure resources by using a pipeline, you need to take care to handle your secrets appropriately.
 
-- Avoid storing secrets in your code repository. For example, don't add secrets to parameter files, or to your pipeline definition files (e.g. YAML files).
+- Avoid storing secrets in your code repository. For example, don't add secrets to parameter files, or to your pipeline definition YAML files.
 - In GitHub Actions, use [encrypted secrets](https://docs.github.com/actions/security-guides/encrypted-secrets) to store secure data. Use [secret scanning](https://docs.github.com/code-security/secret-scanning/about-secret-scanning) to detect any accidental commits of secrets.
 - In Azure Pipelines, use [secret variables](/azure/devops/pipelines/process/variables#secret-variables) to store secure data.
 

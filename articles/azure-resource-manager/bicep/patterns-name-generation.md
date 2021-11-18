@@ -17,7 +17,7 @@ In Azure, the name you give a resource is important. Names help you and your tea
 When planning a resource's name, you need to ensure it is:
 
 - **Unique:** Azure resource names need to be unique, but the scope of uniqueness depends on the resource.
-- **Deterministic:** It's important to be able to redeploy your Bicep file without recreating resources. When you redeploy your Bicep file with the same parameters, resources should maintain the same names.
+- **Deterministic:** It's important that your Bicep file can be repeatedly deployed without recreating existing resources. When you redeploy your Bicep file with the same parameters, resources should maintain the same names.
 - **Meaningful:** Names give you and your team important information about the purpose of the resource. Where possible, use names that provide some indication of the purpose of the resource.
 - **Distinct for each environment:** It's common to deploy to multiple environments, such as test, staging, and production, as part of your rollout process.
 - **Valid for the specific resource:** [Each Azure resource has a set of guidelines you must follow when creating a valid resource name.](../management/resource-name-rules.md) These include maximum lengths, allowed characters, and whether the resource name must start with a letter.
@@ -32,7 +32,7 @@ Use Bicep's [string interpolation](bicep-functions-string.md#concat) to generate
 > [!NOTE]
 > Some Azure resources, such as Azure RBAC role definitions and role assignments, need to have globally unique identifiers (GUIDs) as their names. Use the [guid() function](bicep-functions-string.md#guid) to generate names for these resources.
 
-If you're creating reusable Bicep code, you should consider defining names as [parameters](parameters.md). Use a [default parameter value](parameters.md#default-value) to define a default name that can be overridden. This can help to make your Bicep files more reusable, ensuring that users of the file can define their own names if they need to follow a different naming convention.
+If you're creating reusable Bicep code, you should consider defining names as [parameters](parameters.md). Use a [default parameter value](parameters.md#default-value) to define a default name that can be overridden. Default values help to make your Bicep files more reusable, ensuring that users of the file can define their own names if they need to follow a different naming convention.
 
 ## Example 1: Organizational naming convention
 
@@ -59,7 +59,7 @@ The following example generates the names for two storage accounts for a differe
   > ```
   > 
   > The name of the resource group (`resourceGroup().name`) may not be sufficiently unique to enable you to reuse the file across subscriptions.
-- Avoid changing the seed values for the `uniqueString()` function after resources have been deployed. Changing the seed value results in new names, and might impact your production resources.
+- Avoid changing the seed values for the `uniqueString()` function after resources have been deployed. Changing the seed value results in new names, and might affect your production resources.
 
 ## Next steps
 

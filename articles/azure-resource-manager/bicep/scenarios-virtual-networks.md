@@ -1,6 +1,6 @@
 ---
 title: Create virtual network resources by using Bicep
-description: Describes how to create virtual networks, network security groups. and route tables by using Bicep.
+description: Describes how to create virtual networks, network security groups, and route tables by using Bicep.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
@@ -29,7 +29,7 @@ It's best to define your subnets within the virtual network definition, as in th
 
 Although both approaches enable you to define and create your subnets, there is an important difference. When you define subnets by using child resources, the first time your Bicep file is deployed, the virtual network is deployed. Then, after the virtual network deployment is complete, each subnet is deployed. This sequencing occurs because Azure Resource Manager deploys each individual resource separately.
 
-When you redeploy the same Bicep file, the same deployment sequence occurs. However, the virtual network is deployed without any subnets configured on it because the `subnets` property is effectively empty. Then, after the virtual network is reconfigured, the subnet resources are redeployed, which re-establishes each subnet. In some situations, this behavior causes the resources within your virtual network to lose connectivity for a period of time during your deployment. In other situations, Azure prevents you from modifying the virtual network and your deployment fails.
+When you redeploy the same Bicep file, the same deployment sequence occurs. However, the virtual network is deployed without any subnets configured on it because the `subnets` property is effectively empty. Then, after the virtual network is reconfigured, the subnet resources are redeployed, which re-establishes each subnet. In some situations, this behavior causes the resources within your virtual network to lose connectivity during your deployment. In other situations, Azure prevents you from modifying the virtual network and your deployment fails.
 
 ### Access subnet resource IDs
 

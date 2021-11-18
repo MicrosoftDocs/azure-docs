@@ -8,7 +8,7 @@ ms.date: 11/16/2021
 ---
 # Logical parameter pattern
 
-Use parameters to specify the logical definition of a resource, or even of multiple resources. The Bicep file converts the logical parameter to deployable resource definitions. By following this pattern, you can separate *what* is deployed from *how* it is deployed.
+Use parameters to specify the logical definition of a resource, or even of multiple resources. The Bicep file converts the logical parameter to deployable resource definitions. By following this pattern, you can separate *what's* deployed from *how* it's deployed.
 
 ## Context and problem
 
@@ -58,7 +58,7 @@ You then define the queue resources by using a loop, and configure every queue t
 
 ## Example 3: Resources for a multitenant solution
 
-This example illustrates how you might use the pattern when building a multitenant solution. The Bicep deployment create complex sets of resources based on a logical list of tenants, and uses modules to simplify the creation of shared and tenant-specific resources. Every tenant gets their own database in Azure SQL, and their own custom domain configured in Azure Front Door.
+This example illustrates how you might use the pattern when building a multitenant solution. The Bicep deployment creates complex sets of resources based on a logical list of tenants, and uses modules to simplify the creation of shared and tenant-specific resources. Every tenant gets their own database in Azure SQL, and their own custom domain configured in Azure Front Door.
 
 In this example, you define a parameter that specifies the list of tenants. The definition of a tenant is simply the tenant identifier and their custom domain name:
 
