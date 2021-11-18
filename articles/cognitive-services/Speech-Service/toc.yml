@@ -163,9 +163,7 @@ items:
                 - name: How to record voice samples
                   href: record-custom-voice-samples.md
             - name: Audio Content Creation
-              items:
-                - name: Audio Content Creation
-                  href: how-to-audio-content-creation.md          
+              href: how-to-audio-content-creation.md   
         - name: Neural voice migration
           items:
             - name: Migration overview
