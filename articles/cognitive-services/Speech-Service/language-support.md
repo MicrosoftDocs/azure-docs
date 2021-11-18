@@ -148,9 +148,7 @@ Both the Microsoft Speech SDK and REST APIs support these neural voices, each of
 
 ### Prebuilt neural voices
 
-You can have easy access to more than 278 neural voices across 119 different languages as of November, 2021. Neural Text-to-Speech is a new type of speech synthesis powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.
-
-Prebuilt neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, prebuilt neural voices significantly reduce listening fatigue when users interact with AI systems.
+Below table lists out the prebuilt neural voices supported in each language. You can [try the demo and hear the voices here](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).  
 
 > [!NOTE]
 > Prebuilt neural voices are created from samples that use a 24 khz sample rate.
@@ -470,41 +468,40 @@ Custom neural voice lets you create synthetic voices that are rich in speaking s
 
 Select the right locale that matches the training data you have to train a custom neural voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 
-> [!NOTE]
-> Chinese-English bilingual model training in custom neural voice is available in the UK South and East US [regions](regions.md#custom-neural-voices).
+With the cross-lingual feature (preview), you can transfer you custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages marked 'yes' in the 'cross-lingual' column below.  
 
-| Language | Locale | Neural | Cross-lingual |
-|--|--|--|--|
-| Arabic (Egypt) | `ar-EG` | Yes | No |
-| Bulgarian (Bulgaria) | `bg-BG` | Yes | No |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Yes | Yes |
-| Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes | Yes |
-| Chinese (Taiwanese Mandarin) | `zh-TW` | Yes | No |
-| Czech (Czech) | `cs-CZ` | Yes | No |
-| Dutch (Netherlands) | `nl-NL` | Yes | No |
-| English (Australia) | `en-AU` | Yes | Yes |
-| English (Canada) | `en-CA` | Yes | No |
-| English (India) | `en-IN` | Yes | No |
-| English (Ireland) | `en-IE` | Yes | No |
-| English (United Kingdom) | `en-GB` | Yes | Yes |
-| English (United States) | `en-US` | Yes | Yes |
-| French (Canada) | `fr-CA` | Yes | Yes |
-| French (France) | `fr-FR` | Yes | Yes |
-| German (Austria) | `de-AT` | Yes | No |
-| German (Germany) | `de-DE` | Yes | Yes |
-| Hungarian (Hungary) | `hu-HU` | Yes | No |
-| Italian (Italy) | `it-IT` | Yes | Yes |
-| Japanese (Japan) | `ja-JP` | Yes | Yes |
-| Korean (Korea) | `ko-KR` | Yes | Yes |
-| Norwegian (Bokmål, Norway) | `nb-NO` | Yes | No |
-| Portuguese (Brazil) | `pt-BR` | Yes | Yes |
-| Portuguese (Portugal) | `pt-PT` | Yes | No |
-| Russian (Russia) | `ru-RU` | Yes | Yes |
-| Slovak (Slovakia) | `sk-SK` | Yes | No |
-| Spanish (Mexico) | `es-MX` | Yes | Yes |
-| Spanish (Spain) | `es-ES` | Yes | Yes |
-| Turkish (Turkey) | `tr-TR` | Yes | No |
-| Vietnamese (Vietnam) | `vi-VN` | Yes | No |
+| Language | Locale | Cross-lingual (preview) |
+|--|--|--|
+| Arabic (Egypt) | `ar-EG` | No |
+| Bulgarian (Bulgaria) | `bg-BG` | No |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Yes |
+| Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes |
+| Chinese (Taiwanese Mandarin) | `zh-TW` | No |
+| Czech (Czech) | `cs-CZ` | No |
+| Dutch (Netherlands) | `nl-NL` | No |
+| English (Australia) | `en-AU` | Yes |
+| English (Canada) | `en-CA` | No |
+| English (India) | `en-IN` | No |
+| English (Ireland) | `en-IE` | No |
+| English (United Kingdom) | `en-GB` | Yes |
+| English (United States) | `en-US` | Yes |
+| French (Canada) | `fr-CA` | Yes |
+| French (France) | `fr-FR` | Yes |
+| German (Austria) | `de-AT` | No |
+| German (Germany) | `de-DE` | Yes |
+| Hungarian (Hungary) | `hu-HU` | No |
+| Italian (Italy) | `it-IT` | Yes |
+| Japanese (Japan) | `ja-JP` | Yes |
+| Korean (Korea) | `ko-KR` | Yes |
+| Norwegian (Bokmål, Norway) | `nb-NO` | No |
+| Portuguese (Brazil) | `pt-BR` | Yes |
+| Portuguese (Portugal) | `pt-PT` | No |
+| Russian (Russia) | `ru-RU` | Yes |
+| Slovak (Slovakia) | `sk-SK` | No |
+| Spanish (Mexico) | `es-MX` | Yes |
+| Spanish (Spain) | `es-ES` | Yes |
+| Turkish (Turkey) | `tr-TR` | No |
+| Vietnamese (Vietnam) | `vi-VN` | No |
 
 ## Speech translation
 
