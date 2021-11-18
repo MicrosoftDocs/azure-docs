@@ -68,7 +68,7 @@ sections:
       - question: Are classifications in Purview and Sensitive Information Types (SITs) in Microsoft 365 the same thing? 
         answer: While classifications and SITs are fundamentally the same things, classifications are an Azure Purview concept and SITs are a Microsoft 365 concept. Both classifications and SITs are used by their respective services to identify the type of data found in an asset. 
 
-      - question: I have created a custom Sensitive Information Type (SIT) in Microsoft 365 and used it in my autolabeling rules for database columns. Can I use this custom SIT in Azure Purview? 
+      - question: I have created a custom Sensitive Information Type (SIT) in Microsoft 365 and used it in my autolabeling rules for schematized data assets. Can I use this custom SIT in Azure Purview? 
         answer: |
           No, [custom sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) from Microsoft 365 are not supported in Azure Purview at this time. Azure Purview currently only supports Microsoft 365 [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about).</br></br>
     
