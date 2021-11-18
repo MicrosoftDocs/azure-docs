@@ -13,7 +13,7 @@ ms.date: 11/16/2021
 
 [Private access](concepts-hyperscale-private-access.md) (preview) allows
 resources in an Azure virtual network to connect securely and privately to
-nodes in a Hyperscale (Citus) server group. This howto assumes you've already
+nodes in a Hyperscale (Citus) server group. This how-to assumes you've already
 created a virtual network and subnet. For an example of setting up
 prerequisites, see the [private access
 tutorial](tutorial-hyperscale-private-access.md).
