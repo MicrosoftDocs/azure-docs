@@ -1,3 +1,18 @@
+---
+title: Quickstart - Add RAW media access to your app (Android)
+titleSuffix: An Azure Communication Services quickstart
+description: In this quickstart, you'll learn how to add raw media access calling capabilities to your app using Azure Communication Services.
+author: Laith Rodan 
+
+ms.author: rifox
+ms.date: 11/18/2021
+ms.topic: quickstart
+ms.service: azure-communication-services
+ms.subservice: calling
+
+zone_pivot_groups: acs-plat-web-ios-android-windows
+---
+
 # Raw Media Access
 ## Outbound Virtual Video Device
 
@@ -5,7 +20,6 @@ The ACS Calling SDK offers APIs allowing apps to generate their own video frames
 
 This quick start builds upon [QuickStart: Add 1:1 video calling to your app](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling?pivots=platform-android) for Android.
 
-You'll also find the source code of a simple app only using raw media access at.
 
 ## Overview
 
@@ -15,7 +29,7 @@ Since the app will be generating the video frames, the app must inform the ACS C
 
 The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is more appropriate for the current network conditions.
 
-The following are the an overview of the steps required to create an outbound virtual video device.
+The following is an overview of the steps required to create an outbound virtual video device.
 
 1. Create a `VirtualDeviceIdentification` with basic identification information for the new outbound virtual video device.
 
@@ -52,7 +66,7 @@ m_options.setDeviceIdentification(deviceId);
 m_options.setVideoFormats(videoFormats);
 ```
 
-4. Make sure the `OutboundVirtualVideoDeviceOptions::OnFlowChanged` delegate is defined. This delegate will inform its listener about events requiring the app to start or stop producing video frames. In this quick start, `m_mediaFrameSender` is used as trigger to let app know when it is time to start generating frames. Feel free to use any mechanism in your app as a trigger.
+4. Make sure the `OutboundVirtualVideoDeviceOptions::OnFlowChanged` delegate is defined. This delegate will inform its listener about events requiring the app to start or stop producing video frames. In this quick start, `m_mediaFrameSender` is used as trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
 
 ```java
 private MediaFrameSender m_mediaFrameSender;
@@ -70,7 +84,7 @@ m_options.addOnFlowChangedListener(virtualDeviceFlowControlArgs -> {
 });
 ```
 
-5. Use `DeviceManager::CreateOutboundVirtualVideoDevice` to create an outbound virtual video device. The returning `OutboundVirtualVideoDevice` should be kept alive while app desires to keep acting as a virtual video device. It is ok to register multiple outbound virtual video device per app.
+5. Use `DeviceManager::CreateOutboundVirtualVideoDevice` to create an outbound virtual video device. The returning `OutboundVirtualVideoDevice` should be kept alive as long as the app needs to keep acting as a virtual video device. It is ok to register multiple outbound virtual video devices per app.
 
 ```java
 private OutboundVirtualVideoDevice m_outboundVirtualVideoDevice;
