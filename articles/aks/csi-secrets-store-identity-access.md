@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides a variety of methods of identity-based access to your Azure key vault. This article outlines these methods and how to use them to access your key vault and its contents from your AKS cluster. For more information, see [Use the Secrets Store CSI Driver][csi-secrets-store-driver].
 
-## Use pod identity
+## Use pod identities
 
 Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to associate managed identities for Azure resources and identities in Azure AD with pods. You can use these identities to grant access to the Azure Key Vault Secrets Provider for Secrets Store CSI driver.
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
 
 ### Usage
 
-1. Follow the instructions in [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)][aad-pod-identity-create] to create a cluster identity, assign it permissions, and create a pod identity. Take note of the newly-created identity's `clientId` and `name`.
+1. Follow the instructions in [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)][aad-pod-identity-create] to create a cluster identity, assign it permissions, and create a pod identity. Take note of the newly created identity's `clientId` and `name`.
 
 1. Assign permissions to the new identity to enable it to read your key vault instance and view its contents by running the following commands:
 
@@ -295,7 +295,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
 
 ## Next steps
 
-To validate that the secrets are mounted at the volume path specified in your pod's YAML, see [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][validate-secrets].
+To validate that the secrets are mounted at the volume path that's specified in your pod's YAML, see [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][validate-secrets].
 
 <!-- LINKS INTERNAL -->
 

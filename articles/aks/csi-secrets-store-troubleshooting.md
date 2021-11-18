@@ -40,10 +40,10 @@ Error message in logs/events:
 Warning  FailedMount  74s    kubelet            MountVolume.SetUp failed for volume "secrets-store-inline" : kubernetes.io/csi: mounter.SetupAt failed: rpc error: code = Unknown desc = failed to mount secrets store objects for pod default/test, err: rpc error: code = Unknown desc = failed to mount objects, error: failed to get keyvault client: failed to get key vault token: nmi response failed with status code: 404, err: <nil>
 ```
 
-Description: The Node Managed Identity (NMI) component in aad-pod-identity returned an error for a token request. For more information about the error, check the NMI pod logs and refer to the Azure AD Pod Identity [troubleshooting guide][aad-troubleshooting] to resolve the issue. 
+Description: The Node Managed Identity (NMI) component in *aad-pod-identity* returned an error for a token request. For more information about the error and to resolve it, check the NMI pod logs and refer to the [Azure AD pod identity troubleshooting guide][aad-troubleshooting]. 
 
 > [!NOTE]
-> Azure Active Directory (Azure AD) is shortened to *aad* in the *aad-pod-identity* string.
+> Azure Active Directory (Azure AD) is abbreviated as *aad* in the *aad-pod-identity* string.
 
 ### keyvault.BaseClient#GetSecret: Failure sending request: StatusCode=0 – Original Error: context canceled
 
@@ -54,11 +54,13 @@ E1029 17:37:42.461313       1 server.go:54] failed to process mount request, err
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 49cb622d465041b17932527dc9841174845599e4
 Description: The provider pod is unable to access the key vault instance for either of the following reasons:
 - A firewall rule is blocking egress traffic from the provider.
 - Network policies that are configured in the AKS cluster are blocking egress traffic.
-
-The provider pods run on hostNetwork. A failure could occur if a policy is blocking this traffic or there are network jitters on the node. Check for policies that are configured to block traffic, and place the provider pods on the allowlist. Also, ensure that there is connectivity to Azure AD and your key vault from the node.
+- The provider pods run on hostNetwork. A failure could occur if a policy is blocking this traffic or there are network jitters on the node. Check for policies that are configured to block traffic, and place the provider pods on the allowlist. Also, ensure that there is connectivity to Azure AD and your key vault from the node.
 
 You can test the connectivity to your Azure key vault from the pod that's running on the host network by doing the following:
 
@@ -101,6 +103,7 @@ You can test the connectivity to your Azure key vault from the pod that's runnin
     ```bash
     curl -X GET 'https://<KEY_VAULT_NAME>.vault.azure.net/secrets/<SECRET_NAME>?api-version=7.2' -H "Authorization: Bearer <ACCESS_TOKEN_ACQUIRED_ABOVE>"
     ```
+<<<<<<< HEAD
 =======
 It means the provider pod is unable to access the AKV instance because:
 
@@ -150,6 +153,8 @@ You can test Key Vault connectivity from pod running on host network as follows:
   curl -X GET 'https://<KEY_VAULT_NAME>.vault.azure.net/secrets/<SECRET_NAME>?api-version=7.2' -H "Authorization: Bearer <ACCESS_TOKEN_ACQUIRED_ABOVE>"
   ```
 >>>>>>> b90873b7593e0a387bf1a446e73da21779059895
+=======
+>>>>>>> 49cb622d465041b17932527dc9841174845599e4
 
 <!-- LINKS EXTERNAL -->
 [aad-troubleshooting]: https://azure.github.io/aad-pod-identity/docs/troubleshooting/
