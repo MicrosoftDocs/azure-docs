@@ -58,7 +58,7 @@ Partition key reached maximum size of {...} GB
 This error means that your current [partitioning design](../partitioning-overview.md#logical-partitions) and workload is trying to store more than the allowed amount of data for a given partition key value. There is no limit to the number of logical partitions in your container but the size of data each logical partition can store is limited. You can reach to support for clarification.
 
 ## Non-data operations are not allowed
-This scenario happens when non-data [operations are disallowed in the account](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-rbac#permission-model). On this scenario, it's common to see errors like the ones below:
+This scenario happens when non-data [operations are disallowed in the account](../how-to-setup-rbac.md#permission-model). On this scenario, it's common to see errors like the ones below:
 
 ```
 Operation 'POST' on resource 'calls' is not allowed through Azure Cosmos DB endpoint
