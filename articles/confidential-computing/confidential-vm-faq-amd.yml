@@ -34,7 +34,7 @@ sections:
       - question: |
           Why should I use confidential VMs?
         answer: |
-          Confidential VMs address customer concerns about moving sensitive workloads off-premises into the cloud. Confidential VMs provided heightened protections for Customer Data from the underlying infrastructure and cloud operators. Unlike other approaches and solutions, you don't have to adapt your existing workloads to fit the platform's technical needs.
+          Confidential VMs address customer concerns about moving sensitive workloads off-premises into the cloud. Confidential VMs provide significantly elevated protections for Customer Data from the underlying infrastructure and cloud operators. Unlike other approaches and solutions, you don't have to adapt your existing workloads to fit the platform's technical needs.
 
       - question: |
           What are AMD SEV technologies and how do they relate to Azure confidential VMs?
