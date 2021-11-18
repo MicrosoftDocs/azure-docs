@@ -18,6 +18,8 @@ Once your resource and storage container are configured, create a new custom NER
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
+    >[!NOTE]
+    > If your dataset contains files of different languages or if you expect different languages during runtime, you can enable the multi-lingual option.
     
     :::image type="content" source="../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../media/create-project.png":::
 
