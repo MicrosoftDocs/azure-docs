@@ -19,10 +19,6 @@ Azure Bastion now offers support for connecting to target VMs in Azure using a n
 > This configuration requires the Standard SKU for Azure Bastion.
 >
 
-> [!IMPORTANT]
-> This feature is still rolling out globally. If you cannot access it in the Azure portal, please wait for a few days and try again.
-
-
 Currently, this feature has the following limitations:
 
 * Signing in to your target VM using a custom port or protocol is not yet available with native client support. If you want to use a custom port or protocol to sign in to your target VM via Bastion, use the Azure portal experience.
@@ -38,6 +34,10 @@ Before you begin, verify that you have met the following criteria:
 * The latest version of the CLI commands (version 2.30 or later) is installed. For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 * An Azure virtual network.
 * A virtual machine in the virtual network.
+* If you plan to sign into your virtual machine using your Azure AD credentials, make sure your virtual machine is set up using one of the following methods:
+    * Enable Azure AD login for a [Windows VM](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) or [Linux VM](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux#enabling-azure-ad-login-in-for-linux-vm-in-azure).
+    * [Configure your Windows VM to be Azure AD-joined](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-ad-join).
+    * [Configure your Windows VM to be hybrid Azure AD-joined](https://docs.microsoft.com/en-us/azure/active-directory/devices/concept-azure-ad-join-hybrid).
 
 ## Configure Bastion
 
@@ -72,7 +72,7 @@ Verify that the following roles and ports are configured in order to connect.
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Virtual Machine Administrator Login or Virtual Machine User Login role, if you are using the Azure AD login method.
+* Virtual Machine Administrator Login or Virtual Machine User Login role, if you are using the Azure AD login method. Note that you only need to do this if you're enabling Azure AD login using the process described here: [Azure Windows VMs and Azure AD](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) or [Azure Linux VMs and Azure AD](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux#enabling-azure-ad-login-in-for-linux-vm-in-azure)
 
 ### Ports
 
