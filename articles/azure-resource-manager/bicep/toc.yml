@@ -194,6 +194,6 @@
     href: bicep-cli.md
     displayName: build,decompile,install,list-versions,list versions,upgrade,version
   - name: Azure PowerShell
-    href: /powershell/module/az.resources
+    href: /powershell/module/az.resources/
   - name: Azure CLI
     href: /cli/azure/resource

@@ -139,7 +139,7 @@
     - name: Log alerts
       href: alerts/alerts-unified-log.md
     - name: Activity log alerts
-      href: alerts/activity-log-alerts.md  
+      href: alerts/activity-log-alerts.md
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -226,7 +226,7 @@
       - name: Create a workspace
         items:
         - name: Azure portal
-          href: logs/quick-create-workspace.md 
+          href: logs/quick-create-workspace.md
         - name: PowerShell
           href: logs/powershell-workspace-configuration.md
         - name: Resource Manager template
@@ -298,9 +298,9 @@
         - name: app expression
           href: logs/app-expression.md
         - name: workspace expression
-          href: logs/workspace-expression.md   
+          href: logs/workspace-expression.md
         - name: resource expression
-          href: logs/resource-expression.md   
+          href: logs/resource-expression.md
         - name: Unify application data resources
           href: logs/unify-app-resource-data.md
         - name: Cross service query between Azure Monitor and Azure Data Explorer overview
@@ -321,7 +321,7 @@
     items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
-      href: essentials/platform-logs-overview.md 
+      href: essentials/platform-logs-overview.md
     - name: Activity log
       href: essentials/activity-log.md
     - name: Resource logs
@@ -335,7 +335,7 @@
       href: agents/data-collection-rule-overview.md
     - name: Log data ingestion time
       displayname: latency
-      href: logs/data-ingestion-time.md 
+      href: logs/data-ingestion-time.md
     - name: Agent data sources
       items:
       - name: Overview
@@ -363,7 +363,7 @@
     - name: Custom metrics
       items:
       - name: Custom metrics
-        href: essentials/metrics-custom-overview.md   
+        href: essentials/metrics-custom-overview.md
       - name: Metrics REST API
         href: essentials/metrics-store-custom-rest-api.md
     - name: Custom logs
@@ -437,13 +437,13 @@
         - name: Send to Azure Monitor Metrics
           items:   
           - name: Virtual Machine 
-            href: essentials/collect-custom-metrics-guestos-resource-manager-vm.md 
+            href: essentials/collect-custom-metrics-guestos-resource-manager-vm.md
           - name: Virtual machine scale set 
-            href: essentials/collect-custom-metrics-guestos-resource-manager-vmss.md  
+            href: essentials/collect-custom-metrics-guestos-resource-manager-vmss.md
           - name: VM classic 
-            href: essentials/collect-custom-metrics-guestos-vm-classic.md  
+            href: essentials/collect-custom-metrics-guestos-vm-classic.md
           - name: Cloud service
-            href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
+            href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
         - name: Send to Event Hubs
           href: agents/diagnostics-extension-stream-event-hubs.md
         - name: Send to Logs
@@ -462,7 +462,7 @@
         - name: Version 3.0
           href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
         - name: Collect metrics with Telegraf
-          href: essentials/collect-custom-metrics-linux-telegraf.md   
+          href: essentials/collect-custom-metrics-linux-telegraf.md
     - name: Troubleshoot
       items:
       - name: Log Analytics VM Extension
@@ -499,7 +499,7 @@
     - name: Troubleshooting
       href: autoscale/autoscale-troubleshoot.md
     - name: Resource Log schemas
-      href: autoscale/autoscale-resource-log-schema.md 
+      href: autoscale/autoscale-resource-log-schema.md
   - name: Alerts
     items:
     - name: Metric alert rules
@@ -550,11 +550,11 @@
       - name: Create action group
         href: alerts/action-groups.md
       - name: Common alert schema
-        href: alerts/alerts-common-schema.md        
+        href: alerts/alerts-common-schema.md
       - name: Common alert schema definition
-        href: alerts/alerts-common-schema-definitions.md   
+        href: alerts/alerts-common-schema-definitions.md
       - name: Integrate the common alert schema with Logic Apps
-        href: alerts/alerts-common-schema-integrations.md   
+        href: alerts/alerts-common-schema-integrations.md
       - name: SMS alert behavior
         href: alerts/alerts-sms-behavior.md
       - name: Notification rate limiting
@@ -566,13 +566,13 @@
     - name: Alert user interface
       items:
       - name: About smart groups
-        href: alerts/alerts-smartgroups-overview.md 
+        href: alerts/alerts-smartgroups-overview.md
       - name: Manage alert instances
         href: alerts/alerts-managing-alert-instances.md
       - name: Manage smart groups
-        href: alerts/alerts-managing-smart-groups.md   
+        href: alerts/alerts-managing-smart-groups.md
       - name: Manage alert and smart group states
-        href: alerts/alerts-managing-alert-states.md  
+        href: alerts/alerts-managing-alert-states.md
     - name: Alert API
       href: alerts/api-alerts.md
     - name: Troubleshoot alerts
@@ -630,7 +630,7 @@
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
-        href: alerts/alerts-classic.overview.md  
+        href: alerts/alerts-classic.overview.md
       - name: Prepare for migration
         href: alerts/alerts-prepare-migration.md
       - name: Understand the migration tool
@@ -642,7 +642,7 @@
       - name: Manage classic metric alerts
         href: alerts/alerts-classic-portal.md
       - name: Classic metric alert using a Resource Manager template
-        href: alerts/alerts-enable-template.md    
+        href: alerts/alerts-enable-template.md
       - name: Classic metric alert calling a webhook
         href: alerts/alerts-webhooks.md
   - name: Application Insights
@@ -673,7 +673,7 @@
               href: app/asp-net-troubleshoot-no-data.md
           - name: Non-HTTP/Background apps
             displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
-            href: app/worker-service.md  
+            href: app/worker-service.md
           - name: .NET Console
             displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
             href: app/console.md
@@ -713,7 +713,7 @@
           - name: React plugin
             href: app/javascript-react-plugin.md
           - name: React Native plugin
-            href: app/javascript-react-native-plugin.md 
+            href: app/javascript-react-native-plugin.md
           - name: Angular plugin
             href: app/javascript-angular-plugin.md
           - name: Click Analytics Auto-collection plugin
@@ -773,7 +773,7 @@
     - name: OpenTelemetry-based instrumentation
       items: 
       - name: Overview
-        href: app/opentelemetry-overview.md 
+        href: app/opentelemetry-overview.md
       - name: .NET
         href: app/opentelemetry-enable.md?tabs=net
       - name: Node.js
@@ -872,30 +872,30 @@
       items:
       - name: Overview
         displayname: profiling, debugging, code performance, perf
-        href: app/profiler-overview.md 
+        href: app/profiler-overview.md
       - name: Enable Profiler for an App Service
         href: app/profiler.md
       - name: Enable the Profiler for a Cloud Service
-        href: app/profiler-cloudservice.md 
+        href: app/profiler-cloudservice.md
       - name: Enable Profiler for a Service Fabric Application
-        href: app/profiler-servicefabric.md 
+        href: app/profiler-servicefabric.md
       - name: Enable Profiler for an Azure VM
         href: app/profiler-vm.md
       - name: Profiler for Linux App services (preview)
         href: app/profiler-aspnetcore-linux.md
       - name: Profiler Settings
-        href: app/profiler-settings.md 
+        href: app/profiler-settings.md
       - name: Track Requests for Profiling
-        href: app/profiler-trackrequests.md 
+        href: app/profiler-trackrequests.md
       - name: Configure BYOS (Bring Your Own Storage)
-        href: app/profiler-bring-your-own-storage.md 
+        href: app/profiler-bring-your-own-storage.md
       - name: Profiler Troubleshooting
-        href: app/profiler-troubleshooting.md 
+        href: app/profiler-troubleshooting.md
     - name: Snapshot Debugger
       items:
       - name: Overview
         displayname: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
-        href: app/snapshot-debugger.md 
+        href: app/snapshot-debugger.md
       - name: Enable Snapshot Debugger for an App Service
         href: app/snapshot-debugger-appservice.md
       - name: Enable Snapshot Debugger for a Function App
@@ -986,7 +986,7 @@
       - name: Exceptions
         href: app/asp-net-exceptions.md
       - name: Log traces
-        href: app/asp-net-trace-logs.md        
+        href: app/asp-net-trace-logs.md
       - name: Performance counters
         href: app/performance-counters.md
       - name: EventCounters
@@ -998,7 +998,7 @@
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
       - name: Connection strings
-        href: app/sdk-connection-string.md      
+        href: app/sdk-connection-string.md
       - name: GetMetric
         displayname: get metric, custom metrics, metrics, TrackMetric
         href: app/get-metric.md
@@ -1342,7 +1342,7 @@
       - name: Export log data
         href: logs/log-powerbi.md
       - name: Export application data
-        href: app/export-power-bi.md 
+        href: app/export-power-bi.md
     - name: Dashboards
       items:
       - name: Dashboard using log data
@@ -1430,17 +1430,17 @@
       - name: Context
         href: app/data-model-context.md
       - name: Integration with Azure Functions
-        href: app/azure-functions-supported-features.md 
+        href: app/azure-functions-supported-features.md
       - name: Workspace-based schema
         href: app/apm-tables.md
   - name: Azure PowerShell
     items:
     - name: Azure Monitor
-      href: /powershell/module/az.monitor
+      href: /powershell/module/az.monitor/
     - name: Azure Monitor Logs
-      href: /powershell/module/az.operationalinsights
+      href: /powershell/module/az.operationalinsights/
     - name: Application Insights
-      href: /powershell/module/az.applicationinsights
+      href: /powershell/module/az.applicationinsights/
   - name: Azure CLI
     items:
     - name: Azure Monitor
@@ -1457,7 +1457,7 @@
     - name: Azure Monitor
       href: /rest/api/monitor/
     - name: Azure Monitor Logs
-      href: /rest/api/loganalytics
+      href: /rest/api/loganalytics/
     - name: REST API Walkthrough
       displayname: metrics, analyze
       href: essentials/rest-api-walkthrough.md
@@ -1475,7 +1475,7 @@
     - name: OperationalInsights API
       href: logs/operationalinsights-api-retirement.md
     - name: Classic autoscale & metrics API
-      href: ./essentials/classic-api-retirement-metrics-autoscale.md 
+      href: ./essentials/classic-api-retirement-metrics-autoscale.md
     - name: Classic alerting & monitoring 
       href: alerts/monitoring-classic-retirement.md
     - name: Switch to current log alert API
@@ -1513,8 +1513,8 @@
   - name: Azure updates
     href: https://azure.microsoft.com/en-us/updates/?category=management-tools
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/log-analytics/
+    href: https://azure.microsoft.com/pricing/details/monitor/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
+    href: https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor
