@@ -61,13 +61,13 @@ After selecting **Save** you will see an Object ID that has been assigned to you
 
 ### Step 2: Decide which permissions the indexer requires
 
-The SharePoint Online Indexer supports both [delegated and application](https://docs.microsoft.com/graph/auth/auth-concepts#delegated-and-application-permissions) permissions. Choose which permissions you want to use based on your scenario:
+The SharePoint Online Indexer supports both [delegated and application](/graph/auth/auth-concepts#delegated-and-application-permissions) permissions. Choose which permissions you want to use based on your scenario:
 
-+ Delegated permissions. I want the SharePoint Online Indexer to run on behalf of a user. The indexer will only be able to access sites and files the user has access to. The indexer requires a [device code prompt](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-device-code) to log in on behalf of the user.
-+ Applicatoin permissions. I want to SharePoint Online indexer to run as a service. The indexer will be able to access all sites and files in the SharePoint Online tenant. The indexer requires a [client secret](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) to access the SharePoint Online tenant. The indexer will also require [tenant admin approval](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent) before being able to index any content.
++ Delegated permissions. I want the SharePoint Online Indexer to run on behalf of a user. The indexer will only be able to access sites and files the user has access to. The indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to log in on behalf of the user.
++ Application permissions. I want the SharePoint Online indexer to run as a service. The indexer will be able to access all sites and files in the SharePoint Online tenant. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to access the SharePoint Online tenant. The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before being able to index any content.
 
 ### Step 3: Create an AAD application
-The SharePoint Online indexer will use this AAD application for authentication. 
+The SharePoint Online indexer will use this AAD application for authentication.
 
 1.	Navigate to the [Azure portal](https://portal.azure.com/).
 
