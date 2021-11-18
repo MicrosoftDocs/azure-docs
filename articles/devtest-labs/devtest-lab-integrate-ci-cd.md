@@ -1,11 +1,11 @@
 ---
 title: Integrate Azure DevTest Labs into Azure Pipelines
-description: Learn how to integrate Azure DevTest Labs into an Azure Pipelines continuous integration and delivery (CI/CD) pipeline.
+description: Learn how to integrate Azure DevTest Labs into Azure Pipelines continuous integration and delivery (CI/CD) pipelines.
 ms.topic: how-to
 ms.date: 11/16/2021
 ---
 
-# Integrate DevTest Labs into Azure Pipelines
+# Integrate DevTest Labs into CI/CD pipelines
 
 You can use the Azure DevTest Labs Tasks extension to integrate Azure DevTest Labs into Azure Pipelines continuous integration and delivery (CI/CD) pipelines. The extension installs several tasks into Azure Pipelines, including:
 
@@ -15,22 +15,20 @@ You can use the Azure DevTest Labs Tasks extension to integrate Azure DevTest La
 
 These tasks make it easy to, for example, quickly deploy a *golden image* VM, run a specific test, and then delete the VM.
 
-This article demonstrates how to use Azure DevTest Labs Tasks to create and deploy a VM, create a custom image, and then delete the VM, all in one release pipeline. You'd ordinarily perform these tasks separately in your own build, test, and deployment pipelines.
+This article shows how to use Azure DevTest Labs Tasks to create and deploy a VM, create a custom image, and then delete the VM, all in one release pipeline. You'd ordinarily perform these tasks separately in your own build, test, and deployment pipelines.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Prerequisites
 
-- In Azure, create a DevTest Labs lab, or use an existing one.
-
+- In the Azure portal, [create a DevTest Labs lab](devtest-lab-create-lab.md), or use an existing one.
 - Register or sign into your [Azure DevOps Services](https://dev.azure.com) organization, and [create a project](/vsts/organizations/projects/create-project), or use an existing project.
-  
 - Install the Azure DevTest Labs Tasks extension from Visual Studio Marketplace:
   
   1. Go to [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
   1. Select **Get it free**.
   1. Select your Azure DevOps Services organization from the dropdown list, and then select **Install**. 
-  
+
 ## Create a template to create a lab VM 
 
 First, construct an Azure Resource Manager (ARM) template that creates a lab VM on demand.
@@ -105,7 +103,7 @@ The next step creates a golden image VM to use for future deployments. This step
 1. On the new release pipeline page, on the **Pipeline** tab, select the hyperlinked text in **Stage 1**.
 1. In the left pane, select the plus sign **+** next to **Agent job**.
 1. Under **Add tasks** in the right pane, search for and select **Azure DevTest Labs Create VM**, and select **Add**. 
-1. In the left pane, Select **Create Azure DevTest Labs VM**.
+1. In the left pane, select the **Create Azure DevTest Labs VM** task.
 1. In the right pane, fill out the form as follows:
 
    - **Azure RM Subscription**: Select your service connection or subscription from the dropdown list, and select **Authorize** if necessary.
@@ -125,7 +123,7 @@ Next, the pipeline runs the script you created to collect the details of the Dev
 
 1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1**, and then select the plus sign **+** next to **Agent job**.
 1. Under **Add tasks** in the right pane, search for and select **Azure PowerShell**, and select **Add**.
-1. In the left pane, select **Azure PowerShell script: FilePath**.
+1. In the left pane, select the **Azure PowerShell script: FilePath** task.
 1. In the right pane, fill out the form as follows:
    - **Azure Subscription**: Select your service connection or subscription.
    - **Script Type**: Select **Script File Path**.
@@ -140,7 +138,7 @@ The next task creates an image of the newly deployed VM in your lab. You can use
 
 1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1**, and then select the plus sign **+** next to **Agent job**.
 1. Under **Add tasks**, select **Azure DevTest Labs Create Custom Image**, and select **Add**.
-1. In the left pane, select **Azure DevTest Labs Create Custom Image**.
+1. In the left pane, select the **Azure DevTest Labs Create Custom Image** task.
 1. In the right pane, fill out the form as follows:
    - **Azure RM Subscription**: Select your service connection or subscription.
    - **Lab**: Select your lab.
