@@ -165,24 +165,33 @@ To run a test with Azure Load Testing from a CI/CD workflow, you need a load tes
 
     The commit will trigger the GitHub Actions workflow in your repository. You can verify that the workflow is running by navigating to the **Actions** tab.
 
-## View results in GitHub
+## View load test results
 
-The GitHub Actions workflow executes the following steps for every push of code to the main branch:
+The GitHub Actions workflow executes the following steps for every update to the main branch:
 
 - Deploy the sample Node.js application to an Azure App Services web app. The name of the web app is configured in the workflow file.
 - Trigger Azure Load Testing to create and run the load test based on the Apache JMeter script and the test configuration YAML file in the repository.
 
 In this section, you'll view the load test results in the GitHub Actions workflow log.
 
-1. Navigate to your forked sample application GitHub repository.
-
-1. Select **Actions** to view the GitHub Actions workflows logs.
-
-    The load test results are available in the workflow logs once the test run is complete. The task is marked 'success' or 'failure' based on the test execution status. The link to the portal is available in the log to view execution progress. Once the test run is complete, you can view the summary and the client-side metrics in the pipeline logs. You can view the detailed dashboard by clicking on the portal URL. The results files are exported to the folder “loadTest\results.zip”.
+1. Select the **Actions** tab in your GitHub repository to view the list of workflows runs.
     
-## Define test fail criteria
+    :::image type="content" source="./media/tutorial-cicd-github-actions/workflow-run-list.png" alt-text="Screenshot that shows the list of GitHub Actions workflow runs.":::
+    
+1. Select the workflow run from the list to navigate to the run details and logging information.
 
-In this section, you'll add failure criteria to determine the outcome of your load test. If one of the failure criteria evaluates to true, the load test has failed. 
+    :::image type="content" source="./media/tutorial-cicd-github-actions/github-actions-workflow-completed.png" alt-text="Screenshot that shows the workflow logging information.":::
+
+    Once the load test finishes, you can view the test summary information and the client-side metrics in the workflow logs. The log also shows the URL to navigate to the Azure Load Testing dashboard for this load test.
+
+1. In the workflow run details screen, select the **loadTestResults** artifact to download the load test result files.
+
+    :::image type="content" source="./media/tutorial-cicd-github-actions/github-actions-artifacts.png" alt-text="Screenshot that shows artifacts of the workflow run.":::
+
+    
+## Define test pass/fail criteria
+
+In this section, you'll add failure criteria to determine the outcome of your load test. If at least one of the failure criteria evaluates to true, the load test is unsuccessful.
 
 You can specify these criteria in the test configuration YAML file.
 
@@ -192,8 +201,8 @@ You can specify these criteria in the test configuration YAML file.
 
     ```yaml
     failureCriteria: 
-        - avg(response_time_ms) > 100
-        - percentage(error) > 20
+    - avg(response_time_ms) > 100
+    - percentage(error) > 20
     ```
 
     You've now specified failure criteria for your load test. The test will fail if at least one of these conditions is met:
@@ -217,11 +226,15 @@ You can specify these criteria in the test configuration YAML file.
 
     ```yaml
     failureCriteria: 
-        - avg(response_time_ms) > 5000
-        - percentage(error) > 20
+    - avg(response_time_ms) > 5000
+    - percentage(error) > 20
     ```
     
-1. Commit the changes to trigger the GitHub Actions workflow. The load test should now pass and the workflow should run successfully.  
+1. Commit the changes to trigger the GitHub Actions workflow. 
+
+    :::image type="content" source="./media/tutorial-cicd-github-actions/github-actions-workflow-passed.png" alt-text="Screenshot that shows the succeeded workflow output log.":::
+
+    The load test now succeeds and the workflow finishes successfully.
 
 ## Pass parameters to your load tests from the workflow
 
