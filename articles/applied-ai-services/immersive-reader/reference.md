@@ -215,7 +215,7 @@ Contains information about an error.
 
 | Setting | Type | Description |
 | ------- | ---- | ----------- |
-| play | function | Use the `play()` function to have the Immersive Reader read the [Content](#content) sent by your application after the Immersive Reader has already launched (e.g. May be used when your application or its container is maximized/shown). |
+| play | function | Use the `play()` function to have the Immersive Reader to start reading the [Content](#content) sent by your application after the Immersive Reader has already launched (e.g. May be used when your application or its container is maximized/shown). |
 | pause | function | Use the `pause()` function to have the Immersive Reader stop reading the [Content](#content) sent by your application after the Immersive Reader has already launched (e.g. May be used when your application or its container is minimized/hidden). |
 
 <br>
