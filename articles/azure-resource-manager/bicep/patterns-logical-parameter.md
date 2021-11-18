@@ -1,0 +1,88 @@
+---
+title: Logical parameter pattern
+description: Describes the logical parameter pattern.
+author: johndowns
+ms.author: jodowns
+ms.topic: conceptual
+ms.date: 11/16/2021
+---
+# Logical parameter pattern
+
+Use parameters to define the *logical* definition of a resource or even of multiple resources, and have the Bicep file convert the logical parameter definition to the exact resource definitions. By following this pattern, you can separate *what* is deployed from *how* it is deployed.
+
+## Context and problem
+
+Most deployments require parameters to define the resources that are created. In complex deployments, loops are used to create a set of resources or resource properties. If you create a parameter that defines every resource, you create parameters that are difficult to understand and work with, and more error-prone.
+
+## Solution
+
+Define parameters that accept simplified values, or values that are business domain-specific instead of Azure resource-specific. Build logic into your Bicep file to convert the simplified values to Azure resource definitions.
+
+Often, you'll use a [loop](loops.md) to translate the logical values defined in parameters to the property values expected by the resource definition.
+
+When you use this pattern, you can easily apply default values for properties that don't need to change between resources. You can also use [variables](variables.md) and [functions](bicep-functions.md) to determine the values of resource properties automatically based on your own business rules.
+
+By using the Logical parameter pattern, you can deploy complex sets of resources while keeping your template's parameters simple and easy to work with.
+
+## Examples
+
+### Example 1: VNet and a set of subnets
+
+This example illustrates how you can use the pattern to simplify the definition of new subnets, and to add business logic that determines the resource's configuration.
+
+In this example, you define a parameter that specifies the list of subnets that should be created in a virtual network. Each subnet's definition also includes a property called `allowRdp`. This property indicates whether the subnet should be associated with a network security group that allows inbound remote desktop traffic:
+
+::: code language="bicep" source="code/patterns-logical-parameter/virtual-network.bicep" range="4-15" :::
+
+The Bicep file then defines a variable to convert each of the logical subnet definitions to the subnet definition required by Azure:
+
+::: code language="bicep" source="code/patterns-logical-parameter/virtual-network.bicep" range="17-25" :::
+
+Finally, the Bicep file defines the virtual network and uses the variable to configure the subnets:
+
+::: code language="bicep" source="code/patterns-logical-parameter/virtual-network.bicep" range="51-62" highlight="10" :::
+
+[Refer to the complete example.](TODO)
+
+### Example 2: Service Bus queue names
+
+This example demonstrates how you can use the pattern to apply a consistent set of configuration across multiple resources that are defined based on a parameter.
+
+In this example, you define a parameter with a list of queue names for an Azure Service Bus queue:
+
+::: code language="bicep" source="code/patterns-logical-parameter/service-bus.bicep" range="5-8" :::
+
+You then define the queue resources by using a loop, and configure every queue to automatically forward dead-lettered messages to another centralized queue:
+
+::: code language="bicep" source="code/patterns-logical-parameter/service-bus.bicep" range="30-32, 36-39" :::
+
+[Refer to the complete example.](TODO)
+
+### Example 3: Multiple resource deployment
+
+This example illustrates how you might use the pattern when building a multitenant solution. The Bicep deployment create complex sets of resources based on a logical list of tenants, and uses modules to simplify the creation of shared and tenant-specific resources. Every tenant gets their own database in Azure SQL, and their own custom domain configured in Azure Front Door.
+
+In this example, you define a parameter that specifies the list of tenants. The definition of a tenant is simply the tenant identifier and their custom domain name:
+
+::: code language="bicep" source="code/patterns-logical-parameter/resources.bicep" range="15-24" :::
+
+The Bicep file defines the shared resources, and then uses a module to loop through the tenants:
+
+::: code language="bicep" source="code/patterns-logical-parameter/all-tenant-resources.bicep" range="8-16" :::
+
+Within the module, the tenant-specific resources are deployed.
+
+[Refer to the complete example.](TODO)
+
+## Considerations
+
+<!-- TODO -->
+Be careful with which properties you expose vs. assume
+Can test by just creating the variable (without the resource) and exposing as an output
+Particularly helpful with modules
+Often uses loops and conditions
+Sanitise inputs if you create resource names with them
+
+## Next steps
+
+[Learn about the shared variable file pattern.](patterns-shared-variable-file.md)
