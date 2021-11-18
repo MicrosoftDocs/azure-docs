@@ -24,9 +24,7 @@ When you use this pattern, you can easily apply default values for properties th
 
 By using the Logical parameter pattern, you can deploy complex sets of resources while keeping your template's parameters simple and easy to work with.
 
-## Examples
-
-### Example 1: Subnets for a virtual network
+## Example 1: Virtual network subnets
 
 This example illustrates how you can use the pattern to simplify the definition of new subnets, and to add business logic that determines the resource's configuration.
 
@@ -44,7 +42,7 @@ Finally, the Bicep file defines the virtual network and uses the variable to con
 
 [Refer to the complete example.](TODO)
 
-### Example 2: Service Bus queue names
+## Example 2: Service Bus queue
 
 This example demonstrates how you can use the pattern to apply a consistent set of configuration across multiple resources that are defined based on a parameter.
 
@@ -58,7 +56,7 @@ You then define the queue resources by using a loop, and configure every queue t
 
 [Refer to the complete example.](TODO)
 
-### Example 3: Resources for a multitenant solution
+## Example 3: Resources for a multitenant solution
 
 This example illustrates how you might use the pattern when building a multitenant solution. The Bicep deployment create complex sets of resources based on a logical list of tenants, and uses modules to simplify the creation of shared and tenant-specific resources. Every tenant gets their own database in Azure SQL, and their own custom domain configured in Azure Front Door.
 
