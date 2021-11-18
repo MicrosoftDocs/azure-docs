@@ -93,7 +93,7 @@ The above will install the Secrets Store CSI Driver and the Azure Key Vault Prov
   "type": "Microsoft.KubernetesConfiguration/extensions",
   "version": "1.0.0"
 }
-
+```
 
 ### Install AKV secrets provider extension using ARM template
 After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the \<cluster-name\> value:
@@ -216,6 +216,7 @@ You should see a JSON output similar to the output below:
   "type": "Microsoft.KubernetesConfiguration/extensions",
   "version": "1.0.0"
 }
+```
 
 ## Create or use an existing Azure Key Vault
 
