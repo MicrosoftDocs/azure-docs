@@ -182,9 +182,9 @@ Within a few minutes, threat indicators should begin flowing into this Microsoft
 
 ## IP allow listing for the Microsoft Sentinel TAXII client
 
-Some TAXII servers, like like FS-ISAC, have a requirement to allow list the IP addresses of the Microsoft Sentinel TAXII client. This allow listing is not required for most TAXII servers.
+Some TAXII servers, like FS-ISAC, have a requirement to keep the IP addresses of the Microsoft Sentinel TAXII client on the allowlist. Most TAXII servers don't have this requirement.
 
-When relevant, the following IP addresses are those to include in your allow list:
+When relevant, the following IP addresses are those to include in your allowlist:
 
 
 :::row:::
