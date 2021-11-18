@@ -84,7 +84,7 @@ After the data upload has succeeded, select each item name to see details of the
 
 The detail page lists all the segments in each audio file, and you can select the desired utterance. For each utterance, you can play back the audio and examine the transcripts, and edit the transcriptions if you find any insertion, deletion, or substitution errors. See the [data evaluation how-to](how-to-custom-speech-evaluate-data.md) for more detail on error types.
 
-![Custom speech editor details](media/custom-speech/custom-speech-editor-detail.png)
+:::image type="content" source="media/custom-speech/custom-speech-editor-detail.png" alt-text="Custom speech editor details":::
 
 After you've made edits, select **Save**.
 
