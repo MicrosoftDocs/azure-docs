@@ -111,6 +111,23 @@ Once you decide to use Azure AD authentication, you can disable authentication b
 > [!NOTE]
 > Acess keys or SAS token authentication is a form of **local authentication**. you'll hear sometimes referring to "local auth" when discussing this category of authentication mechanisms that don't rely on Azure AD. The API parameter used to disable local authentication is called, appropriately so, ``disableLocalAuth``.
 
+### Azure portal
+
+When creating a custom topic, you can disable local authentication on the **Advanced** tab of the **Create Topic** page. 
+
+:::image type="content" source="./media/authenticate-with-active-directory/create-topic-disable-local-auth.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can disable local authentication.":::
+
+For an existing topic, following these steps to disable local authentication:
+
+1. Navigate to the Event Grid Topic page for the topic, and select **Enabled** under **Local Authentication**
+
+    :::image type="content" source="./media/authenticate-with-active-directory/existing-topic-local-auth.png" alt-text="Screenshot showing the Overview page of an existing topic.":::
+2. In the **Local Authentication** popup window, select **Disabled**, and select **OK**.
+
+    :::image type="content" source="./media/authenticate-with-active-directory/local-auth-popup.png" alt-text="Screenshot showing the Local Authentication window.":::
+
+
+### Azure CLI
 The following CLI command shows the way to create a custom topic with local authentication disabled. The disable local auth feature is currently available as a preview and you need to use API version ``2021-06-01-preview``.
 
 ```cli
@@ -124,6 +141,8 @@ For your reference, the following are the resource type values that you can use 
 | Domains           | Microsoft.EventGrid/domains          |
 | Partner Namespace | Microsoft.EventGrid/partnerNamespaces|
 | Custom Topic      | Microsoft.EventGrid/topics           |
+
+### Azure PowerShell
 
 If you're using PowerShell, use the following cmdlets to create a custom topic with local authentication disabled. 
 
