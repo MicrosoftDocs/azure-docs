@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
-ms.date: 10/21/2021
+ms.date: 11/18/2021
 ---
 
 # Set up AutoML to train a time-series forecasting model with Python
@@ -415,7 +415,7 @@ The following diagram shows the workflow for the many models solution.
 
 ![Many models concept diagram](./media/how-to-auto-train-forecast/many-models.svg)
 
-The following code demonstrates the key parameters users need to set up their many models run.
+The following code demonstrates the key parameters users need to set up their many models run. See the [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) for a many models forecasting example 
 
 ```python
 from azureml.train.automl.runtime._many_models.many_models_parameters import ManyModelsTrainParameters
@@ -451,7 +451,7 @@ To further visualize this, the leaf levels of the hierarchy contain all the time
 
 The hierarchical time series solution is built on top of the Many Models Solution and share a similar configuration setup.
 
-The following code demonstrates the key parameters to set up your hierarchical time series forecasting runs. 
+The following code demonstrates the key parameters to set up your hierarchical time series forecasting runs. See the [Hierarchical time series- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-hierarchical-timeseries/auto-ml-forecasting-hierarchical-timeseries.ipynb), for an end to end example. 
 
 ```python
 
