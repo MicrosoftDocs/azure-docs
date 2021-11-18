@@ -63,11 +63,11 @@ The secrets are fetched from the Key Vault for every test run.
 1. If you're using the load test YAML configuration file to create and run tests, use the below syntax to provide secret values. The name of the secret should be the same as it is in your JMeter script.
 
     ```yml
-    - secrets:
-        - name: '<Name of the secret>' #As referenced in the test script
-          value: '<Secret Uri>'
-        - name: '<Name of the secret>' #As referenced in the test script
-          value: '<Secret Uri>'
+    secrets:
+      - name: '<Name of the secret>' #As referenced in the test script
+        value: '<Secret Uri>'
+      - name: '<Name of the secret>' #As referenced in the test script
+        value: '<Secret Uri>'
     ```
 
 1. For secret value, enter the Secret Uri only. The Secret Uri should be the full data-plane URI of a secret in Key Vault, optionally including a version, for example, `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`.  
@@ -92,11 +92,11 @@ To provide secrets from a CI/CD workflow:
       [
           {
           "name": "<Name of the secret as referenced in the JMeter script>",
-          "value": "$(mySecret1)",
+          "value": "$(mySecret1)"
           },
           {
           "name": "<Name of the secret as referenced in the JMeter script>",
-          "value": "$(mySecret1)",
+          "value": "$(mySecret1)"
           }
       ]
     ```
@@ -124,11 +124,11 @@ Add a user defined variable in your JMeter script. Add the value of the variable
 1. If you're using the load test YAML configuration file to create and run tests, use the below syntax to set environment variables.  
 
     ```yml
-    - env:
-        - name: '<Name of the variable>' #As referenced in the test script
-          value: '<Value of the variable>'
-        - name: '<Name of the variable>' #As referenced in the test script
-          value: '<Value of the variable>'
+    env:
+      - name: '<Name of the variable>' #As referenced in the test script
+        value: '<Value of the variable>'
+      - name: '<Name of the variable>' #As referenced in the test script
+        value: '<Value of the variable>'
     ```
 
 1. Enter the value of the variable in plain text.  
@@ -144,11 +144,11 @@ Use the below syntax to pass secret values to the Azure Pipelines task or GitHub
     [
         {
         "name": "<Name of the variable>",
-        "value": "<Value of the variable>",
+        "value": "<Value of the variable>"
         },
         {
         "name": "<Name of the variable>",
-        "value": "<Value of the variable>",
+        "value": "<Value of the variable>"
         }
     ]
   ```
