@@ -200,13 +200,8 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
  |Property|Value|
  |-----|-----|
  |Tenant URL|https://localhost:8585/ecma2host_{connectorName}/scim|
- 
-     ![Screenshot that shows restarting an agent.](.\media\active-directory-app-provisioning-sql\configure-8.png)</br>
      >[!NOTE]
-     >If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes.
-     >
-     > Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
-
+     >If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes.Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
  
  5. Enter the **Secret Token** value that you defined when you created the connector.
  6. Select **Test Connection**, and wait one minute.
