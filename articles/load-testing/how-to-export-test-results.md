@@ -23,7 +23,8 @@ In this article you'll learn how to:
 ## Prerequisites  
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-- An Azure Load Testing Resource created with a test plan that has at least one test run under it. If you need to create a Load Test Resource, see [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).  
+- An Azure Load Testing Resource created with a test plan that has at least one test run under it. If you need to create a Load Test Resource, see the quickstart guide [Create and run a load test](./quickstart-create-and-run-load-test.md).  
+-   
     > [!NOTE]
     > A test run needs to be in the **Done**, **Stopped**, or **Failed** in order for the results file to be available for download.
 
@@ -46,5 +47,5 @@ In this article you'll learn how to:
 4. Select the test plan to open the test run page.  
 5. Use the search box to find the test run you want. You can also use the filters on **Time Range** and **Status** to further curate the list.  
 6. Select your test run to land on its dashboard.  
-7. To download the results file, select the **Download** button in the command bar on top, select results, and save it as csv on your system.  
+7. To download the results file, select the **Download** button in the command bar on top, select results, and save it as a csv on your system.  
 :::image type="content" source="media/how-to-export-test-results/dashboard-download.png" alt-text="Downloading the logs from the dashboard page.":::
