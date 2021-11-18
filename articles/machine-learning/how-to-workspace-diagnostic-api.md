@@ -21,7 +21,7 @@ You can use the workspace diagnostics from the Azure Machine Learning studio or 
 
 ## Prerequisites
 
-* An Azure Machine learning workspace. If you don't have one, see [Create a workspace](quickstart-create-resources).
+* An Azure Machine learning workspace. If you don't have one, see [Create a workspace](quickstart-create-resources.md).
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml).
 ## Diagnostics from studio
 
