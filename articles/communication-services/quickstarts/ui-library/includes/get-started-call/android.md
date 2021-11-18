@@ -139,6 +139,7 @@ class MainActivity : AppCompatActivity() {
     private fun startCallComposite() {
         val communicationTokenRefreshOptions = CommunicationTokenRefreshOptions({ fetchToken() }, true)
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
+
         val options = GroupCallOptions(
             this,
             communicationTokenCredential,
@@ -186,17 +187,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startCallComposite() {
-        CallComposite callComposite = new CallCompositeBuilder().build();
-
         CommunicationTokenRefreshOptions communicationTokenRefreshOptions =
                 new CommunicationTokenRefreshOptions(this::fetchToken, true);
-        CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(communicationTokenRefreshOptions);
+
+        CommunicationTokenCredential communicationTokenCredential = 
+                new CommunicationTokenCredential(communicationTokenRefreshOptions);
 
         GroupCallOptions options = new GroupCallOptions(this,
                 communicationTokenCredential,
                 UUID.fromString("GROUP_CALL_ID"),
                 "DISPLAY_NAME");
 
+        CallComposite callComposite = new CallCompositeBuilder().build();
         callComposite.launch(options);
     }
 
@@ -267,9 +269,10 @@ val communicationTokenCredential = CommunicationTokenCredential(communicationTok
 CallComposite callComposite = new CallCompositeBuilder().build();
 
 CommunicationTokenRefreshOptions communicationTokenRefreshOptions =
-                new CommunicationTokenRefreshOptions(this::fetchToken, true);
+        new CommunicationTokenRefreshOptions(this::fetchToken, true);
 
-CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(communicationTokenRefreshOptions);
+CommunicationTokenCredential communicationTokenCredential = 
+        new CommunicationTokenCredential(communicationTokenRefreshOptions);
 
 ```
 
@@ -369,23 +372,19 @@ To receive events, inject a handler to the `CallCompositeBuilder`.
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val callComposite: CallComposite =
-            CallCompositeBuilder()
-                .onException { 
-                    //...
-                }
-                .build()
+val callComposite: CallComposite = CallCompositeBuilder().build()
+callComposite.addOnErrorHandler { errorEvent ->
+    //...
+}
 ```
 
 #### [Java](#tab/java)
 
 ```java
-CallComposite callComposite =
-                new CallCompositeBuilder()
-                        .onException(eventArgs -> {
-                            //...
-                        })
-                        .build();
+CallComposite callComposite = new CallCompositeBuilder().build();
+callComposite.addOnErrorHandler(errorEvent -> {
+    //...
+});
 ```
 
 -----
