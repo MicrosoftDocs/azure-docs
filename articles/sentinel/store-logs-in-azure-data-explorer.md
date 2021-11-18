@@ -1,17 +1,8 @@
 ---
 title: Integrate Azure Data Explorer for long-term log retention | Microsoft Docs
 description: Send Microsoft Sentinel logs to Azure Data Explorer for long-term retention to reduce data storage costs.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021

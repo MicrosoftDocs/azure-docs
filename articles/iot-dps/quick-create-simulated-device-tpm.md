@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub
 description: Quickstart - Learn how to provision a TPM simulated device to the Azure IoT Hub Device Provisioning Service
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 9/22/2021
 ms.topic: quickstart
 ms.service: iot-dps

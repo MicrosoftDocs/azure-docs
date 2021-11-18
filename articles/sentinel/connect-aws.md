@@ -2,9 +2,6 @@
 title: Connect Microsoft Sentinel to Amazon Web Services (AWS) to ingest service log data
 description: Use the AWS connector to delegate Microsoft Sentinel access to AWS resource logs, creating a trust relationship between Amazon Web Services and Microsoft Sentinel.
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 11/18/2021
 ms.author: yelevin

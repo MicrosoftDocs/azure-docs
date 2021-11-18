@@ -56,6 +56,8 @@ All other users can only access information within the Azure Purview account if 
 
 Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent and will need to be added directly, though collection admins that are automatically inherited from a parent collection can't be removed.
 
+You can assign Purview roles to users, security groups and service principals from your Azure Active Directory which is associated with your purview account's subscription.
+
 ## Assign permissions to your users
 
 After creating an Azure Purview account, the first thing to do is create collections and assign users to roles within those collections.

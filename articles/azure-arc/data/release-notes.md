@@ -36,8 +36,8 @@ The following `sql` commands now support directly connected mode:
    ```console
    az arcdata dc create
    az arcdata dc delete
-   az arcdata sql mi-arc create
-   az arcdata sql mi-arc delete
+   az sql mi-arc create
+   az sql mi-arc delete
    ```
  
 #### Data controller
