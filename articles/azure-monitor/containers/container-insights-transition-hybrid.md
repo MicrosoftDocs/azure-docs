@@ -34,3 +34,9 @@ The following table highlights the key differences between monitoring using the 
 | Consumption | Viewable only from Azure Monitor blade | Accessible from both Azure Monitor and Azure Arc enabled Kubernetes resource blade |
 | Agent | Manual agent upgrades | Automatic updates for monitoring agent with version control through Azure Arc cluster extensions |
 | Feature parity | No additional updates beyond May 2022 | First class parity and updates inline with Container Insights on AKS |
+
+## Next Steps
+
+- [Disable existing monitoring](./container-insights-optout-openshift-v4.md) for your Azure Red Hat OpenShift v4.x cluster 
+- [Connect your cluster](../../azure-arc/kubernetes/quickstart-connect-cluster.md)  to the Azure Arc enabled Kubernetes platform
+- [Configure Container Insights](./container-insights-enable-arc-enabled-clusters.md) on Azure Arc enabled Kubernetes
