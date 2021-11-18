@@ -355,20 +355,11 @@ SNTP Time Sync successfully.
 Start Provisioning Client...
 [INFO] IoTProvisioning client connect pending
 Registered Device Successfully.
-IoTHub Host Name: iotc-597ffb0b-3dbe-4784-ba3c-fdefd120a44a.azure-devices.net; Device ID: mydevice.
+IoTHub Host Name: iotc-********-****-****-****-************.azure-devices.net; Device ID: mydevice.
 Connected to IoTHub.
 Telemetry message send: {"temperature":22}.
 Receive twin properties: {"desired":{"$version":1},"reported":{"maxTempSinceLastReboot":22,"$version":8}}
 Failed to parse value
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
 Telemetry message send: {"temperature":22}.
 Telemetry message send: {"temperature":22}.
 ```
