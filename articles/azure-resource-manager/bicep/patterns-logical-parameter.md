@@ -76,12 +76,9 @@ Within the module, the tenant-specific resources are deployed.
 
 ## Considerations
 
-<!-- TODO -->   
-Be careful with which properties you expose vs. assume
-Can test by just creating the variable (without the resource) and exposing as an output
-Particularly helpful with modules
-Often uses loops and conditions
-Sanitise inputs if you create resource names with them
+- When you're developing or debugging your Bicep file, consider creating the mapping variable without defining a resource. Then, define an [output](outputs.md) with the variable's value so that you can see the result of the mapping.
+- You can use [conditions](conditional-resource-deployment.md) to selectively deploy resources based on logical parameter values.
+- When creating resource names dynamically, ensure the names meet the [requirements for the resource that you're deploying](../management/resource-name-rules.md). You might need to [generate a name](patterns-name-generation.md) for some resources rather than accepting names directly through parameters.
 
 ## Next steps
 
