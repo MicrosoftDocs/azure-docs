@@ -11,7 +11,7 @@ ms.author: alkohli
 ms.custom: include file
 ---
 
-Perform the following steps to order an import job in Azure Import/Export job via the Preview portal.
+Do the following steps to order an import job in Azure Import/Export job via the Preview portal.
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 1. Select **+ Create a resource**, and search for *Azure Data Box*. Select **Azure Data Box**.
@@ -67,7 +67,7 @@ Perform the following steps to order an import job in Azure Import/Export job vi
 1. In **Return shipping**:
 
    1. Select a shipping carrier from the drop-down list for **Carrier**. The location of the Microsoft datacenter for the selected region determines which carriers are available.
-   1. Enter a **Carrier account number**. The account number for an valid carrier account is required.
+   1. Enter a **Carrier account number**. The account number for a valid carrier account is required.
    1. In the **Return address** area, select the **+ Add Address** button, and add the address to ship to.
 
       ![Screenshot of the Return Shipping tab for an import job in Azure Data Box. The Return Shipping tab and the Plus Add Address button are highlighted.](media/storage-import-export-preview-import-steps/import-export-order-preview-07.png)
@@ -87,7 +87,7 @@ Perform the following steps to order an import job in Azure Import/Export job vi
 
 1. In **Review + Create**:
 
-   1. Review the **Terms** and **Privacy** information, and then select the checkbox by "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
+   1. Review the **Terms** and **Privacy** information, and then select the checkbox by "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then done.
    1. Review the job information. Make a note of the job name and the Azure datacenter shipping address to ship disks back to. This information is used later on the shipping label.
    1. Select **Create**.
 
