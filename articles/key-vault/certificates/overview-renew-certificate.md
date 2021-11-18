@@ -53,10 +53,14 @@ To renew a nonintegrated CA certificate, do the following:
 
 1. Sign in to the Azure portal, and then open the certificate you want to renew.
 1. On the certificate pane, select **New Version**.
-1. Select **Certificate Operation**.
+3. On the **Create a certificate** page make sure the **Generate** option is selected under **Method of Certificate Creation**.
+4. Verify the **Subject** and other details about the certificate and then click **Create**.
+5. You should now see the message **The creation of certificate << certificate name >> is currently pending. Click here to go its Certificate Operation to monitor the progress**
+6. Click on the message and a new pane should be shown. The pane should show the status as "In Progress". At this point key vault has generated a CSR that you can download using the **Download CSR** option.
 1. Select **Download CSR** to download a CSR file to your local drive.
 1. Send the CSR to your choice of CA to sign the request.
-1. Bring back the signed request, and select **Merge CSR** on the same certificate operation pane.
+1. Bring back the signed request, and select **Merge Signed Request** on the same certificate operation pane.
+10. The status after merging will show **Completed** and on the main certificate pane you can hit **Refresh** to see the new version of the certificate.
 
 > [!NOTE]
 > It's important to merge the signed CSR with the same CSR request that you created. Otherwise, the key won't match.
