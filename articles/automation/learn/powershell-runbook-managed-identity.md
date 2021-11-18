@@ -10,7 +10,7 @@ ms.topic: tutorial
 
 # Tutorial: Create Automation PowerShell runbook using managed identity
 
-This tutorial walks you through creating a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that uses [managed identities](../automation-security-overview.md#managed-identities-preview), rather than the Run As account to interact with resources. PowerShell runbooks are based on Windows PowerShell. A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources.
+This tutorial walks you through creating a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that uses a [managed identity](../automation-security-overview.md#managed-identities), rather than the Run As account to interact with resources. PowerShell runbooks are based on Windows PowerShell. A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources.
 
 In this tutorial, you learn how to:
 
@@ -263,11 +263,7 @@ Remove-AzRoleAssignment `
 
 ## Next steps
 
-In this tutorial, you created a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that used [managed identities](../automation-security-overview.md#managed-identities-preview), rather than the Run As account to interact with resources. For a look at PowerShell Workflow runbooks, see:
+In this tutorial, you created a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that used a[managed identity](../automation-security-overview.md#managed-identities), rather than the Run As account to interact with resources. For a look at PowerShell Workflow runbooks, see:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create a PowerShell Workflow runbook](automation-tutorial-runbook-textual.md)
-
-
-
-

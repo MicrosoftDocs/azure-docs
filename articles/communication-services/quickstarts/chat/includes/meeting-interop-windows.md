@@ -63,7 +63,7 @@ private const string connectionString_ = "";
 
 ```csharp
         /// <summary>
-        /// Backgroung task that keeps polling for chat messages while the call connection is stablished
+        /// Background task that keeps polling for chat messages while the call connection is stablished
         /// </summary>
         private async Task StartPollingForChatMessages()
         {
@@ -110,7 +110,7 @@ private const string connectionString_ = "";
                         }
 
                         await SetInCallState(true);
-                        Thread.Sleep(3000);
+                        await Task.Delay(3000);
                     }
                     catch (Exception e)
                     {

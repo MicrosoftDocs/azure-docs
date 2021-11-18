@@ -21,11 +21,11 @@ ms.reviewer: mimckitt
 Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you create your own custom image of an Azure virtual machine. You learn how to:
 
 > [!div class="checklist"]
-> * Create a Shared Image Gallery
+> * Create an Azure Compute Gallery (formerly known as Shared Image Gallery)
 > * Create an image definition
 > * Create an image version
 > * Create a VM from an image 
-> * Share an image gallery
+> * Share a gallery
 
 
 This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
@@ -34,11 +34,11 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Overview
 
-A [Shared Image Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
+an [Azure Compute Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
-The Shared Image Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
+The Azure Compute Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
-The Shared Image Gallery feature has multiple resource types:
+The Azure Compute Gallery feature has multiple resource types:
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
@@ -54,13 +54,13 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
-## Create an image gallery 
+## Create a gallery 
 
-An image gallery is the primary resource used for enabling image sharing. 
+A gallery is the primary resource used for enabling image sharing. 
 
-Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes.   Gallery names must be unique within your subscription. 
+Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
 
-Create an image gallery using [az sig create](/cli/azure/sig#az_sig_create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
+Create an gallery using [az sig create](/cli/azure/sig#az_sig_create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -166,7 +166,7 @@ az sig show \
    --query id
 ```
 
-Use the object ID as a scope, along with an email address and [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to give a user access to the shared image gallery. Replace `<email-address>` and `<gallery iD>` with your own information.
+Use the object ID as a scope, along with an email address and [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to give a user access to the Azure Compute Gallery. Replace `<email-address>` and `<gallery iD>` with your own information.
 
 ```azurecli-interactive
 az role assignment create \
@@ -186,11 +186,11 @@ Azure also offers a service, built on Packer, [Azure VM Image Builder](../image-
 In this tutorial, you created a custom VM image. You learned how to:
 
 > [!div class="checklist"]
-> * Create a Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Create an image definition
 > * Create an image version
 > * Create a VM from an image 
-> * Share an image gallery
+> * Share a gallery
 
 Advance to the next tutorial to learn about highly available virtual machines.
 

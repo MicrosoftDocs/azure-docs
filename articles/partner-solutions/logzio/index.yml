@@ -11,7 +11,7 @@ metadata:
   ms.collection: na
   author: tfitzmac
   ms.author: tomfitz
-  ms.date: 10/22/2021
+  ms.date: 11/02/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: Manage the Logz.io integration in Azure
             url: manage.md
-      
+
   # Card
   - title: Create Logz.io resource
     linkLists:
@@ -47,8 +47,9 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.logz/get-azlogzmonitor
           - text: Java
             url: /java/api/overview/azure/resourcemanager-logz-readme
           - text: Python
             url: /python/api/overview/azure/mgmt-logz-readme
-          

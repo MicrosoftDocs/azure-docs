@@ -34,8 +34,11 @@ Azure Private Link Service enables you to access Azure Key Vault and Azure hoste
 
 - The Key Vault front end (data plane) is a multi-tenant server. This means that key vaults from different customers can share the same public IP address. In order to achieve isolation, each HTTP request is authenticated and authorized independently of other requests.
 - You may identify older versions of TLS to report vulnerabilities but because the public IP address is shared, it is not possible for key vault service team to disable old versions of TLS for individual key vaults at transport level.
-- The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the most recent version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. The fact that Key Vault still supports older TLS versions won’t impair the security of connections using newer TLS versions.
+- The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the most recent version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. Applications that are communicating with or authenticating against Azure Active Directory might not work as expected if they are NOT able to use TLS 1.2 or recent version to communicate.
 - Despite known vulnerabilities in TLS protocol, there is no known attack that would allow a malicious agent to extract any information from your key vault when the attacker initiates a connection with a TLS version that has vulnerabilities. The attacker would still need to authenticate and authorize itself, and as long as legitimate clients always connect with recent TLS versions, there is no way that credentials could have been leaked from vulnerabilities at old TLS versions.
+
+> [!NOTE]
+> For Azure Key Vault, ensure that the application accessing the Keyvault service should be running on a planform that supports TLS 1.2 or recent version. If the application is dependent on .Net framework, it should be updated as well. You can also make the registry changes mentioned in [this article](/troubleshoot/azure/active-directory/enable-support-tls-environment) to explicitly enable the use of TLS 1.2 at OS level and for .Net framework.
 
 ## Key Vault authentication options
 

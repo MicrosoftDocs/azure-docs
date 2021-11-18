@@ -2,7 +2,7 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 10/31/2021
 ms.custom: references_regions
 ---
 # Backup vaults overview
@@ -126,7 +126,7 @@ This section explains how to move a Backup vault (configured for Azure Backup) a
 
 ### Supported regions
 
-The vault move across subscriptions and resource groups is currently supported in the following regions: West US, South Central US, East Asia, Switzerland North, South Africa North, UK West, North Central US, UAE North, Norway East, Australia Southeast, Japan West, Canada East, Korea Central, Australia Central, West Central US, Central India, West India, South India, UAE Central, South Africa West, Norway West, Switzerland West
+The vault move across subscriptions and resource groups is supported in all public regions.
 
 ### Use Azure portal to move Backup vault to a different resource group
 

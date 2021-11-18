@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
-description: Understand the capabilities and purpose of Azure Digital Twins Explorer
+description: Learn about the capabilities and purpose of Azure Digital Twins Explorer and when it can be a useful tool for visualizing digital models, twins, and graphs.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/19/2021
+ms.date: 10/29/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,9 @@ ms.service: digital-twins
 
 # Azure Digital Twins Explorer (preview)
 
-**Azure Digital Twins Explorer** is a developer tool for visualizing and interacting with the data in your Azure Digital Twins instance, including your [models](concepts-models.md) and [twin graph](concepts-twins-graph.md). 
+This article contains information about the **Azure Digital Twins Explorer**, including its use cases and an overview of its features. For detailed steps on using each feature, see [Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
+
+Azure Digital Twins Explorer is a developer tool for visualizing and interacting with the data in your Azure Digital Twins instance, including your [models](concepts-models.md) and [twin graph](concepts-twins-graph.md). 
 
 >[!NOTE]
 >This tool is currently in **public preview**.
@@ -27,8 +29,6 @@ Here's a view of the explorer window, showing models and twins that have been po
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 The visual interface is a great tool for exploring and understanding the shape of your graph and model set. It also allows you to make pointed, on the spot changes to individual twins and relationships.
-
-This article contains more information about the Azure Digital Twins Explorer, including its use cases and an overview of its features. For detailed steps on using each feature, see [Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
 
 ## When to use
 

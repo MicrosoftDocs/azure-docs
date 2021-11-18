@@ -36,6 +36,12 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
+- Version 1.0.3719.1700: This update was released November 2021 and has the following changes:
+    - Updated agent error messages.
+    - Fixes an issue with the agent restarting every time the side-by-side stack was updated.
+    - General agent improvements.
+- Version 1.0.3583.2600: This update was released October 2021 and it fixes an issue where upgrading from Windows 10 to Windows 11 disabled the side-by-side stack.
+- Version 1.0.3373.2605: This update was released September 2021 and it fixes an issue with package deregistration getting stuck when using MSIX App Attach.
 - Version 1.0.3373.2600: This update was released September 2021 and has the following changes:
     - General agent improvements.
     - Fixes issues with restarting the agent on Windows 7 VMs.
@@ -69,27 +75,27 @@ Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](
 
 Here's what changed in October 2021:
 
-## Azure Virtual Desktop support for Windows 11
+### Azure Virtual Desktop support for Windows 11
 
 Azure Virtual Desktop support for Windows 11 is now generally available for single and multi-session deployments. You can now use Windows 11 images when creating host pools in the Azure portal. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-11-is-now-generally-available-on-azure-virtual-desktop/ba-p/2810545).
 
-## RDP Shortpath now generally available
+### RDP Shortpath now generally available
 
 Remote Desktop Protocol (RDP) Shortpath for managed networks is now generally available. RDP Shortpath establishes a direct connection between the Remote Desktop client and the session host. This direct connection reduces dependency on gateways, improves the connection's reliability, and increases the bandwidth available for each user session. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/rdp-shortpath-for-managed-networks-is-generally-available/m-p/2861468).
 
-## Screen capture protection updates
+### Screen capture protection updates
 
 Screen capture protection is now supported on the macOS client and the Azure Government and Azure China clouds. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/screen-capture-protection-for-macos-client-and-support-for/m-p/2840089#M7940).
 
-## Azure Active Directory domain join 
+### Azure Active Directory domain join 
 
 Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Azure China clouds. Microsoft Endpoint Manager (Intune) is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
 
-## Breaking change in Azure Virtual Desktop Azure Resource Manager template
+### Breaking change in Azure Virtual Desktop Azure Resource Manager template
 
 A breaking change has been introduced into the Azure Resource Manager template for Azure Virtual Desktop. If you're using any code that depends on the change, then you'll need to follow the directions in [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-arm-template-change-removal-of-script/m-p/2851538#M7971) to address the issue.
 
-## Autoscale (preview) public preview
+### Autoscale (preview) public preview
 
 Autoscale for Azure Virtual Desktop is now in public preview. This feature natively turns your virtual machines (VMs) in pooled host pools on or off based on availability needs. Scheduling when your VMs turn on and off optimizes deployment costs, and this feature also offers flexible scheduling options based on your needs. Once you've configured the required custom Role-Based Access Control (RBAC) role, you can start configuring your scaling plan. For more information, see [Autoscale (preview) for Azure Virtual Desktop host pools](autoscale-scaling-plan.md).
 

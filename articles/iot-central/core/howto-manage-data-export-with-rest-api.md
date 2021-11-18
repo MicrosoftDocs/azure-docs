@@ -29,7 +29,7 @@ Each data export definition can send data to one or more destinations. Create th
 Use the following request to create or update a destination definition:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
+PUT https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.1-preview
 ```
 
 * destinationId - Unique ID for the destination.
@@ -70,7 +70,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a destination from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.1-preview
 ```
 
 The response to this request looks like the following example:
@@ -91,7 +91,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve a list of destinations from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/destinations?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/dataExport/destinations?api-version=1.1-preview
 ```
 
 The response to this request looks like the following example: 
@@ -126,7 +126,7 @@ The response to this request looks like the following example:
 ### Patch a destination
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
+PATCH https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.1-preview
 ```
 
 You can use this to perform an incremental update to an export. The sample request body looks like the following example which updates the `displayName` to a destination:
@@ -158,7 +158,7 @@ The response to this request looks like the following example:
 Use the following request to delete a destination:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
+DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.1-preview
 ```
 
 ### Create or update an export definition
@@ -166,7 +166,7 @@ DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destination
 Use the following request to create or update a data export definition:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.0
+PUT https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.1-preview
 ```
 
 The following example shows a request body that creates an export definition for device telemetry:
@@ -228,7 +228,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of an export definition from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.1-preview
 ```
 
 The response to this request looks like the following example:
@@ -249,7 +249,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve a list of export definitions from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/exports?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/dataExport/exports?api-version=1.1-preview
 ```
 
 The response to this request looks like the following example: 
@@ -298,7 +298,7 @@ The response to this request looks like the following example:
 ### Patch an export definition
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/dataExport/exports/{exportId}?api-version=1.0
+PATCH https://{subdomain}.{baseDomain}/dataExport/exports/{exportId}?api-version=1.1-preview
 ```
 
 You can use this to perform an incremental update to an export. The sample request body looks like the following example which updates the `enrichments` to an export:
@@ -348,7 +348,7 @@ The response to this request looks like the following example:
 Use the following request to delete an export definition:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
+DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.1-preview
 ```
 
 ## Next steps

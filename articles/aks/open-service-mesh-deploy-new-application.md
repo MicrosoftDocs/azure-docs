@@ -3,197 +3,174 @@ title: Manage a new application with Open Service Mesh
 description: How to manage a new application with Open Service Mesh
 services: container-service
 ms.topic: article
-ms.date: 8/26/2021
-ms.custom: mvc, devx-track-azurecli
+ms.date: 11/10/2021
 ms.author: pgibson
 ---
 
-# Manage a new application with the Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on
+# Manage a new application with Open Service Mesh (OSM) on Azure Kubernetes Service (AKS)
 
-## Before you begin
+This article shows you how to run a sample application on your OSM mesh running on AKS.
 
-The steps detailed in this walkthrough assume that you've created an AKS cluster (Kubernetes `1.19+` and above, with Kubernetes RBAC enabled), have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
+## Prerequisites
 
-You must have the following resources installed:
+- An existing AKS cluster with the AKS OSM add-on installed. If you need to create a cluster or enable the AKS OSM add-on on an existing cluster, see [Install the Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on using Azure CLI][osm-cli]
+- OSM mesh version v0.11.1 or later running on your cluster.
+- The Azure CLI, version 2.20.0 or later.
+- The latest version of the OSM CLI.
 
-- The Azure CLI, version 2.20.0 or later
-- OSM version v0.11.1 or later
-- JSON processor "jq" version 1.6+
+## Verify your mesh has permissive mode enabled
 
-## Create namespaces for the application
-
-In this walkthrough, we will be using the OSM bookstore application that has the following Kubernetes services:
-
-- `bookbuyer`
-- `bookthief`
-- `bookstore`
-- `bookwarehouse`
-
-Create namespaces for each of these application components.
+Use `kubectl get meshconfig osm-mesh-config` to verify *enablePermissveTrafficPolicyMode* is *true*. For example:
 
 ```azurecli-interactive
-for i in bookstore bookbuyer bookthief bookwarehouse; do kubectl create ns $i; done
+kubectl get meshconfig osm-mesh-config -n kube-system -o=jsonpath='{$.spec.traffic.enablePermissiveTrafficPolicyMode}'
 ```
 
-You should see the following output:
-
-```Output
-namespace/bookstore created
-namespace/bookbuyer created
-namespace/bookthief created
-namespace/bookwarehouse created
-```
-
-## Onboard the namespaces to be managed by OSM
-
-When you add the namespaces to the OSM mesh, this action will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
+If permissive mode is not enabled, you can enable it using `kubectl patch meshconfig osm-mesh-config`. For example:
 
 ```azurecli-interactive
+kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}' --type=merge
+```
+
+## Create and onboard the namespaces to be managed by OSM
+
+When you add namespaces to the OSM mesh, the OSM controller automatically injects the Envoy sidecar proxy containers with applications deployed in those namespaces. Use `kubectl create ns` to create the *bookstore*, *bookbuyer*, *bookthief*, and *bookwarehouse* namespaces, then use `osm namespace add` to add those namespaces to your mesh.
+
+```azurecli-interactive
+kubectl create ns bookstore
+kubectl create ns bookbuyer
+kubectl create ns bookthief
+kubectl create ns bookwarehouse
+
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
 ```
 
 You should see the following output:
 
-```Output
+```output
+namespace/bookstore created
+namespace/bookbuyer created
+namespace/bookthief created
+namespace/bookwarehouse created
+
 Namespace [bookstore] successfully added to mesh [osm]
 Namespace [bookbuyer] successfully added to mesh [osm]
 Namespace [bookthief] successfully added to mesh [osm]
 Namespace [bookwarehouse] successfully added to mesh [osm]
 ```
 
-## Deploy the Bookstore application to the AKS cluster
+## Deploy the sample application to the AKS cluster
+
+Use `kubectl apply` to deploy the sample application to your cluster.
 
 ```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.9/docs/example/manifests/apps/bookbuyer.yaml
+SAMPLE_VERSION=v0.11
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-$SAMPLE_VERSION/docs/example/manifests/apps/bookbuyer.yaml
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-$SAMPLE_VERSION/docs/example/manifests/apps/bookthief.yaml
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-$SAMPLE_VERSION/docs/example/manifests/apps/bookstore.yaml
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-$SAMPLE_VERSION/docs/example/manifests/apps/bookwarehouse.yaml
 ```
 
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.9/docs/example/manifests/apps/bookthief.yaml
-```
+You should see the following output:
 
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.9/docs/example/manifests/apps/bookstore.yaml
-```
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.9/docs/example/manifests/apps/bookwarehouse.yaml
-```
-
-All of the deployment outputs are summarized below.
-
-```Output
+```output
 serviceaccount/bookbuyer created
-service/bookbuyer created
 deployment.apps/bookbuyer created
-
 serviceaccount/bookthief created
-service/bookthief created
 deployment.apps/bookthief created
-
 service/bookstore created
 serviceaccount/bookstore created
 deployment.apps/bookstore created
-
 serviceaccount/bookwarehouse created
 service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
-## Checkpoint: What got installed?
+The sample application is an example of a multi-tiered application that works well for testing service mesh functionality. The application consists of four services: *bookbuyer*, *bookthief*, *bookstore*, and *bookwarehouse*.
 
-The Bookstore application is an example multi-tiered application that works well for testing service mesh functionality. The application consists of four services, being the `bookbuyer`, `bookthief`, `bookstore`, and `bookwarehouse`. Both the `bookbuyer` and `bookthief` service communicate to the `bookstore` service to retrieve books from the `bookstore` service. The `bookstore` service retrieves books out of the `bookwarehouse` service to supply the `bookbuyer` and `bookthief`. This is a simple multi-tiered application that works well in showing how a service mesh can be used to protect and authorize communications between the applications services. As we continue through the walkthrough, we will be enabling and disabling Service Mesh Interface (SMI) policies to both allow and disallow the services to communicate via OSM. Below is an architecture diagram of what got installed for the bookstore application.
+![OSM sample application architecture](./media/aks-osm-addon/osm-bookstore-app-arch.png)
 
-![OSM bookbuyer app architecture](./media/aks-osm-addon/osm-bookstore-app-arch.png)
+Both the *bookbuyer* and *bookthief* service communicate to the *bookstore* service to retrieve books from the *bookstore* service. The *bookstore* service retrieves books from the *bookwarehouse* service. This application helps demonstrate how a service mesh can be used to protect and authorize communications between the services. For example, later sections show how to disable permissive traffic mode and use SMI policies to secure access to services.
 
-## Verify the Bookstore application running inside the AKS cluster
+## Access the bookbuyer and bookthief services using port forwarding
 
-As of now we have deployed the `bookstore` mulit-container application, but it is only accessible from within the AKS cluster. Later tutorials will assist you in exposing the application outside the cluster via an ingress controller. For now we will be utilizing port forwarding to access the `bookbuyer` application inside the AKS cluster to verify it is buying books from the `bookstore` service.
+Use `kubectl get pod` to get the name of the *bookbuyer* pod in the *bookbuyer* namespace. For example:
 
-To verify that the application is running inside the cluster, we will use a port forward to view both the `bookbuyer` and `bookthief` components UI.
+```output
+$ kubectl get pod -n bookbuyer
 
-First let's get the `bookbuyer` pod's name
-
-```azurecli-interactive
-kubectl get pod -n bookbuyer
-```
-
-You should see output similar to the following. Your `bookbuyer` pod will have a unique name appended.
-
-```Output
 NAME                         READY   STATUS    RESTARTS   AGE
-bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
+bookbuyer-1245678901-abcde   2/2     Running   0          7m8s
 ```
 
-Once we have the pod's name, we can now use the port-forward command to set up a tunnel from our local system to the application inside the AKS cluster. Run the following command to set up the port forward for the local system port 8080. Again use your specified bookbuyer pod name.
+Open a new terminal and use `kubectl port forward` to begin forwarding traffic between your development computer and the *bookbuyer* pod. For example:
 
-> [!NOTE]
-> For all port forwarding commands it is best to use an additional terminal so that you can continue to work through this walkthrough and not disconnect the tunnel. It is also best that you establish the port forward tunnel outside of the Azure Cloud Shell.
-
-```Bash
-kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
-```
-
-You should see output similar to the following:
-
-```Output
+```output
+$ kubectl port-forward bookbuyer-1245678901-abcde -n bookbuyer 8080:14001
 Forwarding from 127.0.0.1:8080 -> 14001
 Forwarding from [::1]:8080 -> 14001
 ```
 
-While the port forwarding session is in place, navigate to the following url from a browser `http://localhost:8080`. You should now be able to see the `bookbuyer` application UI in the browser similar to the image below.
+The above example shows traffic is being forwarded between port 8080 on your development computer and 14001 on pod *bookbuyer-1245678901-abcde*.
 
-![OSM bookbuyer app UI image](./media/aks-osm-addon/osm-bookbuyer-service-ui.png)
+Go to `http://localhost:8080` on a web browser and confirm you see the *bookbuyer* application. For example:
 
-You will also notice that the total books bought number continues to increment to the `bookstore` v1 service. The `bookstore` v2 service has not been deployed yet. We will deploy the `bookstore` v2 service when we demonstrate the SMI traffic split policies.
+![OSM bookbuyer application](./media/aks-osm-addon/osm-bookbuyer-service-ui.png)
 
-You can also check the same for the `bookthief` service.
+Notice the number of bought books continues to increase.  Stop the port forwarding command.
 
-```azurecli-interactive
-kubectl get pod -n bookthief
-```
+Use `kubectl get pod` to get the name of the *bookthief* pod in the *bookthief* namespace. For example:
 
-You should see output similar to the following. Your `bookthief` pod will have a unique name appended.
+```output
+$ kubectl get pod -n bookthief
 
-```Output
 NAME                         READY   STATUS    RESTARTS   AGE
-bookthief-59549fb69c-cr8vl   2/2     Running   0          15m54s
+bookthief-1245678901-abcde   2/2     Running   0          7m8s
 ```
 
-Port forward to `bookthief` pod.
+Open a new terminal and use `kubectl port forward` to begin forwarding traffic between your development computer and the *bookthief* pod. For example:
 
-```Bash
-kubectl port-forward bookthief-59549fb69c-cr8vl -n bookthief 8080:14001
+```output
+$ kubectl port-forward bookthief-1245678901-abcde -n bookthief 8080:14001
+Forwarding from 127.0.0.1:8080 -> 14001
+Forwarding from [::1]:8080 -> 14001
 ```
 
-Navigate to the following url from a browser `http://localhost:8080`. You should see the `bookthief` is currently stealing books from the `bookstore` service! Later on we will implement a traffic policy to stop the `bookthief`.
+The above example shows traffic is being forwarded between port 8080 on your development computer and 14001 on pod *bookthief-1245678901-abcde*.
 
-![OSM bookthief app UI image](./media/aks-osm-addon/osm-bookthief-service-ui.png)
+Go to `http://localhost:8080` on a web browser and confirm you see the *bookthief* application. For example:
 
-## Disable OSM Permissive Traffic Mode for the mesh
+![OSM bookthief application](./media/aks-osm-addon/osm-bookthief-service-ui.png)
 
-We will now disable the permissive traffic mode policy and OSM will need explicit [SMI](https://smi-spec.io/) policies deployed to the cluster to allow communications in the mesh from each service. To disable permissive traffic mode, run the following command to update the OSM MeshConfig resource property changing the value from `true` to `false`.
+Notice the number of stolen books continues to increase. Stop the port forwarding command.
+
+## Disable permissive traffic mode on your mesh
+
+When permissive traffic mode is enabled, you do not need to define explicit [SMI][smi] policies for services to communicate with other services in onboarded namespaces. For more information on permissive traffic mode in OSM, see [Permissive Traffic Policy Mode][osm-permissive-traffic-mode].
+
+In the sample application with permissive mode enabled, both the *bookbuyer* and *bookthief* services can communicate with the *bookstore* service and obtain books. 
+
+Use `kubectl patch meshconfig osm-mesh-config` to disable permissive traffic mode:
 
 ```azurecli-interactive
 kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":false}}}' --type=merge
 ```
 
-You should see output similar to the following.
+The following example output shows the *osm-mesh-config* has been updated:
 
-```Output
+```output
+$ kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":false}}}' --type=merge
+
 meshconfig.config.openservicemesh.io/osm-mesh-config patched
 ```
 
-To verify permissive traffic mode has been disabled, port forward back into either the `bookbuyer` or `bookthief` pod to view their UI in the browser and see if the books bought or books stolen is no longer incrementing. Ensure to refresh the browser. If the incrementing has stopped, the policy was applied correctly. You have successfully stopped the `bookthief` from stealing books, but neither the `bookbuyer` can purchase from the `bookstore` nor the `bookstore` can retrieve books from the `bookwarehouse`. Next we will implement [SMI](https://smi-spec.io/) policies to allow only the services in the mesh you'd like to communicate to do so. For more detailed information about permissive traffic mode, please visit and read the [Permissive Traffic Policy Mode](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) article.
+Repeat the steps from the previous section to forward traffic between the *bookbuyer* service and your development computer. Confirm the counter is no longer incrementing, even if you refresh the page. Stop the port forwarding command and repeat the steps to forward traffic between the *bookthief* service and your development computer. Confirm the counter is no longer incrementing even if you refresh the page. Stop the port forwarding command.
 
-## Apply Service Mesh Interface (SMI) traffic access policies
+## Apply an SMI traffic access policy for buying books
 
-Now that we have disabled all communications in the mesh, let's allow our `bookbuyer` service to communicate to our `bookstore` service for purchasing books, and allow our `bookstore` service to communicate to our `bookwarehouse` service to retrieving books to sell.
+Create `allow-bookbuyer-smi.yaml` using the following YAML:
 
-Deploy the following [SMI](https://smi-spec.io/) policies.
-
-```azurecli-interactive
-kubectl apply -f - <<EOF
----
+```yaml
 apiVersion: access.smi-spec.io/v1alpha3
 kind: TrafficTarget
 metadata:
@@ -273,33 +250,40 @@ spec:
       - POST
       headers:
       - host: bookwarehouse.bookwarehouse
-EOF
 ```
 
-You should see output similar to the following.
+The above creates the following SMI access policies that allow the *bookbuyer* service to communicate with the *bookstore* service for buying books. It also allows the *bookstore* service to communicate with the *bookwarehouse* service for restocking books.
 
-```Output
+Use `kubectl apply` to apply the SMI access policies.
+
+```azurecli-interactive
+kubectl apply -f allow-bookbuyer-smi.yaml
+```
+
+The following example output shows the SMI access policies successfully applied:
+
+```output
+$ kubectl apply -f allow-bookbuyer-smi.yaml
+
 traffictarget.access.smi-spec.io/bookbuyer-access-bookstore-v1 created
 httproutegroup.specs.smi-spec.io/bookstore-service-routes created
 traffictarget.access.smi-spec.io/bookstore-access-bookwarehouse created
 httproutegroup.specs.smi-spec.io/bookwarehouse-service-routes created
 ```
 
-You can now set up a port forwarding session on either the `bookbuyer` or `bookstore` pods and see that both the books bought and books sold metrics are back incrementing. You can also do the same for the `bookthief` pod to verify it is still no longer able to steal books.
+Repeat the steps from the previous section to forward traffic between the *bookbuyer* service and your development computer. Confirm the counter is incrementing. Stop the port forwarding command and repeat the steps to forward traffic between the *bookthief* service and your development computer. Confirm the counter is not incrementing even if you refresh the page. Stop the port forwarding command.
 
-## Apply Service Mesh Interface (SMI) traffic split policies
+## Apply an SMI traffic split policy for buying books
 
-For our final demonstration, we will create an [SMI](https://smi-spec.io/) traffic split policy to configure the weight of communications from one service to multiple services as a backend. The traffic split functionality allows you to progressively move connections to one service over to another by weighting the traffic on a scale of 0 to 100.
+In addition to access policies, you can also use SMI to create traffic split policies. Traffic split policies allow you to configure the distribution of communications from one service to multiple services as a backend. This capability can help you test a new version of a backend service by sending a small portion of traffic to it while sending the rest of traffic to the current version of the backend service. This capability can also help progressively transition more traffic to the new version of a service and reduce traffic to the previous version over time.
 
-The below graphic is a diagram of the [SMI](https://smi-spec.io/) Traffic Split policy to be deployed. We will deploy another `Bookstore` application as version 2 and then split the incoming traffic from the `bookbuyer`, weighting 25% of the traffic to the `bookstore` v1 service and 75% to the `bookstore` v2 service.
+The following diagram shows an SMI Traffic Split policy that sends 25% of traffic to the *bookstore-v1* service and 75% of traffic to the *bookstore-v2* service.
 
 ![OSM bookbuyer traffic split diagram](./media/aks-osm-addon/osm-bookbuyer-traffic-split-diagram.png)
 
-Deploy the `bookstore` v2 service.
+Create `bookbuyer-v2.yaml` using the following YAML:
 
-```azurecli-interactive
-kubectl apply -f - <<EOF
----
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -373,22 +357,30 @@ spec:
   - kind: ServiceAccount
     name: bookbuyer
     namespace: bookbuyer
-EOF
 ```
 
-You should see the following output.
+The above creates a *bookstore-v2* service and SMI policies that allow the *bookbuyer* service to communicate with the *bookstore-v2* service for buying books. It also uses the SMI policies created in the previous section to allow the *bookstore-v2* service to communicate with the *bookwarehouse* service for restocking books.
 
-```Output
+Use `kubectl apply` to deploy *bookstore-v2* and apply the SMI access policies.
+
+```azurecli-interactive
+kubectl apply -f bookbuyer-v2.yaml
+```
+
+The following example output shows the SMI access policies successfully applied:
+
+```output
+$ kubectl apply -f bookbuyer-v2.yaml
+
 service/bookstore-v2 configured
 serviceaccount/bookstore-v2 created
 deployment.apps/bookstore-v2 created
 traffictarget.access.smi-spec.io/bookstore-v2 created
 ```
 
-Now deploy the traffic split policy to split the `bookbuyer` traffic between the two `bookstore` v1 and v2 service.
+Create `bookbuyer-split-smi.yaml` using the following YAML:
 
-```azurecli-interactive
-kubectl apply -f - <<EOF
+```yaml
 apiVersion: split.smi-spec.io/v1alpha2
 kind: TrafficSplit
 metadata:
@@ -401,15 +393,31 @@ spec:
     weight: 25
   - service: bookstore-v2
     weight: 75
-EOF
 ```
 
-You should see the following output.
+The above creates an SMI policy that splits traffic for the *bookstore* service. The original or v1 version of *bookstore* receives 25% of traffic and *bookstore-v2* receives 75% of traffic.
 
-```Output
+Use `kubectl apply` to apply the SMI split policy.
+
+```azurecli-interactive
+kubectl apply -f bookbuyer-split-smi.yaml
+```
+
+The following example output shows the SMI access policies successfully applied:
+
+```output
+$ kubectl apply -f bookbuyer-split-smi.yaml
+
 trafficsplit.split.smi-spec.io/bookstore-split created
 ```
 
-Set up a port forward tunnel to the `bookbuyer` pod and you should now see books being purchased from the `bookstore` v2 service. If you continue to watch the increment of purchases, you should notice a faster increment of purchases happening through the `bookstore` v2 service.
+Repeat the steps from the previous section to forward traffic between the *bookbuyer* service and your development computer. Confirm the counter is incrementing for both *bookstore v1* and *bookstore v2*. Also confirm the number for *bookstore v2* is incrementing faster than for *bookstore v1*.
 
 ![OSM bookbuyer books bought UI](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
+
+Stop the port forwarding command.
+
+
+[osm-cli]: open-service-mesh-deploy-addon-az-cli.md
+[osm-permissive-traffic-mode]: https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/
+[smi]: https://smi-spec.io/

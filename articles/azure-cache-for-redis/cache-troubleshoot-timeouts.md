@@ -6,7 +6,7 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/18/2019
+ms.date: 11/3/2021
 ---
 # Troubleshoot Azure Cache for Redis timeouts
 
@@ -21,7 +21,7 @@ This section discusses troubleshooting timeout issues that occur when connecting
 
 ## Redis server patching
 
-Azure Cache for Redis regularly updates its server software as part of the managed service functionality that it provides. This [patching](cache-failover.md) activity takes place largely behind the scene. During the failovers when Redis server nodes are being patched, Redis clients connected to these nodes may experience temporary timeouts as connections are switched between these nodes. See [How does a failover affect my client application](cache-failover.md#how-does-a-failover-affect-my-client-application) for more information on what side-effects patching can have on your application and how you can improve its handling of patching events.
+Azure Cache for Redis regularly updates its server software as part of the managed service functionality that it provides. This [patching](cache-failover.md) activity takes place largely behind the scene. During the failovers when Redis server nodes are being patched, Redis clients connected to these nodes can experience temporary timeouts as connections are switched between these nodes. For more information on the side-effects patching can have on your application and how to improve its handling of patching events, see [How does a failover affect my client application](cache-failover.md#how-does-a-failover-affect-my-client-application).
 
 ## StackExchange.Redis timeout exceptions
 
@@ -35,40 +35,24 @@ This error message contains metrics that can help point you to the cause and pos
 
 | Error message metric | Details |
 | --- | --- |
-| inst |In the last time slice: 0 commands have been issued |
-| mgr |The socket manager is doing `socket.select`, which means it's asking the OS to indicate a socket that has something to do. The reader isn't actively reading from the network because it doesn't think there's anything to do |
-| queue |There are 73 total in-progress operations |
-| qu |6 of the in-progress operations are in the unsent queue and haven't yet been written to the outbound network |
-| qs |67 of the in-progress operations have been sent to the server but a response isn't yet available. The response could be `Not yet sent by the server` or `sent by the server but not yet processed by the client.` |
-| qc |0 of the in-progress operations have seen replies but haven't yet been marked as complete because they're waiting on the completion loop |
-| wr |There's an active writer (meaning the 6 unsent requests aren't being ignored) bytes/activewriters |
-| in |There are no active readers and zero bytes are available to be read on the NIC bytes/activereaders |
+| `inst` |In the last time slice: 0 commands have been issued |
+| `mgr` |The socket manager is doing `socket.select`, which means it's asking the OS to indicate a socket that has something to do. The reader isn't actively reading from the network because it doesn't think there's anything to do |
+| `queue` |There are 73 total in-progress operations |
+| `qu` |6 of the in-progress operations are in the unsent queue and haven't yet been written to the outbound network |
+| `qs`|67 of the in-progress operations have been sent to the server but a response isn't yet available. The response could be `Not yet sent by the server` or `sent by the server but not yet processed by the client.` |
+| `qc` |Zero of the in-progress operations have seen replies but haven't yet been marked as complete because they're waiting on the completion loop |
+| `wr` |There's an active writer (meaning the six unsent requests aren't being ignored) bytes/activewriters |
+| `in` |There are no active readers and zero bytes are available to be read on the NIC bytes/activereaders |
 
 In the preceding exception example, the `IOCP` and `WORKER` sections each include a `Busy` value that is greater than the `Min` value. The difference means that you should adjust your `ThreadPool` settings. You can [configure your ThreadPool settings](cache-management-faq.yml#important-details-about-threadpool-growth) to ensure that your thread pool scales up quickly under burst scenarios.
 
-You can use the following steps to investigate possible root causes.
+You can use the following steps to eliminate possible root causes.
 
-1. As a best practice, make sure you're using the following pattern to connect when using the StackExchange.Redis client.
+1. As a best practice, make sure you're using the ForceReconnect pattern to detect and replace stalled connections as described in the article [Connection resilience](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
 
-    ```csharp
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+   For more information on using StackExchange.Redis, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache). 
 
-    });
-
-    public static ConnectionMultiplexer Connection
-    {
-        get
-        {
-            return lazyConnection.Value;
-        }
-    }
-    ```
-
-    For more information, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
-
-1. Ensure that your server and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you're debugging from your local development machine. 
+1. Ensure that your server and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you're debugging from your local development machine.
 
     It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 5000-ms interval by including a `synctimeout` property in the connection string. The following example shows a snippet of a connection string for StackExchange.Redis provided by Azure Cache for Redis with a `synctimeout` of 8000 ms.
 
