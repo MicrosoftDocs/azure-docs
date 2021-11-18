@@ -402,7 +402,7 @@ The Speech SDK supports custom keyword activation. Similar to "Hey Cortana" for 
 > [!NOTE]
 > The term *keyword* is often used interchangeably with the term *wake word*. You might see both used in Microsoft documentation.
 
-Keyword detection happens on the client app. If you're using a keyword, audio is streamed to the Direct Line Speech channel only if the keyword is detected. The Direct Line Speech channel includes a component called *keyword verification (KWV)*, which does more complex processing in the cloud to verify that the keyword you've chosen is at the start of the audio stream. If keyword verification succeeds, then the channel will communicate with the bot.
+Keyword detection happens on the client app. If you're using a keyword, audio is streamed to the Direct Line Speech channel only if the keyword is detected. The Direct Line Speech channel includes a component called *keyword verification*, which does more complex processing in the cloud to verify that the keyword you've chosen is at the start of the audio stream. If keyword verification succeeds, then the channel will communicate with the bot.
 
 Follow these steps to create a keyword model, configure the Windows Voice Assistant Client to use this model, and test it with your bot:
 
@@ -427,7 +427,7 @@ In the source code of the Windows Voice Assistant Client, use these files to rev
 - [VoiceAssistantClient\Models.cs](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) includes a call to the Speech SDK method [KeywordRecognitionModel.fromFile()](/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel#fromfile-string-). This method is used to instantiate the model from a local file on disk.
 - [VoiceAssistantClient\MainWindow.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) includes a call to the Speech SDK method [DialogServiceConnector.StartKeywordRecognitionAsync()](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync). This method activates continuous keyword detection.
 
-## (Optional) Change the language and bot voice
+## Optional: Change the language and bot voice
 
 The bot that you've created will listen for and respond in English, with a default US English text-to-speech voice. However, you're not limited to using English or a default voice. 
 
