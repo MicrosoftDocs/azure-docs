@@ -4,15 +4,15 @@ title: Quickstart - Get started with Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
 description: Learn how to use the Azure Digital Twins Explorer by following this demo, where you'll be using models to instantiate twins and interacting with the twin graph.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: "baanders # Microsoft employees only"
 ms.date: 10/4/2021
 ms.topic: quickstart
 ms.service: digital-twins
-
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
+ms.custom: mode-other
 ---
 
 # Quickstart - Get started with a sample scenario in Azure Digital Twins Explorer

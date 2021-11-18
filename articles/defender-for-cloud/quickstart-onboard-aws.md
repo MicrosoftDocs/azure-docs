@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.service: defender-for-cloud
 manager: rkarlin
 zone_pivot_groups: connect-aws-accounts
+ms.custom: mode-other
 ---
 #  Connect your AWS accounts to Microsoft Defender for Cloud
 

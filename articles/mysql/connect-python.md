@@ -4,7 +4,7 @@ description: This quickstart provides several Python code samples you can use to
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: [mvc, seo-python-october2019, devx-track-python]
+ms.custom: [mvc, seo-python-october2019, devx-track-python, mode-other
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020

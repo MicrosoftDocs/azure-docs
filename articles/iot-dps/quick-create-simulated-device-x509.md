@@ -6,11 +6,10 @@ ms.author: wesmc
 ms.date: 09/07/2021
 ms.topic: quickstart
 ms.service: iot-dps
-services: iot-dps 
+services: iot-dps
 manager: lizross
-ms.custom: mvc
+ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set1
-
 #Customer intent: As a new IoT developer, I want to simulate an X.509 certificate device using the SDK, to learn how secure provisioning works.
 ---
 

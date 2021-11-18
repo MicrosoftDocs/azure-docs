@@ -4,9 +4,10 @@ description: Learn to deploy a static site to Azure Static Web Apps with the Azu
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
-ms.topic:  quickstart
+ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
+ms.custom: mode-api
 ---
 
 # Quickstart: Building your first static site using the Azure CLI

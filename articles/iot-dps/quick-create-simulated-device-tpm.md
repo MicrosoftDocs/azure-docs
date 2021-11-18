@@ -6,9 +6,9 @@ ms.author: wesmc
 ms.date: 9/22/2021
 ms.topic: quickstart
 ms.service: iot-dps
-services: iot-dps 
+services: iot-dps
 zone_pivot_groups: iot-dps-set1
-ms.custom:  [mvc, amqp, mqtt]
+ms.custom: [mvc, amqp, mqtt, mode-other
 #Customer intent: As a new IoT developer, I want simulate a TPM device to learn how secure provisioning works.
 ---
 

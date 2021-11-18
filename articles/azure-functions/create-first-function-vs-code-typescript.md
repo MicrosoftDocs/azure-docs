@@ -1,8 +1,9 @@
 ---
 title: Create a TypeScript function using Visual Studio Code - Azure Functions
-description: Learn how to create a TypeScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
+description: Learn how to create a TypeScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
+ms.custom: mode-other
 ---
 
 # Quickstart: Create a function in Azure with TypeScript using Visual Studio Code

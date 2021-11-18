@@ -5,7 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions, ignite-fall-2021, mode-other
 #Customer intent: As a security operator, connect all my data sources in one place so I can monitor and protect my environment.
 ---
 

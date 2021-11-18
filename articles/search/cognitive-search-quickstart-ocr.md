@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: OCR and image analysis"
 titleSuffix: Azure Cognitive Search
-description: Use the Import Data wizard and AI cognitive skills to apply OCR and image analysis to identify and extract searchable text from image files. 
-
+description: Use the Import Data wizard and AI cognitive skills to apply OCR and image analysis to identify and extract searchable text from image files.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Apply OCR and image analysis using the Import data wizard
