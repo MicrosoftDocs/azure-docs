@@ -227,7 +227,7 @@ The above warning is observed when you have used a service principal to log into
 1. Fetch the Object ID of the Azure AD application used by Azure Arc service:
 
     ```console
-    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
     ```
 
 1. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
