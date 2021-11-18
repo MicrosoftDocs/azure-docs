@@ -21,6 +21,8 @@ Azure Bastion now offers support for connecting to target VMs in Azure using a n
 
 Currently, this feature has the following limitations:
 
+* Native client support is not yet available for use from your local Linux workstation. If you are connecting to your target VM from a Linux workstation, please use the Azure portal experience.
+
 * Signing in to your target VM using a custom port or protocol is not yet available with native client support. If you want to use a custom port or protocol to sign in to your target VM via Bastion, use the Azure portal experience.
 
 * Signing in using a local username and password to your target VM is not yet supported. If you want to use local username and password credentials to sign into your target VM via Bastion use the Azure portal experience.
@@ -35,9 +37,9 @@ Before you begin, verify that you have met the following criteria:
 * An Azure virtual network.
 * A virtual machine in the virtual network.
 * If you plan to sign into your virtual machine using your Azure AD credentials, make sure your virtual machine is set up using one of the following methods:
-    * Enable Azure AD login for a [Windows VM](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) or [Linux VM](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux#enabling-azure-ad-login-in-for-linux-vm-in-azure).
-    * [Configure your Windows VM to be Azure AD-joined](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-ad-join).
-    * [Configure your Windows VM to be hybrid Azure AD-joined](https://docs.microsoft.com/en-us/azure/active-directory/devices/concept-azure-ad-join-hybrid).
+    * Enable Azure AD login for a [Windows VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) or [Linux VM](../active-directory/devices/howto-vm-sign-in-azure-ad-linux#enabling-azure-ad-login-in-for-linux-vm-in-azure).
+    * [Configure your Windows VM to be Azure AD-joined](../active-directory/devices/concept-azure-ad-join).
+    * [Configure your Windows VM to be hybrid Azure AD-joined](../active-directory/devices/concept-azure-ad-join-hybrid).
 
 ## Configure Bastion
 
