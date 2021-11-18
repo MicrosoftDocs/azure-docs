@@ -5,8 +5,8 @@ author: manoskow
 manager: chpalm
 services: azure-communication-services
 
-ms.author: manoskow
-ms.date: 06/30/2021
+ms.author: prakulka
+ms.date: 11/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -24,6 +24,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **MS-CV ID**: This ID is used to troubleshoot calls and messages.
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
+* **Short Code Program Brief ID**: This ID is used to identify short code program brief application.
 * **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
 
 
@@ -138,6 +139,11 @@ async function main() {
 console.log(result); // your message ID will be in the result
 }
 ```
+---
+## Access your short code program brief ID
+The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Short Codes blade. 
+
+:::image type="content" source="../media/shortcode-troubleshooting.png" alt-text="Screenshot showing a short code program brief ID.":::
 ---
 
 ## Enable and access call logs
