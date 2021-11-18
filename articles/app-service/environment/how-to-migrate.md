@@ -33,7 +33,7 @@ Run these commands to get your App Service Environment ID and store it as an env
 ```azurecli
 ASE_NAME=<Your-App-Service-Environment-name>
 ASE_RG=<Your-Resource-Group>
-ASE_ID=$(az appservice ase show --name $ASE_NAME --resource group $ASE_RG --query id --output tsv)
+ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --query id --output tsv)
 ```
 
 ### Validate migration is possible
