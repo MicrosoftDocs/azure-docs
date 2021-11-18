@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 11/17/2021
 ms.author: marsma 
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 ---
@@ -29,45 +29,76 @@ To run this sample, you need:
 - [Maven](https://maven.apache.org/).
 
 
-#### Step 1: Configure your application in the Azure portal
+## Register and download your quickstart app
+There are two ways to start your quickstart application: express (option 1) and manual (option 2).
 
-To use the code sample in this quickstart:
+### Option 1: Register and automatically configure your app, and then download the code sample
 
-1. Add reply URLs `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me`.
-1. Create a client secret.
-> [!div class="nextstepaction"]
-> [Make these changes for me]()
+1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
+1. Enter a name for your application, and then select **Register**.
+1. Follow the instructions in the portal's quickstart experience to download the automatically configured application code.
 
-> [!div class="alert alert-info"]
-> ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with these attributes.
+### Option 2: Register and manually configure your application and code sample
+
+#### Step 1: Register your application
+
+To register your application and manually add the app's registration information to it, follow these steps:
+
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations**.
+1. Select **New registration**.
+1. Enter a **Name** for your application, for example **java-webapp**. Users of your app might see this name. You can change it later.
+1. Select **Register**.
+1. On the **Overview** page, note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later.
+1. Under **Manage**, select **Authentication**.
+1. Select **Add a platform** > **Web**.
+1. In the **Redirect URIs** section, enter `https://localhost:8443/msal4jsample/secure/aad`.
+1. Select **Configure**.
+1. In the **Web** section, under **Redirect URIs**, enter `https://localhost:8443/msal4jsample/graph/me` as a second redirect URI.
+1. Under **Manage**, select **Certificates & secrets**. In the **Client secrets** section, select **New client secret**.
+1. Enter a key description (for example, *app secret*), leave the default expiration, and select **Add**.
+1. Note the **Value** of the client secret. You'll need it later.
 
 #### Step 2: Download the code sample
 
-Download the project and extract the .zip file into a folder near the root of your drive. For example, *C:\Azure-Samples*.
+[Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
-To use HTTPS with localhost, provide the `server.ssl.key` properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
+#### Step 3: Configure the code sample
+1. Extract the zip file to a local folder.
+1. *Optional.* If you use an integrated development environment, open the sample in that environment.
+1. Open the *application.properties* file. You can find it in the *src/main/resources/* folder. Replace the values in the fields `aad.clientId`, `aad.authority`, and `aad.secretKey` with the application ID, tenant ID, and client secret values, respectively. Here's what it should look like:
 
-Here's an example:
-```
-  keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+     ```file
+      aad.clientId=Enter_the_Application_Id_here
+      aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
+      aad.secretKey=Enter_the_Client_Secret_Here
+      aad.redirectUriSignin=https://localhost:8443/msal4jsample/secure/aad
+      aad.redirectUriGraph=https://localhost:8443/msal4jsample/graph/me
+      aad.msGraphEndpointHost="https://graph.microsoft.com/"
+     ```
+  In the previous code:
 
-  server.ssl.key-store-type=PKCS12
-  server.ssl.key-store=classpath:keystore.p12
-  server.ssl.key-store-password=password
-  server.ssl.key-alias=testCert
-  ```
-  Put the generated keystore file in the *resources* folder.
+   - `Enter_the_Application_Id_here` is the application ID for the application you registered.
+   - `Enter_the_Client_Secret_Here` is the **Client Secret** you created in **Certificates & secrets** for the application you registered.
+   - `Enter_the_Tenant_Info_Here` is the **Directory (tenant) ID** value of the application you registered.
 
-> [!div class="sxs-lookup nextstepaction"]
-> [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
+1. To use HTTPS with localhost, provide the `server.ssl.key` properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
 
-> [!div class="sxs-lookup"]
-> > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
+ Here's an example:
 
-> [!div class="sxs-lookup"]
+    ```
+      keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
 
-#### Step 3: Run the code sample
+      server.ssl.key-store-type=PKCS12
+      server.ssl.key-store=classpath:keystore.p12
+      server.ssl.key-store-password=password
+      server.ssl.key-alias=testCert
+    ```
+1. Put the generated keystore file in the *resources* folder.
+
+#### Step 4: Run the code sample
 
 To run the project, take one of these steps:
 
