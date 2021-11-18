@@ -201,9 +201,7 @@ Microsoft Sentinel is a scalable, cloud-native, security information event manag
 
 For more information, see the [Microsoft Sentinel product documentation](../../sentinel/overview.md).
 
-The following tables display the current Microsoft Sentinel feature availability in Azure and Azure Government. 
-
-Data connectors are listed only when there is no parity between Azure and Azure Government clouds. Any data connectors not listed have support parity.
+The following tables display the current Microsoft Sentinel feature availability in Azure and Azure Government.
 
 | Feature | Azure | Azure Government  |
 | ----- | ----- | ---- |
