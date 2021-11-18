@@ -109,7 +109,7 @@ You can specify the properties of your Azure container registry in an ARM templa
       "imageRegistryCredentials": [
         {
             "server":"myacr.azurecr.io",
-            "identity":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRIdt"
+            "identity":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId"
         }
       ],
       "ipAddress": {
