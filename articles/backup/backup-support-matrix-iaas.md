@@ -4,6 +4,10 @@ description: Provides a summary of support settings and limitations when backing
 ms.topic: conceptual
 ms.date: 10/19/2021
 ms.custom: references_regions 
+ms.reviewer: geg
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Support matrix for Azure VM backup
@@ -159,10 +163,7 @@ Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Support
 Windows Storage Spaces configuration of standalone Azure VMs | Supported
 [Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Supported for flexible orchestration model to back up and restore Single Azure VM.
 Restore with Managed identities | Yes, supported for managed Azure VMs, and not supported for classic and unmanaged Azure VMs.  <br><br> Cross Region Restore isn't supported with managed identities. <br><br> Currently, this is available in all Azure public and national cloud regions.   <br><br> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
-[Trusted VM](/azure/virtual-machines/trusted-launch-portal?tabs=portal)    |  Supported (in preview).    <br><br>  To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).    <br><br>  Backup for Trusted VM is supported through [enhanced policy](backup-azure-vms-enhanced-policy.md). You can enable backup only through [Recovery Services vault]() and [VM Managed blade]().    <br><br>   **Limitations**   <br>  <ul><li> Migration of an existing VM to Trusted VM is currently not supported. Learn to [create a Trusted VM](/azure/virtual-machines/trusted-launch-portal?tabs=portal#deploy-a-trusted-vm). </li><li> Configurations of Backup, alerts and Monitoring for Trusted VM are currently not supported through Backup center. </li><li> For restore operation, restore granularities, [Create VM](/azure/backup/backup-azure-arm-restore-vms#create-a-vm), and [Restore disk](/azure/backup/backup-azure-arm-restore-vms#restore-disks) are currently supported.  </li><li> [vTPM state](/azure/virtual-machines/trusted-launch#vtpm) doesn't persist while you restore a VM from a recovery point. Therefore, scenarios that require vTPM persistence may not work across the backup and restore operation.  </li></ul>   
-
-
-
+[Trusted VM](/azure/virtual-machines/trusted-launch-portal?tabs=portal)    |  Supported (in preview).    <br><br>  To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).    <br><br>  Backup for Trusted VM is supported through [enhanced policy](backup-azure-vms-enhanced-policy.md). You can enable backup only through [Recovery Services vault](/azure/backup/backup-azure-arm-vms-prepare) and [VM Managed blade](/azure/backup/backup-during-vm-creation#start-a-backup-after-creating-the-vm).    <br><br>   **Limitations**   <br>  <ul><li> Migration of an existing VM to Trusted VM is currently not supported. Learn to [create a Trusted VM](/azure/virtual-machines/trusted-launch-portal?tabs=portal#deploy-a-trusted-vm). </li><li> Configurations of Backup, alerts and Monitoring for Trusted VM are currently not supported through Backup center. </li><li> For restore operation, restore granularities, [Create VM](/azure/backup/backup-azure-arm-restore-vms#create-a-vm), and [Restore disk](/azure/backup/backup-azure-arm-restore-vms#restore-disks) are currently supported.  </li><li> [vTPM state](/azure/virtual-machines/trusted-launch#vtpm) doesn't persist while you restore a VM from a recovery point. Therefore, scenarios that require vTPM persistence may not work across the backup and restore operation.  </li></ul>   
 
 ## VM storage support
 

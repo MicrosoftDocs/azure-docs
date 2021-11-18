@@ -63,15 +63,12 @@ Follow these steps:
 6. Click **Create**.
 
 >[!Note]
->- We support the Enhanced policy configuration through [Recovery Services vault]() and [VM Managed blade]() only. Configuration through Backup center is currently not supported.
+>- We support the Enhanced policy configuration through [Recovery Services vault](/azure/backup/backup-azure-arm-vms-prepare) and [VM Managed blade](/azure/backup/backup-during-vm-creation#start-a-backup-after-creating-the-vm) only. Configuration through Backup center is currently not supported.
 >
 >- The last backup of the day is transferred to the vault. If the backup fails, the first backup of the next day is taken as a full backup.
 
 ## Next steps
 
-[Restore encrypted Azure virtual machines](restore-azure-encrypted-virtual-machines.md)
+- [Verify Backup job status](/azure/backup/backup-azure-arm-vms-prepare#verify-backup-job-status)
+- [Restore a Azure virtual machines](/azure/backup/backup-azure-arm-restore-vms#restore-disks)
 
-If you run into any issues, review these articles:
-
-- [Common errors](backup-azure-vms-troubleshoot.md) when backing up and restoring encrypted Azure VMs.
-- [Azure VM agent/backup extension](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) issues.
