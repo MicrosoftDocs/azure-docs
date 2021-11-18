@@ -1,14 +1,7 @@
 ---
 title: Use SOC-ML anomalies to detect threats in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to use the new SOC-ML anomaly detection capabilities in Microsoft Sentinel.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin

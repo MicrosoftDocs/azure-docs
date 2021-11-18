@@ -1,15 +1,8 @@
 ---
 title: Import and export Microsoft Sentinel analytics rules | Microsoft Docs
 description: Export and import analytics rules to and from ARM templates to aid deployment
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
