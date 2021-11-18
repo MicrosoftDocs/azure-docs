@@ -63,7 +63,7 @@ The above will install the Secrets Store CSI Driver and the Azure Key Vault Prov
   "customLocationSettings": null,
   "errorInfo": null,
   "extensionType": "microsoft.azurekeyvaultsecretsprovider",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/$CLUSTER_NAME/providers/Microsoft.Kubernetes/connectedClusters/ext-test/providers/Microsoft.KubernetesConfiguration/extensions/akvsecretsprovider",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Kubernetes/connectedClusters/$CLUSTER_NAME/providers/Microsoft.KubernetesConfiguration/extensions/akvsecretsprovider",
   "identity": {
     "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "tenantId": null,
@@ -143,7 +143,7 @@ After connecting your cluster to Azure Arc, create a json file with the followin
     "resources": [
         {
             "type": "Microsoft.KubernetesConfiguration/extensions",
-            "apiVersion": "2020-07-01-preview",
+            "apiVersion": "2021-09-01",
             "name": "[parameters('ExtensionInstanceName')]",
             "properties": {
                 "extensionType": "[parameters('ExtensionType')]",
