@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Configure Azure Load Testing to run high-scale load tests
 
-In this article, learn how to configure a high-scale load test with Azure Load Testing. You create a high-scale test by simulating a large number of virtual users to generate a high volume of simultaneous application requests.
+In this article, learn how to configure a high-scale load test with Azure Load Testing. You'll create a high-scale test by simulating a large number of virtual users to generate a high volume of simultaneous application requests.
 
 ## Prerequisites  
 
@@ -27,17 +27,17 @@ The maximum number of *requests per second* (RPS) that Azure Load Testing can ge
 
 You can apply the following formula: RPS = (# of VUs) * (1/latency).
 
-For example, if the application latency is 20 ms, and you're generating a load of 2000 VUs, the RPS that you can achieve are around 100,000.
+For example, if application latency is 20 ms, and you're generating a 2000 VUs load, you can achieve around 100,000 RPS.
 
 ## Test engine instances
 
 In Azure Load Testing, *test engine* instances are responsible for executing the test plan. If you used an Apache JMeter script to create the test plan, each test engine executes the Apache JMeter script.
 
-The test engine instances run in parallel, and they allow you to define how you want to scale out the load test execution for your application.
+The test engine instances run in parallel. They allow you to define how you want to scale out the load test execution for your application.
 
 In the Apache JMeter script, you define the number of parallel threads. This number indicates how many threads each test engine instance executes in parallel. Each thread represents a virtual user. The recommendation is to keep the number of threads below a maximum of 250.
 
-For example, to simulate 1000 threads (or virtual users), you set the number of threads in the Apache JMeter script to 250, and then configure the test with four test engine instances (4 x 250 threads).
+For example, to simulate 1000 threads (or virtual users), set the number of threads in the Apache JMeter script to 250. Then configure the test with four test engine instances (4 x 250 threads).
 
 ## Configure your test plan
 
