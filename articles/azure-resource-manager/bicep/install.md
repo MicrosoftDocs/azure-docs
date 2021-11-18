@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 11/18/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -27,44 +27,7 @@ To verify you've installed the extension, open any file with the `.bicep` file e
 
 :::image type="content" source="./media/install/language-mode.png" alt-text="Bicep language mode":::
 
-### Troubleshoot
-
-When installing the Bicep extension for Visual Studio Code, you may run into the following error messages:
-
-```error
-Failed to install .NET runtime v5.0
-```
-
-```error
-Failed to download .NET 5.0.x ....... Error!
-```
-
-To solve the problem, you can manually install .NET from the [.NET website](https://aka.ms/dotnet-core-download), and then configure Visual Studio Code to reuse an existing installation of .NET. with the following settings:
-
-**Windows**
-
-```json
-"dotnetAcquisitionExtension.existingDotnetPath": [
-  {
-    "extensionId": "ms-azuretools.vscode-bicep",
-    "path": "C:\\Program Files\\dotnet\\dotnet.exe"
-  }
-]
-
-```
-
-**macOS**
-
-```json
-"dotnetAcquisitionExtension.existingDotnetPath": [
-  {
-    "extensionId": "ms-azuretools.vscode-bicep",
-    "path": "/usr/local/share/dotnet/dotnet"
-  }
-]
-```
-
-See [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings) for configuring Visual Studio Code settings.
+If you get an error during installation, see [Troubleshoot Bicep installation](install-troubleshooting.md).
 
 ## Deployment environment
 
@@ -110,6 +73,8 @@ For more commands, see [Bicep CLI](bicep-cli.md).
 
 > [!IMPORTANT]
 > Azure CLI installs a self-contained instance of the Bicep CLI. This instance doesn't conflict with any versions you may have manually installed. Azure CLI doesn't add Bicep CLI to your PATH.
+
+You're done with setting up your Bicep environment. The rest of this article describes installation steps that you don't need when using Azure CLI.
 
 ## Azure PowerShell
 
