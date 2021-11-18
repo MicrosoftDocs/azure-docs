@@ -244,9 +244,9 @@ For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents
 #### Authentication between service and webhook
 - Anonymous mode
 - Simple Auth that `code` is provided through the configured Webhook URL.
-- AAD Auth. 
-   - Add a client secret in AAD's [App Registrations] and provide the [client secret] to Azure Web PubSub through portal/cli.
-   - Provide the [Identity](../app-service/overview-managed-identity.md?tabs=dotnet) to Azure Web PubSub through portal/cli
+- Use AAD Auth:
+   - Step1: Enable Identity for the Web PubSub service
+   - Step2: Select from existing AAD application that stands for your webhook web app
 
 <a name="connection_manager"></a>
 
