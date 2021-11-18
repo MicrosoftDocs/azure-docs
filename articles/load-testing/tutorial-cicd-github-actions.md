@@ -304,7 +304,7 @@ The following YAML code snippet describes how to use the action in a GitHub Acti
 
 ```yaml
 - name: 'Azure Load Testing'
-  uses: azure/load-testing@main
+  uses: azure/load-testing@v1
   with:
     loadTestConfigFile: '< YAML File path>'
     loadTestResource: '<name of the load test resource>'
