@@ -211,9 +211,9 @@ Data connectors are listed only when there is no parity between Azure and Azure 
 |- [Automation rules](../../sentinel/automate-incident-handling-with-automation-rules.md) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](../../sentinel/multiple-workspace-view.md) |Public Preview | Public Preview |
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
-| - Entity behavior timeline activity customization | Public Preview | Public Preview |
+| - Entity behavior timeline activity customization | Public Preview | Not Available |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
-| - Incident advanced search |Public Preview |Public Preview |
+| - Incident advanced search |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
 | - Watchlist templates for UEBA data) | Public Preview | Not Available |
 | - Windows security events for UEBA | Public Preview | Not Available |
