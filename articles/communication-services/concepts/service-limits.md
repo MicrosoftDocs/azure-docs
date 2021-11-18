@@ -26,10 +26,9 @@ For more information, see the [phone number types](../../concepts/telephony-sms/
 
 ### Throttling
 
-| API | Frame (s) | Limit |
+| API | Timeframes (seconds) | Limit (number of requests) |
 |--|--|--|
 | **Create identity** | 30 | 500|
-| | | |
 | **Delete identity** | 30 | 500|
 | **Issue access token** | 30 | 500|
 | **Revoke access token**  | 1 | 100|
@@ -37,6 +36,7 @@ For more information, see the [phone number types](../../concepts/telephony-sms/
 | **Global limit per request** |30|5000|
 
 ### Action to take
+our recommendation is that they are getting the token in advance, not at the time of starting the interaction (i.e. time of call or chat thread start). Grab tokens when webpage is loaded or app is starting up. 
 
 For more information, see the [identity concept overview](../../concepts/authentication.md) page.
 
@@ -50,9 +50,9 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](../.
 
 ## Chat
 
-### Thorttling
+### Throttling
 
-| **Operation**         | **Scope**                 | Timeframe (s) | Limit (request #) |
+| **Operation**         | **Scope**                 | Timeframe (seconds) | Limit (number of requests) |
 |--|--|--|--|
 |Send Message 	        | Per Thread 	        |60 	        |2000 
 |                       | Per User per Thread 	|60 	        |50 
