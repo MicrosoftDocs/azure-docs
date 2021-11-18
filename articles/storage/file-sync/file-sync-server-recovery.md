@@ -11,32 +11,35 @@ ms.subservice: files
 
 # Recover an Azure File Sync equipped server from a server-level failure
 
-If you experience a server-level failure where the data disk is still intact, and you need to recover data at a particular server endpoint, follow these steps: 
+If the server hosting your Azure file share fails but, your data disk is still intact, you may be able to recover the data from it. This article covers the general steps for successfully recovering your data.
 
-Create a new data disk on an existing on-premises Windows Server or Azure VM. Ensure that this new disk is the same size as the data disk on the faulty server.  
+First, on either a new on-premises Windows Server, or an Azure VM, create a new data disk that is the same size as the original data disk. Creating a new data disk reduces the potential for hardware failure from the original data disk.
 
-Install the latest Azure File Sync agent onto the new server. 
+Install the latest Azure File Sync agent on the new server. Register the new server to the same Storage Sync Service as the original server.
 
-Register the server to the same Storage Sync Service resource as the faulty server. 
+## Create a new server endpoint
 
-Create a new server endpoint on the new data disk in the same sync group that the faulty server was previously in. This links the new data disk to the same Azure file share in the cloud. Set tiering policies as desired. 
+Now that your server itself is configured, you must create and configure a new server endpoint.
 
-During server endpoint creation, if you choose to enable cloud tiering, leave the optional parameter “Initial Download Mode” as the default. This option allows for a faster disaster recovery, since only the namespace is downloaded, creating tiered files. Refrain from copying data manually while the namespace is being synced to the server, as this will increase the time it takes for the namespace to download. After the namespace is synced to the server, there will be a background download of data. Feel free to continue operations as normal while background recall is occurring. You don't need to wait for background recall to complete.  
+For recovering your data, there are a few things you should know when configuring your new server endpoint.
 
-If you choose to keep cloud tiering disabled, the only option for “Initial Download Mode” is to fully download all files. Refrain from copying data manually while the files are being downloaded as this will only delay the time it takes for this process to complete. 
+If you choose to enable cloud tiering, leave **Initial Download Mode** at its default setting. This allows for a faster disaster recovery since only the namespace is downloaded, creating tiered files. If instead you choose to keep cloud tiering disabled, the only option for **Initial Download Mode** is to fully download all files.
 
-(Optional- only do this if you have a single VM/machine) If there is still data on your original server that wasn’t uploaded to the cloud share before the original server went offline. It is possible to make that older data volume available by copying its contents into the new server’s volume to recover this subset of data. If you would like to do this, please use the Robocopy command below: Wait for this copy to finish before moving on to the next step. 
+While the namespace is being synced, don't copy data manually, since that will increase the download time. When the sync completes, additional data will download in the background. While this background recall occurs, feel free to continue working as normal, you don't need to wait for it to complete.
 
- 
+If there is data on your original server that didn't upload to the cloud before it went offline, you can potentially recover it. You would do this by copying its contents into the new server's volume. If you would like to do this, use the following robocopy command.
 
+> [!IMPORTANT]
+> If you are recovering more than one VM/machine, don't run this command.
+> 
+> Wait for this copy to complete before moving to the next step.
+
+```bash
 Robocopy <directory-in-old-drive> <directory-in-new-drive> /COPY:DATSO /MIR /DCOPY:AT /XA:O /B /IT /UNILOG:RobocopyLog.txt 
+```
 
-Warning: Only use this Robocopy command if you only have one server endpoint in the sync group that got broken and you are replacing it. Otherwise, move on to the next step.  
+## Changeover
 
-Re-direct all your data access to the new server 
+Now that everything is setup, you can redirect all your data access to the new server and detach the older data disk. You can also delete the old server endpoint and unregister the old server.
 
-Detach the older data disk. It is not needed anymore. 
-
-At this point, you can delete the older server endpoint and unregister that older server. 
-
-You’re done! Everything is set up and data can be accessed from this new server. 
+You've now completed your configuration. Your new server should be operating normally and all data can be accessed from the new server.
