@@ -18,7 +18,6 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 2. Use az k8s-extension CLI version >= v0.4.0
 
 ### Support limitations for Azure Key Vault (AKV) secrets provider extension
-- Only one instance of AKV secrets provider extension can be deployed on an Arc connected Kubernetes cluster
 - Following Kubernetes distributions are currently supported
     - Cluster API Azure
     - Google Kubernetes Engine
@@ -39,7 +38,7 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 
 ## Install AKV secrets provider extension on an Arc enabled Kubernetes cluster
 
-The following steps assume that you already have a cluster with supported Kubernetes distribution connected to Azure Arc. Ensure that your KUBECONFIG environment variable points to the kubeconfig of the Kubernetes cluster where you want the AKV secrets provider extension installed.
+The following steps assume that you already have a cluster with supported Kubernetes distribution connected to Azure Arc.
 
 Set the environment variables:
 ```azurecli-interactive
@@ -53,6 +52,8 @@ az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_
 ```
 
 The above will install the Secrets Store CSI Driver and the Azure Key Vault Provider on your cluster nodes. You should see output similar to the output shown below. It may take 3-5 minutes for the actual AKV secrets provider helm chart to get deployed to the cluster.
+
+Note that only one instance of AKV secrets provider extension can be deployed on an Arc connected Kubernetes cluster.
 
 ```json
 {
@@ -222,7 +223,7 @@ You should see a JSON output similar to the output below:
 
 Set the environment variables:
 ```azurecli-interactive
-export RESOURCE_GROUP=<resource-group-name>
+export AKV_RESOURCE_GROUP=<resource-group-name>
 export AZUREKEYVAULT_NAME=<AKV-name>
 export AZUREKEYVAULT_LOCATION=<AKV-location>
 ```
@@ -230,7 +231,7 @@ export AZUREKEYVAULT_LOCATION=<AKV-location>
 You will need an Azure Key Vault resource containing the secret content. Keep in mind that the Key Vault's name must be globally unique.
 
 ```azurecli
-az keyvault create -n $AZUREKEYVAULT_NAME -g $RESOURCE_GROUP -l $AZUREKEYVAULT_LOCATION
+az keyvault create -n $AZUREKEYVAULT_NAME -g $AKV_RESOURCE_GROUP -l $AZUREKEYVAULT_LOCATION
 ```
 
 Azure Key Vault can store keys, secrets, and certificates. In this example, we'll set a plain text secret called `DemoSecret`:
@@ -355,10 +356,11 @@ az k8s-extension update --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_
 ```
 
 ## Uninstall Azure Key Vault secrets provider extension
-Use the below command
+Use the below command:
 ```azurecli-interactive
 az k8s-extension delete --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name akvsecretsprovider
 ```
+Note that the uninstallation does not delete the CRDs that are created at the time of extension installation.
 
 Verify that the extension instance has been deleted.
 ```azurecli-interactive
@@ -366,7 +368,9 @@ az k8s-extension list --cluster-type connectedClusters --cluster-name $CLUSTER_N
 ```
 This output should not include AKV secrets provider. If you don't have any other extensions installed on your cluster, it will just be an empty array.
 
-## Troubleshooting
+## Reconciliation and Troubleshooting
+Azure Key Vault secrets provider extension is self-healing. All extension components that are deployed on the cluster at the time of extension installation are reconciled to their original state in case somebody tries to intentionally or unitentionally change or delete them. The only exception to that is CRDs. In case the CRDs are deleted, they are not reconciled. You can bring them back by using the 'az k8s-exstension create' command again and providing the existing extension instance name.
+
 Some common issues and troubleshooting steps for Azure Key Vault secrets provider are captured in the open source documentation [here](https://azure.github.io/secrets-store-csi-driver-provider-azure/troubleshooting/) for your reference.
 
 Additional troubleshooting steps that are specific to the Secrets Store CSI Driver Interface can be referenced [here](https://secrets-store-csi-driver.sigs.k8s.io/troubleshooting.html).
