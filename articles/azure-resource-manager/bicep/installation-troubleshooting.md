@@ -37,6 +37,19 @@ To solve the problem, you can manually install .NET from the [.NET website](http
 
 **macOS**
 
+If you need an **x64** installation, use:
+
+```json
+"dotnetAcquisitionExtension.existingDotnetPath": [
+  {
+    "extensionId": "ms-azuretools.vscode-bicep",
+    "path": "/usr/local/share/dotnet/x64/dotnet"
+  }
+]
+```
+
+For other **macOS** installations, use:
+
 ```json
 "dotnetAcquisitionExtension.existingDotnetPath": [
   {
