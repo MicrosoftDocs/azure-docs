@@ -69,7 +69,7 @@ Some solutions do not collect their data from an agent and may use a collection 
 - Microsoft 365 solution polls activity logs using the Management Activity API, which currently does not provide any near-real time latency guarantees.
 - Windows Analytics solutions (Update Compliance for example) data is collected by the solution at a daily frequency.
 
-Refer to the [documentation for each solution](/azure/azure-monitor/insights/solutions) to determine its collection frequency.
+Refer to the [documentation for each solution](../insights/solutions.md) to determine its collection frequency.
 
 ### Pipeline-process time
 

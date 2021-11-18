@@ -261,7 +261,7 @@ Keep Termite open to monitor device output in the following steps.
 
 * IAR Embedded Workbench for ARM (EW for ARM). You can download and install a  [14-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
-* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/rel_6.1_pnp_beta/Azure_RTOS_6.1_PnP_ATSAME54-XPRO_IAR_Sample_2021_03_18.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -355,20 +355,11 @@ SNTP Time Sync successfully.
 Start Provisioning Client...
 [INFO] IoTProvisioning client connect pending
 Registered Device Successfully.
-IoTHub Host Name: iotc-597ffb0b-3dbe-4784-ba3c-fdefd120a44a.azure-devices.net; Device ID: mydevice.
+IoTHub Host Name: iotc-********-****-****-****-************.azure-devices.net; Device ID: mydevice.
 Connected to IoTHub.
 Telemetry message send: {"temperature":22}.
 Receive twin properties: {"desired":{"$version":1},"reported":{"maxTempSinceLastReboot":22,"$version":8}}
 Failed to parse value
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
 Telemetry message send: {"temperature":22}.
 Telemetry message send: {"temperature":22}.
 ```
@@ -395,7 +386,7 @@ Keep Termite open to monitor device output in the following steps.
 
 * [MPLAB XC32/32++ Compiler 2.4.0 or later](https://www.microchip.com/mplab/compilers).
 
-* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip) file and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/rel_6.1_pnp_beta/Azure_RTOS_6.1_PnP_ATSAME54-XPRO_MPLab_Sample_2021_03_18.zip) file and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -499,20 +490,11 @@ SNTP Time Sync successfully.
 Start Provisioning Client...
 [INFO] IoTProvisioning client connect pending
 Registered Device Successfully.
-IoTHub Host Name: iotc-597ffb0b-3dbe-4784-ba3c-fdefd120a44a.azure-devices.net; Device ID: mydevice.
+IoTHub Host Name: iotc-********-****-****-****-************.azure-devices.net; Device ID: mydevice.
 Connected to IoTHub.
 Telemetry message send: {"temperature":22}.
 Receive twin properties: {"desired":{"$version":1},"reported":{"maxTempSinceLastReboot":22,"$version":8}}
 Failed to parse value
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
 Telemetry message send: {"temperature":22}.
 Telemetry message send: {"temperature":22}.
 ```

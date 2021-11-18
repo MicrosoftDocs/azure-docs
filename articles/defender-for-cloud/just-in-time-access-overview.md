@@ -4,7 +4,7 @@ description: This document explains how just-in-time VM access in Microsoft Defe
 services: security-center
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: memildin

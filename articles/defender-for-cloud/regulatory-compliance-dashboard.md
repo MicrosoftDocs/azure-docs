@@ -3,7 +3,7 @@ title: 'Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud'
 description: 'Tutorial: Learn how to Improve your regulatory compliance using Microsoft Defender for Cloud.'
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: tutorial
 ms.date: 11/09/2021
 ms.author: memildin
