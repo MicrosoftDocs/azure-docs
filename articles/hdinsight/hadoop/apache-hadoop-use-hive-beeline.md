@@ -20,7 +20,7 @@ Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight 
 
 ## Prerequisites for examples
 
-* A Hadoop cluster on Azure HDInsight. If you need a cluster, follow our [guide to create an HDInsight cluster](../hdinsight-hadoop-create-linux-clusters-portal).
+* A Hadoop cluster on Azure HDInsight. If you need a cluster, follow our [guide to create an HDInsight cluster](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 * Notice the URI scheme for your cluster's primary storage. For example,  `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2, or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI is `wasbs://`. For more information, see [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
