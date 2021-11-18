@@ -19,6 +19,10 @@ Azure Machine Learning provides a diagnostic API that can be used to identify pr
 
 You can use the workspace diagnostics from the Azure Machine Learning studio or Python SDK.
 
+## Prerequisites
+
+* An Azure Machine learning workspace. If you don't have one, see [Create a workspace](quickstart-create-resources).
+* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml).
 ## Diagnostics from studio
 
 From [Azure Machine Learning studio](https://ml.azure.com) or the Python SDK, you can run diagnostics on your workspace to check your setup. To run diagnostics, select the '__?__' icon from the upper right corner of the page. Then select __Run workspace diagnostics__.
@@ -29,7 +33,8 @@ After diagnostics run, a list of any detected problems is returned. This list in
 
 ## Diagnostics from Python
 
-The following snippet demonstrates how to use the 
+The following snippet demonstrates how to use workspace diagnostics from Python
+
 ```python
 from azureml.core import Workspace
 
