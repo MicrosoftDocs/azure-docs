@@ -17,6 +17,20 @@ ms.author: metang
 
 The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 
+You may use `npm`, `yarn` or a `<script>` `HTML` element to include the library of the latest stable build in your web application:
+
+```html
+<script type='text/javascript' src='https://ircdndev.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js'></script>
+```
+
+```bash
+npm install @microsoft/immersive-reader-sdk
+```
+
+```bash
+yarn add @microsoft/immersive-reader-sdk
+```
+
 ## Functions
 
 The SDK exposes the functions:
@@ -31,7 +45,7 @@ The SDK exposes the functions:
 
 ## launchAsync
 
-Launches the Immersive Reader within an `iframe` in your web application. Note that the size of your content is limited to a maximum of 50 MB.
+Launches the Immersive Reader within an `iframe` `HTML` element in your web application. Note that the size of your content is limited to a maximum of 50 MB.
 
 ```typescript
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
@@ -141,7 +155,7 @@ Required: false
 
 ## LaunchResponse
 
-Contains the response from the call to `ImmersiveReader.launchAsync`. Note that a reference to the `iframe` that contains the Immersive Reader can be accessed via `container.firstChild`.
+Contains the response from the call to `ImmersiveReader.launchAsync`. Note that a reference to the `iframe` `HTML` element that contains the Immersive Reader can be accessed via `container.firstChild`.
 
 ```typescript
 {
@@ -156,10 +170,10 @@ Contains the response from the call to `ImmersiveReader.launchAsync`. Note that 
 
 | Setting | Type | Description |
 | ------- | ---- | ----------- |
-| container | HTMLDivElement | HTML element which contains the Immersive Reader iframe. |
+| container | HTMLDivElement | HTML element which contains the Immersive Reader `iframe` `HTML` element. |
 | sessionId | String | Globally unique identifier for this session, used for debugging. |
 | charactersProcessed | number | Total number of characters processed |
-| postLaunchOperations |  [PostLaunchOperations](#postLaunchOperations) | Events that may be called after the app has been launched (default: null). |
+| postLaunchOperations |  [PostLaunchOperations](#postLaunchOperations) | Events that may be called after the app has been launched (default is null). |
  
 ## Error
 
@@ -201,8 +215,8 @@ Contains information about an error.
 
 | Setting | Type | Description |
 | ------- | ---- | ----------- |
-| play | function | Plays Text-to-speech when the host application is brought to the foreground. |
-| pause | function | Pauses Text-to-speech when the host application is sent to the background. |
+| play | function | Use the `play()` function to have the Immersive Reader read the [Content](#content) sent by your application after the Immersive Reader has already launched (e.g. May be used when your application or its container is maximized/shown). |
+| pause | function | Use the `pause()` function to have the Immersive Reader stop reading the [Content](#content) sent by your application after the Immersive Reader has already launched (e.g. May be used when your application or its container is minimized/hidden). |
 
 <br>
 
@@ -319,7 +333,7 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     onPreferencesChanged?: (value: string) => any;
     disableGrammar?: boolean;
     disableTranslation?: boolean;
-    disableLangDetection?: boolean;
+    disableLanguageDetection?: boolean;
 }
 ```
 
@@ -329,12 +343,12 @@ Contains properties that configure certain behaviors of the Immersive Reader.
 | ---- | ---- |------------ |
 | uiLang | String | Language of the UI, the value is in IETF BCP 47 language tag format, e.g. en, es-ES. Defaults to browser language if not specified. |
 | timeout | Number | Duration (in milliseconds) before [launchAsync](#launchasync) fails with a timeout error (default is 15000 ms). This timeout only applies to the initial launch of the Reader page, where success is observed when the Reader page opens and the spinner starts. Adjustment of the timeout should not be necessary. |
-| uiZIndex | Number | Z-index of the iframe that will be created (default is 1000). |
-| useWebview | Boolean| Use a webview tag instead of an iframe, for compatibility with Chrome Apps (default is false). |
+| uiZIndex | Number | Z-index of the `iframe` `HTML` element that will be created (default is 1000). |
+| useWebview | Boolean| Use a webview tag instead of an `iframe` `HTML` element, for compatibility with Chrome Apps (default is false). |
 | onExit | Function | Executes when the Immersive Reader exits. |
 | customDomain | String | Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null). |
 | allowFullscreen | Boolean | The ability to toggle fullscreen (default is true). |
-| parent | Node | Node in which the iframe/webview container is placed (default is body) |
+| parent | Node | Node in which the `iframe` `HTML` element or `Webview` container is placed (default is `body`) |
 | hideExitButton | Boolean | Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow). |
 | cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Setting for the Immersive Reader's cookie usage (default is *CookiePolicy.Disable*). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy. See [Cookie Policy Options](#cookiepolicy-options). |
 | disableFirstRun | Boolean | Disable the first run experience. |
@@ -345,7 +359,7 @@ Contains properties that configure certain behaviors of the Immersive Reader.
 | onPreferencesChanged | Function | Executes when the user's preferences have changed. See [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
 | disableTranslation | Boolean | Disable the word and document translation experience. |
 | disableGrammar | Boolean | Disable the Grammar experience. |
-| disableLangDetection | Boolean | Disable Language detection. |
+| disableLanguageDetection | Boolean | Disable Language Detection and only use the language which is explicitly specified on the [Content](#content)/[Chunk[]](#chunk). |
 
 ##### `uiLang`
 ```Parameters

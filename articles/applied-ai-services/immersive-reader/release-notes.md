@@ -21,12 +21,12 @@ This release contains new features, security vulnerability fixes, bug fixes, upd
 
 #### New Features
 
-* Add option to set the theme to light, dark, or contrast to display options
+* Add option to set the theme to light or dark
 * Add option to set the parent node where the iframe/webview container is placed
 * Add play and pause functionality for mobile experiences
-* Add option to disable the grammar experience
-* Add option to disable the translation experience
-* Add option to disable language detection
+* Add option to disable the Grammar experience
+* Add option to disable the Translation experience
+* Add option to disable Language Detection
 
 #### Improvements
 
