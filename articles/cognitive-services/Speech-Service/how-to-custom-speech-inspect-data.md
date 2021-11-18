@@ -32,7 +32,7 @@ Follow these instructions to create a test:
 1. Select **Inspect quality (Audio-only data)** > **Next**. 
 1. Choose an audio dataset that you'd like to use for testing, then select **Next**.
 
-    ![Review your keyword](media/custom-speech/custom-speech-choose-test-data.png)
+    :::image type="content" source="media/custom-speech/custom-speech-choose-test-data.png" alt-text="Review your keyword":::
 
 1. Choose one or two models to evaluate and compare accuracy.
 1. Enter the test name and description, then select **Next**.
@@ -63,15 +63,15 @@ The only requirement to use the transcription editor is to have audio data uploa
 
 To import data into the Editor, first navigate to **Custom Speech > [Your project] > Speech datasets > Editor**
 
-![Custom speech editor](media/custom-speech/custom-speech-editor.png)
+:::image type="content" source="media/custom-speech/custom-speech-editor.png" alt-text="Custom speech editor":::
 
 Next, use the following steps to import data.
 
-1. Click **Import data**
+1. Select **Import data**
 1. Create a new dataset(s) and give it a description
 1. Select datasets. You can select audio data only, audio + human-labeled data, or both.
 1. For audio-only data, you can use the default models to automatically generate machine transcription after importing to the editor.
-1. Click **Import**
+1. Select **Import**
 
 After data has been successfully imported, you can select datasets and start editing.
 
