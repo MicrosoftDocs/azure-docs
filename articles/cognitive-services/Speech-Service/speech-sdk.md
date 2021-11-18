@@ -87,7 +87,7 @@ The Speech SDK is perfect for transcribing meeting scenarios, whether from a sin
 
   - C++/Windows & Linux
   - C# (Framework & .NET Core)/Windows & UWP & Linux
-  - Java/Windows & Linux & Android (Speech Devices SDK)
+  - Java/Windows & Linux & Android
 
 #### Multi-device Conversation
 

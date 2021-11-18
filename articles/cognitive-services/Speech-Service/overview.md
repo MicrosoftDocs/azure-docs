@@ -1,7 +1,7 @@
 ---
 title: What is the Speech service?
 titleSuffix: Azure Cognitive Services
-description: The Speech service is the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. Add speech to your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs.
+description: The Speech service is the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is the Speech service?
 
-The Speech service is the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Devices SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](speech-studio-overview.md), or [REST APIs](#reference-docs).
+The Speech service is the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Studio](speech-studio-overview.md), or [REST APIs](#reference-docs).
 
 > [!IMPORTANT]
 > The Speech service has replaced Bing Speech API and Translator Speech. See the _Migration_ section for migration instructions.
@@ -141,7 +141,6 @@ Other products offer speech models tuned for specific purposes like healthcare o
 ## Reference docs
 
 - [Speech SDK](./speech-sdk.md)
-- [Speech Devices SDK](speech-devices-sdk.md)
 - [REST API: Speech-to-text](rest-speech-to-text.md)
 - [REST API: Text-to-speech](rest-text-to-speech.md)
 - [REST API: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)

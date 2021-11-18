@@ -15,9 +15,6 @@ ms.author: eur
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for 64-bit Java 8 JRE. If you just want the package name to get started on your own, the Java SDK is not available in the Maven central repository. Whether you're using Gradle or a `pom.xml` dependency file, you need to add a custom repository pointing to `https://csspeechstorage.blob.core.windows.net/maven/` (see below for package name).
 
-> [!NOTE]
-> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](~/articles/cognitive-services/speech-service/speech-devices-sdk.md).
-
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Supported operating systems

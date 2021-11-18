@@ -584,37 +584,15 @@ items:
 - name: Devices
   items:
     - name: Overview
-      items:
-      - name: Audio processing overview
-        href: audio-processing-overview.md
-      - name: Speech SDK integration
-        href: audio-processing-speech-sdk.md
-    - name: Hardware
-      items:
-      - name: Microphone array recommendations
-        href: speech-sdk-microphone.md
-    - name: Reference
-      items:
-      - name: Speech devices SDK documentation
-        href: index-devices.yml
-      - name: What is the Speech devices SDK?
-        href: speech-devices-sdk.md
-      - name: Get the Speech devices SDK
-        href: get-speech-devices-sdk.md
-      - name: Use Speech devices SDK
-        href: speech-devices-sdk-quickstart.md
-      - name: Speech devices SDK samples (GitHub)
-        href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
-      - name: Troubleshoot the Speech devices SDK
-        href: speech-devices-sdk-troubleshooting.md
-      - name: Speech devices SDK release notes
-        href: devices-sdk-release-notes.md
-      - name: How to configure a Microphone Array
-        href: how-to-devices-microphone-array-configuration.md
-      - name: Roobo v1 details
-        href: speech-devices-sdk-roobo-v1.md
-      - name: Roobo v2 details
-        href: speech-devices-sdk-roobo-v2.md
+      href: speech-devices.md
+    - name: Audio processing overview
+      href: audio-processing-overview.md
+    - name: Speech SDK integration
+      href: audio-processing-speech-sdk.md
+    - name: Microphone array recommendations
+      href: speech-sdk-microphone.md
+    - name: Speech Devices SDK (Retired)
+      href: devices-sdk-release-notes.md
 - name: Resources
   items:
     - name: Speech SDK

@@ -157,20 +157,6 @@ conceptualContent:
       footerLink:
         text: More
         url: index-hosting.yml
-    - title: Devices
-      links:
-      - itemType: overview
-        text: About the Speech Devices SDK
-        url: speech-devices-sdk.md
-      - itemType: how-to-guide
-        text: Get the Speech Devices SDK
-        url: get-speech-devices-sdk.md
-      - itemType: quickstart
-        text: Use Speech Devices SDK
-        url: speech-devices-sdk-quickstart.md
-      footerLink:
-        text: More
-        url: index-devices.yml
     - title: Migration
       links:
         - itemType: how-to-guide

@@ -1,5 +1,5 @@
 ---
-title: Speech Devices SDK documentation
+title: Speech Devices SDK release notes
 titleSuffix: Azure Cognitive Services
 description: The release notes provide a log of updates, enhancements, bug fixes, and changes to the Speech Devices SDK. This article is updated with each release of the Speech Devices SDK.
 services: cognitive-services
@@ -13,9 +13,12 @@ ms.date: 02/12/2020
 ms.author: wellsi
 ---
 
-# Release notes: Speech Devices SDK
+# Release notes: Speech Devices SDK (retired)
 
 The following sections list changes in the most recent releases.
+
+> [!NOTE]
+> The Speech Devices SDK is deprecated. Archived sample code is available on [GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK). All users of the Speech Devices SDK are advised to migrate to using Speech SDK version 1.19.0 or later.
 
 ## Speech Devices SDK 1.16.0:
 
@@ -31,7 +34,7 @@ The following sections list changes in the most recent releases.
 
 ## Speech Devices SDK 1.11.0:
 
-- Support for [arbitrary microphone array geometries](how-to-devices-microphone-array-configuration.md) and setting the working angle through a [configuration file](https://aka.ms/sdsdk-micarray-json).
+- Support for arbitrary microphone array geometries and setting the working angle through a [configuration file](https://aka.ms/sdsdk-micarray-json).
 - Support for [Urbetter DDK](http://www.urbetter.com/products_56/278.html).
 - Released binaries for the [GGEC Speaker](https://aka.ms/sdsdk-download-speaker) used in our [Voice Assistant sample](https://aka.ms/sdsdk-speaker).
 - Released binaries for [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) and [Linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) for Raspberry Pi and similar devices.
@@ -56,7 +59,7 @@ The following sections list changes in the most recent releases.
 
 ## Speech Devices SDK 1.6.0:
 
-- Support [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) on Windows and Linux with common [sample application](./speech-devices-sdk.md)
+- Support [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) on Windows and Linux with common sample application.
 - Updated the [Speech SDK](./speech-sdk.md) component to version 1.6.0. For more information, see its [release notes](./releasenotes.md).
 
 ## Speech Devices SDK 1.5.1:
