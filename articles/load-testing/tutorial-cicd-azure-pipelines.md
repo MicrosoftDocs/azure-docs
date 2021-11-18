@@ -21,7 +21,7 @@ You'll learn how to:
 
 > [!div class="checklist"]
 > * Set up your repository with files required for load testing.
-> * Set up Azure Pipelines to integrate with Azure Load testing.
+> * Set up Azure Pipelines to integrate with Azure Load Testing.
 > * Run the load test and view results in the pipeline logs.
 > * Define pass/fail criteria for the load test.
 > * Parameterize the load test using pipeline variables.
@@ -57,7 +57,7 @@ The sample application's source repo includes an Apache JMeter script named *Sam
 * `get` - Carries out a GET operation from Cosmos DB to retrieve the count.
 * `lasttimestamp` - Updates the timestamp since the last user went to the website.
 
-In this section, you update the Apache JMeter script with the URL of your sample web app.
+In this section, you'll update the Apache JMeter script with the URL of your sample web app.
 
 Before you start, make sure you have the directory of the cloned sample app open in VS Code.
  
@@ -84,7 +84,7 @@ Before you start, make sure you have the directory of the cloned sample app open
 
 ## Set up Azure Pipelines access permissions for Azure
 
-In this section, you'll configure your Azure DevOps project to have permissions for accessing the Azure Load Testing resource.
+In this section, you'll configure your Azure DevOps project to have permissions to access the Azure Load Testing resource.
 
 To access Azure resources, you'll create a service connection in Azure DevOps and use role-based access control to assign the necessary permissions.
 
@@ -176,7 +176,7 @@ First, you'll create a new pipeline and connect it to the sample application's f
 
 ## View load test results
 
-The Azure pipeline executes the following steps, for every update to the main branch:
+ For every update to the main branch, the Azure pipeline executes the following steps:
 
 - Deploy the sample Node.js application to an Azure App Services web app. The name of the web app is configured in the pipeline definition.
 - Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration YAML file in the repository.
@@ -218,7 +218,7 @@ You can specify these criteria in the test configuration YAML file.
     You've now specified failure criteria for your load test. The test will fail if at least one of these conditions is met:
     
     - The aggregate average response time is greater than 100 ms.    
-    - The aggregate percentage of error is greater than 20%.
+    - The aggregate percentage of errors is greater than 20%.
 
 1. Commit and push the changes to the main branch of the repository.
     
@@ -291,11 +291,11 @@ Next, you'll parameterize your load test using pipeline variables. These variabl
 
 1. Select **Variables**, and then select **New variable**.
 
-1. Enter the **Name** (*mySecret*) and **Value** (*1797669089*) information, and then check the **Keep this value secret** to store the variable securely. 
+1. Enter the **Name** (*mySecret*) and **Value** (*1797669089*) information, and then check the **Keep this value secret** box to store the variable securely. 
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/new-variable.png" alt-text="Screenshot that shows how to create a new pipeline variable.":::
 
-1. Select **OK**, and then select **Save**, to save the new variable.
+1. Select **OK**, and then select **Save** to save the new variable.
 
 1. Edit the *azure-pipeline.yml* file to pass the secret to the load test.
 
