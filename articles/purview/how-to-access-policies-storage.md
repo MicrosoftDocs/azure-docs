@@ -20,10 +20,19 @@ This guide describes how to configure Azure Storage to enforce data access polic
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Best practices
+- We highly encourage you to register all data sources for use governance and manage all associated access policies from a single Azure Purview account.
+- If you want to use multiple Purview accounts, be aware of these valid and invalid configurations. In the diagram below:
+    - **Case 1** shows a valid configuration where a Storage account is being registered in a Purview account in the same subscription.
+    - **Case 2** shows a valid configuration where a Storage account is being registered in a Purview account in a different subscription. 
+    - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are being registered to different Purview accounts. 
+
+:::image type="content" source="./media/how-to-access-policies-storage/valid-and-invalid configurations.png" alt-text="Diagram shows valid and invalid configurations when using multiple Purview accounts to manage policies.":::
+
+
 ## Important limitations
 1. The access policy feature is only available on new Azure Purview and Azure Storage accounts.
-2. Register all data sources for use governance and manage all associated access policies in a single Azure Purview account.
-3. This feature can only be used in the regions listed below, where access policy management and enforcement functionality are deployed.
+2. This feature can only be used in the regions listed below, where access policy management and enforcement functionality are deployed.
 
 ### Supported regions
 
@@ -106,7 +115,9 @@ During registration, enable the data source for access policy through the **Data
 :::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy.png" alt-text="Image shows how to register a data source for policy.":::
 
 > [!NOTE]
-> The behavior of the toggle will enforce that all the data sources in a given subscription can only be registered for data use governance in a single Purview account. That Purview account itself could be in any subscription in the tenant.
+> The behavior of the toggle will enforce that all the data sources in the same subscription can only be registered for data use governance in a single Purview account. That Purview account itself could be in any subscription in the tenant.
+
+
 
 ## Policy authoring
 
