@@ -37,9 +37,9 @@ Before you begin, verify that you have met the following criteria:
 * An Azure virtual network.
 * A virtual machine in the virtual network.
 * If you plan to sign into your virtual machine using your Azure AD credentials, make sure your virtual machine is set up using one of the following methods:
-    * Enable Azure AD login for a [Windows VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) or [Linux VM](../active-directory/devices/howto-vm-sign-in-azure-ad-linux#enabling-azure-ad-login-in-for-linux-vm-in-azure).
-    * [Configure your Windows VM to be Azure AD-joined](../active-directory/devices/concept-azure-ad-join).
-    * [Configure your Windows VM to be hybrid Azure AD-joined](../active-directory/devices/concept-azure-ad-join-hybrid).
+    * Enable Azure AD login for a [Windows VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md) or [Linux VM](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
+    * [Configure your Windows VM to be Azure AD-joined](../active-directory/devices/concept-azure-ad-join.md).
+    * [Configure your Windows VM to be hybrid Azure AD-joined](../active-directory/devices/concept-azure-ad-join-hybrid.md).
 
 ## Configure Bastion
 
@@ -74,7 +74,7 @@ Verify that the following roles and ports are configured in order to connect.
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Virtual Machine Administrator Login or Virtual Machine User Login role, if you are using the Azure AD login method. Note that you only need to do this if you're enabling Azure AD login using the process described here: [Azure Windows VMs and Azure AD](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) or [Azure Linux VMs and Azure AD](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux#enabling-azure-ad-login-in-for-linux-vm-in-azure)
+* Virtual Machine Administrator Login or Virtual Machine User Login role, if you are using the Azure AD login method. Note that you only need to do this if you're enabling Azure AD login using the process described here: [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md) or [Azure Linux VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
 
 ### Ports
 
