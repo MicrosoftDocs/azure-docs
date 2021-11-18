@@ -85,50 +85,50 @@ Open your PowerShell ISE or PowerShell window in administrative mode and follow 
 
 Sign in to your Microsoft Azure account in resource management mode and select your subscription:
    
-    ```powershell
-    Connect-AzAccount
-    Select-AzSubscription –SubscriptionName 'my-subscription-name'
-    ```
+```powershell
+Connect-AzAccount
+Select-AzSubscription –SubscriptionName 'my-subscription-name'
+```
 
 Set your resource group name and VM name:
-   
-    ```powershell
-    $rgName = 'my-resource-group-name'
-    $vmName = 'my-vm-name'
-    $diskName = 'my-disk-name'
-    ```
+
+```powershell
+$rgName = 'my-resource-group-name'
+$vmName = 'my-vm-name'
+$diskName = 'my-disk-name'
+```
 
 Obtain a reference to your VM:
    
-    ```powershell
-    $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
-    ```
+```powershell
+$vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
+```
 
-    > [!IMPORTANT]
-    > If you've enabled **LiveResize** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 4 and 6.
+> [!IMPORTANT]
+> If you've enabled **LiveResize** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 4 and 6.
 
 Stop the VM before resizing the disk:
    
-    ```powershell
-    Stop-AzVM -ResourceGroupName $rgName -Name $vmName
-    ```
+```powershell
+Stop-AzVM -ResourceGroupName $rgName -Name $vmName
+```
 
 Obtain a reference to the managed OS disk. Set the size of the managed OS disk to the desired value and update the Disk:
    
-    ```powershell
-    $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $diskName
-    $disk.DiskSizeGB = 1023
-    Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
-    ```   
-    > [!WARNING]
-    > The new size should be greater than the existing disk size. The maximum allowed is 4,095 GB for OS disks. (It is possible to expand the VHD blob beyond that size, but the OS works only with the first 4,095 GB of space.)
-    > 
-         
+```powershell
+$disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+$disk.DiskSizeGB = 1023
+Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+```   
+> [!WARNING]
+> The new size should be greater than the existing disk size. The maximum allowed is 4,095 GB for OS disks. (It is possible to expand the VHD blob beyond that size, but the OS works only with the first 4,095 GB of space.)
+> 
+        
 Updating the VM might take a few seconds. When the command finishes executing, restart the VM:
-   
-    ```powershell
-    Start-AzVM -ResourceGroupName $rgName -Name $vmName
-    ```
+
+```powershell
+Start-AzVM -ResourceGroupName $rgName -Name $vmName
+```
 
 Remote into the VM, open **Computer Management** (or **Disk Management**) and expand the drive using the newly allocated space.
 
