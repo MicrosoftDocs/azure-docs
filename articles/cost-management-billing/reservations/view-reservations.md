@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/18/2021
 ms.author: banders
 ---
 
@@ -114,11 +114,7 @@ foreach ($reservation in $reservationObjects)
 }
 ```
 
-When you use the PowerShell script to assign the ownership role and it runs successfully, a success message isn’t returned. However, you can verify that the role was assigned with:
-
-```azurepowershell
-get-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" |?{$_.RoleDefinitionName -Like "Reservations*"}
-```
+When you use the PowerShell script to assign the ownership role and it runs successfully, a success message isn’t returned.
 
 ### Parameters
 
