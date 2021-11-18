@@ -53,6 +53,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | El Salvador                                         |                 |                |       ✓      |      ✓     |          ✓         |
 | Falkland Islands                                    |                 |                |              |      ✓     |                    |
 | French Guiana                                       |        ✓        |        ✓      |       ✓      |      ✓     |                    |
+| Greenland                                           |                 |                |              |      ✓     |                   |
 | Grenada                                             |                 |                |       ✓      |      ✓     |                    |
 | Guadeloupe                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓      |       ✓      |      ✓     |                    |
@@ -67,7 +68,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Nicaragua                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Panama                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Paraguay                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Peru                                                |        ✓         |               |       ✓      |      ✓     |                   |
+| Peru                                                |        ✓         |               |       ✓      |      ✓     |          ✓         |
 | Puerto Rico                                         |                 |        ✓       |       ✓      |      ✓     |                   |
 | Saint Barthélemy                                    |                 |                |       ✓      |      ✓     |                   |
 | Saint Kitts & Nevis                               |                 |                |       ✓      |      ✓     |                   |
@@ -80,7 +81,8 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Suriname                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Trinidad & Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Turks & Caicos Islands                              |                 |                |              |      ✓     |                     |
-| U.S. Virgin Islands                                 |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| U.S. Virgin Islands                                 |                 |        ✓       |       ✓      |      ✓     |                   |
+| United States Minor Outlying Islands                |                 |                |              |      ✓     |                    |
 | United States of America                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
@@ -141,7 +143,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Tonga                                               |                 |                |              |      ✓     |                   |
 | Turks & Caicos Islands                            |                 |                |              |      ✓     |                   |
 | Tuvalu                                              |                 |                |              |      ✓     |                   |
-| United States Minor Outlying Islands                |                 |                |              |      ✓     |                    |
 | Vanuatu                                             |                 |                |              |      ✓     |                   |
 | Vietnam                                             |        ✓        |                |       ✓      |      ✓     |                   |
 | Wallis & Futuna                                   |                 |                |              |      ✓     |                   |
@@ -155,9 +156,9 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Armenia                                             |        ✓        |                |        ✓     |      ✓     |          ✓       |
 | Austria                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓       |
 | Azerbaijan                                          |        ✓        |                |       ✓      |      ✓     |          ✓        |
-| Belarus                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
+| Belarus                                             |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Belgium                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
-| Bosnia & Herzegovina                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
+| Bosnia & Herzegovina                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
 | Bulgaria                                            |        ✓        |        ✓       |       ✓      |      ✓     |                  |
 | Croatia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
 | Cyprus                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
@@ -171,7 +172,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Germany                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Gibraltar                                           |                 |        ✓       |       ✓      |      ✓     |                   |
 | Greece                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Greenland                                           |                 |                |              |      ✓     |                   |
 | Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |                   |
 | Hungary                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Iceland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -187,11 +187,12 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Lithuania                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxembourg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Malta                                               |                 |                 |              |      ✓     |          ✓         |
+| Malta                                               |                 |                 |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |                   |
 | Montenegro                                          |                 |                 |       ✓      |      ✓     |                   |
 | Netherlands                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| North Macedonia                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Norway                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Poland                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
