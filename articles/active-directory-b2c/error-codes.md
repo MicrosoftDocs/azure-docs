@@ -21,18 +21,18 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | Error code | Message | Notes |
 | ---------- | ------- | ----- |
 | `AADB2C90002` | The CORS resource '{0}' returned a 404 not found. | [Hosting the page content](customize-ui-with-html.md#hosting-the-page-content) |
-| `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client id '{1}'. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
-| `AADB2C90007` | The application associated with client id '{0}' has no registered redirect URIs. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
-| `AADB2C90008` | The request does not contain a client id parameter. | [Sending authentication requests](openid-connect.md#send-authentication-requests) |
+| `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client ID '{1}'. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
+| `AADB2C90007` | The application associated with client ID '{0}' has no registered redirect URIs. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
+| `AADB2C90008` | The request does not contain a client ID parameter. | [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90010` | The request does not contain a scope parameter. | [Sending authentication requests](openid-connect.md#send-authentication-requests) |
-| `AADB2C90011` | The client id '{0}' provided in the request does not match client id '{1}' registered in policy. |  |
+| `AADB2C90011` | The client ID '{0}' provided in the request does not match client ID '{1}' registered in policy. |  |
 | `AADB2C90012` | The scope '{0}' provided in request is not supported. | [Register web API and configure scopes](configure-authentication-sample-web-app-with-api.md#step-2-register-web-applications), [Sending authentication requests](openid-connect.md#send-authentication-requests) | 
 | `AADB2C90013` | The requested response type '{0}' provided in the request is not supported. | [Web sign-in with OpenID Connect](openid-connect.md) |
 | `AADB2C90014` | The requested response mode '{0}' provided in the request is not supported. | [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90016` | The requested client assertion type '{0}' does not match the expected type '{1}'. | deprecated |
 | `AADB2C90017` | The client assertion provided in the request is invalid: {0} | deprecated |
-| `AADB2C90018` | The client id '{0}' specified in the request is not registered in tenant '{1}'. |  [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
-| `AADB2C90019` | The key container with id '{0}' in tenant '{1}' does not has a valid key. Reason: {2}. |  |
+| `AADB2C90018` | The client ID '{0}' specified in the request is not registered in tenant '{1}'. |  [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
+| `AADB2C90019` | The key container with ID '{0}' in tenant '{1}' does not has a valid key. Reason: {2}. |  |
 | `AADB2C90021` | The technical profile '{0}' does not exist in the policy '{1}' of tenant '{2}'. |  |
 | `AADB2C90022` | Unable to return metadata for the policy '{0}' in tenant '{1}'. | [Share the application's metadata publicly](saml-service-provider.md) |
 | `AADB2C90023` | Profile '{0}' does not contain the required metadata key '{1}'. |  |
@@ -88,16 +88,16 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90145` | No unverified phone numbers have been found and policy does not allow a user entered number. |
 | `AADB2C90146` | The scope '{0}' provided in request specifies more than one resource for an access token, which is not supported. |
 | `AADB2C90149` | Script '{0}' failed to load. |
-| `AADB2C90151` | User has exceeded the maximum number for retries for multi-factor authentication. |
+| `AADB2C90151` | User has exceeded the maximum number for retries for multifactor authentication. |
 | `AADB2C90152` | A multi-factor poll request failed to get a response from the service. |
-| `AADB2C90154` | A multi-factor verification request failed to get a session id from the service. |
+| `AADB2C90154` | A multi-factor verification request failed to get a session ID from the service. |
 | `AADB2C90155` | A multi-factor verification request has failed with reason '{0}'. |
 | `AADB2C90156` | A multi-factor validation request has failed with reason '{0}'. |
 | `AADB2C90157` | User has exceeded the maximum number for retries for a self-asserted step. |
 | `AADB2C90158` | A self-asserted validation request has failed with reason '{0}'. |
 | `AADB2C90159` | A self-asserted verification request has failed with reason '{0}'. |
 | `AADB2C90161` | A self-asserted send response has failed with reason '{0}'. |
-| `AADB2C90165` | The SAML initiating message with id '{0}' cannot be found in state. |
+| `AADB2C90165` | The SAML initiating message with ID '{0}' cannot be found in state. |
 | `AADB2C90168` | The HTTP-Redirect request does not contain the required parameter '{0}' for a signed request. |
 | `AADB2C90178` | The signing certificate '{0}' has no private key. |
 | `AADB2C90182` | The supplied code_verifier does not match associated code_challenge |
@@ -136,15 +136,15 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90274` | The provider metadata does not specify a single logout service or the endpoint binding is not one of 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect' or 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'. | [Share the application's metadata publicly](saml-service-provider.md) |
 | `AADB2C90276` | The request is not consistent with the control setting '{0}': '{1}' in technicalProfile '{2}' for policy '{3}' tenant '{4}'. | 
 | `AADB2C90277` | The orchestration step '{0}' of user journey '{1}' of policy '{2}' does not contain a content definition reference. | [Content definitions](contentdefinitions.md) |
-| `AADB2C90279` | The provided client id '{0}' does not match the client id that issued the grant. | [Web sign-in with OpenID Connect](openid-connect.md) |
+| `AADB2C90279` | The provided client ID '{0}' does not match the client ID that issued the grant. | [Web sign-in with OpenID Connect](openid-connect.md) |
 | `AADB2C90284` | The application with identifier '{0}' has not been granted consent and is unable to be used for local accounts. | [Register a web application in Azure AD B2C](tutorial-register-applications.md) |
 | `AADB2C90285` | The application with identifier '{0}' was not found. | [Register a web application in Azure AD B2C](tutorial-register-applications.md) |
-| `AADB2C90288` | UserJourney with id '{0}' referenced in TechnicalProfile '{1}' for refresh token redemption for tenant '{2}' does not exist in policy '{3}' or any of its base policies. |
+| `AADB2C90288` | UserJourney with ID '{0}' referenced in TechnicalProfile '{1}' for refresh token redemption for tenant '{2}' does not exist in policy '{3}' or any of its base policies. |
 | `AADB2C90287` | The request contains invalid redirect URI '{0}'.| [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90289` | We encountered an error connecting to the identity provider. Please try again later. |  [Add an IDP to your Azure AD B2C tenant](add-identity-provider.md) |
 | `AADB2C90296` | Application has not been configured correctly. Please contact administrator of the site you are trying to access. | [Register a web application](tutorial-register-applications.md) |
 | `AADB2C99005` | The request contains an invalid scope parameter which includes an illegal character '{0}'. | [Web sign-in with OpenID Connect](openid-connect.md) | 
-| `AADB2C99006` | Azure AD B2C cannot find the extensions app with app id '{0}'. Please visit https://go.microsoft.com/fwlink/?linkid=851224 for more information. | [Azure AD B2C extensions app](extensions-app.md) |
+| `AADB2C99006` | Azure AD B2C cannot find the extensions app with app ID '{0}'. Please visit https://go.microsoft.com/fwlink/?linkid=851224 for more information. | [Azure AD B2C extensions app](extensions-app.md) |
 | `AADB2C99011` | The metadata value '{0}' has not been specified in TechnicalProfile '{1}' in policy '{2}'. | [Custom policy Technical profiles](technicalprofiles.md) |
 | `AADB2C99013` | The supplied grant_type [{0}] and token_type [{1}] combination is not supported. |
 | `AADB2C99015` | Profile '{0}' in policy '{1}' in tenant '{2}' is missing all InputClaims required for resource owner password credential flow. | [Create a resource owner policy](add-ropc-policy.md#create-a-resource-owner-policy) |
