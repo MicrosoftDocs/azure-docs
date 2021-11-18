@@ -23,6 +23,9 @@ Azure SQL Database and Azure SQL Managed Instance provide advanced monitoring an
 
 SQL Server has its own monitoring and diagnostic capabilities that SQL Database and SQL Managed Instance leverage, such as [query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) and [dynamic management views (DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). See [Monitoring using DMVs](monitoring-with-dmvs.md) for scripts to monitor for a variety of performance issues.
 
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
 ## Monitoring and tuning capabilities in the Azure portal
 
 In the Azure portal, Azure SQL Database and Azure SQL Managed Instance provide monitoring of resource metrics. Azure SQL Database provides database advisors, and Query Performance Insight provides query tuning recommendations and query performance analysis. In the Azure portal, you can enable automatic tuning for [logical SQL servers](logical-servers.md) and their single and pooled databases.
