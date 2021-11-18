@@ -25,35 +25,38 @@ In a similar way, Application Gateway's Request buffer can temporarily store the
 You keep either the Request or Response buffers, enabled or disable, based on your requirements and/or the observed performance of the client systems that communicate with your Application Gateway. 
 
 >[!NOTE]
->We strongly recommend that you test and evaluate the performance before rolling this out on the production environment. 
+>We strongly recommend that you test and evaluate the performance before rolling this out on the production gateways. 
 
 ## How to change the buffer setting? 
 
-You can change this setting by using GlobalConfiguration in the ARM template as below.
+You can change this setting by using GlobalConfiguration in the ARM template as shown below.
 
 ```json
-{ 
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
-    "contentVersion": "1.0.0.0", 
-    "resources": [ 
-        { 
-            "type": "Microsoft.Network/applicationGateways", 
-            "apiVersion": "xxx-xx-xx", 
-            "name": "[parameters('applicationGateways_xxxx_x_xx_name')]", 
-            "location": "eastus", 
-            … 
-            "properties": { 
-                 "globalConfiguration": { 
-                    "enableRequestBuffering": false, 
-                    "enableResponseBuffering": false, 
-                }, 
-                "sku": { 
-                    "name": "Standard_v2", 
-                    "tier": "Standard_v2" 
-                }, 
-                … 
-              } 
-        } 
+{
+   "$schema":"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+   "contentVersion":"1.0.0.0",
+   "parameters":{      
+   },
+   "variables":{      
+   },
+   "resources":[
+      {
+         "type":"Microsoft.Network/applicationGateways",
+         "apiVersion":"xxx-xx-xx",
+         "name":"[parameters('applicationGateways_xxxx_x_xx_name')]",
+         "location":"eastus",
+         "tags":{            
+         },
+         "identity":{      
+         },
+         "properties":{
+            "globalConfiguration":{
+               "enableRequestBuffering":false,
+               "enableResponseBuffering":false
+            }
+         }
+      }
+   ]
 } 
 ```
-For reference, visit [Azure SDK for .NET]() 
+For reference, visit [Azure SDK for .NET](../dotnet/api/microsoft.azure.management.network.models.applicationgatewayglobalconfiguration.md) 
