@@ -46,8 +46,6 @@ items:
       href: using-curl.md
     - name: Access using REST Client
       href: using-rest-client.md
-    - name: Register applications
-      href: register-application.md
     - name: Logging
       href: logging.md
 
