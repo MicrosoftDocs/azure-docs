@@ -48,11 +48,11 @@ The feature is enabled using the **auto delete on idle** property on the namespa
 
 Here's what considered idleness of entities (queues, topics, and subscriptions):
 
-|  |  | 
+| Entity | What's considered idle | 
 | ------ | ---------------------- | 
-| Queues | <ul><li>No sends</li><li>No receives</li><li>No updates to the queue</li><li>No scheduled messages</li><li>No browse/peek</li> |
-| Topics | <ul><li>No sends</li><li>No updates to the topic</li><li>No scheduled messages</li><li>No operations on the topic's subscriptions (see the next row)</li></ul> |
-| Subscriptions | <ul><li>No receives</li><li>No updates to the subscription</li><li>No new rules added to the subscription</li><li>No browse/peek</li></ul> |
+| Queue | <ul><li>No sends</li><li>No receives</li><li>No updates to the queue</li><li>No scheduled messages</li><li>No browse/peek</li> |
+| Topic | <ul><li>No sends</li><li>No updates to the topic</li><li>No scheduled messages</li><li>No operations on the topic's subscriptions (see the next row)</li></ul> |
+| Subscription | <ul><li>No receives</li><li>No updates to the subscription</li><li>No new rules added to the subscription</li><li>No browse/peek</li></ul> |
 
 ## SDKS
 
