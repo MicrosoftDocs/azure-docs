@@ -66,7 +66,7 @@ az containerapp github-action add \
   --docker-file-path "./dockerfile" \
   --branch <BRANCH_NAME> \
   --registry-url <URL_TO_CONTAINER_REGISTRY> \
-  --registry-user-name <REGISTRY_USER_NAME> \
+  --registry-username <REGISTRY_USER_NAME> \
   --registry-password <REGISTRY_PASSWORD> \
   --service-principal-client-id <CLIENT_ID> \
   --service-principal-client-secret <CLIENT_SECRET> \
