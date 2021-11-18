@@ -117,6 +117,6 @@ Check the [public voices available](./language-support.md#neural-voices). You ca
 
 ### Speaker Recognition
 
-Speaker Recognition uses [Azure paired regions](/azure/best-practices-availability-paired-regions) to automatically failover operations. Speaker enrollments and voice signatures are backed up regularly to prevent data loss and to be used in case of an outage.
+Speaker Recognition uses [Azure paired regions](../../best-practices-availability-paired-regions.md) to automatically failover operations. Speaker enrollments and voice signatures are backed up regularly to prevent data loss and to be used in case of an outage.
 
 During an outage, Speaker Recognition service will automatically failover to a paired region and use the backed up data to continue processing requests until the main region is back online.

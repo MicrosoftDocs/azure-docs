@@ -81,12 +81,12 @@ In this section, you configure your local environment, install the Azure IoT Nod
 
     **Windows**
     ```console
-    cd azure-iot-sdk-node\device\samples\javascript\pnp
+    cd azure-iot-sdk-node\device\samples\javascript
     ```
 
     **Linux or Raspberry Pi OS**
     ```console
-    cd azure-iot-sdk-node/device/samples/javascript/pnp
+    cd azure-iot-sdk-node/device/samples/javascript
     ```
 
 1. Install the Azure IoT Node.js SDK and necessary dependencies:
@@ -98,7 +98,7 @@ In this section, you configure your local environment, install the Azure IoT Nod
 
 1. In your console, run the following code sample from the SDK. The sample creates a temperature controller with thermostat sensors.
     ```console
-    node pnpTemperatureController.js
+    node pnp_temperature_controller.js
     ```
 
     After your device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 

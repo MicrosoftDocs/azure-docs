@@ -165,7 +165,7 @@ If out of memory errors persist in Azure SQL Database, file an Azure support req
 
 - [Intelligent query processing in SQL databases](/sql/relational-databases/performance/intelligent-query-processing)
 - [Query processing architecture guide](/sql/relational-databases/query-processing-architecture-guide)    
-- [Performance Center for SQL Server Database Engine and Azure SQL Database](/sql/relational-databases/performance/performance-center-for-sql-server-database-engine-and-azure-sql-database.md)  
+- [Performance Center for SQL Server Database Engine and Azure SQL Database](/sql/relational-databases/performance/performance-center-for-sql-server-database-engine-and-azure-sql-database)  
 - [Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-common-errors-issues.md)
 - [Troubleshoot transient connection errors in SQL Database and SQL Managed Instance](troubleshoot-common-connectivity-issues.md)
 - [Demonstrating Intelligent Query Processing](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/intelligent-query-processing)   

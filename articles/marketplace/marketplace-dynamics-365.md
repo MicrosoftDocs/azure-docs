@@ -19,7 +19,16 @@ Before you start, create a commercial marketplace account in [Partner Center](./
 
 As you prepare to publish a new offer, you need to decide which licensing option to choose. This will determine what additional information you'll need to provide later as you create the offer in Partner Center.
 
-These are the available licensing options for Dynamics 365 offers:
+These are the available licensing options for Dynamics 365 offer types:
+
+| Offer type | Listing option |
+| --- | --- |
+| Dynamics 365 for Operations | Contact me |
+| Dynamics 365 Customer Engagement & Power Apps | Get it now<br>Get it now (Free)<br>Free trial (listing)<br>Contact me |
+| Dynamics 365 Business Central | Get it now (Free)<br>Free trial (listing)<br>Contact me |
+|||
+
+The following table describes the transaction process of each listing option.
 
 | Licensing option | Transaction process |
 | --- | --- |
