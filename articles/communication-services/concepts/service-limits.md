@@ -17,17 +17,23 @@ ms.subservice: data
 This document explains some of the limitations of Azure Communication Services and what to do if you are running into these limitations. 
 
 ## Acquiring phone numbers
+Before trying to acquire a phone number, make sure your sbuscription meets the [geographic and subscription](./telephony-sms/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
+
+| Operation | Scope | Timeframe | Limit (number of requests) |
+| --- | -- | -- | -- |
+| Purchase phone number | Azure tenant | - | 1 |
+| Search for phone numbers | Azure tenant | 1 week | 5 |
 
 ### Action to take
 
-For more information, see the [phone number types](./telephony-sms/plan-solution.md) concept page.
+For more information, see the [phone number types](./telephony-sms/plan-solution.md) concept page and the [telephony concept](./telephony-sms/telephony-concept.md) overview page.
+
+If you would like to purchase more phone numbers or put in a special order, follow the [instructions here](https://github.com/Azure/Communication/blob/master/special-order-numbers.md). If you would like to port toll-free phone numbers from external accounts to their Azure Communication Services account follow the [instructions here](https://github.com/Azure/Communication/blob/master/port-numbers.md).
 
 ## Identity
 
-### Throttling
-
-| API | Timeframes (seconds) | Limit (number of requests) |
-|--|--|--|
+| Operation | Timeframes (seconds) | Limit (number of requests) |
+|---|--|--|
 | **Create identity** | 30 | 500|
 | **Delete identity** | 30 | 500|
 | **Issue access token** | 30 | 500|
@@ -45,7 +51,7 @@ When sending or receiving a high volume of messages, you might receive a ```429`
 
 Rate Limits for SMS:
 
-|Operation|Scope|Timeframe (s)| Limit (request #) | Message units per minute|
+|Operation|Scope|Timeframe (seconds)| Limit (number of requests) | Message units per minute|
 |---------|-----|-------------|-------------------|-------------------------|
 |Send Message|Per Number|60|200|200|
 
@@ -55,8 +61,6 @@ If your company has requirements that exceed the rate-limits, please email us at
 For more information on the SMS SDK and service, see the [SMS SDK overview](./telephony-sms/sdk-features.md) page or the [SMS FAQ](./telephony-sms/sms-faq.md) page.
 
 ## Chat
-
-### Throttling
 
 | **Operation**         | **Scope**                 | Timeframe (seconds) | Limit (number of requests) |
 |--|--|--|--|
@@ -78,7 +82,7 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](./te
 ### Service maximum limitations
 
 | **Name**         | Limit  |
-|--|--|
+|---|--|
 |Number of participants in thread | 250 |
 |Batch of participants - CreateThread | 200 |
 |Batch of participants - AddParticipant | 200 |
