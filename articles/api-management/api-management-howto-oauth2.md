@@ -55,7 +55,7 @@ When configuring OAuth 2.0 user authorization in the test console of the develop
 * **Limit the token's scope to the minimum** needed for developers to test the APIs. Limit the scope to the test console, or to the affected APIs. The steps to configure token scope depend on your OAuth 2.0 provider.
 
   Depending on your scenarios, you may configure more or less restrictive token scopes for other client applications that you create to access backend APIs.
-* **Take extra care if you enable the Client Credentials flow**. Unlike other authorization flows, Client Credentials doesn't require user credentials to get an access token. An access token could be inadvertently exposed to developers or anonymous users of the developer console. 
+* **Take extra care if you enable the Client Credentials flow**. The test console in the developer portal, when working with the Client Credentials flow, doesn't ask for credentials. An access token could be inadvertently exposed to developers or anonymous users of the developer console. 
 
 ## Configure an OAuth 2.0 authorization server in API Management
 
