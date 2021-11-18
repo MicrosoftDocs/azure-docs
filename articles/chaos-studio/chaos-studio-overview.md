@@ -4,7 +4,7 @@ description: Understand Azure Chaos Studio, an Azure service that helps you to m
 services: chaos-studio
 author: johnkemnetz
 ms.topic: overview
-ms.date: 11/01/2021
+ms.date: 11/11/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-overview,ignite-fall-2021
@@ -13,6 +13,8 @@ ms.custom: template-overview,ignite-fall-2021
 # What is Azure Chaos Studio Preview?
 
 Azure Chaos Studio is a managed service for improving resilience by injecting faults into your Azure applications. Running controlled fault injection experiments against your applications, a practice known as chaos engineering, helps you to measure, understand, and improve resilience against real-world incidents, such as a region outages or application failures causing high CPU utilization on a VM.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Videos/Azure-Chaos-Studio-Curious-to-control-chaos/player]
 
 ## Why should I use Chaos Studio?
 
@@ -48,5 +50,5 @@ A chaos experiment is an Azure resource that lives in a subscription and resourc
 
 ## Next steps
 Get started creating and running chaos experiments to improve application resilience with Chaos Studio using the links below.
-- [Create and run your first experiment](chaos-studio-tutorial-service-direct.md)
+- [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)
 - [Learn more about chaos engineering](chaos-studio-chaos-engineering-overview.md)

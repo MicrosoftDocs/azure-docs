@@ -39,8 +39,10 @@
     href: language-identification-model.md
   - name: Live stream analysis
     href: live-stream-analysis.md
-  - name: Observed people 
-    href: observed-people-tracing.md
+  - name: Observed in a video people  
+    href: observed-people-tracing.md    
+  - name: People's detected clothing
+    href: detected-clothing.md
   - name: Audio effects detection
     href: audio-effects-detection.md
   - name: Customizing content models
@@ -109,7 +111,7 @@
   - name: Video Analyzer for Media API
     href: https://api-portal.videoindexer.ai/
   - name: Video Analyzer for Media ARM REST API
-    href: https://aka.ms/avam-arm-api
+    href: /rest/api/videoindexer/accounts?branch=videoindex
 - name: Resources
   items:
   - name: Azure Roadmap
