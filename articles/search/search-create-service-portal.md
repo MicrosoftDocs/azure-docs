@@ -103,6 +103,8 @@ Azure Cognitive Search is currently offered in [multiple pricing tiers](https://
 
 Basic and Standard are the most common choices for production workloads, but initially many customers start with the Free service for evaluation purposes. Among the billable tiers, key differences are partition size and speed, and limits on the number of objects you can create.
 
+:::image type="content" source="media/search-create-service-portal/select-pricing-tier.png" alt-text="Review and select a pricing tier" border="true":::
+
 Remember, a pricing tier cannot be changed once the service is created. If you need a higher or lower tier, you will have to re-create the service.
 
 ## Create your service
