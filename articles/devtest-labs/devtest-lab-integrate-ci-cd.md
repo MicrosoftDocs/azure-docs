@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 11/16/2021
 ---
 
-# Integrate DevTest Labs into CI/CD pipelines
+# Integrate DevTest Labs into Azure Pipelines
 
 You can use the Azure DevTest Labs Tasks extension to integrate Azure DevTest Labs into Azure Pipelines continuous integration and delivery (CI/CD) pipelines. The extension installs several tasks into Azure Pipelines, including:
 

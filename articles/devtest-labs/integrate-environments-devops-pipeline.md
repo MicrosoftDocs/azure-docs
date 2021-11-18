@@ -1,11 +1,11 @@
 ---
-title: Integrate environments into Azure Pipelines
+title: Integrate DevTest Labs environments into Azure Pipelines
 description: Learn how to integrate Azure DevTest Labs environments into Azure Pipelines continuous integration (CI) and continuous delivery (CD) pipelines.
 ms.topic: how-to
 ms.date: 11/17/2021
 ---
 
-# Integrate environments into CI/CD pipelines
+# Integrate DevTest Labs environments into Azure Pipelines
 
 You can use the Azure DevTest Labs Tasks extension to integrate Azure DevTest Labs into Azure Pipelines. In this article, you use the extension to create and deploy an environment, and then delete the environment, all in one pipeline. You can use the environment to integrate your Azure Pipelines continuous integration/continuous delivery (CI/CD) release pipelines with Azure DevTest Labs.
 
@@ -16,7 +16,7 @@ The Azure DevTest Labs Tasks extension adds the following tasks to Azure Pipelin
 
 These tasks make it easy to quickly deploy an [environment](devtest-lab-test-env.md) for a specific test, and then delete the environment when you finish the test. You'd ordinarily do the environment creation and deletion separately in your own pipelines.
 
-For information about other extension tasks like Create a VM and Create a Custom Image from a VM, see [Integrate DevTest Labs into CI/CD pipelines](devtest-lab-integrate-ci-cd.md).
+For information about other extension tasks like creating VMs and custom images, see [Integrate DevTest Labs into Azure Pipelines](devtest-lab-integrate-ci-cd.md).
 
 ## Prerequisites
 
@@ -28,15 +28,18 @@ For information about other extension tasks like Create a VM and Create a Custom
 
 1. In your Azure DevOps project, select **Releases** under the **Pipelines** section.
 1. Select **New pipeline**.
-1. **Select a template** on the right shows a list of templates for common deployment patterns. For this pipeline, select the **Empty Job** link at the top of the page.
-1. On the left, in the empty job, drop down **Tasks** in the toolbar and select **Stage 1**.
+1. **Select a template** on the right shows a list of templates for common deployment patterns. Select the **Empty job** link at the top of the page.
+1. On the **New release pipeline** page, drop down **Tasks** in the toolbar and select **Stage 1**.
 
    :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-stage.png" alt-text="Screenshot that shows opening the pipeline release stage." border="false":::
 
 1. Select the plus sign **+** next to **Agent job**.
-1. In the **Add tasks** window, search for and select **Azure DevTest Labs Create Environment**, and select **Add**.
+1. Under **Add tasks**, search for and select **Azure DevTest Labs Create Environment**, and then select **Add**.
 1. On the left, select the **Azure DevTest Labs Create Environment** task.
 1. Fill out the **Azure DevTest Labs Create Environment (Preview)** form as follows:
+   
+   :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-environment.png" alt-text="Screenshot shows the fields needed for Azure Pipelines environment for Azure DevTest Labs." border="false":::
+
    - **Azure RM Subscription**: Select your connection or Azure subscription from the dropdown list.
      > [!NOTE]
      > For information about creating a more restricted permissions connection to your Azure subscription, see [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
@@ -56,9 +59,6 @@ For information about other extension tasks like Create a VM and Create a Custom
    - **Parameter Overrides**: Pass custom parameters to the environment.
 
    You can use either **Parameters File**, **Parameter Overrides**, or both to set parameter values. For example, you can use these fields to pass the encrypted password. You can also use variables to avoid passing secret information in the logs, and even connect to Azure Key Vault.
-
-   
-   :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-environment.png" alt-text="Screenshot shows the fields needed for Azure Pipelines environment for Azure DevTest Labs." border="false":::
 
 ## Delete the environment
 

@@ -1,11 +1,11 @@
 ---
-title: Integrate Azure DevTest Labs with Azure pipelines
-description: Learn how to use Azure DevTest Labs with a continuous integration (CI) and continuous delivery (CD) pipeline in an enterprise environment.
+title: Integrate Azure DevTest Labs with CI/CD pipelines
+description: Learn how to use Azure DevTest Labs with continuous integration (CI) and continuous delivery (CD) pipelines in an enterprise environment.
 ms.topic: conceptual
 ms.date: 11/16/2021
 ---
 
-# Integrate DevTest Labs and Azure Pipelines
+# Integrate DevTest Labs and CI/CD pipelines
 
 DevOps is a software development methodology that integrates software development (Dev) with system operations (Ops). The system delivers new software features, updates, and fixes that align with business goals.
 
@@ -16,15 +16,15 @@ DevOps methodology also covers:
 
 One component of DevOps methodology is the continuous integration (CI) and continuous delivery (CD) pipeline. A CI/CD pipeline moves information, code, and resources from a source control commit through a series of steps to produce the system. Steps include build, test, and release.
 
-You can use Azure DevTest Labs in Azure Pipelines CI/CD pipelines. This article discusses using DevTest Labs with Azure Pipelines in an enterprise environment.
+You can use Azure DevTest Labs in CI/CD pipelines. This article discusses using DevTest Labs in CI/CD pipelines in an enterprise environment.
 
 ## Benefits of DevTest Labs in DevOps workflows
 
-A lab should be focused on a team that's working in a feature area. This common focus allows faster changes, while limiting any negative effects to a smaller group. Changes or destructive work happen against the lab environment, without affecting anything else.
+A lab should focus on a team that's working in a feature area. This common focus allows faster changes, while limiting any negative effects to a smaller group. Changes or problems happen in the lab environment, without affecting anything else.
 
-The common focus allows for sharing area-specific resources, like tools, scripts, and Azure Resource Manager (ARM) templates. By using shared resources, developers create development virtual machines (VMs) with all the needed code, tools, and configuration. Developers can create resources dynamically, or in a system that creates base images with customizations. ARM templates create lab VMs and lab environments based on the appropriate Azure resources.
+The common focus allows for sharing area-specific resources, like tools, scripts, and Azure Resource Manager (ARM) templates. Developers can use shared resources to create virtual machines (VMs) with all the code, tools, and configuration they need. ARM templates create lab VMs and lab environments with the appropriate Azure resources. The templates create resources dynamically, or by creating base images with customizations.
 
-For example, consider a scenario where the product is a standalone system installed on a customer's machine. DevTest Labs VM creation can include installing customer software and using customer artifacts and configurations, for quicker inner loop code testing.
+For example, consider a scenario where the product is a standalone system that installs on a customer's machine. DevTest Labs can create lab VMs that have customer software, artifacts, and configurations installed, for quick inner loop code testing.
 
 Here are some benefits of using labs in DevOps workflows:
 
@@ -32,7 +32,7 @@ Here are some benefits of using labs in DevOps workflows:
 
 - **Infrastructure replication in the cloud:** A developer can quickly set up a development ecosystem that includes a developer VM with source code and tools. A developer can also create an environment that's nearly identical to the production configuration, for faster inner loop development.
 
-- **Pre-production environments:** A lab in the CI/CD pipeline can run several different pre-production environments or machines at the same time for asynchronous testing. You can deploy and manage different support infrastructure such as build agents with a lab.
+- **Pre-production environments:** A lab in the CI/CD pipeline can run several different pre-production environments or machines at the same time, for asynchronous testing. You can deploy and manage different support infrastructures and build agents in a lab.
 
 ## Use labs in CI/CD pipelines
 
@@ -56,10 +56,11 @@ The release process can use DevTest Labs for verification before the code is dep
 
 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines), a component of Azure DevOps Services, has existing tasks to manipulate VMs and environments within specific labs. Azure Pipelines is one way to manage the CI/CD pipeline. You can integrate a lab into any system that supports calling REST APIs, executing PowerShell scripts, or using Azure CLI.
 
-Some CI/CD pipeline managers have existing open-source plugins that can manage Azure and DevTest Labs resources. You might need to use custom scripting to fit the needs of the pipeline. When executing a task, use a service principal with the appropriate role, usually Contributor, to access the lab. For more information, see [Integrate Azure DevTest Labs into your Azure Pipelines CI/CD pipeline](devtest-lab-integrate-ci-cd.md).
+Some CI/CD pipeline managers have existing open-source plugins that can manage Azure and DevTest Labs resources. You might need to use custom scripting to fit the needs of the pipeline. When executing a task, use a service principal with the appropriate role, usually Contributor, to access the lab.
 
 ## Next steps
 
+- [Integrate DevTest Labs into Azure Pipelines](devtest-lab-integrate-ci-cd.md).
 - [Integrate environments into your CI/CD pipelines](integrate-environments-devops-pipeline.md)
 - [Use DevTest Labs in Azure Pipelines build and release pipelines](use-devtest-labs-build-release-pipelines.md)
  
