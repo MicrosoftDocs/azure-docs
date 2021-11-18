@@ -114,9 +114,18 @@ Image Builder creates a VM using the default D1v2 VM size for Gen1 images and D2
 Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
 
 ## Hyper-V generation
-Image Builder currently supports creating Hyper-V Gen1 and Gen2 images in the Azure Compute Gallery. Please keep in mind, for Azure Compute Gallery's Hyper-V distribution, the image has to be same source as the image provided.
+Image Builder currently supports creating Hyper-V Gen1 and Gen2 images in the Azure Compute Gallery. Please keep in mind, for Azure Compute Gallery's Hyper-V distribution, the image distributed will always be the same generation as the image provided.
 
-For Gen2 images, only the source image has to be a Gen2 image. For example, if your source image is a platform image, then ("publisher": "Canonical" ; "offer": "UbuntuServer"; sku “18_04-lts-gen2”) would be a valid Gen2 source image.
+For Gen2 images, please ensure you are using the correct SKU. For example, the SKU for a Ubuntu Server 18.04 Gen2 image would be “18_04-lts-gen2”. The SKU for a Ubuntu Server 18.04 Gen1 image would be "18.04-lts".
+
+How to find SKUs based on the image publisher:
+```azurecli-interactive
+# Find all Gen2 SKUs published by Microsoft Windows Desktop
+az vm image list --publisher MicrosoftWindowsDesktop --sku g2 --output table --all
+
+# Find all Gen2 SKUs published by Canonical
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
 
 ## Next steps 
  
