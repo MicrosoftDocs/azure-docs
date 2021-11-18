@@ -20,7 +20,6 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 ### Support limitations for Azure Key Vault (AKV) secrets provider extension
 - Only one instance of AKV secrets provider extension can be deployed on an Arc connected Kubernetes cluster
 - Following Kubernetes distributions are currently supported
-    - AKS Engine
     - Cluster API Azure
     - Google Kubernetes Engine
     - OpenShift Kubernetes Distribution
@@ -44,10 +43,8 @@ The following steps assume that you already have a cluster with supported Kubern
 
 Set the environment variables:
 ```azurecli-interactive
-export $CLUSTER_NAME=<arc-cluster-name>
-export $RESOURCE_GROUP=<resource-group-name>
-export $AZUREKEYVAULT_NAME=<AKV-name>
-export $AZUREKEYVAULT_LOCATION=<AKV-location>
+export CLUSTER_NAME=<arc-cluster-name>
+export RESOURCE_GROUP=<resource-group-name>
 ```
 While AKV secrets provider extension is in preview, the `az k8s-extension create` command only accepts `preview` for the `--release-train` flag.
 
@@ -222,6 +219,13 @@ You should see a JSON output similar to the output below:
 
 ## Create or use an existing Azure Key Vault
 
+Set the environment variables:
+```azurecli-interactive
+export RESOURCE_GROUP=<resource-group-name>
+export AZUREKEYVAULT_NAME=<AKV-name>
+export AZUREKEYVAULT_LOCATION=<AKV-location>
+```
+
 You will need an Azure Key Vault resource containing the secret content. Keep in mind that the Key Vault's name must be globally unique.
 
 ```azurecli
@@ -333,11 +337,21 @@ Following configuration settings are available for Azure Key Vault secrets provi
 
 | Configuration Setting | Default | Description |
 | --------- | ----------- | ----------- |
-| enableSecretRotation | true | Boolean type; Periodically update the pod mount and Kubernetes Secret with the latest content from external secrets store |
+| enableSecretRotation | false | Boolean type; Periodically update the pod mount and Kubernetes Secret with the latest content from external secrets store |
 | rotationPollInterval | 2m | Secret rotation poll interval duration if `enableSecretRotation` is `true`. This can be tuned based on how frequently the mounted contents for all pods and Kubernetes secrets need to be resynced to the latest |
-| enableSyncSecret | false | Boolean input; In some cases, you may want to create a Kubernetes Secret to mirror the mounted content. This configuration setting allows SecretProviderClass to allow secretObjects field to define the desired state of the synced Kubernetes secret objects |
+| syncSecret.enabled | false | Boolean input; In some cases, you may want to create a Kubernetes Secret to mirror the mounted content. This configuration setting allows SecretProviderClass to allow secretObjects field to define the desired state of the synced Kubernetes secret objects |
 
-These settings can be changed either at the time of extension installation using `az k8s-extension create` command or post installation using `az k8s-extension update` command. 
+These settings can be changed either at the time of extension installation using `az k8s-extension create` command or post installation using `az k8s-extension update` command.
+
+Use following command to add configuration settings while creating extension instance:
+```azurecli-interactive
+az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --release-train preview --name akvsecretsprovider --configuration-settings secrets-store-csi-driver.enableSecretRotation=true secrets-store-csi-driver.rotationPollInterval=3m secrets-store-csi-driver.syncSecret.enabled=true
+```
+
+Use following command to update configuration settings of existing extension instance:
+```azurecli-interactive
+az k8s-extension update --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --name akvsecretsprovider --configuration-settings secrets-store-csi-driver.enableSecretRotation=true secrets-store-csi-driver.rotationPollInterval=3m secrets-store-csi-driver.syncSecret.enabled=true
+```
 
 ## Uninstall Azure Key Vault secrets provider extension
 Use the below command
