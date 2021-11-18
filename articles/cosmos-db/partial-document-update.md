@@ -68,7 +68,7 @@ Partial document update feature supports the following modes of operation. Refer
 
 ## REST API Reference for Partial document update
 
-The [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/cosmos-db/) provides programmatic access to Azure Cosmos DB resources to create, query, and delete databases, document collections, and documents. In addition to executing insert, replace, delete, read, enumerate, and query operations on JSON documents in a collection, you can use the `PATCH` HTTP method for Partial document update operation. Refer to [the Azure Cosmos DB REST API Reference](https://docs.microsoft.com/rest/api/cosmos-db/patch-a-document) for details.
+The [Azure Cosmos DB REST API](/rest/api/cosmos-db/) provides programmatic access to Azure Cosmos DB resources to create, query, and delete databases, document collections, and documents. In addition to executing insert, replace, delete, read, enumerate, and query operations on JSON documents in a collection, you can use the `PATCH` HTTP method for Partial document update operation. Refer to [the Azure Cosmos DB REST API Reference](/rest/api/cosmos-db/patch-a-document) for details.
 
 For example, here is what the request looks like for a `set` operation using Partial document update.
 
