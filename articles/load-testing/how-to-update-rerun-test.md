@@ -17,7 +17,6 @@ ms.topic: how-to
 In this article you'll learn how to:  
 
 > [!div class="checklist"]
-
 > - Update and edit the test from the tests page on Azure portal  
 > - Update and edit the app components from the tests page on Azure portal  
 > - Update and edit Metrics from the test page on Azure portal  
