@@ -114,7 +114,7 @@ The SharePoint Online indexer will use this AAD application for authentication.
 
 <a name="create-data-source"></a>
 
-### Step 3: Create data source
+### Step 4: Create data source
 > [!IMPORTANT] 
 > Starting in this section you need to use the preview REST API for the remaining steps. If you’re not familiar with the Azure Cognitive Search REST API, we suggest taking a look at this [Quickstart](search-get-started-rest.md).
 
@@ -152,7 +152,7 @@ The format of the connection string changes based on whether the indexer is usin
 > [!NOTE]
 > If the SharePoint Online site is in the same tenant as the search service and system-assigned managed identity is enabled, `TenantId` doesn't have to be included in the connection string. If the SharePoint Online site is in a different tenant from the search service, `TenantId` must be included.
 
-### Step 4: Create an index
+### Step 5: Create an index
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
 
 Here's how to create an index with a searchable content field to store the text extracted from documents in a Document Library:
@@ -179,7 +179,7 @@ api-key: [admin key]
 
 For more information, see [Create Index (REST API)](/rest/api/searchservice/create-index).
 
-### Step 5: Create an indexer
+### Step 6: Create an indexer
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer!
 
 During this section you’ll be asked to login with your organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have.
@@ -247,7 +247,7 @@ There are a few steps to creating the indexer:
     }
     ```
 
-### Step 6: Check the indexer status
+### Step 7: Check the indexer status
 After the indexer has been created you can check the indexer status by making the following request.
 
 ```http
