@@ -80,8 +80,8 @@
   - name: Use Prebuilt API to query over text
     href: How-to/using-prebuilt-api.md
     displayName: prebuilt, query, answer, text, prebuilt api, ingest, no storage, call, response
-  - name: Multiturn conversations
-    href: how-to/multiturn.md
+  - name: Multi-turn conversations
+    href: how-to/multi-turn.md
   - name: Get suggested alternate questions via active learning
     href: How-to/improve-knowledge-base.md
     displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount

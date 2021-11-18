@@ -53,7 +53,7 @@ If you do not have pre-existing content to populate the knowledge base, you can 
 
 1. Optionally, add **[metadata](../Quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)**. To view metadata, select **View options** in the context menu. Metadata provides filters to the answers that the client application, such as a chat bot, provides.
 
-1. Optionally, add **[follow-up prompts](multiturn.md)**. Follow-up prompts provide additional conversation paths to the client application to present to the user.
+1. Optionally, add **[follow-up prompts](multi-turn.md)**. Follow-up prompts provide additional conversation paths to the client application to present to the user.
 
 1. Select **Save and train** to see predictions including the new QnA pair.
 
