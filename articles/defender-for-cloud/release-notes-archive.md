@@ -1698,7 +1698,6 @@ Learn more about Security Center's container security in the following articles:
 - [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
 - [How-to scan your registries and harden your Docker hosts](container-security.md)
 - [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-k8scluster)
-- [Security alerts from the threat protection features for Azure Kubernetes Service hosts](alerts-reference.md#alerts-containerhost)
 - [Security recommendations for containers](recommendations-reference.md#recs-compute)
 
 
