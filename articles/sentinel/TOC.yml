@@ -129,7 +129,7 @@
       expanded: true
       items:
       - name: Amazon Web Services logs
-        href: connect-aws-s3.md
+        href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Microsoft Defender for Cloud
