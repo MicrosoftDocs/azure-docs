@@ -13,12 +13,12 @@ ms.topic: how-to
 
 # Get more insights when testing AppService workloads  
 
-In this article, you'll learn how to more insights when testing AppService workloads using App Service Diagnostics **Azure Portal**.  
+In this article, you'll learn how to gain more insights when testing AppService workloads using App Service Diagnostics in **Azure portal**.  
 
 ## Prerequisites  
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-- An Azure Load Testing Resource already created. If you need to create a Load Test Resource, see [How to create the Load Test Resource](/cli/azure/install-azure-cli).  
+- An Azure Load Testing Resource already created. If you need to create a Load Test Resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).  
 - An app service workload you're running your load test against and that you've added to the resources to monitor for the test.  
 
 ## Get more insights when testing an App Service Workload  
