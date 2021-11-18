@@ -17,7 +17,7 @@ ms.author: edcohen
 > Confidential virtual machines (confidential VMs) in Azure confidential computing is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure confidential computing offers confidential VMs based on [AMD processors with SEV-SNP technology](confidential-vm-solutions-amd.md). Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code, with the platform protecting your VM's state from being read or modified.
+Azure confidential computing offers confidential VMs based on [AMD processors with SEV-SNP technology](virtual-machine-solutions-amd.md). Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code, with the platform protecting your VM's state from being read or modified.
 
 > [!IMPORTANT]
 > Protection levels differ based on your configuration and preferences. For example, Microsoft can own or manage encryption keys for increased convenience at no additional cost.
@@ -78,7 +78,7 @@ Confidential VMs support the following VM sizes:
 - ECasv5-series
 - ECadsv5-series
 
- For more information, see the [AMD deployment options](confidential-vm-solutions-amd.md).
+ For more information, see the [AMD deployment options](virtual-machine-solutions-amd.md).
 ### OS support
 
 Confidential VMs support the following OS options:
