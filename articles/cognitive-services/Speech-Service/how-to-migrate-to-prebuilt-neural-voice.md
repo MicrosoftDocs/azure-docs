@@ -47,11 +47,6 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 > To learn more about details on how each element is used, see [Improve synthesis with SSML](speech-synthesis-markup.md).
 
 
-## Deprecated prebuilt standard voice details
-
-> [!IMPORTANT]
-> The prebuilt standard voice is deprecated. Existing standard tier non-neural models can be used through the end of August 2024. Starting in September 2024 we will only support prebuilt neural voice. Please make plans to use prebuilt neural voices right away. 
-
 ### Language support for prebuilt standard voices (deprecated)
 
 More than 75 prebuilt standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech.

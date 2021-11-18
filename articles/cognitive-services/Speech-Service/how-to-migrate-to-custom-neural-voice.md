@@ -42,10 +42,6 @@ Before you can migrate to custom neural voice, your [application](https://aka.ms
 3. After the custom neural voice model is created, deploy the voice model to a new endpoint. To create a new custom voice endpoint with your neural voice model, go to **Text-to-Speech > Custom Voice > Deploy model**. Select **Deploy models** and enter a **Name** and **Description** for your custom endpoint. Then select the custom neural voice model you would like to associate with this endpoint and confirm the deployment.  
 4. Update your code in your apps if you have created a new endpoint with a new model. 
 
-## Deprecated custom voice details
-
-
-
 ### Regional support for custom voices
 
 If you've created a custom voice font, use the endpoint that you've created. You can also use the endpoints listed below, replacing the `{deploymentId}` with the deployment ID for your voice model.
