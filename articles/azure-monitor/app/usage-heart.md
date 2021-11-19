@@ -56,7 +56,7 @@ These dimensions are measured independently, but they interact with each other a
   | pageViews       | operation_Id         | correlate telemetry events                 |
   | pageViews       | user_Id         	 | unique user identifier                     |
 
-*Instrument the [Click Analytics Auto-collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
+*Instrument the [Click Analytics Auto collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
  
 ### Open the Workbook
 The workbook can be found in the gallery under 'public templates' (shown below). The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"**.
@@ -129,7 +129,7 @@ c. Marketing campaigns
 
 ### Retention
 #### Defining Retention
-A Retained User is an active user who was active both this reporting period and the previous reporting period. As active users must have at least one telemetry event with an actionType, ** Retention metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application**.
+A Retained User is a user who was active in a specified reporting period and its previous reporting period. As active users must have at least one telemetry event with an actionType, ** Retention metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application**.
 
 | Metric         | Definition                                                                          | Question Answered                                              |
 |----------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------|
@@ -209,9 +209,9 @@ To view your saved workbook, navigate to the 'Workbooks' section under 'Monitori
 ## Next Steps
 - Learn more about [Google's HEART framework](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36299.pdf).
 - Set up the [Click Analytics Auto Collection Plugin](javascript-click-analytics-plugin.md) via npm.
-- Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [NPM Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
+- Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [NPM Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
-- Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871) for additional guidance.
+- Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871) for more guidance.
 
  
 
