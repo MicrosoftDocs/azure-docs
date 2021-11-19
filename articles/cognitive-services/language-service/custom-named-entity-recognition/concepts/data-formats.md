@@ -87,7 +87,7 @@ When you tag entities, the tags are saved as in the following JSON format. If yo
 * `documents`: An array of tagged documents.
   * `location`: The path of the file. The file has to be in root of the storage container.
   * `language`: Language of the file. Use one of the [supported culture locales](../language-support.md).
-  * `extractors`: Array of extractor objects to be extracted from teh file.
+  * `extractors`: Array of extractor objects to be extracted from the file.
     * `regionOffset`: The inclusive character position of the start of the text.
     * `regionLength`: The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region.
     * `labels`: Array of all the tagged entities within the specified region.
