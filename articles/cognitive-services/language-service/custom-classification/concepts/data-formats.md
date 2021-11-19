@@ -34,7 +34,7 @@ Your tags file should be in the `json` format below.
     ],
     "documents": [
         {
-            "location": "doc1.txt",
+            "location": "file1.txt",
             "language": "en-us",
             "classifiers": [
                 {
@@ -42,6 +42,15 @@ Your tags file should be in the `json` format below.
                 },
                 {
                     "classifierName": "Class1"
+                }
+            ]
+        },
+        {
+            "location": "file2.txt",
+            "language": "en-us",
+            "classifiers": [
+                {
+                    "classifierName": "Class2"
                 }
             ]
         }
@@ -52,10 +61,10 @@ Your tags file should be in the `json` format below.
 ### Data description
 
 * `classifiers`: An array of classifiers for your data. Each classifier represents one of the classes you want to tag your data with.
-* `documents`: An array of tagged documents. For example:
-  * `location`: The path of the JSON file containing tags. The tags file has to be in root of the storage container.
-  * `language`: Language of the document. Use one of the [supported culture locales](../language-support.md).
-  * `classifiers`: Array of classifier objects assigned to the document. If you're working on a single classification project, there should be one classifier only.
+* `documents`: An array of tagged documents.
+  * `location`: The path of the file. The file has to be in root of the storage container.
+  * `language`: Language of the file. Use one of the [supported culture locales](../language-support.md).
+  * `classifiers`: Array of classifier objects assigned to the file. If you're working on a single classification project, there should be one classifier per file only.
 
 ## Next steps
 

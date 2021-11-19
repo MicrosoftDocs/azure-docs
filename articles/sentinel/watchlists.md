@@ -1,12 +1,8 @@
 ---
 title: Use Microsoft Sentinel watchlists
 description: This article describes how to use Microsoft Sentinel watchlists to create allowlists/blocklists, enrich event data, and assist in investigating threats.
-services: sentinel
 author: yelevin
 ms.author: yelevin
-ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021

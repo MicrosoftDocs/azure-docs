@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 11/19/2021
 ms.author: jasteppe
 ---
 
@@ -17,7 +17,11 @@ ms.author: jasteppe
 
 This article provides an overview of IoT connector data flow. You'll learn about the different data processing stages within IoT connector that transform device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
-Below are different stages that data goes through once received by IoT connector.
+Data from health-related devices or medical devices flows through a path in which the IoT connector transforms data into FHIR, and then data is stored on and accessed from the FHIR service. The health data path follows these steps in this order: ingest, normalize, group, transform, and persist. In this data flow, health data is retrieved from the device in the first step of ingestion. After the data is received, it's processed or normalized per user-selected or user-created schema templates, so the health data is simpler to process and can be grouped. Health data is grouped into three Operate parameters. After the health data is normalized and grouped, it can be processed or transformed through FHIR destination mappings, and then saved or persisted on the FHIR service.
+
+This article goes into more depth about each step in the data flow. The next steps are [how to deploy an IoT connector](deploy-iot-connector-in-azure.md) by using a device mapper (the normalization step) and how to use an FHIR device mapper (the transform step).
+
+The next sections describe the stages that data goes through after the IoT connector receives the data.
 
 ## Ingest
 Ingest is the first stage where device data is received into IoT connector. The ingestion endpoint for device data is hosted on an [Azure Event Hub](../../event-hubs/index.yml). Azure Event Hub platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables IoT connector to consume messages asynchronously, removing the need for devices to wait while device data gets processed.
@@ -60,9 +64,9 @@ Once the Observation FHIR resource is generated in the Transform stage, resource
 Learn how to create Device and FHIR destination mappings.
 
 > [!div class="nextstepaction"]
-> [Device mappings](how-to-use-device-mapping-iot.md)
+> [Device mappings](how-to-use-device-mappings.md)
 
 > [!div class="nextstepaction"]
-> [FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
+> [FHIR destination mappings](how-to-use-fhir-mappings.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

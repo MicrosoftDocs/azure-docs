@@ -7,7 +7,7 @@ metadata:
   author: memildin
   manager: rkarlin
   ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
-  ms.service: security-center
+  ms.service: defender-for-cloud
   ms.devlang: na
   ms.topic: conceptual
   ms.tgt_pltfrm: na
