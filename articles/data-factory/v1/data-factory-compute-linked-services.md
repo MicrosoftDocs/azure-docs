@@ -12,7 +12,7 @@ ms.date: 10/22/2021
 
 # Compute environments supported by Azure Data Factory version 1
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](/includes/machine-learning-studio-classic-deprecation.md)] 
 
 > [!NOTE]
 > This article applies to version 1 of Azure Data Factory. If you are using the current version of the Data Factory service, see [Compute linked services in](../compute-linked-services.md).
