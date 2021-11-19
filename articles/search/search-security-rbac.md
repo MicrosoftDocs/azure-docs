@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 11/19/2021
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, references_regions
 ---
 
 # Use Azure role-based access control (Azure RBAC) in Azure Cognitive Search
@@ -71,6 +71,18 @@ You can also sign up for the preview using Azure Feature Exposure Control (AFEC)
 
 > [!NOTE]
 > Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as described in a later section.
+
+### Preview limitations
+
++ This preview is currently only available in Azure public cloud regions and isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
+
++ This preview capability is available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and should not be enabled in a production environment.
+
++ If a subscription is migrated to a new tenant, the RBAC preview will need to be re-enabled. 
+
++ Adoption of Azure RBAC might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request will trigger an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
+
++ In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
 
 ## Step 2: Preview configuration
 
