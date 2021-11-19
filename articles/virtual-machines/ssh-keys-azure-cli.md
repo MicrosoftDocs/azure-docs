@@ -59,15 +59,12 @@ For example, enter: `ssh -i /home/user/.ssh/mySSHKey azureuser@123.45.67.890`
 
 ## Upload an SSH key
 
-You can also upload a public SSH key to store in Azure. For information about how to create an SSH key pair, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
+You can upload a public SSH key to store in Azure. 
 
-Use the [az sshkey ???](/cli/azure/sshkey#az_sshkey_???) command to upload an SSH public key:
-
-Use the [az storage file upload](/cli/azure/storage/file#az_storage_file_upload) command to upload an SSH public key:
+Use the [az sshkey create](/cli/azure/sshkey#az_sshkey_create) command to upload an SSH public key by specifying the key path:
 
 ```azurecli
-az sshkey ??? --name "mySSHKey" --resource-group "myResourceGroup"
-az storage file upload --share-name "myShare" --source <path to the public key file>
+az sshkey create --name "mySSHKey" --resource-group "myResourceGroup"
 ```
 
 ## List keys
