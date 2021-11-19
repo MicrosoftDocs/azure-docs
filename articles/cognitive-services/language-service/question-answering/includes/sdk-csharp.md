@@ -16,7 +16,7 @@ Use this quickstart for the question answering client library for .NET to:
  [API reference documentation][questionanswering_refdocs]|[Source code][questionanswering_client_src] | [Package (NuGet)][questionanswering_nuget_package]  | [Samples][questionanswering_samples] |
 
 [questionanswering_nuget_package]: https://nuget.org/packages/Azure.AI.Language.
-[questionanswering_refdocs]: https://docs.microsoft.com/dotnet/api/Azure.AI.Language.QuestionAnswering/
+[questionanswering_refdocs]: /dotnet/api/Azure.AI.Language.QuestionAnswering/
 [questionanswering_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/src/
 [questionanswering_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/samples/README.md
 

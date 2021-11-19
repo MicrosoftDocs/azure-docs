@@ -115,7 +115,7 @@ You you can try following these steps to find them:
 2. Run OpenSSL.
     - Windows: Open the installation directory, select **/bin/**, and then double-click **openssl.exe**.
     - Mac and Linux: Run `openssl` from a terminal.
-3. Run this command: `s_client -showcerts -connect <hostname>:443`, for any of the Microsoft or Azure hostnames that your storage resources are behind. You can find a list of hostnames that are frequently accessed by Storage Explorer here.
+3. Run this command: `openssl s_client -showcerts -connect <hostname>:443`, for any of the Microsoft or Azure hostnames that your storage resources are behind. You can find a list of hostnames that are frequently accessed by Storage Explorer here.
 4. Look for self-signed certificates. If the subject `("s:")` and issuer `("i:")` are the same, then the certificate is most likely self signed.
 5. When you find the self-signed certificates, for each one, copy and paste everything from (and including) `-----BEGIN CERTIFICATE-----` to `-----END CERTIFICATE-----` into a new .cer file.
 6. Open Storage Explorer and go to **Edit** > **SSL Certificates** > **Import Certificates**. Then use the file picker to find, select, and open the .cer files that you created.

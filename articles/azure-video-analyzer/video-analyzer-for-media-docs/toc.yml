@@ -111,7 +111,7 @@
   - name: Video Analyzer for Media API
     href: https://api-portal.videoindexer.ai/
   - name: Video Analyzer for Media ARM REST API
-    href: https://aka.ms/avam-arm-api
+    href: /rest/api/videoindexer/accounts?branch=videoindex
 - name: Resources
   items:
   - name: Azure Roadmap
