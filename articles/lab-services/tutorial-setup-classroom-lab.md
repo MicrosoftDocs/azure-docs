@@ -34,7 +34,7 @@ In this step, you create a lab for your class in Azure.
 1. Navigate to [Azure Lab Services website](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. Select **New lab**. 
-    
+
     :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-button.png" alt-text="Create a classroom lab":::
 4. In the **New Lab** window, do the following actions: 
     1. Specify a **name**, **lab plan**, **virtual machine image**, **size**, and **region** for your lab, and select **Next**.  
@@ -55,8 +55,8 @@ In this step, you create a lab for your class in Azure.
         :::image type="content" source="./media/tutorial-setup-classroom-lab/template-virtual-machine-settings.png" alt-text="Template virtual machine settings":::
 
         >[!NOTE]
-        > For information on using a non-customized VM instead, see [Manage labs in Azure Lab Services](hot-to-manage-classroom-labs-2.md).
-5. You should see the following screen that shows the status of the template VM creation. This operation takes up to 15 minutes.
+        > For information on using a non-customized VM instead, see [Manage labs in Azure Lab Services](how-to-manage-classroom-labs-2.md).
+5. You should see the following screen that shows the status of the template VM creation.
 
     :::image type="content" source="./media/tutorial-setup-classroom-lab/create-template-vm-progress.png" alt-text="Status of the template VM creation":::
 6. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
@@ -68,9 +68,9 @@ In this step, you create a lab for your class in Azure.
     > [!NOTE]
     > Template VMs incur **cost** when running, so ensure that the template VM is shutdown when you don’t need it to be running. 
 
-## Publish the template VM
+## Publish the lab
 
-In this step, you publish the template VM. When you publish the template VM, Azure Lab Services creates VMs in the lab by using the template. All virtual machines have the same configuration as the template.
+In this step, you publish the lab. When you publish the template VM, Azure Lab Services creates VMs in the lab by using the template. All virtual machines have the same configuration as the template.
 
 1. On the **Template** page, select **Publish** on the toolbar. 
 

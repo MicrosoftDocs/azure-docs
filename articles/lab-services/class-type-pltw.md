@@ -49,6 +49,9 @@ For a full list of class software, go to the [PLTW site](https://www.pltw.org/pl
 
 ## Lab configuration
 
+>[!NOTE]
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
+
 To begin setting up labs for PLTW, you need an Azure subscription and lab account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
 After you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see [Set up a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
@@ -149,7 +152,8 @@ Let’s cover an example cost estimate for the PLTW classes.  This estimate does
 
 As you set up your lab, see the following articles:
 
+- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quotas](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users) 
+- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

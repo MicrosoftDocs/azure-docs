@@ -19,6 +19,9 @@ After you get an Azure subscription, you can create a new lab account in Azure L
 
 ### Lab account settings
 
+>[!NOTE]
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
+
 Enable your lab account settings as described in the following table.  For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
 
 | Lab account setting | Instructions |
@@ -89,7 +92,7 @@ Let's cover a possible cost estimate for this class. This estimate doesn't inclu
 
 Next steps are common to setting up any lab.
 
-- [Create and manage a template](how-to-create-manage-template.md)
+- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

@@ -100,7 +100,7 @@ In this section, we’ll look at a possible cost estimate for this class.  We’
 
 Next steps are common to setting up any lab.
 
-- [Publish a lab](tutorial-setup-classroom-lab.md#)
+- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

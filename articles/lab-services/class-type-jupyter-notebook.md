@@ -15,6 +15,10 @@ Jupyter Notebooks is an open-source project that lets you easily combine rich te
 ## Set up the lab
 
 ### Lab configuration
+
+>[!NOTE]
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
+
 To set up this lab, you need access to an Azure subscription and a lab account. Discuss with your organization's admin to see if you can get access to an existing Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 Once you have an Azure subscription, create a new lab account in Azure Lab Services by following instructions in the tutorial: [Setup a lab account](tutorial-setup-lab-account.md). You can also use an existing lab account.
@@ -219,7 +223,7 @@ In this article, we walked through the steps to create a lab for a Jupyter Noteb
 
 Next steps are common to setting up any lab.
 
-- [Create and manage a template](how-to-create-manage-template.md)
+- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
