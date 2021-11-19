@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 11/19/2021
 ms.author: allensu
 ---
 
@@ -52,10 +52,10 @@ Public IP addresses are created with one of the following SKUs:
 
 | | Standard  | Basic |
 | --- | --- | --- |
-| | Always use static allocation method.| For IPv4: Can be assigned using the dynamic or static allocation method.  For IPv6: Can only be assigned using the dynamic allocation method.| 
+| Allocation method| Static | For IPv4: Dynamic or Static; For IPv6: Dynamic.| 
 | | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|
-| | - Designed to align with the "secure by default" model and be closed to inbound traffic when used as a frontend.  Allowlisting data plane traffic with [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Are open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
-| | Can be zone-redundant (which is advertised from all three zones), zonal (which is guaranteed in a specific pre-selected availability zone), or "no-zone" (which isn't associated with a specific pre-selected availability zone). To learn more about availability zones, see [Availability zones overview](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where three availability zones](../../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant. | Don't support Availability Zone scenarios. Use standard SKU public IP for Availability Zone scenarios in applicable regions. To learn more about availability zones, see [Availability zones overview](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).| 
+| Security | Secure by default model and be closed to inbound traffic when used as a frontend.  Allow traffic with [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
+| [Availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be non-zonal, zonal, or zone-redundant and [Standard Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where three availability zones](../../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant. | Don't support Availability Zone scenarios. Use standard SKU public IP for Availability Zone scenarios in applicable regions. To learn more about availability zones, see [Availability zones overview](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).| 
 | | Can be utilized with the [routing preference](routing-preference-overview.md) to enable more granular control of how traffic is routed between Azure and the Internet. | Don't support [routing preference](routing-preference-overview.md) or [cross-region load balancers](../../load-balancer/cross-region-overview.md) functionality.| 
 | | Can be used as anycast frontend IPs for [cross-region load balancers](../../load-balancer/cross-region-overview.md) (preview functionality).| 
 
