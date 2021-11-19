@@ -20,7 +20,7 @@ In this tutorial, you will learn how to accept a data share invitation using Azu
 ## Prerequisites
 Before you can accept a data share invitation, you must create a number of Azure resources, which are listed below. 
 
-Ensure that all pre-requisites are complete before accepting a data share invitation. 
+Ensure that all prerequisites are complete before accepting a data share invitation. 
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
