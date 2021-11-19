@@ -73,7 +73,44 @@ This section explains how to create a Kubernetes cluster on Azure Kubernetes ser
 
    When all containers return a status of running, you can connect the cluster to Azure. 
 
-1. Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
+## Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
+
+To connect your kubernetes cluster to Azure, use Azure CLI `az` with the following extensions or Helm.
+
+### Install tools
+
+- Helm version 3.3+ ([install](https://helm.sh/docs/intro/install/))
+- Install or upgrade to the latest version of [Azure CLI](/cli/azure/install-azure-cli)
+
+### Add extensions for Azure CLI
+
+Install the latest versions of the following az extensions:
+- `k8s-extension`
+- `connectedk8s`
+- `k8s-configuration`
+- `customlocation`
+
+Run the following commands to install the az CLI extensions:
+
+```azurecli
+az extension add --name k8s-extension
+az extension add --name connectedk8s
+az extension add --name k8s-configuration
+az extension add --name customlocation
+```
+
+If you've previously installed the `k8s-extension`, `connectedk8s`, `k8s-configuration`, `customlocation` extensions, update to the latest version using the following command:
+
+```azurecli
+az extension update --name k8s-extension
+az extension update --name connectedk8s
+az extension update --name k8s-configuration
+az extension update --name customlocation
+```
+
+### Connect your cluster to Azure
+
+Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
 
    To connect your Kubernetes cluster to Azure, use Azure CLI `az` or PowerShell.
 
@@ -145,44 +182,7 @@ This section explains how to create a Kubernetes cluster on Azure Kubernetes ser
    ---
 
 
-## Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
-
-To connect your kubernetes cluster to Azure, use Azure CLI `az` with the following extensions or Helm.
-
-### Install tools
-
-- Helm version 3.3+ ([install](https://helm.sh/docs/intro/install/))
-- Install or upgrade to the latest version of Azure CLI ([download](https://aka.ms/installazurecliwindows))
-
-### Add extensions for Azure CLI
-
-Install the latest versions of the following az extensions:
-- `k8s-extension`
-- `connectedk8s`
-- `k8s-configuration`
-- `customlocation`
-
-Run the following commands to install the az CLI extensions:
-
-```azurecli
-az extension add --name k8s-extension
-az extension add --name connectedk8s
-az extension add --name k8s-configuration
-az extension add --name customlocation
-```
-
-If you've previously installed the `k8s-extension`, `connectedk8s`, `k8s-configuration`, `customlocation` extensions, update to the latest version using the following command:
-
-```azurecli
-az extension update --name k8s-extension
-az extension update --name connectedk8s
-az extension update --name k8s-configuration
-az extension update --name customlocation
-```
-
-### Connect your cluster to Azure
-
-To complete this task, follow the steps in [Connect an existing Kubernetes cluster to Azure arc](../kubernetes/quickstart-connect-cluster.md).
+A more thorough walk-through of this task is available at [Connect an existing Kubernetes cluster to Azure arc](../kubernetes/quickstart-connect-cluster.md).
 
 ## Optionally, keep the Log Analytics workspace ID and Shared access key ready
 
