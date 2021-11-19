@@ -951,7 +951,7 @@
         href: app/usage-flows.md
       - name: Usage analytics
         href: app/usage-troubleshoot.md
-      - name: HEART analytics
+      - name: HEART Framework
         href: app/usage-heart.md
     - name: Azure DevOps
       items: 
