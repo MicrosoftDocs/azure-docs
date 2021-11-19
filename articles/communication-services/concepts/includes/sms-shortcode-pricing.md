@@ -39,11 +39,11 @@ Fees for short code leasing are charged after provisioning is complete and then 
 
 
 ### Usage Fee
-SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. 
+SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from a short code to phone numbers located within the United States. 
 
 The following prices include required communications taxes and fees:
 
-|Operation   |Usage Fee. |
+|Operation   |Usage Fee |
 |-----------|------------|
 |Send messages (per message segment*) |$0.0075 |
 |Receive messages (per message segment*) |$0.0075 |
@@ -51,4 +51,4 @@ The following prices include required communications taxes and fees:
 *Please see [here](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
 
 ## Carrier surcharge
-Additional flat carrier surcharge of $0.0025/sent msg would be applicable. Carrier surcharge is subject to change. Click <Link-To-be-added> for details.
+Additional flat carrier surcharge of $0.0025/sent msg segment would be applicable. Carrier surcharge is subject to change. Click <Link-To-be-added> for details.
