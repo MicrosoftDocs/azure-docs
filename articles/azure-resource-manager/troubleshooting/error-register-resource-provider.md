@@ -37,7 +37,7 @@ Message: The client '<identifier>' with object id '<identifier>' does not have a
 action 'Microsoft.Compute/virtualMachines/read' over scope ...
 ```
 
-An unexpected error might occur for a resource provider that's not in your ARM template or Bicep file. This can happen when you're deploying a resource that creates other supporting resources. For example, the resource in your template might add monitoring or security resources. The error message indicates the resource provider namespace you need to register is for the supporting resource.
+An unexpected error can occur for a resource provider that's not in your ARM template or Bicep file. This error might happen when a resource is deployed that creates other supporting resources. For example, the resource in your template adds monitoring or security resources. The error message indicates the resource provider namespace you need to register is for the supporting resource.
 
 ## Cause
 
