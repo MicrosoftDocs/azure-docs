@@ -23,8 +23,8 @@ Fees for short code provisioning are charged upfront during provisioning period:
 |Fee type   | Description|Fee|
 |--------------|------|-----|
 |Provisioning Fee |Charged at the time the Short Code is delivered |$650 |
-|Random Short Code Service Fee |Charged prior to short code delivery. Waived for a limited period|$1000/mo |
-|Vanity Short Code Service Fee |Charged prior to short code delivery. Waived for a limited period|$1000/mo |
+|Random Short Code Fee |Charged prior to short code delivery. Waived for a limited period|$1000/mo |
+|Vanity Short Code Fee |Charged prior to short code delivery. Waived for a limited period|$1500/mo |
 
 
 ### Leasing Fee
