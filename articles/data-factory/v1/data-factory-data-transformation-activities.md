@@ -11,6 +11,9 @@ ms.date: 10/22/2021
 ---
 
 # Transform data in Azure Data Factory version 1
+
+[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
