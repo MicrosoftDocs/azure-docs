@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
 
 1. Follow the instructions in [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)][aad-pod-identity-create] to create a cluster identity, assign it permissions, and create a pod identity. Take note of the newly created identity's `clientId` and `name`.
 
-1. Assign permissions to the new identity to enable it to read your key vault instance and view its contents by running the following commands:
+1. Assign permissions to the new identity to enable it to read your key vault and view its contents by running the following commands:
 
     ```azurecli-interactive
     # set policy to access keys in your key vault
@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <pod-identity-client-id>
     ```
 
-1. Create a `SecretProviderClass` by using the following YAML, using your own values for `aadpodidbinding`, `tenantId`, and the objects to retrieve from your key vault instance:
+1. Create a `SecretProviderClass` by using the following YAML, using your own values for `aadpodidbinding`, `tenantId`, and the objects to retrieve from your key vault:
 
     ```yml
     # This is a SecretProviderClass example using aad-pod-identity to access the key vault
@@ -49,7 +49,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
       provider: azure
       parameters:
         usePodIdentity: "true"               # Set to true for using aad-pod-identity to access your key vault
-        keyvaultName: <key-vault-name>       # Set to the name of your Azure key vault instance
+        keyvaultName: <key-vault-name>       # Set to the name of your key vault
         cloudName: ""                        # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
         objects:  |
           array:
@@ -61,7 +61,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
               objectName: key1
               objectType: key
               objectVersion: ""
-        tenantId: <tenant-Id>                # The tenant ID of the Azure key vault instance
+        tenantId: <tenant-Id>                # The tenant ID of the key vault
     ```
 
 1. Apply the `SecretProviderClass` to your cluster:
@@ -108,7 +108,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
 
 ## Use a user-assigned managed identity
 
-1. To access your key vault instance, you can use the user-assigned managed identity that you created when you [enabled a managed identity on your AKS cluster][use-managed-identity]:
+1. To access your key vault, you can use the user-assigned managed identity that you created when you [enabled a managed identity on your AKS cluster][use-managed-identity]:
 
     ```azurecli-interactive
     az aks show -g <resource-group> -n <cluster-name> --query identityProfile.kubeletidentity.clientId -o tsv
@@ -122,7 +122,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     az vm identity assign -g <resource-group> -n <agent-pool-vm> --identities <identity-resource-id>
     ```
 
-1. To grant your identity permissions that enable it to read your key vault instance and view its contents, run the following commands:
+1. To grant your identity permissions that enable it to read your key vault and view its contents, run the following commands:
 
     ```azurecli-interactive
     # set policy to access keys in your key vault
@@ -133,7 +133,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <identity-client-id>
     ```
 
-1. Create a `SecretProviderClass` by using the following YAML, using your own values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault instance:
+1. Create a `SecretProviderClass` by using the following YAML, using your own values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault:
 
     ```yml
     # This is a SecretProviderClass example using user-assigned identity to access your key vault
@@ -147,7 +147,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
         usePodIdentity: "false"
         useVMManagedIdentity: "true"          # Set to true for using managed identity
         userAssignedIdentityID: <client-id>   # Set the clientID of the user-assigned managed identity to use
-        keyvaultName: <key-vault-name>        # Set to the name of your Azure key vault instance
+        keyvaultName: <key-vault-name>        # Set to the name of your key vault
         cloudName: ""                         # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
         objects:  |
           array:
@@ -159,7 +159,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
               objectName: key1
               objectType: key
               objectVersion: ""
-        tenantId: <tenant-id>                 # The tenant ID of the Azure key vault instance
+        tenantId: <tenant-id>                 # The tenant ID of the key vault
     ```
 
 1. Apply the `SecretProviderClass` to your cluster:
@@ -219,7 +219,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
 
     The output should contain `type: SystemAssigned`. Make a note of the `principalId`.
 
-1. To grant your identity permissions that enable it to read your key vault instance and view its contents, run the following commands:
+1. To grant your identity permissions that enable it to read your key vault and view its contents, run the following commands:
 
     ```azurecli-interactive
     # set policy to access keys in your key vault
@@ -230,7 +230,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <identity-principal-id>
     ```
 
-1. Create a `SecretProviderClass` by using the following YAML, using your own values for `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault instance:
+1. Create a `SecretProviderClass` by using the following YAML, using your own values for `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault:
 
     ```yml
     # This is a SecretProviderClass example using system-assigned identity to access your key vault
@@ -256,7 +256,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
               objectName: key1
               objectType: key
               objectVersion: ""
-        tenantId: <tenant-id>           # The tenant ID of the Azure key vault instance
+        tenantId: <tenant-id>           # The tenant ID of the key vault
     ```
 
 1. Apply the `SecretProviderClass` to your cluster:
