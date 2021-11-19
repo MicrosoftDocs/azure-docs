@@ -88,3 +88,14 @@ callTransferApi.on('transferRequested', args => {
     args.reject();
 });
 ```
+
+The *transferor* can subscribe to events for change of the state of the transfer. If the call to the *transferee* was successfully connected with *Transfer target*, *transferor* can hang up the original call with *transferee*.
+
+```js
+transfer.on('stateChanged', () => {
+   if (transfer.state === 'Transferred') {
+       call.hangUp();
+   }
+});
+```
+

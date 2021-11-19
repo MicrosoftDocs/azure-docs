@@ -12,6 +12,8 @@
   - name: Install Bicep tools
     href: install.md
     displayName: nightly
+  - name: Troubleshoot installation
+    href: installation-troubleshoot.md
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code

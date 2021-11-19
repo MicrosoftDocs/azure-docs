@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 11/17/2021
+ms.date: 11/18/2021
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -28,7 +28,7 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 01/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
-| 10.5.3 | 11/2021 | 08/2022 |
+| 10.5.3 | 10/2021 | 07/2022 |
 
 ## November 2021
 
