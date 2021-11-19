@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/08/2021
+ms.date: 11/19/2021
 ---
 
 
@@ -49,8 +49,8 @@ In general, data access from studio involves the following checks:
     - Create, read, update, and delete (CRUD) operations on a data store/dataset are handled by Azure Machine Learning.
     - Data Access calls (such as preview or schema) go to the underlying storage and need extra permissions.
 5. Where is this operation being run; compute resources in your Azure subscription or resources hosted in a Microsoft subscription?
-    - All calls to dataset and datastore services (except the "Generate Profile" option,) use resources hosted in a __Microsoft subscription__ to run the operations.
-    - Jobs, including a the "Generate Profile" option for datasets, run on a compute resource in __your subscription__, and access the data from there. So the compute identity needs permission to the storage rather than the identity of the user submitting the job.
+    - All calls to dataset and datastore services (except the "Generate Profile" option) use resources hosted in a __Microsoft subscription__ to run the operations.
+    - Jobs, including the "Generate Profile" option for datasets, run on a compute resource in __your subscription__, and access the data from there. So the compute identity needs permission to the storage rather than the identity of the user submitting the job.
 
 The following diagram shows the general flow of a data access call. In this example, a user is trying to make a data access call through a machine learning workspace, without using any compute resource.
 
@@ -78,10 +78,10 @@ When an Azure Storage account is behind a virtual network, the storage firewall 
 
 ### Azure Storage endpoint type
 
-When the workspace uses a private endpoint to connect to a VNet, and the storage account is also in the VNet, there are additional validation requirements when using studio:
+When the workspace uses a private endpoint and the storage account is also in the VNet, there are extra validation requirements when using studio:
 
 * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
-* If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet.
+* If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet. In this case, they can be in different subnets.
 
 ## Azure Data Lake Storage Gen1
 
