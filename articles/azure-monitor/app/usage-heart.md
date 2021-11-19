@@ -37,25 +37,24 @@ These dimensions are measured independently, but they interact with each other a
 - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
 - Instrument the below attributes to calculate HEART metrics:
-
-| Source          | Attribute            | Description                                |
-|-----------------|----------------------|--------------------------------------------|
-| customEvents    | user_AuthenticatedId | unique authenticated user identifier       |
-| customEvents    | session_Id           | unique session identifier                  |
-| customEvents    | appName              | unique Application Insights app identifier |
-| customEvents    | itemType             | category of customEvents record            |
-| customEvents    | timestamp            | datetime of event                          |
-| customEvents    | operation_Id         | correlate telemetry events                 |
-| customEvents    | user_Id         	 | unique user identifier                 	  |
-| customEvents*   | parentId             | name of feature                            |
-| customEvents*   | pageName             | name of page                               |
-| customEvents*   | actionType           | category of Click Analytics record         |
-| pageViews       | user_AuthenticatedId | unique authenticated user identifier       |
-| pageViews       | session_Id           | unique session identifier                  |
-| pageViews       | appName              | unique Application Insights app identifier |
-| pageViews       | timestamp            | datetime of event                          |
-| pageViews       | operation_Id         | correlate telemetry events                 |
-| pageViews       | user_Id         	 | unique user identifier                     |
+  | Source          | Attribute            | Description                                |
+  |-----------------|----------------------|--------------------------------------------|
+  | customEvents    | user_AuthenticatedId | unique authenticated user identifier       |
+  | customEvents    | session_Id           | unique session identifier                  |
+  | customEvents    | appName              | unique Application Insights app identifier |
+  | customEvents    | itemType             | category of customEvents record            |
+  | customEvents    | timestamp            | datetime of event                          |
+  | customEvents    | operation_Id         | correlate telemetry events                 |
+  | customEvents    | user_Id         	 | unique user identifier                 	  |
+  | customEvents*   | parentId             | name of feature                            |
+  | customEvents*   | pageName             | name of page                               |
+  | customEvents*   | actionType           | category of Click Analytics record         |
+  | pageViews       | user_AuthenticatedId | unique authenticated user identifier       |
+  | pageViews       | session_Id           | unique session identifier                  |
+  | pageViews       | appName              | unique Application Insights app identifier |
+  | pageViews       | timestamp            | datetime of event                          |
+  | pageViews       | operation_Id         | correlate telemetry events                 |
+  | pageViews       | user_Id         	 | unique user identifier                     |
 
 *Instrument the [Click Analytics Auto-collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
  
