@@ -157,7 +157,7 @@ items:
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
   - name: Azure IoT Connector for FHIR (preview) workings
-    expanded: false
+    expanded: true
     items:
     - name: Azure IoT Connector for FHIR (preview) data flow
       href: iot-data-flow.md
@@ -166,21 +166,21 @@ items:
   - name: FHIR Rest API capabilities
     href: fhir-rest-api-capabilities.md
   - name: Security
-    expanded: false
+    expanded: true
     items:
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
 - name: Resources
   expanded: true
   items:
-  - name: Supported features
-    href: fhir-features-supported.md 
-  - name: Release notes
-    href: release-notes.md 
   - name: FAQs
     href: fhir-faq.yml
   - name: GitHub Projects
     href: fhir-github-projects.md
+  - name: Release notes
+    href: release-notes.md 
+  - name: Supported features
+    href: fhir-features-supported.md 
 - name: Reference
   expanded: true
   items:

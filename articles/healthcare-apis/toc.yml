@@ -53,11 +53,12 @@ items:
 - name: Resources
   expanded: true
   items:
-    - name: Release notes
-      href: release-notes.md 
-    - name: FAQs
-      href: healthcare-apis-faqs.md
-    - name: GitHub projects
-      href: github-projects.md
+  - name: FAQs
+    href: healthcare-apis-faqs.md
+  - name: GitHub projects
+    href: github-projects.md
+  - name: Release notes
+    href: release-notes.md 
+   
     
      
