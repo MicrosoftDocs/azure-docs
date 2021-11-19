@@ -1,16 +1,11 @@
 ---
 title: Visualize collected data
 description: Learn how to quickly view and monitor what's happening across your environment by using Microsoft Sentinel.
-services: sentinel
 author: yelevin
-manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit, ignite-fall-2021
 ms.date: 11/09/2021
 ms.author: yelevin
-#Customer intent: As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
 ---
 
 # Visualize collected data

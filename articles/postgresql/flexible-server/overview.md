@@ -82,41 +82,41 @@ The flexible server service is equipped with built-in performance monitoring and
 
 ## Built-in PgBouncer
 
-The flexible server comes with a built-in PgBouncer, a connection pooler. You can optionally enable it and connect your applications to your database server via PgBouncer using the same host name and the port 6432.
+The flexible server comes with a [built-in PgBouncer](concepts-pgbouncer.md), a connection pooler. You can optionally enable it and connect your applications to your database server via PgBouncer using the same host name and the port 6432.
 
 ## Azure regions
 
 One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
-| Region | V3/V4 compute availability | Zone-redundant HA | 
-| --- | --- | --- |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: | 
-| Australia Southeast | :heavy_check_mark: | :x: | 
-| Brazil South | :heavy_check_mark: (v3 only) | :x: |
-| Canada Central | :heavy_check_mark: | :heavy_check_mark: | 
-| Central India | :heavy_check_mark: | :x: |
-| Central US | :heavy_check_mark: | :heavy_check_mark: | 
-| East Asia | :heavy_check_mark: | :x: |
-| East US | :heavy_check_mark: | :heavy_check_mark: | 
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | 
-| Germany West Central | :heavy_check_mark: | :heavy_check_mark: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: | 
-| Japan West | :heavy_check_mark: | :x: |
-| Korea Central | :heavy_check_mark: | :x: | 
-| Korea South | :heavy_check_mark: | :x: | 
-| North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| Norway East | :heavy_check_mark: | :x: |
-| South Africa North | :heavy_check_mark: | :x: |
-| South Central US | :heavy_check_mark: | :heavy_check_mark: | 
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Switzerland North | :heavy_check_mark: | :x: |
-| UAE North | :heavy_check_mark: | :x: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | 
-| UK West | :heavy_check_mark: | :x: | 
-| West Europe | :heavy_check_mark: | :heavy_check_mark: |
-| West US | :heavy_check_mark: | :x: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup (Preview) |
+| --- | --- | --- | --- |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Australia Southeast | :heavy_check_mark: | :x: | :x: |
+| Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | 
+| Central India | :heavy_check_mark: | :x: | :x: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East Asia | :heavy_check_mark: | :x: | :x: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :x: | :x: |
+| Korea South | :heavy_check_mark: | :x: | :x: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Norway East | :heavy_check_mark: | :x: | :x: |
+| South Africa North | :heavy_check_mark: | :x: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Switzerland North | :heavy_check_mark: | :x: | :x: |
+| UAE North | :heavy_check_mark: | :x: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UK West | :heavy_check_mark: | :x: | :x: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :x: | :x: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 <!-- We continue to add more regions for flexible server. -->
 
@@ -134,7 +134,7 @@ In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
   
 
 ## Next steps
