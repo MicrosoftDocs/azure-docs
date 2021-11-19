@@ -1,7 +1,7 @@
 ---
-title: Authorize search requests using Azure AD
+title: Authorize search app requests using Azure AD
 titleSuffix: Azure Cognitive Search
-description: Acquire a token from Azure AD to authorize search requests
+description: Acquire a token from Azure AD to authorize search requests to an app built on Azure Cognitive Search.
 
 author: dereklegenzoff
 ms.author: delegenz
@@ -11,12 +11,12 @@ ms.date: 11/19/2021
 ms.custom: subject-rbac-steps
 ---
 
-# Authorize search requests using Azure AD (preview)
+# Authorize access to a search apps using Azure Active Directory
 
 > [!IMPORTANT]
 > Role-based access control for data plane operations, such as creating an index or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). This functionality is only available in public cloud regions and may impact the latency of your operations while the functionality is in preview.
 
-With Azure Active Directory (Azure AD), you can use role-based access control (RBAC) to grant access to your Azure Cognitive Search services. A key advantage of using Azure AD is that your credentials no longer need to be stored in your code. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search. To learn more about the advantages of using Azure AD in your applications, see [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md#benefits-of-integration).
+Search applications that are built on Azure Cognitive Search can now use Azure Active Directory (Azure AD) and Azure role-based access (Azure RBAC) for authenticated and authorized access. A key advantage of using Azure AD is that your credentials and API keys no longer need to be stored in your code. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search. To learn more about the advantages of using Azure AD in your applications, see [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md#benefits-of-integration).
 
 This article will show you how to configure your application for authentication with the [Microsoft identity platform](../active-directory/develop/v2-overview.md). To learn more about the OAuth 2.0 code grant flow used by Azure AD, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -27,8 +27,6 @@ As a first step, [create a search service](search-create-service-portal.md) and 
 ### Sign up for the preview
 
 The parts of Azure Cognitive Search's RBAC capabilities required to use Azure AD for querying the search service are still in preview. To use these capabilities, you'll need to add the preview feature to your Azure subscription.
-
-To add your subscription to the preview:
 
 1. Open [Azure portal](https://portal.azure.com/) and find your search service
 
@@ -47,8 +45,6 @@ You can also sign up for the preview using Azure Feature Exposure Control (AFEC)
 
 Once your subscription is added to the preview, you'll still need to enable RBAC for data plane operations so that you can use Azure AD authentication. By default, Azure Cognitive Search uses key-based authentication for data plane operations but you can change the setting to allow role-based access control. 
 
-To enable role-based access control:
-
 1. Navigate to your search service in the [Azure portal](https://portal.azure.com/).
 
 1. On the left navigation pane, select **Keys**.
@@ -61,17 +57,15 @@ You can also change these settings programatically as described in the [Azure Co
 
 ## Register an application with Azure AD
 
-The next step to using Azure AD for authentication is to register an application with the [Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). If you have problems creating the application, check to make sure you have the [permissions required for registering an application](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
-
-To register an application with Azure AD:
+The next step to using Azure AD for authentication is to register an application with the [Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). If you have problems registering the application, make sure you have the [required permissions](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 1. Sign into your Azure Account in the [Azure portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory**.
+1. Search for **Azure Active Directory**.
 
 1. Select **App Registrations**.
 
-1. Select **New Registration**.
+1. Select **+ New Registration**.
 
 1. Give your application a name and select a supported account type, which determines who can use the application. Then, select **Register**.
 
@@ -81,7 +75,7 @@ At this point, you've created your Azure AD application and service principal. M
 
 ## Create a client secret
 
-The application will also need a client secret or certificate to prove its identity when requesting a token. In this document, we'll show how to use a client secret.
+The application will also need a client secret or certificate to prove its identity when requesting a token. 
 
 1. Navigate to the app registration you created.
 
@@ -100,8 +94,6 @@ Make sure to save the value of the secret in a secure location as you won't be a
 Next, you need to grant your Azure AD application access to your search service. Azure Cognitive Search has various [built-in roles](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#built-in-roles-used-in-search) that can be used depending on the access required by your application.
 
 In general, it's best to give your application only the access required. For example, if your application only needs to be able to query the search index, you could grant it the [Search Index Data Reader (preview)](../role-based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs to be able to read and write to a search index, you could use the [Search Index Data Contributor (preview)](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
-
-To assign a role to your app registration:
 
 1. Open the [Azure portal](https://ms.portal.azure.com).
 

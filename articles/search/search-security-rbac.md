@@ -59,8 +59,6 @@ Skip this step if you are using generally available roles (Owner, Contributor, R
 
 New built-in preview roles provide permissions over content on the search service. Although built-in roles are always visible in the Azure portal, preview registration is required to make them operational.
 
-To add your subscription to the preview:
-
 1. Open [Azure portal](https://portal.azure.com/) and find your search service
 
 1. On the left-nav pane, select **Keys**.
@@ -254,35 +252,39 @@ In some scenarios, you may want to scope down an application's access to a singl
 
 The portal doesn't currently support granting access to just a single index, but it can be done with [PowerShell](../role-based-access-control/role-assignments-powershell.md) or the [Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
-In PowerShell, you would use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
+In PowerShell, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
-Before you start, make sure you load the Azure and AzureAD modules and connect to your Azure account:
+1. Load the Azure and AzureAD modules and connect to your Azure account:
 
-```powershell
-Import-Module -Name Az
-Import-Module -Name AzureAD
-Connect-AzAccount
-```
+   ```powershell
+   Import-Module -Name Az
+   Import-Module -Name AzureAD
+   Connect-AzAccount
+   ```
 
-To add a role assignment scoped to an individual index, you would then run the following command:
+1. Add a role assignment scoped to an individual index:
 
-```powershell
-New-AzRoleAssignment -ObjectId <objectId> `
-    -RoleDefinitionName "Search Index Data Contributor" `
-    -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Search/searchServices/<search-service>/indexes/<index-name>"
-```
+   ```powershell
+   New-AzRoleAssignment -ObjectId <objectId> `
+       -RoleDefinitionName "Search Index Data Contributor" `
+       -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Search/searchServices/<search-service>/indexes/<index-name>"
+   ```
 
 ## Create a custom role
 
-You can create custom roles using [Azure portal](../role-based-access-control/custom-roles-portal.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), or the [REST API](../role-based-access-control/custom-roles-rest.md).
+If [built-in roles](#built-in-roles-used-in-search) don't provide the right combination of permissions, you can create a [custom role](../role-based-access-control/custom-roles.md) to support the operations you require
 
-
-
-In addition to using [built-in roles](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#built-in-roles-used-in-search), you can also create a [custom role](../role-based-access-control/custom-roles.md) to define exactly what you'd like your application to be able to do.
-
-The JSON above shows the syntax for creating a custom role with PowerShell.
+For example, you might want to augment a read-only role to include the ability to list the indexes on the search service.Reader to include Microsoft.Search/searchServices/listAdminKeys/action to give Reader the ability to view indexes on the search service.
 
 For example, if you want a role that has the ability to fully manage indexes including the ability to create indexes and read data from them you could define the role shown below:
+
+### [**Azure Powershell***](#tab/custom-role-ps)
+
+1. Review the [list of atomic permissions](/role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
+
+1. Set up a PowerShell session to create the custom role. For detailed instructions, see [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md)
+
+1. Provide the role definition as a JSON document. The following example shows the syntax for creating a custom role with PowerShell.
 
 ```json
 {
@@ -305,7 +307,31 @@ For example, if you want a role that has the ability to fully manage indexes inc
 }
 ```
 
-For the full list of operations available, see [Microsoft.Search resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftsearch).
+### [**Azure portal**](#tab/custom-role-portal)
+
+1. Review the [list of atomic permissions](/role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
+
+1. See [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md) for steps.
+
+1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for a JSON example).
+
+### [**REST API**](#tab/custom-role-rest)
+
+1. Review the [list of atomic permissions](/role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
+
+1. See [Create or update Azure custom roles using the REST API](../role-based-access-control/custom-roles-rest.md) for steps.
+
+1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for a JSON example).
+
+### [**Azure CLI**](#tab/custom-role-cli)
+
+1. Review the [list of atomic permissions](/role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
+
+1. See [Create or update Azure custom roles using Azure CLI](../role-based-access-control/custom-roles-cli.md) for steps.
+
+1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for a JSON example).
+
+---
 
 ## Disable API key authentication
 
